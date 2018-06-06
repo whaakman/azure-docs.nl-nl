@@ -13,19 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b7e794cb08647dde6fe59b6d4b06a9cbfab06e1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cb5b68e7bd0a1b247327e7147fe38eae19395f50
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726530"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Een Windows VM Amazon Web Services (AWS) verplaatsen naar Azure met behulp van PowerShell
 
 Als u virtuele machines voor het hosten van uw workloads in Azure, kunt u een bestaand exemplaar van de virtuele machine met Amazon Web Services (AWS) EC2 Windows exporteren vervolgens de virtuele harde schijf (VHD) uploaden naar Azure. Als de VHD is geüpload, kunt u een nieuwe virtuele machine maken in Azure van de VHD. 
 
-Dit onderwerp bevat een enkele virtuele machine van de AWS verplaatst naar Azure. Als u wilt verplaatsen van virtuele machines van AWS naar Azure op schaal, Zie [virtuele machines in Amazon Web Services (AWS) migreren naar Azure met Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
+In dit artikel bevat informatie over het verplaatsen van één VM van AWS naar Azure. Als u wilt verplaatsen van virtuele machines van AWS naar Azure op schaal, Zie [virtuele machines in Amazon Web Services (AWS) migreren naar Azure met Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
 ## <a name="prepare-the-vm"></a>De virtuele machine voorbereiden 
  
@@ -45,7 +46,7 @@ U kunt algemene en gespecialiseerde VHD's uploaden naar Azure. Elk type vereist 
 
 ## <a name="export-and-download-the-vhd"></a>Exporteren en de VHD te downloaden 
 
-Het exemplaar EC2 exporteren naar een VHD in een Amazon S3-bucket. Volg de stappen in de Amazon-documentatie-onderwerp [exporteren van een exemplaar als een virtuele machine met behulp van virtuele machine importeren/exporteren](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) en voer de [-exemplaar-export-taak maken](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) opdracht het exemplaar EC2 exporteren naar een VHD-bestand. 
+Het exemplaar EC2 exporteren naar een VHD in een Amazon S3-bucket. Volg de stappen in de Amazon-documentatie-artikel [exporteren van een exemplaar als een virtuele machine met behulp van virtuele machine importeren/exporteren](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) en voer de [-exemplaar-export-taak maken](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) opdracht het exemplaar EC2 exporteren naar een VHD-bestand. 
 
 Het geëxporteerde VHD-bestand wordt opgeslagen in de Amazon S3-bucket die u opgeeft. De syntaxis van de basis voor het exporteren van de VHD is hieronder, net Vervang de tijdelijke aanduiding voor tekst in <brackets> met uw gegevens.
 

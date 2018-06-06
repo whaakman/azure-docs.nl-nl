@@ -3,22 +3,20 @@ title: SQL-query metrische gegevens voor Azure Cosmos DB SQL-API | Microsoft Doc
 description: Meer informatie over het instrumenteren en de prestaties van de SQL-query's van Azure DB die Cosmos-aanvragen voor foutopsporing.
 keywords: SQL-syntaxis, sql-query, sql-query's, json-querytaal, database-concepten en sql-query's, statistische functies
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: b2fa8e8f-7291-45a3-9bd1-7284ed9077f8
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 00e50c3b2f4dc50e43aac03b162bc637f0821656
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798692"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Prestaties van query's met Azure Cosmos DB afstemmen
 
@@ -174,7 +172,7 @@ Zie voor meer informatie over partitioneren en partitiesleutels, [partitioneren 
 Zie [Tips voor betere prestaties](performance-tips.md) en [prestatietests](performance-testing.md) voor het ophalen van de beste prestaties voor de clientzijde van Azure Cosmos DB. Dit omvat met de nieuwste SDK's, platform-specifieke netwerkconfiguraties als standaardaantal verbindingen, frequentie van garbagecollection, configureren en lightweight connectiviteitsopties zoals Direct/TCP. 
 
 
-#### <a name="max-item-count"></a>Aantal items max
+#### <a name="max-item-count"></a>Maximum aantal items
 Voor query's, de waarde van `MaxItemCount` kan een aanzienlijke invloed hebben op het moment dat de end-to-end-query. Elke retouren naar de server resulteert niet vaker dan het aantal items in `MaxItemCount` (standaard van 100 objecten). Als u dit op een hogere waarde (-1 is maximum- en aanbevolen) worden uw totale duur van de query verbeteren door het aantal retouren tussen server en client, met name voor query's met grote resultatensets te beperken.
 
 ```cs

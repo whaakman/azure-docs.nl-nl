@@ -8,41 +8,33 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757413"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Beperkingen in Azure-Database voor PostgreSQL
 De volgende secties beschrijven de capaciteit en functionele limieten in de database-service.
 
-## <a name="pricing-tier-maximums"></a>Laag maximumwaarden prijzen
-Azure PostgreSQL-Database heeft meerdere Prijscategorieën die u bij het maken van een server kiezen kunt uit. Zie voor meer informatie [prijscategorieën in Azure-Database voor PostgreSQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Maximum aantal verbindingen
+Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt: 
 
-Er is een maximum aantal verbindingen, compute-eenheden en opslag in elke prijscategorie als volgt: 
-
-|Prijscategorie| COMPUTE generatie| vCore(s)| Maximum aantal verbindingen |
-|---|---|---|---|
-|Basic| Gen 4| 1| 50 |
-|Basic| Gen 4| 2| 100 |
-|Basic| Gen 5| 1| 50 |
-|Basic| Gen 5| 2| 100 |
-|Algemeen doel| Gen 4| 2| 150|
-|Algemeen doel| Gen 4| 4| 250|
-|Algemeen doel| Gen 4| 8| 480|
-|Algemeen doel| Gen 4| 16| 950|
-|Algemeen doel| Gen 4| 32| 1500|
-|Algemeen doel| Gen 5| 2| 150|
-|Algemeen doel| Gen 5| 4| 250|
-|Algemeen doel| Gen 5| 8| 480|
-|Algemeen doel| Gen 5| 16| 950|
-|Algemeen doel| Gen 5| 32| 1500|
-|Geoptimaliseerd geheugen| Gen 5| 2| 150|
-|Geoptimaliseerd geheugen| Gen 5| 4| 250|
-|Geoptimaliseerd geheugen| Gen 5| 8| 480|
-|Geoptimaliseerd geheugen| Gen 5| 16| 950|
+|**Prijscategorie**| **vCore(s)**| **Maximum aantal verbindingen** |
+|---|---|---|
+|Basic| 1| 50 |
+|Basic| 2| 100 |
+|Algemeen doel| 2| 150|
+|Algemeen doel| 4| 250|
+|Algemeen doel| 8| 480|
+|Algemeen doel| 16| 950|
+|Algemeen doel| 32| 1500|
+|Geoptimaliseerd geheugen| 2| 150|
+|Geoptimaliseerd geheugen| 4| 250|
+|Geoptimaliseerd geheugen| 8| 480|
+|Geoptimaliseerd geheugen| 16| 950|
 
 Wanneer er verbindingen de limiet overschrijdt, wordt de volgende fout:
 > Onherstelbare fout: er al te veel clients

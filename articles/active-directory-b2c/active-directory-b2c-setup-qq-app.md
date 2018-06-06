@@ -1,26 +1,26 @@
 ---
-title: 'Azure Active Directory B2C: Q configuratie | Microsoft Docs'
+title: Q-configuratie in Azure Active Directory B2C | Microsoft Docs
 description: Registreren en aanmelden gebruikers met q-accounts in uw toepassingen die zijn beveiligd met Azure Active Directory B2C bieden.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7a33a1b2a68b82b1d65b1187547695cccd7c395f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711668"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met q-accounts
 
 > [!NOTE]
-> Deze functie is in preview.
+> Deze functie is beschikbaar als preview-versie.
 > 
 
 ## <a name="create-a-qq-application"></a>Een q-toepassing maken
@@ -45,7 +45,7 @@ Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2
 3. Klik op**创建应用**(app maken).
 4. Voer de benodigde app-gegevens.
 5. Klik op**创建应用**(app maken).
-6. Geef de vereiste informatie.
+6. Voer vereiste gegevens in.
 7. Voor de**授权回调域**(callback URL) Voer `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Bijvoorbeeld, als uw `tenant_name` is contoso.onmicrosoft.com, de URL moet worden ingesteld `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Klik op**创建应用**(app maken).
 9. Klik op de bevestigingspagina op**应用管理**(app management) voor terugzending naar de pagina app-beheer.

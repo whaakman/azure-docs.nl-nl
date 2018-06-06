@@ -4,24 +4,25 @@ description: Informatie over het registreren en ongedaan maken van een Windows-S
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738289"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Geregistreerde servers met het synchroniseren van Azure-bestand (preview) beheren
-Met Azure File Sync (preview) kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door de Windows-Servers om te zetten in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
+Met Azure File Sync (preview) kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door het omzetten van de Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
 
 Het volgende artikel ziet u het registreren en beheren van een server met een opslag-Sync-Service. Zie [het implementeren van Azure File-synchronisatie (preview)](storage-sync-files-deployment-guide.md) voor informatie over het implementeren van Azure bestand Sync end-to-end.
 
@@ -113,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Hef de registratie van de server met Storage Sync-Service
 Er zijn verschillende stappen die nodig zijn voor de registratie van een server met een opslag-Sync-Service. Eens kijken hoe goed Hef de registratie van een server.
 
-#### <a name="optional-recall-all-tiered-data"></a>(Optioneel) Alle gelaagde gegevens intrekken
-Wanneer ingeschakeld voor een servereindpunt, cloud lagen wordt *laag* bestanden naar uw Azure-bestandsshares. Hierdoor kunnen lokale bestandsshares om te fungeren als een cache in plaats van een volledige kopie van de gegevensset om efficiënt gebruik van de ruimte op de bestandsserver te maken. Echter, als een servereindpunt wordt verwijderd met gelaagde bestanden nog steeds lokaal op de server, die bestanden worden ontoegankelijk. Als u nog steeds toegang tot het bestand gewenst is, moet u alle bestanden van gelaagde van Azure Files daarom voordat u doorgaat met de uitschrijving intrekken. 
+> [!Warning]  
+> Probeer niet het oplossen van problemen met synchronisatie, cloud tiering of een andere aspect van Azure bestand Sync door de registratie en een server te registreren of te verwijderen en opnieuw maken van de server-eindpunten tenzij expliciet naar een engineer van Microsoft. De registratie van een server en het verwijderen van server-eindpunten is een destructieve bewerking en gelaagde bestanden op de volumes met de eindpunten van de server wordt niet opnieuw worden 'verbonden' naar de locatie op de Azure-bestandsshare nadat de geregistreerde server- en eindpunten van de server zijn opnieuw gemaakt, wordt die synchroon fouten oplevert. Ook merk gelaagde bestanden die aanwezig zijn buiten de naamruimte van een server eindpunt mogelijk permanent verloren. Gelaagde bestaan mogelijk binnen server eindpunten, zelfs als cloud tiering nooit is ingeschakeld.
 
-Dit kunt doen met de PowerShell-cmdlet zoals hieronder wordt weergegeven:
+#### <a name="optional-recall-all-tiered-data"></a>(Optioneel) Alle gelaagde gegevens intrekken
+Als u bestanden die momenteel worden geschakeld dat wilt zijn beschikbaar nadat de synchronisatie van Azure-bestand (dat wil zeggen dit is een productie-, niet een test, omgeving) verwijderd, intrekken u alle bestanden op elke server-eindpunten met volume. Cloud tiering voor alle server-eindpunten uitschakelen en voer vervolgens de volgende PowerShell-cmdlet:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

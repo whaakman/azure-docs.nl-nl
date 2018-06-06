@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ce2bc8cc8d9b149b16aee9c5e601d9872621e277
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f486ce5c058286289873d87767f02bf92f91459e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701439"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Resources specificeren in een servicemanifest
 ## <a name="overview"></a>Overzicht
@@ -105,7 +106,10 @@ Het HTTPS-protocol biedt verificatie van de server en wordt ook gebruikt voor he
 > [!NOTE]
 > Een service-protocol kan niet worden gewijzigd tijdens de upgrade van de toepassing. Als deze is gewijzigd tijdens de upgrade, is een belangrijke wijziging.
 > 
-> 
+
+> [!WARNING] 
+> Wanneer u HTTPS gebruikt, gebruik niet dezelfde poort en certificaat voor andere service-exemplaren (onafhankelijk van de toepassing) geïmplementeerd op hetzelfde knooppunt. Upgraden van twee verschillende services met behulp van dezelfde poort in verschillende toepassingsexemplaren leidt tot een upgrade mislukt. Zie voor meer informatie [bijwerken van meerdere toepassingen met HTTPS-eindpunten ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+>
 
 Hier volgt een voorbeeld ApplicationManifest die u nodig hebt om in te stellen voor HTTPS. De vingerafdruk van het certificaat moet worden opgegeven. De EndpointRef is een verwijzing naar EndpointResource in ServiceManifest, waarvoor u het HTTPS-protocol hebt ingesteld. U kunt meer dan één EndpointCertificate toevoegen.  
 
@@ -154,11 +158,11 @@ Voor Linux-clusters, de **MY** standaard ingesteld op de map opslaan **/var/lib/
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Eindpunten in ServiceManifest.xml overschrijven
 
-In de ApplicationManifest toevoegen een sectie ResourceOverrides die op hetzelfde niveau ConfigOverrides gedeelte. In deze sectie kunt u de onderdrukking voor de sectie eindpunten in de bronnensectie is opgegeven in het manifest van de Service. Het overschrijven van eindpunten wordt ondersteund in runtime 5.7.217/SDK 2.7.217 en hoger.
+Voeg een sectie ResourceOverrides, die zich op hetzelfde niveau ConfigOverrides gedeelte in de ApplicationManifest. In deze sectie kunt u de onderdrukking voor de sectie eindpunten in de bronnensectie is opgegeven in het manifest van de Service. Het overschrijven van eindpunten wordt ondersteund in runtime 5.7.217/SDK 2.7.217 en hoger.
 
 Om te overschrijven eindpunt in ServiceManifest ApplicationParameters wijzigen de ApplicationManifest als volgt gebruiken:
 
-Voeg een nieuwe sectie 'ResourceOverrides' in de sectie ServiceManifestImport
+Voeg een nieuwe sectie 'ResourceOverrides' in de sectie ServiceManifestImport.
 
 ```xml
 <ServiceManifestImport>
@@ -188,13 +192,13 @@ In de Parameters die hieronder worden toevoegen:
   </Parameters>
 ```
 
-Tijdens de implementatie van de toepassing nu kunt u doorgeven in deze waarden als ApplicationParameters bijvoorbeeld:
+Tijdens de implementatie van de toepassing kunt u deze waarden als ApplicationParameters doorgeven.  Bijvoorbeeld:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Opmerking: Als de waarden voor de ApplicationParameters leeg is bieden we Ga terug naar de standaardwaarde opgegeven in de ServiceManifest voor de bijbehorende EndPointName.
+Opmerking: Als de waarden voor de ApplicationParameters leeg is, we Ga terug naar de standaardwaarde opgegeven in de ServiceManifest voor de bijbehorende EndPointName.
 
 Bijvoorbeeld:
 

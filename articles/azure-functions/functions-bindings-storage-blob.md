@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85cdce312e141bee9da3b633c45dc770e503abfe
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724795"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -34,13 +35,17 @@ Dit artikel wordt uitgelegd hoe u werkt met Azure Blob storage bindingen in de A
 > [!NOTE]
 > De gebeurtenis raster trigger gebruiken in plaats van de Blob-opslag-trigger voor alleen-blob storage-accounts, voor grote schaal of om koude start vertragingen te voorkomen. Zie voor meer informatie de [Trigger](#trigger) sectie. 
 
-## <a name="packages"></a>Pakketten
+## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De Blob-opslag-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub-opslagplaats.
+De Blob-opslag-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
+
+De Blob-opslag-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 3.x. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -262,6 +267,8 @@ In C# en C# script, kunt u de volgende parametertypen voor de activerende blob:
 * `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> vereist 'inout' binding `direction` in *function.json* of `FileAccess.ReadWrite` in een C#-klassenbibliotheek.
+
+Als u probeert te binden aan een van de typen opslag-SDK en een foutbericht weergegeven, zorgt u ervoor dat er een verwijzing naar [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
 
 Het binden aan `string`, `Byte[]`, of POCO wordt alleen aanbevolen als de blob is klein, als de volledige blob-inhoud in het geheugen wordt geladen. In het algemeen is het raadzaam om het gebruik van een `Stream` of `CloudBlockBlob` type. Zie voor meer informatie [gelijktijdigheid van taken en geheugengebruik](#trigger---concurrency-and-memory-usage) verderop in dit artikel.
 
@@ -563,6 +570,8 @@ In C# en C# script, kunt u de volgende parametertypen voor de binding van blob-i
 
 <sup>1</sup> vereist 'inout' binding `direction` in *function.json* of `FileAccess.ReadWrite` in een C#-klassenbibliotheek.
 
+Als u probeert te binden aan een van de typen opslag-SDK en een foutbericht weergegeven, zorgt u ervoor dat er een verwijzing naar [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
+
 Het binden aan `string` of `Byte[]` wordt alleen aanbevolen als de Blobgrootte van de klein is als de hele blobinhoud in het geheugen geladen. In het algemeen is het raadzaam om het gebruik van een `Stream` of `CloudBlockBlob` type. Zie voor meer informatie [gelijktijdigheid van taken en geheugengebruik](#trigger---concurrency-and-memory-usage) eerder in dit artikel.
 
 In JavaScript, toegang heeft tot de blob-gegevens met `context.bindings.<name from function.json>`.
@@ -776,6 +785,8 @@ In C# en C# script, kunt u binden aan de volgende typen blobs schrijven:
 <sup>1</sup> 'in' binding vereist `direction` in *function.json* of `FileAccess.Read` in een C#-klassenbibliotheek. U kunt echter het containerobject dat de runtime biedt voor het schrijven van bewerkingen, zoals het uploaden van BLOB's naar de container gebruiken.
 
 <sup>2</sup> vereist 'inout' binding `direction` in *function.json* of `FileAccess.ReadWrite` in een C#-klassenbibliotheek.
+
+Als u probeert te binden aan een van de typen opslag-SDK en een foutbericht weergegeven, zorgt u ervoor dat er een verwijzing naar [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
 
 Gebruik in async-functies, de retourwaarde of `IAsyncCollector` in plaats van een `out` parameter.
 

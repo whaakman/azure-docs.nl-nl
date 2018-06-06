@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ade6ef996c00c0c06d5b8e44815520e6e4ab7e9f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735864"
 ---
 # <a name="advisor-cost-recommendations"></a>Advisor kosten aanbevelingen
 
@@ -33,6 +34,11 @@ Als u worden agressievere wilt op onderbenutte virtuele machines te identificere
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Doordat de inrichting van ExpressRoute-circuits kosten te verlagen
 Advisor identificeert ExpressRoute-circuits die zijn aangebracht in de providerstatus van *niet ingericht* voor meer dan één maand en raadt het circuit verwijderen als u van plan zijn niet het circuit inrichten met de verbinding in orde provider.
+
+## <a name="buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs"></a>Gereserveerde instanties van virtuele machines kopen om te besparen ten opzichte van betaling per gebruik
+Advisor wordt uw gebruik van virtuele machines controleren in de afgelopen 30 dagen en Bepaal als u geld besparen kan door aan te schaffen gereserveerde exemplaren. Advisor ziet u de regio's en grootten waar u mogelijk hebt de meeste besparingen en ziet u de geschatte besparingen van het aanschaffen van een gereserveerde exemplaren. 
+
+U kunt vooraf de basiskosten voor uw virtuele machines met gereserveerde exemplaren aanschaffen. Kortingen automatisch van toepassing op nieuwe of bestaande virtuele machines die de grootte en de regio als uw gereserveerde exemplaren hebben. [Meer informatie over Azure gereserveerde VM-exemplaren.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Toegang tot de aanbevelingen in Azure Advisor kosten
 

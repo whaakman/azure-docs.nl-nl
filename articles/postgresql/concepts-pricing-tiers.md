@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 05/18/2018
+ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756633"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Prijscategorieën PostgreSQL-Database
 
@@ -23,7 +24,7 @@ U kunt een Azure-Database voor PostgreSQL-server maken in een van drie verschill
 |:---|:----------|:--------------------|:---------------------|
 | COMPUTE generatie | Gen 4, 5 Gen | Gen 4, 5 Gen | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Geheugen per vCore | Basislijn | 2 x Basic | 2 x voor algemene doeleinden |
+| Geheugen per vCore | 2 GB | 5 GB | 10 GB |
 | Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 2 TB | 5 GB tot 2 TB |
 | Opslagtype | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | De back-up bewaarperiode database | 7 tot 35 dagen | 7 tot 35 dagen | 7 tot 35 dagen |
@@ -39,7 +40,7 @@ Gebruik de volgende tabel als uitgangspunt om een prijscategorie te selecteren.
 Nadat u een server hebt gemaakt, kan het aantal vCores worden gewijzigd omhoog of omlaag (binnen dezelfde prijscategorie) binnen enkele seconden. U kunt ook afzonderlijk de hoeveelheid opslag van en de back-up bewaarperiode omhoog of omlaag zonder uitvaltijd voor de toepassing aanpassen. U kunt de prijscategorie of het type back-upopslag niet wijzigen nadat een server is gemaakt. Zie voor meer informatie de [schalen](#scale-resources) sectie.
 
 
-## <a name="compute-generations-vcores-and-memory"></a>COMPUTE generaties, vCores en geheugen
+## <a name="compute-generations-and-vcores"></a>COMPUTE generaties en vCores
 
 COMPUTE resources worden geleverd als vCores die de logische CPU van de onderliggende hardware vertegenwoordigen. U kunt op dit moment kunt kiezen uit twee compute generaties Gen 4 en 5 Gen. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell) 2,4 GHz-processors. Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2.3 GHz-processors. Gen 4 en 5 Gen zijn beschikbaar in de volgende regio's ('X' geeft beschikbaar). 
 
@@ -63,14 +64,12 @@ COMPUTE resources worden geleverd als vCores die de logische CPU van de onderlig
 | Zuidoost-Azië | X | X |
 | Australië - oost |  | X |
 | Australië - zuidoost |  | X |
-| Centraal-India | X |  |
-| West-India | X |  |
+| Centraal-India | X | X |
+| West-India | X | X |
 | Zuid-India |  | X |
 | Japan - oost | X | X |
 | Japan - west | X | X |
 | Korea - zuid |  | X |
-
-Elke vCore is afhankelijk van de prijscategorie ingericht met een specifieke hoeveelheid geheugen. Wanneer u vergroten of het aantal vCores voor uw server verkleinen, wordt het geheugen verhoogt of verlaagt proportioneel. De laag voor algemene doeleinden biedt tweemaal de hoeveelheid geheugen per vCore vergeleken met de basisstaffel. De laag geoptimaliseerd voor geheugen bevat dubbele de hoeveelheid geheugen ten opzichte van de laag voor algemene doeleinden.
 
 ## <a name="storage"></a>Storage
 

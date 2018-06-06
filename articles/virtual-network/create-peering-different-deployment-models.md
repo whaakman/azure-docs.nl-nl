@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: f4fe93078246bc25eb41a7f8e685d75f8dcb6b7c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726217"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Maak een virtueel netwerk peering - verschillend implementatiemodellen, hetzelfde abonnement
 
@@ -89,7 +90,7 @@ U kunt de [Azure-portal](#portal), de Azure [opdrachtregelinterface](#cli) (CLI)
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 
-5. Maak een resourcegroep en een virtueel netwerk (Resource Manager). U kunt de CLI 1.0 of 2.0 gebruiken ([installeren](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). In deze zelfstudie wordt de CLI 2.0 gebruikt voor het maken van het virtuele netwerk (Resource Manager), aangezien 2.0 moet worden gebruikt voor het maken van de peering. Voer de volgende bash CLI script vanaf uw lokale computer met de CLI 2.0.4 of hoger is geïnstalleerd. Zie voor opties op die wordt uitgevoerd, bash-scripts CLI op Windows-client, [uitvoeren van de Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). U kunt ook het script met behulp van de Azure-Cloud-Shell uitvoeren. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Klik op de **Try it** knop in het script dat volgt, waardoor een Cloud-Shell waarmee u zich aanmeldt bij uw Azure-account met aanmelden kunnen. Voor het uitvoeren van het script, klikt u op de **kopie** knop en plakken, de inhoud in uw Cloud-Shell, drukt u vervolgens op `Enter`.
+5. Maak een resourcegroep en een virtueel netwerk (Resource Manager). U kunt de CLI 1.0 of 2.0 gebruiken ([installeren](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). In deze zelfstudie wordt de CLI 2.0 gebruikt voor het maken van het virtuele netwerk (Resource Manager), aangezien 2.0 moet worden gebruikt voor het maken van de peering. Voer de volgende bash CLI script vanaf uw lokale computer met de CLI 2.0.4 of hoger is geïnstalleerd. Zie voor opties op die wordt uitgevoerd, bash-scripts CLI op Windows-client, [Azure CLI installeren op Windows](/cli/azure/install-azure-cli-windows). U kunt ook het script met behulp van de Azure-Cloud-Shell uitvoeren. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Klik op de **Try it** knop in het script dat volgt, waardoor een Cloud-Shell waarmee u zich aanmeldt bij uw Azure-account met aanmelden kunnen. Voor het uitvoeren van het script, klikt u op de **kopie** knop en plakken, de inhoud in uw Cloud-Shell, drukt u vervolgens op `Enter`.
 
     ```azurecli-interactive
     #!/bin/bash

@@ -4,28 +4,29 @@ description: Het SAP HANA installeren op een SAP HANA in Azure (grote exemplaar)
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763443"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Het installeren en configureren van SAP HANA (grote exemplaren) in Azure
 
 Hier volgen enkele belangrijke definities moet weten voordat u deze handleiding leest. In [SAP HANA (grote exemplaren) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) er zijn twee verschillende soorten HANA grote exemplaar eenheden met geïntroduceerd:
 
-- S72, S72m S144, S144m, S192 en S192m die naar verwezen als 'Type ik klasse' van SKU's.
-- S384, S384m S384xm, S576m, S768m en S960m die naar als de 'Type II class-instructie van SKU's verwezen.
+- S72, S72m S144, S144m, S192, S192m en S192xm die naar verwezen als 'Type ik klasse' van SKU's.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm en S960m die naar als de 'Type II class-instructie van SKU's verwezen.
 
 De klasse-aanduiding gaat moet worden gebruikt in de documentatie van de grote exemplaar HANA uiteindelijk verwijzen naar verschillende mogelijkheden en vereisten op basis van HANA grote exemplaar SKU's.
 

@@ -1,20 +1,21 @@
 ---
-title: Gedrag van de gebruiker bijhouden met behulp van gebeurtenissen in Application Insights van Azure AD B2C | Microsoft Docs
+title: Gedrag van de gebruiker bijhouden met behulp van gebeurtenissen in Application Insights van Azure Active Directory B2C | Microsoft Docs
 description: Stapsgewijze handleiding voor het inschakelen van gebeurtenislogboeken in Application Insights van Azure AD B2C gebruiker trajecten met behulp van aangepaste beleidsregels (preview)
 services: active-directory-b2c
-documentationcenter: dev-center-name
 author: davidmu1
 manager: mtillman
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
-ms.openlocfilehash: db9ba62cb6ef0d2627dbeb07cb8165a4ac7ae490
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709961"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Gedrag van de gebruiker in Azure AD B2C trajecten bijhouden met Application Insights
 
@@ -26,7 +27,7 @@ Azure Active Directory B2C (Azure AD B2C) werkt goed samen met Azure Application
 * Meldingen van Application Insights maken.
 
 > [!NOTE]
-> Deze functie is in preview.
+> Deze functie is beschikbaar als preview-versie.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
@@ -256,7 +257,7 @@ Referenced using: {Culture:One of the property names below}
 | LanguageName | De twee letter ISO-code voor de taal | nl |
 | RegionName | De twee letter ISO-code voor de regio | VS |
 | RFC5646 | De taalcode RFC5646 | nl-NL |
-| LCID   | De LCID van taalcode | 1043 |
+| LCID   | De LCID van taalcode | 19 |
 
 ### <a name="policy-specific-claims"></a>Beleid-specifieke claims
 

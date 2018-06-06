@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: afd29c83a69742d17e7cadda50c0054133458b68
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736606"
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Azure Active Directory-beleid voor voorwaardelijke toegang op basis van apparaten configureren
 
@@ -50,7 +52,7 @@ Als u een apparaat dat is geregistreerd in Azure AD, hebt u drie opties:
 
 - **[Azure AD apparaten geregistreerd](device-management-introduction.md#azure-ad-registered-devices)**  : ophalen van een persoonlijk apparaat geregistreerd bij Azure AD
 
-- **[Azure AD die lid zijn van de apparaten](device-management-introduction.md#azure-ad-joined-devices)**  : ophalen van een organisatie Windows 10-apparaten die niet is gekoppeld aan een on-premises AD dat is geregistreerd in Azure AD geregistreerd. 
+- **[Azure AD die lid zijn van de apparaten](device-management-introduction.md#azure-ad-joined-devices)**  : ophalen van een organisatie Windows 10-apparaten die niet is gekoppeld aan een on-premises AD geregistreerd in Azure AD. 
 
 - **[Hybride Azure AD die lid zijn van de apparaten](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  : ophalen van een Windows 10-apparaat dat lid is van een on-premises AD geregistreerd in Azure AD.
 

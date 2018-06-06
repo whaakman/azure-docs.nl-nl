@@ -2,11 +2,12 @@
 title: Azure Active Directory Identity Protection Veelgestelde vragen | Microsoft Docs
 description: Veelgestelde vragen over Azure AD Identity Protection
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 102cf0108aeefa255d40bd932e41f1e7b5536205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4637420b712f98c3a8bf9d5965704cd043bb9a1c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713436"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory Identity Protection Veelgestelde vragen
 
@@ -27,7 +29,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>Waarom hebben sommige risicogebeurtenissen status "Gesloten (systeem)"
 
-**A:** dit zijn de gebeurtenissen die Azure Active Directory: Identity Protection gedetecteerd en later gesloten omdat de gebeurtenissen zijn niet langer als riskant beschouwd. Deze gebeurtenissen meetellen niet voor het risiconiveau van de gebruiker. 
+**A:** deze risicogebeurtenissen zijn gedetecteerd door Identity Protection en later gesloten omdat de gebeurtenissen zijn niet langer als riskant beschouwd. Deze gebeurtenissen meetellen niet voor het risiconiveau van de gebruiker. 
 
 ---
 
@@ -44,6 +46,6 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 ## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>Hoe kan ik gebruikers in 'Gebruikers gemarkeerd voor risico' sorteren?
 
-**A:** downloaden van de gebruikers die zijn gemarkeerd voor risico rapport door te klikken op de **downloaden** op boven van de **gebruikers die zijn gemarkeerd voor risico** pagina. Vervolgens kunt u de gedownloade gegevens op basis van beschikbare velden, met inbegrip van de laatste bijgewerkt (UTC) sorteren.
+**A:** downloaden van de gebruikers die zijn gemarkeerd voor risico rapport door te klikken op **downloaden** op boven van de **gebruikers die zijn gemarkeerd voor risico** pagina. Vervolgens kunt u de gedownloade gegevens op basis van beschikbare velden, met inbegrip van de laatste bijgewerkt (UTC) sorteren.
 
 ---

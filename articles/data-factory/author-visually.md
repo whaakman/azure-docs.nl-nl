@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725139"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visual ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface ervaring (UX) kunt u visueel ontwerpen en implementeren van resources voor uw data factory zonder code te schrijven. U kunt activiteiten naar een pipeline-canvas te slepen, testruns uitvoeren, iteratief, foutopsporing en implementeren en controleren de pijplijn wordt uitgevoerd. Er zijn twee methoden voor het gebruik van de UX voor het uitvoeren van de visual ontwerpen:
@@ -46,8 +47,8 @@ Visual ontwerpen met VSTS Git-integratie ondersteunt broncodebeheer en samenwerk
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configureer een VSTS Git-opslagplaats met Azure Data Factory
 U kunt een VSTS GIT-opslagplaats met een data factory configureren via twee methoden.
 
-<a name="method1"></a>
-#### <a name="configuration-method-1-lets-get-started-page"></a>Van configuratiemethode 1: gaan we aan de slag-pagina
+#### <a name="method1"></a> Van configuratiemethode 1: gaan we aan de slag-pagina
+
 In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Code opslagplaats configureren**:
 
 ![Een code-opslagplaats VSTS configureren](media/author-visually/configure-repo.png)
@@ -62,7 +63,7 @@ Het deelvenster ziet u de volgende VSTS code opslagplaats instellingen:
 |:--- |:--- |:--- |
 | **Type van de opslagplaats** | Het type van de opslagplaats VSTS-code.<br/>**Opmerking**: GitHub wordt momenteel niet ondersteund. | Visual Studio Team Services Git |
 | **Azure Active Directory** | De naam van uw Azure AD-tenant. | <your tenant name> |
-| **Visual Studio Team Services Account** | De naam van uw VSTS. U kunt vinden op de naam van uw VSTS `https://{account name}.visualstudio.com`. U kunt [aanmelden bij uw account VSTS](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en uw opslagplaatsen en projecten weergegeven. | \<de accountnaam van uw > |
+| **Visual Studio Team Services-Account** | De naam van uw VSTS. U kunt vinden op de naam van uw VSTS `https://{account name}.visualstudio.com`. U kunt [aanmelden bij uw account VSTS](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en uw opslagplaatsen en projecten weergegeven. | \<de accountnaam van uw > |
 | **ProjectName** | De naam van uw VSTS-project. U vindt uw VSTS projectnaam `https://{account name}.visualstudio.com/{project name}`. | \<de naam van uw project VSTS > |
 | **RepositoryName** | De naam van uw VSTS code-opslagplaats. VSTS projecten bevatten Git-opslagplaatsen voor het beheren van uw broncode wanneer uw project groeit. U kunt een nieuwe opslagplaats maken of een bestaande opslagplaats die al in uw project, gebruiken. | \<de naam van uw VSTS code opslagplaats > |
 | **Samenwerking vertakking** | Uw VSTS samenwerking vertakking dat wordt gebruikt voor publicatie. Dit is standaard `master`. Wijzig deze waarde als u wilt publiceren van bronnen van een andere filialen. | \<de naam van het filiaal samenwerking > |
@@ -75,6 +76,14 @@ In de Azure Data Factory-UX **Authoring canvas**, zoek uw gegevensfactory. Selec
 Een deelvenster configuratie wordt weergegeven. Voor meer informatie over de configuratie-instellingen, Zie de beschrijvingen in <a href="#method1">configuratiemethode 1</a>.
 
 ![Configureer de instellingen van de opslagplaats code voor het ontwerpen van UX](media/author-visually/configure-repo-2.png)
+
+#### <a name="switch-to-a-different-git-repo"></a>Overschakelen naar een andere Git-opslagplaats
+
+Zoek het pictogram wilt overschakelen naar een andere Git-opslagplaats, in de rechterbovenhoek van de overzichtspagina van Data Factory, zoals wordt weergegeven in de volgende schermafbeelding. Als u het pictogram niet ziet, moet u uw lokale browsercache wissen. Selecteer het pictogram op de koppeling met de huidige opslagplaats verwijderen.
+
+Nadat u de koppeling met de huidige opslagplaats verwijdert, kunt u uw Git-instellingen voor het gebruik van een andere opslagplaats configureren. Vervolgens kunt u bestaande Data Factory-resources importeren naar de nieuwe opslagplaats.
+
+![Verwijder de koppeling met de huidige Git-opslagplaats.](media/author-visually/remove-repo.png)
 
 ### <a name="use-version-control"></a>Versiebeheer gebruiken
 Versie besturingssystemen (ook wel bekend als _bronbeheer_), kunnen ontwikkelaars samenwerken aan code en bijhouden van de wijzigingen die zijn aangebracht aan de code base. Verbinding met broncodebeheer is een belangrijk hulpprogramma voor meerdere developer-projecten.

@@ -7,13 +7,14 @@ manager: abhemraj
 editor: raynew
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: bsiva
-ms.openlocfilehash: e12d19612e10885f97d4a8023967fb9ba2d1f8cb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3fa9ee27a1b9717d8011b7b46a1116f1f1ac1df5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716326"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Instellen van herstel na noodgevallen voor virtuele machines in Azure met Azure PowerShell
 
@@ -32,7 +33,7 @@ In deze zelfstudie leert u procedures om het volgende te doen:
 > - Failover naar de herstel-regio.
 
 > [!NOTE]
-> Azure Site Recovery PowerShell-ondersteuning voor de '*herstel na noodgevallen voor Azure virtual machines*' scenario is momenteel in preview. Niet alle scenario mogelijkheden zijn beschikbaar via de portal mogelijk niet beschikbaar is via Azure PowerShell. Enkele van de scenario-mogelijkheden die momenteel niet ondersteund via Azure PowerShell zijn:
+> Niet alle scenario mogelijkheden zijn beschikbaar via de portal mogelijk niet beschikbaar is via Azure PowerShell. Enkele van de scenario-mogelijkheden die momenteel niet ondersteund via Azure PowerShell zijn:
 > - De mogelijkheid om Azure virtuele machines die gebruikmaken van beheerde schijven repliceren.
 > - De mogelijkheid om op te geven dat alle schijven in een virtuele machine zonder expliciet opgeven van elke schijf van de virtuele machine moeten worden gerepliceerd.  
 

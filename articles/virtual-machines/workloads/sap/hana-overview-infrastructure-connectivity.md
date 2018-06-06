@@ -4,28 +4,29 @@ description: Infrastructuur van de verbinding is vereist voor het gebruik van SA
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763762"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructuur voor SAP HANA (grote exemplaren) en de verbindingen van Azure 
 
 Sommige definities tevoren voordat u deze handleiding leest. In [SAP HANA (grote exemplaren) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) er zijn twee verschillende soorten HANA grote exemplaar eenheden met geïntroduceerd:
 
-- S72, S72m S144, S144m, S192 en S192m die naar verwezen als 'Type ik klasse' van SKU's.
-- S384, S384m S384xm, S576m, S768m en S960m die naar als de 'Type II class-instructie van SKU's verwezen.
+- S72, S72m S144, S144m, S192, S192m en S192xm die naar verwezen als 'Type ik klasse' van SKU's.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm en S960m die naar als de 'Type II class-instructie van SKU's verwezen.
 
 De klasse-specificaties gaat worden gebruikt in de documentatie van de grote exemplaar HANA uiteindelijk verwijzen naar verschillende mogelijkheden en vereisten op basis van HANA grote exemplaar SKU's.
 
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 In dit voorbeeld is de HighPerformance gateway SKU gebruikt. Uw opties zijn HighPerformance of UltraPerformance als de enige gateway-SKU's die worden ondersteund voor SAP HANA in Azure (grote exemplaren).
 
 > [!IMPORTANT]
-> Voor grote HANA-exemplaren van de SKU van het type S384, S384m S384xm, S576m, S768m en S960m (Type II klasse SKU's), het gebruik van de Gateway-SKU UltraPerformance is verplicht.
+> Voor HANA grote exemplaren van het Type II classs SKU is het gebruik van de Gateway-SKU UltraPerformance verplicht.
 
 ### <a name="linking-vnets"></a>Vnet's koppelen
 

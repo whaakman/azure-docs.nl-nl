@@ -6,15 +6,14 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/12/2018
+ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: c306c52ff6f76e09312995974013df6840a5a1a1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4bffe811dcee6a92e97c66b5813211e58004bb73
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726716"
 ---
-Voor lokale ontwikkeling in Azure Functions versie 2.x, het pakket is automatisch [geregistreerd als een uitbreiding](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools). Klasse voor C#-bibliotheek-ontwikkeling in functies 1.x en 2.x, het pakket is automatisch [geïnstalleerd in het project](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code). 
-
-Opmerking dat broncode WebJobs SDK versie nummering volgt: versie van de WebJobs SDK 2.x komt overeen met de Azure Functions 1.x, zodat u functies 1.x code in de vertakking v2.x in de opslagplaats. Hoofd- en Developer vertakkingen code bevatten voor webtaken 3.x, dit hetzelfde is als 2.x fungeert.
+Ondersteuning voor deze binding is automatisch beschikbaar in alle ontwikkelomgevingen. U hoeft niet te handmatig installeren van het pakket of de uitbreiding niet registreren.

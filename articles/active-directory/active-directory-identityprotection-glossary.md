@@ -3,11 +3,12 @@ title: Verklarende woordenlijst voor beveiliging van Azure Active Directory-iden
 description: Verklarende woordenlijst voor beveiliging van Azure Active Directory-identiteit
 services: active-directory
 keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid, verklarende woordenlijst
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9cc4a914091c91f4b2ae1c152644fe8e01747e8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713388"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Verklarende woordenlijst voor beveiliging van Azure Active Directory-identiteit
 ### <a name="at-risk-user"></a>Risico (gebruiker)
@@ -32,7 +34,7 @@ Een aanmelden vanaf een geografische locatie die niet standaard voor de specifie
 Een beveiligingsmodule van Azure Active Directory waarmee een geconsolideerde weergave risicogebeurtenissen en mogelijke beveiligingsproblemen die invloed hebben op de identiteiten van een organisatie.
 
 ### <a name="conditional-access"></a>Voorwaardelijke toegang
-Een beleid voor het beveiligen van toegang tot bronnen. Regels voor voorwaardelijke toegang in de Azure Active Directory worden opgeslagen en worden geëvalueerd door Azure AD voordat het verlenen van toegang tot de resource.  Voorbeeld van de regels omvatten beperken van toegang op basis van de locatie van de gebruiker, apparaat status of de gebruiker de verificatiemethode.
+Een beleid voor het beveiligen van toegang tot bronnen. Regels voor voorwaardelijke toegang in de Azure Active Directory worden opgeslagen en worden geëvalueerd door Azure AD voordat het verlenen van toegang tot de resource.  Voorbeeld van de regels omvatten beperken van toegang op basis van de locatie van de gebruiker, Apparaatstatus of methode voor gebruikersverificatie.
 
 ### <a name="credentials"></a>Referenties
 Informatie met identificatie en bewijs van identificatie die wordt gebruikt om toegang tot lokale en netwerkbronnen te krijgen. Voorbeelden van referenties zijn gebruikersnamen en wachtwoorden, smartcards en certificaten.
@@ -127,13 +129,13 @@ Voor de verificatie een identiteit in Azure Active Directory.
 ### <a name="sign-in-n"></a>Aanmelden (n)
 Het proces of de actie van een identiteit in Azure Active Directory en de gebeurtenis die deze bewerking legt vast te verifiëren.
 
-### <a name="sign-in-from-anonymous-ip-address"></a>Aanmelden vanaf anonieme IP-adres
+### <a name="sign-in-from-anonymous-ip-address"></a>Meld u aan vanaf anonieme IP-adres
 Een risicogebeurtenis geactiveerd na een geslaagde aanmelden van IP-adres dat is geïdentificeerd als een anonieme proxy IP-adres.
 
-### <a name="sign-in-from-infected-device"></a>Aanmelden van geïnfecteerde apparaten
+### <a name="sign-in-from-infected-device"></a>Aanmelden met geïnfecteerde apparaten
 Een risicogebeurtenis geactiveerd wanneer een aanmeldingspagina afkomstig van een IP-adres waarvan bekend is door een of meer aangetaste apparaten die actief zijn probeert is te communiceren met een bot-server moet worden gebruikt.
 
-### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Aanmelden van IP-adres met verdachte activiteiten
+### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Meld u aan van IP-adres met verdachte activiteit
 Een risicogebeurtenis wordt geactiveerd nadat een geslaagde aanmelden van een-IP-adres met een groot aantal mislukte aanmeldingspogingen bij verschillende gebruikersaccounts gedurende een korte periode.
 
 ### <a name="sign-in-from-unfamiliar-location"></a>Aanmelden van onbekende locatie
@@ -155,7 +157,7 @@ Zie risico niveau (gebruiker inbreuk).
 Een beleid voor voorwaardelijke toegang die beschouwt de aanmeldingspagina en oplossingen op basis van vooraf gedefinieerde voorwaarden en bepalingen toepast.
 
 ### <a name="users-flagged-for-risk"></a>Gebruikers voor wie wordt aangegeven dat ze risico lopen
-Gebruikers die risicogebeurtenissen zijn die actief of herstelde hebben
+Gebruikers die risicogebeurtenissen die actief of herstelde hebben
 
 ### <a name="vulnerability"></a>Beveiligingsprobleem
 Een configuratie of een voorwaarde in Azure Active Directory, waardoor de map vatbaar voor aanvallen of bedreigingen.

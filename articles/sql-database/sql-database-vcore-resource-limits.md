@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 05/15/2018
+ms.topic: conceptual
+ms.date: 05/31/2018
 ms.author: carlrab
-ms.openlocfilehash: d225af55a705d56a94bb0e8dcfcc938b64f3633a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 324f9f35de37c717d57e46413cd881dce785f4fd
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737660"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Azure SQL Database vCore gebaseerde aanschaffen van een model limieten (preview)
 
@@ -49,11 +50,11 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 |||
 
 #### <a name="generation-5-compute-platform"></a>Rekenplatform generatie 5
-|Prestatieniveau|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48| GP_Gen5_80|
+|Prestatieniveau|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Generatie H/W|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
-|Geheugen (GB)|11|22|44|88|132|176|264|440|
+|vCores|2|4|8|16|24|32|40|80|
+|Geheugen (GB)|11|22|44|88|132|176|220|440|
 |Columnstore-ondersteuning|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In het geheugen OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Opslagtype|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|
@@ -62,7 +63,7 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 |Maximale logboekgrootte|307|307|461|614|1229|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
 |Doel-IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
-|Maximum aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4800|8000|
+|Maximum aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|1|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -89,28 +90,28 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 |Maximum aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|3|3|3|3|3|3|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Scale-out lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|
 |||
 
 #### <a name="generation-5-compute-platform"></a>Rekenplatform generatie 5
-|Prestatieniveau|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|Prestatieniveau|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generatie H/W|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
-|Geheugen (GB)|11|22|44|88|132|176|264|440|
+|vCores|2|4|8|16|24|32|40|80|
+|Geheugen (GB)|11|22|44|88|132|176|220|440|
 |Columnstore-ondersteuning|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|In het geheugen OLTP-opslag (GB)|1.571|3,142|6.284|15.768|25.252|37.936|68.104|131.64|
+|In het geheugen OLTP-opslag (GB)|1.571|3,142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|
 |Maximale grootte van gegevens (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Maximale logboekgrootte|307|307|307|307|614|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Doel-IOPS (64 KB)|5000|10.000|20000|40000|60000|80000|120000|200000
-|Maximum aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4800|8000|
+|Doel-IOPS (64 KB)|5000|10.000|20000|40000|60000|80000|100000|200000
+|Maximum aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|1|1|1|1|1|1|1|1|
+|Aantal replica's|3|3|3|3|3|3|3|3|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Scale-out lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|
@@ -174,11 +175,11 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 |||
 
 #### <a name="generation-5-compute-platform"></a>Rekenplatform generatie 5
-|Prestatieniveau|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48|GP_Gen5_80|
+|Prestatieniveau|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generatie H/W|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
-|Geheugen (GB)|11|22|44|88|132|176|264|440|
+|vCores|2|4|8|16|24|32|40|80|
+|Geheugen (GB)|11|22|44|88|132|176|220|440|
 |Columnstore-ondersteuning|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In het geheugen OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Opslagtype|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|(Externe) Premium-opslag|
@@ -187,10 +188,10 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
 |Doel-IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|
-|Maximum aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|2520|3360|5040|8400
+|Maximum aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|2520|3360|4200|8400
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximum aantal toepassingen dichtheid|100|200|500|500|500|500|500|500|
-|Minimale/maximale elastische pool Klik-stopt|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Minimale/maximale elastische pool Klik-stopt|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Aantal replica's|1|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Scale-out lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -217,30 +218,32 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximum aantal toepassingen dichtheid|N/A|50|100|100|100|100|
 |Minimale/maximale elastische pool Klik-stopt|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Aantal replica's|3|3|3|3|3|3|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Scale-out lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|
 |||
 
 #### <a name="generation-5-compute-platform"></a>Rekenplatform generatie 5
-|Prestatieniveau|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|Prestatieniveau|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generatie H/W|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
-|Geheugen (GB)|11|22|44|88|132|176|264|440|
+|vCores|2|4|8|16|24|32|40|80|
+|Geheugen (GB)|11|22|44|88|132|176|220|440|
 |Columnstore-ondersteuning|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|In het geheugen OLTP-opslag (GB)|1.571|3,142|6.284|15.768|25.252|37.936|68.104|131.64|
+|In het geheugen OLTP-opslag (GB)|1.571|3,142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|
 |Maximale grootte van gegevens (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Maximale logboekgrootte|307|307|307|307|614|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Doel-IOPS (64 KB)|5000|10.000|20000|40000|60000|80000|120000|200000
+|Doel-IOPS (64 KB)|5000|10.000|20000|40000|60000|80000|100000|200000
 |Maximum aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|2520|3360|5040|8400|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximum aantal toepassingen dichtheid|N/A|50|100|100|100|100|100|100|
-|Minimale/maximale elastische pool Klik-stopt|N/A|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
+|Minimale/maximale elastische pool Klik-stopt|N/A|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Aantal replica's|3|3|3|3|3|3|3|3|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Scale-out lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|
 |||

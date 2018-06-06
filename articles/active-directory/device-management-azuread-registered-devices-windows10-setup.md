@@ -2,12 +2,13 @@
 title: Azure Active Directory geregistreerd apparaten instellen | Microsoft Docs
 description: Informatie over het instellen van Azure Active Directory geregistreerd apparaten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,22 +16,23 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2560e51d61506389e84288bf983b0ebcb5776ff2
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 541f37bb11c604567b356716db282d0e4e2f629b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713521"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Instellen van de Azure Active Directory geregistreerd Windows 10-apparaten
 
 Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen vanaf apparaten die voldoen aan uw standaarden voor beveiliging en naleving. Zie voor meer informatie [Inleiding tot beheer van apparaten in Azure Active Directory](device-management-introduction.md).
 
-Als u wilt inschakelen de **Bring Your Own Device (BYOD)** scenario, u kunt dit doen door Azure AD geregistreerde apparaten te configureren. U kunt in Azure AD, Azure AD geregistreerde apparaten configureren voor Windows 10-, iOS-, Android- en Mac OS. Dit onderwerp vindt u de bijbehorende stappen voor Windows 10-apparaten. 
+Als u wilt inschakelen de **Bring Your Own Device (BYOD)** scenario, u kunt dit doen door Azure AD geregistreerde apparaten te configureren. U kunt in Azure AD, Azure AD geregistreerde apparaten configureren voor Windows 10-, iOS-, Android- en Mac OS. Dit artikel vindt u de bijbehorende stappen voor Windows 10-apparaten. 
 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Voor het registreren van een Windows 10-apparaat moet de device registratieservice worden geconfigureerd zodat u apparaten registreren. Naast de machtiging voor het registreren van apparaten in uw Azure AD-tenant hebt, moet u minder apparaten geregistreerd dan het geconfigureerde maximum hebben. Zie voor meer informatie [apparaatinstellingen configureren](device-management-azure-portal.md#configure-device-settings).
+Voor het registreren van een Windows 10-apparaat moet de device registratieservice worden geconfigureerd zodat u apparaten registreren. Bovendien moet u minder apparaten geregistreerd dan het geconfigureerde maximum hebben. Zie voor meer informatie [apparaatinstellingen configureren](device-management-azure-portal.md#configure-device-settings).
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 
@@ -49,7 +51,7 @@ Wanneer u een apparaat registreert, moet u het volgende rekening houden:
 
 ## <a name="registering-a-device"></a>Een apparaat wordt geregistreerd
 
-Deze sectie biedt u de stappen voor het registreren van Windows 10-apparaat aan uw Azure AD. Als u uw apparaat bij Azure AD hebt geregistreerd uw **toegang werk of school** dialoogvenster wordt aangegeven dat dit met een **werk- of schoolaccount** vermelding.
+Deze sectie biedt u de stappen voor het registreren van Windows 10-apparaat aan uw Azure AD. Een geregistreerd apparaat worden weergegeven met een **werk- of schoolaccount** vermelding.
 
 ![Registreren](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
@@ -74,7 +76,7 @@ Deze sectie biedt u de stappen voor het registreren van Windows 10-apparaat aan 
     ![Verbinding maken](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
 
 
-5. Op de **instellen van een account voor werk of school** dialoogvenster, Voer uw accountnaam (bijvoorbeeld: someone@example.com), en klik vervolgens op **volgende**.
+5. Op de **instellen van een account voor werk of school** dialoogvenster, Voer uw accountnaam (bijvoorbeeld someone@example.com), en klik vervolgens op **volgende**.
 
     ![Verbinding maken](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
 
@@ -94,7 +96,7 @@ U kunt bekijken om te controleren of een apparaat is verbonden met een Azure AD,
 
 ![Registreren](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
-U kunt ook kunt u ook instellingen op de Azure AD-portal bekijken.
+U kunt ook instellingen op de Azure AD-portal bekijken.
 
 ![Registreren](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 

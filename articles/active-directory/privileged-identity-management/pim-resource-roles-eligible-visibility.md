@@ -3,7 +3,7 @@ title: In aanmerking komende toewijzingen en de zichtbaarheid van de resource vo
 description: Beschrijft hoe leden naar in aanmerking komen voor de resourcerollen toewijzen wanneer u PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: mwahl
 ms.service: active-directory
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4804d930a98192d64245784058920eeba7d30212
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bb1f9c63d4e01f3927b1c58a68742e107cf9331d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699638"
 ---
 # <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>In aanmerking komende toewijzingen en de zichtbaarheid van de resource met Privileged Identity Management
 
@@ -47,7 +48,7 @@ Een beheerder kunt kiezen uit een van deze typen toewijzing:
 Of een beheerder kan een van deze typen toewijzing kiezen:
 
 - Verlopen van in aanmerking komende toewijzingen na
-- Actieve toewijzingen na het verlopen
+- Actieve toewijzingen laten verlopen na
 
 Als een resourcebeheerder ervoor kiest **toestaan permanente toewijzing van in aanmerking komende** of **permanente actieve toewijzing toestaan**, alle beheerders die leden aan de bron toewijzen permanent kunnen toewijzen te beheren.
 

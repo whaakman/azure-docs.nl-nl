@@ -10,17 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: douglasl
-ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8eeed91da3942d00bbab17a2dffc4b4e888a6f70
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725105"
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Het starten en stoppen van de runtime van een Azure SSIS-integratie plannen 
-Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (IR) een kosten die gekoppeld. Daarom wilt u de IR alleen uitvoeren als u wilt SSIS-pakketten in Azure uitvoeren en stop de toepassing wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Dit artikel wordt beschreven hoe u plant starten en stoppen van een Azure-SSIS-integratie runtime (IR) met behulp van Azure Automation en Azure Data Factory. Hier volgen de stappen op hoog niveau beschreven in dit artikel:
+Dit artikel wordt beschreven hoe u plant starten en stoppen van een Azure-SSIS-integratie runtime (IR) met behulp van Azure Automation en Azure Data Factory. Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (IR) een kosten die gekoppeld. Daarom wilt u de IR alleen uitvoeren als u wilt SSIS-pakketten in Azure uitvoeren en stop de toepassing wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)).
+
+U kunt bijvoorbeeld webactiviteiten met webhooks aan een Azure Automation PowerShell-runbook maken en koppelen van een activiteit SSIS-pakket uitvoeren ertussen. De Web-activiteiten kunnen starten en stoppen van uw Azure-SSIS-IR alleen in de tijd voordat en nadat het pakket wordt uitgevoerd. Zie voor meer informatie over de activiteit SSIS-pakket uitvoeren [een SSIS-pakket met de SSIS-activiteit in Azure Data Factory uitgevoerd](how-to-invoke-ssis-package-ssis-activity.md).
+
+## <a name="overview-of-the-steps"></a>Overzicht van de stappen
+
+Hier volgen de stappen op hoog niveau beschreven in dit artikel:
 
 1. **Maken en testen van een Azure Automation-runbook.** In deze stap maakt maken u een PowerShell-runbook met het script dat wordt gestart of gestopt een Azure SSIS-IR Vervolgens het runbook testen in scenario's voor zowel starten en stoppen en Bevestig dat IR wordt gestart of gestopt. 
 2. **Maak twee schema's voor het runbook.** Voor de eerste planning configureert u het runbook met gestart als de bewerking. Voor de tweede planning, configureert u het runbook met stoppen als de bewerking. Voor zowel de planningen geeft u de frequentie waarmee het runbook wordt uitgevoerd. U wilt bijvoorbeeld plannen van het eerste beheerpunt voor uitvoering op 8 uur, dagelijks en de tweede op 23: 00 uur dagelijks wordt uitgevoerd. Wanneer de eerste runbook wordt uitgevoerd, wordt de Azure SSIS-IR gestart Wanneer het tweede runbook wordt uitgevoerd, stopt de SSIS-IR van Azure 
@@ -73,11 +80,11 @@ Als u een Azure Automation-account niet hebt, maakt u een door de instructies in
 
     ![Controleer of de vereiste modules](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  Ga naar de PowerShell-galerie voor de [AzureRM.DataFactoryV2 0.5.2 module](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2), selecteer **implementeren in Azure Automation**, selecteer uw Automation-account en selecteer vervolgens **OK**. Ga terug om weer te geven **Modules** in de **gedeelde bronnen** sectie in het menu links en wacht tot u de **STATUS** van de **AzureRM.DataFactoryV2 0.5.2**  wijziging in de module voor **beschikbaar**.
+2.  Ga naar de PowerShell-galerie voor de [AzureRM.DataFactoryV2 module](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/), selecteer **implementeren in Azure Automation**, selecteer uw Automation-account en selecteer vervolgens **OK**. Ga terug om weer te geven **Modules** in de **gedeelde bronnen** sectie in het menu links en wacht tot u de **STATUS** van de **AzureRM.DataFactoryV2** wijziging in de module voor **beschikbaar**.
 
     ![Controleer of de Data Factory-module](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  Ga naar de PowerShell-galerie voor de [AzureRM.Profile 4.5.0 module](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0), klikt u op **implementeren in Azure Automation**, selecteer uw Automation-account en selecteer vervolgens **OK**. Ga terug om weer te geven **Modules** in de **gedeelde bronnen** sectie in het menu links en wacht tot u de **STATUS** van de **AzureRM.Profile 4.5.0** wijziging in de module voor **beschikbaar**.
+3.  Ga naar de PowerShell-galerie voor de [AzureRM.Profile module](https://www.powershellgallery.com/packages/AzureRM.profile/), klikt u op **implementeren in Azure Automation**, selecteer uw Automation-account en selecteer vervolgens **OK**. Ga terug om weer te geven **Modules** in de **gedeelde bronnen** sectie in het menu links en wacht tot u de **STATUS** van de **AzureRM.Profile**wijziging in de module voor **beschikbaar**.
 
     ![Controleer of de module profiel](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
@@ -239,7 +246,7 @@ Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning make
  
    De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamMyAzureSsisDataFactory) en probeert u het opnieuw. Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+       `Data factory name �MyAzureSsisDataFactory� is not available`
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
 4. Voer een van de volgende stappen uit voor de **Resourcegroep**:
      
@@ -381,6 +388,9 @@ Nu dat de pijplijn als u verwacht werkt, kunt u een trigger die u kunt deze pipe
     ![Triggeruitvoeringen](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+Zie het volgende blogbericht:
+-   [Moderniseren en uw werkstromen ETL/ELT met SSIS-activiteiten in ADF pijplijnen uitbreiden](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+
 Raadpleeg de volgende artikelen uit de SSIS-documentatie: 
 
 - [Deploy, run, and monitor an SSIS package on Azure](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial) (SSIS-pakket implementeren, uitvoeren en bewaken in Azure)   

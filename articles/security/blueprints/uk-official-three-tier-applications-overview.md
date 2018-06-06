@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757192"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure-beveiliging en naleving blauwdruk - VK officiële drie lagen Web Applications Automation
 
@@ -148,7 +149,7 @@ Storage
 
 **Internet-Gateway en openbare IP-adres**: de internet-gateway beschrijft toepassingsservices voor gebruikers via het internet. Toegang tot deze services verkeer is beveiligd met een [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) laag 7 Routering en taakverdeling mogelijkheden met web application firewall (WAF) beveiliging bieden.
 
-**Management VNet**: dit [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) bevat resources die beheer en controle van de mogelijkheden voor de werkbelastingen die worden uitgevoerd in de productie VNet te implementeren.
+**Management VNet**: dit [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) bevat resources die beheer en controle van de mogelijkheden voor de werkbelastingen die worden uitgevoerd in de productie VNet te implementeren.
 
 **Jumpbox**: ook wel een [bastion host](https://en.wikipedia.org/wiki/Bastion_host), dit is een beveiligde virtuele machine op het netwerk die beheerders gebruiken voor verbinding met virtuele machines in de productie VNet. De jumpbox heeft een netwerkbeveiligingsgroep die alleen extern verkeer vanaf openbare IP-adressen op een lijst met veilige adressen toelaat. De bron van het verkeer moet worden gedefinieerd in de NSG zodat extern bureaublad (RDP)-verkeer. Beheer van productiebronnen is via RDP met behulp van een beveiligde Jumpbox VM.
 

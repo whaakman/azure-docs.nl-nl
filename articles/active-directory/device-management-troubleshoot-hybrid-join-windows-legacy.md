@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714109"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory die lid zijn van downlevel-apparaten 
 
@@ -53,7 +55,7 @@ Dit artikel vindt u richtlijnen over het oplossen van problemen op te lossen.
 
 - De initiële registratie / join van apparaten is geconfigureerd voor het uitvoeren van een poging gedaan bij het aanmelden of vergrendelen / ontgrendelen. Er zijn 5 minuten vertraging geactiveerd door een scheduler-taak. 
 
-- Opnieuw installeren van het besturingssysteem of handmatige re-registraties, kan de registratie van een nieuwe op Azure AD, wat tot meerdere vermeldingen op het tabblad gebruikers gegevens in de Azure portal leidt maken. 
+- Een nieuwe installatie van het besturingssysteem of handmatige herregistratie kan een nieuwe registratie in Azure AD, wat tot meerdere vermeldingen op het tabblad gebruikers gegevens in de Azure portal leidt maken. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Stap 1: De registratiestatus ophalen 
 
@@ -88,7 +90,7 @@ Als de hybride Azure AD join niet geslaagd is, biedt in het dialoogvenster u inf
     
     - De aangemelde gebruiker is geen domeingebruiker (bijvoorbeeld een lokale gebruiker). Hybride Azure AD join op downlevel-apparaten wordt alleen ondersteund voor gebruikers van een domein.
     
-    - Autoworkplace.exe is niet achtergrond verifiëren met Azure AD of AD FS. Dit kan zijn vanwege een uitgaande gebonden problemen met de netwerkverbinding met de Azure AD-URL's (Raadpleeg de vereisten). Dit kan ook worden dat multi-factor authentication (MFA) ingeschakeld/geconfigureerd voor de gebruiker is en WIAORMUTLIAUTHN niet is geconfigureerd op de federatieserver (configuratiestappen selectievakje). Een andere mogelijkheid is die thuis realm detectie (HRD) pagina gebruikersinteractie, die voorkomt dat wacht **autoworkplace.exe** van achtergrond van het verkrijgen van een token.
+    - Autoworkplace.exe is niet achtergrond verifiëren met Azure AD of AD FS. Dit kan zijn vanwege een uitgaande gebonden problemen met de netwerkverbinding met de Azure AD-URL's. Dit kan ook worden dat multi-factor authentication (MFA) ingeschakeld/geconfigureerd voor de gebruiker is en WIAORMUTLIAUTHN niet is geconfigureerd op de federatieserver. Een andere mogelijkheid is die thuis realm detectie (HRD) pagina gebruikersinteractie, die voorkomt dat wacht **autoworkplace.exe** van achtergrond van het verkrijgen van een token.
     
     - Uw organisatie gebruikmaakt van Azure AD naadloze eenmalige aanmelding, `https://autologon.microsoftazuread-sso.com` of `https://aadg.windows.net.nsatc.net` bevinden zich niet op het intranet in Internet Explorer van het apparaat, en **toestaan dat updates statusbalk via script** is niet ingeschakeld voor de intranetzone.
 
@@ -104,7 +106,7 @@ U kunt ook de statusinformatie vinden in het gebeurtenislogboek onder: **toepass
   
 **De meest voorkomende oorzaken van een mislukte hybride Azure AD join zijn:** 
 
-- Uw computer niet is verbonden met het interne netwerk van uw organisatie en niet met een VPN met een verbinding met uw on-premises AD-domeincontroller.
+- Uw computer niet is verbonden met het interne netwerk van uw organisatie of met een VPN met een verbinding met uw on-premises AD-domeincontroller.
 
 - U bent aangemeld met een lokaal computeraccount op de computer. 
 

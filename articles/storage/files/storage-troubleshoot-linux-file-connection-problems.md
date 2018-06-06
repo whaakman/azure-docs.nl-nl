@@ -3,9 +3,9 @@ title: Problemen met Azure-bestanden in Linux | Microsoft Docs
 description: Problemen met Azure-bestanden in Linux
 services: storage
 documentationcenter: ''
-author: genlin
-manager: willchen
-editor: na
+author: wmgries
+manager: aungoo
+editor: tamram
 tags: storage
 ms.service: storage
 ms.workload: na
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 7b5567359e7ca87d26e05d336337b55af364031e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: wgries
+ms.openlocfilehash: 4a80b868529b18875100d8205fd8c3a664b6b9e2
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738361"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure-bestanden in Linux
 
@@ -86,7 +87,7 @@ Sommige Linux-distributies nog ondersteunen geen versleutelingsfuncties in SMB 3
 
 ### <a name="solution"></a>Oplossing
 
-Coderingsfunctie voor SMB 3.0 voor Linux is geïntroduceerd in 4.11 kernel. Deze functie kunt koppelen van de bestandsshare in Azure vanaf on-premises of andere Azure-regio. Op het moment van publicatie is deze functionaliteit backported Ubuntu 17.04 en Ubuntu 16,10. Als uw Linux SMB-client geen ondersteuning biedt voor versleuteling, bestanden koppelpunt Azure met behulp van SMB 2.1 van een Azure Linux VM die zich in hetzelfde datacenter als het opslagaccount van het bestand.
+Coderingsfunctie voor SMB 3.0 voor Linux is geïntroduceerd in 4.11 kernel. Deze functie kunt koppelen van een Azure-bestandsshare van on-premises of andere Azure-regio. Op het moment van publicatie is deze functionaliteit backported Ubuntu 17.04 en Ubuntu 16,10. Als uw Linux SMB-client geen ondersteuning biedt voor versleuteling, bestanden koppelpunt Azure met behulp van SMB 2.1 van een Azure Linux VM die zich in hetzelfde datacenter als het opslagaccount van het bestand.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Langzame prestaties van een Azure-bestandsshare die is gekoppeld aan een Linux-VM

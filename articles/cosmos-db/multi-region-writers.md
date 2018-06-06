@@ -5,19 +5,20 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724904"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Meerdere master op globale schaal met Azure Cosmos-DB 
  
-Globaal ontwikkelen gedistribueerde toepassingen die met lokale latentie reageren terwijl consistente weergaven van gegevens over de hele wereld onderhouden een probleem lastig is. Klanten gebruiken globaal gedistribueerde databases, omdat ze willen data access-latentie verbeteren, hoge beschikbaarheid van gegevens bereiken en zorg ervoor dat gegarandeerde noodherstel en, (4) om te voldoen aan hun zakelijke vereisten. Meerdere master in Azure Cosmos DB biedt een hoge mate van beschikbaarheid (99,999%), één cijfer milliseconde latentie schrijven van gegevens en schaalbaarheid met ondersteuning voor ingebouwde uitgebreide en flexibele conflict oplossen. Deze functies aanzienlijk vereenvoudigt de ontwikkeling van globaal gedistribueerde toepassingen. Voor globaal gedistribueerde toepassingen is met meerdere masters ondersteuning van cruciaal belang. 
+Globaal ontwikkelen gedistribueerde toepassingen die met lokale latentie reageren terwijl consistente weergaven van gegevens over de hele wereld onderhouden een probleem lastig is. Klanten gebruiken globaal gedistribueerde databases, omdat er data access-latentie verbeteren, hoge beschikbaarheid van gegevens te bereiken, ervoor zorgen dat gegarandeerde noodherstel en om te voldoen aan hun zakelijke behoeften. Meerdere master in Azure Cosmos DB biedt een hoge mate van beschikbaarheid (99,999%), één cijfer milliseconde latentie schrijven van gegevens en schaalbaarheid met ondersteuning voor ingebouwde uitgebreide en flexibele conflict oplossen. Deze functies vereenvoudigen aanzienlijk globaal gedistribueerde toepassingen te ontwikkelen. Voor globaal gedistribueerde toepassingen is met meerdere masters ondersteuning van cruciaal belang. 
 
 ![Meerdere masters architectuur](./media/multi-region-writers/multi-master-architecture.png)
 

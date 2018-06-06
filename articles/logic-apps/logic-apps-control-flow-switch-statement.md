@@ -1,29 +1,25 @@
 ---
-title: Overschakelen van instructies - Run-stappen op basis van specifieke waarden - Azure Logic Apps | Microsoft Docs
-description: Uitvoeren van andere stappen uitvoeren op basis van de waarden van objecten, expressies of tokens in logic apps
+title: Voeg switch-instructies toe aan de werkstromen - Azure Logic Apps | Microsoft Docs
+description: Het maken van de switch-instructies die werkstroomacties op basis van specifieke waarden in Azure Logic Apps beheren
 services: logic-apps
-keywords: Switch-instructie
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: e1f515189be8a5659af0f6c29b3fac0550abc9f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2ffac49d14e05ff252d6cd0e90fc23d77ac0caff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726071"
 ---
-# <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Overschakelen van instructies: uitvoeren van andere stappen uitvoeren op basis van specifieke waarden in logic apps
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Switch-instructies die worden uitgevoerd op basis van specifieke waarden in Azure Logic Apps werkstroomacties maken
 
-Voor andere stappen uitvoeren op basis van de waarden van een object, de expressie of het token, gebruiken een *overschakelen* instructie. Deze structuur evalueert het object, de expressie of het token, kiest de aanvraag die overeenkomt met het resultaat en stappen voor het alleen deze aanvraag wordt uitgevoerd. Wanneer de switch-instructie wordt uitgevoerd, hebben slechts één case moet overeenkomen met het resultaat.
+Voor het uitvoeren van specifieke acties op basis van de waarden van objecten, expressies of tokens, Voeg een *overschakelen* instructie. Deze structuur evalueert het object, de expressie of het token, kiest de aanvraag die overeenkomt met het resultaat en specifieke acties alleen voor deze aanvraag wordt uitgevoerd. Wanneer de switch-instructie wordt uitgevoerd, hebben slechts één case moet overeenkomen met het resultaat.
 
 Stel bijvoorbeeld dat u wilt dat een logische app waarmee de verschillende stappen op basis van een optie is geselecteerd in e-mailbericht. In dit voorbeeld controleert de logische app een website RSS-feed voor nieuwe inhoud. Wanneer een nieuw item wordt weergegeven in de RSS-feed, verzendt de logische app e-mail naar een goedkeurder. Op basis van of de goedkeurder 'Goedkeuren' of 'Negeren' worden geselecteerd, volgt andere stappen om de logische app.
 
@@ -69,8 +65,8 @@ Stel bijvoorbeeld dat u wilt dat een logische app waarmee de verschillende stapp
    | Case # | **SelectedOption** | Bewerking |
    |:------ |:-------------------|:------ |
    | Voorbeeld 1 | **Goedkeuren** | Toevoegen van de Outlook **e-mailbericht verzenden** actie voor het verzenden van informatie over het RSS-item alleen wanneer de goedkeurder geselecteerd **goedkeuren**. |
-   | Voorbeeld 2 | **Reject** | Toevoegen van de Outlook **e-mailbericht verzenden** actie voor het verwittigen van andere goedkeurders dat het RSS-item is afgewezen. |
-   | Standaard | \<none\> | Er is geen actie nodig. In dit voorbeeld wordt de **standaard** aanvraag is leeg omdat **SelectedOption** heeft slechts twee opties. |
+   | Voorbeeld 2 | **Afwijzen** | Toevoegen van de Outlook **e-mailbericht verzenden** actie voor het verwittigen van andere goedkeurders dat het RSS-item is afgewezen. |
+   | Standaard | \<Geen\> | Er is geen actie nodig. In dit voorbeeld wordt de **standaard** aanvraag is leeg omdat **SelectedOption** heeft slechts twee opties. |
    |         |          |
 
    ![Switch-instructie](./media/logic-apps-control-flow-switch-statement/switch.png)

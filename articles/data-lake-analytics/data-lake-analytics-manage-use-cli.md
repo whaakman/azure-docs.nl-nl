@@ -1,25 +1,22 @@
 ---
-title: Azure Data Lake Analytics beheren met Azure-opdrachtregelinterface | Microsoft Docs
-description: Informatie over het beheren van Data Lake Analytics-accounts, gegevensbronnen, taken en gebruikers met Azure CLI
+title: Azure Data Lake Analytics beheren met Azure-opdrachtregelinterface
+description: In dit artikel wordt beschreven hoe de Azure CLI gebruiken voor het beheren van Data Lake Analytics-taken, gegevensbronnen, & gebruikers.
 services: data-lake-analytics
-documentationcenter: ''
-author: SnehaGunda
-manager: Kfile
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: sngun
-ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 86fa41db2d21beac08015d067b79ce1375cd3ddf
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736086"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Azure Data Lake Analytics beheren met Azure-opdrachtregelinterface (CLI)
+# <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure Data Lake Analytics beheren met de Azure-opdrachtregelinterface (CLI)
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
@@ -214,24 +211,6 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
-
-
-## <a name="use-azure-resource-manager-groups"></a>Azure Resource Manager-groepen gebruiken
-Toepassingen bestaan in het algemeen uit meerdere onderdelen, bijvoorbeeld een web-app, database, databaseserver, opslag en services van derden. Azure Resource Manager kunt u werken met de resources in uw toepassing als groep, aangeduid als een Azure-resourcegroep. U kunt implementeren, bijwerken, bewaken of verwijdert alle resources voor uw toepassing in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. U kunt facturering voor uw organisatie verduidelijken door de samengevoegde kosten voor de hele groep weer te geven. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie. 
-
-Een Data Lake Analytics-service kan de volgende onderdelen bevatten:
-
-* Azure Data Lake Analytics-account
-* Vereiste standaard Azure Data Lake Storage-account
-* Aanvullende Azure Data Lake Storage-accounts
-* Extra Azure Storage-accounts
-
-U kunt al deze onderdelen onder één Resource Manager-groep zodat ze gemakkelijker te beheren.
-
-![Azure Data Lake Analytics-account en opslag](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
-
-Een Data Lake Analytics-account en de afhankelijke storage-accounts moeten in dezelfde Azure-datacenter worden geplaatst.
-De Resource Manager-groep kan echter in een ander datacenter worden geplaatst.  
 
 ## <a name="see-also"></a>Zie ook
 * [Overzicht van Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

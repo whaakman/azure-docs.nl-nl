@@ -1,22 +1,19 @@
 ---
 title: IoT Hub apparaat inrichtingsservice - concepten automatische inrichting
 description: Dit artikel bevat een overzicht van de fasen van het apparaat automatisch-inrichting, met IoT Device inrichtingsservice, IoT-Hub en client-SDK's.
-services: iot-dps
-keywords: ''
 author: BryanLa
 ms.author: bryanla
-ms.date: 03/27/2018
+ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736403"
 ---
 # <a name="auto-provisioning-concepts"></a>Automatische inrichting concepten
 
@@ -33,7 +30,7 @@ Azure IoT-auto-inrichting worden onderverdeeld in drie fasen:
 
 2. **Apparaatinschrijving** -het proces van het apparaat wordt ingericht Service-exemplaar op de hoogte van de apparaten die u probeert te registreren in de toekomst te maken. [Inschrijving](concepts-service.md#enrollment) wordt bereikt door het apparaat identiteitsgegevens in de inrichting service configureren als een 'afzonderlijke registratie"tot één apparaat of een 'groepsinschrijving' voor meerdere apparaten. Identiteit is gebaseerd op de [attestation mechanisme](concepts-security.md#attestation-mechanism) het apparaat is ontworpen om te gebruiken, waardoor de inrichting service sta in voor de echtheid van het apparaat tijdens de registratie:
 
-   - **TPM**: geconfigureerd als een 'afzonderlijke inschrijving', de apparaat-id is gebaseerd op de TPM-registratie-ID en de openbare goedkeuringssleutel. Gezien het feit dat de TPM is een [specificatie]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), de service alleen wordt verwacht verklaren volgens de specificatie, ongeacht TPM-implementatie (hardware of software). Zie [apparaten inrichten: identiteit attestation met TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) voor meer informatie over attestation op basis van TPM. 
+   - **TPM**: geconfigureerd als een 'afzonderlijke inschrijving', de apparaat-id is gebaseerd op de TPM-registratie-ID en de openbare goedkeuringssleutel. Gezien het feit dat de TPM is een [specificatie](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), de service alleen wordt verwacht verklaren volgens de specificatie, ongeacht TPM-implementatie (hardware of software). Zie [apparaten inrichten: identiteit attestation met TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) voor meer informatie over attestation op basis van TPM. 
 
    - **X509**: geconfigureerd als een 'afzonderlijke inschrijving' of 'groepsinschrijving', de apparaat-id is gebaseerd op een digitale X.509-certificaat op, die is geüpload naar de inschrijving als .pem of .cer-bestand.
 
@@ -62,7 +59,7 @@ Een reeks snelstartgidsen vindt u in de tabel met inhoud aan de linkerkant om ui
 
 Het volgende diagram geeft een overzicht van de functies en de volgorde van bewerkingen tijdens het automatisch inrichten van apparaat:
 <br><br>
-![Automatische inrichting reeks voor een apparaat](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
+[![Automatische inrichting reeks voor een apparaat](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > Eventueel de fabrikant kan ook de bewerking niet uitvoeren "voor registratie apparaat-id' met apparaat inrichten Service API's (in plaats van via de Operator). Zie voor een gedetailleerde discussie over deze sequentiëren en nog veel meer, de [nul touch-apparaatregistratie met Azure IoT video](https://myignite.microsoft.com/sessions/55087) (te beginnen bij de markering 41:00)

@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 06/04/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6e663fe275fc195cb611e1032adc147bf4e99b1d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 94062c69a1de32d061b97bbaae0d7028b0424feb
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757669"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -41,7 +42,7 @@ De volgende beheerdersrollen zijn beschikbaar:
   > [!NOTE]
   > Voor Exchange ActiveSync-beleid voor voorwaardelijke toegang in Azure implementeert, moet de gebruiker ook globale beheerder zijn.
   
-* **Servicebeheerder Dynamics 365**: gebruikers met deze functie hebben algemene machtigingen binnen Microsoft CRM Online, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en controleren van de servicestatus. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Dynamics 365 beheerder**: gebruikers aan deze rol globale machtigingen in Microsoft Dynamics 365, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en controleren van de status van de service hebben. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Apparaatbeheerders**: gebruikers met deze rol worden beheerders van de lokale computer op alle Windows 10-apparaten die zijn gekoppeld aan Azure Active Directory. Ze hebben niet de mogelijkheid voor het beheren van apparaten-objecten in Azure Active Directory.
 
@@ -67,6 +68,8 @@ De volgende beheerdersrollen zijn beschikbaar:
 * **Intune-servicebeheerder**: gebruikers met deze rol globale machtigingen in Microsoft Intune Online zijn wanneer de service aanwezig is. Daarnaast bevat deze rol de mogelijkheid voor het beheren van gebruikers en apparaten om te koppelen van beleid, evenals groepen maken en beheren.
 
 * **Postvak beheerder**: deze rol wordt alleen gebruikt als onderdeel van Exchange Online e-mailondersteuning voor RIM Blackberry-apparaten. Gebruik deze functie niet als uw organisatie geen Exchange Online e-mail op RIM Blackberry-apparaten gebruikt.
+
+* **Message Center lezer**: gebruikers met deze rol kunnen controleren, meldingen en advisory health-updates in [Office 365-berichtencentrum](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) voor hun organisatie op de geconfigureerde services, zoals Exchange, Intune en Microsoft Teams. Message Center lezers wekelijks e verwerkingen van berichten, updates, ontvangen en message center berichten in Office 365 kunnen delen. In Azure AD worden gebruikers die zijn toegewezen aan deze rol alleen alleen-lezen toegang hebben op Azure AD-services zoals gebruikers en groepen. 
 
 * **Ondersteuning voor laag 1 partner**: niet gebruiken. Deze rol is gedeprecieerd en wordt verwijderd uit in de toekomst Azure AD. Deze rol is bedoeld voor gebruik door een klein aantal Microsoft-partners zijn doorverkoop en is niet bedoeld voor algemeen gebruik.
 
@@ -104,13 +107,13 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 ## <a name="administrator-permissions"></a>Administrator-machtigingen
 
-### <a name="billing-administrator"></a>Financieel medewerker
+### <a name="billing-administrator"></a>Factureringsbeheerder
 
 | Kan doen | Is niet mogelijk |
 | --- | --- |
 |<p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Factuur- en bewerkingen voor Office-producten</p> |<p>Gebruikerswachtwoorden opnieuw instellen</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Auditlogboeken weergeven</p>|
 
-### <a name="conditional-access-administrator"></a>Beheerder voorwaardelijke toegang
+### <a name="conditional-access-administrator"></a>Voorwaardelijke toegang beheerder
 
 | Kan doen | Is niet mogelijk |
 | --- | --- |
@@ -119,7 +122,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 ### <a name="global-administrator"></a>Globale beheerder
 | Kan doen | Is niet mogelijk |
 | --- | --- |
-|<p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruikerswachtwoorden opnieuw instellen</p><p>Andere beheerder de wachtwoorden opnieuw instellen</p> <p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor authentication-server</p><p>Auditlogboeken weergeven</p> |N/A |
+|<p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruikerswachtwoorden opnieuw instellen</p><p>Andere beheerders wachtwoorden opnieuw instellen</p> <p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor authentication-server</p><p>Auditlogboeken weergeven</p> |N/A |
 
 ### <a name="password-administrator--helpdesk-administrator"></a>Wachtwoordbeheerder / Helpdesk beheerder
 | Kan doen | Is niet mogelijk |
@@ -155,14 +158,14 @@ Weergave Azure AD-aanmeldingspagina rapporten en controlelogboeken<br>Gegevens v
 | --- | --- |
 | <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p> |<p>Gebruikerswachtwoorden opnieuw instellen</p><p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Auditlogboeken weergeven</p> |
 
-### <a name="user-account-administrator"></a>De beheerder van gebruiker
+### <a name="user-account-administrator"></a>Beheerder van gebruikersaccounts
 | Kan doen | Is niet mogelijk |
 | --- | --- |
 | <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden voor gebruikers, beheerders voor Helpdesk en andere alleen beheerders van gebruikersaccount wijzigen</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties met beperkingen te beheren. Hij of zij kan geen algemeen beheerder verwijderen of andere beheerders maken.</p> |<p>Factuur- en bewerkingen voor Office-producten</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor authentication-server</p><p>Auditlogboeken weergeven</p> |
 
-### <a name="to-add-a-colleague-as-a-global-administrator"></a>Een collega als globale beheerder toevoegen
+### <a name="to-add-a-user-as-a-global-administrator"></a>Een gebruiker toevoegen als globale beheerder
 
-1. Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met een account met globale beheerdersrechten voor de tenantmap.
+1. Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met een account dat een globale beheerder voor de tenantmap.
 
    ![Azure AD-beheercentrum te openen](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 

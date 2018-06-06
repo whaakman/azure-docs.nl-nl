@@ -1,31 +1,28 @@
 ---
 title: Verbinding maken met SQL Server of Azure SQL Database - Azure Logic Apps | Microsoft Docs
-description: Verbindingen met SQL Server on-premises en Azure SQL Database in de cloud maken vanuit Azure Logic Apps
-services: logic-apps
-documentationcenter: ''
+description: Het openen en SQL-databases on-premises of in de cloud beheren met het automatiseren van werkstromen met Azure Logic Apps
 author: ecfan
 manager: cfowler
-editor: ''
-tags: connectors
-ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
-ms.topic: article
-ms.date: 05/15/2018
 ms.author: estfan
-ms.openlocfilehash: 4917f784c07919155e006711026899ce7712fecb
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.date: 05/15/2018
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 73dadb85f3608f863a7fa0227d8e051fc77bb918
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756947"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Verbinding maken met SQL Server of Azure SQL-Database vanuit Azure Logic Apps
 
-Dit artikel laat zien hoe u toegang hebt tot gegevens in uw SQL-database in een logische app met de SQL Server-connector. Op die manier kunt u logische apps voor het automatiseren van taken en werkstromen voor het beheren van uw gegevens maken. De connector werkt voor zowel [SQL Server on-premises](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) en voor [Azure SQL Database in de cloud](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
+Dit artikel laat zien hoe u toegang hebt tot gegevens in uw SQL-database in een logische app met de SQL Server-connector. Op die manier kunt u taken, processen en werkstromen die de SQL-gegevens en bronnen beheren door te maken van logische apps automatiseren. De connector werkt voor zowel [SQL Server on-premises](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) en voor [Azure SQL Database in de cloud](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
-U kunt bouwen van logic apps die worden uitgevoerd wanneer deze worden geactiveerd door gebeurtenissen in de SQL-database of in andere systemen, zoals Dynamics CRM Online. Uw logische apps kunnen ook krijgen, invoegen, of gegevens verwijderen en ook SQL-query's of opgeslagen procedures uit te voeren. U kunt bijvoorbeeld een logische app, die automatisch wordt gecontroleerd op nieuwe records in Dynamics CRM Online en stuurt vervolgens e-mailwaarschuwingen items toegevoegd aan de SQL-database voor alle nieuwe records maken.
+U kunt logische apps die worden uitgevoerd wanneer deze worden geactiveerd door gebeurtenissen in de SQL-database of in andere systemen, zoals Dynamics CRM Online maken. Uw logische apps kunnen ook ophalen, invoegen en verwijderen van gegevens samen met het uitvoeren van SQL-query's en opgeslagen procedures. U kunt bijvoorbeeld een logische app, die automatisch wordt gecontroleerd op nieuwe records in Dynamics CRM Online en stuurt vervolgens e-mailwaarschuwingen items toegevoegd aan de SQL-database voor alle nieuwe records maken.
 
 Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Snelstartgids: uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Voor connector-specifieke technische informatie, Zie de <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server-connector verwijzing</a>.
 

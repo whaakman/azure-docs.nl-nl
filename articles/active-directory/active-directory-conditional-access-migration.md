@@ -3,12 +3,13 @@ title: Migreren van klassieke beleid in de Azure portal | Microsoft Docs
 description: Meer informatie over wat u moet weten voor het migreren van klassieke beleid in de Azure portal.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b6285381833526cdbdd7c1392894458a47c1cf34
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723725"
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migreren van klassieke beleid in de Azure portal 
 
@@ -152,7 +154,7 @@ In dit geval kunt u uw klassieke beleid samenvoegen in een nieuw beleid met beid
 
 
 
-### <a name="device-platforms"></a>Apparaatplatforms
+### <a name="device-platforms"></a>Apparaatplatformen
 
 Klassieke beleidsregels met [besturingselementen op basis van een app](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) vooraf geconfigureerd zijn met iOS en Android als de [apparaat platform voorwaarde](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 

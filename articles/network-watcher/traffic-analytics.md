@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715819"
 ---
 # <a name="traffic-analytics"></a>Verkeersanalyse
 
@@ -56,7 +57,7 @@ Verkeer analytics is beschikbaar in preview. Functies in de preview-versie hoeft
 
 ## <a name="prerequisites"></a>Vereisten
 
-### <a name="enable-network-watcher"></a>Inschakelen van netwerk-Watcher 
+### <a name="enable-network-watcher"></a>Network Watcher inschakelen 
 
 Voor het analyseren van verkeer, moet u beschikken over een bestaande netwerk-watcher of [inschakelen van een netwerk-watcher](network-watcher-create.md) verkeer voor elke regio waarin u nsg's die u wilt analyseren hebt. Analytics voor verkeer kan worden ingeschakeld voor het nsg's die worden gehost in een van de [ondersteunde regio's](#supported-regions).
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>Selecteer een netwerkbeveiligingsgroep 
 
-Voordat u NSG stroom logboekregistratie inschakelt, moet u een netwerkbeveiligingsgroep aan te melden stromen voor hebben. Als u een netwerkbeveiligingsgroep geen hebt, raadpleegt u [maken van een netwerkbeveiligingsgroep](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) een maken.
+Voordat u NSG stroom logboekregistratie inschakelt, moet u een netwerkbeveiligingsgroep aan te melden stromen voor hebben. Als u een netwerkbeveiligingsgroep geen hebt, raadpleegt u [maken van een netwerkbeveiligingsgroep](../virtual-network/manage-network-security-group.md#create-a-network-security-group) een maken.
 
 Aan de linkerkant van de Azure portal, selecteer **Monitor**, klikt u vervolgens **netwerk-watcher**, en selecteer vervolgens **NSG stroom logboeken**. Selecteer de netwerkbeveiligingsgroep die u inschakelen, een NSG stroom logboek, wilt zoals wordt weergegeven in de volgende afbeelding:
 

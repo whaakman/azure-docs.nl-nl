@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700189"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -73,6 +74,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Beheerde identiteit](#managed-identity-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -82,6 +84,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [Netwerk-Watcher](#network-watcher-limits)
 * [Notification Hub-Service](#notification-hub-service-limits)
 * [Resourcegroep](#resource-group-limits)
+* [Toegangsbeheer op basis van rollen](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Zoeken](#search-limits)
 * [Service Bus](#service-bus-limits)
@@ -96,8 +99,8 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [Virtuele machines](#virtual-machines-limits)
 * [Virtuele-Machineschaalsets](#virtual-machine-scale-sets-limits)
 
-### <a name="subscription-limits"></a>Abonnementen
-#### <a name="subscription-limits"></a>Abonnementen
+### <a name="subscription-limits"></a>Abonnementslimieten
+#### <a name="subscription-limits"></a>Abonnementslimieten
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>Abonnement - limieten voor Azure Resource Manager
@@ -314,6 +317,12 @@ Zie voor meer informatie over limieten voor een meer gedetailleerd niveau, zoals
 
 ### <a name="automation-limits"></a>Limieten voor Automation
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
+### <a name="managed-identity-limits"></a>Beheerde identiteit limieten
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>Op rollen gebaseerde beheer toegangsbeperkingen
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Limieten voor SQL-Database
 Zie voor SQL-Database-limieten, [limieten voor SQL Database](sql-database/sql-database-resource-limits.md).

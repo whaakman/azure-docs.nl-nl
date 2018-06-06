@@ -2,23 +2,25 @@
 title: 'Azure AD Connect: Wanneer u al hebt Azure AD | Microsoft Docs'
 description: Dit onderwerp wordt beschreven hoe u verbinding maken wanneer u een bestaande Azure AD-tenant.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725204"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Wanneer u hebt een bestaande tenant
 De meeste van de onderwerpen over het gebruik van Azure AD Connect wordt ervan uitgegaan dat u begint met een nieuwe Azure AD-tenant en dat er geen gebruikers of er andere objecten zijn. Maar als u hebt gestart met een Azure AD-tenant gevuld zijn met gebruikers en andere objecten, en wilt verbinden, gebruik vervolgens dit onderwerp is voor u.
@@ -56,7 +58,7 @@ Voor groepen met e-mailfunctionaliteit en contactpersonen, u kunt soft-overeenko
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Een nieuwe lokale Active Directory gemaakt van gegevens in Azure AD
 Sommige klanten beginnen met een cloud-only-oplossing met Azure AD en hebben geen een on-premises AD. Later ze willen verbruiken lokale bronnen en wilt maken van een on-premises AD op basis van Azure AD-gegevens. Azure AD Connect helpen u niet voor dit scenario. Er wordt geen gebruikers lokale gemaakt en heeft geen mogelijkheid om in te stellen de wachtwoord on-premises naar hetzelfde als in Azure AD.
 
-Als de enige reden waarom u van plan bent om toe te voegen on-premises AD dat is voor de ondersteuning van LOB's (Line-of-Business-apps), wordt mogelijk kunt u overwegen gebruik [Azure AD domain services](../../active-directory-domain-services/index.md) in plaats daarvan.
+Als de enige reden waarom u van plan bent om toe te voegen on-premises AD dat is voor de ondersteuning van LOB's (Line-of-Business-apps), wordt mogelijk kunt u overwegen gebruik [Azure AD domain services](../../active-directory-domain-services/index.yml) in plaats daarvan.
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](active-directory-aadconnect.md).

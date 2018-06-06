@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5341df808e65dda9ed68c5cda633d6d8e19d9fc9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723103"
 ---
 Wanneer u een virtuele Azure-machine maakt, moet u een [virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md) (VNet) maken of een bestaand VNet gebruiken. U moet ook bepalen hoe uw virtuele machines kunnen worden geopend via de VNet. Het is belangrijk om [een planning te maken voordat u resources maakt](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) en ervoor te zorgen dat u op de hoogte bent van de [limieten van netwerkresources](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -170,4 +171,4 @@ Er zijn ook zelfstudies over het verdelen van virtuele machines en maken van max
 
 - Het configureren van [door de gebruiker gedefinieerde routes en doorsturen via IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Het configureren van [VNet-naar-VNet-verbindingen](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- [Problemen met routes oplossen](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- [Problemen met routes oplossen](../articles/virtual-network/diagnose-network-routing-problem.md).

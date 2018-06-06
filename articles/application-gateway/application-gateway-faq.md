@@ -7,13 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 5/21/2018
 ms.author: victorh
-ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699900"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen voor Application Gateway
 
@@ -82,6 +83,11 @@ Nee, Application Gateway biedt geen ondersteuning voor statische openbare IP-adr
 **Q. Ondersteunt Application Gateway meerdere openbare IP-adressen op de gateway?**
 
 Slechts één openbaar IP-adres wordt ondersteund op een toepassingsgateway.
+
+**Q. Hoe groot moet ik mijn subnet maken voor Application Gateway?**
+
+Toepassingsgateway verbruikt één privé IP-adres per exemplaar, plus een ander particulier IP-adres als een persoonlijk front-end-IP-configuratie is geconfigureerd. Ook Azure reserveert voor de eerste vier en laatste IP-adres in elk subnet voor intern gebruik.
+Bijvoorbeeld, als Application Gateway is ingesteld op drie exemplaren en geen persoonlijk front-end-IP, klikt u vervolgens een/29 subnet groot of groter is vereist. In dit geval Application Gateway maakt gebruik van drie IP-adressen. Als u drie exemplaren en een IP-adres voor de persoonlijk front-end-IP-adresconfiguratie, klikt u vervolgens een/28 hebt subnet groot of groter is nodig omdat vier IP-adressen vereist zijn.
 
 **Q. Application Gateway biedt ondersteuning voor x doorgestuurd voor headers?**
 
@@ -183,6 +189,21 @@ Er is geen downtime, exemplaren zijn verdeeld over upgradedomeinen en domeinen m
 
 Ja. U kunt verbinding leegmaken als u wilt wijzigen van de leden in een back-endpool zonder onderbreking configureren. Hierdoor wordt de bestaande verbindingen om door te gaan naar hun vorige bestemming worden verzonden, totdat deze verbinding is gesloten of een configureerbare time-out is verlopen. Houd er rekening mee dat verbinding verwerkingsstop alleen wacht op huidige onderweg verbindingen te voltooien. Application Gateway is niet op de hoogte van de sessiestatus toepassing.
 
+**Q. Wat zijn grootten voor application gateway?**
+
+Application Gateway wordt momenteel aangeboden in drie grootten: **klein**, **middelgroot** en **groot**. Kleine exemplaargrootten zijn bedoeld voor het ontwikkelen en testen van scenario's.
+
+U kunt maximaal 50 toepassingsgateways per abonnement maken. Elke toepassingsgateway kan maximaal 10 exemplaren hebben. Elke toepassingsgateway kan bestaan uit 20 HTTP-listeners. Zie [Servicelimieten voor Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) voor een volledige lijst van toepassingsgateway-limieten.
+
+In de volgende tabel staan gemiddelde doorvoerprestaties voor elk toepassingsgateway-exemplaar waarvoor SSL-offload is uitgeschakeld:
+
+| Reactie van gemiddelde back-end paginagrootte | Klein | Middelgroot | Groot |
+| --- | --- | --- | --- |
+| 6KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Deze waarden zijn geschatte waarden voor de doorvoer van een toepassingsgateway. De werkelijke doorvoer hangt af van verschillende details van de omgeving, zoals de gemiddelde paginagrootte, locatie van back-endexemplaren en de verwerkingstijd voor een pagina. Voor nauwkeurige prestatiecijfers moet u uw eigen tests uitvoeren. Deze waarden worden alleen geboden als richtlijn voor de capaciteitsplanning.
 
 **Q. Kan ik exemplaargrootte wijzigen van gemiddeld tot grote zonder onderbreking?**
 

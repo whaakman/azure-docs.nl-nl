@@ -3,19 +3,20 @@ title: Bekijk uw toegang | Microsoft Docs
 description: Uw toegang met Azure Active Directory controleren
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: billmath
-ms.openlocfilehash: ded64234d4b40c594a0b92e15e5a446d4ae176b6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: cf6b357da176ee42068d031b333fdf8464e2c34e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34697846"
 ---
 # <a name="review-your-access"></a>Uw toegang controleren
 

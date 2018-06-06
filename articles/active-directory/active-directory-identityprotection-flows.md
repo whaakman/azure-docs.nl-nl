@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713405"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Aanmelden-ervaring met Azure AD Identity Protection
 U kunt met Azure Active Directory: Identity Protection:
@@ -27,9 +29,9 @@ U kunt met Azure Active Directory: Identity Protection:
 * vereisen dat gebruikers zich registreren voor meervoudige verificatie
 * riskant aanmeldingen en verdachte gebruikers verwerken
 
-Het antwoord van het systeem op deze problemen invloed is op een gebruiker-aanmeldingservaring aanpast omdat alleen rechtstreeks aanmelden door op te geven van een gebruikersnaam en een wachtwoord zijn niet mogelijk meer. Er zijn extra stappen nodig om op te halen van een gebruiker veilig weer in bedrijf.
+Het antwoord van het systeem op deze problemen invloed is op een gebruiker-aanmeldingservaring aanpast omdat direct aanmelden door op te geven van een gebruikersnaam en een wachtwoord zijn niet mogelijk meer. Er zijn extra stappen nodig om op te halen van een gebruiker veilig weer in bedrijf.
 
-In dit onderwerp biedt een overzicht van de aanmeldingservaring van een gebruiker in alle gevallen die zich kunnen voordoen.
+In dit artikel biedt een overzicht van de aanmeldingservaring van een gebruiker in alle gevallen die zich kunnen voordoen.
 
 **Multi-factor authentication**
 
@@ -56,7 +58,7 @@ Beheerders kunnen een beleid instellen dat gebruikers moeten hun accounts instel
 1. In de eerste stap van ontvangt de gebruiker een melding over de vereiste van het account voor multi-factor authentication instellen. 
    
     ![Herstel](./media/active-directory-identityprotection-flows/140.png "herstel")
-2. Multi-factor authentication-server als u wilt instellen, moet u laten weten hoe u wilt verbinding worden gemaakt.
+2. Als u multi-factor authentication-server instelt, moet u laten weten hoe u wilt verbinding worden gemaakt.
    
     ![Herstel](./media/active-directory-identityprotection-flows/141.png "herstel")
 3. Het systeem verzendt een uitdaging voor u en u moet reageren.
@@ -64,14 +66,14 @@ Beheerders kunnen een beleid instellen dat gebruikers moeten hun accounts instel
     ![Herstel](./media/active-directory-identityprotection-flows/142.png "herstel")
 
 ## <a name="risky-sign-in-recovery"></a>Herstel voor riskante aanmelden
-Wanneer een beheerder heeft een beleid voor aanmelden risico's geconfigureerd, wordt de betreffende gebruikers worden gewaarschuwd wanneer ze proberen om aan te melden. 
+Wanneer een beheerder heeft een beleid voor aanmelden risico's geconfigureerd, wordt de betreffende gebruikers worden gewaarschuwd wanneer ze proberen aan te melden. 
 
 **De stroom voor riskante aanmelden bestaat uit twee stappen:** 
 
 1. De gebruiker wordt geïnformeerd dat ongewone activiteit over hun aanmelden gevonden is, zoals het aanmelden vanaf een nieuwe locatie, apparaat of app. 
    
     ![Herstel](./media/active-directory-identityprotection-flows/120.png "herstel")
-2. De gebruiker is vereist voor hun identiteit bewijzen door een beveiligingsvraag op te lossen. Als de gebruiker is geregistreerd voor multi-factor authentication moeten ze interactie een beveiligingscode naar hun telefoonnummer. Aangezien dit een zojuist een riskante aanmelden en geen account waarmee is geknoeid, wordt de gebruiker hoeft te wijzigen van het wachtwoord in deze stroom. 
+2. De gebruiker is vereist voor hun identiteit bewijzen door een beveiligingsvraag op te lossen. Als de gebruiker is geregistreerd voor multi-factor authentication die ze nodig hebben om af te ronden krachtvoertuigen een beveiligingscode naar hun telefoonnummer. Omdat dit een riskante teken in, en geen account waarmee is geknoeid, wordt de gebruiker hoeft te wijzigen van het wachtwoord in deze stroom. 
    
     ![Herstel](./media/active-directory-identityprotection-flows/121.png "herstel")
 
@@ -81,14 +83,14 @@ Beheerders kunnen ook kiezen een beleid voor aanmelden risico voorkomen dat gebr
 ![Herstel](./media/active-directory-identityprotection-flows/200.png "herstel")
 
 ## <a name="compromised-account-recovery"></a>Verdacht accountherstel
-Wanneer een gebruiker risico-beveiligingsbeleid is geconfigureerd, gebruikers die voldoen aan de gebruiker risiconiveau opgegeven in het beleid (en zijn daarom aangenomen geknoeid) door de gebruiker inbreuk herstel stroom moet gaan voordat ze kunnen aanmelden. 
+Wanneer een gebruiker risico-beveiligingsbeleid is geconfigureerd, gebruikers die voldoen aan de gebruiker risiconiveau opgegeven in het beleid (en zijn daarom aangenomen geknoeid) door de gebruiker inbreuk herstel stroom moet gaan voordat deze zich kan aanmelden. 
 
 **De gebruiker inbreuk herstel-stroom heeft drie stappen:**
 
 1. De gebruiker wordt geïnformeerd dat de accountbeveiliging van hun risico vanwege verdachte activiteiten loopt of referenties gelekte.
    
     ![Herstel](./media/active-directory-identityprotection-flows/101.png "herstel")
-2. De gebruiker is vereist voor hun identiteit bewijzen door een beveiligingsvraag op te lossen. Als de gebruiker is geregistreerd voor multi-factor authentication kunnen ze zelf herstellen van wordt aangetast. Ze moet interactie een beveiligingscode naar hun telefoonnummer. 
+2. De gebruiker is vereist voor hun identiteit bewijzen door een beveiligingsvraag op te lossen. Als de gebruiker is geregistreerd voor multi-factor authentication kunnen ze zelf herstellen van wordt aangetast. Ze moet krachtvoertuigen ronde een beveiligingscode naar hun telefoonnummer. 
    
    ![Herstel](./media/active-directory-identityprotection-flows/110.png "herstel")
 3. Ten slotte wordt de gebruiker gedwongen hun wachtwoord wijzigen omdat iemand anders mogelijk toegang heeft gehad tot hun account. 

@@ -2,12 +2,13 @@
 title: Licentie-gebruikers in Azure Active Directory | Microsoft Docs
 description: Informatie over het licentie-uzelf en uw gebruikers in Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.openlocfilehash: bc210b83a9eeb947a15b60548e43096bd9e11c45
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7dc71b33f542cf49d8a0abdb16e6e2f21e5dc2a0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713742"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Snelstartgids: Licentie gebruikers in Azure Active Directory
 Azure AD op basis van een licentie services werk door een abonnement voor Azure Active Directory (Azure AD) in uw Azure-tenant activeren. Nadat het abonnement actief is, zijn de servicefuncties beheerd door beheerders van Azure AD en gebruikt door gebruikers met een licentie. Bij de aankoop van Enterprise Mobility + Security, Azure AD Premium of Azure AD Basic, wordt uw tenant wordt bijgewerkt met het abonnement, met inbegrip van de geldigheidsperiode en vooruitbetaalde licenties. Uw abonnementsgegevens, waaronder het aantal licenties toegewezen of beschikbaar is, is beschikbaar via de Azure-portal onder **Azure Active Directory** door het openen van de **licenties** tegel. De **licenties** blade is ook de beste plaats voor het beheren van uw licentietoewijzingen.
@@ -64,7 +66,7 @@ Er zijn geen kosten voor B2B-gebruikers en eraan toe te wijzen aan een toepassin
 
 Dit is niet vereist, maar als u toegang bieden tot betaalde Azure AD-functies wilt, die gebruikers van de Gast B2B moeten een licentie hebben met de desbetreffende Azure AD-licenties. Een uitnodiging tenant met een Azure AD betaalde licentie kunt B2B-samenwerking gebruikersrechten toewijzen aan een extra vijf gastgebruikers uitgenodigd voor de tenant. Zie voor scenario's en informatie [B2B-samenwerking richtlijnen licentieverlening](active-directory-b2b-licensing.md).
 
-## <a name="view-assigned-licenses"></a>Weergave toegewezen licenties
+## <a name="view-assigned-licenses"></a>De licentiegegevens weergeven
 
 Een samenvatting weergegeven van de licenties toegewezen en beschikbaar wordt weergegeven onder **Azure Active Directory** &gt; **licenties** &gt; **alle producten**.
 

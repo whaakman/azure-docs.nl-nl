@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: arluca
-ms.openlocfilehash: a2225409e4cb50d91c09207ee70b76df12925192
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 57455c5abf8c566f3935ece73d0b7470863936f8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699146"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Zelfstudie: Een gebruiker toegewezen beheerde Service identiteit (MSI) op een virtuele machine van Windows gebruiken voor toegang tot Azure Resource Manager
 
@@ -79,8 +80,7 @@ New-AzureRmVm `
 
 Een gebruiker toegewezen identiteit gemaakt als een zelfstandige Azure-resource. Met behulp van de [nieuw AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity), Azure maakt een identiteit in uw Azure AD-tenant die kan worden toegewezen aan een of meer exemplaren van Azure-service.
 
-> [!IMPORTANT]
-> Maken van toegewezen gebruikers-id's ondersteunt alleen alfanumerieke en het koppelteken (0-9 of a-z of A-Z of -) tekens. Bovendien moeten worden beperkt tot 24 tekens voor de toewijzing aan een VM/VMSS goed te laten werken. Controleer regelmatig op updates. Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
@@ -171,4 +171,7 @@ Het antwoord bevat de specifieke resourcegroep informatie vergelijkbaar met het 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](overview.md).
+In deze zelfstudie hebt u geleerd hoe een gebruiker toegewezen identiteit maken en deze te koppelen aan een virtuele Machine van Azure voor toegang tot de Azure Resource Manager-API.  Zie voor meer informatie over Azure Resource Manager:
+
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

@@ -5,20 +5,17 @@ keywords: Feed wijzigen
 services: cosmos-db
 author: rafats
 manager: kfile
-documentationcenter: ''
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: ''
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: be59f1a9dc19fffdb6a952c7db73756909036bf6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f0a646591811e7c965ad7de5201913a43cae54fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715170"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Werken met de ondersteuning in Azure Cosmos DB feed wijziging
 
@@ -93,7 +90,7 @@ Als u van Azure Functions gebruikmaakt, is de eenvoudigste manier om verbinding 
 Triggers kunnen worden gemaakt in de Azure Functions-portal in de Azure DB die Cosmos-portal of programmatisch. Zie voor meer informatie [Azure Cosmos DB: zonder Server database computing met behulp van Azure Functions](serverless-computing-database.md).
 
 <a id="rest-apis"></a>
-## <a name="using-the-sdk"></a>Met behulp van de SDK
+## <a name="using-the-sdk"></a>De SDK gebruiken
 
 De [SQL SDK](sql-api-sdk-dotnet.md) voor Azure Cosmos DB biedt u de bevoegdheid om te lezen en beheren van een wijziging in de feed. Maar met geweldige power te veel verantwoordelijkheden geleverd. Als u wilt beheren van controlepunten, behandelt document volgnummers en hebben gedetailleerde controle over partitiesleutels, klik met de SDK mogelijk de juiste aanpak.
 
@@ -167,7 +164,7 @@ Deze sectie wordt uitgelegd hoe u de SQL-SDK gebruiken om te werken met een wijz
 
 Als u meerdere lezers hebt, kunt u **ChangeFeedOptions** lezen verdelen naar verschillende threads of andere clients.
 
-En dat is alles, met deze paar regels code kunt u starten voor het lezen van de feed wijzigen. Krijgt u de volledige code gebruikt in dit artikel uit de [GitHub-repo-](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
+En dat is alles, met deze paar regels code kunt u starten voor het lezen van de feed wijzigen. Krijgt u de volledige code gebruikt in dit artikel uit de [GitHub-repo-](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
 In de code in stap 4 hierboven, de **ResponseContinuation** in de laatste regel bevat het laatste logische volgnummer (LSN) van het document, gaat u de volgende keer dat u nieuwe documenten nadat deze volgnummer lezen. Met behulp van de **StartTime** van de **ChangeFeedOption** kunt u uw net als u de documenten verbreden. Ja, als uw **ResponseContinuation** is null, maar uw **StartTime** gaat u terug in tijd krijgt u de documenten die gewijzigd sinds de **StartTime**. Maar als uw **ResponseContinuation** system krijgt u alle documenten sinds die LSN heeft een waarde.
 
@@ -194,7 +191,7 @@ Houd er rekening mee dat als er twee zonder server Azure funtions bewaking van d
 Vier belangrijke onderdelen van de implementatie van de Feed Processor van wijziging: de bewaakte verzameling, de verzameling van de lease, de processor-host en de consumenten. 
 
 > [!WARNING]
-> Het maken van een verzameling heeft gevolgen voor de prijs, omdat u doorvoer reserveert voor de toepassing om te communiceren met Azure Cosmos DB. Voor meer informatie raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> Het maken van een verzameling heeft gevolgen voor de prijs, omdat u doorvoer reserveert voor de toepassing om te communiceren met Azure Cosmos DB. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) voor meer informatie
 > 
 > 
 
@@ -279,7 +276,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 }
 ```
 
-Dat is alles. Na deze stappen in afkomstig van documenten gaat de **DocumentFeedObserver ProcessChangesAsync** methode.
+Dat is alles. Na deze stappen in afkomstig van documenten gaat de **DocumentFeedObserver ProcessChangesAsync** methode. Zoek de bovenstaande code in [GitHub-repo-](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 
 ## <a name="next-steps"></a>Volgende stappen
 

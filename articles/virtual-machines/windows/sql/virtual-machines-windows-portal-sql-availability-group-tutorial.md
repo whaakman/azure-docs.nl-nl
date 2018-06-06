@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716717"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configureren AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -40,7 +41,7 @@ De volgende tabel bevat de vereisten die u nodig hebt voltooid voordat u deze ze
 
 |  |Vereiste |Beschrijving |
 |----- |----- |----- |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Two SQL Servers | -In een Azure beschikbaarheidsset <br/> -In één domein <br/> -Met de functie Failover Clustering is geïnstalleerd |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Twee SQL-Servers | -In een Azure beschikbaarheidsset <br/> -In één domein <br/> -Met de functie Failover Clustering is geïnstalleerd |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Bestandsshare voor cluster-witness |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-serviceaccount | Domeinaccount |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent-serviceaccount | Domeinaccount |  
@@ -57,7 +58,7 @@ Voordat u de zelfstudie begint, moet u [voldoen aan vereisten voor het maken van
 <a name="CreateCluster"></a>
 ## Het cluster maken
 
-Nadat de vereiste onderdelen zijn voltooid, wordt de eerste stap is om een Windows Server-failovercluster met twee SQL-servers en een witness-server te maken.  
+Nadat de vereiste onderdelen zijn voltooid, wordt de eerste stap is om een Windows Server-failovercluster met twee SQL-servers en een witness-server te maken.
 
 1. RDP naar de eerste SQL-Server met behulp van een domeinaccount met een Administrator op SQL-Servers en de witness-server.
 
@@ -85,7 +86,8 @@ Nadat de vereiste onderdelen zijn voltooid, wordt de eerste stap is om een Windo
 
    ![Eigenschappen van cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Selecteer **statisch IP-adres** en geef een beschikbaar adres van waar de SQL-Server zich in het tekstvak voor het bevindt subnet. Klik vervolgens op **OK**.
+3. Selecteer **statisch IP-adres** en geef een beschikbaar adres uit het bereik van particuliere IP-adressering APIPA (Automatic): 169.254.0.1 tot 169.254.255.254 in het vak adres. In dit voorbeeld kunt u elk adres in dat bereik. Bijvoorbeeld `169.254.0.1`. Klik vervolgens op **OK**.
+
 4. In de **Clusterkernresources** sectie, met de rechtermuisknop op de clusternaam van het en klik op **Online brengen**. Vervolgens wacht u totdat beide bronnen online zijn. Wanneer de clusterbron met de naam van online wordt gezet, de DC-server wordt bijgewerkt met een nieuw AD-account. Gebruik deze AD-account later uit te voeren de beschikbaarheidsgroep geclusterde service.
 
 ### <a name="addNode"></a>De SQL-Server toevoegen aan cluster
@@ -321,7 +323,7 @@ U bent nu klaar om te configureren van een beschikbaarheidsgroep met behulp van 
 
    Uw **AlwaysOn Dashboard** ziet er ongeveer als volgt.
 
-   ![AG Dashboard](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
+   ![AG-Dashboard](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
 
    U ziet de replica's, de failover-modus van elke replica en de synchronisatiestatus.
 
@@ -413,13 +415,13 @@ Voor het configureren van de load balancer, moet u een back-endpool een test mak
    | **Protocol** | Kies TCP |TCP |
    | **Poort** | Gebruik de poort voor SQL Server-exemplaar | 1433 |
    | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 1433 |
-   | **Probe** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
+   | **Test** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
    | **Time-out voor inactiviteit** | Minuten geopend te houden die een TCP-verbinding | 4 |
    | **Zwevend IP (direct server return)** | |Ingeschakeld |
 
    > [!WARNING]
-   > Direct server return is ingesteld tijdens het maken van. Deze kan niet worden gewijzigd.
+   > Direct server return is ingesteld tijdens het maken van. De naam kan niet worden gewijzigd.
 
 1. Klik op **OK** om in te stellen van de load-balancingregels.
 

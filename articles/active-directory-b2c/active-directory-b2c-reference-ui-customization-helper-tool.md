@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Hulpprogramma Page UI aanpassing helper | Microsoft Docs'
-description: Een helper hulpprogramma dat wordt gebruikt voor het demonstreren van de functie pagina UI aanpassen in Azure Active Directory B2C
+title: Hulpprogramma voor aanpassing helper Page UI in Azure Active Directory B2C | Microsoft Docs
+description: Een helper-hulpprogramma gebruikt om te demonstreren van de functie pagina UI aanpassen in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: d57b8d43b2302a18b9df89eacc8ffd20d1742075
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711991"
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: Een helper hulpprogramma dat wordt gebruikt voor het demonstreren van de pagina gebruiker gebruikersinterface (UI)-functie met aanpassen
 Dit artikel is een aanvulling op de [belangrijkste UI aanpassing artikel](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. De volgende stappen wordt beschreven hoe de functie UI aanpassing oefenen met behulp van HTML en CSS voorbeeldinhoud die we hebt opgegeven.

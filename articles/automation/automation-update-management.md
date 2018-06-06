@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d93f79874ff65a1b6bb7ddd75932111c5caa6072
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 83204132a7494dc766420520eeaf2362c98d878f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801810"
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -59,7 +60,7 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
-|Ubuntu 12.04 TNS, 14.04 TNS, 16.04 LTS (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
+|Ubuntu 14.04 TNS, 16.04 LTS (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 
@@ -284,7 +285,7 @@ Implementeren van updates door updateclassificatie werkt mogelijk niet op openSU
 
 Deze sectie bevat informatie over het oplossen van problemen met de oplossing Update Management.
 
-Als u problemen ondervindt tijdens de onboarding van de oplossing of een virtuele machine, gaat u naar het gebeurtenislogboek **Toepassings- en servicelogboeken\Operations Manager** voor gebeurtenissen met gebeurtenis-id 4502 en het gebeurtenisbericht met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. In de volgende tabel worden specifieke foutberichten weergegeven, plus een mogelijke oplossing voor elk van deze fouten.
+Als u problemen ondervindt bij het vrijgeven de oplossing of een virtuele machine, controleert u de **toepassingen en Services Logs\Operations Manager** gebeurtenislogboek op de lokale computer voor gebeurtenissen met de ID 4502 en gebeurtenis gebeurtenisbericht met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. In de volgende tabel worden specifieke foutberichten weergegeven, plus een mogelijke oplossing voor elk van deze fouten.
 
 | Bericht | Reden | Oplossing |
 |----------|----------|----------|

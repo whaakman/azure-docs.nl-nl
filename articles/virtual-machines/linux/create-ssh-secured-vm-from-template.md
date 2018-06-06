@@ -2,10 +2,10 @@
 title: Linux-VM in Azure maken van een sjabloon | Microsoft Docs
 description: Het gebruik van de Azure CLI 2.0 voor een Linux-VM maken van een Resource Manager-sjabloon
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2750bed40707872bb120a7cb7130d8be01aabf7d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0e241d56eba8c8cb23b1a78227b4ca7ff725162d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716404"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Het maken van een virtuele Linux-machine met Azure Resource Manager-sjablonen
 In dit artikel laat zien hoe snel implementeren virtuele Linux-machine (VM) met Azure Resource Manager-sjablonen en de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
@@ -31,7 +32,7 @@ Azure Resource Manager-sjablonen zijn JSON-bestanden die de infrastructuur en co
 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
-Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Een resourcegroep moet worden gemaakt voordat een virtuele machine. Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupVM* in de *eastus* regio:
+Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voordat een virtuele machine wordt gemaakt, moet een resourcegroep worden gemaakt. Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupVM* in de *eastus* regio:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -41,7 +42,8 @@ az group create --name myResourceGroup --location eastus
 Het volgende voorbeeld wordt een virtuele machine uit [deze Azure Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) met [az implementatie maken](/cli/azure/group/deployment#az_group_deployment_create). SSH-verificatie is toegestaan. Geef desgevraagd de waarde van uw eigen openbare SSH-sleutel, zoals de inhoud van *~/.ssh/id_rsa.pub*. Als u maken van een SSH-sleutelpaar wilt, Zie [maken en gebruiken van een SSH-sleutelpaar voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md).
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az group deployment create \
+    --resource-group myResourceGroup \
     --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
@@ -49,7 +51,7 @@ In het vorige voorbeeld, kunt u een sjabloon die is opgeslagen in GitHub opgegev
 
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
-Om SSH met uw virtuele machine te verkrijgen van het openbare IP-adres met [az vm weergeven](/cli/azure/vm#az_vm_show):
+Om SSH met uw virtuele machine te verkrijgen van het openbare IP-adres met [az vm weergeven](/cli/azure/vm#az-vm-show):
 
 ```azurecli
 az vm show \

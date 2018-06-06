@@ -3,11 +3,12 @@ title: Microsoft Graph voor beveiliging van Azure Active Directory-identiteit | 
 description: Informatie over het Microsoft Graph zoeken naar een lijst met risico's en bijbehorende gegevens van Azure Active Directory.
 services: active-directory
 keywords: beveiliging voor Azure active directory-identiteit, risicogebeurtenis, beveiligingsprobleem, beveiligingsbeleid, Microsoft Graph
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c59285fbb2c81e5e20d28171abfe806bd51122
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713198"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Aan de slag met Azure Active Directory: Identity Protection en Microsoft Graph
 Microsoft Graph is de Microsoft unified API-eindpunt en het hart van [Azure Active Directory: Identity Protection](active-directory-identityprotection.md) API's. De eerste API **identityRiskEvents**, kunt u Microsoft Graph opvragen voor een lijst met [bestaat de kans dat gebeurtenissen](active-directory-identityprotection-risk-events-types.md) en informatie die is gekoppeld. In dit artikel helpt u op weg met het opvragen van deze API. Zie voor een gedetailleerde inleiding, volledige documentatie en toegang tot de grafiek Explorer, de [Microsoft Graph site](https://graph.microsoft.io/).
@@ -171,7 +173,7 @@ Voor het aanroepen van de API maakt u een header met de volgende parameter:
 
 Bij de verificatie, vindt u het type token en het toegangstoken in het resulterende token.
 
-Deze header als een aanvraag verzenden naar de volgende API-URL:`https://graph.microsoft.com/beta/identityRiskEvents`
+Deze header als een aanvraag verzenden naar de volgende API-URL: `https://graph.microsoft.com/beta/identityRiskEvents`
 
 Het antwoord, is als dit lukt, een verzameling van identiteit risico's en bijbehorende gegevens in de OData-JSON-indeling, die kan worden geparseerd en wens naar verwerkt.
 

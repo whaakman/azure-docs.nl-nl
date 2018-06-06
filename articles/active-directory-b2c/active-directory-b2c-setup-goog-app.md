@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Google + configuratie | Microsoft Docs'
+title: Google + configuratie in Azure Active Directory B2C | Microsoft Docs
 description: Registreren en aanmelden gebruikers met Google + accounts in uw toepassingen die zijn beveiligd met Azure Active Directory B2C bieden.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: db3044754e0c1316b49eda0600d41e3009c1ba16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 5377e4b56bca09a1785d14bfe4c32de01e6db7d3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711362"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met Google + accounts
 ## <a name="create-a-google-application"></a>Een Google +-toepassing maken
@@ -30,7 +30,7 @@ Voor het gebruik van Google + als een id-provider in Azure Active Directory (Azu
 3. Klik op **API Manager** en klik vervolgens op **referenties** in de linkernavigatiebalk.
 4. Klik op de **OAuth toestemming scherm** boven op het tabblad.
    
-    ![Google+ - Credentials](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)
+    ![Google + - referenties](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)
 5. Selecteer of geef een geldige **e-mailadres**, bieden een **Productnaam**, en klik op **opslaan**.
    
     ![Google + - OAuth toestemming scherm](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)

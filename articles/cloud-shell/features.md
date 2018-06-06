@@ -2,11 +2,11 @@
 title: Bash in Azure Cloud Shell-onderdelen | Microsoft Docs
 description: Overzicht van de functies van Bash in de Azure-Cloud-Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 24f656555b9390bb57b9ca511b86c926e27ebdb6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3e71f2307ab68b2bc4694c7782f7a0f0d43b159b
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757039"
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Functies en hulpprogramma's voor Bash in de Azure-Cloud-Shell
 
@@ -48,9 +49,9 @@ Bestanden buiten `$Home` en status van de machine blijven niet bestaan tussen se
 
 [Meer informatie over persistent maken van de bestanden in Bash in de Cloud-Shell.](persisting-shell-storage.md)
 
-### <a name="deep-integration-with-open-source-tooling"></a>Nauwe integratie met open source tooling
+### <a name="integration-with-open-source-tooling"></a>Integratie met open source tooling
 
-Bash in de Cloud-Shell bevat vooraf geconfigureerde verificatie voor open-source hulpprogramma's zoals Terraform en Ansible. Probeer deze uit van de voorbeeld-scenario.
+Bash in de Cloud-Shell bevat vooraf geconfigureerde verificatie voor open-source hulpprogramma's zoals Terraform Ansible en Chef inspectie mogelijk. Probeer deze uit van de voorbeeld-scenario.
 
 ## <a name="tools"></a>Hulpprogramma's
 
@@ -62,8 +63,8 @@ Bash in de Cloud-Shell bevat vooraf geconfigureerde verificatie voor open-source
 |Resourcebeheer         |GIT                    |
 |Hulpprogramma's van build            |Maken<br> maven<br> npm<br> PIP         |
 |Containers             |[Docker CLI](https://github.com/docker/cli)/[Docker-Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|Databases              |MySQL-client<br> PostgreSql-client<br> [Sqlcmd-hulpprogramma](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Overige                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)| 
+|Databases              |MySQL-client<br> PostgreSql-client<br> [Sqlcmd-hulpprogramma](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL-scripts](https://github.com/Microsoft/sql-xplat-cli) |
+|Overige                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef inspectie mogelijk](https://www.chef.io/inspec/)| 
 
 ## <a name="language-support"></a>Taalondersteuning
 
@@ -73,7 +74,7 @@ Bash in de Cloud-Shell bevat vooraf geconfigureerde verificatie voor open-source
 |Aan de slag         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.1](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0.2](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 en 3.5 (standaard)|
 
 ## <a name="next-steps"></a>Volgende stappen

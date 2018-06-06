@@ -4,7 +4,7 @@ description: Azure File-synchronisatie lokaal netwerkconfiguratie
 services: storage
 documentationcenter: ''
 author: fauhse
-manager: klaasl
+manager: aungoo
 editor: tamram
 ms.assetid: ''
 ms.service: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738527"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Proxy- en firewallinstellingen van Azure File Sync
 Uw on-premises servers verbindt Azure bestand synchronisatie met Azure-bestanden, synchronisatie voor meerdere locaties en cloud tiering functies inschakelen. Als zodanig moet een on-premises server worden verbonden met internet. IT-beheerder nodig heeft om te bepalen het beste pad voor de server te bereiken in de Azure-cloudservices.
@@ -64,7 +65,7 @@ De volgende tabel staan de domeinen vereist voor communicatie:
 | **Azure Resource Manager** | https://management.azure.com | Geen enkele aanroep van de gebruiker (zoals PowerShell) gaat via deze URL, met inbegrip van de eerste server registratie-aanroep. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager-aanroepen moeten worden gemaakt door een geverifieerde gebruiker. Te laten slagen, worden deze URL wordt gebruikt voor verificatie van gebruiker. |
 | **Azure Active Directory** | https://graph.windows.net/ | Als onderdeel van de implementatie van Azure File-synchronisatie, wordt een service-principal in het abonnement Azure Active Directory gemaakt. Deze URL wordt gebruikt voor die. Deze principal wordt gebruikt voor het overdragen van een minimale set rechten voor de synchronisatieservice van Azure-bestand. De gebruiker die de eerste installatie van Azure File-synchronisatie wordt uitgevoerd, moet een geverifieerde gebruiker met bevoegdheden voor abonnement-eigenaar. |
-| **Azure Storage** | &ast;.core.windows.net | Wanneer de server een bestand wordt gedownload, klikt u vervolgens de server worden uitgevoerd die meer gegevensverplaatsing efficiënt als praten rechtstreeks met de Azure-bestandsshare in de Storage-Account. De server heeft een SAS-sleutel die u alleen voor gerichte bestandsshare-toegang kunt. |
+| **Azure Storage** | &ast;.core.windows.net | Wanneer de server een bestand wordt gedownload, klikt u vervolgens de server worden uitgevoerd dat de gegevensverplaatsing efficiënter als praten rechtstreeks met de Azure-bestandsshare in de Storage-Account. De server heeft een SAS-sleutel die u alleen voor gerichte bestandsshare-toegang kunt. |
 | **Azure File-synchronisatie** | &ast;.one.microsoft.com | Na de serverregistratie van de eerste ontvangt de server een regionale URL op voor het synchroniseren van Azure File service-exemplaar in deze regio. De server kan de URL gebruiken om te communiceren rechtstreeks en efficiënt met het verwerken van de synchronisatie-exemplaar. |
 
 > [!Important]

@@ -1,25 +1,27 @@
 ---
 title: Ontwerp van hybride identiteit - strategie voor ingebruikname lifecycle Azure | Microsoft Docs
-description: "Helpt bij het definiëren van de beheertaken voor hybride identiteit volgens de beschikbare opties voor elke fase van de levenscyclus."
-documentationcenter: 
+description: Helpt bij het definiëren van de beheertaken voor hybride identiteit volgens de beschikbare opties voor elke fase van de levenscyclus.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 911e65719bff0a86e3280482296bbb320fd30377
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801827"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Hybride identity lifecycle acceptatie strategie bepalen
 In deze taak definieert u de strategie voor het beheer van de identiteit voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in [beheertaken voor hybride identiteit bepalen](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -35,11 +37,11 @@ Accounts in geavanceerde IT-bedrijven honderden parameters waarmee de instanties
 
 | Fase van de levenscyclus | On-premises | Cloud | Hybride |
 | --- | --- | --- | --- |
-| Accountbeheer en inrichting |Met behulp van de serverfunctie Active Directory® Domain Services (AD DS), kunt u een schaalbare, veilige en beheerbare infrastructuur maken voor gebruikers- en resourcebeheer, en ondersteuning bieden voor Active directory-toepassingen zoals Microsoft® Exchange Server. <br><br> [U kunt groepen in AD DS, via een Identity manager inrichten](https://technet.microsoft.com/library/ff686261.aspx) <br>[U kunt gebruikers in AD DS inrichten](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Beheerders kunnen toegangsbeheer gebruiken voor het beheren van de gebruikerstoegang tot gedeelde bronnen om beveiligingsredenen. In Active Directory en toegangsbeheer wordt beheerd op het objectniveau van het door het instellen van verschillende niveaus van toegang of machtigingen voor objecten, zoals volledig beheer, schrijven, lezen of geen toegang. Toegangsbeheer in Active Directory wordt gedefinieerd hoe verschillende gebruikers Active Directory-objecten kunt gebruiken. Machtigingen voor objecten in Active Directory zijn standaard ingesteld op de veiligste instelling. |U moet een account voor elke gebruiker die toegang hebben tot een Microsoft-cloudservice maken. U kunt ook gebruikersaccounts wijzigen of verwijderen wanneer ze niet meer nodig zijn. Gebruikers hebben geen administrator-machtigingen, maar u kunt deze desgewenst toewijzen. Zie voor meer informatie [gebruikers beheren in Azure AD](active-directory-create-users.md). <br><br> Een van de belangrijkste functies is de mogelijkheid voor het beheren van toegang tot bronnen in Azure Active Directory. Deze resources kunnen deel uitmaken van de map in het geval van machtigingen voor het beheren van objecten door middel van rollen in de directory, of de bronnen die extern zijn voor de map, zoals SaaS-toepassingen, de Azure-services, en de SharePoint-sites of de lokale bronnen. <br><br> Toegang voor de center van Azure Active Directory is beheeroplossing de beveiligingsgroep. De resource-eigenaar (of de beheerder van de directory) kan een groep voor een bepaalde toegang tot de resources die ze eigenaar worden toegewezen. De toegang wordt aangeboden door de leden van de groep en de resource-eigenaar kan het recht voor het beheren van de lijst met leden van een groep naar iemand anders – zoals een afdeling of een sitebeheerder helpdesk delegeren<br> <br> De groepen beheren in Azure AD-onderwerp vindt u meer informatie over het beheren van toegang tot en met groepen. |Active Directory-identiteiten in de cloud via synchronisatie en Federatie uitbreiden |
+| Accountbeheer en inrichting |Met behulp van de serverfunctie Active Directory® Domain Services (AD DS), kunt u een schaalbare, veilige en beheerbare infrastructuur maken voor gebruikers- en resourcebeheer, en ondersteuning bieden voor Active directory-toepassingen zoals Microsoft® Exchange Server. <br><br> [U kunt groepen in AD DS, via een Identity manager inrichten](https://technet.microsoft.com/library/ff686261.aspx) <br>[ U kunt gebruikers in AD DS inrichten](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Beheerders kunnen toegangsbeheer gebruiken voor het beheren van de gebruikerstoegang tot gedeelde bronnen om beveiligingsredenen. In Active Directory en toegangsbeheer wordt beheerd op het objectniveau van het door het instellen van verschillende niveaus van toegang of machtigingen voor objecten, zoals volledig beheer, schrijven, lezen of geen toegang. Toegangsbeheer in Active Directory wordt gedefinieerd hoe verschillende gebruikers Active Directory-objecten kunt gebruiken. Machtigingen voor objecten in Active Directory zijn standaard ingesteld op de veiligste instelling. |U moet een account voor elke gebruiker die toegang hebben tot een Microsoft-cloudservice maken. U kunt ook gebruikersaccounts wijzigen of verwijderen wanneer ze niet meer nodig zijn. Gebruikers hebben geen administrator-machtigingen, maar u kunt deze desgewenst toewijzen. Zie voor meer informatie [gebruikers beheren in Azure AD](active-directory-create-users.md). <br><br> Een van de belangrijkste functies is de mogelijkheid voor het beheren van toegang tot bronnen in Azure Active Directory. Deze resources kunnen deel uitmaken van de map in het geval van machtigingen voor het beheren van objecten door middel van rollen in de directory, of de bronnen die extern zijn voor de map, zoals SaaS-toepassingen, de Azure-services, en de SharePoint-sites of de lokale bronnen. <br><br> Toegang voor de center van Azure Active Directory is beheeroplossing de beveiligingsgroep. De resource-eigenaar (of de beheerder van de directory) kan een groep voor een bepaalde toegang tot de resources die ze eigenaar worden toegewezen. De toegang wordt aangeboden door de leden van de groep en de resource-eigenaar kan het recht voor het beheren van de lijst met leden van een groep naar iemand anders – zoals een afdeling of een sitebeheerder helpdesk delegeren<br> <br> De groepen beheren in Azure AD-sectie vindt u meer informatie over het beheren van toegang tot en met groepen. |Active Directory-identiteiten in de cloud via synchronisatie en Federatie uitbreiden |
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 Op rollen gebaseerde toegang beheren (RBAC) maakt gebruik van functies en beleidsregels te evalueren, testen en afdwingen van uw bedrijfsprocessen en regels voor het verlenen van toegang voor gebruikers. Sleutel beheerders beleidsregels voor de inrichting en maken en gebruikers toewijzen aan rollen die sets met rechten aan resources voor deze rollen definiëren. RBAC breidt de oplossing voor identiteitsbeheer als u wilt gebruiken op basis van software-processen en handmatige tussenkomst van de gebruiker in het inrichtingsproces te verminderen.
-Azure AD-RBAC beschikt het bedrijf te beperken van de hoeveelheid bewerkingen die een persoon uitvoeren kunt nadat hij toegang tot Azure-beheerportal heeft. Met RBAC toegang tot de portal kunnen IT-beheerders ca toegang delegeren met behulp van de volgende methoden voor access management:
+Azure AD RBAC beschikt het bedrijf om het aantal bewerkingen die een persoon uitvoeren kunt wanneer hij toegang tot de Azure-portal heeft te beperken. Met RBAC toegang tot de portal kunnen IT-beheerders ca toegang delegeren met behulp van de volgende methoden voor access management:
 
 * **Op basis van een groep roltoewijzing**: U kunt toegang toewijzen aan Azure AD-groepen die kunnen worden gesynchroniseerd vanuit uw lokale Active Directory. Hiermee kunt u gebruikmaken van bestaande investeringen in uw organisatie heeft doorgevoerd in tooling en processen voor het beheren van groepen. U kunt ook de functie voor het beheer van gedelegeerd group van Azure AD Premium.
 * **Gebruik de ingebouwde rollen in Azure**: U kunt drie rollen: eigenaar, bijdrager en Reader om ervoor te zorgen dat gebruikers en groepen gemachtigd bent alleen de taken die ze nodig hebben om hun werk te doen.
@@ -67,13 +69,14 @@ Wanneer uw organisatie wordt gestart voor het leveren van resources voor alle in
 > 
 > 
 
-Azure AD (recht gebaseerd) op basis van een licentie services werk door een abonnement in uw Azure AD-directory-service-tenant activeren. Zodra het abonnement actief is kunnen u de servicemogelijkheden worden beheerd door beheerders van directory-service en die wordt gebruikt door gebruikers met een licentie. Zie voor meer informatie, hoe biedt Azure AD licensing work?
-Integratie met andere leveranciers 3e
+Azure AD (recht gebaseerd) op basis van een licentie services werk door een abonnement in uw Azure AD-directory-service-tenant activeren. Zodra het abonnement actief is kunnen u de servicemogelijkheden worden beheerd door beheerders van directory-service en die wordt gebruikt door gebruikers met een licentie. 
 
-Azure Active Directory biedt eenmalige aanmelding op en verbeterde beveiliging van de toepassing toegang tot duizenden SaaS-toepassingen en on-premises webtoepassingen. Zie voor een gedetailleerde lijst met Azure Active Directory-toepassingsgalerie voor ondersteunde SaaS-toepassingen, Azure Active Directory federatiecompatibiliteitslijst: onafhankelijke id-providers die kunnen worden gebruikt voor het implementeren van eenmalige aanmelding
+## <a name="integration-with-other-3rd-party-providers"></a>Integratie met andere leveranciers 3e
+
+Azure Active Directory biedt eenmalige aanmelding op en verbeterde beveiliging van de toepassing toegang tot duizenden SaaS-toepassingen en on-premises webtoepassingen. Zie voor meer informatie [toepassingen integreren met Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)
 
 ## <a name="define-synchronization-management"></a>Synchronisatie management definiëren
-Wanneer u uw on-premises directory's integreert met Azure AD, worden uw gebruikers productiever omdat zij één identiteit hebben voor toegang tot zowel resources in de cloud als on-premises. Met deze integratie kunnen gebruikers en organisaties profiteren van de volgende opties:
+Wanneer u uw on-premises directory's integreert met Azure AD, worden uw gebruikers productiever omdat zij één identiteit hebben voor toegang tot zowel resources in de cloud als on-premises. Met deze integratie, kunnen gebruikers en organisaties profiteren van de volgende opties:
 
 * Organisaties kunnen gebruikers met een algemene hybride identiteit bieden voor on-premises of cloud-gebaseerde services gebruik van Windows Server Active Directory en vervolgens te verbinden met Azure Active Directory.
 * Beheerders kunnen voorwaardelijke toegang op basis van de bron van toepassing, apparaat en gebruikers-id, netwerklocatie en multi-factor authentication-server opgeven.

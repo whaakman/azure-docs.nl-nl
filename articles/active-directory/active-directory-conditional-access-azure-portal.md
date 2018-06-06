@@ -9,18 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 05/26/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ddfa3d70e2ce901a59476c5c0784d35999731ed6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724357"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Voorwaardelijke toegang in Azure Active Directory
 
@@ -81,32 +83,8 @@ Met voorwaardelijke toegang van Azure AD, kunt u bepalen hoe gemachtigde gebruik
 
 Een voordeel van het gebruik van een benadering op basis van beleid voor het beveiligen van toegang tot uw cloud-apps is dat u de vereisten voor uw omgeving met behulp van de structuur die worden beschreven in dit artikel zonder dat u de technische implementatie opstellen kunt starten. 
 
-## <a name="what-you-need-to-know"></a>Wat u moet weten
 
-### <a name="general-requirements-for-using-conditional-access"></a>Algemene vereisten voor het gebruik van voorwaardelijke toegang
-
-U kunt voorwaardelijke toegang van Azure AD cloud om apps te beveiligen als een verificatiepoging afkomstig van is:
-
-- Een webbrowser
-
-- Een client-app die gebruikmaakt van moderne verificatie
-
-- Exchange ActiveSync
-
-Zie voor meer informatie [client-apps](active-directory-conditional-access-conditions.md#client-apps).
-
-Sommige [cloud-apps](active-directory-conditional-access-conditions.md#cloud-apps) bieden ook ondersteuning voor legacy-verificatieprotocollen. Dit geldt, bijvoorbeeld voor SharePoint Online en Exchange Online. Wanneer een client-app u een verouderde verificatieprotocol gebruiken kunt voor toegang tot een cloud-app, kan geen beleid voor voorwaardelijke toegang op deze toegangspoging door Azure AD afdwingen. Om te voorkomen dat een client-app voor het omzeilen van het afdwingen van beleid, moet u controleren of het is mogelijk alleen moderne verificatie op de desbetreffende cloud-apps inschakelen.
-
-Voorbeelden voor voorwaardelijke toegang van apps niet van toepassing op client zijn:
-
-- Office 2010 en eerder
-
-- Office 2013 wanneer moderne verificatie niet is ingeschakeld
-
-Zie voor meer informatie [SharePoint Online en Exchange Online instellen voor voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md).
-
-
-### <a name="license-requirements-for-using-conditional-access"></a>Licentievereisten voor het gebruik van voorwaardelijke toegang
+## <a name="license-requirements-for-using-conditional-access"></a>Licentievereisten voor het gebruik van voorwaardelijke toegang
 
 Voorwaardelijke toegang, is een Azure AD Premium-licentie vereist. Zie informatie over de juiste licentie voor uw vereisten [algemeen beschikbaar functies van de vrije, Basic en Premium-edities vergelijken](https://azure.microsoft.com/pricing/details/active-directory/).
 

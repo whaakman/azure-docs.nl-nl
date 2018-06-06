@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: alleonar
-ms.openlocfilehash: 35e84a22eabce0b7361c2227317baab62421c301
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ff8c038ac5fa42668227a0531fa77bd853dd2b2
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757516"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Ontwikkelaarshandleiding Azure Sleutelkluis
 
@@ -52,11 +53,11 @@ Resources in bovenstaande video:
 
 ## <a name="creating-and-managing-key-vaults"></a>Maken en beheren van Sleutelkluizen
 
-Azure Sleutelkluis biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Sleutelkluis om op te halen ze. Beheerde Service-identiteit (MSI) maakt het oplossen van dit probleem eenvoudiger door middel van een identiteit automatisch beheerde Azure-services in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken om alle services die ondersteuning biedt voor Azure AD-verificatie, met inbegrip van de Sleutelkluis, zonder dat u geen referenties hoeft in uw code te verifiëren. 
+Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Managed Service Identity (MSI) levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben. 
 
 Zie voor meer informatie over MSI [beheerde Service identiteit (MSI) voor Azure-resources](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
-Zie voor meer informatie over het werken met AAD [toepassingen integreren met Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+Zie voor meer informatie over het werken met AAD [toepassingen integreren met Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Voordat u sleutels, geheimen of certificaten in de sleutelkluis, maakt en beheert u uw sleutelkluis via CLI, PowerShell, Resource Manager-sjablonen of REST, zoals beschreven in de volgende artikelen:
 

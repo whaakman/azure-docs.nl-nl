@@ -1,23 +1,19 @@
 ---
 title: Inzicht in Azure IoT Hub apparaat-naar-cloud messaging | Microsoft Docs
 description: Handleiding voor ontwikkelaars - gebruiken met IoT Hub apparaat-naar-cloud-berichten. Bevat informatie over het verzenden van Telemetrie- en niet-telemtry gegevens, en routering gebruiken om berichten te bezorgen.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 261cca7c6830396574943f5e200449f16cb5b4f5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700771"
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Apparaat-naar-cloud-berichten verzenden met IoT Hub
 
@@ -65,8 +61,8 @@ De **ConnectionAuthMethod** eigenschap bevat een JSON-geserialiseerd object, met
 
 ```json
 {
-  "scope": "{ hub | device}",
-  "type": "{ symkey | sas}",
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
   "issuer": "iothub"
 }
 ```

@@ -1,29 +1,25 @@
 ---
-title: Parallelle vertakkingen - Azure Logic Apps | Microsoft Docs
-description: Maken of koppelen van parallelle vertakkingen in logic apps
+title: Maken of koppelen van parallelle vertakkingen - Azure Logic Apps | Microsoft Docs
+description: Het maken of koppelen van parallelle vertakkingen voor werkstromen in Azure Logic Apps
 services: logic-apps
-keywords: vertakkingen, parallel verwerken
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 9a836b707a576b9a938f43397ef35c00aeb476bf
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 40af32b1618ee495cff82ed0a588ad620b759e96
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725544"
 ---
-# <a name="create-or-join-parallel-branches-in-your-logic-app"></a>Maken of koppelen van parallelle vertakkingen in uw logische app
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Maken of koppelen van parallelle vertakkingen voor werkstroomacties in Azure Logic Apps
 
-Standaard acties in een logische app worden opeenvolgend uitgevoerd. Bewerkingen uit te voeren onafhankelijke op hetzelfde moment, kunt u [parallelle vertakkingen](#parallel-branches), en vervolgens [join die vertakkingen](#join-branches) verderop in de stroom. 
+Standaard wordt uw acties in logic app werkstromen worden opeenvolgend uitgevoerd. Bewerkingen uit te voeren onafhankelijke op hetzelfde moment, kunt u [parallelle vertakkingen](#parallel-branches), en vervolgens [join die vertakkingen](#join-branches) verderop in de stroom. 
 
 > [!TIP] 
 > Als u een trigger die een matrix ontvangt en een werkstroom voor elk matrixitem wilt uitvoeren hebt, kunt u *debatch* dat matrix met de [ **SplitOn** activeren eigenschap](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).

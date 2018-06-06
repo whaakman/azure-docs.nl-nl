@@ -12,17 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/04/2018
+ms.date: 05/31/2018
 ms.author: maghan
-ms.openlocfilehash: 1bc641e210a5bd965c5cdbf41efe853e9b297132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8d68a950438a332cdf8ddd8d4f13a316c87aa0a5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715918"
 ---
-# <a name="about-power-bi-embedded"></a>Over Power BI Embedded
+# <a name="what-is-power-bi-embedded"></a>Wat is Power BI Embedded?
 
-Power BI Embedded is bedoeld voor het vereenvoudigen van hoe onafhankelijke softwareleveranciers en ontwikkelaars Power BI-mogelijkheden gebruiken. Power BI Embedded vereenvoudigt de mogelijkheden van Power BI door zodat u snel geweldige visuele elementen, rapporten en dashboards toevoegen in uw apps. Vergelijkbaar met apps die zijn gebaseerd op het gebruik van Microsoft Azure-services zoals Machine Learning en IoT. ISV's toestaan door in te schakelen gegevensverkenning in hun apps gemakkelijk om te navigeren, hun klanten om snel en gefundeerde beslissingen te nemen in de context.
+Power BI Embedded is bedoeld voor het vereenvoudigen van hoe onafhankelijke softwareleveranciers en ontwikkelaars Power BI-mogelijkheden gebruiken. Power BI Embedded vereenvoudigt de mogelijkheden van Power BI door helpt u snel geweldige visuele elementen, rapporten en dashboards kunt toevoegen aan uw apps. Vergelijkbaar met apps die zijn gebaseerd op het gebruik van Microsoft Azure-services zoals Machine Learning en IoT. ISV's toestaan door in te schakelen gegevensverkenning in hun apps gemakkelijk om te navigeren, hun klanten om snel en gefundeerde beslissingen te nemen in de context.
 
 > [!VIDEO https://www.youtube.com/embed/iEHfUuoZseo]
 
@@ -30,7 +31,7 @@ In mei 2017 aangekondigd we de convergentie van de Power BI en Power BI Embedded
 
 Met Power BI Embedded hebt ISV's en ontwikkelaars toegevoegd flexibiliteit in hoe ze intelligence insluiten in hun apps met de Power BI-API's. ISV's en ontwikkelaars profiteert van geminimaliseerd ontwikkelingsinspanningen sneller op de markt bereiken en zich onderscheiden door infusing hoogwaardige analyse-engine van Microsoft in de app. Evenredig, ontwikkelaars kunnen tijd besteed aan het te focussen op hun oplossing om te voldoen aan de klanteneisen, in plaats van de functies van visual analytics te ontwikkelen. Bovendien Power BI Embedded kunt u samenwerken om binnen de bekend ontwikkelomgevingen – Visual Studio en Azure – u al gebruikt.
 
-Een bestaande app hebt met ingesloten Power BI-inhoud met behulp van Power BI Premium? Als u een ISV- of -ontwikkelaar apps of een organisatie met ze te leveren, wordt geen actie vereist. U en uw klanten kunnen blijven gebruiken van deze apps zonder onderbreking. Als u geïnteresseerd bent in gebruik te maken van het geconvergeerde API-gebied en de nieuwe capaciteit op basis van een Azure-SKU's en een bestaande app die is gebaseerd op verzamelingen van Power BI werkruimte hebt, bezoekt u de documentatie voor de migratie.
+Hebt u een bestaande app met ingesloten Power BI-inhoud met behulp van Power BI Premium? Als u een ISV- of -ontwikkelaar apps of een organisatie met ze te leveren, wordt geen actie vereist. U en uw klanten kunnen blijven gebruiken van deze apps zonder onderbreking. Als u geïnteresseerd bent in gebruik te maken van het geconvergeerde API-gebied en de nieuwe capaciteit op basis van een Azure-SKU's en een bestaande app die is gebaseerd op verzamelingen van Power BI werkruimte hebt, bezoekt u de documentatie voor de migratie.
 
 ## <a name="comparing-power-bi-embedded-with-power-bi-premium"></a>Power BI Embedded met Power BI Premium vergelijken
 
@@ -38,7 +39,7 @@ Power BI Embedded is voor ontwikkelaars die toepassingen bouwen. Worden kan gebr
 
 ## <a name="easy-to-use-tools"></a>Gebruiksvriendelijke hulpprogramma’s
 
-Power BI Embedded kunt u zich richten op wat u beste doen: geweldige apps bouwen. U kunt beheren en ontwikkelen op basis van Power BI Embedded met hulpprogramma's en de vaardigheden die u al hebt.
+Power BI Embedded kunt u zich richten op wat u beste doen: geweldige apps bouwen. U kunt beheren en ontwikkelen met Power BI Embedded met hulpprogramma's en de vaardigheden die u al hebt.
 
 * [**De Azure-portal**](https://portal.azure.com/): een webtoepassing voor het beheren van alle Azure-services
 * [**Visual Studio Code**](https://code.visualstudio.com/docs): een gratis, downloadbare, open-source, code-editor voor Windows, Mac OS- en Linux die ondersteuning biedt voor uitbreidingen

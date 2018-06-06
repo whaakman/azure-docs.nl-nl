@@ -8,18 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 6384f63139eb64522409c5922e187afd878ebb09
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714133"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Inleiding tot beheer van apparaten in Azure Active Directory
 
@@ -30,9 +32,9 @@ In een wereld mobiel eerste, cloud eerste kunnen Azure Active Directory (Azure A
 
 Via apparaten, worden uw gebruikers toegang tot uw zakelijke activa ophalen. Ter bescherming van uw zakelijke activa als IT-beheerder, die u wilt hebben controle over deze apparaten. Hiermee kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen vanaf apparaten die voldoen aan uw standaarden voor beveiliging en naleving. 
 
-Apparaatbeheer is ook de basis voor [voorwaardelijke toegang op basis van apparaten](active-directory-conditional-access-policy-connected-applications.md). Met voorwaardelijke toegang op basis van apparaten, kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving is alleen mogelijk met vertrouwde apparaten.   
+Apparaatbeheer is ook de basis voor [voorwaardelijke toegang op basis van apparaten](active-directory-conditional-access-policy-connected-applications.md). Met voorwaardelijke toegang op basis van apparaten, kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving is alleen mogelijk met beheerde apparaten.   
 
-In dit onderwerp wordt uitgelegd hoe beheer van apparaten in Azure Active Directory werkt.
+In dit artikel wordt uitgelegd hoe beheer van apparaten in Azure Active Directory werkt.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Ophalen van apparaten onder het beheer van Azure AD
 
@@ -122,7 +124,7 @@ Gebruik Azure AD hybride die lid zijn van apparaten als:
 
 - U hebt geïmplementeerd op deze apparaten die gebruikmaken van NTLM Win32-apps / Kerberos.
 
-- Gewenste GP of SCCM / DCM om apparaten te beheren.
+- Gewenste GP om apparaten te beheren.
 
 - U wilt blijven gebruiken imaging-oplossingen voor het configureren van apparaten voor uw werknemers.
 

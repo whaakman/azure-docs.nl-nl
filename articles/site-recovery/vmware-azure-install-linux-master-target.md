@@ -9,11 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4d28a9a840b25ea415021da149ab145836cbed28
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802507"
 ---
 # <a name="install-a-linux-master-target-server"></a>Een Linux-hoofddoel-server installeren
 Nadat u uw virtuele machines in Azure een failover, u kunt een failback uit op de virtuele machines naar de lokale site. Als u wilt een failback uit, moet u beveiligt u de virtuele machine van Azure naar de lokale site opnieuw. Voor dit proces moet u de doelserver van een lokale voor het ontvangen van het verkeer. 
@@ -242,7 +243,7 @@ Gebruik de volgende stappen voor het maken van een schijf bewaren:
 
 2. Gebruik de **multipath -lle** opdracht voor meer informatie over de multipath-ID van de schijf bewaren: **multipath -lle**
 
-    ![Multipath-ID](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![Multipath-ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Formatteren van de schijf en maak vervolgens een bestandssysteem op het nieuwe station: **mkfs.ext4 /dev/mapper/< multipath-id van de bewaarschijf >**.
     

@@ -14,23 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 88505126389f51f59cf0538da8b72139f86e58d5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e64cc232aa01a5619a55290f9b07421165a6d5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698727"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Zelfstudie: ServiceNow configureren voor het automatisch gebruikers inrichten met Azure Active Directory
 
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in ServiceNow en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar ServiceNow ongedaan.
 
+> [!NOTE]
+> Deze zelfstudie wordt een connector die is ingebouwd in de Azure AD-gebruiker inrichtingsservice beschreven. Zie voor belangrijke informatie over wat deze service doet, hoe het werkt en veelgestelde vragen [gebruikers inrichten en opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren](./active-directory-saas-app-provisioning.md).
+
 ## <a name="prerequisites"></a>Vereisten
 
-Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
+Voor het configureren van Azure AD-integratie met ServiceNow, moet u de volgende items:
 
-*   Een Azure Active directory-tenant.
-*   U moet een geldige tenant voor ServiceNow voor werk- of ServiceNow voor onderwijs hebben. U kunt een gratis proefaccount voor de service.
-*   Een gebruikersaccount in ServiceNow met beheerdersmachtigingen Team.
+- Een Azure AD-abonnement
+- Voor ServiceNow, een exemplaar of de tenant van ServiceNow, Calgary versie of hoger
+- Voor ServiceNow snelle, een exemplaar van ServiceNow Express, Helsinki versie of hoger
+
+> [!NOTE]
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+
+- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+
 
 ## <a name="assigning-users-to-servicenow"></a>Gebruikers toewijzen aan ServiceNow
 

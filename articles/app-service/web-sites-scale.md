@@ -2,7 +2,7 @@
 title: Een app in Azure opschalen | Microsoft Docs
 description: Informatie over het schalen van een app in Azure App Service-capaciteit en functies toevoegen.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714932"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Een app in Azure opschalen
 
@@ -50,7 +51,7 @@ Zie voor meer informatie over de prijzen en -functies van afzonderlijke App Serv
 2. Klik in de pagina van uw App Service-app op **alle instellingen**, en klik vervolgens op **omhoog schalen**.
    
     ![Navigeer om te schalen van uw app in Azure.][ChooseWHP]
-3. Kies uw laag en klik vervolgens op **Selecteer**.
+3. Kies uw laag en klik vervolgens op **toepassen**.
    
     De **meldingen** tabblad knippert een groene **geslaagd** nadat de bewerking voltooid is.
 

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
-ms.translationtype: HT
+ms.openlocfilehash: 06bbcadeda2187a521daecde2b386c936e8217f0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763592"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager verbinden met Log Analytics
 Als u uw bestaande investering in System Center Operations Manager wilt behouden en combineren met de uitgebreide mogelijkheden van Log Analytics, kunt u Operations Manager integreren met uw Log Analytics-werkruimte.  Zo profiteert u van de mogelijkheden van Log Analytics, maar kunt u Operations Manager nog steeds gebruiken voor het volgende:
@@ -77,7 +78,9 @@ Voer de volgende stappen uit om uw Operations Manager-beheergroep te verbinden m
 Als dit de eerste keer is dat u de Operations Manager-beheergroep registreert bij een Log Analytics-werkruimte en communicatie tussen de beheerservers en de service moet verlopen via een proxy- of OMS-gatewayserver, is de mogelijkheid om de proxyconfiguratie voor de beheergroep op te geven niet beschikbaar in de Operations-console.  Deze optie is pas beschikbaar als de beheergroep bij de service is geregistreerd.  U moet de systeemproxyconfiguratie bijwerken met behulp van Netsh vanaf het systeem waarop de Operations-console wordt uitgevoerd om de integratie en alle beheerservers in de beheergroep te configureren.  
 
 1. Open een opdrachtprompt met verhoogde bevoegdheid.
-1. Voer de volgende opdracht in en druk op **Enter**:
+   a. Ga naar **Start** en het type **cmd**.
+   b. Met de rechtermuisknop op **opdrachtprompt** en uitvoeren als beheerder ** selecteren.
+2. Voer de volgende opdracht in en druk op **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -197,9 +200,9 @@ De management packs voor de oplossingen die u hebt ingeschakeld en die zijn geï
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-1. Open het menu **Geavanceerde instellingen** voor de Log Analytics-werkruimte in Azure Portal.
-1. Selecteer **Verbonden bronnen** en selecteer vervolgens **System Center**.
-1. Hier ziet u de naam van de beheergroep die u wilt verwijderen uit de werkruimte.  Klik onder de kolom **Laatste gegevens** op **Verwijderen**.  
+7. Klik in de OMS-portal op de tegel **Instellingen**.
+8. Selecteer **verbonden gegevensbronnen**.
+9. U ziet in de tabel onder de sectie System Center Operations Manager, de naam van de beheergroep die u wilt verwijderen uit de werkruimte.  Klik onder de kolom **Laatste gegevens** op **Verwijderen**.  
    
     > [!NOTE]
     > De koppeling **Verwijderen** is pas beschikbaar als er 14 dagen geen activiteit van de verbonden beheergroep is gedetecteerd.  
@@ -210,7 +213,7 @@ De management packs voor de oplossingen die u hebt ingeschakeld en die zijn geï
 Als u de twee connectors Microsoft.SystemCenter.Advisor.DataConnector en Advisor Connector wilt verwijderen, slaat u het onderstaande PowerShell-script op uw computer op en voert u het script uit met behulp van de volgende voorbeelden:
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
     .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 

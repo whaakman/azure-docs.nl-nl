@@ -10,14 +10,15 @@ ms.date: 11/14/2017
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: fc6cc88cabab1bc56b0a04ce8778823647c5b2bf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: bf7647d8489a102175c4e9de799793e6550495e7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714405"
 ---
 # <a name="get-started-with-azure-ad"></a>Aan de slag met Azure AD
 Moderne identiteitsbeheer vereist een schaalbare, consistente reliablity om te controleren of de beschikbaarheid van toepassingen en services aan alleen geverifieerde gebruikers. Om voldoende ondersteunen de identity management-behoeften van gebruikers, IT-afdeling moet een manier om toegang te bieden tot erkende, openbare software als een service (SaaS)-apps, kunt u interne line-host of-business-apps, en zelfs manieren voor het verbeteren van on-premises ontwikkeling van Apps en het gebruik. Al deze vereisten voldoen verwijzen aan de behoeften van een oplossing voor identiteitsbeheer cloud-gebaseerde.      

@@ -1,29 +1,25 @@
 ---
-title: Lussen - proces matrices of herhaaldelijk acties - Azure Logic Apps | Microsoft Docs
-description: Matrices met 'for each' verwerken lussen of herhaaldelijk acties totdat aan bepaalde voorwaarden wordt voldaan in logic apps
+title: Lussen die acties herhalen of verwerken van matrices - Azure Logic Apps toevoegen | Microsoft Docs
+description: Het maken van lussen die werkstroomacties herhalen of matrices in Azure Logic Apps verwerken
 services: logic-apps
-keywords: voor elke lus
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 26db63ed7706bdff9eb5c037a906fbc252b83a9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725952"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Lussen: Matrices verwerken of acties herhalen totdat een voorwaarde wordt voldaan
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Lussen die werkstroomacties herhalen of verwerken van matrices in Azure Logic Apps maken
 
-Als u wilt herhalen matrices in uw logische app, kunt u een ['Foreach' lus](#foreach-loop) of een [opeenvolgende 'Foreach' lus](#sequential-foreach-loop). Cycli in een standaard 'Foreach' lus parallel uitgevoerd, terwijl cycli in een sequentiële 'Foreach' lus één tegelijk worden uitgevoerd. Zie voor het maximum aantal matrixitems waarmee 'Foreach' lussen kunnen worden verwerkt in een enkel logic app uitvoeren, [en -configuratie](../logic-apps/logic-apps-limits-and-config.md). 
+Als u wilt doorlopen matrices in uw logische app, kunt u een ['Foreach' lus](#foreach-loop) of een [opeenvolgende 'Foreach' lus](#sequential-foreach-loop). Het iteraties voor een standaard 'Foreach' lus parallel uitgevoerd, terwijl het iteraties voor een opeenvolgende 'Foreach' lus één tegelijk worden uitgevoerd. Zie voor het maximum aantal matrixitems waarmee 'Foreach' lussen kunnen worden verwerkt in een enkel logic app uitvoeren, [en -configuratie](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP] 
 > Als u een trigger die een matrix ontvangt en een werkstroom voor elk matrixitem wilt uitvoeren hebt, kunt u *debatch* dat matrix met de [ **SplitOn** activeren eigenschap](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -202,7 +198,7 @@ Bijvoorbeeld, om 8:00 uur per dag verhoogd deze logische app een variabele totda
 
    !['Limiet' verhoogd met 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-9. Onder maar buiten de lus, moet u een actie die e-mailbericht verzendt toevoegen. Als u wordt gevraagd, moet u zich aanmelden bij uw e-mailaccount.
+9. Onder maar buiten de lus, moet u een actie die e-mailbericht verzendt toevoegen. Meld u aan bij uw e-mailaccount als dat wordt gevraagd.
 
    ![Actie die e-mailbericht verzendt toevoegen](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 

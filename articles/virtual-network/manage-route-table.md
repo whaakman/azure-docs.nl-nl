@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726445"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
@@ -31,7 +32,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 
 - Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
-- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Voor deze zelfstudie is moduleversie 5.7.0 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.31 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
 Het account dat u zich aanmelden bij of verbinding maken met Azure met, moet worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [machtigingen ](#permissions).
@@ -93,6 +94,8 @@ Een subnet kan nul of één routetabel gekoppeld hebben. Een routetabel kan word
 3. Selecteer **subnetten** onder **instellingen**.
 4. Selecteer het subnet dat u wilt de routetabel te koppelen.
 5. Selecteer **routetabel**, selecteert u de routetabel die u wilt koppelen aan het subnet en selecteer vervolgens **opslaan**.
+
+Als het virtuele netwerk is verbonden met een Azure VPN-gateway, koppel geen een routetabel aan de [gatewaysubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) die een route met bestemming 0.0.0.0/0 bevat. In dat geval kan voorkomen dat de gateway niet goed werken. Zie voor meer informatie over het gebruik van 0.0.0.0/0 in een route [virtuele netwerk voor verkeersroutering](virtual-networks-udr-overview.md#default-route).
 
 **Opdrachten**
 
@@ -159,7 +162,7 @@ Een routetabel bevat geen of meerdere routes. Zie voor meer informatie over welk
 - Azure CLI: [az netwerk routetabel routelijst](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
-## <a name="view-details-of-a-route"></a>Details weergeven van een route
+## <a name="view-details-of-a-route"></a>Details van een route weergeven
 
 1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer de gewenste details wilt weergeven van een route voor routetabel.
@@ -216,7 +219,7 @@ De effectieve routes voor elke netwerkinterface die is gekoppeld aan een virtuel
 
 Het volgende hoptype tussen een virtuele machine en het IP-adres van een andere Azure-resource, een on-premises resource of een bron op het Internet, kunt u bepalen. Bepalende Azure routering is handig bij het oplossen van problemen met de routering. Als u wilt deze taak uitvoeren, moet u een bestaande netwerk-Watcher hebben. Als u een bestaande netwerk-Watcher niet hebt, maken door de stappen in [maken van een exemplaar van de netwerk-Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-1. Voer in het zoekvak boven aan de portal *netwerk-watcher* in het zoekvak. Wanneer **netwerk-Watcher** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *netwerk-watcher* in het zoekvak. Selecteer **Network Watcher** in de zoekresultaten.
 2. Selecteer **volgende hop** onder **NETWERKDIAGNOSEHULPMIDDELEN**.
 3. Selecteer uw **abonnement** en de **resourcegroep** van de virtuele bronmachine die u wilt valideren van routering.
 4. Selecteer de **virtuele machine**, **netwerkinterface** gekoppeld aan de virtuele machine en **IP-bronadres** toegewezen aan de netwerkinterface die u wilt valideren Routering van.

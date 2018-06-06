@@ -12,13 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: c47822bebdc8b3cc8896fe56b8f9a4ce317495c3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716615"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installeren en configureren van extern bureaublad verbinding maken met een Linux VM in Azure
 Linux virtuele machines (VM's) in Azure worden meestal beheerd vanaf de opdrachtregel met behulp van een verbinding met secure shell (SSH). Wanneer er nieuwe voor Linux, of om snel scenario's voor het oplossen van problemen, kan het gebruik van extern bureaublad eenvoudiger zijn. Dit artikel wordt uitgelegd hoe u kunt installeren en configureren van een bureaublad-omgeving ([xfce](https://www.xfce.org)) en extern bureaublad ([xrdp](http://www.xrdp.org)) voor uw Linux-VM met het implementatiemodel van Resource Manager.
@@ -36,7 +37,7 @@ De meeste Linux virtuele machines in Azure beschikt niet over een bureaubladomge
 
 Het volgende voorbeeld installeert de lightweight [xfce4](https://www.xfce.org/) bureaubladomgeving op een virtuele Ubuntu-machine 16.04 TNS. Opdrachten voor andere distributies enigszins verschillen (Gebruik `yum` op Red Hat Enterprise Linux installeren en configureren van juiste `selinux` regels of gebruik `zypper` installeren op SUSE, bijvoorbeeld).
 
-Eerste, SSH met uw virtuele machine. Het volgende voorbeeld maakt verbinding met de virtuele machine met de naam *myvm.westus.cloudapp.azure.com* aan de gebruikersnaam van *azureuser*:
+Eerste, SSH met uw virtuele machine. Het volgende voorbeeld maakt verbinding met de virtuele machine met de naam *myvm.westus.cloudapp.azure.com* aan de gebruikersnaam van *azureuser*. Uw eigen waarden gebruikt:
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -85,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Een Netwerkbeveiligingsgroep regel maken voor extern bureaublad-verkeer
 Voor extern bureaublad-verkeer te bereiken van uw Linux-VM een netwerkbeveiliging kunt groep regel moet worden gemaakt die TCP op poort 3389 bereiken van uw virtuele machine. Zie voor meer informatie over netwerkbeveiligingsgroepen [wat is er een netwerkbeveiligingsgroep?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) U kunt ook [Azure portal gebruiken voor het maken van een groep voor de netwerkbeveiligingsregel](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Het volgende voorbeeld wordt een groep van de netwerkbeveiligingsregel met [az vm open poort](/cli/azure/vm#az_vm_open_port) op poort *3389*.
+Het volgende voorbeeld wordt een groep van de netwerkbeveiligingsregel met [az vm open poort](/cli/azure/vm#az-vm-open-port) op poort *3389*. Van de Azure CLI 2.0, niet de SSH-sessie op de virtuele machine, opent u de volgende groep voor netwerkbeveiligingsregel:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

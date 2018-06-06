@@ -6,13 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/04/2018
 ms.author: marsma
-ms.openlocfilehash: 818bae2e05f6a3256ccbf0cbcc901dd337b9a260
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d6f42a5f3ce907fdb759bef29ca25bdc7fe365d9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757005"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Netwerkconfiguratie in Azure Kubernetes Service (AKS)
 
@@ -38,7 +39,7 @@ Knooppunten in een cluster AKS is geconfigureerd voor gebruik van geavanceerde n
 Geavanceerde netwerkvoorzieningen bieden de volgende voordelen:
 
 * Uw cluster AKS in een bestaand VNet implementeren of maak een nieuw VNet en een subnet voor uw cluster.
-* Elke schil in het cluster een IP-adres in het VNet is toegewezen en rechtstreeks kan communiceren met andere gehele product in het cluster en andere virtuele machines in het VNet.
+* Elke schil in het cluster een IP-adres in het VNet is toegewezen en rechtstreeks kan communiceren met andere gehele product in het cluster en de andere knooppunten in het VNet.
 * Een schil kan verbinding maken met andere services in een peered VNet en on-premises netwerken via ExpressRoute en site-naar-site (S2S) VPN-verbindingen. Er zijn ook gehele product bereikbaar van on-premises.
 * Tonen een service Kubernetes intern of extern via de Azure Load Balancer. Ook een functie van basisnetwerken.
 * Gehele product in een subnet die ingeschakeld voor service-eindpunten zijn kunnen veilig verbinding maken met Azure-services, bijvoorbeeld Azure Storage en SQL-database.
@@ -46,7 +47,33 @@ Geavanceerde netwerkvoorzieningen bieden de volgende voordelen:
 * Gehele product hebben toegang tot bronnen op het openbare Internet. Ook een functie van basisnetwerken.
 
 > [!IMPORTANT]
-> Elk knooppunt in een cluster AKS is geconfigureerd voor geavanceerde netwerken kan maximaal hosten **30 gehele product**. Elke VNet ingericht voor gebruik met de Azure-CNI-invoegtoepassing beperkt tot is **4096 IP-adressen** (/ 20).
+> Elk knooppunt in een cluster AKS is geconfigureerd voor geavanceerde netwerken kan maximaal hosten **30 gehele product**. Elke VNet ingericht voor gebruik met de Azure-CNI-invoegtoepassing beperkt tot is **4096 geconfigureerde IP-adressen**.
+
+## <a name="advanced-networking-prerequisites"></a>Geavanceerde netwerken vereisten
+
+* Het VNet voor het cluster AKS moet uitgaande internetverbinding toestaan.
+* Maak niet meer dan één AKS cluster in hetzelfde subnet.
+* Geavanceerd netwerkgebruik AKS biedt geen ondersteuning voor VNets die gebruikmaken van Azure persoonlijke DNS-Zones.
+* AKS clusters worden niet gebruikt `169.254.0.0/16`, `172.30.0.0/16`, of `172.31.0.0/16` voor de Kubernetes service-adresbereik.
+* De service-principal die is gebruikt voor het cluster AKS moet hebben `Contributor` machtigingen voor de resourcegroep met de bestaande VNet.
+
+## <a name="plan-ip-addressing-for-your-cluster"></a>IP-adressen voor uw cluster plannen
+
+Clusters die zijn geconfigureerd met geavanceerde netwerken vereisen aanvullende planning. De grootte van uw VNet en een subnet moet geschikt zijn voor zowel het nummer van het gehele product die u van plan bent om uit te voeren als het aantal knooppunten voor het cluster.
+
+IP-adressen voor het gehele product en de knooppunten van het cluster toegewezen uit het opgegeven subnet binnen het VNet. Elk knooppunt is geconfigureerd met een primaire IP-adres is het IP-adres van het knooppunt en 30 extra IP-adressen vooraf geconfigureerd door Azure CNI die zijn toegewezen aan het gehele product gepland naar het knooppunt. Wanneer u uw cluster hebt uitgebreid, wordt elk knooppunt op dezelfde manier geconfigureerd met IP-adressen van het subnet.
+
+Het plan IP-adres voor een cluster AKS bestaat uit een VNet, ten minste één subnet voor de knooppunten en het gehele product, en een Kubernetes service-adresbereik.
+
+| -Adresbereik / Azure resource | Limieten en schaling |
+| --------- | ------------- |
+| Virtueel netwerk | Azure VNet kan even groot zijn als de/8 die maar mogelijk alleen 4096 geconfigureerd IP-adressen. |
+| Subnet | Moet groot genoeg voor de knooppunten en het gehele product. Voor het berekenen van de subnetgrootte van uw minimale: (aantal knooppunten) + (aantal knooppunten * gehele product per knooppunt). Voor een cluster 50 knooppunten: (50) + (50 * 30) = 1.550, uw subnet moet een /21 of groter. |
+| Kubernetes service-adresbereik | Dit bereik moet niet worden gebruikt door elk element van het netwerk op of verbonden met dit VNet. CIDR-adres van de service moet kleiner zijn dan /12. |
+| IP-adres van Kubernetes DNS-service | IP-adres binnen de Kubernetes-adresbereik dat wordt gebruikt door clusterservicedetectie (kube-dns)-service. |
+| Adres van docker-brug | IP-adres (in CIDR-notatie) gebruikt als de brug Docker-IP-adres op knooppunten. De standaardwaarde van 172.17.0.1/16. |
+
+Zoals gezegd, elke VNet ingericht voor gebruik met de Azure-CNI-invoegtoepassing beperkt tot is **4096 geconfigureerde IP-adressen**. Elk knooppunt in een cluster is geconfigureerd voor geavanceerde netwerken kan maximaal hosten **30 gehele product**.
 
 ## <a name="configure-advanced-networking"></a>Geavanceerde netwerk configureren
 
@@ -66,14 +93,6 @@ De volgende schermafbeelding van de Azure-portal toont een voorbeeld van het con
 
 ![Geavanceerde netwerkconfiguratie in de Azure portal][portal-01-networking-advanced]
 
-## <a name="plan-ip-addressing-for-your-cluster"></a>IP-adressen voor uw cluster plannen
-
-Clusters die zijn geconfigureerd met geavanceerde netwerken vereisen aanvullende planning. De grootte van uw VNet en een subnet moet geschikt zijn voor het nummer van het gehele product die u van plan bent tegelijkertijd worden uitgevoerd in het cluster, evenals de vereisten van uw vergroten/verkleinen.
-
-IP-adressen voor het gehele product en de knooppunten van het cluster toegewezen uit het opgegeven subnet binnen het VNet. Elk knooppunt is geconfigureerd met een primaire IP-adres, het IP-adres van het knooppunt zelf en 30 extra IP-adressen vooraf geconfigureerd door Azure CNI die zijn toegewezen aan het gehele product gepland naar het knooppunt. Wanneer u uw cluster hebt uitgebreid, wordt elk knooppunt op dezelfde manier geconfigureerd met IP-adressen van het subnet.
-
-Zoals gezegd, elke VNet ingericht voor gebruik met de Azure-CNI-invoegtoepassing beperkt tot is **4096 IP-adressen** (/ 20). Elk knooppunt in een cluster is geconfigureerd voor geavanceerde netwerken kan maximaal hosten **30 gehele product**.
-
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 De volgende vragen en antwoorden van toepassing op de **Geavanceerd** netwerkconfiguratie.
@@ -92,7 +111,7 @@ De volgende vragen en antwoorden van toepassing op de **Geavanceerd** netwerkcon
 
 * *Is het maximum aantal gehele product worden geïmplementeerd op een knooppunt kunnen worden geconfigureerd?*
 
-  Elk knooppunt kan maximaal 30 gehele product host standaard. Momenteel kunt u de maximale waarde wijzigen alleen door het wijzigen van de `maxPods` eigenschap bij het implementeren van een cluster met Resource Manager-sjabloon.
+  Elk knooppunt kan maximaal 30 gehele product host standaard. U kunt de maximale waarde wijzigen door alleen aan te passen de `maxPods` eigenschap bij het implementeren van een cluster met Resource Manager-sjabloon.
 
 * *Hoe kan ik extra eigenschappen voor het subnet dat ik heb tijdens het maken van de cluster AKS gemaakt configureren? Bijvoorbeeld, service-eindpunten.*
 

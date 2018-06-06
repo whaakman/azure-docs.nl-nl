@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 67dff6acff33b548518053ca1f569186d6b5b3ae
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 71adccabc0778e2765c574f3714aab0ed0179deb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724466"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -28,11 +29,19 @@ Dit artikel wordt uitgelegd hoe u werkt met Azure Queue storage bindingen in de 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pakketten
+## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub-opslagplaats.
+De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
+
+De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 3.x. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>Trigger
 
@@ -237,11 +246,13 @@ In C# en C# script, toegang krijgen tot de berichtgegevens met een methodeparame
 * `byte[]`
 * [CloudQueueMessage]
 
+Als u probeert te binden aan `CloudQueueMessage` en verschijnt een foutbericht, zorg ervoor dat u een verwijzing naar hebt [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
+
 Gebruik in JavaScript, `context.bindings.<name>` voor toegang tot de nettolading van de wachtrij-item. Als de nettolading van de JSON, wordt deze in een object gedeserialiseerd.
 
 ## <a name="trigger---message-metadata"></a>Trigger - bericht metagegevens
 
-De trigger wachtrij bevat diverse [eigenschappen voor metagegevens](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies voor gegevensbinding in andere bindingen of als parameters in uw code. De waarden hebben dezelfde betekenis als [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+De trigger wachtrij bevat diverse [eigenschappen voor metagegevens](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies voor gegevensbinding in andere bindingen of als parameters in uw code. Dit zijn de eigenschappen van de [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) klasse.
 
 |Eigenschap|Type|Beschrijving|
 |--------|----|-----------|
@@ -252,8 +263,6 @@ De trigger wachtrij bevat diverse [eigenschappen voor metagegevens](functions-tr
 |`InsertionTime`|`DateTimeOffset`|De tijd die het bericht is toegevoegd aan de wachtrij.|
 |`NextVisibleTime`|`DateTimeOffset`|De tijd die het bericht vervolgens zichtbaar zijn.|
 |`PopReceipt`|`string`|Pop ontvangst van het bericht.|
-
-Zie [codevoorbeelden](#trigger---example) die gebruikmaken van deze eigenschappen eerder in dit artikel.
 
 ## <a name="trigger---poison-messages"></a>Trigger - verontreinigde berichten
 
@@ -472,6 +481,8 @@ In C# en C# script, schrijft u een enkel wachtrijbericht met behulp van een meth
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
+
+Als u probeert te binden aan `CloudQueueMessage` en verschijnt een foutbericht, zorg ervoor dat u een verwijzing naar hebt [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
 
 Geschreven in C# en C# script, meerdere berichten in wachtrij plaatsen met behulp van een van de volgende typen: 
 

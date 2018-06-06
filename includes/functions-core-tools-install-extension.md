@@ -8,16 +8,21 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 4c9b579534d9a7f2c55e9c589b1738fe060b1cf2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6fb497a5b6da00dece43c7f41ea3c411f385a2ba
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726884"
 ---
-Wanneer u lokaal functies ontwikkelt, kunt u de uitbreidingen die u nodig hebt met het gebruik van Azure Functions Core's vanaf de Terminal of vanaf een opdrachtprompt installeren. De volgende `func extensions install` opdracht installeert u de extensie Azure DB die Cosmos-binding:
+Wanneer u lokaal functies ontwikkelt, kunt u de uitbreidingen die u nodig hebt met het gebruik van Azure Functions Core's vanaf de Terminal of vanaf een opdrachtprompt installeren. 
+
+Nadat u hebt bijgewerkt uw *function.json* dat moet worden opgenomen alle bindingen met de functie moet, de `func extensions install` opdracht in de projectmap. De opdracht leest de *function.json* bestand om te zien welke pakketten u nodig hebt en worden ze geïnstalleerd.
+
+Als u wilt installeren van een bepaalde versie van een pakket of het gewenste om pakketten te installeren voordat u bewerkt de *function.json* gebruikt u de `func extensions install` opdracht met de naam van het pakket, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```
 func extensions install --package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version <target_version>
 ```
 
-Vervang `<taget_version>` met een specifieke versie van het pakket. Geldige versies worden vermeld op de afzonderlijke pakket's op de [NuGet.org](https://nuget.org).
+Vervang `<target_version>` met een specifieke versie van het pakket. Geldige versies worden vermeld op de afzonderlijke pakket's op de [NuGet.org](https://nuget.org).

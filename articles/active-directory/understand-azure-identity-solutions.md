@@ -9,18 +9,20 @@ ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
 ms.prod: ''
-ms.service: azure
+ms.service: azure-directory
+ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: acd69b6ea4d7a1d5c13cd0172f15b93eac96058e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7bdd2138c861e9fd335b1c579c6ab80400777035
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714796"
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure-identiteitsoplossingen begrijpen
-Microsoft Azure Active Directory (Azure AD) is een identiteits- en toegangsbeheer cloud beheeroplossing die directoryservices en identiteit governance Toepassingsbeheer toegang biedt. Azure AD snel [kunt van eenmalige aanmelding (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) naar 1. 000 de met vooraf geïntegreerde commerciële en aangepaste apps in de [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/). Veel van deze apps die u waarschijnlijk al, zoals Office 365, Salesforce.com vak, ServiceNow en Workday gebruikt.
+Microsoft Azure Active Directory (Azure AD) is een cloudoplossing voor identiteits- en toegangsbeheer die voorziet in adreslijstservices, identiteitsbeheer en toegangsbeheer voor toepassingen. Azure AD snel [kunt van eenmalige aanmelding (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) naar 1. 000 de met vooraf geïntegreerde commerciële en aangepaste apps in de [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/). Veel van deze apps die u waarschijnlijk al, zoals Office 365, Salesforce.com vak, ServiceNow en Workday gebruikt.
 
 Eén Azure AD-directory is automatisch gekoppeld aan een Azure-abonnement wanneer deze wordt gemaakt. Als de identity-service in Azure biedt Azure AD vervolgens alle identiteits- en controlefuncties voor toegang voor cloudresources. Deze resources kunnen gebruikers, apps en groepen voor een afzonderlijke tenant (organisatie) bevatten zoals weergegeven in het volgende diagram:
 

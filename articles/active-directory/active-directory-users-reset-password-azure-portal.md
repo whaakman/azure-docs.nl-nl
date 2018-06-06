@@ -2,12 +2,13 @@
 title: Wachtwoord opnieuw instellen in Azure Active Directory | Microsoft Docs
 description: Gestarte Administrator-wachtwoord opnieuw instellen voor een gebruiker in Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.date: 11/01/2017
 ms.author: joflore
 ms.reviewer: sahenry
 ms.custom: it-pro
-ms.openlocfilehash: 6d01dff567e49b602e98f717dace4dc75abecb4c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: faeb66c9d0638b13c4716062b768a9c6742edcd1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714150"
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Het wachtwoord voor een gebruiker in Azure Active Directory opnieuw instellen
 

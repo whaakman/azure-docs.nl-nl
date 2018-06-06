@@ -1,6 +1,6 @@
 ---
-title: Uitvoeren van SSIS-pakket met SSIS-activiteit in Azure Data Factory | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u een pakket met SQL Server Integration Services (SSIS) van een Azure Data Factory-pijplijn met behulp van de activiteit SSIS uitvoert.
+title: Uitvoeren van SSIS-pakket met behulp van de activiteit van SSIS-pakket niet uitvoeren in Azure Data Factory | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u een pakket met SQL Server Integration Services (SSIS) uitvoert van een Azure Data Factory-pijplijn met behulp van de activiteit SSIS-pakket niet uitvoeren.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -9,20 +9,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
-ms.date: 04/17/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 6c8bbe7ef7f74638b978cdad5b59a89fd81d12a5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fed4e10fcaaa5282c37b175f355b94522c3b2b46
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700482"
 ---
-# <a name="run-an-ssis-package-using-the-ssis-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de SSIS-activiteit in Azure Data Factory
-In dit artikel wordt beschreven hoe een SSIS-pakket met een Azure Data Factory-pijplijn uitvoeren door een SSIS-activiteit. 
+# <a name="run-an-ssis-package-using-the-execute-ssis-package-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de activiteit SSIS-pakket niet uitvoeren in Azure Data Factory
+In dit artikel wordt beschreven hoe een SSIS-pakket met een Azure Data Factory-pijplijn uitvoeren door een activiteit SSIS-pakket niet uitvoeren. 
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. De SSIS-activiteit is niet beschikbaar in versie 1 van de Data Factory-service (GA) is algemeen beschikbaar is. Zie voor een alternatieve methode voor het uitvoeren van SSIS-pakket met versie 1 van de Data Factory-service, [uitvoeren SSIS-pakketten met behulp van de activiteit opgeslagen procedure in versie 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
+> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. De activiteit uitvoeren van SSIS-pakket is niet beschikbaar in versie 1 van de Data Factory-service (GA) is algemeen beschikbaar is. Zie voor een alternatieve methode voor het uitvoeren van SSIS-pakket met versie 1 van de Data Factory-service, [uitvoeren SSIS-pakketten met behulp van de activiteit opgeslagen procedure in versie 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +34,7 @@ De procedures in dit artikel maakt gebruik van een Azure SQL-database die als ho
 Een Azure-SSIS-integratie runtime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: implementeren SSIS-pakketten](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Data Factory-gebruikersinterface (Azure-portal)
-In deze sectie kunt u Data Factory-gebruikersinterface gebruiken voor het maken van een Data Factory-pijplijn met een SSIS-activiteit die wordt uitgevoerd een SSIS-pakket.
+In deze sectie kunt u Data Factory-gebruikersinterface gebruiken voor het maken van een Data Factory-pijplijn met een SSIS-pakket niet uitvoeren-activiteit die wordt uitgevoerd een SSIS-pakket.
 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 Eerste stap is het maken van een gegevensfactory met behulp van de Azure-portal. 
@@ -69,8 +70,8 @@ Eerste stap is het maken van een gegevensfactory met behulp van de Azure-portal.
     ![Startpagina van de gegevensfactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Klik op de tegel **Maken en controleren** om de gebruikersinterface (UI) van Azure Data Factory te openen op een afzonderlijk tabblad. 
 
-### <a name="create-a-pipeline-with-an-ssis-activity"></a>Een pijplijn maken met een SSIS-activiteit
-In deze stap gebruikt u de Data Factory-gebruikersinterface voor het maken van een pijplijn. U voegt een SSIS-activiteit aan de pijplijn en configureren voor het uitvoeren van SSIS-pakket. 
+### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Een pijplijn maken met een activiteit SSIS-pakket uitvoeren
+In deze stap gebruikt u de Data Factory-gebruikersinterface voor het maken van een pijplijn. U voegt een activiteit SSIS-pakket uitvoeren aan de pijplijn en configureren voor het uitvoeren van SSIS-pakket. 
 
 1. Klik in de pagina aan de slag, **maken pijplijn**: 
 
@@ -79,17 +80,23 @@ In deze stap gebruikt u de Data Factory-gebruikersinterface voor het maken van e
 
    ![Sleep de activiteit SSIS naar het ontwerpoppervlak](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
-3. Op de **algemene** tabblad met eigenschappen voor de activiteit SSIS, Geef een naam en beschrijving voor de activiteit. Optionele timeout en probeer de waarden.
+3. Op de **algemene** tabblad met eigenschappen voor de activiteit SSIS-pakket uitvoeren, Geef een naam en beschrijving voor de activiteit. Optionele timeout en probeer de waarden.
 
     ![Eigenschappen worden ingesteld op het tabblad Algemeen](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. Op de **instellingen** tabblad met eigenschappen voor de SSIS activiteit, selecteer de Azure-SSIS-integratie Runtime die zijn gekoppeld aan de `SSISDB` database waar het pakket wordt geïmplementeerd. Geef het pakketpad in de `SSISDB` database in de notatie `<folder name>/<project name>/<package name>.dtsx`. (Optioneel) Geef 32-bits worden uitgevoerd en het niveau van een vooraf gedefinieerde of aangepaste logboekregistratie en geef een omgeving in de indeling `<folder name>/<environment name>`.
+4. Op de **instellingen** tabblad met eigenschappen voor de SSIS-pakket uitvoeren activiteit, selecteer de Azure-SSIS-integratie Runtime die zijn gekoppeld aan de `SSISDB` database waar het pakket wordt geïmplementeerd. Geef het pakketpad in de `SSISDB` database in de notatie `<folder name>/<project name>/<package name>.dtsx`. (Optioneel) Geef 32-bits worden uitgevoerd en het niveau van een vooraf gedefinieerde of aangepaste logboekregistratie en geef een omgeving in de indeling `<folder name>/<environment name>`.
 
     ![Eigenschappen worden ingesteld op het tabblad instellingen](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
 5. Voor het valideren van de configuratie van de pipeline, klikt u op **valideren** op de werkbalk. Sluit het venster **Pipeline Validation Report** door op **>>** te klikken.
 
 6. De pijplijn publiceren naar Data Factory door te klikken op **Alles publiceren** knop. 
+
+### <a name="optionally-parameterize-the-activity"></a>U kunt desgewenst parameter van de activiteit
+
+Desgewenst toewijzen waarden, expressies of functies, die kunnen verwijzen naar de Data Factory-systeemvariabelen in uw project of pakket parameters in JSON-indeling op de **Geavanceerd** tabblad. Bijvoorbeeld, kunt u Data Factory-pijplijn parameters aan uw project SSIS of Pakketparameters zoals weergegeven in de volgende schermafbeelding toewijzen:
+
+![Voeg parameters toe aan de activiteit SSIS-pakket uitvoeren](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
 
 ### <a name="run-and-monitor-the-pipeline"></a>Uitvoeren en controleren van de pijplijn
 In deze sectie een pijplijn run activeren en deze vervolgens te controleren. 
@@ -99,15 +106,16 @@ In deze sectie een pijplijn run activeren en deze vervolgens te controleren.
     ![Nu activeren](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
 2. Selecteer in het venster **Pijplijnuitvoering** de optie **Voltooien**. 
+
 3. Ga naar het tabblad **Controleren** aan de linkerkant. U ziet de pijplijn uitvoeren en de status ervan samen met andere informatie (zoals tijd uitvoeren starten). Als u de lijst wilt vernieuwen, klikt u op **Vernieuwen**.
 
     ![Pijplijnuitvoeringen](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-3. Klik op de koppeling **Uitvoeringen van activiteiten weergeven** in de kolom **Acties**. Er is slechts één activiteit die wordt uitgevoerd als de pijplijn slechts één activiteit (de SSIS-activiteit heeft).
+4. Klik op de koppeling **Uitvoeringen van activiteiten weergeven** in de kolom **Acties**. Er is slechts één activiteit die wordt uitgevoerd als de pijplijn slechts één activiteit (de SSIS-pakket uitvoeren heeft).
 
     ![Uitvoering van activiteiten](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-4. U kunt de volgende uitvoeren **query** tegen de SSISDB-database in uw Azure SQL-server om te controleren of het pakket uitgevoerd. 
+5. U kunt de volgende uitvoeren **query** tegen de SSISDB-database in uw Azure SQL-server om te controleren of het pakket uitgevoerd. 
 
     ```sql
     select * from catalog.executions
@@ -115,6 +123,9 @@ In deze sectie een pijplijn run activeren en deze vervolgens te controleren.
 
     ![Controleer of de pakket-uitvoeringen](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
+6. U kunt ook de SSISDB uitvoerings-ID ophalen uit de uitvoer van de pijplijn activiteit uitvoeren, en de ID gebruiken om uitgebreidere uitvoeringslogboeken en foutberichten in SSMS te controleren.
+
+    ![Ophalen van de id van de uitvoering.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
 > [!NOTE]
 > U kunt ook een geplande trigger maken voor uw pijplijn, zodat de pijplijn wordt uitgevoerd volgens een schema (elk uur, dagelijks, enz.). Zie voor een voorbeeld [Maak een gegevensfactory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
@@ -300,6 +311,8 @@ while ($True) {
 }   
 ```
 
+U kunt ook de pijplijn met de Azure-portal bewaken. Zie voor stapsgewijze instructies [bewaken van de pijplijn](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
 ### <a name="create-a-trigger"></a>Geen trigger maken
 In de vorige stap, moet u de pijplijn op verzoek uitgevoerd. U kunt ook een schema-trigger voor het uitvoeren van de pijplijn op een planning (elk uur, dagelijks, enz.) maken.
 
@@ -369,4 +382,5 @@ In de vorige stap, moet u de pijplijn op verzoek uitgevoerd. U kunt ook een sche
 
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt ook de pijplijn met de Azure-portal bewaken. Zie voor stapsgewijze instructies [bewaken van de pijplijn](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Zie het volgende blogbericht:
+-   [Moderniseren en uw werkstromen ETL/ELT met SSIS-activiteiten in ADF pijplijnen uitbreiden](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)

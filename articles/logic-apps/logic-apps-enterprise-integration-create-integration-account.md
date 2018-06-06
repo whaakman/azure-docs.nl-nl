@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 97cdc809a00078ee86a40fd4567ab2d3357ed3bd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726428"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Integratie van rekeningen voor B2B-oplossingen met logic apps maken en beheren
 
@@ -57,11 +58,11 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
    | Abonnement | Ja | <*Naam van een Azure-abonnement*> | De naam voor het Azure-abonnement gebruiken | 
    | Resourcegroep | Ja | Test-integratie-account-rg | De naam voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) gebruikt om verwante resources te organiseren. Bijvoorbeeld, een nieuwe resourcegroep te maken met de opgegeven naam. | 
    | Prijscategorie | Ja | Gratis | De prijscategorie die u wilt gebruiken. Selecteer voor dit voorbeeld **vrije**, maar voor meer informatie, Zie [Logic Apps en configuratie](../logic-apps/logic-apps-limits-and-config.md) en [Logic Apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Locatie | Ja | VS - west | De regio waar uw integratieaccountgegevens wordt opgeslagen. Selecteer dezelfde locatie als uw logische app, of een logische app maken in dezelfde locatie als uw integratie-account. In dit voorbeeld | 
+   | Locatie | Ja | VS - west | De regio waar uw integratieaccountgegevens wordt opgeslagen. Selecteer dezelfde locatie als uw logische app, of een logische app maken in dezelfde locatie als uw integratie-account. | 
    | Log Analytics | Nee | Uit | Behoud de instelling **Uit** voor het vastleggen van diagnostische gegevens. | 
    ||||| 
 
-4. Wanneer u klaar bent, selecteert u **vastmaken aan dashboard**, en kies **maken**.
+4. Als u klaar bent, selecteert u **Vastmaken aan dashboard** en kiest u **Maken**.
 
    Nadat Azure heeft uw account integratie geïmplementeerd naar de geselecteerde locatie, meestal binnen een minuut wordt voltooid, wordt uw account integratie geopend in Azure.
 

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802350"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Opslagwachtrijen en Service Bus-wachtrijen - vergeleken en tegenstelling tot
 In dit artikel analyseert de verschillen en overeenkomsten tussen de twee typen wachtrijen die tegenwoordig worden aangeboden door Microsoft Azure: opslagwachtrijen en Service Bus-wachtrijen. U kunt deze informatie gebruiken om de verschillende technologieën te vergelijken en tegen elkaar af te zetten zodat u een weloverwogen beslissing kunt nemen en de oplossing kiest die beste voldoet aan uw behoeften.
@@ -47,7 +48,6 @@ Als een oplossing systeemarchitect of ontwikkelaar, **Overweeg het gebruik van S
 
 * Uw oplossing moet berichten kunnen ontvangen zonder op te vragen van de wachtrij. Met Service Bus, kan dit worden bereikt door het gebruik van de lange-polling opnieuw met de TCP-protocollen die ondersteuning biedt voor Service Bus ontvangen.
 * Uw oplossing is vereist voor de wachtrij voor het bieden van een gegarandeerde first-in-first-out (FIFO) besteld levering.
-* Wilt u een symmetrische ervaring in Azure en Windows Server (privécloud). Zie voor meer informatie [Service Bus voor Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
 * Uw oplossing moet mogelijk zijn ter ondersteuning van automatische detectie van duplicaten.
 * U wilt dat uw toepassing om berichten te verwerken als parallelle langlopende gegevensstromen (berichten zijn gekoppeld aan een stream met de [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) eigenschap voor het bericht). In dit model wordt op elk knooppunt in de betreffende toepassing concurreert om gegevensstromen, in plaats van berichten. Wanneer een stream is gegeven aan een knooppunt in beslag nemen, kan het knooppunt de status van de toepassingsstatus van de stroom met behulp van transacties bekijkt.
 * Uw oplossing is vereist voor transactionele gedrag en atomisch bij het verzenden of ontvangen van meerdere berichten uit een wachtrij.
@@ -138,7 +138,7 @@ Deze sectie vergelijkt opslagwachtrijen en Service Bus-wachtrijen vanuit het per
 
 ### <a name="additional-information"></a>Aanvullende informatie
 * De maximale grootte wachtrij zorgt ervoor dat Service Bus. De maximale wachtrijgrootte is opgegeven bij het maken van de wachtrij en een waarde tussen 1 en 80 GB kan hebben. Als de waarde voor de wachtrij ingesteld op het maken van de wachtrij is bereikt, worden extra binnenkomende berichten geweigerd en wordt een uitzondering wordt ontvangen door de aanroepende code. Zie voor meer informatie over quota in Service Bus [Service Bus quota](service-bus-quotas.md).
-* In de [standaardcategorie](service-bus-premium-messaging.md), kunt u Service Bus-wachtrijen in 1, 2, 3, 4 of 5 GB-grootten (de standaardwaarde is 1 GB). U kunt wachtrijen maken in de laag Premium maximaal 80 GB groot. In de standaard-laag, met partitionering ingeschakeld (dit is de standaardwaarde), Service Bus maakt 16 partities voor elke GB die u opgeeft. Als zodanig als u een wachtrij die 5 GB groot is maken, met 16 partities de maximale wachtrijgrootte wordt (5 * 16) = 80 GB. U kunt de maximale grootte van uw gepartitioneerde wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal]. In de laag Premium alleen 2 partities per wachtrij gemaakt.
+* Partitioneren wordt niet ondersteund in de [Premium-laag](service-bus-premium-messaging.md). In de prijscategorie Standard als u Service Bus-wachtrijen in 1, 2, 3, 4 of 5 GB-grootten (de standaardwaarde is 1 GB) kunt maken. In de standaard-laag, met partitionering ingeschakeld (dit is de standaardwaarde), Service Bus maakt 16 partities voor elke GB die u opgeeft. Als zodanig als u een wachtrij die 5 GB groot is maken, met 16 partities de maximale wachtrijgrootte wordt (5 * 16) = 80 GB. U kunt de maximale grootte van uw gepartitioneerde wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal].
 * Met opslagwachtrijen, als de inhoud van het bericht geen XML-kluis is, moet deze zijn **Base64** gecodeerd. Als u **Base64**-coderen van het bericht, de nettolading van de gebruiker kan maximaal 48 KB, in plaats van 64 KB zijn.
 * Met Service Bus-wachtrijen wordt elk bericht dat is opgeslagen in een wachtrij bestaat uit twee delen: een header en een hoofdtekst. De totale grootte van het bericht kan niet groter zijn dan de maximale berichtgrootte ondersteund door de servicetier.
 * Wanneer clients met Service Bus-wachtrijen via de TCP-protocol communiceren, is het maximum aantal gelijktijdige verbindingen met een enkele Service Bus-wachtrij beperkt tot 100. Dit nummer wordt gedeeld tussen afzenders en ontvangers. Als dit quotum is bereikt, worden volgende aanvragen voor aanvullende verbindingen wordt geweigerd en wordt een uitzondering ontvangen door de aanroepende code. Deze limiet is niet ingesteld op clients die verbinding maken in de wachtrijen op basis van REST-API gebruiken.

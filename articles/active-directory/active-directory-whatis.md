@@ -8,17 +8,19 @@ manager: mtillman
 ms.author: lizross
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.custom: it-pro
-ms.openlocfilehash: 01183a2c85b748d593146f6b52a7d4dbd34524cb
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: daeda2a44cbfd39cd2b796f9d1fe1327e93bf4aa
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714201"
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig)
 Azure Active Directory (Azure AD) is de map voor multitenant en cloudservices van Microsoft en de identity management-service die core directoryservices, beheer van de toepassing toegang en identiteitsbeveiliging in één oplossing combineert. Azure AD biedt ook een rijke, op standaarden gebaseerd platform waarmee ontwikkelaars toegangsbeheer leveren aan hun toepassingen, op basis van regels en gecentraliseerde beleid.

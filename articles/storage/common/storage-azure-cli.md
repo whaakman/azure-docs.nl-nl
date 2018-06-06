@@ -14,11 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737365"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>De Azure CLI 2.0 gebruiken met Azure Storage
 
@@ -394,7 +395,7 @@ Voorbeelduitvoer
 }
 ```
 
-### <a name="list-share-snapshots"></a>Lijst share momentopnamen
+### <a name="list-share-snapshots"></a>Momentopnamen van shares opvragen
 
 Je kunt aanbieden share momentopnamen van het gebruik van een bepaalde bestandsshare `az storage share list --include-snapshots`
 
@@ -438,7 +439,7 @@ az storage share list --include-snapshots
 ]
 ```
 
-### <a name="browse-share-snapshots"></a>Momentopnamen van de share bladeren
+### <a name="browse-share-snapshots"></a>Bladeren door momentopnamen van shares
 U kunt ook bekijken in een bepaalde bestandsshare om weer te geven van de inhoud met behulp van een momentopname `az storage file list`. Een heeft om op te geven van de sharenaam `--share-name <snare name>` en de timestamp `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive

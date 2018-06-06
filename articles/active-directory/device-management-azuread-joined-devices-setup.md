@@ -2,12 +2,13 @@
 title: Instellen van de Azure Active Directory die lid zijn van de apparaten | Microsoft Docs
 description: Informatie over het instellen van Azure Active Directory die lid zijn van apparaten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 2aeaacbc48c8b49b967241522daf90e8fb228073
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713609"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Instellen van de Azure Active Directory die lid zijn van apparaten
 
@@ -45,12 +47,12 @@ Als u wilt deelnemen aan een Windows 10-apparaat, moet de device registratieserv
 
 - Als u een beheerde gebruiker bent, gaat Windows u naar het bureaublad via het automatisch aanmelden.
 
-- Als u een federatieve gebruiker bent, hebt u aanmelden met uw referenties.
+- Als u een federatieve gebruiker bent, hebt u zich aanmeldt met uw referenties.
 
 
 ## <a name="joining-a-device"></a>Lid worden van een apparaat
 
-Deze sectie biedt u de stappen voor uw Windows 10-apparaat koppelt aan uw Azure AD. Als u hebt uw apparaat is toegevoegd aan Azure AD, uw **toegang werk of school** dialoogvenster wordt aangegeven dat dit met een **verbonden met \<uw Azure AD\>**  vermelding.
+Deze sectie biedt u de stappen voor uw Windows 10-apparaat koppelt aan uw Azure AD. Een apparaat met succes aan wordt weergegeven als **verbonden met \<uw Azure AD\>**.
 
 ![Verbonden](./media/device-management-azuread-joined-devices-setup/13.png)
 
@@ -105,7 +107,7 @@ U kunt bekijken om te controleren of een apparaat is verbonden met een Azure AD,
 
 ![Verbonden](./media/device-management-azuread-joined-devices-setup/13.png)
 
-U kunt ook de volgende opdracht uitvoeren:`dsregcmd /status`  
+U kunt ook de volgende opdracht uitvoeren: `dsregcmd /status`  
 Op een apparaat met succes aan **AzureAdJoined** is **Ja**.
 
 ![Verbonden](./media/device-management-azuread-joined-devices-setup/14.png)

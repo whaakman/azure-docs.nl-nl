@@ -3,16 +3,17 @@ title: Planning voor de implementatie van een Azure-bestanden | Microsoft Docs
 description: Meer informatie over wat u moet overwegen bij het plannen van de implementatie van een Azure-bestanden.
 services: storage
 author: wmgries
-manager: jeconnoc
+manager: aungoo
 ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: wgries
-ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86c577c23c97939a31551734dab9d45837011ffa
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737391"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via het SMB-standaardprotocol. Omdat Azure Files volledig wordt beheerd, is het veel eenvoudiger dan implementeren en beheren van een bestandsserver of een NAS-apparaat dat u in productiescenario's implementeren. In dit artikel wordt de onderwerpen in overweging moet nemen bij het implementeren van een Azure-bestandsshare voor gebruik in productieomgevingen binnen uw organisatie.
@@ -82,7 +83,7 @@ Azure Files ondersteunt drie opties voor de redundantie van gegevens: lokaal red
 ## <a name="data-growth-pattern"></a>Patroon van de groei van gegevens
 De maximale grootte voor een Azure-bestandsshare is vandaag de dag 5 TiB, met inbegrip van momentopnamen van de share. Vanwege deze huidige beperking, moet u de groei van de verwachte gegevens overwegen bij het implementeren van een Azure-bestandsshare. Houd er rekening mee dat een Azure Storage-account kan worden gebruikt voor het opslaan van meerdere shares met een totaal van 500 TiB opgeslagen in alle shares.
 
-Het is mogelijk meerdere Azure-bestandsshares op een enkele Windows-bestandsserver synchroniseren met Azure File-synchronisatie. Hiermee kunt u om ervoor te zorgen dat oudere, zeer grote bestandsshares dat er lokaal naar Azure bestand Sync kunnen worden gebracht. Zie [plannen voor de implementatie van een Azure-bestand Sync](storage-files-planning.md) voor meer informatie.
+Het is mogelijk om te synchroniseren die meerdere Azure bestandsshares op een enkele Windows-bestandsserver met het synchroniseren van Azure-bestand. Hiermee kunt u om ervoor te zorgen dat oudere, zeer grote bestandsshares dat er lokaal naar Azure bestand Sync kunnen worden gebracht. Zie [plannen voor de implementatie van een Azure-bestand Sync](storage-files-planning.md) voor meer informatie.
 
 ## <a name="data-transfer-method"></a>Gegevensoverdracht-methode
 Er zijn veel eenvoudige opties bulksgewijs overdracht gegevens uit een bestaand bestand, zoals een bestandsshare lokaal naar Azure-bestanden delen. Enkele populaire daarvan zijn (niet-uitputtende lijst):

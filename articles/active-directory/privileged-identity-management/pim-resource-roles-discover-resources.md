@@ -3,7 +3,7 @@ title: Detecteren en beheren van Azure-resources met behulp van Privileged Ident
 description: Beschrijft hoe Azure-resources beveiligen met PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -11,12 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: 51a10ea164e8bd7650ad2823281d9ed6a4c91915
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: rolyon
+ms.openlocfilehash: af3aa7426515e8180fd41a4594b87f12645722e1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699543"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Detecteren en beheren van Azure-resources met behulp van Privileged Identity Management
 
@@ -27,7 +28,7 @@ Wanneer u eerst PIM voor Azure-resources instellen, moet u om te detecteren en s
 > [!NOTE]
 > U kunt alleen Zoek en selecteer abonnementresources beheren met behulp van PIM. Wanneer u een abonnement in PIM beheert, kunt u ook onderliggende resources in het abonnement te beheren.
 
-## <a name="discover-resources"></a>Detecteren van bronnen
+## <a name="discover-resources"></a>Services detecteren
 
 In de Azure portal, gaat u naar de **Privileged Identity Management** deelvenster. In het menu links in de **beheren** sectie **Azure-resources**.
 

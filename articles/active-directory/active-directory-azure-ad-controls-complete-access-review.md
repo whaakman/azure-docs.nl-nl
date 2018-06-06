@@ -12,22 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
-ms.author: billmath
-ms.openlocfilehash: 7998d69a079c4858c54bea22dbd24e4e84c8c793
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 7e3fbb0f355ff0ffab404af9b7de1a27de02f1fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34697911"
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Voltooien van een beoordeling van de toegang van de leden van een groep of gebruikers toegang tot een toepassing in Azure AD
 
-Beheerders kunnen Azure Active Directory (Azure AD) gebruiken voor [maken een bekijken toegang](active-directory-azure-ad-controls-create-access-review.md) voor leden van de beveiligingsgroep of gebruikers die zijn toegewezen aan een toepassing. Azure AD verzendt revisoren automatisch een e-mail waarin wordt gevraagd om ze toegang te bekijken. Als een gebruiker een e-mailbericht niet hebt, kunt u ze de instructies in verzenden [Controleer uw toegang](active-directory-azure-ad-controls-perform-access-review.md). (Houd er rekening mee dat gasten die worden toegewezen als revisoren maar niet de uitnodiging hebt geaccepteerd niet een e-mailbericht van beoordelingen van toegang ontvangt, zoals ze moeten eerst een uitnodiging vóór controleren accepteren.) Nadat de controleperiode access voltooid is, of als een beheerder de controle van toegang stopt, de stappen in dit artikel om te bekijken en toepassen van de resultaten.
+Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](active-directory-azure-ad-controls-create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing. Azure AD verzendt revisoren automatisch een e-mail waarin wordt gevraagd om ze toegang te bekijken. Als een gebruiker een e-mailbericht niet hebt, kunt u ze de instructies in verzenden [Controleer uw toegang](active-directory-azure-ad-controls-perform-access-review.md). (Houd er rekening mee dat gasten die worden toegewezen als revisoren maar niet de uitnodiging hebt geaccepteerd niet een e-mailbericht van beoordelingen van toegang ontvangt, zoals ze moeten eerst een uitnodiging vóór controleren accepteren.) Nadat de controleperiode access voltooid is, of als een beheerder de controle van toegang stopt, de stappen in dit artikel om te bekijken en toepassen van de resultaten.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Een onderzoek toegang weergeven in de Azure portal
 
 1. Ga naar de [toegang controleert pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), selecteer **programma's**, en selecteer het programma waarin het toegangsbeheer controleren.
 
-2. Selecteer **beheren**, en selecteer het toegangsbeheer controleren. Als er veel besturingselementen in het programma, kunt u filteren op besturingselementen van een specifiek type en sorteren op hun status. U kunt ook zoeken door de naam van het toegangsbeheer controleren of de weergavenaam van de eigenaar op die deze is gemaakt. 
+2. Selecteer **beheren**, en selecteer het toegangsbeheer controleren. Als het programma veel besturingselementen bevat, kunt u filteren op besturingselementen van een specifiek type en deze sorteren op status. U kunt ook zoeken op de naam van het besturingselement voor toegangsbeoordeling of op de weergavenaam van de eigenaar die het heeft gemaakt. 
 
 ## <a name="stop-a-review-that-hasnt-finished"></a>Stoppen van een beoordeling die nog niet voltooid
 

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 5/9/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c6fdd51bd522b08b33e6cac852ef313475682550
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723140"
 ---
 # <a name="write-accelerator"></a>Schrijven van de Accelerator
 Geschreven dat Accelerator is een schijf-functionaliteit voor M-serie virtuele Machines (VM's) op Premium-opslag met Azure beheerd schijven uitsluitend. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van de i/o-latentie van schrijfbewerkingen op basis van Azure Premium-opslag. Schrijven dat Accelerator is ideaal wanneer log-bestandsupdates nodig zijn voor het persistent maken op schijf op een maximaal zodat manier voor moderne databases.
@@ -35,14 +36,14 @@ Schrijven Accelerator werkt alleen in combinatie met [schijven die worden beheer
 > [!IMPORTANT]
 > Inschakelen van de Accelerator schrijven voor de besturingssysteemschijf van de virtuele machine, wordt de virtuele machine opnieuw opgestart. 
 
-VM-configuraties schrijven Accelerator inschakelt voor OS schijven mag niet nodig zijn voor SAP zijn gerelateerd
+Inschakelen van schrijven Accelerator voor OS schijven mag geen nodig is voor VM SAP-gerelateerde configuraties
 
 ### <a name="restrictions-when-using-write-accelerator"></a>Beperkingen bij het gebruik van de Accelerator schrijven
 Wanneer u de Accelerator schrijven voor een Azure-schijf/VHD, gelden deze beperkingen:
 
 - Schijfcache Premium moet worden ingesteld op 'None' of 'Alleen-lezen'. Alle andere gebruikersmoduscache modi worden niet ondersteund.
 - Momentopname op de schijf schrijft Accelerator ingeschakeld is nog niet ondersteund. Deze beperking blokkeert Azure Backup-Service de mogelijkheid om uit te voeren van een toepassing consistente momentopname te maken van alle schijven van de virtuele machine.
-- Alleen i/o-kleinere (< = 32KiB) duurt het versnelde pad. In de werkbelasting situaties waarbij bulksgewijs is het ophalen van gegevens worden geladen of wanneer de buffers transactie logboek van de verschillende DBMS worden gevuld in een grotere mate voordat het ophalen van persistent worden gemaakt voor de opslag, kans op die zijn de i/o geschreven naar schijf neemt de versnelde pad niet.
+- Alleen i/o-kleinere (< = 32 KiB) duurt het versnelde pad. In de werkbelasting situaties waarbij bulksgewijs is het ophalen van gegevens worden geladen of wanneer de buffers transactie logboek van de verschillende DBMS worden gevuld in een grotere mate voordat het ophalen van persistent worden gemaakt voor de opslag, kans op die zijn de i/o geschreven naar schijf neemt de versnelde pad niet.
 
 Er zijn limieten van Azure Premium Storage VHD's per virtuele machine die kan worden ondersteund door de Accelerator schrijven. De huidige limieten zijn:
 
@@ -52,6 +53,12 @@ Er zijn limieten van Azure Premium Storage VHD's per virtuele machine die kan wo
 | M128s | 16 | 8000 |
 | M64ms | 8 | 4000 |
 | M64s | 8 | 4000 | 
+| M32ms | 4 | 2000 | 
+| M32s | 4 | 2000 | 
+| M16ms | 2 | 1000 | 
+| M16s | 2 | 1000 | 
+| M8ms | 1 | 500 | 
+| M8s | 1 | 500 | 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Schrijven Accelerator inschakelen op een specifieke schijf
 De volgende secties wordt beschreven hoe Accelerator schrijven op Azure Premium Storage VHD's kunnen worden ingeschakeld.
@@ -63,29 +70,29 @@ De volgende vereisten toepassen op dit moment op het gebruik van de Accelerator 
 - De schijven die u wilt toepassen Azure schrijven Accelerator tegen moeten worden [schijven die worden beheerd Azure](https://azure.microsoft.com/services/managed-disks/) op Premium-opslag.
 - Moet u een VM M-serie
 
-### <a name="enabling-through-power-shell"></a>Inschakelen via Power Shell
+## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Inschakelen van Azure schrijven Accelerator met Azure PowerShell
 De Azure Power Shell-module van versie 5.5.0 bevatten de wijzigingen in de relevante cmdlets of schrijven Accelerator voor specifieke Azure Premium-opslag-schijven uit te schakelen.
 Om te kunnen inschakelen of schijven wordt ondersteund door de Accelerator schrijven implementeert, hebt u de volgende Power Shell-opdrachten gewijzigd en uitgebreid met een parameter accepteren voor Accelerator schrijven.
 
 Een nieuwe switch-parameter 'WriteAccelerator' is toegevoegd aan de volgende cmdlets: 
 
-- Set-AzureRmVMOsDisk
-- Add-AzureRmVMDataDisk
-- Set-AzureRmVMDataDisk
-- Add-AzureRmVmssDataDisk
+- [Set-AzureRmVMOsDisk](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
+- [Add-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzureRmVmssDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVmssDataDisk?view=azurermps-6.0.0)
 
 Geeft niet de parameter wordt de eigenschap ingesteld op false en schijven die geen ondersteuning door schrijven Accelerator bieden gaat implementeren.
 
 Een nieuwe switch-parameter 'OsDiskWriteAccelerator' is toegevoegd aan de volgende cmdlets: 
 
-- Set-AzureRmVmssStorageProfile
+- [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
 
-Geeft niet de parameter worden de eigenschap ingesteld op false en levert schijven die geen gebruik maken van Accelerator schrijven.
+Geeft niet de parameter wordt de eigenschap ingesteld op false en levert schijven die geen gebruik maken van Accelerator schrijven.
 
 Een nieuwe optionele Booleaanse (niet-nullbare) parameter 'OsDiskWriteAccelerator' is toegevoegd aan de volgende cmdlets: 
 
-- Update-AzureRmVM
-- Update-AzureRmVmss
+- [Update-AzureRmVM](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
+- [Update-AzureRmVmss](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
 
 Geef $true of $false om te bepalen van de ondersteuning van Azure schrijven Accelerator met de schijven.
 
@@ -158,26 +165,27 @@ U moet de namen van de VM-, schijf- en resourcegroep aanpassen. Het bovenstaande
 > [!Note]
 > Uitvoeren van het bovenstaande script wordt Ontkoppel de schijf die is opgegeven, Accelerator schrijven tegen de schijf inschakelen en vervolgens de schijf opnieuw koppelen
 
-### <a name="enabling-through-azure-portal"></a>Inschakelen via Azure Portal
+### <a name="enabling-azure-write-accelerator-using-the-azure-portal"></a>Inschakelen van Azure schrijven Accelerator met de Azure Portal
 
-U kunt de Accelerator schrijven via de Portal waar u uw instellingen voor de schijfcache opgeven inschakelen: 
+U kunt schrijven Accelerator inschakelen via de portal waar u uw instellingen voor de schijfcache opgeven: 
 
-![Accelerator schrijven in de Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+![Accelerator schrijven in de Azure portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
-### <a name="enabling-through-azure-cli"></a>Inschakelen via Azure CLI
+## <a name="enabling-through-azure-cli"></a>Inschakelen via Azure CLI
 U kunt de [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) schrijven Accelerator inschakelen. 
 
-Gebruik de opdracht onder vervangen door de diskName, VMName en ResourceGroup voor uw eigen zodat Accelerator schrijven op een bestaande schijf: 
+Gebruiken om te schrijven Accelerator voor een bestaande schijf inschakelt, [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), mag u de volgende voorbeelden gebruiken als u de diskName, VMName en ResourceGroup voor uw eigen vervangen:
+ 
 ```
-az vm update -g group1 -n vm1 –write-accelerator 1=true
+az vm update -g group1 -n vm1 -write-accelerator 1=true
 ```
-Het koppelen van een schijf met schrijven Accelerator ingeschakeld Neem gebruik de onderstaande opdracht met de waarden:
+Het koppelen van een schijf met schrijven Accelerator ingeschakeld Neem gebruik [az vm schijf koppelen](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), mag u in het volgende voorbeeld gebruiken als u ook uw eigen waarden in:
 ```
-az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator
 ```
-Als u wilt uitschakelen Accelerator schrijven, de eigenschap in te stellen op false: 
+U kunt schrijven Accelerator uitschakelen met [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), de eigenschappen in te stellen op false: 
 ```
-az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false
 ```
 
 ### <a name="enabling-through-rest-apis"></a>Inschakelen via de Rest-API 's

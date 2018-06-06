@@ -1,23 +1,23 @@
 ---
 title: Een Azure Active Directory B2C-tenant maken | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u een Azure Active Directory B2C-tenant kunt maken
+description: Een onderwerp over het maken van een Azure Active Directory B2C-tenant.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 56e0ae7454e86911c894da88b5aa8ccc03a08af3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: d1031074885b0ca55d0b1647575354fcd0f49889
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712263"
 ---
-# <a name="create-an-azure-active-directory-b2c-tenant-in-the-azure-portal"></a>Een Azure Active Directory B2C-tenant maken in de Azure portal
+# <a name="create-an-azure-active-directory-b2c-tenant"></a>Een Azure Active Directory B2C-tenant maken
 
 Deze snelstartgids kunt u een Microsoft Azure Active Directory (Azure AD) B2C-tenant maken in een paar minuten. Wanneer u klaar bent, hebt u een B2C-tenant (directory) te gebruiken voor het registreren van de B2C-toepassingen.
 
@@ -35,7 +35,7 @@ B2C-functies kunnen niet worden ingeschakeld in uw bestaande tenants. U moet een
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
-Gefeliciteerd, u hebt een Azure Active Directory B2C-tenant gemaakt. Bent u een globale beheerder van de tenant. U kunt naar believen hoofdbeheerders toevoegen. Als u wilt overschakelen naar de nieuwe tenant, klikt u op de *beheren van uw nieuwe koppeling van de tenant*.
+Gefeliciteerd, u hebt een Azure Active Directory B2C-tenant gemaakt. Bent u een globale beheerder van de tenant. U kunt naar believen hoofdbeheerders toevoegen. Als u wilt overschakelen naar de nieuwe tenant, klikt u op *beheren van uw nieuwe tenant*.
 
 ![Uw nieuwe koppeling van de tenant beheren](./media/active-directory-b2c-get-started/manage-new-b2c-tenant-link.png)
 

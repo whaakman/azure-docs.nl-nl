@@ -1,19 +1,19 @@
 ---
 title: Modules voor Azure IoT rand implementeren | Microsoft Docs
 description: Meer informatie over hoe modules ophalen geïmplementeerd op de edge-apparaten
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725323"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Rand van de IoT-implementaties voor één apparaten of op grote schaal begrijpen - voorbeeld
 
@@ -25,7 +25,7 @@ De randapparaten van Azure IoT Volg een [levenscyclus van apparaten] [ lnk-lifec
 
 Azure IoT Edge biedt twee manieren voor het configureren van de modules mogen worden uitgevoerd op de IoT Edge-apparaten: één voor ontwikkeling en snelle iteraties op één apparaat (die u hebt gebruikt in de zelfstudies voor Azure IoT Edge) en één voor het beheer van grote wagenparken van IoT Edge-apparaten. Deze beide benaderingen zijn beschikbaar in de Azure-Portal en programmatisch.
 
-Dit artikel is gericht op de configuratie en bewaking van de fasen voor wagenparken van apparaten, gezamenlijk worden aangeduid als de rand van de IoT-implementaties. De algemene implementatiestappen zijn als volgt:   
+Dit artikel is gericht op de configuratie en bewaking van de fasen voor wagenparken van apparaten, gezamenlijk worden aangeduid als IoT rand automatische implementaties. De algemene implementatiestappen zijn als volgt:   
 
 1. Een operator definieert een implementatie die een set van modules, evenals de doelapparaten beschrijft. Elke implementatie heeft een implementatiemanifest die overeenkomt met deze informatie. 
 1. De IoT Hub-service communiceert met alle apparaten configureren met de gewenste modules. 
@@ -36,7 +36,7 @@ Dit artikel begeleidt bij elk onderdeel is betrokken bij het configureren en con
 
 ## <a name="deployment"></a>Implementatie
 
-Een implementatie toegewezen IoT rand module installatiekopieën uit te voeren als de exemplaren van een bepaalde reeks IoT Edge-apparaten. Hierbij worden voor het configureren van een manifest voor de implementatie van IoT Edge zodanig dat die een lijst met modules met de overeenkomstige initialisatieparameters. Een implementatie kan worden toegewezen aan één apparaat (meestal op basis van apparaat-Id) of op een groep apparaten (op basis van labels). Zodra een IoT-randapparaat een manifest voor implementatie ontvangt, downloadt en installeert de installatiekopieën van de module-container van de betreffende container-opslagplaatsen, en configureert deze ze dienovereenkomstig. Zodra een implementatie is gemaakt, kunt de status van de implementatie om te zien of de betreffende apparaten correct zijn geconfigureerd door een operator bewaken.   
+Een automatische implementatie van de rand van de IoT toegewezen IoT rand module installatiekopieën uit te voeren als de exemplaren van een bepaalde reeks IoT Edge-apparaten. Hierbij worden voor het configureren van een manifest voor de implementatie van IoT Edge zodanig dat die een lijst met modules met de overeenkomstige initialisatieparameters. Een implementatie kan worden toegewezen aan één apparaat (meestal op basis van apparaat-Id) of op een groep apparaten (op basis van labels). Zodra een IoT-randapparaat een manifest voor implementatie ontvangt, downloadt en installeert de installatiekopieën van de module-container van de betreffende container-opslagplaatsen, en configureert deze ze dienovereenkomstig. Zodra een implementatie is gemaakt, kunt de status van de implementatie om te zien of de betreffende apparaten correct zijn geconfigureerd door een operator bewaken.   
 
 Apparaten moeten worden ingericht als Edge van de IoT-apparaten worden geconfigureerd met een implementatie. De volgende vereisten en worden niet opgenomen in de implementatie:
 * Het basisbesturingssysteem

@@ -3,7 +3,7 @@ title: Toevoegen of verwijderen van een gebruikersrol | Microsoft Docs
 description: Informatie over het toevoegen van functies aan bevoegde identiteiten met de Azure Active Directory Privileged Identity Management-toepassing.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 01/03/2018
-ms.author: curtand
-ms.openlocfilehash: 6024016d7c59551e5678069cb6a6e1e7ab45ad6e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: rolyon
+ms.openlocfilehash: 809ee0593c1d7947c9f2faa7dfaff800866b1cee
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698353"
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: Hoe kan ik een gebruiker toevoegen of verwijderen?
 Met Azure Active Directory (AD), een algemeen beheerder (of bedrijfsbeheerder) kunt bijwerken die gebruikers **permanent** toegewezen aan rollen in Azure AD. Dit wordt gedaan met PowerShell-cmdlets, zoals `Add-MsolRoleMember` en `Remove-MsolRoleMember`. Of ze de Azure-portal kunnen gebruiken, zoals beschreven in [beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md).

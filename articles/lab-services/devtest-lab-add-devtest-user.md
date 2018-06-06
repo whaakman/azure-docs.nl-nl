@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0303f16de143247ac30a7dd4773b4da11f29c9d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736184"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Eigenaars- en gebruikers toevoegen in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -60,25 +61,27 @@ De volgende tabel ziet u de acties die kunnen worden uitgevoerd door gebruikers 
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>Toevoegen van een eigenaar of gebruiker op het niveau van het lab
-Eigenaars- en gebruikers kunnen worden toegevoegd op het niveau van het lab via de Azure-portal. Dit omvat externe gebruikers met een geldig [Microsoft-account (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
+Eigenaars- en gebruikers kunnen worden toegevoegd op het niveau van het lab via de Azure-portal. Een gebruiker kan zijn van een externe gebruiker met een geldig [Microsoft-account (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
 De volgende stappen begeleiden u bij het proces van een eigenaar of gebruiker toevoegen aan een lab in Azure DevTest Labs:
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 3. Selecteer de gewenste testomgeving uit de lijst van labs.
-4. Selecteer op de labblade **configuratie**. 
-5. Op de **configuratie** blade Selecteer **gebruikers**.
-6. Op de **gebruikers** blade Selecteer **+ toevoegen**.
-   
+4. Selecteer op de labblade **configuratie en het beleid**. 
+5. Op de **configuratie en het beleid** pagina **toegangsbeheer (IAM)** in het menu aan de linkerkant. 
+6. Selecteer **toevoegen** op de werkbalk om een gebruiker toevoegen aan een rol.
+
     ![Gebruiker toevoegen](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-7. Op de **Selecteer een rol** blade, selecteer de gewenste rol. De sectie [acties die kunnen worden uitgevoerd in elke rol](#actions-that-can-be-performed-in-each-role) staan de verschillende acties die kunnen worden uitgevoerd door gebruikers met de eigenaar, DevTest gebruiker en Inzender rollen.
-8. Op de **gebruikers toevoegen** blade, voer het e-mailadres of de naam van de gebruiker die u wilt toevoegen in de rol die u hebt opgegeven. Als de gebruiker kan niet worden gevonden, wordt het probleem uitgelegd in een foutbericht weergegeven. Als de gebruiker wordt gevonden, wordt die gebruiker weergegeven en geselecteerd. 
-9. Selecteer **Selecteer**.
-10. Selecteer **OK** sluiten de **toegang toevoegen** blade.
+1. In de **machtigingen toevoegen** venster de volgende acties uitvoeren: 
+    1. Selecteer een rol (bijvoorbeeld: DevTest Labs gebruiker). De sectie [acties die kunnen worden uitgevoerd in elke rol](#actions-that-can-be-performed-in-each-role) staan de verschillende acties die kunnen worden uitgevoerd door gebruikers met de eigenaar, DevTest gebruiker en Inzender rollen.
+    2. Selecteer de gebruiker moet worden toegevoegd aan de rol. 
+    3. Selecteer **Opslaan**. 
+
+        ![Gebruiker toevoegen aan de rol](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Als u terugkeert naar de **gebruikers** blade de gebruiker is toegevoegd.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Een externe gebruiker toevoegen aan een testomgeving met behulp van PowerShell
-Naast het toevoegen van gebruikers in de Azure portal, kunt u een externe gebruiker toevoegen aan uw testomgeving met een PowerShell-script. In het volgende voorbeeld wijzigt u gewoon de parameterwaarden onder de **waarden wijzigen** opmerking.
+Naast het toevoegen van gebruikers in de Azure portal, kunt u een externe gebruiker toevoegen aan uw testomgeving met een PowerShell-script. Wijzig in het volgende voorbeeld wordt de parameterwaarden onder de **waarden wijzigen** opmerking.
 U kunt ophalen de `subscriptionId`, `labResourceGroup`, en `labName` waarden uit de labblade in de Azure portal.
 
 > [!NOTE]

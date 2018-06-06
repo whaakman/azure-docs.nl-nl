@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eb7576c48d3836eec8051d849cefe4c5ec6658c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699203"
 ---
-# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Veelgestelde vragen over Azure Active Directory SSO invoegtoepassing 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Veelgestelde vragen over Azure Active Directory SSO invoegtoepassing
+
+Raadpleeg onderstaande veelgestelde vragen over als u een query met betrekking tot deze invoegtoepassing.
 
 ## <a name="what-does-the-plug-in-do"></a>Wat doet de invoegtoepassing?
 
@@ -38,13 +41,13 @@ Nee. De invoegtoepassing ondersteunt alleen on-premises versies van Jira en same
 
 De invoegtoepassing biedt ondersteuning voor deze versies:
 
-* Jira Core en Software: 6.0-7.2.2 
-* Jira servicedesk: 3.0 en 3.2 
+* Jira Core en Software: 6.0-7,8
+* Jira servicedesk: 3.0 en 3.2
 * Samenloop: 5.0 naar versie 5.10
 
 ## <a name="is-the-plug-in-free-or-paid"></a>De invoegtoepassing is gratis of betaald?
 
-Het is een gratis add-on. U kunt deze installeren via de Atlassian Marketplace.
+Het is een gratis add-on.
 
 ## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>Moet ik Jira of samenloop opnieuw opstarten nadat ik de invoegtoepassing implementeren?
 
@@ -52,7 +55,7 @@ Opnieuw opstarten is niet vereist. U kunt starten direct met de invoegtoepassing
 
 ## <a name="how-do-i-get-support-for-the-plug-in"></a>Hoe krijg ik ondersteuning voor de invoegtoepassing?
 
-Bereiken de [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Het team reageert in 24-48 kantooruren. 
+U kunt bereiken de [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) voor ondersteuning die nodig zijn voor deze invoegtoepassing. Het team reageert in 24-48 kantooruren.
 
 U kunt ook een ondersteuningsticket met Microsoft via het Azure-portal kanaal verhogen.
 

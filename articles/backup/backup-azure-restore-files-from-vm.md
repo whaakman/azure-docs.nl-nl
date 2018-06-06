@@ -1,28 +1,24 @@
 ---
-title: 'Azure Backup: Bestanden en mappen herstellen van een virtuele machine van Azure back-up | Microsoft Docs'
+title: 'Azure Backup: Bestanden en mappen herstellen van een virtuele machine van Azure back-up'
 description: Bestanden herstellen vanaf een herstelpunt voor virtuele machine van Azure
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
 keywords: herstel op itemniveau; Bestandsherstel van back-up van virtuele machine van Azure. bestanden herstellen van de virtuele machine in Azure
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: pullabhk
+ms.openlocfilehash: e9d1c79d6485764f4b671ad529e0812b49df34b1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737015"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele machine van Azure
 
-Azure Backup biedt de mogelijkheid om te herstellen [Azure virtual machines (VM's) en schijven](./backup-azure-arm-restore-vms.md) van back-ups van virtuele machine in Azure, ook wel bekend als herstelpunten. In dit artikel wordt uitgelegd hoe bestanden en mappen herstellen van een virtuele machine van Azure back-up. Bestanden en mappen terugzetten is alleen beschikbaar voor virtuele Azure-machines geïmplementeerd met behulp van de Resource Manager-model en beveiligd door een Recovery services-kluis.
+Azure Backup biedt de mogelijkheid om te herstellen [Azure virtual machines (VM's) en schijven](./backup-azure-arm-restore-vms.md) van virtuele machine van Azure back-ups, ook wel bekend als herstelpunten. In dit artikel wordt uitgelegd hoe bestanden en mappen herstellen van een virtuele machine van Azure back-up. Bestanden en mappen terugzetten is alleen beschikbaar voor virtuele Azure-machines geïmplementeerd met behulp van de Resource Manager-model en beveiligd door een Recovery services-kluis.
 
 > [!Note]
 > Deze functie is beschikbaar voor virtuele Azure-machines geïmplementeerd met behulp van de Resource Manager-model en beveiligd door een Recovery Services-kluis.
@@ -31,7 +27,7 @@ Azure Backup biedt de mogelijkheid om te herstellen [Azure virtual machines (VM'
 
 ## <a name="mount-the-volume-and-copy-files"></a>Koppelen van het volume en bestanden wilt kopiëren
 
-Als u bestanden of mappen herstellen van het herstelpunt, gaat u naar de virtuele machine en kiest u het herstelpunt. 
+Als u bestanden of mappen herstellen van het herstelpunt, gaat u naar de virtuele machine en kies het gewenste herstelpunt. 
 
 1. Meld u aan bij de [Azure-portal](http://portal.Azure.com) en klik in het menu links op **virtuele machines**. Selecteer in de lijst van virtuele machines, de virtuele machine om die virtuele machine dashboard te openen. 
 
@@ -170,7 +166,7 @@ Als de schijf RAID een andere LVM geconfigureerd in het heeft, gebruikt u de voo
 
 De volgende tabel ziet u de compatibiliteit tussen server en de computer-besturingssystemen. Tijdens het herstellen van bestanden, kunt u bestanden niet terugzetten naar een vorige of toekomstige besturingssysteemversie. U terugzetten niet bijvoorbeeld een bestand vanaf een Windows Server 2016 VM naar Windows Server 2012 of een computer met Windows 8. U kunt bestanden terugzetten van een virtuele machine op hetzelfde server-besturingssysteem, of op het besturingssysteem compatibel client.   
 
-|Server OS | Compatibel clientbesturingssysteem  |
+|Serverbesturingssysteem | Compatibel clientbesturingssysteem  |
 | --------------- | ---- |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |

@@ -1,28 +1,24 @@
 ---
-title: Schaal U-SQL lokaal uitvoeren en testen met Azure Data Lake U-SQL-SDK | Microsoft Docs
-description: Ontdek hoe u met Azure Data Lake U-SQL-SDK scale U-SQL-taken lokaal uitvoeren en testen met de opdrachtregel en API's op uw lokale werkstation.
+title: Uitvoert en test U-SQL-taken lokaal via de Azure Data Lake U-SQL-SDK
+description: Informatie over het uitvoeren en testen van U-SQL-taken lokaal via de opdrachtregel en programmeerinterface op uw lokale werkstation.
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737068"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Schaal U-SQL lokaal uitvoeren en testen met Azure Data Lake U-SQL-SDK
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Uitvoert en test U-SQL met Azure Data Lake U-SQL-SDK
 
-Bij het ontwikkelen van U-SQL-script, is het gebruikelijk om uit te voeren en U-SQL-testscript lokaal verzenden voordat het in de cloud. Azure Data Lake biedt een Nuget-pakket Azure Data Lake U-SQL-SDK voor dit scenario aangeroepen, via die u kunt gemakkelijk de schaal van U-SQL lokaal uitvoeren en testen. Het is ook mogelijk om te integreren met deze test U-SQL met CI (continue integratie) systeem compilatie automatiseren en testen.
+Bij het ontwikkelen van U-SQL-script, is het gebruikelijk om uit te voeren en U-SQL-testscript lokaal verzenden voordat het in de cloud. Azure Data Lake biedt een Nuget-pakket Azure Data Lake U-SQL-SDK voor dit scenario aangeroepen, via die u kunt gemakkelijk de schaal van U-SQL uitvoeren en testen. Het is ook mogelijk om te integreren met deze test U-SQL met CI (continue integratie) systeem compilatie automatiseren en testen.
 
 Als u het belangrijkst hoe handmatig lokale uitvoeren en foutopsporing van U-SQL-script met GUI tooling, kunt u Azure Data Lake Tools voor Visual Studio gebruiken voor die. U kunt meer informatie van [hier](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -212,12 +208,12 @@ De **uitvoeren** opdracht wordt gebruikt voor het uitvoeren van de resultaten.
 
 Hieronder vindt u optionele argumenten voor **uitvoeren**:
 
-|Argument|Beschrijving|
-|--------|-----------|
-|-DataRoot [standaardwaarde '']|De gegevenshoofdmap voor de uitvoering van de metagegevens. Wordt standaard de **LOCALRUN_DATAROOT** omgevingsvariabele.|
-|-MessageOut [standaardwaarde '']|Dump berichten in de console naar een bestand.|
-|-Parallel standaardwaarde '1'|De indicator de gegenereerde lokaal uitvoeren stappen uitvoeren met het niveau van de opgegeven parallelle uitvoering.|
-|-Verbose [standaardwaarde 'False']|Indicator om gedetailleerde uitvoer van de runtime weer te geven.|
+|Argument|Standaardwaarde|Beschrijving|
+|--------|-------------|-----------|
+|-DataRoot | '' |De gegevenshoofdmap voor de uitvoering van de metagegevens. Wordt standaard de **LOCALRUN_DATAROOT** omgevingsvariabele.|
+|-MessageOut | '' |Dump berichten in de console naar een bestand.|
+|-Parallel | '1' |De indicator de gegenereerde lokaal uitvoeren stappen uitvoeren met het niveau van de opgegeven parallelle uitvoering.|
+|-Verbose | 'False' |Indicator om gedetailleerde uitvoer van de runtime weer te geven.|
 
 Hier volgt een voorbeeld van gebruik:
 
@@ -360,7 +356,7 @@ openbare LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 |ParentPid|int|De Pincode van de bovenliggende waarop de service bewaakt om af te sluiten, ingesteld op 0 of een negatieve te negeren|
 |ResultPath|tekenreeks|Resultaat dump bestandspad|
 |RuntimeDir|tekenreeks|Runtime-map|
-|ScriptPath|tekenreeks|Waar vind ik het script|
+|scriptPath|tekenreeks|Waar vind ik het script|
 |Recente|BOOL|Recente compileren of niet|
 |TempDir|tekenreeks|Tijdelijke map|
 |UseDataBase|tekenreeks|Geef de database moet worden gebruikt voor de code achter tijdelijke assembly-registratie, master standaard|

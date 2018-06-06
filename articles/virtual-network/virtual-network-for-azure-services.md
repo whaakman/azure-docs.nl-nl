@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802558"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integratie van virtueel netwerk voor Azure-services
 
@@ -66,11 +67,7 @@ U kunt een [interne Azure load balancer](../load-balancer/load-balancer-internal
 
 ## <a name="service-endpoints-for-azure-services"></a>Service-eindpunten voor Azure-services
 
-Sommige Azure-services kunnen niet worden geïmplementeerd in virtuele netwerken. U kunt de toegang beperken tot een aantal van de serviceresources met subnetten van alleen specifieke virtueel netwerk, als u kiest, doordat de service-eindpunt van een virtueel netwerk. Meer informatie over [virtueel netwerk service-eindpunten](virtual-network-service-endpoints-overview.md).
-
-Service-eindpunten worden momenteel ondersteund voor de volgende services: 
-- **Azure Storage**: [beveiligen van Azure Storage-accounts naar virtuele netwerken](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- **Azure SQL Database**: [Azure SQL-Database beveiligen met virtuele netwerken](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Sommige Azure-services kunnen niet worden geïmplementeerd in virtuele netwerken. U kunt de toegang beperken tot een aantal van de serviceresources met subnetten van alleen specifieke virtueel netwerk, als u kiest, doordat de service-eindpunt van een virtueel netwerk. Meer informatie over [virtueel netwerk service-eindpunten](virtual-network-service-endpoints-overview.md), en de services die eindpunten kunnen worden ingeschakeld voor.
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>Integratie van virtueel netwerk op meerdere Azure-services
 

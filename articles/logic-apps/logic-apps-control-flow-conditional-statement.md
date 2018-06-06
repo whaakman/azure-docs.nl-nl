@@ -1,29 +1,25 @@
 ---
-title: Voorwaardelijke instructies - Run-stappen op basis van een voorwaarde - Azure Logic Apps | Microsoft Docs
-description: Stappen worden uitgevoerd in uw logische app alleen als aan een voorwaarde. Maak beslissingsstructuren die uitvoeren van werkstromen op basis van de opgegeven voorwaarden.
+title: Voeg voorwaardelijke instructies toe aan de werkstromen - Azure Logic Apps | Microsoft Docs
+description: Voorwaarden waarmee acties in werkstromen in Azure Logic Apps maken
 services: logic-apps
-keywords: voorwaardelijke instructies beslissingsstructuren
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 486c1053f42ed3becc2c4b60accc993db7f24baa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 5629c743434a0fe53f35da29343945951bbc5dd7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725727"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>Voorwaardelijke instructies: Voer stappen uit op basis van een voorwaarde in logic apps
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Voorwaardelijke instructies waarmee de werkstroomacties in Azure Logic Apps maken
 
-Gebruiken om uit te voeren stappen alleen na een opgegeven voorwaarde wordt doorgegeven, een *voorwaardelijke instructie*. Deze structuur vergelijkt gegevens in uw werkstroom op basis van bepaalde waarden of velden. Vervolgens kunt u verschillende stappen worden uitgevoerd op basis van of de gegevens aan de voorwaarde voldoet. U kunt voorwaarden in de andere nesten.
+Toevoegen om bepaalde acties uitvoeren in uw logische app alleen na een opgegeven voorwaarde wordt doorgegeven, een *voorwaardelijke instructie*. Deze structuur vergelijkt de gegevens in uw werkstroom op basis van bepaalde waarden of velden. Vervolgens kunt u verschillende acties die worden uitgevoerd op basis van of de gegevens aan de voorwaarde voldoet. U kunt voorwaarden in de andere nesten.
 
 Stel dat u hebt een logische app waarmee te veel e-mails worden verzonden wanneer nieuwe items worden weergegeven op een website RSS-feed. U kunt een voorwaarde voor het verzenden van e-mailbericht alleen als het nieuwe item een specifieke tekenreeks omvat toevoegen. 
 
@@ -65,7 +61,7 @@ Stel dat u hebt een logische app waarmee te veel e-mails worden verzonden wannee
 
    Dit is de volledige voorwaarde:
 
-   ![Volledige voorwaarde](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Voltooide voorwaarde](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
 
    > [!TIP]
    > Als u een meer geavanceerde voorwaarde maken of expressies gebruiken, kiest u **bewerken in de geavanceerde modus**. U kunt expressies die zijn gedefinieerd door de [werkstroom Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).

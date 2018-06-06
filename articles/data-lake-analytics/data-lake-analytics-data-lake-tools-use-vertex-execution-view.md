@@ -1,31 +1,25 @@
 ---
-title: Gebruik de Vertex Execution View in Data Lake Tools voor Visual Studio | Microsoft Docs
-description: Informatie over het gebruik van de Vertex Execution View naar examen Data Lake Analytics-taken.
+title: Gebruik de Vertex Execution View in Data Lake Tools voor Visual Studio
+description: Dit artikel wordt beschreven hoe u de Vertex Execution View naar examen Data Lake Analytics-taken.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/13/2016
+author: mumian
 ms.author: jgao
-ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
+ms.topic: conceptual
+ms.date: 10/13/2016
+ms.openlocfilehash: af15bb9fd1131f598dc87f13c4af481b63d023e3
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735438"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Gebruik de Vertex Execution View in Data Lake Tools voor Visual Studio
 Informatie over het gebruik van de Vertex Execution View naar examen Data Lake Analytics-taken.
 
-## <a name="prerequisites"></a>Vereisten
-
-Moet u basiskennis van het gebruik van Data Lake Tools voor Visual Studio voor het ontwikkelen van U-SQL-script.  Zie [zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 ## <a name="open-the-vertex-execution-view"></a>Open de Vertex Execution View
 Open een U-SQL-taak in de Data Lake Tools voor Visual Studio. Klik op **Vertex Execution View** in de linkerbenedenhoek. U wordt mogelijk gevraagd eerst profielen laden en het kan even duren, afhankelijk van uw netwerkverbinding.

@@ -8,17 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/23/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5573399b33da64df8b9bbf78a9583572cf148d7b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713844"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Snelstartgids: Huisstijl naar de aanmeldingspagina in Azure AD toevoegen
 Om verwarring te voorkomen, willen veel bedrijven een consistente look gebruiken voor alle websites en services die ze beheren. Azure Active Directory (Azure AD) biedt deze mogelijkheid. u kunt pas het uiterlijk van de aanmeldingspagina met uw bedrijfslogo en kleurenschema toepassen. De aanmeldingspagina wordt weergegeven wanneer u zich aanmeldt bij webgebaseerde toepassingen zoals Office 365 die gebruikmaken van Azure AD als id-provider. U communiceert met deze pagina uw referenties in te voeren.
@@ -83,24 +84,24 @@ Azure AD aanmelden geeft de gebruiker de optie om te blijven is aangemeld wannee
 ## <a name="add-company-branding-to-your-directory"></a>Huisstijl aan uw directory toevoegen
 
 1. Aanmelden bij [het Azure AD-beheercentrum](https://aad.portal.azure.com) met een account met globale beheerdersrechten voor de tenant.
-2. Selecteer **gebruikers en groepen** > **bedrijf huisstijl** > **bewerken**.
+2. Selecteer **Azure Active Directory** > **bedrijf huisstijl** > **bewerken**.
   
   ![Aangepaste huisstijl openen](./media/customize-branding/navigation-to-branding.png)
 3. Wijzig de elementen die u wilt aanpassen. Alle elementen zijn optioneel.
   
   ![Aangepaste huisstijl bewerken](./media/customize-branding/edit-branding.png)
-5. Wanneer u bent klaar, selecteert u **opslaan**.
+4. Wanneer u bent klaar, selecteert u **opslaan**.
 
 Dit kan een uur duren voor alle wijzigingen naar de pagina aanmeldingspagina met huisstijl weergegeven.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>De huisstijl specifieke taal zijn gebonden aan uw directory toevoegen
 
 1. Meld u aan bij het [beheercentrum van Azure AD](https://aad.portal.azure.com) met een account met globale beheerdersrechten voor de directory.
-2. Selecteer **gebruikers en groepen** > **bedrijf huisstijl** > **nieuwe taal**.
+2. Selecteer **Azure Active Directory** > **bedrijf huisstijl** > **nieuwe taal**.
   
   ![De huisstijl elementen taalspecifieke toevoegen](./media/customize-branding/add-language.png)
-5. Wijzig de elementen die u wilt aanpassen. Alle elementen zijn optioneel.
-6. Wanneer u bent klaar, selecteert u **opslaan**.
+3. Wijzig de elementen die u wilt aanpassen. Alle elementen zijn optioneel.
+4. Wanneer u bent klaar, selecteert u **opslaan**.
 
 Dit kan een uur duren voor alle wijzigingen naar de pagina aanmeldingspagina met huisstijl weergegeven.
 

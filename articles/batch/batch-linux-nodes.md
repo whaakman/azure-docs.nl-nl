@@ -12,14 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
-ms.date: 05/22/2017
+ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9aa896bfc4c860c87757f9379fc44cc5ee8d18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: abb822483253fc5fce0e76afc2628806fe4485d8
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801759"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Linux-rekenknooppunten in de Batch-pools inrichten
 
@@ -38,7 +39,7 @@ Wanneer u een pool van rekenknooppunten in een Batch maakt, hebt u twee opties w
 **Virtuele-machineconfiguratie** biedt Linux- en Windows-installatiekopieën voor rekenknooppunten. Beschikbare compute-knooppuntgrootten worden vermeld in [grootten voor virtuele machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) en [grootten voor virtuele machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). Wanneer u een groep die virtuele-machineconfiguratie knooppunten bevat maakt, moet u de grootte van de knooppunten, de verwijzing van de installatiekopie van virtuele machine en de Batch knooppunt agent SKU worden geïnstalleerd op de knooppunten.
 
 ### <a name="virtual-machine-image-reference"></a>Verwijzing naar afbeelding van virtuele machine
-De Batch-service wordt gebruikt [virtuele-machineschaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor Linux-rekenknooppunten. U kunt opgeven dat een installatiekopie van het [Azure Marketplace][vm_marketplace], of geef een aangepaste installatiekopie die u hebt voorbereid. Zie [Grootschalige parallelle rekenoplossingen ontwikkelen met Batch](batch-api-basics.md#pool) voor meer informatie over aangepaste installatiekopieën.
+De Batch-service wordt gebruikt [virtuele-machineschaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor rekenknooppunten in de configuratie van de virtuele Machine. U kunt opgeven dat een installatiekopie van het [Azure Marketplace][vm_marketplace], of geef een aangepaste installatiekopie die u hebt voorbereid. Zie voor meer informatie over aangepaste installatiekopieën [een pool maken met een aangepaste installatiekopie](batch-custom-images.md).
 
 Wanneer u een verwijzing van de installatiekopie van virtuele machine configureert, geeft u de eigenschappen van de installatiekopie van de virtuele machine. De volgende eigenschappen zijn vereist wanneer u een verwijzing van de installatiekopie van virtuele machine maken:
 
@@ -57,9 +58,9 @@ Wanneer u een verwijzing van de installatiekopie van virtuele machine configuree
 ### <a name="node-agent-sku"></a>Knooppunt agent SKU
 De Batch-knooppunt-agent is een programma dat wordt uitgevoerd op elk knooppunt in de groep en de opdracht en controle interface vormt tussen het knooppunt en de Batch-service. Er zijn verschillende implementaties van de agent van het knooppunt, SKU's, ook wel voor verschillende besturingssystemen. In wezen, wanneer u de configuratie van een virtuele Machine maakt, u eerst de verwijzing van de installatiekopie van virtuele machine opgeven en vervolgens geeft u de knooppunt-agent installeren op de installatiekopie. Normaal gesproken elke agent knooppunt SKU is compatibel met meerdere installatiekopieën van virtuele machines. Hier volgen enkele voorbeelden van knooppunt agent SKU's:
 
-* batch.node.ubuntu 14.04
+* batch.node.Ubuntu 14.04
 * batch.node.centos 7
-* batch.node.windows amd64
+* batch.node.Windows amd64
 
 > [!IMPORTANT]
 > Niet alle installatiekopieën van virtuele machines die beschikbaar in de Marketplace zijn zijn compatibel met de momenteel beschikbare Batch knooppunt agents. Gebruik de Batch-SDK's voor een lijst met de agent beschikbaar knooppunt SKU's en installatiekopieën van virtuele machines waarmee ze compatibel zijn. Zie de [installatiekopieën van de lijst van de virtuele Machine](#list-of-virtual-machine-images) verderop in dit artikel voor meer informatie en voorbeelden van hoe u een lijst met geldige afbeeldingen tijdens runtime ophaalt.
@@ -145,7 +146,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
 ```
 
 ## <a name="create-a-linux-pool-batch-net"></a>Een groep met Linux maken: Batch .NET
-Het volgende codefragment toont een voorbeeld van het gebruik van de [Batch .NET] [ nuget_batch_net] -clientbibliotheek voor het maken van een pool van Ubuntu Server rekenknooppunten. U vindt de [Batch .NET-naslagdocumentatie] [ api_net] op MSDN.
+Het volgende codefragment toont een voorbeeld van het gebruik van de [Batch .NET] [ nuget_batch_net] -clientbibliotheek voor het maken van een pool van Ubuntu Server rekenknooppunten. U vindt de [Batch .NET-naslagdocumentatie] [ api_net] op docs.microsoft.com.
 
 De volgende code codefragment gebruikt de [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] methode te selecteren in de lijst met momenteel ondersteund Marketplace installatiekopie en knooppunt agent SKU combinaties. Deze techniek is het wenselijk omdat de lijst met ondersteunde combinaties van tijd tot tijd kan veranderen. Meest voorkomende worden ondersteunde combinaties toegevoegd.
 
@@ -206,7 +207,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Lijst van installatiekopieën van virtuele machines
-De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machine die compatibel met de beschikbare Batch knooppunt agents zijn wanneer dit artikel voor het laatst is bijgewerkt. Het is belangrijk te weten dat deze lijst is geen definitieve omdat installatiekopieën en agents knooppunt kunnen worden toegevoegd of verwijderd op elk gewenst moment. Het is raadzaam dat uw Batch-toepassingen en services gebruik altijd [list_node_agent_skus] [ py_list_skus] (Python) en [ListNodeAgentSkus] [ net_list_skus] (Batch .NET) om te bepalen en selecteer in de momenteel beschikbare SKU's.
+De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machine die compatibel met de beschikbare Batch knooppunt agents zijn wanneer dit artikel voor het laatst is bijgewerkt. Het is belangrijk te weten dat deze lijst is geen definitieve omdat installatiekopieën en agents knooppunt kunnen worden toegevoegd of verwijderd op elk gewenst moment. Het is raadzaam dat uw Batch-toepassingen en services gebruik altijd [list_node_agent_skus] [ py_list_skus] (Python) of [ListNodeAgentSkus] [ net_list_skus] () Batch .NET) om te bepalen en selecteer in de momenteel beschikbare SKU's.
 
 > [!WARNING]
 > De volgende lijst kan op elk gewenst moment wijzigen. Gebruik altijd de **lijst knooppunt agent SKU** methoden die beschikbaar zijn in de Batch-API's voor een lijst met compatibele virtuele machine en knooppunt agent SKU's wanneer u uw Batch-taken uitvoeren.
@@ -215,26 +216,33 @@ De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machine
 
 | **Publisher** | **Aanbieding** | **Afbeelding SKU** | **Versie** | **Knooppunt agent SKU-ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| Canonical | UbuntuServer | 14.04.5-LTS | meest recente | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | meest recente | batch.node.ubuntu 16.04 |
+| batch | rendering centos73 | Rendering | meest recente | batch.node.centos 7 |
+| batch | rendering windows2016 | Rendering | meest recente | batch.node.Windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | meest recente | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | meest recente | batch.node.Ubuntu 14.04 |
+| Credativ | Debian | 9 | meest recente | batch.node.debian 9 |
 | Credativ | Debian | 8 | meest recente | batch.node.debian 8 |
-| OpenLogic | CentOS | 7.0 | meest recente | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.1 | meest recente | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | meest recente | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.2 | meest recente | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.0 | meest recente | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.2 | meest recente | batch.node.centos 7 |
-| SUSE | openSUSE | 13.2 | meest recente | batch.node.opensuse 13.2 |
-| SUSE | openSUSE-Leap | 42.1 | meest recente | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | meest recente | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12-SP1 | meest recente | batch.node.opensuse 42.1 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | meest recente | batch.node.centos 7 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | meest recente | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | meest recente | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | meest recente | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | meest recente | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | meest recente | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | meest recente | batch.node.windows amd64 |
+| microsoft-ads | Standard-gegevens-wetenschappelijke-vm | Standard-gegevens-wetenschappelijke-vm | meest recente | batch.node.Windows amd64 |
+| Microsoft azure batch | centos-container | 7 4 | meest recente | batch.node.centos 7 |
+| Microsoft azure batch | centos-container-rdma | 7 4 | meest recente | batch.node.centos 7 |
+| Microsoft azure batch | Ubuntu-server-container | 16-04-TNS | meest recente | batch.node.ubuntu 16.04 |
+| Microsoft azure batch | Ubuntu server-container rdma | 16-04-TNS | meest recente | batch.node.ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | meest recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | Datacenter-2016-smalldisk | meest recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter met Containers | meest recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | meest recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | meest recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | meest recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | Datacenter-2012-smalldisk | meest recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | meest recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008 R2-SP1 smalldisk | meest recente | batch.node.Windows amd64 |
+| OpenLogic | CentOS | 7.4 | meest recente | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.4 | meest recente | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | meest recente | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | meest recente | batch.node.centos 7 |
+| Oracle | Oracle Linux | 7.4 | meest recente | batch.node.centos 7 |
+| SUSE | SLES HPC | 12 SP2 | meest recente | batch.node.opensuse 42,1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Verbinding maken met gebruik van SSH Linux-knooppunten
 Tijdens de ontwikkeling of bij het oplossen van problemen soms is het nodig zijn om te melden bij de knooppunten in de pool. In tegenstelling tot Windows rekenknooppunten, kunt u Remote Desktop Protocol (RDP) niet gebruiken voor het verbinding maken met Linux-knooppunten. De Batch-service kan in plaats daarvan SSH-toegang op elk knooppunt voor externe verbinding.

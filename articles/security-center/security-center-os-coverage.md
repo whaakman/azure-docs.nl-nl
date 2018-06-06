@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756898"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Ondersteunde platforms in Azure Security Center
 Status beveiligingsbewaking en aanbevelingen zijn beschikbaar voor virtuele machines (VM's) gemaakt met behulp van zowel het klassieke en Resource Manager-implementatiemodel, en computers.
@@ -59,6 +60,6 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Azure Security Center Planning- en Bedieningsgids](security-center-planning-and-operations-guide.md) : informatie over het plannen en de ontwerpoverwegingen vast te stellen van Azure Security Center begrijpen
-- [Beveiligingswaarschuwingen op typen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) : meer informatie over de virtuele machine gedragsanalyse en crashes dump geheugenanalyse in Security Center
+- [Beveiligingswaarschuwingen op typen in Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) : meer informatie over de virtuele machine gedragsanalyse en crashes dump geheugenanalyse in Security Center
 - [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
 - [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over Azure-beveiliging en naleving

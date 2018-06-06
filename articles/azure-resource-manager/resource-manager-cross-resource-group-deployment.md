@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7e9807e7195be47bf7874837ff9428c90abbcee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735667"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Azure-resources implementeren op meer dan één abonnement of resourcegroep
 
@@ -128,11 +129,11 @@ Als u instelt `resourceGroup` op de naam van een resourcegroep die niet bestaat,
 
 Voor het implementeren van de voorbeeldsjabloon, het gebruik van Azure PowerShell 4.0.0 of later of Azure CLI 2.0.0 of hoger.
 
-## <a name="use-the-resourcegroup-function"></a>Gebruik de functie resourceGroup()
+## <a name="use-the-resourcegroup-and-subscription-functions"></a>Gebruik de functies resourceGroup() en subscription()
 
-Voor cross-resourcegroepimplementaties, de [resourceGroup() functie](resource-group-template-functions-resource.md#resourcegroup) wordt omgezet is anders op basis van hoe u de geneste sjabloon opgeven. 
+Voor cross-resourcegroepimplementaties, de [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) en [subscription()](resource-group-template-functions-resource.md#subscription) functies oplossen anders op basis van hoe u de geneste sjabloon opgeven. 
 
-Als u een sjabloon in een andere sjabloon insluit, is resourceGroup() in de geneste sjabloon wordt omgezet naar de bovenliggende resource-groep. Een ingesloten sjabloon maakt gebruik van de volgende indeling:
+Als u een sjabloon in een andere sjabloon insluit, worden de functies in de geneste sjabloon omgezet naar de bovenliggende resourcegroep en het abonnement. Een ingesloten sjabloon maakt gebruik van de volgende indeling:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -143,12 +144,12 @@ Als u een sjabloon in een andere sjabloon insluit, is resourceGroup() in de gene
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() and subscription() refer to parent resource group/subscription
     }
 }
 ```
 
-Als u een koppeling naar een afzonderlijke sjabloon, wordt resourceGroup() in de gekoppelde sjabloon omgezet in de geneste resourcegroep. Een gekoppelde sjabloon maakt gebruik van de volgende indeling:
+Als u een koppeling naar een afzonderlijke sjabloon, worden de functies in de gekoppelde sjabloon omgezet in de geneste resourcegroep en een abonnement. Een gekoppelde sjabloon maakt gebruik van de volgende indeling:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -159,7 +160,7 @@ Als u een koppeling naar een afzonderlijke sjabloon, wordt resourceGroup() in de
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
     }
 }
 ```

@@ -7,22 +7,36 @@ author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
+ms.reviewer: genemi
 ms.author: billgib
-ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737677"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Multitenant SaaS-database tenancymodus patronen
 
 Bij het ontwerpen van een multitenant SaaS-toepassing, moet u zorgvuldig de tenancymodus model die het beste past bij de behoeften van uw toepassing.  Een model tenancymodus bepaalt hoe gegevens van elke tenant wordt toegewezen aan opslag.  Uw keuze van tenancymodus model heeft gevolgen voor toepassingen ontwerpen en beheren.  Later overschakelen naar een ander model is het soms kostbaar.
 
-Hier volgt een bespreking van de alternatieve tenancymodus modellen.
+Dit artikel wordt beschreven alternatieve tenancymodus modellen.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>A. Het kiezen van het juiste tenancymodus-model
+## <a name="a-saas-concepts-and-terminology"></a>A. SaaS-concepten en terminologie
+
+In de Software als een Service (SaaS)-model van uw bedrijf niet wordt verkocht *licenties* met de software. In plaats daarvan elke klant maakt verhuren betalingen voor uw bedrijf, zodat elke klant een *tenant* van uw bedrijf.
+
+Elke tenant toegang tot de onderdelen van uw SaaS-toepassing ontvangt tegen huur betaalt, en heeft de gegevens opgeslagen in de SaaS-systeem.
+
+De term *tenancymodus model* verwijst naar de rangschikking van tenants opgeslagen gegevens:
+
+- *Single-tenancymodus:* &nbsp; elke database slaat de gegevens van slechts één tenant.
+- *Multi-tenancymodus:* &nbsp; elke database slaat de gegevens van meerdere afzonderlijke tenants (met mechanismen ter bescherming van de privacy van gegevens).
+- Hybride-tenancymodus modellen zijn ook beschikbaar.
+
+## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Het kiezen van het juiste tenancymodus-model
 
 In het algemeen de tenancymodus model heeft geen gevolgen voor de functie van een toepassing, maar deze waarschijnlijk heeft gevolgen voor andere aspecten van de hele oplossing.  De volgende criteria worden gebruikt om elk van de modellen vast te stellen:
 
@@ -50,7 +64,7 @@ In het algemeen de tenancymodus model heeft geen gevolgen voor de functie van ee
 
 De bespreking van de tenancymodus is gericht op de *gegevens* laag.  Maar kijk eens naar de *toepassing* laag.  De toepassingslaag wordt beschouwd als een monolithisch entiteit.  Als u de toepassing in veel kleine onderdelen verdelen, wordt uw keuze van tenancymodus model mogelijk gewijzigd.  U kan een aantal onderdelen anders dan andere behandelen met betrekking tot zowel tenancymodus en het opslagtechnologie of platform gebruikt.
 
-## <a name="b-standalone-single-tenant-app-with-single-tenant-database"></a>B. Zelfstandige één tenant app met één tenant-database
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Zelfstandige één tenant app met één tenant-database
 
 #### <a name="application-level-isolation"></a>Het niveau isoleren van webtoepassingen
 
@@ -66,7 +80,7 @@ Elke tenant-database wordt geïmplementeerd als een zelfstandige database.  Dit 
 
 De leverancier van de toegang tot alle databases in alle zelfstandige app-exemplaren, zelfs als de app-exemplaren in andere tenant abonnementen zijn geïnstalleerd.  De toegang is verkregen via SQL-verbindingen.  Deze toegang cross-exemplaar kan de leverancier te centraliseren Schemabeheer en cross-databasequery voor rapportage of analytics doeleinden kunt inschakelen.  Als u dit soort gecentraliseerd beheer, moet een catalogus worden geïmplementeerd die tenant-id wordt toegewezen aan database URI's.  Azure SQL Database biedt een sharding-bibliotheek die wordt gebruikt samen met een SQL-database voor een catalogus.  De bibliotheek sharding heet formeel de [clientbibliotheek voor elastische Database][docu-elastic-db-client-library-536r].
 
-## <a name="c-multi-tenant-app-with-database-per-tenant"></a>C. Multitenant-app met database per tenant
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Multitenant-app met database per tenant
 
 Dit patroon van de volgende maakt gebruik van een toepassing met meerdere tenants met veel databases, worden alle databases voor één tenant.  Een nieuwe database wordt ingericht voor elke nieuwe tenant.  De toepassingslaag wordt geschaald *up* verticaal door meer bronnen per knooppunt toe te voegen.  Of de app wordt geschaald *uit* horizontaal door meer knooppunten toe te voegen.  De schaal is gebaseerd op werkbelasting en niet afhankelijk is van het nummer of de schaal van de afzonderlijke databases.
 
@@ -105,7 +119,7 @@ De beheerbewerkingen die kunnen worden vastgelegd in een script en die worden aa
 
 Bijvoorbeeld, kan u het herstel van een enkele tenant naar een eerder punt in tijd automatiseren.  Het herstel hoeft slechts één enkel-tenant-database die de tenant opslaat herstellen.  Deze restore heeft geen invloed op een andere tenants, waarin wordt bevestigd dat beheerbewerkingen op het niveau van contexttoken gedetailleerde van elke afzonderlijke tenant zijn.
 
-## <a name="d-multi-tenant-app-with-multi-tenant-databases"></a>D. Multitenant-app met meerdere tenants databases
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. Multitenant-app met meerdere tenants databases
 
 Patroon voor een ander beschikbaar is voor het opslaan van tal van tenants in een multitenant-database.  Het toepassingsexemplaar kan een willekeurig aantal databases van meerdere tenants hebben.  Het schema van een multitenant-database moet een of meer tenant-id kolommen hebben, zodat de gegevens van een bepaalde tenant selectief kunnen worden opgehaald.  Bovendien wordt het schema mogelijk enkele tabellen of kolommen die worden gebruikt door alleen een subset van tenants.  Statische code- en referentiegegevens samenvoegt wordt echter slechts één keer wordt opgeslagen en wordt gedeeld door alle tenants.
 
@@ -121,13 +135,13 @@ Multitenant-databases hebben in het algemeen de laagste per-tenant kosten.  Reso
 
 Twee varianten van een multitenant-databasemodel worden besproken in het volgende met het shard multitenant-model wordt de meest flexibele en schaalbare.
 
-## <a name="e-multi-tenant-app-with-a-single-multi-tenant-database"></a>E. Multitenant-app met een enkele multitenant-database
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Multitenant-app met een enkele multitenant-database
 
 De eenvoudigste multitenant database patroon gebruikt een zelfstandige database als host voor gegevens voor alle tenants.  Als meer tenants worden toegevoegd, wordt de database uitgebreid met meer opslagruimte en rekencapaciteit bronnen.  Deze schaal omhoog mogelijk alle die is vereist, hoewel er altijd een limiet ultimate schaal.  Lange voordat deze limiet wordt bereikt de database wordt echter lastig zijn om te beheren.
 
 Beheerbewerkingen die zijn gericht op individuele tenants zijn moeilijker te implementeren in een multitenant-database.  En kan op grote schaal deze bewerkingen worden onaanvaardbaar langzaam.  Een voorbeeld hiervan is een punt in tijd terugzetten van de gegevens voor één tenant.
 
-## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F. Multitenant-app met shard multitenant-databases
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. Multitenant-app met shard multitenant-databases
 
 De meeste SaaS-toepassingen toegang tot de gegevens van slechts één tenant tegelijk.  Dit toegangspatroon maakt het mogelijk gegevens van de tenant verdeeld over meerdere databases of shards, waarbij alle gegevens voor een tenant is opgenomen in één shard.  In combinatie met een patroon multitenant-database, kunt een shard model vrijwel onbeperkte schaal.
 
@@ -151,7 +165,7 @@ Afhankelijk van de sharding-methode gebruikt, kunnen extra beperkingen worden op
 
 Shard multitenant-databases kunnen worden geplaatst in elastische pools.  Met veel databases voor één tenant in een pool is over het algemeen als kosten efficiënter veel tenants dat in enkele multitenant-databases.  Multitenant databases zijn nuttig wanneer er een groot aantal relatief inactieve tenants.
 
-## <a name="g-hybrid-sharded-multi-tenant-database-model"></a>G. Hybride shard multitenant databasemodel
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Hybride shard multitenant databasemodel
 
 In het hybride-model hebben alle databases die de tenant-id in hun schema.  De databases zijn alle geschikt is voor het opslaan van meer dan één tenant en de databases kunnen shard.  Zodat ze alle databases van meerdere tenants in de zin schema zijn.  In de praktijk bevatten sommige van deze databases nog slechts één tenant.  Ongeacht, heeft het aantal tenants die zijn opgeslagen in een bepaalde database geen invloed op het databaseschema.
 
@@ -165,7 +179,7 @@ Het model hybride dat wat als er grote verschillen tussen de resourcebehoeften v
 
 In dit model hybride kunnen de databases voor één tenant voor abonnee tenants worden geplaatst in resourcegroepen databasekosten per tenant te verlagen.  Dit geldt in het model van de database per tenant.
 
-## <a name="h-tenancy-models-compared"></a>H. Tenancymodus modellen vergeleken
+## <a name="i-tenancy-models-compared"></a>I. Tenancymodus modellen vergeleken
 
 De volgende tabel geeft een overzicht van de verschillen tussen de belangrijkste tenancymodus-modellen.
 

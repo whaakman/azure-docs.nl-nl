@@ -3,18 +3,19 @@ title: Virtueel netwerk service-eindpunten en regels voor Azure SQL Database | M
 description: Een subnet markeren als een service-eindpunt van het virtuele netwerk. Vervolgens het eindpunt als een virtueel netwerk regel aan de ACL van uw Azure SQL Database. U-SQL-Database vervolgens accepteert communicatie van alle virtuele machines en andere knooppunten in het subnet.
 services: sql-database
 ms.service: sql-database
-author: MightyPen
+author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 9f72ce802f5a2a07ad310968152ab359b4a6c31b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d708d55c64306636910a85b5b490e25ecc794bd6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802592"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -186,7 +187,7 @@ Controlelogboeken auditingfunctie voor BLOBs worden verstuurd naar uw eigen opsl
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Een VNET-firewallregel toevoegen aan een server zonder in te schakelen op VNET Service-eindpunten
 
-Lang geleden voordat dit onderdeel is verbeterd, u vereiste zou u VNet service-eindpunten op voordat u een live VNet regel in de Firewall kan implementeren. De eindpunten gerelateerd een bepaald VNet subnet met een Azure SQL-Database. Maar nu vanaf januari 2018, u kunt omzeilen deze vereiste door in te stellen de **IgnoreMissingServiceEndpoint** vlag.
+Lang geleden voordat dit onderdeel is verbeterd, moest u VNet service-eindpunten inschakelen voordat u een live VNet regel in de Firewall kan implementeren. De eindpunten gerelateerd een bepaald VNet subnet met een Azure SQL-Database. Maar nu vanaf januari 2018, u kunt omzeilen deze vereiste door in te stellen de **IgnoreMissingServiceEndpoint** vlag.
 
 Alleen instelling een firewallregel niet helpt de server beveiligen. U moet de service-eindpunten VNet ook inschakelen voor de beveiligingsupdate van kracht te laten. Wanneer u de service-eindpunten inschakelt, wordt in uw VNet-subnet uitvaltijd ervaringen totdat de overgang van uitgeschakeld naar is voltooid op. Dit geldt met name in de context van grote VNets. U kunt de **IgnoreMissingServiceEndpoint** vlag wilt verlagen of elimineren van de uitvaltijd tijdens de overgang.
 
@@ -318,7 +319,7 @@ De functie van de regel virtueel netwerk voor Azure SQL Database is beschikbaar 
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
-[expressroute-indexmd-744v]: ../expressroute/index.md
+[expressroute-indexmd-744v]: ../expressroute/index.yml
 
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 

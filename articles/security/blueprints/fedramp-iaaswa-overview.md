@@ -1,6 +1,6 @@
 ---
-title: Azure-beveiliging en naleving blauwdruk - webtoepassing voor FedRAMP
-description: Azure-beveiliging en naleving blauwdruk - webtoepassing voor FedRAMP
+title: Azure-beveiliging en naleving blauwdruk - IaaS-webtoepassing voor FedRAMP
+description: Azure-beveiliging en naleving blauwdruk - IaaS-webtoepassing voor FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b7a81db6a1caf11ac4a85a5202c5ed943225e849
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 27346d8e2133ea61056817fb48050a4e5c8c3c97
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726479"
 ---
-# <a name="azure-security-and-compliance-blueprint-web-application-for-fedramp"></a>Azure-beveiliging en naleving blauwdruk: webtoepassing voor FedRAMP
+# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure-beveiliging en naleving blauwdruk: IaaS-webtoepassing voor FedRAMP
 
 ## <a name="overview"></a>Overzicht
 
@@ -149,8 +150,8 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 
 OMS biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de systeemstatus. De OMS [logboekanalyse](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) oplossing worden verzameld en analyseert gegevens die zijn gegenereerd voor resources in Azure en on-premises omgevingen.
 
-- **Activiteitenlogboeken:**[activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die worden uitgevoerd op resources in een abonnement.   Activiteitenlogboeken kunt u bepalen van de initiator een bewerking, tijd van het exemplaar en status.
-- **Diagnostische logboeken:**[diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource.   Deze logboeken bevatten Windows-gebeurtenislogboeken system, Azure-opslag logboeken Sleutelkluis controlelogboeken en Application Gateway toegang en firewall-Logboeken.
+- **Activiteitenlogboeken:**[activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteitenlogboeken kunt u bepalen van de initiator een bewerking, tijd van het exemplaar en status.
+- **Diagnostische logboeken:**[diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource. Deze logboeken bevatten Windows-gebeurtenislogboeken system, Azure-opslag logboeken Sleutelkluis controlelogboeken en Application Gateway toegang en firewall-Logboeken.
 - **Logboek archiveren:** alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. De bewaartermijn is gebruiker configureerbare, up, 730 dagen om te voldoen aan vereisten voor de organisatie-specifieke bewaarperiode. Deze logboeken verbinding maken met Azure Log Analytics voor verwerking, opslaan en dashboard reporting.
 
 Bovendien worden de volgende OMS-oplossingen geïnstalleerd als onderdeel van deze architectuur. Houd er rekening mee dat het is de verantwoordelijkheid van de klant voor het configureren van deze oplossingen uitgelijnd met de beveiligingsmechanismen FedRAMP:

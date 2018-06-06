@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9a8e4e95f2f4de6475243de196519d94e87a9297
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85919ccdc13ab363b32e593159abe54498ca98c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702030"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -31,7 +32,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 
 - Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met een account met de [noodzakelijke machtigingen](#permissions) werken met peerings.
-- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook uitvoeren `Connect-AzureRmAccount` met een account met de [noodzakelijke machtigingen](#permissions) werken met de peering, een verbinding wilt maken met Azure.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Voor deze zelfstudie is moduleversie 5.7.0 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook uitvoeren `Connect-AzureRmAccount` met een account met de [noodzakelijke machtigingen](#permissions) werken met de peering, een verbinding wilt maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.31 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` met een account met de [noodzakelijke machtigingen](#permissions) werken met de peering, een verbinding wilt maken met Azure.
 
 Het account dat u zich aanmelden bij of verbinding maken met Azure met, moet worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [machtigingen ](#permissions).
@@ -115,6 +116,7 @@ Als u wilt dat virtuele netwerken om te communiceren soms, maar niet altijd, in 
     - De virtuele netwerken kunnen bestaan in een openbare Azure-cloud-regio, maar niet in Azure nationale clouds.
     - Resources in een virtueel netwerk kunnen niet communiceren met het IP-adres van een Azure interne load balancer in peered virtuele netwerk. De load balancer en de resources die met het communiceren moeten zich in hetzelfde virtuele netwerk.
     - Externe gateways gebruiken of niet toestaan van gateway-doorvoer. Als u externe gateways gebruiken of gateway onderweg toestaan, moeten beide virtuele netwerken in de peering in dezelfde regio hebben. 
+    - Communicatie tussen virtuele netwerken globaal brengen via de volgende typen van de VM wordt niet ondersteund: [hoge prestaties compute](../virtual-machines/windows/sizes-hpc.md) en [GPU](../virtual-machines/windows/sizes-gpu.md). Dit omvat H, NC, NV, NCv2 NCv3 en virtuele machines ND-serie.
 - De virtuele netwerken kunnen zich in dezelfde of verschillende abonnementen. Wanneer de virtuele netwerken in verschillende abonnementen behoren, is beide abonnementen gekoppeld aan dezelfde Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u snel [maken van een](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). U kunt een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) twee virtuele netwerken die bestaan uit verschillende abonnementen die gekoppeld aan verschillende Active Directory-tenants zijn verbinding maken.
 - De virtuele netwerken die u peer moeten niet-overlappende IP-adresruimtes hebben.
 - U kan niet toevoegen-adresbereiken aan of te verwijderen-adresbereiken in de adresruimte van een virtueel netwerk van zodra een virtueel netwerk is gekoppeld aan een ander virtueel netwerk. Als u wilt toevoegen of verwijderen-adresbereiken, verwijderen van de peering, toevoegen of verwijderen van de adresbereiken, maakt u opnieuw de peering. Als u wilt toevoegen-adresbereiken aan of verwijderen van adresbereiken van virtuele netwerken, Zie [virtuele netwerken beheren](manage-virtual-network.md).
@@ -161,6 +163,6 @@ Als uw account niet aan een van de vorige rollen toegewezen is, moet deze worden
     |Eén in Resource Manager, één klassiek  |[Hetzelfde](create-peering-different-deployment-models.md)|
     |                                   |[Verschillend](create-peering-different-deployment-models-subscriptions.md)|
 
-* Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+* Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * Maak een virtueel netwerk peering met [PowerShell](powershell-samples.md) of [Azure CLI](cli-samples.md) steekproef scripts of met behulp van Azure [Resource Manager-sjablonen](template-samples.md)
 * Maken en toepassen van [Azure beleid](policy-samples.md) voor virtuele netwerken

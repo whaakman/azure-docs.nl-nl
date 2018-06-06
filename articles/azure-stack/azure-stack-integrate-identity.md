@@ -10,11 +10,12 @@ ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801470"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Stack datacenter integratie van Azure - identiteit
 U kunt Azure-Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure-Stack implementeert, moet u de keuze maken. Implementatie met behulp van AD FS ook aangeduid als Azure-Stack in de modus zonder verbinding implementeert.
@@ -86,14 +87,14 @@ Voor deze procedure gebruikt u een computer in uw datacenternetwerk die met het 
 
 2. Open een verhoogde Windows PowerShell-sessie (als administrator uitvoeren) en verbinding maken met het IP-adres van de bevoegde eindpunt. Gebruik de referenties voor **CloudAdmin** om te verifiëren.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 3. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht: 
 
-   ```powershell
+   ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
@@ -131,20 +132,20 @@ Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorr
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en verbinding maken met de bevoorrechte eindpunt.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht met de parameters die geschikt is voor uw omgeving:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
 3. Voer de volgende opdracht voor het bijwerken van de eigenaar van het abonnement van de provider standaard met de parameters die geschikt is voor uw omgeving:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -169,7 +170,7 @@ Voor de volgende procedure moet u een computer die een netwerkverbinding heeft m
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht, met de parameters die geschikt is voor uw omgeving:
 
-   ```powershell
+   ```PowerShell  
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -184,20 +185,20 @@ Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorr
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en verbinding maken met de bevoorrechte eindpunt.
 
-   ```powershell
+   ```PowerShell  
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht met de parameters die geschikt is voor uw omgeving:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
    ```
 
 3. Voer de volgende opdracht voor het bijwerken van de eigenaar van het abonnement van de provider standaard met de parameters die geschikt is voor uw omgeving:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -244,7 +245,7 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
 
 2. Om verificatie op basis van Windows Forms, open een Windows PowerShell-sessie als een gebruiker met verhoogde bevoegdheid en voer de volgende opdracht:
 
-   ```powershell
+   ```PowerShell  
    Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
    ```
 
@@ -252,13 +253,13 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
 
    **Voor AD FS 2016**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
    ```
 
    **Voor AD FS 2012/2012 R2**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
    ```
 
@@ -270,13 +271,13 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
    > [!note]  
    > Deze stap is niet van toepassing wanneer u Windows Server 2012 of 2012 R2 AD FS. Het is veilig voor deze opdracht overslaan en doorgaan met de integratie.
 
-   ```powershell
+   ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
-5. Als u wilt vernieuwen van tokens, open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht:
+5. De Azure-Stack-portals en tooling (Visual Studio) vereisen vernieuwen van tokens. Deze moeten worden geconfigureerd door partyvertrouwensrelatie. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht:
 
-   ```powershell
+   ```PowerShell  
    Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
@@ -304,14 +305,14 @@ Een optie voor het terugdraaien is beschikbaar als een fout optreedt die verlaat
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdrachten:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Voer de volgende cmdlet:
 
-   ```powershell
+   ```PowerShell  
    Reset-DatacenterIntegationConfiguration
    ```
 
@@ -320,7 +321,7 @@ Een optie voor het terugdraaien is beschikbaar als een fout optreedt die verlaat
    > [!IMPORTANT]
    > U moet de oorspronkelijke eigenaar van het standaard provider-abonnement configureren
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
    ```
 
@@ -330,14 +331,14 @@ Als een van de cmdlets mislukt, kunt u aanvullende logboekbestanden verzamelen m
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdrachten:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Voer de volgende cmdlet:
 
-   ```powershell
+   ```PowerShell  
    Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
    ```
 

@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726258"
 ---
 # <a name="what-is-azure-load-balancer"></a>Wat is Azure Load Balancer?
 
@@ -93,7 +94,7 @@ Load Balancer biedt de volgende fundamentele mogelijkheden voor TCP en UDP-toepa
 
     - **Aangepaste test TCP**: deze test is afhankelijk van het tot stand brengen van een geslaagde TCP-sessie op een gedefinieerde testpoort. Als de opgegeven listener op de virtuele machine bestaat, wordt deze test slaagt. Als de verbinding is geweigerd, wordt de test mislukt. Deze test overschrijft de standaard guest agent-test.
 
-    - **Test van de Guest-agent (op platform als een service [PaaS] alleen virtuele machines)**: de guest-agent in de virtuele machine kan ook gebruikmaken van de load balancer. De gastagent luistert en reageert met een HTTP 200 OK antwoord wanneer het exemplaar in de status gereed. Als de agent niet reageert met een HTTP 200 OK, wordt de load balancer markeert de instantie als niet-reagerende en stopt verkeer kunnen verzenden naar dit exemplaar. De load balancer blijft probeert te krijgen tot het exemplaar. Als u de guest-agent reageert met een HTTP 200, verzendt de load balancer verkeer opnieuw naar dit exemplaar. Guest agent tests een laatste toevlucht zijn en niet aanbevolen als HTTP- of TCP aangepaste test configuraties mogelijk zijn. 
+    - **Guest agent test**: de guest-agent in de virtuele machine kan ook gebruikmaken van de load balancer. De gastagent luistert en reageert met een HTTP 200 OK antwoord wanneer het exemplaar in de status gereed. Als de agent niet reageert met een HTTP 200 OK, wordt de load balancer markeert de instantie als niet-reagerende en stopt verkeer kunnen verzenden naar dit exemplaar. De load balancer blijft probeert te krijgen tot het exemplaar. Als u de guest-agent reageert met een HTTP 200, verzendt de load balancer verkeer opnieuw naar dit exemplaar. Guest agent tests zijn een _laatste toevlucht en niet aanbevolen_ wanneer HTTP of TCP aangepaste test configuraties mogelijk zijn. 
     
 * **Uitgaande verbindingen (snat omzetten)**
 

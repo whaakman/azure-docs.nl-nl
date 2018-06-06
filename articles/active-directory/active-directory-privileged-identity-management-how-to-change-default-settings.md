@@ -3,7 +3,7 @@ title: Het beheren van serverfunctie-instellingen voor activering | Microsoft Do
 description: Informatie over het wijzigen van de standaardinstellingen voor bevoegde identiteiten met de extensie Azure Active Directory Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 972fd1e322e578516073307d01548132473bc52c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8dfb5b17419dbd03fe928194d96aa80f27f3699
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34697928"
 ---
 # <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Het beheren van instellingen voor de sitesysteemrol activering in Azure AD Privileged Identity Management
 Een beheerder met bevoorrechte rol kunt aanpassen Azure AD Privileged Identity Management (PIM) in hun organisatie, inclusief het wijzigen van de ervaring voor een gebruiker die een in aanmerking komende roltoewijzing is geactiveerd.
@@ -42,10 +43,10 @@ Er zijn een aantal instellingen die u kunt configureren op de instellingenpagina
   
   * Toepassingsbeheerder
   * Toepassingsbeheerder Proxy server
-  * Factureringsbeheerder  
+  * Financieel medewerker  
   * Beheerder voor naleving  
   * CRM-servicebeheerder
-  * Klant LockBox toegang goedkeurder
+  * Toegangsfiatteur voor klanten-LockBox
   * Schrijver van de Directory  
   * Exchange-beheerder  
   * Globale beheerder

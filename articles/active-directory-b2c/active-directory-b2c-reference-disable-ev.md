@@ -1,21 +1,21 @@
 ---
-title: E-mailverificatie tijdens de registratie - consumer Azure Active Directory B2C uitschakelen
-description: Een onderwerp laat zien hoe u een e-mailverificatie tijdens registratie in Azure Active Directory B2C consumer uitschakelen
+title: E-mailverificatie tijdens registratie in Azure Active Directory B2C consumer uitschakelen | Microsoft Docs
+description: Een onderwerp het uitschakelen van e-mailverificatie tijdens registratie in Azure Active Directory B2C consumer te demonstreren.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 2/06/2017
 ms.author: davidmu
-ms.openlocfilehash: 4f48df553d35386fb2b0448972dc01f9c6427ebd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 24242054ea4af3797fbeca1ed48bb698e4f4296b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712008"
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: Schakel e-mailverificatie tijdens registratie consumer
 Wanneer dit is ingeschakeld, kunt Azure Active Directory (Azure AD) B2C een consument zich aanmelden voor toepassingen door een e-mailadres en een lokaal account maken. Azure AD B2C, zorgt u ervoor geldige e-mailadressen doordat consumenten om te controleren of ze tijdens het registratieproces. Dit voorkomt ook dat een kwaadwillende geautomatiseerd proces valse accounts voor de toepassingen te genereren.

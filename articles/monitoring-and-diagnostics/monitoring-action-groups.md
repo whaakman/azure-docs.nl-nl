@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/1/2018
 ms.author: dukek
-ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fd6817e63eea622294bbf766b66beb8bc49bc30c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726054"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in de Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
-In dit artikel laat zien hoe actiegroepen in de Azure portal maken en beheren.
+Een actiegroep is een verzameling van voorkeuren gedefinieerd door de gebruiker. Waarschuwingen van Azure bewaken en servicestatus zijn geconfigureerd voor gebruik van een specifieke actiegroep wanneer de waarschuwing wordt geactiveerd. Diverse waarschuwingen kunnen gebruikmaken van de groep met dezelfde acties of andere actiegroepen, afhankelijk van de vereisten van de gebruiker.
 
-U kunt een lijst van acties met actiegroepen configureren. Deze groepen kunnen vervolgens worden gebruikt door elke waarschuwing die u hebt gedefinieerd, waarbij u ervoor zorgt dat telkens wanneer een waarschuwing wordt geactiveerd door dezelfde acties worden genomen.
+In dit artikel laat zien hoe actiegroepen in de Azure portal maken en beheren.
 
 Elke actie bestaat uit de volgende eigenschappen:
 
@@ -44,7 +45,7 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen v
 3. Selecteer **actie-groep toevoegen**, en vul de velden in.
 
     ![De opdracht 'Groep toevoegen actie'](./media/monitoring-action-groups/add-action-group.png)
-4. Voer een naam in de **actie groepsnaam** vak en voer een naam in de **afkorting** vak. De korte naam wordt gebruikt in plaats van een volledige groep actienaam wanneer meldingen worden verzonden met behulp van deze groep.
+4. Voer een naam in de **actie groepsnaam** vak en voer een naam in de **afkorting** vak. De korte naam wordt gebruikt in plaats van een volledige naam van de actiegroep als er meldingen via deze groep worden verzonden.
 
       ![In het dialoogvenster van de groep toevoegen acties'](./media/monitoring-action-groups/action-group-define.png)
 
@@ -69,7 +70,14 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen v
 <dd>Op dit moment ondersteunt de Azure-app-actie alleen ServiceHealth waarschuwingen. Andere waarschuwing tijd zal worden genegeerd. Zie [waarschuwingen configureren wanneer een melding van de health service wordt geboekt](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
 
 <dt>E-mail</dt>
-<dd>Mogelijk hebt u maximaal 50 e-acties in de groep van een actie</dd>
+<dd>De volgende e-mailadressen moeten e-mailberichten worden verzonden. Controleer of uw e-mail filteren op de juiste wijze is geconfigureerd
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>Mogelijk hebt u maximaal 1000 e-acties in de groep van een actie</dd>
 <dd>Zie de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) artikel</dd>
 
 <dt>ITSM</dt>

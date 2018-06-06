@@ -2,22 +2,20 @@
 title: Bronnen voor & Azure CosmosDB Graph API .NET SDK | Microsoft Docs
 description: Meer informatie over de Azure-CosmosDB Graph API, met inbegrip van release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie.
 services: cosmos-db
-documentationcenter: .net
 author: luisbosquez
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-graph
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 41608e76216f63ccf3165cc3959787c661d71fa0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c5975809b0f196fe88a11504549b046e910fc93c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795921"
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure Cosmos DB Graph .NET API: Downloaden en release-opmerkingen
 
@@ -34,7 +32,7 @@ ms.lasthandoff: 04/06/2018
 
 U wordt aangeraden met behulp van het stuurprogramma voor open-source Gremlin voor .NET, Gremlin.Net. Meer informatie over het aan de slag in [Azure Cosmos DB: Maak een graph-app met behulp van .NET- en de Graph API](create-graph-dotnet.md).
 
-### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-preview
+### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-Preview
 
 #### <a name="bug-fixes"></a>Oplossingen voor problemen
 * Los eventueel laden `appsettings.json` (`netstandard1.6`)
@@ -43,7 +41,7 @@ U wordt aangeraden met behulp van het stuurprogramma voor open-source Gremlin vo
 * Microsoft.Azure.Graphs doelplatform AnyCPU activeren.
 * Mono assembly van verwijderen `net461` pakket manifest.
 
-### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-preview
+### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-Preview
 
 #### <a name="whats-new"></a>Nieuwe functies
 * Ondersteuning toegevoegd voor `.netstandard 1.6`
@@ -55,12 +53,12 @@ U wordt aangeraden met behulp van het stuurprogramma voor open-source Gremlin vo
   *  Verandering hops met filters ziet deze verbetering, bijvoorbeeld: `g.V('1').outE().has('name', 'marko').inV()`.
 * Optimalisaties voor traversals met toegevoegd `limit()` stap.
 
-#### <a name="breaking-changes"></a>Wijzigingen op te splitsen
+#### <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
 * Verwijderde ondersteuning voor .NET Framework 4.5.1
 
 * De nieuwe parser wordt uitgelijnd met `gremlin-groovy` grammatica. Als gevolg hiervan zijn aantal expressies die u eerder hebt gewerkt voor de nieuwe parser dubbelzinnig. Een voorbeeld van Opmerking:
   * `in` en `as` zijn gereserveerde woorden in `gremlin-groovy`, zodat deze stappen moeten worden gekwalificeerd met `.in()` of `.as()` om te voorkomen dat syntaxisfouten. Bijvoorbeeld: `g.V().repeat(in()).times(2)`  ->  _genereert een syntaxisfout_  
- `g.V().repeat(__.in()).times(2)` -> _succeeds_
+ `g.V().repeat(__.in()).times(2)` -> _is geslaagd_
 
 ### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-Preview
 
@@ -68,9 +66,9 @@ U wordt aangeraden met behulp van het stuurprogramma voor open-source Gremlin vo
 
 ### <a name="a-name021-preview021-preview"></a><a name="0.2.1-preview"/>0.2.1-Preview
 
-### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-preview
+### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-Preview
 
-### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
 * Initiële preview-versie.
 
 ## <a name="release--retirement-dates"></a>Release & buiten gebruik stellen datums
@@ -86,9 +84,9 @@ Elk verzoek aan de Azure Cosmos-database met behulp van een buiten gebruik geste
 | --- | --- | --- |
 | [0.3.1-preview](#0.3.1-preview) |17 oktober 2017 |--- |
 | [0.3.0-preview](#0.3.0-preview) |2 oktober 2017 |--- |
-| [0.2.4-preview](#0.2.4-preview) |4 augustus 2017 |--- |
-| [0.2.2-preview](#0.2.2-preview) |23 juni 2017 |--- |
-| [0.2.1-preview](#0.2.2-preview) |8 juni 2017 |--- |
+| [0.2.4-Preview](#0.2.4-preview) |4 augustus 2017 |--- |
+| [0.2.2-Preview](#0.2.2-preview) |23 juni 2017 |--- |
+| [0.2.1-Preview](#0.2.2-preview) |8 juni 2017 |--- |
 | [0.2.0-preview](#0.2.2-preview) |10 mei 2017 |--- |
 | [0.1.0-preview](#0.1.0-preview) |8 mei 2017 |--- |
 

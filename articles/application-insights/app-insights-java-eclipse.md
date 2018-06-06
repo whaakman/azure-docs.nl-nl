@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795557"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Aan de slag met Application Insights met behulp van Java in Eclipse
 De Application Insights-SDK verzendt telemetrie van uw Java-webtoepassing, zodat u gebruik en prestaties kan analyseren. De Eclipse-invoegtoepassing voor Application Insights installeert automatisch de SDK in uw project, zodat u zich buiten de telemetrie vak, plus een API die u kunt aangepaste telemetrie schrijven.   
@@ -32,6 +33,8 @@ U hebt het volgende nodig:
 * Een abonnement op [Microsoft Azure](https://azure.microsoft.com/).
 * [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/downloads/), Indigo of hoger.
 * Windows 7 of hoger, of WindowsServer 2008 of hoger
+
+Als u liever het framework Spring probeert de [een app Spring opstarten initialisatiefunctie voor het gebruik van Application Insights-handleiding configureren](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="install-the-sdk-on-eclipse-one-time"></a>De SDK niet installeren op Eclipse (eenmaal)
 U hoeft alleen te doen dit één keer per computer. Deze stap installeert een werkset waarmee vervolgens de SDK aan elke dynamisch webproject toevoegen kunt.

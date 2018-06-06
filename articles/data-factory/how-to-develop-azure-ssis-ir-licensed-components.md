@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: e22ca4bd5b749e8752f800590938199e06abbd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 42f1bb247533fafbc6947e77cc1a1f07a482fd45
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700499"
 ---
 # <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Betaalde of gelicentieerde aangepaste onderdelen voor de integratie van Azure SSIS runtime ontwikkelen
 
@@ -37,7 +38,7 @@ Het volgende diagram toont de standaardinstallatie, activering en licentie-bindi
 ![Installatie van een licentie-onderdelen](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
 ## <a name="instructions"></a>Instructies
-1. ISV's te kunnen bieden hun gelicentieerde onderdelen in verschillende SKU's of lagen (bijvoorbeeld één knooppunt, maximaal 5 knooppunten, tot maximaal 10 knooppunten, enzovoort). De ISV biedt de bijbehorende productcode wanneer klanten een product aanschaffen. De ISV biedt ook een Azure Storage-blob-container die een ISV-installatiescript en bijbehorende bestanden bevat. Klanten kunnen deze bestanden kopiëren naar hun eigen storage-container en ze met hun eigen productcode wijzigen (bijvoorbeeld door het uitvoeren van `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Klanten kunnen vervolgens inrichten of opnieuw configureren van de Azure-SSIS-IR met SAS-URI van de container als parameter. Zie voor meer informatie [aangepaste installatie voor de integratie van Azure SSIS runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
+1. ISV's te kunnen bieden hun gelicentieerde onderdelen in verschillende SKU's of lagen (bijvoorbeeld één knooppunt, maximaal 5 knooppunten, tot maximaal 10 knooppunten, enzovoort). De ISV biedt de bijbehorende productcode wanneer klanten een product aanschaffen. De ISV biedt ook een Azure Storage-blob-container die een ISV-installatiescript en bijbehorende bestanden bevat. Klanten kunnen deze bestanden kopiëren naar hun eigen storage-container en ze met hun eigen productcode wijzigen (bijvoorbeeld door het uitvoeren van `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Klanten kunnen vervolgens inrichten of opnieuw configureren van de Azure-SSIS-IR met SAS-URI van de container als parameter. Zie [Aangepaste instelling voor de Azure-SSIS-integratieruntime](how-to-configure-azure-ssis-ir-custom-setup.md) voor meer informatie.
 
 2. Wanneer de Azure-SSIS-IR is ingericht of opnieuw geconfigureerd, ISV-Setup wordt uitgevoerd op elk knooppunt om een query uitvoeren op de Windows-omgevingsvariabelen `SSIS_CLUSTERID` en `SSIS_CLUSTERNODECOUNT`. De Azure-SSIS-IR verzendt vervolgens de Cluster-ID en de productcode voor het gelicentieerde product met de ISV-activeringsserver om een activeringscode genereren.
 
@@ -70,6 +71,9 @@ Het volgende diagram toont de standaardinstallatie, activering en licentie-bindi
                                                                                                                                
     }
     ```
+## <a name="isv-partners"></a>ISV-partners
+
+U vindt een lijst met de ISV-partners die de onderdelen en -extensies voor de Azure-SSIS-IR aan het einde van dit blogbericht - hebt aangepast [Enterprise Edition en aangepaste installatie 3e partij uitbreidbaarheid van SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

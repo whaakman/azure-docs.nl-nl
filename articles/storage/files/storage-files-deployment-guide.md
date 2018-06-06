@@ -2,23 +2,24 @@
 title: Azure-bestanden implementeren | Microsoft Docs
 description: Informatie over het Azure-bestanden van begin tot eind te implementeren.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 193a403a64cea31a2e4cea21a5838be71af8dd53
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737347"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files implementeren
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via het SMB-standaardprotocol. In dit artikel wordt beschreven hoe u vrijwel Azure-bestanden implementeren binnen uw organisatie.
@@ -32,20 +33,20 @@ In dit artikel wordt ervan uitgegaan dat u de volgende stappen al hebt voltooid:
 - Een Azure-bestandsshare gemaakt met de gewenste TARGET in uw Opslagaccount. Zie [een bestandsshare maken](storage-how-to-create-file-share.md) voor stapsgewijze instructies voor het maken van een bestandsshare.
 
 ## <a name="transfer-data-into-azure-files"></a>Gegevens overdragen naar Azure-bestanden
-Mogelijk wilt u de bestaande bestandsshares, zoals die lokaal opgeslagen, migreren naar uw nieuwe Azure-bestandsshare. Deze sectie wordt beschreven hoe u gegevens in een Azure-bestand delen via verschillende populaire methoden van gedetailleerde verplaatsen de [handleiding](storage-files-planning.md#data-transfer-method)
+Mogelijk wilt u de bestaande bestandsshares, zoals die lokaal opgeslagen, migreren naar uw nieuwe Azure-bestandsshare. Deze sectie wordt beschreven hoe u gegevens te verplaatsen naar een Azure-bestandsshare via verschillende populaire methoden gedetailleerde van de [handleiding](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Azure File-synchronisatie (Preview)
-Azure File-synchronisatie (Preview) kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder geeft de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Dit gebeurt door de Windows-Servers om te zetten in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
+Azure File-synchronisatie (Preview) kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder geeft de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Dit gebeurt door het omzetten van de Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
 
-Azure File-synchronisatie kan worden gebruikt om gegevens te migreren naar een Azure-bestandsshare, zelfs als het mechanisme voor synchronisatie is niet nodig voor gebruik op lange termijn. Meer informatie over het gebruik van Azure bestand Sync mag gegevens overdragen naar Azure-bestandsshare vindt u in [Planning voor de implementatie van een Azure-bestand Sync](storage-sync-files-planning.md) en [het implementeren van Azure bestand Sync](storage-sync-files-deployment-guide.md).
+Azure File-synchronisatie kan worden gebruikt om gegevens te migreren naar een Azure-bestandsshare, zelfs als het mechanisme voor synchronisatie is niet nodig voor gebruik op lange termijn. Meer informatie over het gebruik van Azure bestand Sync mag gegevens overdragen naar Azure-bestandsshare kan worden gevonden [Planning voor de implementatie van een Azure-bestand Sync](storage-sync-files-planning.md) en [het implementeren van Azure bestand Sync](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Azure Import/Export
-De Azure Import/Export-service kunt u veilig brengen grote hoeveelheden gegevens in een bestandsshare in Azure door back-upfunctie harde schijven naar een Azure-datacenter. Zie [gebruik van de Microsoft Azure Import/Export-service gegevens overdraagt naar Azure storage](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor een meer gedetailleerd overzicht van de service.
+De Azure Import/Export-service kunt u veilig overbrengen grote hoeveelheden gegevens in een Azure-bestandsshare back-upfunctie harde schijven naar een Azure-datacenter. Zie [gebruik van de Microsoft Azure Import/Export-service gegevens overdraagt naar Azure storage](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor een meer gedetailleerd overzicht van de service.
 
 > [!Note]  
 > De Azure Import/Export-service biedt geen ondersteuning voor het exporteren van bestanden van een Azure-bestandsshare op dit moment.
 
-De volgende stappen wordt naar uw Azure-bestandsshare gegevens importeren uit een on-premises locatie.
+De volgende stappen wordt gegevens importeren uit een on-premises locatie voor uw Azure-bestandsshare.
 
 1. Het vereiste aantal harde schijven naar e-mail schaffen in Azure. Harde schijven van elke schijfgrootte is mogelijk, maar moet een 2,5-inch of 3.5" SSD of harde schijf van de standaard SATA II of SATA III ondersteunen. 
 
@@ -62,7 +63,7 @@ De volgende stappen wordt naar uw Azure-bestandsshare gegevens importeren uit ee
 
         ![Een schermopname van de wizard Nieuw eenvoudig Volume in de MMC-module Schijfbeheer](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
-4. De gegevensset CSV-bestand maken. De gegevensset CSV-bestand is geen toewijzing tussen het pad naar de gegevens on-premises en de gegevens worden gekopieerd naar de gewenste Azure File-share. Het volgende gegevensset CSV-bestand wordt bijvoorbeeld een bestandsshare op de lokale ('F:\shares\scratch') toegewezen aan een Azure-bestandsshare ('MyAzureFileShare'):
+4. De gegevensset CSV-bestand maken. De gegevensset CSV-bestand is geen toewijzing tussen het pad naar de gegevens on-premises en de gewenste Azure-bestandsshare de gegevens moet worden gekopieerd naar. Het volgende gegevensset CSV-bestand wordt bijvoorbeeld een bestandsshare op de lokale ('F:\shares\scratch') toegewezen aan een Azure-bestandsshare ('MyAzureFileShare'):
     
     ```
     BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -91,12 +92,12 @@ De volgende stappen wordt naar uw Azure-bestandsshare gegevens importeren uit ee
     > [!Warning]  
     > De gegevens op de harde schijven of het journaalbestand mag niet worden gewijzigd na het voltooien van de schijfvoorbereiding van de.
 
-7. [Maken van een import-taak](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-an-export-job).
+7. [Maken van een import-taak](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
 Robocopy is een bekende kopie-hulpprogramma dat wordt geleverd bij Windows en Windows Server. Robocopy kan worden gebruikt om gegevens over naar Azure-bestanden te koppelen van de bestandsshare lokaal en vervolgens de gekoppelde locatie als de bestemming in de Robocopy-opdracht. Gebruik van Robocopy is heel eenvoudig:
 
-1. [Koppel uw Azure-bestandsshare](storage-how-to-use-files-windows.md). Voor optimale prestaties wordt u aangeraden de Azure-bestandsshare lokaal koppelen op de server die de gegevens bevat. In sommige gevallen, zoals wanneer de bestandsserver die de gegevens fungeert een NAS-apparaat, is dit niet mogelijk. In dat geval is het perfect aanvaardbaar is voor de Azure-bestandsshare op een computer koppelen. In dit voorbeeld `net use` op de opdrachtregel wordt gebruikt om de bestandsshare te koppelen:
+1. [Koppel uw Azure-bestandsshare](storage-how-to-use-files-windows.md). Voor optimale prestaties wordt u aangeraden koppeling van de Azure-bestandsshare lokaal op de server die de gegevens bevat. In sommige gevallen, zoals wanneer de bestandsserver die de gegevens fungeert een NAS-apparaat, is dit niet mogelijk. In dat geval is het perfect aanvaardbaar is voor het koppelen van de Azure-bestandsshare op een PC. In dit voorbeeld `net use` op de opdrachtregel wordt gebruikt om de bestandsshare te koppelen:
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>

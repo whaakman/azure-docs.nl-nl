@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: 60b447148c5cef24c061274a84620a8221efc430
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701349"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -31,13 +32,13 @@ Deze stapsgewijze handleiding helpt u bij het instellen van een beveiligde Azure
 
 De handleiding wordt ingegaan op de volgende procedures:
 
-* Hoofdconcepten die u rekening houden uitschakelen moet voordat u een service fabric-cluster implementeert.
-* Maken van een cluster in Azure met behulp van service fabric-Resource Manager-modules.
+* Hoofdconcepten die u moet weten voordat u implementeert een Service Fabric-cluster nodig.
+* Maken van een cluster in Azure met behulp van Service Fabric-Resource Manager-modules.
 * Instellen van Azure Active Directory (Azure AD) voor het verifiëren van gebruikers voor het uitvoeren van beheerbewerkingen op het cluster.
 * Een aangepaste Azure Resource Manager-sjabloon voor uw cluster ontwerpen en implementeren.
 
 ## <a name="key-concepts-to-be-aware-of"></a>Belangrijkste concepten moet weten
-In Azure Service fabric vereist die u met een x509 certificaat voor het beveiligen van uw cluster en de eindpunten. Er worden in Service Fabric certificaten gebruikt voor verificatie en versleuteling om verschillende aspecten van een cluster en de bijbehorende toepassingen te beveiligen. Voor client access/management bewerkingen uitvoert op het cluster, inclusief implementeren, bijwerken en verwijderen van toepassingen, services en de gegevens die ze bevatten, kunt u certificaten of Azure Active Directory-referenties. Het gebruik van Azure Active Directory wordt ten zeerste aangeraden, omdat dit de enige manier om te voorkomen dat delen van certificaten op de clients.  Zie voor meer informatie over hoe de certificaten worden gebruikt in Service Fabric, [scenario's voor beveiliging van Service Fabric-cluster][service-fabric-cluster-security].
+In Azure Service Fabric vereist die u met een x509 certificaat voor het beveiligen van uw cluster en de eindpunten. Er worden in Service Fabric certificaten gebruikt voor verificatie en versleuteling om verschillende aspecten van een cluster en de bijbehorende toepassingen te beveiligen. Voor client access/management bewerkingen uitvoert op het cluster, inclusief implementeren, bijwerken en verwijderen van toepassingen, services en de gegevens die ze bevatten, kunt u certificaten of Azure Active Directory-referenties. Het gebruik van Azure Active Directory wordt ten zeerste aangeraden, omdat dit de enige manier om te voorkomen dat delen van certificaten op de clients.  Zie voor meer informatie over hoe de certificaten worden gebruikt in Service Fabric, [scenario's voor beveiliging van Service Fabric-cluster][service-fabric-cluster-security].
 
 Service Fabric gebruikt x.509-certificaten voor het beveiligen van een cluster en beveiligingsfuncties van de toepassing opgeven. U gebruikt [Sleutelkluis] [ key-vault-get-started] voor het beheren van certificaten voor Service Fabric-clusters in Azure. 
 
@@ -75,30 +76,29 @@ Een aantal extra certificaten kan worden opgegeven voor de beheerder of gebruike
 
 
 ## <a name="prerequisites"></a>Vereisten 
-Het concept van het maken van beveiligde clusters is hetzelfde, of ze Linux of Windows-clusters. Deze handleiding bevat informatie over het gebruik van azure powershell of azure CLI om nieuwe clusters te maken. De vereiste onderdelen zijn 
+Het concept van het maken van beveiligde clusters is hetzelfde, of ze Linux of Windows-clusters. Deze handleiding bevat informatie over het gebruik van Azure PowerShell of Azure CLI om nieuwe clusters te maken. De vereisten zijn:
 
 -  [Azure PowerShell 4.1 en hoger] [ azure-powershell] of [Azure CLI 2.0 en hoger][azure-CLI].
--  u kunt meer informatie vinden op de service fabric-modules hier - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) en [az SF CLI-module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+-  u kunt meer informatie vinden op de Service Fabric-modules hier - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) en [az SF CLI-module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 
-## <a name="use-service-fabric-rm-module-to-deploy-a-cluster"></a>Service fabric DB-module gebruiken voor het implementeren van een cluster
+## <a name="use-service-fabric-rm-module-to-deploy-a-cluster"></a>Service Fabric-DB-module gebruiken voor het implementeren van een cluster
 
-In dit document, zouden we het service fabric RM powershell gebruiken en CLI-module voor het implementeren van een cluster, de powershell of de opdracht van de module CLI kunt u meerdere scenario's. Laat het ons doorlopen die elk van de. Kies het scenario dat u van mening bent beste dat aan uw behoeften voldoet. 
+In dit document, gebruiken we de Service Fabric-RM-powershell en CLI-module voor het implementeren van een cluster, de PowerShell of de opdracht van de module CLI kunt u meerdere scenario's. Laat het ons doorlopen die elk van de. Kies het scenario dat u van mening bent beste dat aan uw behoeften voldoet. 
 
-- Maak een nieuw cluster - zelfondertekend certificaat met behulp van een systeem gegenereerd
-    - Een standaardsjabloon voor het cluster
-    - Gebruik een sjabloon die u al hebt
-- Maak een nieuw cluster - gebruik van een certificaat dat u al bezit
-    - Een standaardsjabloon voor het cluster
-    - Gebruik een sjabloon die u al hebt
+- Maak een nieuw cluster 
+    - met behulp van een systeem zelfondertekend certificaat gegenereerd
+    - met een certificaat dat bezit u al
+
+U kunt een standaardsjabloon voor het cluster of een sjabloon die u al hebt gebruiken
 
 ### <a name="create-new-cluster----using-a-system-generated-self-signed-certificate"></a>Maken van nieuwe cluster - zelfondertekend certificaat met behulp van een systeem gegenereerd
 
-Gebruik de volgende opdracht voor het maken van de cluster, hebt u wilt dat het systeem een zelfondertekend certificaat genereren en deze gebruiken voor het beveiligen van uw cluster. Met deze opdracht wordt een primaire cluster-certificaat dat wordt gebruikt voor clusterbeveiliging en voor het instellen van beheerderstoegang om uit te voeren met behulp van dat certificaat beheerbewerkingen ingesteld.
+Gebruik de volgende opdracht voor het maken van de cluster, als u wilt dat het systeem een zelfondertekend certificaat genereren en deze gebruiken voor het beveiligen van uw cluster. Met deze opdracht wordt een primaire cluster-certificaat dat wordt gebruikt voor clusterbeveiliging en voor het instellen van beheerderstoegang om uit te voeren met behulp van dat certificaat beheerbewerkingen ingesteld.
 
-### <a name="login-in-to-azure"></a>aanmelden in bij Azure.
+### <a name="login-to-azure"></a>aanmelden bij Azure
 
-```Powershell
+```PowerShell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -107,15 +107,15 @@ Set-AzureRmContext -SubscriptionId <guid>
 azure login
 az account set --subscription $subscriptionId
 ```
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Gebruik de standaard 5 knooppunt 1 nodetype sjabloon die wordt geleverd in de module voor het instellen van het cluster
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Gebruik de standaard 5 knooppunt 1 knooppunt type sjabloon dat wordt meegeleverd met de module voor het instellen van het cluster
 
 Gebruik de volgende opdracht voor het maken van een cluster snel door te geven van de minimale parameters
 
-De sjabloon die wordt gebruikt, is beschikbaar op de [azure service fabric-sjabloon voorbeelden: windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+De sjabloon die wordt gebruikt, is beschikbaar op de [voorbeelden van Azure Service Fabric-sjabloon: windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-De onderstaande opdrachten uit werkt voor het maken van Windows en Linux-clusters, hoeft u te dienovereenkomstig opgeven van het besturingssysteem. De PowerShell / CLI-opdrachten ook uitvoer die het certificaat in de opgegeven CertificateOutputFolder echter ervoor zorgen certificaat map al hebt gemaakt. De opdracht wordt in ook andere parameters zoals VM-SKU.
+De onderstaande opdrachten uit werkt voor het maken van Windows en Linux-clusters, hoeft u te dienovereenkomstig opgeven van het besturingssysteem. De PowerShell/CLI-opdrachten uitvoer ook het certificaat in de opgegeven CertificateOutputFolder; er echter zeker certificatenmap al gemaakt. De opdracht wordt in ook andere parameters zoals VM-SKU.
 
-```Powershell
+```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -151,9 +151,9 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 #### <a name="use-the-custom-template-that-you-already-have"></a>Gebruik de aangepaste sjabloon die u al hebt 
 
-Als u maken van een aangepaste sjabloon aanpassen aan uw behoeften wilt, is het raadzaam dat u begint met een van de sjablonen die beschikbaar zijn op de [azure service fabric-sjabloon voorbeelden](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Volg de richtlijnen en uitleg [uw cluster-sjabloon aanpassen] [ customize-your-cluster-template] hieronder.
+Als u maken van een aangepaste sjabloon aanpassen aan uw behoeften wilt, is het raadzaam dat u begint met een van de sjablonen die beschikbaar zijn op de [voorbeelden van Azure Service Fabric-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Volg de richtlijnen en uitleg [uw cluster-sjabloon aanpassen] [ customize-your-cluster-template] hieronder.
 
-Als u al een aangepaste sjabloon hebt en zorg ervoor dat zijn aan Controleer alle drie certificaat gerelateerde parameters in de sjabloon en het parameterbestand zijn als volgt benoemde en -waarden null als volgt.
+Als u al een aangepaste sjabloon hebt en zorg ervoor dat zijn aan double-Controleer of alle drie certificaat gerelateerde parameters in de sjabloon en het parameterbestand zijn als volgt benoemde en -waarden null als volgt.
 
 ```Json
    "certificateThumbprint": {
@@ -199,15 +199,15 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 
-### <a name="create-new-cluster---using-the-certificate-you-bought-from-a-ca-or-you-already-have"></a>Maken van nieuwe cluster - met een certificaat dat u hebt gekocht bij een Certificeringsinstantie of u al hebt.
+### <a name="create-new-cluster---using-the-certificate-you-bought-from-a-ca-or-you-already-have"></a>Maken van nieuwe cluster - met een certificaat dat u hebt gekocht bij een Certificeringsinstantie of u al hebt
 
 Gebruik de volgende opdracht voor het maken van de cluster, hebt u een certificaat dat u gebruiken wilt voor het beveiligen van uw cluster met.
 
 Als dit een door CA ondertekend certificaat dat u uiteindelijk gebruik voor andere doeleinden dan ook, wordt aanbevolen dat u een afzonderlijke resourcegroep specifiek voor uw sleutelkluis bieden. Het is raadzaam dat u de sleutelkluis in een eigen resourcegroep geplaatst. Deze actie kunt u de brongroepen berekeningen en opslag, met inbegrip van de resourcegroep die uw Service Fabric-cluster bevat zonder verlies van uw sleutels en geheimen verwijderen. **De resourcegroep die de sleutelkluis bevat _moet zich in dezelfde regio_ als het cluster dat wordt gebruikt.**
 
 
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Gebruik de standaard 5 knooppunt 1 nodetype sjabloon die wordt geleverd in de module
-De sjabloon die wordt gebruikt, is beschikbaar op de [azure-voorbeelden: windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module"></a>Gebruik de standaard 5 knooppunt 1 knooppunt type sjabloon dat wordt meegeleverd met de module
+De sjabloon die wordt gebruikt, is beschikbaar op de [Azure-voorbeelden: Windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 ```PowerShell
 $resourceGroupLocation="westus"
@@ -241,9 +241,9 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 #### <a name="use-the-custom-template-that-you-have"></a>Gebruik de aangepaste sjabloon die u hebt 
-Als u maken van een aangepaste sjabloon aanpassen aan uw behoeften wilt, is het raadzaam dat u begint met een van de sjablonen die beschikbaar zijn op de [azure service fabric-sjabloon voorbeelden](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Volg de richtlijnen en uitleg [uw cluster-sjabloon aanpassen] [ customize-your-cluster-template] hieronder.
+Als u maken van een aangepaste sjabloon aanpassen aan uw behoeften wilt, is het raadzaam dat u begint met een van de sjablonen die beschikbaar zijn op de [voorbeelden van Azure Service Fabric-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Volg de richtlijnen en uitleg [uw cluster-sjabloon aanpassen] [ customize-your-cluster-template] hieronder.
 
-Als u al een aangepaste sjabloon hebt en zorg ervoor dat zijn aan Controleer alle drie certificaat gerelateerde parameters in de sjabloon en het parameterbestand zijn als volgt benoemde en -waarden null als volgt.
+Als u al een aangepaste sjabloon hebt en zorg ervoor dat zijn aan double-Controleer of alle drie certificaat gerelateerde parameters in de sjabloon en het parameterbestand zijn als volgt benoemde en -waarden null als volgt.
 
 ```Json
    "certificateThumbprint": {
@@ -333,7 +333,7 @@ Om te vereenvoudigen enkele van de stappen voor het configureren van Azure AD me
 3. Pak het gecomprimeerde bestand uit.
 4. Voer `SetupApplications.ps1`, en geef de tenant-id, de clusternaam en de WebApplicationReplyUrl als parameters. Bijvoorbeeld:
 
-```powershell
+```PowerShell
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
@@ -362,8 +362,8 @@ Het script wordt de JSON die wordt vereist door de Azure Resource Manager-sjablo
 
 <a id="customize-arm-template" ></a>
 
-## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Een Service Fabric-cluster Resource Manager-sjabloon maken
-Deze sectie is voor gebruikers die aangepaste willen Service Fabric-cluster Resource Manager-sjabloon schrijft. Zodra u een sjabloon hebt, kunt u nog steeds teruggaan en de powershell of CLI-modules gebruiken om u te implementeren. 
+## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Een Service Fabric-cluster resource manager-sjabloon maken
+Deze sectie is voor gebruikers die tot aangepaste een Service Fabric-cluster resource manager-sjabloon ontwerpen. Zodra u een sjabloon hebt, kunt u nog steeds Ga terug en gebruikt u de modules PowerShell of CLI te implementeren. 
 
 Voorbeeld Resource Manager-sjablonen zijn beschikbaar in de [Azure-voorbeelden op GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Deze sjablonen kunnen worden gebruikt als een beginpunt voor uw cluster-sjabloon.
 
@@ -371,7 +371,7 @@ Voorbeeld Resource Manager-sjablonen zijn beschikbaar in de [Azure-voorbeelden o
 Deze handleiding bevat de [beveiligde 5 knooppunten] [ service-fabric-secure-cluster-5-node-1-nodetype] voorbeeldsjabloon en sjabloonparameters. Download `azuredeploy.json` en `azuredeploy.parameters.json` op uw computer en opent u beide bestanden in uw favoriete teksteditor.
 
 ### <a name="add-certificates"></a>Certificaten toevoegen
-U kunt certificaten toevoegen aan een cluster Resource Manager-sjabloon door te verwijzen naar de sleutelkluis waarin de certificaatsleutels. Toevoegen van die sleutelkluis parameters en waarden in een parameterbestand van de Resource Manager-sjabloon (azuredeploy.parameters.json). 
+U kunt certificaten toevoegen aan een cluster resource manager-sjabloon door te verwijzen naar de sleutelkluis waarin de certificaatsleutels. Toevoegen van die sleutelkluis parameters en waarden in een parameterbestand van de Resource Manager-sjabloon (azuredeploy.parameters.json). 
 
 #### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Alle certificaten toevoegen aan de virtuele machine scale set osProfile
 Elk certificaat dat geïnstalleerd in het cluster moet worden geconfigureerd in de sectie osProfile van de schaal set resource (Microsoft.Compute/virtualMachineScaleSets). Deze actie geeft u een opdracht van de resourceprovider voor het installeren van het certificaat op de virtuele machines. Deze installatie omvat zowel het certificaat van het cluster en toepassing beveiligingscertificaten die u wilt gebruiken voor uw toepassingen:
@@ -499,14 +499,13 @@ U kunt de configuratie van Azure AD toevoegen aan cluster Resource Manager-sjabl
 }
 ```
 
-### <a name="populate-the-parameter-file-with-the-values"></a>De parameter-bestand met de waarden vullen.
-Gebruik tot slot de uitvoerwaarden van de sleutelkluis en de Azure AD PowerShell-opdrachten voor het vullen van het parameterbestand:
+### <a name="populate-the-parameter-file-with-the-values"></a>De parameter-bestand met de waarden vullen
+Gebruik tot slot de uitvoerwaarden van de sleutelkluis en de Azure AD PowerShell-opdrachten voor het vullen van het parameterbestand.
 
-Als u gebruikmaken van de Azure service fabric RM PowerShell-modules, dan hebt u hoeft niet wilt te vullen van de gegevens van het cluster-certificaat als u die het systeem voor het genereren van de zelf ondertekend voor clusterbeveiliging u certificaat, net houden als null. 
+Als u gebruikmaken van de Azure service fabric RM PowerShell-modules wilt, vervolgens hoeft niet u voor het vullen van de certificaatgegevens van het cluster. Als u wilt dat het systeem voor het genereren van de zelf ondertekend certificaat voor de clusterbeveiliging, net als null houden. 
 
 > [!NOTE]
 > Voor de RM-modules kunnen worden opgepikt en deze leeg parameterwaarden vult de namen van parameters veel overeenkomen met de namen hieronder
->
 
 ```json
 "clusterCertificateThumbprint": {
@@ -523,9 +522,9 @@ Als u gebruikmaken van de Azure service fabric RM PowerShell-modules, dan hebt u
 },
 ```
 
-Als u met behulp van certificaten van de toepassing of met behulp van een bestaand cluster dat u hebt geüpload naar de sleutelkluis, moet u deze gegevens ophalen en deze vullen 
+Als u met behulp van certificaten van de toepassing of met behulp van een bestaand cluster dat u hebt geüpload naar de sleutelkluis, moet u deze gegevens te halen en deze vullen.
 
-De RM-modules beschikt niet over de mogelijkheid voor het genereren van de configuratie van Azure AD voor u. dus als u de Azure AD gebruiken voor toegang van clients wilt, u deze vullen moet.
+De RM-modules hoeft niet de mogelijkheid voor het genereren van de configuratie van Azure AD, dus als u van plan bent met de Azure AD voor clienttoegang, moet u deze vullen.
 
 ```json
 {
@@ -582,6 +581,16 @@ Het volgende diagram illustreert waar uw sleutelkluis en de configuratie van Azu
 
 ![Afhankelijkheidskaart van Resource Manager][cluster-security-arm-dependency-map]
 
+
+## <a name="encrypting-the-disks-attached-to-your-windows-cluster-nodevirtual-machine-instances"></a>Versleutelen van de schijven gekoppeld aan uw windows-cluster knooppunt/virtuele machine-exemplaren
+
+Voor het versleutelen van de schijven (OS station en andere beheerde schijven) gekoppeld aan uw knooppunten, maken we gebruik van de Azure Disk Encryption. Azure Disk Encryption is een nieuwe functie die u helpt [versleutelen van uw schijven van de virtuele machine Windows](service-fabric-enable-azure-disk-encryption-windows.md). Azure Disk Encryption maakt gebruik van het industrie-initiatief [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) functie van Windows voor volumeversleuteling voor het volume met het besturingssysteem. De oplossing is geïntegreerd met [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) om te controleren en beheren van de schijfversleuteling sleutels en geheimen in uw abonnement sleutelkluis. De oplossing zorgt er ook voor dat alle gegevens op de virtuele machine-schijven zijn versleuteld in rust in uw Azure-opslag. 
+
+## <a name="encrypting-the-disks-attached-to-your-linux-cluster-nodevirtual-machine-instances"></a>Versleutelen van de schijven die zijn gekoppeld aan uw Linux-cluster knooppunt/virtuele machine-exemplaren
+
+Voor het versleutelen van de schijven (gegevensstation en andere beheerde schijven) gekoppeld aan uw knooppunten, maken we gebruik van de Azure Disk Encryption. Azure Disk Encryption is een nieuwe functie die u helpt [uw Linux-schijven voor virtuele machine versleutelen](service-fabric-enable-azure-disk-encryption-linux.md). Azure Disk Encryption maakt gebruik van het industrie-initiatief [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) functie van Linux voor volumeversleuteling voor de gegevensschijven. De oplossing is geïntegreerd met [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) om te controleren en beheren van de schijfversleuteling sleutels en geheimen in uw abonnement sleutelkluis. De oplossing zorgt er ook voor dat alle gegevens op de virtuele machine-schijven zijn versleuteld in rust in uw Azure-opslag. 
+
+
 ## <a name="create-the-cluster-using-azure-resource-template"></a>Het cluster met behulp van Azure-resource-sjabloon maken 
 
 U kunt nu implementeren u cluster met behulp van de stappen die eerder in het document wordt beschreven of hebt u de waarden in het parameterbestand ingevuld, klikt u bent nu klaar voor het maken van het cluster met behulp van [Azure-resource sjabloonimplementatie] [ resource-group-template-deploy] rechtstreeks.
@@ -620,7 +629,7 @@ Nadat u de toepassingen voor uw cluster hebt gemaakt, uw gebruikers toewijzen aa
 
 
 ## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>Probleemoplossing bij het instellen van Azure Active Directory
-Azure AD in te stellen en dit gebruikt, kan lastig zijn, zodat u hier volgen een aantal tips op wat u doen kunt om het probleem voor foutopsporing.
+Instellen van Azure AD en deze kunnen lastig zijn, zodat u hier volgen een aantal tips op wat u doen kunt om het probleem voor foutopsporing.
 
 ### <a name="service-fabric-explorer-prompts-you-to-select-a-certificate"></a>Service Fabric Explorer vraagt u een certificaat selecteren
 #### <a name="problem"></a>Probleem

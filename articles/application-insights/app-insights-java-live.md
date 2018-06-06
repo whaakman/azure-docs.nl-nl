@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: b8ddd43fb19b3800840180c458268301b5ec26f6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794544"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights voor Java-web-apps die al live
-
 
 Als u een webtoepassing die al wordt uitgevoerd op uw J2EE-server hebt, kunt u starten met bewaking [Application Insights](app-insights-overview.md) zonder te hoeven codewijzigingen aanbrengen of opnieuw moet compileren uw project. Met deze optie krijgt u informatie over HTTP-aanvragen verzonden naar uw server, niet-verwerkte uitzonderingen en prestatiemeteritems.
 
@@ -136,4 +136,4 @@ En wanneer u de eigenschappen van een aanvraag bekijkt, ziet u de telemetriegebe
 * [Webtests instellen](app-insights-monitor-web-app-availability.md) om ervoor te zorgen dat uw toepassing blijft live en responsief.
 * [Logboektraceringen vastleggen](app-insights-java-trace-logs.md)
 * [Zoek naar gebeurtenissen en logboeken](app-insights-diagnostic-search.md) om u te helpen bij het analyseren van problemen.
-
+* [Een opstartinstallatiekopie Spring initialisatiefunctie-app configureren](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

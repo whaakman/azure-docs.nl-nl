@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: LinkedIn configuratie | Microsoft Docs'
-description: Gebruikers met een account in uw toepassingen die zijn beveiligd met Azure Active Directory B2C LinkedIn bieden zich kunnen registreren en aanmelden
+title: LinkedIn-configuratie in Azure Active Directory B2C | Microsoft Docs
+description: Registreren en aanmelden gebruikers met een account in uw toepassingen die zijn beveiligd met Azure Active Directory B2C LinkedIn bieden.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 6db3832031a1bb960ee40c0e4fb8c3d0591a976c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711695"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met LinkedIn-accounts
 ## <a name="create-a-linkedin-application"></a>Een LinkedIn-toepassing maken
@@ -35,7 +35,7 @@ Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2
    > **Clientgeheim** is een belangrijke beveiligingsreferentie.
    > 
    > 
-6. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in de **geautoriseerd Omleidings-URL's** veld (onder **OAuth 2.0**). Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contoso.onmicrosoft.com). Klik op **toevoegen**, en klik vervolgens op **Update**. De **{tenant}** hoofdlettergevoelig.
+6. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in de **geautoriseerd Omleidings-URL's** veld (onder **OAuth 2.0**). Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contoso.onmicrosoft.com). Klik op **toevoegen**, en klik vervolgens op **Update**. De **{tenant}** waarde moet een kleine letters.
    
     ![LinkedIn - Setup-app](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 

@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: 95393df03ffc33748f0f14344d989d58ae52297c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796730"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
 
@@ -330,7 +331,7 @@ Volg deze stappen:
 | AdminArmEndpoint | Vereist | Null | Beheerder Azure Resource Manager-eindpunt. Een voorbeeld is adminmanagement.local.azurestack.external. |
 | TenantARMEndpoint | Vereist | Null | Tenant van Azure Resource Manager-eindpunt. Een voorbeeld is management.local.azurestack.external. |
 | AzureStackAdminCredential | Vereist | Null | Azure AD-service admin credential. |
-| CertificateFilePath | Vereist | Null | Pad naar het certificaatbestand van de identiteit toepassing eerder gegenereerd. |
+| CertificateFilePath | Vereist | Null | **Volledig pad** naar het certificaatbestand van de identiteit toepassing eerder gegenereerd. |
 | CertificatePassword | Vereist | Null | Wachtwoord beschermt de persoonlijke sleutel van het certificaat. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Een Active Directory Federation Services-toepassing maken
@@ -364,7 +365,7 @@ Volg deze stappen:
 | AdminArmEndpoint | Vereist | Null | Beheerder Azure Resource Manager-eindpunt. Een voorbeeld is adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Vereist | Null | Bevoorrechte eindpunt. Een voorbeeld is AzS ERCS01. |
 | CloudAdminCredential | Vereist | Null | Referentie voor domein-account voor Azure-Stack cloud beheerders. Een voorbeeld is Azurestack\CloudAdmin. |
-| CertificateFilePath | Vereist | Null | Pad naar de identiteit van de toepassing PFX-certificaatbestand. |
+| CertificateFilePath | Vereist | Null | **Volledig pad** aan de identiteit van de toepassing PFX-certificaatbestand. |
 | CertificatePassword | Vereist | Null | Wachtwoord beschermt de persoonlijke sleutel van het certificaat. |
 
 ## <a name="next-steps"></a>Volgende stappen

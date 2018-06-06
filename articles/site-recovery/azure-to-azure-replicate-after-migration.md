@@ -5,18 +5,17 @@ services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: ponatara
-ms.openlocfilehash: f64d61134f61476bcdd803f92019830b7cecf867
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c42a997560ee40eb0a587b81a6f191f372e0dd26
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716003"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Instellen van herstel na noodgevallen voor Azure VM's na de migratie naar Azure 
 
->[!NOTE]
-> Herstel na noodgevallen voor Azure VM's met Azure Site Recovery is momenteel in preview.
 
 In dit artikel gebruiken nadat u hebt [lokale machines hebt gemigreerd virtuele Azure-machines](tutorial-migrate-on-premises-to-azure.md) met behulp van de [siteherstel](site-recovery-overview.md) service. In dit artikel helpt u bij het voorbereiden van de Azure VM's voor het instellen van herstel na noodgevallen naar een secundair Azure-regio met Site Recovery.
 

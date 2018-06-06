@@ -1,23 +1,23 @@
 ---
-title: Met behulp van b2clogin.com| Microsoft Docs
+title: Met behulp van b2clogin.com | Microsoft Docs
 description: Meer informatie over het gebruik van b2clogin.com in plaats van login.microsoftonline.com.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: d2737e995b91caa2dcc55027baa2b552e64af23e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: c41c02acaeffa170d55f3c59f34a4b1ecae1c523
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712450"
 ---
-#<a name="using-b2clogincom"></a>Met b2clogin.com
+# <a name="using-b2clogincom"></a>Met b2clogin.com
 
 >[!IMPORTANT]
 >Deze functie is openbare preview 

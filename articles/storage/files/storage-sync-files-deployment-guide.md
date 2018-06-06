@@ -2,10 +2,10 @@
 title: Implementeren van Azure File-synchronisatie (preview) | Microsoft Docs
 description: Informatie over het implementeren van Azure bestand synchronisatie van begin tot eind.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a450d3c00627a9b20ff2fe31c4dba49b33352ec1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738378"
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Azure File-synchronisatie (preview) implementeren
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -56,13 +57,16 @@ Voor elke server die u gebruiken met het synchroniseren van Azure-bestand wilt, 
     4. In de **verbeterde beveiliging van Internet Explorer** dialoogvenster, **uit** voor **beheerders** en **gebruikers**:  
         ![De verbeterde beveiliging van Internet Explorer-pop-upvenster met 'Uit' geselecteerd](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-2. Zorg ervoor dat u ten minste uitgevoerd PowerShell 5.1.\* (PowerShell 5.1 is de standaardwaarde op Windows Server 2016). U kunt controleren of u PowerShell 5.1 worden uitgevoerd. \* door te kijken naar de waarde van de **PSVersion** eigenschap van de **$PSVersionTable** object:
+2. Zorg ervoor dat u ten minste worden uitgevoerd als u van Windows Server 2012 R2 gebruikmaakt, 5.1 PowerShell. \*. U kunt deze controle op Windows Server 2016 veilig overslaan als PowerShell 5.1 de standaard versie out-of-box is. U kunt controleren dat u PowerShell 5.1 worden uitgevoerd op Windows Server 2012 R2. \* door te kijken naar de waarde van de **PSVersion** eigenschap van de **$PSVersionTable** object:
 
     ```PowerShell
     $PSVersionTable.PSVersion
     ```
 
     Als de waarde van de PSVersion minder dan 5.1 is. \*, worden als het geval is bij de meeste installaties van Windows Server 2012 R2, u kunt vervolgens gemakkelijk upgraden door te downloaden en installeren van [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Het juiste pakket downloaden en installeren voor Windows Server 2012 R2 is **Win8.1AndW2K12R2 KB\*\*\*\*\*\*\*-x64.msu**.
+
+    > [!Note]  
+    > Azure File-synchronisatie ondersteunt nog geen PowerShell 6 op Windows Server 2012 R2 of Windows Server 2016.
 
 3. [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). U wordt aangeraden de nieuwste versie van de Azure PowerShell-modules.
 
@@ -91,6 +95,9 @@ Nadat u zich aanmeldt, wordt u gevraagd om de volgende informatie:
 - **Opslag-synchronisatieservice**: de naam van de Storage-Sync-Service die u wilt registreren.
 
 Nadat u de juiste gegevens hebt geselecteerd, selecteert u **registreren** om de inschrijving van de server te voltooien. Als onderdeel van het registratieproces wordt u gevraagd voor een extra aanmelden.
+
+> [!Note]  
+> Een server kan slechts met één opslag-Sync-Service worden geregistreerd.
 
 ## <a name="create-a-sync-group"></a>Maken van een groep voor synchronisatie
 Een groep voor synchronisatie definieert de synchronisatie-topologie voor een set bestanden. Eindpunten in een groep voor synchronisatie zijn gesynchroniseerd met elkaar. Een groep voor synchronisatie moet ten minste één cloudeindpunt dat vertegenwoordigt een Azure-bestandsshare, en één servereindpunt, waarmee een pad op Windows Server bevatten. Maken van een groep voor synchronisatie in de [Azure-portal](https://portal.azure.com/), gaat u naar uw Storage-Sync-Service en selecteer vervolgens **+ groep voor synchronisatie**:

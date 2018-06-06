@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3fb3ba0757744ba9f84280778be7e274d4ac5a2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 64914a1b3efe81a152f5463f74c70c22f01ec0c1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724041"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -28,13 +29,20 @@ Dit artikel wordt uitgelegd hoe u werkt met [Azure Event Hubs](../event-hubs/eve
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pakketten
+## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-Voor Azure Functions versie 1.x, de Event Hubs-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-pakket. Voor functies 2.x, gebruik de [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub-opslagplaats.
+Voor Azure Functions versie 1.x, de Event Hubs-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-pakket versie 2.x.
+De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub-opslagplaats.
+
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
+
+Voor functies 2.x, gebruik de [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) pakket, versie 3.x.
+De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Trigger
 
@@ -124,7 +132,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie Logboeken de berichttekst van de event hub-trigger.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+De volgende voorbeelden tonen Event Hubs bindingsgegevens in de *function.json* bestand. Het eerste voorbeeld is voor 1.x functioneert en het tweede is voor functies 2.x. 
 
 ```json
 {
@@ -135,6 +143,16 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
 Dit is de C#-scriptcode:
 
 ```cs
@@ -188,7 +206,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [F # functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie Logboeken de berichttekst van de event hub-trigger.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+De volgende voorbeelden tonen Event Hubs bindingsgegevens in de *function.json* bestand. Het eerste voorbeeld is voor 1.x functioneert en het tweede is voor functies 2.x. 
 
 ```json
 {
@@ -196,6 +214,15 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -211,7 +238,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie leest [gebeurtenis metagegevens](#trigger---event-metadata) en registreert het bericht.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+De volgende voorbeelden tonen Event Hubs bindingsgegevens in de *function.json* bestand. Het eerste voorbeeld is voor 1.x functioneert en het tweede is voor functies 2.x. 
 
 ```json
 {
@@ -219,6 +246,15 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -236,8 +272,7 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `many` in de *function.json* bestand:
-
+Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `many` in de *function.json* -bestand, zoals wordt weergegeven in de volgende voorbeelden. Het eerste voorbeeld is voor 1.x functioneert en het tweede is voor functies 2.x. 
 
 ```json
 {
@@ -245,6 +280,16 @@ Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `man
   "name": "eventHubMessages",
   "direction": "in",
   "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -289,8 +334,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | moet worden ingesteld op `eventHubTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
 |**direction** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**Naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
-|**Pad** |**EventHubName** | De naam van de event hub. | 
-|**consumerGroup** |**ConsumerGroup** | Een optionele eigenschap die bepaalt de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. | 
+|**Pad** |**EventHubName** | Alleen 1.x fungeert. De naam van de event hub.  | 
+|**EventHubName** |**EventHubName** | Alleen 2.x fungeert. De naam van de event hub.  |
+|**ConsumerGroup** |**ConsumerGroup** | Een optionele eigenschap die bepaalt de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. | 
 |**Kardinaliteit** | N.v.t. | Als u Javascript. Ingesteld op `many` om in te schakelen batchverwerking.  Als u dit weglaat of ingesteld op `one`, één bericht doorgegeven aan functie. | 
 |**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de [naamruimte](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen hebben voor de trigger wordt geactiveerd.|
 
@@ -349,13 +395,22 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie schrijft een bericht naar een event hub.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+De volgende voorbeelden tonen Event Hubs bindingsgegevens in de *function.json* bestand. Het eerste voorbeeld is voor 1.x functioneert en het tweede is voor functies 2.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -390,13 +445,22 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [F # functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie schrijft een bericht naar een event hub.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+De volgende voorbeelden tonen Event Hubs bindingsgegevens in de *function.json* bestand. Het eerste voorbeeld is voor 1.x functioneert en het tweede is voor functies 2.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -415,13 +479,22 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie schrijft een bericht naar een event hub.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+De volgende voorbeelden tonen Event Hubs bindingsgegevens in de *function.json* bestand. Het eerste voorbeeld is voor 1.x functioneert en het tweede is voor functies 2.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -479,7 +552,8 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op 'eventHub'. |
 |**direction** | N.v.t. | Moet worden ingesteld op 'out'. Deze parameter wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
 |**Naam** | N.v.t. | De naam van de variabele gebruikt in de functiecode waarmee de gebeurtenis. | 
-|**Pad** |**EventHubName** | De naam van de event hub. | 
+|**Pad** |**EventHubName** | Alleen 1.x fungeert. De naam van de event hub.  | 
+|**EventHubName** |**EventHubName** | Alleen 2.x fungeert. De naam van de event hub.  |
 |**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet verzenden machtigingen hebben voor het bericht naar de stroom gebeurtenissen sturen.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4b1fefafb34dcbfdced5c978aa235e56cb7fa513
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801793"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Een strategie voor hybride identiteit acceptatie definiëren
 In deze taak definieert u de hybride identiteit acceptatie strategie voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die zijn beschreven in:
@@ -32,7 +34,7 @@ In deze taak definieert u de hybride identiteit acceptatie strategie voor uw opl
 De eerste taak adressen bepalen van het bedrijf organisaties moet.  Dit kan zeer brede en bereik kneep kan optreden als u niet zorgvuldig.  Houd het eenvoudig in het begin, maar vergeet om te plannen voor een ontwerp dat wordt aangepast aan en maak veranderingen in de toekomst mogelijk.  Ongeacht of het ontwerp van een eenvoudige of een zeer complexe, Azure Active Directory is de Microsoft Identity-platform dat ondersteuning biedt voor Office 365, Microsoft Online Services en cloud compatibele toepassingen.
 
 ## <a name="define-an-integration-strategy"></a>Een Integratiestrategie voor definiëren
-Microsoft heeft drie belangrijkste integratiescenario's die cloud-identiteiten, gesynchroniseerde identiteiten en federatieve identiteiten zijn.  Plan voor overstap op een van deze integratiestrategieën.  De strategie die u kiest, kan variëren en de beslissingen die u bij het kiezen van een kan bevatten, wat voor soort gebruikerservaring die u bieden wilt, hebt u enkele van de bestaande infrastructuur al in-place en wat is de meest voordelige.  
+Microsoft heeft drie belangrijkste integratiescenario's die cloud-identiteiten, gesynchroniseerde identiteiten en federatieve identiteiten zijn.  Plan voor overstap op een van deze integratiestrategieën.  De strategie die u kiest, kan variëren en de beslissingen die u bij het kiezen van een kunnen bevatten, wat voor soort gebruikerservaring die u bieden wilt, hebt u een bestaande infrastructuur en wat is de meest voordelige.  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -51,7 +53,7 @@ De volgende tabel helpt bij het bepalen van de voordelen en nadelen van elk van 
 
 | Een strategie voor | Voordelen | Nadelen |
 | --- | --- | --- |
-| **Cloud-identiteiten** |Gemakkelijker te beheren voor kleine organisatie. <br> Er is niets om te installeren op de lokale geen extra hardware nodig<br>Eenvoudig uitgeschakeld als de gebruiker het bedrijf verlaat |Gebruikers moeten aanmelden bij het openen van workloads in de cloud <br> Wachtwoorden al kunnen dan niet hetzelfde zijn voor de cloud en on-premises identiteiten |
+| **Cloud-identiteiten** |Gemakkelijker te beheren voor kleine organisatie. <br> Er is niets naar on-premises installeert. Er is geen extra hardware nodig<br>Eenvoudig uitgeschakeld als de gebruiker het bedrijf verlaat |Gebruikers moeten aanmelden bij het openen van workloads in de cloud <br> Wachtwoorden al kunnen dan niet hetzelfde zijn voor de cloud en on-premises identiteiten |
 | **Gesynchroniseerd** |Lokale wachtwoord wordt geverifieerd voor zowel on-premises en cloud mappen <br>Gemakkelijker te beheren voor een klein, Gemiddeld of grote organisaties <br>Gebruikers kunnen eenmalige aanmelding (SSO) hebben voor een aantal bronnen <br> Microsoft voorkeurs-methode voor synchronisatie <br> Gemakkelijker te beheren |Sommige gebruikers mogelijk hun mappen synchroniseren met de cloud vanwege specifiek bedrijf politie weerstand |
 | **Federatieve** |Gebruikers beschikken over eenmalige aanmelding (SSO) <br>Als een gebruiker wordt beëindigd of verlaat, het account onmiddellijk kan worden uitgeschakeld en de toegang is ingetrokken,<br> Ondersteunt geavanceerde scenario's die niet kunnen worden bewerkstelligd met gesynchroniseerd |Extra stappen uitvoeren om het instellen en configureren <br> Hogere onderhoud <br> Extra hardware nodig voor de STS-infrastructuur <br> Extra hardware voor het installeren van de federation-server nodig. Aanvullende software is vereist als AD FS wordt gebruikt <br> Uitgebreide instellingen vereist voor eenmalige aanmelding <br> Kritieke storingspunt als de federation-server niet actief is, gebruikers niet mogelijk om te verifiëren |
 
@@ -119,7 +121,7 @@ Bij het definiëren van een strategie voor synchronisatie, kan de topologie die 
 
 Met meerdere forests
 
-Als dit het geval wordt de topologie met meerdere-forest-enkel Azure AD moet worden beschouwd als de volgende vereisten voldaan is:
+Als dit het geval is, en vervolgens met meerdere forests enkel Azure AD-topologie moet overwegen als u de volgende vereisten is voldaan:
 
 * Gebruikers hebben slechts 1 identiteit in alle forests – de unieke id gebruikers sectie hieronder wordt beschreven dit in meer detail.
 * De gebruiker wordt geverifieerd met het forest waarin hun identiteit zich bevindt
@@ -149,7 +151,7 @@ Het is mogelijk en verbinding maken met een lokaal exemplaar van Active Director
 
 **Filteren scenario voor één forest**
 
-Om dit te doen het volgende moeten worden voldaan:
+U doet dit door moet het volgende worden voldaan:
 
 * Azure AD Connect sync-servers moeten worden geconfigureerd voor het filteren zodat ze elk een sluiten elkaar wederzijds uit set van objecten hebben.  Dit doen, bijvoorbeeld door het bereik van elke server aan een bepaald domein of organisatie-eenheid.
 * Een DNS-domein kan alleen worden geregistreerd in een enkel Azure AD-directory zodat de UPN's van de gebruikers in de on-premises AD afzonderlijke naamruimten moet gebruiken

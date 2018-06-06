@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b8ae865e06e085ebe1bb71b35d812024190e2b21
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9658eaaf35d9b937d76926c73dba23d2a4989b3a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713181"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -206,7 +208,7 @@ Zie voor een overzicht van de gerelateerde gebruikerservaring:
 
 - Op de **Azure AD Identity Protection** blade in de **configureren** sectie, klikt u op **aanmelden risico beleid**.
 
-    ![Gebruikersbeleid ridk](./media/active-directory-identityprotection/1014.png "ridk gebruikersbeleid")
+    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1014.png "risico gebruikersbeleid")
 
 
 
@@ -307,25 +309,25 @@ Het gerelateerde dialoogvenster biedt twee verschillende methoden om uw wachtwoo
 ### <a name="user-risk-security-policy"></a>Gebruiker risico beveiligingsbeleid
 Een beveiligingsbeleid voor gebruiker risico is een beleid voor voorwaardelijke toegang dat het risiconiveau aan een specifieke gebruiker wordt geëvalueerd en herstel en risicobeperking op basis van vooraf gedefinieerde voorwaarden en regels maatregelen.
 
-![Gebruikersbeleid ridk](./media/active-directory-identityprotection/1009.png "ridk gebruikersbeleid")
+![Gebruikersbeleid risico](./media/active-directory-identityprotection/1009.png "risico gebruikersbeleid")
 
 Azure AD Identity Protection helpt bij het beheren van de risicobeperking en het doorvoeren van gebruikers die zijn gemarkeerd voor risico doordat u:
 
 * Stel de gebruikers en groepen die het beleid van toepassing:
 
-    ![Gebruikersbeleid ridk](./media/active-directory-identityprotection/1010.png "ridk gebruikersbeleid")
+    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1010.png "risico gebruikersbeleid")
 * Stel de gebruiker risico niveau drempelwaarde (laag, Gemiddeld of hoog) waarmee het beleid wordt geactiveerd:
 
-    ![Gebruikersbeleid ridk](./media/active-directory-identityprotection/1011.png "ridk gebruikersbeleid")
+    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1011.png "risico gebruikersbeleid")
 * Stel de besturingselementen om te worden afgedwongen wanneer het beleid wordt geactiveerd:
 
-    ![Gebruikersbeleid ridk](./media/active-directory-identityprotection/1012.png "ridk gebruikersbeleid")
+    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1012.png "risico gebruikersbeleid")
 * De status van uw beleid switch:
 
-    ![Gebruikersbeleid ridk](./media/active-directory-identityprotection/403.png "registratieprocedure voor MFA")
+    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/403.png "registratieprocedure voor MFA")
 * Bekijken en evalueren van de gevolgen van een wijziging voordat u deze activeert:
 
-    ![Gebruikersbeleid ridk](./media/active-directory-identityprotection/1013.png "ridk gebruikersbeleid")
+    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1013.png "risico gebruikersbeleid")
 
 U kiest een **hoge** drempelwaarde vermindert het aantal keer dat een beleid wordt geactiveerd en minimaliseert de overlast voor gebruikers.
 Echter, worden uitgesloten **laag** en **gemiddeld** gebruikers die zijn gemarkeerd voor risico's van het beleid, die mogelijk niet beveiligd identiteiten of apparaten die eerder zijn verdachte of bekend is mogelijk onveilig.
@@ -348,7 +350,7 @@ Zie voor een overzicht van de gerelateerde gebruikerservaring:
 
 - Op de **Azure AD Identity Protection** blade in de **configureren** sectie, klikt u op **risico gebruikersbeleid**.
 
-    ![Gebruikersbeleid ridk](./media/active-directory-identityprotection/1009.png "ridk gebruikersbeleid")
+    ![Gebruikersbeleid risico](./media/active-directory-identityprotection/1009.png "risico gebruikersbeleid")
 
 ### <a name="mitigating-user-risk-events"></a>Beperkende gebruiker risico 's
 Beheerders kunnen een beveiligingsbeleid voor gebruiker risico voorkomen dat gebruikers bij het aanmelden, afhankelijk van het risiconiveau instellen.
@@ -367,7 +369,7 @@ We raden u aan Azure multi-factor authentication-server voor de gebruikersaanmel
 * Biedt geavanceerde verificatie met een bereik van eenvoudige verificatie-opties
 * Speelt een belangrijke rol bij het voorbereiden van uw organisatie te beveiligen en herstellen van account compromissen
 
-![Gebruikersbeleid ridk](./media/active-directory-identityprotection/1019.png "ridk gebruikersbeleid")
+![Gebruikersbeleid risico](./media/active-directory-identityprotection/1019.png "risico gebruikersbeleid")
 
 Zie voor meer informatie [wat is Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 

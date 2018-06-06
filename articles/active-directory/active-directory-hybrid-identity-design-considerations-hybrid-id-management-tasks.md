@@ -1,30 +1,32 @@
 ---
 title: Ontwerp van hybride identiteit - beheertaken Azure | Microsoft Docs
-description: "Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de specifieke voorwaarden die u kiest bij het verifiëren van de gebruiker en alvorens deze toegang tot de toepassing. Als deze voorwaarden is voldaan, wordt de gebruiker geverifieerd en toegang te krijgen tot de toepassing."
-documentationcenter: 
+description: Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de specifieke voorwaarden die u kiest bij het verifiëren van de gebruiker en alvorens deze toegang tot de toepassing. Als deze voorwaarden is voldaan, wordt de gebruiker geverifieerd en toegang te krijgen tot de toepassing.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5fcb229690827c7bd508aa0d27dd68b169b4e25e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801323"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan voor de levenscyclus van hybride identiteit
 Identiteit is een van de basisprincipes van uw strategie voor enterprise mobility en de toepassing. Of u aan te bij uw mobiele apparaat of SaaS-app melden bent, is uw identiteit de sleutel tot het toegang krijgen tot alles. Op het hoogste niveau omvat een oplossing voor identiteitsbeheer samen te voegen en gesynchroniseerd tussen uw opslagplaatsen identiteit waaronder automatiseren en centraal opslaan van het proces voor het leveren van bronnen. De identiteitsoplossing moet zijn van de identiteit van een gecentraliseerde via on-premises en cloud en ook gebruiken een vorm van identiteitsfederatie centrale verificatie onderhouden en veilig delen en samenwerken met externe gebruikers en bedrijven. Resources variëren van besturingssystemen en toepassingen naar mensen in of gekoppeld aan een organisatie. Organisatiestructuur kan worden gewijzigd zodat de inrichting beleidsregels en procedures.
 
-Het is ook belangrijk dat u een oplossing die is afgestemd om te zorgen dat uw gebruikers via een selfservice-ervaring te houden productief hebben. De oplossing van uw identiteit is robuuster als deze kan eenmalige aanmelding voor gebruikers in alle bronnen die ze nodig hebben op alle beheerders toegang niveaus gestandaardiseerde procedures kunnen gebruiken voor het beheren van gebruikersreferenties. Sommige niveaus van beheer worden verlaagd of geëlimineerd, afhankelijk van de breedte van het beheersysteem voor inrichting. Bovendien kunt u veilig distribueren beheermogelijkheden, handmatig of automatisch, tussen verschillende organisaties. Een domeinbeheerder kan bijvoorbeeld alleen de personen en bronnen in dat domein fungeren. Deze gebruiker inrichting en administratieve taken kan uitvoeren, maar is niet geautoriseerd configuratietaken, zoals het maken van werkstromen.
+Het is ook belangrijk dat u een oplossing die is afgestemd om te zorgen dat uw gebruikers via een selfservice-ervaring te houden productief hebben. Uw identiteitsoplossing is krachtiger dat als deze eenmalige aanmelding voor gebruikers in alle resources kan ze toegang nodig. Administrators op alle niveaus kunnen gestandaardiseerde procedures voor het beheren van gebruikersreferenties gebruiken. Sommige niveaus van beheer worden verlaagd of geëlimineerd, afhankelijk van de breedte van het beheersysteem voor inrichting. Bovendien kunt u veilig distribueren beheermogelijkheden, handmatig of automatisch, tussen verschillende organisaties. Een domeinbeheerder kan bijvoorbeeld alleen de personen en bronnen in dat domein fungeren. Deze gebruiker inrichting en administratieve taken kan uitvoeren, maar is niet geautoriseerd configuratietaken, zoals het maken van werkstromen.
 
 ## <a name="determine-hybrid-identity-management-tasks"></a>Beheertaken voor hybride identiteit bepalen
 Beheertaken in uw organisatie distribueren verbetert de nauwkeurigheid en de effectiviteit van beheer en verbetert het saldo van de werkbelasting van een organisatie. Hier volgen de gegevensfuncties die een robuuste identiteitsbeheersysteem definiëren.
@@ -56,9 +58,9 @@ Tijdens het definiëren van deze vereisten, zorg ervoor dat ten minste de volgen
 * Zo ja, hoe en dat ze zijn en welke mogelijkheden zijn beschikbaar?
 
 ## <a name="synchronization-management"></a>Synchronisatie Management
-Een van de doelstellingen van een id-beheer kunnen Zorg ervoor dat alle id-providers en houden gesynchroniseerd. Behouden van de gegevens worden gesynchroniseerd op basis van een bindende master id-provider. In een hybride identiteitsscenario met een model gesynchroniseerde management alle gebruiker en apparaat-id's in een on-premises server beheren en synchroniseren van de accounts en, desgewenst, wachtwoorden naar de cloud. De gebruiker voert de hetzelfde wachtwoord on-premises als hij of zij dit doet in de cloud, en bij het aanmelden, het wachtwoord wordt geverifieerd door de oplossing voor identiteit. Dit model maakt gebruik van een directory-synchronisatie.
+Een van de doelstellingen van een id-beheer kunnen Zorg ervoor dat alle id-providers en houden gesynchroniseerd. Behouden van de gegevens worden gesynchroniseerd op basis van een bindende master id-provider. In een hybride identiteitsscenario met een model gesynchroniseerde management alle gebruiker en apparaat-id's in een on-premises server beheren en synchroniseren van de accounts en, desgewenst, wachtwoorden naar de cloud. De gebruiker voert de hetzelfde wachtwoord on-premises als ze in de cloud doen, en bij het aanmelden, het wachtwoord wordt geverifieerd door de oplossing voor identiteit. Dit model maakt gebruik van een directory-synchronisatie.
 
-![](./media/hybrid-id-design-considerations/Directory_synchronization.png)Juiste ontwerp de synchronisatie van uw oplossing voor hybride identiteit ervoor te zorgen dat de volgende vragen worden beantwoord: • wat zijn de synchronisatie-oplossingen beschikbaar zijn voor de oplossing voor hybride identiteit?
+![](./media/hybrid-id-design-considerations/Directory_synchronization.png) Juiste ontwerp de synchronisatie van uw oplossing voor hybride identiteit ervoor te zorgen dat de volgende vragen worden beantwoord: • wat zijn de synchronisatie-oplossingen beschikbaar zijn voor de oplossing voor hybride identiteit?
 • Wat de eenmalige aanmelding mogelijkheden die beschikbaar zijn?
 • Wat zijn de opties voor identiteitsfederatie tussen B2B en B2C?
 

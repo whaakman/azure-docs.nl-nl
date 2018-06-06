@@ -3,12 +3,13 @@ title: Azure Active Directory voorwaardelijke toegang wat gebeurt er als hulppro
 description: Meer informatie over hoe u de configuratie van uw beleid voor voorwaardelijke toegang van Azure Active Directory kunt testen.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723827"
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory voorwaardelijke toegang wat gebeurt er als hulpprogramma - preview
 
@@ -52,7 +54,7 @@ Wanneer de evaluatie is voltooid, genereert het hulpprogramma een rapport van he
 
 ## <a name="running-the-tool"></a>Het programma wordt uitgevoerd
 
-U vindt de **wat gebeurt er als** hulpprogramma op de  **[voorwaardelijke toegang - beleid](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)**  pagina in de Azure-portal.
+U vindt de **wat gebeurt er als** hulpprogramma op de **[voorwaardelijke toegang - beleid](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** pagina in de Azure-portal.
 
 Voor het starten van het hulpprogramma op de werkbalk boven op de lijst met beleidsregels, klikt u op **wat gebeurt er als**.
 

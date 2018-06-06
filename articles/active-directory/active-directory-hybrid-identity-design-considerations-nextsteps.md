@@ -1,11 +1,11 @@
 ---
 title: Azure Active Directory hybride identiteit ontwerpoverwegingen - Vervolgstappen | Microsoft Docs
 description: Een samenvatting en de volgende stappen nadat u de handleiding met ontwerpoverwegingen voor hybride identiteit hebt gelezen
-documentationcenter: 
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 02d48768-ea9e-4bfe-ae54-b54c4bd0a789
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29c045af81134847321d9ef69943f0154e9ee5a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801487"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybride identiteit ontwerp overwegingen bij volgende stappen
 Nu dat u hebt uw vereisten definiëren en alle opties voor uw beheeroplossing voor mobiele apparaten voltooid, kunt u kunt de volgende stappen voor het implementeren van de ondersteunende infrastructuur bij u en uw organisatie.

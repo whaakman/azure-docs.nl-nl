@@ -3,17 +3,18 @@ title: Problemen met synchroniseren van Azure SQL-gegevens (Preview) | Microsoft
 description: Informatie over het oplossen van veelvoorkomende problemen met het synchroniseren van Azure SQL-gegevens (Preview).
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757533"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Problemen oplossen met het synchroniseren van de SQL-gegevens (Preview)
 
@@ -224,7 +225,7 @@ Wachtwoord van de agent een update naar uw huidige serverwachtwoord:
 4. Op **synchroniseren van de SQL-gegevens (Preview) Preview Agenteigenschappen**, selecteer de **aanmelden** tabblad.
 5. In de **wachtwoord** Voer uw wachtwoord.
 6. In de **wachtwoord bevestigen** vak, uw wachtwoord opnieuw invoeren.
-7. Selecteer **toepassen**, en selecteer vervolgens **OK**.
+7. Selecteer **Apply** en vervolgens **OK**.
 8. In de **Services** venster met de rechtermuisknop op de **synchroniseren van de SQL-gegevens (Preview) Agent Preview** service en klik vervolgens op **Start**.
 9. Sluit de **Services** venster.
 
@@ -240,9 +241,8 @@ Voordat u verdergaat, controleert u de volgende voorwaarden:
 
 -   Het synchroniseren van de SQL-gegevens (Preview) Windows-service wordt uitgevoerd.  
 -   Het serviceaccount voor het synchroniseren van de SQL-gegevens (Preview) Preview Windows-service heeft toegang tot het netwerk.    
--   De clientagent kunt contact opnemen met de Locator-Service. Controleer of de volgende registersleutel: de waarde is https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   Op een x86 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   Op een x64 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   De uitgaande 1433-poort is geopend in uw lokale firewallregel.
+-   Het lokale IP-adres wordt toegevoegd aan de server of database firewallregel voor de synchronisatiedatabase metagegevens.
 
 #### <a name="cause"></a>Oorzaak
 
@@ -384,7 +384,7 @@ Logboek-op-as-a-service-referenties aan de gebruikersaccount verlenen:
 1. Ga naar **Start** > **Configuratiescherm** > **Systeembeheer** > **lokaal beveiligingsbeleid**  >  **Lokaal beleid** > **gebruiker Rights Management**.
 2. Selecteer **aanmelden als service**.
 3. In de **eigenschappen** dialoogvenster Voeg het gebruikersaccount.
-4. Selecteer **toepassen**, en selecteer vervolgens **OK**.
+4. Selecteer **Apply** en vervolgens **OK**.
 5. Sluit alle vensters.
 
 ### <a name="a-database-has-an-out-of-date-status"></a>Een database heeft een 'Verouderde' status
@@ -444,7 +444,7 @@ Zie voor meer informatie over het synchroniseren van de SQL-gegevens (Preview):
 -   [Aanbevolen procedures voor het synchroniseren van Azure SQL gegevens (Preview)](sql-database-best-practices-data-sync.md)  
 -   [Monitor voor Azure SQL synchroniseren van gegevens (Preview) met logboekanalyse](sql-database-sync-monitor-oms.md)  
 -   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens (Preview) te configureren:  
-    -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)  
+    -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [Het synchroniseren van de SQL-gegevens (Preview) REST-API-documentatie downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 

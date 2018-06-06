@@ -8,25 +8,25 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 8dbb546954f8eee0bf997b3d2f4f92d67c0b7869
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e743bdd5fd7e302e4c7c5d229bb14753776df079
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723527"
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Een verwijderde gebruiker in Azure Active Directory terugzetten
 
 In dit artikel bevat instructies voor het herstellen of een eerder verwijderde gebruiker permanent te verwijderen. Wanneer u een gebruiker in de Azure Active Directory (Azure AD) verwijdert, wordt de verwijderde gebruiker bewaard voor 30 dagen na de datum van verwijdering. Gedurende die tijd kunnen en de eigenschappen van de gebruiker worden hersteld. 
 
-> [!wARNING]
+> [!WARNING]
 > Nadat deze definitief wordt verwijderd, kan de gebruiker kan niet worden hersteld.
-
 
 ## <a name="how-to-restore-a-recently-deleted-user"></a>Het herstellen van een onlangs verwijderde gebruiker
 Wanneer een gebruiker onlangs is verwijderd, wordt alle directorygegevens bewaard. Als de gebruiker is hersteld, wordt die informatie ook hersteld.
@@ -44,7 +44,7 @@ Wanneer een gebruiker onlangs is verwijderd, wordt alle directorygegevens bewaar
 ## <a name="required-permissions"></a>Vereiste machtigingen
 De volgende machtigingen zijn voldoende zijn voor het herstellen van een gebruiker.
 
-Rol  | Machtigingen 
+Rol | Machtigingen 
 --------- | ---------
 Bedrijfsbeheerder<p>Laag1-ondersteuning voor partner<p>Laag2-ondersteuning voor partner<p>Beheerder van gebruikersaccounts | Verwijderde gebruikers kunt herstellen 
 Bedrijfsbeheerder<p>Laag1-ondersteuning voor partner<p>Laag2-ondersteuning voor partner<p>Beheerder van gebruikersaccounts | Kan gebruikers definitief verwijderen

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: faf526082a9a38d5d98443ff2b74eac4eef1ca08
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a0e05543734ae0604149d18564ae1bc1eff1892b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714626"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Een virtuele machine configureren schaalset beheerde Service identiteit (MSI) met Azure CLI
 
@@ -119,8 +120,7 @@ Deze sectie helpt u bij het maken van een VMSS en toewijzing van een gebruiker i
 
 2. Maken van een gebruiker toegewezen identiteit met [az identiteit maken](/cli/azure/identity#az-identity-create).  De `-g` parameter geeft u de resourcegroep waar de gebruiker toegewezen identiteit is gemaakt, en de `-n` parameter geeft u de naam ervan. Zorg ervoor dat u de `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` parameterwaarden met uw eigen waarden:
 
-    > [!IMPORTANT]
-    > Maken van toegewezen gebruikers-id's ondersteunt alleen alfanumerieke en het koppelteken (0-9 of a-z of A-Z of -) tekens. Bovendien moeten worden beperkt tot 24 tekens voor de toewijzing aan een VM/VMSS goed te laten werken. Controleer regelmatig op updates. Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
     ```azurecli-interactive
@@ -176,10 +176,10 @@ Het antwoord bevat de details voor de gebruiker toegewezen identiteit gemaakt, z
    }
    ```
 
-2. Toewijzen van de identiteit van de gebruiker toegewezen aan uw VMSS met [az vmss identiteit toewijzen](/cli/azure/vmss/identity#az_vm_assign_identity). Zorg ervoor dat u de `<RESOURCE GROUP>` en `<VM NAME>` parameterwaarden met uw eigen waarden. De `<USER ASSIGNED IDENTITY ID>` zijn van de identiteit van de gebruiker toegewezen resource `id` eigenschap, in de vorige stap hebt gemaakt:
+2. Toewijzen van de identiteit van de gebruiker toegewezen aan uw VMSS met [az vmss identiteit toewijzen](/cli/azure/vmss/identity#az_vm_assign_identity). Zorg ervoor dat u de `<RESOURCE GROUP>` en `<VMSS NAME>` parameterwaarden met uw eigen waarden. De `<USER ASSIGNED IDENTITY ID>` zijn van de identiteit van de gebruiker toegewezen resource `id` eigenschap, in de vorige stap hebt gemaakt:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Een gebruiker toegewezen identiteit van een Azure-VMSS verwijderen
@@ -187,15 +187,15 @@ Het antwoord bevat de details voor de gebruiker toegewezen identiteit gemaakt, z
 > [!NOTE]
 >  Verwijderen van alle toegewezen gebruikersidentiteiten uit een virtuele-Machineschaalset is momenteel niet ondersteund, tenzij u een systeem toegewezen identiteit hebt. 
 
-Als uw VMSS meerdere identiteiten van de gebruiker die is toegewezen heeft, kunt u alles behalve het laatste teken met behulp van [az vmss identiteit verwijderen](/cli/azure/vmss/identity#az-vmss-identity-remove). Zorg ervoor dat u de `<RESOURCE GROUP>` en `<VM NAME>` parameterwaarden met uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die kan worden gevonden door in de sectie van de identiteit van het gebruik van de VM `az vm show`:
+Als uw VMSS meerdere identiteiten van de gebruiker die is toegewezen heeft, kunt u alles behalve het laatste teken met behulp van [az vmss identiteit verwijderen](/cli/azure/vmss/identity#az-vmss-identity-remove). Zorg ervoor dat u de `<RESOURCE GROUP>` en `<VMSS NAME>` parameterwaarden met uw eigen waarden. De `<MSI NAME>` is de eigenschap name van de identiteit van de gebruiker die is toegewezen, die kan worden gevonden door in de sectie van de identiteit van het gebruik van de VM `az vm show`:
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
 Als uw VMSS heeft zowel automatisch toegewezen als de gebruiker toegewezen identiteiten, kunt u alle gebruikers identiteiten toegewezen door over te schakelen voor het gebruik van alleen automatisch toegewezen. Gebruik de volgende opdracht: 
 
 ```azurecli-interactive
-az vmss update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

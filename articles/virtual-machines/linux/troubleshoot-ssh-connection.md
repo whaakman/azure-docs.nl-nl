@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9db1252ffdb705308c6bdaf77f394a0e57145fb5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701918"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd
 Er zijn diverse redenen dat u op problemen Secure Shell (SSH), SSH verbindingsfouten stuit, of SSH wordt geweigerd wanneer u probeert verbinding maken met virtuele Linux-machine (VM). Dit artikel helpt u bij het vinden en los de problemen. U kunt de Azure-portal, Azure CLI of uitbreiding van de VM-toegang voor Linux kunt oplossen van problemen met de verbinding.
@@ -71,11 +72,11 @@ U kunt ook een gebruiker met sudo-machtigingen op de virtuele machine vanaf dit 
 
 ### <a name="check-security-rules"></a>Beveiligingsregels voor verbindingen controleren
 
-Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) om te bevestigen dat als een regel in een netwerkbeveiligingsgroep verkeer naar of van een virtuele machine wordt geblokkeerd. U kunt ook een effectieve beveiligingsmethode groep regels om ervoor te zorgen inkomende 'toestaan' NSG bekijken regel bestaat en is geplaatst voor SSH-poort (standaard 22). Zie voor meer informatie [effectieve beveiligingsregels gebruiken om op te lossen VM verkeer stroom](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) om te bevestigen dat als een regel in een netwerkbeveiligingsgroep verkeer naar of van een virtuele machine wordt geblokkeerd. U kunt ook een effectieve beveiligingsmethode groep regels om ervoor te zorgen inkomende 'toestaan' NSG bekijken regel bestaat en is geplaatst voor SSH-poort (standaard 22). Zie voor meer informatie [effectieve beveiligingsregels gebruiken om op te lossen VM verkeer stroom](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ### <a name="check-routing"></a>Controleer de routering
 
-Gebruik van netwerk-Watcher [volgende hop](../../network-watcher/network-watcher-check-next-hop-portal.md) mogelijkheid om te bevestigen dat een route is niet zo wordt voorkomen verkeer dat worden gerouteerd naar of vanuit een virtuele machine. U kunt ook effectieve routes om te zien alle effectieve routes voor een netwerkinterface bekijken. Zie voor meer informatie [effectieve routes gebruiken om op te lossen VM verkeer stroom](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+Gebruik van netwerk-Watcher [volgende hop](../../network-watcher/network-watcher-check-next-hop-portal.md) mogelijkheid om te bevestigen dat een route is niet zo wordt voorkomen verkeer dat worden gerouteerd naar of vanuit een virtuele machine. U kunt ook effectieve routes om te zien alle effectieve routes voor een netwerkinterface bekijken. Zie voor meer informatie [effectieve routes gebruiken om op te lossen VM verkeer stroom](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 gebruiken
 Als u nog niet gedaan hebt, installeert u de nieuwste [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/reference-index#az_login).

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 045b433fdea2cfb97f3002fbe692ea8e4988fbb4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726411"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Maak een virtueel netwerk peering - verschillend implementatiemodellen en -abonnementen
 
@@ -106,7 +107,7 @@ Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Al
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
-5. De resterende stappen moeten worden uitgevoerd met behulp van een bash-shell met de Azure CLI 2.0.4 of hoger [geïnstalleerd](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), of met behulp van de Azure-Cloud-Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Klik op de **Try it** knop in de scripts die vervolgens een Cloud-Shell waarmee u zich bij uw Azure-account aanmeldt te openen. Zie voor opties op die wordt uitgevoerd bash-scripts CLI op een Windows-client, [uitvoeren van de Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+5. De resterende stappen moeten worden uitgevoerd met behulp van een bash-shell met de Azure CLI 2.0.4 of hoger [geïnstalleerd](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), of met behulp van de Azure-Cloud-Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Klik op de **Try it** knop in de scripts die vervolgens een Cloud-Shell waarmee u zich bij uw Azure-account aanmeldt te openen. Zie voor opties op die wordt uitgevoerd bash-scripts CLI op een Windows-client, [Azure CLI installeren op Windows](/cli/azure/install-azure-cli-windows). 
 6. Kopieer het volgende script naar een teksteditor op uw PC. Vervang `<SubscriptionB-Id>` met uw abonnement-ID. Als u uw abonnements-Id niet weet, voert u de `az account show` opdracht. De waarde voor **id** in de uitvoer is de abonnement-id. Het gewijzigde script kopiëren, plak deze in op uw CLI 2.0-sessie en druk vervolgens op `Enter`. 
 
     ```azurecli-interactive

@@ -5,20 +5,17 @@ keywords: voor de verbetering van prestaties van de database
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715017"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -40,27 +37,28 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Hoe een client verbinding maakt met Azure Cosmos DB heeft belangrijke gevolgen voor de prestaties, met name in termen van waargenomen-clientzijde latentie. Er zijn twee belangrijke configuratie-instellingen beschikbaar zijn voor het configureren van client verbindingsbeleid – de verbinding *modus* en de [verbinding *protocol*](#connection-protocol).  De twee modi beschikbaar zijn:
 
-   1. Gateway-modus (standaard)
+   * Gateway-modus (standaard)
       
-      Gateway-modus wordt ondersteund op alle platforms van de SDK en de geconfigureerde standaardwaarde is. Als uw toepassing wordt uitgevoerd binnen een bedrijfsnetwerk met strikte firewallbeperkingen, is Gateway-modus de beste keuze, omdat maakt gebruik van de standaard HTTPS-poort en één eindpunt. De verhouding prestaties is echter dat Gateway modus betrekking heeft op een extra netwerk-hop telkens wanneer gegevens worden gelezen of geschreven naar Azure Cosmos DB. Daarom biedt directe modus betere prestaties vanwege minder netwerkhops.
+     Gateway-modus wordt ondersteund op alle platforms van de SDK en de geconfigureerde standaardwaarde is. Als uw toepassing wordt uitgevoerd binnen een bedrijfsnetwerk met strikte firewallbeperkingen, is Gateway-modus de beste keuze, omdat maakt gebruik van de standaard HTTPS-poort en één eindpunt. De verhouding prestaties is echter dat Gateway modus betrekking heeft op een extra netwerk-hop telkens wanneer gegevens worden gelezen of geschreven naar Azure Cosmos DB. Daarom biedt directe modus betere prestaties vanwege minder netwerkhops.
 
-   2. Directe modus
+   * Directe modus
 
-     Directe modus ondersteunt verbindingen via TCP- en HTTPS-protocollen. Direct wordt momenteel ondersteund in .NET Standard 2.0 voor Windows-platform.
-      
-<a id="use-tcp"></a>
-2. **Verbindingsbeleid: gebruiken het TCP-protocol**
+     Directe modus ondersteunt verbindingen via TCP- en HTTPS-protocollen. Direct wordt momenteel ondersteund in .NET Standard 2.0 voor Windows-platform. Wanneer u directe modus gebruikt, zijn er twee protocolopties beschikbaar:
 
-    Wanneer u directe modus gebruikt, zijn er twee protocolopties beschikbaar:
+    * TCP
+    * HTTPS
 
-   * TCP
-   * HTTPS
+    Wanneer u de Gateway-modus, Azure Cosmos DB poort 443 en MongoDB-API gebruikt 10250, 10255 en 10256 poorten. De 10250 poort is toegewezen aan een standaardexemplaar Mongodb zonder geo-replicatie en 10255/10256 poorten toewijzen aan de Mongodb-exemplaar met geo-replicatie-functionaliteit. Als u TCP in directe modus, behalve de poorten voor de Gateway, moet u ervoor zorgen de poort bereik tussen 10000 en 20000 is geopend, omdat Azure Cosmos DB maakt gebruik van dynamische TCP-poorten. Als deze poorten niet geopend zijn en u probeert om TCP te gebruiken, ontvangt u een 503 Service niet beschikbaar-fout. De volgende tabel ziet u connectiviteit modi beschikbaar voor verschillende API's en de gebruiker van de service-poorten voor elke API:
 
-     Azure Cosmos DB biedt een eenvoudige en open RESTful-programmeermodel via HTTPS. Daarnaast biedt het een efficiënte TCP-protocol, dat is ook RESTful in het communicatiemodel en is beschikbaar via de SDK voor .NET-clients. Directe TCP- en HTTPS worden SSL gebruiken voor eerste authenticatie en versleuteling verkeer. Gebruik indien mogelijk de TCP-protocol voor de beste prestaties.
+    |Verbindingsmodus  |Ondersteunde protocollen  |Ondersteunde SDK 's  |Poort van de API-Service  |
+    |---------|---------|---------|---------|
+    |Gateway  |   HTTPS    |  Alle SDK 's    |   SQL(443), Mongo (10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Rechtstreeks    |    HTTPS     |  .NET en Java SDK    |    SQL(443)   |
+    |Rechtstreeks    |     TCP    |  .NET SDK    | Poorten binnen het bereik van 10.000 20.000 |
 
-     Bij gebruik van TCP in de modus van de Gateway, TCP-poort 443 is de Azure DB die Cosmos-poort en 10255 is de MongoDB-API-poort. Als u TCP in directe modus, behalve de poorten voor de Gateway, moet u ervoor zorgen de poort bereik tussen 10000 en 20000 is geopend, omdat Azure Cosmos DB maakt gebruik van dynamische TCP-poorten. Als deze poorten niet geopend zijn en u probeert om TCP te gebruiken, ontvangt u een 503 Service niet beschikbaar-fout.
+    Azure Cosmos DB biedt een eenvoudige en open RESTful-programmeermodel via HTTPS. Daarnaast biedt het een efficiënte TCP-protocol, dat is ook RESTful in het communicatiemodel en is beschikbaar via de SDK voor .NET-clients. Directe TCP- en HTTPS worden SSL gebruiken voor eerste authenticatie en versleuteling verkeer. Gebruik indien mogelijk de TCP-protocol voor de beste prestaties.
 
-     De Connectiviteitsmodus wordt geconfigureerd tijdens het samenstellen van de DocumentClient-exemplaar met de parameter ConnectionPolicy. Als de modus Direct wordt gebruikt, kan het Protocol ook worden ingesteld binnen de ConnectionPolicy-parameter.
+    De Connectiviteitsmodus wordt geconfigureerd tijdens het samenstellen van de DocumentClient-exemplaar met de parameter ConnectionPolicy. Als de modus Direct wordt gebruikt, kan het Protocol ook worden ingesteld binnen de ConnectionPolicy-parameter.
 
     ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -77,19 +75,19 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     ![Afbeelding van het beleid van Azure DB die Cosmos-verbinding](./media/performance-tips/connection-policy.png)
 
-3. **Aanroepen van OpenAsync om te voorkomen dat de latentie starten op de eerste aanvraag**
+2. **Aanroepen van OpenAsync om te voorkomen dat de latentie starten op de eerste aanvraag**
 
     De eerste aanvraag heeft een hogere latentie standaard, omdat er voor het ophalen van de adres-routeringstabel. Om te voorkomen dat deze latentie starten op de eerste aanvraag, moet u OpenAsync() als volgt één keer tijdens de initialisatie aanroepen.
 
         await client.OpenAsync();
    <a id="same-region"></a>
-4. **Clients in hetzelfde Azure-regio voor prestaties plaatsen**
+3. **Clients in hetzelfde Azure-regio voor prestaties plaatsen**
 
     Indien mogelijk, plaatst u alle toepassingen die Azure Cosmos DB aanroepen in dezelfde regio bevinden als de Azure DB die Cosmos-database. Voor een geschatte vergelijking aanroepen naar Azure Cosmos DB binnen dezelfde regio binnen 1-2 ms voltooid, maar de latentie tussen de West en oostkust van de VS is > 50 ms. Deze latentie kan waarschijnlijk uit om aan te vragen variëren, afhankelijk van de route die door de aanvraag wordt uitgevoerd het doorgeven van de client aan de grens van de Azure-datacenter. De laagst mogelijke latentie wordt bereikt door ervoor te zorgen dat de aanroepende toepassing bevindt zich in dezelfde Azure-regio als de ingerichte Azure DB die Cosmos-eindpunt. Zie voor een lijst met beschikbare regio's, [Azure-gebieden](https://azure.microsoft.com/regions/#services).
 
     ![Afbeelding van het beleid van Azure DB die Cosmos-verbinding](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
-5. **Verhoog het aantal threads/taken**
+4. **Verhoog het aantal threads/taken**
 
     Omdat aanroepen naar Azure Cosmos DB worden aangebracht via het netwerk, moet u wellicht de mate van parallelle uitvoering van uw verzoeken om te variëren, zodat de clienttoepassing nodig heeft voor het zeer weinig tijd wachten tussen aanvragen. Bijvoorbeeld als u. De NET [taak parallelle bibliotheek](https://msdn.microsoft.com//library/dd460717.aspx), maken in de volgorde van 100s van taken lezen of schrijven naar Azure Cosmos DB.
 

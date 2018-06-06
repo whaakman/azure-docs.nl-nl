@@ -3,23 +3,21 @@ title: SQL-query's voor Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query's voor Azure Cosmos DB. SQL kan worden gebruikt als een JSON-querytaal in Azure Cosmos DB.
 keywords: SQL-syntaxis, sql-query, sql-query's, json-querytaal, database-concepten en sql-query's, statistische functies
 services: cosmos-db
-documentationcenter: ''
 author: LalithaMV
 manager: kfile
 editor: monicar
-ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 725dfa2e76ae03f17a17991c523e85e9c69a69ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f0fd1b57be07eda13655b5a6c0dcb5b412e8a248
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798318"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-query's voor Azure Cosmos-DB
 
@@ -309,7 +307,7 @@ De volgende binaire operators worden momenteel ondersteund en kunnen worden gebr
 <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
 </tr>
 <tr>
-<td>Tekenreeks</td>    
+<td>Reeks</td>    
 <td>|| (samenvoegen)</td>
 </tr>
 </table>  
@@ -1398,7 +1396,7 @@ Cosmos DB ondersteunt ook een aantal ingebouwde functies voor algemene bewerking
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wiskundige functies  | ABS, maximum, EXP, FLOOR, logboek, LOG10, POWER, ROUND, aanmelding, SQRT, VIERKANT, geheel, BOOGCOS, ASIN, BOOGTAN, ATN2, Cosinus, COT, graden PI, radialen, SIN en TAN |
 | Controle van de functies van het type | IS_ARRAY, IS_BOOL IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED en IS_PRIMITIVE                                                           |
-| Tekenreeks-functies        | CONCAT, bevat ENDSWITH, INDEX_OF, links, lengte, kleine, LTRIM, vervangen, REPLICEREN, REVERSE, rechts, RTRIM, STARTSWITH, SUBTEKENREEKS en hoofdletters       |
+| Tekenreeksfuncties        | CONCAT, bevat ENDSWITH, INDEX_OF, links, lengte, kleine, LTRIM, vervangen, REPLICEREN, REVERSE, rechts, RTRIM, STARTSWITH, SUBTEKENREEKS en hoofdletters       |
 | Matrixfuncties         | ARRAY_CONCAT, ARRAY_CONTAINS ARRAY_LENGTH en ARRAY_SLICE                                                                                         |
 | Ruimtelijke functies       | ST_DISTANCE, ST_WITHIN ST_INTERSECTS, ST_ISVALID en ST_ISVALIDDETAILED                                                                           | 
 
@@ -1499,7 +1497,7 @@ U kunt nu een query's als volgt uitvoeren met behulp van deze functies:
 
     [true]
 
-### <a name="string-functions"></a>Tekenreeks-functies
+### <a name="string-functions"></a>Tekenreeksfuncties
 De volgende scalaire functies een bewerking uitvoeren op een tekenreekswaarde van de invoer en een tekenreeks, numerieke of Booleaanse waarde retourneren. Hier volgt een lijst met ingebouwde tekenreeks-functies:
 
 | Gebruik | Beschrijving |

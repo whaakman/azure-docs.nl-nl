@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a3ce72e51477c1eda99461b3910bfeeac207be55
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af0007daf6cb8a2e17e1806f47587e5958b15bd2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716071"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestatiebewaking met logboekanalyse
 
@@ -73,19 +74,27 @@ U kunt downloaden en wijzigen van deze sjabloon voor het implementeren van een c
 
 Nu dat u hebt de OMS-agent, head toegevoegd op wilt naar het Log Analytics-portal om te kiezen welke prestatiemeteritems die u verzamelen. 
 
-1. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt in de Azure portal. Selecteer **ServiceFabric\<nameOfOMSWorkspace\>**  en Ga naar de overzichtspagina. Klik op de koppeling naar de OMS-Portal aan de bovenkant.
+1. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt in de Azure portal. Selecteer **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Wanneer u in de portal bent, ziet u een tegels in de vorm van een grafiek voor elk van de oplossingen die zijn ingeschakeld, met inbegrip van één voor Service Fabric. Klik hierop om door te gaan met de Service Fabric Analytics-oplossing. 
+2. Klik op **OMS-werkruimte**.
 
-3. Nu ziet u enkele tegels met grafieken van operationele kanaal en betrouwbare services gebeurtenissen. Klik op het pictogram tandwielpictogram om te gaan naar de instellingenpagina aan de rechterkant.
+3. Klik op **geavanceerde instellingen**.
 
-    ![OMS-instellingen](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. Klik op **gegevens**, klikt u vervolgens op **Windows of Linux-prestatiemeteritems**. Er is een lijst met standaard prestatiemeteritems die u kiezen kunt om in te schakelen en u het interval voor de verzameling te kan instellen. U kunt ook toevoegen [aanvullende prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md) te verzamelen. In dit wordt verwezen naar de juiste indeling [artikel](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
 
-4. Klik dan op gegevens op de instellingenpagina en kies Windows of Linux-prestatiemeteritems. Er zijn een lijst met standaard die u kiezen kunt om in te schakelen en u het interval voor de verzameling te kan instellen. U kunt ook toevoegen [aanvullende prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md) te verzamelen. In dit wordt verwezen naar de juiste indeling [artikel](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+5. Klik op **opslaan**, klikt u vervolgens op **OK**.
 
-Zodra de items zijn geconfigureerd, head terug naar de pagina oplossingen en u snel gegevens in en weergegeven in de grafieken onder stromende ziet **metrische gegevens voor knooppunt**. U kunt ook een query op gegevens van prestatiemeteritems op dezelfde manier naar Clustergebeurtenissen en filter op de knooppunten, perf tellernaam en waarden met behulp van de querytaal Kusto. 
+6. Sluit de blade geavanceerde instellingen.
 
-![OMS perf teller query](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. Klik onder de kop algemene **overzicht**.
+
+8. Tegels in de vorm van een grafiek ziet u voor elk van de oplossingen die zijn ingeschakeld, met inbegrip van één voor Service Fabric. Klik op de **Service Fabric** grafiek om door te gaan met de Service Fabric Analytics-oplossing.
+
+9. U ziet enkele tegels met grafieken van operationele kanaal en betrouwbare services gebeurtenissen. De grafische weergave van de gegevens voor de items die u hebt geselecteerd die wordt weergegeven onder het knooppunt metrische gegevens. 
+
+10. Klik op een grafiek Container metrische gegevens voor aanvullende informatie. U kunt ook een query op gegevens van prestatiemeteritems op dezelfde manier naar Clustergebeurtenissen en filter op de knooppunten, perf tellernaam en waarden met behulp van de querytaal Kusto.
+
+![OMS perf teller query](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Ondersteuning voor | Microsoft Docs'
-description: Het indienen van aanvragen voor ondersteuning voor Azure Active Directory B2C
+title: Ondersteuning voor Azure Active Directory B2C | Microsoft Docs
+description: Het bestand ondersteuningsaanvragen voor Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 4f665985cbb1bb02d5f2378d1953de76303de04d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 84a2c6bd513fffa562b31070bebfbf2ee8e2d55d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712331"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Aanvragen voor de ondersteuning bestand
 U kunt ondersteuningsaanvragen indienen voor Azure Active Directory (Azure AD) B2C in de Azure portal met behulp van de volgende stappen uit:

@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/31/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4e6b3a2e8769c6e7e93071aed27b81c87ae336ca
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715554"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Bewaking en de geschatte kosten
 
@@ -106,3 +107,146 @@ De **modelselectie prijzen** pagina wordt geopend. Het bevat een overzicht van e
 ![Schermafbeelding van de selectie prijscategorie model](./media/monitoring-usage-and-estimated-costs/007.png)
 
 Selecteer het selectievakje in om een abonnement naar het nieuwe prijsmodel verplaatst, en selecteer vervolgens **opslaan**. U kunt verplaatsen terug naar het oudere prijsmodel op dezelfde manier. Houd er rekening mee dat eigenaar van het abonnement of Inzender-rechten zijn nodig voor het wijzigen van het prijsmodel.
+
+## <a name="automate-moving-to-the-new-pricing-model"></a>Verplaatsen naar het nieuwe prijsmodel automatiseren
+
+De onderstaande scripts moeten de Azure PowerShell-Module. Om te controleren als u de nieuwste versie hebt, Zie [Installeer Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+
+Zodra u de nieuwste versie van Azure PowerShell hebt, dan moet u eerst om uit te voeren ``Connect-AzureRmAccount``.
+
+``` PowerShell
+# To check if your subscription is eligible to adjust pricing models.
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+Een resultaat True onder isGrandFatherableSubscription geeft aan dat prijsmodel voor dit abonnement kan worden verplaatst tussen prijsmodellen. Het ontbreken van een waarde onder optedInDate betekent dat dit abonnement is momenteel ingesteld op het oude prijsmodel.
+
+```
+isGrandFatherableSubscription optedInDate
+----------------------------- -----------
+                         True            
+```
+
+Dit abonnement migreren naar het nieuwe prijsmodel uitvoeren:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+```
+
+Om te bevestigen dat de wijziging geslaagd opnieuw uitvoeren is:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+Als de migratie voltooid is, moet nu uw resultaat eruitzien als:
+
+```
+isGrandFatherableSubscription optedInDate                      
+----------------------------- -----------                      
+                         True 2018-05-31T13:52:43.3592081+00:00
+```
+
+De optInDate bevat nu een tijdstempel van wanneer dit abonnement heeft gekozen voor het nieuwe prijsmodel.
+
+Als u terugkeren naar het oude prijsmodel wilt, moet u uitvoeren:
+
+```PowerShell
+ $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action rollbacktolegacypricingmodel `
+ -Force
+```
+
+Als u de vorige script met vervolgens opnieuw ``-Action listmigrationdate``, ziet u nu een lege optedInDate-waarde die aangeeft uw abonnement is hersteld in de legacy model prijzen.
+
+Als u meerdere abonnementen, die u wilt migreren die worden gehost onder dezelfde tenant hebt, kunt u uw eigen variant met behulp van de onderdelen van de volgende scripts maken:
+
+```PowerShell
+#Query tenant and create an array comprised of all of your tenants subscription ids
+$TenantId = <Your-tenant-id>
+$Tenant =Get-AzureRMSubscription -TenantId $TenantId
+$Subscriptions = $Tenant.Id
+```
+
+Als u wilt controleren of de abonnementen in uw tenant in aanmerking komen voor het nieuwe prijsmodel zijn, kunt u het volgende uitvoeren:
+
+```PowerShell
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+}
+```
+
+Het script kan worden verfijnd verdere door het maken van een script dat drie matrices genereert. Één matrix die bestaat uit alle abonnement-id's waarvoor ```isGrandFatherableSubscription``` ingesteld op True en optedInDate momenteel geen waarde hebben. Een tweede matrix van abonnementen die momenteel op het nieuwe prijsmodel. En een derde matrix ingevuld met de abonnement-id's in uw tenant die niet in aanmerking komen voor het nieuwe prijsmodel:
+
+```PowerShell
+[System.Collections.ArrayList]$Eligible= @{}
+[System.Collections.ArrayList]$NewPricingEnabled = @{}
+[System.Collections.ArrayList]$NotEligible = @{}
+
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+$Result= Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+
+     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
+     {
+     $Eligible.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
+     {
+     $NewPricingEnabled.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $False)
+     {
+     $NotEligible.add($id)
+     }
+}
+```
+
+> [!NOTE]
+> Afhankelijk van het aantal abonnementen kan het bovenstaande script even duren om uit te voeren. Het PowerShell-venster echo vanwege het gebruik van de methode .add() stijgende waarden toe als items worden toegevoegd aan elke array.
+
+Nu dat u uw abonnementen is onderverdeeld in drie matrices hebt zorgvuldig u de resultaten. U kunt een back-up van de inhoud van de matrices maken zodat u gemakkelijk kunt terugvallen uw wijzigingen u moet in de toekomst. Als u had besloten, die u wilt converteren van alle in aanmerking komende abonnementen die momenteel op het oude prijsmodel naar de nieuwe model die met deze taak kan nu worden bewerkstelligd prijzen zijn met:
+
+```PowerShell
+Foreach ($id in $Eligible)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+}
+
+```

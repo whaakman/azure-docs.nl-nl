@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700703"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -90,7 +91,7 @@ Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuwe HDInsight toe
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Zie voor meer informatie de [netwerkbeveiligingsgroepen oplossen](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) document.
+        Zie voor meer informatie de [netwerkbeveiligingsgroepen oplossen](../virtual-network/diagnose-network-traffic-filter-problem.md) document.
 
         > [!IMPORTANT]
         > Netwerkbeveiligingsgroepen worden toegepast in volgorde op basis van Regelprioriteit. De eerste regel die overeenkomt met het patroon verkeer wordt toegepast en geen andere voor dat verkeer wordt toegepast. Volgorde van de regels van meest strikte op minimaal. Zie voor meer informatie de [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) document.
@@ -107,7 +108,7 @@ Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuwe HDInsight toe
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Zie voor meer informatie de [routes oplossen](../virtual-network/virtual-network-routes-troubleshoot-portal.md) document.
+        Zie voor meer informatie de [routes oplossen](../virtual-network/diagnose-network-routing-problem.md) document.
 
 4. Maken van een HDInsight-cluster en het virtuele netwerk van Azure selecteren tijdens de configuratie. Gebruik de stappen in de volgende documenten voor inzicht in het proces voor het cluster maken:
 

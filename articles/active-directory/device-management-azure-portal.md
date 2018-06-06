@@ -8,25 +8,27 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ddce312d6299a7749f1a40a83f67ce3c26876591
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713997"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Het beheer van apparaten met de Azure portal
 
 
 Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen vanaf apparaten die voldoen aan uw standaarden voor beveiliging en naleving. 
 
-Dit onderwerp:
+Dit artikel:
 
 - Wordt ervan uitgegaan dat u bekend met bent de [Inleiding tot beheer van apparaten in Azure Active Directory](device-management-introduction.md)
 
@@ -185,10 +187,17 @@ U kunt een apparaat-ID gebruiken om te controleren of de details van de apparaat
 
 ### <a name="view-or-copy-bitlocker-keys"></a>Weergeven of kopiëren van BitLocker-sleutels
 
-Als u een beheerder bent, kunt u deze kunt bekijken en kopiëren van de BitLocker-sleutels, zodat gebruikers kunnen hun versleutelde station te herstellen. Deze sleutels zijn alleen beschikbaar voor Windows-apparaten die zijn versleuteld en hun sleutels hebt opgeslagen in Azure AD. Bij het openen van de details van het apparaat, kunt u deze sleutels kopiëren.
+U kunt weergeven en kopieer de BitLocker-sleutels, zodat gebruikers kunnen hun versleutelde station te herstellen. Deze sleutels zijn alleen beschikbaar voor Windows-apparaten die zijn versleuteld en hun sleutels hebt opgeslagen in Azure AD. Bij het openen van de details van het apparaat, kunt u deze sleutels kopiëren.
  
 ![BitLocker-sleutels weergeven](./media/device-management-azure-portal/36.png)
 
+Als u wilt weergeven of kopieer de BitLocker-sleutels, moet u de eigenaar van het apparaat of een gebruiker die heeft ten minste één van de volgende rollen toegewezen:
+
+- Hoofdbeheerders
+- Helpdesk-beheerders
+- Administrators voor rapportbeveiliging in
+- Lezers van beveiliging
+- Beheerders van de Intune-Service
 
 
 ## <a name="audit-logs"></a>Controlelogboeken

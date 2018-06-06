@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: f74c60cb99ee5bae1af8e000ebbd21b41600638d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 06/01/2018
+ms.openlocfilehash: 586df8d72dc05104bbf589eabcf3bd2245c268c8
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737245"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migreer uw PostgreSQL-database met behulp van de dump en terugzetten
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) een PostgreSQL-database in een dumpbestand uitpakken en [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) de PostgreSQL-database herstellen uit een archiefbestand gemaakt door pg_dump.
@@ -35,6 +36,10 @@ Bijvoorbeeld, als er een lokale server en een database met de naam **testdb** er
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
+> [!IMPORTANT]
+> Kopieer de back-upbestanden naar een Azure-blob/store en het terugzetten van uitvoeren vanaf daar moet veel sneller dan het uitvoeren van het herstel via Internet.
+> 
+
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Herstel de gegevens op de doel-Azure-Database voor PostrgeSQL met pg_restore
 Nadat u de doeldatabase hebt gemaakt, kunt u de opdracht pg_restore en -d,--dbname-parameter voor het herstellen van de gegevens in de doeldatabase van het dumpbestand.
 ```bash
@@ -48,4 +53,5 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor het migreren van een PostgreSQL-database met behulp van exporteren en importeren [Migreer uw PostgreSQL-database met exporteren en importeren](howto-migrate-using-export-and-import.md)
+- Zie voor het migreren van een PostgreSQL-database met behulp van exporteren en importeren [Migreer uw PostgreSQL-database met exporteren en importeren](howto-migrate-using-export-and-import.md).
+- Voor meer informatie over het migreren van databases met Azure-Database voor PostgreSQL, Zie de [Database Migratiehandleiding](http://aka.ms/datamigration).

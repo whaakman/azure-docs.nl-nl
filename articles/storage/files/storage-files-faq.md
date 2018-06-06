@@ -5,22 +5,23 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737806"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure-bestanden
-[Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
+[Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
 
 In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies en functionaliteit, waaronder het gebruik van Azure File-synchronisatie met Azure-bestanden. Als u het antwoord op uw vraag niet ziet, u kunt contact met ons opnemen via de volgende kanalen (in groeiende volgorde):
 
@@ -188,6 +189,14 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 * <a id="afs-os-support"></a>
 **Kan ik Azure bestand synchronisatie met Windows Server 2008 R2, Linux of mijn apparaat NAS-opslag (NAS) gebruiken?**  
     Op dit moment ondersteunt Azure bestand synchronisatie alleen Windows Server 2016 en Windows Server 2012 R2. Op dit moment geen andere schema's die wilt delen, maar we zijn geopend voor extra platforms op basis van vraag van klanten te ondersteunen. Laat ons weten op [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) welke platforms u graag ondersteunen.
+
+* <a id="afs-tiered-files-out-of-endpoint"></a>
+**Waarom bestaan gelaagde bestanden buiten de server eindpunt naamruimte?**  
+    Azure File-synchronisatie geblokkeerd voorafgaand aan Azure bestand Sync-agentversie 3, de verplaatsing van gelaagde bestanden buiten de server het eindpunt maar op hetzelfde volume als de server het eindpunt. Bewerkingen kopiëren, verplaatsen van bestanden niet lagen en wordt verplaatst van lagen naar andere volumes zijn niet beïnvloed. De reden hiervoor is het de impliciete veronderstelling dat Windows Verkenner en andere Windows-API's hebben die bewerkingen op hetzelfde volume verplaatsen (bijna) zijn instanenous bewerkingen wijzigen. Dit betekent dat verplaatst brengt Verkenner of andere move-methoden (zoals vanaf de opdrachtregel of PowerShell) worden niet meer weergegeven terwijl Azure bestand Sync de gegevens vanuit de cloud roept. Beginnen met [Azure bestand Sync agentversie 3.0.12.0](storage-files-release-notes.md#agent-version-30120), Azure bestand synchronisatie kunt u een gelaagde bestand buiten de server het eindpunt verplaatsen. We voorkomen de negatieve effecten eerder opgemerkt dat het bestand gelaagde bestaan als een gelaagde bestand buiten de server het eindpunt en vervolgens terughalen van het bestand op de achtergrond. Dit betekent dat verplaatst op hetzelfde volume zijn instaneous en we hebben het werk om in te trekken van het bestand naar de schijf nadat de verplaatsing is voltooid. 
+
+* <a id="afs-do-not-delete-server-endpoint"></a>
+**Ik heb een probleem met het synchroniseren van Azure-bestand op mijn server (sync cloud lagen, enzovoort). Moet ik verwijderen en opnieuw maken van mijn servereindpunt?**  
+    [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## <a name="security-authentication-and-access-control"></a>Beveiliging, verificatie en toegangsbeheer
 * <a id="ad-support"></a>

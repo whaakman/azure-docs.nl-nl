@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/02/2018
+ms.openlocfilehash: 9d9b9b5eda110ad7fa66bb99501936dda5d45e52
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737042"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Uw MySQL-database migreren naar Azure-Database voor MySQL met behulp van de dump en terugzetten
 Dit artikel wordt uitgelegd twee algemene manieren om te back-up en MySQL-databases in uw Azure-Database herstellen
@@ -51,6 +52,7 @@ Om prestaties te optimaliseren, nemen kennisgeving van deze overwegingen bij het
 -   Gepartitioneerde tabellen, indien van toepassing gebruiken.
 -   Gegevens parallel worden geladen. Vermijd te veel parallelle uitvoering die zou leiden dat u een resource-limiet bereikt en bewaken van resources met behulp van de metrische gegevens beschikbaar zijn in de Azure-portal. 
 -   Gebruik de `defer-table-indexes` optie in mysqlpump wanneer het dumpen van databases, zodat het maken van een index gebeurt nadat tabellen gegevens zijn geladen.
+-   Kopieer de back-upbestanden naar een Azure-blob/store en het terugzetten van uitvoeren vanaf daar moet veel sneller dan het uitvoeren van het herstel via Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Een back-upbestand te maken vanaf de opdrachtregel met behulp van mysqldump
 Als u wilt back-up van een bestaande MySQL-database op de lokale on-premises server of in een virtuele machine, voer de volgende opdracht: 
@@ -74,7 +76,6 @@ Selecteer specifieke tabellen in uw database back-up, de tabel-namen gescheiden 
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-
 Back-up wilt meerdere databases in één keer, gebruiken de--database switch en de database-namen gescheiden door spaties. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
@@ -93,7 +94,7 @@ Zoek de verbindingsinformatie in om verbinding te maken, de **overzicht** van uw
 
 Voeg de verbindingsinformatie in uw MySQL-Workbench.
 
-![MySQL Workbench Connection String](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
+![MySQL-Workbench verbindingsreeks](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 
 ## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Uw MySQL-database met een opdrachtregel of MySQL Workbench herstellen
@@ -108,21 +109,22 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 
 ## <a name="export-using-phpmyadmin"></a>Exporteren met behulp van PHPMyAdmin
 Als u wilt exporteren, kunt u de algemene hulpprogramma phpMyAdmin die u mogelijk al hebt geïnstalleerd lokaal in uw omgeving. Uw MySQL-database met behulp van PHPMyAdmin exporteren:
-- Open phpMyAdmin.
-- Selecteer uw database. Klik op de naam van de database in de lijst aan de linkerkant. 
-- Klik op de **exporteren** koppeling. Een nieuwe pagina wordt weergegeven om weer te geven van de dump database.
-- In het gebied exporteren, klikt u op de **Alles selecteren** koppeling naar de tabellen in uw database kiezen. 
-- Klik op de gewenste opties in het gebied van de opties SQL. 
-- Klik op de **opslaan als bestand** optie en de bijbehorende compressie optie en klik vervolgens op de **gaat** knop. Een dialoogvenster waarin u het bestand lokaal op te slaan, worden weergegeven.
+1. Open phpMyAdmin.
+2. Selecteer uw database. Klik op de naam van de database in de lijst aan de linkerkant. 
+3. Klik op de **exporteren** koppeling. Een nieuwe pagina wordt weergegeven om weer te geven van de dump database.
+4. In het gebied exporteren, klikt u op de **Alles selecteren** koppeling naar de tabellen in uw database kiezen. 
+5. Klik op de gewenste opties in het gebied van de opties SQL. 
+6. Klik op de **opslaan als bestand** optie en de bijbehorende compressie optie en klik vervolgens op de **gaat** knop. Een dialoogvenster waarin u het bestand lokaal op te slaan, worden weergegeven.
 
 ## <a name="import-using-phpmyadmin"></a>Importeren met PHPMyAdmin
 Importeren van uw database is vergelijkbaar met het exporteren. De volgende acties uitvoeren:
-- Open phpMyAdmin. 
-- Klik in de installatiepagina phpMyAdmin **toevoegen** uw Azure-Database voor de MySQL-server toevoegen. Geef de verbindingsgegevens en aanmeldingsgegevens.
-- Maak een geschikte naam database en selecteer het aan de linkerkant van het scherm. Als u wilt de bestaande database opnieuw kunt schrijven, klikt u op de naam van de database, schakel de selectievakjes naast de tabelnamen en selecteer **Drop** verwijderen van de bestaande tabellen. 
-- Klik op de **SQL** koppeling naar de pagina waar u kunt typen in SQL-opdrachten, of uw SQL-bestand uploadt weergeven. 
-- Gebruik de **Bladeren** om te zoeken van het databasebestand. 
-- Klik op de **gaat** knop exporteren van de back-up, de SQL-opdrachten uit te voeren en de database opnieuw maken.
+1. Open phpMyAdmin. 
+2. Klik in de installatiepagina phpMyAdmin **toevoegen** uw Azure-Database voor de MySQL-server toevoegen. Geef de verbindingsgegevens en aanmeldingsgegevens.
+3. Maak een geschikte naam database en selecteer het aan de linkerkant van het scherm. Als u wilt de bestaande database opnieuw kunt schrijven, klikt u op de naam van de database, schakel de selectievakjes naast de tabelnamen en selecteer **Drop** verwijderen van de bestaande tabellen. 
+4. Klik op de **SQL** koppeling naar de pagina waar u kunt typen in SQL-opdrachten, of uw SQL-bestand uploadt weergeven. 
+5. Gebruik de **Bladeren** om te zoeken van het databasebestand. 
+6. Klik op de **gaat** knop exporteren van de back-up, de SQL-opdrachten uit te voeren en de database opnieuw maken.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Verbinding maken met toepassingen met Azure-Database voor MySQL](./howto-connection-string.md)
+- [Verbinding maken met toepassingen met Azure-Database voor MySQL](./howto-connection-string.md).
+- Voor meer informatie over het migreren van databases met Azure-Database voor MySQL, Zie de [Database Migratiehandleiding](http://aka.ms/datamigration).

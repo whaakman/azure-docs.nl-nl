@@ -3,7 +3,7 @@ title: Voltooi een revisie toegang voor Azure-resources met behulp van Privilege
 description: Beschrijft hoe een revisie toegang voor Azure-resources te voltooien.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ae64d9ebbca80f6c21b8c7f352022a0878518e65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1dd5eb4a2a0a4edd15e5299754028570806db09b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699451"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Voltooi een revisie toegang voor Azure-resources met behulp van Privileged Identity Management
 Bevoorrechte rol beheerders kunnen bekijken voor bevoorrechte toegang na een [beveiligingsbeoordeling is gestart](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) voor Azure-resources verzendt automatisch een e-mailbericht dat gebruikers om te controleren van de toegang wordt gevraagd. Als een gebruiker een e-mailbericht ontvangen heeft, kunt u ze verzenden de instructies voor [het uitvoeren van een beveiligingsbeoordeling](pim-resource-roles-perform-access-review.md).
@@ -30,7 +31,7 @@ Nadat de controleperiode beveiliging is voltooid, of als alle gebruikers hun eig
 2. Selecteer de bron.
 
 3. Selecteer de **toegang tot beoordelingen** sectie van het dashboard.
-![Beoordelingen voor toegang](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
+![Toegangsbeoordelingen](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
 
 4. Selecteer de controle van toegang dat u wilt beheren.
 
@@ -54,7 +55,7 @@ Als u worden niet meer geïnteresseerd in de evaluatie, verwijderen. De **verwij
 Op de **resultaten** tabblad, weergeven en downloaden van een lijst van de resultaten bekijken. 
 ![Tabblad resultaten](media/azure-pim-resource-rbac/rbac-access-review-results.png)
 
-## <a name="reviewers"></a>Revisors
+## <a name="reviewers"></a>Revisor
 Weergeven en revisoren toevoegen aan uw bestaande toegang revisie. Herinneren revisoren hun beoordelingen voltooid.
 ![Revisoren toevoegen](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 

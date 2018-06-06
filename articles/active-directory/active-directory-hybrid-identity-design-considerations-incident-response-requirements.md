@@ -1,11 +1,11 @@
 ---
 title: Ontwerp van hybride identiteit - vereisten voor respons op incidenten Azure | Microsoft Docs
-description: "Bepalen van de mogelijkheden voor bewaking en rapportage voor de oplossing voor hybride identiteiten die kan worden gebruikt door IT te ondernemen acties te identificeren en een potentiële bedreigingen te verhelpen"
-documentationcenter: 
+description: Bepalen van de mogelijkheden voor bewaking en rapportage voor de oplossing voor hybride identiteiten die kan worden gebruikt door IT te ondernemen acties te identificeren en een potentiële bedreigingen te verhelpen
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 09dfa0bd01a7de95ba6ce3093ddf589595116aa6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801055"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Vereisten voor respons op incidenten voor uw oplossing voor hybride identiteit bepalen
 Grote of middelgrote organisaties waarschijnlijk heeft een [beveiliging respons op incidenten](https://technet.microsoft.com/library/cc700825.aspx) om u te helpen IT dienovereenkomstig te handelen naar het niveau van incident. Het identity management-systeem is een belangrijk onderdeel van het proces voor respons op incidenten omdat kan worden gebruikt om u te helpen identificeren wie een specifieke actie vergeleken met het doel is uitgevoerd. De oplossing voor hybride identiteit moet kunnen bieden mogelijkheden voor controle- en rapportagefuncties die kunnen worden gebruikt door IT te ondernemen acties te identificeren en een mogelijke bedreiging beperken. In een typische beveiligingsplan hebt u de volgende fasen als onderdeel van het plan:

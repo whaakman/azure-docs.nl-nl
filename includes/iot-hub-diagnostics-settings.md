@@ -1,3 +1,20 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 1c7f006c066a4f1505a642af04a1ef027fde0a44
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34666939"
+---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Logboekregistratie met instellingen voor diagnostische gegevens inschakelen
 
 1. Aanmelden bij de [Azure-portal] [ lnk-portal] en navigeer naar uw IoT-Hub.

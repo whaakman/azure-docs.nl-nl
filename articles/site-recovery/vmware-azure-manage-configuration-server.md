@@ -1,44 +1,51 @@
 ---
 title: Beheren van de configuratieserver voor noodherstel van VMware met Azure Site Recovery | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u voor het beheren van een bestaande configuratieserver voor noodherstel van VMware naar Azure met Azure Site Recovery.
+description: Dit artikel wordt beschreven hoe u een bestaande configuratieserver voor noodherstel van VMware naar Azure met Azure Site RecoveryS beheert.
 services: site-recovery
-author: AnoopVasudavan
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 06/04/2018
+ms.author: raynew
+ms.openlocfilehash: 64f5f2105a9048d649503b0790231676182a4c4f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737500"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>De configuratieserver voor VMware-virtuele machines beheren
 
 Instellen van een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratieserver coördineert de communicatie tussen de on-premises VMware en Azure en beheert gegevensreplicatie. In dit artikel bevat een overzicht van algemene taken voor het beheren van de configuratieserver nadat deze geïmplementeerd.
 
 
+
 ## <a name="modify-vmware-settings"></a>VMware-instellingen wijzigen
 
-Instellingen wijzigen voor de VMware-server waarmee de configuratieserver verbinding maakt.
+U kunt de configuratieserver als volgt openen:
+    - Aanmelden bij de virtuele machine waarop deze geïmplementeerd, en Start Azure Site Recovery Configuration Manager vanuit de snelkoppeling op het bureaublad.
+    - U kunt ook u toegang hebt tot de configuratieserver extern vanaf **https://*ConfigurationServerName*/:44315 /**. Meld u aan met beheerdersreferenties.
+   
+### <a name="modify-vmware-server-settings"></a>Instellingen voor VMware-server wijzigen
 
-1. Aanmelden bij de computer uitgevoerd van de configuratieserver.
-2. Azure Site Recovery Configuration Manager start vanuit de snelkoppeling op het bureaublad. Of open [deze koppeling](https://configuration-server-name/IP:44315).
-3. Selecteer **beheren vCenter-Server/vSPhere ESXi server**, en vervolgens de volgende handelingen uit:
+1. Selecteer om te koppelen van een andere VMware-server met de configuratieserver na het aanmelden, **toevoegen vCenter-Server/vSphere ESXi server**.
+2. Voer de gegevens in en selecteer vervolgens **OK**.
 
-    * Selecteer een andere VMware server koppelt u de configuratieserver, **toevoegen vCenter-Server/vSphere ESXi server**. Geef de Serverdetails.
 
-    * Selecteer voor het bijwerken van de referenties waarmee verbinding met de VMware-server voor automatische detectie van virtuele VMware-machines **bewerken**. Geef de nieuwe referenties op en selecteer vervolgens **OK**.
+### <a name="modify-credentials-for-automatic-discovery"></a>Referenties voor automatische detectie wijzigen
+
+1. Selecteer voor het bijwerken van de referenties waarmee verbinding met de VMware-server voor automatische detectie van VMware-machines na het aanmelden, **bewerken**.
+2. Geef de nieuwe referenties op en selecteer vervolgens **OK**.
 
     ![VMware wijzigen](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
+
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Referenties voor de installatie van de Mobility-Service wijzigen
 
 Wijzig de referenties voor de Mobility-Service automatisch worden geïnstalleerd op de VMware-machines dat u voor replicatie inschakelt.
 
-1. Aanmelden bij de computer uitgevoerd van de configuratieserver.
-2. Site Recovery Configuration Manager start vanuit de snelkoppeling op het bureaublad. Of open [deze koppeling](https://configuration-server-name/IP:44315).
-3. Selecteer **referenties van de virtuele machine beheren**, en geef nieuwe referenties. Selecteer vervolgens **OK** om de instellingen te werken.
+1. Na het aanmelden, selecteer **referenties van de virtuele machine beheren**
+2. Geef de nieuwe referenties op en selecteer vervolgens **OK**.
 
     ![Referenties van de Mobility-Service wijzigen](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -46,15 +53,15 @@ Wijzig de referenties voor de Mobility-Service automatisch worden geïnstalleerd
 
 Wijzig de proxyinstellingen die worden gebruikt door de server-machine van de configuratie voor toegang tot het internet naar Azure. Als u een machine proces server naast de standaard processerver uitgevoerd op de servercomputer van de configuratie hebt, kunt u de instellingen op beide computers wijzigen.
 
-1. Aanmelden bij de computer uitgevoerd van de configuratieserver.
-2. Site Recovery Configuration Manager start vanuit de snelkoppeling op het bureaublad. Of open [deze koppeling](https://configuration-server-name/IP:44315).
-3. Selecteer **connectiviteit beheren**, en werk de proxy-waarden. Selecteer vervolgens **opslaan** om de instellingen te werken.
+1. Na het aanmelden met de configuratieserver, selecteer **connectiviteit beheren**.
+2. Werk de proxy-waarden. Selecteer vervolgens **opslaan** om de instellingen te werken.
 
 ## <a name="add-a-network-adapter"></a>Een netwerkadapter toevoegen
 
-De sjabloon Open Virtualization Format (OVF) implementeert de configuratieserver VM met één netwerkadapter. U kunt [een extra adapter toevoegen aan de virtuele machine)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), maar u moet het toe te voegen voordat u de configuratieserver in de kluis registreren.
+De sjabloon Open Virtualization Format (OVF) implementeert de configuratieserver VM met één netwerkadapter.
 
-Toevoegen als een adapter toevoegen nadat u de configuratieserver in de kluis registreren, de adapter in de VM-eigenschappen. De server in de kluis vervolgens opnieuw te registreren.
+- U kunt [een extra adapter toevoegen aan de virtuele machine)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), maar moet u deze toevoegen voordat u de configuratieserver in de kluis registreren.
+- Toevoegen als een adapter toevoegen nadat u de configuratieserver in de kluis registreren, de adapter in de VM-eigenschappen. Vervolgens moet u de server in de kluis registreren.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Een configuratieserver in dezelfde kluis te registreren
@@ -65,8 +72,8 @@ Als u wilt, kunt u de configuratieserver in dezelfde kluis opnieuw registreren. 
   1. Open in de kluis **beheren** > **Site Recovery-infrastructuur** > **configuratieservers**.
   2. In **Servers**, selecteer **downloaden registratiesleutel** het kluisreferentiebestand te downloaden.
   3. Aanmelden bij de configuratie van server-machine.
-  4. In **%ProgramData%\ASR\home\svagent\bin**Open **cspsconfigtool.exe**.
-  5. Op de **kluis registratie** tabblad **Bladeren** en zoek het kluisreferentiebestand die u hebt gedownload.
+  4. In **%ProgramData%\ASR\home\svsystems\bin**Open **cspsconfigtool.exe**.
+  5. Op de **kluis registratie** tabblad **Bladeren**, en zoek het kluisreferentiebestand dat u hebt gedownload.
   6. Indien nodig, bieden u proxy-server-gegevens. Selecteer vervolgens **Registreren**.
   7. Open een PowerShell-opdrachtvenster beheerder en voer de volgende opdracht:
 
@@ -88,15 +95,27 @@ Koppelingen naar de updatepakketten voor het upgraden van alle versies van de co
 
 De server als volgt bijwerken:
 
+1. In de kluis, gaat u naar **beheren** > **Site Recovery-infrastructuur** > **configuratieservers**.
+2. Als een update beschikbaar is, wordt een koppeling weergegeven in de **Agentversie** > kolom.
+
+    ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
+
 1. Download het installatiebestand van de update voor de configuratieserver.
-2. Dubbelklik erop om het installatieprogramma uitvoert.
-3. Het installatieprogramma detecteert de huidige versie op de machine.
-4. Selecteer **OK** om te bevestigen en de upgrade uitvoert. 
+
+    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
+
+4. Dubbelklik erop om het installatieprogramma uitvoert.
+2. Het installatieprogramma detecteert de huidige versie op de machine. Klik op **Ja** bij te werken. 
+3. Wanneer de upgrade is voltooid valideert de configuratie van de server.
+
+    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
+
+4. Klik op **voltooien** te sluiten van het installatieprogramma.
 
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Verwijderen of de registratie van een configuratieserver
 
-1. Schakel [Schakel de beveiliging](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) voor alle VM's onder de configuratieserver.
+1. [Schakel de beveiliging](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) voor alle VM's onder de configuratieserver.
 2. [Loskoppelen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) en [verwijderen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alle beleidsregels voor replicatie van de configuratieserver.
 3. [Verwijder](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alle vCenter-servers/vSphere-hosts die gekoppeld aan de configuratieserver zijn.
 4. Open in de kluis **Site Recovery-infrastructuur** > **configuratieservers**.

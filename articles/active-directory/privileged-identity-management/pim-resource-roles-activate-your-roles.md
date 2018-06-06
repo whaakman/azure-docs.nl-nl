@@ -3,7 +3,7 @@ title: Rollen voor Azure-resources met behulp van Privileged Identity Management
 description: Beschrijft hoe u de rollen in PIM activeren.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a985e67cc566cc45b3ee6b8dc98e91a8f34abd1b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d41e7e808177ffc3cb9ffd37c5aaba6d401f6bd8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699662"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Rollen voor Azure-resources met behulp van Privileged Identity Management activeren
 Privileged Identity Management (PIM) introduceert een nieuwe ervaring in rollen voor Azure-resources te activeren. Leden van een in aanmerking komende rol kunnen activeren voor een toekomstige datum en tijd plannen. Ze kunnen ook een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders) selecteren. Zie voor meer informatie [activeren of deactiveren van rollen in Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md).

@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 0b78ed6cdb1209d70cf0d561f74cfcddc09b2391
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 72fb594265e69eb1dc16cb29ad4df6acb3a87720
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34663624"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Uw toepassing registreren bij uw AD-tenant
 Eerst moet u uw toepassing registreren met uw Azure Active Directory (Azure AD)-tenant. Na registratie beschikt u over een toepassings-id voor uw toepassing en kan uw toepassing tokens ontvangen.
 
 * Meld u aan bij [Azure Portal](https://portal.azure.com).
 * Selecteer de gewenste Azure AD-tenant door rechtsboven op de pagina op uw account te klikken.
-* Klik in het navigatiedeelvenster links op **Azure Active Directory**.
+* Klik in het linkernavigatievenster op **Azure Active Directory**.
 * Klik op **App registraties** en klik op **registratie van de nieuwe toepassing**.
 * Volg de aanwijzingen op het scherm en maak een nieuwe toepassing. Dit kan een webtoepassing of een systeemeigen toepassing zijn. Voor deze zelfstudie maakt dat geen verschil. Als u behoefte hebt aan specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, raadpleegt u onze [snelstartgidsen](../articles/active-directory/develop/active-directory-developers-guide.md).
   * Voor webtoepassingen, geeft u de **aanmeldings-URL**, dit is de basis-URL van uw app, waarbij kunnen gebruikers zich aanmelden bijvoorbeeld `http://localhost:12345`.

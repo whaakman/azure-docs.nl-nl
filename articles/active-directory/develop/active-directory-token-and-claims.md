@@ -17,11 +17,12 @@ ms.date: 05/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801861"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD-tokenverwijzing
 Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens bij de verwerking van elke verificatiestroom. Dit document beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token. 
@@ -55,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | JWT Claim | Naam | Beschrijving |
 | --- | --- | --- |
 | `aud` |Doelgroep |De beoogde ontvanger van het token. De toepassing die de token ontvangt moet verifiëren dat de waarde van de doelgroep juist is en tot tokens die zijn bedoeld voor een andere doelgroep negeren. <br><br> **Voorbeeldwaarde SAML**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Voorbeeldwaarde JWT**: <br> `"aud":"https://contoso.com"` |
-| `appidacr` |Application Authentication Context Class Reference |Hiermee wordt aangegeven hoe de client is geverifieerd. Voor een openbare-client heeft de waarde 0 is. Als de client-ID en clientgeheim zijn gebruikt, is de waarde 1. <br><br> **Voorbeeldwaarde JWT**: <br> `"appidacr": "0"` |
+| `appidacr` |Application Authentication Context Class Reference |Hiermee wordt aangegeven hoe de client is geverifieerd. Voor een openbare-client heeft de waarde 0 is. Als de client-ID en clientgeheim zijn gebruikt, is de waarde 1. Als een clientcertificaat is gebruikt voor verificatie, wordt de waarde 2 is. <br><br> **Voorbeeldwaarde JWT**: <br> `"appidacr": "0"` |
 | `acr` |Authentication Context Class Reference |Hiermee wordt aangegeven hoe de certificaathouder is geverifieerd, in plaats van de client in de Application Authentication Context Class Reference claim. Een waarde van '0' geeft aan dat de verificatie van de eindgebruiker niet voldeed aan de vereisten van de ISO/IEC 29115. <br><br> **Voorbeeldwaarde JWT**: <br> `"acr": "0"` |
 | Verificatie Instant |Registreert de datum en tijd waarop de verificatie heeft plaatsgevonden. <br><br> **Voorbeeldwaarde SAML**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Verificatiemethode |Geeft aan hoe het onderwerp van het token is geverifieerd. <br><br> **Voorbeeldwaarde SAML**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Voorbeeldwaarde JWT**: `“amr”: ["pwd"]` |
@@ -152,21 +153,31 @@ Voor een volledige lijst van de claim validaties uw app moet worden uitgevoerd v
 ## <a name="token-revocation"></a>Token intrekken
 
 Vernieuwen van tokens kunnen worden ongeldig gemaakt of op elk gewenst moment om een groot aantal redenen ingetrokken. Deze onderverdeeld in twee hoofdcategorieën: time-outs en intrekkingen. 
-* Token time-outs
-  * MaxInactiveTime: Als het vernieuwingstoken dat niet binnen de tijd die wordt bepaald door de MaxInactiveTime gebruikt is, Token vernieuwen wordt niet langer geldig. 
-  * MaxSessionAge: Als MaxAgeSessionMultiFactor of MaxAgeSessionSingleFactor zijn ingesteld op iets anders dan de standaardwaarde (tot ingetrokken), klikt u vervolgens opnieuw worden geverifieerd moeten na de tijd die is ingesteld in de MaxAgeSession *. 
-  * Voorbeelden:
-    * De tenant heeft een MaxInactiveTime van 5 dagen en de gebruiker voor een week op vakantie ging, en dus AAD is niet zichtbaar een nieuwe token aanvraag van de gebruiker in 7 dagen. De volgende keer dat de gebruiker vraagt om een nieuw token ze, vindt hun vernieuwen Token is ingetrokken en moeten ze hun referenties opnieuw invoeren. 
-    * Gevoelige toepassingen heeft een MaxAgeSessionSingleFactor van 1 dag. Als een gebruiker zich aanmeldt op maandag en dinsdag (nadat 25 uur zijn verstreken), wordt ze moet opnieuw worden geverifieerd. 
-* Intrekken
-  * Vrijwillige wachtwoordwijziging: Als een gebruiker het wachtwoord wijzigt, ze mogelijk opnieuw worden geverifieerd via enkele van hun toepassingen, afhankelijk van de manier die het token is bereikt. Zie opmerkingen hieronder voor uitzonderingen. 
-  * Onopzettelijk wachtwoordwijziging: Als een beheerder zorgt ervoor dat een gebruiker hun wachtwoord wijzigen of opnieuw wordt ingesteld, klikt u vervolgens van de gebruiker tokens ongeldig worden gemaakt als ze zijn bereikt met behulp van hun wachtwoord. Zie opmerkingen hieronder voor uitzonderingen. 
-  * Inbreuk op de beveiliging: In het geval van een inbreuk op de beveiliging (bijvoorbeeld het lokale archief van wachtwoorden is geschonden) de beheerder kan intrekken alle het vernieuwen van tokens momenteel is uitgegeven. Hierdoor moeten alle gebruikers opnieuw worden geverifieerd. 
+
+**Token time-outs**
+
+* MaxInactiveTime: Als het vernieuwingstoken dat niet binnen de tijd die wordt bepaald door de MaxInactiveTime gebruikt is, Token vernieuwen wordt niet langer geldig. 
+* MaxSessionAge: Als MaxAgeSessionMultiFactor of MaxAgeSessionSingleFactor zijn ingesteld op iets anders dan de standaardwaarde (tot ingetrokken), klikt u vervolgens opnieuw worden geverifieerd moeten na de tijd die is ingesteld in de MaxAgeSession *. 
+* Voorbeelden:
+  * De tenant heeft een MaxInactiveTime van 5 dagen en de gebruiker voor een week op vakantie ging, en dus AAD is niet zichtbaar een nieuwe token aanvraag van de gebruiker in 7 dagen. De volgende keer dat de gebruiker vraagt om een nieuw token ze, vindt hun vernieuwen Token is ingetrokken en moeten ze hun referenties opnieuw invoeren. 
+  * Gevoelige toepassingen heeft een MaxAgeSessionSingleFactor van 1 dag. Als een gebruiker zich aanmeldt op maandag en dinsdag (nadat 25 uur zijn verstreken), wordt ze moet opnieuw worden geverifieerd. 
+
+**Intrekken**
+
+|   | De cookie op wachtwoord gebaseerd | Wachtwoord op basis van token | Niet-wachtwoord gebaseerde cookie | Niet-wachtwoord gebaseerde token | Vertrouwelijke clienttoken| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Wachtwoord verloopt| Blijft actief is|Blijft actief is|Blijft actief is|Blijft actief is|Blijft actief is|
+|Wachtwoord is gewijzigd door gebruiker| Ingetrokken | Ingetrokken | Blijft actief is|Blijft actief is|Blijft actief is|
+|Gebruiker heeft SSPR|Ingetrokken | Ingetrokken | Blijft actief is|Blijft actief is|Blijft actief is|
+|Beheerderswachtwoord opnieuw instellen|Ingetrokken | Ingetrokken | Blijft actief is|Blijft actief is|Blijft actief is|
+|Gebruiker trekt hun vernieuwen van tokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Ingetrokken | Ingetrokken |Ingetrokken | Ingetrokken |Ingetrokken | Ingetrokken |
+|Beheerder trekt alle vernieuwen van tokens voor de tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Ingetrokken | Ingetrokken |Ingetrokken | Ingetrokken |Ingetrokken | Ingetrokken |
+|[Eenmalige aanmelding uit](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) op web | Ingetrokken | Blijft actief is |Ingetrokken | Blijft actief is |Blijft actief is |Blijft actief is |
 
 > [!NOTE]
->Als een niet-password authenticatiemethode is gebruikt (Windows Hello, de verificator-app, biometrie zoals een vlak of vingerafdruk) voor het bereiken van het token, wachtwoord van de gebruiker te wijzigen forceert geen de gebruiker opnieuw worden geverifieerd (maar deze wordt gedwongen de verificator-app voor het opnieuw verifiëren). Dit is omdat de gekozen verificatie invoer (een gezicht, bijvoorbeeld) is niet gewijzigd en kan daarom opnieuw worden gebruikt voor het opnieuw te verifiëren.
+> Een 'niet-wachtwoord op basis van aanmelding is een waarin de gebruiker een wachtwoord voor het downloaden niet opgeven.  Bijvoorbeeld met behulp van uw face met Windows Hello, een FIDO sleutel of een PINCODE. 
 >
-> Vertrouwelijke clients worden niet beïnvloed door wijziging van intrekking wachtwoord. Een vertrouwelijk client met een vernieuwingstoken voordat een wachtwoordwijziging abl die vernieuwingstoken gebruiken blijven voor tokens meer worden uitgegeven. 
+> Er bestaat een bekend probleem met de Windows primaire vernieuwen Token.  Als de PRT met behulp van een wachtwoord verkregen, en vervolgens de gebruiker zich via Hello aanmeldt, de herkomst van het PRT hierdoor niet gewijzigd en zal worden ingetrokken als de gebruiker het wachtwoord wijzigt. 
 
 ## <a name="sample-tokens"></a>Voorbeeld-Tokens
 

@@ -2,25 +2,21 @@
 title: Azure Service Bus Veelgestelde vragen (FAQ) | Microsoft Docs
 description: Antwoorden op enkele veelgestelde vragen over Azure Service Bus.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802262"
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
+
 Dit artikel worden enkele veelgestelde vragen over Microsoft Azure Service Bus. U kunt ook de [Azure ondersteunen Veelgestelde vragen over](http://go.microsoft.com/fwlink/?LinkID=185083) voor algemene Azure-prijzen en -ondersteuning voor informatie.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Algemene vragen over Azure Service Bus
@@ -37,9 +33,11 @@ Een [Service Bus-wachtrij](service-bus-queues-topics-subscriptions.md) is een en
 Een onderwerp kan worden weergegeven als een wachtrij en wanneer u meerdere abonnementen, wordt een uitgebreidere messaging model; in wezen een een-op-veel-communicatie-hulpprogramma. Dit model publiceren/abonneren (of *pub subitems*) Hiermee wordt een toepassing die u een bericht naar een onderwerp met meerdere abonnementen verzendt hebben dat bericht ontvangen door meerdere toepassingen.
 
 ### <a name="what-is-a-partitioned-entity"></a>Wat is een gepartitioneerde entiteit?
-Een conventionele wachtrij of onderwerp is verwerkt door een enkel bericht broker en opgeslagen in één berichten-store. Een [gepartitioneerde wachtrij of onderwerp](service-bus-partitioning.md) wordt verwerkt door meerdere bericht beleggingsmakelaars en opgeslagen in meerdere berichten-stores. Dit betekent dat de totale doorvoer van een gepartitioneerde wachtrij of onderwerp niet langer wordt beperkt door de prestaties van een enkel bericht broker of berichten-store. Bovendien weer een tijdelijke onderbreking van berichten-store niet een gepartitioneerde wachtrij of onderwerp niet beschikbaar.
+Een conventionele wachtrij of onderwerp is verwerkt door een enkel bericht broker en opgeslagen in één berichten-store. Alleen ondersteund in het basis- en Standard messaging-lagen, een [gepartitioneerde wachtrij of onderwerp](service-bus-partitioning.md) wordt verwerkt door meerdere bericht beleggingsmakelaars en opgeslagen in meerdere berichten-stores. Deze functie betekent dat de totale doorvoer van een gepartitioneerde wachtrij of onderwerp niet langer wordt beperkt door de prestaties van een enkel bericht broker of berichten-store. Bovendien weer een tijdelijke onderbreking van berichten-store niet een gepartitioneerde wachtrij of onderwerp niet beschikbaar.
 
-Let op: ordening wordt niet gegarandeerd bij gebruik van gepartitioneerde entiteiten. In het geval dat een partitie niet beschikbaar is, kunt u nog steeds verzenden en ontvangen van berichten uit de andere partities.
+Ordening wordt niet gegarandeerd wanneer met behulp van entiteiten gepartitioneerd. In het geval dat een partitie niet beschikbaar is, kunt u nog steeds verzenden en ontvangen van berichten uit de andere partities.
+
+ Gepartitioneerde entiteiten worden niet meer ondersteund in de [Premium-SKU](service-bus-premium-messaging.md). 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Wat zijn enkele aanbevolen procedures van Azure Service Bus?
@@ -74,9 +72,9 @@ Nee, Service Bus biedt geen kosten in rekening gebracht voor opslag. Er is echte
 Zie voor een lijst met Service Bus-limieten en quota's, de [overzicht van Service Bus-quota][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Beschikt over Service Bus quota voor gebruik?
-Standaard voor een cloud service Microsoft Hiermee stelt u een cumulatieve maandelijkse gebruiksgegevens van die is berekend voor alle abonnementen van de klant. Omdat we begrijpen dat u deze limieten moet mogelijk, u kunt contact opnemen met customer support op elk gewenst moment zodat we kunnen uw behoeften te begrijpen en pas deze limieten op de juiste wijze. Voor Service Bus is de cumulatieve gebruiksquotum 5 miljard berichten per maand.
+Standaard voor een cloud service Microsoft Hiermee stelt u een cumulatieve maandelijkse gebruiksgegevens van die is berekend voor alle abonnementen van de klant. Als u meer dan deze limieten nodig hebt, kunt u contact op met klantenservice op elk gewenst moment om te begrijpen van uw behoeften en pas deze limieten op de juiste wijze. Voor Service Bus is de cumulatieve gebruiksquotum 5 miljard berichten per maand.
 
-Terwijl we zich het recht om uit te schakelen van een klantaccount die de quota voor gebruik in een bepaalde maand heeft overschreden behoudt, wij bieden e-mailmelding en meerdere pogingen om contact met een klant voordat u een actie maken. Klanten die meer dan deze quota zijn nog steeds zelf verantwoordelijk voor de kosten die groter is dan de quota.
+Hoewel Microsoft behoudt zich het recht om uit te schakelen van een klantaccount die de quota voor gebruik in een bepaalde maand heeft overschreden, e-mailmeldingen worden verzonden en meerdere geprobeerd contact opnemen met een klant alvorens een actie te ondernemen. Klanten die meer dan deze quota zijn nog steeds zelf verantwoordelijk voor de kosten die groter is dan de quota.
 
 Net als bij andere services op Azure Service Bus zorgt ervoor dat een set specifieke quota om ervoor te zorgen dat er evenredige gebruik van bronnen. U vindt meer informatie over deze quota in de [overzicht van Service Bus-quota][Quotas overview].
 

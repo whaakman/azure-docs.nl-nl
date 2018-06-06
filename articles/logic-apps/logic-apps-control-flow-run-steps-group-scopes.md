@@ -1,29 +1,25 @@
 ---
-title: Voer stappen op basis van status van het actie - gegroepeerd Azure Logic Apps | Microsoft Docs
-description: Groep acties in scopes en stappen op basis van status van de groep uitvoeren
+title: Voeg scopes die op basis van status van de groep - Azure Logic Apps-acties uitvoeren | Microsoft Docs
+description: Het maken van de bereiken die op basis van de actiestatus van de groep in Azure Logic Apps werkstroomacties worden uitgevoerd
 services: logic-apps
-keywords: vertakkingen, parallel verwerken
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 052af45962f442e96ca28f05ffaa1b9814b2588b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: c6f6b54e17d12ff21d50748810699e78e3a14757
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726377"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>Scopes: Uitgevoerd uit op basis van status van de groep in logic apps
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Scopes die worden uitgevoerd op basis van status van de groep in Azure Logic Apps werkstroomacties maken
 
-Om uit te voeren stappen nadat een andere groep van acties slagen of mislukken, plaatsen die groep binnen een *bereik*. Deze structuur is handig als u wilt acties als een logische groep ordenen, evalueren de status van die groep en acties uitvoeren die zijn gebaseerd op de status van de scope. Nadat alle acties in een bereik uitgevoerd zijn, wordt het bereik ook een eigen status. Bijvoorbeeld, u kunt bereiken als u wilt implementeren [uitzondering en foutafhandeling](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Als u wilt acties worden uitgevoerd nadat een andere groep van acties slagen of mislukken, groeperen die acties binnen een *bereik*. Deze structuur is handig als u wilt acties als een logische groep ordenen, evalueren de status van die groep en acties uitvoeren die zijn gebaseerd op de status van de scope. Nadat alle acties in een bereik uitgevoerd zijn, wordt het bereik ook een eigen status. Bijvoorbeeld, u kunt bereiken als u wilt implementeren [uitzondering en foutafhandeling](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
 Een scope om status te controleren, kunt u dezelfde criteria die u gebruikt om te bepalen een logic apps uitvoeren status, zoals 'Geslaagd', 'Is mislukt', 'Geannuleerd', enzovoort. Standaard, wanneer de acties van de scope is gelukt, status van de scope gemarkeerd als 'Voltooid'. Maar als geen actie in het bereik is mislukt of is geannuleerd, de status van de scope is gemarkeerd als 'Mislukt'. Zie voor de limieten voor scopes [limieten en config](../logic-apps/logic-apps-limits-and-config.md). 
 
@@ -83,14 +79,14 @@ U kunt uw logische app op elk gewenst moment opslaan, dus vaak Sla uw werk op.
 
       | Instelling | Waarde | Beschrijving |
       | ------- | ----- | ----------- |
-      | **Routepunt 1** | <*start*> | Voer uw route oorsprong. | 
+      | **Routepunt 1** | <*Start*> | Voer uw route oorsprong. | 
       | **Routepunt 2** | <*end*> | Voer uw route bestemming. | 
       | **Vermijden** | Geen | Voer items om te voorkomen op uw route, zoals wegen, tolgelden, enzovoort. Zie voor mogelijke waarden [berekenen een route](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimaliseren** | timeWithTraffic | Selecteer een parameter voor het optimaliseren van uw route toe, zoals afstand, tijd met de huidige gegevens, enzovoort. In dit voorbeeld wordt deze waarde: 'timeWithTraffic' | 
       | **Afstandseenheid** | <*your-preference*> | Geef de eenheid van afstand voor het berekenen van de route. In dit voorbeeld wordt deze waarde: 'Mijl' | 
       | **Vervoermiddel** | Auto | Geef de modus van reizen voor de route. In dit voorbeeld wordt deze waarde 'Aangedreven' | 
-      | **Datum/tijd openbaar vervoer** | None | Van toepassing op alleen de modus voor de doorvoer. | 
-      | **Doorvoer datumtype Type** | None | Van toepassing op alleen de modus voor de doorvoer. | 
+      | **Datum/tijd openbaar vervoer** | Geen | Van toepassing op alleen de modus voor de doorvoer. | 
+      | **Doorvoer datumtype Type** | Geen | Van toepassing op alleen de modus voor de doorvoer. | 
       ||||  
 
 4. Een voorwaarde toevoegen om te controleren of de huidige tijd reizen met verkeer groter is dan een opgegeven periode. Volg de stappen onder deze installatiekopie voor dit voorbeeld:
@@ -153,7 +149,7 @@ U kunt uw logische app op elk gewenst moment opslaan, dus vaak Sla uw werk op.
 
 Vervolgens voegt u een scope zodat u kunt specifieke acties te groeperen en hun status evalueren.
 
-## <a name="add-a-scope"></a>Een scope toevoegen
+## <a name="add-a-scope"></a>Een bereik toevoegen
 
 1. Als u nog niet gedaan hebt, opent u uw logische app in Logic App-ontwerper. 
 
@@ -162,7 +158,7 @@ Vervolgens voegt u een scope zodat u kunt specifieke acties te groeperen en hun 
    * Als u wilt een scope tussen bestaande stappen in de logic app-werkstroom toevoegen, de aanwijzer boven de pijl waar u wilt toevoegen, het bereik. 
    Kies de **plusteken** (**+**) > **toevoegen van een scope**.
 
-     ![Een scope toevoegen](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+     ![Een bereik toevoegen](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
      Als u wilt toevoegen van een scope aan het einde van de werkstroom, aan de onderkant van uw logische app, kiest u **+ een nieuwe stap** > **... Meer** > **toevoegen van een scope**.
 

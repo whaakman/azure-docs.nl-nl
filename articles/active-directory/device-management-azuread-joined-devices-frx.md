@@ -2,12 +2,13 @@
 title: Lid worden van een nieuw Windows 10-apparaat met Azure AD tijdens de uitvoering van een eerste | Microsoft Docs
 description: Dit onderwerp wordt beschreven hoe gebruikers kunnen Azure AD Join instellen tijdens het first-run experience.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757389"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Lid worden van een nieuw Windows 10-apparaat met Azure AD tijdens de uitvoering van een eerste
 
@@ -37,6 +39,8 @@ In het Windows- *out-of-box experience*, lidmaatschap van een lokale Active Dire
 ## <a name="before-you-begin"></a>Voordat u begint
 
 Als u wilt deelnemen aan een Windows 10-apparaat, moet de device registratieservice worden geconfigureerd zodat u apparaten registreren. Naast de machtiging voor het koppelen van apparaten in uw Azure AD-tenant hebt, moet u minder apparaten geregistreerd dan het geconfigureerde maximum hebben. Zie voor meer informatie [apparaatinstellingen configureren](device-management-azure-portal.md#configure-device-settings).
+
+Als uw tenant is gefedereerd, moet uw identiteitsprovider bovendien endpoint van WS-Fed en WS-Trust-gebruikersnaam en wachtwoord ondersteunen. Dit is versie 1.3 of 2005. Ondersteuning voor dit protocol is vereist voor zowel het apparaat toevoegen aan Azure AD en meld u aan op het apparaat met een wachtwoord.
 
 ## <a name="joining-a-device"></a>Lid worden van een apparaat
 

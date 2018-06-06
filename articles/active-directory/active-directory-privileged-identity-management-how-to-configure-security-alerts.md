@@ -3,7 +3,7 @@ title: Beveiligingswaarschuwingen configureren | Microsoft Docs
 description: Informatie over het configureren van beveiligingswaarschuwingen voor Azure Privileged Identity Management-extensie.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f77567d35d3916ab1660134959d2d26916e08a0a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8dd546b0c3a60a50989b59fa295ceeb49e6b1e9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698006"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Beveiligingswaarschuwingen in Azure AD Privileged Identity Management configureren
 ## <a name="security-alerts"></a>Beveiligingswaarschuwingen
@@ -25,7 +26,7 @@ Azure Privileged Identity Management (PIM) genereert waarschuwingen wanneer er v
 
 ![PIM-dashboard beveiligingswaarschuwingen - schermafbeelding][1]
 
-| Waarschuwing | Ernst | Trigger | Aanbeveling |
+| Waarschuwing | Severity | Trigger | Aanbeveling |
 | --- | --- | --- | --- |
 | **Rollen zijn momenteel toegewezen buiten PIM** |Hoog |Een gebruiker is definitief toegewezen aan een bevoorrechte rol, buiten de PIM-interface. |Bekijk de gebruikers in de lijst en de toewijzing van rollen toegewezen buiten PIM bevoorrechte. |
 | **Rollen worden te vaak geactiveerd** |Middelgroot |Er zijn te veel heractiveringen van dezelfde rol binnen de tijd die is toegestaan in de instellingen. |Neem contact op met de gebruiker om te zien waarom ze hebben geactiveerd de rol zo vaak. Mogelijk is de tijdslimiet te kort voor ze om hun taken te voltooien, of misschien bent met behulp van scripts automatisch een rol wilt activeren. Zorg ervoor dat de activeringsduur van de voor hun rol is ingesteld lang genoeg is voor hun taken uit te voeren. |
@@ -33,7 +34,7 @@ Azure Privileged Identity Management (PIM) genereert waarschuwingen wanneer er v
 | **Gebruikers hun bevoorrechte rollen niet gebruiken** |Laag |Er zijn in aanmerking komende beheerders die hun rollen onlangs nog niet geactiveerd. |Start een toegang controleren om te bepalen van de gebruikers die geen toegang meer nodig. |
 | **Er zijn te veel globale beheerders** |Laag |Er zijn meer globale beheerders dan aanbevolen. |Als u een groot aantal globale beheerders hebt, is het waarschijnlijk dat gebruikers wel meer machtigingen dan ze nodig hebben. Gebruikers voor minder bevoorrechte rollen te verplaatsen, of zorg enkele ervan voor de rol in plaats van in aanmerking komende permanent zijn toegewezen. |
 
-### <a name="severity"></a>Ernst
+### <a name="severity"></a>Severity
 * **Hoge**: directe actie is vereist vanwege een schending van het beleid. 
 * **Gemiddeld**: geen directe actie is vereist, maar geeft u een potentiële beleidsovertreding.
 * **Lage**: geen directe actie is vereist, maar stelt voor een beter dan beleidswijziging.

@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/13/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801929"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Ontwerpconcepten
-Het doel van dit onderwerp is om gebieden die moeten worden beschouwd door bij het implementatieontwerp van Azure AD Connect te beschrijven. In dit onderwerp is een deep dive op bepaalde gebieden en deze concepten worden kort beschreven in andere onderwerpen ook.
+Het doel van dit document is te beschrijven gebieden die moeten worden beschouwd door bij het implementatieontwerp van Azure AD Connect. Dit document is een deep dive op bepaalde gebieden en deze concepten worden kort beschreven in andere documenten.
 
 ## <a name="sourceanchor"></a>sourceAnchor
 Het kenmerk sourceAnchor is gedefinieerd als *een kenmerk onveranderbaar tijdens de levensduur van een object*. Dit is de unieke identificatie van een object dat de dezelfde object on-premises en in Azure AD. Het kenmerk is een afkorting **onveranderbare id genoemd** en de twee namen uitwisselbaar worden gebruikt.
 
-De niet-wijzigbaar, word die 'kan niet worden gewijzigd', is belangrijk dat u dit onderwerp. Omdat de waarde van dit kenmerk kan niet worden gewijzigd nadat deze is ingesteld, is het belangrijk dat u een ontwerp die ondersteuning biedt voor uw scenario selecteren.
+De niet-wijzigbaar, word die 'kan niet worden gewijzigd', is belangrijk dat u dit document. Omdat de waarde van dit kenmerk kan niet worden gewijzigd nadat deze is ingesteld, is het belangrijk dat u een ontwerp die ondersteuning biedt voor uw scenario selecteren.
 
 Het kenmerk wordt gebruikt voor de volgende scenario's:
 
@@ -40,12 +42,12 @@ In dit onderwerp alleen wordt gesproken over sourceAnchor met betrekking tot de 
 ### <a name="selecting-a-good-sourceanchor-attribute"></a>Een goede sourceAnchor kenmerk selecteren
 De kenmerkwaarde moet de volgende regels volgen:
 
-* Minder dan 60 tekens bestaan
+* Minder dan 60 tekens lang zijn
   * Tekens die niet wordt a-z, A-Z en 0-9 zijn gecodeerd en geteld als 3 tekens
 * Speciale tekens niet bevatten: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Globaal uniek zijn
 * Moet een tekenreeks, geheel getal of binair
-* Moet niet zijn gebaseerd op de naam van gebruiker deze wijziging
+* Niet moet worden gebaseerd op de naam van gebruiker omdat deze kunnen wijzigen
 * Niet mogen worden hoofdlettergevoelig en te voorkomen dat de waarden die per aanvraag verschillen kunnen
 * Moet worden toegewezen als het object is gemaakt
 
@@ -165,7 +167,7 @@ Als u gebruikmaakt van Azure AD Connect beheren on-premises AD FS-implementatie,
 
 Als u AD FS buiten Azure AD Connect beheert, of u federatieservers van derden voor verificatie gebruikt, moet u handmatig de claimregels voor onveranderbare id genoemd claim consistent zijn met de waarden sourceAnchor is geëxporteerd naar Azure AD, zoals beschreven in artikel sectie bijwerken [wijzigen AD FS claimregels](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). Nadat de installatie voltooid is, retourneert de wizard de volgende waarschuwing:
 
-![Federatieconfiguratie van derden](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
+![Derde federatieconfiguratie](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Nieuwe mappen toevoegen aan bestaande implementatie
 Stel dat u Azure AD Connect hebt geïmplementeerd met de functie ConsistencyGuid is ingeschakeld en u wilt nu een andere directory toevoegen aan de implementatie. Wanneer u de map toevoegen, controleert met Azure AD Connect-wizard de status van het kenmerk mSDS-ConsistencyGuid in de map. Als het kenmerk is geconfigureerd op een of meer objecten in Active directory, de wizard het kenmerk wordt gebruikt door andere toepassingen en een foutmelding zoals geïllustreerd in het onderstaande diagram wordt afgesloten. Als u er zeker van bent dat het kenmerk wordt niet door bestaande toepassingen gebruikt, moet u contact op met ondersteuning voor meer informatie over het onderdrukken van de fout.
@@ -193,7 +195,7 @@ Sommige organisaties hebben niet-routeerbare domeinen, zoals contoso.local of ee
 
 Lees [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory-domains-add-azure-portal.md) voor meer informatie over het toevoegen en verifiëren van domeinen.
 
-Azure AD Connect detecteert als u in een niet-routeerbare domeinomgeving uitvoert en zou u op de juiste wijze van u wilt doorgaan met expresinstellingen waarschuwen. Als u in een niet-routeerbare domein werkt, is het waarschijnlijk dat de UPN van de gebruikers niet-routeerbare achtervoegsels te hebben. Bijvoorbeeld, als u worden uitgevoerd onder contoso.local, stelt Azure AD Connect u de aangepaste instellingen in plaats van met expresinstellingen gebruiken. Met aangepaste instellingen voor zijn u opgeven van het kenmerk op dat moet worden gebruikt als de UPN aan te melden bij Azure nadat de gebruikers zijn gesynchroniseerd naar Azure AD.
+Azure AD Connect detecteert als u in een niet-routeerbare domeinomgeving uitvoert en zou u op de juiste wijze van u wilt doorgaan met expresinstellingen waarschuwen. Als u in een niet-routeerbare domein werkt, is het waarschijnlijk dat de UPN, van de gebruikers niet-routeerbare achtervoegsels te hebben. Bijvoorbeeld, als u worden uitgevoerd onder contoso.local, stelt Azure AD Connect u de aangepaste instellingen in plaats van met expresinstellingen gebruiken. Met aangepaste instellingen voor zijn u opgeven van het kenmerk op dat moet worden gebruikt als de UPN aan te melden bij Azure nadat de gebruikers zijn gesynchroniseerd naar Azure AD.
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](active-directory-aadconnect.md).

@@ -5,20 +5,21 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: faddb73522200f60f18294dc43e8d235943f8bbb
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699951"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>Het ZIP-push-implementatie voor Azure Functions 
 In dit artikel wordt beschreven hoe de functie app-project-bestanden implementeren in Azure uit een ZIP-bestand voor (gecomprimeerd). Leert u hoe voor een push-implementatie met behulp van Azure CLI zowel met de REST-API's. 
@@ -40,23 +41,33 @@ Het ZIP-bestand dat u voor de push-implementatie gebruikt moet alle projectbesta
 >[!IMPORTANT]
 > Wanneer u een ZIP-push-implementatie gebruikt, worden alle bestanden van een bestaande implementatie die niet zijn gevonden in het ZIP-bestand van uw app functie verwijderd.  
 
-### <a name="function-app-folder-structure"></a>De functie app-mapstructuur
-
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-### <a name="download-your-function-app-project"></a>De functie app-project downloaden
+Een functie-app bevat alle bestanden en mappen in de `wwwroot` directory. De implementatie van een ZIP-bestand omvat de inhoud van de `wwwroot` directory, maar niet de map zelf.  
+
+## <a name="download-your-function-app-files"></a>De functie app-bestanden downloaden
 
 Wanneer u op een lokale computer ontwikkelt, is het eenvoudig te maken van een ZIP-bestand van de functie app-project-map op uw ontwikkelcomputer. 
 
-Echter, u mogelijk hebt gemaakt uw functies met behulp van de editor in Azure portal. De functie app-project downloaden via de portal: 
+Echter, u mogelijk hebt gemaakt uw functies met behulp van de editor in Azure portal. U kunt een bestaand functie app-project in een van de volgende manieren downloaden: 
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en gaat u naar de functie-app.
++ **Vanuit de Azure-portal:** 
 
-2. Op de **overzicht** tabblad **app-inhoud downloaden**. Selecteer uw opties voor het downloaden en selecteer vervolgens **downloaden**.     
+    1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en gaat u naar de functie-app.
 
-    ![De functie app-project downloaden](./media/deployment-zip-push/download-project.png)
+    2. Op de **overzicht** tabblad **app-inhoud downloaden**. Selecteer uw opties voor het downloaden en selecteer vervolgens **downloaden**.     
 
-Het gedownloade ZIP-bestand is in de juiste indeling opnieuw worden gepubliceerd naar uw app functie via .zip push-implementatie.
+        ![De functie app-project downloaden](./media/deployment-zip-push/download-project.png)
+
+    Het gedownloade ZIP-bestand is in de juiste indeling opnieuw worden gepubliceerd naar uw app functie via .zip push-implementatie. Het downloaden van de portal kan ook toevoegen aan de benodigde bestanden voor uw app in de functie rechtstreeks openen in Visual Studio.
+
++ **Met REST API's:** 
+
+    Gebruik de volgende implementatie API ophalen voor het downloaden van de bestanden van uw `<function_app>` project: 
+
+        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+
+    Inclusief `/site/wwwroot/` zorgt ervoor dat het zipbestand bevat alleen de functie app-project-bestanden en niet de gehele site. Als u bent niet al aangemeld bij Azure, wordt u gevraagd om dit te doen. Merk op dat een bericht verzenden aanvragen naar de `api/zip/` API is discoraged voor de zip-implementatiemethode beschreven in dit onderwerp. 
 
 U kunt ook een ZIP-bestand downloaden van een GitHub-opslagplaats. Houd er rekening mee dat wanneer u een GitHub-opslagplaats als ZIP-bestand hebt gedownload, GitHub een extra mapniveau voor de vertakking toegevoegd. Deze extra map niveau betekent dat u het ZIP-bestand als u niet implementeren van GitHub gedownload. Als u een GitHub-opslagplaats voor het onderhouden van de functie-app gebruikt, moet u [continue integratie](functions-continuous-deployment.md) om uw app te implementeren.  
 

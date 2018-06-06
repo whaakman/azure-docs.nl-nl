@@ -2,23 +2,18 @@
 title: Isolatie van Azure Service Bus-toepassingen tegen storingen en noodsituaties | Microsoft Docs
 description: Technieken tegen een mogelijke onderbreking van de Service Bus-toepassingen beschermt.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802303"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Aanbevolen procedures voor de isolatie van toepassingen tegen storingen van de Service Bus en noodsituaties
 
@@ -34,7 +29,9 @@ Service Bus maakt gebruik van meerdere berichten-stores voor het opslaan van ber
 Alle Service Bus messaging-entiteiten (wachtrijen, onderwerpen, relays) zich bevinden in een service-naamruimte die is gekoppeld aan een datacenter. Service Bus nu ondersteunt [ *Geo-noodherstel* en *Geo-replicatie* ](service-bus-geo-dr.md) op het niveau van de naamruimte.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Beveiligen van wachtrijen en onderwerpen tegen storingen store messaging
-Een niet-gepartitioneerde wachtrij of onderwerp is toegewezen aan één berichten-store. Als deze berichten-store niet beschikbaar is, mislukt de alle bewerkingen voor de wachtrij of onderwerp. Een gepartitioneerde wachtrij aan de andere kant bestaat uit meerdere fragmenten. Elke fragment wordt opgeslagen in een andere berichten-store. Wanneer een bericht wordt verzonden naar een gepartitioneerde wachtrij of onderwerp, wijst Service Bus het bericht toe aan een van de fragmenten. Als de bijbehorende berichten-store niet beschikbaar is, schrijft Service Bus het bericht indien mogelijk naar een andere fragment. Zie voor meer informatie over gepartitioneerde entiteiten [gepartitioneerde berichtentiteiten][Partitioned messaging entities].
+Een niet-gepartitioneerde wachtrij of onderwerp is toegewezen aan één berichten-store. Als deze berichten-store niet beschikbaar is, mislukt de alle bewerkingen voor de wachtrij of onderwerp. Een gepartitioneerde wachtrij aan de andere kant bestaat uit meerdere fragmenten. Elke fragment wordt opgeslagen in een andere berichten-store. Wanneer een bericht wordt verzonden naar een gepartitioneerde wachtrij of onderwerp, wijst Service Bus het bericht toe aan een van de fragmenten. Als de bijbehorende berichten-store niet beschikbaar is, schrijft Service Bus het bericht indien mogelijk naar een andere fragment. Gepartitioneerde entiteiten worden niet meer ondersteund in de [Premium-SKU](service-bus-premium-messaging.md). 
+
+Zie voor meer informatie over gepartitioneerde entiteiten [gepartitioneerde berichtentiteiten][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Bescherming tegen storingen van datacenter of rampen
 Als u wilt toestaan voor een failover tussen twee datacentra, kunt u een Service Bus-Servicenaamruimte maken in elk datacenter. Bijvoorbeeld: de Service Bus-Servicenaamruimte **contosoPrimary.servicebus.windows.net** zich mogelijk in de regio Noord/centraal van de Verenigde Staten en **contosoSecondary.servicebus.windows.net**zich mogelijk in de regio VS Zuid-/ centraal. Als een Service Bus-berichtenservice entiteit blijven toegankelijk in de aanwezigheid van een storing in datacenter zijn moet, kunt u die entiteit maken in beide naamruimten.
@@ -84,9 +81,9 @@ Service Bus ondersteunt Geo-noodherstel en Geo-replicatie op het niveau van de n
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over herstel na noodgevallen, deze artikelen:
 
-* [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md)
+* [Azure Service Bus Geo-noodherstel](service-bus-geo-dr.md)
 * [Azure SQL Database Business Continuity][Azure SQL Database Business Continuity]
-* [Robuuste toepassingen voor Azure ontwerpen][Azure resiliency technical guidance]
+* [Flexibele toepassingen ontwerpen voor Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md

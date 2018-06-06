@@ -1,24 +1,20 @@
 ---
 title: Apparaat firmware-update met Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Klik hier voor meer informatie over het beheer van apparaten op Azure IoT Hub gebruiken om te zetten van een apparaat firmware-update. U kunt het Azure-IoT-apparaat-SDK voor .NET gebruiken voor het implementeren van een gesimuleerde apparaattoepassing en de Azure IoT service SDK voor .NET voor het implementeren van een service-app waarmee de firmware-update wordt geactiveerd.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 10/19/2017
-ms.author: v-jamebr;dobett
-ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: cd669a9585ac5aecf935202a04065a828a2174be
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736752"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Apparaatbeheer gebruiken om te zetten van een apparaat firmware-update (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -345,7 +341,7 @@ In deze sectie doet u het volgende:
 > [!NOTE]
 > Deze methode wordt geactiveerd voor de gesimuleerde update uit te voeren als een **taak** en vervolgens onmiddellijk reageert op de methodeaanroep waarin de service worden geïnformeerd dat de firmware-update is gestart. Updatestatus en voltooiing zal worden verzonden naar de service via de gerapporteerde eigenschappen van het apparaat twin. We reageren op de methodeaanroep bij het starten van de update, in plaats van na de voltooiing omdat:
 > * Een echte updateproces is het zeer waarschijnlijk langer duurt dan de time-out van de aanroep van methode.
-> * Een echte updateproces is het zeer waarschijnlijk een opnieuw opstarten, die u zou deze app bij opnieuw opstarten vereist de **MetodRequest** object is niet beschikbaar. (Gemelde eigenschappen bijwerken is echter mogelijk zelfs na het opnieuw opstarten.) 
+> * Een echte updateproces is het zeer waarschijnlijk een opnieuw opstarten, die u zou deze app bij opnieuw opstarten vereist de **MethodRequest** object is niet beschikbaar. (Gemelde eigenschappen bijwerken is echter mogelijk zelfs na het opnieuw opstarten.) 
 
 14. Voeg de volgende code naar de **Main** methode voor het openen van de verbinding met uw IoT-hub en de methode-listener initialiseren:
    

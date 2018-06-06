@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735700"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Doorlopende implementatie voor Azure Functions
 Azure Functions kunt eenvoudig uw functie-app met continue integratie van App Service implementeren. Functions integreert met BitBucket, Dropbox, GitHub en Visual Studio Team Services (VSTS). Hierdoor wordt een werkstroom waar functiecode updates uitgevoerd met behulp van een van deze implementatie van de trigger geïntegreerde services naar Azure. Als u niet bekend met Azure Functions bent, beginnen met een [overzicht van Azure Functions](functions-overview.md).
@@ -41,6 +42,8 @@ Implementaties worden geconfigureerd op basis van de app per functie. Nadat de d
 In de implementatiebron voordat u continue implementatie instelt, moet u uw implementatiebron geconfigureerd en uw code functies hebben. Elke functie woont in een bepaalde functie app-implementatie in een benoemde submap, waarbij de mapnaam de naam van de functie is.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+Als u voor de implementatie vanaf VSTS, moet u eerst uw account VSTS koppelen aan uw Azure-abonnement. Zie voor meer informatie [facturering voor uw account VSTS instellen](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Doorlopende implementatie instellen
 Gebruik deze procedure voor het configureren van continue implementatie voor een bestaande functie-app. Deze stappen laten zien integratie met een GitHub-opslagplaats, maar gelijksoortige stappen gelden voor Visual Studio Team Services of andere implementatieservices.

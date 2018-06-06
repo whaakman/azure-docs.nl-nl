@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Opmerkingen voor ontwikkelaars op het gebruik van aangepast beleid | Microsoft Docs'
-description: Opmerkingen voor ontwikkelaars over het configureren en onderhouden van Azure AD B2C met aangepast beleid
+title: Opmerkingen voor ontwikkelaars over het gebruik van aangepast beleid in Azure Active Directory B2C | Microsoft Docs
+description: Opmerkingen voor ontwikkelaars over het configureren en onderhouden van Azure AD B2C met aangepast beleid.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: davidmu
-ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: ce323972dcdbf673311b407f427bc452fbe6dc3a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709723"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Releaseopmerkingen voor openbare preview van Azure Active Directory B2C aangepast beleid
 De functieset aangepast beleid is nu beschikbaar voor evaluatie van de openbare preview voor alle Azure Active Directory B2C (Azure AD B2C) klanten. Deze functieset is gericht op geavanceerde identiteit ontwikkelaars oplossingen die het meest complexe identiteit.  
@@ -66,9 +66,9 @@ Interfaces met externe onderdelen en toepassingen
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |---------------------------------------------|-------------|---------|----|-------|
 | IDP-OpenIDConnect |  | x |  | bijvoorbeeld, Google + |
-| IDP-OAUTH2 |  | x |  | bijvoorbeeld, Facebook  |
-| IDP-OAUTH1 |  | x |  | bijvoorbeeld, Twitter |
-| IDP-SAML |  | x |  | bijvoorbeeld Salesforce, AD FS |
+| IDP OAUTH2 |  | x |  | bijvoorbeeld, Facebook  |
+| IDP OAUTH1 |  | x |  | bijvoorbeeld, Twitter |
+| IDP SAML |  | x |  | bijvoorbeeld Salesforce, AD FS |
 | IDP-WSFED | x |  |  |  |
 | Relying Party OAUTH |  | x |  |  |
 | Relying Party OIDC |  | x |  |  |
@@ -119,7 +119,7 @@ Interfaces met externe onderdelen en toepassingen
 
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |---------------------------------|-------------|---------|----|-------|
-| SSO Session Provider |  | x |  |  |
+| Sessie-Provider voor eenmalige aanmelding |  | x |  |  |
 | Sessie-Provider voor externe aanmelding |  | x |  |  |
 | Provider voor eenmalige aanmelding voor SAML-sessie |  | x |  |  |
 

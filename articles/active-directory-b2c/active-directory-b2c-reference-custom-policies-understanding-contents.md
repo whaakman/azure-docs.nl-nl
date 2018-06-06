@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Informatie over aangepaste beleidsregels van het starter pack | Microsoft Docs'
-description: Een onderwerp op Azure Active Directory B2C aangepast beleid
+title: Informatie over aangepaste beleidsregels van het starter pack in Azure Active Directory B2C | Microsoft Docs
+description: Een onderwerp op Azure Active Directory B2C aangepast beleid.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: eb78e4c2f2e27d59d7925ac9eaffd1cef0924463
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711576"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Wat is de aangepaste beleidsregels van het Azure AD B2C aangepast beleid starter pack?
 
@@ -49,7 +49,7 @@ De volgende claims zijn vereist voor de gebruiker trajecten goed te laten werken
 
 | Claims type | Beschrijving |
 |-------------|-------------|
-| *UserId* | Gebruikersnaam |
+| *Gebruikers-id* | Gebruikersnaam |
 | *signInName* | Meld u aan de naam |
 | *tenantId* | Tenant-id (ID) van het gebruikersobject in Azure AD B2C |
 | *objectId* | Object-id (ID) van het gebruikersobject in Azure AD B2C |
@@ -63,7 +63,7 @@ De volgende claims zijn vereist voor de gebruiker trajecten goed te laten werken
 | *displayName* | |
 | *strongAuthenticationPhoneNumber* | Het telefoonnummer van de gebruiker |
 | *Verified.strongAuthenticationPhoneNumber* | |
-| *email* | E-mailadres dat kan worden gebruikt om contact op met de gebruiker |
+| *E-mail* | E-mailadres dat kan worden gebruikt om contact op met de gebruiker |
 | *signInNamesInfo.emailAddress* | E-mailadres waarmee de gebruiker kunt aanmelden |
 | *otherMails* | E-mailadressen die kunnen worden gebruikt om contact op met de gebruiker |
 | *userPrincipalName* | De gebruikersnaam die is opgeslagen in de Azure AD B2C |
@@ -86,9 +86,9 @@ De volgende claims zijn vereist om door te geven op de speciale parameters (incl
 | *Mkt* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
 | *lc* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
 | *grant_type* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
-| *scope* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
+| *Bereik* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
 | *client_id* | Speciale parameter doorgegeven voor de verificatie van lokale account aan login.microsoftonline.com |
-| *objectIdFromSession* | Parameter geleverd door de standaardprovider voor het beheer van sessie om aan te geven dat de object-id is opgehaald van een sessie voor eenmalige aanmelding |
+| *objectIdFromSession* | Parameter geleverd door de standaardprovider voor het beheer van sessie om aan te geven dat de object-ID is opgehaald van een sessie voor eenmalige aanmelding |
 | *isActiveMFASession* | Opgegeven door de MFA-sessiebeheer om aan te geven dat de gebruiker een actieve sessie voor MFA heeft-parameter |
 
 ### <a name="additional-optional-claims-that-can-be-collected"></a>Aanvullende (optioneel) claims die kunnen worden verzameld
@@ -145,15 +145,15 @@ Deze sectie beschrijft de technische profielen is al gedeclareerd voor de claimp
 
 | Technische profiel | Beschrijving |
 |-------------------|-------------|
-| *Login-NonInteractive* | |
+| *Aanmelding niet-interactieve* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Technische profielen voor Phone Factor
 
 | Technische profiel | Beschrijving |
 |-------------------|-------------|
-| *PhoneFactor-Input* | |
+| *PhoneFactor-invoer* | |
 | *PhoneFactor-InputOrVerify* | |
-| *PhoneFactor-Verify* | |
+| *PhoneFactor controleren* | |
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Technische profielen voor Azure Active Directory
 
@@ -187,13 +187,13 @@ Deze sectie beschrijft de technische profielen is al gedeclareerd voor de claimp
 
 | Technische profiel | Beschrijving |
 |-------------------|-------------|
-| *SM-Noop* | |
+| *SM-NoOperation* | |
 | *SM-AAD* | |
 | *SM-SocialSignup* | Profielnaam wordt gebruikt voor het AAD-sessie tussen sign up heffen en aanmelden |
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Technische profielen voor Trustframework beleid Engine TechnicalProfiles
+### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>Technische profielen voor de beleidsengine vertrouwensrelatie-framework
 
 Momenteel geen technische profielen zijn gedefinieerd voor de **Trustframework beleid Engine TechnicalProfiles** claimprovider.
 
@@ -210,7 +210,7 @@ Deze sectie beschrijft de trajecten gebruiker is al gedeclareerd in de *B2C_1A_b
 | Gebruiker reis | Beschrijving |
 |--------------|-------------|
 | *Aanmelden* | |
-| *SignIn* | |
+| *Aanmelding* | |
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |

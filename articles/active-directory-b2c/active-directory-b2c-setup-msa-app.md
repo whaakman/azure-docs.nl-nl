@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Configuratie Microsoft-account | Microsoft Docs'
+title: Configuratie van de Microsoft-account in Azure Active Directory B2C | Microsoft Docs
 description: Registreren en aanmelden gebruikers met een Microsoft-account in uw toepassingen die zijn beveiligd met Azure Active Directory B2C bieden.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: e167c8737bc600f52759f33456fec3bc6e0a3678
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: be8c691835d2e89d5d305e01f9717e55e3741baf
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712416"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met Microsoft-accounts
 ## <a name="create-a-microsoft-account-application"></a>Een toepassing van Microsoft-account maken
@@ -35,7 +35,7 @@ Voor het gebruik van Microsoft-account als een id-provider in Azure Active Direc
    
     ![Microsoft-account - platform toevoegen](./media/active-directory-b2c-setup-msa-app/msa-add-platform.png)
    
-    ![Microsoft account - Web](./media/active-directory-b2c-setup-msa-app/msa-web.png)
+    ![Microsoft-account - webservice](./media/active-directory-b2c-setup-msa-app/msa-web.png)
 6. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in de **omleidings-URI's** veld. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c.onmicrosoft.com).
    
     ![Microsoft-account - Omleidings-URL](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)

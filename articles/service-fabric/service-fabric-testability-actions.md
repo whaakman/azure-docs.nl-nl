@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 087a0f12f765b55c2e2976abd93d791409ff6d44
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757618"
 ---
 # <a name="testability-actions"></a>Testbaarheid acties
 Om te simuleren een onbetrouwbare infrastructuur, biedt u de ontwikkelaar, manieren om te simuleren verschillende echte fouten en statusovergangen van Azure Service Fabric. Deze zijn beschikbaar als testbaarheid acties. De acties zijn de op laag niveau API's die ertoe leiden een specifieke fout injectie, statusovergang of validatie dat. U kunt uitgebreide Testscenario's voor uw services schrijven door een combinatie van deze acties.
@@ -41,8 +42,8 @@ Voor betere quality-validatie uitvoeren, de service en zakelijke werkbelasting t
 | CleanTestState |Hiermee verwijdert u alle statussen van de test uit het cluster in geval van een onjuist afsluiten van het stuurprogramma voor de test. |CleanTestStateAsync |Remove-ServiceFabricTestState |Niet van toepassing |
 | InvokeDataLoss |Induceert verlies van gegevens in een service-partitie. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Correcte |
 | InvokeQuorumLoss |De partitie van een bepaalde stateful service plaatst in quorumverlies. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Correcte |
-| Primaire verplaatsen |De opgegeven primaire replica van een stateful service verplaatst naar het gespecificeerde clusterknooppunt. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Correcte |
-| Secundaire verplaatsen |De huidige secundaire replica van een stateful service verplaatst naar een ander clusterknooppunt. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Correcte |
+| MovePrimary |De opgegeven primaire replica van een stateful service verplaatst naar het gespecificeerde clusterknooppunt. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Correcte |
+| MoveSecondary |De huidige secundaire replica van een stateful service verplaatst naar een ander clusterknooppunt. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Correcte |
 | RemoveReplica |Een replica-fout simuleert door het verwijderen van een replica van een cluster. Dit de replica wordt gesloten en verandert deze in rol 'None', verwijderen van alle van de status van het cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Correcte |
 | RestartDeployedCodePackage |Simuleert een fout in het pakket code door een codepakket geïmplementeerd op een knooppunt in een cluster opnieuw te starten. Hiermee annuleert het proces voor het pakket van code, die wordt alle gebruiker service replica's die worden gehost in het proces opnieuw opgestart. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Geforceerde afsluiting |
 | Restartnode uitgevoerd |Simuleert een knooppuntfout voor Service Fabric-cluster door een knooppunt opnieuw te starten. |RestartNodeAsync |Restart-ServiceFabricNode |Geforceerde afsluiting |

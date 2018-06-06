@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725442"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -29,13 +30,17 @@ Dit artikel wordt uitgelegd hoe u werkt met timer triggers in Azure Functions. E
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pakketten
+## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De timertrigger is opgegeven de [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-pakket. De broncode voor het pakket bevindt zich in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-opslagplaats.
+De timertrigger is opgegeven de [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-pakket versie 2.x. De broncode voor het pakket bevindt zich in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
+
+De timertrigger is opgegeven de [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-pakket versie 3.x. De broncode voor het pakket bevindt zich in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Voorbeeld
 
@@ -214,6 +219,8 @@ Elk veld kan een van de volgende soorten waarden hebben:
 |Een set waarden (`,` operator)|<nobr>"5,8,10 **** *"</nobr>|op hh:mm:05 hh:mm:08 en hh:mm:10 waarbij UU: mm elke minuut van elk uur (3 maal een minuut wordt)|
 |Een intervalwaarde (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|op hh:05:00, hh:10:00, hh:15:00 tot en met hh:55:00 waarbij UU staat voor elk uur (12 keer een uur)|
 
+Als u wilt opgeven, maanden of dagen kunt u de afkorting van drie letters gebruiken in plaats van de numerieke waarden. Gebruik bijvoorbeeld Jan voor januari of Sun voor zondag.
+
 ### <a name="cron-examples"></a>CRON-voorbeelden
 
 Hier volgen enkele voorbeelden van CRON-expressies die u voor de timertrigger in Azure Functions gebruiken kunt.
@@ -272,7 +279,7 @@ Als u een opslagaccount voor meerdere apps van de functie deelt, zorg dat elke f
 
 ## <a name="retry-behavior"></a>Opnieuw proberen
 
-In tegenstelling tot de wachtrij worden geactiveerd opnieuw niet de timertrigger nadat een functie is mislukt. Als er een functie uitvalt, het is't tot de volgende keer opnieuw worden aangeroepen voor de planning.
+In tegenstelling tot de wachtrij worden geactiveerd opnieuw niet de timertrigger nadat een functie is mislukt. Wanneer een functie is mislukt, is niet het aangeroepen tot de volgende keer opnieuw op basis van de planning.
 
 ## <a name="next-steps"></a>Volgende stappen
 

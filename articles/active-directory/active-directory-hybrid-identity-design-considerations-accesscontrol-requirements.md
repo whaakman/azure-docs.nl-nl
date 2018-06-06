@@ -1,35 +1,37 @@
 ---
 title: Hybride identiteit ontwerpvereisten voor toegangsbeheer Azure | Microsoft Docs
 description: Bevat informatie over de stijlen van identiteit en het bepalen van de toegangsvereisten voor de bronnen voor gebruikers in een hybride omgeving.
-documentationcenter: 
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a61e7ab4c738f6cba17bcc74c3bfd335378ab83
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801215"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Vereisten voor toegangsbeheer voor uw oplossing voor hybride identiteit bepalen
-Wanneer een organisatie hun hybride identiteitsoplossing ontwerpt kunnen ze deze mogelijkheid ook gebruiken om te controleren van de toegangsvereisten voor de resources die ze willen beschikbaar maken voor gebruikers. De data access cross alle vier stijlen van identiteit, die zijn:
+Wanneer een organisatie de hybride identiteitsoplossing ontwerpt is, kunnen ze deze mogelijkheid ook gebruiken om te controleren van de toegangsvereisten voor de resources die ze willen beschikbaar maken voor gebruikers. De data access cross alle vier stijlen van identiteit, die zijn:
 
 * Beheer
 * Verificatie
 * Autorisatie
 * Controleren
 
-De volgende secties wordt uitgelegd, verificatie en autorisatie in meer details, beheer en controle deel uitmaken van de levenscyclus van hybride identiteit. Lees [beheertaken voor hybride identiteit bepalen](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) voor meer informatie over deze mogelijkheden.
+De volgende secties wordt uitgelegd verificatie en autorisatie in meer details, beheer en controle deel uitmaken van de levenscyclus van hybride identiteit. Lees [beheertaken voor hybride identiteit bepalen](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) voor meer informatie over deze mogelijkheden.
 
 > [!NOTE]
 > Lees [de vier stijlen van identiteit - identiteitsbeheer in de leeftijd van hybride IT](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) voor meer informatie over elk van deze stijlen.
@@ -41,7 +43,7 @@ Er zijn verschillende scenario's voor verificatie en autorisatie, heeft deze sce
 
 * Wordt van uw organisatie verifiëren en autoriseren van alleen gebruikers die zich bevindt op hun identiteitsbeheersysteem?
   * Zijn er plannen voor B2B-scenario's?
-  * Zo ja, u al weet welke protocollen (SAML, OAuth, Kerberos, Tokens of certificaten) wordt gebruikt voor het verbinden van beide bedrijven?
+  * Zo ja, u al weet welke protocollen (OAuth SAML Kerberos of certificaten) wordt gebruikt voor het verbinden van beide bedrijven?
 * De oplossing voor hybride identiteiten die u wilt vaststellen ondersteuning die protocollen ondersteunt?
 
 Een ander belangrijk punt in overweging moet nemen is waar de verificatie-opslagplaats die wordt gebruikt door gebruikers en partners zich bevindt en het beheermodel moet worden gebruikt. Houd rekening met de volgende twee belangrijkste opties:
@@ -58,7 +60,7 @@ Welk model van uw organisatie invoert varieert volgens de vereisten van hun bedr
   * Zo ja, de acceptatie van een model van hybride identiteit beïnvloedt dit proces?
 
 ## <a name="access-control"></a>Access Control
-Hoewel verificatie en autorisatie core-elementen voor toegang tot zakelijke gegevens via de validatie van de gebruiker zijn, is het ook belangrijk om te bepalen het niveau van toegang dat deze gebruikers zijn en het niveau van toegangbeheerders hebben via de bronnen die ze beheert. Uw oplossing voor hybride identiteit moet kunnen bieden gedetailleerde toegang tot bronnen, overdracht en role base access control. Zorg ervoor dat de volgende vraag worden beantwoord met betrekking tot toegangsbeheer:
+Hoewel verificatie en autorisatie core-elementen voor toegang tot zakelijke gegevens via de validatie van de gebruiker zijn, is het ook belangrijk om te bepalen het niveau van toegang dat deze gebruikers zijn en het niveau van toegangbeheerders hebben via de bronnen die ze beheert. Uw oplossing voor hybride identiteit moet kunnen bieden gedetailleerde toegang tot bronnen, overdracht en role base access control. Zorg ervoor dat de volgende vraag is beantwoord met betrekking tot toegangsbeheer:
 
 * Heeft uw bedrijf meer dan één gebruiker met verhoogde bevoegdheden voor het beheren van identiteiten?
   * Zo ja, heeft elke gebruiker behoefte aan hetzelfde toegangsniveau?

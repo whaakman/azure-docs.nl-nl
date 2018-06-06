@@ -1,20 +1,21 @@
 ---
 title: De gebruikersinterface van een gebruiker reis met aangepast beleid aanpassen | Microsoft Docs
-description: Meer informatie over Azure Active Directory B2C aangepast beleid
+description: Meer informatie over Azure Active Directory B2C aangepast beleid.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: 0980c79ccd9ebd170e747514bba712c498e1387c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711906"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van een gebruiker reis met aangepast beleid aanpassen
 
@@ -139,11 +140,11 @@ De volgende tabel beschrijft het doel van de voorgaande HTML5-pagina's.
 
 | HTML5-sjabloon | Beschrijving |
 |----------------|-------------|
-| *phonefactor.html* | Deze pagina kan worden gebruikt als een sjabloon voor een multi-factor authentication-pagina. |
+| *phonefactor.HTML* | Deze pagina kan worden gebruikt als een sjabloon voor een multi-factor authentication-pagina. |
 | *resetpassword.html* | Deze pagina kan worden gebruikt als een sjabloon voor een wachtwoordpagina vergeten. |
 | *selfasserted.html* | Deze pagina kan worden gebruikt als een sjabloon voor een sociale account aanmelden pagina, de registratiepagina voor een lokaal account of een lokale account-aanmeldingspagina. |
-| *unified.html* | Deze pagina kan worden gebruikt als een sjabloon voor een uniforme Meld u aan of de aanmeldingspagina. |
-| *updateprofile.html* | Deze pagina kan worden gebruikt als een sjabloon voor een profiel update-pagina. |
+| *Unified.HTML* | Deze pagina kan worden gebruikt als een sjabloon voor een uniforme Meld u aan of de aanmeldingspagina. |
+| *updateprofile.HTML* | Deze pagina kan worden gebruikt als een sjabloon voor een profiel update-pagina. |
 
 ## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>Een koppeling naar uw HTML5/CSS-sjablonen naar uw reis gebruiker toevoegen
 

@@ -12,19 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ec5947bc68ba95a7b1e1588c444f4b28a7435f1c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801534"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Na de installatie van de ASDK configuratietaken
-Na [installeren van de ASDK](asdk-install.md), er zijn enkele aanbevolen na de installatie-configuratie worden gewijzigd. 
 
-## <a name="install-azure-stack-powershell"></a>PowerShell voor Azure Stack installeren 
+Na [Azure Stack Development Kit (ASDK) installeren](asdk-install.md), moet u een enkele aanbevolen na de installatie-configuratie wijzigen.
+
+## <a name="install-azure-stack-powershell"></a>PowerShell voor Azure Stack installeren
+
 Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken met Azure-Stack.
 
 PowerShell-opdrachten voor Azure-Stack zijn geïnstalleerd via de PowerShell-galerie. Voor het registreren van de opslagplaats PSGallery, open een PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht:
@@ -35,9 +38,9 @@ Set-PSRepository `
   -InstallationPolicy Trusted
 ```
 
- Azure Stack compatibel AzureRM-modules zijn geïnstalleerd via de API-versie profielen. Azure Stack vereist het 2017-03-09-profiel API-versie-profiel dat beschikbaar is door de module AzureRM.Bootstrapper installeren. 
- 
- U kunt de nieuwste Azure Stack PowerShell-module installeren met of zonder internetverbinding op de computer ASDK:
+U kunt profielen voor API-versie opgeven Azure Stack compatibel AzureRM modules.  API-versie-profielen bieden een manier voor het beheren van versieverschillen tussen Azure en Azure-Stack. Een API-versie-profiel is een set van AzureRM PowerShell-modules met specifieke API-versies. De **AzureRM.Bootstrapper** module die is beschikbaar via de PowerShell-galerie biedt PowerShell-cmdlets die nodig zijn voor het werken met profielen voor API-versie.
+
+U kunt de nieuwste Azure Stack PowerShell-module installeren met of zonder internetverbinding op de computer ASDK:
 
 > [!IMPORTANT]
 > Voordat u de vereiste versie installeert, moet u [verwijdert geen bestaande Azure PowerShell-modules](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
@@ -45,7 +48,7 @@ Set-PSRepository `
 - **Met een internetverbinding** van de hostcomputer ASDK. Voer de volgende PowerShell-script voor het installeren van deze modules op uw development kit installatie:
 
   ``` PowerShell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
   Install-Module `
     -Name AzureRm.BootStrapper
 
@@ -53,10 +56,11 @@ Set-PSRepository `
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile -Force
 
-  Install-Module `
-    -Name AzureStack `
-    -RequiredVersion 1.2.11
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+  Install-Module -Name AzureStack -RequiredVersion 1.3.0 
+
   ```
+
   Als de installatie geslaagd is, worden de modules AzureRM en AzureStack weergegeven in de uitvoer.
 
 - **Zonder internetverbinding** van de hostcomputer ASDK. In een niet-verbonden scenario moet u eerst de PowerShell-modules downloaden voor een machine die verbinding heeft met internet met behulp van de volgende PowerShell-opdrachten:
@@ -78,11 +82,13 @@ Set-PSRepository `
     -Name AzureStack `
     -Path $Path `
     -Force `
-    -RequiredVersion 1.2.11
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
+    -RequiredVersion 1.3.0
   ```
+
   Vervolgens de gedownloade pakketten kopiëren naar de computer ASDK en registreren van de locatie als de standaard-opslagplaats en installeren van de modules AzureRM en AzureStack uit deze opslagplaats:
 
-    ```PowerShell
+    ```PowerShell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -99,6 +105,7 @@ Set-PSRepository `
     ```
 
 ## <a name="download-the-azure-stack-tools"></a>Download de Azure-Stack-tools
+
 [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) is een GitHub-opslagplaats die als host fungeert voor PowerShell-modules voor het beheren en implementeren van resources op Azure-Stack. U kunt deze hulpprogramma's, de GitHub-opslagplaats klonen of downloaden van de map AzureStack-hulpprogramma's voor het volgende script uit te voeren:
 
   ```PowerShell
@@ -123,7 +130,7 @@ Set-PSRepository `
 ## <a name="validate-the-asdk-installation"></a>De installatie ASDK valideren
 Om ervoor te zorgen dat de ASDK-implementatie gelukt is, kunt u de cmdlet Test-AzureStack met de volgende stappen:
 
-1. Meld u aan als AzureStack\CloudAdmin op de hostcomputer ASDK.
+1. Meld u aan als AzureStack\AzureStackAdmin op de hostcomputer ASDK.
 2. Open PowerShell als beheerder (niet PowerShell ISE).
 3. Uitvoeren: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. Uitvoeren: `Test-AzureStack`

@@ -7,20 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 06/04/2018
 ms.author: brjohnst
-ms.openlocfilehash: 7754242aa79a2ba7931a6d80a7a12a0858c6f260
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bbc26402b30c7796ba11fef159d5cedefa5d58d
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802466"
 ---
 # <a name="api-versions-in-azure-search"></a>API-versies in Azure Search
-Azure Search regelmatig updates van de functie is uitgevouwen. Soms, maar niet altijd nodig deze updates ons voor het publiceren van een nieuwe versie van de API voor achterwaartse compatibiliteit. Publiceren van een nieuwe versie, kunt u bepalen wanneer en hoe u de search-service-updates in uw code integreren.
+Azure Search regelmatig updates van de functie is uitgevouwen. Soms, maar niet altijd nodig deze updates in een nieuwe versie van de API voor achterwaartse compatibiliteit. Publiceren van een nieuwe versie, kunt u bepalen wanneer en hoe u de search-service-updates in uw code integreren.
 
-We proberen als een regel voor het publiceren van nieuwe versies alleen indien nodig, omdat deze mogelijk moeite om uw code voor het gebruik van een nieuwe API-versie te upgraden. Er wordt een nieuwe versie alleen publiceren als we wilt wijzigen van een bepaald aspect van de API op een manier die achterwaartse compatibiliteit. Dit kan gebeuren vanwege verbeteringen in bestaande functies of vanwege de nieuwe functies die surface area van bestaande API wijzigen.
+Als een regel publiceert het team van Azure Search nieuwe versies alleen indien nodig, omdat deze mogelijk moeite om uw code voor het gebruik van een nieuwe API-versie te upgraden. Een nieuwe versie is alleen nodig als een bepaald aspect van de API is gewijzigd op een manier die achterwaartse compatibiliteit. Dergelijke wijzigingen kunnen gebeuren vanwege verbeteringen in bestaande functies, of vanwege de nieuwe functies die surface area van bestaande API wijzigen.
 
-Er volgt u dezelfde regel voor SDK-updates. De Azure Search SDK volgt de [semantische versioning](http://semver.org/) regels, wat betekent dat de versie ervan bestaat uit drie delen: primaire, secundaire en build-nummer (bijvoorbeeld 1.1.0). We brengen een nieuwe primaire versie van de SDK alleen in geval van wijzigingen die problemen met achterwaartse compatibiliteit. Voor vaste functie-updates, wordt de secundaire versie wordt verhoogd en voor oplossingen voor problemen we alleen de build-versie wordt verhoogd.
+De dezelfde regel geldt voor SDK-updates. De Azure Search SDK volgt de [semantische versioning](http://semver.org/) regels, wat betekent dat de versie ervan bestaat uit drie delen: primaire, secundaire en build-nummer (bijvoorbeeld 1.1.0). Een nieuwe primaire versie van de SDK is vrijgegeven alleen voor wijzigingen die problemen met achterwaartse compatibiliteit. Vaste functie-updates wordt de secundaire versie verhogen en oplossingen voor problemen neemt alleen de build-versie.
 
 > [!NOTE]
 > Uw Azure Search-service-exemplaar ondersteunt verschillende versies van de REST-API, met inbegrip van de meest recente versie. U kunt blijven gebruiken van een versie wanneer het is niet meer de meest recente versie, maar het is raadzaam dat u uw code voor het gebruik van de nieuwste versie migreren. Wanneer u de REST-API gebruikt, moet u de API-versie opgeven in elke aanvraag via de api-versie-parameter. Wanneer u de .NET SDK, bepaalt de versie van de SDK die u in de desbetreffende versie van de REST-API. Als u een oudere SDK gebruikt, kunt u blijven code uit te voeren die zonder wijzigingen zelfs als de service is bijgewerkt zodat een nieuwere versie van de API wordt ondersteund.
@@ -32,13 +33,12 @@ Hieronder wordt een momentopname van de huidige versies van alle interfaces voor
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |5.0 |In het algemeen beschikbaar, April 2018 uitgebracht |
 | [Voorbeeld van de .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Voorbeeld van mei 2017 uitgebracht |
-| [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Algemeen beschikbaar |
-| [Service REST API 2016-09-01-Preview](search-api-2016-09-01-preview.md) |2016-09-01-preview |Preview |
-| [Service REST API 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-preview |Preview |
+| [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Algemeen beschikbaar |
+| [Service REST API 2017-11-11-Preview](search-api-2017-11-11-preview.md) |11-11-2017-preview |Preview |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Algemeen beschikbaar |
 | [REST-API voor beheer](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Algemeen beschikbaar |
 
-Voor de REST-API's, inclusief de `api-version` op elke aanroep is vereist. Hierdoor kunt gemakkelijk gericht op een specifieke versie, zoals een preview-API. Het volgende voorbeeld ziet u hoe de `api-version` parameter opgegeven:
+Voor de REST-API's, inclusief de `api-version` op elke aanroep is vereist. Met behulp van `api-version` kunt u gemakkelijk gericht op een specifieke versie, zoals een preview-API. Het volgende voorbeeld ziet u hoe de `api-version` parameter opgegeven:
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
@@ -47,14 +47,14 @@ Voor de REST-API's, inclusief de `api-version` op elke aanroep is vereist. Hierd
 >
 > De REST-API-Service en de REST-API Management zijn samengestelde onafhankelijk van elkaar. Er is overeenkomsten in versienummers toevallige.
 
-Algemeen beschikbaar (of GA) API's kunnen worden gebruikt in productie en zijn onderworpen aan Azure serviceovereenkomsten. Preview-versies hebben experimentele functies die niet altijd worden gemigreerd naar een GA-versie. **We raden u ten zeerste aan met behulp van de preview-API's in productietoepassingen.**
+Algemeen beschikbaar (of GA) API's kunnen worden gebruikt in productie en zijn onderworpen aan Azure serviceovereenkomsten. Preview-versies hebben experimentele functies die niet altijd worden gemigreerd naar een GA-versie. **U wordt sterk aangeraden om te voorkomen dat met behulp van de preview-API's in productietoepassingen.**
 
 ## <a name="about-preview-and-generally-available-versions"></a>Over de versies van Preview en algemeen beschikbaar
 Azure Search versies altijd vooraf experimentele functies via de REST-API eerst vervolgens via voorlopige versies van de .NET SDK.
 
-Preview-functies niet worden gegarandeerd dat wordt gemigreerd naar een GA-release. Terwijl de functies in een GA-versie worden beschouwd als stabiel en waarschijnlijk niet wijzigen met uitzondering van kleine neerwaarts compatibele oplossingen en verbeteringen, zijn preview-functies beschikbaar voor testen en experimenteren met het doel van het verzamelen van feedback op functie ontwerpen en implementeren.
+Preview-functies zijn beschikbaar voor testen en experimenteren met het doel van het verzamelen van feedback op functie ontwerpen en implementeren. Preview-functies kunnen om deze reden wijzigen gedurende een periode, mogelijk op een manier die achterwaartse compatibiliteit. Dit is in tegenstelling tot functies in een GA-versie die stabiel en waarschijnlijk niet wijzigen met uitzondering van kleine neerwaarts compatibele oplossingen en verbeteringen. Bovendien Maak Voorbeeldfuncties altijd geen deze in een GA-release.
 
-Echter, omdat preview-functies nog worden gewijzigd, wordt u aangeraden tegen schrijven productiecode waarmee een afhankelijkheid op preview-versies. Als u van een oudere versie van de preview gebruikmaakt, raden wij migreren naar de versie van de algemeen beschikbaar (GA).
+Daarom wordt aangeraden tegen schrijven productiecode waarmee een afhankelijkheid op preview-versies. Als u een oudere versie van de preview, raden wij migreren naar de versie van de algemeen beschikbaar (GA).
 
 Voor de .NET SDK: richtlijnen voor de migratie van de code kan worden gevonden op [Upgrade van de .NET SDK](search-dotnet-sdk-migration.md).
 

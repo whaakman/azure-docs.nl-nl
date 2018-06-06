@@ -4,17 +4,18 @@ description: Beschrijft hoe vast te stellen van grote aantallen lokale machines 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/04/2018
 ms.author: raynew
-ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 89c9cfd4bdc1c483764983c886ba9f96cc75c69e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736827"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
-In dit artikel wordt beschreven hoe vast te stellen van grote aantallen on-premises virtuele machines (VM's) met behulp van [Azure migreren](migrate-overview.md). Azure migreren beoordeelt machines om te controleren of ze geschikt voor migratie naar Azure zijn. De service biedt sizing en kosten schattingen voor het uitvoeren van de machines in Azure.
+Azure migreren heeft een limiet van 1500 machines per project, in dit artikel wordt beschreven hoe vast te stellen van grote aantallen on-premises virtuele machines (VM's) met behulp van [Azure migreren](migrate-overview.md).   
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -23,7 +24,9 @@ In dit artikel wordt beschreven hoe vast te stellen van grote aantallen on-premi
 - **Machtigingen**: In de vCenter-Server, moet u machtigingen voor het maken van een virtuele machine door een bestand in de indeling eicellen te importeren.
 - **Instellingen voor statistieken**: de instellingen van de statistieken voor de vCenter-Server moeten worden ingesteld op niveau 3 voordat u implementatie begint. Als het niveau lager dan 3 is, de beoordeling werkt, maar prestatiegegevens voor opslag en netwerk won't worden verzameld. De aanbevelingen voor de grootte wordt in dit geval gebaseerd op prestatiegegevens voor de CPU en geheugen en configuratiegegevens voor de schijf en netwerkadapters.
 
-## <a name="plan-azure-migrate-projects"></a>Azure migreren projecten plannen
+## <a name="plan-your-migration-projects-and-discoveries"></a>Plan uw migratie-projecten en detecties
+
+Één Azure migreren collector biedt ondersteuning voor detectie van meerdere vCenter-Servers (achter elkaar) en biedt ook ondersteuning voor detectie van meerdere projecten voor migratie (achter elkaar). De collector werkt in een brand en vergeet model als een detectie is voltooid, kunt u de dezelfde collector voor het verzamelen van gegevens uit een andere vCenter-Server of verzenden naar een andere migratieproject.
 
 Plan uw detecties en beoordelingen op basis van de volgende beperkingen:
 
@@ -33,25 +36,35 @@ Plan uw detecties en beoordelingen op basis van de volgende beperkingen:
 | Detectie  | 1,500             |
 | Evaluatie | 1,500             |
 
-<!--
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
-- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
-- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
-- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
-    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
-      -->
-
-## <a name="plan-multiple-discoveries"></a>Meerdere detecties plannen
-
-De dezelfde collector voor het migreren van Azure kunt u meerdere detecties op een of meer projecten doen. Houd er rekening mee deze planningsoverwegingen:
+Houd er rekening mee deze planningsoverwegingen:
 
 - Wanneer u een detectie doen met behulp van de collector Azure migreren, kunt u het detectiebereik instellen naar een map van de vCenter-Server, datacenter, cluster of host.
 - Controleer hiervoor meer dan één detectie in vCenter-Server die de virtuele machines die u wilt detecteren in mappen, datacenters, clusters of hosts die ondersteuning bieden voor de beperking van 1500 machines.
 - We adviseren dat voor een evaluatie, u machines met afhankelijkheden binnen het hetzelfde project en de evaluatie. Zorg dat afhankelijke machines zich in dezelfde map, datacenter of cluster voor de beoordeling in vCenter-Server.
 
+Afhankelijk van uw scenario kunt u uw detecties splitsen zoals voorgeschreven hieronder:
 
-## <a name="create-a-project"></a>Een project maken
+### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Meerdere vCenter Servers met minder dan 1500 virtuele machines
+
+Als er meerdere vCenter Servers in uw omgeving en het totale aantal virtuele machines minder dan 1500 is, kunt u één collector en een afzonderlijke migratie-project voor het detecteren van alle virtuele machines op alle vCenter-Servers. Aangezien de collector een vCenter-Server tegelijk detecteert, kunt u de dezelfde collector uitvoeren op alle vCenter-Servers achter elkaar en de collector verwijzen naar hetzelfde migratieproject. Als de detecties voltooid zijn, kunt u vervolgens beoordelingen voor de machines maken.
+
+### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Meerdere vCenter Servers met meer dan 1500 virtuele machines
+
+Als er meerdere vCenter Servers met minder dan 1500 virtuele machines per vCenter-Server, maar meer dan 1500 VM's via alle vCenter fungeert, moet u meerdere migratie projecten (één migratieproject kunt houdt alleen 1500 VM's) maken. U kunt dit doen door het maken van een migratieproject per vCenter-Server en de detecties splitsen. U kunt één collector gebruiken voor het detecteren van elke vCenter-Server (achter elkaar). Als u de detecties te starten op hetzelfde moment wilt, kunt u ook meerdere toestellen te implementeren en de detecties parallel worden uitgevoerd.
+
+### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Meer dan 1500 machines in een enkel vCenter-Server
+
+Als u meer dan 1500 virtuele machines in een enkel vCenter-Server hebt, moet u de detectie splitsen in meerdere projecten voor migratie. Als u wilt splitsen detecties, kunt u gebruikmaken van het veld bereik in het toestel en opgeven van de host-, cluster-, map- of datacenter die u wilt detecteren. Bijvoorbeeld, als er twee mappen in vCenter Server, één met 1000 VMs (Map1) en andere met 800 virtuele machines (Folder2), u kunt gebruiken één collector en twee detecties uitvoeren. In de eerste detectie kunt u Map1 opgeven als het bereik en wijst deze aan het migratieproject eerste zodra de eerste detectie is voltooid, kunt u de dezelfde collector gebruiken, wijzigen van het bereik in projectgegevens Folder2 en migratie naar het tweede migratieproject en de tweede detectie doen.
+
+### <a name="multi-tenant-environment"></a>Multitenant-omgeving
+
+Als u een omgeving die worden gedeeld door tenants hebt en u niet wilt detecteren van de virtuele machines van een tenant in een andere tenant abonnement, kunt u het veld bereik in het toestel collector als bereik voor de detectie. Als de tenants hosts deelt, een referentie die alleen-lezen toegang heeft tot alleen de virtuele machines die horen bij de specifieke tenant maken en deze referentie gebruiken in het toestel collector en het bereik opgeven als host voor de detectie uitvoeren. Als alternatief kunt u ook mappen maken in vCenter Server (Stel Map1 voor tenant1 en folder2 voor tenant2), onder de gedeelde host, de virtuele machines voor tenant1 in Map1 en tenant2 verplaatsen naar folder2 en vervolgens de detecties in de collector dienovereenkomstig bereik door op te geven op de juiste map.
+
+## <a name="discover-on-premises-environment"></a>On-premises omgeving detecteren
+
+Nadat u klaar met de planning bent, kunt u vervolgens de detectie van de on-premises virtuele machines starten:
+
+### <a name="create-a-project"></a>Een project maken
 
 Maak een project Azure migreren volgens uw vereisten:
 
@@ -61,11 +74,11 @@ Maak een project Azure migreren volgens uw vereisten:
 4. Maak een nieuwe resourcegroep.
 5. Geef de locatie waarin u wilt maken van het project en selecteer vervolgens **maken**. Houd er rekening mee dat u uw virtuele machines voor een andere doellocatie nog steeds kunt beoordelen. De opgegeven locatie voor het project wordt gebruikt voor het opslaan van de metagegevens die afkomstig zijn van lokale virtuele machines.
 
-## <a name="set-up-the-collector-appliance"></a>Instellen van het toestel collector
+### <a name="set-up-the-collector-appliance"></a>Instellen van het toestel collector
 
 Azure Migrate maakt een on-premises virtuele machine die het collector-apparaat wordt genoemd. Deze virtuele machine detecteert lokale virtuele VMware-machines en stuurt de metagegevens over deze naar de service Azure migreren. Als u het toestel collector instelt, een bestand eicellen downloaden en importeren naar de lokale vCenter Server-exemplaar.
 
-### <a name="download-the-collector-appliance"></a>Het collector-apparaat downloaden
+#### <a name="download-the-collector-appliance"></a>Het collector-apparaat downloaden
 
 Als u meerdere projecten hebt, moet u voor het downloaden van het toestel collector slechts één keer naar de vCenter-Server. Nadat u downloadt en van het toestel instellen, u deze voor elk project uitvoeren en u de unieke project-ID en sleutel opgeven.
 
@@ -74,7 +87,7 @@ Als u meerdere projecten hebt, moet u voor het downloaden van het toestel collec
 3. In **project referenties kopiëren**, kopieert u de ID en sleutel voor het project. U hebt deze nodig tijdens de configuratie van collector.
 
 
-### <a name="verify-the-collector-appliance"></a>Het collector-apparaat verifiëren
+#### <a name="verify-the-collector-appliance"></a>Het collector-apparaat verifiëren
 
 Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
 
@@ -88,7 +101,7 @@ Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
 
 3. Zorg ervoor dat de gegenereerde hash overeenkomt met de volgende instellingen.
 
-    Voor eicellen versie 1.0.9.8
+    Voor OVA-versie 1.0.9.8
 
     **Algoritme** | **Hash-waarde**
     --- | ---
@@ -120,7 +133,7 @@ Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-## <a name="create-the-collector-vm"></a>De collector-VM maken
+### <a name="create-the-collector-vm"></a>De collector-VM maken
 
 Het gedownloade bestand importeren in de vCenter-Server:
 
@@ -136,7 +149,7 @@ Het gedownloade bestand importeren in de vCenter-Server:
 7. Geef in **Netwerktoewijzing** het netwerk op waarmee de collector-VM verbinding maakt. Het netwerk moet een internetverbinding naar metagegevens wilt verzenden naar Azure.
 8. Controleer en Bevestig de instellingen en selecteer vervolgens **voltooien**.
 
-## <a name="identify-the-id-and-key-for-each-project"></a>Identificeren van de ID en sleutel voor elk project
+### <a name="identify-the-id-and-key-for-each-project"></a>Identificeren van de ID en sleutel voor elk project
 
 Als u meerdere projecten hebt, moet u voor het identificeren van de ID en sleutel voor elk criterium. U moet de sleutel tijdens het uitvoeren van de collector voor het detecteren van de virtuele machines.
 
@@ -144,7 +157,7 @@ Als u meerdere projecten hebt, moet u voor het identificeren van de ID en sleute
 2. In **project referenties kopiëren**, kopieert u de ID en sleutel voor het project.
     ![Referenties project kopiëren](./media/how-to-scale-assessment/copy-project-credentials.png)
 
-## <a name="set-the-vcenter-statistics-level"></a>Het niveau van de vCenter-statistieken instellen
+### <a name="set-the-vcenter-statistics-level"></a>Het niveau van de vCenter-statistieken instellen
 Hieronder volgt de lijst met prestatiemeteritems die worden verzameld tijdens de detectie. De prestatiemeteritems zijn standaard beschikbaar op verschillende niveaus in de vCenter-Server.
 
 U wordt aangeraden dat u algemene optimale (3) voor het niveau van de statistieken zo instellen dat alle items correct zijn verzameld. Als u ingesteld op een lager niveau vCenter hebt, kunnen alleen enkele items volledig worden verkregen met de rest ingesteld op 0. De beoordeling mogelijk onvolledig gegevens vervolgens weer.
@@ -165,7 +178,7 @@ De volgende tabel bevat ook de resultaten van de beoordeling die worden beïnvlo
 > [!WARNING]
 > Als u een hoger niveau van de statistieken zojuist hebt geïnstalleerd, zal deze duren per dag voor het genereren van de prestatiemeteritems. Dus is het raadzaam dat u de detectie na één dag uitvoert.
 
-## <a name="run-the-collector-to-discover-vms"></a>De collector uitvoeren om virtuele machines te detecteren
+### <a name="run-the-collector-to-discover-vms"></a>De collector uitvoeren om virtuele machines te detecteren
 
 Voor elke detectie dat u wilt uitvoeren, moet u de collector voor het detecteren van virtuele machines in het vereiste bereik uitvoeren. Voer de detecties een na de andere. Gelijktijdige detecties worden niet ondersteund moet, en elke detectieregel een ander bereik.
 
@@ -182,7 +195,7 @@ Voor elke detectie dat u wilt uitvoeren, moet u de collector voor het detecteren
 
     De collector controleert of de collector-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
 
-    c. Download en installeer de VMware PowerCLI.
+    c. Download en installeer VMware PowerCLI.
 
 5.  Doe het volgende in **vCenter Server-details opgeven**:
     - Geef de FQDN-naam of IP-adres van de vCenter-Server.
@@ -193,7 +206,7 @@ Voor elke detectie dat u wilt uitvoeren, moet u de collector voor het detecteren
 7.  In **verzameling voortgang**, het detectieproces bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector geeft aan hoe lang de detectie ongeveer zal duren.
 
 
-### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal
+#### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal
 
 De detectietijd is afhankelijk van het aantal virtuele machines dat u detecteert. Normaal gesproken voor 100 virtuele machines, detectie is voltooid rond een uur nadat de collector is voltooid.
 

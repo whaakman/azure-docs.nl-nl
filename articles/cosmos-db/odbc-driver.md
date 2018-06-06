@@ -5,20 +5,17 @@ keywords: ODBC, odbc-stuurprogramma
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 360161ec0485259029be0bbd5194911e484a57e5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725088"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Verbinding maken met Azure Cosmos DB met BI analytics hulpprogramma van het ODBC-stuurprogramma
 
@@ -123,7 +120,7 @@ De volgende stappen maakt u een schema voor de gegevens in een of meer verzameli
 U kunt Azure Cosmos DB uit SQL Server Management Studio (SSMS) query door het instellen van een verbinding met gekoppelde server.
 
 1. Maak een systeemgegevensbron zoals beschreven in [stap 2](#connect)met de naam bijvoorbeeld `SDS Name`.
-2. [Installeer SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+2. [Installeer SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) en maak verbinding met de server. 
 3. Maak een gekoppelde server-object in de query-editor van SSMS `DEMOCOSMOS` voor de gegevensbron met de volgende opdrachten. Vervang `DEMOCOSMOS` met de naam voor de gekoppelde server en `SDS Name` met de naam van de gegevensbron van het systeem.
 
     ```sql
@@ -181,7 +178,7 @@ Als u wilt, kunt u een groot aantal weergaven maken. Wanneer u klaar bent voor h
 
 U kunt uw nieuwe DSN DocumentADB verbinden met een ODBC-hulpprogramma's: deze stap gewoon laat zien hoe u verbinding maken met Power BI Desktop- en maken van een visualisatie in Power BI.
 
-1. Power BI Desktop openen.
+1. Open Power BI Desktop.
 2. Klik op **gegevens ophalen**.
 3. In de **gegevens ophalen** venster, klikt u op **andere** | **ODBC** | **Connect**.
 4. In de **van ODBC** venster, selecteer de gegevensbron waarmee u hebt gemaakt en klik op **OK**. U kunt laten de **geavanceerde opties** vermeldingen leeg.

@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: b51f7dc43f390152b2b0be223541e381bbddd3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1552fbe66f7bad219d8aea8a3f208b0fe69cdf2b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716054"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Analyse van gebeurtenis en visualisatie met Log Analytics
 
@@ -36,17 +37,15 @@ Nadat de gegevens worden ontvangen door Log Analytics, Azure heeft diverse *behe
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Toegang tot de Service Fabric Analytics-oplossing
 
-1. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt. Selecteer de resource **ServiceFabric\<nameOfOMSWorkspace\>**  en Ga naar de overzichtspagina.
+1. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt in Azure-Portal.
 
-2. Klik op de koppeling aan de bovenkant naar de OMS-portal op de overzichtspagina
+2. Selecteer de resource **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-    ![OMS-Portal-koppeling](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
+2. Kortom ziet u tegels in de vorm van een grafiek voor elk van de oplossingen die zijn ingeschakeld, met inbegrip van één voor Service Fabric. Klik op de **Service Fabric** graph (eerste afbeelding hieronder) om door te gaan met de Service Fabric Analytics-oplossing (tweede afbeelding hieronder).
 
-3. U kunt nu in de OMS-portal en ziet de oplossingen die u hebt ingeschakeld. Klik op de grafiek met de Service Fabric titel (eerste afbeelding hieronder) ophalen ondernomen om de Service Fabric-oplossing (tweede afbeelding hieronder)
+    ![OMS SF-oplossing](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![OMS SF-oplossing](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
-
-    ![OMS SF-oplossing](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
+    ![OMS SF-oplossing](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 De afbeelding hierboven is de startpagina van de Service Fabric Analytics-oplossing. Dit is de weergave van een momentopname van wat er in uw cluster gebeurt. Als u diagnostische gegevens bij het maken van het cluster hebt ingeschakeld, kunt u gebeurtenissen voor bekijken 
 
@@ -57,9 +56,9 @@ De afbeelding hierboven is de startpagina van de Service Fabric Analytics-oploss
 >[!NOTE]
 >Naast het operationele kanaal kan meer gedetailleerde systeemgebeurtenissen worden verzameld door [bijwerken van de configuratie van de extensie voor diagnostische gegevens](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
 
-### <a name="view-operational-events-including-actions-on-nodes"></a>Weergave operationele gebeurtenissen, met inbegrip van acties op knooppunten
+### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Met inbegrip van acties op knooppunten van Service Fabric-gebeurtenissen op weergeven
 
-1. Klik op de pagina Service Fabric Analytics in de OMS-portal op de grafiek voor operationele kanaal
+1. Klik op de pagina Service Fabric Analytics op de grafiek voor **gebeurtenissen van de Service Fabric**.
 
     ![OMS SF oplossing operationele kanaal](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
 
@@ -78,7 +77,7 @@ U kunt een query op veel meer velden, zoals de specifieke knooppunten (Computer)
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Weergave Service Fabric betrouwbare Service en Actor-gebeurtenissen
 
-1. Klik op de pagina Service Fabric Analytics in de OMS-portal klikt u op de grafiek voor Reliable Services
+1. Klik op de grafiek voor op de pagina Service Fabric Analytics **Reliable Services**.
 
     ![OMS SF oplossing Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
 

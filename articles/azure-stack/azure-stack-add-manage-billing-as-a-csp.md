@@ -2,10 +2,10 @@
 title: Het gebruik en facturering voor Azure-Stack als een Cloudserviceprovider beheren | Microsoft Docs
 description: Beknopt overzicht van Azure-Stack geregistreerd als Cloudprovider en het toevoegen van klanten.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 23e3a675e6a464c92d26df220c8126c970f590a0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 21a52af4943004789b0a9bdbe4695ab1a603c046
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796696"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Het gebruik en facturering voor Azure-Stack als een Cloud Service Provider beheren 
 
@@ -84,4 +85,4 @@ Aangezien tenant abonnementen CSP abonnementen, hun factuur wordt verzonden naar
 ## <a name="next-steps"></a>Volgende stappen
 
  - Zie voor meer informatie over het programma CSP, [programma Cloud Solution Provider](https://partnercenter.microsoft.com/en-us/partner/programs).
- - Zie voor meer informatie over het ophalen van informatie over het gebruik van de bron van Azure-Stack, [gebruiks- en facturering in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Zie voor meer informatie over het ophalen van informatie over het gebruik van de bron van Azure-Stack, [gebruiks- en facturering in Azure Stack](azure-stack-billing-and-chargeback.md).

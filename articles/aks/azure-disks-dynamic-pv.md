@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3841222d08b23f43f69e77fa43c469793b70ce63
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801378"
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Permanente volumes met Azure-schijven
 
@@ -37,11 +38,14 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
+> [!NOTE]
+> Permanente volume claims zijn opgegeven in GiB maar Azure beheerd schijven wordt gefactureerd per SKU voor een specifieke grootte. Deze SKU's bereik van 32GiB voor S4 of P4 schijven 4TiB voor aanbeveling S50 of P50 schijven. Bovendien de doorvoer en prestaties van de IOPS van een Premium beheerd schijf afhankelijk is van zowel de SKU en de exemplaargrootte van de knooppunten in het cluster AKS. Zie [prijzen en prestaties van beheerde schijven][managed-disk-pricing-performance].
+
 ## <a name="create-persistent-volume-claim"></a>Permanente volume claim maken
 
 Een claim permanente volume (PVC) wordt gebruikt voor het automatisch inrichten van opslag op basis van een opslagklasse. In dit geval een PVC kunt een van de vooraf gemaakte Opslagklassen maken een standard- of premium Azure beheerde schijven.
 
-Maak een bestand met de naam `azure-premimum.yaml`, en kopieer het volgende manifest.
+Maak een bestand met de naam `azure-premium.yaml`, en kopieer het volgende manifest.
 
 Let op dat de `managed-premium` opslagklasse is opgegeven in de aantekening en de claim vraagt een schijf `5GB` aan de grootte van `ReadWriteOnce` toegang.
 
@@ -63,7 +67,7 @@ spec:
 Maken van de claim permanente volume met de [kubectl toepassen] [ kubectl-apply] opdracht.
 
 ```azurecli-interactive
-kubectl apply -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>Met behulp van de permanente volume
@@ -103,16 +107,17 @@ U hebt nu een actieve schil met uw Azure-schijf gekoppeld in de `/mnt/azure` dir
 Meer informatie over Kubernetes permanente volumes met behulp van Azure-schijven.
 
 > [!div class="nextstepaction"]
-> [Kubernetes-invoegtoepassing voor Azure-schijven][kubernetes-disk]
+> [Kubernetes-invoegtoepassing voor Azure-schijven][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md 
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

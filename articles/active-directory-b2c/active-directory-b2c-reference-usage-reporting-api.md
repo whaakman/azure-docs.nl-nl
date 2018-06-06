@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Gebruik reporting API samples en definities | Microsoft Docs'
-description: Handleiding en voorbeelden op rapporten op Azure AD B2C-tenant ophalen van gebruikers, verificaties en multi-factor Authentication-oproepen
+title: Gebruik reporting API voorbeelden en definities in Azure Active Directory B2C | Microsoft Docs
+description: Handleiding en voorbeelden op rapporten op Azure AD B2C-tenant ophalen van gebruikers, verificaties en multi-factor Authentication-oproepen.
 services: active-directory-b2c
-documentationcenter: dev-center-name
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 07029181423927f0796cb85e728df416d01466e8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: B2C
+ms.openlocfilehash: dc7f18e29367a3979a2650a87465366d9727cff6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711627"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Toegang tot gebruiksrapporten in Azure AD B2C via de rapportage-API
 

@@ -5,8 +5,8 @@ services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e1cd7948e1969cd4ddb926e428c09b559190a805
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 23764b476f01c30b1755c507a0cfa5ead27be91e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736548"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Hoge beschikbaarheid aanbevelingen Advisor te ontvangen
 
@@ -48,6 +49,9 @@ Als uw schijven geen hoge IOPS vereisen, kunt u de kosten beperken door het onde
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>De gegevens van uw virtuele machines te beschermen tegen onopzettelijk verwijderen
 Instellen van de virtuele machine back-up zorgt ervoor dat de beschikbaarheid van uw bedrijfskritieke gegevens en biedt bescherming tegen onbedoeld worden verwijderd of beschadigd.  Advisor identificeert virtuele machines waar back-up is niet ingeschakeld en het beveelt back-up inschakelen. 
+
+## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Zorg ervoor dat u hebt toegang tot Azure-cloud-experts wanneer u deze nodig
+Wanneer een bedrijfskritische werkbelasting wordt uitgevoerd, is het belangrijk dat u toegang hebt tot de technische ondersteuning wanneer deze nodig is. Advisor identificeert potentiële bedrijfskritische abonnementen waarvoor geen technische ondersteuning is opgenomen in hun ondersteuningsplan en raadt aan om een upgrade naar een optie met de technische ondersteuning.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor hoge beschikbaarheid in Advisor
 

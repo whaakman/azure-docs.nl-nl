@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5741a5024b5f5105a71d9404191601b951a301e4
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 68a7e71cf374f10b4c5ced3e64da36138b0d2e4d
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800721"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Identiteitsvereisten bepalen voor uw oplossing voor hybride identiteit
 De eerste stap bij het ontwerpen van een hybride identiteitsoplossing is het vaststellen van de vereisten voor de organisatie van de bedrijven die zal worden gebruik van deze oplossing.  Hybride identiteit wordt gestart als een ondersteunende rol (ondersteund alle cloudoplossingen aan de hand van verificatie) en wordt op om te zorgen dat er nieuwe en interessante mogelijkheden die nieuwe werkbelastingen voor gebruikers ontgrendelen.  Deze werkbelastingen of services die u wilt vaststellen voor uw gebruikers worden de vereisten voor het ontwerp van hybride identiteit bepaald.  Deze werkbelastingen en services moeten gebruikmaken van hybride identiteit zowel on-premises en in de cloud.  

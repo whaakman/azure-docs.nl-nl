@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Gebruiker migratie benaderingen'
+title: Migratie van gebruikers nadert in Azure Active Directory B2C | Microsoft Docs
 description: Bespreek core en geavanceerde concepten voor gebruikersmigratie met Graph API en eventueel Azure AD B2C aangepast beleid.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 47f813839a5495591356e5ecd461902fa8745c65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 7c78cb13f9028b2be527794751d5f8ced9bff171
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711338"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migratie gebruiker
 Wanneer u uw identiteitsprovider migreert naar Azure Active Directory B2C (Azure AD B2C), moet u mogelijk ook het migreren van het gebruikersaccount. In dit artikel wordt uitgelegd hoe u bestaande gebruikersaccounts migreert van een identiteitsprovider naar Azure AD B2C. Het artikel is niet bedoeld als richtlijnen, maar in plaats daarvan worden enkele scenario's beschreven. De ontwikkelaar is verantwoordelijk voor de geschiktheid van elke methode.
@@ -145,7 +145,7 @@ Het JSON-bestand bewerken, opent u de `AADB2C.UserMigration.sln` Visual Studio-o
 ![Gegevensbestand van de gebruiker](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Zoals u ziet, is het bestand bevat een lijst van entiteiten van de gebruiker. Elke gebruikersentiteit heeft de volgende eigenschappen:
-* e-mail
+* e-mailen
 * displayName
 * Voornaam
 * lastName

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f7e456c76dcf67a40777e32b100b900b859e210e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736793"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Verkeer analytics Veelgestelde vragen
 
@@ -29,7 +30,14 @@ ms.lasthandoff: 04/18/2018
     - NSG-stroom logboeken ingeschakeld voor het nsg's die u wilt bewaken
     - Een Azure Storage-account voor het opslaan van onbewerkte flog Logboeken
     - Een werkruimte voor logboekanalyse (OMS), met lees- en schrijftoegang
-    - Uw account moet worden toegewezen aan de volgende acties op de Microsoft.COMPUTE-provider:
+    - Uw account moet worden toegewezen met een van de volgende machtigingen op abonnementsniveau:
+    
+            All permissions *
+            All Read permissions */read
+            All network permissions Microsoft.Network/*
+            All network read permissions Microsoft.Network/*/read
+
+    Of uw account moet worden toegewezen met alle acties op abonnementsniveau te volgen: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read

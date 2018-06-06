@@ -8,50 +8,42 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 7d05d3aa94fffb13a96fc9074d55d8fa67cadb04
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763116"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beperkingen in Azure-Database voor MySQL
 De volgende secties beschrijven capaciteit, ondersteuning voor opslag-engine, ondersteuning van bevoegdheden, gegevensondersteuning manipulatie instructie en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
 
-## <a name="service-tier-maximums"></a>Service tier maximumwaarden
-Azure MySQL-Database heeft meerdere Servicelagen kiezen bij het maken van een server. Zie voor meer informatie [Azure Database voor MySQL Prijscategorieën](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Maximum aantal verbindingen
+Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt: 
 
-Er is een maximum aantal verbindingen, Compute-eenheden en opslag in elke servicelaag als volgt: 
+|**Prijscategorie**|**vCore(s)**| **Maximum aantal verbindingen**|
+|---|---|---|
+|Basic| 1| 50|
+|Basic| 2| 100|
+|Algemeen doel| 2| 300|
+|Algemeen doel| 4| 625|
+|Algemeen doel| 8| 1250|
+|Algemeen doel| 16| 2500|
+|Algemeen doel| 32| 5000|
+|Geoptimaliseerd geheugen| 2| 600|
+|Geoptimaliseerd geheugen| 4| 1250|
+|Geoptimaliseerd geheugen| 8| 2500|
+|Geoptimaliseerd geheugen| 16| 5000|
 
-|**Prijscategorie**| **COMPUTE generatie**|**vCore(s)**| **Max Connections**|
-|---|---|---|---|
-|Basic| Gen 4| 1| 50|
-|Basic| Gen 4| 2| 100|
-|Basic| Gen 5| 1| 50|
-|Basic| Gen 5| 2| 100|
-|Algemeen doel| Gen 4| 2| 300|
-|Algemeen doel| Gen 4| 4| 625|
-|Algemeen doel| Gen 4| 8| 1250|
-|Algemeen doel| Gen 4| 16| 2500|
-|Algemeen doel| Gen 4| 32| 5000|
-|Algemeen doel| Gen 5| 2| 300|
-|Algemeen doel| Gen 5| 4| 625|
-|Algemeen doel| Gen 5| 8| 1250|
-|Algemeen doel| Gen 5| 16| 2500|
-|Algemeen doel| Gen 5| 32| 5000|
-|Geoptimaliseerd geheugen| Gen 5| 2| 600|
-|Geoptimaliseerd geheugen| Gen 5| 4| 1250|
-|Geoptimaliseerd geheugen| Gen 5| 8| 2500|
-|Geoptimaliseerd geheugen| Gen 5| 16| 5000|
-
-Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
+Wanneer er verbindingen de limiet overschrijdt, wordt de volgende fout:
 > FOUT (08004) 1040: Te veel verbindingen
 
 ## <a name="storage-engine-support"></a>Ondersteuning voor opslag-engine
 
 ### <a name="supported"></a>Ondersteund
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+- [GEHEUGEN](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
 ### <a name="unsupported"></a>Niet-ondersteund
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
@@ -85,8 +77,6 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 ### <a name="point-in-time-restore"></a>Een punt in de tijd herstellen
 - Herstellen naar andere servicelaag en/of Compute-eenheden en de opslaggrootte is niet toegestaan.
 - Herstellen van een verwijderde server wordt niet ondersteund.
-
-## <a name="functional-limitations"></a>Functionele beperkingen
 
 ### <a name="subscription-management"></a>Abonnementsbeheer
 - Dynamisch vooraf gemaakte servers verplaatsen tussen abonnement en resourcegroep is momenteel niet ondersteund.

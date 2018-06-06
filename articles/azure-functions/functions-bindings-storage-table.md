@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1c8cee149e99786b58e4584e5e7b508b1040389d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 51b9f7bfd25da7dfd4ae9038f8dab70e9232b944
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724578"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -27,13 +28,17 @@ Dit artikel wordt uitgelegd hoe u werkt met Azure Table storage bindingen in de 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pakketten
+## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De bindingen van de opslag tabel vindt u in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) GitHub-opslagplaats.
+De bindingen van de opslag tabel vindt u in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
+
+De bindingen van de opslag tabel vindt u in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 3.x. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -104,6 +109,9 @@ public class TableStorage
     }
 }
 ```
+
+  > [!NOTE]
+  > `IQueryable` wordt niet ondersteund de [runtime van Functions v2](functions-versions.md). Een alternatief is [CloudTable paramName methodeparameter gebruiken](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) lezen van de tabel met behulp van de Azure-opslag-SDK. Als u probeert te binden aan `CloudTable` en verschijnt een foutbericht, zorg ervoor dat u een verwijzing naar hebt [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
 
 ### <a name="input---c-script-example-1"></a>Invoer - C# scriptvoorbeeld 1
 
@@ -382,8 +390,8 @@ De tabel opslag invoer binding ondersteunt de volgende scenario's:
 
   Toegang tot gegevens in de tabel met behulp van een methodeparameter `IQueryable<T> <paramName>`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` moet een type dat implementeert `ITableEntity` of is afgeleid van `TableEntity`. U kunt `IQueryable` methoden wilt filteren vereist. De `partitionKey`, `rowKey`, `filter`, en `take` eigenschappen worden niet gebruikt in dit scenario.  
 
-> [!NOTE]
-> `IQueryable` wordt niet ondersteund de [runtime van Functions v2](functions-versions.md). Een alternatief is [CloudTable paramName methodeparameter gebruiken](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) lezen van de tabel met behulp van de Azure-opslag-SDK.
+  > [!NOTE]
+  > `IQueryable` wordt niet ondersteund de [runtime van Functions v2](functions-versions.md). Een alternatief is [CloudTable paramName methodeparameter gebruiken](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) lezen van de tabel met behulp van de Azure-opslag-SDK. Als u probeert te binden aan `CloudTable` en verschijnt een foutbericht, zorg ervoor dat u een verwijzing naar hebt [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
 
 * **Lezen van een of meer rijen in JavaScript**
 
@@ -640,7 +648,7 @@ De Table storage uitvoer binding ondersteunt de volgende scenario's:
 
   In C# en C# script, toegang krijgen tot de entiteit van de tabel uitvoer met een methodeparameter `ICollector<T> paramName` of `IAsyncCollector<T> paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. `T` Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. Normaal gesproken `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar heeft geen aan. De partitiesleutel en rij waarden in sleutel *function.json* of de `Table` kenmerkconstructor worden niet gebruikt in dit scenario.
 
-  Een alternatief is een `CloudTable paramName` methodeparameter om te schrijven naar de tabel met behulp van de Azure-opslag-SDK.
+  Een alternatief is een `CloudTable paramName` methodeparameter om te schrijven naar de tabel met behulp van de Azure-opslag-SDK. Als u probeert te binden aan `CloudTable` en verschijnt een foutbericht, zorg ervoor dat u een verwijzing naar hebt [de juiste versie van de opslag-SDK](#azure-storage-sdk-version-in-functions-1x).
 
 * **Schrijven van een of meer rijen in JavaScript**
 

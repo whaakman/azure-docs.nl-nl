@@ -2,27 +2,28 @@
 title: Azure Stream Analytics op IoT rand (preview)
 description: Edge-taken maken in Azure Stream Analytics en deze implementeren naar apparaten gestart Azure IoT rand.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ce0420dde5bf232fe8067a3b14814f14380602e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802524"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics op IoT rand (preview)
 
 > [!IMPORTANT]
-> Deze functionaliteit is in preview. We raden niet gebruiken in productie.
+> Deze functionaliteit is Preview-versie en wordt niet aanbevolen voor gebruik in productie.
  
-Azure Stream Analytics (ASA) op de rand IoT machtigt ontwikkelaars near-realtime analytische intelligence dichter op IoT-apparaten implementeren, zodat de volledige meerwaarde van apparaat gegenereerde gegevens kan worden ontgrendeld. Ontworpen voor lage latentie, tolerantie, bandbreedte en naleving efficiënt worden gebruikt, kunnen ondernemingen nu implementeren besturingselement logica dicht bij de industriële bewerkingen en een aanvulling vormen op Big Data-analyses uitgevoerd in de cloud.  
-Azure Stream Analytics op IoT-rand wordt uitgevoerd in de [Azure IoT rand](https://azure.microsoft.com/campaigns/iot-edge/) framework. Nadat de taak is gemaakt in ASA, deploym en beheren van de ASA-jobs met IoT Hub.
-Deze functie is een Preview-versie, als u vragen of feedback hebt kunt u [deze enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) contact opnemen met het productteam. 
+Azure Stream Analytics (ASA) op de rand IoT machtigt ontwikkelaars near-realtime analytische intelligence dichter op IoT-apparaten implementeren, zodat de volledige meerwaarde van apparaat gegenereerde gegevens kan worden ontgrendeld. Azure Stream Analytics is ontworpen voor lage latentie, tolerantie, bandbreedte en naleving efficiënt worden gebruikt. Ondernemingen kunnen nu besturingselement logica dicht bij de industriële bewerkingen implementeren en een aanvulling vormen op Big Data-analyses uitgevoerd in de cloud.  
+
+Azure Stream Analytics op IoT-rand wordt uitgevoerd in de [Azure IoT rand](https://azure.microsoft.com/campaigns/iot-edge/) framework. Zodra de taak is gemaakt in ASA, kunt u deze kunt implementeren en beheren van de ASA-jobs met IoT Hub. Deze functie is beschikbaar als preview-versie. Als u vragen of feedback hebt, kunt u [deze enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) contact opnemen met het productteam. 
 
 ## <a name="scenarios"></a>Scenario's
 ![Diagram op hoog niveau](media/stream-analytics-edge/ASAedge_highlevel.png)
@@ -36,7 +37,7 @@ Deze functie is een Preview-versie, als u vragen of feedback hebt kunt u [deze e
 ### <a name="what-is-an-edge-job"></a>Wat is er een taak 'edge'?
 
 ASA rand taken worden uitgevoerd als modules binnen [Azure IoT rand runtime](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works). Deze zijn samengesteld uit twee delen:
-1.  Een cloud-onderdeel dat verantwoordelijk is voor de taakdefinitie: gebruikers invoer, uitvoer, query en andere instellingen (volgorde van gebeurtenissen, enz.) definiëren in de cloud.
+1.  Een cloud-onderdeel dat verantwoordelijk is voor de taakdefinitie: gebruikers invoer, uitvoer en andere instellingen (volgorde van gebeurtenissen, enz.) definiëren in de cloud.
 2.  De ASA op de rand van de IoT-module die wordt lokaal uitgevoerd. Het bevat de engine ASA complexe verwerking en de taakdefinitie ontvangt van de cloud. 
 
 ASA maakt gebruik van IoT Hub rand taken op apparaten implementeren. Meer informatie over [IoT rand implementatie ziet u hier](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -48,16 +49,21 @@ ASA maakt gebruik van IoT Hub rand taken op apparaten implementeren. Meer inform
 De stappen op hoog niveau worden in de volgende tabel beschreven. Meer details zijn opgegeven in de volgende secties.
 |      |Stap   | Plaats     | Opmerkingen   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Een ASA edge-taak maken**   | Azure Portal      |  Maak een nieuwe taak, selecteer **rand** als **hostomgeving**. <br> Deze taken zijn gemaakt/beheerd vanuit de cloud en uitvoeren op uw eigen IoT Edge-apparaten.     |
-| 2   | **Een opslagcontainer maken**   | Azure Portal       | Storage-containers worden gebruikt voor het opslaan van de taakdefinitie van de waar ze toegankelijk zijn voor uw IoT-apparaten. <br>  U kunt een bestaande opslagcontainer hergebruiken.     |
-| 3   | **Uw omgeving zijde van IoT op uw apparaten instellen**   | Appara(a)t(en)      | Instructies voor het [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) of [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 1   | **Een opslagcontainer maken**   | Azure Portal       | Storage-containers worden gebruikt voor het opslaan van de taakdefinitie van de waar ze toegankelijk zijn voor uw IoT-apparaten. <br>  U kunt een bestaande opslagcontainer hergebruiken.     |
+| 2   | **Een ASA edge-taak maken**   | Azure Portal      |  Maak een nieuwe taak, selecteer **rand** als **hostomgeving**. <br> Deze taken zijn gemaakt/beheerd vanuit de cloud en uitvoeren op uw eigen IoT Edge-apparaten.     |
+| 3   | **Instellen van uw omgeving zijde van IoT op uw apparaten**   | Appara(a)t(en)      | Instructies voor het [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) of [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **ASA implementeren op de rand van de IoT-apparaten**   | Azure Portal      |  De taakdefinitie ASA wordt geëxporteerd naar de storage-container die eerder hebt gemaakt.       |
 U kunt volgen [deze stapsgewijze zelfstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) voor het implementeren van uw eerste baan ASA op IoT rand. Aan de hand van de volgende video moet u inzicht in het proces is een Stream Analytics-taak uitgevoerd op een apparaat van de rand IoT:  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-
+#### <a name="create-a-storage-container"></a>Een opslagcontainer maken
+Storage-container is vereist voor het exporteren van de query ASA gecompileerd en de taakconfiguratie van de. Wordt gebruikt voor het configureren van de installatiekopie van het ASA Docker met uw specifieke query. 
+1. Ga als volgt [deze instructies](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) een opslagaccount maken vanuit de Azure-portal. U kunt alle standaardopties voor dit account gebruiken met ASA houden.
+2. Maak een blob storage-container in de zojuist gemaakte opslagaccount:
+    1. Klik op **Blobs**, klikt u vervolgens **+ Container**. 
+    2. Voer een naam en het behouden van de container als **persoonlijke**.
 
 #### <a name="create-an-asa-edge-job"></a>Een Edge ASA-taak maken
 > [!Note]
@@ -71,17 +77,11 @@ U kunt volgen [deze stapsgewijze zelfstudie](https://docs.microsoft.com/azure/io
     2. Definieer de referentiegegevens (optioneel).
     3. **Definieer uitvoer Stream(s)**. Een of meerdere uitgangen stromen voor uw project definiëren. 
     4. **Definieer query**. Definieer de ASA-query in de cloud met behulp van de inline-editor. De compiler wordt automatisch gecontroleerd of de syntaxis voor ASA rand ingeschakeld. U kunt ook uw query testen door voorbeeldgegevens te uploaden. 
-4. Optionele instellingen instellen
+4. Instellen van de storage-container-gegevens in de **IoT rand instellingen** menu.
+5. Optionele instellingen instellen
     1. **Gebeurtenis ordening**. U kunt de volgorde out-beleid configureren in de portal. Documentatie is beschikbaar [hier](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Landinstelling**. Stel de deur-indeling.
 
-
-#### <a name="create-a-storage-container"></a>Een opslagcontainer maken
-Storage-container is vereist voor het exporteren van de query ASA gecompileerd en de taakconfiguratie van de. Wordt gebruikt voor het configureren van de installatiekopie van het ASA Docker met uw specifieke query. 
-1. Ga als volgt [deze instructies](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) een opslagaccount maken vanuit de Azure-portal. U kunt alle standaardopties voor dit account gebruiken met ASA houden.
-2. Maak een blob storage-container in de zojuist gemaakte opslagaccount:
-    1. Klik op 'Blobs', klikt u vervolgens '+ Container'. 
-    2. Voer een naam en het behouden van de container als "Vertrouwelijk"
 
 
 > [!Note]
@@ -91,23 +91,23 @@ Storage-container is vereist voor het exporteren van de query ASA gecompileerd e
 #### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>Uw omgeving zijde van IoT op uw apparaten instellen
 Taken van de rand kunnen worden geïmplementeerd op apparaten met Azure IoT rand.
 Hiervoor moet u als volgt te werk:
-- Een Iot-Hub maken
-- Docker- en IoT rand runtime installeren op uw randapparaten;
-- Stel uw apparaten als 'Rand van de IoT-apparaten' in IoT-Hub.
+- Een Iot Hub maken.
+- Docker- en IoT rand runtime installeren op uw randapparaten.
+- Instellen van uw apparaten als **IoT randapparaten** in IoT-Hub.
 
 Deze stappen worden beschreven in de rand van de IoT-documentatie voor [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) of [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Implementatie ASA op de rand van de IoT-apparaten
 ##### <a name="add-asa-to-your-deployment"></a>ASA toevoegen aan uw implementatie
-- In de Azure portal openen IoT Hub, navigeer naar IoT rand Explorer en open de blade van het apparaat.
-- Selecteer **modules ingesteld**, selecteer daarna **importeren Azure IoT rand servicemodule**.
-- Selecteer het abonnement en de rand van de ASA-taak die u hebt gemaakt. Selecteer vervolgens uw opslagaccount. Klik op opslaan.
+- In de Azure portal openen IoT Hub, gaat u naar **IoT rand** en klik op het apparaat als doel voor deze implementatie.
+- Selecteer **modules ingesteld**, selecteer daarna **+ toevoegen** en kies **Azure Stream Analytics-Module**.
+- Selecteer het abonnement en de rand van de ASA-taak die u hebt gemaakt. Klik op opslaan.
 ![ASA-module in uw implementatie toevoegen](media/stream-analytics-edge/set_module.png)
 
 
 > [!Note]
-> Tijdens deze stap ASA vraagt om toegang tot de geselecteerde storage-container en maakt vervolgens een map met de naam 'EdgeJobs'. Voor elke implementatie wordt een nieuwe submap gemaakt in de map 'EdgeJobs'.
+> Tijdens deze stap maakt ASA een map genaamd 'EdgeJobs' in de storage-container (als deze niet al bestaat). Voor elke implementatie wordt een nieuwe submap gemaakt in de map 'EdgeJobs'.
 > ASA maakt om uw werk op de edge-apparaten implementeert, een shared access signature (SAS) voor het definitiebestand voor de taak. De SAS-sleutel worden veilig verzonden naar de rand van de IoT-apparaten met apparaat twin. De vervaldatum van deze sleutel is drie jaar na de dag van het maken ervan.
 
 
@@ -140,7 +140,7 @@ In dit voorbeeld definieert de volgende routes:
 
 ## <a name="technical-information"></a>Technische informatie
 ### <a name="current-limitations-for-edge-jobs-compared-to-cloud-jobs"></a>Huidige beperkingen voor rand taken vergeleken met cloud-taken
-Het doel is om pariteit tussen de rand van taken en in de cloud van taken. De meeste van de functies van onze SQL-querytaal worden al ondersteund.
+Het doel is om pariteit tussen de rand van taken en in de cloud van taken. De meeste functies van SQL-query language worden al ondersteund.
 Echter de volgende functies zijn nog niet ondersteund voor rand taken:
 * Gebruiker gedefinieerde functies (UDF) en de gebruiker gedefinieerde aggregaties (UDA).
 * Azure ML-functies.
@@ -161,11 +161,11 @@ Echter de volgende functies zijn nog niet ondersteund voor rand taken:
 
 
 ### <a name="runtime-and-hardware-requirements"></a>Runtime-en hardwarevereisten
-Als u wilt ASA op IoT rand uitvoeren, moet u de apparaten die kunnen worden uitgevoerd [Azure IoT rand](https://azure.microsoft.com/campaigns/iot-edge/). 
+ASA op IoT rand worden uitgevoerd, moet u de apparaten die kunnen worden uitgevoerd [Azure IoT rand](https://azure.microsoft.com/campaigns/iot-edge/). 
 
-ASA en gebruiken van Azure IoT rand **Docker** containers naar een draagbaar bieden die wordt uitgevoerd op meerdere host-OS (Windows, Linux).
+ASA en gebruiken van Azure IoT rand **Docker** containers naar een draagbaar bieden die wordt uitgevoerd op meerdere host-besturingssystemen (Windows, Linux).
 
-ASA op IoT-rand wordt beschikbaar gesteld als Windows- en Linux-installatiekopieën, uitgevoerd op zowel x86 64- of ARM-architecturen. 
+ASA op IoT-rand wordt beschikbaar gesteld als Windows- en Linux-installatiekopieën, uitgevoerd op zowel x86 64- of Azure Resource Manager-architecturen. 
 
 
 ### <a name="input-and-output"></a>Invoer en uitvoer
@@ -176,12 +176,14 @@ Voor de invoer en uitvoer worden CSV en JSON-indelingen ondersteund.
 
 Voor elk invoer en uitvoerstroom die u in uw taak ASA maakt, wordt een bijbehorende eindpunt op uw geïmplementeerde module gemaakt. Deze eindpunten kunnen worden gebruikt in de routes van uw implementatie.
 
+Momenteel, de enige ondersteunde Stroominvoer en stroom uitvoer typen rand Hub zijn. Verwijzen naar bestand voor invoer ondersteunt verwijzingstype. Andere uitvoer kunnen worden bereikt met behulp van een taak in de cloud downstream. Bijvoorbeeld, verzendt een Stream Analytics-taak die wordt gehost in Microsoft Edge uitvoer naar rand Hub, die vervolgens uitvoer naar IoT Hub verzenden kunt. U kunt een tweede in de cloud gehoste Azure Stream Analytics-taak met invoer van IoT Hub en de uitvoer naar Power BI of een andere uitvoertype gebruiken.
+
 
 
 ##### <a name="reference-data"></a>Referentiegegevens
-Referentiegegevens (ook wel bekend als een opzoektabel) is een beperkte verzameling die statisch of vertraging wijzigen in aard. Wordt gebruikt om een zoekopdracht of correleren met de gegevensstroom. Om ervoor te gebruiken van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u doorgaans een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw Query. Zie voor meer informatie de [ASA-documentatie over referentiegegevens](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Referentiegegevens (ook wel bekend als een opzoektabel) is een beperkte verzameling die statisch of traag wijzigen in aard. Wordt gebruikt om een zoekopdracht of correleren met de gegevensstroom. Om ervoor te gebruiken van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u doorgaans een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw query. Zie voor meer informatie de [ASA-documentatie over referentiegegevens](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
 
-Als u wilt gebruiken referentiegegevens voor ASA over Iot-zijde, moet u als volgt te werk: 
+Voor het gebruik van referentiegegevens voor ASA over Iot-zijde, de volgende stappen uit: 
 1. Een nieuwe invoer voor uw project maken
 2. Kies **referentiegegevens** als de **brontype**.
 3. Stel het bestandspad. Het bestandspad moet een **absolute** bestandspad op het apparaat ![verwijzen naar het maken van gegevens](media/stream-analytics-edge/ReferenceData.png)

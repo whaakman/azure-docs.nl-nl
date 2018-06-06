@@ -14,16 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: danis;cynthn
 ms.openlocfilehash: da5b0db997ba1aa0e998f6fe2645e955b490951d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "33942681"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure-beleid gebruiken voor het beperken van de installatie van de extensies op VM's van Windows
 
 Als u voorkomen dat het gebruik of de installatie van bepaalde extensies op uw Windows-VM's wilt, kunt u een Azure-beleid met behulp van PowerShell om te beperken van uitbreidingen voor virtuele machines binnen een resourcegroep maken. 
 
-Deze zelfstudie wordt Azure PowerShell vanuit de Cloud-Shell die voortdurend wordt bijgewerkt naar de nieuwste versie. Als u wilt installeren en gebruiken van PowerShell lokaal, wordt in deze zelfstudie Azure PowerShell moduleversie 3,6 of hoger vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
+Deze zelfstudie wordt Azure PowerShell vanuit de Cloud-Shell die voortdurend wordt bijgewerkt naar de nieuwste versie. Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 3.6 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
 
 ## <a name="create-a-rules-file"></a>Maak een regelbestand
 

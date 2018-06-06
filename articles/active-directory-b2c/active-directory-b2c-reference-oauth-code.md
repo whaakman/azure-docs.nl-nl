@@ -1,21 +1,21 @@
 ---
-title: Autorisatiecodestroom - Azure AD B2C | Microsoft Docs
+title: Autorisatiecodestroom in Azure Active Directory B2C | Microsoft Docs
 description: Informatie over het bouwen van web-apps met behulp van Azure AD B2C en OpenID Connect-verificatieprotocol.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: d8ed5747f29f969535bbafc1624d9d02e54c8418
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: 0bb15fbc5461ec76a1450bbb9ca452a6f26c8d35
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711501"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-autorisatiecodestroom
 U kunt het verlenen van OAuth 2.0 autorisatie code in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's gebruiken. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OAuth 2.0, u kunt toevoegen, registreren, aanmelden en andere identiteitsbeheer taken naar uw mobiele en bureaublad-apps. In dit artikel is taalonafhankelijk. In het artikel wordt beschreven hoe verzenden en ontvangen van HTTP-berichten zonder gebruik van een open source-bibliotheken.
@@ -78,7 +78,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
 | response_type |Vereist |Het antwoordtype, waaronder moet `code` voor de autorisatiecodestroom. |
 | redirect_uri |Vereist |De omleidings-URI van uw app, waarbij verificatie antwoorden zijn verzonden en ontvangen door uw app. Deze moet exact overeenkomen met een van de omleidings-URI's die u hebt geregistreerd in de portal, behalve dat het URL-codering moet worden. |
-| Bereik |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure Active Directory (Azure AD) beide machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken die kan worden gebruikt op basis van uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor de lange levensduur hebben toegang tot bronnen moet. Ook kunt u de `openid` bereik voor het aanvragen van een token ID bij Azure AD B2C. |
+| scope |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure Active Directory (Azure AD) beide machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken die kan worden gebruikt op basis van uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor de lange levensduur hebben toegang tot bronnen moet. Ook kunt u de `openid` bereik voor het aanvragen van een token ID bij Azure AD B2C. |
 | response_mode |Aanbevolen |De methode die u gebruikt voor het verzenden van de resulterende autorisatiecode terug naar uw app. Kan `query`, `form_post`, of `fragment`. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die in het token antwoord wordt geretourneerd. Het kan zijn dat een tekenreeks van inhoud die u wilt gebruiken. Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt, om aanvraagvervalsing op meerdere sites aanvallen te voorkomen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden. Bijvoorbeeld, de pagina die de gebruiker is op of het beleid dat werd uitgevoerd. |
 | p |Vereist |Het beleid dat wordt uitgevoerd. Dit is de naam van een beleid dat is gemaakt in uw Azure AD B2C-directory. De waarde van de beleid-naam moet beginnen met **b2c\_1\_**. Zie voor meer informatie over het beleid, [ingebouwde beleid van Azure AD B2C](active-directory-b2c-reference-policies.md). |
@@ -133,7 +133,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | p |Vereist |Het beleid dat is gebruikt voor het ophalen van de autorisatiecode. U kunt een ander beleid niet gebruiken in deze aanvraag. Houd er rekening mee dat u, deze parameter moet naar toevoegt de *querytekenreeks*, niet in de hoofdtekst van de POST. |
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
 | grant_type |Vereist |Het type verlenen. Voor de autorisatiecodestroom het grant-type moet `authorization_code`. |
-| Bereik |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken die kan worden gebruikt op basis van uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor de lange levensduur hebben toegang tot bronnen moet.  Ook kunt u de `openid` bereik voor het aanvragen van een token ID bij Azure AD B2C. |
+| scope |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken die kan worden gebruikt op basis van uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor de lange levensduur hebben toegang tot bronnen moet.  Ook kunt u de `openid` bereik voor het aanvragen van een token ID bij Azure AD B2C. |
 | code |Vereist |De autorisatiecode die u hebt verkregen in de eerste zijde van de stroom. |
 | redirect_uri |Vereist |De omleidings-URI van de toepassing waarin u de autorisatiecode ontvangen. |
 
@@ -154,7 +154,7 @@ Een geslaagde reactie token ziet er als volgt:
 | not_before |De tijd waarop het token wordt beschouwd als geldige epoche tijdstip. |
 | token_type |De waarde van het type token. Het enige type dat ondersteuning biedt voor Azure AD is Bearer. |
 | access_token |De ondertekende JSON Web Token (JWT) die u hebt aangevraagd. |
-| Bereik |De bereiken die de token geldig is. U kunt bereiken die in cache tokens gebruiken voor later gebruik. |
+| scope |De bereiken die de token geldig is. U kunt bereiken die in cache tokens gebruiken voor later gebruik. |
 | expires_in |De lengte van de tijd die het token geldig is (in seconden). |
 | refresh_token |Een OAuth 2.0-vernieuwingstoken. De app kunt dit token gebruiken om aanvullende tokens verkrijgen nadat het huidige token is verlopen. Vernieuwen van tokens zijn lange levensduur hebben. U kunt deze gebruiken voor het bewaren van toegang tot bronnen voor langere tijd. Zie voor meer informatie de [Azure AD B2C tokenverwijzing](active-directory-b2c-reference-tokens.md). |
 
@@ -198,7 +198,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
 | client_secret |Vereist |De client_secret die is gekoppeld aan uw client_id in de [Azure-portal](https://portal.azure.com). |
 | grant_type |Vereist |Het type verlenen. Voor deze fase van de autorisatiecodestroom, het type grant moet `refresh_token`. |
-| Bereik |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken die kan worden gebruikt op basis van uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen nodig.  Ook kunt u de `openid` bereik voor het aanvragen van een token ID bij Azure AD B2C. |
+| scope |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken die kan worden gebruikt op basis van uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen nodig.  Ook kunt u de `openid` bereik voor het aanvragen van een token ID bij Azure AD B2C. |
 | redirect_uri |Optioneel |De omleidings-URI van de toepassing waarin u de autorisatiecode ontvangen. |
 | refresh_token |Vereist |Het oorspronkelijke vernieuwingstoken die u hebt verkregen in de tweede fase van de stroom. |
 
@@ -219,7 +219,7 @@ Een geslaagde reactie token ziet er als volgt:
 | not_before |De tijd waarop het token wordt beschouwd als geldige epoche tijdstip. |
 | token_type |De waarde van het type token. Het enige type dat ondersteuning biedt voor Azure AD is Bearer. |
 | access_token |De ondertekende JWT die u hebt aangevraagd. |
-| Bereik |De bereiken die de token geldig is. Ook kunt u de bereiken voor het cache-tokens voor later gebruik. |
+| scope |De bereiken die de token geldig is. Ook kunt u de bereiken voor het cache-tokens voor later gebruik. |
 | expires_in |De lengte van de tijd die het token geldig is (in seconden). |
 | refresh_token |Een OAuth 2.0-vernieuwingstoken. De app kunt dit token gebruiken om aanvullende tokens verkrijgen nadat het huidige token is verlopen. Vernieuwen van tokens worden lange levensduur hebben en kunnen worden gebruikt voor toegang tot bronnen voor langere tijd te behouden. Zie voor meer informatie de [Azure AD B2C tokenverwijzing](active-directory-b2c-reference-tokens.md). |
 

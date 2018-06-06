@@ -1,8 +1,8 @@
 ---
-title: "Gegevens kopiëren of verplaatsen naar Azure Storage met AzCopy in Windows | Microsoft Docs"
-description: "De AzCopy op Windows-hulpprogramma gebruiken om te verplaatsen of kopiëren van gegevens of naar blob, table en de inhoud van bestand. Gegevens van lokale bestanden kopiëren naar Azure Storage of kopiëren van gegevens binnen of tussen opslagaccounts. Uw gegevens eenvoudig migreren naar Azure Storage."
+title: Gegevens kopiëren of verplaatsen naar Azure Storage met AzCopy in Windows | Microsoft Docs
+description: De AzCopy op Windows-hulpprogramma gebruiken om te verplaatsen of kopiëren van gegevens of naar blob, table en de inhoud van bestand. Gegevens van lokale bestanden kopiëren naar Azure Storage of kopiëren van gegevens binnen of tussen opslagaccounts. Uw gegevens eenvoudig migreren naar Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -12,22 +12,34 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/17/2018
 ms.author: seguler
-ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 430979cf197138a9e239eba74e50e9f97d96cbf6
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757601"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevensoverdracht met het AzCopy in Windows
 AzCopy is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens uit Microsoft Azure Blob-, bestands- en tabel opslag, met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
 
-Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy in Windows is gebouwd met .NET Framework en Windows-stijl biedt opdrachtregelopties. [AzCopy op Linux](storage-use-azcopy-linux.md) is gebouwd met .NET Core Framework die gericht is op Linux-platforms biedt POSIX-stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy in Windows.
+Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy in Windows biedt Windows stijl opdrachtregelopties. [AzCopy op Linux](storage-use-azcopy-linux.md) gericht op Linux-platforms biedt POSIX-stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy in Windows.
 
 ## <a name="download-and-install-azcopy-on-windows"></a>Download en installeer AzCopy in Windows
 
-Download de [meest recente versie van AzCopy op Windows](http://aka.ms/downloadazcopy).
+### <a name="latest-preview-version-v800"></a>Meest recente Preview-versie (v8.0.0)
+Download de [meest recente preview-versie van AzCopy op Windows](http://aka.ms/downloadazcopypr). Deze Preview-versie biedt aanzienlijke prestatieverbeteringen en pakketten .NET Core in de installatie.
+
+#### <a name="azcopy-on-windows-80-preview-release-notes"></a>AzCopy op Windows 8.0 Preview Release-opmerkingen
+- Tabelservice wordt niet meer ondersteund in de meest recente versie. Als u de export-tabelfunctie gebruikt, moet u de stabiele versie downloaden.
+- Gebouwd met .NET Core 2.1 en alle afhankelijkheden van .NET Core nu zijn verpakt in de installatie.
+- Aanzienlijke prestatieverbeteringen voor zowel het uploaden en downloaden van scenario 's
+
+### <a name="latest-stable-version-v710"></a>Meest recente stabiele versie (v7.1.0)
+Download de [nieuwste stabiele versie van AzCopy op Windows](http://aka.ms/downloadazcopy).
+
+### <a name="post-installation-step"></a>De stap na de installatie
 
 Na de installatie van AzCopy op Windows met behulp van het installatieprogramma, open een opdrachtvenster en navigeer naar de installatiemap van AzCopy op uw computer - waar de `AzCopy.exe` uitvoerbare bestand zich bevindt. Indien gewenst, kunt u de installatielocatie van AzCopy toevoegen aan het systeempad. AzCopy is standaard geïnstalleerd te `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` of `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
@@ -136,7 +148,7 @@ Bekijk op verschillende manieren voor het uploaden van BLOB's met behulp van AzC
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
 ```
 
-Als de opgegeven bestemming-container niet bestaat, wordt AzCopy maakt en uploadt het bestand in de App.
+Als de opgegeven doelcontainer niet bestaat, wordt deze door AzCopy gemaakt en wordt het bestand erin geüpload.
 
 ### <a name="upload-a-single-blob-to-a-virtual-directory"></a>Één blob uploaden naar een virtuele map
 
@@ -340,7 +352,7 @@ AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https
 ```
 Wanneer u een bestand vanuit de bestandsshare kopiëren naar de blob, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
-### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Een blob van Blob-opslag te kopiëren naar een Azure-bestandsshare
+### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Een blob kopiëren van Blob-opslag naar een Azure-bestandsshare
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
@@ -610,7 +622,21 @@ U kunt het ook voor tabellen uitvoeren:
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
 
-## <a name="azcopy-parameters"></a>AzCopy Parameters
+### <a name="automatically-determine-content-type-of-a-blob"></a>Type inhoud van een Blob automatisch bepalen
+
+AzCopy bepaalt type inhoud van een blob op basis van een JSON-bestand met extensie bestandstoewijzing inhoudstype. Deze JSON-bestand met de naam AzCopyConfig.json en bevindt zich in de map AzCopy. Als u een bestandstype dat is niet in de lijst hebt, kunt u de toewijzing kunt toevoegen aan het JSON-bestand:
+
+```
+{
+  "MIMETypeMapping": {
+    ".myext": "text/mycustomtype",
+    .
+    .
+  }
+}
+```     
+
+## <a name="azcopy-parameters"></a>AzCopy-Parameters
 
 Parameters voor AzCopy worden hieronder beschreven. U kunt ook een van de volgende opdrachten uit vanaf de opdrachtregel voor hulp bij het gebruik van AzCopy typen:
 
@@ -624,7 +650,7 @@ Hiermee geeft u de brongegevens waaruit u wilt kopiëren. De bron kan een bestan
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
-### <a name="destdestination"></a>/Dest:"destination"
+### <a name="destdestination"></a>/ Dest: "doelmap"
 
 Hiermee geeft u het doel om naar te kopiëren. Het doel mag een bestandssysteemmap, een blob-container, een blob virtuele map, een bestandsshare voor opslag, een map voor opslag of een Azure-tabel.
 
@@ -718,7 +744,7 @@ Het logboekbestand heet standaard AzCopyVerbose.log in `%LocalAppData%\Microsoft
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
-### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
+### <a name="zjournal-file-folder"></a>/ Z: [journaal-map]
 
 Hiermee geeft u een map journaal-bestand voor het hervatten van een bewerking.
 
@@ -789,7 +815,7 @@ Alleen bestanden die het kenmerk Archief hebt geüpload.
 
 **Van toepassing op:** Blobs, bestanden
 
-### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
+### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
 
 Alleen bestanden die een van de opgegeven kenmerken set hebt geüpload.
 
@@ -808,7 +834,7 @@ Beschikbare kenmerken zijn onder andere:
 
 **Van toepassing op:** Blobs, bestanden
 
-### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
+### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
 
 Sluit bestanden die een of meer van de opgegeven kenmerken is ingesteld.
 
@@ -827,7 +853,7 @@ Beschikbare kenmerken zijn onder andere:
 
 **Van toepassing op:** Blobs, bestanden
 
-### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
+### <a name="delimiterdelimiter"></a>/ Scheidingsteken: "scheidingsteken"
 
 Hiermee geeft u het scheidingsteken dat wordt gebruikt voor het scheiden van virtuele mappen in een blob-naam.
 
@@ -859,7 +885,7 @@ Hiermee wordt aangegeven dat de `destination` bron is een blob beschikbaar zijn 
 
 **Van toepassing op:** Blobs, tabellen
 
-### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
+### <a name="pkrskey1key2key3"></a>/ PKRS: "key1 #key2 key3 #..."
 
 Splitst de partitiesleutelbereik zodat de tabelgegevens parallel de snelheid van de exportbewerking verhoogt te exporteren.
 
@@ -871,7 +897,7 @@ Elke bewerking exporteert een van drie partitie sleutel bereiken, zoals hieronde
 
   [aa, bb)
 
-  [bb, last-partition-key]
+  [bb, laatste partitiesleutel]
 
 **Van toepassing op:** tabellen
 
@@ -915,7 +941,7 @@ U kunt deze optie gebruiken bij het kopiëren van bestanden in Blob storage, bin
 
 **Van toepassing op:** Blobs, bestanden
 
-### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
+### <a name="setcontenttypecontent-type"></a>/ SetContentType: 'content-type'
 
 Hiermee geeft u het MIME-inhoudstype voor bestemming blobs of bestanden.
 
@@ -943,10 +969,6 @@ Als u blobs of bestanden met AzCopy kopieert, houd er rekening mee dat een ander
 
 Als u niet voorkomen andere toepassingen dat bij het schrijven naar blobs of bestanden, terwijl ze worden gekopieerd, klikt u vervolgens Houd er rekening mee dat op het moment dat de taak is voltooid, de gekopieerde resources niet meer mogelijk volledige pariteit met de bron-resources.
 
-### <a name="run-one-azcopy-instance-on-one-machine"></a>Één AzCopy-sessie uitvoeren op één computer.
-
-AzCopy is ontworpen om u te maximaliseren van uw machinebron de gegevensoverdracht versnellen, is het raadzaam u slechts één exemplaar van AzCopy uitvoeren op één machine en selecteer de optie `/NC` als u meer gelijktijdige bewerkingen nodig. Typ voor meer informatie `AzCopy /?:NC` op de opdrachtregel.
-
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>FIPS-compatibele MD5-algoritmen voor AzCopy inschakelen wanneer u "Gebruik compatibele FIPS-algoritmen voor versleuteling, hashing en ondertekening."
 
 AzCopy standaard .NET MD5-implementatie gebruikt voor het berekenen van de MD5 bij het kopiëren van objecten, maar er zijn bepaalde beveiligingsvereisten voor de die AzCopy inschakelen FIPS-compatibele MD5 instelling nodig.
@@ -972,12 +994,12 @@ Compatibele FIPS-algoritmen zijn standaard uitgeschakeld in Windows. U kunt deze
 Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 
 ### <a name="azure-storage-documentation"></a>Documentatie bij Azure Storage:
-* [Inleiding tot Azure Storage](../storage-introduction.md)
+* [Kennismaking met Azure Storage](../storage-introduction.md)
 * [Het Blob storage gebruiken met .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
 * [Hoe File storage gebruiken met .NET](../storage-dotnet-how-to-use-files.md)
 * [Hoe Table storage gebruiken met .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Het maken, beheren of een opslagaccount verwijderen](../storage-create-storage-account.md)
-* [Gegevensoverdracht met AzCopy op Linux](storage-use-azcopy-linux.md)
+* [Gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage-blogberichten:
 * [Inleiding tot Azure Storage Data Movement bibliotheek-Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)

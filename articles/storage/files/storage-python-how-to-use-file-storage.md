@@ -3,9 +3,9 @@ title: Ontwikkelen voor Azure-bestanden met behulp van Python | Microsoft Docs
 description: Informatie over het ontwikkelen van Python-toepassingen en services die gebruikmaken van Azure-bestanden voor het opslaan van gegevens uit een bestand.
 services: storage
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1102fd516b5497b4c482986b64fa7c96e9ccc54a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738258"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Ontwikkelen voor Azure-bestanden met behulp van Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -93,11 +94,11 @@ for file_or_dir in generator:
 ```
 
 ## <a name="upload-a-file"></a>Bestand uploaden 
-Azure File share tenminste bevat, een hoofdmap waarin de bestanden kunnen zich bevinden. In deze sectie leert u hoe een bestand van de lokale opslag naar de hoofdmap van een share te uploaden.
+Azure-bestandsshare op het minst bevat een hoofdmap waarin de bestanden kunnen zich bevinden. In deze sectie leert u hoe een bestand van de lokale opslag naar de hoofdmap van een share te uploaden.
 
 Voor het maken van een bestand en de gegevens uploaden, gebruiken de `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` of `create_file_from_text` methoden. Op hoog niveau methoden voor het uitvoeren van de benodigde verdeling in segmenten wanneer de grootte van de gegevens is groter dan 64 MB zijn.
 
-`create_file_from_path`de inhoud van een bestand van het opgegeven pad, uploadt en `create_file_from_stream` de inhoud van een al geopend bestandsstroom uploadt. `create_file_from_bytes`een matrix met bytes, uploadt en `create_file_from_text` uploadt de opgegeven tekstwaarde met behulp van de opgegeven codering (standaard ingesteld op UTF-8).
+`create_file_from_path` de inhoud van een bestand van het opgegeven pad, uploadt en `create_file_from_stream` de inhoud van een al geopend bestandsstroom uploadt. `create_file_from_bytes` een matrix met bytes, uploadt en `create_file_from_text` uploadt de opgegeven tekstwaarde met behulp van de opgegeven codering (standaard ingesteld op UTF-8).
 
 Het volgende voorbeeld wordt de inhoud van geüpload de **sunset.png** bestand naar de **mijnbestand** bestand.
 

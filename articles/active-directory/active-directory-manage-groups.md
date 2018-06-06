@@ -8,17 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: ef218abb1bef4a51880187fb5764cebfb40afadd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6163f8d2466637933024760c6d748c6007803b1d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712943"
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Toegang tot resources beheren met Azure Active Directory-groepen
 Azure Active Directory (Azure AD) is een uitgebreide identiteits- en toegangsbeheer-beheeroplossing die een set krachtige mogelijkheden biedt voor het beheer van toegang tot on-premises en cloudtoepassingen en bronnen, met inbegrip van Microsoft online services zoals Office 365 en een wereld van Microsoft SaaS-toepassingen. In dit artikel biedt een overzicht, maar als u wilt beginnen met behulp van Azure AD nu gegroepeerd, volg de instructies in [beveiligingsgroepen beheren in Azure AD](active-directory-groups-create-azure-portal.md). Als u wilt laten zien hoe u PowerShell kunt gebruiken voor het beheren van groepen in Azure Active directory kunt u meer informatie in [Azure Active Directory-cmdlets voor groepsbeheer](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).

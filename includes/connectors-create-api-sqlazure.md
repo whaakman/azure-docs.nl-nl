@@ -1,42 +1,113 @@
-### <a name="prerequisites"></a>Vereisten
-* Een Azure-account; kunt u een [gratis account](https://azure.microsoft.com/free)
-* Een [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) met de verbindingsinformatie, met inbegrip van de servernaam, databasenaam en gebruikersnaam en wachtwoord. Deze informatie is opgenomen in de verbindingsreeks voor de SQL-Database:
-  
-    Server tcp =:*yoursqlservername*. database.windows.net,1433;Initial Catalog =*yourqldbname*; Beveiliginsinfo = False; Gebruikers-ID = {your_username}; Wachtwoord = {your_password}; Voor MultipleActiveResultSets = False; Versleutelen = True; TrustServerCertificate = False; Verbindingstime-out = 30;
-  
-    Lees meer over [Azure SQL-Databases](https://azure.microsoft.com/services/sql-database).
+---
+title: bestand opnemen
+description: bestand opnemen
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/15/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 013e230aa7e096f6a90ed7cf9e93a44fbdeb3bd6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34678208"
+---
+* Als u Azure SQL Database gebruikt, volg de stappen onder [verbinding maken met Azure SQL Database](#connect-azure-sql-db). 
 
-> [!NOTE]
-> Wanneer u een Azure SQL Database maakt, kunt u ook de voorbeelddatabases die deel uitmaakt van SQL maken. 
-> 
-> 
+* Als u SQL Server gebruikt, volg de stappen onder [verbinding maken met SQL Server](#connect-sql-server).
 
-Voordat u uw Azure SQL Database in een logische app, verbinding maken met uw SQL-Database. U kunt dit eenvoudig doen in uw logische app in de Azure portal.  
+<a name="connect-azure-sql-db"></a>
 
-Verbinding maken met uw Azure SQL Database met behulp van de volgende stappen uit:  
+### <a name="connect-to-azure-sql-database"></a>Verbinding maken met Azure SQL Database
 
-1. Een logische app maken. In de ontwerpfunctie voor Logic Apps een trigger toevoegen en voeg vervolgens een actie. Selecteer **beheerde API's van Microsoft weergeven** in de vervolgkeuzelijst en voer vervolgens 'sql' in het zoekvak. Selecteer een van de acties:  
-   
-    ![Stap voor SQL Azure-verbinding maken](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. Als u verbindingen met SQL-Database nog niet eerder hebt gemaakt, wordt u gevraagd de verbindingsdetails op te geven:  
-   
-    ![Stap voor SQL Azure-verbinding maken](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Geef de details van de SQL-Database. Eigenschappen met een sterretje zijn vereist.
-   
-   | Eigenschap | Details |
-   | --- | --- |
-   | Verbinding maken via de Gateway |Laat dit uitgeschakeld. Dit wordt gebruikt bij het verbinden met een lokale SQL Server. |
-   | Verbindingsnaam * |Voer een naam voor de verbinding. |
-   | Naam van SQL Server * |Voer de naam van de server; Dit is ongeveer *servername.database.windows.net*. Naam van de server wordt weergegeven in de eigenschappen van de SQL-Database in de Azure portal en ook weergegeven in de verbindingsreeks. |
-   | SQL-databasenaam * |Voer de naam opgegeven van de SQL-Database. Deze wordt vermeld in de eigenschappen van de SQL-Database in de verbindingsreeks: Initial Catalog =*yoursqldbname*. |
-   | Gebruikersnaam * |Geef de gebruikersnaam die u hebt gemaakt bij de SQL-Database is gemaakt. Deze wordt vermeld in de eigenschappen van de SQL-Database in de Azure portal. |
-   | Wachtwoord * |Voer het wachtwoord die u hebt gemaakt bij de SQL-Database is gemaakt. |
-   
-    Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken en toegang tot uw SQL-gegevens. Hierna kunt er uw Verbindingsdetails ongeveer als volgt:  
-   
-    ![Stap voor SQL Azure-verbinding maken](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Selecteer **Maken**. 
-5. U ziet dat de verbinding is gemaakt. Ga nu verder met de overige stappen in uw logische app: 
-   
-    ![Stap voor SQL Azure-verbinding maken](./media/connectors-create-api-sqlazure/table.png)
+1. Wanneer de SQL-trigger of actie wordt u gevraagd om de verbindingsgegevens, als volgt te werk:
 
+   1. Maak een naam voor de verbinding.
+
+   2. Selecteer uw SQL-server en selecteer vervolgens de database. 
+
+      De lijst van de database wordt pas weergegeven als u uw SQL server selecteren.
+ 
+   3. Geef uw gebruikersnaam en wachtwoord voor uw server.
+
+      U vindt deze informatie in de Azure-portal onder de eigenschappen van uw SQL-database of in de verbindingsreeks: 
+      
+      "Gebruikers-ID = <*uwgebruikersnaam*>"
+      <br>
+      "Wachtwoord = <*yourPassword*>"
+
+   Dit voorbeeld ziet u de verbindingsgegevens voor een trigger, maar deze stappen te werken voor acties.
+
+   ![Maak verbinding met Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   <br>
+   Sterretjes (*) geven de vereiste waarden.
+
+   | Eigenschap | Waarde | Details | 
+   |----------|-------|---------| 
+   | Verbindingsnaam | <*Mijn sql-verbinding*> | De naam voor de verbinding | 
+   | SQL Server-naam | <*Mijn sql-server*> | De naam voor uw SQL-server |
+   | SQL-databasenaam | <*Mijn sql-database*>  | De naam voor de SQL-database | 
+   | Gebruikersnaam | <*Mijn sql-gebruikersnaam*> | De gebruikersnaam op voor toegang tot uw database |
+   | Wachtwoord | <*Mijn sql-wachtwoord*> | Het wachtwoord voor toegang tot uw database | 
+   |||| 
+
+2. Wanneer u klaar bent, kiest u **Maken**.
+
+3. Nadat u uw verbinding maakt, doorgaan met [trigger toevoegen SQL](#add-sql-trigger) of [toevoegen SQL actie](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### <a name="connect-to-sql-server"></a>Verbinding maken met SQL Server
+
+Voordat u uw gateway selecteren kunt, zorg ervoor dat u al [instellen van uw data gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Op die manier uw gateway wordt weergegeven in de lijst gateways wanneer u uw verbinding maken.
+
+1. Wanneer de SQL-trigger of actie wordt u gevraagd om de verbindingsgegevens, als volgt te werk:
+
+   1. Selecteer in de trigger of actie **verbinden via on-premises gegevensgateway** dat de SQL server-opties worden weergegeven.
+
+   2. Maak een naam voor de verbinding.
+
+   3. Geef het adres voor uw SQL-server en geef vervolgens de naam voor uw database.
+   
+      U kunt deze informatie vinden in de verbindingsreeks: 
+      
+      * "Server = <*yourServerAddress*>"
+      * "Database = <*yourDatabaseName*>"
+
+   4. Geef uw gebruikersnaam en wachtwoord voor uw server.
+
+      U kunt deze informatie vinden in de verbindingsreeks: 
+      
+      * "Gebruikers-ID = <*uwgebruikersnaam*>"
+      * "Wachtwoord = <*yourPassword*>"
+
+   5. Als uw SQL server gebruikmaakt van Windows of basisverificatie, selecteert u het verificatietype.
+
+   6. Selecteer de naam voor uw on-premises gegevens-gateway die u eerder hebt gemaakt.
+   
+      Als uw gateway niet wordt weergegeven in de lijst, controleert u dat u goed [instellen van uw gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+
+   Dit voorbeeld ziet u de verbindingsgegevens voor een trigger, maar deze stappen te werken voor acties.
+
+   ![SQL Server-verbinding maken](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   <br>
+   Sterretjes (*) geven de vereiste waarden.
+
+   | Eigenschap | Waarde | Details | 
+   |----------|-------|---------| 
+   | Verbinding maken via de on-premises gateway | Selecteer deze optie eerst voor SQL Server-instellingen. | | 
+   | Verbindingsnaam | <*Mijn sql-verbinding*> | De naam voor de verbinding | 
+   | SQL Server-naam | <*Mijn sql-server*> | De naam voor uw SQL-server |
+   | SQL-databasenaam | <*Mijn sql-database*>  | De naam voor de SQL-database |
+   | Gebruikersnaam | <*Mijn sql-gebruikersnaam*> | De gebruikersnaam op voor toegang tot uw database |
+   | Wachtwoord | <*Mijn sql-wachtwoord*> | Het wachtwoord voor toegang tot uw database | 
+   | Authenticatietype | Windows- of Basic | Optioneel: Het verificatietype dat wordt gebruikt door uw SQL-server | 
+   | Gateways | <*Mijn-gegevensgateway*> | De naam voor uw on-premises gegevensgateway | 
+   |||| 
+
+2. Wanneer u klaar bent, kiest u **Maken**. 
+
+3. Nadat u uw verbinding maakt, doorgaan met [trigger toevoegen SQL](#add-sql-trigger) of [toevoegen SQL actie](#add-sql-action).

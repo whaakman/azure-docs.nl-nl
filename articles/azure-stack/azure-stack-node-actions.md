@@ -11,13 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 202854157dee28f3ab3dc73c6f22508a8bf510b3
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: ppacent
+ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801412"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Knooppunt-eenheidacties schalen in Azure-Stack
 
@@ -41,11 +43,11 @@ De status van een schaaleenheid weergeven:
  
 Hier kunt u de volgende informatie bekijken:
 
-- Regionaam
+- Regionaam. De regionaam van de waarnaar wordt verwezen met **-locatie** in de PowerShell-module.
 - type systeem
 - Totaal aantal logische kernen
 - totale hoeveelheid geheugen
-- de lijst met afzonderlijke knooppunten en hun status; een uitgevoerd of gestopt.
+- de lijst met afzonderlijke knooppunten en hun status; beide **met** of **gestopt**.
 
 ![Scale unit tegel met de status actief heeft voor elk knooppunt](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
@@ -87,7 +89,7 @@ Deze actie wordt doorgaans gebruikt wanneer een knooppunt in een toepassing is v
 Het uitschakelen van de actie via PowerShell uitvoeren:
 
 ````PowerShell
-  Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```` 
 
 In het onwaarschijnlijke geval dat het uitschakelen van de actie niet werkt, gebruikt u de BMC webinterface.
@@ -102,7 +104,7 @@ De **inschakelen** actie Hiermee schakelt u het knooppunt. Dit is hetzelfde als 
 De macht op actie via PowerShell uitvoeren:
 
 ````PowerShell
-  Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ````
 
 In het onwaarschijnlijke geval dat de actie inschakelen niet werkt, gebruikt u de BMC webinterface.
@@ -113,13 +115,13 @@ De **leegmaakt** actie evacuates alle actieve werkbelastingen doordat ze tussen 
 
 Deze actie wordt meestal gebruikt tijdens de vervanging van veld van onderdelen, zoals de vervanging van een knooppunt als geheel.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Zorg ervoor dat u een knooppunt leegmaken alleen tijdens een geplande onderhoudsvenster, waar gebruikers zijn aangemeld. Onder bepaalde omstandigheden kunnen actieve werkbelastingen onderbrekingen optreden.
 
 De actie leegmaken via PowerShell uitvoeren:
 
   ````PowerShell
-  Disable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="resume"></a>Hervatten
@@ -129,7 +131,7 @@ De **hervatten** actie een uitgedropen knooppunt hervat en markeert actief is vo
 De actie hervatten via PowerShell uitvoeren:
 
   ````PowerShell
-  Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="repair"></a>Herstellen
@@ -139,7 +141,7 @@ De **reparatie** actie een knooppunt hersteld. Gebruik dit alleen voor een van d
 - Volledige knooppunt vervanging (met of zonder nieuwe gegevensschijven)
 - Na onderdeelfout hardware- en vervangingsdimensie (als op de hoogte in de documentatie van veld (FRU) replaceable unit).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Zie de OEM-hardwareleverancier FRU-documentatie voor de exacte stappen wanneer u moet een knooppunt of afzonderlijke hardwareonderdelen vervangen. De documentatie FRU wordt aangegeven of u de herstelactie moet na het vervangen van een hardware-onderdeel uitvoeren.  
 
 Wanneer u de herstelactie uitvoert, moet u het BMC IP-adres opgeven. 
@@ -147,7 +149,9 @@ Wanneer u de herstelactie uitvoert, moet u het BMC IP-adres opgeven.
 De herstelactie via PowerShell uitvoeren:
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Region <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
   ````
 
+## <a name="next-steps"></a>Volgende stappen
 
+Zie voor meer informatie over de Azure-Stack Fabric-beheermodule, [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).

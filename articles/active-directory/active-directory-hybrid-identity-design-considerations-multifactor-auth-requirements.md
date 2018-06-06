@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 998aebfc38c4a0971a5071faebdeae4dbca86690
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fe5ac8386394bf659de8d9905827359900f08d93
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801031"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Vereisten multi-factor authentication voor uw oplossing voor hybride identiteit bepalen
 In deze wereld van mobility met gebruikers die toegang tot gegevens en toepassingen in de cloud en vanaf elk apparaat is voor het beveiligen van deze informatie geworden vooral gekeken naar.  Elke dag wordt er een nieuwe kop over een inbreuk op de beveiliging is.  Hoewel er is geen garantie tegen dergelijke schendingen, biedt multi-factor authentication-server, een extra beveiligingslaag om te voorkomen dat deze inbreuk.

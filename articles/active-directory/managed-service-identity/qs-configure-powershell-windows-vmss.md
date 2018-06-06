@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 42fabb9a2ad05dbd6a449f3f9e6a729917750165
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700005"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configureer een VMSS beheerde Service identiteit (MSI) met behulp van PowerShell
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/10/2018
 
 Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om alle services die Azure AD-verificatie ondersteunt, zonder referenties in uw code te verifiëren. 
 
-In dit artikel leert u hoe de volgende bewerkingen voor Service-identiteit beheerd op een Azure virtuele Machine schaal instellen (VMSS), met behulp van PowerShell uit te voeren:
+In dit artikel leert u hoe de Service-identiteit beheerd bewerkingen op een virtuele Machine schaal instellen (VMSS), met behulp van PowerShell uit te voeren:
 - Inschakelen en uitschakelen van het systeem toegewezen identiteit op een Azure-VMSS
 - Toevoegen en verwijderen van een gebruiker met de identiteit op een Azure-VMSS
 
@@ -107,7 +108,7 @@ In deze sectie informatie over het toevoegen en verwijderen van een gebruiker me
 
 ### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Een gebruiker toegewezen identiteit bij het maken van een Azure-VMSS toewijzen
 
-Een nieuwe VMSS maken met een gebruiker met de identiteit is momenteel niet ondersteund via PowerShell. Zie de volgende sectie over het toevoegen van de identiteit van een gebruiker is toegewezen aan een bestaande VMSS. Controleer regelmatig op updates.
+Een nieuwe VMSS maken met een gebruiker toegewezen identiteit wordt momenteel niet ondersteund via PowerShell. Zie de volgende sectie over het toevoegen van de identiteit van een gebruiker is toegewezen aan een bestaande VMSS. Controleer regelmatig op updates.
 
 ### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>De identiteit van een gebruiker toewijzen aan een bestaande Azure-VMSS
 
@@ -121,8 +122,7 @@ Een gebruiker identiteit toegewezen aan een bestaande Azure VMSS toewijzen:
 
 2. Eerst ophalen van de eigenschappen van de virtuele machine met behulp van de `Get-AzureRmVM` cmdlet. Als u wilt de identiteit van een gebruiker is toegewezen aan de Azure-VMSS toewijst, gebruikt u de `-IdentityType` en `-IdentityID` overschakelen op de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet. Vervang `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` met uw eigen waarden.
 
-   > [!IMPORTANT]
-   > Maken van toegewezen gebruikers-id's ondersteunt alleen alfanumerieke en het koppelteken (0-9 of a-z of A-Z of -) tekens. Bovendien moeten worden beperkt tot 24 tekens voor de toewijzing aan een VM/VMSS goed te laten werken. Controleer regelmatig op updates. Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell

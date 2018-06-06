@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 6fcf0e9cf91354cacb2940faf30a9496919ed3d7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796300"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Het gebruik van een Azure VM beheerde Service identiteit (MSI) voor de aanschaf van token 
 
@@ -312,6 +313,8 @@ In dit gedeelte worden de mogelijke foutberichten. Een ' 200 OK ' status is een 
 | Interne serverfout 500 | onbekend | Kan geen token ophalen uit Active directory. Zie voor meer informatie Logboeken in  *\<bestandspad\>* | Controleer of MSI is ingeschakeld op de virtuele machine. Zie [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md) als u hulp bij het VM-configuratie nodig.<br><br>Controleer ook of uw HTTP GET-aanvraag URI correct is ingedeeld, met name de URI in de queryreeks opgegeven bron. Zie 'voorbeeldaanvraag' in de [voorgaande sectie REST](#rest) voor een voorbeeld of [Azure-services die ondersteuning voor Azure AD authentication](services-support-msi.md) voor een lijst met services en hun respectieve resource-id.
 
 ## <a name="retry-guidance"></a>Probeer richtlijnen 
+
+Het verdient aanbeveling om opnieuw te proberen als u een 404, 429 of 5xx-foutcode ontvangen (Zie [foutafhandeling](#error-handling) hierboven).
 
 Bandbreedtebeperking beperkingen gelden voor het aantal aanroepen naar het eindpunt IMDS. Wanneer de bandbreedteregeling drempelwaarde wordt overschreden, beperkt IMDS eindpunt verzoeken van verdere terwijl de beperking van kracht is. Retourneert de HTTP-statuscode 429 tijdens deze periode, het eindpunt IMDS (' te veel aanvragen '), en de aanvragen mislukken. 
 

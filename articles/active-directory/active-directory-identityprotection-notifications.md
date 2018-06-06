@@ -3,12 +3,13 @@ title: 'Azure Active Directory: Identity Protection-meldingen | Microsoft Docs'
 description: Meer informatie over hoe de onderzoeksactiviteiten van uw ondersteuning bieden voor meldingen.
 services: active-directory
 keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: bea21439afef4fda453732edffc84c62667dfe38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e72cfab8886f28982e5451362704d6a7a9fe59e4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713810"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory: Identity Protection-meldingen
 
@@ -34,7 +36,7 @@ In dit artikel biedt een overzicht van beide e-mailmeldingen.
 
 ## <a name="users-at-risk-detected-email"></a>Gebruikers risico e gedetecteerd
 
-In reactie op een gedetecteerde account risico, Azure AD Identity Protection met een e-mailmelding genereert **gebruikers risico gedetecteerd** als onderwerp. Het e-mailbericht bevat een koppeling naar de  **[gebruikers die zijn gemarkeerd voor risico](active-directory-reporting-security-user-at-risk.md)**  rapport. Als een best practice moet u de gebruikers risico onmiddellijk onderzoeken.
+In reactie op een gedetecteerde account risico, Azure AD Identity Protection met een e-mailmelding genereert **gebruikers risico gedetecteerd** als onderwerp. Het e-mailbericht bevat een koppeling naar de **[gebruikers die zijn gemarkeerd voor risico](active-directory-reporting-security-user-at-risk.md)** rapport. Als een best practice moet u de gebruikers risico onmiddellijk onderzoeken.
 
 ![Gebruikers risico e gedetecteerd](./media/active-directory-identityprotection-notifications/01.png)
 

@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,17 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 728eb81d360af0d62d22cd6168b9e16edceefd56
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714388"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
 
 Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen vanaf apparaten die voldoen aan uw standaarden voor beveiliging en naleving. Zie voor meer informatie [Inleiding tot beheer van apparaten in Azure Active Directory](device-management-introduction.md).
 
-Als u een on-premises Active Directory-omgeving hebt en u wilt deelnemen aan uw domein apparaten naar Azure AD, kunt u dit doen door hybride Azure AD die lid zijn van apparaten te configureren. Het onderwerp vindt u met de bijbehorende stappen. 
+Als u een on-premises Active Directory-omgeving hebt en u wilt deelnemen aan uw domein apparaten naar Azure AD, kunt u dit doen door hybride Azure AD die lid zijn van apparaten te configureren. In dit artikel biedt u de bijbehorende stappen. 
 
 
 ## <a name="before-you-begin"></a>Voordat u begint
@@ -36,7 +38,7 @@ Als u vertrouwen op de [hulpprogramma voor systeemvoorbereiding (Sysprep)](https
 
 Alle domein-apparaten met Windows 10 Verjaardag Update en Windows Server 2016 automatisch wordt geregistreerd bij Azure AD herstart van het apparaat of gebruiker aanmelden als de hieronder vermelde configuratiestappen voltooid zijn. **Als dit probleem automatisch registreren niet aanbevolen wordt of een gecontroleerde rollout desgewenst**, volg de instructies in de sectie 'Stap 4: beheer implementatie en Rollout' hieronder om selectief in- of uitschakelen van automatische implementatie voordat eerst te na de configuratiestappen.  
 
-In dit onderwerp gebruikt ter verbetering van de leesbaarheid van de beschrijvingen van de volgende voorwaarden: 
+In dit artikel gebruikt ter verbetering van de leesbaarheid van de beschrijvingen van de volgende voorwaarden: 
 
 - **Huidige Windows-apparaten** -deze term verwijst naar domein apparaten met Windows 10 of Windows Server 2016.
 - **Apparaten met Windows downlevel-** -deze term verwijst naar alle **ondersteund** domein Windows-apparaten die geen actieve Windows 10 of Windows Server 2016.  

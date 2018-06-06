@@ -1,31 +1,25 @@
 ---
 title: Architectuur van de oplossing voor externe controle - Azure | Microsoft Docs
 description: Een overzicht van de architectuur van de externe controle oplossingsverbetering.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757430"
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Externe controle accelerator oplossingsarchitectuur
 
 Externe controle [oplossingsverbetering](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implementeert u een oplossing voor de end-to-end-controle voor meerdere machines op externe locaties. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als een beginpunt voor uw eigen implementatie en [aanpassen](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) om te voldoen aan uw eigen specifieke zakelijke vereisten.
 
-In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe controle beschreven, zodat u beter begrijpt hoe dit werkt. Deze kennis helpt u bij:
+Dit artikel begeleidt u bij sommige van de belangrijkste elementen van de oplossing voor externe controle om te begrijpen hoe het werkt. Deze kennis helpt u bij:
 
 * Het oplossen van problemen met de oplossing.
 * Het plannen van een aanpassing van de oplossing zodat deze voldoet aan uw eigen specifieke vereisten.
@@ -97,13 +91,13 @@ De oplossing omvat twee microservices voor het afhandelen van apparaattelemetrie
 
 De [telemetrie-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice:
 
-* Telemetrie in Cosmos-database opgeslagen.
+* Telemetrie opslaat in Azure Cosmos DB.
 * Analyseert de telemetriestroom van apparaten.
 * Genereert alarmen volgens de gedefinieerde regels.
 
-De alarmen worden opgeslagen in een Cosmos-DB.
+De alarmen worden opgeslagen in Azure Cosmos DB.
 
-De `telemetry-agent` microservice maakt de oplossingsportal lezen van de telemetrie die is verzonden vanaf de apparaten. De oplossingsportal wordt ook gebruikt voor deze service:
+De [telemetrie-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice maakt de oplossingsportal lezen van de telemetrie die is verzonden vanaf de apparaten. De oplossingsportal wordt ook gebruikt voor deze service:
 
 * Bewaking regels, zoals de drempelwaarden die alarmen activeren definiëren
 * De lijst van afgelopen alarmen opgehaald.
@@ -114,9 +108,9 @@ Gebruik de RESTful-eindpunt geleverd door deze microservice telemetrie, regels e
 
 De [opslagadapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is een adapter voor de belangrijkste storage-service gebruikt voor de oplossingsverbetering. Het biedt coolbarsimple-verzameling en sleutel / waarde-opslag.
 
-De standaardimplementatie van de oplossingsverbetering gebruikt Cosmos DB als de belangrijkste storage-service.
+De standaardimplementatie van de accelerator oplossing gebruikt Azure Cosmos DB als de belangrijkste storage-service.
 
-De database van de Cosmos-DB opslaat-gegevens in de oplossingsverbetering. De **opslagadapter** microservice fungeert als een adapter voor de andere microservices in de oplossing voor toegang tot opslagservices.
+De Azure DB die Cosmos-database opgeslagen gegevens in de oplossingsverbetering. De **opslagadapter** microservice fungeert als een adapter voor de andere microservices in de oplossing voor toegang tot opslagservices.
 
 ## <a name="presentation"></a>Presentatie
 
@@ -141,6 +135,8 @@ Als u de bron-documentatie voor code- en developer verkennen wilt, beginnen met 
 
 * [Oplossingsverbetering voor externe controle met Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Oplossingsverbetering voor externe controle met Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Oplossingsverbetering voor externe controle architectuur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Zie voor meer informatie over de externe controle oplossingsverbetering [aanpassen van de oplossingsverbetering](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
+Gedetailleerde oplossing architectuur diagrammen:
+* [Oplossingsverbetering voor externe controle architectuur](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+
+Zie voor meer informatie over de oplossing voor externe controle accelerator [aanpassen van de oplossingsverbetering](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

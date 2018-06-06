@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 68d4c54b2648dc3b40e69dcde9828d18de318796
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702071"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Toevoegen, wijzigen of een virtueel netwerksubnet verwijderen
 
@@ -31,7 +32,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 
 - Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
-- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Voor deze zelfstudie is moduleversie 5.7.0 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.31 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
 Het account dat u zich aanmelden bij of verbinding maken met Azure met, moet worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [machtigingen ](#permissions).
@@ -51,7 +52,7 @@ Het account dat u zich aanmelden bij of verbinding maken met Azure met, moet wor
 
     Als u wilt verwijderen van een service-eindpunt, moet u de service die u wilt verwijderen van het service-eindpunt voor verwijderen. Zie voor meer informatie over service-eindpunten en de services kunnen worden ingeschakeld voor [Virtual network service-eindpunten overzicht](virtual-network-service-endpoints-overview.md). Wanneer u een service-eindpunt voor een service hebt ingeschakeld, moet u ook toegang tot het netwerk voor het subnet voor een resource die is gemaakt met de service inschakelen. Bijvoorbeeld, als u het service-eindpunt voor inschakelen *Microsoft.Storage*, moet u ook toegang tot het netwerk aan alle Azure Storage-accounts die u wilt verlenen toegang tot het netwerk inschakelen. Zie voor meer informatie over het inschakelen van netwerktoegang tot subnetten die een service-eindpunt is ingeschakeld voor de documentatie voor de afzonderlijke service ingeschakeld van het service-eindpunt voor.
 
-    Om te valideren dat een service-eindpunt is ingeschakeld voor een subnet, geven de [effectieve routes](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-virtual-machine) voor elke netwerkinterface in het subnet. Als een eindpunt is geconfigureerd, ziet u een *standaard* route met de adresvoorvoegsels van de service en een nextHopType van **VirtualNetworkServiceEndpoint**. Zie voor meer informatie over routering, [Routering-overzicht](virtual-networks-udr-overview.md).
+    Om te valideren dat een service-eindpunt is ingeschakeld voor een subnet, geven de [effectieve routes](diagnose-network-routing-problem.md) voor elke netwerkinterface in het subnet. Als een eindpunt is geconfigureerd, ziet u een *standaard* route met de adresvoorvoegsels van de service en een nextHopType van **VirtualNetworkServiceEndpoint**. Zie voor meer informatie over routering, [Routering-overzicht](virtual-networks-udr-overview.md).
 6. Selecteer om het subnet toe aan het virtuele netwerk die u hebt geselecteerd **OK**.
 
 **Opdrachten**

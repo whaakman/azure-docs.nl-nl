@@ -1,26 +1,19 @@
 ---
 title: Overzicht oplossingsverbeteringen van Microsoft Azure IoT | Microsoft Docs
 description: Een beschrijving van de oplossingsverbeteringen van Azure IoT en hun architectuur, met koppelingen naar aanvullende resources.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 17/01/2018
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 80192b115f4c6c8f6961fdd4d9fb7f3876fda898
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 6f23324c697aa181179fd0ba4d81d1502bc5ac83
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362121"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724887"
 ---
 # <a name="what-are-the-iot-solution-accelerators"></a>Wat zijn de IoT-oplossingsverbeteringen?
 
@@ -32,7 +25,7 @@ De _oplossingsverbeteringen_ van Azure IoT zijn een vaste reeks oplossingen met 
 
 De oplossingsverbeteringen zijn allemaal ontworpen volgens dezelfde beginselen en doelstellingen.
 
-De volgende video biedt een overzicht van de oplossingsverbetering voor externe bewaking:
+De volgende video biedt een overzicht van de oplossingsverbetering externe controle:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
@@ -54,7 +47,7 @@ Elke oplossingsverbetering is een totaalimplementatie die gesimuleerde of fysiek
 Er zijn momenteel drie oplossingsverbeteringen beschikbaar:
 
 * [Externe bewaking](iot-accelerators-remote-monitoring-explore.md)
-* [Predictief onderhoud](../iot-suite/iot-suite-predictive-overview.md)
+* [Predictief onderhoud](iot-accelerators-predictive-overview.md)
 * [Verbonden factory](iot-accelerators-connected-factory-overview.md)
 
 De volgende tabel toont u hoe de oplossingen aan specifieke IoT-functies zijn toegewezen:
@@ -62,7 +55,7 @@ De volgende tabel toont u hoe de oplossingen aan specifieke IoT-functies zijn to
 | Oplossing | Gegevensopname | Apparaat-id | Apparaatbeheer | Randbewerking | Opdracht en controle | Regels en acties | Predictive analytics |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Externe bewaking](iot-accelerators-remote-monitoring-explore.md)  |Ja |Ja |Ja |-   |Ja |Ja |-   |
-| [Predictief onderhoud](../iot-suite/iot-suite-predictive-overview.md)   |Ja |Ja |-   |-   |Ja |Ja |Ja |
+| [Predictief onderhoud](iot-accelerators-predictive-overview.md)   |Ja |Ja |-   |-   |Ja |Ja |Ja |
 | [Verbonden factory](iot-accelerators-connected-factory-overview.md) |Ja |- |- |Ja |Ja |Ja |-   |
 
 * *Gegevensopname*: instroom van gegevens op de gewenste schaal in de cloud.
@@ -73,7 +66,7 @@ De volgende tabel toont u hoe de oplossingen aan specifieke IoT-functies zijn to
 * *Predictive analytics*: de back-end van de oplossing analyseert apparaat-naar-cloudgegevens om te voorspellen wanneer bepaalde acties moeten plaatsvinden. Zo kan de telemetrie van vliegtuigmotoren worden geanalyseerd om te bepalen wanneer motoronderhoud is vereist.
 
 > [!NOTE]
-> Als u een oplossingsverbetering wilt implementeren en meer wilt weten over hoe u deze kunt aanpassen, gaat u naar [Microsoft Azure IoT-oplossingsverbeteringen](https://www.azureiotsuite.com/).
+> Als u een oplossingsverbetering wilt implementeren en meer wilt weten over hoe u deze kunt aanpassen, gaat u naar [Microsoft Azure IoT-oplossingsverbeteringen](https://www.azureiotsolutions.com/).
 
 ## <a name="azure-services"></a>Azure-services
 
@@ -91,14 +84,14 @@ Wanneer u een oplossingsverbetering implementeert, wordt in het inrichtingsproce
 | Azure Storage         |                    | Ja                    | Ja               |
 
 > [!NOTE]
-> Zie dit [artikel](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) op GitHub voor meer informatie over de resources die zijn geïmplementeerd in de oplossingsverbetering voor externe bewaking.
+> Zie voor meer informatie over de resources die zijn geïmplementeerd in de oplossing voor externe controle accelerator [artikel](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) op GitHub.
 
 * [Azure IoT Hub](../iot-hub/index.yml). Deze service verzorgt de berichtgeving van het apparaat naar de cloud en van de cloud naar het apparaat, en fungeert als toegangspoort tot de cloud en de andere belangrijke services voor oplossingsverbeteringen. Door deze service kunt u op grote schaal berichten ontvangen van uw apparaten en opdrachten naar uw apparaten verzenden. Met deze service kunt u ook [uw apparaten beheren](../iot-hub/iot-hub-device-management-overview.md). U kunt bijvoorbeeld een of meer apparaten die zijn verbonden met de hub configureren, opnieuw opstarten of hierop de fabrieksinstellingen terugzetten.
-* [Azure Event Hubs](../active-directory-domain-services/index.md). Deze service biedt gebeurtenisopname naar de cloud met grote volumes. Zie [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md) (Vergelijking van Azure IoT Hub en Azure Event Hubs).
+* [Azure Event Hubs](../active-directory-domain-services/index.yml). Deze service biedt gebeurtenisopname naar de cloud met grote volumes. Zie [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md) (Vergelijking van Azure IoT Hub en Azure Event Hubs).
 * [Azure Time Series Insights](../time-series-insights/index.yml). De oplossingsverbeteringen gebruiken deze service om de telemetriegegevens van uw apparaten te analyseren en weer te geven.
 * [Azure Container Service](../container-service/index.yml). Deze service host en beheert de microservices in de oplossingsverbeteringen.
 * [Azure Cosmos DB](../cosmos-db/index.yml) en [Azure Storage](../storage/index.yml) voor gegevensopslag.
-* [Azure Stream Analytics](../stream-analytics/index.yml). De vooraf geconfigureerde oplossing voor predictief onderhoud gebruikt deze service om binnenkomende telemetriegegevens te verwerken, aggregatiebewerkingen uit te voeren en gebeurtenissen te detecteren. Deze vooraf geconfigureerde oplossing maakt ook gebruik van Stream Analytics voor het verwerken van informatieve berichten met gegevens, zoals metagegevens of reacties van apparaten op opdrachten.
+* [Azure Stream Analytics](../stream-analytics/index.yml). De oplossingsverbetering voorspeld onderhoud gebruikt deze service voor het verwerken van binnenkomende telemetriegegevens, het uitvoeren van aggregatiebewerkingen en het detecteren van gebeurtenissen. Deze vooraf geconfigureerde oplossing maakt ook gebruik van Stream Analytics voor het verwerken van informatieve berichten met gegevens, zoals metagegevens of reacties van apparaten op opdrachten.
 * [Azure Web Apps](../app-service/index.yml) voor het hosten van aangepaste toepassingscode in de vooraf geconfigureerde oplossingen.
 
 Zie [Microsoft Azure en het Internet of Things (IoT)](iot-accelerators-what-is-azure-iot.md) voor een overzicht van de architectuur van een typische IoT-oplossing.
@@ -117,7 +110,7 @@ In de volgende gedeelten wordt beschreven wat er is vernieuwd in de oplossingsve
 
 ### <a name="microservices"></a>Microservices
 
-De nieuwe versie van de oplossingsverbetering voor externe bewaking maakt gebruik van een architectuur op basis van microservices. Deze oplossingsverbetering bestaat uit meerdere microservices, zoals *IoT Hub-beheer* en *Storage-beheer*. Er zijn Java- en .NET-versies van elke microservice beschikbaar om te downloaden, samen met de bijbehorende ontwikkelaarsdocumentatie. Zie [Architectuur voor externe bewaking](iot-accelerators-remote-monitoring-sample-walkthrough.md) voor meer informatie over de microservices.
+De nieuwe versie van de oplossing voor externe controle accelerator maakt gebruik van een architectuur microservices. Deze oplossingsverbetering bestaat uit meerdere microservices, zoals *IoT Hub-beheer* en *Storage-beheer*. Er zijn Java- en .NET-versies van elke microservice beschikbaar om te downloaden, samen met de bijbehorende ontwikkelaarsdocumentatie. Zie [Architectuur voor externe bewaking](iot-accelerators-remote-monitoring-sample-walkthrough.md) voor meer informatie over de microservices.
 
 Deze architectuur op basis van microservices is een beproefd patroon voor cloudoplossingen met de volgende eigenschappen:
 
@@ -129,7 +122,7 @@ Deze architectuur op basis van microservices is een beproefd patroon voor cloudo
 > [!TIP]
 > Zie [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-toepassingsarchitectuur) en [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices: een toepassingsrevolutie aangedreven door de cloud) voor meer informatie over microservicearchitectuur.
 
-Wanneer u de nieuwe versie van externe bewaking implementeert, moet u een van de volgende implementatieopties selecteren:
+Wanneer u de nieuwe versie van externe controle implementeert, moet u een van de volgende implementatieopties selecteren:
 
 * **Basic:** voordelige versie voor een demonstratie of het testen van een implementatie. Alle microservices worden geïmplementeerd op een enkele virtuele Azure-machine.
 * **Standard:** uitgebreide infrastructuurimplementatie voor het ontwikkelen van een productie-implementatie. De Azure Container Service implementeert de microservices naar meerdere virtuele Azure-machines. Kubernetes deelt de Docker-containers in die de afzonderlijke microservices hosten.
@@ -152,7 +145,7 @@ De gebruikersinterface is gebouwd met behulp van de JavaScript-bibliotheek van [
 Nu u een overzicht hebt van de IoT-oplossingsverbeteringen, kunt u deze voorgestelde volgende stappen voor elk van de oplossingsverbeteringen bekijken:
 
 * [Verken de oplossing voor bewaking op afstand](iot-accelerators-remote-monitoring-explore.md).
-* [Een overzicht van de oplossingsverbetering voor Predictief onderhoud](../iot-suite/iot-suite-predictive-overview.md).
+* [Een overzicht van de oplossingsverbetering voor Predictief onderhoud](iot-accelerators-predictive-overview.md).
 * [Aan de slag met de oplossingsverbetering voor Verbonden factory](iot-accelerators-connected-factory-overview.md).
 
-Zie [Microsoft Azure IoT services: Reference Architecture](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf) (Microsoft Azure IoT-services: referentiearchitectuur) voor meer informatie over IoT-oplossingsarchitecturen.
+Zie [Microsoft Azure IoT services: Reference Architecture](https://aka.ms/iotrefarchitecture) (Microsoft Azure IoT-services: referentiearchitectuur) voor meer informatie over IoT-oplossingsarchitecturen.

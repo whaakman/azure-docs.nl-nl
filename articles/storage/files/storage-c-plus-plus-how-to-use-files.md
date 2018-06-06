@@ -5,7 +5,7 @@ services: storage
 documentationcenter: .net
 author: renashahmsft
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737568"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Ontwikkelen voor Azure Files met C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,9 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Over deze zelfstudie
-
 In deze zelfstudie leert u basisbewerkingen op Azure-bestanden uit te voeren. Via voorbeelden die zijn geschreven in C++, leert u hoe u Maak shares en mappen, uploaden, weergeven en verwijderen van bestanden. Als u niet bekend met Azure-bestanden bent, wordt gaan via de concepten in de volgende secties nuttig zijn bij het begrijpen van de voorbeelden.
-
 
 * Maken en verwijderen van de Azure-bestandsshares
 * Maken en verwijderen van mappen
@@ -38,7 +37,7 @@ In deze zelfstudie leert u basisbewerkingen op Azure-bestanden uit te voeren. Vi
 * Een Shared Access Signature (SAS-sleutel) maken voor een bestand dat gebruikmaakt van een gedeeld toegangsbeleid dat voor de share is gedefinieerd.
 
 > [!Note]  
-> Omdat Azure-bestanden kunnen worden geopend via SMB, is het mogelijk om eenvoudige toepassingen die toegang hebben tot de Azure-bestandsshare met behulp van de standard C++-i/o-klassen en -functies te schrijven. In dit artikel wordt beschreven hoe schrijven van toepassingen die gebruikmaken van de Azure Storage C++ SDK, die gebruikmaakt van de [bestand REST-API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) contact opnemen met de Azure-bestanden.
+> Omdat Azure-bestanden kunnen worden geopend via SMB, is het mogelijk om eenvoudige toepassingen die toegang hebben tot de Azure-bestandsshare met behulp van de functies en standard C++-i/o-klassen te schrijven. In dit artikel wordt beschreven hoe schrijven van toepassingen die gebruikmaken van de Azure Storage C++ SDK, die gebruikmaakt van de [bestand REST-API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) contact opnemen met de Azure-bestanden.
 
 ## <a name="create-a-c-application"></a>Een C++-toepassing maken
 Als u wilt de voorbeelden bouwt, moet u de Azure Storage-clientbibliotheek 2.4.0 voor C++ installeren. U moet hebt een Azure storage-account ook gemaakt.
@@ -79,7 +78,7 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Een Azure-bestandsshare maken
-Alle bestanden en mappen in een Azure-bestandsshare die zich bevinden in een zogenaamd een **delen**. Uw storage-account kan als veel shares als de capaciteit van uw account kunt hebben. Als u wilt toegang krijgen tot een share en de inhoud ervan, moet u een client Azure-bestanden gebruiken.
+Alle bestanden en mappen in een Azure-bestandsshare bevinden zich in een zogenaamd een **delen**. Uw storage-account kan als veel shares als de capaciteit van uw account kunt hebben. Als u wilt toegang krijgen tot een share en de inhoud ervan, moet u een client Azure-bestanden gebruiken.
 
 ```cpp
 // Create the Azure Files client.
@@ -182,7 +181,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>Bestand uploaden
-Op de minst bevat een bestandsshare in Azure een hoofdmap waarin de bestanden kunnen zich bevinden. In deze sectie leert u hoe een bestand van de lokale opslag naar de hoofdmap van een share te uploaden.
+Op de minst bevat een Azure-bestandsshare een hoofdmap waarin de bestanden kunnen zich bevinden. In deze sectie leert u hoe een bestand van de lokale opslag naar de hoofdmap van een share te uploaden.
 
 De eerste stap bij het uploaden van een bestand is te halen van een verwijzing naar de map waarin dit zich moet bevinden. U doet dit door de **get_root_directory_reference** methode van de shareobject.
 

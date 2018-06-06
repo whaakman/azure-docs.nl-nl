@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3adf725f76f744fd1d321668fe892b9703de25de
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 18b47014e6fe3e489f783f675a3498c58981b99f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725527"
 ---
 # <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Het gebruik van de WebJobs SDK voor gebeurtenisafhankelijke achtergrondverwerking
 
@@ -322,7 +323,7 @@ Zie voor meer informatie [Binding tijdens runtime](../azure-functions/functions-
 
 Naslaginformatie over elk bindingstype is opgegeven in de documentatie van Azure Functions. Opslagwachtrij als voorbeeld gebruikt, vindt u de volgende gegevens in elke binding verwijzingsartikel:
 
-* [Pakketten](../azure-functions/functions-bindings-storage-queue.md#packages) -welk pakket installeren om te kunnen bieden ondersteuning voor de binding in een WebJobs SDK-project.
+* [Pakketten](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) -welk pakket installeren om te kunnen bieden ondersteuning voor de binding in een WebJobs SDK-project.
 * [Voorbeelden](../azure-functions/functions-bindings-storage-queue.md#trigger---example) -de C# class library-voorbeeld is van toepassing op de WebJobs SDK; alleen weglaten de `FunctionName` kenmerk.
 * [Kenmerken](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) -de te gebruiken voor het bindingstype kenmerken.
 * [Configuratie](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) -uitleg van de kenmerkeigenschappen en constructorparameters.
@@ -390,6 +391,26 @@ Sommige triggers hebben een ingebouwde ondersteuning voor het beheer van gelijkt
 * **FileTrigger** : Stel `FileProcessor.MaxDegreeOfParallelism` op 1.
 
 U kunt deze instellingen gebruiken om ervoor te zorgen dat de functie op één instantie wordt uitgevoerd als een singleton. Slechts één exemplaar van de functie wordt uitgevoerd wanneer de web-app uitgeschaald naar meerdere exemplaren, zodat een listener niveau Singleton vergrendeling van toepassing op de functie (`[Singleton(Mode = SingletonMode.Listener)]`). Listener vergrendelingen worden verkregen bij het starten van de JobHost. Als alle drie uitgebreid-exemplaren op hetzelfde moment wordt gestart, wordt slechts één van de exemplaren verkrijgt de vergrendeling en slechts één listener wordt gestart.
+
+### <a name="scope-values"></a>Waarden voor het bereik
+
+Kunt u een **expressiewaarde/bereik** op de Singleton wordt om ervoor te zorgen dat alle uitvoeringen van de functie voor deze scope worden geserialiseerd. Implementatie van gedetailleerdere vergrendeling op deze manier kunt toestaan voor een bepaalde mate van parallelle uitvoering voor de functie tijdens het serialiseren van andere aanroepen, zoals bepaald door uw vereisten. Bijvoorbeeld, in het volgende voorbeeld de scope-expressie wordt gebonden aan de `Region` waarde van het binnenkomende bericht. Als de wachtrij 3 berichten in de regio's 'Oost', 'Oost' en 'West' respectievelijk de berichten die regio 'Oost bevat' worden opeenvolgend uitgevoerd tijdens het bericht met 'West' wordt uitgevoerd in combinatie met de regio hebben.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 

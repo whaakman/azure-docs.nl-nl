@@ -2,22 +2,20 @@
 title: Ontwerphandleiding voor Azure Storage-tabel | Microsoft Docs
 description: Ontwerp schaalbare en zodat tabellen in de Azure-tabelopslag
 services: cosmos-db
-documentationcenter: na
 author: SnehaGunda
 manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 667fef855238b2524c05bbc2f137d466c0e56de8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 41a62c0c77b177179907d8e4a7631af889cd8bd6
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798811"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Het ontwerpen van schaalbare en de zodat tabellen
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -203,12 +201,12 @@ De volgende voorbeelden wordt ervan uitgegaan dat de tabelservice werknemer enti
 
 | *Kolomnaam* | *Gegevenstype* |
 | --- | --- |
-| **PartitionKey** (naam van de afdeling) |Tekenreeks |
-| **RowKey** (werknemer-Id) |Tekenreeks |
-| **Voornaam** |Tekenreeks |
-| **LastName** |Tekenreeks |
+| **PartitionKey** (naam van de afdeling) |Reeks |
+| **RowKey** (werknemer-Id) |Reeks |
+| **Voornaam** |Reeks |
+| **LastName** |Reeks |
 | **leeftijd** |Geheel getal |
-| **EmailAddress** |Tekenreeks |
+| **EmailAddress** |Reeks |
 
 De vorige sectie [overzicht van de service Azure Table](#overview) beschrijft een aantal van de belangrijkste functies van de service Azure Table waarvoor een directe invloed op ontwerpen voor query. Deze leiden tot de volgende algemene richtlijnen voor het ontwerpen van query's tabel-service. De filtersyntaxis gebruikt in de volgende voorbeelden wordt uit de tabelservice REST API, Zie voor meer informatie [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 

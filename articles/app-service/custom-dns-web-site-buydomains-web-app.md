@@ -1,11 +1,11 @@
 ---
-title: Een aangepaste domeinnaam voor Azure-Web-Apps kopen
+title: Een aangepaste domeinnaam voor Azure Web Apps kopen
 description: Informatie over het aanschaffen van een aangepaste domeinnaam met een web-app in Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714881"
 ---
-# <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Een aangepaste domeinnaam voor Azure-Web-Apps kopen
+# <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Een aangepaste domeinnaam voor Azure Web Apps kopen
 
 App Service-domeinen (preview) zijn op het hoogste niveau van de domeinen die worden beheerd rechtstreeks in Azure. Ze gemakkelijk voor het beheren van aangepaste domeinen voor [Azure Web Apps](app-service-web-overview.md). Deze zelfstudie laat zien hoe u een App Service-domein kopen en DNS-namen toewijzen aan Azure Web Apps.
 
@@ -57,17 +58,17 @@ Schuif in de navigatiebalk links van de app-pagina naar de sectie **Instellingen
 
 ![Menu Opschalen](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-De huidige laag van de app wordt gemarkeerd door een blauwe rand. Controleer of de app zich niet in de **Gratis**-categorie bevindt. Aangepaste DNS wordt niet ondersteund in de **Gratis**-categorie. 
+De huidige laag van de app wordt gemarkeerd door een blauwe rand. Controleer of de app is niet in de **F1** laag. Aangepaste DNS wordt niet ondersteund in de **F1** laag. 
 
 ![Controleer prijscategorie](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Als de App Service-abonnement niet **vrije**, sluit de **Kies uw prijscategorie** pagina en doorgaan met [kopen van het domein](#buy-the-domain).
+Als de App Service-abonnement bevindt zich niet in de **F1** servicetier, sluit de **opschalen** pagina en doorgaan met [kopen van het domein](#buy-the-domain).
 
 ### <a name="scale-up-the-app-service-plan"></a>Het App Service-plan opschalen
 
-Selecteer een van de betaalde categorieën (**Shared**, **Basic**, **Standard**, of **Premium**). 
+Selecteer een van de lagen niet vrij (**D1**, **B1**, **B2**, **B3**, of een laag de **productie** categorie). Aanvullende opties, klikt u op **extra opties**.
 
-Klik op **Selecteren**.
+Klik op **Toepassen**.
 
 ![Controleer prijscategorie](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

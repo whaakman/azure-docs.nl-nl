@@ -1,27 +1,27 @@
 ---
-title: 'Azure Active Directory B2C: Aangepaste kenmerken | Microsoft Docs'
-description: Het gebruik van aangepaste kenmerken in Azure Active Directory B2C informatie verzamelen over uw consumenten
+title: Aangepaste kenmerken van Azure Active Directory B2C | Microsoft Docs
+description: Klik hier voor meer informatie over het gebruik van aangepaste kenmerken in Azure Active Directory B2C om informatie over uw consumenten te verzamelen.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 6f285c10b7d8ff92c8568c42b6a78dc4ea9bcc74
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 61931be8e50cdc3132e36a63a2fdb059d62ba947
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711872"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: Gebruik aangepaste kenmerken voor het verzamelen van informatie over uw consumenten
 Uw Azure Active Directory (Azure AD) B2C-directory wordt geleverd met een ingebouwde verzameling gegevens (kenmerken): voornaam, achternaam, plaats, postcode en andere kenmerken. Elke consumentgerichte toepassing heeft echter unieke vereisten op welke kenmerken voor het verzamelen van consumenten. Met Azure AD B2C, kunt u de set kenmerken die zijn opgeslagen op elke consumentenaccount uitbreiden. U kunt aangepaste kenmerken maken op de [Azure-portal](https://portal.azure.com/) en deze gebruiken in uw registratie-beleid, zoals hieronder wordt weergegeven. U kunt ook lezen en schrijven van deze kenmerken met behulp van de [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
 > [!NOTE]
-> Gebruik van aangepaste kenmerken [Azure AD Graph API Directory-Schemauitbreidingen](https://msdn.microsoft.com/library/azure/dn720459.aspx).
+> Gebruik van aangepaste kenmerken [Azure AD Graph API Directory-Schemauitbreidingen](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 > 
 > 
 

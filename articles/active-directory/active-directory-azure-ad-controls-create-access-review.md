@@ -11,12 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2018
-ms.author: billmath
-ms.openlocfilehash: 784a461421420af403a43f944d6f63aef3ccc152
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 00d8c7f9c4b335f107f436041b027b4df8845267
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698261"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Maken van een beoordeling toegang van de leden van beveiligingsgroep of toegang tot toepassingen met Azure AD
 
@@ -34,9 +35,9 @@ Toewijzingen Access verouderd ' ' wanneer gebruikers toegang die ze niet meer no
 
 5. Stel de begindatum. Standaard een controle van toegang tot deze gebeurtenis treedt op slechts één keer wordt gestart tegelijkertijd die wordt gemaakt en deze eindigt op één maand. Kunt u de begindatum en einddatum een toegang hebben controleren start in de toekomst en laatste echter het aantal dagen dat u wilt.
 
-6. De frequentie van één keer te wijzigen, wekelijks, maandelijks, per kwartaal of jaarlijks zodat toegang controleren terugkerende en gebruik de schuifregelaar of in het tekstvak voor het definiëren van het aantal dagen dat elke beoordeling van de reeks terugkerende wordt runbe openen voor invoer van revisoren. Bijvoorbeeld: Tkan maximale duur voor u instellen kunt voor een maandelijkse revisie 27 dagen, wordt voorkomen dat er overlappende beoordelingen. 
+6. De frequentie van één keer te wijzigen, wekelijks, maandelijks, per kwartaal of jaarlijks zodat toegang controleren terugkerende en gebruik de schuifregelaar of in het tekstvak voor het definiëren van hoeveel dagen elke beoordeling van de reeks terugkerende worden geopend voor invoer van revisoren. De maximumduur voor u kunt instellen voor is een maandelijkse beoordeling bijvoorbeeld 27 dagen om te voorkomen dat er overlappende beoordelingen. 
 
-7.  De reeks terugkerende toegang controleren op 3 manieren kunt beëindigen: dit wordt continu uitgevoerd voor het starten van beoordelingen voor onbepaalde tijd of tot een bepaalde datum of na een opgegeven aantal exemplaren is voltooid. U of een andere globale beheerder kunt stoppen de reeks na het maken door de datum in de instellingen wijzigen zodat deze wordt beëindigd op die datum.
+7.  De reeks terugkerende toegang controleren op 3 manieren kunt beëindigen: wordt continu uitgevoerd voor het starten van de beoordelingen voor onbepaalde tijd, tot een bepaalde datum of na een opgegeven aantal exemplaren is voltooid. U of een andere globale beheerder kunt stoppen de reeks na het maken door de datum in de instellingen wijzigen zodat deze wordt beëindigd op die datum.
 
 8. Toegang beoordelingen kunnen zijn voor de leden van een groep of gebruikers die zijn toegewezen aan een toepassing. U kunt de toegang verder bereik bekijken om te bekijken alleen de gastgebruikers die lid zijn (of toegewezen aan de app), in plaats van de hand van de gebruikers die lid zijn of die toegang tot de toepassing hebben.
 
@@ -46,11 +47,11 @@ Toewijzingen Access verouderd ' ' wanneer gebruikers toegang die ze niet meer no
 
 ### <a name="configuring-an-access-review-with-auto-apply"></a>Een onderzoek toegang configureren met auto-apply
 
-1.  Vouw het menu voor bij voltooiing instellingen, resultaten andsettings en schakel automatisch van toepassing op de resource. 
+1.  Het menu uitvouwen na voltooiing instellingen en Schakel automatische toepassing resultaten op resource. 
 
-2.  In gevallen waarin gebruikers zijn niet gecontroleerd door de revisor binnen de controleperiode, hebt u de controle toegang ondernemen aanbeveling van het systeem (indien ingeschakeld) van de gebruiker continue toegang, weigeren/goedkeuren en hun access ongewijzigd laat of verwijderen hun toegang. Dit heeft geen invloed op gebruikers die zijn onderzocht door de revisoren handmatig – als de uiteindelijke revisor besluit weigeren, wordt de gebruiker toegang wordt verwijderd.
+2.  In gevallen waarin gebruikers zijn niet gecontroleerd door de revisor binnen de controleperiode hebt u de controle toegang ondernemen aanbeveling van het systeem (indien ingeschakeld) van de gebruiker continue toegang weigeren/goedkeuren, laat u de toegang niet worden gewijzigd of verwijderen van hun toegang. Dit heeft geen invloed op gebruikers die zijn onderzocht door de revisoren handmatig – als de uiteindelijke revisor besluit weigeren, wordt de gebruiker toegang wordt verwijderd.
 
-3.  Tonen de aanbevelingen in de geavanceerde instellingen moeten zijn ingeschakeld zodat de optie voor het uitvoeren van aanbevelingen moeten revisoren niet reageren.
+3.  Om de optie voor het uitvoeren van aanbevelingen moeten revisoren niet reageren, vouwt u geavanceerde instellingen en weergeven, aanbevelingen inschakelen.
  
 4.  Tot slot op **Start**.
 
@@ -74,5 +75,3 @@ Wanneer een onderzoek toegang is gestart, verzendt Azure AD automatisch revisore
 Als dit een eenmalige revisie, nadat de controleperiode toegang via is of de beheerder de toegang-overzicht, stopt de stappen in [een beoordeling toegang voltooien](active-directory-azure-ad-controls-complete-access-review.md) om te bekijken en toepassen van de resultaten.  
 
 Als dit een evaluatie-serie, navigeer naar **historie bekijken** op de pagina toegang controleren reeks, een overzicht van de voltooide toegang selecteren.  Toekomstige beoordelingen worden vermeld onder **gepland revisie**, kunt u de duur, bewerken en toevoegen of revisoren voor afzonderlijke revisies verwijderen.
-
-

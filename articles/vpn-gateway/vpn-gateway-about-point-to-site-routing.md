@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702173"
 ---
-# <a name="about-point-to-site-vpn-routing"></a>Informatie over punt-naar-Site VPN-routering
+# <a name="about-point-to-site-vpn-routing"></a>Over point-to-site-VPN-routering
 
 In dit artikel helpt u begrijpen hoe Azure punt-naar-Site VPN-routering werkt. P2S-VPN-routeringsgedrag is afhankelijk van de client-besturingssysteem, het protocol dat wordt gebruikt voor de VPN-verbinding en hoe de virtuele netwerken (vnet's) met elkaar zijn verbonden.
 
@@ -228,7 +229,7 @@ Alle clients toegang tot VNet1 alleen.
 
 ## <a name="multivnets2sbranchbgp"></a>Meerdere VNets met elkaar verbonden via S2S en een filiaal (BGP)
 
-In dit voorbeeld is de punt-naar-Site VPN-gateway-verbinding voor VNet1. VNet1 is verbonden met VNet2 met behulp van een Site-naar-Site VPN-verbinding. VNet2 is verbonden met VNet3 met behulp van een Site-naar-Site VPN-verbinding. Er is geen directe peering of Site-naar-Site VPN-tunnel tussen de VNet1 en VNet3 netwerken. VNet3 is verbonden met een filiaal (Site1) met behulp van een Site-naar-Site VPN-verbinding. Alle VPN-verbindingen BGP niet worden uitgevoerd. Alle VPN-verbindingen worden BGP uitgevoerd.
+In dit voorbeeld is de punt-naar-Site VPN-gateway-verbinding voor VNet1. VNet1 is verbonden met VNet2 met behulp van een Site-naar-Site VPN-verbinding. VNet2 is verbonden met VNet3 met behulp van een Site-naar-Site VPN-verbinding. Er is geen directe peering of Site-naar-Site VPN-tunnel tussen de VNet1 en VNet3 netwerken. VNet3 is verbonden met een filiaal (Site1) met behulp van een Site-naar-Site VPN-verbinding. Alle VPN-verbindingen worden BGP uitgevoerd.
 
 Clients met behulp van Windows toegang heeft tot VNets en sites die zijn verbonden via een Site-naar-Site VPN-verbinding, maar de routes naar VNet2, VNet3 en Site1 moeten handmatig worden toegevoegd aan de client. Niet-Windows-clients hebben toegang tot VNets en sites die zijn verbonden via een Site-naar-Site VPN-verbinding zonder handmatige tussenkomst. De toegang is transitieve en clients hebben toegang tot bronnen in de verbinding van alle VNets en sites (op locatie).
 

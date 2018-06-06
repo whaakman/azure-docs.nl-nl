@@ -3,9 +3,9 @@ title: Ontwikkelen voor Azure-bestanden met behulp van Java | Microsoft Docs
 description: Informatie over het ontwikkelen van Java-toepassingen en services die gebruikmaken van Azure-bestanden voor het opslaan van gegevens uit een bestand.
 services: storage
 documentationcenter: java
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 8cd3698d4281b933881c45dfa5e7868bd7b0bdaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9585bc77a73cbd84fb2efa201a5745c62f3360a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738197"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Ontwikkelen voor Azure Files met Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="about-this-tutorial"></a>Over deze zelfstudie
-Deze zelfstudie wordt gedemonstreerd de basisbeginselen van het gebruik van Java voor het ontwikkelen van toepassingen of services die gebruikmaken van Azure-bestanden voor het opslaan van gegevens uit een bestand. In deze zelfstudie wordt een eenvoudige consoletoepassing maken en het uitvoeren van basisbewerkingen uitvoeren met Java en de Azure-bestanden weergeven:
+Deze zelfstudie wordt gedemonstreerd de basisbeginselen van het gebruik van Java voor het ontwikkelen van toepassingen of services die gebruikmaken van Azure-bestanden voor het opslaan van gegevens uit een bestand. In deze zelfstudie wordt een consoletoepassing maken en het uitvoeren van basisbewerkingen uitvoeren met Java en de Azure-bestanden weergeven:
 
 * Maken en verwijderen van de Azure-bestandsshares
 * Maken en verwijderen van mappen
@@ -34,10 +35,10 @@ Deze zelfstudie wordt gedemonstreerd de basisbeginselen van het gebruik van Java
 * Uploaden, downloaden en een bestand verwijderen
 
 > [!Note]  
-> Omdat Azure-bestanden kunnen worden geopend via SMB, is het mogelijk om eenvoudige toepassingen die toegang hebben tot de bestandsshare in Azure met behulp van de standaard Java-i/o-klassen te schrijven. In dit artikel wordt beschreven hoe schrijven van toepassingen die gebruikmaken van de Azure Storage Java SDK, die gebruikmaakt van de [REST-API van Azure-bestanden](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) contact opnemen met de Azure-bestanden.
+> Omdat Azure-bestanden kunnen worden geopend via SMB, is het mogelijk om toepassingen die toegang hebben tot de Azure-bestandsshare met behulp van de standaard Java-i/o-klassen te schrijven. In dit artikel wordt beschreven hoe schrijven van toepassingen die gebruikmaken van de Azure Storage Java SDK, die gebruikmaakt van de [REST-API van Azure-bestanden](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) contact opnemen met de Azure-bestanden.
 
 ## <a name="create-a-java-application"></a>Een Java-toepassing maken
-Als u wilt de voorbeelden bouwt, moet u Java Development Kit (JDK) en de [Azure-opslag-SDK voor Java] []. U moet hebt een Azure storage-account ook gemaakt.
+Als u wilt de voorbeelden bouwt, moet u Java Development Kit (JDK) en de [Azure-opslag-SDK voor Java](https://github.com/Azure/azure-storage-java). U moet hebt een Azure storage-account ook gemaakt.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Instellen van uw toepassing om Azure-bestanden te gebruiken
 Voor het gebruik van de Azure storage-API's de volgende instructie toe te voegen aan het begin van de Java-bestand waarin u van plan bent voor toegang tot de storage-service uit.
@@ -127,7 +128,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>Een map maken
-U kunt ook de opslag indelen door de gegevens van de bestanden in submappen in plaats van ze allemaal in de hoofdmap. Azure Files kunt u zoveel mappen als uw account kunt maken. De code hieronder maakt u een onderliggende map met de naam **sampledir** onder de hoofdmap.
+U kunt ook de opslag indelen door de gegevens van de bestanden in submappen in plaats van ze allemaal in de hoofdmap. Azure Files kunt u zoveel mappen als uw account kunt maken. De code hieronder maakt u een submap met de naam **sampledir** onder de hoofdmap.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -144,7 +145,7 @@ if (sampleDir.createIfNotExists()) {
 ```
 
 ## <a name="delete-a-directory"></a>Een map verwijderen
-Als u een map is een redelijk eenvoudig taak, maar houd er rekening mee dat u een map met nog steeds bestanden of andere mappen niet verwijderen.
+Als u een map is een eenvoudige taak, maar houd er rekening mee dat u een map met nog steeds bestanden of andere mappen niet verwijderen.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -172,7 +173,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 ```
 
 ## <a name="upload-a-file"></a>Bestand uploaden
-Een Azure-File share tenminste bevat, een hoofdmap waarin de bestanden kunnen zich bevinden. In deze sectie leert u hoe een bestand van de lokale opslag naar de hoofdmap van een share te uploaden.
+In deze sectie leert u hoe een bestand van de lokale opslag naar de hoofdmap van een share te uploaden.
 
 De eerste stap bij het uploaden van een bestand is te halen van een verwijzing naar de map waarin dit zich moet bevinden. U doet dit door de **getRootDirectoryReference** methode van de shareobject.
 

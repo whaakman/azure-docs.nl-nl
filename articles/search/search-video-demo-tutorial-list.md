@@ -6,13 +6,14 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/06/2017
+ms.date: 06/04/2018
 ms.author: heidist
-ms.openlocfilehash: e71a8abcebb95f2d34dee2f26dc2c7f341465a55
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 197d54480d987b3826f129e9e1264caf4a1998b8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757584"
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure Search: codevoorbeelden, demo's, video's en zelfstudies
 Lees sneller met de volgende video's, demo's, zelfstudies en voorbeeld-apps.
@@ -21,14 +22,14 @@ Lees sneller met de volgende video's, demo's, zelfstudies en voorbeeld-apps.
 
 Start hier als u niet bekend met Azure Search bent. U kunt al deze resources weergeven in ongeveer één uur.
 
-| Titel | Beschrijving | Date |
-|-------|-------------|------|
-| [Bekijk deze video-Inleiding](https://channel9.msdn.com/Events/Connect/2016/138) | 9m38s Inleiding tot functies, services te maken en query's. | November 2016 |
-| [ Een service maken](search-get-started-portal.md) | Stappen voor het instellen van Azure Search in de portal. | Februari 2017 |
-| [Query uitvoeren in een index](search-get-started-portal.md) | Maken en query uitvoeren in een index met ingebouwde voorbeeldgegevens. Hulpprogramma's in de portal zijn een snelle manier om te leren kennen querytypen en zoeken van parameters. | Februari 2017 |
-| [Volgende stap:<br/> Code in .NET](search-howto-dotnet-sdk.md) | C# walkthrough laat zien hoe u verbinding maakt, index en query uitvoert met behulp van de Azure Search .NET-bibliotheek. | November 2016 |
-| [Volgende stap:<br/> Code in de REST](search-create-index-rest-api.md) | Bekijk de REST-aanroepen en JSON-nettoladingen voor het maken van een Azure Search-index op elk platform en programmeertaal. | December 2016 |
-| [Hoe vol tekst zoeken werkt in Azure Search](search-lucene-query-architecture.md) | Architectuur en een overzicht van de volledige tekst zoeken werkbelastingen in Azure Search. | Maart 2017 |
+| Titel | Media | Beschrijving | Date |
+|-------|-------|-------------|------|
+| [Bekijk deze video-Inleiding](https://channel9.msdn.com/Events/Connect/2016/138) | Video | 9m38s Inleiding tot functies, services te maken en query's. | November 2016 |
+| [ Een service maken](search-get-started-portal.md) | Artikel | Stappen voor het instellen van Azure Search in de portal. | Februari 2017 |
+| [Query uitvoeren in een index](search-get-started-portal.md) | Artikel |Maken en query uitvoeren in een index met ingebouwde voorbeeldgegevens. Hulpprogramma's in de portal zijn een snelle manier om te leren kennen querytypen en zoeken van parameters. | Februari 2017 |
+| [Volgende stap:<br/> Code in .NET](search-howto-dotnet-sdk.md) | Artikel |C# walkthrough laat zien hoe u verbinding maakt, index en query uitvoert met behulp van de Azure Search .NET-bibliotheek. | November 2016 |
+| [Volgende stap:<br/> Code in de REST](search-create-index-rest-api.md) | Artikel |Bekijk de REST-aanroepen en JSON-nettoladingen voor het maken van een Azure Search-index op elk platform en programmeertaal. | December 2016 |
+| [Hoe vol tekst zoeken werkt in Azure Search](search-lucene-query-architecture.md) | Artikel | Architectuur en een overzicht van de volledige tekst zoeken werkbelastingen in Azure Search. | Maart 2017 |
 
 ## <a name="code-samples"></a>Codevoorbeelden
 
@@ -53,44 +54,13 @@ Volledig functioneel webtoepassingen met behulp van Azure Search voor de zoekfun
 |[Draaien illustraties galerie Demo](https://rawgit.com/liamca/azure-search-tate-art-gallery/master/Demo/index.html) | Een gehoste ASP.NET website met voorbeeldgegevens uit de galerie van de illustraties draaien. Probeer zoektermen zoals 'moderne', 'photo' en 'staand' als eerste stap.
 |[Azure Search Demo Site](https://searchsamples.azurewebsites.net/#/) | Een verzameling demo-apps voor Azure Search. Test-Drive media zoeken, geo Zoek- en voorraad apps met behulp van Azure Search. |
 
-## <a name="courseware"></a>Cursusprogramma
+## <a name="online-courseware"></a>Online cursusprogramma
 
 Meerdere sessie demo's en labs voor Azure Search.
 
-| Koppeling | Beschrijving | Date |
-|------|-------------|------|
-[Intelligent platformoverschrijdende mobiele toepassingen maken met Xamarin en Azure Search](https://mva.microsoft.com/en-US/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | Typeahead, zoekopdracht in volledige tekst en paging, filteren, zoeken, moreLikeThis, machine learning, score berekenen en afstemmen, analytics | December 2016 |
-[Met behulp van Windows Azure Search](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) | Oudere maar nog steeds relevante drilldown in schaal, georuimtelijke zoeken, taalkundige analyse, Cortana spraakherkenning | Mei 2015 | 
-
-## <a name="video-archive"></a>Video-archief
-
-| Koppeling | Uitgebracht | Details |
-| --- | --- | --- |
-| [Channel9 Build 2016: ' toepassingen die meer & aanpassen: Azure Machine Learning + zoeken "](https://channel9.msdn.com/Events/Build/2016/P458) |Mei 2016 |17 minuten. Liam Cavanagh wordt uitgelegd van de voordelen van het 'aanbevolen voor u' mogelijkheden toevoegen aan uw Azure Search-toepassing en hoe u inzicht in gebruikersvoorkeuren van machine learning worden afgeleid. |
-| [Channel9 Build 2016: 'Intelligent gegevensgestuurde toepassingen die meer informatie over en aan te passen'](https://channel9.msdn.com/Events/Build/2016/B857) |Mei 2016 |1 uur. Meer informatie over hoe Machine Learning en Azure Search kunt tegelijk worden gebruikt om geavanceerde gegevensgestuurde toepassingen te maken. |
-| [Channel9 gegevens weergegeven: 'aangepaste Analyzers zoeken Analytics en -Portal voor het uitvoeren van query's in Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search) |Januari 2016 |15 minuten. Aangepaste analyzers kunnen tokenizers en token filters. Zoeken Analytics biedt inzicht in de zoektermen ingevoerd door gebruikers en de effectiviteit van uw search-index. Search Explorer is een ingebouwde query hulpprogramma waarmee u query's uit binnen de portal uitproberen. |
-| [Channel9 gegevens weergegeven: 'Azure Search verbeteringen'](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements) |November 2015 |17 minuten. Gegevensopname StackExchange gegevens. Een index in de Azure Portal maken. Meer informatie over nu indexeerfuncties verkenning ondersteunde gegevensbronnen ophalen van gegevens in een Azure Search-index. Taalanalyse. Lucene-query-expressies. |
-| [AzureCon 2015: Aanbevolen procedures voor Azure Search](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) |September 2015 |Praktische advies over scale-out, optimalisatie van de prestaties en het codering efficiëntie bereiken bij het bouwen van apps voor Web- of mobiele scenario's die worden aangeboden door Pablo Castro. |
-| [Build 2015: Moderne gegevens](http://channel9.msdn.com/Events/Build/2015/2-663) |Juni 2015 |Informatie over hoe Azure Search in de revolution moderne gegevens, die worden aangeboden door Shawn Bice en Pablo Castro past 29 minuten in de sessie. |
-| [Build 2015: Goede zoekopdracht ervaringen voor mobiele en WebApps bouwen met behulp van Azure Search](http://channel9.msdn.com/Events/Build/2015/2-745) |Juni 2015 |1 uur. Pablo Castro geeft op Microsoft Build 2015. |
-| [Elastische {op} 2015: Dat realtime zoeken bij Microsoft](https://www.elastic.co/elasticon/2015/sf/powering-real-time-search-at-microsoft) |Maart 2015 |16 minuten. Presentatie op elastische {op} 2015 door Pablo Castro waarin wordt uitgelegd hoe Azure Search en andere groepen bij Microsoft ElasticSearch gebruiken. |
-| [Channel9 gegevens weergegeven: 'Azure Search algemene beschikbaarheid en wat is er nieuw'](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-General-Availability-and-Whats-New) |Maart 2015 |12 minuten. Azure Search geldt 'GA', die worden aangeboden door Liam Cavanagh. |
-| [Channel9 gegevens weergegeven: 'Azure zoeksuggesties'](https://channel9.msdn.com/Shows/Data-Exposed/DataExposedAzureSearchSuggestions) |Februari 2015 |15 minuten. Suggesties (ook wel bekend als type-ahead of automatisch aanvullen query's die als mogelijke zoektermen worden weergegeven als een gebruiker is een term typen). In Azure Search wordt fuzzy overeenkomende geïmplementeerd via suggesties. |
-| [Channel9 gegevens weergegeven: 'SQL Server op Azure Search synchronisatie'](http://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-to-Azure-Search-Synchronization) |December 2014 |16 minuten. Databasetransacties synchroniseren. Azure SQL-relationele gegevens laden in Azure Search. |
-| [Video van techEd Europa: Diepgaand in Azure Search](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410) |Oktober 2014 |1 uur 15 minuten. Snelle demo van Azure Search end-to-end, geleverd door Pablo Castro. |
-| [Channel9 gegevens weergegeven: 'georuimtelijke gegevens en Azure Search'](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) |September 2014 |18 minuten. Georuimtelijke zoeken scenario's. |
-| [Channel9 Cloud behandeld: Aflevering 152](http://channel9.msdn.com/Shows/Cloud%20Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) |September 2014 |25 minuten. Technische functie discussie, regular uitgeven en georuimtelijke bevraagt via Fiddler en inzicht in de resultaten die keert u terug. |
-| [Channel9 gegevens weergegeven: 'Inleiding tot Azure Search'](https://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search) |Augustus 2014 |22 minuten. Architectuur en mogelijkheden van Azure Search, nu in openbare Preview. |
-
-## <a name="tutorial-archive"></a>Zelfstudie-archief
-
-| Walkthrough | Beschrijving |
-| --- | --- |
-| [Het gebruik van Azure Search met D3.js voor interactieve gegevensvisualisaties bouwen](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/) |Blog post en voorbeeldcode die laat zien hoe u visuele zoekmogelijkheden aan uw aangepaste app toevoegen. |
-| [Aan de slag met Azure Search in NodeJS](search-get-started-nodejs.md) |Informatie over het werken met Azure Search in NodeJS. |
-| [Aan de slag met Azure Search in Java](search-get-started-java.md) |Zelfstudie voor Java-programmeurs Eclipse en Apache Tomcat-server met het bouwen en uitvoeren van een voorbeeldtoepassing die gebruikmaakt van Azure Search. |
-| [Azure Search-scenario's en mogelijkheden](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/) |Blog post die betrekking hebben op de primaire scenario's ingeschakeld door de huidige functionaliteit. |
-| [Suggesties toevoegen aan uw zoektoepassingen](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Informatie over het implementeren van suggesties, genoemd automatisch voltooid. Deze demo een aantal onderwerpen, waaronder een MVC4-toepassingen maken die gebruikmaakt van Azure Search suggesties doorloopt, gebruik van de bibliotheek Twitter typeahead.js voor het bouwen van een effectief voor Automatische suggestie van onderdeel JavaScript en het gebruik van fuzzy suggesties om toe te staan u kunt brengen suggesties zelfs als de gebruiker is onjuist gespeld het woord. |
-| [TechNet Virtueel Lab: Bouwen van een zoektoepassing Microsoft Azure](http://go.microsoft.com/?linkid=9874663) |Virtuele testomgeving met een ontwikkelomgeving, hulpprogramma's, documentatie en gegevens. U moet een Azure-account, een proefabonnement of uw persoonlijke Azure-abonnement, het lab te voltooien. |
-| [SQL Server-gegevens synchroniseren met Azure Search](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Blogbericht met uitleg over het laden van gegevens van relationele databases van SQL Server naar een Azure Search-index. |
-
+| Koppeling | Provider| Beschrijving | Date
+|------|-------------|------|------|
+[Intelligent platformoverschrijdende mobiele toepassingen maken met Xamarin en Azure Search](https://mva.microsoft.com/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | Microsoft Virtual Academy | Typeahead, zoekopdracht in volledige tekst en paging, filteren, zoeken, moreLikeThis, machine learning, score berekenen en afstemmen, analytics | December 2016 |
+[Azure gegevensreeks > deel 3: Azure Search](https://mva.microsoft.com/training-courses/data-series-platform-azure-data-services-17696) | Microsoft Virtual Academy | Informatie over het gebruik van Azure Search met Azure SQL Database en Azure Cosmos DB. | Juli 2017 | 
+[Web- en ontwikkeling van gegevens met Visual Studio 2017 en Azure > deel 5: Azure Search & Language Understanding Intelligent Services](https://mva.microsoft.com/training-courses/web-and-data-application-development-with-visual-studio-2017-and-azure-16931) | Microsoft Virtual Academy | Video's en les reeks voor ontwikkelaars. Deel 5, informatie over het bouwen van een eenvoudige zoekfunctie en vervolgens met LUIS uitbreiden voor de verwerking van natuurlijke taal. | November 2016| 
+[Mogelijkheden voor het zoeken toe te voegen aan uw Apps met Azure Search](https://www.pluralsight.com/courses/azure-adding-search-abilities-apps)| Pluralsight | Maximaal prioriteitsniveau online loop die u bij de REST-API helpt. | September 2016  | 

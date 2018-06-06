@@ -8,17 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 03a25d933a302d7e1e9d3e9efa1ff2cb6fe9091f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: bae692bc792acc3aa6d60fb4a6bd2a3bb3829fde
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713164"
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Weergave of zoeken naar uw gebruikersgroepen in Azure Active Directory
 In dit artikel wordt uitgelegd hoe het weergeven van alle groepen in Azure Active Directory (Azure AD). Een van de functies van Azure AD-Gebruikersbeheer is dat u groepen beheertaken uitvoert kunt zoals het toewijzen van licenties of machtigingen aan een aantal gebruikers tegelijk.

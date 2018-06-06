@@ -8,16 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: a9bf9748de5f390f95b8b672e0cf77afa5c49581
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 41f69a1dd4cbd4c0f6be0764efdbf0fb61ac3cb7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724425"
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Standaard-gebruikersmachtigingen in Azure Active Directory
 
@@ -35,11 +36,11 @@ Standaardmachtigingen voor gasten zijn standaard beperkend. Gasten kunnen worden
 **Onderwerp** | **Machtigingen van de gebruiker lid** | **Gebruikersmachtigingen Gast**
 ------------ | --------- | ----------
 Gebruikers en contactpersonen | Alle openbare eigenschappen van gebruikers en contactpersonen worden gelezen<br>Gasten uitnodigen<br>Eigen wachtwoord wijzigen<br>Beheren van eigen mobiele telefoonnummer<br>Eigen photo beheren<br>Ongeldig eigen vernieuwen van tokens | Eigen eigenschappen lezen<br>Lezen van de weergavenaam, e-aanmeldingsnaam, foto's, UPN-naam en type gebruikerseigenschappen van andere gebruikers en contactpersonen<br>Eigen wachtwoord wijzigen
-Groepen   | Beveiligingsgroepen maken<br>Office 365-groepen maken<br>Alle eigenschappen van de groepen lezen<br>Niet-verborgen groepslidmaatschappen lezen<br>Verborgen Office 365-groepslidmaatschappen voor gekoppelde groep lezen<br>Eigenschappen, eigendom en het lidmaatschap van groepen in eigendom van beheren<br>Gasten in eigendom van groepen toevoegen<br>Instellingen voor dynamisch lidmaatschap beheren<br>In eigendom van groepen verwijderen<br>Herstellen in eigendom van Office 365-groepen | Alle eigenschappen van de groepen lezen<br>Niet-verborgen groepslidmaatschappen lezen<br>Verborgen Office 365-groepslidmaatschappen voor gekoppelde groepen lezen<br>In eigendom van groepen beheren<br>Gasten in eigendom van groepen toevoegen (als toegestaan)<br>In eigendom van groepen verwijderen<br>Herstellen in eigendom van Office 365-groepen           
+Groepen | Beveiligingsgroepen maken<br>Office 365-groepen maken<br>Alle eigenschappen van de groepen lezen<br>Niet-verborgen groepslidmaatschappen lezen<br>Verborgen Office 365-groepslidmaatschappen voor gekoppelde groep lezen<br>Eigenschappen, eigendom en het lidmaatschap van groepen in eigendom van beheren<br>Gasten in eigendom van groepen toevoegen<br>Instellingen voor dynamisch lidmaatschap beheren<br>In eigendom van groepen verwijderen<br>Herstellen in eigendom van Office 365-groepen | Alle eigenschappen van de groepen lezen<br>Niet-verborgen groepslidmaatschappen lezen<br>Verborgen Office 365-groepslidmaatschappen voor gekoppelde groepen lezen<br>In eigendom van groepen beheren<br>Gasten in eigendom van groepen toevoegen (als toegestaan)<br>In eigendom van groepen verwijderen<br>Herstellen in eigendom van Office 365-groepen 
 Toepassingen | Registreren (maken) nieuwe toepassing<br>Lezen van de eigenschappen van geregistreerd en bedrijfstoepassingen<br>Toepassingseigenschappen, toewijzingen en referenties voor de eigen toepassingen beheren<br>Maak of verwijder de toepassing wachtwoord voor gebruiker<br>Verwijder in eigendom van toepassingen<br>Herstellen in eigendom van toepassingen | Lezen van de eigenschappen van geregistreerd en bedrijfstoepassingen<br>Toepassingseigenschappen, toewijzingen en referenties voor de eigen toepassingen beheren<br>Verwijder in eigendom van toepassingen<br>Herstellen in eigendom van toepassingen
 Apparaten | Alle eigenschappen van de apparaten worden gelezen<br>Alle eigenschappen van de eigen apparaten beheren<br> | Geen machtigingen<br>Verwijderen van apparaten die Bedrijfseigendom zijn<br>
 Directory | Alle bedrijfsgegevens lezen<br>Lezen van alle domeinen<br>Alle partner contracten lezen | Weergavenaam lees- en domeinen geverifieerd
-Rollen en bereiken | Alle beheerdersrollen en -lidmaatschappen lezen<br>Alle eigenschappen en het lidmaatschap van administratieve eenheden lezen | Geen machtigingen              
+Rollen en bereiken | Alle beheerdersrollen en -lidmaatschappen lezen<br>Alle eigenschappen en het lidmaatschap van administratieve eenheden lezen | Geen machtigingen 
 Abonnementen | Lezen van alle abonnementen<br>Service-Plan lid inschakelen | Geen machtigingen
 Beleidsregels | Alle eigenschappen van het beleid lezen<br>Alle eigenschappen in eigendom van beleid beheren | Geen machtigingen
 

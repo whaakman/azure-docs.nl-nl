@@ -1,21 +1,21 @@
 ---
-title: Web-aanmelden met OpenID Connect - Azure AD B2C | Microsoft Docs
-description: Maken van webtoepassingen met behulp van de Azure Active Directory-implementatie van het OpenID Connect-verificatieprotocol
+title: Web-aanmelden met OpenID Connect in Azure Active Directory B2C | Microsoft Docs
+description: Maken van webtoepassingen met behulp van de Azure Active Directory-implementatie van het OpenID Connect-verificatieprotocol.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e787ea36ab5099705f151504385dd5dc97029e37
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: ad4de055e4f951beb441af90c37ada11ad0abfb0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711287"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Web aanmelden met OpenID Connect
 OpenID Connect is een protocol voor verificatie, gebouwd op OAuth 2.0, die kunnen worden gebruikt voor het veilig Meld u aan gebruikers met webtoepassingen. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OpenID Connect, u kunt uitbesteden registreren, aanmelden en andere identiteitsbeheer in uw webtoepassingen met Azure Active Directory (Azure AD). Deze handleiding wordt beschreven hoe u dit doet op een manier taalonafhankelijke. Wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.
@@ -78,7 +78,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id |Vereist |De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw app. |
 | response_type |Vereist |Het antwoordtype die een token ID voor het OpenID Connect moet bevatten. Als uw web-app ook tokens moet voor het aanroepen van een web-API, kunt u `code+id_token`, zoals we hier hebt gedaan. |
 | redirect_uri |Aanbevolen |De `redirect_uri` parameter van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app. Deze moet exact overeenkomen met een van de `redirect_uri` parameters die u in de portal hebt geregistreerd, behalve dat het moet een URL zijn gecodeerd. |
-| Bereik |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD beide machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van een ID-tokens (later meer op deze later in dit artikel) ophalen. De `offline_access` bereik is optioneel voor web-apps. Hiermee wordt aangegeven dat uw app moet een *vernieuwingstoken* voor lange levensduur hebben toegang tot bronnen. |
+| scope |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD beide machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van een ID-tokens (later meer op deze later in dit artikel) ophalen. De `offline_access` bereik is optioneel voor web-apps. Hiermee wordt aangegeven dat uw app moet een *vernieuwingstoken* voor lange levensduur hebben toegang tot bronnen. |
 | response_mode |Aanbevolen |De methode die moet worden gebruikt voor het verzenden van de resulterende autorisatiecode terug naar uw app. Het kan zijn `query`, `form_post`, of `fragment`.  De `form_post` antwoord-modus wordt aanbevolen voor de beste beveiliging. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor het voorkomen van aanvraagvervalsing op meerdere sites aanvallen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina die ze op waren. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag (gegenereerd door de app) die wordt opgenomen in het resulterende token ID als een claim. De app kunt vervolgens controleren of deze waarde om te beperken token replay-aanvallen. De waarde is doorgaans een willekeurige unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
@@ -172,7 +172,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | p |Vereist |Het beleid dat is gebruikt voor het ophalen van de autorisatiecode. U kunt een ander beleid niet gebruiken in deze aanvraag. Opmerking dat u deze parameter toevoegen aan de query-tekenreeks niet op de `POST` hoofdtekst. |
 | client_id |Vereist |De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw app. |
 | grant_type |Vereist |Het type grant moet `authorization_code` voor de autorisatiecodestroom. |
-| Bereik |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD beide machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van id_token parameters ophalen. Het kan worden gebruikt om op te halen van tokens, voor uw app eigen back-end web-API, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen nodig. |
+| scope |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD beide machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van id_token parameters ophalen. Het kan worden gebruikt om op te halen van tokens, voor uw app eigen back-end web-API, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen nodig. |
 | code |Vereist |De autorisatiecode die u hebt verkregen in de eerste zijde van de stroom. |
 | redirect_uri |Vereist |De `redirect_uri` parameter van de toepassing waarin u de autorisatiecode ontvangen. |
 | client_secret |Vereist |De toepassingsgeheim dat u hebt gegenereerd in de [Azure-portal](https://portal.azure.com/). Deze toepassing geheime sleutel is een belangrijke beveiligingsupdate artefact. U moet het veilig opslaan op uw server. U moet ook deze clientgeheim periodiek draaien. |
@@ -194,7 +194,7 @@ Een geslaagde reactie token ziet eruit als:
 | not_before |De tijd waarop het token wordt beschouwd als geldige epoche tijdstip. |
 | token_type |De waarde van het type token. Het enige type dat ondersteunt Azure AD is `Bearer`. |
 | access_token |De ondertekende JWT-token dat u hebt aangevraagd. |
-| Bereik |De scopes waarvoor het token geldig is. Deze kunnen worden gebruikt voor het opslaan van tokens voor later gebruik. |
+| scope |De scopes waarvoor het token geldig is. Deze kunnen worden gebruikt voor het opslaan van tokens voor later gebruik. |
 | expires_in |De lengte van de tijd die het toegangstoken ongeldig (in seconden is). |
 | refresh_token |Een OAuth 2.0-vernieuwingstoken. De app kunt dit token gebruiken om aanvullende tokens verkrijgen nadat het huidige token is verlopen. Vernieuwen van tokens worden lange levensduur hebben en kunnen worden gebruikt voor toegang tot bronnen voor langere tijd te behouden. Raadpleeg voor meer informatie de [B2C tokenverwijzing](active-directory-b2c-reference-tokens.md). U moet hebben gebruikt het bereik `offline_access` voor de verificatie- en aanvragen voor beveiligingstokens kunnen een vernieuwingstoken dat is ontvangen. |
 
@@ -237,7 +237,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | p |Vereist |Het beleid dat is gebruikt voor het verkrijgen van het oorspronkelijke vernieuwingstoken. U kunt een ander beleid niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter aan de queryreeks, niet aan de POST-instantie toevoegt. |
 | client_id |Vereist |De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw app. |
 | grant_type |Vereist |Het type toekennen, die een vernieuwingstoken voor deze fase van de autorisatiecodestroom moet zijn. |
-| Bereik |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD beide machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van een ID-tokens verkrijgen. Het kan worden gebruikt om op te halen van tokens, voor uw app eigen back-end web-API, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen nodig. |
+| scope |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD beide machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van een ID-tokens verkrijgen. Het kan worden gebruikt om op te halen van tokens, voor uw app eigen back-end web-API, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen nodig. |
 | redirect_uri |Aanbevolen |De `redirect_uri` parameter van de toepassing waarin u de autorisatiecode ontvangen. |
 | refresh_token |Vereist |Het oorspronkelijke vernieuwingstoken die u hebt verkregen in de tweede fase van de stroom. U moet hebben gebruikt het bereik `offline_access` voor de verificatie- en aanvragen voor beveiligingstokens kunnen een vernieuwingstoken dat is ontvangen. |
 | client_secret |Vereist |De toepassingsgeheim dat u hebt gegenereerd in de [Azure-portal](https://portal.azure.com/). Deze toepassing geheime sleutel is een belangrijke beveiligingsupdate artefact. U moet het veilig opslaan op uw server. U moet ook deze clientgeheim periodiek draaien. |
@@ -259,7 +259,7 @@ Een geslaagde reactie token ziet eruit als:
 | not_before |De tijd waarop het token wordt beschouwd als geldige epoche tijdstip. |
 | token_type |De waarde van het type token. Het enige type dat ondersteunt Azure AD is `Bearer`. |
 | access_token |De ondertekende JWT-token dat u hebt aangevraagd. |
-| Bereik |Het bereik dat het token geldig is voor, die kan worden gebruikt voor het opslaan van tokens voor later gebruik. |
+| scope |Het bereik dat het token geldig is voor, die kan worden gebruikt voor het opslaan van tokens voor later gebruik. |
 | expires_in |De lengte van de tijd die het toegangstoken ongeldig (in seconden is). |
 | refresh_token |Een OAuth 2.0-vernieuwingstoken. De app kunt dit token gebruiken om aanvullende tokens verkrijgen nadat het huidige token is verlopen.  Vernieuwen van tokens worden lange levensduur hebben en kunnen worden gebruikt voor toegang tot bronnen voor langere tijd te behouden. Raadpleeg voor meer details over de [B2C tokenverwijzing](active-directory-b2c-reference-tokens.md). |
 

@@ -3,22 +3,19 @@ title: Azure Cosmos DB indexeren beleid | Microsoft Docs
 description: Begrijpen hoe indexeren werkt in Azure Cosmos DB. Informatie over het configureren en wijzigen van het indexeringsbeleid voor automatisch indexeren en betere prestaties.
 keywords: hoe indexeren werkt, automatische indexeren, database indexeren
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3abae65ccc430c791e289a4767d057cf010b974b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700329"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe biedt Azure Cosmos DB indexgegevens?
 
@@ -79,9 +76,9 @@ Azure Cosmos DB ondersteunt drie indexering modi die u via het indexeringsbeleid
 
 Consistente indexeren ondersteunt consistente query's koste mogelijk verminderde doorvoer van schrijfbewerkingen. Deze verlaging is een functie van de unieke paden die moeten worden geïndexeerd en de 'consistentieniveau." Consistente indexering modus is ontworpen voor werkbelastingen 'snel query schrijven onmiddellijk'.
 
-**Vertraagde**: de index asynchroon wordt bijgewerkt wanneer een verzameling Azure Cosmos DB quiescent, dat wil zeggen, is wanneer de doorvoercapaciteit van de verzameling is niet volledig worden gebruikt voor gebruikersaanvragen. De vertraagde indexering modus mogelijk geschikt is voor 'opnemen nu query later' werkbelastingen waarvoor document opneemt. Houd er rekening mee dat u inconsistente resultaten krijgt mogelijk omdat gegevens geconsumeerd en langzaam geïndexeerd. Dit betekent dat uw aantal query's of een specifieke query resultaten mogelijk geen consistente of repeatable op elk moment. 
+**Vertraagde**: de index asynchroon wordt bijgewerkt wanneer een verzameling Azure Cosmos DB quiescent, dat wil zeggen, is wanneer de doorvoercapaciteit van de verzameling is niet volledig worden gebruikt voor gebruikersaanvragen.  Houd er rekening mee dat u inconsistente resultaten krijgt mogelijk omdat gegevens geconsumeerd en langzaam geïndexeerd. Dit betekent dat het aantal query's of specifieke queryresultaten mogelijk geen consistente of repeatable op de opgegeven tijd. 
 
-De index wordt doorgaans in de modus bijwerken met opgenomen gegevens. Tijd tot live (TTL) wijzigt met Lazy indexeren, resultaat in de index wordt verwijderd en opnieuw gemaakt. Hierdoor is het aantal en de query-resultaten inconsistent voor een bepaalde periode. Als gevolg hiervan moeten de meeste Azure DB die Cosmos-accounts gebruiken de consistente indexing-modus.
+De index wordt doorgaans in de modus bijwerken met opgenomen gegevens. Tijd tot live (TTL) wijzigt met Lazy indexeren, resultaat in de index wordt verwijderd en opnieuw gemaakt. Hierdoor is het aantal en de query-resultaten inconsistent voor een bepaalde periode. De meeste Azure DB die Cosmos-accounts, moeten de consistente indexering modus gebruiken.
 
 **Geen**: een verzameling met een geen Indexmodus geen index die is gekoppeld heeft. Dit wordt meestal gebruikt als Azure Cosmos DB wordt gebruikt als een sleutel / waarde-opslag en documenten zijn geopend alleen door de ID-eigenschap. 
 

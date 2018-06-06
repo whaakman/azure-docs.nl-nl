@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 968636848b9cba9c0976aa366952e56838623cc4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698812"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect gebruiker aanmeldingsopties
 Verbinden met Azure Active Directory (Azure AD) kan uw gebruikers zich aanmelden bij zowel cloud als on-premises resources met dezelfde wachtwoorden. In dit artikel beschrijft de belangrijkste concepten voor elk identiteitsmodel bij het kiezen van de identiteit die u gebruiken wilt voor aanmelding bij Azure AD.
@@ -47,6 +49,8 @@ Zorg ervoor dat er geen wachtwoorden worden opgeslagen in de cloud.||x*|x|
 Oplossingen voor on-premises meervoudige verificatie inschakelen.|||x|
 
 * Via een lichtgewicht agent.
+
+Zie voor gedetailleerde informatie over het kiezen van een verificatiemethode [Kies de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit](../../security/azure-ad-choose-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Synchronisatie van wachtwoord-hashes
 Met synchronisatie van wachtwoordhash, zijn-hashes van gebruikerswachtwoorden gesynchroniseerd van lokale Active Directory naar Azure AD. Wanneer wachtwoorden worden gewijzigd of opnieuw instellen van lokale, het nieuwe wachtwoord-hashes zijn gesynchroniseerd naar Azure AD onmiddellijk zodat uw gebruikers altijd hetzelfde wachtwoord voor cloud-bronnen en lokale bronnen gebruiken kunnen. De wachtwoorden worden nooit verzonden naar Azure AD of opgeslagen in Azure AD in ongecodeerde tekst. U kunt synchronisatie van wachtwoordhash samen met terugschrijven van wachtwoord gebruiken om in te schakelen selfservice wachtwoordherstel in Azure AD.

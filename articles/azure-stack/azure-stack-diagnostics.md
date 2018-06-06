@@ -7,14 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b966ed4f1a9a8e659fbce185a807573d5321b251
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801650"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -140,7 +141,7 @@ if($s)
 
 - Als de **FromDate** en **ToDate** parameters niet zijn opgegeven, logboeken worden standaard verzameld voor de afgelopen vier uur.
 - U kunt de **TimeOutInMinutes** -parameter voor de time-out voor logboekverzameling ingesteld. Dit is standaard ingesteld op 150 (2,5 uur).
-
+- In versie 1805 en hoger, is dump logboek bestandsverzameling standaard uitgeschakeld. Als u wilt inschakelen, gebruikt u de **IncludeDumpFile** parameter overschakelen. 
 - Op dit moment kunt u de **FilterByRole** parameter filter logboekgegevens verzameld door de volgende rollen:
 
    |   |   |   |
@@ -184,7 +185,7 @@ U kunt bekijken voor meer informatie over het ERCS_AzureStackLogs.ps1 PowerShell
 * De opdracht wordt uitgevoerd op basis van welke rollen van Logboeken van de verzamelen enige tijd. Factoren omvatten ook de tijd die is opgegeven voor het logboek verzamelen en het aantal knooppunten in de Azure-Stack-omgeving.
 * Als u zich aanmeldt verzameling wordt uitgevoerd, controleert de nieuwe map gemaakt de **OutputSharePath** parameter die is opgegeven in de opdracht.
 * Elke functie heeft haar Logboeken in afzonderlijke zip-bestanden. Afhankelijk van de grootte van de logboeken die worden verzameld, kan een rol de logboeken splitsen in meerdere zip-bestanden hebben. Gebruik een hulpprogramma dat kunt pak bulksgewijs (zoals 7zip) voor een functie als u dat alle logboekbestanden naar één map wilt zijn uitgepakt. Selecteer de gecomprimeerde bestanden voor de rol en selecteer **extraheren hier**. Hiermee wordt de logboekbestanden voor die rol in een enkele samengevoegde map uitgepakt.
-* Een bestand met de naam **Get-AzureStackLog_Output.log** ook in de map waarin de gecomprimeerde logboekbestanden gemaakt. Dit bestand is een logboek van de uitvoer van de opdracht, die kan worden gebruikt voor het oplossen van problemen tijdens de logboekgegevens verzameld.
+* Een bestand met de naam **Get-AzureStackLog_Output.log** ook in de map waarin de gecomprimeerde logboekbestanden gemaakt. Dit bestand is een logboek van de uitvoer van de opdracht, die kan worden gebruikt voor het oplossen van problemen tijdens de logboekgegevens verzameld. Soms bevat het logboekbestand `PS>TerminatingError` vermeldingen die kunnen worden genegeerd, tenzij de verwachte logboekbestanden ontbreken na het aanmelden van de verzameling wordt uitgevoerd.
 * Voor het onderzoeken van een specifieke fout mogelijk van meer dan één component logboeken nodig.
     -   Systeem- en gebeurtenislogboeken voor alle virtuele machines van infrastructuur worden bijgehouden in de *virtuele machines* rol.
     -   Systeem- en gebeurtenislogboeken op alle hosts worden bijgehouden in de *BareMetal* rol.

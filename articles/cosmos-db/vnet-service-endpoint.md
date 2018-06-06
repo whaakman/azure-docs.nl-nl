@@ -5,15 +5,16 @@ services: cosmos-db
 author: kanshiG
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: b07a159e69a11656555a8550b807cce0b2c9ef6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aab2446a21739beb029b103241431fb9998e1861
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735455"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Veilige toegang tot een Cosmos-DB Azure-account met behulp van Azure Virtual Network service-eindpunt
 
@@ -48,7 +49,7 @@ Zodra een Cosmos-DB Azure-account is geconfigureerd met een service-eindpunt van
    ![Selecteer het virtueel netwerk en subnet](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > Als service-eindpunt voor Azure Cosmos DB eerder voor de geselecteerde virtuele Azure-netwerken en subnetten niet is geconfigureerd, kan worden geconfigureerd als onderdeel van deze bewerking. Het inschakelen van toegang, duurt maximaal 15 minuten duren. 
+   > Als service-eindpunt voor Azure Cosmos DB eerder voor de geselecteerde virtuele Azure-netwerken en subnetten niet is geconfigureerd, kan worden geconfigureerd als onderdeel van deze bewerking. Het inschakelen van toegang, duurt maximaal 15 minuten duren. Het is belangrijk de IP-firewall uitschakelen na Let op de inhoud van de firewall ACL voor renabling ze later. 
 
    ![virtueel netwerk en subnet geconfigureerd](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -57,6 +58,9 @@ Nu worden uw Azure DB die Cosmos-account mag alleen verkeer vanaf deze gekozen s
 ### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Service-eindpunt voor een nieuwe virtuele Azure-netwerk en subnet configureren
 
 1. Van **alle resources** blade zoeken naar de database van de Cosmos Azure account u wilt beveiligen.  
+
+> [!NOTE]
+> Als u een bestaande IP-firewall is geconfigureerd voor uw Azure DB die Cosmos-account hebt, houd rekening met de configuratie van de firewall, verwijdert u de IP-firewall en schakel vervolgens het Service-eindpunt. Als u het Service-eindpunt zonder disbling de firewall inschakelt, wordt het verkeer van deze ip-adresbereik de identiteit van de virtuele IP-gaan verloren en wordt deze verwijderd met een foutbericht van de IP-filter. Dus om te voorkomen dat deze fout moet u altijd de firewallregels uitschakelt, kopiëren, service-eindpunt van het subnet en ten slotte ACL het subnet van de Cosmos-database inschakelen. Nadat u service-eindpunt configureren en de ACL toevoegen kunt u opnieuw de IP-firewall opnieuw inschakelen indien nodig.
 
 2. Voordat u service-eindpunt voor virtueel netwerk, kopieert u de IP-firewall-informatie die is gekoppeld aan uw Azure DB die Cosmos-account voor toekomstig gebruik. U kunt IP-firewall opnieuw inschakelen na het configureren van de service-eindpunt.  
 
@@ -95,6 +99,10 @@ Om te controleren of u toegang hebt tot Azure Cosmos DB metrische gegevens vanui
 Gebruik de volgende stappen uit op een Cosmos-DB Azure-account het Service-eindpunt configureren met behulp van Azure PowerShell:  
 
 1. Installeer de meest recente [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) en [aanmelding](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Zorg ervoor dat u Let op de IP-firewall-instellingen en de IP-firewall verwijderen voordat u Service-eindpunt voor het account inschakelt.
+
+
+> [!NOTE]
+> Als u een bestaande IP-firewall is geconfigureerd voor uw Azure DB die Cosmos-account hebt, houd rekening met de configuratie van de firewall, verwijdert u de IP-firewall en schakel vervolgens het Service-eindpunt. Als u het Service-eindpunt zonder disbling de firewall inschakelt, wordt het verkeer van deze ip-adresbereik de identiteit van de virtuele IP-gaan verloren en wordt deze verwijderd met een foutbericht van de IP-filter. Dus om te voorkomen dat deze fout moet u altijd de firewallregels uitschakelt, kopiëren, service-eindpunt van het subnet en ten slotte ACL het subnet van de Cosmos-database inschakelen. Nadat u service-eindpunt configureren en de ACL toevoegen kunt u opnieuw de IP-firewall opnieuw inschakelen indien nodig.
 
 2. Voordat u service-eindpunt voor virtueel netwerk, kopieert u de IP-firewall-informatie die is gekoppeld aan uw Azure DB die Cosmos-account voor toekomstig gebruik. U wordt IP-firewall opnieuw inschakelen na het configureren van de service-eindpunt.  
 
@@ -219,9 +227,13 @@ Dit is vereist alleen als u wilt dat uw Azure DB die Cosmos-account toegankelijk
 
 64 virtuele netwerk service-eindpunten zijn toegestaan voor een Azure DB die Cosmos-account.
 
-### <a name="what-is-the-relationship-of-service-endpoint-with-respect-to-network-security-group-nsg-rules"></a>Wat is de relatie van Service-eindpunt met betrekking tot de regels van de Netwerkbeveiligingsgroep (NSG)?  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>Wat is de relatie tussen de regels voor Service-eindpunt en een Netwerkbeveiligingsgroep (NSG)?  
 
-Het NSG Azure Cosmos DB regel kunt restric alleen toegang tot Azure Cosmos DB IP-adresbereik.
+NSG-regels in Azure Cosmos DB kunnen u toegang te beperken tot specifieke Azure Cosmos DB IP-adresbereik. Als u wilt toestaan toegang tot een exemplaar van Azure DB die Cosmos die aanwezig is in een specifieke [regio](https://azure.microsoft.com/global-infrastructure/regions/), kunt u de regio in de volgende indeling: 
+
+    AzureCosmosDB.<region name>
+
+Voor meer informatie over het NSG Zie tags [virtueel netwerk service labels](../virtual-network/security-overview.md#service-tags) artikel. 
   
 ### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>Wat is de relatie tussen een IP-firewall en Virtual Network service-eindpunt mogelijkheid?  
 
