@@ -1,25 +1,20 @@
 ---
-title: 'Azure back-up: Back-ups van virtuele machines voorbereiden | Microsoft Docs'
+title: 'Azure Backup: Voorbereiden op back-up van virtuele machines'
 description: Zorg ervoor dat uw omgeving is voorbereid voor de back-ups van virtuele machines in Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: back-ups; een back-up;
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606633"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -59,6 +54,7 @@ Voordat u uw omgeving hebt voorbereid, zorg er dan voor dat deze beperkingen beg
 * Voor geselecteerde netwerken nadat u instellingen voor virtuele netwerken en firewall voor uw storage-account configureert, selecteert u **vertrouwde toestaan-Microsoft-services voor toegang tot dit opslagaccount** als uitzondering aan de Azure Backup-service inschakelen toegang tot het beperkte netwerk storage-account. Herstel op itemniveau wordt niet ondersteund voor opslagaccounts netwerk beperkt.
 * U kunt back-ups van virtuele machines in alle openbare gebieden van Azure. (Zie de [controlelijst](https://azure.microsoft.com/regions/#services) van ondersteunde regio's.) Als de regio die u zoekt niet vandaag ondersteund wordt, wordt deze niet in de vervolgkeuzelijst weergegeven tijdens het maken van de kluis.
 * Herstellen van een domeincontroller wordt (DC) VM die deel uitmaakt van een multi-DC-configuratie alleen ondersteund door PowerShell. Zie voor meer informatie, [een multi-DC-domeincontroller terugzetten](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Momentopname op de schijf schrijft Accelerator ingeschakeld, wordt niet ondersteund. Deze beperking blokkeert Azure Backup-service de mogelijkheid om uit te voeren van een toepassing consistente momentopname te maken van alle schijven van de virtuele machine.
 * Herstellen van virtuele machines waarvoor de volgende speciale netwerkconfiguraties wordt alleen ondersteund door PowerShell. Virtuele machines die zijn gemaakt via de werkstroom terugzetten in de gebruikersinterface wordt geen van deze netwerkconfiguraties nadat de herstelbewerking voltooid is. Zie voor meer informatie, [herstellen van virtuele machines met speciale netwerkconfiguraties](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Virtuele machines onder een load balancer-configuratie (intern en extern)
   * Virtuele machines met meerdere gereserveerde IP-adressen
@@ -174,7 +170,9 @@ Als u problemen met de registratie van de virtuele machine hebt, raadpleegt u de
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>De VM-agent installeren op de virtuele machine
 Voor de back-up-extensie te kunnen gebruiken, de Azure [VM-agent](../virtual-machines/extensions/agent-windows.md) moet worden geïnstalleerd op virtuele machine van Azure. Als uw virtuele machine is gemaakt vanuit Azure Marketplace, is de VM-agent al aanwezig op de virtuele machine. 
 
-De volgende informatie is bedoeld voor situaties waarin u *niet* gemaakt met behulp van een virtuele machine uit Azure Marketplace. U kunt bijvoorbeeld een virtuele machine gemigreerd van een on-premises datacenter. In dat geval moet de VM-agent worden geïnstalleerd ter bescherming van de virtuele machine.
+De volgende informatie is bedoeld voor situaties waarin u *niet* gemaakt met behulp van een virtuele machine uit Azure Marketplace. **U kunt bijvoorbeeld een virtuele machine gemigreerd van een on-premises datacenter. In dat geval moet de VM-agent worden geïnstalleerd ter bescherming van de virtuele machine.**
+
+**Opmerking**: nadat de VM-agent is geïnstalleerd, moet u ook Azure PowerShell gebruiken om bij te werken van de eigenschap ProvisionGuestAgent zodat Azure de virtuele machine de agent is geïnstalleerd. 
 
 Als u problemen back-ups van de virtuele machine in Azure hebt, gebruikt u de volgende tabel om te controleren of de Azure VM-agent correct is geïnstalleerd op de virtuele machine. De tabel bevat aanvullende informatie over de VM-agent voor Windows en Linux-machines.
 
