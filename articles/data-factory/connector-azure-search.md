@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c6e4e05623aae3aca1e782bc492690918a041993
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 280c91d6a871984959d587e9895166853e89cc45
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615679"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Gegevens kopiëren naar een Azure Search-index met behulp van Azure Data Factory
 
@@ -116,7 +117,7 @@ Om gegevens te kopiëren naar Azure Search, stelt u het brontype in de kopieerbe
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **AzureSearchIndexSink** | Ja |
-| writeBehavior | Geeft aan of samenvoegen of wanneer een document al in de index bestaat te vervangen. Zie de [WriteBehavior eigenschap](#writebehavior-property).<br/><br/>Toegestane waarden zijn: **samenvoegen** (standaard), en **uploaden**. | Nee |
+| WriteBehavior | Geeft aan of samenvoegen of wanneer een document al in de index bestaat te vervangen. Zie de [WriteBehavior eigenschap](#writebehavior-property).<br/><br/>Toegestane waarden zijn: **samenvoegen** (standaard), en **uploaden**. | Nee |
 | writeBatchSize | Gegevens geüpload naar de Azure Search-index wanneer de buffergrootte writeBatchSize bereikt. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie.<br/><br/>Toegestane waarden zijn: geheel getal van 1-1000; standaardwaarde is 1000. | Nee |
 
 ### <a name="writebehavior-property"></a>De eigenschap WriteBehavior
@@ -172,10 +173,10 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 
 | Azure Search-gegevenstype | Ondersteund in Azure Search Sink |
 | ---------------------- | ------------------------------ |
-| Tekenreeks | J |
+| Reeks | J |
 | Int32 | J |
 | Int64 | J |
-| Double | J |
+| dubbele | J |
 | Boole-waarde | J |
 | DataTimeOffset | J |
 | Tekenreeksmatrix | N |

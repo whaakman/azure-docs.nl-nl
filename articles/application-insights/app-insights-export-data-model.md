@@ -1,8 +1,8 @@
 ---
 title: Azure Application Insights-gegevensmodel | Microsoft Docs
-description: "Beschrijft de eigenschappen van continue export in de JSON geëxporteerd en gebruikt als filters."
+description: Beschrijft de eigenschappen van continue export in de JSON geëxporteerd en gebruikt als filters.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: 86aef6ba93224bbbb41bc7e651aaeec394fd8718
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 841b11421b7198efc7fc9bb3226c7b067fcbbdc4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598824"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights Export-gegevensmodel
 Deze tabel bevat de eigenschappen van telemetrie verzonden vanaf de [Application Insights](app-insights-overview.md) SDK's naar de portal.
@@ -26,9 +27,9 @@ Ze worden ook weergegeven in de eigenschappenfilters in [metriek Explorer](app-i
 
 Verwijst naar Let op:
 
-* `[0]`Geeft een punt in het pad waar u moet een index; invoegen in deze tabellen. maar het is niet altijd 0.
+* `[0]` Geeft een punt in het pad waar u moet een index; invoegen in deze tabellen. maar het is niet altijd 0.
 * Tijdsduren zijn in tienden van een microseconden, dus 10000000 == 1 seconde.
-* Datums en tijden UTC zijn en zijn opgegeven in de ISO-indeling`yyyy-MM-DDThh:mm:ss.sssZ`
+* Datums en tijden UTC zijn en zijn opgegeven in de ISO-indeling `yyyy-MM-DDThh:mm:ss.sssZ`
 
 
 ## <a name="example"></a>Voorbeeld
@@ -118,40 +119,40 @@ Alle typen telemetrie vergezeld gaan van een sectie context. Niet al deze velden
 | --- | --- | --- |
 | context.Custom.Dimensions [0] |object] |Tekenreeks van sleutel / waarde-paren ingesteld door aangepaste eigenschappen-parameter. Maximale sleutellengte 100, waarden voor de maximale lengte van 1024. Meer dan 100 unieke waarden, de eigenschap kan worden doorzocht, maar kan niet worden gebruikt voor de segmentering. Maximaal 200 sleutels per ikey. |
 | context.Custom.metrics [0] |object] |Sleutel-waardeparen ingesteld door de parameter aangepaste metingen en TrackMetrics. Maximale sleutellengte 100 waarden mogen alleen cijfers bevatten. |
-| context.data.eventTime |Tekenreeks |UTC |
-| context.data.isSynthetic |Booleaanse waarde |Er verschijnt een aanvraag afkomstig zijn van een bot of web-test. |
-| context.data.samplingRate |Aantal |Percentage van de telemetrie die is gegenereerd door de SDK die wordt verzonden naar de portal. Het bereik 0,0 100,0. |
+| context.data.eventTime |tekenreeks |UTC |
+| context.data.isSynthetic |booleaans |Er verschijnt een aanvraag afkomstig zijn van een bot of web-test. |
+| context.data.samplingRate |getal |Percentage van de telemetrie die is gegenereerd door de SDK die wordt verzonden naar de portal. Het bereik 0,0 100,0. |
 | context.Device |object |Client-apparaat |
-| context.Device.browser |Tekenreeks |IE, Chrome... |
-| context.device.browserVersion |Tekenreeks |Chrome 48,0... |
-| context.device.deviceModel |Tekenreeks | |
-| context.device.deviceName |Tekenreeks | |
-| context.Device.id |Tekenreeks | |
-| context.Device.locale |Tekenreeks |NL-GB, nl-nl... |
-| context.Device.Network |Tekenreeks | |
-| context.device.oemName |Tekenreeks | |
-| context.device.osVersion |Tekenreeks |Host-OS |
-| context.device.roleInstance |Tekenreeks |ID van server-host |
-| context.device.roleName |Tekenreeks | |
-| context.Device.type |Tekenreeks |PC, Browser... |
+| context.Device.browser |tekenreeks |IE, Chrome... |
+| context.device.browserVersion |tekenreeks |Chrome 48,0... |
+| context.device.deviceModel |tekenreeks | |
+| context.device.deviceName |tekenreeks | |
+| context.Device.id |tekenreeks | |
+| context.Device.locale |tekenreeks |NL-GB, nl-nl... |
+| context.Device.Network |tekenreeks | |
+| context.device.oemName |tekenreeks | |
+| context.device.osVersion |tekenreeks |Host-OS |
+| context.device.roleInstance |tekenreeks |ID van server-host |
+| context.device.roleName |tekenreeks | |
+| context.Device.type |tekenreeks |PC, Browser... |
 | context.Location |object |Client-IP is afgeleid. |
-| context.Location.City |Tekenreeks |Afgeleid van de client-IP, indien bekend |
-| context.Location.clientip |Tekenreeks |Laatste achthoek is geanonimiseerde op 0. |
-| context.Location.continent |Tekenreeks | |
-| context.Location.Country |Tekenreeks | |
-| context.Location.Province |Tekenreeks |Provincie |
-| context.Operation.id |Tekenreeks |Items die dezelfde bewerking-id worden als betrokken Items in de portal weergegeven. Meestal de aanvraag-id. |
-| context.Operation.name |Tekenreeks |URL of de aanvraag |
-| context.operation.parentId |Tekenreeks |Kan geneste verwante items. |
-| context.Session.id |Tekenreeks |Id van een groep bewerkingen uit dezelfde bron. Een periode van 30 minuten zonder een bewerking geeft het einde van een sessie. |
-| context.session.isFirst |Booleaanse waarde | |
-| context.user.accountAcquisitionDate |Tekenreeks | |
-| context.user.anonAcquisitionDate |Tekenreeks | |
-| context.user.anonId |Tekenreeks | |
-| context.user.authAcquisitionDate |Tekenreeks |[Geverifieerde gebruiker](app-insights-api-custom-events-metrics.md#authenticated-users) |
-| context.user.isAuthenticated |Booleaanse waarde | |
-| internal.data.documentVersion |Tekenreeks | |
-| Internal.Data.id |Tekenreeks | |
+| context.Location.City |tekenreeks |Afgeleid van de client-IP, indien bekend |
+| context.Location.clientip |tekenreeks |Laatste achthoek is geanonimiseerde op 0. |
+| context.Location.continent |tekenreeks | |
+| context.Location.Country |tekenreeks | |
+| context.Location.Province |tekenreeks |Provincie |
+| context.Operation.id |tekenreeks |Items die dezelfde bewerking-id worden als betrokken Items in de portal weergegeven. Meestal de aanvraag-id. |
+| context.Operation.name |tekenreeks |URL of de aanvraag |
+| context.operation.parentId |tekenreeks |Kan geneste verwante items. |
+| context.Session.id |tekenreeks |Id van een groep bewerkingen uit dezelfde bron. Een periode van 30 minuten zonder een bewerking geeft het einde van een sessie. |
+| context.session.isFirst |booleaans | |
+| context.user.accountAcquisitionDate |tekenreeks | |
+| context.user.anonAcquisitionDate |tekenreeks | |
+| context.user.anonId |tekenreeks | |
+| context.user.authAcquisitionDate |tekenreeks |[Geverifieerde gebruiker](app-insights-api-custom-events-metrics.md#authenticated-users) |
+| context.user.isAuthenticated |booleaans | |
+| internal.data.documentVersion |tekenreeks | |
+| Internal.Data.id |tekenreeks | Unieke id die wordt toegewezen wanneer een item wordt ingenomen naar Application Insights |
 
 ## <a name="events"></a>Gebeurtenissen
 Aangepaste gebeurtenissen die worden gegenereerd door [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).
@@ -159,70 +160,70 @@ Aangepaste gebeurtenissen die worden gegenereerd door [TrackEvent()](app-insight
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
 | aantal gebeurtenissen [0] |geheel getal |100 / ([steekproeven](app-insights-sampling.md) snelheid). Voorbeeld 4 =&gt; 25%. |
-| naam van de gebeurtenis [0] |Tekenreeks |De naam van de gebeurtenis.  De maximale lengte 250. |
-| url van de gebeurtenis [0] |Tekenreeks | |
-| de gebeurtenis [0] urlData.base |Tekenreeks | |
-| de gebeurtenis [0] urlData.host |Tekenreeks | |
+| naam van de gebeurtenis [0] |tekenreeks |De naam van de gebeurtenis.  De maximale lengte 250. |
+| url van de gebeurtenis [0] |tekenreeks | |
+| de gebeurtenis [0] urlData.base |tekenreeks | |
+| de gebeurtenis [0] urlData.host |tekenreeks | |
 
 ## <a name="exceptions"></a>Uitzonderingen
 Rapporten [uitzonderingen](app-insights-asp-net-exceptions.md) op de server en in de browser.
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| de assembly [0] basicException |Tekenreeks | |
+| de assembly [0] basicException |tekenreeks | |
 | aantal basicException [0] |geheel getal |100 / ([steekproeven](app-insights-sampling.md) snelheid). Voorbeeld 4 =&gt; 25%. |
-| exceptionGroup basicException [0] |Tekenreeks | |
-| exceptionType basicException [0] |Tekenreeks | |
-| failedUserCodeMethod basicException [0] |Tekenreeks | |
-| failedUserCodeAssembly basicException [0] |Tekenreeks | |
-| handledAt basicException [0] |Tekenreeks | |
-| hasFullStack basicException [0] |Booleaanse waarde | |
-| basicException [0]-id |Tekenreeks | |
-| de methode basicException [0] |Tekenreeks | |
-| bericht basicException [0] |Tekenreeks |Bericht van uitzondering. De maximale lengte 10k. |
-| outerExceptionMessage basicException [0] |Tekenreeks | |
-| outerExceptionThrownAtAssembly basicException [0] |Tekenreeks | |
-| outerExceptionThrownAtMethod basicException [0] |Tekenreeks | |
-| outerExceptionType basicException [0] |Tekenreeks | |
-| outerId basicException [0] |Tekenreeks | |
-| basicException [0] [0] parsedStack assembly |Tekenreeks | |
-| basicException [0] [0] parsedStack fileName |Tekenreeks | |
+| exceptionGroup basicException [0] |tekenreeks | |
+| exceptionType basicException [0] |tekenreeks | |
+| failedUserCodeMethod basicException [0] |tekenreeks | |
+| failedUserCodeAssembly basicException [0] |tekenreeks | |
+| handledAt basicException [0] |tekenreeks | |
+| hasFullStack basicException [0] |booleaans | |
+| basicException [0]-id |tekenreeks | |
+| de methode basicException [0] |tekenreeks | |
+| bericht basicException [0] |tekenreeks |Bericht van uitzondering. De maximale lengte 10k. |
+| outerExceptionMessage basicException [0] |tekenreeks | |
+| outerExceptionThrownAtAssembly basicException [0] |tekenreeks | |
+| outerExceptionThrownAtMethod basicException [0] |tekenreeks | |
+| outerExceptionType basicException [0] |tekenreeks | |
+| outerId basicException [0] |tekenreeks | |
+| basicException [0] [0] parsedStack assembly |tekenreeks | |
+| basicException [0] [0] parsedStack fileName |tekenreeks | |
 | basicException [0] [0] parsedStack niveau |geheel getal | |
 | basicException [0] [0] parsedStack regel |geheel getal | |
-| basicException [0] [0] parsedStack methode |Tekenreeks | |
-| stack basicException [0] |Tekenreeks |Max. lengte 10k |
-| typeName basicException [0] |Tekenreeks | |
+| basicException [0] [0] parsedStack methode |tekenreeks | |
+| stack basicException [0] |tekenreeks |Max. lengte 10k |
+| typeName basicException [0] |tekenreeks | |
 
 ## <a name="trace-messages"></a>Traceringsberichten
 Verzonden door [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace), en door de [logboekregistratie adapters](app-insights-asp-net-trace-logs.md).
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| Loggernaam bericht [0] |Tekenreeks | |
-| [0]-berichtparameters |Tekenreeks | |
-| onbewerkte bericht [0] |Tekenreeks |Het logboekbericht maximumlengte 10k. |
-| bericht [0], foutcode |Tekenreeks | |
+| Loggernaam bericht [0] |tekenreeks | |
+| [0]-berichtparameters |tekenreeks | |
+| onbewerkte bericht [0] |tekenreeks |Het logboekbericht maximumlengte 10k. |
+| bericht [0], foutcode |tekenreeks | |
 
 ## <a name="remote-dependency"></a>Externe afhankelijkheden
 Door TrackDependency verzonden. Gebruikt voor het rapportprestaties en het gebruik van [aanroepen van afhankelijkheden](app-insights-asp-net-dependencies.md) in de server en AJAX-aanroepen in de browser.
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| asynchrone remoteDependency [0] |Booleaanse waarde | |
-| baseName remoteDependency [0] |Tekenreeks | |
-| commandName remoteDependency [0] |Tekenreeks |Bijvoorbeeld "Start/index" |
+| asynchrone remoteDependency [0] |booleaans | |
+| baseName remoteDependency [0] |tekenreeks | |
+| commandName remoteDependency [0] |tekenreeks |Bijvoorbeeld "Start/index" |
 | aantal remoteDependency [0] |geheel getal |100 / ([steekproeven](app-insights-sampling.md) snelheid). Voorbeeld 4 =&gt; 25%. |
-| dependencyTypeName remoteDependency [0] |Tekenreeks |HTTP, SQL... |
-| durationMetric.value remoteDependency [0] |Aantal |Tijd voor voltooiing van het antwoord van afhankelijkheid aanroep |
-| remoteDependency [0]-id |Tekenreeks | |
-| de naam van de remoteDependency [0] |Tekenreeks |De URL. De maximale lengte 250. |
-| resultCode remoteDependency [0] |Tekenreeks |van afhankelijkheid van HTTP |
-| remoteDependency [0] geslaagd |Booleaanse waarde | |
-| type remoteDependency [0] |Tekenreeks |HTTP, Sql... |
-| de url remoteDependency [0] |Tekenreeks |Max. lengte 2000 |
-| urlData.base remoteDependency [0] |Tekenreeks |Max. lengte 2000 |
-| urlData.hashTag remoteDependency [0] |Tekenreeks | |
-| urlData.host remoteDependency [0] |Tekenreeks |Max. lengte 200 |
+| dependencyTypeName remoteDependency [0] |tekenreeks |HTTP, SQL... |
+| durationMetric.value remoteDependency [0] |getal |Tijd voor voltooiing van het antwoord van afhankelijkheid aanroep |
+| remoteDependency [0]-id |tekenreeks | |
+| de naam van de remoteDependency [0] |tekenreeks |De URL. De maximale lengte 250. |
+| resultCode remoteDependency [0] |tekenreeks |van afhankelijkheid van HTTP |
+| remoteDependency [0] geslaagd |booleaans | |
+| type remoteDependency [0] |tekenreeks |HTTP, Sql... |
+| de url remoteDependency [0] |tekenreeks |Max. lengte 2000 |
+| urlData.base remoteDependency [0] |tekenreeks |Max. lengte 2000 |
+| urlData.hashTag remoteDependency [0] |tekenreeks | |
+| urlData.host remoteDependency [0] |tekenreeks |Max. lengte 200 |
 
 ## <a name="requests"></a>Aanvragen
 Verzonden door [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). De standaard-modules gebruiken deze om rapporten serverreactietijd, gemeten op de server.
@@ -230,15 +231,15 @@ Verzonden door [TrackRequest](app-insights-api-custom-events-metrics.md#trackreq
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
 | aantal verzoeken [0] |geheel getal |100 / ([steekproeven](app-insights-sampling.md) snelheid). Bijvoorbeeld: 4 =&gt; 25%. |
-| aanvraag [0] durationMetric.value |Aantal |Tijd van aanvraag aan antwoord die binnenkomen. 1e7 == 1s |
-| [0] aanvraag-id |Tekenreeks |Bewerkings-id |
-| de Aanvraagnaam van de [0] |Tekenreeks |GET/POST + url-basis.  Max. lengte 250 |
+| aanvraag [0] durationMetric.value |getal |Tijd van aanvraag aan antwoord die binnenkomen. 1e7 == 1s |
+| [0] aanvraag-id |tekenreeks |Bewerkings-id |
+| de Aanvraagnaam van de [0] |tekenreeks |GET/POST + url-basis.  Max. lengte 250 |
 | aanvraag [0] responseCode |geheel getal |HTTP-antwoord verzonden naar client |
-| aanvraag [0] geslaagd |Booleaanse waarde |Standaard == (responseCode &lt; 400) |
-| [0] aanvraag-url |Tekenreeks |Met uitzondering van host |
-| aanvraag [0] urlData.base |Tekenreeks | |
-| aanvraag [0] urlData.hashTag |Tekenreeks | |
-| aanvraag [0] urlData.host |Tekenreeks | |
+| aanvraag [0] geslaagd |booleaans |Standaard == (responseCode &lt; 400) |
+| [0] aanvraag-url |tekenreeks |Met uitzondering van host |
+| aanvraag [0] urlData.base |tekenreeks | |
+| aanvraag [0] urlData.hashTag |tekenreeks | |
+| aanvraag [0] urlData.host |tekenreeks | |
 
 ## <a name="page-view-performance"></a>Prestaties van paginaweergave
 Door de browser wordt verzonden. Hiermee wordt de tijdsduur voor het verwerken van een pagina van gebruiker voor het initiëren van de aanvraag om weer te geven (met uitzondering van asynchrone AJAX-aanroepen) voltooid.
@@ -248,16 +249,16 @@ Context waarden weergeven clientbesturingssysteem en browserversie.
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
 | clientProcess.value clientPerformance [0] |geheel getal |Tijd van het einde van het ontvangen van de HTML-code op de weergave van de pagina. |
-| de naam van de clientPerformance [0] |Tekenreeks | |
+| de naam van de clientPerformance [0] |tekenreeks | |
 | networkConnection.value clientPerformance [0] |geheel getal |De tijd die nodig is voor een netwerkverbinding tot stand brengen. |
 | receiveRequest.value clientPerformance [0] |geheel getal |Tijd van het einde van de aanvraag wordt verzonden naar de HTML-code in antwoord ontvangen. |
 | sendRequest.value clientPerformance [0] |geheel getal |Van tijd die nodig is voor het verzenden van de HTTP-aanvraag. |
 | total.value clientPerformance [0] |geheel getal |Tijd van begint met het verzenden van de aanvraag naar de pagina om weer te geven. |
-| de url clientPerformance [0] |Tekenreeks |URL van deze aanvraag |
-| urlData.base clientPerformance [0] |Tekenreeks | |
-| urlData.hashTag clientPerformance [0] |Tekenreeks | |
-| urlData.host clientPerformance [0] |Tekenreeks | |
-| urlData.protocol clientPerformance [0] |Tekenreeks | |
+| de url clientPerformance [0] |tekenreeks |URL van deze aanvraag |
+| urlData.base clientPerformance [0] |tekenreeks | |
+| urlData.hashTag clientPerformance [0] |tekenreeks | |
+| urlData.host clientPerformance [0] |tekenreeks | |
+| urlData.protocol clientPerformance [0] |tekenreeks | |
 
 ## <a name="page-views"></a>Paginaweergaven
 Verzonden door trackPageView() of [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
@@ -266,30 +267,30 @@ Verzonden door trackPageView() of [stopTrackPage](app-insights-api-custom-events
 | --- | --- | --- |
 | aantal paginaweergaven [0] |geheel getal |100 / ([steekproeven](app-insights-sampling.md) snelheid). Voorbeeld 4 =&gt; 25%. |
 | weergave [0] durationMetric.value |geheel getal |Waarde desgewenst instellen in trackPageView() of startTrackPage() - stopTrackPage(). Niet hetzelfde zijn als clientPerformance waarden. |
-| Weergavenaam [0] |Tekenreeks |Titel van de pagina.  Max. lengte 250 |
-| url weergeven [0] |Tekenreeks | |
-| weergave [0] urlData.base |Tekenreeks | |
-| weergave [0] urlData.hashTag |Tekenreeks | |
-| weergave [0] urlData.host |Tekenreeks | |
+| Weergavenaam [0] |tekenreeks |Paginatitel.  Max. lengte 250 |
+| url weergeven [0] |tekenreeks | |
+| weergave [0] urlData.base |tekenreeks | |
+| weergave [0] urlData.hashTag |tekenreeks | |
+| weergave [0] urlData.host |tekenreeks | |
 
 ## <a name="availability"></a>Beschikbaarheid
 Rapporten [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md).
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| beschikbaarheid [0] availabilityMetric.name |Tekenreeks |availability |
-| beschikbaarheid [0] availabilityMetric.value |Aantal |1.0 of 0,0 |
+| beschikbaarheid [0] availabilityMetric.name |tekenreeks |availability |
+| beschikbaarheid [0] availabilityMetric.value |getal |1.0 of 0,0 |
 | telling beschikbaarheid [0] |geheel getal |100 / ([steekproeven](app-insights-sampling.md) snelheid). Voorbeeld 4 =&gt; 25%. |
-| beschikbaarheid [0] dataSizeMetric.name |Tekenreeks | |
+| beschikbaarheid [0] dataSizeMetric.name |tekenreeks | |
 | beschikbaarheid [0] dataSizeMetric.value |geheel getal | |
-| beschikbaarheid [0] durationMetric.name |Tekenreeks | |
-| beschikbaarheid [0] durationMetric.value |Aantal |De duur van de test. 1e7 == 1s |
-| beschikbaarheidsbericht [0] |Tekenreeks |Diagnostische is mislukt |
-| resultaat van de beschikbaarheid [0] |Tekenreeks |Doorslaggevend |
-| beschikbaarheid [0] runLocation |Tekenreeks |Geo-bron van de HTTP-aanvragen |
-| beschikbaarheid [0] testName |Tekenreeks | |
-| beschikbaarheid [0] testRunId |Tekenreeks | |
-| beschikbaarheid [0] testTimestamp |Tekenreeks | |
+| beschikbaarheid [0] durationMetric.name |tekenreeks | |
+| beschikbaarheid [0] durationMetric.value |getal |De duur van de test. 1e7 == 1s |
+| beschikbaarheidsbericht [0] |tekenreeks |Diagnostische is mislukt |
+| resultaat van de beschikbaarheid [0] |tekenreeks |Doorslaggevend |
+| beschikbaarheid [0] runLocation |tekenreeks |Geo-bron van de HTTP-aanvragen |
+| beschikbaarheid [0] testName |tekenreeks | |
+| beschikbaarheid [0] testRunId |tekenreeks | |
+| beschikbaarheid [0] testTimestamp |tekenreeks | |
 
 ## <a name="metrics"></a>Metrische gegevens
 Gegenereerd door TrackMetric().

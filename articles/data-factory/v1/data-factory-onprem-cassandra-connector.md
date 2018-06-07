@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2d790b067630f15b96eba5e46ea12e1997a47c86
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6e6b9bf194da17ebd03389829ba594bf3fbf1e64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622098"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Verplaatsen van gegevens uit een on-premises Cassandra-database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -259,20 +260,20 @@ Zie [RelationalSource type-eigenschappen](#copy-activity-properties) voor de lij
 ### <a name="type-mapping-for-cassandra"></a>Toewijzing van het type voor Cassandra
 | Type Cassandra | .NET op basis van Type |
 | --- | --- |
-| ASCII |Tekenreeks |
+| ASCII |Reeks |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAANSE WAARDE |Boole-waarde |
-| DECIMAL |Decimale |
-| DOUBLE |Double |
-| FLOAT |Single |
-| INET |Tekenreeks |
+| DECIMALE |Decimale |
+| DOUBLE |dubbele |
+| FLOAT |Enkelvoudig |
+| INET |Reeks |
 | INT |Int32 |
-| TEXT |Tekenreeks |
+| TEKST |Reeks |
 | TIJDSTEMPEL |DateTime |
 | TIMEUUID |GUID |
 | UUID |GUID |
-| VARCHAR |Tekenreeks |
+| VARCHAR |Reeks |
 | VARINT |Decimale |
 
 > [!NOTE]

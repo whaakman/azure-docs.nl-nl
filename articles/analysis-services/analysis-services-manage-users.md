@@ -3,16 +3,17 @@ title: Verificatie en gebruikersmachtigingen in Azure Analysis Services | Micros
 description: Meer informatie over verificatie en gebruikersmachtigingen in Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47846af015bf02940da7a7b8a4154113aab57b08
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597627"
 ---
 # <a name="authentication-and-user-permissions"></a>Verificatie en gebruikersmachtigingen
 Azure Analysis Services gebruikt Azure Active Directory (Azure AD) voor identity management- en gebruikersverificatie. Een willekeurige gebruiker maken, beheren of verbinding maken met een Azure Analysis Services server moet een geldige gebruikers-id een [Azure AD-tenant](../active-directory/active-directory-administer.md) in hetzelfde abonnement.

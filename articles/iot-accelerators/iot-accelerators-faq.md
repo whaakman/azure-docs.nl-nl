@@ -1,29 +1,23 @@
 ---
 title: Veelgestelde vragen over Azure IoT-oplossing accelerators | Microsoft Docs
 description: Veelgestelde vragen over IoT-oplossing accelerators
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 6c8c87dc4f7bb91ce227bbfbaf1cabf0c44d2e0b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: decae2fee0d040d0857950bec507df173e2820b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627156"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Veelgestelde vragen over IoT-oplossing accelerators
 
-Zie ook de [verbonden Factory-specifieke Veelgestelde vragen over](iot-accelerators-faq-cf.md) en de [remote monitoring-specifieke Veelgestelde vragen over](iot-accelerators-faq-rm-v2.md) .
+Zie ook de [Veelgestelde vragen over het Factory-specifieke verbonden](iot-accelerators-faq-cf.md) en de [Remote Monitoring-specifieke Veelgestelde vragen over](iot-accelerators-faq-rm-v2.md) .
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Waar vind ik de broncode voor de oplossing accelerators
 
@@ -42,7 +36,7 @@ Als u van het apparaat DevKit gebruikmaakt, vindt u bronnen en voorbeelden in de
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>Is de nieuwe microservices architectuur beschikbaar voor alle drie oplossing-accelerators?
 
-Alleen de oplossing voor externe controle wordt op dit moment wordt de architectuur microservices gebruikt als ze het breedste scenario omvatten.
+Op dit moment alleen de externe controle oplossing maakt gebruik van de architectuur microservices als ze het breedste scenario omvatten.
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Welke voordelen biedt de nieuwe open-source microservices gebaseerde architectuur in de nieuwe update?
 
@@ -54,7 +48,7 @@ Ja, de nieuwe externe controle is beschikbaar in dezelfde geografische regio's.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Wat is het verschil tussen het verwijderen van een resourcegroep in de Azure portal en te klikken op verwijderen op een oplossingsverbetering op azureiotsuite.com?
 
-* Als u verwijdert de oplossingsverbetering in [azureiotsuite.com](https://www.azureiotsuite.com/), verwijdert u alle resources die zijn ingericht toen u de oplossingsverbetering gemaakt. Als u aanvullende bronnen toegevoegd aan de resourcegroep, wordt deze resources worden ook verwijderd.
+* Als u verwijdert de oplossingsverbetering in [azureiotsuite.com](https://www.azureiotsolutions.com/), verwijdert u alle resources die zijn ingericht toen u de oplossingsverbetering gemaakt. Als u aanvullende bronnen toegevoegd aan de resourcegroep, wordt deze resources worden ook verwijderd.
 * Als u de resourcegroep in verwijdert de [Azure-portal](https://portal.azure.com), verwijdert u alleen de resources in die resourcegroep. U moet ook de Azure Active Directory-toepassing die is gekoppeld aan de oplossingsverbetering verwijderen.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Kan ik mijn bestaande investeringen in Azure IoT-oplossing accelerators gebruiken doorgaan?
@@ -71,7 +65,7 @@ Vijftig. Kunt u een [Azure-ondersteuningsticket](https://portal.azure.com/#blade
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Hoeveel gratis Bing Kaarten-API's kan ik inrichten met een abonnement?
 
-Twee. U kunt slechts twee interne transacties niveau 1 Bing-kaarten voor Enterprise plannen in een Azure-abonnement maken. De oplossing voor externe controle is standaard ingericht met het interne transacties niveau 1-plan. Als gevolg hiervan kunt u met een abonnement waaraan geen wijzigingen zijn aangebracht maximaal twee externe bewakingsoplossingen inrichten.
+Twee. U kunt slechts twee interne transacties niveau 1 Bing-kaarten voor Enterprise plannen in een Azure-abonnement maken. De oplossing voor externe controle is standaard ingericht met het interne transacties niveau 1-plan. U kunt maximaal twee externe controle oplossingen in een abonnement zonder wijzigingen als gevolg hiervan alleen inrichten.
 
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>Kan ik een oplossingsverbetering maken als ik Microsoft Azure voor DreamSpark heb?
 
@@ -92,7 +86,7 @@ Zie het blogbericht van Eric Golpe van [overzicht van het verwijderen van een Az
 
 U kunt ook enkele van de andere functies en mogelijkheden van de IoT-oplossingsversnellers bekijken:
 
-* [De mogelijkheden van de externe controle oplossingsverbetering verkennen](iot-accelerators-remote-monitoring-explore.md)
-* [Een overzicht van de oplossingsversneller voor Predictief onderhoud](../iot-suite/iot-suite-predictive-overview.md)
+* [De mogelijkheden van de oplossing voor externe controle accelerator verkennen](iot-accelerators-remote-monitoring-explore.md)
+* [Een overzicht van de oplossingsversneller voor Predictief onderhoud](iot-accelerators-predictive-overview.md)
 * [Overzicht van verbonden Factory oplossing accelerator](iot-accelerators-connected-factory-overview.md)
-* [Beveiliging van een compleet nieuwe IoT](../iot-suite/securing-iot-ground-up.md)
+* [Beveiliging van een compleet nieuwe IoT](securing-iot-ground-up.md)

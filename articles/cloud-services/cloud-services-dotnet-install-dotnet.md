@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: adegeo
-ms.openlocfilehash: 125aae1820a43da3b74533bcb382eab27b9cb5da
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 02e778154662c28b78b284fccb3bd9b9420a8bec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608437"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>.NET installeren op Azure Cloud Services-functies
 In dit artikel beschrijft het installeren van versies van .NET Framework die niet bij de Azure-Gastbesturingssysteemreleases worden geleverd. U kunt op het Gastbesturingssysteem .NET web- en werkrollen rollen van uw cloudservice te configureren.
@@ -152,7 +153,7 @@ Starten van de taken kunt u bewerkingen uitvoeren voordat een rol wordt gestart.
     goto logtimestamp
     
     :NDP472
-    set "netfxinstallfile=NDP472-NDP472-KB4054531-Web.exe"
+    set "netfxinstallfile=NDP472-KB4054531-Web.exe"
     set netfxregkey="0x70BF6"
     goto logtimestamp
     

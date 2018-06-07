@@ -2,24 +2,19 @@
 title: Het gegevensmodel voor Azure Backup
 description: In dit artikel wordt gesproken over Power BI Gegevensdetails model voor Azure Backup-rapporten.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 0767c330-690d-474d-85a6-aa8ddc410bb2
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17e011452f9b87c1201cea12f394a9cdd18e54b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606219"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Gegevensmodel voor Azure Backup-rapporten
 In dit artikel beschrijft de Power BI-gegevensmodel gebruikt voor het maken van Azure Backup-rapporten. Met deze gegevensmodel, kunt u bestaande rapporten op basis van de betreffende velden filteren en meer echter uw eigen rapporten maken met behulp van tabellen en velden in het model. 
@@ -76,10 +71,10 @@ Deze tabel bevat informatie over velden met betrekking tot de agenda.
 | Maand |Tekst |Maand van het jaar geselecteerd voor het filteren van gegevens, maand op de eerste dag begint en eindigt op 31e dag |
 | MonthDate | Date |Datum in de maand waarop maand eindigt, geselecteerd voor het filteren van gegevens |
 | MonthDiff |Decimaal getal zijn |Verschil in maand voor het filteren van gegevens, bijvoorbeeld, 0 geeft aan dat gegevens van de huidige maand, -1 geeft aan dat gegevens van vorige maand, 0 en 1 geven gegevens voor de huidige en vorige maand |
-| Week |Tekst |Week geselecteerd voor het filteren van gegevens, week op zondag begint en eindigt op zaterdag |
+| Wekelijks |Tekst |Week geselecteerd voor het filteren van gegevens, week op zondag begint en eindigt op zaterdag |
 | WeekDate |Date |Datum in de week waarop week eindigt, geselecteerd voor het filteren van gegevens |
 | WeekDiff |Decimaal getal zijn |Verschil in de week voor het filteren van gegevens, bijvoorbeeld, 0 geeft aan dat gegevens van de huidige week, -1 geeft aan dat gegevens van de vorige week, 0 en 1 geven gegevens voor de huidige en vorige week |
-| jaar |Tekst |Kalenderjaar geselecteerd voor het filteren van gegevens |
+| Jaar |Tekst |Kalenderjaar geselecteerd voor het filteren van gegevens |
 | YearDate |Date |Datum in het jaar jaar wanneer eindigt, geselecteerd voor het filteren van gegevens |
 
 ### <a name="job"></a>Job

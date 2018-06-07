@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7c82b3aa88e874328452aae46dc14972d63192f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616940"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Gegevens kopiëren van de HTTP-eindpunt met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +59,7 @@ De volgende eigenschappen worden ondersteund voor HTTP-gekoppelde service:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **HttpServer**. | Ja |
 | url | Basis-URL voor de webserver | Ja |
-| enableServerCertificateValidation | Geef op of validatie van het servercertificaat SSL inschakelen bij het verbinden met de HTTP-eindpunt. | Nee, de standaardwaarde is true |
+| enableServerCertificateValidation | Geef op of validatie van het servercertificaat SSL inschakelen bij het verbinden met de HTTP-eindpunt. Wanneer uw HTTPS-server zelf-ondertekend certificaat, stel dit in op false. | Nee, de standaardwaarde is true |
 | authenticationType | Hiermee geeft u het verificatietype. Toegestane waarden zijn: **anoniem**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Raadpleeg de secties onder deze tabel over meer eigenschappen en voorbeelden voor deze verificatietypen JSON respectievelijk. | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
@@ -68,7 +69,7 @@ Stel de eigenschap 'authenticationType' op **Basic**, **Digest**, of **Windows**
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| userName | De naam van de gebruiker toegang tot het HTTP-eindpunt. | Ja |
+| Gebruikersnaam | De naam van de gebruiker toegang tot het HTTP-eindpunt. | Ja |
 | wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld**

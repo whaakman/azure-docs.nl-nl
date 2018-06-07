@@ -1,25 +1,22 @@
 ---
-title: Dropbox-connector in Azure Logic Apps | Microsoft Docs
-description: Logic apps maken met Azure App service. Verbinding maken met Dropbox voor het beheren van uw bestanden. U kunt uitvoeren van verschillende acties zoals het uploaden, bijwerken, ophalen en verwijderen van bestanden in Dropbox.
-services: logic-apps
-documentationcenter: .net,nodejs,java
+title: Verbinding maken met Dropbox - Azure Logic Apps | Microsoft Docs
+description: Uploaden van bestanden en beheren met Dropbox REST-API's en Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: cb0ae033-aba7-4ac9-beaa-be561a0f0cac
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 07/15/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 7ac72cf5b18fa19bc0294abc67bf0a7089774a89
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: b383dd89536ac8a67943b1b4ebf57229102f76cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609627"
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Aan de slag met de Dropbox-connector
 Verbinding maken met Dropbox voor het beheren van uw bestanden. U kunt uitvoeren van verschillende acties zoals het uploaden, bijwerken, ophalen en verwijderen van bestanden in Dropbox.

@@ -1,25 +1,26 @@
 ---
-title: "Eenvoudig gegevens kopiëren met de Wizard kopiëren - Azure | Microsoft Docs"
-description: "Meer informatie over het gebruik van de Data Factory-Wizard kopiëren om gegevens van ondersteunde gegevensbronnen te put kopiëren."
+title: Eenvoudig gegevens kopiëren met de Wizard kopiëren - Azure | Microsoft Docs
+description: Meer informatie over het gebruik van de Data Factory-Wizard kopiëren om gegevens van ondersteunde gegevensbronnen te put kopiëren.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8f618c6efd96fd74e88f56a378b9d73cfa47b8da
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 1ef94f5cfa91422dddf9c684c2dc1b6eada754f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621289"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Gegevens eenvoudig met Azure Data Factory-Wizard voor kopiëren kopiëren of verplaatsen
 > [!NOTE]
@@ -63,7 +64,7 @@ In het voorbeeld wordt de SQL-query gebruikt de `Text.Format` functie en `Window
 ![Expressies valideren](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filteren van gegevens in een Azure blob-map
-U kunt variabelen gebruiken in het pad van de gegevens gekopieerd van een map die is bepaald tijdens runtime op basis van [systeemvariabelen](data-factory-functions-variables.md#data-factory-system-variables). De variabelen die ondersteund zijn: **{year}**, **{month}**, **{day}**, **{uur}**, **{minuut}**, en  **{{aangepaste}** . Voorbeeld: inputfolder / {year} / {month} / {day}.
+U kunt variabelen gebruiken in het pad van de gegevens gekopieerd van een map die is bepaald tijdens runtime op basis van [systeemvariabelen](data-factory-functions-variables.md#data-factory-system-variables). De variabelen die ondersteund zijn: **{year}**, **{month}**, **{day}**, **{uur}**, **{minuut}**, en **{{aangepaste}**. Voorbeeld: inputfolder / {year} / {month} / {day}.
 
 Stel dat ingevoerde mappen in de volgende indeling hebben:
 

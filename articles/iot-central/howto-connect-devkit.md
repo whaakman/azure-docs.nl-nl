@@ -1,18 +1,19 @@
 ---
 title: Een DevKit apparaat aansluit op uw Azure IoT centrale toepassing | Microsoft Docs
 description: Informatie over het verbinden van een apparaat MXChip IoT DevKit aan uw Azure IoT centrale toepassing als een ontwikkelaar apparaat.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 4c7074e5e7d3858919f3fc17005fea4f8dce1560
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: af5cfc2f598893328bc8d4acc979f6d777114f99
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628790"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Sluit een apparaat MXChip IoT DevKit aan uw Azure IoT centrale toepassing
 
@@ -29,7 +30,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 
 ### <a name="telemetry-measurements"></a>Telemetrie metingen
 
-| Veldnaam     | Eenheden  | Minimum | Maximum | Decimalen |
+| Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
 | -------------- | ------ | ------- | ------- | -------------- |
 | Vochtigheid       | %      | 0       | 100     | 0              |
 | TEMP           | ° C     | -40     | 120     | 0              |
@@ -48,7 +49,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 
 Numerieke instellingen
 
-| Weergavenaam | Veldnaam | Eenheden | Decimalen | Minimum | Maximum | Oorspronkelijk |
+| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Spanning      | setVoltage | V | 0              | 0       | 240     | 0       |
 | Huidige      | setCurrent | Stroom  | 0              | 0       | 100     | 0       |
@@ -79,7 +80,7 @@ Instellingen voor in-of uitschakelen
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Knop B ingedrukt  | 
 
-### <a name="add-a-real-device"></a>Een echte apparaat toevoegen
+### <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
 In uw Azure IoT centrale toepassing toevoegen een echte apparaat van de **MXChip** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie [een echte apparaat toevoegt aan uw Azure IoT centrale toepassing](tutorial-add-device.md).
 
@@ -200,4 +201,4 @@ Zie voor meer informatie over het wijzigen, bouwen en de voorbeeldcode uploaden 
 
 U hebt geleerd hoe u een DevKit apparaat aansluit op uw Azure IoT centrale toepassing, vindt hier u de voorgestelde volgende stappen uit:
 
-* [Bereid en verbinding maken met een Pi frambozen](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi voorbereiden en verbinden](howto-connect-raspberry-pi-python.md)

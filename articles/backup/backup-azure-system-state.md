@@ -1,25 +1,20 @@
 ---
-title: Maak een back-up van systeemstatus van Windows naar Azure | Microsoft Docs
+title: Back-up van systeemstatus van Windows naar Azure
 description: Informatie over het maken van de systeemstatus van Windows Server en/of Windows computers naar Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
-editor: ''
+manager: shivamg
 keywords: back-up maken; hoe u een back-up maakt; back-up van bestanden en mappen maken
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
-ms.openlocfilehash: b4847a4b2d8397530d8a6bb4bc4729a6966634f2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 05/23/2018
+ms.author: saurse
+ms.openlocfilehash: 61ee1ce7d5cc6dc2aa4b7a8b02c2e5ba77539725
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606066"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Back-up van systeemstatus Windows in de implementatie van Resource Manager
 Dit artikel wordt uitgelegd hoe u back-up van de systeemstatus van uw Windows Server naar Azure. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt.
@@ -175,6 +170,11 @@ De eerste back-up bevat twee taken:
 * Back-up van systeemstatus voor de eerste keer
 
 Gebruik de Microsoft Azure Recovery Services-agent om de eerste back-up uit te voeren.
+
+> [!NOTE]
+> U kunt een back-up van systeemstatus maken in Windows Server 2008 R2 via Windows Server 2016. Systeemstatus terug is maximaal niet ondersteund op client-SKU's. Systeemstatus wordt niet weergegeven als een optie voor Windows-clients of Windows Server 2008 SP2-machines.
+>
+>
 
 ### <a name="to-schedule-the-backup-job"></a>De back-up plannen
 

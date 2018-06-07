@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5bb27fe01a0cfb85c1acb539fdf332b775994805
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1c39443a187c5ba5e92b22d48914289bc410ec79
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622343"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Gegevens verplaatsen van Sybase met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +70,7 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesSybase** |Ja |
 | server |De naam van de Sybase-server. |Ja |
 | database |Naam van de Sybase-database. |Ja |
-| schema |De naam van het schema in de database. |Nee |
+| Schema |De naam van het schema in de database. |Nee |
 | authenticationType |Het soort verificatie die verbinding maken met de Sybase-database wordt gebruikt. Mogelijke waarden zijn: anoniem, basis en Windows. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam als u basisverificatie of Windows-verificatie gebruikt. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |

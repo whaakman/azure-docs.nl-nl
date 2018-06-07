@@ -1,30 +1,27 @@
 ---
 title: De oplossing voor externe controle lokaal - Azure implementeren | Microsoft Docs
 description: Deze zelfstudie ziet u de externe controle oplossingsverbetering implementeren op uw lokale computer voor het testen en ontwikkeling.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627228"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>De externe controle oplossingsverbetering lokaal implementeren
 
-In dit artikel leest u hoe de externe controle oplossingsverbetering implementeren op uw lokale computer voor het testen en ontwikkeling. Deze benadering de microservices implementeert naar een lokale Docker-container en maakt gebruik van IoT Hub, Cosmos DB en Azure storage-services in de cloud. U de oplossing accelerators (pc's) CLI om de Azure-cloud-services te implementeren.
+In dit artikel leest u hoe de oplossing voor externe controle accelerator implementeren op uw lokale computer voor het testen en ontwikkeling. Deze benadering de microservices implementeert naar een lokale Docker-container en maakt gebruik van IoT Hub, Cosmos DB en Azure storage-services in de cloud. U de oplossing accelerators (pc's) CLI om de Azure-cloud-services te implementeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het implementeren van de Azure-services die worden gebruikt door de externe controle oplossingsverbetering, moet u een actief Azure-abonnement.
+Als u wilt de Azure-services die worden gebruikt door de oplossingsverbetering externe controle implementeert, moet u een actief Azure-abonnement.
 
 Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
@@ -52,7 +49,7 @@ Zie voor meer informatie over de CLI [het gebruik van de CLI](https://github.com
 
 ### <a name="download-the-source-code"></a>De broncode downloaden
 
- De opslagplaats externe controle source code bevat de Docker-configuratiebestanden die u wilt downloaden, configureren en uitvoeren van de Docker-afbeeldingen die de microservices bevatten. Als u wilt klonen en maken van een lokale versie van de opslagplaats, gaat u naar een geschikte map op uw lokale computer via uw favoriete opdrachtregel of de terminal en voer een van de volgende opdrachten:
+ De opslagplaats voor externe controle source code bevat de Docker-configuratiebestanden die u wilt downloaden, configureren en uitvoeren van de Docker-afbeeldingen die de microservices bevatten. Als u wilt klonen en maken van een lokale versie van de opslagplaats, gaat u naar een geschikte map op uw lokale computer via uw favoriete opdrachtregel of de terminal en voer een van de volgende opdrachten:
 
 Installeert de Java-implementaties van de microservices te voeren:
 
@@ -119,7 +116,7 @@ De eerste keer dat u deze opdracht uitvoert downloadt Docker de afbeeldingen mic
 
 U kunt een afzonderlijke shell gebruiken om de logboeken van de container weer te geven. Zoek eerst de container-ID via de `docker ps -a` opdracht. Gebruik vervolgens `docker logs {container-id} --tail 1000` om weer te geven van de laatste 1000 logboekvermeldingen voor de opgegeven container.
 
-Voor toegang tot het dashboard externe controle oplossing, gaat u naar [ http://localhost:8080 ](http://localhost:8080) in uw browser.
+Voor toegang tot het dashboard externe controle-oplossing, gaat u naar [ http://localhost:8080 ](http://localhost:8080) in uw browser.
 
 ## <a name="clean-up"></a>Opruimen
 

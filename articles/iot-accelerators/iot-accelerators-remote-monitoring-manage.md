@@ -1,22 +1,19 @@
 ---
 title: Beheer van apparaten in de oplossing voor externe controle - Azure | Microsoft Docs
 description: Deze zelfstudie laat zien hoe u voor het beheren van apparaten die zijn verbonden met de oplossing voor externe controle.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3ad6de2a0ebcd257ca90ea3c5c69988d4c1afd7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 0f177c3a8746f801e52cdac6cb2189e9cc28e1e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627276"
 ---
 # <a name="manage-and-configure-your-devices"></a>Uw apparaten beheren en configureren
 
@@ -24,7 +21,7 @@ Deze zelfstudie ziet het apparaat management mogelijkheden van de oplossing voor
 
 Contoso heeft besteld nieuwe machines uit te breiden een van de mogelijkheden om te verhogen van de uitvoer. Terwijl u op de nieuwe machine wacht moet worden geleverd, die u wilt uitvoeren van een simulatie om te controleren of het gedrag van uw oplossing. Als operator die u wilt beheren en configureren van de apparaten in de oplossing voor externe controle.
 
-Bieden een uitbreidbare manier om te beheren en configureren van apparaten, gebruikt de oplossing voor externe controle IoT Hub functies zoals [taken](../iot-hub/iot-hub-devguide-jobs.md) en [methoden directe](../iot-hub/iot-hub-devguide-direct-methods.md). Zie voor meer informatie over hoe een apparaat-ontwikkelaar de methoden op een fysiek apparaat implementeert, [aanpassen van de externe controle oplossingsverbetering](iot-accelerators-remote-monitoring-customize.md).
+Bieden een uitbreidbare manier om te beheren en configureren van apparaten, gebruikt de oplossing voor externe controle IoT Hub functies zoals [taken](../iot-hub/iot-hub-devguide-jobs.md) en [methoden directe](../iot-hub/iot-hub-devguide-direct-methods.md). Zie voor meer informatie over hoe een apparaat-ontwikkelaar de methoden op een fysiek apparaat implementeert, [aanpassen van de oplossing voor externe controle accelerator](iot-accelerators-remote-monitoring-customize.md).
 
 In deze zelfstudie leert u het volgende:
 
@@ -38,7 +35,7 @@ In deze zelfstudie leert u het volgende:
 
 Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="add-a-simulated-device"></a>Een gesimuleerd apparaat toevoegen
 

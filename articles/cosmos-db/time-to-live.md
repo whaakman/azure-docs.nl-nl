@@ -2,30 +2,27 @@
 title: Verlopen van gegevens in Azure Cosmos DB met levensduur | Microsoft Docs
 description: Microsoft Azure Cosmos DB biedt TTL, de mogelijkheid om documenten automatisch verwijderd uit het systeem na een bepaalde periode.
 services: cosmos-db
-documentationcenter: ''
 keywords: TTL
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615118"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Gegevens in Azure Cosmos DB verzamelingen automatisch met TTL verloopt
-Toepassingen kunnen maken en opslaan van de enorme hoeveelheden gegevens. Sommige van deze gegevens, zoals machine gegenereerde gegevens, logboeken en gebruiker gebeurtenissessie informatie is alleen nuttig voor een beperkte periode. Zodra de gegevens wordt overtollige aan de behoeften van de toepassing het is veilig om deze gegevens verwijderen en de opslagbehoeften van een toepassing te verminderen.
+Toepassingen kunnen maken en opslaan van de enorme hoeveelheden gegevens. Sommige van deze gegevens, zoals machine gegenereerde gegevens, logboeken en gebruiker gebeurtenissessie informatie is alleen nuttig voor een beperkte periode. Zodra de gegevens wordt het teveel aan de behoeften van de toepassing, het is veilig om deze gegevens verwijderen en de opslagbehoeften van een toepassing te verminderen.
 
 Microsoft Azure Cosmos DB biedt 'time to live' of de TTL, de mogelijkheid om documenten automatisch verwijderd uit de database na een bepaalde periode. Standaard time to live worden ingesteld op het niveau verzameling, en op basis van per document wordt genegeerd. Zodra TTL is ingesteld, de standaardwaarde voor een verzameling of op het documentniveau van een, wordt Cosmos DB documenten die bestaan na die periode, in seconden, omdat ze het laatst zijn gewijzigd automatisch verwijderd.
 
-TTL in Cosmos-database maakt gebruik van een offset tegen wanneer het document voor het laatst is gewijzigd. Hiervoor wordt de `_ts` veld dat op elk document bestaat. Het veld _ts is een tijdstempel voor een unix-stijl-epoche die de datum en tijd. De `_ts` veld wordt telkens bijgewerkt wanneer een document wordt gewijzigd. 
+TTL in Azure Cosmos-database maakt gebruik van een offset tegen wanneer het document voor het laatst is gewijzigd. Hiervoor wordt de `_ts` veld, dat op elk document bestaat. Het veld _ts is een tijdstempel voor een unix-stijl-epoche die de datum en tijd. De `_ts` veld wordt telkens bijgewerkt wanneer een document wordt gewijzigd. 
 
 ## <a name="ttl-behavior"></a>TTL gedrag
 De TTL-functie wordt bepaald door de eigenschappen op twee niveaus - het niveau verzameling en het niveau van de TTL-waarde. De waarden worden ingesteld in seconden, en worden behandeld als een delta van de `_ts` op dat het document voor het laatst is gewijzigd.
@@ -33,8 +30,8 @@ De TTL-functie wordt bepaald door de eigenschappen op twee niveaus - het niveau 
 1. DefaultTTL voor de verzameling
    
    * Indien deze ontbreken (of op null ingesteld), documenten worden niet automatisch verwijderd.
-   * Als aanwezig zijn en de waarde '-' 1 = oneindige – documenten verloopt niet standaard
-   * Als het aanwezig zijn en de waarde is een nummer ("n") – documenten laten verlopen seconden "n" na de laatste wijziging
+   * Als het aanwezig zijn en de waarde is ingesteld op '-'1 = oneindige – documenten verloopt niet standaard
+   * Als het aanwezig zijn en de waarde is ingesteld op een nummer ("n") – documenten laten verlopen seconden "n" na de laatste wijziging
 2. De TTL voor de documenten: 
    
    * Eigenschap is alleen van toepassing als DefaultTTL aanwezig voor de bovenliggende verzameling is.
@@ -47,8 +44,8 @@ De bovenstaande logica kan worden weergegeven in de volgende matrix:
 |  | DefaultTTL ontbreekt of niet is ingesteld op de verzameling | DefaultTTL = -1 op verzameling | DefaultTTL = "n" voor verzameling |
 | --- |:--- |:--- |:--- |
 | TTL ontbreekt op document |Er is niets om op te heffen op documentniveau omdat het document en de verzameling hebt geen concept van TTL. |Er zijn geen documenten in deze verzameling verloopt. |De documenten in deze verzameling verlopen wanneer n interval is verstreken. |
-| TTL = -1 op document |Er zijn geen overschrijven op het documentniveau van het, omdat de verzameling bevat geen definitie van de eigenschap DefaultTTL die een document kan overschrijven. TTL voor een document is niet geïnterpreteerd door het systeem. |Er zijn geen documenten in deze verzameling verloopt. |Het document met TTL =-1 in deze verzameling verloopt nooit. Alle andere documenten verloopt na "n" interval. |
-| TTL = n op document |Er zijn geen overschrijven op het documentniveau van het. TTL voor een document is niet geïnterpreteerd door het systeem. |Het document met TTL = n verloopt na interval n, in seconden. Andere documenten wordt overgenomen van het interval van -1 en nooit verlopen. |Het document met TTL = n verloopt na interval n, in seconden. Andere documenten overneemt "n" interval van de verzameling. |
+| TTL = -1 op document |Er zijn geen overschrijven op het documentniveau van het, omdat de verzameling bevat geen definitie van de eigenschap DefaultTTL die een document kan overschrijven. TTL voor een document is niet-geïnterpreteerde door het systeem. |Er zijn geen documenten in deze verzameling verloopt. |Het document met TTL =-1 in deze verzameling verloopt nooit. Alle andere documenten verloopt na "n" interval. |
+| TTL = n op document |Er zijn geen overschrijven op het documentniveau van het. TTL voor een document is niet-geïnterpreteerde door het systeem. |Het document met TTL = n verloopt na interval n, in seconden. Andere documenten wordt overgenomen van het interval van -1 en nooit verlopen. |Het document met TTL = n verloopt na interval n, in seconden. Andere documenten overneemt "n" interval van de verzameling. |
 
 ## <a name="configuring-ttl"></a>TTL configureren
 Standaard is de TTL standaard in alle Cosmos DB verzamelingen en op alle documenten uitgeschakeld. TTL kan worden ingesteld via programmacode of via de Azure-portal in de **instellingen** sectie voor de verzameling. 
@@ -81,9 +78,9 @@ U zijn kunt een levensduur standaard op het niveau van een verzameling configure
 
 
 ## <a name="setting-ttl-on-a-document"></a>De instelling van TTL op een document
-Naast het instellen van een standaard TTL-waarde op een verzameling kunt u specifieke TTL instellen op het documentniveau van een. Hierdoor wordt de standaardwaarde van de verzameling overschreven.
+Naast het instellen van een standaard TTL-waarde op een verzameling, kunt u specifieke TTL instellen op het documentniveau van een. Hierdoor wordt de standaardwaarde van de verzameling overschreven.
 
-* Als u wilt de TTL-waarde ingesteld op een document, moet u een niet-nul positief getal waarmee wordt aangegeven van de periode, in seconden, verloopt het document nadat het laatst is gewijzigd tijdstempel van het document (`_ts`).
+* Als u wilt de TTL-waarde ingesteld op een document, moet u een positief getal is dan nul, waarmee wordt aangegeven van de periode, in seconden, verloopt het document nadat het laatst is gewijzigd tijdstempel van het document (`_ts`).
 * Als een document geen veld TTL heeft, wordt de standaardwaarde van de verzameling van toepassing zijn.
 * Als de TTL is uitgeschakeld op het niveau verzameling, wordt de TTL-veld op het document wordt genegeerd totdat de TTL opnieuw is ingeschakeld op de verzameling.
 
@@ -150,7 +147,7 @@ Als u wilt uitschakelen TTL volledig op een verzameling en stoppen van het achte
 
 <a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>Interactie van de TTL en index
-De onderliggende index toevoegen of wijzigen van de TTL-instelling op een verzameling wordt gewijzigd. Wanneer de TTL-waarde wordt gewijzigd van uitgeschakeld in ingeschakeld, wordt de verzameling opnieuw geïndexeerd. Wanneer u wijzigingen in het indexeringsbeleid wanneer de modus voor indexering consistent is, zullen gebruikers een wijziging in de index niet zien. Wanneer de indexing-modus is is ingesteld op vertraagde, worden de index is altijd vastgelegd en als de TTL-waarde is gewijzigd, de index is gemaakt vanaf het begin. Wanneer de TTL-waarde wordt gewijzigd en de Indexmodus is ingesteld op vertraagde, retourneren query's uitgevoerd tijdens het opnieuw opbouwen van de index niet volledig of juist resultaten.
+De onderliggende index toevoegen of wijzigen van de TTL-instelling op een verzameling wordt gewijzigd. Wanneer de TTL-waarde wordt gewijzigd van uitgeschakeld in ingeschakeld, wordt de verzameling opnieuw geïndexeerd. Wanneer u wijzigingen in het indexeringsbeleid wanneer de modus voor indexering consistent is, zullen gebruikers een wijziging in de index niet zien. Wanneer de indexing-modus is ingesteld op vertraagde, wordt de index altijd afvangen van en als de TTL-waarde is gewijzigd, de index is gemaakt vanaf het begin. Wanneer de TTL-waarde wordt gewijzigd en de Indexmodus is ingesteld op vertraagde, retourneren query's uitgevoerd tijdens het opnieuw opbouwen van de index niet volledig of juist resultaten.
 
 Als u moet de exacte gegevens die zijn geretourneerd, wijzig niet de TTL-waarde als de indexing-modus is ingesteld op vertraagde. In het ideale geval moet consistent index worden gekozen om consistente resultaten te behalen. 
 
@@ -169,7 +166,7 @@ Nee, er zijn geen gevolgen op RU kosten voor verwijderingen van verlopen documen
 
 **De functie TTL alleen geldt voor volledige documenten of kan ik afzonderlijke document eigenschapswaarden verlopen?**
 
-TTL geldt voor het hele document. Als u laten verlopen slechts een deel van een document wilt, wordt aanbevolen dat u het gedeelte van het document in naar een afzonderlijke 'gekoppelde' document uitpakken en gebruik vervolgens de TTL op het uitgepakte document.
+TTL geldt voor het hele document. Als u laten verlopen slechts een deel van een document wilt, wordt aanbevolen dat u het gedeelte uit het document naar een afzonderlijke 'gekoppelde' document extraheren en gebruik vervolgens de TTL op het uitgepakte document.
 
 **Heeft de functie TTL specifieke vereisten voor indexering?**
 

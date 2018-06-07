@@ -1,26 +1,23 @@
 ---
 title: De simulatie apparaat in de oplossing voor externe controle - Azure | Microsoft Docs
 description: Deze zelfstudie laat zien hoe de apparaatsimulator gebruiken met de externe controle oplossingsverbetering.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c10d983ea6b864d21f4589a3cbfdd5def39ac753
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628256"
 ---
 # <a name="create-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat maken
 
-Deze zelfstudie laat zien hoe u het apparaat simulator microservice in de externe controle oplossingsverbetering aanpassen. Om weer te geven de mogelijkheden van de apparaatsimulator dat twee scenario's in de toepassing Contoso IoT maakt gebruik van deze zelfstudie.
+Deze zelfstudie ziet u het aanpassen van het apparaat simulator microservice in de oplossingsverbetering externe controle. Om weer te geven de mogelijkheden van de apparaatsimulator dat twee scenario's in de toepassing Contoso IoT maakt gebruik van deze zelfstudie.
 
 De volgende video biedt een overzicht van de opties voor het aanpassen van het apparaat simulator microservice:
 
@@ -82,7 +79,7 @@ In deze zelfstudie leert u het volgende:
 > * Een nieuw apparaattype toevoegen aan het dashboard
 > * Aangepaste telemetrie verzenden vanuit een bestaand apparaattype
 
-De volgende video ziet u een overzicht van het gesimuleerde en echte apparaten verbinden met de oplossing voor externe controle:
+De volgende video ziet u een overzicht van het gesimuleerde en echte apparaten verbinding laten maken met de oplossing voor externe controle:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
@@ -90,7 +87,7 @@ De volgende video ziet u een overzicht van het gesimuleerde en echte apparaten v
 
 Volg deze zelfstudie, hebt u het volgende nodig:
 
-* Een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement. Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
+* Een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement. Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren Remote Monitoring solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
 
 * Visual Studio 2017. Als u Visual Studio 2017 geïnstalleerd hebt, kunt u downloaden de gratis [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 
@@ -106,7 +103,7 @@ De volgende taken uitvoeren om uw ontwikkelingsomgeving voor een nieuw gesimulee
 
 ### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>SSH-toegang tot de oplossing voor virtuele machine in Azure configureren
 
-Tijdens het maken van uw oplossing voor externe controle op [www.azureiotsuite.com](https://www.azureiotsuite.com), u de naam van een oplossing hebt gekozen. Naam van de oplossing wordt de naam van de Azure-resourcegroep met de verschillende geïmplementeerde resources die gebruikmaakt van de oplossing. De volgende opdrachten gebruiken een resourcegroep met de naam **Contoso-01**, vervangt u **Contoso-01** met de naam van de resourcegroep.
+Tijdens het maken van uw oplossing voor externe controle in [www.azureiotsolutions.com](https://www.azureiotsolutions.com), u de naam van een oplossing hebt gekozen. Naam van de oplossing wordt de naam van de Azure-resourcegroep met de verschillende geïmplementeerde resources die gebruikmaakt van de oplossing. De volgende opdrachten gebruiken een resourcegroep met de naam **Contoso-01**, vervangt u **Contoso-01** met de naam van de resourcegroep.
 
 De volgende opdrachten gebruiken de `az` opdracht [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). U kunt Azure CLI 2.0 installeren op uw ontwikkelcomputer of gebruik de [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in de [Azure-portal](http://portal.azure.com). De Azure CLI 2.0 is vooraf geïnstalleerd in de Cloud-Shell.
 
@@ -220,7 +217,7 @@ In deze zelfstudie werkt u met de **apparaat simulatie** en **opslagadapter** Vi
     git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-    De simulatie-service van het apparaat in de oplossing voor externe controle kunt u wijzigingen aanbrengen in de typen ingebouwde gesimuleerde apparaten en voor het maken van nieuwe gesimuleerde apparaattypen. Aangepaste apparaattypen kunt u het gedrag van de oplossing voor externe controle te testen voordat u uw fysieke apparaten die verbinding maken.
+    De simulatie-service van het apparaat in de oplossing voor externe controle kunt u wijzigingen aanbrengen in de typen ingebouwde gesimuleerde apparaten en voor het maken van nieuwe gesimuleerde apparaattypen. Aangepaste apparaattypen kunt u het gedrag van de oplossing voor externe controle te testen voordat u uw fysieke apparaten die verbinding maakt.
 
 1. Voor het klonen van de .NET-versie van de **opslagadapter** -opslagplaats, voer de volgende opdracht:
 
@@ -488,7 +485,7 @@ U bent nu klaar voor het testen van het type van uw nieuwe gesimuleerde gloeilam
 
     ![Temperatuur telemetrie](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-U hebt nu de gloeilamp apparaat simulatie die lokaal wordt uitgevoerd. De volgende stap is uw bijgewerkte simulator om code te implementeren voor de virtuele machine die wordt uitgevoerd van de externe controle microservices in Azure.
+U hebt nu de gloeilamp apparaat simulatie die lokaal wordt uitgevoerd. De volgende stap is uw bijgewerkte simulator om code te implementeren voor de virtuele machine die wordt uitgevoerd de microservices externe controle in Azure.
 
 Voordat u doorgaat, kunt u stop de foutopsporing voor de simulatie van het apparaat en de opslag adapter projecten in Visual Studio.
 
@@ -582,7 +579,7 @@ De volgende stappen wordt ervan uitgegaan dat u een opslagplaats aangeroepen heb
     docker logs {container ID}
     ```
 
-U hebt nu de stappen voor het implementeren van een bijgewerkte versie van de simulatie device service voor uw oplossing voor externe controle voltooid.
+U hebt nu de stappen voor het implementeren van een bijgewerkte versie van de simulatie-service van het apparaat aan uw oplossing voor externe controle voltooid.
 
 Navigeer in uw browser naar de **Dashboard** voor uw oplossing voor externe controle. In het deelvenster telemetrie op de **Dashboard**, selecteer **temperatuur**. De temperatuur voor uw twee gesimuleerde apparaten wordt weergegeven in de grafiek:
 
@@ -703,7 +700,7 @@ Deze zelfstudie hebt u geleerd hoe naar:
 
 Nu hebt u het aanpassen van de simulatie device service geleerd. De voorgestelde volgende stap is te leren hoe u [een fysiek apparaat aansluit op uw oplossing voor externe controle](iot-accelerators-connecting-devices-node.md).
 
-Zie voor meer informatie voor ontwikkelaars over de oplossing voor externe controle:
+Voor meer informatie voor ontwikkelaars over de oplossing voor externe controle, Zie:
 
 * [Snelzoekgids voor ontwikkelaars](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Ontwikkelaarsgids voor het oplossen van problemen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

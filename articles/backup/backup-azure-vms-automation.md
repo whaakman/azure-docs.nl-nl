@@ -1,25 +1,20 @@
 ---
-title: Implementeren en beheren van back-ups voor Resource Manager geïmplementeerde VM's met behulp van PowerShell | Microsoft Docs
+title: Met PowerShell back-ups implementeren en beheren voor door Resource Manager geïmplementeerde virtuele machines
 description: PowerShell gebruiken om te implementeren en beheren van back-ups in Azure voor Resource Manager geïmplementeerde VM 's
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk;pullabhk
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3431db3844ca47ce6c2beafbd894a69f05e0311a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4d3c0d08b2a34313c10ab89f2972894ffabe19d2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606236"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup-cmdlets gebruiken om back-up van virtuele machines
 
@@ -92,13 +87,11 @@ Om te beginnen met:
 
     ```PS
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
 6. U kunt controleren of de Providers geregistreerd, met de volgende opdrachten:
     ```PS
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
 In de opdrachtuitvoer de **RegistrationState** moet ingesteld op **geregistreerde**. Als dat niet alleen opnieuw uitvoeren de **[registreren AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet hierboven weergegeven.
 

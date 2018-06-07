@@ -5,7 +5,7 @@ services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608559"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Gast OS ondersteuningsmogelijkheden en buiten gebruik stellen beleid
 De informatie op deze pagina is gekoppeld aan het gastbesturingssysteem van Azure ([Gastbesturingssysteem](cloud-services-guestos-update-matrix.md)) voor Cloud Services worker en webservice-functies (PaaS). Dit geldt niet voor virtuele Machines (IaaS).
@@ -33,9 +34,7 @@ Het beleid is
 
 Tijd tot tijd mogelijk meer dan twee families of releases worden ondersteund. Informatie over het officiële ondersteuning Gastbesturingssysteem wordt weergegeven op de [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md).
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>Wanneer een gast OS-familie of de versie is buiten gebruik gesteld
-Een nieuwe Gastbesturingssysteem **familie** enige tijd opnieuw na de release van een nieuwe officiële versie van het besturingssysteem Windows Server wordt geïntroduceerd. Wanneer een nieuwe Gast OS-familie wordt geïntroduceerd, wordt de oudste Gast OS-familie intrekken van Microsoft.
-
+## <a name="when-a-guest-os-version-is-retired"></a>Wanneer een versie van het Gastbesturingssysteem is buiten gebruik gesteld
 Nieuwe Gastbesturingssysteem **versies** over elke maand op te nemen van de meest recente updates voor MSRC zijn geïntroduceerd. De versie van een Gastbesturingssysteem vanwege de reguliere maandelijkse updates is normaal gesproken ongeveer 60 dagen na de release uitgeschakeld. Deze activiteit houdt ten minste twee Gast OS-versies voor iedere familie beschikbaar voor gebruik.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>Verwerken tijdens een buiten gebruik stellen familie Gastbesturingssysteem

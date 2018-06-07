@@ -3,17 +3,18 @@ title: Configureren van de Runtime Azure SSIS-integratie voor hoge prestaties | 
 description: Informatie over het configureren van de eigenschappen van de Runtime Azure SSIS-integratie voor hoge prestaties
 services: data-factory
 ms.date: 01/10/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: data-factory
 ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: ed5d1740f1d68db5ad42266c3fc2dcc983682774
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 876f68d232e5f171f0c03b653d56f2351ffb2c7d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617124"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configureren van de Runtime Azure SSIS-integratie voor hoge prestaties
 
@@ -59,12 +60,12 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 De openbare evaluatieversie van Azure Data Factory-v2, met inbegrip van de Azure-SSIS-IR ondersteunt de volgende opties:
--   Standard\_A4\_v2
--   Standard\_A8\_v2
--   Standard\_D1\_v2
--   Standard\_D2\_v2
--   Standard\_D3\_v2
--   Standard\_D4\_v2.
+-   Standaard\_A4\_v2
+-   Standaard\_A8\_v2
+-   Standaard\_D1\_v2
+-   Standaard\_D2\_v2
+-   Standaard\_D3\_v2
+-   Standaard\_D4\_v2.
 
 De onofficiële interne tests door het technische team SSIS, lijkt de D-reeks beter geschikt is voor de uitvoering van SSIS-pakket dan de A-serie.
 
@@ -95,12 +96,12 @@ U kunt een schatting maken van de juiste waarde op basis van de kosten van het p
 
 | Grootte             | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
-| Standard\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2 x 500                         | 2 / 750                                        |
-| Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4 x 500                         | 2 / 1500                                       |
-| Standard\_D3\_v2 | 4    | 14          | 200                    | 12.000 / 187 / 93                                           | 8 / 8 x 500                         | 4 / 3000                                       |
-| Standard\_D4\_v2 | 8    | 28          | 400                    | 24.000 / 375 / 187                                          | 16 / 16 x 500                       | 8 / 6000                                       |
-| Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8 x 500                         | 4 / 1000                                       |
-| Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16 x 500                       | 8 / 2000                                       |
+| Standaard\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2 x 500                         | 2 / 750                                        |
+| Standaard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4 x 500                         | 2 / 1500                                       |
+| Standaard\_D3\_v2 | 4    | 14          | 200                    | 12.000 / 187 / 93                                           | 8 / 8 x 500                         | 4 / 3000                                       |
+| Standaard\_D4\_v2 | 8    | 28          | 400                    | 24.000 / 375 / 187                                          | 16 / 16 x 500                       | 8 / 6000                                       |
+| Standaard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8 x 500                         | 4 / 1000                                       |
+| Standaard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16 x 500                       | 8 / 2000                                       |
 
 Hier volgen de richtlijnen voor het instellen van de juiste waarde voor de **AzureSSISMaxParallelExecutionsPerNode** eigenschap: 
 

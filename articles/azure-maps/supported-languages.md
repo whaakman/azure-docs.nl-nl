@@ -1,22 +1,19 @@
 ---
 title: Ondersteunde talen in Azure Maps | Microsoft Docs
 description: Meer informatie over ondersteunde talen voor de services in Azure Maps
-services: azure-maps
-keywords: ''
 author: juliekohler
 ms.author: julieko
-ms.date: 3/30/2018
-ms.topic: article
+ms.date: 03/30/2018
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 8a603ebf05ec714c57955d32182943a4191627cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600235"
 ---
 # <a name="azure-maps-supported-languages"></a>Azure Maps ondersteunde talen
 Azure toewijzingen zijn tussen services in verschillende talen gelokaliseerd.  De volgende tabel bevat de ondersteunde taalcodes voor elke service.  
@@ -29,8 +26,8 @@ Azure toewijzingen zijn tussen services in verschillende talen gelokaliseerd.  D
 | eu-ES      | Baskisch                 |       |        |         |                   |                |     ✓     |
 | bg-BG      | Bulgaars              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | CA-ES      | Catalaans                |       |    ✓   |         |                   |                |     ✓     |
-| zh-HanS    | Chinees (Vereenvoudigd)   |       |  zh-CN |         |                   |                |     ✓     |
-| zh-HanT    | Chinees (Traditioneel)  | zh-TW. |  zh-TW. |  zh-TW.  |                   |      zh-TW.     |     ✓     |
+| zh-HanS    | Chinees (vereenvoudigd)   |       |  zh-CN |         |                   |                |     ✓     |
+| zh-HanT    | Chinees (traditioneel)  | zh-TW. |  zh-TW. |  zh-TW.  |                   |      zh-TW.     |     ✓     |
 | hr-HR      | Kroatisch               |       |    ✓   |         |                   |                |     ✓     |
 | cs-CZ      | Tsjechisch                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Deens                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -56,7 +53,7 @@ Azure toewijzingen zijn tussen services in verschillende talen gelokaliseerd.  D
 | lv-LV      | Lets                |       |    ✓   |         |         ✓         |                |     ✓     |
 | lt-LT      | Litouws             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ms-MY      | Maleis (Latijns)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| nb-NO      | Noors - Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| nb-NO      | Noors, Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pl-PL      | Pools                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portugees (Brazilië)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Portugees (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

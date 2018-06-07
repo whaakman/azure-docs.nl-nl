@@ -2,23 +2,25 @@
 title: 'Azure Active Directory Domain Services: Ondersteuning voor het gebruikersprofiel SharePoint-service inschakelen | Microsoft Docs'
 description: Azure Active Directory Domain Services beheerde domeinen ter ondersteuning van synchronisatie van het profiel voor SharePoint-Server configureren
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: d98fbe85f35932161476a800a2fd438f0bf2b9ef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 936d760b05fcf48586739bd7538cac3dae2b6b77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587722"
 ---
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>Een beheerd domein ter ondersteuning van synchronisatie van het profiel voor SharePoint-Server configureren
 SharePoint Server bevat een User Profile-Service die wordt gebruikt voor synchronisatie van het profiel. Als u de Service-profiel instelt, moeten geschikte machtigingen worden toegekend op Active Directory-domein. Zie voor meer informatie [Active Directory Domain Services-machtigingen voor synchronisatie van het profiel in SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).

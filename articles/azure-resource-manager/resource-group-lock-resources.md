@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57e1226a263a045784f0278c68246c0e953f6e22
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1a0f813e1857d2f1c1cc36b34b6339d26fa91c13
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602683"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Resources om te voorkomen dat onverwachte wijzigingen vergrendelen 
 
-Als beheerder, moet u wellicht een abonnement, resourcegroep of resource om te voorkomen dat andere gebruikers in uw organisatie per ongeluk verwijderen of wijzigen van kritieke bronnen vergrendelen. U kunt de vergrendeling op instellen **CanNotDelete** of **ReadOnly**. In de portal de vergrendelingen worden genoemd **verwijderen** en **alleen-lezen** respectievelijk.
+Als beheerder, moet u wellicht een abonnement, resourcegroep of resource om te voorkomen dat andere gebruikers in uw organisatie per ongeluk verwijderen of wijzigen van kritieke bronnen vergrendelen. U kunt de vergrendeling instellen op **CanNotDelete** of **ReadOnly**. In de portal de vergrendelingen worden genoemd **verwijderen** en **alleen-lezen** respectievelijk.
 
 * **CanNotDelete** betekent geautoriseerde gebruikers kunnen nog steeds lezen en wijzigen van een resource, maar de resource kan niet worden verwijderd. 
 * **Alleen-lezen** betekent geautoriseerde gebruikers kunnen een resource lezen, maar ze niet verwijderen of bijwerken van de resource. Toepassen van deze vergrendeling is vergelijkbaar met alle gemachtigde gebruikers beperken tot de machtigingen verleend door de **lezer** rol. 
@@ -38,7 +39,7 @@ Vergrendelingen van Resource Manager alleen van toepassing op bewerkingen die in
 Toepassen van **ReadOnly** kan leiden tot onverwachte resultaten optreden omdat bepaalde bewerkingen die lijkt lezen bewerkingen daadwerkelijk extra acties vereist. Bijvoorbeeld, als een **ReadOnly** vergrendeling van een opslagaccount wordt voorkomen dat alle gebruikers weergeven van de sleutels. De lijst met sleutels opnieuw wordt verwerkt door een POST-aanvraag omdat de geretourneerde sleutels zijn beschikbaar voor schrijfbewerkingen. Voor een ander voorbeeld plaatsen van een **ReadOnly** vergrendelen op een App Service-bron wordt voorkomen dat Visual Studio Server Explorer-bestanden voor de resource worden weergegeven omdat die interactie voor toegang voor schrijven vereist.
 
 ## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Wie kunt maken of verwijderen van vergrendelingen in uw organisatie
-Als u wilt maken of verwijderen van management vergrendelingen, u moet toegang hebben tot `Microsoft.Authorization/*` of `Microsoft.Authorization/locks/*` acties. Van de ingebouwde rollen alleen **eigenaar** en **beheerder voor gebruikerstoegang** deze acties worden verleend.
+Als u wilt maken of verwijderen van management vergrendelingen, u moet toegang hebben tot `Microsoft.Authorization/*` of `Microsoft.Authorization/locks/*` acties. Van de ingebouwde rollen worden deze acties alleen toegekend aan **Eigenaar** en **Administrator voor gebruikerstoegang**.
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
@@ -218,5 +219,5 @@ Opnemen in de aanvraag een JSON-object waarmee de eigenschappen voor de vergrend
 * Zie voor meer informatie over het logisch ordenen van uw resources [met labels om uw resources te organiseren](resource-group-using-tags.md)
 * Als u wilt wijzigen welke resourcegroep een resource bevindt zich in, Zie [resources verplaatsen naar een nieuwe resourcegroep](resource-group-move-resources.md)
 * U kunt beperkingen en conventies toepassen voor uw abonnement met aangepast beleid. Zie [Wat is Azure Policy?](../azure-policy/azure-policy-introduction.md) voor meer informatie.
-* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).
+* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

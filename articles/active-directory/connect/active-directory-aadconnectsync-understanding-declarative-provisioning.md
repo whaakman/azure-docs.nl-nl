@@ -2,10 +2,10 @@
 title: 'Azure AD Connect: Inzicht in declaratieve inrichting | Microsoft Docs'
 description: Verklaart de declaratieve inrichting configuratiemodel in Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bb6a0c16322884afba3d306c491c3cd592fc8595
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593188"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synchronisatie: inzicht declaratieve inrichting
 Dit onderwerp worden de configuratiemodel in Azure AD Connect. Het model heet declaratieve inrichting en Hiermee kunt u een configuratiewijziging met gemak wijzigen. Groot aantal dingen beschreven in dit onderwerp zijn geavanceerde en niet vereist voor de meeste scenario's van klanten.

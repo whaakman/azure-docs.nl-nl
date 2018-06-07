@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 88095c7b3c31c5111f1e1d1e5b157403359053bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d12038daf5d74889ca99ed2c7d35009f4cb7add7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622810"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +95,7 @@ public IDictionary<string, string> Execute(
 De methode bevat vier parameters:
 
 - **linkedServices**. Deze eigenschap is een inventariseerbare lijst van gegevensarchief gekoppelde services waarnaar wordt verwezen door de gegevenssets invoer/uitvoer voor de activiteit.   
-- **datasets**. Deze eigenschap is een inventariseerbare lijst van gegevenssets van de invoer/uitvoer voor de activiteit. Deze parameter kunt u de locaties en schema's die zijn gedefinieerd door de invoer- en uitvoergegevenssets ophalen.
+- **gegevenssets**. Deze eigenschap is een inventariseerbare lijst van gegevenssets van de invoer/uitvoer voor de activiteit. Deze parameter kunt u de locaties en schema's die zijn gedefinieerd door de invoer- en uitvoergegevenssets ophalen.
 - **activiteit**. Deze eigenschap vertegenwoordigt de huidige activiteit. Het kan worden gebruikt voor toegang tot de uitgebreide eigenschappen die zijn gekoppeld aan de aangepaste activiteit. Zie [toegang uitgebreide eigenschappen](#access-extended-properties) voor meer informatie.
 - **logger**. Dit object kunt u foutopsporing opmerkingen die surface schrijven in het gebruikerslogboek voor de pijplijn.
 
@@ -1032,7 +1033,7 @@ De [Azure Data Factory - lokale omgeving](https://github.com/gbrueckl/Azure.Data
 ## <a name="sample-custom-activities-on-github"></a>Aangepaste activiteiten voorbeeld op GitHub
 | Voorbeeld | Welke aangepaste activiteit doet |
 | --- | --- |
-| [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Downloadt gegevens van een HTTP-eindpunt naar Azure Blob Storage met behulp van aangepaste C#-activiteit in de Data Factory. |
+| [Het Downloadprogramma voor het HTTP-gegevens](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Downloadt gegevens van een HTTP-eindpunt naar Azure Blob Storage met behulp van aangepaste C#-activiteit in de Data Factory. |
 | [Twitter-gevoel Analysis-voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Hiermee wordt een Azure ML-model en komen gevoel analyse, score berekenen, voorspelling enzovoort. |
 | [R-Script uitvoeren](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |R-script worden opgeroepen door RScript.exe uitgevoerd op uw HDInsight-cluster al met R is geïnstalleerd op. |
 | [Cross-activiteit van AppDomain .NET](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Maakt gebruik van verschillende assembly-versies van de waarden die worden gebruikt door de Data Factory-starten |

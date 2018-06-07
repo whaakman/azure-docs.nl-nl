@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cff2ca87ab2916c9d5aa8bb308325cb7a0227d75
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624658"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Azure Data Lake Store gebruiken voor het vastleggen van gegevens uit Event Hubs
 
@@ -56,12 +57,12 @@ In deze sectie maakt u een map in het account waarbij u wilt vastleggen van de g
 
     c. Onder **machtigingen toewijzen**, klikt u op **Selecteer machtigingen**. Stel **machtigingen** naar **uitvoeren**. Stel **toevoegen aan** naar **deze map en alle onderliggende**. Stel **toevoegen als** naar **een machtigingsvermelding toegang en een standaard machtigingsvermelding**.
 
-> [!IMPORTANT]
-> Dit is een eenvoudige manier om te controleren of de toegang tot de doelmap bij het maken van een nieuwe maphiërarchie voor het vastleggen van gegevens die zijn ontvangen door Azure Event Hubs.  Machtigingen op alle onderliggende objecten van een map van het hoogste niveau toe te voegen met veel onderliggende bestanden en mappen kan echter een lange tijd duren.  Als de hoofdmap een groot aantal bestanden en mappen bevat, mogelijk sneller om toe te voegen **Execute** machtigingen voor `Microsoft.EventHubs` afzonderlijk op elke map in het pad naar de map van de uiteindelijke bestemming. 
+    > [!IMPORTANT]
+    > Dit is een eenvoudige manier om te controleren of de toegang tot de doelmap bij het maken van een nieuwe maphiërarchie voor het vastleggen van gegevens die zijn ontvangen door Azure Event Hubs.  Machtigingen op alle onderliggende objecten van een map van het hoogste niveau toe te voegen met veel onderliggende bestanden en mappen kan echter een lange tijd duren.  Als de hoofdmap een groot aantal bestanden en mappen bevat, mogelijk sneller om toe te voegen **Execute** machtigingen voor `Microsoft.EventHubs` afzonderlijk op elke map in het pad naar de map van de uiteindelijke bestemming. 
 
-    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+    ![Machtigingen voor Data Lake Store-basis toe te wijzen](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "toegangsrechten voor de hoofdmap van de Data Lake Store")
 
-    Click **OK**.
+    Klik op **OK**.
 
 4. Wijs machtigingen voor de map in Data Lake Store-account waar u wilt vastleggen van gegevens.
 

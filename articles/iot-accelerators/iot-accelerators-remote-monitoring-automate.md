@@ -1,22 +1,19 @@
 ---
-title: Problemen bij apparaten in de oplossing voor externe controle - Azure detecteren | Microsoft Docs
+title: Problemen met apparaat detecteren in Azure-externe controle oplossing - | Microsoft Docs
 description: Deze zelfstudie laat zien hoe u regels en acties automatisch detecteren op basis van drempelwaarden apparaat problemen in de oplossing voor externe controle.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-suite
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: f3583b27b2fb9959e65a9c66a75c1174ebf3e238
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627310"
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Problemen met behulp van regels op basis van drempelwaarden detecteren
 
@@ -39,7 +36,7 @@ In deze zelfstudie leert u het volgende:
 
 Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="view-the-rules-in-your-solution"></a>De regels in uw oplossing weergeven
 
@@ -110,7 +107,7 @@ Gebruik de volgende waarden op de nieuwe voorwaarde:
 
 | Instelling          | Waarde                                 |
 | ---------------- | ------------------------------------- |
-| Veld voorwaarde 2| Temperatuur                           |
+| Veld voorwaarde 2| temperatuur                           |
 | Voorwaarde 2-operator | Groter dan                      |
 | Waarde van de voorwaarde 2    | 75                                |
 

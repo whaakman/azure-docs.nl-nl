@@ -1,29 +1,23 @@
 ---
 title: Verbonden onderdelen in de Factory-oplossing - Azure | Microsoft Docs
 description: Een overzicht van de functies van de fabriek verbonden vooraf geconfigureerde oplossing.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: 7ee86a59e7c47406ea1a890f1a9d1eb2ed4ad772
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3478217771418ab31772d6a42a7ed8d8a2e8069a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626493"
 ---
-# <a name="what-is-azure-iot-suite-connected-factory"></a>Wat is Azure IoT Suite verbonden Factory?
+# <a name="what-is-connected-factory-iot-solution-accelerator"></a>Wat is verbonden Factory IoT oplossingsverbetering?
 
-Verbonden Factory is een implementatie van Microsoft industriële Azure-IoT-referentiearchitectuur kan verpakt als op de open source-oplossing. U kunt deze gebruiken als uitgangspunt voor een commerciële product. U kunt een vooraf samengestelde versie van de verbonden Factory-oplossing implementeren in uw Azure-abonnement van [Azure IoT Suite](https://www.azureiotsuite.com/#solutions/types/CF).
+Verbonden Factory is een implementatie van Microsoft industriële Azure-IoT-referentiearchitectuur kan verpakt als op de open source-oplossing. U kunt deze gebruiken als uitgangspunt voor een commerciële product. U kunt een vooraf samengestelde versie van de verbonden Factory-oplossing implementeren in uw Azure-abonnement van [Azure IoT-oplossing accelerators](https://www.azureiotsolutions.com/#solutions/types/CF).
 
 ![Dashboard van de oplossing verbonden Factory](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
@@ -64,7 +58,7 @@ Verbonden Factory omvat de volgende functies:
 
 ## <a name="customizability"></a>Aanpassingsmogelijkheden
 
-- [Aanpassen](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) de oplossing te voldoen aan specifieke zakelijke vereisten.
+- De oplossing om te voldoen aan specifieke zakelijke vereisten aanpassen.
 - Volledige oplossing-broncode is beschikbaar op GitHub. Zie de [verbonden Factory vooraf geconfigureerde oplossing](https://github.com/Azure/azure-iot-connected-factory) opslagplaats.
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,25 +1,20 @@
 ---
-title: Sleutelkluis-sleutel en geheime herstellen voor versleutelde virtuele machines maken met Azure Backup | Microsoft Docs
+title: Sleutelkluis-sleutel en geheime voor versleutelde VM's met Azure back-up herstellen
 description: Informatie over het herstellen van de Sleutelkluis-sleutel en geheime in Azure back-up met behulp van PowerShell
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 45214083-d5fc-4eb3-a367-0239dc59e0f6
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2db3449187d655248b13198b268841052570626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b703b4511f9fefb48546b23feaa33ca7da34da1f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606100"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Sleutelkluis-sleutel en geheime voor versleutelde VM's met Azure back-up herstellen
 In dit artikel wordt gesproken over het gebruik van Azure VM-back-up voor herstel uitvoeren van versleutelde Azure virtuele machines, als uw sleutel en geheime bestaan niet in de sleutelkluis. Deze stappen kunnen ook worden gebruikt als u wilt een afzonderlijk exemplaar van de sleutel (coderingssleutel Key) en geheim (sleutel BitLocker-versleuteling) voor de herstelde virtuele machine te onderhouden.
@@ -85,7 +80,7 @@ PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputF
 ```
 
 > [!NOTE]
-> 1. Waarde voor $secretname kan worden verkregen door te verwijzen naar de uitvoer van $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl en tekst na geheimen / uitvoer geheime URL is bijvoorbeeld https://keyvaultname.vault.azure.net/secrets/ B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 en de geheime naam is B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> 1. Waarde voor $secretname kan worden verkregen door te verwijzen naar de uitvoer van $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl en tekst na geheimen / uitvoer geheime URL bijvoorbeeld is https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 en geheime naam B3284AAA-DAAA-4AAA-B393-60CAA848AAAA is
 > 2. Waarde van de tag DiskEncryptionKeyFileName is hetzelfde als de geheime naam.
 >
 >
@@ -116,7 +111,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 ```
 
 > [!NOTE]
-> 1. Waarde voor $secretname kan worden verkregen door te verwijzen naar de uitvoer van $rp1. KeyAndSecretDetails.SecretUrl en het gebruik van tekst na geheimen / uitvoer geheime URL is bijvoorbeeld https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 en geheime naam is B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> 1. Waarde voor $secretname kan worden verkregen door te verwijzen naar de uitvoer van $rp1. KeyAndSecretDetails.SecretUrl en het gebruik van tekst na geheimen / uitvoer geheim URL is bijvoorbeeld https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 en geheime naam B3284AAA-DAAA-4AAA-B393-60CAA848AAAA is
 > 2. Waarde van de tag DiskEncryptionKeyFileName is hetzelfde als de geheime naam.
 > 3. Waarde voor DiskEncryptionKeyEncryptionKeyURL kan worden verkregen van de sleutelkluis na het herstellen van de sleutels terug en het gebruik van [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet
 >

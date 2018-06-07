@@ -11,433 +11,444 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 2a51169fa74384778d3351d48055d05e387d0ea6
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
-ms.translationtype: HT
+ms.openlocfilehash: 41e6f64ada7c95674cc2573048eef8afc83e4385
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604349"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: Apps implementeren op Azure en Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: apps implementeren op Azure en Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Een hybride-pijplijn voor continue integratie/continue levering (CI/CD) kunt u bouwen, testen en een app implementeren in meerdere clouds.  In deze zelfstudie maakt u een Voorbeeldomgeving:
- 
+Informatie over het implementeren van een toepassing op Azure en Azure-Stack met behulp van een hybride-pijplijn voor continue integratie/continue levering (CI/CD).
+
+In deze zelfstudie maakt u een Voorbeeldomgeving:
+
 > [!div class="checklist"]
 > * Start een nieuwe build op basis van code doorvoeracties naar uw opslagplaats Visual Studio Team Services (VSTS).
-> * Automatisch implementeren uw nieuw gebouwde code voor globale Azure voor gebruikersacceptatietests.
-> * Wanneer uw code is verstreken testen, automatisch geïmplementeerd op Azure-Stack.
+> * Uw app automatisch implementeren op globale Azure voor gebruikersacceptatietests.
+> * Wanneer uw code testen verstrijkt, moet u automatisch de app implementeren op Azure-Stack.
 
-### <a name="about-the-hybrid-delivery-build-pipe"></a>Over de hybride levering bouwen pipe
+## <a name="benefits-of-the-hybrid-delivery-build-pipe"></a>Voordelen van de hybride levering bouwen pipe
 
-Continuïteit van de implementatie van toepassing, beveiliging en betrouwbaarheid is essentieel voor uw organisatie en essentieel is voor uw ontwikkelteam. Met een hybride CI/CD-pijplijn, kunt u uw pijplijnen consolideren in uw on-premises omgeving en de openbare cloud. U kunt de locatie wijzigen zonder het overschakelen van uw toepassing.
+Bedrijfscontinuïteit, beveiliging en betrouwbaarheid zijn de belangrijkste elementen van de toepassingsimplementatie. Deze elementen zijn essentieel voor uw organisatie en essentieel is voor uw ontwikkelteam. Een hybride CI/CD-pijplijn, kunt u uw build-pipes consolideren in uw on-premises omgeving en de openbare cloud. Een hybride levering modellen kunt u ook implementatie locaties wijzigen zonder uw toepassing worden gewijzigd.
 
-Deze aanpak kunt u een consistente set ontwikkelingsprogramma's onderhouden. Consistente hulpprogramma's in de openbare Azure-cloud en uw on-premises omgeving voor Azure-Stack betekent dat het is veel eenvoudiger voor u een CI/CD dev practice implementeren. Apps en services die zijn geïmplementeerd in Azure of Azure-Stack zijn uitwisselbaar en de dezelfde code kunt uitvoeren in beide locaties profiteren van de on-premises en openbare cloud-functies en mogelijkheden.
+Andere voordelen voor het gebruik van de hybride-methode zijn:
 
-Meer informatie over:
- - [Wat is continue integratie?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
- - [Wat is de levering van continue?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+* U kunt een consistente set ontwikkelingsprogramma's onderhouden tussen uw on-premises Azure Stack-omgeving en de openbare Azure-cloud.  Een gemeenschappelijke hulpprogrammaset kunt gemakkelijker CI/CD patterns and practice implementeren.
+* Apps en services die zijn geïmplementeerd in Azure of Azure-Stack zijn uitwisselbaar en de dezelfde code kan worden uitgevoerd op een locatie. U kunt profiteren van de on-premises en openbare cloud-functies en mogelijkheden.
 
+Voor meer informatie over CI en CD:
+
+* [Wat is continue integratie?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
+* [Wat is de levering van continue?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet beschikken over een aantal onderdelen voor het bouwen van een hybride CI/CD-pijplijn. Ze kunnen even duren om voor te bereiden.
- 
- - Een partner Azure OEM/hardware een productie-Azure-Stack kan implementeren en alle gebruikers kunnen een Azure Stack Development Kit (ASDK) implementeren. 
- - Een Azure-Stack-Operator moet ook de App Service implementeren, plannen en aanbiedingen maken, een tenantabonnement maken en de Windows Server 2016-installatiekopie toe te voegen.
+U moet beschikken over onderdelen voor het bouwen van een hybride CI/CD-pijplijn. De volgende onderdelen kunnen even duren om voor te bereiden:
 
-Als u al beschikt over sommige van deze onderdelen, zorg er dan voor dat ze voldoen aan de vereisten voor het begin.
+* Een Azure OEM/hardware-partner kunt implementeren een productie-Azure-Stack. Alle gebruikers kunnen implementeren Azure Stack Development Kit (ASDK).
+* Een Azure-Stack-Operator moet ook: implementeer de App Service, plannen en aanbiedingen maken, een tenantabonnement maken en de Windows Server 2016-installatiekopie toe te voegen.
 
-In dit onderwerp wordt ervan uitgegaan dat u enige kennis van Azure en Azure-Stack hebben. Als u weten voordat u doorgaat wilt, moet beginnen met de volgende onderwerpen:
+>[!NOTE]
+>Als u al beschikt over sommige van deze onderdelen die zijn geïmplementeerd, zorg er dan voor dat ze voldoen aan de alle vereisten voordat u deze zelfstudie.
 
+Deze zelfstudie wordt ervan uitgegaan dat u enige basiskennis hebben van Azure en Azure-Stack. Voor meer informatie voordat u de zelfstudie begint, leest u de volgende artikelen:
 
-Deze zelfstudie wordt ervan uitgegaan dat u enige kennis van Azure en Azure-Stack hebben. 
+* [Inleiding tot Azure](https://azure.microsoft.com/overview/what-is-azure/)
+* [Belangrijkste concepten van Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
-Als u weten voordat u doorgaat wilt, kunt u starten met de volgende onderwerpen:
- - [Inleiding tot Azure](https://azure.microsoft.com/overview/what-is-azure/)
- - [Belangrijkste concepten van Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
+### <a name="azure-requirements"></a>Azure-vereisten
 
-### <a name="azure"></a>Azure
+* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+* Maak een [Web-App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure. Houd er rekening mee van de Web-App-URL, moet u moet worden gebruikt in de zelfstudie.
 
- - Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+### <a name="azure-stack-requirements"></a>Azure Stack-vereisten
 
- - Maak een [Web-App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure. Noteer de nieuwe Web-App-URL, zoals het wordt later gebruikt.
+* Gebruik een Azure-Stack geïntegreerd systeem of Azure Stack Development Kit (ASDK) implementeren. De ASDK implementeren:
+    * De [zelfstudie: implementeer de ASDK met behulp van het installatieprogramma](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) biedt gedetailleerde implementatie-instructies.
+    * Gebruik de [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell-script ASDK na de implementatie stappen automatiseren.
 
-Azure Stack
- - Een Azure-Stack geïntegreerd systeem gebruiken of implementeren van Azure Stack Development Kit (ASDK) gekoppeld hieronder:
-    - U vindt gedetailleerde instructies over het implementeren van de ASDK op '[zelfstudie: implementeer de ASDK met behulp van het installatieprogramma](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)'
-    - U kunt een aantal stappen na de implementatie van de ASDK met het volgende PowerShell-script automatiseren [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
+    > [!Note]
+    > De installatie van de ASDK duurt ongeveer 7 uur moet zijn voltooid, dus plan dienovereenkomstig.
 
-    > [!Note]  
-    > De installatie van de ASDK duurt een zeven uur moet zijn voltooid, dus dienovereenkomstig plan.
+ * Implementeer [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-services naar Azure-Stack.
+ * Maak [Plan/aanbiedingen](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) in Azure-Stack.
+ * Maak een [tenant abonnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure-Stack.
+ * Een Web-App maken in de tenant-abonnement. Noteer de URL van de nieuwe App voor later gebruik.
+ * VSTS virtuele Machine implementeren in de tenantabonnement.
+* Geef een installatiekopie van Windows Server 2016 met .NET 3.5 voor een virtuele machine (VM). Deze virtuele machine wordt als een persoonlijke build-agent op uw Azure-Stack gebouwd.
 
- - Implementeer [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-services naar Azure-Stack. 
- - Maak [Plan/aanbiedingen](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) binnen de Azure-Stack-omgeving. 
- - Maak [tenant abonnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) binnen de Azure-Stack-omgeving. 
- - Een Web-App in de tenantabonnement maken. Noteer de URL van de nieuwe App voor later gebruik.
- - Implementeer VSTS virtuele Machine, nog steeds binnen het tenantabonnement.
- - Windows Server 2016-VM met .NET 3.5 is vereist. Deze virtuele machine wordt als de persoonlijke build-agent op uw Azure-Stack gebouwd. 
+### <a name="developer-tool-requirements"></a>Eisen voor ontwikkelaars
 
-### <a name="developer-tools"></a>Hulpprogramma's voor ontwikkelaars
+* Maak een [VSTS werkruimte](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). Het aanmeldingsproces maakt een project met de naam **MyFirstProject**.
+* [Installeer Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [aanmelden bij VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Verbinding maken met uw project en [lokaal klonen](https://www.visualstudio.com/docs/git/gitquickstart).
 
- - Maak een [VSTS werkruimte](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). Het aanmeldingsproces maakt een project met de naam **MyFirstProject**.
- - [Installeer Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [aanmelden bij VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
- - Verbinding maken met het project en [klonen lokaal](https://www.visualstudio.com/docs/git/gitquickstart).
- 
- > [!Note]  
- > Azure-Stack moet u met de juiste installatiekopieën extern gepubliceerd als u wilt uitvoeren (Windows Server en SQL) en App-Service geïmplementeerd.
- 
+ > [!Note]
+ > Uw Azure-Stack-omgeving moet de juiste installatiekopieën extern gepubliceerd om te worden uitgevoerd van Windows Server en SQL Server. Ook moet het App Service geïmplementeerd.
+
 ## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Voorbereiden van de persoonlijke build en de release-agent voor Visual Studio Team Services-integratie
 
 ### <a name="prerequisites"></a>Vereisten
 
-Visual Studio Team Services (VSTS) wordt geverifieerd op basis van Azure Resource Manager met behulp van een Service-Principal. Hiervoor moeten Inzenderstatus voor VSTS kunnen inrichten resources in een Azure-Stack-abonnement.
+Visual Studio Team Services (VSTS) wordt geverifieerd op basis van Azure Resource Manager met behulp van een Service-Principal. VSTS moet hebben de **Inzender** rol inrichten resources in een Azure-Stack-abonnement.
 
-Hier volgen de hoofdstappen die moeten worden geconfigureerd als deze verificatie wilt inschakelen:
+De volgende stappen wordt beschreven wat is vereist om verificatie te configureren:
 
-1. Service-Principal moet worden gemaakt of een bestaande kan worden gebruikt.
-2. Verificatiesleutels moeten worden gemaakt voor de Service-Principal.
-3. Azure-Stack-abonnement moet worden gevalideerd via toegangsbeheer op basis van rollen om toe te staan de SPN deel uitmaken van de rol van de Inzender.
-4. Een nieuwe Service-definitie in VSTS moet worden gemaakt met de Azure-Stack eindpunten, evenals de SPN-informatie.
+1. Maken van een Service-Principal of gebruik een bestaande Service-Principal.
+2. Verificatie-sleutels voor de Service-Principal maken.
+3. Het Azure-Stack-abonnement via toegangsbeheer op basis van rollen om toe te staan van de Service SPN (Principal Name) moet deel uitmaken van de rol van de inzender gevalideerd.
+4. De definitie van een nieuwe Service maken in VSTS met behulp van de Azure-Stack-eindpunten en de SPN-informatie.
 
-### <a name="service-principal-creation"></a>Maken van de service-principal
+### <a name="create-a-service-principal"></a>Een Service-Principal maken
 
-Raadpleeg de [Service-Principal maken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructies voor het maken van een service-principal en Web-App/API voor het Type toepassing kiezen.
+Raadpleeg de [Service-Principal maken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructies voor het maken van een service-principal en kies vervolgens **Web-App/API** voor het toepassingstype.
 
-### <a name="access-key-creation"></a>Toegang maken
+### <a name="create-an-access-key"></a>Een toegangssleutel maken
 
-Een Service-Principal vereist een sleutel voor verificatie, volg de stappen in deze sectie om een sleutel te genereren.
-
+Een Service-Principal vereist een sleutel voor verificatie. Gebruik de volgende stappen om een sleutel te genereren.
 
 1. Selecteer uw toepassing bij **App-registraties** in Azure Active Directory.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_01.png)
+    ![Selecteer de toepassing](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2.  Noteer de waarde van **toepassings-ID**. U gebruikt deze waarde bij het configureren van het service-eindpunt in VSTS.
+2. Noteer de waarde van **toepassings-ID**. U gebruikt deze waarde bij het configureren van het service-eindpunt in VSTS.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_02.png)
+    ![Toepassings-id](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
 3. Selecteer **Instellingen** om een verificatiesleutel te genereren.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_03.png)
+    ![App-instellingen bewerken](media\azure-stack-solution-hybrid-pipeline\000_03.png)
 
 4. Selecteer **Sleutels** om een verificatiesleutel te genereren.
- 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_04.png)
 
-5. Geef een beschrijving van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
- 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+    ![Belangrijke instellingen configureren](media\azure-stack-solution-hybrid-pipeline\000_04.png)
 
-    Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U bieden de **sleutelwaarde** met de toepassings-ID aan te melden als de toepassing. Sla de sleutelwaarde op waar uw toepassing deze kan ophalen.
+5. Geef een beschrijving op voor de sleutel en de duur van de sleutel instellen. Selecteer **Opslaan** wanneer u klaar bent.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+    ![Beschrijving van belangrijke en duur](media\azure-stack-solution-hybrid-pipeline\000_05.png)
 
-### <a name="get-tenant-id"></a>Tenant-id ophalen
+    Nadat u de sleutel opslaan **waarde** wordt weergegeven. Deze waarde niet kopiëren omdat u deze waarde hoger kan niet ophalen. U bieden de **sleutelwaarde** met de toepassings-ID aan te melden als de toepassing. Sla de sleutelwaarde op waar uw toepassing deze kan ophalen.
 
-Als onderdeel van de configuratie van de service-eindpunt VSTS vereist de **Tenant-ID** die overeenkomt met de AAD-Directory dat uw Azure-Stack stempel op is geïmplementeerd. Volg de stappen in deze sectie voor het verzamelen van de Tenant-id.
+    ![Sleutel waarde](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+
+### <a name="get-the-tenant-id"></a>De tenant-ID niet ophalen
+
+Als onderdeel van de configuratie van de service-eindpunt VSTS vereist de **Tenant-ID** die overeenkomt met de AAD-Directory dat is geïmplementeerd voor uw Azure-Stack stempel. Gebruik de volgende stappen om op te halen van de Tenant-ID.
 
 1. Selecteer **Azure Active Directory**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+    ![Azure Active Directory voor tenant](media\azure-stack-solution-hybrid-pipeline\000_07.png)
 
 2. Haal de tenant-id op door **Eigenschappen** voor uw Azure AD-tenant te selecteren.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_08.png)
- 
+    ![Eigenschappen van de tenant weergeven](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+
 3. Kopieer de **Directory-id**. Deze waarde is uw tenant-id.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+    ![Map-id](media\azure-stack-solution-hybrid-pipeline\000_09.png)
 
-### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>De service-principal rechten voor het implementeren van resources in de Stack van Azure-abonnement toewijzen 
+### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>De service-principal rechten voor het implementeren van resources in de Stack van Azure-abonnement toewijzen
 
-Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol vertegenwoordigt de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol vertegenwoordigt de beste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. Machtigingen worden overgenomen op lagere niveaus van het bereik. Bijvoorbeeld, een toepassing met de rol Lezer voor een resourcegroep toe te voegen dat kan de resourcegroep en alle resources die deze bevat gelezen.
+U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. Machtigingen worden overgenomen op lagere niveaus van het bereik. Bijvoorbeeld, een toepassing met de rol Lezer voor een resourcegroep toe te voegen dat kan de resourcegroep en alle bijbehorende resources gelezen.
 
-1. Ga naar het niveau van het bereik dat u wilt toewijzen van de toepassing. Selecteer bijvoorbeeld als een rol bij het abonnementsbereik wilt toewijzen, **abonnementen**. U kunt in plaats daarvan een resourcegroep of resource selecteren.
+1. Ga naar het niveau van het bereik dat u wilt toewijzen van de toepassing. Selecteer bijvoorbeeld als een rol bij het abonnementsbereik wilt toewijzen, **abonnementen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+    ![Selecteer abonnementen](media\azure-stack-solution-hybrid-pipeline\000_10.png)
 
-2. Selecteer de **abonnement** (resourcegroep of resource) de toepassing toewijzen aan.
+2. In **abonnement**, selecteert u Visual Studio Enterprise.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+    ![Visual Studio Enterprise](media\azure-stack-solution-hybrid-pipeline\000_11.png)
 
-3. Selecteer **toegangsbeheer (IAM)**.
+3. Selecteer in Visual Studio Enterprise **Access Control (IAM)**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![Toegangsbeheer (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
 
 4. Selecteer **Toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+    ![Toevoegen](media\azure-stack-solution-hybrid-pipeline\000_13.png)
 
-5. Selecteer de rol die u wilt toewijzen aan de toepassing. De volgende afbeelding toont de **eigenaar** rol.
+5. In **machtigingen toevoegen**, selecteer de rol die u wilt toewijzen aan de toepassing. In dit voorbeeld wordt de **eigenaar** rol.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+    ![Rol van eigenaar](media\azure-stack-solution-hybrid-pipeline\000_14.png)
 
-6. Azure Active Directory-toepassingen worden niet standaard weergegeven in de beschikbare opties. Als u wilt zoeken in uw toepassing, moet u **geeft u de naam** in het zoekveld. Selecteer deze.
+6. Azure Active Directory-toepassingen worden niet standaard weergegeven in de beschikbare opties. Als u wilt zoeken in uw toepassing, moet u de naam ervan in opgeven de **Selecteer** veld dat u wilt zoeken. Selecteer de app.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+    ![App-zoekresultaat](media\azure-stack-solution-hybrid-pipeline\000_16.png)
 
 7. Selecteer **opslaan** voltooid de rol toe te wijzen. Ziet u uw toepassing in de lijst met gebruikers die zijn toegewezen aan een rol voor deze scope.
 
 ### <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-Azure op rollen gebaseerde toegangsbeheer (RBAC) kunt Geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u alleen de toegangsrechten aan gebruikers verlenen die ze nodig hebben om hun taken uit te voeren. Zie voor meer informatie over toegangsbeheer op basis van rollen [toegang beheren tot Azure-Abonnementresources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
+Azure op rollen gebaseerde toegangsbeheer (RBAC) biedt Geavanceerd toegangsbeheer voor Azure. U kunt met RBAC kunt bepalen het niveau van toegang die gebruikers nodig hebben om hun werk te doen. Zie voor meer informatie over toegangsbeheer op basis van rollen [toegang beheren tot Azure-Abonnementresources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
 ### <a name="vsts-agent-pools"></a>VSTS Agent groepen
 
-Elke agent plaats afzonderlijk te beheren, kunt u agents indelen in groepen van de agent. Een agent-groep definieert de delen grens voor alle agents in die groep. In VSTS, zijn agent pools gericht op het account VSTS; Zo kunt u een agent toepassingen delen in teamprojecten. Zie voor meer informatie en een zelfstudie over het maken van de agent VSTS pools [Agent groepen maken en wachtrijen](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+In plaats van elke agent afzonderlijk beheert, kunt u agents indelen in groepen van de agent. Een agent-groep definieert de delen grens voor alle agents in die groep. In VSTS, zijn agent pools gericht op het account VSTS, wat betekent dat u een agent van toepassingen via teamprojecten kunt delen. Zie voor meer informatie over agent-groepen, [Agent groepen maken en wachtrijen](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
 
-### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Toevoegen van een persoonlijk toegangstoken (PAT) voor Azure-Stack
+### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Toevoegen van een persoonlijk toegangstoken (PAT) voor Azure Stack
+
+Maak een Personal Access Token voor toegang tot VSTS.
 
 1. Aanmelden bij uw account VSTS en selecteer de naam van uw profiel.
 2. Selecteer **beveiliging beheren** naar de pagina voor toegang tot het token maken.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Gebruiker aanmelden](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Selecteer teamproject](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+    ![Persoonlijke toegangstoken toevoegen](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+    ![Token aanmaken](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
 
 3. Kopieer het token.
-    
-    > [!Note]  
-    > De tokeninformatie verkrijgen. Dit wordt niet opnieuw na het verlaten van dit scherm worden weergegeven. 
-    
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_19.png)
-    
+
+    > [!Note]
+    > De token gegevens opslaan. Deze informatie wordt niet opgeslagen en worden niet meer weergegeven wanneer u de webpagina laten.
+
+    ![Persoonlijke toegangstoken](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
 ### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Installeer die de VSTS agent op de Stack Azure bouwen gehoste Server bouwen
 
-1.  Verbinding maken met uw Build-Server die u hebt geïmplementeerd op de Stack van Azure-host.
+1. Verbinding maken met uw Build-Server die u hebt geïmplementeerd op de Stack van Azure-host.
+2. Downloaden en implementeren van de build-agent als een service met behulp van uw persoonlijke toegangstoken (PAT) en wordt uitgevoerd als de VM-beheeraccount.
 
-2.  Downloaden en implementeren van de build-agent als een service met behulp van uw persoonlijke toegangstoken (PAT) en wordt uitgevoerd als de VM-beheeraccount.
+    ![Build-agent downloaden](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+3. Navigeer naar de map voor de uitgepakte build-agent. Voer de **run.cmd** bestand vanaf een opdrachtprompt met verhoogde bevoegdheid.
 
-3. Ga naar de map van de uitgepakte build-agent. Voer de **run.cmd** bestand vanaf een opdrachtprompt met verhoogde bevoegdheid. 
+    ![Uitgepakte build-agent](media\azure-stack-solution-hybrid-pipeline\000_20.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+    ![Build-agent registreren](media\azure-stack-solution-hybrid-pipeline\000_21.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+4. Wanneer de run.cmd is voltooid, wordt de map van de build-agent wordt bijgewerkt met extra bestanden. De map met de geëxtraheerde inhoud moet eruitzien als in het volgende:
 
-4.  Nadat de run.cmd voltooid wordt de map met de geëxtraheerde inhoud moet eruitzien als in het volgende:
+    ![Agent map update bouwen](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
-
-    U ziet nu de agent in VSTS map.
+    U kunt de agent in de map VSTS zien.
 
 ## <a name="endpoint-creation-permissions"></a>Machtigingen voor het eindpunt maken
 
-Gebruikers kunnen eindpunten maken zodat VSTO builds Azure Service-apps naar de stack implementeren kunnen. VSTS verbindt met de build-agent, die vervolgens verbinding met de Azure-Stack maakt. 
+Eindpunten maken, kan een Visual Studio Online VSTO ()-build Azure Service-apps implementeren naar Azure-Stack. VSTS verbindt met de build-agent, die verbinding met Azure-Stack maakt.
 
-![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+![Voorbeeld-app in VSTO NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
-1. Op de **instellingen** selecteert u **beveiliging**.
-2. In de **VSTS groepen** lijst aan de linkerkant, selecteer **eindpunt auteurs**. 
+1. Aanmelden bij VSTO en navigeer naar de pagina app-instellingen.
+2. Op **instellingen**, selecteer **beveiliging**.
+3. In **VSTS groepen**, selecteer **eindpunt auteurs**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+    ![NorthwindCloud-eindpunt maken](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
-3. Op de **leden** tabblad **+ toevoegen**. 
+4. Op de **leden** tabblad **toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+    ![Een lid toevoegen](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
 
-4. Typ een gebruikersnaam en selecteert u die gebruiker in de lijst.
-5. Klik op **wijzigingen opslaan**.
+5. In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker uit de lijst met gebruikers.
+6. Selecteer **wijzigingen opslaan**.
+7. In de **VSTS groepen** selecteert **eindpunt beheerders**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+    ![NorthwindCloud Endpoint-beheerders](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
-6. In de **VSTS groepen** lijst aan de linkerkant, selecteer **eindpunt beheerders**.
-7. Op de **leden** tabblad **+ toevoegen**.
-8. Typ een gebruikersnaam en selecteert u die gebruiker in de lijst.
-9. Klik op **wijzigingen opslaan**.
+8. Op de **leden** tabblad **toevoegen**.
+9. In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker uit de lijst met gebruikers.
+10. Selecteer **wijzigingen opslaan**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+Nu de informatie over endpoint bestaat, de VSTS naar Azure Stack-verbinding is gereed om te gebruiken. De build-agent in Azure-Stack ontvangt instructies uit VSTS en daarna de agent wordt informatie over endpoint voor communicatie met de Azure-Stack.
 
-    De build-agent in Azure-Stack krijgt instructies uit VSTS die daarna informatie over endpoint voor communicatie met de Azure-Stack wordt. 
-    
-    VSTS naar Azure Stack-verbinding is nu klaar.
+![Agent bouwen](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 
-## <a name="develop-your-application"></a>Uw toepassing ontwikkelen
+## <a name="develop-your-application-build"></a>Het bouwen van uw toepassing ontwikkelen
 
-Hybride CI/CD Web-App implementeren naar Azure en Azure-Stack en automatische push-wijzigingen in beide clouds instellen.
+In dit gedeelte van de zelfstudie hebt u de:
 
-> [!Note]  
-> Azure-Stack moet u met de juiste installatiekopieën extern gepubliceerd als u wilt uitvoeren (Windows Server en SQL) en App-Service geïmplementeerd. Controleer de App Service-documentatie sectie 'Vereisten' voor Azure Stack Operator vereisten.
+* Voeg code toe aan een project VSTS.
+* Maken van zelfstandige web app-implementatie.
+* Het continue implementatie configureren
 
-### <a name="add-code-to-vsts-project"></a>Voeg code toe aan VSTS project
+> [!Note]
+ > Uw Azure-Stack-omgeving moet de juiste installatiekopieën extern gepubliceerd om te worden uitgevoerd van Windows Server en SQL Server. Ook moet het App Service geïmplementeerd. Controleer de App Service-documentatie sectie 'Vereisten' voor Azure Stack Operator vereisten.
 
-1. Meld u aan Visual Studio met een account met rechten voor het project maken op Azure-Stack.
+Hybride CI/CD kunt toepassen op zowel de toepassingscode en de code van de infrastructuur. Gebruik [Azure Resource Manager-sjablonen, zoals web ](https://azure.microsoft.com/resources/templates/) app-code van VSTS om te implementeren op beide clouds.
 
-    Hybride CI/CD kunt toepassen op zowel de toepassingscode en de code van de infrastructuur. Gebruik [Azure Resource Manager-sjablonen, zoals web ](https://azure.microsoft.com/resources/templates/) app-code van VSTS tot beide clouds.
+### <a name="add-code-to-a-vsts-project"></a>Voeg code toe aan een project VSTS
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+1. Aanmelden bij VSTS met een account met rechten voor het project maken op Azure-Stack. De volgende schermafbeelding ziet u hoe verbinding maken met het HybridCICD-project.
+
+    ![Verbinding maken met een Project](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
 2. **De opslagplaats klonen** door het maken en openen van de standaard web-app.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+    ![De opslagplaats klonen](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Maken van zelfstandige web app-implementatie voor App-Services in beide clouds
 
-1. Bewerken de **WebApplication.csproj** bestand: Selecteer **Runtimeidentifier** en toe te voegen `win10-x64.` voor meer informatie Zie [zelfstandige implementatie](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentatie .
+1. Bewerken de **WebApplication.csproj** bestand: Selecteer **Runtimeidentifier** en voeg vervolgens `win10-x64.` voor meer informatie Zie [zelfstandige implementatie](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentatie.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+    ![Runtimeidentifier configureren](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. Controleer de code in VSTS Team Verkenner.
+2. Team Explorer gebruiken om te controleren van de code in VSTS.
 
-3. Bevestig dat de toepassingscode in Visual Studio Team Services is gecontroleerd. 
+3. Bevestig dat de toepassingscode in Visual Studio Team Services is ingeschakeld.
 
 ### <a name="create-the-build-definition"></a>De definitie van de build maken
 
-1. Aanmelden bij VSTS om te bevestigen dat build-definities maken.
+1. Aanmelden bij VSTS met een account dat de definitie van een build kunt maken.
+2. Navigeer naar de **bouwen Web Applicaiton** pagina voor het project.
 
-2. Voeg **win10 - r-x64** code. Dit is nodig voor het activeren van een zelfstandige implementatie met .net Core. 
+3. In **argumenten**, Voeg **win10 - r-x64** code. Dit is vereist voor het activeren van een zelfstandige implementatie met .net Core.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Argument build definitie toevoegen](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
-3. De build worden uitgevoerd. De [zelfstandige implementatie build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) proces artefacten die kunnen worden uitgevoerd op Azure en Azure Stack zal publiceren.
+4. De build worden uitgevoerd. De [zelfstandige implementatie build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) proces artefacten die kunnen worden uitgevoerd op Azure en Azure Stack zal publiceren.
 
-### <a name="using-an-azure-hosted-agent"></a>Met behulp van een Azure gehoste Agent
+### <a name="use-an-azure-hosted-build-agent"></a>Gebruik een Azure gehoste build-agent
 
-Met behulp van een gehoste-agent in VSTS is een handige manier om te bouwen en implementeren van web-apps. Onderhoud en upgrades worden automatisch uitgevoerd door Microsoft Azure, waardoor continu, ononderbroken ontwikkelen, testen en implementatie.
+Met behulp van een gehoste build-agent in VSTS is een geschikte optie voor het bouwen en implementeren van web-apps. Agentonderhoud en upgrades worden automatisch uitgevoerd door Microsoft Azure, waardoor een continue en ononderbroken ontwikkelingscyclus.
 
-### <a name="manage-and-configure-the-continuous-deployment-cd-process"></a>Beheren en configureren van het proces van continue implementatie (CD)
+### <a name="configure-the-continuous-deployment-cd-process"></a>Het continue implementatie (CD) configureren
 
-Visual Studio Team Services (VSTS) en Team Foundation Server (TFS) bieden een pijplijn maximaal configureerbare en beheerbare voor omgevingen met meerdere zoals ontwikkeling, releases fasering, QA en productieomgevingen; inclusief goedkeuringen vereisen specifieke stadia.
+Visual Studio Team Services (VSTS) en Team Foundation Server (TFS) voorzien in een pijplijn maximaal configureerbare en beheerbare releases in meerdere omgevingen zoals ontwikkeling, tijdelijke opslag, kwaliteit assurance (QA) en productie. Dit proces kunt opnemen goedkeuringen vereisen specifieke stadia van de levenscyclus van de toepassing.
 
 ### <a name="create-release-definition"></a>Release-definitie maken
 
-![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+Maken van de definitie van een release is de laatste stap in uw toepassing bouwen proces. Deze release-definitie wordt een releaserecord maken en implementeren van een build gebruikt.
 
-1. Selecteer de  **\[ +]** toevoegen van een nieuwe Release onder de **Releases tabblad** op de pagina Build en Release van VSO.
+1. Aanmelden bij VSTS en navigeer naar **bouwen en de vrijgave van** voor uw project.
+2. Op de **Releases** tabblad  **\[ +]** en selecteer vervolgens **maken release definitie**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\102.png)
+   ![Release-definitie maken](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
-2. Van toepassing de **Azure App Service-implementatie** sjabloon.
+3. Op **Selecteer een sjabloon**, kies **Azure App Service-implementatie**, en selecteer vervolgens **toepassen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\103.png)
+    ![Sjabloon toepassen](media\azure-stack-solution-hybrid-pipeline\102.png)
 
-3. Onder toevoegen artefact vervolgkeuzelijst, **toevoegen van het artefact** voor de Azure-Cloud-build-app.
+4. Op **toevoegen artefact**, uit de **bron (Build-definitie)** vervolgkeuzelijst, selecteer de Azure-Cloud-build-app.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\104.png)
+    ![Artefact toevoegen](media\azure-stack-solution-hybrid-pipeline\103.png)
 
-4. Pipeline-tabblad, selecteer de **fase**, **taak** koppelen van de omgeving en de Azure-cloud Omgevingswaarden instellen.
+5. Op de **pijplijn** tabblad de **fase 1**, **1 taak** koppelen aan **omgevingstaken weergeven**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\105.png)
+    ![Taken voor pipeline-weergeven](media\azure-stack-solution-hybrid-pipeline\104.png)
 
-5. Stel de **omgevingsnaam** en selecteer Azure **abonnement** voor het eindpunt van de Azure-Cloud.
+6. Op de **taken** tabblad, voert Azure als de **omgevingsnaam** en selecteer de AzureCloud Traders Web EP uit de **Azure-abonnement** vervolgkeuzelijst.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\106.png)
+    ![Omgevingsvariabelen instellen](media\azure-stack-solution-hybrid-pipeline\105.png)
 
-6. Onder de naam van de omgeving, stelt u de vereiste **Azure app service-naam**.
+7. Voer de **Azure app service-naam**, namelijk 'Noordenwind' in de volgende schermopname.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\107.png)
+    ![App service-naam](media\azure-stack-solution-hybrid-pipeline\106.png)
 
-7. Voer **VS2017 gehost** onder Agent wachtrij voor Azure in de cloud gehoste omgeving.
+8. Selecteer voor de fase Agent **gehost VS2017** van de **Agent wachtrij** vervolgkeuzelijst.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\108.png)
+    ![Gehoste agent](media\azure-stack-solution-hybrid-pipeline\107.png)
 
-8. Selecteer het geldige in Azure App Service implementeren menu **pakket of de map** voor de omgeving. Selecteer **OK** naar **maplocatie**.
+9. In **Azure App Service implementeren**, selecteert u het geldige **pakket of de map** voor de omgeving.
+
+    ![Selecteer het pakket of de map](media\azure-stack-solution-hybrid-pipeline\108.png)
+
+10. In **Selecteer bestand of map**, selecteer **OK** naar **locatie**.
 
     ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\109.png)
 
+11. Alle wijzigingen opslaan en terug te keren naar **pijplijn**.
+
     ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\110.png)
 
-9. Alle wijzigingen opslaan en terug te keren naar **release pijplijn**.
+12. Op de **pijplijn** tabblad **toevoegen artefact**, en kies de **NorthwindCloud Traders-vat** van de **bron (definitie bouwen)** vervolgkeuzelijst.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\111.png)
+    ![Nieuwe artefacten toevoegen](media\azure-stack-solution-hybrid-pipeline\111.png)
 
-10. Voeg een **nieuwe artefact** selecteren van de build voor de Azure-Stack-app.
+13. Op **Selecteer een sjabloon**, toevoegen van een andere omgeving. Kies **Azure App Service-implementatie** en selecteer vervolgens **toepassen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\112.png)
+    ![Sjabloon selecteren](media\azure-stack-solution-hybrid-pipeline\112.png)
 
-11. Voeg één meer omgeving toepassen van de **Azure App Service-implementatie**.
+14. Voer 'Azure Stack' als de **omgevingsnaam**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\113.png)
+    ![Naam van de omgeving](media\azure-stack-solution-hybrid-pipeline\113.png)
 
-12. Naam van de nieuwe omgeving **Azure Stack**.
+15. Op de **taken** tabblad, zoeken en selecteert u Azure-Stack.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\114.png)
+    ![Azure Stack-omgeving](media\azure-stack-solution-hybrid-pipeline\114.png)
 
-13. Zoeken naar de Stack van Azure-omgeving onder **taak** tabblad.
+16. Van de **Azure-abonnement** vervolgkeuzelijst "AzureStack Traders vat EP" Selecteer voor het eindpunt van de Azure-Stack.
 
     ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\115.png)
 
-14. Selecteer de **abonnement** voor het eindpunt van de Azure-Stack.
+17. Voer de Azure-Stack web app-naam als de **App service-naam**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\116.png)
+    ![App service-naam](media\azure-stack-solution-hybrid-pipeline\116.png)
 
-15. Instellen van de Azure-Stack web-app-naam als de **App service-naam**.
+18. Onder **Agent selectie**, kiest u 'AzureStack - bDouglas Fir' uit de **Agent wachtrij** vervolgkeuzelijst.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\117.png)
+    ![Kies agent](media\azure-stack-solution-hybrid-pipeline\117.png)
 
-16. Selecteer de **Azure Stack agent**.
+19. Voor **Azure App Service implementeren**, selecteert u het geldige **pakket of de map** voor de omgeving. Op **bestand of map selecteren**, selecteer **OK** voor de map **locatie**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\118.png)
+    ![Kies pakket of map](media\azure-stack-solution-hybrid-pipeline\118.png)
 
-17. Selecteer sectie onder het implementeren van Azure App Service het geldige **pakket of de map** voor de omgeving. Selecteer OK om door te **maplocatie**.
+    ![Locatie goedkeuren](media\azure-stack-solution-hybrid-pipeline\119.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\119.png)
+20. Op de **variabele** tabblad, zoeken de variabele met de naam **VSTS_ARM_REST_IGNORE_SSL_ERRORS**. De variabele waarde ingesteld op **true**, en stelt u het bereik op **Azure Stack**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\120.png)
+    ![Variabele configureren](media\azure-stack-solution-hybrid-pipeline\120.png)
 
-18. Voeg onder variabele tabblad een variabele met de naam **VSTS_ARM_REST_IGNORE_SSL_ERRORS**, stel de waarde als **waar**, en bereik voor **Azure Stack**.
+21. Op de **pijplijn** tabblad de **continue implementatie trigger** pictogram voor de NorthwindCloud Traders-Web-artefacten en stel de **continue implementatie trigger** naar **Ingeschakeld**.  Doe hetzelfde voor het artefact ' NorthwindCloud Traders-vat '.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![Set continue implementatie trigger](media\azure-stack-solution-hybrid-pipeline\121.png)
 
-19. Selecteer de **doorlopend** implementatie pictogram in beide artefacten activeren en de implementatie gaat door met het trigger inschakelen.
+22. Voor de Azure-Stack-omgeving, selecteert u de **vóór implementatie voorwaarden** pictogram de trigger ingesteld op **na release**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\122.png)
+    ![Set voorwaarden vóór implementatie trigger](media\azure-stack-solution-hybrid-pipeline\122.png)
 
-20. Selecteer de **vóór implementatie** voorwaarden pictogram in de azure omgeving stapelen en stelt u de trigger op **na release**.
+23. Sla al uw wijzigingen op.
 
-21. Alle wijzigingen worden opgeslagen.
-
-> [!Note]  
-> Sommige instellingen voor de taken kunnen automatisch gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) tijdens het maken van een release-definitie van een sjabloon. Deze instellingen kunnen niet worden gewijzigd in de taakinstellingen; in plaats daarvan moet u het item bovenliggende omgeving om deze instellingen te bewerken.
+> [!Note]
+> Sommige instellingen voor release taken kunnen automatisch gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) tijdens het maken van een release-definitie van een sjabloon. Deze instellingen worden niet gewijzigd in de taakinstellingen. U kunt echter deze instellingen in de omgeving bovenliggende items bewerken.
 
 ## <a name="create-a-release"></a>Een releaserecord maken
 
 Nu dat u de wijzigingen in de definitie van de release hebt voltooid, is het tijd om de implementatie start. Om dit te doen, moet u een versie van de release-definitie maken. Een releaserecord kan worden automatisch gemaakt. bijvoorbeeld is de trigger doorlopende implementatie ingesteld in de release-definitie. Dit betekent dat het wijzigen van de broncode van een nieuwe build Start en die een nieuwe release. Echter, in deze sectie maakt u een nieuwe release handmatig.
 
-1. Open de **Release** vervolgkeuzelijst lijst en kies **release gemaakt**.
+1. Op de **pijplijn** tabblad en open de **Release** vervolgkeuzelijst lijst en kies **release gemaakt**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\200.png)
- 
-2. Voer een beschrijving voor de release, controleert u de juiste artefacten zijn geselecteerd en kies vervolgens **maken**. Na enkele ogenblikken een banner wordt weergegeven dat aangeeft dat de nieuwe versie is gemaakt. Kies de koppeling (de naam van de release).
+    ![Een releaserecord maken](media\azure-stack-solution-hybrid-pipeline\200.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\201.png)
- 
-3. De release-overzichtspagina wordt geopend met details van de release. In de **omgevingen** gedeelte, ziet u de implementatiestatus voor de 'QA'-omgeving gewijzigd van 'IN bewerking' naar 'Geslaagd', en op dat moment een banner wordt weergegeven dat aangeeft dat de versie nu op goedkeuring wachten is. Wanneer een implementatie met een omgeving in behandeling is of is mislukt, een blauwe (i) wordt het informatiepictogram dat weergegeven. Wijs aan dit om te zien van een pop-upvenster met de reden.
+2. Voer een beschrijving voor de release, controleert u dat de juiste artefacten zijn geselecteerd en kies **maken**. Na enkele ogenblikken een banner wordt weergegeven dat aangeeft dat de nieuwe versie is gemaakt en de release-naam wordt weergegeven als een koppeling. Kies de koppeling om te zien, de overzichtspagina release.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\202.png)
+    ![Release maken banner](media\azure-stack-solution-hybrid-pipeline\201.png)
 
-Andere weergaven, zoals de lijst met releases, ook weer een pictogram dat goedkeuring aangeeft is in behandeling. Het pictogram ziet u een pop-upvenster met de naam van de omgeving en meer details wanneer u aanwijst. Dit maakt het eenvoudig voor een beheerder om te zien welke versies wachten op goedkeuring, evenals de algemene voortgang van alle versies.
+3. De overzichtspagina voor de release voor meer informatie over de versie bevat. In de volgende schermopname voor 'Release 2', de **omgevingen** sectie toont de **Implementatiestatus** voor de Azure als 'IN bewerking' en de status voor Azure-Stack 'voltooid'. Als de implementatiestatus voor de Azure-omgeving verandert in 'Geslaagd', een banner wordt weergegeven dat aangeeft dat de release gereed voor goedkeuring is. Wanneer een implementatie is in behandeling of is mislukt, een blauwe **(i)** het informatiepictogram dat wordt weergegeven. Beweeg de muisaanwijzer over het pictogram om te zien van een pop-upvenster met de reden voor de vertraging of mislukken.
+
+    ![Overzichtspagina van release](media\azure-stack-solution-hybrid-pipeline\202.png)
+
+Andere weergaven, zoals de lijst met releases, toont ook een pictogram dat aangeeft goedkeuring is in behandeling. Het pop-upvenster voor dit pictogram ziet u de omgevingsnaam van de en meer informatie over de implementatie. Het is gemakkelijk voor een beheerder raadpleegt u de algemene voortgang van releases en zien welke versies op goedkeuring wachten.
 
 ### <a name="monitor-and-track-deployments"></a>Bewaken en bijhouden implementaties
 
-In deze sectie ziet u hoe u kunt bewaken en bijhouden van implementaties - in dit voorbeeld twee Azure App Services websites - van de release die u in de vorige sectie hebt gemaakt.
+Deze sectie wordt beschreven hoe u kunt bewaken en bijhouden van alle uw implementaties. De release voor het implementeren van de twee websites met Azure App Services biedt een goed voorbeeld.
 
-1. Kies in de release overzichtspagina de **logboeken** koppeling. Tijdens de implementatie, ziet deze pagina het live logboek van de agent en, in het linkerdeelvenster, een indicatie van de status van elke bewerking in het implementatieproces voor elke omgeving.
+1. Selecteer op de overzichtspagina 'Release 2' **logboeken**. Tijdens een implementatie tonen deze pagina de live logboek van de agent. Het linkerdeelvenster ziet de status van elke bewerking in de implementatie voor elke omgeving.
 
-    Kies het pictogram in de **actie** kolom voor een goedkeuring vóór de implementatie of na de implementatie van details van die goedgekeurd (of afgewezen) de implementatie en het bericht die gebruiker is opgegeven.
+    U kunt een persoon-pictogram in de **actie** kolom voor een goedkeuring vóór de implementatie of na de implementatie heeft goedgekeurd (of afgewezen) op de implementatie, en het bericht die zijn opgegeven.
 
-2. Nadat de implementatie voltooid is, wordt het hele logboekbestand in het rechterdeelvenster weergegeven. Selecteer een van de **processtappen** in het linkerdeelvenster om weer te geven alleen het logboek bestandsinhoud voor deze stap. Dit maakt het gemakkelijker te traceren en fouten opsporen in afzonderlijke onderdelen van de algehele implementatie. U kunt ook downloaden de afzonderlijke logboekbestanden of een zip van alle logboekbestanden van de pictogrammen en koppelingen in de pagina.
+2. Nadat de implementatie is voltooid, wordt het hele logboekbestand in het rechterdeelvenster weergegeven. U kunt kiezen **stap** in het linkerdeelvenster om te zien van het logboekbestand voor een één stap, zoals "Job initialiseren". De mogelijkheid om te zien van afzonderlijke logboeken gemakkelijker traceren en fouten opsporen in onderdelen van de algehele implementatie. U kunt ook **opslaan** het logboekbestand voor een stap of **alle logboeken downloaden als zip**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\203.png)
- 
-3. Open de **samenvatting** tabblad voor een overzicht van de algehele details van de release. Deze worden details weergegeven van de build en de omgeving die is geïmplementeerd om - samen met de implementatiestatus en andere informatie over de release.
+    ![Release-Logboeken](media\azure-stack-solution-hybrid-pipeline\203.png)
 
-4. Selecteer de **omgeving koppelingen** voor meer informatie over bestaande en in afwachting van implementaties voor die specifieke omgeving. U kunt deze pagina's gebruiken om te controleren dat dezelfde build voor beide omgevingen is geïmplementeerd.
+3. Open de **samenvatting** tabblad voor algemene informatie over de release. Deze weergave toont informatie over de build, de omgevingen die is geïmplementeerd naar, Implementatiestatus en andere informatie over de release.
 
-5. Open de **productie-app geïmplementeerd** in uw bladeren. Bijvoorbeeld: voor een Azure App Services-website van de URL `http://[your-app-name].azurewebsites.net`.
+4. Selecteer de koppeling van een omgeving (**Azure** of **Azure Stack**) voor informatie over bestaande en in afwachting van implementaties met een specifieke omgeving. U kunt deze weergaven gebruiken als een snelle manier om te controleren dat dezelfde build voor beide omgevingen is geïmplementeerd.
+
+5. Open de **productie-app geïmplementeerd** in uw browser. Bijvoorbeeld: open de URL voor de website Azure App Services `http://[your-app-name].azurewebsites.net`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over Azure-Cloud-patronen, [ontwerppatronen](https://docs.microsoft.com/azure/architecture/patterns).
+* Zie voor meer informatie over Azure-Cloud-patronen, [ontwerppatronen](https://docs.microsoft.com/azure/architecture/patterns).

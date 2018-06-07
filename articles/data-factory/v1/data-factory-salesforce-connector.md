@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d4c679722e36eb9533b65037a488fb9af9a5bc80
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dddb29d2a796449d6a2c9b68e01e94f32d3022e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621986"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Gegevens verplaatsen van Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -286,25 +287,25 @@ Zie [RelationalSource type-eigenschappen](#copy-activity-properties) voor de lij
 ### <a name="type-mapping-for-salesforce"></a>Toewijzing van het type voor Salesforce
 | Salesforce-type | . Type op basis van NET |
 | --- | --- |
-| Automatische getal |Tekenreeks |
+| Automatische getal |Reeks |
 | Selectievakje |Boole-waarde |
-| Valuta |Double |
+| Valuta |dubbele |
 | Date |DateTime |
 | Datum/tijd |DateTime |
-| E-mail |Tekenreeks |
-| Id |Tekenreeks |
-| Opzoekrelatie |Tekenreeks |
-| Meervoudige selectie selectielijst |Tekenreeks |
-| Aantal |Double |
-| Procent |Double |
-| Telefoon |Tekenreeks |
-| Selectielijst |Tekenreeks |
-| Tekst |Tekenreeks |
-| Tekstgebied |Tekenreeks |
-| Tekstgebied (lang) |Tekenreeks |
-| Tekstgebied (uitgebreid) |Tekenreeks |
-| Tekst (versleuteld) |Tekenreeks |
-| URL |Tekenreeks |
+| Email |Reeks |
+| Id |Reeks |
+| Opzoekrelatie |Reeks |
+| Meervoudige selectie selectielijst |Reeks |
+| Aantal |dubbele |
+| Procent |dubbele |
+| Telefoon |Reeks |
+| Selectielijst |Reeks |
+| Tekst |Reeks |
+| Tekstgebied |Reeks |
+| Tekstgebied (lang) |Reeks |
+| Tekstgebied (uitgebreid) |Reeks |
+| Tekst (versleuteld) |Reeks |
+| URL |Reeks |
 
 > [!NOTE]
 > Zie het toewijzen van kolommen uit de bron-gegevensset naar kolommen uit de dataset sink [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

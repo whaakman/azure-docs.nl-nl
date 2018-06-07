@@ -1,18 +1,19 @@
 ---
 title: Afbeeldingen uploaden naar uw Azure IoT centrale toepassing | Microsoft Docs
 description: Informatie over het voorbereiden en installatiekopieën uploaden naar uw Azure IoT centrale toepassing als een opbouwfunctie.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: a43f2dd780604235ada1d8e3ae8a20563042fbaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 7fd9c8ed5559b00bc755e3f04c768dceeb487562
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628018"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Voorbereiden en installatiekopieën uploaden naar uw Azure IoT centrale toepassing
 
@@ -93,7 +94,7 @@ Als u wilt uploaden een afbeelding van een apparaat gebruikt, gaat u naar **appa
 
 Klik op de installatiekopie van het uploaden en kies vervolgens het bestand te uploaden naar uw lokale machine.
 
-### <a name="device-dashboard"></a>Apparaat-dashboard
+### <a name="device-dashboard"></a>Apparaatdashboard
 
 Als u wilt uploaden een installatiekopie gebruiken op een apparaat-dashboard, gaat u naar **apparaat Explorer**, kiest u de sjabloon van het apparaat en een apparaat. Kies vervolgens de **Dashboard** ontwerpmodus pagina en de switch op. U moet een opbouwfunctie om deze taak te voltooien:
 

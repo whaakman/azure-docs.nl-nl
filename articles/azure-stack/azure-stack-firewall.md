@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604213"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integratie van Azure Stack-firewall
 Het verdient aanbeveling dat u een firewall-apparaat gebruiken voor het beveiligde Azure-Stack. Hoewel firewalls bij zaken als gedistribueerde denial-of-service (DDOS) aanvallen, inbraakdetectie en inhoudscontrole helpen kunnen, kunnen ze ook een knelpunt doorvoer voor Azure storage-services zoals blobs, tabellen en wachtrijen geworden.
@@ -48,7 +49,7 @@ In de implementatie van een edge Azure Stack geïmplementeerd rechtstreeks achte
 
 Normaal gesproken zijn openbaar routeerbare IP-adressen opgegeven voor het openbare VIP-adresgroep van het externe netwerk tijdens de implementatie. In een edge-scenario, is het niet raadzaam openbaar routeerbare IP-adressen in een ander netwerk gebruiken om beveiligingsredenen. Dit scenario kan een gebruiker om de ervaring voor de volledige zelf gecontroleerde cloud zoals in een openbare cloud zoals Azure.  
 
-![Voorbeeld van Azure Stack edge firewall](.\media\azure-stack-firewall\edge-firewall-scenario.png)
+![Voorbeeld van Azure Stack edge firewall](.\media\azure-stack-firewall\firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranet- of perimeternetwerk netwerk firewall bedrijfsscenario
 In het intranet of een perimeternetwerk implementatie in een onderneming, Azure Stack geïmplementeerd op een firewall multi ingedeeld of tussen de edge-firewall en de interne, zakelijke netwerkfirewall. Het verkeer wordt dan gedistribueerd tussen de veilige, perimeternetwerk (of DMZ) en niet-beveiligde zones als die hieronder worden beschreven:

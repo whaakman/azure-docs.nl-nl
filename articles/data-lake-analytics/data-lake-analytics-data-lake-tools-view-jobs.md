@@ -1,26 +1,23 @@
 ---
-title: Taak Browser en weergave van de taak voor Azure Data Lake Analytics-taken gebruiken | Microsoft Docs
-description: 'Informatie over het gebruik van de Browser van de taak en taak weergeven voor Azure Data Lake Analytics-taken. '
+title: Taak Browser en weergave van de taak voor Azure Data Lake Analytics-taken gebruiken
+description: Dit artikel wordt beschreven hoe u taak Browser en de weergave van de taak voor Azure Data Lake Analytics-taken.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: jgao
-ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623227"
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Taak Browser en weergave van de taak voor Azure Data lake Analytics-taken gebruiken
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Gebruik taak Browser en taakweergave voor Azure Data Lake Analytics
 De service Azure Data Lake Analytics archiveert ingediende taken in een [queryarchief](#query-store). In dit artikel leert u het gebruik van taak Browser en taak weergeven in Azure Data Lake Tools voor Visual Studio om de historische taakinformatie te vinden. 
 
 Standaard wordt in de Data Lake Analytics-service de taken voor 30 dagen gearchiveerd. De verloopperiode kan worden geconfigureerd via de Azure-portal door het aangepaste beleid configureren. Niet mogelijk voor toegang tot de informatie over de taak na de verloopdatum. 

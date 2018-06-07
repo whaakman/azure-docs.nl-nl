@@ -1,31 +1,25 @@
 ---
 title: Apparaten voor externe controle in Node.js - Azure inrichten | Microsoft Docs
 description: Beschrijft hoe een apparaat aansluit op de externe controle oplossingsverbetering met behulp van een toepassing die is geschreven in Node.js.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: e0edc2d71d5f2ceac9c631fedaa160ca7291e9d6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8bd614fd7aad248612d65717fe50e04a3fc3a9e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627327"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Uw apparaat aansluit op de externe controle oplossingsverbetering (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de externe controle oplossingsverbetering. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
+Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de oplossingsverbetering externe controle. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
 
 ## <a name="create-a-nodejs-solution"></a>Een Node.js-oplossing maken
 

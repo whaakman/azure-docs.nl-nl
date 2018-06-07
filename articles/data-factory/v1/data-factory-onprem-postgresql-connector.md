@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ee466c85b68ebc72dbd55849db84a473d584ffb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1d566a719abaf09146965a677868d363d33d10e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622761"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Verplaatsen van gegevens uit een PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,7 +78,7 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesPostgreSql** |Ja |
 | server |De naam van de PostgreSQL-server. |Ja |
 | database |De naam van de PostgreSQL-database. |Ja |
-| schema |De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
+| Schema |De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
 | authenticationType |Het soort verificatie die wordt gebruikt voor verbinding met de PostgreSQL-database. Mogelijke waarden zijn: anoniem, basis en Windows. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam als u basisverificatie of Windows-verificatie gebruikt. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
@@ -314,38 +315,38 @@ Wanneer u gegevens naar PostgreSQL verplaatst, worden de volgende toewijzingen v
 | booleaans |BOOL |Boole-waarde |
 | Vak | |Byte [], String |&nbsp;
 | bytea | |Byte [], String |&nbsp;
-| teken [(n)] |char [(n)] |Tekenreeks |
-| teken wisselende [(n)] |varchar [(n)] |Tekenreeks |
-| CID | |Tekenreeks |&nbsp;
-| CIDR | |Tekenreeks |&nbsp;
+| teken [(n)] |char [(n)] |Reeks |
+| teken wisselende [(n)] |varchar [(n)] |Reeks |
+| CID | |Reeks |&nbsp;
+| CIDR | |Reeks |&nbsp;
 | cirkel | |Byte [], String |&nbsp;
 | datum | |Datum en tijd |&nbsp;
-| DateRange | |Tekenreeks |&nbsp;
-| dubbele precisie |FLOAT8 |Double |
+| DateRange | |Reeks |&nbsp;
+| dubbele precisie |FLOAT8 |dubbele |
 | INet | |Byte [], String |&nbsp;
-| intarry | |Tekenreeks |&nbsp;
-| int4range | |Tekenreeks |&nbsp;
-| int8range | |Tekenreeks |&nbsp;
+| intarry | |Reeks |&nbsp;
+| int4range | |Reeks |&nbsp;
+| int8range | |Reeks |&nbsp;
 | geheel getal |int, int4 |Int32 |
 | interval [velden] [(p)] | |Periode |&nbsp;
-| json | |Tekenreeks |&nbsp;
+| json | |Reeks |&nbsp;
 | jsonb | |Byte[] |&nbsp;
 | regel | |Byte [], String |&nbsp;
 | lseg | |Byte [], String |&nbsp;
 | macaddr | |Byte [], String |&nbsp;
 | Money | |Decimale |&nbsp;
 | numerieke [(p, s)] |Decimal [(p, s)] |Decimale |
-| numrange | |Tekenreeks |&nbsp;
+| numrange | |Reeks |&nbsp;
 | OID | |Int32 |&nbsp;
 | pad | |Byte [], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | beheerpunt | |Byte [], String |&nbsp;
 | veelhoek | |Byte [], String |&nbsp;
-| echte |FLOAT4 |Single |
+| echte |FLOAT4 |Enkelvoudig |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serieel |serial4 |Int32 |
-| Tekst | |Tekenreeks |&nbsp;
+| tekst | |Reeks |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen
 Zie voor meer informatie over het toewijzen van kolommen in gegevensset naar kolommen in gegevensset sink bron, [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

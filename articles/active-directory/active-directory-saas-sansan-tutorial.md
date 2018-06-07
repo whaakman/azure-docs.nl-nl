@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8af15e4751b696a6f30d3dc70556ab856020bedb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f0739c821f1521eb761912e5092661c7b5c0fd78
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Zelfstudie: Azure Active Directory-integratie met Sansan
 
@@ -110,7 +111,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met de volgende patronen: 
+    In de **aanmeldings-URL** textbox, typ een URL met de volgende patronen: 
     
     | Omgeving | URL |
     |:--- |:--- |
@@ -118,16 +119,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     | Systeemeigen mobiele app |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Mobiele-browserinstellingen |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
-    b. In de **id** textbox, typ een URL met de volgende patronen:
-    | Omgeving             | URL |
-    | :-- | :-- |
-    | PC web                  | `https://ap.sansan.com/v/saml2/<company name>`|
-    | Systeemeigen mobiele app       | `https://internal.api.sansan.com/saml2/<company name>` |
-    | Mobiele-browserinstellingen | `https://ap.sansan.com/s/saml2/<company name>` |
-
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Sansan Client ondersteuningsteam](https://www.sansan.com/form/contact) ophalen van deze waarden. 
-
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Sansan Client ondersteuningsteam](https://www.sansan.com/form/contact) ophalen van deze waarden. 
+     
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_certificate.png) 
@@ -136,19 +130,77 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sansan-tutorial/tutorial_general_400.png)
 
-6. Op de **Sansan configuratie** sectie, klikt u op **configureren Sansan** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Sansan toepassing verwacht meerdere **id's** en **antwoord-URL's** ter ondersteuning van meerdere omgevingen (PC web, systeemeigen mobiele app, mobiele browserinstellingen), die kunnen worden geconfigureerd met behulp van PowerShell script. De gedetailleerde stappen worden hieronder beschreven.
+
+7. Voor het configureren van meerdere **id's** en **antwoord-URL's** voor Sansan toepassing met behulp van PowerShell-script, voert u de volgende stappen:
+
+    ![Obj eenmalige aanmelding configureren](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)    
+
+    a. Ga naar de **eigenschappen** pagina van **Sansan** toepassing en kopieer de **Object-ID** met **kopie** knop en plak deze in Kladblok.
+
+    b. De **Object-ID**, die u hebt gekopieerd vanuit Azure-portal wordt gebruikt als **ServicePrincipalObjectId** in PowerShell-script dat verderop in de zelfstudie. 
+
+    c. Open nu een verhoogde opdrachtprompt van Windows PowerShell.
+    
+    >[!NOTE] 
+    > U moet de AzureAD-module installeren (Gebruik de opdracht `Install-Module -Name AzureAD`). Als u wordt gevraagd om een NuGet-module of de nieuwe Azure Active Directory V2 PowerShell-module te installeren, typt u j en druk op ENTER.
+
+    d. Voer `Connect-AzureAD` en meld u aan met een gebruikersaccount globale beheerder.
+
+    e. Het volgende script gebruiken voor het bijwerken van meerdere URL's naar een toepassing:
+
+    ```poweshell
+     Param(
+    [Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
+    [Parameter(Mandatory=$false)][string[]]$ReplyUrls,
+    [Parameter(Mandatory=$false)][string[]]$IdentifierUrls
+    )
+
+    $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+
+    if($ReplyUrls.Length)
+    {
+    echo "Updating Reply urls"
+    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls $ReplyUrls
+    echo "updated"
+    }
+    if($IdentifierUrls.Length)
+    {
+    echo "Updating Identifier urls"
+    $applications = Get-AzureADApplication -SearchString $servicePrincipal.AppDisplayName 
+    echo "Found Applications =" $applications.Length
+    $i = 0;
+    do
+    {  
+    $application = $applications[$i];
+    if($application.AppId -eq $servicePrincipal.AppId){
+    Set-AzureADApplication -ObjectId $application.ObjectId -IdentifierUris $IdentifierUrls
+    $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+    echo "Updated"
+    return;
+    }
+    $i++;
+    }while($i -lt $applications.Length);
+    echo "Not able to find the matched application with this service principal"
+    }
+    ```
+
+8. Na het PowerShell-script is voltooid, het resultaat van het script als volgt zoals hieronder wordt weergegeven en de URL-waarden wordt bijgewerkt maar worden ze won't ophalen zichtbaar in de Azure portal. 
+
+    ![Script voor eenmalige aanmelding configureren](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_powershell.png)
+
+
+9. Op de **Sansan configuratie** sectie, klikt u op **configureren Sansan** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
 
-7. Eenmalige aanmelding configureren op **Sansan** zijde, moet u de gedownloade verzenden **certificaat**, **Sign-Out URL**, **SAML entiteit-ID**, en **SAML Single Sign-On Service-URL** naar [Sansan ondersteuningsteam](https://www.sansan.com/form/contact). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+10. Eenmalige aanmelding configureren op **Sansan** zijde, moet u de gedownloade verzenden **certificaat**, **Sign-Out URL**, **SAML entiteit-ID**, en **SAML Single Sign-On Service-URL** naar [Sansan ondersteuningsteam](https://www.sansan.com/form/contact). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 >[!NOTE]
->PC browserinstelling werken ook voor mobiele Apps en mobiele browser samen met PC web.  
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+>PC browserinstelling werken ook voor mobiele Apps en mobiele browser samen met PC web. 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
@@ -181,7 +233,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
  
 ### <a name="creating-a-sansan-test-user"></a>Een testgebruiker Sansan maken
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in SanSan maken. SanSan toepassing moet de gebruiker moeten worden ingericht in de toepassing voordat u eenmalige aanmelding. 
+In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Sansan maken. Sansan toepassing moet de gebruiker moeten worden ingericht in de toepassing voordat u eenmalige aanmelding. 
 
 >[!NOTE]
 >Als u wilt maken van een gebruiker handmatig of batch-gebruikers, moet u contact opnemen met de [Sansan ondersteuningsteam](https://www.sansan.com/form/contact). 

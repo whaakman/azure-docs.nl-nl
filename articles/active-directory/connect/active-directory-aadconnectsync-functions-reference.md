@@ -2,10 +2,10 @@
 title: 'Azure AD Connect-synchronisatie: functieverwijzing | Microsoft Docs'
 description: Verwijzing van expressies declaratieve inrichting in Azure AD Connect-synchronisatie.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4814d53a86b0d90cf16f76e75c7044448cf791eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595152"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: functieverwijzing
 In Azure AD Connect worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
@@ -55,14 +57,14 @@ De functies van de typen **mvbin**, **mvstr**, en **mvref** kunt werken alleen o
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
-| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[CertVersion](#certversion) |[IsCert](#iscert) | | | |
+| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[certThumbprint](#certthumbprint) | |
+[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Conversie** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
 | [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
 | **Datum / tijd** | | | | |
-| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Nu](#now) | |
+| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[formatDateTime](#formatdatetime) |[Nu](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
 | **Directory** | | | | |
 | [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
@@ -73,15 +75,15 @@ De functies van de typen **mvbin**, **mvstr**, en **mvref** kunt werken alleen o
 | **Math** | | | | |
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
 | **Met meerdere waarden** | | | | |
-| [Bevat](#contains) |[Aantal](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
+| [Bevat](#contains) |[Aantal](#count) |[item](#item) |[ItemOrNull](#itemornull) | |
 | [Koppelen](#join) |[RemoveDuplicates](#removeduplicates) |[Splitsen](#split) | | |
 | **Programma-overdracht** | | | | |
 | [Fout](#error) |[IIF](#iif) |[Selecteren](#select) |[Switch](#switch) | |
-| [Waar](#where) |[Met](#with) | | | |
+| [waar](#where) |[met](#with) | | | |
 | **Tekst** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Links](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Vervangen](#replace) | |
+| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[vervangen](#replace) | |
 | [ReplaceChars](#replacechars) |[Rechts](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
@@ -364,9 +366,9 @@ De functie CGuid converteert de tekenreeksweergave van een GUID voor de binaire 
 De functie bevat zoekt u naar een tekenreeks binnen een kenmerk met meerdere waarden
 
 **Syntaxis:**  
-`num Contains (mvstring attribute, str search)`-hoofdlettergevoelig  
+`num Contains (mvstring attribute, str search)` -hoofdlettergevoelig  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
-`num Contains (mvref attribute, str search)`-hoofdlettergevoelig
+`num Contains (mvref attribute, str search)` -hoofdlettergevoelig
 
 * kenmerk: het kenmerk met meerdere waarden om te zoeken.
 * zoeken: tekenreeks om in het kenmerk te vinden.
@@ -388,7 +390,7 @@ Als het kenmerk proxyAddresses een primaire e-mailadres heeft (aangeduid door ho
 De functie ConvertFromBase64 zet de waarde van de opgegeven base64-gecodeerd om een normale tekenreeks.
 
 **Syntaxis:**  
-`str ConvertFromBase64(str source)`-wordt ervan uitgegaan dat Unicode voor codering  
+`str ConvertFromBase64(str source)` -wordt ervan uitgegaan dat Unicode voor codering  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * bron: Base64-gecodeerde tekenreeks  

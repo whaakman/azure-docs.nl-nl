@@ -8,15 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 996bd4b3497861a3bfcbfecebe18a6936f487028
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 24cecdc65c45d5d1ee5443740d9874ccfd74e387
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627712"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gebeurtenis-handlers in Azure gebeurtenis raster
 
-Een gebeurtenis-handler is de plaats waar de gebeurtenis wordt verzonden. De handler duurt enkele verdere actie voor het verwerken van de gebeurtenis. Verschillende Azure-services worden automatisch geconfigureerd om gebeurtenissen te verwerken. U kunt ook een webhook gebruiken voor het verwerken van gebeurtenissen. De webhook hoeft niet te worden gehost in Azure om gebeurtenissen te verwerken.
+Een gebeurtenis-handler is de plaats waar de gebeurtenis wordt verzonden. De handler duurt enkele verdere actie voor het verwerken van de gebeurtenis. Verschillende Azure-services worden automatisch geconfigureerd om gebeurtenissen te verwerken. U kunt ook een webhook gebruiken voor het verwerken van gebeurtenissen. De webhook hoeft niet te worden gehost in Azure om gebeurtenissen te verwerken. Gebeurtenis raster ondersteunt alleen HTTPS-webhook-eindpunten.
 
 Dit artikel bevat koppelingen naar inhoud voor elke gebeurtenis-handler.
 
@@ -31,6 +32,8 @@ Gebruik Azure Automation om gebeurtenissen te verwerken met geautomatiseerde run
 ## <a name="azure-functions"></a>Azure Functions
 
 Gebruik Azure Functions voor zonder server reactie op gebeurtenissen.
+
+Wanneer u Azure Functions als de handler gebruikt, gebruikt u de Event Grid-trigger in plaats van algemene HTTP-triggers. Functie-triggers van Event Grid worden namelijk automatisch gevalideerd. Bij gebruik van algemene HTTP-triggers moet u een [validatie-antwoord](security-authentication.md#webhook-event-delivery) implementeren.
 
 |Titel  |Beschrijving  |
 |---------|---------|
@@ -75,5 +78,5 @@ Gebruik webhooks voor aanpasbare eindpunten die op gebeurtenissen reageren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot gebeurtenis raster, [over gebeurtenis raster](overview.md).
+* Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
 * Zie om snel aan de slag met Event raster [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md).

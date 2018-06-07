@@ -2,7 +2,7 @@
 title: Verbinding maken met Azure Databricks van Excel, Python of R | Microsoft Docs
 description: Informatie over het gebruik van het stuurprogramma Simba verbinding maken met Azure Databricks Excel, Python of R.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,13 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9daa7d30036d0a0f98d079e03a69c29d11e49664
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598875"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Verbinding maken met Azure Databricks van Excel, Python of R
 
@@ -85,7 +86,7 @@ In deze sectie kunt ophalen u gegevens uit Azure Databricks in Microsoft Excel m
 
 2. In de **van ODBC** in het dialoogvenster, selecteer de DSN die u eerder hebt gemaakt en klik vervolgens op **OK**.
 
-    ![Select DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "Select DSN")
+    ![Selecteer DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "DSN selecteren")
 
 3. Als u wordt gevraagd om referenties, voor de gebruikersnaam van de voert **token**. Geef een waarde voor de token die u hebt opgehaald uit de werkruimte Databricks voor wachtwoord.
 
@@ -102,7 +103,7 @@ Zodra u de gegevens in uw Excel-werkmap hebt, kunt u analytische bewerkingen op 
 In deze sectie maakt u een taal R IDE verwijzen naar gegevens beschikbaar zijn in Azure Databricks gebruiken. Voordat u begint, moet u het volgende op de computer geïnstalleerd hebben.
 
 * Een IDE voor R-taal. Dit artikel wordt RStudio gebruikt voor het bureaublad. Kunt u het installeren van [R Studio downloaden](https://www.rstudio.com/products/rstudio/download/).
-* Als u RStudio voor bureaublad als uw IDE, installeer dan ook Microsoft R Client [http://aka.ms/rclient/](http://aka.ms/rclient/). 
+* Als u RStudio voor bureaublad als uw IDE, installeer dan ook Microsoft R Client [ http://aka.ms/rclient/ ](http://aka.ms/rclient/). 
 
 Open RStudio en voer de volgende stappen uit:
 

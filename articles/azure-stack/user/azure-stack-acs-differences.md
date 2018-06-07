@@ -1,40 +1,41 @@
 ---
-title: 'Azure Storage Stack: Verschillen en overwegingen'
-description: Het verschil tussen Azure Stack Storage en Azure Storage, samen met aandachtspunten voor implementatie van Azure-Stack.
+title: Stack van Azure storage verschillen en overwegingen | Microsoft Docs
+description: De verschillen tussen Azure stack-opslag- en Azure-opslag, samen met aandachtspunten voor implementatie van Azure-Stack begrijpen.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604457"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage Stack: Verschillen en overwegingen
+# <a name="azure-stack-storage-differences-and-considerations"></a>Stack van Azure storage: verschillen en overwegingen
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Azure Storage van de Stack is de set van opslag cloudservices in Microsoft Azure-Stack. Stack aan Azure Storage biedt blob, table, wachtrij en functionaliteit voor Gebruikersaccountbeheer met Azure consistent semantiek.
+Stack van Azure storage is de set van opslag cloudservices in Microsoft Azure-Stack. Stack van Azure storage biedt blob, table, wachtrij en functionaliteit voor Gebruikersaccountbeheer met Azure consistent semantiek.
 
-In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschillen van Azure Storage-services. Het bevat ook overwegingen bij het implementeren van Azure-Stack. Zie voor meer informatie over belangrijke verschillen tussen Azure-Stack en Azure, de [belangrijke overwegingen](azure-stack-considerations.md) onderwerp.
+In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschillen van Azure Storage-services. Het bevat ook overwegingen bij het implementeren van Azure-Stack. Zie voor meer informatie over belangrijke verschillen tussen globale Azure en Azure-Stack, de [belangrijke overwegingen](azure-stack-considerations.md) onderwerp.
 
 ## <a name="cheat-sheet-storage-differences"></a>Blad cheats: opslag verschillen
 
 | Functie | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File Storage|Cloud-gebaseerde SMB-bestandsshares ondersteund|Nog niet ondersteund
-|Azure Storage Service-versleuteling voor inactieve gegevens|256-bits AES-versleuteling|BitLocker 128-bits AES-versleuteling
-|Type opslagaccount|Voor algemene doeleinden en Azure Blob storage-accounts|Voor algemene doeleinden alleen.
+|Azure storage-service: versleuteling voor gegevens in rust|256-bits AES-versleuteling|BitLocker 128-bits AES-versleuteling
+|Type opslagaccount|Voor algemene doeleinden en Azure blob storage-accounts|Voor algemene doeleinden alleen.
 |Opties voor gegevensreplicatie|Lokaal redundante opslag, geografisch redundante opslag met leestoegang geografisch redundante opslag en zone-redundante opslag|Lokaal redundante opslag.
 |Premium Storage|Volledig ondersteund|Kan worden ingericht, maar geen prestatielimiet voor of de garantie.
 |Managed Disks|Premium en standard ondersteund|Nog niet ondersteund.
@@ -80,7 +81,7 @@ Azure Storage services management API's:
 
 ## <a name="sdk-versions"></a>SDK-versies
 
-Stack aan Azure Storage ondersteunt de volgende clientbibliotheken:
+Stack aan Azure storage ondersteunt de volgende clientbibliotheken:
 
 | Clientbibliotheek | Ondersteunde versie van Azure Stack | Koppeling                                                                                                                                                                                                                                                                                                                                     | Specificatie van het eindpunt       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|

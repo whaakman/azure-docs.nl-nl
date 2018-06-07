@@ -6,20 +6,17 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-documentationcenter: ''
-ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 21274a71042c5acf38711d29a5062e9f68b6a6a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f0cbbe147386aa5d50e207fdd9c86fd9571ec144
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611735"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Ondersteuning van Azure DB Cosmos-firewall
 Als u wilt beveiligen gegevens die zijn opgeslagen in een databaseaccount Azure Cosmos DB, Azure Cosmos DB heeft biedt ondersteuning voor een geheim op basis van [autorisatie model](https://msdn.microsoft.com/library/azure/dn783368.aspx) die gebruikmaakt van een sterke Hash-based message authentication code (HMAC). Azure Cosmos DB ondersteunt nu, naast het model geheime gebaseerde autorisatie beleid IP gebaseerd toegangsbeheer voor binnenkomende firewallondersteuning aangestuurd. Dit model is vergelijkbaar met de firewallregels van een systeem van traditionele databases en biedt een extra beveiligingsniveau voor de account van de Azure DB die Cosmos-database. Met dit model, kunt u nu een databaseaccount Azure Cosmos DB om te worden alleen toegankelijk vanuit een goedgekeurde set machines en/of cloud services configureren. Toegang tot Azure Cosmos DB resources uit deze goedgekeurde sets met machines en services vereisen nog steeds de aanroeper om weer te geven van een geldige verificatietoken.

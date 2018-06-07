@@ -1,18 +1,19 @@
 ---
 title: Maken en beheren van gebeurtenisregels in uw Azure IoT centrale toepassing | Microsoft Docs
 description: Azure IoT centraal gebeurtenisregels kunt u uw apparaten in bijna realtime controleren en om aan te roepen automatisch acties, zoals een e-mailbericht verzenden wanneer de regel wordt geactiveerd.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932b1906b767ee7676f46ffd7242ad3d478d41c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628365"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maken van een regel voor gebeurtenissen en meldingen in uw Azure IoT centrale toepassing instellen
 
@@ -20,7 +21,7 @@ U kunt Microsoft Azure IoT Central gebruiken voor het bewaken van uw verbonden a
 
 Maakt gebruik van Azure IoT centraal [gebeurtenis meting](howto-set-up-template.md) om vast te leggen apparaatgegevens. Elk type meting heeft sleutelkenmerken waarmee de meting. Kunt u regels voor het controleren van elk type apparaat meting en waarschuwingen genereren wanneer de regel wordt geactiveerd. Een regel voor de gebeurtenis wordt geactiveerd wanneer de gebeurtenis geselecteerde apparaat is gemeld door het apparaat.
 
-## <a name="create-an-event-rule"></a>Regel voor een gebeurtenis maken
+## <a name="create-an-event-rule"></a>Een gebeurtenisregel maken
 
 In deze sectie wordt beschreven hoe u een regel voor gebeurtenis maken. Dit voorbeeld wordt een gekoeld snoep-machine-apparaat dat foutgebeurtenis rapporten ventilator motor. De regel wordt de gebeurtenis die is gemeld door het apparaat wordt bewaakt en verzendt een e-mail wanneer de gebeurtenis wordt gerapporteerd.
 

@@ -1,25 +1,22 @@
 ---
-title: Informatie over het gebruik van de FTP-connector in logic apps | Microsoft Docs
-description: Logic apps maken met Azure App service. Verbinding maken met de FTP-server om uw bestanden te beheren. U kunt uitvoeren van verschillende acties zoals het uploaden, bijwerken, ophalen en verwijderen van bestanden in de FTP-server.
-services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+title: Verbinding maken met de FTP-server - Azure Logic Apps | Microsoft Docs
+description: Maken, bewaken en beheren van bestanden op een FTP-server met Azure Logic Apps
+author: ecfan
+manager: cfowler
+ms.author: estfan
 ms.date: 07/22/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 3bb8c750846ee14331c749aeece4315d5c16d411
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34610562"
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Aan de slag met de FTP-connector
 De FTP-connector gebruiken om te controleren, beheren en bestanden op een FTP-server maken. 

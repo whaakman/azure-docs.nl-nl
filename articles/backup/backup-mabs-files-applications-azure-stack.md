@@ -1,25 +1,19 @@
 ---
-title: Maak een back-up van Azure-Stack-bestanden en toepassingen | Microsoft Docs
+title: Back-up van Azure-Stack-bestanden en toepassingen
 description: Azure Backup gebruiken voor back-up en herstellen van Azure-Stack-bestanden en toepassingen naar uw Azure-Stack-omgeving.
 services: backup
-documentationcenter: ''
 author: adiganmsft
 manager: shivamg
-editor: ''
-keyword: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 5/11/2018
-ms.author: adigan,markgal
-ms.openlocfilehash: 19067b40e8e87c160515d13bb490e7c1604788b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.date: 5/18/2018
+ms.author: adigan
+ms.openlocfilehash: 6c7fcc0182add05b68a7b41ab6fe50e18427f6ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607300"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Back-up van bestanden en toepassingen op Azure-Stack
 U kunt Azure back-up beveiligen (of back-up) bestanden en toepassingen op Azure-Stack. Als u wilt back-up van bestanden en toepassingen, Microsoft Azure Backup-Server te installeren als een virtuele machine uitgevoerd op Azure-Stack. U kunt alle toepassingen, die op elke server Azure-Stack in hetzelfde virtuele netwerk kunt beveiligen. Eenmaal u Azure Backup-Server hebt geïnstalleerd, voegt Azure-schijven voor een verhoging van de lokale opslag beschikbaar voor back-upgegevens op korte termijn. Azure Backup-Server gebruikmaakt van Azure-opslag op lange termijn.
@@ -47,7 +41,7 @@ Azure Backup-Server beveiligt de volgende Stack Azure VM-werkbelastingen.
 
 
 ## <a name="install-azure-backup-server"></a>Azure Backup-Server installeren
-Zie het artikel Azure Backup-Server installeren op een virtuele machine van Azure-Stack [voorbereiden van de back-up van werkbelastingen met Azure Backup-Server](backup-azure-microsoft-azure-backup.md). Voordat u installeren en configureren van Azure Backup-Server, worden rekening met het volgende:
+Zie het artikel Azure Backup-Server installeren op een virtuele machine van Azure-Stack [voorbereiden van de back-up van werkbelastingen met Azure Backup-Server](backup-mabs-install-azure-stack.md). Voordat u installeren en configureren van Azure Backup-Server, worden rekening met het volgende:
 
 ### <a name="determining-size-of-virtual-machine"></a>Grootte van virtuele machine vaststellen
 Azure Backup-Server op een virtuele machine van Azure-Stack uitgevoerd, gebruikt u de grootte A2 of hoger. Download voor hulp bij het kiezen van de grootte van een virtuele machine, de [Azure Stack VM-grootte Rekenmachine](https://www.microsoft.com/download/details.aspx?id=56832).

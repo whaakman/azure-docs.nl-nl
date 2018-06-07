@@ -1,23 +1,20 @@
 ---
-title: Diagnostische logboeken bekijken voor Azure Data Lake Analytics | Microsoft Docs
-description: 'Begrijpen hoe instellen en toegang tot diagnoselogboeken voor Azure Data Lake analytics '
+title: Inschakelen en weergeven van diagnostische logboeken voor Azure Data Lake Analytics
+description: Begrijpen hoe instellen en toegang tot diagnoselogboeken voor Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: ''
+ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
-ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: efec1e00e9c2da519028f7e6ff094a0f0876df79
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e65c6396d859a128777c66cad6a44bb033b50d50
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623482"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Toegang tot diagnoselogboeken voor Azure Data Lake Analytics
 
@@ -131,13 +128,13 @@ Hier volgt een voorbeeldvermelding voor het in het logboek voor aanvraag JSON-in
 
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| tijd |Tekenreeks |De tijdstempel (in UTC) van het logboek |
-| resourceId |Tekenreeks |De id van de resource die bewerking vond plaats op |
-| category |Tekenreeks |De logboek-categorie. Bijvoorbeeld: **aanvragen**. |
-| operationName |Tekenreeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: GetAggregatedJobHistory. |
-| resultType |Tekenreeks |De status van de bewerking, bijvoorbeeld 200. |
-| callerIpAddress |Tekenreeks |Het IP-adres van de client die de aanvraag |
-| correlationId |Tekenreeks |De id van het logboek. Deze waarde kan worden gebruikt voor het groeperen van een set van gerelateerde logboekvermeldingen. |
+| tijd |Reeks |De tijdstempel (in UTC) van het logboek |
+| resourceId |Reeks |De id van de resource die bewerking vond plaats op |
+| category |Reeks |De logboek-categorie. Bijvoorbeeld: **aanvragen**. |
+| operationName |Reeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: GetAggregatedJobHistory. |
+| resultType |Reeks |De status van de bewerking, bijvoorbeeld 200. |
+| callerIpAddress |Reeks |Het IP-adres van de client die de aanvraag |
+| correlationId |Reeks |De id van het logboek. Deze waarde kan worden gebruikt voor het groeperen van een set van gerelateerde logboekvermeldingen. |
 | identity |Object |De identiteit die door het logboek is gegenereerd |
 | properties |JSON |Zie de volgende sectie (aanvraag logboek eigenschappen schema) voor meer informatie |
 
@@ -145,12 +142,12 @@ Hier volgt een voorbeeldvermelding voor het in het logboek voor aanvraag JSON-in
 
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| HttpMethod |Tekenreeks |De HTTP-methode gebruikt voor het opnieuw. Bijvoorbeeld, ophalen. |
-| Pad |Tekenreeks |Het pad van de bewerking is uitgevoerd op |
+| HttpMethod |Reeks |De HTTP-methode gebruikt voor het opnieuw. Bijvoorbeeld, ophalen. |
+| Pad |Reeks |Het pad van de bewerking is uitgevoerd op |
 | RequestContentLength |int |De lengte van de inhoud van de HTTP-aanvraag |
-| clientRequestId |Tekenreeks |De id die is uniek voor deze aanvraag |
-| StartTime |Tekenreeks |Het tijdstip waarop de server de aanvraag ontvangen |
-| Eindtijd |Tekenreeks |Het tijdstip waarop de server een antwoord verzonden |
+| clientRequestId |Reeks |De id die is uniek voor deze aanvraag |
+| StartTime |Reeks |Het tijdstip waarop de server de aanvraag ontvangen |
+| Eindtijd |Reeks |Het tijdstip waarop de server een antwoord verzonden |
 
 ### <a name="audit-logs"></a>Controlelogboeken
 
@@ -183,13 +180,13 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| tijd |Tekenreeks |De tijdstempel (in UTC) van het logboek |
-| resourceId |Tekenreeks |De id van de resource die bewerking vond plaats op |
-| category |Tekenreeks |De logboek-categorie. Bijvoorbeeld: **Audit**. |
-| operationName |Tekenreeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: JobSubmitted. |
-| resultType |Tekenreeks |Een substatus voor de status van de taak (operationName). |
-| resultSignature |Tekenreeks |Meer informatie over de status van de taak (operationName). |
-| identity |Tekenreeks |De gebruiker die de bewerking wordt aangevraagd. Bijvoorbeeld susan@contoso.com. |
+| tijd |Reeks |De tijdstempel (in UTC) van het logboek |
+| resourceId |Reeks |De id van de resource die bewerking vond plaats op |
+| category |Reeks |De logboek-categorie. Bijvoorbeeld: **Audit**. |
+| operationName |Reeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: JobSubmitted. |
+| resultType |Reeks |Een substatus voor de status van de taak (operationName). |
+| resultSignature |Reeks |Meer informatie over de status van de taak (operationName). |
+| identity |Reeks |De gebruiker die de bewerking wordt aangevraagd. Bijvoorbeeld susan@contoso.com. |
 | properties |JSON |Zie de volgende sectie (schema Audit log-eigenschappen) voor meer informatie |
 
 > [!NOTE]
@@ -201,13 +198,13 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| JobId |Tekenreeks |De ID die is toegewezen aan het project |
-| JobName |Tekenreeks |De naam die is opgegeven voor de taak |
-| JobRunTime |Tekenreeks |De runtime gebruikt voor het verwerken van de taak |
-| SubmitTime |Tekenreeks |De tijd (in UTC) dat de taak is verzonden |
-| StartTime |Tekenreeks |De tijd dat de taak is gestart na het indienen (in UTC) |
-| Eindtijd |Tekenreeks |De tijd dat de taak is beëindigd |
-| Parallelle uitvoering |Tekenreeks |Het aantal aangevraagde voor deze taak tijdens het indienen van Data Lake Analytics-eenheden |
+| JobId |Reeks |De ID die is toegewezen aan het project |
+| JobName |Reeks |De naam die is opgegeven voor de taak |
+| JobRunTime |Reeks |De runtime gebruikt voor het verwerken van de taak |
+| SubmitTime |Reeks |De tijd (in UTC) dat de taak is verzonden |
+| StartTime |Reeks |De tijd dat de taak is gestart na het indienen (in UTC) |
+| Eindtijd |Reeks |De tijd dat de taak is beëindigd |
+| Parallelle uitvoering |Reeks |Het aantal aangevraagde voor deze taak tijdens het indienen van Data Lake Analytics-eenheden |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime**, en **parallelle uitvoering** bieden informatie over een bewerking. Deze vermeldingen alleen een waarde bevatten als die opnieuw is gestart of voltooid. Bijvoorbeeld: **SubmitTime** bevat alleen een waarde na **operationName** heeft de waarde **JobSubmitted**.

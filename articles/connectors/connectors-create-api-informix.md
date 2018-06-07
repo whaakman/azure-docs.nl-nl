@@ -1,25 +1,22 @@
 ---
-title: De Informix-connector in uw logische Apps toevoegen | Microsoft Docs
-description: Overzicht van de connector Informix met parameters van de REST-API
-services: 
-documentationcenter: 
+title: Verbinding maken met IBM Informix-database - Azure Logic Apps | Microsoft Docs
+description: Resources beheren met IBM Informix REST-API's en Azure Logic Apps
 author: gplarsen
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: c78c6bb669e0945ba1cbacc3ca808a364f3099a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609385"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Aan de slag met de Informix-connector
 Microsoft-connector voor Informix verbindt Logic Apps met resources die zijn opgeslagen in een IBM Informix-database. De connector Informix bevat een Microsoft-client om te communiceren met externe computers voor Informix-server via een TCP/IP-netwerk. Dit omvat cloud databases, zoals IBM Informix voor Windows wordt uitgevoerd in Azure virtualisatie en het on-premises databases die gebruikmaken van de lokale data gateway. Zie de [ondersteund lijst](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix-platformen en-versies (in dit onderwerp).
@@ -47,13 +44,13 @@ Deze connector ondersteunt de volgende logic app acties:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Lijst met tabellen
+## <a name="list-tables"></a>Lijst met tabellen weergeven
 Maken van een logische app voor een bewerking bestaat uit een groot aantal stappen uitgevoerd via de Microsoft Azure portal.
 
 In de logische app, kunt u een actie toevoegen aan de lijst met tabellen in een Informix-database. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie Informix schema zoals `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `InformixgetTables`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -90,7 +87,7 @@ Deze connector ondersteunt verbindingen met database on-premises en in de cloud 
 | verificatie |Optioneel. Een item lijstwaarde, Basic of Windows (kerberos) accepteert. |
 | gebruikersnaam |Vereist. Een string-waarde accepteert. |
 | wachtwoord |Vereist. Een string-waarde accepteert. |
-| Gateway |Vereist. Een lijst item-waarde die aangeeft van de lokale data gateway gedefinieerd voor Logic Apps in de opslaggroep accepteert. |
+| gateway |Vereist. Een lijst item-waarde die aangeeft van de lokale data gateway gedefinieerd voor Logic Apps in de opslaggroep accepteert. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>De on-premises gatewayverbinding maken
 Deze connector hebben toegang tot een lokale Informix-database met behulp van de lokale data gateway. Zie gateway-onderwerpen voor meer informatie. 
@@ -123,7 +120,7 @@ Deze connector hebben toegang tot een cloud Informix-database.
 U kunt een logische app-actie voor het ophalen van alle rijen in de tabel Informix maken. Deze actie Hiermee geeft u de connector voor het verwerken van een Informix SELECT-instructie, zoals `SELECT * FROM AREA`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam** (bijvoorbeeld) "**InformixgetRows**'), **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -160,7 +157,7 @@ U kunt een logische app-actie voor het ophalen van alle rijen in de tabel Inform
 U kunt een logische app-actie voor het toevoegen van een rij in een Informix-tabel maken. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie INSERT Informix zoals `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `InformixinsertRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -187,7 +184,7 @@ U kunt een logische app-actie voor het toevoegen van een rij in een Informix-tab
 U kunt een logische app-actie voor het ophalen van een rij in een Informix-tabel maken. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie Informix selecteren waar zoals `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `InformixgetRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -215,7 +212,7 @@ U kunt een logische app-actie voor het ophalen van een rij in een Informix-tabel
 U kunt een logische app actie om te wijzigen van een rij in een Informix-tabel maken. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie UPDATE Informix zoals `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `InformixupdateRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -242,7 +239,7 @@ U kunt een logische app actie om te wijzigen van een rij in een Informix-tabel m
 U kunt een logische app-actie voor het verwijderen van een rij in een Informix-tabel maken. Deze actie Hiermee geeft u de connector voor het verwerken van een Informix-instructie DELETE, zoals `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `InformixdeleteRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action

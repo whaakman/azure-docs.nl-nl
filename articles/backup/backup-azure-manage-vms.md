@@ -1,24 +1,19 @@
 ---
-title: "Resource Manager geïmplementeerde virtuele machine back-ups beheren | Microsoft Docs"
-description: "Meer informatie over het beheren en controleren van de back-ups van virtuele machine geïmplementeerd met Resource Manager"
+title: Back-ups Resource Manager geïmplementeerde virtuele machines beheren
+description: Meer informatie over het beheren en controleren van de back-ups van virtuele machine geïmplementeerd met Resource Manager
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
-ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk;markgal
-ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: trinadhk
+ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606338"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Back-ups van een virtuele Azure-machine beheren
 
@@ -137,7 +132,7 @@ Voor het activeren van een op aanvraag back-up van een virtuele machine:
 
     ![Back-up nu knop](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    De back-uptaak maakt een herstelpunt. De bewaartermijn van het herstelpunt is hetzelfde als de bewaartermijn is opgegeven in het beleid dat is gekoppeld aan de virtuele machine. Klik om de voortgang voor de taak, op het kluisdashboard te volgen op de **back-uptaken** tegel.  
+    Met de back-uptaak wordt een herstelpunt gemaakt. De bewaartermijn van het herstelpunt is hetzelfde als de bewaartermijn is opgegeven in het beleid dat is gekoppeld aan de virtuele machine. Klik om de voortgang voor de taak, op het kluisdashboard te volgen op de **back-uptaken** tegel.  
 
 ## <a name="stop-protecting-virtual-machines"></a>Stop de beveiliging van virtuele machines
 Als u de beveiliging van een virtuele machine stopt, wordt u gevraagd als u wilt de herstelpunten bewaren. Er zijn twee manieren om te stoppen met het beveiligen van virtuele machines:
@@ -192,8 +187,8 @@ Beveiliging voor de virtuele machine hervatten
 
     ![Met succes beveiligde VM](./media/backup-azure-manage-vms/success-message.png)
 
-## <a name="delete-backup-data"></a>Back-up van gegevens verwijderen
-U kunt de back-upgegevens die zijn gekoppeld aan een virtuele machine tijdens het verwijderen de **back-up stoppen** taak, of op elk gewenst moment na de back-up taak is voltooid. Kan zelfs het nuttig zijn moet worden gewacht dagen of weken voordat de herstelpunten worden verwijderd. In tegenstelling tot het herstellen van herstelpunten, wanneer het verwijderen van de back-upgegevens, kunt u specifieke herstelpunten verwijderen niet kiezen. Als u ervoor kiest om uw back-gegevens te verwijderen, verwijdert u alle herstelpunten die zijn gekoppeld aan het item.
+## <a name="delete-backup-data"></a>Back-upgegevens verwijderen
+U kunt de back-upgegevens die zijn gekoppeld aan een virtuele machine tijdens het verwijderen de **back-up stoppen** taak, of op elk gewenst moment na de back-up taak is voltooid. Het kan zelfs handig zijn om een aantal dagen of weken te wachten voordat u de herstelpunten verwijdert. Wanneer u back-upgegevens verwijdert, kunt u niet specifieke herstelpunten kiezen om te verwijderen, in tegenstelling tot bij het herstellen van herstelpunten. Als uw back-gegevens verwijdert, verwijdert u alle herstelpunten die aan het item zijn gekoppeld.
 
 De volgende procedure wordt ervan uitgegaan dat de back-uptaak voor de virtuele machine is gestopt of uitgeschakeld. Zodra de back-uptaak is uitgeschakeld, de **back-up hervatten** en **back-up verwijderen** opties zijn beschikbaar in het kluisdashboard item.
 
@@ -203,11 +198,11 @@ Verwijderen van de back-upgegevens op een virtuele machine met de *back-up uitge
 
 1. Op de [item kluisdashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klikt u op **verwijderen back-up**.
 
-    ![VM-Type](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+    ![VM-type](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
     De **back-up-gegevens verwijderen** blade wordt geopend.
 
-    ![VM-Type](./media/backup-azure-manage-vms/delete-backup-blade.png)
+    ![VM-type](./media/backup-azure-manage-vms/delete-backup-blade.png)
 2. Typ de naam van het artikel om te bevestigen dat u wilt verwijderen van de herstelpunten.
 
     ![Controle stoppen](./media/backup-azure-manage-vms/item-verification-box.png)

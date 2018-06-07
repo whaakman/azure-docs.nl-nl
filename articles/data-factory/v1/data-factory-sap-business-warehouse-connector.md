@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 38c1611c0404202be2e100d3059b4ba1ed1a9236
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6debc77bf7232f5ee5d7e638ee25b5eccdbdeeef
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622074"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Verplaatsen van gegevens uit SAP Business Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -87,7 +88,7 @@ Wanneer u de gegevensbron in de kopieerbewerking is van het type **RelationalSou
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| query | Hiermee geeft u de MDX-query om te lezen van gegevens uit de SAP BW-exemplaar. | MDX query. | Ja |
+| query | Hiermee geeft u de MDX-query om te lezen van gegevens uit de SAP BW-exemplaar. | MDX-query. | Ja |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON-voorbeeld: gegevens kopiëren van een SAP Business Warehouse naar Azure Blob
@@ -292,27 +293,27 @@ Bij het verplaatsen van gegevens uit SAP BW, worden de volgende toewijzingen uit
 Gegevenstype in de woordenlijst ABAP | .NET-gegevenstype
 -------------------------------- | --------------
 ACCP |  Int
-CHAR | Tekenreeks
-CLNT | Tekenreeks
-CURR | Decimale
-CUKY | Tekenreeks
-DEC | Decimale
-FLTP | Double
+CHAR | Reeks
+CLNT | Reeks
+VAL | Decimale
+CUKY | Reeks
+DECEMBER | Decimale
+FLTP | dubbele
 INT1 | Byte
 INT2 | Int16
 INT4 | Int
-LANG | Tekenreeks
-LCHR | Tekenreeks
+LANG | Reeks
+LCHR | Reeks
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimale
-RAW | Byte[]
+ONBEWERKTE | Byte[]
 RAWSTRING | Byte[]
-TEKENREEKS | Tekenreeks
-EENHEID | Tekenreeks
-DATS | Tekenreeks
-NUMC | Tekenreeks
-TIMS | Tekenreeks
+TEKENREEKS | Reeks
+EENHEID | Reeks
+DATS | Reeks
+NUMC | Reeks
+TIM 'S | Reeks
 
 > [!NOTE]
 > Zie het toewijzen van kolommen uit de bron-gegevensset naar kolommen uit de dataset sink [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

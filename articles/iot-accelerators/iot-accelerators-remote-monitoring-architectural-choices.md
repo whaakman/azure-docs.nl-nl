@@ -1,28 +1,25 @@
 ---
 title: Externe controle oplossing bouwkundige keuzes - Azure | Microsoft Docs
 description: In dit artikel beschrijft de architecturale en technische keuzen gemaakt in het externe controle
-services: iot-suite
-suite: iot-suite
 author: timlaverty
 manager: camerons
 ms.author: timlav
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 04/30/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 607b8aeb2f986eebddf8fe13b88e7f3bc7b4494b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 6c4bf0e4bf0a6c1a791cf762ec9bb44ed5c0b1bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627685"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Externe controle bouwkundige keuzes
 
-De Azure IoT Remote Monitoring (RM) is een open source, MIT-licentie, oplossingsverbetering die algemene IoT-scenario's zoals connectiviteit van apparaten, Apparaatbeheer en verwerken van de stroom is introduceert zodat klanten hun ontwikkeling versnellen kunnen.  RM volgt de aanbevolen Azure IoT-referentiearchitectuur gepubliceerd [hier](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/).  
+De oplossingsverbetering Azure IoT externe controle is een open source, MIT-licentie, oplossingsverbetering die algemene IoT-scenario's zoals connectiviteit van apparaten, Apparaatbeheer en verwerken van de stroom is introduceert zodat klanten hun ontwikkeling versnellen kunnen het proces.  De oplossing voor externe controle volgt de aanbevolen Azure IoT-referentiearchitectuur gepubliceerd [hier](https://aka.ms/iotrefarchitecture).  
 
-Dit artikel worden de architecturale en technische mogelijkheden die zijn aangebracht in elk van de subsystemen voor RM beschreven en worden overwogen alternatieven besproken.  Het is belangrijk te weten dat de technische keuzen in RM gemaakt niet de enige manier zijn om een externe controle IoT-oplossing implementeren.  De technische implementatie is een basislijn voor een geslaagde toepassing bouwen en aanpassen aan de kwalificaties, ervaring en de behoeften van de verticale toepassing voor een klant-oplossing implementatie moet worden gewijzigd.
+Dit artikel worden de architecturale en technische mogelijkheden die zijn aangebracht in elk van de subsystemen voor de oplossing voor externe controle beschreven en worden overwogen alternatieven besproken.  Het is belangrijk te weten dat de technische keuzen gemaakt in de oplossing voor externe controle niet de enige manier zijn om een externe controle IoT-oplossing implementeren.  De technische implementatie is een basislijn voor een geslaagde toepassing bouwen en aanpassen aan de kwalificaties, ervaring en de behoeften van de verticale toepassing voor een klant-oplossing implementatie moet worden gewijzigd.
 
 ## <a name="architectural-choices"></a>Bouwkundige keuzes
 
@@ -32,29 +29,29 @@ De architectuur wordt aangeraden voor IoT-toepassingen cloud systeemeigen micros
 
 ## <a name="core-subsystem-technology-choices"></a>Core-subsysteem technologie keuzes
 
-In deze sectie beschrijft de technologie die in RM vermeld voor elk van de core subsystemen.
+In deze sectie beschrijft de technologie-keuzen gemaakt in de oplossing voor externe controle voor elk van de core subsystemen.
 
 ![Core-Diagram](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png) 
 
 ### <a name="cloud-gateway"></a>Cloudgateway
-De Azure IoT Hub wordt gebruikt als de RM-Cloud-Gateway.  De IoT Hub biedt een veilige, bidirectionele communicatie met apparaten. U kunt meer informatie over IoT Hub [hier](https://azure.microsoft.com/services/iot-hub/). Voor connectiviteit van IoT-apparaten, worden de .NET Core en Java IoT Hub SDK's gebruikt.  De SDK's bieden wrappers voor de IoT Hub REST-API en ingang scenario's zoals het opnieuw 
+De Azure IoT Hub wordt gebruikt als de cloudgateway oplossing voor externe controle.  De IoT Hub biedt een veilige, bidirectionele communicatie met apparaten. U kunt meer informatie over IoT Hub [hier](https://azure.microsoft.com/services/iot-hub/). Voor connectiviteit van IoT-apparaten, worden de .NET Core en Java IoT Hub SDK's gebruikt.  De SDK's bieden wrappers voor de IoT Hub REST-API en scenario's zoals pogingen afhandelen.
 
 ### <a name="stream-processing"></a>Streamverwerking
-Voor de stroom verwerken RM maakt gebruik van Azure Stream Analytics voor complexe regelverwerking.  Voor klanten die willen eenvoudiger regels, hebben we ook een aangepaste microservice met ondersteuning voor de verwerking van eenvoudige regels, hoewel deze configuratie geen deel uit van het buiten de implementatiefase. De referentiearchitectuur adviseert gebruik van Azure Functions voor eenvoudige regelverwerking en Azure Stream Analytics (ASA) voor complexe regelverwerking.  
+Voor stroom verwerken van de oplossing voor externe controle Azure Stream Analytics gebruikt voor complexe regelverwerking.  Voor klanten die willen eenvoudiger regels, hebben we ook een aangepaste microservice met ondersteuning voor de verwerking van eenvoudige regels, hoewel deze configuratie geen deel uit van het buiten de implementatiefase. De referentiearchitectuur adviseert gebruik van Azure Functions voor eenvoudige regelverwerking en Azure Stream Analytics (ASA) voor complexe regelverwerking.  
 
 ### <a name="storage"></a>Storage
-Voor opslag, Cosmos-database wordt gebruikt voor alle opslagbehoeften: koude opslag, warme opslag, opslag voor regels en alarmen. Er zijn momenteel bezig te verplaatsen naar Azure blob-opslag, zoals aanbevolen door de referentiearchitectuur.  Cosmos DB is de aanbevolen voor algemene doeleinden warme opslagoplossing voor IoT-toepassingen al oplossingen zoals Azure Time Series inzicht en Azure Data Lake geschikt voor veel gebruiksvoorbeelden zijn.
+Voor opslag, Azure Cosmos DB die wordt gebruikt voor alle opslagbehoeften: koude opslag, warme opslag, opslag voor regels en alarmen. Er zijn momenteel bezig te verplaatsen naar Azure blob-opslag, zoals aanbevolen door de referentiearchitectuur.  Azure Cosmos-database is de aanbevolen voor algemene doeleinden warme opslagoplossing voor IoT-toepassingen al oplossingen zoals Azure Time Series inzicht en Azure Data Lake geschikt voor veel gebruiksvoorbeelden zijn.
 
 ### <a name="business-integration"></a>Integratie van Business
-Zakelijke integratie in RM is beperkt tot het genereren van waarschuwingen die in een warme opslag zijn geplaatst. Zakelijke integraties kunnen verder worden uitgevoerd door de oplossing integreren met Azure Logic Apps.
+Integratie van Business in de oplossing voor externe controle is beperkt tot het genereren van waarschuwingen die in een warme opslag zijn geplaatst. Zakelijke integraties kunnen verder worden uitgevoerd door de oplossing integreren met Azure Logic Apps.
 
 ### <a name="user-interface"></a>De gebruikersinterface
 Het web UI is gebouwd met JavaScript reageren.  Reageren een veelgebruikte bedrijfstak web UI-framework biedt en is vergelijkbaar met andere populaire frameworks, zoals Angular.  
 
 ### <a name="runtime-and-orchestration"></a>Runtime- en orkestratielaag
-De Runtime voor de toepassing voor uitvoering in RM subsysteem gekozen is Docker-containers met Kubernetes (K8s) als de orchestrator voor horizontale schaal.  Deze architectuur kunnen voor afzonderlijke scale-definitie per subsysteem echter leidt ertoe dat DevOps-kosten in virtuele machines en containers up-to-date te houden vanuit beveiligingsoogpunt.  Alternatieven voor Docker & K8s bevatten die als host fungeert voor microservices in PaaS-services (bijvoorbeeld Azure App Service) of met behulp van Service Fabric, DCOS, Swarm, enz. Als een orchestrator.
+De runtime voor de toepassing voor uitvoering in de oplossing voor externe controle subsysteem gekozen is Docker-containers met Kubernetes als de orchestrator voor horizontale schaal.  Deze architectuur kunnen voor afzonderlijke scale-definitie per subsysteem echter leidt ertoe dat DevOps-kosten in virtuele machines en containers up-to-date te houden vanuit beveiligingsoogpunt.  Alternatieven voor Docker en Kubernetes bevatten die als host fungeert voor microservices in PaaS-services (bijvoorbeeld Azure App Service) of met behulp van Service Fabric, DCOS, Swarm, enz. Als een orchestrator.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Implementatie van uw oplossing RM [hier](https://www.azureiotsuite.com/).
+* Implementatie van uw oplossing voor externe controle [hier](https://www.azureiotsolutions.com/).
 * GitHub-code in verkennen [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) en [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
-* Meer informatie over de IoT Reference Architecture [hier](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/).
+* Meer informatie over de IoT Reference Architecture [hier](https://aka.ms/iotrefarchitecture).

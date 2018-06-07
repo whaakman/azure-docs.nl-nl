@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 66843a5dda9f7b31b2b4c79df895eaff904513e6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595577"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Kubernetes dashboard met Azure Kubernetes Service (AKS)
 
@@ -37,7 +38,7 @@ Met deze opdracht maakt een proxy tussen uw ontwikkelsysteem en de API Kubernete
 
 ## <a name="run-an-application"></a>Een toepassing uitvoeren
 
-Klik in het dashboard Kubernetes op de **maken** knop in het bovenste rechtervenster. Geef de naam op voor de implementatie `nginx` en voer `nginx:latest` voor de naam van de installatiekopieën. Onder **Service**, selecteer **externe** en voer `80` voor de poort en de doelpoort.
+Klik in het dashboard Kubernetes op de **maken** knop in het bovenste rechtervenster. Geef de naam op voor de implementatie `nginx` en voer `nginx:latest` voor de naam van de container-installatiekopie. Onder **Service**, selecteer **externe** en voer `80` voor de poort en de doelpoort.
 
 Wanneer u klaar bent, klikt u op **implementeren** de implementatie te maken.
 

@@ -9,15 +9,16 @@ ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621748"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 > [!NOTE]
@@ -33,7 +34,7 @@ De volgende tabel bevat een lijst van de compute-omgevingen die worden ondersteu
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-activiteiten: batchuitvoering en resources bijwerken](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedureactiviteit](data-factory-stored-proc-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL datawarehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedureactiviteit](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>HDInsight-versies ondersteund in de Data Factory
 Azure HDInsight biedt ondersteuning voor meerdere versies van Hadoop-cluster die u op elk gewenst moment kunt implementeren. Alle ondersteunde versies maakt een specifieke versie van de distributie Hortonworks Data Platform HDP () en een set onderdelen in de distributie. 
@@ -128,7 +129,7 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 | versie                      | De versie van het HDInsight-cluster. Zie voor toegestane HDInsight versies [versies van HDInsight ondersteund](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Als deze waarde niet wordt opgegeven, de [meest recente versie van de HDI standaard](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions) wordt gebruikt. | Nee       |
 | linkedServiceName            | De gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster wordt gemaakt in dezelfde regio bevinden als dit opslagaccount.<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van Azure Data Lake Store als de opslag niet. Als u wilt voor het opslaan van de resultaatgegevens van HDInsight worden verwerkt in Data Lake Store, gebruikt u Kopieeractiviteit de gegevens uit Blob storage kopiëren naar Data Lake Store. </p> | Ja      |
 | additionalLinkedServiceNames | Hiermee geeft u een extra opslagaccounts voor de gekoppelde HDInsight-service. Data Factory registreert de storage-accounts namens jou. Deze opslagaccounts moeten zich in dezelfde regio bevinden als het HDInsight-cluster. Het HDInsight-cluster is gemaakt in dezelfde regio als het opslagaccount dat opgegeven door de **linkedServiceName** eigenschap. | Nee       |
-| osType                       | Het type besturingssysteem. Toegestane waarden zijn **Linux** en **Windows**. Als deze waarde niet wordt opgegeven, **Linux** wordt gebruikt.  <br /><br />Het is raadzaam met behulp van Linux gebaseerde HDInsight-clusters. De intrekkingsdatum voor HDInsight in Windows is 31 juli 2018. | Nee       |
+| besturingssysteemtype                       | Het type besturingssysteem. Toegestane waarden zijn **Linux** en **Windows**. Als deze waarde niet wordt opgegeven, **Linux** wordt gebruikt.  <br /><br />Het is raadzaam met behulp van Linux gebaseerde HDInsight-clusters. De intrekkingsdatum voor HDInsight in Windows is 31 juli 2018. | Nee       |
 | hcatalogLinkedServiceName    | De naam van de Azure SQL gekoppelde service die naar de HCatalog-database verwijst. Het HDInsight-cluster op aanvraag wordt gemaakt met behulp van de SQL-database als de metastore. | Nee       |
 
 #### <a name="example-linkedservicenames-json"></a>Voorbeeld: LinkedServiceNames JSON
@@ -454,7 +455,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ```
 
 Zie voor meer informatie over de Data Factory-klassen die worden gebruikt in dit codevoorbeeld:
-* [AzureDataLakeStoreLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
+* [Klasse AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
 * [AzureDataLakeAnalyticsLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
 * [AuthorizationSessionGetResponse klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)
 

@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea999945ace53099eb9dec15397310c9b5d1b904
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643121"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch voor het Linux-besturingssysteem in uw Service Fabric-cluster
 
@@ -61,9 +62,9 @@ De patch orchestration app bestaat uit de volgende onderdelen:
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Zorg ervoor dat uw Azure VM's Ubuntu 16.04 worden uitgevoerd
 Op het moment van schrijven van dit document, Ubuntu 16.04 (`Xenial Xerus`) is de enige ondersteunde versie.
 
-### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-61x-and-above"></a>Zorg ervoor dat de service fabric-cluster linux versie 6.1.x en hoger
+### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-62x-and-above"></a>Zorg ervoor dat de service fabric-cluster linux versie 6.2.x en hoger
 
-Patch orchestration app linux maakt gebruik van bepaalde functies van de runtime die alleen beschikbaar in service fabric-runtimeversie zijn 6.1.x en hoger.
+Patch orchestration app linux maakt gebruik van bepaalde functies van de runtime die alleen beschikbaar in service fabric-runtimeversie zijn 6.2.x en hoger.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>De reparatie manager-service inschakelen (indien deze niet al actief)
 
@@ -118,7 +119,9 @@ Voor Ubuntu [zonder toezicht upgrades](https://help.ubuntu.com/community/Automat
 
 ## <a name="download-the-app-package"></a>Download het apppakket
 
-Downloaden van de toepassing van de [downloadkoppeling](https://go.microsoft.com/fwlink/?linkid=867984).
+Toepassing samen met de van installatiescripts kan worden gedownload vanuit [archief koppeling](https://go.microsoft.com/fwlink/?linkid=867984).
+
+Toepassing in sfpkg indeling kan worden gedownload vanaf [sfpkg koppeling](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>De app configureren
 
@@ -319,6 +322,10 @@ Q. **Upgrade post orchestration app wilt opruimen van niet-gebruikte pakketten v
 
 A. Ja, opschonen wordt uitgevoerd als onderdeel van de stappen na de installatie. 
 
+Q. **Kan Patch Orchestration app patch mijn dev-cluster (cluster met één knooppunt) worden gebruikt?**
+
+A. Nee, Patch orchestration app kan niet worden gebruikt voor patch cluster met één knooppunt. Deze beperking is standaard, als [service fabric-systeemservices](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) of alle apps klant ervaart uitvaltijd en daarom elke taak reparatie voor patch-doeleinden zou nooit goedgekeurd door herstel manager.
+
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Een knooppunt afkomstig niet is back-up maken van status
@@ -360,5 +367,8 @@ De patch orchestration app verzamelt telemetrie om informatie over het gebruik e
 ### <a name="version-010"></a>Versie 0.1.0
 - Private preview-versie
 
-### <a name="version-200-latest"></a>Versie 2.0.0 (laatste)
+### <a name="version-200"></a>Versie 2.0.0
 - Openbare versie
+
+### <a name="version-201-latest"></a>Versie 2.0.1 (laatste)
+- De app met behulp van de meest recente Service Fabric SDK gecompileerd

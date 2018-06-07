@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6f755754097336fc97678940ea1fa0aa28315fab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 42471687e0a56ff0bacf5c9effecb0e2466b4690
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593588"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Selfservice voor wachtwoordherstel in Azure AD-diepgaand
 
@@ -152,6 +153,8 @@ De vooraf gedefinieerde vragen die volgen in de volledige set van Office 365 tal
 Aangepaste beveiligingsvragen zijn niet gelokaliseerd voor verschillende talen. Alle aangepaste vragen worden weergegeven in dezelfde taal als ze worden ingevoerd in de interface van de gebruiker met beheerdersrechten, zelfs als de browser van de gebruiker verschilt. Als u gelokaliseerde vragen, moet u de vooraf gedefinieerde vragen.
 
 De maximale lengte van een aangepaste beveiligingsvraag is 200 tekens.
+
+Om weer te geven van de portal voor wachtwoord opnieuw instellen en de vragen in een andere gelokaliseerde taal toevoegen '? mkt =<Locale>' aan het einde van het wachtwoord opnieuw instellen URL met het voorbeeld dat volgt op lokaliseren naar Spaans [ https://passwordreset.microsoftonline.com/?mkt=es-us ](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
 ### <a name="security-question-requirements"></a>Vraag de beveiligingsvereisten
 

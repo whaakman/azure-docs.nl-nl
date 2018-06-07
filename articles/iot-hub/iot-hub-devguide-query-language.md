@@ -1,24 +1,19 @@
 ---
 title: Inzicht in de taal van de query Azure IoT Hub | Microsoft Docs
 description: Handleiding voor ontwikkelaars - beschrijving van de SQL-achtige IoT-Hub query taal gebruikt voor het ophalen van informatie over apparaat/module horende taken uit uw IoT-hub.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 663277bfe347f42fa7ee241f5acddf4a3dca9268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633509"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor apparaat en de module horende, taken en het routeren van berichten
 

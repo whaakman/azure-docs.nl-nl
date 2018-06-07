@@ -3,7 +3,7 @@ title: Azure-Stack gebruiksgegevens rapporteren aan Azure | Microsoft Docs
 description: Informatie over het instellen van rapportage in Azure Stack gebruiksgegevens.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603699"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack gebruiksgegevens rapporteren naar Azure 
 
@@ -42,7 +43,7 @@ Als u gegevens gebruiksrapportage instelt, moet u [registreren van uw Azure-Stac
 - **Aantal** – hoeveelheid Resourcegebruik.
 - **Locatie** – locatie waar de huidige Azure-Stack-resource is geïmplementeerd.
 - **Resource-URI** – volledig gekwalificeerde URI van de resource waarvoor gebruik wordt gerapporteerd.
-- **Abonnements-ID** – abonnements-ID van de Azure-Stack-gebruiker. Dit is een abonnement op de lokale (Azure-Stack).
+- **Abonnements-ID** – abonnement-ID van de Azure-Stack gebruiker, namelijk abonnement op de lokale (Azure-Stack).
 - **Tijd** – begin- en tijd van de gebruiksgegevens. Er is enige vertraging tussen het moment wanneer deze bronnen worden verbruikt in Azure-Stack en wanneer de gebruiksgegevens naar commerce wordt gemeld. Duurt enkele uren in een andere Azure Stack statistische gegevens over het gebruik voor elke 24 uur reporting gegevens en gebruiksgegevens om commerce pijplijn in Azure. Dus gebruik deze gebeurtenis treedt op vóór middernacht kort mogelijk weergegeven in Azure de volgende dag.
 
 ## <a name="generate-usage-data-reporting"></a>Rapportage over het gebruik gegevens genereren
@@ -68,7 +69,7 @@ Als u uw Azure-Stack met behulp van een ander abonnementstype, bijvoorbeeld een 
 
    ![Facturering stroom](media/azure-stack-usage-reporting/pricing-details.png)
 
-Voor de Azure-Stack Development Kit Stack Azure-resources zijn niet in rekening gebracht zodat de prijs wordt weergegeven als $0,00. Wanneer Azure Stack met meerdere knooppunten in het algemeen beschikbaar komt, kunt u de werkelijke kosten zien voor elk van deze resources.
+Voor de Azure-Stack Development Kit Stack Azure-resources zijn niet in rekening gebracht zodat de prijs wordt weergegeven als $0,00.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>Welke Azure-Stack-implementaties worden in rekening gebracht?
 
@@ -82,7 +83,7 @@ Gebruikers worden alleen kosten in rekening gebracht voor virtuele machines die 
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Ik heb een Windows Server-licentie die ik wil op Azure-Stack gebruiken, hoe kan ik dat doen?
 
-Met behulp van de bestaande licenties voorkomt gebruik meters genereren. Bestaande Windows Server-licenties kunnen worden gebruikt in Azure-Stack, zoals beschreven in de sectie 'Met behulp van bestaande software met Azure Stack' van [de Azure-handleiding voor het licentieverlening van Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Klanten willen hun virtuele machines van Windows Server implementeren, zoals beschreven in de [hybride-voordeel voor Windows Server-licentie](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) onderwerp om te kunnen gebruiken hun bestaande licenties.
+Met behulp van de bestaande licenties voorkomt gebruik meters genereren. Bestaande Windows Server-licenties kunnen worden gebruikt in Azure-Stack, zoals beschreven in de sectie 'Met behulp van bestaande software met Azure Stack' van [de Azure-handleiding voor het licentieverlening van Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Klanten willen hun virtuele machines van Windows Server implementeren, zoals beschreven in de [hybride-voordeel voor Windows Server-licentie](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) artikel om te kunnen gebruiken hun bestaande licenties.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Welke abonnement wordt in rekening gebracht voor de resources die worden gebruikt?
 Het abonnement dat is geleverd wanneer [Azure Stack registreren bij Azure](azure-stack-register.md) wordt in rekening gebracht.
@@ -101,7 +102,7 @@ Gebruikers kunnen zien van de Azure-Stack-gebruiksgegevens in het gegevensbestan
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Waarom niet het-gebruik gerapporteerd in de Azure-Stack overeenkomt met het rapport is gegenereerd op basis van de Azure-Accountcentrum?
 
-Er is altijd een delaybetween de gebruiksgegevens die zijn gerapporteerd door het Azure-Stack gebruik API's en de gebruiksgegevens die zijn gerapporteerd door het Azure-Accountcentrum... Dit uitstel is de tijd die nodig zijn voor het uploaden van gebruiksgegevens van Azure-Stack naar Azure commerce. Als gevolg van deze vertraging gebruik binnenkort voor middernacht die mogelijk weergegeven in Azure de volgende dag. Als u de [API's voor informatie over het gebruik van Azure-Stack](azure-stack-provider-resource-api.md), en de resultaten met het gebruik gerapporteerd in de Azure-facturering portal vergelijken, ziet u een verschil.
+Er is altijd een vertraging tussen de gebruiksgegevens die zijn gerapporteerd door het gebruik van Azure-Stack API's en de gebruiksgegevens die zijn gerapporteerd door het Azure-Accountcentrum. Dit uitstel is de tijd die nodig zijn voor het uploaden van gebruiksgegevens van Azure-Stack naar Azure commerce. Als gevolg van deze vertraging gebruik binnenkort voor middernacht die mogelijk weergegeven in Azure de volgende dag. Als u de [API's voor informatie over het gebruik van Azure-Stack](azure-stack-provider-resource-api.md), en de resultaten met het gebruik gerapporteerd in de Azure-facturering portal vergelijken, ziet u een verschil.
 
 ## <a name="next-steps"></a>Volgende stappen
 

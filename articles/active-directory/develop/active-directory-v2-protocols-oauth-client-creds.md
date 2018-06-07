@@ -17,11 +17,12 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 892cf2cfc93c86b9196000d94f976407156ec248
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594275"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory-v2.0 en de clientreferentiestroom van OAuth 2.0
 U kunt de [OAuth 2.0-clientreferenties verlenen](http://tools.ietf.org/html/rfc6749#section-4.4) opgegeven in RFC 6749, wel *tweearmige OAuth*, toegang krijgen tot bronnen web gehost met behulp van de identiteit van een toepassing. Dit type grant vaak wordt gebruikt voor de server naar server interacties dat moeten worden uitgevoerd op de achtergrond, zonder directe interactie met een gebruiker. Deze typen toepassingen vaak worden aangeduid als *daemons* of *-serviceaccounts*.
@@ -62,7 +63,7 @@ Voor het gebruik van machtigingen voor een toepassing in uw app, moet u in de vo
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>De machtigingen in de app-portal voor registratie van aanvragen
 1. Ga naar uw toepassing in de [toepassing Registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of [maken van een app](active-directory-v2-app-registration.md), als u dat nog niet gedaan hebt. U moet ten minste één Toepassingsgeheim gebruiken bij het maken van uw app.
-2. Zoek de **Mcrosoft grafiek machtigingen** sectie en voeg vervolgens de **Toepassingsmachtigingen** die uw app vereist.
+2. Zoek de **Microsoft Graph machtigingen** sectie en voeg vervolgens de **Toepassingsmachtigingen** die uw app vereist.
 3. **Sla** de registratie van de app.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Aanbevolen: De gebruiker zich aanmeldt bij uw app

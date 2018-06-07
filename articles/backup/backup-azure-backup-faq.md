@@ -1,25 +1,20 @@
 ---
-title: Veelgestelde vragen over Azure Backup | Microsoft Docs
+title: Veelgestelde vragen over Azure Backup
 description: 'Antwoorden op veelgestelde vragen over de functies van Azure Backup, waaronder de Recovery Services-kluis, waarvan een back-up kan worden gemaakt, hoe het werkt, versleuteling en limieten. '
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: back-up en herstel na noodgeval; Backup-service
-ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/9/2018
-ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d16991d15d76caa496b2923c8d0210b6ccb10a9a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605821"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
 In dit artikel antwoorden op veelgestelde vragen over de Azure Backup-onderdelen. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.

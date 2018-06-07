@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
+ms.component: hybrid
 ms.author: markvi
-ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b2724f4c9511d606ab8eeac2dedea8759283883
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595254"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synchronisatie: inzicht en synchronisatie aanpassen
 De Azure Active Directory Connect-Synchronisatieservices (Azure AD Connect sync) is een belangrijkste onderdeel van Azure AD Connect. Dit zorgt voor alle bewerkingen die betrekking hebben op het synchroniseren van identiteitsgegevens tussen uw on-premises omgeving en Azure AD. Azure AD Connect-synchronisatie is de opvolger van DirSync, Azure AD Sync en Forefront Identity Manager met de Azure Active Directory-Connector geconfigureerd.
@@ -50,7 +52,7 @@ De synchronisatieservice bestaat uit twee onderdelen: de on-premises **Azure AD 
 | [Write-back van apparaat](active-directory-aadconnect-feature-device-writeback.md) |Hierin wordt beschreven hoe Write-back van apparaat werkt in Azure AD Connect. |
 | [Uitbreidingen van de directory](active-directory-aadconnectsync-feature-directory-extensions.md) |Beschrijft hoe de Azure AD-schema met uw eigen aangepaste kenmerken uit te breiden. |
 | [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Beschrijft hoe u Office 365-bronnen van de gebruiker in dezelfde regio bevinden als de gebruiker geplaatst. |
-| **Sync Service** | |
+| **Sync-Service** | |
 | [Azure AD Connect sync-service-functies](active-directory-aadconnectsyncservice-features.md) |Beschrijft de servicezijde synchronisatie en het synchronisatie-instellingen wijzigen in Azure AD. |
 | [Dubbel kenmerk tolerantie](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |Hierin wordt beschreven hoe inschakelen en gebruiken **userPrincipalName** en **proxyAddresses** dubbel kenmerk waarden tolerantie. |
 | **Bewerkingen en gebruikersinterface** | |

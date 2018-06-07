@@ -1,19 +1,19 @@
 ---
 title: Inzicht in de Azure IoT rand runtime | Microsoft Docs
 description: Meer informatie over de Azure IoT Edge-runtime en hoe deze uw randapparaten machtigt
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8bd725e2201cb08853f4fb63d156b6359427663b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+services: iot-edge
+ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632071"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur - voorbeeld
 
@@ -35,7 +35,7 @@ De verantwoordelijkheden van de rand van de IoT-runtime is onderverdeeld in twee
 
 Zowel de Edge-agent en de Edge-hub zijn modules, net als elke andere module uitgevoerd op een Edge van de IoT-apparaat. Zie voor meer informatie over de werking van modules [lnk-modules]. 
 
-## <a name="iot-edge-hub"></a>IoT Edge hub
+## <a name="iot-edge-hub"></a>Rand van de IoT hub
 
 De Edge-hub is een van twee modules die gezamenlijk de rand van Azure IoT-runtime. Het fungeert als een lokale proxyserver voor IoT Hub bij het blootstellen van de dezelfde protocoleindpunten als IoT Hub. Deze consistentie betekent dat clients (of apparaten of modules) kunnen verbinding maken met de rand van de IoT-runtime, net als met IoT Hub. 
 

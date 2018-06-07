@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9820ed9b4c0abbb79c6f92e62f294fb7fbd4c87e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621609"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Gegevens verplaatsen van een HTTP-bron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +53,7 @@ De volgende tabel bevat de beschrijving voor JSON-elementen die specifiek zijn v
 | type | De eigenschap type moet worden ingesteld op: `Http`. | Ja |
 | url | Basis-URL voor de webserver | Ja |
 | authenticationType | Hiermee geeft u het verificatietype. Toegestane waarden zijn: **anoniem**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Raadpleeg de secties onder deze tabel over meer eigenschappen en voorbeelden voor deze verificatietypen JSON respectievelijk. | Ja |
-| enableServerCertificateValidation | Geef op of validatie van het servercertificaat SSL inschakelen als bron is een HTTPS-webserver | Nee, de standaardwaarde is true |
+| enableServerCertificateValidation | Geef op of validatie van het servercertificaat SSL inschakelen als bron is een HTTPS-webserver. Wanneer uw HTTPS-server zelf-ondertekend certificaat, stel dit in op false. | Nee, de standaardwaarde is true |
 | gatewayName | Naam van de Data Management Gateway verbinding maken met een lokale HTTP-bron. | Ja als u gegevens kopiëren van een lokale HTTP-bron. |
 | encryptedCredential | Versleutelde referentie voor toegang tot het HTTP-eindpunt. Automatisch wordt gegenereerd wanneer u de verificatie-informatie in de wizard kopiëren of de ClickOnce-pop-dialoogvenster configureert. | Nee. Alleen van toepassing wanneer het kopiëren van gegevens uit een lokale HTTP-server. |
 

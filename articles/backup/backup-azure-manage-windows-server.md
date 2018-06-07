@@ -1,24 +1,19 @@
 ---
-title: Azure Recovery Services-kluizen en servers beheren | Microsoft Docs
+title: Azure Recovery Services-kluizen en servers beheren
 description: Gebruik dit artikel bij het beheren van Azure Recovery Services-kluizen en servers.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-editor: tysonn
-ms.assetid: 4eea984b-7ed6-4600-ac60-99d2e9cb6d8a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 18ab960c3d86f4154f7cbbaa3dd4909b9b16b697
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3d0404654631520909e63853d47b7de2b6cb4361
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606525"
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Azure Recovery Services-kluizen en -servers controleren en beheren voor Windows-machines
 
@@ -282,7 +277,7 @@ Naar beperking inschakelen:
     ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-**Q1. De status van de back-uptaak wordt als voltooid in de Azure backup-agent, waarom niet het ophalen van onmiddellijk weergegeven in de portal?**
+**W1. De status van de back-uptaak wordt als voltooid in de Azure backup-agent, waarom niet het ophalen van onmiddellijk weergegeven in de portal?**
 
 A1. Er wordt op maximale vertraging van 15 minuten tussen de status van de back-uptaak doorgevoerd in de Azure backup agent en de Azure portal.
 

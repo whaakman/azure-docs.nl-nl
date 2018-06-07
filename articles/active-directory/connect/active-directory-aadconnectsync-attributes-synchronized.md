@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 506206d3e0a28f2ffc0e9e029ec27546bc332754
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4009a35226473cd3ecc68929e53d70f7fb749156
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593432"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: kenmerken gesynchroniseerd naar Azure Active Directory
 Dit onderwerp worden de kenmerken die worden gesynchroniseerd door Azure AD Connect-synchronisatie.  
@@ -59,7 +61,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | CO |X |X | | |
 | Bedrijf |X |X | | |
 | CountryCode |X |X | | |
-| Afdeling |X |X | | |
+| afdeling |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -82,14 +84,14 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | HomePhone |X |X | | |
-| Info |X |X |X |Dit kenmerk is momenteel niet worden gebruikt voor groepen. |
-| initialen |X |X | | |
+| informatie |X |X |X |Dit kenmerk is momenteel niet worden gebruikt voor groepen. |
+| Intialen |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
 | beheerdDoor | | |X | |
-| Manager |X |X | | |
-| Lid | | |X | |
+| beheerder |X |X | | |
+| lid | | |X | |
 | mobiele |X |X | | |
 | msDS-HABSeniorityIndex |X |X |X | |
 | msDS-PhoneticDisplayName |X |X |X | |
@@ -154,7 +156,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer al uitgegeven tokens ongeldig maken. Door Wachtwoordsynchronisatie en Federatie gebruikt. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityenabled moet | | |X |Afgeleid van groupType |
+| securityEnabled | | |X |Afgeleid van groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | St |X |X | | |
@@ -181,7 +183,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | CO |X |X | | |
 | Bedrijf |X |X | | |
 | CountryCode |X |X | | |
-| Afdeling |X |X | | |
+| afdeling |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -205,15 +207,15 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
 | homephone |X |X | | |
-| Info |X |X |X | |
+| informatie |X |X |X | |
 | initialen |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
-| E-mail |X |X |X | |
+| mail |X |X |X | |
 | mailnickname |X |X |X | |
 | beheerdDoor | | |X | |
-| Manager |X |X | | |
-| Lid | | |X | |
+| beheerder |X |X | | |
+| lid | | |X | |
 | Afzonderlijk |X |X | | |
 | mobiele |X |X | | |
 | msExchTeamMailboxExpiration |X | | | |
@@ -237,7 +239,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer al uitgegeven tokens ongeldig maken. Door Wachtwoordsynchronisatie hash, Pass through-verificatie en Federatie gebruikt. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityenabled moet | | |X |Afgeleid van groupType |
+| securityEnabled | | |X |Afgeleid van groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | St |X |X | | |
@@ -261,7 +263,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | algemene naam |X | |X | |
 | CO |X |X | | |
 | Bedrijf |X |X | | |
-| Afdeling |X |X | | |
+| afdeling |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
@@ -269,11 +271,11 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | homephone |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
-| E-mail |X |X |X | |
+| mail |X |X |X | |
 | mailNickname |X |X |X | |
 | beheerdDoor | | |X | |
-| Manager |X |X | | |
-| Lid | | |X | |
+| beheerder |X |X | | |
+| lid | | |X | |
 | mobiele |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
 | msRTCSIP-ApplicationOptions |X | | | |
@@ -290,7 +292,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer al uitgegeven tokens ongeldig maken. Door Wachtwoordsynchronisatie hash, Pass through-verificatie en Federatie gebruikt. |
-| securityenabled moet | | |X |Afgeleid van groupType |
+| securityEnabled | | |X |Afgeleid van groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | St |X |X | | |
@@ -308,12 +310,12 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | accountEnabled |X | | |Hiermee worden gedefinieerd als een account is ingeschakeld. |
 | algemene naam |X | |X |Algemene naam of alias. Meestal het voorvoegsel van de waarde [e]. |
 | displayName |X |X |X |Een tekenreeks met de naam die vaak worden weergegeven als de beschrijvende naam (voornaam achternaam). |
-| E-mail |X |X |X |volledige e-mailadres. |
-| Lid | | |X | |
+| mail |X |X |X |volledige e-mailadres. |
+| lid | | |X | |
 | objectSID |X | |X |mechanische eigenschap. AD gebruikers-id gebruikt om te onderhouden synchronisatie tussen Azure AD en AD. |
 | proxyAddresses |X |X |X |mechanische eigenschap. Gebruikt door Azure AD. Bevat alle secundaire e-mailadressen op voor de gebruiker. |
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer al uitgegeven tokens ongeldig maken. |
-| securityenabled moet | | |X |GroupType is afgeleid. |
+| securityEnabled | | |X |GroupType is afgeleid. |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | usageLocation |X | | |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
 | userPrincipalName |X | | |De UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
@@ -326,13 +328,13 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | algemene naam |X | |X | |
 | description |X |X |X | |
 | displayName |X |X |X | |
-| E-mail |X |X |X | |
+| mail |X |X |X | |
 | mailnickname |X |X |X | |
-| Lid | | |X | |
+| lid | | |X | |
 | objectSID |X | |X |mechanische eigenschap. AD gebruikers-id gebruikt om te onderhouden synchronisatie tussen Azure AD en AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer al uitgegeven tokens ongeldig maken. Door Wachtwoordsynchronisatie hash, Pass through-verificatie en Federatie gebruikt. |
-| securityenabled moet | | |X |Afgeleid van groupType |
+| securityEnabled | | |X |Afgeleid van groupType |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | usageLocation |X | | |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
 | userPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
@@ -352,15 +354,15 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | givenName |X |X | | |
 | l |X |X | | |
 | beheerdDoor | | |X | |
-| Manager |X |X | | |
-| Lid | | |X | |
+| beheerder |X |X | | |
+| lid | | |X | |
 | mobiele |X |X | | |
 | objectSID |X | |X |mechanische eigenschap. AD gebruikers-id gebruikt om te onderhouden synchronisatie tussen Azure AD en AD. |
 | physicalDeliveryOfficeName |X |X | | |
 | Postcode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer al uitgegeven tokens ongeldig maken. Door Wachtwoordsynchronisatie hash, Pass through-verificatie en Federatie gebruikt. |
-| securityenabled moet | | |X |Afgeleid van groupType |
+| securityEnabled | | |X |Afgeleid van groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | St |X |X | | |
@@ -384,10 +386,10 @@ Deze groep is een set kenmerken die kunnen worden gebruikt als de Azure AD-direc
 | algemene naam |X | |X | |
 | displayName |X |X |X | |
 | givenName |X |X | | |
-| E-mail |X | |X | |
+| mail |X | |X | |
 | beheerdDoor | | |X | |
 | mailNickName |X |X |X | |
-| Lid | | |X | |
+| lid | | |X | |
 | objectSID |X | | |mechanische eigenschap. AD gebruikers-id gebruikt om te onderhouden synchronisatie tussen Azure AD en AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanische eigenschap. Gebruikt om te weten wanneer al uitgegeven tokens ongeldig maken. Door Wachtwoordsynchronisatie hash, Pass through-verificatie en Federatie gebruikt. |
@@ -439,7 +441,7 @@ Deze kenmerken worden gesynchroniseerd vanuit de lokale Active Directory naar Az
 | Naam kenmerk | PublicFolder | Opmerking |
 | --- | :---:| --- |
 | displayName | X |  |
-| E-mail | X |  |
+| mail | X |  |
 | msExchRecipientTypeDetails | X |  |
 | objectGUID | X |  |
 | proxyAddresses | X |  |

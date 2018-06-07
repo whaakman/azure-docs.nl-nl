@@ -5,20 +5,17 @@ keywords: nosql-database beveiliging, informatiebeveiliging, beveiliging van geg
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aa04ae8d5bdccb52e3f63fb2dfb3c75df83b7a54
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611616"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Beveiliging van Azure DB Cosmos-database
 
@@ -73,10 +70,10 @@ We gaan verdiepen in elk criterium in detail.
 |Lokale replicatie|Zelfs binnen één datacenter, repliceert Azure Cosmos DB automatisch gegevens voor hoge beschikbaarheid zodat u de keuze van [consistentieniveaus](consistency-levels.md). Er wordt gegarandeerd dat een 99,99% [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) voor alle accounts voor één regio en alle meerdere landen/regio-accounts met versoepeld consistentie en 99,999% beschikbaarheid voor alle accounts voor meerdere landen/regio-database lezen.|
 |Geautomatiseerde online back-ups|Azure DB Cosmos-databases worden regelmatig een back-up gemaakt en opgeslagen in een archief georedundant. <br><br>Meer informatie [automatische online back-up en herstel met Azure Cosmos DB](online-backup-and-restore.md).|
 |Gegevens herstellen die zijn verwijderd|De geautomatiseerde online back-ups kunnen worden gebruikt om gegevens die u mogelijk per ongeluk hebt verwijderd ongeveer 30 dagen na de gebeurtenis te herstellen. <br><br>Meer informatie [automatische online back-up en herstel met Azure Cosmos-DB](online-backup-and-restore.md)|
-|Beveiligen en isoleren van gevoelige gegevens|Alle gegevens in de regio's die worden vermeld in [wat is er nieuw?](#whats-new) nu in rust versleuteld.<br><br>PII en andere vertrouwelijke gegevens kunnen worden geïsoleerd voor specifieke verzamelingen en alleen-lezen of alleen-lezen toegang kan worden beperkt tot specifieke gebruikers.|
+|Beveiligen en isoleren van gevoelige gegevens|Alle gegevens in de regio's die worden vermeld in [wat is er nieuw?](#whats-new) nu in rust versleuteld.<br><br>Persoonlijke gegevens en andere vertrouwelijke gegevens kunnen worden geïsoleerd voor specifieke verzamelingen en alleen-lezen of alleen-lezen toegang kan worden beperkt tot specifieke gebruikers.|
 |Monitor voor aanvallen|Met behulp van [logboekregistratie en activiteit controlelogboeken](logging.md), kunt u uw account voor normaal en abnormaal activiteit controleren. U kunt weergeven welke bewerkingen zijn uitgevoerd op uw resources die heeft de bewerking wordt gestart wanneer de bewerking is opgetreden, de status van de bewerking en nog veel meer zoals weergegeven in de schermafbeelding onder deze tabel.|
 |Reageren op aanvallen|Zodra u hebt gemaakt voor de ondersteuning van Azure om te melden bij een aanval met wordt een 5-stap respons op incidenten-proces gestart. Het doel van de 5-proces is de normale werking beveiliging en werking zo snel mogelijk herstellen nadat er een probleem wordt gedetecteerd en onderzoek is gestart.<br><br>Meer informatie [reactie van Microsoft Azure-beveiliging in de Cloud](https://aka.ms/securityresponsepaper).|
-|Geofencing|Azure Cosmos DB zorgt ervoor dat gegevens bestuur en naleving voor soevereine regio's (bijvoorbeeld Duitsland, China, ons Gov).|
+|Geofencing|Azure Cosmos DB zorgt ervoor dat gegevenskwaliteitsbeheer voor soevereine regio's (bijvoorbeeld Duitsland, China, ons Gov).|
 |Beveiligde faciliteiten|Gegevens in Azure Cosmos-database is opgeslagen op SSD's in Azure beveiligde datacenters.<br><br>Meer informatie [globale datacenters van Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS-versleuteling|Alle client-naar-service Azure Cosmos DB interacties zijn SSL/TLS 1.2 die geschikt. Alle intra datacenter en cross datacenter replicatie wordt ook SSL/TLS 1.2 afgedwongen.|
 |Versleuteling 'at rest'|Alle gegevens die zijn opgeslagen in Azure Cosmos DB in rust versleuteld. Meer informatie [Azure DB die Cosmos-versleuteling in rust](.\database-encryption-at-rest.md)|

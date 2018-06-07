@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 60a5de16f4146e112a85d74634c662e228a0854f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640554"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Virtuele machine toegang met behulp van in de tijd beheren
 
@@ -41,7 +42,7 @@ Een manier om te beperken van blootstelling aan een beveiligingsaanval is om te 
 
 Wanneer JIT is ingeschakeld, wordt binnenkomend verkeer naar de Azure-VM's vergrendeld via Security Center door een NSG-regel te maken. Selecteert u de poorten op de virtuele machine waarmee binnenkomend verkeer wordt worden vergrendeld. Deze poorten worden beheerd door de zojuist in tijdoplossing.
 
-Wanneer een gebruiker toegang tot een virtuele machine aanvraagt, Security Center controleert of de gebruiker [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md) machtigingen die schrijftoegang voor de virtuele machine bieden. Als ze schrijftoegang hebben, de aanvraag is goedgekeurd en Security Center automatisch de Netwerkbeveiligingsgroepen (nsg's configureert) zodat binnenkomend verkeer op de geselecteerde poorten voor de hoeveelheid tijd die u hebt opgegeven. Nadat de respijtperiode is verlopen, wordt het nsg's door Security Center naar de vorige staat hersteld.
+Wanneer een gebruiker toegang tot een virtuele machine aanvraagt, Security Center controleert of de gebruiker [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md) machtigingen die schrijftoegang voor de virtuele machine bieden. Als ze schrijftoegang hebben, de aanvraag is goedgekeurd en Security Center automatisch de Netwerkbeveiligingsgroepen (nsg's configureert) zodat binnenkomend verkeer op de geselecteerde poorten voor de hoeveelheid tijd die u hebt opgegeven. Nadat de respijtperiode is verlopen, wordt het nsg's door Security Center naar de vorige staat hersteld. Deze verbindingen die al zijn gemaakt niet wordt onderbroken, maar.
 
 > [!NOTE]
 > Security Center alleen bij het VM-time-toegang ondersteunt momenteel alleen virtuele machines die zijn geïmplementeerd via Azure Resource Manager. Voor meer informatie over het klassieke en het Resource Manager-implementatiemodel Zie [Azure Resource Manager versus klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).

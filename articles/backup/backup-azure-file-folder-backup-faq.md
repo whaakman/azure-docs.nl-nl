@@ -1,25 +1,20 @@
 ---
-title: Veelgestelde vragen over de Azure Backup-agent | Microsoft Docs
+title: Azure backup-agent Veelgestelde vragen
 description: Antwoorden op veelgestelde vragen over hoe de Azure Backup-agent werkt, en over limieten voor back-up en retentie.
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
 keywords: back-up en herstel na noodgeval; Backup-service
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 8777b2265666a4505a3432aca6683e2510519cac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: trinadhk
+ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605528"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Vragen over de Azure Backup-agent
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van de Azure Backup-agent. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -71,7 +66,7 @@ De back-upgegevens worden verzonden naar het datacenter van de kluis waarbij de 
 ### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Werkt de Azure Backup-agent op een server die gegevensontdubbeling van Windows Server 2012 gebruikt? <br/>
 Ja. De agentservice converteert de ontdubbelde gegevens naar normale gegevens wanneer de back-upbewerking wordt voorbereid. Vervolgens worden de gegevens geoptimaliseerd voor het maken van een back-up en versleuteld en worden de versleutelde gegevens verzonden naar de online back-upservice.
 
-## <a name="backup"></a>Back-up maken
+## <a name="backup"></a>Backup
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Hoe kan ik de cachelocatie wijzigen die is opgegeven voor de Azure Backup-agent?<br/>
 Gebruik de volgende lijst om de cachelocatie te wijzigen.
 

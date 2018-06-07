@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627020"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -61,7 +62,7 @@ Wanneer u een HDInsight-cluster maakt, moet u een Azure-abonnement opgeven. Het 
     1. Meld u aan bij [Azure Portal](https://portal.azure.com).
     2. Klik op **abonnement** in het menu links. Het heeft pictogram van een gele sleutel. U ziet een lijst met abonnementen.
     3. Klik op het abonnement dat u gebruiken om clusters te maken. 
-    4. Klik op **mijn machtigingen**.  Het bevat uw [rol](../role-based-access-control/overview.md#built-in-roles) voor het abonnement. U moet ten minste Inzender toegang tot het HDInsight-cluster maken.
+    4. Klik op **mijn machtigingen**.  Het bevat uw [rol](../role-based-access-control/built-in-roles.md) voor het abonnement. U moet ten minste Inzender toegang tot het HDInsight-cluster maken.
 
 - Een bestaande resourcegroep gebruiken:
 

@@ -1,22 +1,19 @@
 ---
 title: De oplossing apparaat simulatie - Azure implementeren | Microsoft Docs
 description: Deze zelfstudie laat zien hoe de oplossing apparaat simulatie van azureiotsuite.com inricht.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/18/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 4d468c527c658707da2b5f35f43676626baf5ca2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e96c0f16ca4b69d103674b7f895c52d197280ca5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627003"
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>De Azure IoT-apparaat simulatie oplossing implementeren
 
@@ -39,7 +36,7 @@ Als u geen account hebt, kunt u binnen een paar minuten een account voor de grat
 
 Voordat u de oplossing voor uw Azure-abonnement implementeert, moet u bepaalde configuratie-opties kiezen:
 
-1. Aanmelden bij [azureiotsuite.com](https://www.azureiotsuite.com) met behulp van uw Azure accountreferenties en klikt u op **+** om een nieuwe oplossing te maken:
+1. Aanmelden bij [azureiotsuite.com](https://www.azureiotsolutions.com) met behulp van uw Azure accountreferenties en klikt u op **+** om een nieuwe oplossing te maken:
 
     ![Een nieuwe oplossing maken](./media/iot-accelerators-device-simulation-deploy/createnewsolution.png)
 

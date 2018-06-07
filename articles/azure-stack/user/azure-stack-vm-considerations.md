@@ -12,13 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605385"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Overwegingen voor het gebruik van virtuele machines in Azure-Stack
 
@@ -102,7 +103,7 @@ De lijst met ondersteunde resourcetypen en API-versies kan verschillen als de op
 Windows-producten moeten worden gebruikt in overeenstemming met de Product Use Rights en de licentievoorwaarden voor Microsoft. Maakt gebruik van Azure Stack [automatische activering van virtuele machine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) voor het activeren van virtuele machines (VM's) voor Windows Server.
 
 - Azure-Stack host Windows kan worden geactiveerd met AVMA-sleutels voor Windows Server 2016. Alle virtuele machines die bij het uitvoeren van Windows Server 2012 of later worden automatisch geactiveerd.
-- Virtuele machines die bij het uitvoeren van Windows Server 2008 R2 niet automatisch worden geactiveerd en moet worden geactiveerd met behulp van [MAK-activering](https://technet.microsoft.com/library/ff793438.aspx).
+- Virtuele machines die bij het uitvoeren van Windows Server 2008 R2 niet automatisch worden geactiveerd en moet worden geactiveerd met behulp van [MAK-activering](https://technet.microsoft.com/library/ff793438.aspx). Voor het gebruik van MAK-activering, moet u uw eigen productcode opgeven.
 
 Microsoft Azure maakt gebruik van KMS-activering voor het activeren van VM's van Windows. Als u een virtuele machine uit Azure Stack naar Azure en optreden activeren problemen verplaatst, Zie [oplossen Azure Windows virtuele machine activeringsproblemen](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Als u meer informatie vindt u op de [probleemoplossing Windows activation-fouten op Azure Virtual machines](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure Support-teamblog post.
 

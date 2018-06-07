@@ -1,22 +1,19 @@
 ---
 title: Renderen dekking van Azure Maps | Microsoft Docs
 description: Meer informatie over Render dekking van Azure Maps
-services: azure-maps
-keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: ab05277c4541ae859f79b1108c4cf8a7beb29271
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: c973897015df978f31d267ec6f2a20812d9d541c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600575"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps weergeven dekking
 
@@ -60,15 +57,15 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 | Gambia                           |   | Ø |
 | Ghana                            | ✓ | ✓ |
 | Guinee                           |   | Ø |
-| Guinee-Bissau                    |   | Ø |
+| Guinea-Bissau                    |   | Ø |
 | Kenia                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
 | Liberia                          |   | Ø |
 | Libië                            |   | Ø |
-| Madagaskar                       |   | Ø |
+| Madagascar                       |   | Ø |
 | Malawi                           | ✓ | ✓ |
 | Mali                             | ✓ | ✓ |
-| Mauritanië                       | ✓ | ✓ |
+| Mauretanië                       | ✓ | ✓ |
 | Mauritius                        | ✓ | ✓ |
 | Mayotte                          | ✓ | ✓ |
 | Marokko                          | ✓ | ✓ |
@@ -79,7 +76,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
 | Sint-Helena, Ascension en Tristan da Cunha |   | Ø |
-| São Tomé en Príncipe            |   | Ø |
+| Sao Tomé en Principe            |   | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     |   | Ø |
 | Somalië                          |   | Ø |
@@ -87,7 +84,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 | Zuid-Sudan                      |   | Ø |
 | Soedan                            |   | Ø |
 | Swaziland                        | ✓ | ✓ |
-| Verenigde Tanzania      | ✓ | ✓ |
+| Verenigde Republiek van Tanzania      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunesië                          | ✓ | ✓ |
 | Uganda                           | ✓ | ✓ |
@@ -203,7 +200,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 | Taiwan                    | ✓ | ✓ |
 | Tadzjikistan                |   | Ø |
 | Thailand                  | ✓ | ✓ |
-| Oost-Timor               |   | Ø |
+| Democratische republiek Timor-Leste               |   | Ø |
 | Turkmenistan              |   | Ø |
 | Verenigde Arabische Emiraten      | ✓ | ✓ |
 | Amerikaanse ondergeschikte afgelegen eilanden |   | Ø |
@@ -228,7 +225,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 | Nieuw-Caledonië             |   | Ø |
 | Nieuw-Zeeland               | ✓ | ✓ |
 | Niue                      |   | Ø |
-| Norfolk            |   | Ø |
+| Norfolkeiland            |   | Ø |
 | Palau                     |   | Ø |
 | Papoea-Nieuw-Guinea          |   | Ø |
 | Pitcairn                  |   | Ø |
@@ -301,7 +298,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 | Turkije                    | ✓ | ✓ |
 | Oekraïne                   | ✓ | ✓ |
 | Verenigd Koninkrijk            | ✓ | ✓ |
-| Heilige Stoel (Vaticaanstad)              | ✓ | ✓ |
+| Vaticaanstad              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>Volgende stappen
 

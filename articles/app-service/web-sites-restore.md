@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5c37a693e1594f9afe40effba45d7b05a68fd49c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 152cf0c8504205e09b075714a58811d240ab431c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598297"
 ---
 # <a name="restore-an-app-in-azure"></a>Een app in Azure herstellen
-Dit artikel laat zien hoe u een app in [Azure App Service](../app-service/app-service-web-overview.md) die u hebt eerder back-up gemaakt (Zie [Back-up van uw app in Azure](web-sites-backup.md)). U kunt uw app met de gekoppelde databases op aanvraag naar een eerdere status herstellen of een nieuwe app op basis van een back-ups van uw oorspronkelijke app maken. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
+Dit artikel laat zien hoe u een app in [Azure App Service](../app-service/app-service-web-overview.md) die u hebt eerder back-up gemaakt (Zie [Back-up van uw app in Azure](web-sites-backup.md)). U kunt uw app met de daaraan gekoppelde databases op verzoek herstellen naar een vorige versie, of een nieuwe app maken op basis van back-ups van uw oorspronkelijke app. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [Azure-Database voor MySQL)](https://azure.microsoft.com/services/mysql)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgres)
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
@@ -51,7 +52,7 @@ Herstellen vanuit back-ups is beschikbaar voor apps die worden uitgevoerd **stan
    > 
    > 
    
-    U kunt selecteren **bestaande App** om te zetten back-up van de app op een andere app in dezelfde groep resoure. Voordat u deze optie gebruikt, moet hebt u al een andere app gemaakt in de resourcegroep met de databaseconfiguratie naar een gedefinieerd in de app back-up voor het spiegelen. U kunt ook maken een **nieuw** app uw inhoud te herstellen.
+    U kunt selecteren **bestaande App** om te zetten back-up van de app op een andere app in dezelfde resourcegroep. Voordat u deze optie gebruikt, moet hebt u al een andere app gemaakt in de resourcegroep met de databaseconfiguratie naar een gedefinieerd in de app back-up voor het spiegelen. U kunt ook maken een **nieuw** app uw inhoud te herstellen.
 
 4. Klik op **OK**.
 

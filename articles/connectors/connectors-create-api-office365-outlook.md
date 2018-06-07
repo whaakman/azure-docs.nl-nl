@@ -1,25 +1,22 @@
 ---
-title: De Outlook van Office 365-connector in uw logische Apps toevoegen | Microsoft Docs
-description: 'Logic apps maken met Office 365-connector voor het inschakelen van interactie met Office 365. Bijvoorbeeld: maken, bewerken en bijwerken van contactpersonen en agenda-items.'
-services: 
-documentationcenter: 
+title: Verbinding maken met OfficeOutlook 365 - Azure Logic Apps | Microsoft Docs
+description: E-mail, contactpersonen en agenda's met Office 365 REST-API's en Azure Logic Apps beheren
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 10/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: d455f4d9081c1fd448a0d0524c209be305e203be
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609967"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Aan de slag met de Outlook van Office 365-connector
 De Outlook van Office 365-connector wordt interactie met Outlook in Office 365. Met deze connector kunt maken, bewerken, en contactpersonen en agenda-items, bijwerken en ook krijgen, verzenden en e-mailbericht beantwoordt.

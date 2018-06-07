@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 22833851b85427dd8e9583f9c783fd55b9d31414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594077"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -33,20 +35,19 @@ Azure Active Directory (Azure AD) is een cloud-gebaseerde identity-service. De [
 
 *  Klanten vinden één aanmelding prettig.
 
-*  Configuratie van de toepassing is eenvoudig en minimale. 
+*  Configuratie van de toepassing is eenvoudig en minimale.
 
 *  Uw toepassing zoekt een snelle zoekopdracht in de galerie.
 
-*  Vrijmaken, Basic, en Azure AD Premium klanten kunnen worden gebruikt door deze integratie. 
+*  Vrijmaken, Basic, en Azure AD Premium klanten kunnen worden gebruikt door deze integratie.
 
-*  Wederzijdse klanten krijgen een zelfstudie stapsgewijze configuratie. 
+*  Wederzijdse klanten krijgen een zelfstudie stapsgewijze configuratie.
 
 *  Klanten die gebruikmaken van SCIM kunnen gebruiken voor dezelfde app wordt ingericht.
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>Vereisten: Protocol voor implementeren federation
 
-Als een toepassing in de galerie van Azure AD-app wilt weergeven, moet u eerst een van de volgende federation protocollen die worden ondersteund door Azure AD implementeren. Lees de voorwaarden en bepalingen van de Azure AD-toepassingsgalerie hiervandaan. 
+Als een toepassing in de galerie van Azure AD-app wilt weergeven, moet u eerst een van de volgende federation protocollen die worden ondersteund door Azure AD implementeren en akkoord gaan met Azure AD-toepassing galerie voorwaarden en bepalingen. Lees de voorwaarden en bepalingen van de Azure AD-toepassingsgalerie van [hier](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
 *   **OpenID Connect**: de multitenant-toepassing in Azure AD maken en implementeren van de [Azure AD toestemming framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) voor uw toepassing. Het aanmeldingsverzoek verzenden naar een gemeenschappelijk eindpunt zodat elke klant toestemming voor de toepassing kunt bieden. U kunt toegang van gebruikers op basis van de tenant-ID en de gebruiker UPN in het token wordt ontvangen. Voor het integreren van uw toepassing met Azure AD, volgt u de [instructies van de ontwikkelaar](active-directory-authentication-scenarios.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure Blockchain Workbench berichten
+title: Overzicht van Azure Blockchain Workbench berichten-integratie
 description: Overzicht van het gebruik van berichten in Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
@@ -10,26 +10,26 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 4a2e85cc619d17745be9d8f72af5f99049ce7c6b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f45396c3af285026e16ce641bd37bf0eadcee56d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607597"
 ---
-# <a name="azure-blockchain-workbench-messages-overview"></a>Overzicht van Azure Blockchain Workbench berichten
+# <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging-integratie
 
 Naast het bieden van een REST-API biedt Azure Blockchain Workbench ook integratie op basis van berichten. Workbench publiceert grootboek gerichte gebeurtenissen via Azure gebeurtenis raster, waarmee de downstream consument opnemen van gegevens of actie onderneemt op basis van deze gebeurtenissen. Voor deze clients waarvoor betrouwbare messaging, biedt Azure Blockchain Workbench berichten met een Azure Service Bus-eindpunt.
 
 Ontwikkelaars hebben ook geïnteresseerd in de mogelijkheid om externe systemen communiceren initiëren transacties voor het maken van gebruikers, contracten maken en bijwerken van opdrachten op een grootboek uitgedrukt. Terwijl deze functionaliteit is momenteel niet worden weergegeven in de openbare preview, een steekproef die wel die mogelijkheid biedt kan worden gevonden op [ http://aka.ms/blockchain-workbench-integration-sample ](http://aka.ms/blockchain-workbench-integration-sample).
 
-
 ## <a name="event-notifications"></a>Gebeurtenismeldingen
 
-Gebeurtenismeldingen kunnen worden gebruikt om gebruikers- en downstream systemen van gebeurtenissen die in de Workbench en het blockchain-netwerk dat is verbonden plaatsvinden met te informeren. Gebeurtenismeldingen worden gebruikt in de code of worden gebruikt met hulpprogramma's zoals Logic Apps en stroom voor het activeren van de stroom van gegevens naar downstream-systemen.
+Gebeurtenismeldingen kunnen worden gebruikt om gebruikers- en downstream systemen van gebeurtenissen die Blockchain Workbench en het blockchain-netwerk dat is verbonden met te informeren. Gebeurtenismeldingen worden gebruikt in de code of worden gebruikt met hulpprogramma's zoals Logic Apps en stroom voor het activeren van de stroom van gegevens naar downstream-systemen.
 
 Zie [Notification message verwijzing](#notification-message-reference) voor meer informatie over verschillende berichten die kunnen worden ontvangen.
 
-### <a name="consuming-event-grid-events-with-azure-functions"></a>Gebeurtenis raster gebeurtenissen met de Azure Functions gebruiken
+### <a name="consuming-event-grid-events-with-azure-functions"></a>Gebeurtenissen van de gebeurtenis raster met Azure Functions gebruiken
 
 Als een gebruiker wil gebeurtenis raster gebruiken om te worden geïnformeerd over de gebeurtenissen die in de Blockchain Workbench gebeuren, kunt u gebeurtenissen van gebeurtenis raster verbruiken met behulp van Azure Functions.
 
@@ -60,14 +60,14 @@ Service Bus-onderwerpen kan worden gebruikt voor de gebruikers te informeren ove
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Verbruik van Service Bus-berichten met Logic Apps
 
 1. Maak een nieuwe **Azure Logic App** in de Azure portal.
-2.  Bij het openen van de Azure logische App in de portal, wordt u gevraagd om te selecteren van een trigger. Type **Service Bus** in het zoekvak en selecteer de trigger die geschikt is voor het type van interactie dat u wilt dat met de Service Bus. Bijvoorbeeld: **Service Bus--wanneer een bericht wordt ontvangen in een onderwerpabonnement (automatisch aanvullen)**.
+2. Bij het openen van de Azure logische App in de portal, wordt u gevraagd om te selecteren van een trigger. Type **Service Bus** in het zoekvak en selecteer de trigger die geschikt is voor het type van interactie dat u wilt dat met de Service Bus. Bijvoorbeeld: **Service Bus--wanneer een bericht wordt ontvangen in een onderwerpabonnement (automatisch aanvullen)**.
 3. Wanneer de workflow designer wordt weergegeven, geeft u de verbindingsgegevens voor de Service Bus.
 4. Selecteer uw abonnement en geef het onderwerp van **workbench-externe**.
 5. Ontwikkelen voor de logica voor uw toepassing die gebruikmaakt van het bericht van deze trigger.
 
 ## <a name="notification-message-reference"></a>Naslaginformatie over melding
 
-De meldingen worden, afhankelijk van de OperationName hebben een van de volgende berichttypen.
+Afhankelijk van de **OperationName**, de meldingen hebben een van de volgende berichttypen.
 
 ### <a name="accountcreated"></a>AccountCreated
 
@@ -75,8 +75,8 @@ Hiermee wordt aangegeven dat een nieuw account moet worden toegevoegd aan de opg
 
 | Naam    | Beschrijving  |
 |----------|--------------|
-| UserId  | ID van de gebruiker die is gemaakt |
-| ChainIdentifier | Adres van de gebruiker die is gemaakt op het netwerk blockchain. In Ethereum, zou dit adres 'in de keten' van de gebruiker. |
+| UserId  | ID van de gebruiker die is gemaakt. |
+| ChainIdentifier | Adres van de gebruiker die is gemaakt op het netwerk blockchain. In Ethereum, zou dit van de gebruiker **op keten** adres. |
 
 ``` csharp
 public class NewAccountRequest : MessageModelBase
@@ -93,15 +93,15 @@ Hiermee wordt aangegeven dat een aanvraag invoegen of bijwerken van een contract
 | Naam | Beschrijving |
 |-----|--------------|
 | ChainID | Een unieke id voor de keten is gekoppeld aan de aanvraag.|
-  BlockId | De unieke id voor een blok op het grootboek.|
-  ContractId | Een unieke id voor het contract.|
-  ContractAddress |       Het adres van het contract op het grootboek.|
-  TransactionHash  |     De hash van de transactie op het grootboek.|
-  OriginatingAddress |   Het adres van de oorspronkelijke aanvrager van de transactie.|
-  actionName       |     De naam van de actie.|
-  IsUpdate        |      Hiermee wordt aangeduid of dit een update is.|
-  Parameters       |     Een lijst met objecten die het type naam, waarde en gegevens van de parameters die worden verzonden naar een actie identificeren.|
-  TopLevelInputParams |  Dit zijn de parameters van het contract op het hoogste niveau in scenario's waarin een contract is verbonden met een of meer overeenkomsten. |
+| BlockId | De unieke id voor een blok op het grootboek.|
+| ContractId | Een unieke id voor het contract.|
+| ContractAddress |       Het adres van het contract op het grootboek.|
+| TransactionHash  |     De hash van de transactie op het grootboek.|
+| OriginatingAddress |   Het adres van de oorspronkelijke aanvrager van de transactie.|
+| actionName       |     De naam van de actie.|
+| IsUpdate        |      Hiermee wordt aangeduid of dit een update is.|
+| Parameters       |     Een lijst met objecten die het type naam, waarde en gegevens van de parameters die worden verzonden naar een actie identificeren.|
+| TopLevelInputParams |  Dit zijn de parameters van het contract op het hoogste niveau in scenario's waarin een contract is verbonden met een of meer overeenkomsten. |
 
 ``` csharp
 public class ContractInsertOrUpdateRequest : MessageModelBase
@@ -166,7 +166,7 @@ Hiermee wordt aangegeven dat een aanvraag is gemaakt met het saldo van de gebrui
 | Naam    | Beschrijving                              |
 |---------|------------------------------------------|
 | Adres | Het adres van de gebruiker die is basis. |
-| Verdeling | Het saldo van het saldo van de gebruiker.         |
+| Saldo | Het saldo van het saldo van de gebruiker.         |
 | ChainID | De unieke id voor de keten.     |
 
 
@@ -241,6 +241,65 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 {
     public int ContractId { get; set; }
     public string ChainIdentifier { get; set; }
+}
+```
+
+## <a name="classes-used-by-message-types"></a>Klassen die worden gebruikt door berichttypen
+
+### <a name="messagemodelbase"></a>MessageModelBase
+
+Het basismodel voor alle berichten.
+
+| Naam          | Beschrijving                          |
+|---------------|--------------------------------------|
+| OperationName | De naam van de bewerking.           |
+| aanvraag-id     | Een unieke id voor de aanvraag. |
+
+``` csharp
+public class MessageModelBase
+{
+    public string OperationName { get; set; }
+    public string RequestId { get; set; }
+}
+```
+
+### <a name="contractinputparameter"></a>ContractInputParameter
+
+Bevat de naam, de waarde en het type van een parameter.
+
+| Naam  | Beschrijving                 |
+|-------|-----------------------------|
+| Naam  | De naam van de parameter.  |
+| Waarde | De waarde van de parameter. |
+| Type  | Het type van de parameter.  |
+
+``` csharp
+public class ContractInputParameter
+{
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string Type { get; set; }
+}
+```
+
+#### <a name="contractproperty"></a>ContractProperty
+
+De ID, naam, waarde en type van een eigenschap bevat.
+
+| Naam  | Beschrijving                |
+|-------|----------------------------|
+| Id    | De ID van de eigenschap.    |
+| Naam  | De naam van de eigenschap.  |
+| Waarde | De waarde van de eigenschap. |
+| Type  | Het type van de eigenschap.  |
+
+``` csharp
+public class ContractProperty
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string DataType { get; set; }
 }
 ```
 

@@ -1,29 +1,26 @@
 ---
-title: Azure Data Lake Analytics beheren met Azure .NET SDK | Microsoft Docs
-description: 'Informatie over het beheren van Data Lake Analytics-taken en gegevensbronnen en gebruikers. '
+title: Azure Data Lake Analytics beheren met Azure .NET SDK
+description: In dit artikel wordt beschreven hoe de Azure .net SDK gebruiken om te schrijven van apps die Data Lake Analytics-jobs, gegevensbronnen en gebruikers beheren.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/18/2017
-ms.author: saveenr
-ms.openlocfilehash: 0f8a95f96ce4c816dfb9132923faa9a9bf20c205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc49bb9b5461a4e8eb3573877276f5876e12f340
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625117"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Azure Data Lake Analytics beheren met Azure .NET SDK
+# <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics een .NET-app beheren
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Informatie over het beheren van Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken met behulp van de Azure .NET SDK. 
+Dit artikel wordt beschreven hoe u voor het beheren van Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken met behulp van een app die is geschreven met behulp van de Azure .NET SDK. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -60,7 +57,7 @@ string rg == "<value>"; // Resource  group name
 string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (this will work, but you should pick your own)
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 U hebt meerdere mogelijkheden voor melden bij Azure Data Lake Analytics. Het volgende fragment toont een voorbeeld van verificatie met interactieve gebruikersverificatie met een pop-upvenster.
 
@@ -288,6 +285,8 @@ using (var memstream = new MemoryStream())
    {
       sw.WriteLine("Hello World");
       sw.Flush();
+      
+      memstream.Position = 0;
 
       adlsFileSystemClient.FileSystem.Create(adls, "/Samples/Output/randombytes.csv", memstream);
    }
