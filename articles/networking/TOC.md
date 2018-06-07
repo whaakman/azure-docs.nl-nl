@@ -43,11 +43,9 @@
 ### [Een exclusieve privéverbinding maken (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Beheer
+### [Overzicht van netwerkbewaking](network-monitoring-overview.md)
+### [Resourcegebruik controleren aan de hand van Azure-limieten](check-usage-against-limits.md)
 ### [Topologie van netwerk weergeven](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Pakketopname beheren](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Routering van volgende hop bepalen](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [IP-stromen controleren voor een virtuele machine](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Overzicht van netwerkbewaking](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Voorbeeldscripts
 ### [Azure-CLI](cli-samples.md)

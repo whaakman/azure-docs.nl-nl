@@ -1,26 +1,24 @@
 ---
-title: Documentatie voor Azure Data Lake Analytics - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over de analyse van big data met Data Lake Analytics. Zelfstudies laten zien hoe u batch-, realtime en interactieve analyses uitvoert en U-SQL-query's schrijft.
+title: Documentatie voor Azure Data Lake Analytics - zelfstudies, API-naslaggids
+description: Leer alles over de analyse van big data met Data Lake Analytics. Zelfstudies laten zien hoe u batch-, realtime en interactieve analyses uitvoert en U-SQL-query's schrijft.
 services: data-lake-analytics
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624213"
 ---
-# <a name="data-lake-analytics-documentation"></a>Documentatie over Data Lake Analytics
+# <a name="azure-data-lake-analytics-documentation"></a>Documentatie voor Data Lake Analytics
 
-Meer informatie over hoe u Data Lake Analytics gebruikt voor het uitvoeren van analysetaken voor big data die schaalbaar zijn naar grote gegevenssets. Zelfstudies en andere documentatie laten zien hoe u batch-, realtime en interactieve analysetaken maakt en beheert, en query’s maakt in U-SQL.
+Leer hoe u Azure Data Lake Analytics gebruikt voor het uitvoeren van analysetaken voor big data die schaalbaar zijn naar grote gegevenssets. Zelfstudies en andere documentatie laten zien hoe u batch-, realtime en interactieve analysetaken maakt en beheert, en query’s maakt in U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,9 +94,8 @@ Meer informatie over hoe u Data Lake Analytics gebruikt voor het uitvoeren van a
         <td><a href="data-lake-analytics-manage-use-portal.md">Portal</a></td>
         <td><a href="data-lake-analytics-manage-use-powershell.md">Python</a></td>
         <td><a href="data-lake-analytics-manage-use-cli.md">Azure-CLI</a></td>
-        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET-SDK</a></td>
+        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java-SDK</a></td>
     </tr>
 </table>
 
@@ -140,7 +137,7 @@ Meer informatie over hoe u Data Lake Analytics gebruikt voor het uitvoeren van a
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datalakeanalytics/">REST-API</a></p>
+                        <p><a href="/rest/api/datalakeanalytics/">REST API</a></p>
                     </div>
                 </div>
             </div>

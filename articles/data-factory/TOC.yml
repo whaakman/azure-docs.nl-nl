@@ -374,17 +374,17 @@
           href: create-azure-ssis-integration-runtime.md
     - name: SSIS-pakketten uitvoeren in Azure
       items:
-        - name: Azure-SSIS-integratie-runtime aan een VNet koppelen
+        - name: Azure-SSIS-integratieruntime toevoegen aan een VNet
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Azure AD-verificatie inschakelen voor Azure SSIS-integratieruntime
+        - name: Azure AD-verificatie inschakelen voor Azure-SSIS-integratieruntime
           href: enable-aad-authentication-azure-ssis-ir.md
         - name: Hoge prestaties configureren voor Azure-SSIS-integratieruntime
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Enterprise-editie voor Azure-SSIS-integratie-runtime inrichten
+        - name: Enterprise Edition inrichten voor Azure-SSIS-integratieruntime
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Instelling voor Azure-SSIS-integratieruntime aanpassen
+        - name: Configuratie aanpassen voor Azure-SSIS-integratieruntime
           href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Gelicentieerde onderdelen voor Azure SSIS-integratieruntime implementeren
+        - name: Gelicentieerde onderdelen installeren voor Azure-SSIS-integratieruntime
           href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: SSIS-pakketten uitvoeren met de activiteit SSIS-pakket uitvoeren
           href: how-to-invoke-ssis-package-ssis-activity.md

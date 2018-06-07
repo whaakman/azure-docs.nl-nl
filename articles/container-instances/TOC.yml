@@ -51,6 +51,8 @@
           href: container-instances-exec.md
         - name: CPU en geheugengebruik bewaken
           href: container-instances-monitor.md
+        - name: Logboekregistratie met Azure Log Analytics
+          href: container-instances-log-analytics.md
     - name: Workloads uitvoeren
       items:
         - name: Taken in containers uitvoeren

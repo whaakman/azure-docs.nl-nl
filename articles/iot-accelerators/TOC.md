@@ -3,13 +3,13 @@
 
 # Overzicht
 ## [Concepten van IoT-architectuur](iot-accelerators-what-is-azure-iot.md)
-## [Azure IoT-opties vergelijken](../iot-suite/iot-suite-options.md)
+## [Azure IoT-opties vergelijken](iot-accelerators-options.md)
 ## [Overzicht oplossingsversnellers](iot-accelerators-what-are-solution-accelerators.md)
 
 # Aan de slag
 ## Externe bewaking
 ### [De oplossingsversnellers implementeren](iot-accelerators-remote-monitoring-deploy.md)
-### [De oplossingsversnellers bedienen](../iot-suite/iot-suite-remote-monitoring-explore.md)
+### [De oplossingsversnellers bedienen](iot-accelerators-remote-monitoring-explore.md)
 
 ## Externe bewaking (vorige versie)
 ### [Wat zijn de oplossingsversnellers?](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
@@ -35,16 +35,16 @@
 ##### [C op Windows](../iot-suite/iot-suite-v1-connecting-devices.md)
 ##### [C op Linux](../iot-suite/iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](../iot-suite/iot-suite-v1-connecting-devices-node.md)
-#### [Een logische app aansluiten op de oplossing voor controle op afstand](../iot-suite/iot-suite-v1-logic-apps-tutorial.md)
+#### [Een logische app verbinden met de oplossing Externe controle](../iot-suite/iot-suite-v1-logic-apps-tutorial.md)
 #### [Een oplossingsversnellers aanpassen](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
-#### [Dynamische telemetrie gebruiken bij de oplossing voor controle op afstand](../iot-suite/iot-suite-v1-dynamic-telemetry.md)
-#### [Een aangepaste regel maken in de oplossing voor controle op afstand](../iot-suite/iot-suite-v1-custom-rule.md)
-#### [Apparaatgegevens in de oplossing voor controle op afstand](../iot-suite/iot-suite-v1-remote-monitoring-device-info.md)
+#### [Dynamische telemetrie gebruiken met de oplossing Externe controle](../iot-suite/iot-suite-v1-dynamic-telemetry.md)
+#### [Een aangepaste regel maken in de oplossing Externe controle](../iot-suite/iot-suite-v1-custom-rule.md)
+#### [Apparaatgegevens in de oplossing Externe controle](../iot-suite/iot-suite-v1-remote-monitoring-device-info.md)
 
 
 ## Predictief onderhoud
-### [Een overzicht van de oplossingsversneller voor Predictief onderhoud](../iot-suite/iot-suite-predictive-overview.md)
-### [De oplossingsversneller voor Predictief onderhoud doorlopen](../iot-suite/iot-suite-predictive-walkthrough.md)
+### [Een overzicht van de oplossingsversneller voor Predictief onderhoud](iot-accelerators-predictive-overview.md)
+### [De oplossingsversneller voor Predictief onderhoud doorlopen](iot-accelerators-predictive-walkthrough.md)
 
 ## Verbonden Factory
 ### [Wat is Verbonden Factory?](iot-accelerators-connected-factory-features.md)
@@ -70,7 +70,7 @@
 ### [Een microservice aanpassen en opnieuw implementeren](iot-accelerators-microservices-example.md)
 ### [Implementeren met behulp van de CLI](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Lokaal implementeren](iot-accelerators-remote-monitoring-deploy-local.md)
-### [Gegevens visualiseren met Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
+### [Gegevens visualiseren met Time Series Insights](iot-accelerators-time-series-insights.md)
 ### [Met Data Lake Store integreren](iot-accelerators-integrate-data-lake.md)
 ### Een fysiek apparaat verbinden
 #### [C op Windows](iot-accelerators-connecting-devices.md)
@@ -78,7 +78,7 @@
 #### [Node.js (algemeen)](iot-accelerators-connecting-devices-node.md)
 #### [Node.js op Raspberry Pi](iot-accelerators-connecting-pi-node.md)
 #### [C op Raspberry Pi](iot-accelerators-connecting-pi-c.md)
-#### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
+#### [MX Chip AZ3166 DevKit](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Concepten
 #### [Implementatiegegevens van Externe bewaking](iot-accelerators-remote-monitoring-sample-walkthrough.md)
@@ -89,19 +89,19 @@
 ### [Verbonden Factory aanpassen](iot-accelerators-connected-factory-customize.md)
 ### [De OPC-uitgever voor Verbonden Factory gebruiken](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Verbonden Factory configureren](iot-accelerators-connected-factory-configure.md)
-## [Machtigingen op azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
+## [Machtigingen op azureiotsuite.com](iot-accelerators-permissions.md)
 
 # Naslaginformatie
 ## [Snelzoekgids voor ontwikkelaars](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Ontwikkelaarsgids voor het oplossen van problemen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Beveiligingsarchitectuur](../iot-suite/iot-security-architecture.md)
-## [Best practices voor beveiliging](../iot-suite/iot-security-best-practices.md)
-## [Uw IoT-implementatie beveiligen](../iot-suite/iot-suite-security-deployment.md)
-## [Fundamentele beveiliging](../iot-suite/securing-iot-ground-up.md)
+## [Beveiligingsarchitectuur](iot-security-architecture.md)
+## [Best practices voor beveiliging](iot-security-best-practices.md)
+## [Uw IoT-implementatie beveiligen](iot-accelerators-security-deployment.md)
+## [Fundamentele beveiliging](securing-iot-ground-up.md)
 
 # Verwant
 ## Oplossingen 
-### [Vooraf geconfigureerde oplossing van IoT Suite](/azure/iot-suite) 
+### [IoT-oplossingsversnellers](/azure/iot-suite) 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Platformservices 
 ### [IoT Hub](/azure/iot-hub) 

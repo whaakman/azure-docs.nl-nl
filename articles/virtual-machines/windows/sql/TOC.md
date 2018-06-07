@@ -1,7 +1,7 @@
 # Overzicht
 ## [Over SQL Server-VM's in Windows](virtual-machines-windows-sql-server-iaas-overview.md) 
  
-# QuickStarts
+# Snelstartgidsen
 ## [Een virtuele SQL-machine maken - Portal](quickstart-sql-vm-create-portal.md)
 ## [Een virtuele SQL-machine maken - PowerShell](quickstart-sql-vm-create-powershell.md)
 
@@ -19,7 +19,8 @@
 #### [Azure Key Vault-integratie configureren](virtual-machines-windows-ps-sql-keyvault.md)
 ## Back-ups en herstellen
 ### [Back-up en herstel](virtual-machines-windows-sql-backup-recovery.md)
-### [Automatische back-up](virtual-machines-windows-sql-automated-backup.md)
+### [Automatische back-up voor SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Automatische back-up voor SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [Azure Storage gebruiken voor back-up en herstel](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Handleidingen
@@ -42,7 +43,7 @@
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
-## [Azure CLI](/cli/azure/)
+## [Azure-CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server-stuurprogramma's](https://docs.microsoft.com/sql/connect/sql-connection-libraries)
 ## [REST](/rest/api/)

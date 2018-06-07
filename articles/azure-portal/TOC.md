@@ -15,6 +15,7 @@
 ### [Op programmatische wijze Azure-dashboards maken](azure-portal-dashboards-create-programmatically.md)
 ## Beheren
 ### [Hoog contrast inschakelen of het thema wijzigen](azure-portal-change-theme-high-contrast.md)
+### [Gebruikersinstellingen exporteren of verwijderen](azure-portal-export-delete-settings.md)
 ### [De portal gebruiken om resources te beheren](../azure-resource-manager/resource-group-portal.md)
 ### [Toegang beheren met op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md)
 ### [Dashboards delen met op rollen gebaseerd toegangsbeheer](azure-portal-dashboard-share-access.md)

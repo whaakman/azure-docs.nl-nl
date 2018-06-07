@@ -73,6 +73,8 @@
           href: batch-custom-images.md
         - name: Een pool in een virtueel netwerk maken
           href: batch-virtual-network.md
+        - name: Azure-bestandsshare koppelen
+          href: pool-file-shares.md
         - name: Rekenintensieve VM’s gebruiken
           href: batch-pool-compute-intensive-sizes.md
         - name: Rekenknooppunten in Linux gebruiken

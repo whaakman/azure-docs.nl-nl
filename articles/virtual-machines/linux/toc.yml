@@ -89,6 +89,8 @@
               href: n-series-driver-setup.md
         - name: Krachtig rekenvermogen
           href: sizes-hpc.md
+        - name: Vorige generaties
+          href: sizes-previous-gen.md
         - name: Azure Compute Units (ACU)
           href: acu.md
         - name: Benchmarkscores
@@ -140,6 +142,8 @@
           href: create-cli-complete.md
         - name: Een sjabloon gebruiken
           href: create-ssh-secured-vm-from-template.md
+        - name: REST API gebruiken
+          href: create-vm-rest-api.md
         - name: Een virtuele machine kopiëren of klonen
           href: copy-vm.md
     - name: Virtuele machines beveiligen
@@ -188,7 +192,12 @@
         - name: Een virtuele machine taggen
           href: tag.md
         - name: Scripts uitvoeren op een virtuele machine
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Aangepaste scriptextensie
+              href: ../extensions/custom-script-linux.md
+            - name: Run-opdracht
+              href: run-command.md
         - name: Extern bureaublad gebruiken
           href: use-remote-desktop.md
         - name: Een virtuele machine koppelen aan Azure Active Directory
@@ -416,21 +425,7 @@
             - name: Interne DNS gebruiken
               href: static-dns-name-resolution-for-linux-on-azure.md
     - name: VM-extensies gebruiken
-      items:
-        - name: Overzicht van VM-extensies
-          href: extensions-features.md
-        - name: Aangepaste scriptextensie
-          href: extensions-customscript.md
-        - name: OMS-agentextensie
-          href: extensions-oms.md
-        - name: De diagnostische Linux-extensie
-          href: diagnostic-extension.md
-        - name: Network Watcher-agent
-          href: extensions-nwa.md
-        - name: VMAccess-extensie
-          href: using-vmaccess-extension.md
-        - name: Installatie van extensie beperken
-          href: ../extensions/extensions-rmpolicy-howto-cli.md
+      href: ../extensions/overview.md
     - name: Virtuele machines migreren
       items:
         - name: AWS en on-premises VM's migreren

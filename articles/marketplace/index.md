@@ -1,30 +1,32 @@
 ---
 title: Documentatie voor Azure Marketplace | Microsoft Docs
 description: Meer informatie over Azure Marketplace.
-services: marketplace
-author: ellacroi
-manager: mbaldwin
+services: Azure, marketplace
+author: jm-aditi-ms
+manager: pabutler
+editor: ''
 layout: LandingPage
 ms.assetid: ''
 ms.service: marketplace
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 05/10/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 65ad29de9eff47f14a22102729b662dad8581a7b
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 338eb409ad04dd3d0da066f94acb0d418497c581
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823747"
 ---
 # <a name="azure-marketplace-documentation"></a>Documentatie voor Azure Marketplace
 
-Meer informatie over Azure Marketplace, een onlinemarktplaats voor toepassingen en services waar iedereen, van beginnende en onafhankelijke softwareleveranciers tot grote bedrijven, hun oplossingen kunnen aanbieden aan klanten over de hele wereld.
+Meer informatie over Azure Marketplace, een onlinemarktplaats voor toepassingen en services waar iedereen, van beginnende en onafhankelijke softwareleveranciers tot grote bedrijven, oplossingen kunnen aanbieden aan klanten over de hele wereld.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide">
+        <a href="/azure/marketplace/marketplace-publishers-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -34,7 +36,7 @@ Meer informatie over Azure Marketplace, een onlinemarktplaats voor toepassingen 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Verkopershandleiding voor Azure Marketplace</h3>
+                        <h3>Uitgevershandleiding voor AppSource en Azure Marketplace</h3>
                     </div>
                 </div>
             </div>
@@ -60,5 +62,3 @@ Meer informatie over Azure Marketplace, een onlinemarktplaats voor toepassingen 
         </a>
     </li>    
 </ul>
-
-

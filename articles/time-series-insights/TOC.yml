@@ -14,6 +14,8 @@
   items:
     - name: TSI van JavaScript-clientbibliotheek verkennen
       href: tutorial-explore-js-client-lib.md
+    - name: Een TSI-omgeving maken
+      href: tutorial-create-populate-tsi-environment.md
 - name: Concepten
   items:
     - name: Uw omgeving plannen
@@ -56,6 +58,8 @@
       href: time-series-insights-how-to-scale-your-environment.md
     - name: Resources beheren met behulp van sjablonen
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
+    - name: JSON vormgeven voor query's
+      href: how-to-shape-query-json.md
 - name: Naslaginformatie
   items:
     - name: Query-API

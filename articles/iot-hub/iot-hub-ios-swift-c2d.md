@@ -1,24 +1,19 @@
 ---
 title: Cloud-naar-apparaat-berichten met Azure IoT Hub (iOS) | Microsoft Docs
 description: Het cloud-naar-apparaat om berichten te verzenden naar een apparaat van een Azure IoT hub met de Azure IoT SDK's voor iOS.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62647620f6bbeadecfa778f91855ef1eee5240dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634275"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -40,7 +35,7 @@ Aan het einde van dit artikel uitvoeren u twee Swift iOS projecten:
 * **voorbeeld-service**, die verzendt een bericht cloud-naar-apparaat naar de gesimuleerde apparaattoepassing via IoT Hub en vervolgens ontvangt de bevestiging levering.
 
 > [!NOTE]
-> IoT-Hub heeft SDK-ondersteuning voor veel apparaatplatforms en talen (inclusief C, Java en Javascript) via Azure IoT-apparaat-SDK's. Zie voor stapsgewijze instructies voor het koppelen van uw apparaat in deze zelfstudie code en in het algemeen naar Azure IoT Hub de [Azure IoT Developer Center].
+> IoT-Hub heeft SDK-ondersteuning voor veel apparaatplatforms en talen (inclusief C, Java en Javascript) via Azure IoT-apparaat-SDK's. Zie voor stapsgewijze instructies voor het koppelen van uw apparaat in deze zelfstudie code en in het algemeen naar Azure IoT Hub de [Azure IoT-ontwikkelaarscentrum].
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -166,7 +161,7 @@ Uw uitvoer moet eruitzien als in het volgende voorbeeld:
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe cloud-naar-apparaat-berichten verzenden en ontvangen. 
 
-Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [oplossingsverbetering Azure IoT externe controle].
+Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [Azure IoT-Remote-Monitoring oplossingsverbetering].
 
 Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub].
 
@@ -176,13 +171,13 @@ Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [O
 [img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
 
 <!-- Links -->
-[verzenden van telemetrie vanaf een apparaat naar een IoT-hub]: quickstart-send-telemetry-ios.md
+[Verzenden van telemetrie vanaf een apparaat naar een IoT-hub]: quickstart-send-telemetry-ios.md
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Ontwikkelaarshandleiding voor IoT Hub]: iot-hub-devguide.md
-[Azure IoT Developer Center]: http://www.azure.com/develop/iot
+[Azure IoT-ontwikkelaarscentrum]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[oplossingsverbetering Azure IoT externe controle]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Azure IoT-Remote-Monitoring oplossingsverbetering]: https://azure.microsoft.com/documentation/suites/iot-suite/

@@ -1,50 +1,52 @@
 # [Documentatie voor Analysis Services](index.md)
 
 # Overzicht
-## [Wat is Azure Analysis Services?](analysis-services-overview.md)
 
+## [Wat is Analysis Services?](analysis-services-overview.md)
 
-# Aan de slag
-## [Een server maken in Azure Portal](analysis-services-create-server.md)
-## [Een server maken met Azure PowerShell](analysis-services-create-powershell.md)
-## [Een model implementeren vanuit Visual Studio](analysis-services-deploy.md)
-## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
+# Snelstartgidsen
+
+## [Een server maken - portal](analysis-services-create-server.md)
+## [Een server maken - PowerShell](analysis-services-create-powershell.md)
+## [Een serverfirewall configureren - portal](analysis-services-qs-firewall.md)
+
+# Zelfstudies
+
+## [1 - Een voorbeeldmodel toevoegen via de portal](analysis-services-create-sample-model.md) 
+## [2 - Serverbeheerder en gebruikersrollen configureren](tutorials/analysis-services-tutorial-roles.md)
+## [3 - Verbinden met Power BI Desktop](tutorials/analysis-services-tutorial-pbid.md)
 
 # Concepten
+
+## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
 ## [Automatisering met service-principals](analysis-services-service-principal.md)
-## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
+## [Clientbibliotheken](analysis-services-data-providers.md)
+## [Compatibiliteitsniveau](analysis-services-compat-level.md)
 ## [Verbinding maken met on-premises gegevensbronnen](analysis-services-gateway.md)
 ## [Verbinding maken met servers](analysis-services-connect.md)
-## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
-## [Compatibiliteitsniveau](analysis-services-compat-level.md)
 ## [Hoge beschikbaarheid](analysis-services-bcdr.md)
+## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
 
 # Uitleg 
-## [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
-## [Een Power BI Desktop-bestand importeren](analysis-services-import-pbix.md)
-## [Back-up en herstel](analysis-services-backup.md)
-## [Vernieuwen met REST-API](analysis-services-async-refresh.md)
-## [Uitschalen configureren](analysis-services-scale-out.md)
-## Beheertaken automatiseren
+
+## Server
+### [Back-up en herstel](analysis-services-backup.md)
+### [Een alias voor een servernaam configureren](analysis-services-server-alias.md)
+### [Uitschalen configureren](analysis-services-scale-out.md)
+### [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
+### [Een server beheren](analysis-services-manage.md)
+### [Metrische servergegevens bewaken](analysis-services-monitor.md)
+### [Registratie in diagnoselogboek instellen](analysis-services-logging.md)
 ### [Service-principal maken - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [Service-principal maken - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 ### [Een service-principal toevoegen aan serverbeheerdersrol](analysis-services-addservprinc-admins.md)
-## Serverbeheer
-### [Een alias voor een servernaam configureren](analysis-services-server-alias.md)
-### [Een server beheren](analysis-services-manage.md)
-### [Databasegebruikers beheren](analysis-services-database-users.md)
-### [Serverbeheerders beheren](analysis-services-server-admins.md)
-### [Metrische servergegevens bewaken](analysis-services-monitor.md)
-### [Registratie in diagnoselogboek instellen](analysis-services-logging.md)
-### [Gateway gebruiken voor gegevensbronnen op VNet](analysis-services-vnet-gateway.md)
-## Verbinding maken
-### [Clientbibliotheken ophalen](analysis-services-data-providers.md)
-### [Verbinden met Excel](analysis-services-connect-excel.md)
-### [Verbinden met Power BI](analysis-services-connect-pbi.md)
-### [Een ODC-bestand maken](analysis-services-odc.md)
-## Zelfstudies
-### [1 - Een voorbeeldmodel toevoegen](analysis-services-create-sample-model.md)
-### [Gegevensmodellering: zelfstudie Adventure Works](tutorials/aas-adventure-works-tutorial.md)
+
+## Model
+### [Een Power BI Desktop-bestand importeren](analysis-services-import-pbix.md)
+### [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
+### [Implementeren vanuit Visual Studio (SSDT)](analysis-services-deploy.md)
+### [Vernieuwen met REST-API](analysis-services-async-refresh.md)
+### [Gegevens modelleren in Visual Studio - zelfstudie Adventure Works (1400)](tutorials/aas-adventure-works-tutorial.md)
 #### [1: Een project voor een tabellair model maken](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Gegevens ophalen](tutorials/aas-lesson-2-get-data.md)
 #### [3: Als gegevenstabel markeren](tutorials/aas-lesson-3-mark-as-date-table.md) 
@@ -62,14 +64,25 @@
 #### [Aanvullende les: Dynamische beveiliging](tutorials/aas-supplemental-lesson-dynamic-security.md)
 #### [Aanvullende les: Onregelmatige hiërarchieën](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
+## Beveiliging
+### [Databasegebruikers beheren](analysis-services-database-users.md)
+### [Serverbeheerders beheren](analysis-services-server-admins.md)
+
+## Verbinding maken
+### [Verbinden met Excel](analysis-services-connect-excel.md)
+### [Verbinden met Power BI](analysis-services-connect-pbi.md)
+### [Een ODC-bestand maken](analysis-services-odc.md)
+
 # Naslaginformatie
-## [Azure PowerShell](analysis-services-powershell.md)
+
+## [PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Resources
+
 ## [Voorbeelden](analysis-services-samples.md)
 ## [Blog van Analysis Services-team](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
@@ -80,4 +93,13 @@
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [StackOverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+
+
+
+
+
+
+
+
+
 

@@ -204,11 +204,17 @@
 ##### [Stille installatie](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Aangepaste startpagina](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Inlinelinks vertalen](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
+##### [Jokertekens](active-directory-application-proxy-wildcard.md)
+##### [Persoonlijke gegevens verwijderen](manage-apps/application-proxy-remove-personal-data.md)
+
+
 #### Publicatie-overzicht
 ##### [Extern bureaublad](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
+##### [Qlik](active-directory-application-proxy-qlik.md)
+
 
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
 
@@ -225,7 +231,7 @@
 ### [Automatisch versnellen van aanmelding configureren met behulp van HRD-beleid](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
-#### [Toegang via eenmalige aanmelding](active-directory-appssoaccess-whatis.md)
+#### [Toegang via eenmalige aanmelding](manage-apps/what-is-single-sign-on.md)
 #### [Certificaten voor SSO](active-directory-sso-certs.md)
 #### [Beperkingen voor tenants](active-directory-tenant-restrictions.md)
 #### [SCIM gebruiken voor het inrichten van gebruikers](active-directory-scim-provisioning.md)
@@ -303,7 +309,7 @@
 ##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Voorwaardelijke toegang op basis van apps instellen](active-directory-conditional-access-mam.md)
 ##### [Gebruiksvoorwaarden bieden voor gebruikers en apps](active-directory-tou.md)
-##### [VPN-connectiviteit instellen](active-directory-conditional-access-vpn-connectivity-windows10.md)
+##### [VPN-connectiviteit instellen](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint en Exchange Online instellen](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Herstel](active-directory-conditional-access-device-remediation.md)
 #### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
