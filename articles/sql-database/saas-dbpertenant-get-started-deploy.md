@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645358"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementeren en een multitenant SaaS-app die gebruikmaakt van het patroon database per tenant met SQL Database verkennen
 
@@ -120,14 +121,14 @@ Een centraal **gebeurtenissen Hub** pagina bevat een lijst met koppelingen voor 
 
 Maakt gebruik van de toepassing Wingtip [ *Azure Traffic Manager* ](../traffic-manager/traffic-manager-overview.md) om de verspreiding van binnenkomende aanvragen. De URL voor toegang tot de pagina gebeurtenissen voor een specifieke tenant gebruikt de volgende indeling:
 
-- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/fabrikamjazzclub
 
     De onderdelen van de voorgaande indeling worden in de volgende tabel beschreven.
 
     | URL-onderdeel        | Beschrijving       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | De onderdelen van de gebeurtenissen van de app Wingtip.<br /><br /> *-dpt* onderscheidt de *database per tenant* implementatie van Wingtip Tickets uit andere implementaties. Voorbeelden zijn de *zelfstandige* app per tenant (*-sa*) of *multitenant database* (*- mt*) implementaties. |
-    | .*&lt;user&gt;* | *af1* in het voorbeeld. |
+    | .  *&lt;gebruiker&gt;* | *af1* in het voorbeeld. |
     | .trafficmanager.net/ | Traffic Manager basis-URL. |
     | fabrikamjazzclub | De tenant met de naam Fabrikam Jazz vereniging identificeert. |
     | &nbsp; | &nbsp; |

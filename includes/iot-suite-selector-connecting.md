@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 28290718d15a893c5d676c887b9f810449075746
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34665991"
 ---
 > [!div class="op_single_selector"]
 > * [C op Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -39,11 +40,11 @@ U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u gee
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Voordat u code voor uw apparaat schrijven, wordt uw externe controle oplossingsverbetering implementeren en een nieuwe fysieke apparaat toevoegt aan de oplossing.
+Voordat u code voor uw apparaat schrijven, wordt uw oplossingsverbetering externe controle implementeert en een nieuwe fysieke apparaat toevoegt aan de oplossing.
 
-### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Uw externe controle oplossingsverbetering implementeren
+### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implementeer uw oplossingsverbetering externe controle
 
-De **Koelunit** apparaat die u in deze zelfstudie maakt gegevens verzendt naar een exemplaar van de [externe controle](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) oplossingsverbetering. Als u dit nog niet hebt externe controle oplossingsverbetering in uw Azure-account voorzien, Zie [remote monitoring solution accelerator implementeren](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
+De **Koelunit** apparaat die u in deze zelfstudie maakt gegevens verzendt naar een exemplaar van de [externe controle](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md) oplossingsverbetering. Als u dit nog niet hebt Remote Monitoring solution accelerator in uw Azure-account voorzien, Zie [Remote Monitoring solution accelerator implementeren](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 Wanneer het implementatieproces voor de oplossing voor externe controle is voltooid, klikt u op **starten** dashboard van de oplossing in uw browser te openen.
 
@@ -70,7 +71,7 @@ Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, kunt u 
 
     ![Referenties ophalen](media/iot-suite-selector-connecting/credentials.png)
 
-U hebt nu een fysiek apparaat toegevoegd aan de externe controle oplossingsverbetering en de verbindingsreeks van het apparaat hebt genoteerd. In de volgende secties vindt implementeren u de clienttoepassing die de verbindingsreeks van het apparaat verbinding maakt met uw oplossing.
+U hebt nu een fysiek apparaat toegevoegd aan de oplossingsverbetering externe controle en de verbindingsreeks van het apparaat hebt genoteerd. In de volgende secties vindt implementeren u de clienttoepassing die de verbindingsreeks van het apparaat verbinding maakt met uw oplossing.
 
 De clienttoepassing implementeert de ingebouwde **Koelunit** Apparaatmodel. Een model oplossing accelerator apparaat Hiermee geeft u de volgende met betrekking tot een apparaat:
 

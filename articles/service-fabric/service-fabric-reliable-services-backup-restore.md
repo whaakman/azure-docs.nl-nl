@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643029"
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Back-up en herstel Reliable Services en Reliable Actors
 Azure Service Fabric is een hoge beschikbaarheid-platform die de status repliceert op meerdere knooppunten om deze hoge beschikbaarheid te houden.  Dus zelfs als een knooppunt in het cluster is mislukt, blijven de services beschikbaar. Bij deze ingebouwde redundantie geleverd door het platform is mogelijk niet voldoende is voor sommige, in bepaalde gevallen is het wenselijk voor de service voor back-ups (naar een externe winkel).
@@ -153,7 +154,7 @@ Bijvoorbeeld, als deze de volledige back-up bevat de eerste incrementele en de d
 > 
 
 ## <a name="deleted-or-lost-service"></a>Verwijderde of verloren-service
-Als een service wordt verwijderd, moet u eerst opnieuw maken de service voordat u de gegevens kunnen worden hersteld.  Het is belangrijk voor het maken van de service met dezelfde configuratie, bijvoorbeeld partitieschema, zodat de gegevens naadloos kan worden hersteld.  Zodra de service is, de API om gegevens te herstellen (`OnDataLossAsync` hierboven) moet worden aangeroepen voor elke partitie van deze service. Een manier om dat te bereiken dit is met behulp van `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` op elke partitie.  
+Als een service wordt verwijderd, moet u eerst opnieuw maken de service voordat u de gegevens kunnen worden hersteld.  Het is belangrijk voor het maken van de service met dezelfde configuratie, bijvoorbeeld partitieschema, zodat de gegevens naadloos kan worden hersteld.  Zodra de service is, de API om gegevens te herstellen (`OnDataLossAsync` hierboven) moet worden aangeroepen voor elke partitie van deze service. Een manier om dat te bereiken dit is met behulp van [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) op elke partitie.  
 
 Vanaf dit punt is implementatie hetzelfde als het bovenstaande scenario. Elke partitie moet de meest relevante back-up terugzetten vanaf de externe winkel. Een voorbehoud is dat de partitie-ID mogelijk is nu gewijzigd, omdat de runtime partitie-id dynamisch maakt. Daarom moet de service voor het opslaan van de juiste informatie en service partitienaam voor het identificeren van de juiste meest recente back-up wilt herstellen uit voor elke partitie.
 

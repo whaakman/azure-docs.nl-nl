@@ -11,23 +11,24 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 05/18/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 365959a588dc48e7991efea239ba823c3ca65e7a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640537"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
-[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) heeft meerdere definities van ingebouwde rol die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot bronnen in Azure. U kunt de ingebouwde rollen niet wijzigen, maar u kunt uw eigen maken [aangepaste rollen](custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.
+# <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde rollen voor toegangsbeheer op basis van rollen in Azure
+[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) heeft meerdere definities van ingebouwde rol die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot bronnen in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md).
 
 De ingebouwde rollen zijn altijd in ontwikkeling. Als u de meest recente roldefinities, gebruikt [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) of [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Beschrijvingen van de ingebouwde functies
-De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op de naam van de rol voor een overzicht van `actions` en `notActions` voor elke rol.
+De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op de naam van de rol voor een overzicht van `actions`, `notActions`, `dataActions`, en `notDataActions` voor elke rol.
 
 
 | Ingebouwde rol | Beschrijving |
@@ -83,6 +84,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 | [Nieuwe Relic APM-Account Inzender](#new-relic-apm-account-contributor) | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
 | [Lezer en toegang tot gegevens](#reader-and-data-access) | Hiermee kunt u Alles weergeven, maar kunt u verwijderen of te maken van een opslagaccount of opgenomen resource niet. Hiermee wordt ook wel lees-/ schrijftoegang tot alle gegevens in een opslagaccount via toegang tot toegangscodes voor opslag. |
 | [Redis-Cache Inzender](#redis-cache-contributor) | Hiermee beheert u exemplaren van Redis-cache, maar kunt u niet de toegang tot de exemplaren beheren. |
+| [Resource beleid Inzender (Preview)](#resource-policy-contributor-preview) | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
 | [Scheduler-taak verzamelingen Inzender](#scheduler-job-collections-contributor) | Hiermee beheert u Scheduler-taakverzamelingen, maar kunt u niet de toegang tot de verzamelingen beheren. |
 | [Search Service Inzender](#search-service-contributor) | Hiermee beheert u Search-services, maar kunt u niet de toegang tot de services beheren. |
 | [De beheerder beveiliging](#security-admin) | In Security Center alleen: kunt weergeven beveiligingsbeleid, beveiliging statussen weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
@@ -94,13 +96,17 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 | [SQL DB Contributor](#sql-db-contributor) | Kunt u SQL-databases, maar niet de toegang tot beheren. U beheren niet ook hun beleid betrekking hebben op beveiliging of hun bovenliggende SQL-servers. |
 | [SQL Security Manager](#sql-security-manager) | Hiermee kunt u beveiligingsbeleid van SQL-servers en -databases beheren, maar niet de toegang tot het beleid. |
 | [SQL Server Inzender](#sql-server-contributor) | Hiermee kunt u SQL-servers en -databases beheren, maar niet de toegang tot en het beveiligingsbeleid van de servers en databases. |
-| [Storage-Account Inzender](#storage-account-contributor) | Hiermee kunt u opslagaccounts beheren, maar niet de toegang. |
+| [Inzender voor opslagaccounts](#storage-account-contributor) | Hiermee kunt u opslagaccounts beheren, maar niet de toegang. |
 | [Storage-Account de Operator-functieservice](#storage-account-key-operator-service-role) | Sleuteloperators voor opslagaccounts kunnen een lijst met sleutels voor opslagaccounts maken en de sleutels opnieuw genereren |
+| [Opslag-Blob Inzender (Preview)](#storage-blob-data-contributor-preview) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
+| [Opslag-Blob gegevenslezer (Preview)](#storage-blob-data-reader-preview) | Hiermee wordt leestoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
+| [Opslag wachtrij Inzender (Preview)](#storage-queue-data-contributor-preview) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-wachtrijen en -wachtrijberichten verleend. |
+| [Opslag wachtrij gegevenslezer (Preview)](#storage-queue-data-reader-preview) | Hiermee wordt leestoegang verleend voor Azure Storage-wachtrijen en -wachtrijberichten. |
 | [Ondersteuning voor aanvraag Inzender](#support-request-contributor) | Hiermee kunt u ondersteuningsaanvragen maken en beheren |
 | [Traffic Manager Inzender](#traffic-manager-contributor) | Hiermee kunt u Traffic Manager-profielen beheren, maar kunt u niet bepalen wie toegang heeft. |
 | [Beheerder voor gebruikerstoegang](#user-access-administrator) | Hiermee beheert u de gebruikerstoegang tot Azure-resources. |
 | [Aanmeldingsnaam van de beheerder van de virtuele Machine](#virtual-machine-administrator-login) | -  Gebruikers met deze rol kunnen zich bij een virtuele machine aanmelden met Windows-beheerders- of Linux-rootgebruikersbevoegdheden |
-| [Virtual Machine Contributor](#virtual-machine-contributor) | Kunt u virtuele machines, maar niet de toegang tot, en niet het virtuele netwerk of ze zijn verbonden met storage-account beheren. |
+| [Inzender voor virtuele machines](#virtual-machine-contributor) | Kunt u virtuele machines, maar niet de toegang tot, en niet het virtuele netwerk of ze zijn verbonden met storage-account beheren. |
 | [Virtuele Machine gebruikersaanmelding](#virtual-machine-user-login) | Gebruikers met deze rol kunnen zich als een normale gebruiker aanmelden bij een virtuele machine |
 | [Web Plan Inzender](#web-plan-contributor) | Hiermee beheert u de webabonnementen voor websites, maar kunt u niet de toegang tot de abonnementen beheren. |
 | [Website Inzender](#website-contributor) | Hiermee beheert u websites (niet webabonnementen), maar kunt u niet de toegang tot de websites beheren. |
@@ -1035,6 +1041,20 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
+## <a name="resource-policy-contributor-preview"></a>Inzender voor resourcebeleid (preview-versie)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
+> | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | **Acties** |  |
+> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen lezen. |
+> | Microsoft.Authorization/policyassignments/* | Maken en beheren van de toewijzingen van beleid |
+> | Microsoft.Authorization/policydefinitions/* | Maken en beheren van beleidsdefinities |
+> | Microsoft.Authorization/policysetdefinitions/* | Maken en beheren van sets van beleid |
+> | Microsoft.PolicyInsights/* |  |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+
 ## <a name="scheduler-job-collections-contributor"></a>Inzender voor Scheduler-taakverzamelingen
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1388,6 +1408,58 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 > | Microsoft.Storage/storageAccounts/listkeys/action | Hiermee retourneert u de toegangssleutels voor het opgegeven opslagaccount. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Hiermee genereert u de toegangssleutels voor het opgegeven opslagaccount opnieuw. |
 
+## <a name="storage-blob-data-contributor-preview"></a>Gegevensbijdrager voor opslagblob (preview-versie)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
+> | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Acties** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Hiermee wordt het resultaat van het verwijderen van een container geretourneerd |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Hiermee wordt een container of een lijst containers geretourneerd |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Hiermee wordt het resultaat van het plaatsen of in lease geven van de blobcontainer geretourneerd |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Hiermee wordt het resultaat van het verwijderen van een blob geretourneerd |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Hiermee wordt een blob of een lijst met blobs geretourneerd |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Hiermee wordt het resultaat van het schrijven van een blob geretourneerd |
+
+## <a name="storage-blob-data-reader-preview"></a>Gegevenslezer voor opslagblob (preview-versie)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee wordt leestoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
+> | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **Acties** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Hiermee wordt een container of een lijst containers geretourneerd |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Hiermee wordt een blob of een lijst met blobs geretourneerd |
+
+## <a name="storage-queue-data-contributor-preview"></a>Gegevensbijdrager voor opslagwachtrij (preview-versie)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-wachtrijen en -wachtrijberichten verleend. |
+> | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **Acties** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Hiermee wordt het resultaat van een wachtrij verwijderen geretourneerd |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Hiermee wordt een wachtrij of een lijst met wachtrijen geretourneerd. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Hiermee wordt het resultaat van het schrijven van een wachtrij geretourneerd |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Hiermee wordt het resultaat van een bericht verwijderen geretourneerd |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Hiermee wordt een bericht geretourneerd |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Hiermee wordt het resultaat van het schrijven van een bericht geretourneerd |
+
+## <a name="storage-queue-data-reader-preview"></a>Gegevenslezer voor opslagwachtrij (preview-versie)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee wordt leestoegang verleend voor Azure Storage-wachtrijen en -wachtrijberichten. |
+> | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **Acties** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Hiermee wordt een wachtrij of een lijst met wachtrijen geretourneerd. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Hiermee wordt een bericht geretourneerd |
+
 ## <a name="support-request-contributor"></a>Inzender voor ondersteuningsaanvragen
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1437,6 +1509,9 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 > | Microsoft.Network/loadBalancers/read | De definitie van een load balancer ophalen |
 > | Microsoft.Network/networkInterfaces/read | Haalt de definitie van een netwerkinterface.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Als een gewone gebruiker aanmelden bij een virtuele machine |
+> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Aanmelden bij een virtuele machine met Windows-beheerders- of Linux-rootgebruikersbevoegdheden |
 
 ## <a name="virtual-machine-contributor"></a>Inzender voor virtuele machines
 > [!div class="mx-tableFixed"]
@@ -1495,6 +1570,8 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 > | Microsoft.Network/loadBalancers/read | De definitie van een load balancer ophalen |
 > | Microsoft.Network/networkInterfaces/read | Haalt de definitie van een netwerkinterface.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Als een gewone gebruiker aanmelden bij een virtuele machine |
 
 ## <a name="web-plan-contributor"></a>Inzender voor webabonnementen
 > [!div class="mx-tableFixed"]

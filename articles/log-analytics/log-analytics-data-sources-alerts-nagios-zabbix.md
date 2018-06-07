@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637766"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Waarschuwingen verzamelen van Nagios en Zabbix in logboekanalyse van OMS-Agent voor Linux 
 [Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) open-source hulpprogramma's voor controle zijn. U kunt waarschuwingen van deze hulpprogramma's in logboekanalyse verzamelen om te kunnen analyseren ze samen met [waarschuwingen uit andere bronnen](log-analytics-alerts.md).  Dit artikel wordt beschreven hoe u configureert de OMS-Agent voor Linux voor het verzamelen van waarschuwingen van deze systemen.
@@ -56,7 +57,7 @@ Voor het verzamelen van waarschuwingen, moet u de volgende stappen uitvoeren op 
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Zabbix verzamelen van waarschuwingen configureren
-Voor het verzamelen van waarschuwingen van een Zabbix-server, moet u een gebruiker en het wachtwoord in te geven *leesbare tekst*.  Terwijl niet ideaal wordt aangeraden de gebruiker te maken en verleen machtigingen voor het bewaken van onlu.
+Voor het verzamelen van waarschuwingen van een Zabbix-server, moet u een gebruiker en het wachtwoord in te geven *leesbare tekst*.  U wordt aangeraden de Zabbix van een gebruiker te maken met alleen-lezen-machtigingen voor het relevante alarmen onderschept terwijl niet ideaal.
 
 Voor het verzamelen van waarschuwingen op de Nagios-server, moet u de volgende stappen uitvoeren.
 
@@ -73,7 +74,7 @@ Voor het verzamelen van waarschuwingen op de Nagios-server, moet u de volgende s
 
 2. De daemon omsagent starten
 
-    sudo servicel /opt/microsoft/omsagent/bin/service_control opnieuw starten
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>Waarschuwing records
@@ -104,7 +105,7 @@ Waarschuwing die is verzameld door Zabbix-records hebben een **Type** van **waar
 | Type |*Een waarschuwing* |
 | SourceSystem |*Zabbix* |
 | AlertName | De naam van de waarschuwing. |
-| AlertPriority | Ernst van de waarschuwing.<br><br>niet geclassificeerd<br>informatie<br>Waarschuwing<br>gemiddelde<br>Hoog<br>noodherstel  |
+| AlertPriority | Ernst van de waarschuwing.<br><br>niet geclassificeerd<br>informatie<br>Waarschuwing<br>gemiddeld<br>Hoog<br>noodherstel  |
 | AlertState | Status van de waarschuwing.<br><br>0 - status is bijgewerkt.<br>1 - status is onbekend.  |
 | AlertTypeNumber | Hiermee geeft u op of in een waarschuwing meerdere gebeurtenissen van het probleem kan worden gegenereerd.<br><br>0 - status is bijgewerkt.<br>1 - status is onbekend.    |
 | Opmerkingen | Aanvullende opmerkingen voor waarschuwing. |

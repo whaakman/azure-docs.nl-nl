@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: bd9f01e76c68fa41616818251b5b54553059cbcc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637732"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Bouw en implementeer de installatiekopie classificatiemodellen kunnen met Azure Machine Learning
 
@@ -227,7 +228,6 @@ else:
 ## <a name="define-dnn-models"></a>DNN modellen definiëren
 
 De volgende pretrained Deep Neural Network-modellen worden ondersteund met dit pakket: 
-+ AlexNet
 + Resnet 18
 + Resnet 34
 + Resnet 50
@@ -444,13 +444,9 @@ Met behulp van een [Azure](https://azure.microsoft.com/) account met een geldig 
 + Als het huidige model-management-account weergeven, gebruikt u de opdracht:
   <br>`az ml account modelmanagement show`
 
-**Maak en stel uw implementatieomgeving**
+**Maak en stel uw clusteromgeving voor implementatie**
 
 U hoeft alleen te uw implementatieomgeving eenmaal worden ingesteld. Als u een nog geen hebt, kunt u uw implementatieomgeving nu met gebruik van instellen [deze instructies](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
-
-Volg de lokale of cluster implementatie installatiestappen correct op basis van uw behoeften.
-+ Lokale implementaties worden ondersteund voor Linux en Windows 10-computers, maar niet voor de virtuele machine van Windows gegevens wetenschap of de grondige Learning VM. 
-+ Implementaties van een cluster omgeving worden ondersteund voor Linux- en Windows. 
 
 Als uw omgeving actieve implementatie weergeven, gebruikt u de volgende CLI-opdracht:
 <br>`az ml env show`

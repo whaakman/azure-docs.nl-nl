@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 05/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: fd70636a40ac08fb4b47c6ea53ae3c702d271ea8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: f128947cf3ac0a2afab23d41f101c1b0d7624397
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204896"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641948"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
@@ -64,8 +64,8 @@ Als u alleen de SDK nodig hebt, kunt u dit pakket installeren:
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
 De huidige versies zijn:
-* Service Fabric-SDK en -hulpprogramma's 3.1.274
-* Service Fabric Runtime 6.2.274
+* Service Fabric SDK en hulpprogramma's 3.1.283
+* Service Fabric-runtime 6.2.283
 * Service Fabric Tools for Visual Studio 2015 2.1.20180510.2
 * Visual Studio 2017 15.7 bevat Service Fabric Tools for Visual Studio 2.1.20180423.1 
 

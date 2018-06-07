@@ -2,8 +2,8 @@
 title: Oracle-oplossingen in Microsoft Azure | Microsoft Docs
 description: Meer informatie over ondersteunde configuraties en beperkingen van Oracle-oplossingen in Microsoft Azure.
 services: virtual-machines-linux
-documentationcenter: 
-manager: timlt
+documentationcenter: ''
+manager: jeconnoc
 author: rickstercdn
 tags: azure-resource-management
 ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: rclaus
-ms.openlocfilehash: 1bc03d15096e7f1d4538d6642a61aaee9bb572f7
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: daed709b4b4be87ba75f5539bd31c666b3a37414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656343"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Oracle-oplossingen en hun implementatie in Microsoft Azure
 In dit artikel bevat informatie over de benodigde informatie om te implementeren in Microsoft Azure verschillende Oracle-oplossingen. Deze oplossingen zijn gebaseerd op de virtuele Machine installatiekopieën die zijn gepubliceerd door Oracle in Azure Marketplace. Als u een lijst met beschikbare installatiekopieën, voer de volgende opdracht:

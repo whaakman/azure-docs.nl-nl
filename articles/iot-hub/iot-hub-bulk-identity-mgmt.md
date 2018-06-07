@@ -1,24 +1,19 @@
 ---
 title: Import/export van Azure IoT Hub apparaat-id's | Microsoft Docs
 description: Het gebruik van de service Azure IoT SDK Bulksgewijze bewerkingen op basis van het register van de id's importeren en exporteren van apparaat-id's uit te voeren. Importbewerkingen kunnen u maken, bijwerken en verwijderen van apparaat-id's in bulk.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 63e7fd5807f0cf6d05d81af138d649b75024d9bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634019"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Beheren van uw IoT Hub apparaat-id's in bulk
 
@@ -60,7 +55,7 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{y
 
 De verbindingsreeks voor uw IoT-hub in de Azure portal zoeken:
 
-- Navigeer naar uw IoT-hub.
+- Ga naar uw IoT-hub.
 - Selecteer **gedeeld toegangsbeleid**.
 - Een beleid selecteert, rekening houdend met de machtigingen die u nodig hebt.
 - Kopieer de connectionstring van het paneel aan de rechterkant van het scherm.
@@ -247,7 +242,7 @@ Als het importbestand twin metagegevens bevat, overschrijft deze metagegevens va
 
 Gebruik het optionele **ImportMode %** eigenschap in de serialisatiegegevens importeren voor elk apparaat om te bepalen van de import proces per apparaat. De **ImportMode %** eigenschap heeft de volgende opties:
 
-| importMode | Beschrijving |
+| ImportMode % | Beschrijving |
 | --- | --- |
 | **createOrUpdate** |Als een apparaat niet met de opgegeven bestaat **id**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, bestaande gegevens wordt overschreven met de opgegeven invoergegevens zonder betrekking tot de **ETag** waarde. <br> De gebruiker kan eventueel twin gegevens samen met de apparaatgegevens opgeven. De twin etag, wordt indien opgegeven, verwerkt onafhankelijk van het apparaat etag. Als er niet overeen met de bestaande twin etag komt, wordt een fout naar het logboekbestand geschreven. |
 | **maken** |Als een apparaat niet met de opgegeven bestaat **id**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, wordt er een fout naar het logboekbestand geschreven. <br> De gebruiker kan eventueel twin gegevens samen met de apparaatgegevens opgeven. De twin etag, wordt indien opgegeven, verwerkt onafhankelijk van het apparaat etag. Als er niet overeen met de bestaande twin etag komt, wordt een fout naar het logboekbestand geschreven. |

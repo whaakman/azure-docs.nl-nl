@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: srrengar
-ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643172"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Controle en diagnostische gegevens voor Azure Service Fabric
 
@@ -46,9 +47,6 @@ Service Fabric bevat een uitgebreide reeks gebeurtenissen uit het vak. Deze [Ser
 We raden u aan de EventStore gebruiken voor snelle analyse en idee te krijgen een momentopname van hoe uw cluster wordt uitgevoerd en als dingen als plaatsvinden verwacht. Voor het verzamelen van Logboeken en gebeurtenissen die door het cluster wordt gegenereerd, in het algemeen wordt aangeraden met behulp van de [extensie voor diagnostische gegevens van Azure](service-fabric-diagnostics-event-aggregation-wad.md). Dit kan worden geïntegreerd met Service Fabric Analytics, OMS Log Analytics Service Fabric specifieke oplossing die een aangepast dashboard biedt voor het bewaken van Service Fabric-clusters en kunt u query uitvoeren op uw cluster gebeurtenissen en waarschuwingen instellen. Meer informatie over deze [analyse van gebeurtenis met OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
  Meer informatie over het bewaken van uw cluster op [Platform niveau gebeurtenis- en logboekbestanden generatie](service-fabric-diagnostics-event-generation-infra.md).
-
-
- ![OMS SF-oplossing](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
 ## <a name="performance-monitoring"></a>Prestatiebewaking
 Bewaking van de onderliggende infrastructuur is een belangrijk onderdeel van de informatie over de status van het cluster en de bronnen beter worden benut. Meten van de systeemprestaties, is afhankelijk van verschillende factoren, die elk gewoonlijk via een Key Performance Indicators (KPI's gemeten worden). Service Fabric die relevante KPI's kunnen worden toegewezen aan de metrische gegevens die kunnen worden verzameld van de knooppunten in het cluster als prestatiemeteritems.

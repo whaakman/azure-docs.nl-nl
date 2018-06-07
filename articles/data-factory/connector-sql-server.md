@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3da4b0286ddea88d8009757ea44797e4269140a2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cb68b00232edd79a7b9cf239c1576c88731812d6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617678"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +59,7 @@ De volgende eigenschappen worden ondersteund voor SQL Server gekoppeld-service:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SqlServer** | Ja |
 | connectionString |ConnectionString informatie die nodig zijn voor de verbinding met de SQL Server-database met behulp van de SQL-verificatie of de Windows-verificatie opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| userName |Geef de gebruikersnaam als u Windows-verificatie gebruikt. Voorbeeld: **domainname\\gebruikersnaam**. |Nee |
+| Gebruikersnaam |Geef de gebruikersnaam als u Windows-verificatie gebruikt. Voorbeeld: **domainname\\gebruikersnaam**. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Nee |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
@@ -247,7 +248,7 @@ END
 GO
 ```
 
-### <a name="sql-server-as-sink"></a>SQL Server as sink
+### <a name="sql-server-as-sink"></a>SQL Server als sink
 
 Om gegevens te kopiëren naar SQL Server, stelt u het sink-type in de kopieerbewerking naar **SqlSink**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **sink** sectie:
 
@@ -491,7 +492,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |Double |
+| Float |dubbele |
 | Afbeelding |Byte[] |
 | int |Int32 |
 | Money |Decimale |
@@ -505,7 +506,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |
-| Tekst |Tekenreeks, Char] |
+| tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |
 | tijdstempel |Byte[] |
 | tinyint |Int16 |

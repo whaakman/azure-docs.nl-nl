@@ -14,11 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 2de7c06f2e03432021eaf6d81d166aadd392a4bf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 25193232263d55cb56c6ca35a8d1a074ce6bb157
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637987"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>De Wirecast-coderingsprogramma gebruiken voor het verzenden van een single-bitrate live stream
 > [!div class="op_single_selector"]
@@ -69,7 +70,7 @@ Terwijl het kanaal wordt gestart, kunt u [configureren van het coderingsprogramm
 >
 >
 
-## <a id=configure_wirecast_rtmp></a>De Telestream Wirecast-coderingsprogramma configureren
+## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a>< een id = "configure_wirecast_rtmp" /a > Telestream Wirecast-coderingsprogramma configureren
 In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van deze sectie beschrijft de configuratiestappen in meer detail.
 
 **Video**:
@@ -115,7 +116,7 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
    * Samplefrequentie: 44,100 kHz
 
      ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
-6. Druk op **opslaan**.
+6. Klik op **Opslaan**.
 
     Het veld Encoding heeft nu het nieuwe profiel beschikbaar voor selectie.
 

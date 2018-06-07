@@ -11,36 +11,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2017
+ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 737f8d49d8254806891d3177cde59187cd8e1f2e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640180"
 ---
 # <a name="view-activity-logs-for-role-based-access-control-changes"></a>Activiteitenlogboeken bekijken voor op rollen gebaseerde toegang besturingselement wordt gewijzigd
 
-Elk gewenst moment iemand wijzigingen in roldefinities of roltoewijzingen binnen uw abonnementen aanbrengt, de wijzigingen worden geregistreerd [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in de beheercategorie. U kunt de activiteitenlogboeken wilt zien welke wijzigingen voor de toegangsbeheer (RBAC) toegang op basis van rollen voor de afgelopen negentig dagen weergeven.
+Soms moet u informatie over op rollen gebaseerde toegangsbeheer (RBAC) wijzigingen, zoals voor het controleren of het oplossen van problemen. Elk gewenst moment iemand wijzigingen in roltoewijzingen of roldefinities binnen uw abonnementen aanbrengt, de wijzigingen worden geregistreerd [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). U kunt de activiteitenlogboeken om te zien alle RBAC wijzigingen voor de afgelopen negentig dagen weergeven.
 
 ## <a name="operations-that-are-logged"></a>Bewerkingen die worden geregistreerd
 
 Hier volgen de RBAC-gerelateerde bewerkingen die worden vastgelegd in logboek:
 
-- Een aangepaste roldefinitie maken of bijwerken
-- De aangepaste roldefinitie verwijderen
 - Roltoewijzing maken
 - Roltoewijzing verwijderen
+- Een aangepaste roldefinitie maken of bijwerken
+- De aangepaste roldefinitie verwijderen
 
 ## <a name="azure-portal"></a>Azure Portal
 
-De eenvoudigste manier om te beginnen is om de activiteitenlogboeken met de Azure-portal weer te geven. De volgende Schermafbeelding toont een voorbeeld van een gebeurtenislogboek die een filter is toegepast om weer te geven de **Administrative** categorie samen met de roldefinitie en rol toewijzingsbewerkingen. Dit omvat ook een koppeling om te downloaden van de logboeken als een CSV-bestand.
+De eenvoudigste manier om te beginnen is om de activiteitenlogboeken met de Azure-portal weer te geven. De volgende Schermafbeelding toont een voorbeeld van een activiteitenlogboek die een filter is toegepast om roltoewijzing en rol definitie bewerkingen weer te geven. Dit omvat ook een koppeling om te downloaden van de logboeken als een CSV-bestand.
 
 ![Activiteitenlogboeken via de portal - schermafbeelding](./media/change-history-report/activity-log-portal.png)
 
-Zie voor meer informatie [gebeurtenissen weergeven in activiteitenlogboek](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Het activiteitenlogboek in de portal heeft verschillende filters. Hier volgen de filters RBAC-gerelateerde:
+
+|Filteren  |Waarde  |
+|---------|---------|
+|Gebeurteniscategorie     | <ul><li>Administratief</li></ul>         |
+|Bewerking     | <ul><li>Roltoewijzing maken</li> <li>Roltoewijzing verwijderen</li> <li>Een aangepaste roldefinitie maken of bijwerken</li> <li>De aangepaste roldefinitie verwijderen</li></ul>      |
+
+
+Zie voor meer informatie over activiteitenlogboeken [gebeurtenissen weergeven in activiteitenlogboek](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -99,7 +108,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is een ander hulpmiddel dat u gebruiken kunt voor het verzamelen en analyseren van op rollen gebaseerde toegang besturingselement wordt gewijzigd voor alle Azure-resources. Log Analytics biedt de volgende voordelen:
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is een ander hulpmiddel dat u gebruiken kunt voor het verzamelen en analyseren van RBAC wijzigingen voor alle Azure-resources. Log Analytics biedt de volgende voordelen:
 
 - Schrijven van complexe query's en logica
 - Integreren met waarschuwingen, Power BI en andere hulpprogramma 's

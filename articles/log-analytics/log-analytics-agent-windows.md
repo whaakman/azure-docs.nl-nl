@@ -2,11 +2,11 @@
 title: Windows-computers verbinding met Azure Log Analytics | Microsoft Docs
 description: In dit artikel wordt beschreven hoe Windows-computers die worden gehost in andere clouds of on-premises met logboekanalyse met de Microsoft Monitoring Agent (MMA) verbinding.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637409"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinding met de Log Analytics-service in Azure
 
@@ -33,7 +34,7 @@ De agent kan worden geïnstalleerd met behulp van een van de volgende methoden. 
 * PowerShell-script.
 * Resource Manager-sjabloon voor virtuele machines met Windows on-premises in Azure-Stack.  
 
-Raadpleeg voor informatie over de netwerk- en vereisten voor het implementeren van de Windows-agent, [vereisten voor Windows-computers](log-analytics-concept-hybrid.md#prerequisites).
+Raadpleeg voor informatie over de ondersteunde configuratie, [ondersteunde Windows-besturingssystemen](log-analytics-concept-hybrid.md#supported-windows-operating-systems) en [firewall netwerkconfiguratie](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Werkruimte-ID en -sleutel ophalen
 Voordat u de MMA (Microsoft Monitoring Agent) voor Windows installeert, hebt u eerst de werkruimte-id en -sleutel voor uw Log Analytics-werkruimte nodig.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met logboekanalyse in Azure commerciële en -US Government-cloud.  

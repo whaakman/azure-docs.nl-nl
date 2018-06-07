@@ -1,24 +1,20 @@
 ---
 title: Aan de slag met Azure IoT Hub apparaat horende (.NET/knooppunt) | Microsoft Docs
 description: Het gebruik van Azure IoT Hub apparaat horende labels toevoegen en vervolgens met de query voor een IoT Hub. U het apparaat met Azure IoT SDK voor Node.js gebruiken voor het implementeren van de gesimuleerde apparaattoepassing en de Azure IoT service SDK voor .NET voor het implementeren van een service-app die de labels worden toegevoegd en de IoT Hub-query wordt uitgevoerd.
-services: iot-hub
-documentationcenter: node
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
+manager: ''
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: elioda
-ms.openlocfilehash: 4cf607e8e0ccd3aab06be54d715c2bf3777caeb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2d78fe3f43c493eb126af86580ee473a6aa18c2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634417"
 ---
 # <a name="get-started-with-device-twins-netnode"></a>Aan de slag met apparaat horende (.NET/knooppunt)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -97,7 +93,7 @@ In deze sectie maakt u een .NET-consoletoepassing maken (met C#) waarmee de meta
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
 
-1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **AddTagsAndQuery** project **Start**. De oplossing bouwen.
+1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **AddTagsAndQuery** project **Start**. Bouw de oplossing.
 1. Deze toepassing uitvoeren door met de rechtermuisknop op de **AddTagsAndQuery** project en selecteer **Debug**, gevolgd door **nieuw exemplaar gestart**. U ziet één apparaat in de resultaten van de query wordt gevraagd voor alle apparaten vinden in **Redmond43** en er is geen voor de query die de resultaten beperkt tot apparaten die gebruikmaken van een mobiel netwerk.
    
     ![De resultaten van de query-venster][img-addtagapp]

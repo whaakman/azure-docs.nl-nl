@@ -2,12 +2,12 @@
 title: SAP NetWeaver op Microsoft Azure SUSE Linux VM's testen | Microsoft Docs
 description: SAP NetWeaver testen op Microsoft Azure SUSE Linux VM's
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 645e358b-3ca1-4d3d-bf70-b0f287498d7a
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 9bb13cde07141c576a0ec78c3b48c5a20d6dbb67
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657652"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>SAP NetWeaver uitvoeren op Microsoft Azure SUSE Linux VM's
 In dit artikel beschrijft de verschillende overwegingen wanneer u SAP NetWeaver op virtuele Microsoft Azure SUSE Linux-machines (VM's) uitvoert. SAP NetWeaver wordt vanaf 19 mei 2016 officieel ondersteund in SUSE Linux virtuele machines in Azure. Alle gegevens met betrekking tot Linux-versies, SAP kernel-versies en andere vereisten vindt u in SAP-notitie 1928533 ' SAP-toepassingen in Azure: ondersteunde producten en Azure VM typen '.
@@ -69,7 +70,7 @@ Het is nog steeds mogelijk met de standaard SLES-installatiekopieën voor SAP-in
 ## <a name="installing-walinuxagent-in-a-suse-vm"></a>WALinuxAgent installeren in een VM SUSE
 De agent genoemd WALinuxAgent maakt deel uit van de installatiekopieën SLES in Azure Marketplace. Zie voor informatie over het installeren van deze handmatig (bijvoorbeeld tijdens het uploaden van een besturingssysteem SLES virtuele harde schijf (VHD) on-premises):
 
-* [OpenSUSE](http://software.opensuse.org/package/WALinuxAgent)
+* [openSUSE](http://software.opensuse.org/package/WALinuxAgent)
 * [Azure](../../linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
@@ -105,7 +106,7 @@ Als u wilt uploaden van een virtuele machine zonder de identiteitsgegevens stap 
 
 Naast het wat in het artikel wordt beschreven, raden we aan dat u dit bestand verwijderen:
 
-   /lib/udev/rules.d/75-persistent-net-generator.rules
+   /lib/udev/Rules.d/75-persistent-NET-generator.Rules
 
 U kunt ook de Azure Linux Agent (waagent) om u te helpen te voorkomen dat potentiële problemen, zolang er meerdere NIC's zijn installeren.
 

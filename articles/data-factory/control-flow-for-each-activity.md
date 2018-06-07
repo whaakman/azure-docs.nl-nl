@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2eaa4f6bb49867e0f0f061116551794d6f1dd0ca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2240ebc7fb4fd39ea063240987fec64f26608a8a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619045"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-activiteit in Azure Data Factory
 De ForEach-activiteit definieert een herhalende controlestroom in de pipeline. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
@@ -74,8 +75,8 @@ De eigenschappen worden verderop in dit artikel beschreven. De eigenschap items 
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | De naam van de voor elke activiteit. | Tekenreeks | Ja
-type | Moet worden ingesteld op **ForEach** | Tekenreeks | Ja
+naam | De naam van de voor elke activiteit. | Reeks | Ja
+type | Moet worden ingesteld op **ForEach** | Reeks | Ja
 isSequential | Hiermee geeft u op of de lus sequentieel of parallel moet worden uitgevoerd.  Maximum van 20 lus iteraties kan worden uitgevoerd in één keer parallel). Bijvoorbeeld, als u hebt een ForEach activiteit met iteratie van een kopieeractiviteit met 10 verschillende bron- en sink gegevenssets met **isSequential** ingesteld op False, alle exemplaren worden uitgevoerd in één keer. De standaardwaarde is ONWAAR. <br/><br/> Als 'isSequential' is ingesteld op False, zorg ervoor dat er een juiste configuratie om uit te voeren van meerdere uitvoerbare bestanden. Anders moet u deze eigenschap gebruikt behoedzaam te vermijden schrijven conflicten. Zie voor meer informatie [parallelle uitvoering](#parallel-execution) sectie. | Boole-waarde | Nee. De standaardwaarde is ONWAAR.
 Items | Een expressie die een JSON-matrix worden iteratie retourneert. | Expressie (die resulteert in een JSON-matrix) | Ja
 Activiteiten | De activiteiten worden uitgevoerd. | Lijst van activiteiten | Ja

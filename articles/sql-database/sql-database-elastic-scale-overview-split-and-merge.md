@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c70279bd52f7b0b0e0cbc27742eca93d9af5e630
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647415"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Gegevens verplaatsen tussen uitgeschaalde clouddatabases
 Als u een Software als een Service-ontwikkelaar bent en plotseling uw app grote vraag ondergaat, moet u ruimte is voor de groei. Zodat toevoegen u meer databases (shards). Hoe u opnieuw distribueren de gegevens naar de nieuwe databases zonder te onderbreken van de integriteit van gegevens? Gebruik de **gesplitste merge tool** gegevens van beperkte databases naar de nieuwe databases verplaatsen.  
@@ -130,7 +131,7 @@ De huidige implementatie van de gesplitste merge-service is onderworpen aan de v
 * Tijdens de verwerking van aanvragen mogelijk bepaalde gegevens shardlet aanwezig op de bron en de doel-shard. Dit is nodig om te beschermen tegen fouten tijdens het shardlet-verkeer. De integratie van split-samenvoegen met de shard-toewijzing zorgt ervoor dat verbindingen via de gegevens afhankelijke routering API's met de **OpenConnectionForKey** methode voor de shard-toewijzing een inconsistente tussenliggende statussen niet ziet. Echter, bij het verbinden met de bron- of de doel-shards zonder gebruik van de **OpenConnectionForKey** methode inconsistente tussenliggende statussen mogelijk zichtbaar wanneer merge-gesplitste/move-aanvragen zijn die aan. Deze verbindingen gedeeltelijke of dubbele resultaten, afhankelijk van de timing of de shard onderliggende de verbinding kunnen worden weergegeven. Deze beperking bevat momenteel de verbindingen gemaakt door de elastische Schaalfunctionaliteit van meerdere Shard-query.
 * De database met metagegevens voor de service gesplitste merge moet niet worden gedeeld tussen verschillende rollen. Een rol van de service gesplitste samenvoegen in fasering moet verwijzen naar een andere metagegevensdatabase dan de productie-rol.
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 De splitsing merge-service wordt uitgevoerd als een cloudservice in uw Microsoft Azure-abonnement. Kosten voor cloudservices zijn daarom van toepassing op uw exemplaar van de service. Tenzij u vaak split of merge/verplaatsen bewerkingen uitvoert, wordt u aangeraden verwijderen van uw cloudservice gesplitste samenvoegen. Die kosten voor het werken met opgeslagen of geïmplementeerd cloud service-exemplaren. U kunt opnieuw implementeren en de configuratie van uw gemakkelijk uitvoerbare start wanneer u wilt splitsen of samenvoegen bewerkingen uitvoeren. 
 
 ## <a name="monitoring"></a>Bewaking

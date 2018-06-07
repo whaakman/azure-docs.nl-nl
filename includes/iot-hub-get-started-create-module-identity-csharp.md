@@ -9,11 +9,12 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: a94a68d238a731388d8b13bd962b0db1007c5ca4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: d2b409c7454645893665b080b927998402056cdd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666905"
 ---
 ## <a name="create-a-module-identity"></a>Een module-id maken
 
@@ -43,7 +44,16 @@ In dit gedeelte gaat u een .NET-consoletoepassing maken die een apparaat-id en e
     const string moduleID = "myFirstModule";
     ```
 
-5. Voeg de volgende methoden toe aan de klasse **Program**:
+5. Voeg de volgende code naar de **Main** klasse.
+    ```csharp
+    static void Main(string[] args)
+    {
+        AddDeviceAsync().Wait();
+        AddModuleAsync().Wait();
+    }
+    ```
+
+6. Voeg de volgende methoden toe aan de klasse **Program**:
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -87,7 +97,7 @@ In dit gedeelte gaat u een .NET-consoletoepassing maken die een apparaat-id en e
 
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-6. Voer deze toepassing uit en noteer de apparaatsleutel en de modulesleutel.
+7. Voer deze toepassing uit en noteer de apparaatsleutel en de modulesleutel.
 
 > [!NOTE]
 > In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.

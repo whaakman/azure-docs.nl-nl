@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642662"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Log Analytics voor een cluster instellen
 
@@ -50,7 +51,7 @@ Als u van Windows gebruikmaakt, gaat u verder met de volgende stappen uit om met
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics-werkruimte verbinding te maken met uw cluster 
 
-1. De werkruimte moet worden verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt. Selecteer **ServiceFabric\<Naam_werkruimte\>**  en Ga naar de overzichtspagina. U kunt daar instellingen, werkruimte-instellingen wijzigen en toegang tot de OMS-portal.
+1. De werkruimte moet worden verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt. Selecteer **ServiceFabric\<Naam_werkruimte\>**  en Ga naar de overzichtspagina. Daar kunt u instellingen, werkruimte-instellingen en toegang tot de OMS-werkruimte.
 
 2. In het menu linkernavigatievenster onder **werkruimte gegevensbronnen**, selecteer **opslagaccounts logboeken**.
 

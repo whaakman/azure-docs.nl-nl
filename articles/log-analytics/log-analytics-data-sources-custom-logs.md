@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/27/2018
 ms.author: bwren
-ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 28523ce3671a8104d91f04575b3e88647dde16f4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637069"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 De gegevensbron voor de aangepaste logboeken in Log Analytics kunt u het verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra verzameld, kunt u elke record in de aanmelding bij afzonderlijke velden met parseren de [aangepaste velden](log-analytics-custom-fields.md) functie van logboekanalyse.
@@ -41,7 +42,13 @@ De logboekbestanden moeten worden verzameld, moeten overeenkomen met de volgende
 ## <a name="defining-a-custom-log"></a>Een aangepast logboek definiëren
 Gebruik de volgende procedure voor het definiëren van een aangepaste logboekbestand.  Ga naar het einde van dit artikel voor een overzicht van een steekproef van een aangepaste logboekbestanden toe te voegen.
 
-### <a name="step-1-open-the-custom-log-wizard"></a>Step 1. Open de Wizard aangepaste logboek
+### <a name="step-1-enable-custom-logs-preview"></a>Step 1. Voorbeeld van de aangepaste Logboeken inschakelen
+1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+2. Selecteer een werkruimte in het deelvenster Log Analytics-abonnementen en selecteer vervolgens de **OMS-Portal** tegel.<br><br> ![De knop Zoeken in logboeken](media/log-analytics-data-sources-custom-logs/azure-portal-01.png)<br><br> 
+3. Nadat u wordt omgeleid naar de OMS-portal, klikt u op de tegel instellingen in de rechterbovenhoek van de pagina.<br><br> ![OMS-portal instellingenoptie](media/log-analytics-data-sources-custom-logs/oms-portal-settings-option.png)<br><br> 
+4. Van de **instellingen** pagina **Voorbeeldfuncties** en selecteer op de pagina **inschakelen** voor aangepaste logboeken.    
+
+### <a name="step-2-open-the-custom-log-wizard"></a>Stap 2. Open de Wizard aangepaste logboek
 De Wizard aangepaste logboek wordt uitgevoerd in de Azure portal en kunt u een nieuwe aangepaste logboekgegevens verzamelen definiëren.
 
 1. Selecteer in de Azure-portal **logboekanalyse** > uw werkruimte > **geavanceerde instellingen**.
@@ -49,7 +56,7 @@ De Wizard aangepaste logboek wordt uitgevoerd in de Azure portal en kunt u een n
 3. Standaard worden alle configuratiewijzigingen automatisch naar alle agents gepusht.  Voor Linux-agents wordt een configuratiebestand verzonden naar de gegevensverzamelaarset Fluentd.  Als u wijzigen van dit bestand handmatig op elke Linux-agent wilt, schakel het selectievakje *toepassen op de onderstaande configuratie op mijn Linux-machines*.
 4. Klik op **toevoegen +** om het aangepaste logboek Wizard te openen.
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>Stap 2. Uploaden en een voorbeeldlogboek te parseren
+### <a name="step-3-upload-and-parse-a-sample-log"></a>Stap 3. Uploaden en een voorbeeldlogboek te parseren
 Begint u met het uploaden van een steekproef van het aangepaste logboek.  De wizard parseren en de gegevens worden weergegeven in dit bestand om te valideren.  Log Analytics maakt gebruik van het scheidingsteken dat u opgeeft om te bepalen van elke record.
 
 **Nieuwe regel** is het standaardscheidingsteken en wordt gebruikt voor logboekbestanden met één vermelding per regel.  Als de regel met een datum en tijd in een van de beschikbare indelingen begint en vervolgens kunt u een **tijdstempel** scheidingsteken die ondersteuning biedt voor vermeldingen die meer dan één regel omvatten.
@@ -63,7 +70,7 @@ Als een tijdstempel scheidingsteken wordt gebruikt, wordt de eigenschap TimeGene
 4. Het scheidingsteken dat wordt gebruikt om te bepalen van een nieuwe record en selecteer het scheidingsteken dat het beste de records in het logboekbestand identificeert wijzigen.
 5. Klik op **Volgende**.
 
-### <a name="step-3-add-log-collection-paths"></a>Stap 3. Paden van logboekverzamelingen toevoegen
+### <a name="step-4-add-log-collection-paths"></a>Stap 4. Paden van logboekverzamelingen toevoegen
 U moet een of meer paden definiëren op de agent waar het aangepaste logboek kunnen worden gevonden.  U kunt ofwel een specifiek pad en naam voor het logboekbestand opgeven of kunt u een pad met een jokerteken voor de naam opgeven.  Dit biedt ondersteuning voor toepassingen die een nieuw bestand maken elke dag of wanneer een bestand een bepaalde grootte heeft bereikt.  U kunt ook meerdere paden opgeven voor één logboekbestand.
 
 Bijvoorbeeld, een toepassing kan een logboekbestand elke dag maken met de datum die is opgenomen in de naam zoals log20100316.txt in. Een patroon voor een dergelijke logboek is mogelijk *logboek\*.txt* die wordt toegepast op een logboekbestand na de toepassing de naamgeving van schema.
@@ -81,14 +88,14 @@ De volgende tabel bevat voorbeelden van geldige patronen om op te geven van de v
 2. Typ in het pad en de **+** knop.
 3. Het proces herhalen voor elke extra paden.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Stap 4. Geef een naam en beschrijving voor het logboek
+### <a name="step-5-provide-a-name-and-description-for-the-log"></a>Stap 5. Geef een naam en beschrijving voor het logboek
 De naam die u opgeeft wordt gebruikt voor het logboektype zoals hierboven is beschreven.  Het wordt altijd eindigen met _CL om ze te onderscheiden als een aangepast logboek.
 
 1. Typ een naam voor het logboek.  De  **\_CL** achtervoegsel automatisch wordt geleverd.
 2. Voeg een optionele **beschrijving**.
 3. Klik op **volgende** om op te slaan van het aangepaste logboek-definitie.
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Stap 5. Valideren dat de aangepaste logboeken worden verzameld
+### <a name="step-6-validate-that-the-custom-logs-are-being-collected"></a>Stap 6. Valideren dat de aangepaste logboeken worden verzameld
 Het kan een uur duren voor de initiële gegevens uit een nieuwe aangepaste logboek in Log Analytics wordt weergegeven.  Start het verzamelen van gegevens van de logboekbestanden gevonden in het pad dat u hebt opgegeven vanaf het punt dat u het aangepaste logboek gedefinieerd.  Het niet de vermeldingen die u tijdens het maken van aangepaste logboek geüpload behoudt, maar er al een bestaande vermeldingen in de logboekbestanden die wordt gezocht naar verzamelt.
 
 Zodra logboekanalyse verzamelen van het aangepaste logboek start, is de records worden beschikbaar met een zoekopdracht logboek.  Gebruik de naam die u hebt opgegeven met het aangepaste logboek als de **Type** in uw query.
@@ -98,7 +105,7 @@ Zodra logboekanalyse verzamelen van het aangepaste logboek start, is de records 
 >
 >
 
-### <a name="step-6-parse-the-custom-log-entries"></a>Stap 6. De aangepaste logboekvermeldingen parseren
+### <a name="step-7-parse-the-custom-log-entries"></a>Stap 7. De aangepaste logboekvermeldingen parseren
 De volledige logboekvermelding worden opgeslagen in één eigenschap aangeroepen **RawData**.  Waarschijnlijk wilt scheiden van de verschillende soorten informatie in elk item in afzonderlijke eigenschappen die zijn opgeslagen in de record.  U dit doen met de [aangepaste velden](log-analytics-custom-fields.md) functie van logboekanalyse.
 
 Gedetailleerde stappen voor het parseren van de aangepaste logboekvermelding worden niet hier beschreven.  Raadpleeg de [aangepaste velden](log-analytics-custom-fields.md) documentatie voor deze informatie.

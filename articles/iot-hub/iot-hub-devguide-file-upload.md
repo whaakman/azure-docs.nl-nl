@@ -1,24 +1,19 @@
 ---
 title: Azure IoT Hub-bestand uploaden begrijpen | Microsoft Docs
 description: Handleiding voor ontwikkelaars - gebruik de functie voor het laden van bestand van IoT Hub voor het beheren van uploaden van van een apparaat aan een Azure-opslag-blob-container bestanden.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: a0427925-3e40-4fcd-96c1-2a31d1ddc14b
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e16d32bdba1374540c03d1034a94192a54e6a109
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634893"
 ---
 # <a name="upload-files-with-iot-hub"></a>Uploaden van bestanden met IoT Hub
 
@@ -103,7 +98,7 @@ Zoals uitgelegd in [eindpunten][lnk-endpoints], IoT Hub biedt bestand uploaden m
 | Eigenschap | Beschrijving |
 | --- | --- |
 | EnqueuedTimeUtc |De tijdstempel die aangeeft wanneer de melding is gemaakt. |
-| Apparaat-id |**DeviceId** van het apparaat waarop het bestand geüpload. |
+| DeviceId |**DeviceId** van het apparaat waarop het bestand geüpload. |
 | BlobUri |De URI van het geüploade bestand. |
 | BlobName |Naam van het geüploade bestand. |
 | LastUpdatedTime |De tijdstempel die aangeeft wanneer het bestand het laatst is bijgewerkt. |

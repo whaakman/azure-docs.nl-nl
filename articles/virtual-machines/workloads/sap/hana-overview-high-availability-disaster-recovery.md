@@ -4,21 +4,22 @@ description: Tot stand brengen voor hoge beschikbaarheid en plan voor herstel na
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/01/2018
+ms.date: 05/30/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c939e0fb59c7fce2c1c34aca1b77bd0b8cec0c5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658312"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA grote exemplaren hoge beschikbaarheid en herstel na noodgevallen in Azure 
 
@@ -36,7 +37,7 @@ Microsoft ondersteunt de mogelijkheden van sommige SAP HANA hoge beschikbaarheid
 - **HANA system replicatie**: de [replicatie van alle gegevens in SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) naar een afzonderlijke SAP HANA-systeem. De beoogde hersteltijd wordt geminimaliseerd door middel van gegevensreplicatie met regelmatige tussenpozen. SAP HANA ondersteunt asynchrone, synchrone in het geheugen en synchrone modus. Synchrone modus wordt alleen gebruikt voor SAP HANA-systemen die binnen de hetzelfde datacenter of minder dan 100 km uit elkaar liggen. Met het huidige ontwerp HANA grote exemplaar stempels kan HANA system replicatie voor hoge beschikbaarheid binnen één regio alleen worden gebruikt. HANA system replicatie is vereist van een derde partij omgekeerde proxy of routing-onderdeel voor noodherstelconfiguraties in een andere Azure-regio. 
 - **Automatische failover host**: een oplossing voor lokale fout met betrekking tot herstel voor SAP HANA die vormt een alternatief voor HANA system replicatie. Als het hoofdknooppunt niet meer beschikbaar is, het configureren van een of meer stand-by SAP HANA-knooppunten in de modus voor scale-out en SAP HANA automatisch wordt overgenomen door een stand-by-knooppunt.
 
-SAP HANA in Azure (grote exemplaren) wordt aangeboden in twee Azure-regio's in drie geopolitieke gebieden (VS, Australië en Europa). Twee regio's binnen een geopolitieke gebied die als host HANA grote exemplaar stempels fungeren zijn verbonden met een speciaal netwerk afzonderlijke circuits. Deze worden gebruikt voor het repliceren van opslag-momentopnamen disaster recovery om methoden te bieden. De replicatie niet standaard is gemaakt, maar is ingesteld voor klanten die de herstelfunctionaliteit na noodgevallen bestellen. Storage-replicatie is afhankelijk van het gebruik van opslag-momentopnamen voor grote HANA-exemplaren. Het is niet mogelijk een Azure-regio kiezen als een DR-gebied dat in een ander geopolitieke gebied. 
+SAP HANA in Azure (grote exemplaren) wordt aangeboden in twee Azure-regio's in vier geopolitieke gebieden (VS, Australië, Europa en Japan). Twee regio's binnen een geopolitieke gebied die als host HANA grote exemplaar stempels fungeren zijn verbonden met een speciaal netwerk afzonderlijke circuits. Deze worden gebruikt voor het repliceren van opslag-momentopnamen disaster recovery om methoden te bieden. De replicatie niet standaard is gemaakt, maar is ingesteld voor klanten die de herstelfunctionaliteit na noodgevallen bestellen. Storage-replicatie is afhankelijk van het gebruik van opslag-momentopnamen voor grote HANA-exemplaren. Het is niet mogelijk een Azure-regio kiezen als een DR-gebied dat in een ander geopolitieke gebied. 
 
 De volgende tabel ziet u de combinaties van ondersteunde hoge beschikbaarheid en noodherstel herstelmethoden en:
 
@@ -81,6 +82,7 @@ Naast de bovenstaande vereisten voor een installatie van noodhersteladapter met 
 
 - SAP HANA order niet uitvoeren op Azure (grote exemplaren) SKU's van dezelfde grootte hebben als uw productie-SKU's en deze implementeren in het gebied van de herstel na noodgevallen. In de huidige implementaties van klanten, worden deze exemplaren gebruikt voor het uitvoeren van niet-productieve HANA exemplaren. Deze configuraties worden aangeduid als *multipurpose DR-instellingen*.   
 - Voor elk van uw SAP HANA op Azure (grote exemplaren)-SKU's die u wilt herstellen in herstelsite na noodgevallen in volgorde van extra opslagruimte op de DR-site. Extra opslagruimte kopen, kunt u de opslagvolumes toewijzen. U kunt de volumes die het doel van de storage-replicatie van uw productie-Azure-regio in de Azure-regio voor noodherstel kunt toewijzen.
+- In het geval is, waar u HSR setup op de primaire hebt en u op basis van opslagreplicatie naar de DR-site instellen, u moet extra opslagruimte op de site DR kopen dus zowel de primaire en secundaire knooppunten gegevens worden gerepliceerd naar de DR-site.
 
  
 
@@ -113,7 +115,7 @@ SAP HANA in Azure (grote exemplaren) biedt twee opties voor back-up en herstel:
 De infrastructuur van de onderliggende SAP HANA in Azure (grote exemplaren) ondersteunt opslag van momentopnamen van volumes. Zowel back-up en herstel van volumes wordt ondersteund met de volgende overwegingen:
 
 - In plaats van een volledige databaseback-ups, worden opslag volume momentopnamen regelmatig.
-- Wanneer een momentopname van een activering via /hana/data en /hana/shared (inclusief /usr/sap) start volumes, de momentopnametechnologie een SAP HANA momentopname voordat deze de momentopname van de opslag wordt uitgevoerd. Deze momentopname met de SAP HANA is de installatie voor uiteindelijke logboek herstelbewerkingen kunnen na het herstel van de momentopname van de opslag.
+- Wanneer een momentopname van een activering via /hana/data en /hana/shared (inclusief /usr/sap) start volumes, de momentopnametechnologie een SAP HANA momentopname voordat deze de momentopname van de opslag wordt uitgevoerd. Deze momentopname met de SAP HANA is de installatie voor uiteindelijke logboek herstelbewerkingen kunnen na het herstel van de momentopname van de opslag. Voor HANA momentopname lukken, moet u een actief exemplaar van de HANA.  In scenario HSR wordt opslag momentopname niet ondersteund op huidige secundaire knooppunt waar HANA momentopname kan niet worden uitgevoerd.
 - Nadat de momentopname van de opslag is uitgevoerd, wordt de momentopname SAP HANA verwijderd.
 - Transactielogboekback-ups regelmatig worden genomen en worden opgeslagen in het volume /hana/logbackups of in Azure. U kunt het /hana/logbackups volume met de transactielogboekback-ups om een momentopname van een afzonderlijk te activeren. In dat geval hoeft u niet een momentopname HANA uitvoeren.
 - Als u een database naar een bepaalde tijd herstellen moet, aanvragen die Microsoft Azure-ondersteuning (voor een productie-storing) of een SAP HANA bij Azure Service Management herstellen naar een bepaalde opslag-momentopname. Een voorbeeld is een geplande herstel van een sandbox naar de oorspronkelijke staat.
@@ -126,6 +128,7 @@ U kunt opslag-momentopnamen die gericht is op drie soorten volumes uitvoeren:
 - Een momentopname van een afzonderlijke via hana/logbackups.
 - De partitie van een besturingssysteem.
 
+Lees het laatste momentopname scripts en documentatie van [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
 
 ### <a name="storage-snapshot-considerations"></a>Overwegingen met betrekking tot opslag-momentopnamen
 
@@ -144,7 +147,7 @@ SAP HANA in Azure (grote exemplaren) wordt geleverd met vaste volumes voor de vo
 
 De volgende secties bevatten informatie voor het uitvoeren van deze momentopnamen, waaronder algemene aanbevelingen:
 
-- Hoewel de hardware 255 momentopnamen per volume tolereren kan, wilt u blijven ruim onder dit nummer.
+- Hoewel de hardware 255 momentopnamen per volume tolereren kan, wilt u blijven ruim onder dit nummer. Aanbeveling is 250 of minder.
 - Voordat u opslag-momentopnamen uitvoert, bewaken en bijhouden vrije ruimte.
 - Verlaag het aantal momentopnamen van opslag op basis van de vrije ruimte. U kunt het aantal momentopnamen die u bijhoudt verlagen of u de volumes kunt uitbreiden. U kunt extra opslagruimte in 1 terabyte eenheden bestellen.
 - Tijdens de activiteiten, zoals het verplaatsen van gegevens in SAP HANA met SAP platform hulpprogramma's voor migratie (R3load) of het SAP HANA-databases herstellen vanuit back-ups, opslag-momentopnamen op het volume /hana/data niet uitschakelen. 
@@ -171,6 +174,8 @@ Als u opslag-momentopnamen met HANA grote exemplaren instelt, de volgende stappe
 6. Kopieer de scripts en het configuratiebestand van [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) naar de locatie van **hdbsql** in de SAP HANA-installatie.
 7. Wijzig de *HANABackupDetails.txt* bestand zo nodig voor de gewenste klant-specificaties.
 
+Lees het laatste momentopname scripts en documentatie van [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+
 ### <a name="consideration-for-mcod-scenarios"></a>Overweging voor MCOD scenario 's
 Als u werkt met een [MCOD scenario](https://launchpad.support.sap.com/#/notes/1681092) met meerdere SAP HANA-exemplaren op een grote exemplaar HANA-eenheid, hebt u afzonderlijke opslagvolumes die zijn ingericht voor elk van de SAP HANA-exemplaren. In de huidige versie van de momentopname selfservice-automatisering kan u afzonderlijke momentopnamen op elk systeem in HANA exemplaar-ID (SID) niet starten. De functionaliteit biedt controles voor de geregistreerde SAP HANA-exemplaren van de server in het configuratiebestand (Zie verderop in dit artikel) en een gelijktijdige momentopname van de volumes van de exemplaren die zijn geregistreerd op de eenheid wordt uitgevoerd.
  
@@ -180,7 +185,7 @@ Als u werkt met een [MCOD scenario](https://launchpad.support.sap.com/#/notes/16
 Het Linux-besturingssysteem geïnstalleerd op een SAP HANA in Azure (grote exemplaren) omvat de mappen en scripts nodig zijn voor SAP HANA-opslag-momentopnamen voor back-up en noodherstel hersteldoeleinden uitvoeren. Controleer op recentere versies in [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). De meest recente versie van de scripts is 3.x. Andere scripts wellicht kleine verschillen binnen dezelfde primaire versie.
 
 >[!IMPORTANT]
->Bij het verplaatsen van versie 2.1 naar versie 3.0 van de scripts, houd er rekening mee dat de structuur van het configuratiebestand en sommige syntaxis is gewijzigd. Zie de toelichtingen in de specifieke secties. 
+>Bij het verplaatsen van versie 2.1 naar versie 3.x van de scripts die de structuur van het configuratiebestand en sommige syntaxis is gewijzigd. Zie de toelichtingen in de specifieke secties. 
 
 Het is uw verantwoordelijkheid de SAP HANA HDB-client installeren op de eenheden HANA grote exemplaar tijdens de installatie van SAP HANA.
 
@@ -234,7 +239,7 @@ Op dit moment Neem contact op met de SAP HANA op Azure-servicebeheer en hen voor
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Stap 4: Een SAP HANA-gebruikersaccount maken
 
-Voor het initiëren van het maken van momentopnamen voor SAP HANA, moet u een gebruikersaccount in SAP HANA waarmee de opslag momentopname scripts kunt maken. Een SAP HANA-gebruikersaccount in SAP HANA Studio voor dit doel maken. De gebruiker moet worden gemaakt onder het SYSTEMDB en niet onder de SID-database. Dit account moet hebben de volgende bevoegdheden: **back-up Admin** en **catalogus**. In dit voorbeeld wordt de gebruikersnaam is **SCADMIN**. Naam van de gebruikersaccount gemaakt in HANA Studio is hoofdlettergevoelig. Zorg ervoor dat u selecteert **Nee** voor het vereisen van de gebruiker het wachtwoord bij de volgende aanmelding wijzigen.
+Voor het initiëren van het maken van momentopnamen voor SAP HANA, moet u een gebruikersaccount in SAP HANA waarmee de opslag momentopname scripts kunt maken. Een SAP HANA-gebruikersaccount in SAP HANA Studio voor dit doel maken. De gebruiker moet worden gemaakt onder het SYSTEMDB en niet onder de SID-database voor MDC. Gebruiker is in de omgeving enkele container setup onder de tenant-database. Dit account moet hebben de volgende bevoegdheden: **back-up Admin** en **catalogus**. In dit voorbeeld wordt de gebruikersnaam is **SCADMIN**. Naam van de gebruikersaccount gemaakt in HANA Studio is hoofdlettergevoelig. Zorg ervoor dat u selecteert **Nee** voor het vereisen van de gebruiker het wachtwoord bij de volgende aanmelding wijzigen.
 
 ![Maken van een gebruiker in HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -245,7 +250,7 @@ Als u MCOD implementaties met meerdere SAP HANA-exemplaren in één eenheid gebr
 In deze stap maakt autoriseren u het SAP HANA-gebruikersaccount dat u hebt gemaakt, zodat de scripts niet hoeft in te dienen wachtwoorden tijdens runtime. De opdracht SAP HANA `hdbuserstore` wordt het maken van een sleutel voor SAP HANA, die is opgeslagen op een of meer SAP HANA-knooppunten. De sleutel van de gebruiker kunt de gebruikerstoegang SAP HANA zonder het beheren van wachtwoorden op in het proces voor het uitvoeren van scripts. Het uitvoeren van scripts proces wordt verderop in dit artikel besproken.
 
 >[!IMPORTANT]
->Voer de volgende opdracht als `root`. Anders wordt kan niet het script correct werken.
+>Voer de volgende opdracht onder de gebruiker dat de scripts zijn gepland om te worden uitgevoerd. Anders wordt kan niet het script correct werken.
 
 Voer de `hdbuserstore` opdracht als volgt:
 
@@ -285,7 +290,7 @@ testHANAConnection.pl
 testStorageSnapshotConnection.pl 
 removeTestStorageSnapshot.pl
 azure_hana_dr_failover.pl
-azure_hana_dr_failover.pl 
+azure_hana_test_dr_failover.pl 
 HANABackupCustomerDetails.txt 
 ``` 
 
@@ -319,12 +324,12 @@ Het doel van de andere scripts en de bestanden is als volgt:
 - **Azure\_hana\_testen\_dr\_failover.pl**: dit script wordt een testfailover uitgevoerd in de DR-site. In tegenstelling tot het script azure_hana_dr_failover.pl maakt deze-uitvoering niet onderbreken van de storage-replicatie van primaire naar secundaire. In plaats daarvan klonen van de volumes gerepliceerde opslag aan de kant DR zijn gemaakt en de quorumbron: van de gekloonde volumes worden geleverd. 
 - **HANABackupCustomerDetails.txt**: dit bestand is een bewerkbaar configuratiebestand dat u wilt wijzigen om aan te passen aan uw SAP HANA-configuratie. De *HANABackupCustomerDetails.txt* bestand is het besturingselement en configuratie-bestand voor het script met de opslag-momentopnamen. Het bestand voor uw toepassing en de instellingen aanpassen. U ontvangt de **back-up Opslagnaam** en de **opslag IP-adres** uit SAP HANA op Azure-servicebeheer wanneer uw exemplaren implementeert. U kunt de volgorde niet wijzigen, rangschikken of afstand van een van de variabelen in dit bestand. Als u dit doet, worden de scripts niet correct uitgevoerd. Bovendien wordt het IP-adres van het knooppunt omhoog schalen of het hoofdknooppunt (als scale-out) uit de SAP HANA op Azure Service Management. U ook weten het HANA-exemplaar dat u tijdens de installatie van de SAP HANA krijgt. Nu moet u een back-naam toevoegen aan het configuratiebestand.
 
-Voor een scale-up of scale-out-implementatie, zou het configuratiebestand eruit het volgende voorbeeld nadat u de naam van de server van de eenheid HANA grote exemplaar en het IP-adres van de server hebt ingevuld. Als u SAP HANA System Replication gebruikt, gebruikt u het virtuele IP-adres van de configuratie HANA System Replication. Vul alle vereiste velden in voor elke SAP HANA-SID die u wilt back-up of herstellen.
+Voor een scale-up of scale-out-implementatie, zou het configuratiebestand eruit het volgende voorbeeld nadat u de naam van de server van de eenheid HANA grote exemplaar en het IP-adres van de server hebt ingevuld. Vul alle vereiste velden in voor elke SAP HANA-SID die u wilt back-up of herstellen.
 
 U kunt ook uitcommentariëren rijen van exemplaren die u niet dat back wilt-up voor een bepaalde periode door toe te voegen "#" voor een verplicht veld. U moet niet ook alle exemplaren van de SAP HANA die zich op een server als niet hoeft naar de back-up of herstellen die bepaalde instantie invoeren. De indeling moet worden bewaard voor alle velden of alle scripts genereert een foutbericht weergegeven en het script wordt beëindigd. U kunt aanvullende vereiste rijen van de SID informatie details u niet na de laatste SAP HANA-exemplaar in gebruik verwijderen. Alle rijen moeten ingevuld, opmerkingen, of verwijderd.
 
 >[!IMPORTANT]
->De structuur van het bestand is gewijzigd na de overstap van versie 2.1 op versie 3.0. Als u de versie 3.0-scripts gebruiken wilt, moet u aan te passen aan de structuur van configuratiebestand. 
+>De structuur van het bestand is gewijzigd na de overstap van versie 2.1 op versie 3.x. Als u de versie 3.x scripts gebruiken wilt, moet u aan te passen aan de structuur van configuratiebestand. 
 
 
 ```
@@ -379,7 +384,7 @@ Daarom is het exemplaar HANA als argument. Als de uitvoering is mislukt, is het 
 
 2. Voer het testscript:
    ```
-    ./testStorageSnapshotConnection.pl <HANA SID>
+    ./testStorageSnapshotConnection.pl
    ```
 
 Het script probeert aan te melden bij de opslag met behulp van de openbare sleutel die is opgegeven in de vorige stappen voor het installatieprogramma en met de gegevens die zijn geconfigureerd in de *HANABackupCustomerDetails.txt* bestand. Als de aanmelding is geslaagd, ziet u de volgende inhoud:
@@ -447,7 +452,7 @@ U kunt drie soorten momentopnameback-ups maken:
 
 
 >[!NOTE]
-> De syntaxis van de aanroep voor deze drie soorten momentopnamen gewijzigd na de overstap naar de versie 3.0 scripts, die ondersteuning bieden voor MCOD implementaties. Hoeft niet meer de HANA SID van een exemplaar opgeven. U moet ervoor zorgen dat de SAP HANA-exemplaren van een eenheid zijn geconfigureerd in het configuratiebestand *HANABackupCustomerDetails.txt*.
+> De syntaxis van de aanroep voor deze drie soorten momentopnamen die zijn gewijzigd na de overstap naar de versie 3.x-scripts, die ondersteuning bieden voor MCOD implementaties. Hoeft niet meer de HANA SID van een exemplaar opgeven. U moet ervoor zorgen dat de SAP HANA-exemplaren van een eenheid zijn geconfigureerd in het configuratiebestand *HANABackupCustomerDetails.txt*.
 
 >[!NOTE]
 > Als u het script voor het eerst uitvoert, kan het enkele onverwachte fouten op de multi-SID-omgeving weergeven. Opnieuw uit te voeren in het script wordt het probleem opgelost.
@@ -472,7 +477,7 @@ De details van de parameters zijn als volgt:
 
 - De eerste parameter geeft het type van de momentopname back-up. De toegestane waarden zijn **hana**, **logboeken**, en **boot**. 
 - De parameter **<HANA Large Instance Type>** nodig is voor opstarten volume back-ups alleen. Er zijn twee geldige waarden met 'TypeI' of 'TypeII' afhankelijk van de HANA grote exemplaar eenheid. Om erachter te komen wat uw tijdseenheid typt, Zie [SAP HANA (grote exemplaren) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- De parameter **< snapshot_prefix >** is geen momentopname of een back-label voor het type van de momentopname. Heeft twee doeleinden: een is voor u hieraan een naam, zodat u wat deze momentopnamen zijn weet over. Het tweede doel is om het script *azure\_hana\_backup.pl* om te bepalen het aantal momentopnamen van opslag die onder die specifiek label worden bewaard. Als u twee opslag momentopname back-ups plannen van hetzelfde type (zoals **hana**), met twee verschillende labels, en dat 30 momentopnamen voor elke moeten blijven, u uiteindelijk eindigen met 60 opslag-momentopnamen van de volumes die van invloed op een definiëren. 
+- De parameter **< snapshot_prefix >** is geen momentopname of een back-label voor het type van de momentopname. Heeft twee doeleinden: een is voor u hieraan een naam, zodat u wat deze momentopnamen zijn weet over. Het tweede doel is om het script *azure\_hana\_backup.pl* om te bepalen het aantal momentopnamen van opslag die onder die specifiek label worden bewaard. Als u twee opslag momentopname back-ups plannen van hetzelfde type (zoals **hana**), met twee verschillende labels, en dat 30 momentopnamen voor elke moeten blijven, u uiteindelijk eindigen met 60 opslag-momentopnamen van de volumes die van invloed op een definiëren. Alleen alfanumerieke ('A-Z, a-z, 0-9'), onderstrepingsteken ('_') en streepjes ('-') tekens zijn toegestaan. 
 - De parameter **< snapshot_frequency >** is gereserveerd voor toekomstige ontwikkelingen en heeft geen invloed. Stel deze in op "3min" bij het uitvoeren van back-ups van het type **logboek**, en "15 min." bij het uitvoeren van de back-uptypen.
 - De parameter **<number of snapshots retained>** definieert de retentie van de momentopnamen indirect met het definiëren van het aantal momentopnamen met hetzelfde momentopname voorvoegsel (label). Deze parameter is belangrijk voor geplande uitvoeringen via cron. Als het aantal momentopnamen met de dezelfde snapshot_prefix het aantal door deze parameter wordt opgegeven overschrijdt, wordt de oudste momentopname verwijderd voordat een nieuwe opslag momentopname wordt uitgevoerd.
 
@@ -500,7 +505,7 @@ In de overwegingen en aanbevelingen die volgen, is de veronderstelling dat u doe
 - De ruimte die wordt gebruikt.
 - Het herstelpunt en hersteltijddoelen voor potentiële herstel na een noodgeval.
 - De uiteindelijke uitvoering van HANA full-back-ups op basis van schijven. Wanneer een volledige-databaseback-up op basis van schijven of de **backint** interface wordt uitgevoerd, mislukt de uitvoering van de opslag-momentopnamen. Als u van plan bent om uit te voeren van volledige-databaseback-ups boven op de opslag-momentopnamen, zorg ervoor dat de uitvoering van de opslag-momentopnamen gedurende deze tijd is uitgeschakeld.
-- Het aantal momentopnamen per volume (maximaal 255).
+- Het aantal momentopnamen per volume (maximaal 250).
 
 
 De momentopname-periode is voor klanten die de functionaliteit van het herstel na noodgevallen van HANA grote exemplaren niet gebruikt, minder frequente. In dergelijke gevallen klanten de gecombineerde momentopnamen voor /hana/data en /hana/shared (inclusief /usr/sap) uitvoeren in perioden van 12 uur of 24-uurs en ze de momentopnamen houden gedurende een maand. Hetzelfde geldt voor de momentopnamen van de back-logboekvolume. De uitvoering van een SAP HANA transactielogboekback-ups op basis van de back-logboekvolume gebeurt echter in de 5 minuten tot 15 minuten perioden.
@@ -532,9 +537,7 @@ De volgende afbeelding ziet u de volgorde van het vorige voorbeeld, met uitzonde
 
 SAP HANA voert reguliere het volume /hana/log om vast te leggen van de wijzigingen doorgevoerd in de database te schrijven. Regelmatig een schrijft SAP HANA een opslagpunt naar het volume /hana/data. Zoals opgegeven in crontab, wordt een SAP HANA-transactielogboek om de 5 minuten uitgevoerd. U ziet ook dat de momentopname van een SAP HANA elk uur als gevolg van een momentopname van een gecombineerde opslag via de volumes /hana/data en /hana/shared activering wordt uitgevoerd. Nadat de momentopname HANA is geslaagd, wordt de momentopname van de gecombineerde opslag wordt uitgevoerd. Volgens de instructies in crontab, wordt de momentopname van de opslag op het volume /hana/logbackup elke 5 minuten, na het transactielogboek HANA ongeveer 2 minuten uitgevoerd.
 
-> [!NOTE]
->Als u opslag momentopname back-ups op de knooppunten van een installatie HANA System Replication plant, moet u ervoor zorgen dat het gebruik van de momentopname back-ups tussen de twee knooppunten elkaar niet overlappen. SAP HANA heeft een beperking te gaan met één HANA momentopname op slechts een keer. Omdat een momentopname HANA een elementaire onderdeel van een momentopname van de geslaagde opslag is, moet u ervoor zorgen dat de momentopname van de opslag van de primaire en secundaire knooppunt en een uiteindelijke derde knooppunt worden getimed naast elkaar.
-
+> 
 
 >[!IMPORTANT]
 > Het gebruik van opslag-momentopnamen voor SAP HANA back-ups is het nuttigst alleen wanneer de momentopnamen die in combinatie met SAP HANA transactielogboekback-ups worden uitgevoerd. Deze transactielogboekback-ups moeten hebben betrekking op de tijd tussen de opslag-momentopnamen. 
@@ -557,7 +560,7 @@ Als de database is nooit een reservekopie is gemaakt, is de laatste stap naar ee
 
 Nadat de eerste geslaagde opslag-momentopnamen zijn uitgevoerd, kunt u de test-momentopname die is uitgevoerd in stap 6 verwijderen. Voer het script uit om dit te doen `removeTestStorageSnapshot.pl`:
 ```
-./removeTestStorageSnapshot.pl <hana instance>
+./removeTestStorageSnapshot.pl
 ```
 
 Hier volgt een voorbeeld van de uitvoer van het script:
@@ -636,7 +639,7 @@ HANA Backup ID:
 
 
 ### <a name="file-level-restore-from-a-storage-snapshot"></a>Bestandsniveau terugzetten vanuit een momentopname van de opslag
-Voor de typen momentopname **hana** en **logboeken**, u toegang hebt tot de momentopnamen die rechtstreeks op de volumes in de **.snapshot** directory. Er is een submap voor elk van de momentopnamen. U kunt elk bestand in de status in op het moment van de momentopname van een submap in de werkelijke mapstructuur was kopiëren.
+Voor de typen momentopname **hana** en **logboeken**, u toegang hebt tot de momentopnamen die rechtstreeks op de volumes in de **.snapshot** directory. Er is een submap voor elk van de momentopnamen. U kunt elk bestand in de status in op het moment van de momentopname van een submap in de werkelijke mapstructuur was kopiëren. In de huidige versie van het script is **Nee** script (Hoewel terugzetten van momentopnamen kan worden uitgevoerd als onderdeel van de selfservice DR scripts op de site DR tijdens de failover) voor het terugzetten van momentopnamen zijn opgegeven als een self-service herstellen. Neem contact op met de Microsoft-teamleden door het openen van een serviceaanvraag een gewenste momentopname terugzetten van momentopnamen van de bestaande beschikbaar.
 
 >[!NOTE]
 >Enkel bestand werkt terugzetten niet voor momentopnamen van de opstartinstallatiekopie LUN onafhankelijk van het type van de eenheden HANA grote exemplaar. De **.snapshot** directory niet beschikbaar is in het bestand Boot.ini LUN. 
@@ -818,7 +821,7 @@ In de scenario's die tot nu toe is geïmplementeerd, gebruik klanten de eenheid 
 
 Zoals u in deze afbeelding overzicht, moet u vervolgens een tweede reeks schijfvolumes rangschikken. De doel-schijfvolumes zijn dezelfde grootte hebben als de omvang van de productie voor de productie-exemplaar in de eenheden van het herstel na noodgevallen. Deze schijfvolumes zijn gekoppeld aan de eenheid van de server HANA grote exemplaar in de site van de herstel na noodgevallen. De volgende volumes worden gerepliceerd van de productieregio naar de DR-site:
 
-- /hana/data
+- hana/gegevens
 - hana/logbackups 
 - /Hana/Shared (inclusief/usr/sap)
 
@@ -830,11 +833,8 @@ De eerste overdracht van de volledige gegevens van het volume moet zijn voordat 
 
 In het geval van MCOD implementaties met meerdere onafhankelijke SAP HANA-exemplaren op een grote exemplaar HANA-eenheid verwacht wordt dat alle SAP HANA-exemplaren zijn worden gebruikt voor het ophalen van opslag gerepliceerd naar de DR-zijde.
 
-In gevallen waar u HANA System Replication als hoge beschikbaarheid-functionaliteit in uw productiesite gebruiken worden alleen de volumes van het exemplaar Tier 2 (of replica) gerepliceerd. Deze configuratie kan leiden tot een vertraging in de storage-replicatie naar de DR-site als u onderhouden of u de secundaire replica (laag 2) server eenheid of SAP HANA-exemplaar in deze eenheid neemt. 
+In gevallen waarin u HANA System replicatie in uw productiesite gebruiken in plaats van de functionaliteit voor hoge beschikbaarheid en replicatie op basis van opslag gebruiken voor de DR-site worden gerepliceerd van de volumes van beide knooppunten van de primaire site naar de DR-exemplaar. Op DR-site om de replicatie van primaire en secundaire naar de DR onder te brengen, moet u extra opslagruimte (dezelfde grootte hebben vanaf het primaire knooppunt) aanschaffen. 
 
-
->[!IMPORTANT]
->Net als bij met meerdere lagen HANA System Replication blokkeert afsluiten van de laag 2 HANA exemplaar of de server eenheid replicatie naar de herstel na noodgevallen site wanneer u de functionaliteit voor herstel na noodgevallen HANA grote exemplaar gebruikt.
 
 
 >[!NOTE]
@@ -999,7 +999,7 @@ Roept het script met deze opdracht:
 
 De uitvoer wordt opgedeeld, per volume in de volgende secties:  
 
-- De status van koppeling
+- Status van koppeling
 - Huidige replicatieactiviteit
 - Meest recente momentopname gerepliceerd 
 - Grootte van de meest recente momentopname

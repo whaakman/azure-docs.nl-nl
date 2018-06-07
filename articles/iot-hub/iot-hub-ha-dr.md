@@ -1,29 +1,24 @@
 ---
 title: Azure IoT Hub hoge beschikbaarheid en herstel na noodgevallen | Microsoft Docs
 description: Beschrijft de functies voor Azure en IoT-Hub die u helpen bij het bouwen van maximaal beschikbare Azure IoT-oplossingen met na noodgevallen herstelfuncties.
-services: iot-hub
-documentationcenter: 
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 428209defa554599c01789e6f2a8b62f155b0f2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633703"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hoge beschikbaarheid en herstel na noodgevallen
 Een Azure-service biedt IoT Hub redundantie op het niveau van de Azure-regio, zonder extra werk vereist voor de oplossing met hoge beschikbaarheid (HA). Het Microsoft Azure-platform omvat ook functies waarmee u oplossingen bouwen met herstelfuncties van noodherstel (DR) of de regio-overschrijdende beschikbaarheid. Als u wilt bieden globale, hoge beschikbaarheid van de regio-overschrijdende voor apparaten of gebruikers profiteren van deze Azure DR-functies. Het artikel [Azure zakelijke continuïteit technische richtlijnen](../resiliency/resiliency-technical-guidance.md) beschrijving van de ingebouwde functies in Azure voor bedrijfscontinuïteit en Noodherstel. De [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen] [ Disaster recovery and high availability for Azure applications] papier biedt architectuurrichtlijnen op strategieën voor het Azure-toepassingen om HA en Noodherstel te bereiken.
 
-## <a name="azure-iot-hub-dr"></a>Azure IoT Hub DR
+## <a name="azure-iot-hub-dr"></a>Azure IoT-Hub DR
 IoT Hub implementeert naast intra-regio HA, failover-mechanismen voor herstel na noodgevallen waarvoor geen tussenkomst van de gebruiker. IoT Hub DR automatisch wordt gestart en heeft een beoogde hersteltijd (RTO) van 2-26 uur en de volgende herstelpuntdoelen (RPO's):
 
 | Functionaliteit | RPO |

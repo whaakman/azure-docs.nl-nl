@@ -8,14 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 05/22/2018
+ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640010"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Azure Database voor PostgreSQL-servers
+# <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL-servers
 Dit artikel vindt overwegingen en richtlijnen voor het werken met Azure-Database voor PostgreSQL-servers.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Wat is een Azure-Database voor PostgreSQL-server?
@@ -45,13 +46,22 @@ De volgende elementen zorgt het veilige toegang tot uw database:
 | **TCP/IP** | Het protocol wordt ondersteund via TCP/IP en via Unix-domain-sockets. |
 | **Firewall** | Ter bescherming van uw gegevens, een firewallregel voorkomt u dat alle toegang tot uw server en de databases, totdat u opgeven welke computers over de machtiging beschikken. Zie [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md). |
 
-## <a name="how-do-i-manage-a-server"></a>Hoe kan ik een server beheren?
+## <a name="managing-your-server"></a>Uw server beheren
 U kunt Azure-Database voor PostgreSQL-servers beheren met behulp van de [Azure-portal](https://portal.azure.com) of de [Azure CLI](/cli/azure/postgres).
+
+Tijdens het maken van een server, stelt u van de referenties voor uw gebruiker met beheerdersrechten. De gebruiker met beheerdersrechten is de hoogste bevoegdheden gebruiker die u op de server hebt. Deze behoort tot de azure_pg_admin rol. Deze rol is niet gemachtigd voor volledige beheerder. 
+
+Het kenmerk PostgreSQL-beheerder is toegewezen aan de azure_superuser die deel uitmaakt van de beheerde service. U beschikt niet over de toegang tot deze rol.
+
+Een Azure-Database voor PostgreSQL-server heeft twee standaarddatabases: 
+- **postgres** -een standaarddatabase die u verbinding met één keer op uw server maken kunt is gemaakt.
+- **azure_maintenance** -deze database wordt gebruikt voor het scheiden van de processen die de beheerde service van gebruikersacties leveren. U hebt geen toegang tot deze database.
+
 
 ## <a name="server-parameters"></a>Serverparameters
 De parameters van de server PostgreSQL bepalen de configuratie van de server. In de Azure-Database voor PostgreSQL, de lijst met parameters kan worden bekeken en bewerkt met behulp van de Azure-portal of Azure CLI. 
 
-Als een beheerde service voor Postgres configureerbare parameters in Azure-Database voor PostgreSQL zijn een subset van de parameters in een lokaal exemplaar van de Postgres (Zie voor meer informatie over de Postgres parameters voor de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Uw Azure-Database voor PostgreSQL-server is ingeschakeld met de standaardwaarden voor elke parameter op maken. Parameters waarvoor een server opnieuw opstarten of beheerder toegang wijzigingen van kracht te laten door de gebruiker kan niet worden geconfigureerd.
+Als een beheerde service voor Postgres configureerbare parameters in Azure-Database voor PostgreSQL zijn een subset van de parameters in een lokaal exemplaar van de Postgres (Zie voor meer informatie over de Postgres parameters voor de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Uw Azure-Database voor PostgreSQL-server is ingeschakeld met de standaardwaarden voor elke parameter op maken. Sommige parameters waarvoor een server opnieuw opstarten of beheerder toegang wijzigingen van kracht te laten door de gebruiker kan niet worden geconfigureerd.
 
 
 ## <a name="next-steps"></a>Volgende stappen

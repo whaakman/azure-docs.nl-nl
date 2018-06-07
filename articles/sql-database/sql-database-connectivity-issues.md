@@ -7,14 +7,15 @@ author: dalechen
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: daleche
-ms.openlocfilehash: 27e565845ec538a1982ec0742d7ca723fa9c348c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37cd099e6efe44ee70dc1799ef4b2b4377c571d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647254"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Oplossen, opsporen en voorkomen van SQL-verbindingsfouten en tijdelijke fouten voor SQL-database
 In dit artikel wordt beschreven hoe voorkomen, oplossen, analyseren en beperken verbindingsfouten en tijdelijke fouten die uw clienttoepassing tegenkomt wanneer deze met Azure SQL Database samenwerkt. Informatie over het configureren van Pogingslogica, de verbindingsreeks en andere verbindingsinstellingen aanpassen.
@@ -77,7 +78,7 @@ Als u wilt testen uw Pogingslogica, moet u simuleren of treedt er een fout die k
 #### <a name="test-by-disconnecting-from-the-network"></a>Testen door het netwerk verbreekt
 Een manier kunt u uw Pogingslogica testen is op uw computer loskoppelen van het netwerk terwijl het programma wordt uitgevoerd. De fout is:
 
-* **SqlException.Number** = 11001
+* **SqlException.Number** 11001 =
 * Bericht: "Er is geen host is onbekend'
 
 Als onderdeel van de eerste nieuwe poging, uw programma de onjuist gespeld corrigeren en vervolgens probeert om verbinding te.
@@ -94,7 +95,7 @@ Als u deze test praktische, moet u uw computer via het netwerk loskoppelen voord
 #### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testen door de databasenaam bevat een typefout wanneer verbinding wordt gemaakt
 Het programma kan de naam van de gebruiker voordat de eerste verbindingspoging opzettelijk Maak een typefout. De fout is:
 
-* **SqlException.Number** = 18456
+* **SqlException.Number** 18456 =
 * Bericht: 'aanmelding is mislukt voor gebruiker 'WRONG_MyUserName'.'
 
 Als onderdeel van de eerste nieuwe poging, uw programma de onjuist gespeld corrigeren en vervolgens probeert om verbinding te.

@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643308"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Herstel na noodgevallen in Azure voor on-premises fysieke servers instellen
 
@@ -27,18 +28,25 @@ Deze zelfstudie laat zien hoe u voor het instellen van herstel na noodgevallen v
 > * Een replicatiebeleid maken
 > * Replicatie voor een server inschakelen
 
+[Bekijk de architectuur](concepts-hyper-v-to-azure-architecture.md) voor deze noodherstelscenario.
+
 ## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-- Zorg ervoor dat u inzicht hebt in de [architectuur en onderdelen voor dit scenario](physical-azure-architecture.md).
+- Zorg ervoor dat u begrijpt de [architectuur en onderdelen](physical-azure-architecture.md) voor dit scenario.
 - Raadpleeg de [ondersteuningsvereisten](vmware-physical-secondary-support-matrix.md) voor alle onderdelen.
 - Zorg ervoor dat de servers die u wilt repliceren voldoen [vereisten van de virtuele machine van Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Voorbereiden op Azure. U moet een Azure-abonnement, een Azure-netwerk en een opslagaccount.
 - Bereid een account voor automatische installatie van de Mobility-service op elke server die u wilt repliceren.
 
-> [!NOTE]
-> Voordat u begint, houd er rekening mee dat na een failover naar Azure fysieke servers kunnen niet worden niet terug naar de lokale fysieke machines. U kunt alleen failback naar VMware-machines. 
+Houd rekening met het volgende voordat u begint:
+
+- Fysieke servers kunnen niet na een failover naar Azure terug naar de lokale fysieke machines mislukt. U kunt alleen failback naar VMware-machines. 
+- Deze zelfstudie stelt u de fysieke server-noodherstel naar Azure met de meest eenvoudige instellingen. Als u weten over andere opties wilt, leest u via onze handleidingen How To:
+    - Instellen van de [replicatiebron](physical-azure-set-up-source.md), met inbegrip van de configuratieserver Site Recovery.
+    - Instellen van de [replicatiedoel](physical-azure-set-up-target.md).
+    - Configureer een [replicatiebeleid](vmware-azure-set-up-replication.md), en [replicatie inschakelen](vmware-azure-enable-replication.md).
 
 
 ### <a name="set-up-an-azure-account"></a>Een Azure-account instellen

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da81d1455649f1e3f3ab43016df49953ce90e0ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637613"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Verbinding maken met Azure ITSM hulpprogramma IT Service Management-Connector
 
@@ -98,7 +99,7 @@ Zodra u hebt uw extra ITSM domainprep, de volgende stappen om een verbinding te 
 
     > [!NOTE]
 
-    > Standaard wordt de configuratiegegevens van de verbinding in ITSMC vernieuwd eenmaal in elke 24 uur. Uw verbinding om gegevens te vernieuwen direct voor alle bewerkingen of de sjabloon-updates die u aanbrengt, klikt u op de knop 'Vernieuwen' weergegeven naast de verbinding.
+    > Standaard wordt de configuratiegegevens van de verbinding in ITSMC vernieuwd eenmaal in elke 24 uur. Uw verbinding om gegevens te vernieuwen direct voor een bewerkingen of de sjabloon-updates die u aanbrengt, klikt u op de **Sync** knop op de blade van uw verbinding.
 
     ![Verbinding vernieuwen](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
 
@@ -137,58 +138,6 @@ Bij het maken/bewerken van een Azure waarschuwingsregel, moet u een actiegroep, 
 >[!NOTE]
 
 > Zie voor meer informatie over prijzen van ITSM actie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/monitor/) voor groepen in te grijpen.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-alerts"></a>Werkitems ITSM van logboekanalyse waarschuwingen maken
-
-U kunt regels voor waarschuwingen configureren in Azure Log Analytics-portal voor het maken van werkitems in ITSM hulpmiddel met de volgende procedure.
-
-1. Van **logboek zoeken** venster voor het uitvoeren van een zoekquery logboek om gegevens weer te geven. Queryresultaten zijn de bron voor werkitems.
-2. In **logboek zoeken**, klikt u op **waarschuwing** openen de **waarschuwingsregel toevoegen** pagina.
-
-    ![Log Analytics scherm](./media/log-analytics-itsmc/itsmc-work-items-for-azure-alerts.png)
-
-3. Op de **waarschuwingsregel toevoegen** venster, geef de vereiste gegevens voor **naam**, **ernst**, **zoekquery**, en **waarschuwing criteria** (Tijdsmeting venster meting).
-4. Selecteer **Ja** voor **ITSM acties**.
-5. Selecteer uw ITSM verbinding van de **verbinding selecteren** lijst.
-6. Geef de details op zoals vereist.
-7. Als u een afzonderlijke werkitem van elke logboekvermelding van deze waarschuwing, selecteert de **maken van afzonderlijke werkitems van elke logboekvermelding** selectievakje.
-
-    of
-
-    Laat dit selectievakje niet geselecteerd voor het maken van slechts één werkitem voor een willekeurig aantal vermeldingen in het logboek in deze waarschuwing.
-
-7. Klik op **Opslaan**.
-
-U kunt de Log Analytics-waarschuwing die u hebt gemaakt onder weergeven **instellingen > waarschuwingen**. Werkitems van de bijbehorende ITSM verbinding worden gemaakt wanneer de waarschuwing opgegeven voorwaarde wordt voldaan.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-log-records"></a>ITSM-werkitems maken uit logboekrecords Log Analytics
-
-U kunt ook werkitems maken in de verbonden ITSM bronnen rechtstreeks vanuit een logboekrecord. Dit kan worden gebruikt om te controleren of de verbinding correct werkt.
-
-
-1. Van **logboek zoeken**, de vereiste gegevens zoeken, selecteert u de details en klik op **maken werkitem**.
-
-    De **ITSM werkitem maken** venster wordt weergegeven:
-
-    ![Log Analytics scherm](media/log-analytics-itsmc/itsmc-work-items-from-azure-logs.png)
-
-2.   Voeg de volgende details:
-
-  - **Titel werkitem**: titel voor het werkitem.
-  - **Beschrijving van werkitem**: beschrijving voor het nieuwe werkitem.
-  - **Van invloed op een Computer**: naam van de computer waar deze logboekgegevens is gevonden.
-  - **Selecteer verbinding**: ITSM verbinding waarin u wilt maken van dit werkitem.
-  - **Werkitem**: Type werkitem.
-
-3. Met een bestaande werkitemsjabloon voor een incident, klikt u op **Ja** onder **item werken genereren op basis van sjabloon** optie en klik vervolgens op **maken**.
-
-    Of
-
-    Klik op **Nee** als u wilt dat uw aangepaste waarden opgeven.
-
-4. Geef de juiste waarden in de **Type Contact**, **Impact**, **urgentie**, **categorie**, en **subcategorie** tekstvakken en klik vervolgens op **maken**.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualiseren en analyseren van het incident en wijzigen van gegevens van aanvragen

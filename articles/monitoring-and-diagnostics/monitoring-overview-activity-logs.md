@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 128a16f0fbde87136ca01812b0217523fdbeeeeb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638983"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitor abonnement activiteit met de Azure Activity Log
 
@@ -50,7 +51,7 @@ Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor voll
 * **Servicestatus** -deze categorie bevat de record van de service health incidenten die hebben plaatsgevonden in Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "SQL Azure in VS-Oost ondervindt uitvaltijd." Gebeurtenissen van de health service in vijf soorten komen: actie vereist, ondersteunde herstel, Incident, onderhoud, gegevens of beveiliging, en wordt alleen weergegeven als er een resource in het abonnement dat zou worden beïnvloed door de gebeurtenis.
 * **Waarschuwing** -deze categorie bevat de record van alle activeringen van waarschuwingen van Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "CPU-percentage op myVM is meer dan 80 voor de afgelopen vijf minuten." Een verscheidenheid aan Azure systemen hebben een waarschuwingsmethoden concept--u kunt een regel bepaalde hardwaresleutel definiëren en een melding ontvangen wanneer voorwaarden overeenkomen met die regel. Elke keer dat een ondersteunde Azure Waarschuwingstype 'wordt geactiveerd,' of de voorwaarden wordt voldaan voor het genereren van een melding, een record van de activering is ook naar deze categorie van het activiteitenlogboek gepusht.
 * **Automatisch schalen** -deze categorie bevat de record van alle gebeurtenissen met betrekking tot de werking van de engine voor het automatisch schalen op basis van de instellingen voor automatisch schalen die u hebt gedefinieerd in uw abonnement. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Automatisch schalen opschaling van de actie is mislukt." Met automatisch schalen, kunt u automatisch geschaald uitbreiden of schalen op basis van tijd van de dag en/of laden (metrische) gegevens met behulp van een instelling voor automatisch schalen van het aantal exemplaren in een ondersteunde brontype. Wanneer de voorwaarden wordt voldaan aan schaal omhoog of omlaag, de begin- en geslaagd of mislukt gebeurtenissen worden vastgelegd in deze categorie.
-* **Aanbeveling** -deze categorie bevat gebeurtenissen die aanbeveling van bepaalde brontypen, zoals websites en SQL-servers. Deze gebeurtenissen bieden aanbevelingen voor hoe u beter gebruikmaken van uw resources. U ontvangt alleen gebeurtenissen van dit type als u hebt resources die aanbevelingen verzenden.
+* **Aanbeveling** -deze categorie bevat gebeurtenissen die aanbeveling van Azure Advisor.
 * **Beveiliging** -deze categorie bevat de record van alle waarschuwingen die door Azure Security Center. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is 'dubbele extensie verdachte file wordt uitgevoerd'
 * **Beleid en de resourcestatus** -deze categorieën bevatten niet alle gebeurtenissen; ze zijn gereserveerd voor toekomstig gebruik.
 
@@ -60,7 +61,7 @@ Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor voll
 ## <a name="what-you-can-do-with-the-activity-log"></a>Wat u kunt doen met het activiteitenlogboek
 Hier volgen enkele dingen die u met het activiteitenlogboek doen kunt:
 
-![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+![Azure-activiteitenlogboek](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
 * Vragen en deze bekijken in de **Azure-portal**.
@@ -103,7 +104,7 @@ Een **logboek profiel** bepaalt hoe uw activiteitenlogboek wordt geëxporteerd. 
 * Hoe lang het activiteitenlogboek worden bewaard in een Opslagaccount.
     - Een bewaartermijn van nul dagen betekent logboeken permanent worden bewaard. Anders wordt mag de waarde een onbeperkt aantal dagen tussen 1 en 2147483647.
     - Als bewaarbeleid worden ingesteld, maar Logboeken opslaan in een Opslagaccount is uitgeschakeld (bijvoorbeeld, als er alleen Event Hubs of Log Analytics-opties zijn geselecteerd), is het bewaarbeleid hebben geen effect.
-    - Bewaarbeleid zijn toegepaste per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode beleid worden verwijderd. Bijvoorbeeld, als u had een bewaarbeleid van één dag, zou aan het begin van vandaag de dag de logboeken van de dag voordat gisteren worden verwijderd.
+    - Bewaarbeleid zijn toegepaste per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode beleid worden verwijderd. Bijvoorbeeld, als u had een bewaarbeleid van één dag, zou aan het begin van vandaag de dag de logboeken van de dag voordat gisteren worden verwijderd. De verwijderbewerking begint bij middernacht UTC, maar let op: duurt maximaal 24 uur voor de logboeken worden verwijderd uit uw storage-account.
 
 U kunt een opslag-account of gebeurtenis hub naamruimte die zich niet in hetzelfde abonnement als een tekensetcodering Logboeken kunt gebruiken. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
 

@@ -4,13 +4,14 @@ description: Biedt een overzicht van assessment berekeningen in de service Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.author: raynew
-ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639143"
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -68,12 +69,12 @@ OS opgegeven als *andere* in vCenter-Server | Het besturingssysteem identificere
 
 ## <a name="sizing"></a>Grootte aanpassen
 
-Nadat een machine is gemarkeerd als gereed voor Azure, Azure migreren de grootte van de virtuele machine en de schijven voor Azure. Als het criterium sizing is opgegeven in de eigenschappen van de assessment doen formaat op basis van prestaties, beschouwt Azure migreren de prestatiegeschiedenis van de machine naar een VM-grootte in Azure te identificeren. Deze methode is nuttig in scenario's waarin u de lokale virtuele machine te veel hebt toegewezen, maar het gebruik van de laag is en u wilt het juiste formaat de virtuele machines in Azure om op te slaan kosten.
+Nadat een machine is gemarkeerd als gereed voor Azure, Azure migreren de grootte van de virtuele machine en de schijven voor Azure. Als het criterium sizing is opgegeven in de eigenschappen van de assessment doen formaat op basis van prestaties, beschouwt Azure migreren de prestatiegeschiedenis van de machine om de VM-grootte en de schijf type in Azure te identificeren. Deze methode is nuttig in scenario's waarin u de lokale virtuele machine te veel hebt toegewezen, maar het gebruik van de laag is en u wilt het juiste formaat de virtuele machines in Azure om op te slaan kosten.
 
 > [!NOTE]
 > Azure migreren verzamelt prestatiegeschiedenis van de lokale virtuele machines van de vCenter-Server. Zorg ervoor dat de instelling van de statistieken in vCenter-Server is ingesteld op niveau 3 zodat het juiste formaat nauwkeurige en wachten op ten minste een dag voor bij de detectie van de lokale virtuele machines start. Als de instelling van de statistieken in vCenter Server lager niveau 3 is, worden prestatiegegevens voor de schijf en netwerk is niet verzameld.
 
-Als u niet wilt rekening met de prestatiegeschiedenis van de voor VM-grootte en wilt worden van de virtuele machine als-is naar Azure, kunt u het criterium sizing als *als lokale* en Azure migreren wordt vervolgens het formaat van de virtuele machines op basis van de on-premises configuratie zonder rekening te houden de gebruiksgegevens. Formaat van schijf, in dit geval wordt nog steeds gebaseerd op prestatiegegevens.
+Als u niet wilt rekening met de prestatiegeschiedenis van de voor VM-grootte en wilt worden van de virtuele machine als-is naar Azure, kunt u het criterium sizing als *als lokale* en Azure migreren wordt vervolgens het formaat van de virtuele machines op basis van de on-premises configuratie zonder rekening te houden de gebruiksgegevens. Formaat van schijf, in dit geval wordt uitgevoerd op basis van het type opslag dat u in de eigenschappen van de assessment (schijf Standard of Premium schijf opgeeft)
 
 ### <a name="performance-based-sizing"></a>Formaat op basis van prestaties
 
@@ -102,25 +103,13 @@ Migreren van Azure begint met de schijven die zijn gekoppeld aan de virtuele mac
     - Als er meer Azure VM-grootten in aanmerking komen, wordt de grootte met de laagste kosten aanbevolen.
 
 ### <a name="as-on-premises-sizing"></a>Als de lokale formaat wijzigen
-Als het criterium sizing *als lokale sizing*, Azure migreren houdt geen rekening met de prestatiegeschiedenis van de virtuele machines en virtuele machines op basis van de grootte van de lokale toegewezen toewijst. Echter voor schaling van de schijf beschouwt het prestatiegeschiedenis van de schijven aan te bevelen Standard of Premium-schijven.  
-- **Opslag**: Azure migreren elke schijf die is gekoppeld aan de machine naar een schijf in Azure wordt toegewezen.
-
-    > [!NOTE]
-    > Azure migreren ondersteunt alleen beheerde schijven voor evaluatie.
-
-    - Azure migreren vermenigvuldigen om de effectieve schijf-i/o per seconde (IOPS) en doorvoer (MBps), de schijf-IOPS en de doorvoer met de factor comfort. Op basis van de effectieve IOP's en -waarden van doorvoer, identificeert Azure migreren als de schijf moet worden toegewezen aan een standard- of premium-schijf in Azure.
-    - Als Azure migreren, een schijf met de vereiste IOPS & doorvoer vinden kan, wordt de computer als ongeschikt zijn gemarkeerd voor Azure. [Meer informatie](../azure-subscription-service-limits.md#storage-limits) over Azure beperkt per schijf en de VM.
-    - Als het een set geschikte schijven gevonden, selecteert Azure migreren degene die ondersteuning bieden voor de opslag redundantie methode en de locatie die is opgegeven in de instellingen van de assessment.
-    - Als er meerdere schijven voor in aanmerking komt, wordt deze met de laagste kosten geselecteerd.
-    - Als u prestatiegegevens voor de schijven in niet beschikbaar is, alle schijven zijn toegewezen aan standaardschijven in Azure.
-- **Netwerk**: voor elke netwerkadapter een netwerkadapter in Azure wordt aanbevolen.
-- **COMPUTE**: Azure migreren wordt gekeken naar het aantal kernen en de grootte van het geheugen van de lokale virtuele machine en raadt aan om een Azure-VM met dezelfde configuratie. Als er meer Azure VM-grootten in aanmerking komen, wordt de grootte met de laagste kosten aanbevolen. Gebruiksgegevens voor de CPU en geheugen is niet in aanmerking voor als sizing lokale.
+Als het criterium sizing *als lokale sizing*, Azure migreren houdt geen rekening met de prestatiegeschiedenis van de virtuele machines en de schijven en wijst u een VM-SKU in Azure op basis van de lokale toegewezen grootte. Op dezelfde manier voor het formaat van de schijf het kijkt naar de opslag-type dat is opgegeven in de eigenschappen van de assessment (standaard/Premium) en raadt het schijftype dienovereenkomstig aan. Standaard-opslagtype is Premium-schijven.
 
 ### <a name="confidence-rating"></a>Betrouwbaarheidsclassificatie
 
 Elke evaluatie in Azure Migrate wordt gekoppeld aan een betrouwbaarheidsclassificatie van 1 ster tot 5 sterren (1 ster is de laagste score en 5 sterren de hoogste). De betrouwbaarheidsclassificatie wordt aan een evaluatie toegewezen op basis van de beschikbaarheid van de gegevenspunten die nodig zijn om de evaluatie te berekenen. De betrouwbaarheidsclassificatie van een evaluatie helpt u om de betrouwbaarheid in te schatten van de aanbevelingen voor de grootte die Azure Migrate geeft.
 
-Als u de grootte van de VM instelt op basis van de prestaties, heeft Azure Migrate de gebruiksgegevens nodig voor de CPU en het geheugen. Ook voor de grootte van elke schijf die is gekoppeld aan de virtuele machine, moet de lezen/schrijven IOPS en doorvoer. Ook heeft Azure Migrate voor iedere netwerkadapter die aan de VM is gekoppeld, gegevens over het inkomende/uitgaande netwerkverkeer nodig om de grootte in te kunnen stellen op basis van de prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De classificatie vertrouwen voor de beoordeling is afhankelijk van het percentage van de gegevens die beschikbaar zijn, zoals hieronder opgegeven:
+De betrouwbaarheid van een beoordeling is vooral nuttig om beoordelingen met sizing criterium als ' formaat op basis van prestaties. Voor op basis van prestaties sizing moet Azure migreren de gebruiksgegevens voor CPU, geheugen van de virtuele machine. Bovendien voor elke schijf die is gekoppeld aan de virtuele machine, moet de schijf-IOPS en doorvoer gegevens. Op dezelfde manier voor elke netwerkadapter die is gekoppeld aan een VM, moet Azure migreren het netwerk in/out doen formaat op basis van prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten, zoals hieronder wordt weergegeven:
 
    **Beschikbaarheid van gegevenspunten** | **Betrouwbaarheidsclassificatie**
    --- | ---
@@ -131,7 +120,7 @@ Als u de grootte van de VM instelt op basis van de prestaties, heeft Azure Migra
    81%-100% | 5 sterren
 
 Het kan voorkomen dat niet alle gegevenspunten beschikbaar zijn voor een evaluatie. Dit kan de volgende oorzaken hebben:
-- De instelling van de statistieken in vCenter Server is niet ingesteld op niveau 3. Als de instelling voor statistieken in vCenter Server op een lager niveau dan niveau 3 is ingesteld, worden de prestatiegegevens voor de schijf en het netwerk niet verzameld vanuit vCenter Server. In dat geval wordt de aanbeveling van Azure Migrate voor de schijf en het netwerk niet gebaseerd op gebruik. Zonder rekening te houden de IOP's / doorvoer van de schijf, kan niet worden geïdentificeerd Azure migreren als de schijf moet een premium-schijf in Azure, daarom in dit geval Azure migreren raadt standaardschijven voor alle schijven.
+- De instelling voor statistieken in vCenter Server is niet ingesteld op niveau 3. Als de instelling voor statistieken in vCenter Server op een lager niveau dan niveau 3 is ingesteld, worden de prestatiegegevens voor de schijf en het netwerk niet verzameld vanuit vCenter Server. In dat geval wordt de aanbeveling van Azure Migrate voor de schijf en het netwerk niet gebaseerd op gebruik. Als er geen rekening wordt gehouden met de IOPS/doorvoer van de schijf, kan in Azure Migrate niet worden bepaald of voor de schijf een premium-schijf in Azure nodig is. In dat geval adviseert Azure Migrate Standard-schijven voor alle schijven.
 - De instelling voor statistieken in vCenter Server is korte tijd op niveau 3 ingesteld geweest voordat de detectie begon. Laten we het scenario als voorbeeld nemen waarin u het niveau van de instelling voor statistieken vandaag bijvoorbeeld op 3 zet en morgen (na 24 uur) met de detectie begint met behulp van het collector-apparaat. Als u een evaluatie voor één dag maakt, hebt u alle gegevenspunten en is de betrouwbaarheidsclassificatie van de evaluatie 5 sterren. Maar als u de duur van de prestaties in de evaluatie-eigenschappen wijzigt in één maand, gaat de betrouwbaarheidsclassificatie omlaag, omdat de prestatiegegevens voor schijven en netwerken voor de laatste maand niet beschikbaar zijn. Als u rekening wilt houden met de prestatiegegevens voor de laatste maand, kunt u het beste de instelling voor statistieken in vCenter Server op niveau 3 laten staan gedurende één maand voordat u met de detectie begint.
 - Er zijn enkele VM's uitgeschakeld geweest in de periode waarover de evaluatie wordt berekend. Als er VM's zijn die gedurende een bepaalde tijd uitgeschakeld zijn geweest, zal vCenter Server voor die periode geen prestatiegegevens hebben.
 - Er zijn enkele VM's gemaakt tijdens de periode waarover de evaluatie wordt berekend. Als u bijvoorbeeld een evaluatie maakt voor de prestatiegeschiedenis van de laatste maand, maar er een week geleden enkele VM's in de omgeving zijn gemaakt. In dergelijke gevallen is de prestatiegeschiedenis van de nieuwe virtuele machines niet voor de hele periode beschikbaar.

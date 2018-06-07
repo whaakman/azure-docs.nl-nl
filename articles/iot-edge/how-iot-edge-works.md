@@ -1,25 +1,20 @@
 ---
 title: Wat is Azure IoT Edge | Microsoft Docs
 description: Overzicht van de service Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-ms.assetid: ''
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: ''
-ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 52956e9888d67e0502a9ea82657acb9728216111
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630694"
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Wat is Azure IoT Edge - preview
 
@@ -69,7 +64,7 @@ De Azure IoT Edge-runtime wordt uitgevoerd op een groot aantal IoT-apparaten, zo
 
 Het beheer van de softwarelevenscyclus voor bedrijfsapparaten is ingewikkeld. Het beheer van de softwarelevenscyclus voor miljoenen heterogene IoT-apparaten is nog moeilijker. Workloads moeten voor een bepaald type apparaat worden gemaakt en geconfigureerd, moeten op schaal op miljoenen apparaten in uw oplossing worden geïmplementeerd en moeten worden gecontroleerd om apparaten die zich niet normaal gedragen eruit te halen. Deze activiteiten kunnen niet per apparaat worden uitgevoerd, maar moeten op schaal worden uitgevoerd.
 
-Azure IoT Edge integreert naadloos met Azure IoT Suite en biedt één controlelaag voor de behoeften van uw oplossing. Met cloudservices kunnen gebruikers het volgende doen:
+Azure IoT-rand naadloos geïntegreerd met Azure IoT-oplossing accelerators voor vlak voor een besturingselement voor de behoeften van uw oplossing. Met cloudservices kunnen gebruikers het volgende doen:
 
 * een workload maken en configureren die op een specifiek type apparaat wordt uitgevoerd;
 * een workload verzenden naar een reeks apparaten;

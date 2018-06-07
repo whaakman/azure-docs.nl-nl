@@ -5,20 +5,21 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5438d8d366ef989d5ae29581477513f8c884c4b3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 93c921e54c69693ed02c122a2491b0942f550126
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643461"
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Uw eerste zelfstandige Service Fabric-cluster maken
 U kunt een zelfstandig Service Fabric-cluster maken op elke virtuele machine of computer met Windows Server 2012 R2 of Windows Server 2016, lokaal of in de cloud. Deze Quick Start helpt u om in enkele minuten een zelfstandig ontwikkelingscluster te maken.  Wanneer u klaar bent, hebt u een cluster met drie knooppunten die worden uitgevoerd op één computer. Hierop kunt u vervolgens apps implementeren.
@@ -66,7 +67,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ## <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Het cluster visualiseren met Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een goed hulpmiddel om een cluster te visualiseren en toepassingen te beheren.  Service Fabric Explorer is een service die in het cluster wordt uitgevoerd. U opent deze door in een browser te navigeren naar [http://localhost:19080/Explorer](http://localhost:19080/Explorer). 
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een goed hulpmiddel om een cluster te visualiseren en toepassingen te beheren.  Service Fabric Explorer is een service die wordt uitgevoerd in het cluster dat u via een browser openen door te navigeren naar [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer). 
 
 Het clusterdashboard bevat een overzicht van het cluster, inclusief een overzicht van de toepassings- en knooppuntstatus. In de knooppuntweergave ziet u de fysieke indeling van het cluster. Voor elk knooppunt kunt u controleren voor welke toepassingen er op het knooppunt code is geïmplementeerd.
 

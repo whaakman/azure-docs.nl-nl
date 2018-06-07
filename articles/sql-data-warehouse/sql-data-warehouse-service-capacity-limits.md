@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a2a6c78444cb385a2e74b108000555ff056fe9f0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 233cba790aff60121bd1fdf43667ac48a5ef668d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644933"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse Capaciteitslimieten
 De maximumwaarde is toegestaan voor de verschillende onderdelen van Azure SQL Data Warehouse.
@@ -29,10 +30,10 @@ De maximumwaarde is toegestaan voor de verschillende onderdelen van Azure SQL Da
 | [Werklastbeheer](resource-classes-for-workload-management.md) |Maximum aantal gelijktijdige query 's |32<br/><br/> SQL Data Warehouse kan standaard maximaal 32 gelijktijdige query's en wachtrijen resterende query's worden uitgevoerd.<br/><br/>Het aantal gelijktijdige query's kan afnemen wanneer gebruikers worden toegewezen aan hogere resource klassen of wanneer SQL Data Warehouse heeft een lagere [datawarehouse unit](memory-and-concurrency-limits.md) instelling. Sommige query's, zoals DMV-query's, zijn altijd toegestaan om uit te voeren. |
 | [TempDB](sql-data-warehouse-tables-temporary.md) |Maximale GB |399 GB per DW100. Tempdb wordt daarom op DWU1000 aangepast 3,99 TB. |
 
-## <a name="database-objects"></a>database-objecten
+## <a name="database-objects"></a>Databaseobjecten
 | Category | Beschrijving | Maximum |
 |:--- |:--- |:--- |
-| Database |Max. grootte |240 TB gecomprimeerd op schijf<br/><br/>Deze ruimte is onafhankelijk van tempdb- of logboekbestand ruimte, en daarom deze ruimte wordt toegewezen aan permanente tabellen.  De geclusterde columnstore-compressie schatting op 5 X.  Deze compressie kan de database uitbreiden tot ongeveer 1 PB wanneer alle tabellen geclusterde columnstore (de standaard tabeltype) zijn. |
+| Database |Max. grootte | Gen1: 240 TB gecomprimeerd op schijf. Deze ruimte is onafhankelijk van tempdb- of logboekbestand ruimte, en daarom deze ruimte wordt toegewezen aan permanente tabellen.  De geclusterde columnstore-compressie schatting op 5 X.  Deze compressie kan de database uitbreiden tot ongeveer 1 PB wanneer alle tabellen geclusterde columnstore (de standaard tabeltype) zijn. <br/><br/> Gen2: 240TB voor rowstore en onbeperkte opslag voor de columnstore-tabellen |
 | Tabel |Max. grootte |60 TB gecomprimeerd op schijf |
 | Tabel |Tabellen per database |10.000 |
 | Tabel |Kolommen per tabel |1024 kolommen |

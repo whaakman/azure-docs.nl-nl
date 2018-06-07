@@ -6,13 +6,14 @@ author: luiscabrer
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 3ab35cfd8ce5cf54a68473736fe05b78d26850de
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640923"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Het maken van een vaardigheden in een pijplijn verrijking
 
@@ -51,7 +52,7 @@ In het diagram de *document kraken* stap gebeurt automatisch. In wezen Azure Sea
 
 ## <a name="skillset-definition-in-rest"></a>Vaardigheden definitie in REST
 
-Een vaardigheden is gedefinieerd als een matrix met vaardigheden. Elke kwalificatie definieert de bron van de ingevoerde gegevens en de naam van de uitvoer geproduceerd. Met behulp van de [vaardigheden REST-API maken](ref-create-skillset.md), kunt u een vaardigheden die correspondeert met het vorige diagram: 
+Een vaardigheden is gedefinieerd als een matrix met vaardigheden. Elke kwalificatie definieert de bron van de ingevoerde gegevens en de naam van de uitvoer geproduceerd. Met behulp van de [vaardigheden REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-skillset), kunt u een vaardigheden die correspondeert met het vorige diagram: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
@@ -103,7 +104,7 @@ Content-Type: application/json
      "description": "Calls an Azure function, which in turn calls Bing Entity Search",
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar",
+          "Ocp-Apim-Subscription-Key": "foobar"
       },
       "context": "/document/content/organizations/*",
       "inputs": [
@@ -123,7 +124,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="create-a-skillset"></a>Een vaardigheden maken
+## <a name="create-a-skillset"></a>Een set vaardigheden maken
 
 Tijdens het maken van een vaardigheden, kunt u een beschrijving op om de vaardigheden spreekt opgeven. Een beschrijving is optioneel, maar nuttig voor het bijhouden van wat een vaardigheden doet. Omdat vaardigheden een JSON-document, dat geen opmerkingen toestaat is, moet u een `description` element voor deze.
 
@@ -152,8 +153,7 @@ Bekijk de eerste kwalificatie, de vooraf gedefinieerde is [met de naam entiteit 
           "name": "text",
           "source": "/document/content"
         }
-      ],
-      "outputs": [
+      ],      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -208,7 +208,7 @@ De structuur van de aangepaste Bing entiteit zoeken enricher intrekken:
      "description": "This skill calls an Azure function, which in turn calls Bing Entity Search",
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar",
+          "Ocp-Apim-Subscription-Key": "foobar"
       }
       "context": "/document/content/organizations/*",
       "inputs": [

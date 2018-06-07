@@ -14,17 +14,103 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2878fb737f5daa875b91aefc77c6b8bc495f917e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657567"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
 Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 release, evenals de releaseopmerkingen voor eerdere versies.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
+
+## <a name="version-110"></a>Versie 1.1.0
+09-05/2018
+
+### <a name="download-azure-storage-explorer-110"></a>Azure Storage Explorer 1.1.0 downloaden
+- [Azure Opslagverkenner 1.1.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Opslagverkenner 1.1.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Opslagverkenner 1.1.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nieuw
+* Opslagverkenner ondersteunt nu het gebruik van Azurite. Opmerking: de verbinding met Azurite is vastgelegd op de Standaardeindpunten voor ontwikkeling.
+* Opslagverkenner ondersteunt nu Toegangslagen voor Blob alleen en GPV2 Storage-Accounts. Meer informatie over Toegangslagen [hier](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* Een begintijd is niet langer vereist bij het genereren van een SAS.
+
+### <a name="fixes"></a>Oplossingen
+* Ophalen van de abonnementen voor US Government-accounts is verbroken. Dit probleem is opgelost. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* De verlooptijd voor toegangsbeleid is correct niet opgeslagen. Dit probleem is opgelost. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* Bij het genereren van een SAS-URL voor een item in een container, is niet de naam van het item wordt toegevoegd aan de URL. Dit probleem is opgelost. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* Bij het maken van een SAS zou verstrijken tijden dat in het verleden soms de standaardwaarde is. Dit is vanwege Storage Explorer met behulp van die de laatste begin-en verloopdatum als standaardwaarden gebruikt. Telkens wanneer u het dialoogvenster SAS opent, wordt nu een nieuwe reeks standaardwaarden gegenereerd. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* Bij het kopiëren tussen Opslagaccounts, is een 24-uurs SAS gegenereerd. Als u de kopie geduurd meer dan 24 uur, zou de kopie mislukken. We hebt de SAS van voor de afgelopen week om te verminderen de kans op een kopie is mislukt vanwege een verlopen SAS verhoogd. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* Voor sommige activiteiten werkt te klikken op 'Annuleren' altijd niet. Dit probleem is opgelost. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* Voor sommige activiteiten zijn de overdrachtssnelheid is onjuist. Dit probleem is opgelost. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* De spelling van 'Vorige' in het menu weergave is onjuist. Nu is juist gespeld. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* De laatste pagina van het Windows-installatieprogramma heeft een knop 'Volgende'. Het is gewijzigd in een knop 'Voltooid'. [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* Tabblad focus is niet zichtbaar voor knoppen in dialoogvensters bij gebruik van het thema CH zwart. Het is nu zichtbaar. [#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* Het hoofdlettergebruik van 'Automatisch oplossen' voor acties in het gebeurtenissenlogboek is onjuist. Het is nu juist is. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* Bij het verwijderen van een entiteit uit een tabel, wordt in het dialoogvenster waarin u om bevestiging wordt gevraagd een foutpictogram weergegeven. Het dialoogvenster gebruikt nu een waarschuwingspictogram weergegeven. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### <a name="known-issues"></a>Bekende problemen
+* Als u tegenover voor Mac gebruiken en ooit een aangepaste AAD-configuratie hebt gemaakt, is het wellicht niet mogelijk om aan te melden. Verwijder de inhoud van het probleem te verhelpen, ~ /. IdentityService/AadConfigurations. Als u in dat geval heeft niet de blokkering opheffen u, stuur een reactie op [dit probleem](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite is nog niet volledig geïmplementeerd alle Storage-API's. Als gevolg hiervan kunnen er onverwachte fouten of gedrag Azurite voor ontwikkeling opslag gebruikt.
+* In zeldzame gevallen kan de focus structuur ophalen achtergebleven op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
+* Uploaden van de map OneDrive werkt niet vanwege een fout in NodeJS. De fout is opgelost, maar nog niet is geïntegreerd in Electron.
+* Wanneer u ontwikkelt voor Azure-Stack, mislukken uploaden van bepaalde bestanden zoals toevoeg-blobs.
+* Wanneer u op 'Annuleren' voor een taak, duurt het even voor die taak te annuleren. Dit is omdat we de annuleren filter tijdelijke oplossing gebruiken [hier](https://github.com/Azure/azure-storage-node/issues/317). 
+* Als u de verkeerde PINCODE/smartcardcertificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Naam van de BLOB's (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam te wijzigen.
+* Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde Azure-Stack storage-account.
+* De Electron shell die wordt gebruikt door Opslagverkenner heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Opslagverkenner is leeg (leeg) hoofdvenster weer te geven, kunt u proberen Storage Explorer te starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door het toevoegen van de `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Voor Linux-gebruikers, moet u installeren [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is up-to-date - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* U moet installeren GConf voor gebruikers op Ubuntu 17.04 - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Eerdere versies
+
+* [Versie 1.0.0](#version-100)
+* [Versie 0.9.6](#version-096)
+* [Versie 0.9.5](#version-095)
+* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
+* [Versie 0.9.2](#version-092)
+* [Versie 0.9.1 en 0.9.0](#version-091-and-090)
+* [Versie 0.8.16](#version-0816)
+* [Versie 0.8.14](#version-0814)
+* [Versie 0.8.13](#version-0813)
+* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
+* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
+* [Versie 0.8.7](#version-087)
+* [Versie 0.8.6](#version-086)
+* [Versie 0.8.5](#version-085)
+* [Versie 0.8.4](#version-084)
+* [Versie 0.8.3](#version-083)
+* [Versie 0.8.2](#version-082)
+* [Versie 0.8.0](#version-080)
+* [Versie 0.7.20160509.0](#version-07201605090)
+* [Versie 0.7.20160325.0](#version-07201603250)
+* [Versie 0.7.20160129.1](#version-07201601291)
+* [Versie 0.7.20160105.0](#version-07201601050)
+* [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-100"></a>Versie 1.0.0
 16-04/2018
@@ -44,7 +130,7 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
 * Betere toegankelijkheid en ondersteuning voor schermlezers. Als u gebruik maakt van toegankelijkheidsfuncties, raadpleegt u onze [toegankelijkheid documentatie](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) voor meer informatie.
 * Opslagverkenner gebruikt nu Electron 1.8.3
 
-### <a name="breaking-changes"></a>Wijzigingen op te splitsen
+### <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
 * Opslagverkenner is overgeschakeld naar een nieuwe verificatiebibliotheek. Als onderdeel van de switch aan de bibliotheek moet u aanmelding aan uw accounts en uw gefilterde abonnementen opnieuw instellen
 * De methode die wordt gebruikt voor het versleutelen van gevoelige gegevens is gewijzigd. Dit kan leiden tot sommige objecten Snelweergavetoegang hoeven moet opnieuw worden toegevoegd en/of u gekoppeld resources hoeven opnieuw worden gekoppeld.
 
@@ -95,31 +181,6 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Eerdere versies
-
-* [Versie 0.9.6](#version-096)
-* [Versie 0.9.5](#version-095)
-* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
-* [Versie 0.9.2](#version-092)
-* [Versie 0.9.1 en 0.9.0](#version-091-and-090)
-* [Versie 0.8.16](#version-0816)
-* [Versie 0.8.14](#version-0814)
-* [Versie 0.8.13](#version-0813)
-* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
-* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
-* [Versie 0.8.7](#version-087)
-* [Versie 0.8.6](#version-086)
-* [Versie 0.8.5](#version-085)
-* [Versie 0.8.4](#version-084)
-* [Versie 0.8.3](#version-083)
-* [Versie 0.8.2](#version-082)
-* [Versie 0.8.0](#version-080)
-* [Versie 0.7.20160509.0](#version-07201605090)
-* [Versie 0.7.20160325.0](#version-07201603250)
-* [Versie 0.7.20160129.1](#version-07201601291)
-* [Versie 0.7.20160105.0](#version-07201601050)
-* [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Versie 0.9.6
 28-02/2018

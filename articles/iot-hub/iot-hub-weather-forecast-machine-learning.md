@@ -1,25 +1,21 @@
 ---
 title: Weer prognose met Azure Machine Learning met gegevens uit IoT Hub | Microsoft Docs
 description: Gebruik Azure Machine Learning de kans op regen voorspellen op basis van de temperatuur en vochtigheid die uw IoT-hub uit een sensor verzamelt.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: prognose weer machine learning
-ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 453b4de8a93e897b4455403855438d7705945514
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637664"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Weer voorspellen met behulp van de sensorgegevens uit uw IoT-hub in Azure Machine Learning
 
@@ -80,8 +76,8 @@ U leert hoe u met Azure Machine Learning weerbericht prognose (kans regen) met b
 
 ### <a name="create-a-stream-analytics-job"></a>Een Stream Analytics-taak maken
 
-1. In de [Azure-portal](https://portal.azure.com/), klikt u op **maken van een resource** > **Internet der dingen** > **Stream Analytics-taak**.
-1. Voer de volgende informatie voor de taak.
+1. Klik [in de Azure Portal](https://portal.azure.com/) op **Een resource maken** > **Internet of Things** > **Stream Analytics-taak**.
+1. Voer de volgende informatie in voor de taak.
 
    **Taaknaam**: de naam van de taak. De naam moet wereldwijd uniek zijn.
 
@@ -95,10 +91,10 @@ U leert hoe u met Azure Machine Learning weerbericht prognose (kans regen) met b
 
 1. Klik op **Create**.
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a>Invoer voor de Stream Analytics-taak toevoegen
+### <a name="add-an-input-to-the-stream-analytics-job"></a>Een invoer aan de Stream Analytics-taak toevoegen
 
 1. Open de Stream Analytics-taak.
-1. Onder **taak topologie**, klikt u op **invoer**.
+1. Klik onder **Taaktopologie** op **Invoer**.
 1. In de **invoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie:
 
    **Invoeralias**: de alias die uniek zijn voor de invoer.
@@ -111,12 +107,12 @@ U leert hoe u met Azure Machine Learning weerbericht prognose (kans regen) met b
 
 1. Klik op **Create**.
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>Uitvoer toevoegen aan Stream Analytics-taak
+### <a name="add-an-output-to-the-stream-analytics-job"></a>Een uitvoer aan de Stream Analytics-taak toevoegen
 
-1. Onder **taak topologie**, klikt u op **uitvoer**.
+1. Klik onder **Taaktopologie** op **Uitvoer**.
 1. In de **uitvoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie:
 
-   **Uitvoeraliassen**: de alias die uniek zijn voor de uitvoer.
+   **Uitvoeralias**: de alias die uniek is voor de uitvoer.
 
    **Sink**: Selecteer **Blob Storage**.
 
@@ -151,7 +147,7 @@ U leert hoe u met Azure Machine Learning weerbericht prognose (kans regen) met b
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>De query van de Stream Analytics-taak configureren
 
-1. Onder **taak topologie**, klikt u op **Query**.
+1. Klik onder **Taaktopologie** op **Query**.
 1. Vervang de bestaande code door de volgende code:
 
    ```sql
@@ -163,17 +159,17 @@ U leert hoe u met Azure Machine Learning weerbericht prognose (kans regen) met b
    From machinelearning
    ```
 
-   Vervang `[YourInputAlias]` met de ingevoerde alias van de taak.
+   Vervang `[YourInputAlias]` door de invoeralias van de taak.
 
-   Vervang `[YourOutputAlias]` met de uitvoeralias van de taak.
+   Vervang `[YourOutputAlias]` door de uitvoeralias van de taak.
 
 1. Klik op **Opslaan**.
 
-### <a name="run-the-stream-analytics-job"></a>De Stream Analytics-taak uitvoeren
+### <a name="run-the-stream-analytics-job"></a>Voer de Stream Analytics-taak uit
 
-Klik in de Stream Analytics-taak op **Start** > **nu** > **Start**. Zodra de taak kan worden gestart, wordt de taakstatus verandert van **gestopt** naar **met**.
+Klik in de Stream Analytics-taak op **Start** > **Nu** > **Start**. Zodra de taak kan worden gestart, wordt de taakstatus veranderd van **Gestopt** naar **In uitvoering**.
 
-![De Stream Analytics-taak uitvoeren](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![Voer de Stream Analytics-taak uit](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Microsoft Azure Storage Explorer gebruiken om weer te geven van de prognose weer
 

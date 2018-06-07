@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: af0cb98d679125d20b3f4b7819012bee70e04cd1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645494"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL-Database-clienttoepassingen: verbindingsfouten en andere problemen van de Database
 
@@ -46,7 +47,7 @@ Een bespreking van de *blokkerende periode* voor clients die gebruikmaken van AD
 ### <a name="transient-fault-error-codes"></a>Foutcodes voor tijdelijke fout
 De volgende fouten zijn tijdelijk en moeten opnieuw worden geprobeerd in toepassingslogica: 
 
-| Foutcode | Ernst | Beschrijving |
+| Foutcode | Severity | Beschrijving |
 | ---:| ---:|:--- |
 | 4060 |16 |Kan database niet openen "%.&#x2a;ls" aangevraagd door de aanmelding. De aanmelding is mislukt. |
 | 40197 |17 |De service heeft een fout bij het verwerken van uw aanvraag aangetroffen. Probeer het opnieuw. Foutcode: %d.<br/><br/>U ontvangt deze foutmelding wanneer de service uitgeschakeld als gevolg van de software of hardware-upgrades, hardwarefouten of andere problemen met betrekking tot failover is. De foutcode (%d) dat is ingesloten in het bericht van fout 40197 bevat aanvullende informatie over het type fout of failover die is opgetreden. Enkele voorbeelden van de fout codes zijn ingesloten in het bericht van fout 40197 zijn 40020, 40143 40166 en 40540.<br/><br/>Automatisch opnieuw verbinding te maken met uw SQL Database-server, maakt u verbinding met een gezonde kopie van uw database. Uw toepassing moet catch 40197, foutenlogboek de ingesloten foutcode (%d) binnen het bericht voor het oplossen van problemen en probeer opnieuw verbinding te maken met SQL-Database tot de resources beschikbaar zijn en de verbinding tot stand is gebracht opnieuw. |
@@ -60,7 +61,7 @@ De volgende fouten zijn tijdelijk en moeten opnieuw worden geprobeerd in toepass
 ## <a name="database-copy-errors"></a>Fouten in de database kopiëren
 De volgende fouten kunnen opgetreden bij het kopiëren van een database in Azure SQL Database. Zie [Een Azure SQL Database kopiëren](sql-database-copy.md) voor meer informatie.
 
-| Foutcode | Ernst | Beschrijving |
+| Foutcode | Severity | Beschrijving |
 | ---:| ---:|:--- |
 | 40635 |16 |Client met IP-adres "%.&#x2a;ls" is tijdelijk uitgeschakeld. |
 | 40637 |16 |Maken van database-exemplaar is momenteel uitgeschakeld. |
@@ -88,7 +89,7 @@ Verwante onderwerpen:
 
 * Meer gedetailleerde informatie is hier beschikbaar: [limieten voor Azure SQL Database](sql-database-service-tiers-dtu.md).
 
-| Foutcode | Ernst | Beschrijving |
+| Foutcode | Severity | Beschrijving |
 | ---:| ---:|:--- |
 | 10928 |20 |Resource-ID: %d. De limiet voor %s voor de database %d is en is bereikt. Zie voor meer informatie [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor sessies, de Resource-ID = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe het probleem te verhelpen:<br/>• [Limieten voor azure SQL Database](sql-database-service-tiers-dtu.md). |
 | 10929 |20 |Resource-ID: %d. De minimumgarantie %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is echter momenteel te druk bezet voor de ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie voor meer informatie [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637). Anders, probeer het later opnieuw.<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor sessies, de Resource-ID = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe het probleem te verhelpen:<br/>• [Limieten voor azure SQL Database](sql-database-service-tiers-dtu.md). |
@@ -135,7 +136,7 @@ Verwante onderwerpen:
 ## <a name="general-errors"></a>Algemene fouten
 De volgende fouten vallen niet in de vorige categorieën.
 
-| Foutcode | Ernst | Beschrijving |
+| Foutcode | Severity | Beschrijving |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) is niet een geldige naam omdat deze ongeldige tekens bevat. |
 | 18452 |14 |Aanmelding mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%.&#x2a;ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |

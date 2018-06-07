@@ -1,24 +1,20 @@
 ---
 title: Azure IoT-apparaat SDK voor C - serialisatiefunctie | Microsoft Docs
 description: Het gebruik van de serialisatiefunctie-bibliotheek in de Azure-IoT-apparaat-SDK voor C apps voor apparaten die communiceren met een IoT-hub maken.
-services: iot-hub
-documentationcenter: ''
 author: yzhong94
-manager: timlt
-editor: ''
-ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
+manager: arjmands
 ms.service: iot-hub
-ms.devlang: cpp
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: c
+ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a724fa5acc930475bdbe4ffcc74141470a92326c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634141"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT-apparaat SDK voor C: meer informatie over de serialisatiefunctie
 De [eerst artikel](iot-hub-device-sdk-c-intro.md) in deze reeks geïntroduceerd de **Azure IoT-device SDK voor C**. Het volgende artikel opgegeven een gedetailleerdere beschrijving van de [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). In dit artikel is voltooid dekking van de SDK door te geven van een gedetailleerdere beschrijving van de resterende component: de **serialisatiefunctie** bibliotheek.
@@ -68,20 +64,20 @@ De volgende gegevenstypen worden ondersteund in modellen die zijn gemaakt met de
 
 | Type | Beschrijving |
 | --- | --- |
-| dubbele |dubbele precisiegetal met drijvende komma |
+| double |dubbele precisiegetal met drijvende komma |
 | int |32-bits geheel getal |
-| Float |drijvende-kommagetal met enkele precisie |
-| lang |lang geheel getal |
+| drijvend |drijvende-kommagetal met enkele precisie |
+| lengte |lang geheel getal |
 | int8\_t |8-bits geheel getal |
 | int16\_t |16-bits geheel getal |
-| int32\_t |32-bits geheel getal |
+| Int32\_t |32-bits geheel getal |
 | int64\_t |64-bits geheel getal |
 | BOOL |booleaans |
 | ASCII\_char\_ptr |ASCII-tekenreeks |
 | EDM\_DATUM\_TIJD\_OFFSET |datum tijdverschil |
 | EDM\_GUID |GUID |
-| EDM\_BINARY |Binaire |
-| DECLARE\_STRUCT |complex gegevenstype |
+| EDM\_BINAIRE |Binaire |
+| DECLAREREN\_STRUCT |complex gegevenstype |
 
 Laten we beginnen met het laatste gegevenstype. De **DECLARE\_STRUCT** kunt u definiëren van complexe gegevenstypen, dat wil zeggen groepen van de andere primitieve typen. Deze groeperingen kunnen we voor het definiëren van een model dat er als volgt uit:
 
@@ -596,7 +592,7 @@ Om te kunnen gebruiken van de nieuwe versie van de macro\_utils.h, verwijdert u 
 
 Voeg vervolgens dit project toe aan uw Visual Studio-oplossing:
 
-> .\\c\\serializer\\build\\windows\\serializer.vcxproj
+> . \\c\\serialisatiefunctie\\bouwen\\windows\\serializer.vcxproj
 > 
 > 
 
@@ -618,16 +614,16 @@ Zoals beschreven in een [vorige artikel](iot-hub-device-sdk-c-iothubclient.md), 
 * IoTHubClient\_CreateFromConnectionString
 * IoTHubClient\_SendEventAsync
 * IoTHubClient\_SetMessageCallback
-* IoTHubClient\_Destroy
+* IoTHubClient\_vernietigen
 
 Deze API's worden uitgelegd **simplesample\_amqp**.
 
 Er is ook een vergelijkbare reeks API's van lager niveau.
 
 * IoTHubClient\_LLE\_CreateFromConnectionString
-* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LLE\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_LL\_Destroy
+* IoTHubClient\_LLE\_vernietigen
 
 Houd er rekening mee dat de API's van lager niveau werken op dezelfde manier zoals beschreven in de vorige artikelen. U kunt de eerste reeks API's gebruiken als u wilt dat een achtergrond-thread voor het afhandelen van gebeurtenissen verzenden en ontvangen berichten. U kunt de tweede reeks API's gebruiken als u wilt dat expliciete controle over wanneer u gegevens verzenden en ontvangen van IoT Hub. Een reeks API's werken net zo goed met de **serialisatiefunctie** bibliotheek.
 

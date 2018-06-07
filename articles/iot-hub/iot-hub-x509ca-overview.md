@@ -1,24 +1,19 @@
 ---
 title: Overzicht van Azure IoT Hub x.509-CA-beveiliging | Microsoft Docs
 description: Overzicht - hoe om apparaten met IoT Hub met X.509-certificeringsinstanties te verifiëren.
-services: iot-hub
-documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 11f340ebe1719c680cce5f6ad34150d3717c57d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 690a58a939e6866bfcdf80d05e52d7bfc7fd3586
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635600"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Verificatie van apparaten met behulp van x.509-CA-certificaten
 

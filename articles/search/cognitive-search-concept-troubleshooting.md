@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 15fc879958bfd886210a90239e0247c60fe231f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640962"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Tips voor probleemoplossing voor cognitieve zoeken
 
@@ -53,15 +54,15 @@ In dat geval wilt u de indexeerfunctie voor het negeren van fouten zien. Doen do
 ## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Tip 4: Kijken naar verrijkt documenten achter de schermen 
 Verrijkt documenten zijn tijdelijke structuren tijdens verrijking gemaakt en vervolgens verwijderd bij het verwerken is voltooid.
 
-Voeg een veld met de naam voor het vastleggen van een momentopname van de verrijkt document dat is gemaakt tijdens het indexeren ```enriched``` uw index. De indexeerfunctie dumpen automatisch naar het veld een tekenreeksrepresentatie van de enrichments voor het document.
+Als u een momentopname van het verrijkte document wilt vastleggen tijdens het indexeren, voegt u een veld met de naam ```enriched``` toe aan uw index. De indexeerfunctie dumpt automatisch een tekenreeksrepresentatie van de verrijkingen voor het document in het veld.
 
-De ```enriched``` veld bevat een tekenreeks die een logische representatie van het in het geheugen verrijkt document in JSON is.  De veldwaarde is echter een geldige JSON-document. Aanhalingstekens zijn en u moet ter vervanging van escape `\"` met `"` opgemaakt als u wilt weergeven van het document als JSON. 
+Het veld ```enriched``` bevat dan een tekenreeks die een logische representatie vormt van het verrijkte document in het geheugen in JSON.  De veldwaarde is echter een geldig JSON-document. Aanhalingstekens worden geïdentificeerd met een escape-teken, waardoor u `\"` met `"` moet vervangen als u het document als geformatteerde JSON wilt weergeven. 
 
 Het veld verrijkt is bedoeld voor foutopsporing, zodat u een overzicht van de logische vorm van de inhoud die op basis van expressies worden geëvalueerd. U moet niet afhankelijk zijn van dit veld voor indexeren doeleinden.
 
 Voeg een ```enriched``` veld als onderdeel van de definitie van de index voor foutopsporing:
 
-#### <a name="request-body-syntax"></a>Syntaxis van de aanvraag hoofdtekst
+#### <a name="request-body-syntax"></a>Syntaxis aanvraagbody
 ```json
 {
   "fields": [
@@ -98,7 +99,7 @@ Voor de portal gebaseerde indexering (zoals beschreven in de Quick Start), het k
 
 ## <a name="tip-7-increase-indexing-throughput"></a>Tip 7: Vergroten doorvoer voor indexering
 
-Voor [parallelle indexeren](search-howto-reindex.md#parallel-indexing), uw gegevens in meerdere containers of meerdere virtuele mappen in dezelfde container te plaatsen. Vervolgens maakt u meerdere paren van datasource en indexeerfunctie. Alle indexeerfuncties toegang tot de dezelfde vaardigheden en schrijven naar het hetzelfde doel search-index, zodat uw app zoeken niet hoeft te worden op de hoogte van deze partitioneren.
+Voor [parallelle indexeren](search-howto-large-index.md), uw gegevens in meerdere containers of meerdere virtuele mappen in dezelfde container te plaatsen. Vervolgens maakt u meerdere paren van datasource en indexeerfunctie. Alle indexeerfuncties toegang tot de dezelfde vaardigheden en schrijven naar het hetzelfde doel search-index, zodat uw app zoeken niet hoeft te worden op de hoogte van deze partitioneren.
 Zie voor meer informatie [grote gegevenssets indexeren](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Zie ook

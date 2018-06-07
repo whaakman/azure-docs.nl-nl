@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell-script: een aangepaste beveiligingsrol maken in een aangepaste lab in Azure Lab Services | Microsoft Docs'
-description: Deze PowerShell-script wordt een externe gebruiker toegevoegd aan een aangepaste lab in Azure Lab-Services.
+title: 'PowerShell-script: een aangepaste beveiligingsrol maken in een testomgeving in Azure DevTest Labs | Microsoft Docs'
+description: Deze PowerShell-script wordt een externe gebruiker toegevoegd aan een lab in Azure DevTest Labs.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: df91c9f842d338e1725fec2734129f2f1f3d3721
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 295f742342fba7d77b556724c8005f3ac4816482
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636712"
 ---
-# <a name="use-powershell-to-create-a-custom-role-in-a-custom-lab-in-azure-lab-services"></a>PowerShell gebruiken voor het maken van een aangepaste rol in een aangepaste testomgeving in Azure Lab Services
+# <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>PowerShell gebruiken voor het maken van een aangepaste rol in een testomgeving in Azure DevTest Labs
 
-Deze PowerShell-voorbeeldscript wordt een aangepaste beveiligingsrol te gebruiken in een aangepaste testomgeving in Azure Lab Services gemaakt. 
+Dit voorbeeld PowerShell-script maakt een aangepaste beveiligingsrol te gebruiken in een testomgeving in Azure DevTest Labs. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-* **Een aangepaste lab**. Het script moet u een bestaande aangepaste lab hebben. 
+* **Een lab**. Het script moet u een bestaande lab hebben. 
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a lab")]
 
 ## <a name="script-explanation"></a>Uitleg van het script
 

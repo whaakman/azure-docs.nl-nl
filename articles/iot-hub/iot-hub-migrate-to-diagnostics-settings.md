@@ -1,24 +1,19 @@
 ---
 title: Azure IoT Hub migreren naar de diagnostische instellingen | Microsoft Docs
 description: Het bijwerken van Azure IoT Hub Azure diagnostics om instellingen te gebruiken in plaats van bewerkingen voor het controleren van de status van bewerkingen voor uw IoT-hub in real-time bewaking.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: kgremban
-ms.openlocfilehash: a46f6798a71c93ed769ae68877e72801d45b74a4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 85bdb4b4802283c591e4d7a9e8b14ae74fa44e8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633584"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migreren van uw IoT-Hub van bewaking aan de diagnostische instellingen bewerkingen
 
@@ -61,5 +56,5 @@ Zie voor de specifieke schemastructuren, [inzicht in het schema voor de diagnost
 [lnk-opsmon]: iot-hub-operations-monitoring.md
 [lnk-diagnostics-settings]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
 [lnk-diagnostics-schema]: iot-hub-monitor-resource-health.md#understand-the-logs
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-accelerators-with-azure-monitor-and-azure-resource-health
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/
 [lnk-monitor]: iot-hub-monitor-resource-health.md

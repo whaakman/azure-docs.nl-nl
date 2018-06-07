@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5a54980e866a31b576265487fdff128f53f30470
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4a29af7d92dbf83672907af42d2222d9c7b1ef39
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645035"
 ---
 # <a name="building-scalable-cloud-databases"></a>Schaalbare clouddatabases bouwen
 Databases uitbreiden kan gemakkelijk worden gedaan met behulp van schaalbare hulpprogramma's en functies voor Azure SQL Database. U kunt in het bijzonder de **clientbibliotheek voor elastische Database** maken en beheren van uitgebreide databases. Deze functie kunt u eenvoudig shard toepassingen ontwikkelen met honderden, of zelfs duizenden — van Azure SQL-databases. [Elastische taken](sql-database-elastic-jobs-powershell.md) kan vervolgens worden gebruikt voor het beheer te vereenvoudigen voor deze databases.

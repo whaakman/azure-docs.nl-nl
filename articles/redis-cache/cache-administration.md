@@ -14,11 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 37e7395a26ead737009ad9e285e9f88372b25d26
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 3b62b41fb7b9d7ff6f40191c48d00c1f0a941e48
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639449"
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Het beheren van Azure Redis-Cache
 Dit onderwerp beschrijft hoe uitvoeren zoals beheertaken [opnieuw wordt opgestart nadat](#reboot) en [updates plannen](#schedule-updates) voor uw Azure Redis-Cache-exemplaren.
@@ -91,10 +92,8 @@ De **updates plannen** blade kunt u een onderhoudsvenster voor uw cache van de l
 
 Als u een onderhoudsvenster, controleren de gewenste dagen het Beginuur van het venster Onderhoud voor elke dag opgeeft, en klik **OK**. Houd er rekening mee dat de duur van het onderhoudsvenster is ingesteld op UTC. 
 
-> [!NOTE]
-> Het standaardonderhoudsvenster voor updates is vijf uur. Deze waarde kan niet worden geconfigureerd via de Azure portal, maar u kunt deze configureren in met behulp van PowerShell de `MaintenanceWindow` parameter van de [nieuw AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet. Zie voor meer informatie [kan ik geplande updates met behulp van PowerShell, CLI of andere beheerhulpprogramma's beheren?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
-> 
-> 
+Updates voor het onderhoudsvenster standaard en ten minste is vijf uur. Deze waarde kan niet worden geconfigureerd via de Azure portal, maar u kunt deze configureren in met behulp van PowerShell de `MaintenanceWindow` parameter van de [nieuw AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet. Zie voor meer informatie [kan ik geplande updates met behulp van PowerShell, CLI of andere beheerhulpprogramma's beheren?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+
 
 ## <a name="schedule-updates-faq"></a>Veelgestelde vragen over updates plannen
 * [Wanneer updates worden uitgevoerd als ik de functie voor schema-updates niet gebruiken?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)

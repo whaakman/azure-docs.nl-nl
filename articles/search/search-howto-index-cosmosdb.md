@@ -7,14 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/29/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8206c076f9e89753adb16854a7d981c0f80c4a3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640333"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinding te maken met Azure Search met behulp van indexeerfuncties
 
@@ -96,7 +97,7 @@ De hoofdtekst van de aanvraag bevat de definitie van de gegevensbron, waaronder 
 * **type**: moet `documentdb`.
 * **referenties**:
   
-  * **connectionString**: vereist. Geef de verbindingsgegevens van de met uw Azure DB die Cosmos-database in de volgende indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` voor MongoDB-verzamelingen toevoegen **ApiKind MongoDB =** de verbindingsreeks: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
+  * **connectionString**: vereist. Geef de verbindingsgegevens van de met uw Azure DB die Cosmos-database in de volgende indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` voor MongoDB-verzamelingen toevoegen **ApiKind MongoDb =** de verbindingsreeks: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
 * **container**:
   
   * **naam**: vereist. Geef de id van de verzameling van de database worden geïndexeerd.
@@ -177,10 +178,10 @@ Zorg ervoor dat het schema van de doelindex compatibel met het schema van de JSO
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Toewijzing tussen JSON-gegevenstypen en Azure Search-gegevenstypen
 | JSON-gegevenstype | Compatibel doel index veldtypen |
 | --- | --- |
-| Booleaans |Edm.Boolean, Edm.String |
+| BOOL |Edm.Boolean, Edm.String |
 | Cijfers die als gehele getallen eruitzien |Edm.Int32, Edm.Int64, Edm.String |
 | Cijfers die zijn opgemaakt als drijvende-punten |Edm.Double, Edm.String |
-| Tekenreeks |Edm.String |
+| Reeks |Edm.String |
 | Matrices met primitieve typen, bijvoorbeeld ["a", "b", "c"] |Collection(EDM.String) |
 | Tekenreeksen die lijken op datums |Edm.DateTimeOffset, Edm.String |
 | GeoJSON-objecten, bijvoorbeeld {'type': 'Point', 'coordinates': [lang, lat]} |Edm.GeographyPoint |

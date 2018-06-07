@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 7dadaadd0e6a6e6d71685356568076ad26305cc2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212667"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642220"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Uw eerste stateful Reliable Service Fabric-servicetoepassing maken met C#
 
@@ -68,12 +68,15 @@ Zie [Aan de slag met Reliable Services](service-fabric-reliable-services-quick-s
 
 Nu u een toepassing hebt, kunt u deze via de volgende stappen uitvoeren, implementeren en er foutopsporing op toepassen.
 
-1. Selecteer F5 in Visual Studio om de toepassing voor foutopsporing te implementeren.
+1. Selecteer in Visual Studio **F5** om de toepassing voor foutopsporing te implementeren.  Klik op **Ja** als u krijgt een berichtvenster waarin wordt gevraagd om te verlenen 'ServiceFabricAllowedUsers' groep lees- en schrijfrechten hebben voor uw directory Visual Studio-project.
 
     >[!NOTE]
     >De eerste keer dat u de toepassing lokaal uitvoert en implementeert, wordt door Visual Studio een lokaal cluster voor foutopsporing gemaakt. Dit kan enige tijd duren. De status van het maken van het cluster wordt weergegeven in het Visual Studio-uitvoervenster.
-
-    Als het cluster gereed is, ontvangt u een melding van de lokale toepassing die het systeemvak voor het cluster beheert en die in de SDK is opgenomen.
+    
+     Als het cluster gereed is, ontvangt u een melding van de lokale toepassing die het systeemvak voor het cluster beheert en die in de SDK is opgenomen.
+     
+    >[!NOTE]
+    >Deze oefening reqires een 5-knooppunt (vs. 1 knooppunt) cluster. U kunt dit als volgt controleren: het hulpprogramma voor Service Fabric Explorer starten met de rechtermuisknop op de **Service Fabric lokaal Clusterbeheer** lade systeemtoepassing en klik vervolgens op **Switch clustermodus**. Klik op **5 knooppunt** als 1 knooppunt momenteel is geselecteerd.
     
     ![Melding van het systeemvak van het lokale cluster][4]
 
@@ -107,7 +110,7 @@ Nu u een toepassing hebt, kunt u deze via de volgende stappen uitvoeren, impleme
 
     ![Onderbrekingspunt in de stateful service RunAsync-methode][7]
 
-7. Start Service Fabric Explorer door met de rechtermuisknop op het systeemvak **Lokaal clusterbeheer** te klikken en **Lokaal cluster beheren** te selecteren.
+7. Het hulpprogramma voor Service Fabric Explorer starten met de rechtermuisknop op de **Service Fabric lokaal Clusterbeheer** lade systeemtoepassing en selecteren **lokaal Cluster beheren**.
 
     ![Service Fabric Explorer starten vanuit lokaal clusterbeheer][systray-launch-sfx]
 
@@ -117,7 +120,7 @@ Nu u een toepassing hebt, kunt u deze via de volgende stappen uitvoeren, impleme
 
     ![Een knooppunt in Service Fabric Explorer stoppen][sfx-stop-node]
 
-    U ziet uw onderbrekingspunt in Visual Studio, terwijl de berekening die u uitvoerde op één knooppunt naadloos wordt overgenomen door een ander.
+    U ziet uw onderbrekingspunt in Visual Studio, terwijl de berekening die u uitvoerde op één knooppunt naadloos wordt overgenomen door een ander. Druk op **F5** om door te gaan.
 
 9. Ga nu terug naar de details van de gebeurtenisviewer en bekijk de berichten. De teller blijft oplopen in stappen, zelfs als de gebeurtenissen daadwerkelijk afkomstig zijn uit een ander knooppunt.
 

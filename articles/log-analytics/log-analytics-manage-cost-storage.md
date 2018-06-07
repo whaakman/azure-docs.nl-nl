@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 43f7f1160fa36745bcfd697d91d1b46615b99edc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637511"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren via Besturingsmechanismen gegevensvolume en te bewaren in Log Analytics
 Log Analytics is ontworpen om scale en ondersteuning voor het verzamelen, te indexeren en opslaan van grote hoeveelheden gegevens per dag van elke bron in uw onderneming of geïmplementeerd in Azure.  Hoewel dit kan een primaire stuurprogramma voor uw organisatie, is kostenefficiëntie uiteindelijk het onderliggende stuurprogramma. Het is ook afhankelijk van het plan geselecteerd hiertoe het is belangrijk om te begrijpen dat de kosten van een werkruimte logboek Analytisc NET is niet gebaseerd op het volume van de gegevens die zijn verzameld, en hoe lang u hebt gekozen voor het opslaan van gegevens die zijn gegenereerd op basis van uw verbonden bronnen.  
@@ -36,7 +37,7 @@ De kosten van de gegevens zijn aanzienlijk afhankelijk van de volgende factoren:
 > [!NOTE]
 > Raadpleeg de documentatie van elke oplossing aangezien deze biedt een schatting maken van hoeveel gegevens worden verzameld.   
 
-Als u op de *vrije* plan, gegevens zijn beperkt tot 7 dagen bewaren. Voor de *zelfstandige* of *betaalde* laag, verzamelde gegevens is beschikbaar voor de afgelopen 31 dagen. De *vrije* plan heeft 500 MB daglimiet opname en als u vindt dat u steeds meer bedragen dan de toegestane volume, kunt u uw werkruimte naar een betaald abonnement voor het verzamelen van gegevens boven deze limiet. 
+Klanten met een Enterprise Agreement ondertekend vóór 1 juli 2018 of die al een werkruimte voor logboekanalyse in een abonnement hebt gemaakt, u nog steeds toegang hebben tot de *vrije* plan. Als uw abonnement is niet gekoppeld aan een bestaande EA-registratie, het *vrije* laag is niet beschikbaar wanneer u een werkruimte in een nieuw abonnement na 2 April 2018 maken.  Gegevens zijn beperkt tot 7 dagen bewaren voor de *vrije* laag.  Voor de *zelfstandige* of *betaalde* laag, verzamelde gegevens is beschikbaar voor de afgelopen 31 dagen. De *vrije* laag daglimiet opname voor 500 MB heeft, en als u vindt dat u steeds meer bedragen dan de toegestane volume, kunt u uw werkruimte naar een betaald abonnement voor het verzamelen van gegevens boven deze limiet. 
 
 > [!NOTE]
 > Als u wilt selecteren van een langere bewaartermijn voor de betaalde laag gelden. U kunt op elk gewenst moment en voor meer informatie over prijzen wijzigen van het type van uw abonnement, Zie [prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/). 
@@ -54,7 +55,7 @@ Hier kunt u het gegevensvolume van uw bekijken voor de maand. Dit omvat alle geg
  
 Log Analytics kosten worden toegevoegd aan uw Azure-factuur. Ziet u details van uw Azure factureren onder de sectie facturering van de Azure portal of in de [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
-## <a name="daily-cap"></a>Dagelijkse limiet
+## <a name="daily-cap"></a>Daglimiet
 Wanneer een werkruimte voor logboekanalyse maken van de Azure portal en u kiest voor de *vrije* plan wordt ingesteld op een 500 MB per dag limiet. Er is geen limiet voor de prijscategorie plannen. Een dagelijkse limiet configureren en te beperken tot de dagelijkse opname van uw werkruimte, maar wees voorzichtig als het doel mag geen dagelijkse limiet.  Anders gaan de gegevens voor de rest van de dag kan invloed hebben op andere Azure-services en oplossingen waarvan functionaliteit mogelijk afhankelijk van de actuele gegevens beschikbaar in de werkruimte verloren.  Als gevolg hiervan waarschuwingen de mogelijkheid om te zien en ontvang wanneer de voorwaarden van de gezondheid van ondersteuningsservices voor IT-resources ondervinden gevolgen.  Het dagelijkse kapje is moet worden gebruikt als een manier voor het beheren van het onverwachte toename van het gegevensvolume van uw beheerde resources en blijven binnen de limiet, of wanneer u wilt beperken gewoon niet-geplande kosten voor uw werkruimte bedoeld.  
 
 Wanneer de dagelijkse limiet is bereikt, stopt het verzamelen van factureerbare gegevenstypen voor de rest van de dag. Een waarschuwing weergegeven dat aan de bovenkant van de pagina voor de geselecteerde werkruimte voor logboekanalyse en wordt een bewerkingsgebeurtenis verzonden naar de *bewerking* tabel onder **LogManagement** categorie. Verzamelen van gegevens wordt hervat nadat de tijd reset gedefinieerd onder *dagelijkse limiet wordt ingesteld op*. Het is raadzaam om het definiëren van een waarschuwingsregel op basis van deze bewerkingsgebeurtenis, geconfigureerd om te waarschuwen wanneer de daglimiet voor gegevens is bereikt. 

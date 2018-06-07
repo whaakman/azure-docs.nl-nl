@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c98918dcd08c2e8ec72cc995c633b8320da8057
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22f1579b2df2acdc736ed4c1d5cee64d096c320a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635913"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Een aangepaste installatiekopie van een virtuele machine maken
 
@@ -42,7 +43,7 @@ U kunt een aangepaste installatiekopie maken van een ingerichte virtuele machine
 
     ![Afbeelding van aangepaste menu-item maken](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Op de **aangepaste installatiekopie** deelvenster, voer een naam en beschrijving voor de aangepaste installatiekopie. Deze informatie wordt weergegeven in de lijst met databases wanneer u een virtuele machine maken.
+1. Op de **aangepaste installatiekopie** deelvenster, voer een naam en beschrijving voor de aangepaste installatiekopie. Deze informatie wordt weergegeven in de lijst met databases wanneer u een virtuele machine maken. De aangepaste installatiekopie bevat de besturingssysteemschijf en alle gegevensschijven gekoppeld aan de virtuele machine.
 
     ![Deelvenster van de aangepaste installatiekopie maken](./media/devtest-lab-create-template/create-custom-image-blade.png)
 

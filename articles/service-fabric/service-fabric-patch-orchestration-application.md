@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/07/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642808"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -316,6 +317,10 @@ A. De tijd die nodig is door de patch orchestration-app is voornamelijk afhankel
 Q. **Waarom zie ik bepaalde updates in de Windows Update-resultaten die zijn verkregen via de REST-API, maar niet onder de geschiedenis van Windows Update op de machine?**
 
 A. Sommige productupdates wordt alleen weergegeven in de geschiedenis van hun respectieve update/patch. Bijvoorbeeld worden updates voor Windows Defender niet weergegeven in de geschiedenis van Windows Update op Windows Server 2016.
+
+Q. **Kan Patch Orchestration app patch mijn dev-cluster (cluster met één knooppunt) worden gebruikt?**
+
+A. Nee, Patch orchestration app kan niet worden gebruikt voor patch cluster met één knooppunt. Deze beperking is standaard, als [service fabric-systeemservices](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) of alle apps klant ervaart uitvaltijd en daarom elke taak reparatie voor patch-doeleinden zou nooit goedgekeurd door herstel manager.
 
 ## <a name="disclaimers"></a>Disclaimers
 

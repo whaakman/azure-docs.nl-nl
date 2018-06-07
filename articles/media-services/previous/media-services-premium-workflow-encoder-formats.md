@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 36d4e897952e7ecb0297cc8c0ba159f728fd1213
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 68ba76ee18b3acc1c2825a217641c21a799132c1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638585"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Werkstroom voor Media Encoder Premium indelingen en codecs
 > [!NOTE]
@@ -53,6 +54,7 @@ De volgende sectie worden de codecs en bestandsindelingen die ondersteuning bied
 * AVC 8-bits/10-bits, maximaal 4:2:2, inclusief AVCIntra
 * Avid DNxHD (in MXF)
 * DVCPro/DVCProHD (in MXF)
+* HEVC/H.265, Main en Main 10 profiel
 * JPEG2000
 * MPEG-2 (maximaal 422 profiel en een hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD, XDCAM IMX, CableLabs® en D10)
 * MPEG-1

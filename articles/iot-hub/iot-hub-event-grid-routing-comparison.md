@@ -1,22 +1,19 @@
 ---
 title: Vergelijk gebeurtenis raster routering voor IoT Hub | Microsoft Docs
-description: "IoT Hub biedt een eigen bericht routing-service, maar ook worden geïntegreerd met gebeurtenis raster voor het publiceren van de gebeurtenis. Vergelijk de twee functies."
-services: iot-hub
-documentationcenter: 
+description: IoT Hub biedt een eigen bericht routing-service, maar ook worden geïntegreerd met gebeurtenis raster voor het publiceren van de gebeurtenis. Vergelijk de twee functies.
 author: kgremban
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 5a0a97ccf033b2981ba13be455482146ba212228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 320320687e441a1296065eb9d0b7b12771036459
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636168"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Berichtroutering en gebeurtenis raster vergelijken voor IoT-Hub
 
@@ -34,8 +31,8 @@ Berichtroutering en gebeurtenis raster waarschuwing configuratie inschakelt, maa
 | **Apparaat-berichten** | Ja, kan berichtroutering worden gebruikt voor telemetrische gegevens. | Nee, gebeurtenis raster kan alleen worden gebruikt voor niet-telemetrie IoT Hub gebeurtenissen. |
 | **Gebeurtenistype** | Ja, berichtroutering kan rapporteren dat twin wijzigingen en device lifecycle gebeurtenissen. | Gebeurtenis raster kan Ja, rapporteren wanneer apparaten zijn geregistreerd bij een IoT-Hub en wanneer apparaten zijn verwijderd. |
 | **Ordening** | Ja, ordening van gebeurtenissen wordt bijgehouden.  | Nee, de volgorde van gebeurtenissen wordt niet gegarandeerd. | 
-| **Maximale berichtgrootte** | 256 KB, device-to-cloud | 64 kB |
-| **Filtering** | Rich filtering via SQL-achtige taal biedt ondersteuning voor filteren op berichtkoppen en instanties. Zie voor voorbeelden [IoT Hub-querytaal](iot-hub-devguide-query-language.md). | Filteren op basis van achtervoegsels /-voorvoegsel van apparaat-id's die geschikt is voor hiërarchische services zoals opslag. |
+| **Maximale berichtgrootte** | 256 KB, apparaat-naar-cloud | 64 kB |
+| **Filteren** | Rich filtering via SQL-achtige taal biedt ondersteuning voor filteren op berichtkoppen en instanties. Zie voor voorbeelden [IoT Hub-querytaal](iot-hub-devguide-query-language.md). | Filteren op basis van achtervoegsels /-voorvoegsel van apparaat-id's die geschikt is voor hiërarchische services zoals opslag. |
 | **Eindpunten** | <ul><li>Event Hub</li> <li>Storage-blob</li> <li>Service Bus-wachtrij</li> <li>Service Bus-onderwerpen</li></ul><br>Betaalde IoT Hub-SKU's (S1, S2 en S3) zijn beperkt tot 10 aangepaste eindpunten. 100 routes kunnen per IoT Hub worden gemaakt. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hub</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>De services van derden via webhooks.</li></ul><br>Zie voor de meest recente lijst met eindpunten [gebeurtenis raster gebeurtenis-handlers](../event-grid/overview.md#event-handlers). |
 | **Kosten** | Er zijn geen afzonderlijke kosten voor het routeren van berichten. U betaalt alleen inkomend telemetrie in IoT Hub. Als u een bericht naar drie verschillende eindpunten gerouteerd hebt, kunt u wordt bijvoorbeeld voor gefactureerd voor slechts één bericht. | Er zijn geen kosten uit IoT Hub. Gebeurtenis raster biedt de eerst 100.000 bewerkingen per maand gratis en vervolgens $0,60 per miljoen operations daarna. |
 

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 5702c6e9c9d75c6cccb82f1c57684ef7b9898c34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666012"
 ---
 ## <a name="view-device-telemetry"></a>Telemetrie van apparaten weergeven
 
@@ -57,4 +58,4 @@ Gebruiken om aan te roepen methoden op uw apparaten, de **apparaten** pagina in 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Het artikel [aanpassen van de externe controle oplossingsverbetering](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) enkele manieren voor het aanpassen van de oplossingsverbetering beschrijft.
+Het artikel [aanpassen van de oplossing voor externe controle accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) enkele manieren voor het aanpassen van de oplossingsverbetering beschrijft.

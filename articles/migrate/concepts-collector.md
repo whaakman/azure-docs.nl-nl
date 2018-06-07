@@ -4,14 +4,15 @@ description: Biedt een overzicht van het toestel Collector en configureert.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32554b2f297c2079374a5edd7739af7320bc1234
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640224"
 ---
 # <a name="collector-appliance"></a>Collector toestel
 
@@ -187,37 +188,37 @@ We raden u ook aan de volgende stappen voor het beveiligen van uw apparaat
 
 U kunt de Collector upgraden naar de nieuwste versie zonder dat de eicellen nogmaals gedownload.
 
-1. Download de meest recente [upgradepakket](https://aka.ms/migrate/col/latestupgrade).
+1. Download de meest recente [upgradepakket](https://aka.ms/migrate/col/upgrade_9_11) (versie 1.0.9.11).
 2. Om ervoor te zorgen dat de gedownloade hotfix beveiligd is, opent u het opdrachtvenster Administrator en voer de volgende opdracht voor het genereren van de hash van het ZIP-bestand. De gegenereerde hash moet overeenkomen met de hash op basis van de specifieke versie vermeld:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (voorbeeld van syntaxis C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+    (voorbeeld van syntaxis C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
 3. Kopieer het zip-bestand naar de Azure-collector virtuele machine migreren (collector toestel).
 4. Met de rechtermuisknop op het zip-bestand en selecteer Alles uitpakken.
 5. Met de rechtermuisknop op Setup.ps1 en klikt u op uitvoeren met PowerShell en volg de instructies op het scherm om de update te installeren.
 
 ### <a name="list-of-updates"></a>Lijst met updates
 
+#### <a name="upgrade-to-version-10911"></a>Upgrade uitvoeren naar versie 1.0.9.11
+
+Hash-waarden voor de upgrade [1.0.9.11 pakket](https://aka.ms/migrate/col/upgrade_9_11)
+
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | 0e36129ac5383b204720df7a56b95a60
+SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
+SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+
 #### <a name="upgrade-to-version-1097"></a>Upgrade uitvoeren naar versie 1.0.9.7
 
-Voor een Upgrade naar versie 1.0.9.7 downloaden [pakket](https://aka.ms/migrate/col/upgrade_9_7)
+Hash-waarden voor de upgrade [1.0.9.7 pakket](https://aka.ms/migrate/col/upgrade_9_7)
 
 **Algoritme** | **Hash-waarde**
 --- | ---
 MD5 | 01ccd6bc0281f63f2a672952a2a25363
 SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
 SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-#### <a name="upgrade-to-version-1095"></a>Upgrade uitvoeren naar versie 1.0.9.5
-
-Voor een Upgrade naar versie 1.0.9.5 downloaden [pakket](https://aka.ms/migrate/col/upgrade_9_5)
-
-**Algoritme** | **Hash-waarde**
---- | ---
-MD5 | d969ebf3bdacc3952df0310d8891ffdf
-SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
-SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Volgende stappen
 

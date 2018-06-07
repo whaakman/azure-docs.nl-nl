@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 2c7dd89d9c2e5d50f2533101499a6e50e52047b3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636603"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 Azure Sleutelkluis kunnen gebruikers kunt opslaan en gebruiken van de cryptografische sleutels die binnen de Microsoft Azure-omgeving. Sleutelkluis ondersteunt meerdere sleuteltypen en de algoritmen en maakt het gebruik van Hardware Security Modules (HSM) voor waardevolle sleutels. Bovendien kunnen Sleutelkluis gebruikers veilig opslaan geheimen. Geheimen zijn beperkt grootte octet objecten met geen specifieke semantiek. Sleutelkluis ondersteunt ook de certificaten die zijn ingebouwd in sleutels en geheimen en het toevoegen van een functie voor automatische verlenging.
@@ -327,7 +328,7 @@ De kenmerken van het certificaat wordt gespiegeld in kenmerken van de adresseerb
 
 Een Sleutelkluis-certificaat heeft de volgende kenmerken:  
 
--   *ingeschakeld*: boolean, optioneel, de standaardwaarde is **true**. Dit kenmerk kan worden opgegeven om aan te geven als de gegevens van het certificaat kunnen worden opgehaald als geheime of bediend als sleutel. Dit wordt gebruikt in combinatie met *nbf* en*exp*wanneer een bewerking plaatsvindt tussen *nbf* exp, deze alleen worden toegestaan als ingeschakeld is ingesteld op true. Bewerkingen buiten de *nbf* en*exp*venster automatisch zijn niet toegestaan.  
+-   *ingeschakeld*: boolean, optioneel, de standaardwaarde is **true**. Dit kenmerk kan worden opgegeven om aan te geven als de gegevens van het certificaat kunnen worden opgehaald als geheime of bediend als sleutel. Dit wordt gebruikt in combinatie met *nbf* en *exp* wanneer een bewerking plaatsvindt tussen *nbf* en *exp*, deze wordt alleen toegestaan als ingeschakeld is ingesteld op true. Bewerkingen buiten de *nbf* en *exp* venster automatisch zijn niet toegestaan.  
 
 Er zijn extra kenmerken voor alleen-lezen die zijn opgenomen in het antwoord:
 

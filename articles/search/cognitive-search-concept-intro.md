@@ -8,11 +8,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641108"
 ---
 # <a name="what-is-cognitive-search"></a>Wat is cognitieve zoeken?
 
@@ -29,7 +30,7 @@ Kwalificaties gebruikt tijdens het indexeren zijn vooraf gedefinieerde of aangep
 + [Aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) kunnen zijn ontwikkeld door u voor alle gespecialiseerde bewerkingen die u nodig hebt. Voorbeelden van aangepaste vaardigheden mogelijk een aangepaste entiteit module of document classificatie die gericht is op een specifiek domein zoals Financiën, wetenschappelijke publicaties of arts.
 
 > [!NOTE]
-> Cognitieve zoekopdrachten bevindt zich in de openbare preview-fase en momenteel wordt uitvoering van vaardigheden gratis aangeboden. Op een later moment worden de prijzen voor deze mogelijkheid bekend gemaakt.
+> Cognitieve zoekopdrachten bevindt zich in de openbare preview-fase en momenteel wordt uitvoering van vaardigheden gratis aangeboden. De prijzen voor deze functionaliteit worden op een later moment bekend gemaakt.
 
 ## <a name="components-of-cognitive-search"></a>Onderdelen van cognitieve zoeken
 
@@ -61,7 +62,7 @@ Tijdens de verwerking is voltooid, hebt u een zoekopdracht corpus die bestaan ui
 
 De index is, net als andere u voor Azure Search maken mogelijk: vullen met aangepaste analyzers, fuzzy zoekquery's aanroepen, gefilterde zoekopdracht toevoegen of experimenteren met score berekenen voor profielen voor het wijzigen van de zoekresultaten.
 
-Indexen zijn gegenereerd op basis van een indexschema dat de velden, kenmerken definieert, en andere constructies die zijn gekoppeld aan een specifieke index, zoals scoren van profielen en synoniem wordt toegewezen. Als een index is gedefinieerd en ingevuld, kunt u stapsgewijs indexeren zodat nieuwe en bijgewerkte brondocumenten worden opgepikt. Bepaalde wijzigingen vereist helemaal opnieuw maken. U moet een kleine set gegevens gebruiken totdat het schemaontwerp voor een stabiel is. Zie voor meer informatie [het opnieuw opbouwen van een index](search-howto-reindex.md).
+Indexen zijn gegenereerd op basis van een indexschema dat de velden, kenmerken definieert, en andere constructies die zijn gekoppeld aan een specifieke index, zoals scoren van profielen en synoniem wordt toegewezen. Als een index is gedefinieerd en ingevuld, kunt u stapsgewijs indexeren zodat nieuwe en bijgewerkte brondocumenten worden opgepikt. Bepaalde wijzigingen vereist helemaal opnieuw maken. U moet een kleine set gegevens gebruiken totdat het schemaontwerp voor een stabiel is. Zie [How to rebuild an index](search-howto-reindex.md) (Een index herbouwen) voor meer informatie.
 
 <a name="feature-concepts"></a>
 
@@ -102,9 +103,9 @@ Op dit moment worden alleen REST-API's geleverd. Gebruik `api-version=2017-11-11
 | REST-API | Beschrijving |
 |-----|-------------|
 | [Gegevensbron maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Een bron te identificeren van een externe gegevensbron brongegevens gebruikt voor het maken van verrijkt documenten bieden.  |
-| [Vaardigheden maken (api-version = 2017-11-11-Preview)](ref-create-skillset.md)  | Een resource coördinatie van het gebruik van [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) en [aangepaste cognitieve vaardigheden](cognitive-search-custom-skill-interface.md) gebruikt in een pijplijn verrijking tijdens het indexeren. |
+| [Vaardigheden maken (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource coördinatie van het gebruik van [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) en [aangepaste cognitieve vaardigheden](cognitive-search-custom-skill-interface.md) gebruikt in een pijplijn verrijking tijdens het indexeren. |
 | [Index maken](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Een schema uitdrukken van een Azure Search-index. Velden in de index aan velden in de brongegevens of velden geproduceerd tijdens de fase verrijking (bijvoorbeeld een veld voor de organisatienamen van de gemaakt door entiteit erkenning) toewijzen. |
-| [Maak indexeerfunctie (api-version = 2017-11-11-Preview)](ref-create-skillset.md)  | Een bron voor het definiëren van onderdelen die worden gebruikt tijdens het indexeren: met inbegrip van een gegevensbron, een vaardigheden veld koppelingen van de bron- en tussenliggende gegevensstructuren met doelindex en de index zelf. De indexeerfunctie wordt uitgevoerd, is de trigger voor gegevensopname en verrijking. De uitvoer is een zoekopdracht corpus op basis van het indexschema dat is gevuld met de brongegevens, verrijkt via vaardigheden.  |
+| [Maak indexeerfunctie (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een bron voor het definiëren van onderdelen die worden gebruikt tijdens het indexeren: met inbegrip van een gegevensbron, een vaardigheden veld koppelingen van de bron- en tussenliggende gegevensstructuren met doelindex en de index zelf. De indexeerfunctie wordt uitgevoerd, is de trigger voor gegevensopname en verrijking. De uitvoer is een zoekopdracht corpus op basis van het indexschema dat is gevuld met de brongegevens, verrijkt via vaardigheden.  |
 
 **Controlelijst: Een gangbare werkstroom**
 
@@ -112,11 +113,11 @@ Op dit moment worden alleen REST-API's geleverd. Gebruik `api-version=2017-11-11
 
 1. Maak een [gegevensbronobject](https://docs.microsoft.com/rest/api/searchservice/create-data-source) in Azure Search, een verbindingsreeks opgeven voor ophalen van gegevens.
 
-1. Maak een [vaardigheden](ref-create-skillset.md) met verrijking stappen.
+1. Maak een [vaardigheden](https://docs.microsoft.com/rest/api/searchservice/create-skillset) met verrijking stappen.
 
 1. Definieer de [indexschema](https://docs.microsoft.com/rest/api/searchservice/create-index). De *velden* verzameling bevat velden uit de brongegevens. U moet ook aanvullende velden voor het opslaan van de gegenereerde waarden voor inhoud die is gemaakt tijdens de verrijking stub.
 
-1. Definieer de [indexeerfunctie](ref-create-skillset.md) verwijst naar de gegevensbron, de vaardigheden en de index.
+1. Definieer de [indexeerfunctie](https://docs.microsoft.com/rest/api/searchservice/create-skillset) verwijst naar de gegevensbron, de vaardigheden en de index.
 
 1. Voeg binnen de indexeerfunctie *outputFieldMappings*. Deze sectie wordt de uitvoer van de vaardigheden (in stap 3) aan de velden invoeren in het schema van de index (in stap 4) toegewezen.
 

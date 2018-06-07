@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 1e3ecd27ce7ec2e2763a7249428875e51872bf63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6c352298c701c827cd01c0ed7f427b7ed6015e29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646674"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Algemene richtlijnen voor het werken met Wingtip Tickets steekproef SaaS-apps
 
@@ -86,7 +87,7 @@ Een geslaagde demo-verbinding, zodat alle servers hebben een [firewallregel](sql
 1. Open *SSMS* en maak verbinding met de tenants. Naam van de server is afhankelijk van de database tenancymodus patroon dat u hebt geselecteerd (Zie hieronder voor details):
     - **Zelfstandige toepassing:** servers van individuele tenants (ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Database per tenant:** *tenants1-dpt -&lt;gebruiker&gt;. database.windows.net*
-    - **Multi-tenant database:** *tenants1-mt-&lt;User&gt;.database.windows.net* 
+    - **Multitenant-database:** *tenants1-mt -&lt;gebruiker&gt;. database.windows.net* 
 2. Klik op **Verbinding maken**  > **Database-engine...**:
 
    ![catalogusserver](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
@@ -101,7 +102,7 @@ Een geslaagde demo-verbinding, zodat alle servers hebben een [firewallregel](sql
 4. Herhaal stappen 2-3 en maak verbinding met de GC-server (Zie hieronder voor specifieke servernamen op basis van de database tenancymodus geselecteerd)
     - **Zelfstandige toepassing:** *catalogus-sa -&lt;gebruiker&gt;. database.windows.net*
     - **Database per tenant:** *catalogus-dpt -&lt;gebruiker&gt;. database.windows.net*
-    - **Multi-tenant database:** *catalog-mt-&lt;User&gt;.database.windows.net*
+    - **Multitenant-database:** *catalogus-mt -&lt;gebruiker&gt;. database.windows.net*
 
 
 Nadat de verbinding tot stand ziet u alle servers. Uw lijst met databases mogelijk verschillen, afhankelijk van de tenants die u hebt ingericht.

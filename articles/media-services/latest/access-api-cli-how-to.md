@@ -12,11 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: a4a7c59e93b860245d67695de90fbae2becac3e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639772"
 ---
 # <a name="access-azure-media-services-api-with-cli-20"></a>Toegang tot Azure mediaservices API met CLI 2.0
  
@@ -35,7 +36,7 @@ Maak een nieuw Azure Media Services-account, zoals beschreven in [deze snelstart
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij de [Azure-portal](http://portal.azure.com) en start **CloudShell** CLI-opdrachten uitvoeren, zoals wordt weergegeven in de volgende stappen.
+Meld u aan bij [Azure Portal](http://portal.azure.com) en start **CloudShell** om CLI-opdrachten uitvoeren, zoals wordt beschreven in de volgende stappen.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -46,4 +47,8 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een bestand Stream](stream-files-dotnet-quickstart.md)
+> [Een bestand streamen](stream-files-dotnet-quickstart.md)
+
+## <a name="see-also"></a>Zie ook
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

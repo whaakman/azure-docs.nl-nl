@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bdbeee0e0caaa0e6db7249c2f4aeaa19d5d2ed0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643648"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Testen van failover naar Azure in Site Recovery
 
@@ -40,7 +41,7 @@ Deze procedure wordt beschreven hoe u een testfailover voor een herstelplan uitv
 
     - Site herstelpogingen maken VM's testen in een subnet met dezelfde naam en hetzelfde IP-adres als die beschikbaar is in de **berekening en netwerk** instellingen van de virtuele machine.
     - Als een subnet met dezelfde naam is niet beschikbaar in het Azure-netwerk dat is gebruikt voor de testfailover, wordt de test VM gemaakt in het eerste subnet alfabetische volgorde.
-    - Als hetzelfde IP-adres niet beschikbaar in het subnet is, ontvangt de virtuele machine een ander beschikbaar IP-adres in het subnet. [Meer informatie](#creating-a-network-for-test-failover).
+    - Als hetzelfde IP-adres niet beschikbaar in het subnet is, ontvangt de virtuele machine een ander beschikbaar IP-adres in het subnet. [Meer informatie](#create-a-network-for-test-failover).
 4. Als u bent failover wordt uitgevoerd naar Azure en gegevensversleuteling is ingeschakeld, in **versleutelingssleutel**, selecteert u het certificaat dat was uitgegeven wanneer u tijdens de installatie van de Provider is ingeschakeld. U kunt deze stap overslaan versleuteling is niet ingeschakeld.
 5. Voortgang van de failover volgen op de **taken** tabblad. U moet mogelijk zijn om te zien van de test replica-machine in de Azure portal.
 6. Voor het initiëren van een RDP-verbinding met de Azure VM, moet u [toevoegen van een openbaar IP-adres](https://aka.ms/addpublicip) op de netwerkinterface failover VM. 
@@ -67,10 +68,10 @@ In de volgende scenario's vereist failover een extra tussenstap die meestal onge
 * Hyper-V VM beveiligd als fysieke servers
 * VMware VM waarop opstartstuurprogramma's zijn niet in de volgende stuurprogramma's:
     * storvsc
-    * vmbus
+    * VMBus
     * storflt
     * Intelide
-    * atapi
+    * ATAPI
 * VMware VM die geen DHCP ingeschakeld, rrespective van of ze zijn geïnstalleerd via DHCP of statische IP-adressen.
 
 In alle andere gevallen is er geen tussenliggende stap is niet vereist en failover aanzienlijk minder tijd nodig.

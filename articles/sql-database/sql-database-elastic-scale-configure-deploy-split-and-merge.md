@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 90f758bf5bc979dc4bc173b08dadaceeaa077317
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 51a5f70cc56b2a4196ee7b151be0af3a9e16fc4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646929"
 ---
 # <a name="deploy-a-split-merge-service"></a>Een service voor splitsen en samenvoegen implementeren
 De splitsing merge-hulpprogramma kunt u gegevens verplaatsen tussen shard-databases. Zie [verplaatsen van gegevens tussen cloud uitgebreide databases](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -33,8 +34,8 @@ De bestanden worden geplaatst in een map met de naam **Microsoft.Azure.SqlDataba
 2. Zorg ervoor dat uw Azure SQL DB-server kan Azure-Services tot stand te brengen. In de portal in de **firewallinstellingen**, zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op **op**. Klik op het pictogram 'opslaan'.
    
    ![Toegestane services][1]
-3. Maak een Azure Storage-account dat wordt gebruikt voor diagnostische uitvoer. Ga naar de Azure-portal. Klik in de linkerbalk op **maken van een resource**, klikt u op **gegevens en opslag**, klikt u vervolgens **opslag**.
-4. Maak een Azure Cloud Service die uw service gesplitste Merge bevat.  Ga naar de Azure-portal. Klik in de linkerbalk op **maken van een resource**, klikt u vervolgens **Compute**, **Cloudservice**, en **maken**. 
+3. Maak een Azure Storage-account dat wordt gebruikt voor diagnostische uitvoer. Ga naar Azure Portal. Klik in de linkerbalk op **maken van een resource**, klikt u op **gegevens en opslag**, klikt u vervolgens **opslag**.
+4. Maak een Azure Cloud Service die uw service gesplitste Merge bevat.  Ga naar Azure Portal. Klik in de linkerbalk op **maken van een resource**, klikt u vervolgens **Compute**, **Cloudservice**, en **maken**. 
 
 ## <a name="configure-your-split-merge-service"></a>Configureer uw service gesplitste samenvoegen
 ### <a name="split-merge-service-configuration"></a>Configuratie gesplitste Merge-service

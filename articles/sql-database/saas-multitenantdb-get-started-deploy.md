@@ -8,14 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646453"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementeren en een shard multitenant-toepassing die gebruikmaakt van Azure SQL Database verkennen
 
@@ -123,7 +124,7 @@ Elke locatie vast Hiermee haalt u een aangepaste web-app lijst met hun gebeurten
 Een centraal **gebeurtenissen Hub** webpagina bevat een lijst met koppelingen voor de tenants in uw specifieke implementatie. Gebruik de volgende stappen om de **gebeurtenissen Hub** webpagina en een afzonderlijke web-app:
 
 1. Open de **gebeurtenissen Hub** in uw webbrowser:
-    - http://events.wingtip-mt. &lt;gebruiker&gt;. trafficmanager.net &nbsp; *(Vervang &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)*
+    - http://events.wingtip-mt.&lt; gebruiker&gt;. trafficmanager.net &nbsp; *(Vervang &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -135,7 +136,7 @@ Een centraal **gebeurtenissen Hub** webpagina bevat een lijst met koppelingen vo
 
 Voor het beheren van de distributie van binnenkomende aanvragen de Wingtip app gebruikmaakt van [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). De pagina gebeurtenissen voor elke tenant bevat de naam van de tenant in de URL. Elke URL bevat ook de waarde van uw specifieke gebruiker. Elke URL gehoorzaamt aan de indeling weergegeven met behulp van de volgende stappen uit:
 
-- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt; gebruiker&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. De app gebeurtenissen parseert de tenantnaam van de URL. De tenantnaam van de is *fabrikamjazzclub* in het voorgaande voorbeeld-URL.
 2. De app vervolgens de naam van de tenant te maken van een sleutel voor toegang tot een catalogus met hashes [shard kaart management](sql-database-elastic-scale-shard-map-management.md).
