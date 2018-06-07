@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
 ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
 ms.locfileid: "33942510"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Installatie van de Mobility-Service met System Center Configuration Manager automatiseren
@@ -234,7 +234,7 @@ U kunt de voortgang van de implementatie controleren met behulp van de Configura
    `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Kopieer de volgende bestanden naar de **MobSvcLinux** map op uw netwerk:
-   * Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
    * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
    * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
    * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz

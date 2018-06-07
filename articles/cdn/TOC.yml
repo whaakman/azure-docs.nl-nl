@@ -10,10 +10,12 @@
   items:
     - name: Een profiel en eindpunt maken
       href: cdn-create-new-endpoint.md
+    - name: Een opslagaccount integreren
+      href: cdn-create-a-storage-account-with-cdn.md
 - name: Zelfstudies
   items:
     - name: Azure CDN toevoegen aan een web-app
-      href: app-service-web-tutorial-content-delivery-network.md
+      href: cdn-add-to-web-app.md
     - name: Een aangepast domein toevoegen
       href: cdn-map-content-to-custom-domain.md
     - name: HTTPS in een aangepast domein configureren
@@ -28,29 +30,21 @@
   items:
     - name: Hoe caching werkt
       href: cdn-how-caching-works.md
+    - name: Contentlevering China
+      href: cdn-china-delivery.md
+    - name: Ondersteuning voor HTTP/2
+      href: cdn-http2.md
 - name: Handleidingen
   items:
-    - name: Integreren
-      items:
-        - name: Storage
-          items:
-            - name: Een opslagaccount integreren
-              href: cdn-create-a-storage-account-with-cdn.md
-            - name: Ondersteuning voor SAS-opslag
-              href: cdn-sas-storage-support.md
-        - name: Cross-origin-resources delen
-          href: cdn-cors.md
     - name: Inhoud optimaliseren
+      href: cdn-optimization-overview.md
       items:
-        - name: Optimalisatieoverzicht
-          href: cdn-optimization-overview.md
-          items:
-            - name: Optimalisatie van grote bestanden
-              href: cdn-large-file-optimization.md
-            - name: Optimalisatie van mediastreaming
-              href: cdn-media-streaming-optimization.md
-            - name: Dynamische siteversnelling
-              href: cdn-dynamic-site-acceleration.md
+        - name: Optimalisatie van grote bestanden
+          href: cdn-large-file-optimization.md
+        - name: Optimalisatie van mediastreaming
+          href: cdn-media-streaming-optimization.md
+        - name: Dynamische siteversnelling
+          href: cdn-dynamic-site-acceleration.md
     - name: Beheren
       items:
         - name: Beheren met Azure PowerShell
@@ -61,8 +55,6 @@
           href: cdn-improve-performance.md
         - name: Cachinggedrag beheren
           items:
-            - name: Hoe caching werkt
-              href: cdn-how-caching-works.md
             - name: Cachinggedrag beheren met cachingregels
               href: cdn-caching-rules.md
             - name: Cache-inhoud op queryreeksen
@@ -83,35 +75,35 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: Tokenverificatie
           href: cdn-token-auth.md
+        - name: Ondersteuning voor SAS-opslag
+          href: cdn-sas-storage-support.md
+        - name: Cross-origin-resources delen
+          href: cdn-cors.md
         - name: Resources controleren
           href: cdn-resource-health.md
         - name: Gedrag overschrijven met regels
           href: cdn-rules-engine.md
-        - name: Real-time waarschuwingen
-          href: cdn-real-time-alerts.md
-        - name: Ondersteuning voor HTTP/2
-          href: cdn-http2.md
     - name: Analyseren
+      href: cdn-log-analysis.md
       items:
-        - name: Gebruikspatronen van Azure CDN analyseren
-          href: cdn-log-analysis.md
+        - name: Diagnostische logboeken van Azure
+          href: cdn-azure-diagnostic-logs.md
+        - name: Analytische hulpprogramma's voor Azure CDN van Verizon
           items:
-            - name: Diagnostische logboeken van Azure
-              href: cdn-azure-diagnostic-logs.md
-            - name: Analytische hulpprogramma's voor Azure CDN van Verizon
-              items:
-                - name: Verizon-kernrapporten
-                  href: cdn-analyze-usage-patterns.md
-                - name: Aangepaste Verizon-rapporten
-                  href: cdn-verizon-custom-reports.md
-            - name: Analysehulpprogramma's voor Azure CDN Premium van Verizon
-              items:
-                - name: Geavanceerde HTTP-rapporten genereren
-                  href: cdn-advanced-http-reports.md
-                - name: Statistieken in realtime bekijken
-                  href: cdn-real-time-stats.md
-                - name: Prestaties van edge-knooppunt analyseren
-                  href: cdn-edge-performance.md
+            - name: Verizon-kernrapporten
+              href: cdn-analyze-usage-patterns.md
+            - name: Aangepaste Verizon-rapporten
+              href: cdn-verizon-custom-reports.md
+        - name: Analysehulpprogramma's voor Azure CDN Premium van Verizon
+          items:
+            - name: Geavanceerde HTTP-rapporten genereren
+              href: cdn-advanced-http-reports.md
+            - name: Statistieken in realtime bekijken
+              href: cdn-real-time-stats.md
+            - name: Prestaties van edge-knooppunt analyseren
+              href: cdn-edge-performance.md
+            - name: Real-time waarschuwingen
+              href: cdn-real-time-alerts.md
     - name: Ontwikkelen
       items:
         - name: .NET

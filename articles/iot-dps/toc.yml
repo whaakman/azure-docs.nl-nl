@@ -125,7 +125,7 @@
   items:
     - name: Oplossingen
       items:
-        - name: Vooraf geconfigureerde oplossing van IoT Suite
+        - name: IoT-oplossingsversnellers
           href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

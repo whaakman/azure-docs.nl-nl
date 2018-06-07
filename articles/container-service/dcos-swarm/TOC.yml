@@ -7,9 +7,9 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Docker Swarm Linux
-      href: container-service-swarm-walkthrough.md
-    - name: DC/OS Linux
+    - name: Docker Swarm
+      href: container-service-swarm-mode-walkthrough.md
+    - name: DC/OS
       href: container-service-dcos-quickstart.md
 - name: Zelfstudies
   items:
@@ -27,10 +27,6 @@
       href: container-service-security.md
 - name: Handleidingen
   items:
-    - name: Een ACS-cluster maken
-      href: container-service-create-acs-cluster-cli.md
-    - name: Verbinding maken met een ACS-cluster
-      href: container-service-connect.md
     - name: Een ACS-cluster schalen
       href: container-service-scale.md
     - name: DC/OS
@@ -71,7 +67,7 @@
           href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: Naslaginformatie
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/acs
     - name: PowerShell
       href: /powershell/module/azurerm.compute

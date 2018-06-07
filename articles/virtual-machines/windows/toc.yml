@@ -81,6 +81,8 @@
               href: n-series-driver-setup.md
         - name: Krachtig rekenvermogen
           href: sizes-hpc.md
+        - name: Vorige generaties
+          href: sizes-previous-gen.md
         - name: Azure Compute Units (ACU)
           href: acu.md
         - name: Benchmarkscores
@@ -190,7 +192,12 @@
         - name: Een virtuele machine taggen
           href: tag.md
         - name: Scripts uitvoeren op een virtuele machine
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Aangepaste scriptextensie
+              href: ../extensions/custom-script-windows.md
+            - name: Run-opdracht
+              href: run-command.md
         - name: Een tijdelijke stationsletter wijzigen
           href: change-drive-letter.md
         - name: Een beschikbaarheidsset wijzigen
@@ -329,41 +336,7 @@
         - name: DNS-resolutie
           href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: VM-extensies gebruiken
-      items:
-        - name: Overzicht van VM-extensies
-          href: extensions-features.md
-        - name: Aangepaste scriptextensie
-          href: extensions-customscript.md
-        - name: OMS-agentextensie
-          href: extensions-oms.md
-        - name: PowerShell DSC-extensie
-          href: extensions-dsc-overview.md
-          items:
-            - name: Referentieafhandeling met PowerShell DSC-extensie
-              href: extensions-dsc-credentials.md
-            - name: DSC en VMSS met sjablonen
-              href: extensions-dsc-template.md
-        - name: Azure-extensie voor logboekverzamelaar
-          href: log-collector-extension.md
-        - name: Azure-extensie voor diagnostische gegevens
-          href: extensions-diagnostics.md
-          items:
-            - name: Extensieschema
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
-            - name: Inschakelen met PowerShell
-              href: ps-extensions-diagnostics.md
-            - name: Inschakelen met sjablonen
-              href: extensions-diagnostics-template.md
-            - name: Problemen oplossen
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
-        - name: VM-extensies exporteren
-          href: extensions-export-templates.md
-        - name: Problemen met extensies oplossen
-          href: extensions-troubleshoot.md
-        - name: Network Watcher-agent
-          href: extensions-nwa.md
-        - name: Installatie van extensie beperken
-          href: ../extensions/extensions-rmpolicy-howto-ps.md
+      href: ../extensions/overview.md
     - name: Virtuele machines migreren
       items:
         - name: AWS en on-premises VM's migreren

@@ -1,6 +1,6 @@
 ---
 title: Pushmeldingen aan specifieke gebruikers met Azure Notification Hubs | Microsoft Docs
-description: Ontdek hoe u pushmeldingen verzendt naar specifieke gebruikers met behulp van Azure Notification Hubs.
+description: Leer hoe u pushmeldingen kunt verzenden naar specifieke gebruikers met behulp van Azure Notification Hubs.
 documentationcenter: ios
 author: dimazaid
 manager: kpiteira
@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: dimazaid
 ms.openlocfilehash: 36d70c40e3de7bd38cdfc566da37060cdcea9060
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "33777532"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Zelfstudie: Aan specifieke gebruikers met Azure Notification Hubs Pushmeldingen
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-In deze zelfstudie wordt uitgelegd hoe u met Azure Notification Hubs pushmeldingen kunt verzenden aan een specifieke appgebruiker op een specifiek apparaat. Een ASP.NET WebAPI-back-end wordt gebruikt om clients te verifiëren en het genereren van meldingen, zoals wordt weergegeven in het onderwerp richtlijnen [registreren van uw app back-end](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+In deze zelfstudie wordt uitgelegd hoe u met Azure Notification Hubs pushmeldingen kunt verzenden naar een specifieke app-gebruiker op een specifiek apparaat. Een ASP.NET WebAPI-back-end wordt gebruikt om clients te verifiëren en het genereren van meldingen, zoals wordt weergegeven in het onderwerp richtlijnen [registreren van uw app back-end](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
-In deze zelfstudie maakt uitvoeren u de volgende stappen:
+In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
 > * Het WebAPI-project maken
-> * Verificatie van clients naar de WebAPI-back-end
+> * Clients verifiëren bij de WebAPI-back-end
 > * Registreren voor meldingen met behulp van de WebAPI-back-end
 > * Meldingen verzenden vanuit de WebAPI-back-end
 > * De nieuwe WebAPI-back-end publiceren
@@ -82,7 +83,7 @@ Als u Mobile Apps gebruiken als uw back-endservice wilt, raadpleegt u de [Mobile
    
         - (IBAction)LogInAction:(id)sender;
     ```
-2. In ViewController.h, voeg de volgende `#define` na uw importinstructies. Vervang de *< Voer uw back-end eindpunt\>*  aanduiding voor items met de doel-URL die u gebruikt voor het implementeren van uw app back-end in de vorige sectie. Bijvoorbeeld: *http://you_backend.azurewebsites.net*.
+2. In ViewController.h, voeg de volgende `#define` na uw importinstructies. Vervang de *< Voer uw back-end eindpunt\>*  aanduiding voor items met de doel-URL die u gebruikt voor het implementeren van uw app back-end in de vorige sectie. Bijvoorbeeld *http://you_backend.azurewebsites.net*.
    
     ```obj-c
         #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
@@ -478,10 +479,10 @@ Als u Mobile Apps gebruiken als uw back-endservice wilt, raadpleegt u de [Mobile
     ![][4]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u pushmeldingen op specifieke gebruikers die codes die zijn gekoppeld aan hun registraties hebben. Als u wilt weten hoe u pushmeldingen op basis van locatie, gaat u door naar de volgende zelfstudie: 
+In deze zelfstudie hebt u geleerd hoe u pushmeldingen kunt verzenden naar specifieke gebruikers door een tag te koppelen aan hun registraties. Als u wilt weten hoe u locatiegebaseerde pushmeldingen kunt verzenden, gaat u verder met de volgende zelfstudie: 
 
 > [!div class="nextstepaction"]
->[Pushmeldingen op basis van locatie](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[Locatiegebaseerde pushmeldingen verzenden](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
