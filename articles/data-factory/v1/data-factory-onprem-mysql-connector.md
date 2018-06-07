@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 685998729e9aa01f60c80735b5f2f4d278769bdb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9075c774d0b56b6609616205e30b5a7d484fa031
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808091"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Verplaatsen van gegevens van MySQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +43,7 @@ Gateway is vereist, zelfs als de MySQL-database wordt gehost in een Azure IaaS v
 > Zie [gateway problemen](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) voor tips over het oplossen van verbinding of gateway gerelateerde problemen.
 
 ## <a name="supported-versions-and-installation"></a>Ondersteunde versies en installatie
-Voor de Data Management Gateway verbinding maken met de MySQL-Database, moet u voor het installeren van de [MySQL Connector/Net voor Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versie 6.6.5 of hoger) op hetzelfde systeem als Data Management Gateway. Deze 32-bits stuurprogramma is compatibel met 64-bits Data Management Gateway. MySQL versie 5.1 en hoger wordt ondersteund.
+Voor de Data Management Gateway verbinding maken met de MySQL-Database, moet u voor het installeren van de [MySQL Connector/Net voor Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versie tussen 6.6.5 en 6.10.7) op hetzelfde systeem als Data Management Gateway. Deze 32-bits stuurprogramma is compatibel met 64-bits Data Management Gateway. MySQL versie 5.1 en hoger wordt ondersteund.
 
 > [!TIP]
 > Als u raakt-fout bij het 'Verificatie is mislukt omdat de externe partij heeft gesloten het transport-stroom.', kunt u de Connector MySQL/Net upgraden naar hogere versie.
@@ -71,7 +72,7 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesMySql** |Ja |
 | server |Naam van de MySQL-server. |Ja |
 | database |Naam van de MySQL-database. |Ja |
-| schema |De naam van het schema in de database. |Nee |
+| Schema |De naam van het schema in de database. |Nee |
 | authenticationType |Het soort verificatie die verbinding maken met de MySQL-database wordt gebruikt. Mogelijke waarden zijn: `Basic`. |Ja |
 | gebruikersnaam |Geef de naam van de gebruiker verbinding maken met de MySQL-database. |Ja |
 | wachtwoord |Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven. |Ja |
@@ -306,39 +307,39 @@ Wanneer u gegevens naar MySQL verplaatst, worden de volgende toewijzingen van My
 | bits |Decimale |
 | blob |Byte[] |
 | BOOL |Boole-waarde |
-| CHAR |Tekenreeks |
+| CHAR |Reeks |
 | datum |Datum en tijd |
 | datum/tijd |Datum en tijd |
 | Decimale |Decimale |
-| dubbele precisie |Double |
-| dubbele |Double |
-| Enum |Tekenreeks |
-| Float |Single |
+| dubbele precisie |dubbele |
+| double |dubbele |
+| Enum |Reeks |
+| drijvend |Enkelvoudig |
 | niet-ondertekende int |Int64 |
 | int |Int32 |
 | niet-ondertekend geheel getal |Int64 |
 | geheel getal |Int32 |
 | lange varbinary |Byte[] |
-| lange varchar |Tekenreeks |
+| lange varchar |Reeks |
 | longblob |Byte[] |
-| longtext |Tekenreeks |
+| LONGTEXT |Reeks |
 | mediumblob |Byte[] |
 | niet-ondertekende mediumint |Int64 |
 | mediumint |Int32 |
-| mediumtext |Tekenreeks |
+| mediumtext |Reeks |
 | numerieke |Decimale |
-| echte |Double |
-| instellen |Tekenreeks |
+| echte |dubbele |
+| instellen |Reeks |
 | niet-ondertekende smallint |Int32 |
 | smallint |Int16 |
-| Tekst |Tekenreeks |
+| tekst |Reeks |
 | tijd |TimeSpan |
 | tijdstempel |Datum en tijd |
 | tinyblob |Byte[] |
 | niet-ondertekende tinyint |Int16 |
 | tinyint |Int16 |
-| tinytext |Tekenreeks |
-| varchar |Tekenreeks |
+| tinytext |Reeks |
+| varchar |Reeks |
 | jaar |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen

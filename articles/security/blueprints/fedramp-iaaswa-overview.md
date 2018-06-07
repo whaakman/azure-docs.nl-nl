@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 27346d8e2133ea61056817fb48050a4e5c8c3c97
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6a2a72f46c4d5faacb7d5871f4c917a5cd578e96
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726479"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809162"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure-beveiliging en naleving blauwdruk: IaaS-webtoepassing voor FedRAMP
 
@@ -106,12 +106,12 @@ De architectuur beveiligt de gegevens in rust met behulp van verschillende versl
 **SQL Server**: SQL Server is geconfigureerd voor gebruik [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), uitvoert, wordt er realtime versleuteling en ontsleuteling van gegevens en logboekbestanden om gegevens in rust te beveiligen. TDE biedt de zekerheid dat de opgeslagen gegevens niet is onderworpen aan onbevoegde toegang.
 
 Klanten kunnen ook de volgende SQL Server-veiligheidsmaatregelen configureren:
--   [AD-verificatie en autorisatie](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) maakt identiteitsbeheer van databasegebruikers en andere Microsoft-services op één centrale locatie.
--   [SQL database auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started) houdt database gebeurtenissen en schrijft deze naar een auditlogboek Meld u bij een Azure storage-account.
--   [Firewall-regels](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) voorkomen dat u alle toegang tot de database-servers, totdat de juiste machtigingen worden toegekend. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
--   [Detectie van dreigingen SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-get-started) kunt u de detectie en het antwoord op mogelijke bedreigingen wanneer deze zich voordoen doordat beveiligingswaarschuwingen voor verdachte databaseactiviteiten, mogelijke beveiligingsproblemen, SQL-injectieaanvallen en toegang tot de afwijkende database patronen.
--   [Altijd versleutelde kolommen](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ervoor te zorgen dat gevoelige gegevens nooit wordt weergegeven als leesbare tekst binnen het databasesysteem. Na het inschakelen van gegevensversleuteling alleen clienttoepassingen of appservers met toegang tot de sleutels hebben toegang tot gecodeerde gegevens.
--   [SQL-Database dynamische-gegevensmaskering](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started) kunnen worden uitgevoerd nadat de referentiearchitectuur implementeert. Klanten moeten dynamische gegevensmaskering instellingen om te voldoen aan hun databaseschema aanpassen.
+-   [AD-verificatie en autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) maakt identiteitsbeheer van databasegebruikers en andere Microsoft-services op één centrale locatie.
+-   [SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) houdt database gebeurtenissen en schrijft deze naar een auditlogboek Meld u bij een Azure storage-account.
+-   [Firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voorkomen dat u alle toegang tot de database-servers, totdat de juiste machtigingen worden toegekend. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
+-   [Detectie van dreigingen SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) kunt u de detectie en het antwoord op mogelijke bedreigingen wanneer deze zich voordoen doordat beveiligingswaarschuwingen voor verdachte databaseactiviteiten, mogelijke beveiligingsproblemen, SQL-injectieaanvallen en toegang tot de afwijkende database patronen.
+-   [Altijd versleutelde kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ervoor te zorgen dat gevoelige gegevens nooit wordt weergegeven als leesbare tekst binnen het databasesysteem. Na het inschakelen van gegevensversleuteling alleen clienttoepassingen of appservers met toegang tot de sleutels hebben toegang tot gecodeerde gegevens.
+-   [SQL-Database dynamische-gegevensmaskering](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) kunnen worden uitgevoerd nadat de referentiearchitectuur implementeert. Klanten moeten dynamische gegevensmaskering instellingen om te voldoen aan hun databaseschema aanpassen.
 
 **Azure Disk Encryption**: Azure Disk Encryption versleuteld Windows IaaS-schijven voor virtuele machine wordt gebruikt. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) maakt gebruik van de BitLocker-functie van Windows voor volumeversleuteling voor het besturingssysteem en gegevensschijven. De oplossing is geïntegreerd met Azure Key Vault voor het beheren en beheren van de versleutelingssleutels op de schijf.
 
@@ -144,7 +144,7 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 
 **Recovery Services-kluis**: de [Recovery Services-kluis](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) -instellingen van de back-upgegevens en alle configuraties van Azure Virtual Machines in deze architectuur beveiligt. Met een Recovery Services-kluis klanten kunnen bestanden en mappen herstellen van een IaaS-VM zonder te herstellen van de hele virtuele machine, het inschakelen van sneller worden hersteld.
 
-**Cloud Witness**: [Cloud Witness](https://docs.microsoft.com/en-us/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) is een soort quorumwitness Failover-Cluster in Windows Server 2016 die gebruikmaakt van Azure als het punt arbitrage. De Witness Cloud zoals elke andere quorumwitness een stem opgehaald en kunnen deelnemen aan de quorumberekeningen, maar het standaard openbaar Azure Blob Storage gebruikt. Hierdoor is de extra onderhoud overhead van virtuele machines die worden gehost in een openbare cloud.
+**Cloud Witness**: [Cloud Witness](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) is een soort quorumwitness Failover-Cluster in Windows Server 2016 die gebruikmaakt van Azure als het punt arbitrage. De Witness Cloud zoals elke andere quorumwitness een stem opgehaald en kunnen deelnemen aan de quorumberekeningen, maar het standaard openbaar Azure Blob Storage gebruikt. Hierdoor is de extra onderhoud overhead van virtuele machines die worden gehost in een openbare cloud.
 
 ### <a name="logging-and-auditing"></a>Logboekregistratie en controle
 
@@ -166,7 +166,7 @@ Bovendien worden de volgende OMS-oplossingen geïnstalleerd als onderdeel van de
 -   [Het bijhouden van](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): de bijhouden oplossing kan klanten eenvoudig om wijzigingen te bepalen in de omgeving.
 
 **Monitor voor Azure**
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) helpt gebruikers prestaties, beveiliging en trends voor doordat organisaties om te controleren, waarschuwingen maken en gegevens, zoals het bijhouden van de API-aanroepen te archiveren in klanten Azure-resources.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helpt gebruikers prestaties, beveiliging en trends voor doordat organisaties om te controleren, waarschuwingen maken en gegevens, zoals het bijhouden van de API-aanroepen te archiveren in klanten Azure-resources.
 
 ## <a name="threat-model"></a>Risicomodel
 De gegevensstroom-diagram voor deze verwijzende architectuur is beschikbaar voor [downloaden](https://aka.ms/fedrampWAdfd) of vindt u hieronder. Dit model kan zodat klanten inzicht krijgen van de punten van de mogelijke risico's in de infrastructuur van het systeem als u wijzigingen aanbrengt.
@@ -198,11 +198,11 @@ Deze Azure-beveiliging en naleving blauwdruk Automation bestaat uit JSON-configu
 ### <a name="vpn-and-expressroute"></a>VPN- en ExpressRoute
 Een beveiligde VPN-tunnel of [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) moet worden geconfigureerd om veilig verbinding maken met de resources die zijn geïmplementeerd als onderdeel van deze webtoepassing IaaS verwijzende architectuur. Door op de juiste wijze instellen van een VPN of ExpressRoute, toevoegen klanten een laag van beveiliging voor gegevens onderweg.
 
-Door het implementeren van een beveiligde VPN-tunnel met Azure kan een virtuele particuliere verbinding tussen een on-premises netwerk en een Azure-netwerk worden gemaakt. Deze verbinding vindt plaats via het Internet en kan klanten veilig 'tunnel' gegevens in een versleutelde koppeling tussen het netwerk en Azure van de klant. Site-naar-Site VPN is een beveiligde, volwassen technologie die is geïmplementeerd door bedrijven van elke grootte jarenlang. De [IPsec-tunnelmodus](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) wordt gebruikt bij deze optie als een mechanisme voor versleuteling.
+Door het implementeren van een beveiligde VPN-tunnel met Azure kan een virtuele particuliere verbinding tussen een on-premises netwerk en een Azure-netwerk worden gemaakt. Deze verbinding vindt plaats via het Internet en kan klanten veilig 'tunnel' gegevens in een versleutelde koppeling tussen het netwerk en Azure van de klant. Site-naar-Site VPN is een beveiligde, volwassen technologie die is geïmplementeerd door bedrijven van elke grootte jarenlang. De [IPsec-tunnelmodus](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) wordt gebruikt bij deze optie als een mechanisme voor versleuteling.
 
 Omdat het verkeer binnen de VPN-tunnel Internet met een site-naar-site VPN passeren, biedt Microsoft met een andere, zelfs veiliger verbindingsoptie. Azure ExpressRoute is een speciale WAN koppeling tussen Azure en een on-premises locatie of een Exchange-hostingprovider. Als het ExpressRoute-verbindingen gaan niet via het Internet, bieden deze verbindingen meer betrouwbaarheid, sneller en hebben ze lagere latenties en betere beveiliging dan gewone verbindingen via Internet. Bovendien, omdat dit een directe verbinding van de klant telecommunicatie provider, de gegevens niet via Internet kan worden verzonden en daarom geen toegang heeft tot het.
 
-Aanbevolen procedures voor het implementeren van een beveiligde hybride netwerk die uitgebreider is dan een on-premises netwerk naar Azure [beschikbaar](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Aanbevolen procedures voor het implementeren van een beveiligde hybride netwerk die uitgebreider is dan een on-premises netwerk naar Azure [beschikbaar](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ## <a name="disclaimer"></a>Vrijwaring
 

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: d81b6fc89c90b769650505e845d6d6c6cd70049f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616923"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824928"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 Dit artikel wordt uitgelegd verschillende berekeningsomgevingen waarmee u kunt gegevens verwerken of transformatie. Het bevat ook informatie over verschillende configuraties (op aanvraag versus bring uw eigen) die door Data Factory worden ondersteund bij het configureren van de gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
@@ -38,8 +38,6 @@ In dit type configuratie, wordt de computeromgeving volledig beheerd door de Azu
 
 > [!NOTE]
 > De configuratie op aanvraag wordt momenteel alleen ondersteund voor Azure HDInsight-clusters.
->
-> 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight on demand-gekoppelde service
 De Azure Data Factory-service kan automatisch maken van een HDInsight-cluster op aanvraag om gegevens te verwerken. Het cluster wordt gemaakt in dezelfde regio bevinden als het storage-account (de eigenschap linkedServiceName in de JSON) die zijn gekoppeld aan het cluster. Het opslagaccount moet een algemeen standaard Azure-opslagaccount. 
@@ -49,11 +47,14 @@ Let op het volgende **belangrijke** punten met betrekking tot HDInsight op aanvr
 * Het HDInsight-cluster op aanvraag wordt gemaakt onder uw Azure-abonnement. U bent het cluster in uw Azure-portal zien wanneer het cluster actief is en wordt uitgevoerd. 
 * De logboeken voor taken die worden uitgevoerd op een HDInsight-cluster op aanvraag worden gekopieerd naar het opslagaccount die is gekoppeld aan het HDInsight-cluster. Het clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword gedefinieerd in de definitie van de gekoppelde service worden gebruikt voor aanmelding bij het cluster voor diepgaande probleemoplossing tijdens de levenscyclus van het cluster. 
 * Worden in rekening gebracht alleen voor de tijd wanneer het HDInsight-cluster actief is en de taken die worden uitgevoerd.
+* U kunt een scriptactie niet gebruiken met de gekoppelde service van Azure HDInsight op aanvraag. Als u hebt voor het installeren van andere afhankelijkheden, bijvoorbeeld: overweeg het gebruik van Azure Automation om uit te voeren van een PowerShell-script dat het volgende doet:  
+  a. Het HDInsight-cluster maken.  
+  b. Een actie van het Script voor het installeren van andere afhankelijkheden, bijvoorbeeld worden uitgevoerd.  
+  c. De Data Factory-pijplijn worden uitgevoerd.  
+  d. Het cluster verwijdert.  
 
 > [!IMPORTANT]
 > Het duurt meestal **20 minuten** of meer voor het inrichten van een Azure HDInsight-cluster op aanvraag.
->
-> 
 
 ### <a name="example"></a>Voorbeeld
 De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op basis van Linux. De Data Factory-service maakt automatisch een **op basis van Linux** HDInsight-cluster voor het verwerken van de activiteit vereist. 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: danis
-ms.openlocfilehash: 34c16b686a50994862bef14cefec1a4799a343c4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 80f9ecd40c5b9504a6554b95bf374046d8253933
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809774"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensie voor aangepaste scripts voor Windows
 
@@ -44,7 +45,7 @@ U kunt de extensie op uw Azure Blob storage-referenties voor toegang tot Azure B
 
 
 ### <a name="internet-connectivity"></a>Verbinding met Internet
-Als u nodig hebt voor het downloaden van een script extern zoals GitHub of Azure Storage, klikt u vervolgens extra Firewallnetwerk beveiligingsgroep poorten moeten worden geopend. Bijvoorbeeld als het script zich in Azure Storage bevindt, kunt u toestaan openen met behulp van Azure NSG Service-Tags voor [opslag](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Als u nodig hebt voor het downloaden van een script extern zoals GitHub of Azure Storage, klikt u vervolgens extra Firewallnetwerk beveiligingsgroep poorten moeten worden geopend. Bijvoorbeeld als het script zich in Azure Storage bevindt, kunt u toestaan openen met behulp van Azure NSG Service-Tags voor [opslag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Als uw script op een lokale server, wordt u mogelijk aanvullende firewall/netwerk beveiliging nog steeds nodig poorten van de groep moeten worden geopend.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: af0007daf6cb8a2e17e1806f47587e5958b15bd2
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 74a738f85a969e3c3451dc326de9b4284c0984c8
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716071"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809570"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestatiebewaking met logboekanalyse
 
@@ -94,7 +94,7 @@ Nu dat u hebt de OMS-agent, head toegevoegd op wilt naar het Log Analytics-porta
 
 10. Klik op een grafiek Container metrische gegevens voor aanvullende informatie. U kunt ook een query op gegevens van prestatiemeteritems op dezelfde manier naar Clustergebeurtenissen en filter op de knooppunten, perf tellernaam en waarden met behulp van de querytaal Kusto.
 
-![OMS perf teller query](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.png)
+![OMS perf teller query](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 

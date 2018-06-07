@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dbe6f5f6f3aa128b3180c1b7aecb17853aa6a0aa
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4cef685d71a64f8a6681a3449e4fe0b67899c67c
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801395"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808601"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -28,7 +28,7 @@ ms.locfileid: "34801395"
 Dit scenario wordt ondersteund met de opbouw van februari 2016.
 
 **V: is er een manier voor het installeren van Azure AD Connect zonder toezicht?**  
-Alleen wordt ondersteund voor het installeren van Azure AD Connect met de installatiewizard. Een installatie zonder toezicht en de achtergrond wordt niet ondersteund.
+Alleen wordt ondersteund voor het installeren van Azure AD Connect met de installatiewizard. Een installatie zonder toezicht en de achtergrond worden niet ondersteund.
 
 **V: ik heb een forest waar één domein is niet bereikbaar. Hoe kan ik Azure AD Connect installeren?**  
 Dit scenario wordt ondersteund met de opbouw van februari 2016.
@@ -41,7 +41,17 @@ Ja. Nadat de agent is geïnstalleerd, kunt u het registratieproces met de volgen
 **V: AADConnect ondersteunt synchroniseren van de twee domeinen naar op Azure AD?**</br>
 Ja, dit scenario wordt ondersteund. Raadpleeg [meerdere domeinen](active-directory-aadconnect-multiple-domains.md)
  
-**V: kan hebt u meerdere connectors voor hetzelfde Active Directory-domein in Azure AD connect?**</br> Nee, meerdere connectors voor hetzelfde AD-domein wordt niet ondersteund. 
+**V: kan hebt u meerdere connectors voor hetzelfde Active Directory-domein in Azure AD connect?**</br> Nee, meerdere connectors voor hetzelfde AD-domein worden niet ondersteund. 
+
+**V: kan ik de Azure AD Connect-database verplaatsen uit de lokale database met een externe SQL-Server?**</br> De volgende stappen bevatten Ja, algemene richtlijnen over hoe u dit doet.  Er zijn momenteel gewerkt aan een meer gedetailleerde-document dat is binnenkort beschikbaar.
+
+
+   1. Back-up van de 'ADSync' LocalDB-Database de eenvoudigste manier om dit te doen is het gebruik van SQL Server Management Studio is geïnstalleerd op dezelfde computer als Azure AD Connect. Verbinding maken met ' (localdb)\.\ADSync ' – vervolgens maakt u een Back-up van de database van ADSync
+   2. Herstel de Database 'ADSync' naar de externe SQL-exemplaar
+   3. Azure AD Connect op basis van de bestaande installeert [externe SQL-database](active-directory-aadconnect-existing-database.md) de koppeling bevat de stappen die nodig zijn wanneer u migreert naar een lokale SQL-Database gebruiken. Als u migreert naar een externe SQL-database in stap 5 van dit proces wordt ook moet u een bestaande serviceaccount dat de Windows-Sync-Service wordt uitgevoerd als op te geven. Dit serviceaccount voor synchronisatie-engine wordt hier beschreven:</br></br>
+   **Een bestaand serviceaccount gebruiken**- standaard Azure AD Connect maakt gebruik van een virtuele-serviceaccount voor de synchronisatieservices te gebruiken. Als u een externe SQL server gebruiken of een proxy die verificatie vereist, moet u een beheerd serviceaccount gebruiken of gebruik van een serviceaccount in het domein en het wachtwoord weten. Voer in dat geval het te gebruiken account in. Zorg dat de gebruiker die de installatie uitvoert een SA in SQL is, zodat een aanmelding voor het serviceaccount kan worden aangemaakt. Zie [Azure AD Connect: accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) (Azure AD Connect: accounts en machtigingen).</br></br> In de laatste versie kan de inrichting van de database out-of-band worden uitgevoerd door de SQL-beheerder en vervolgens worden geïnstalleerd door de Azure AD Connect-beheerder met eigendomsrechten voor de database. Raadpleeg [Install Azure AD Connect using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md) (Azure AD Connect installeren met SQL-gedelegeerde beheerdersmachtigingen) voor meer informatie.
+
+Het wordt aanbevolen dat de gebruiker Azure AD Connect installeert een SA in SQL is om de zaken eenvoudig. (SQL-beheerder echter met recente builds kunt u nu gebruiken worden overgedragen, zoals wordt beschreven [hier](active-directory-aadconnect-sql-delegation.md).
 
 ## <a name="network"></a>Netwerk
 **V: ik heb een firewall, netwerkapparaat of iets anders dat de maximale tijd verbindingen beperkt geopend op mijn netwerk kunt blijven. Hoe lang mijn drempelwaarde clientzijde time-out moet bij gebruik van Azure AD Connect?**  

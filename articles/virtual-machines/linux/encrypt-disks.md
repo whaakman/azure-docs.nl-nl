@@ -2,10 +2,10 @@
 title: Schijven op een Linux VM in Azure versleutelen | Microsoft Docs
 description: Het coderen van virtuele schijven op een Linux-VM voor verbeterde beveiliging op basis van de Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
 ms.service: virtual-machines-linux
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c35cd220eab26300404a039467e1a0b35592f23d
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824775"
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Het coderen van virtuele schijven op een Linux-VM
 Voor de uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven en de virtuele machine zelf worden versleuteld. Virtuele machines zijn versleuteld met behulp van de cryptografische sleutels die worden beveiligd in een Azure Sleutelkluis. U kunt het gebruik ervan controleren en beheren van deze cryptografische sleutels. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Linux-VM met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+> [!NOTE]
+> Zorg ervoor dat u het vfat stuurprogramma ingeschakeld in uw Linux-VM hebt. Enkele beveiligingsaspecten procedures zoals configuratie-items benchmarks vraag om het stuurprogramma vfat uitschakelen. Dat is vereist voor de versleuteling te werken nadat het proces is voltooid.
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 Als u nodig hebt voor de taak, de volgende sectie details snel de base-opdrachten voor het versleutelen van virtuele schijven op de virtuele machine. Meer gedetailleerde informatie en context voor elke stap u de rest van het document vindt [vanaf hier](#overview-of-disk-encryption).
@@ -146,6 +150,7 @@ Ondersteunde scenario's en vereisten voor de schijfversleuteling:
 * Alle resources (zoals Sleutelkluis, een opslagaccount en een VM) moeten zich in dezelfde Azure-regio en abonnement.
 * Standard A, D, DS, G, GS, enz., reeks virtuele machines.
 * Bijwerken van de cryptografische sleutels op een Linux-VM al is versleuteld.
+* VFAT stuurprogramma is ingeschakeld in de Linux-VM.
 
 Schijfversleuteling is momenteel niet ondersteund in de volgende scenario's:
 

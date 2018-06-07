@@ -1,5 +1,5 @@
 ---
-title: Nieuwere metrische waarschuwingen in de Azure-Monitor ondersteund resources | Microsoft Docs
+title: Bronnen voor nieuwere Azure Monitor metrische waarschuwingen ondersteund | Microsoft Docs
 description: De verwijzing op ondersteuning metrische gegevens en logboeken voor nieuwere Azure bijna realtime metrische waarschuwingen.
 author: snehithm
 manager: kmadnani1
@@ -15,24 +15,15 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e09cc1a91daf2e6a043d73ef1f41aa265334dec2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809825"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Nieuwere metrische waarschuwingen voor Azure-services in de Azure portal
-Monitor voor Azure ondersteunt nu een nieuwe metrische Waarschuwingstype. De nieuwere waarschuwingen verschillen van [klassieke metrische waarschuwingen](insights-alerts-portal.md) in een aantal manieren:
-
-- **Verbeterde latentie**: nieuwere metrische waarschuwingen zo vaak als elke één minuut kunnen uitvoeren. Oudere metrische waarschuwingen wordt altijd uitgevoerd met een frequentie van 5 minuten. Logboek waarschuwingen nog steeds een langer is dan 1 minuut vertraging vanwege de tijd vergt om op te nemen van de logboeken is. 
-- **Ondersteuning voor multidimensionale metrische gegevens**: U kunt een waarschuwing op dimensionale metrische gegevens, zodat u voor het bewaken van een alleen een interessante segment van de metrische gegevens. 
-- **Meer controle over metrische voorwaarden**: U kunt uitgebreidere waarschuwingsregels definiëren. De nieuwere waarschuwingen bewaken van de maximale, minimale gemiddelde en totale waarden van de metrische gegevens ondersteunen. 
-- **Bewaking van meerdere metrische gegevens gecombineerd**: U kunt meerdere metrische gegevens (momenteel maximaal twee metrische gegevens) met een enkele regel bewaken. Er wordt een waarschuwing gegeven als beide metrische gegevens in strijd is met hun respectieve drempelwaarden voor de opgegeven periode. 
-- **Voor een betere notification system**: alle nieuwere waarschuwingen gebruiken [actiegroepen](monitoring-action-groups.md), die groepen meldingen en acties die opnieuw kunnen worden gebruikt in meerdere waarschuwingen worden genoemd. Gebruik geen actiegroepen klassieke metrische waarschuwingen en oudere Log Analytics-waarschuwingen. 
-- **Metrische gegevens uit logboeken** (beperkte openbare preview): logboek bij Log Analytics-gegevens nu kunnen worden uitgepakt en geconverteerd worden naar Azure Monitor metrische gegevens en vervolgens een melding op net als andere metrische gegevens. 
-
-Zie voor informatie over het maken van een nieuwere metrische waarschuwing in Azure portal, [geen waarschuwingsregel maken in de Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Na het maken, kunt u de waarschuwing beheren met behulp van de stappen in [uw waarschuwingen beheren in de Azure-portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Ondersteunde metrische gegevens en de aanmaak van methoden voor het nieuwe metrische waarschuwingen
+Azure ondersteunt van de Monitor nu een [nieuwe metrische Waarschuwingstype](monitoring-overview-unified-alerts.md) die aanzienlijke voordelen heeft via de oudere [klassieke metrische waarschuwingen](insights-alerts-portal.md). De oudere waarschuwingen ondersteunen een [grote lijst met metrische gegevens](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteuning voor een (groeiende) subset van die grotere lijst. Dit artikel worden deze subset. 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST-ondersteuning
 Op dit moment kunt u waarschuwingen voor nieuwere metrische alleen in de Azure-portal [REST-API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) of [Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en de Azure-opdrachtregelinterface (Azure CLI 2.0) is binnenkort beschikbaar.

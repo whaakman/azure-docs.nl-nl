@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bde8e68eeb63e76a0dde40a09eededde8a545a83
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595084"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824265"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: De Accounts en machtigingen
 De Azure AD Connect-installatiewizard biedt twee verschillende paden:
@@ -187,9 +187,9 @@ Het account wordt ook machtigingen voor bestanden, registersleutels en andere ob
 ### <a name="azure-ad-service-account"></a>Azure AD-serviceaccount
 Een account in Azure AD is voor de synchronisatieservice gemaakt. Dit account kan worden geïdentificeerd door de weergavenaam.
 
-![AD-account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![AD-account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-De naam van de server die het account wordt gebruikt op kan worden geïdentificeerd in het tweede gedeelte van de gebruikersnaam. Naam van de server is in de afbeelding FABRIKAMCON. Als u staging-servers hebt, heeft elke server een eigen account.
+De naam van de server die het account wordt gebruikt op kan worden geïdentificeerd in het tweede gedeelte van de gebruikersnaam. In de afbeelding is de naam van de server DC1. Als u staging-servers hebt, heeft elke server een eigen account.
 
 Het serviceaccount is gemaakt met een lange complex wachtwoord dat niet verloopt. Een speciale functie zijn toegekend **Directory-synchronisatie Accounts** die alleen machtigingen heeft voor directory-synchronisatietaken uitvoeren. Deze speciale ingebouwde rol kan niet worden toegekend tot buiten de Azure AD Connect-wizard. De Azure-portal ziet u dit account met de rol **gebruiker**.
 

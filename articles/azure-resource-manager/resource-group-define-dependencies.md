@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1bb3827036f0d8957ac0830f707da71dd4cd373
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d5a9bde85e894f2f4283348771dc5cacc7a08f23
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824652"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>De volgorde voor het implementeren van resources in Azure Resource Manager-sjablonen definiëren
 Voor een bepaalde bron, kunnen er andere bronnen die u moeten bestaan voordat de resource is geïmplementeerd. Bijvoorbeeld, moet een SQL-server bestaan voordat u probeert te implementeren van een SQL-database. U definiëren deze relatie met een resource als afhankelijk van de andere bron markeren. U definieert een afhankelijkheid tussen de **dependsOn** element, of met behulp van de **verwijzing** functie. 
 
-Resource Manager evalueert de afhankelijkheden tussen resources en ze worden geïmplementeerd in de afhankelijke volgorde. Wanneer u resources zijn niet afhankelijk van elkaar, worden deze door Resource Manager parallel implementeert. U hoeft alleen te definiëren van afhankelijkheden voor resources die zijn geïmplementeerd in dezelfde sjabloon. 
+Resource Manager evalueert de afhankelijkheden tussen resources en ze worden geïmplementeerd in de afhankelijke volgorde. Wanneer er resources niet van elkaar afhankelijk zijn, worden deze door Resource Manager parallel implementeert. U hoeft alleen te definiëren van afhankelijkheden voor resources die zijn geïmplementeerd in dezelfde sjabloon. 
 
 ## <a name="dependson"></a>dependsOn
 Binnen uw sjabloon kunt het element dependsOn u één resource definiëren als een afhankelijk zijn van een of meer resources. De waarde kan een door komma's gescheiden lijst met resourcenamen zijn. 
@@ -59,10 +60,10 @@ Bij het definiëren van afhankelijkheden, kunt u de naamruimte resourceprovider 
 ]
 ``` 
 
-Terwijl u kan worden blootgesteld aan dependsOn gebruiken voor het toewijzen van relaties tussen uw resources, is het belangrijk te begrijpen waarom u dit doet. Om het document hoe resources onderling verbonden, bijvoorbeeld, is het dependsOn niet de juiste aanpak. U kunt het welke resources zijn gedefinieerd in het element dependsOn na de implementatie kan geen query uitvoeren. Met behulp van dependsOn u mogelijk gevolgen hebben voor implementatietijd omdat Resource Manager niet is geïmplementeerd in parallelle twee resources met een afhankelijkheid. In plaats daarvan gebruik om relaties tussen resources document [resources](/rest/api/resources/resourcelinks).
+Terwijl u kan worden blootgesteld aan dependsOn gebruiken voor het toewijzen van relaties tussen uw resources, is het belangrijk te begrijpen waarom u dit doet. Bijvoorbeeld, om het document hoe resources onderling verbonden, dependsOn, is niet de juiste aanpak. U kunt het welke resources zijn gedefinieerd in het element dependsOn na de implementatie kan geen query uitvoeren. Met behulp van dependsOn u mogelijk gevolgen hebben voor implementatietijd omdat Resource Manager in parallelle twee resources met een afhankelijkheid niet implementeren. In plaats daarvan gebruik om relaties tussen resources document [resources](/rest/api/resources/resourcelinks).
 
 ## <a name="child-resources"></a>Onderliggende resources
-De eigenschap resources kunt u opgeven van de onderliggende resources die zijn gerelateerd aan de bron wordt gedefinieerd. Onderliggende resources kunnen alleen worden gedefinieerd vijf niveaus. Het is belangrijk te weten dat een impliciete afhankelijkheid niet tussen een bron van de onderliggende en de bovenliggende resource is gemaakt. Als u de onderliggende resource te worden geïmplementeerd nadat de bovenliggende resource nodig hebt, moet u deze afhankelijkheid met de eigenschap dependsOn expliciet vermelden. 
+De eigenschap resources kunt u opgeven van de onderliggende resources die zijn gerelateerd aan de bron wordt gedefinieerd. Onderliggende resources kunnen alleen worden gedefinieerd vijf niveaus. Het is belangrijk te weten dat een impliciete afhankelijkheid tussen een bron van de onderliggende en de bovenliggende resource is niet gemaakt. Als u de onderliggende resource te worden geïmplementeerd nadat de bovenliggende resource nodig hebt, moet u deze afhankelijkheid met de eigenschap dependsOn expliciet vermelden. 
 
 Elke bovenliggende resource accepteert alleen bepaalde resourcetypen als onderliggende resources. De geaccepteerde brontypen zijn opgegeven in de [sjabloonschema](https://github.com/Azure/azure-resource-manager-schemas) van de bovenliggende resource. Bevat de naam van het type van de bovenliggende resource, zoals de naam van de onderliggende brontype **Microsoft.Web/sites/config** en **Microsoft.Web/sites/extensions** zijn beide onderliggende resources van de **Microsoft.Web/sites**.
 
@@ -106,11 +107,19 @@ Het volgende voorbeeld ziet een SQL server en SQL-database. U ziet dat er een ex
 ]
 ```
 
-## <a name="reference-function"></a>verwijzing naar functie
-De [verwijst naar functie](resource-group-template-functions-resource.md#reference) kunt u een expressie die moet worden afgeleid van de waarde van andere JSON naam / waarde-paren of runtime-bronnen. Verwijzingsexpressies declareren impliciet dat één resource afhankelijk van een andere is. De algemene indeling is:
+## <a name="reference-and-list-functions"></a>referentie- en -functies
+De [verwijst naar functie](resource-group-template-functions-resource.md#reference) kunt u een expressie die moet worden afgeleid van de waarde van andere JSON naam / waarde-paren of runtime-bronnen. De [lijst * functies](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) waarden voor een resource van een lijstbewerking retourneren.  Referentie- en expressies declareren impliciet dat één resource is afhankelijk van een andere, wanneer de bron waarnaar wordt verwezen is geïmplementeerd in dezelfde sjabloon en waarnaar wordt verwezen door de naam ervan (geen resource-ID). Als u de resource-ID aan de verwijzing of een lijst met functies doorgeven, wordt een impliciete verwijzing is niet gemaakt.
+
+De algemene indeling van de functie verwijzing is:
 
 ```json
 reference('resourceName').propertyPath
+```
+
+De algemene indeling van de functie listKeys is:
+
+```json
+listKeys('resourceName', 'yyyy-mm-dd')
 ```
 
 In het volgende voorbeeld wordt een CDN-eindpunt expliciet is afhankelijk van het CDN-profiel en impliciet afhankelijk is van een web-app.
@@ -140,12 +149,12 @@ Wanneer u beslist welke afhankelijkheden in te stellen, gebruikt u de volgende r
 
 * Afhankelijkheden van zo weinig mogelijk ingesteld.
 * Stel een onderliggende resource als afhankelijk van de bovenliggende resource.
-* Gebruik de **verwijzing** functie impliciete afhankelijkheden tussen resources die nodig zijn voor het delen van een eigenschap instellen. Voeg een expliciete afhankelijkheid niet (**dependsOn**) wanneer u een impliciete afhankelijkheid al hebt gedefinieerd. Deze aanpak vermindert het risico van conflicterende onnodige afhankelijkheden. 
-* Een afhankelijkheid ingesteld wanneer een resource kan niet worden **gemaakt** zonder de functionaliteit van een andere resource. Stel een afhankelijkheid niet als de bronnen alleen na de implementatie werken.
-* Laat afhankelijkheden cascade zonder expliciet instelt. Bijvoorbeeld, de virtuele machine is afhankelijk van de virtuele netwerkinterface en de virtuele netwerkinterface is afhankelijk van een virtueel netwerk en openbare IP-adressen. Daarom wordt de virtuele machine is geïmplementeerd nadat alle drie resources, maar de virtuele machine niet expliciet als afhankelijk is van alle drie resources instelt. Deze aanpak wordt uitleg gegeven over de volgorde van afhankelijkheid en kunt u gemakkelijker de sjabloon later wijzigen.
+* Gebruik de **verwijzing** werken en in de naam van de resource impliciete afhankelijkheden tussen resources die nodig zijn voor het delen van een eigenschap instellen. Voeg een expliciete afhankelijkheid niet (**dependsOn**) wanneer u een impliciete afhankelijkheid al hebt gedefinieerd. Deze aanpak vermindert het risico van conflicterende onnodige afhankelijkheden. 
+* Een afhankelijkheid ingesteld wanneer een resource kan niet worden **gemaakt** zonder de functionaliteit van een andere resource. Een afhankelijkheid niet worden ingesteld als de bronnen alleen na de implementatie werken.
+* Laat afhankelijkheden cascade zonder expliciet instelt. Bijvoorbeeld, de virtuele machine is afhankelijk van de virtuele netwerkinterface en de virtuele netwerkinterface is afhankelijk van een virtueel netwerk en openbare IP-adressen. Daarom wordt de virtuele machine is geïmplementeerd nadat alle drie resources, maar de virtuele machine niet expliciet worden ingesteld als afhankelijk is van alle drie resources. Deze aanpak wordt uitleg gegeven over de volgorde van afhankelijkheid en kunt u gemakkelijker de sjabloon later wijzigen.
 * Als een waarde kan worden bepaald vóór de implementatie, probeert u de implementatie van de bron zonder een afhankelijkheid. Bijvoorbeeld, als een configuratiewaarde de naam van een andere resource moet, moet u mogelijk niet een afhankelijkheid. In deze richtlijnen werkt niet altijd omdat sommige resources verifieert of de andere resource. Als u een foutbericht ontvangt, voegt u een afhankelijkheid. 
 
-Resource Manager identificeert circulaire afhankelijkheden tijdens de validatie van de sjabloon. Als u er een foutmelding weergegeven dat er een circulaire afhankelijkheid bestaat, evalueren de sjabloon of alle afhankelijkheden zijn niet nodig en kunnen worden verwijderd. Als het verwijderen van afhankelijkheden niet werkt, kunt u circulaire afhankelijkheden voorkomen door het verplaatsen van bepaalde implementatiebewerkingen naar onderliggende resources die zijn geïmplementeerd nadat de resources met circulaire afhankelijkheid een. Stel bijvoorbeeld dat u twee virtuele machines implementeert, maar u moet eigenschappen instellen voor elk criterium die verwijzen naar de andere. U kunt deze implementeren in de volgende volgorde:
+Resource Manager identificeert circulaire afhankelijkheden tijdens de validatie van de sjabloon. Als u er een foutmelding weergegeven dat er een circulaire afhankelijkheid bestaat, evalueren de sjabloon of eventuele afhankelijkheden niet nodig zijn en kunnen worden verwijderd. Als het verwijderen van afhankelijkheden niet werkt, kunt u circulaire afhankelijkheden voorkomen door het verplaatsen van bepaalde implementatiebewerkingen naar onderliggende resources die zijn geïmplementeerd nadat de resources met circulaire afhankelijkheid een. Stel bijvoorbeeld dat u twee virtuele machines implementeert, maar u moet eigenschappen instellen voor elk criterium die verwijzen naar de andere. U kunt deze implementeren in de volgende volgorde:
 
 1. vm1
 2. vm2

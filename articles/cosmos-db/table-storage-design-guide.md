@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 41a62c0c77b177179907d8e4a7631af889cd8bd6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4f3cafd80c713697a8b8fdde56c021be1c5319fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798811"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824584"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Het ontwerpen van schaalbare en de zodat tabellen
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -523,7 +523,7 @@ Uiteindelijk consistent gedrag over grenzen van partities of opslag system grenz
 #### <a name="context-and-problem"></a>Context en probleem
 EGTs inschakelen atomische transacties tussen meerdere entiteiten die dezelfde partitiesleutel delen. Voor betere prestaties en schaalbaarheid u besluiten voor het opslaan van entiteiten met vereisten voor consistentie in afzonderlijke partities of in een afzonderlijke opslagsysteem: in een dergelijk scenario u EGTs niet gebruiken voor het handhaven van de consistentie. Zo mogelijk een vereiste uiteindelijke consistentie tussen onderhouden:  
 
-* Entiteiten in opgeslagen in twee verschillende partities in dezelfde tabel in verschillende tabellen in verschillende opslagaccounts.  
+* Entiteiten die zijn opgeslagen in twee verschillende partities in dezelfde tabel verschillende tabellen of in verschillende opslagaccounts.  
 * Een entiteit die is opgeslagen in de tabel-service en een blob die is opgeslagen in de Blob-service.  
 * Een entiteit in de tabel-service en een bestand opgeslagen in een bestandssysteem.  
 * Een entiteit store in de tabel-service nog geïndexeerd met de Azure Search-service.  
@@ -718,7 +718,7 @@ De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementa
 Ophalen van de *n* entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-Een algemene vereiste is mogelijk het meest recent gemaakte entiteiten ophalen, bijvoorbeeld de meest recente tien claims die zijn ingediend door een werknemer onkosten. Tabel ondersteuning vraagt een **$top** querybewerking te retourneren van de eerste *n* entiteiten uit een set: Er is geen equivalent querybewerking te retourneren van de laatste n entiteiten in een set.  
+Een algemene vereiste is te kunnen ophalen van de meest recent gemaakte entiteiten, bijvoorbeeld de meest recente tien claims die zijn ingediend door een werknemer onkosten. Tabel ondersteuning vraagt een **$top** querybewerking te retourneren van de eerste *n* entiteiten uit een set: Er is geen equivalent querybewerking te retourneren van de laatste n entiteiten in een set.  
 
 #### <a name="solution"></a>Oplossing
 Opslaan van de entiteiten met een **RowKey** dat natuurlijk sorteren in volgorde van de omgekeerde datum/tijd met behulp van zodat de meest recente vermelding is altijd de eerste rij in de tabel.  
@@ -1059,7 +1059,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### <a name="server-side-projection"></a>Projectie-serverzijde
-Één entiteit kan maximaal 255 eigenschappen hebben en maximaal 1 MB groot zijn. Wanneer u een query uitvoeren op de tabel en entiteiten ophalen, moet u wellicht niet alle eigenschappen en ervaren onnodig (als u wilt verminderen en de kosten van latentie) kunt voorkomen. U kunt serverzijde projectie gebruiken om over te dragen alleen de eigenschappen die u nodig hebt. Het volgende voorbeeld is haalt alleen de **e** eigenschap (samen met **PartitionKey**, **RowKey**, **tijdstempel**, en **ETag**) van de entiteiten die zijn geselecteerd door de query.  
+Één entiteit kan maximaal 255 eigenschappen hebben en maximaal 1 MB groot zijn. Wanneer u een query uitvoeren op de tabel en entiteiten ophalen, moet u wellicht niet alle eigenschappen en ervaren onnodig (als u wilt verminderen en de kosten van latentie) kunt voorkomen. U kunt serverzijde projectie gebruiken om over te dragen alleen de eigenschappen die u nodig hebt. Het volgende voorbeeld NET haalt de **e** eigenschap (samen met **PartitionKey**, **RowKey**, **tijdstempel**, en **ETag**) van de entiteiten die zijn geselecteerd door de query.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(

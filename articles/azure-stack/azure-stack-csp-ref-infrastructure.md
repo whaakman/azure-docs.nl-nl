@@ -2,10 +2,10 @@
 title: Gebruik reporting infrastructuur voor Cloudserviceproviders voor Azure-Stack | Microsoft Docs
 description: Azure Stack bevat de infrastructuur die nodig zijn voor het bijhouden van gebruik deze gebeurtenis treedt op en stuurt deze naar Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 4ac808e0e85b1daeb54a3f2fd7bec0a7c10aa13e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fe2a6444e605f388df68803b89643420b19fb54
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823483"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Infrastructuur voor gebruiksrapportage voor Cloudserviceproviders
 
@@ -59,10 +60,10 @@ De volgende termen en begrippen worden gebruikt voor informatie over het gebruik
 | Termijn | Definitie |
 | --- | --- |
 | Directe CSP partner | Een directe partner van de Cloud Solution Provider (CSP) ontvangt rechtstreeks een factuur direct van Microsoft voor het gebruik van Azure en Azure-Stack en facturen klanten. |
-| Indirect CSP | Indirecte resellers werken met een indirecte (ook wel bekend als een distributor)-provider. De wederverkopers werven end klanten; de indirecte provider bevat de facturering relaties met Microsoft, beheert klant facturering en biedt extra services zoals productondersteuning. |
+| Indirecte CSP | Indirecte resellers werken met een indirecte (ook wel bekend als een distributor)-provider. De wederverkopers werven end klanten; de indirecte provider bevat de facturering relaties met Microsoft, beheert klant facturering en biedt extra services zoals productondersteuning. |
 | Eindgebruikers | End-klanten zijn bedrijven en overheidsinstanties die eigenaar zijn van de toepassingen en andere werkbelastingen die worden uitgevoerd op Azure-Stack. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
  - Zie voor meer informatie over het programma CSP, [programma Cloud Solution Provider](https://partnercenter.microsoft.com/en-us/partner/programs).
- - Zie voor meer informatie over het ophalen van informatie over het gebruik van de bron van Azure-Stack, [gebruiks- en facturering in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Zie voor meer informatie over het ophalen van informatie over het gebruik van de bron van Azure-Stack, [gebruiks- en facturering in Azure Stack](azure-stack-billing-and-chargeback.md).

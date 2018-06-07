@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808142"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Toegang tot bronnen met toegangsbeheer Azure Stack Role-Based beheren
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Azure-Stack biedt ondersteuning voor op rollen gebaseerde toegangsbeheer (RBAC), dezelfde [beveiligingsmodel voor access management](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) die gebruikmaakt van Microsoft Azure. U kunt gebruikmaken van RBAC voor het beheren van gebruikers, groepen of toegang tot de toepassing aan abonnementen, resources en services.
+Azure-Stack biedt ondersteuning voor op rollen gebaseerde toegangsbeheer (RBAC), dezelfde [beveiligingsmodel voor access management](https://docs.microsoft.com/azure/role-based-access-control/overview) die gebruikmaakt van Microsoft Azure. U kunt gebruikmaken van RBAC voor het beheren van gebruikers, groepen of toegang tot de toepassing aan abonnementen, resources en services.
 
 ## <a name="basics-of-access-management"></a>Basisprincipes van beheer van toegang
 
-Toegangsbeheer op basis van rollen biedt verfijnd toegangsbeheer die u gebruiken kunt voor het beveiligen van uw omgeving. Geeft u gebruikers de exacte machtigingen die ze nodig hebben door toe te wijzen een RBAC-rol op een bepaald bereik. Het bereik van de roltoewijzing is een abonnement, resourcegroep of één resource. Lees de [toegangsbeheer op basis van rollen in Azure portal](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) artikel voor meer gedetailleerde informatie over het toegangsbeheer van.
+Toegangsbeheer op basis van rollen biedt verfijnd toegangsbeheer die u gebruiken kunt voor het beveiligen van uw omgeving. Geeft u gebruikers de exacte machtigingen die ze nodig hebben door toe te wijzen een RBAC-rol op een bepaald bereik. Het bereik van de roltoewijzing is een abonnement, resourcegroep of één resource. Lees de [toegangsbeheer op basis van rollen in Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) artikel voor meer gedetailleerde informatie over het toegangsbeheer van.
 
 ### <a name="built-in-roles"></a>Ingebouwde rollen
 
@@ -59,7 +60,7 @@ U kunt meer dan één rol toewijzen aan een gebruiker en elke rol kan worden gek
 * U de rol van de lezer TestUser-A toewijzen met abonnement 1.
 * U toewijzen de eigenaar van TestUser-A rol aan TestVM-1.
 
-De Azure [roltoewijzingen](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artikel vindt u gedetailleerde informatie over het weergeven en verwijderen van rollen toewijzen.
+De Azure [roltoewijzingen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artikel vindt u gedetailleerde informatie over het weergeven en verwijderen van rollen toewijzen.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Resource-hiërarchie en overname
 
@@ -81,14 +82,14 @@ U kunt meer dan één rol toewijzen aan een gebruiker en elke rol kan worden gek
 * U de rol van de lezer TestUser-A toewijzen met abonnement 1.
 * U toewijzen de eigenaar van TestUser-A rol aan TestVM-1.
 
-De Azure [roltoewijzingen](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artikel vindt u gedetailleerde informatie over het weergeven en verwijderen van rollen toewijzen.
+De Azure [roltoewijzingen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artikel vindt u gedetailleerde informatie over het weergeven en verwijderen van rollen toewijzen.
 
 ## <a name="set-access-permissions-for-a-user"></a>Stel toegangsmachtigingen voor een gebruiker
 
 De volgende stappen beschrijven het configureren van machtigingen voor een gebruiker.
 
 1. Aanmelden met een account met de van eigenaarsmachtigingen voor de resource die u wilt beheren.
-2. Kies in het navigatiedeelvenster links **resourcegroepen**.
+2. Kies **Resourcegroepen** in het linkernavigatievenster.
 3. Kies de naam van de resourcegroep die u machtigingen instellen wilt op.
 4. Kies in het navigatiedeelvenster resource groep **toegangsbeheer (IAM)**. De **toegangsbeheer** weergave bevat de Items die toegang tot de resourcegroep hebben. U kunt deze resultaten filteren, en een menubalk toevoegen of verwijderen van machtigingen.
 5. Op de **toegangsbeheer** menu balk, kiest u **+ toevoegen**.

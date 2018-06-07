@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824996"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -140,7 +141,7 @@ Hetzelfde aantal snat omzetten poorten zijn vooraf toegewezen voor UDP en TCP re
 >[!IMPORTANT]
 >Standaard SKU SNAT programming per IP-transportprotocol en afgeleid van de load-balancingregel.  Als er slechts een taakverdelingsregel voor TCP bestaat, is snat omzetten alleen beschikbaar voor TCP. Als u alleen een TCP-taakverdelingsregel hebt en uitgaande snat omzetten voor UDP, maakt u een UDP-regel op basis van dezelfde frontend dezelfde back-end-opslaggroep voor taakverdeling.  Dit activeert de domeincontroller voor het programmeren voor UDP snat omzetten.  Een werkende regel of health test is niet vereist.  Basic SKU SNAT programma altijd snat omzetten voor beide IP-protocol (transport), ongeacht het protocol-transport is opgegeven in de taakverdelingsregel.
 
-Azure preallocates snat omzetten poorten voor de IP-adresconfiguratie van de NIC van elke virtuele machine. Wanneer een IP-configuratie wordt toegevoegd aan de groep, worden de poorten snat omzetten, vooraf voor deze IP-configuratie op basis van de grootte van de back-end-groep toegewezen. Wanneer uitgaande stromen worden gemaakt, [PAT](#pat) dynamisch verbruikt (maximaal de vooraf toegewezen limiet) en deze poorten worden vrijgegeven wanneer de stroom wordt gesloten of [inactief time-outs](#ideltimeout) gebeuren.
+Azure preallocates snat omzetten poorten voor de IP-adresconfiguratie van de NIC van elke virtuele machine. Wanneer een IP-configuratie wordt toegevoegd aan de groep, worden de poorten snat omzetten, vooraf voor deze IP-configuratie op basis van de grootte van de back-end-groep toegewezen. Wanneer uitgaande stromen worden gemaakt, [PAT](#pat) dynamisch verbruikt (maximaal de vooraf toegewezen limiet) en deze poorten worden vrijgegeven wanneer de stroom wordt gesloten of [inactief time-outs](#idletimeout) gebeuren.
 
 De volgende tabel toont de snat omzetten poort preallocations voor lagen van back-end-pool grootten:
 

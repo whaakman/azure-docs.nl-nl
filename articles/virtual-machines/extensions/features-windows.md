@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88852fe7843e24fde50749e2f994bcfeb596305d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809723"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Virtuele machine-extensies en functies voor Windows
 
@@ -67,7 +68,7 @@ Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzend
 > [!IMPORTANT]
 > Als u toegang tot hebben geblokkeerd *168.63.129.1* met de Gast-firewall, klikt u vervolgens extensies mislukken ongeacht de bovenstaande.
 
-Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld als een installatie van de extensie moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens extra firewall/netwerk beveiliging groep poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG Service-Tags voor [opslag](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld als een installatie van de extensie moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens extra firewall/netwerk beveiliging groep poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG Service-Tags voor [opslag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 De Gastagent Windows heeft geen ondersteuning voor het omleiden van aanvragen van de agent-verkeer via proxy-server.
 
@@ -134,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het starten van een VM-extensie. Zie voor meer informatie de [Set AzureRmVMExtension verwijzing](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het starten van een VM-extensie. Zie voor meer informatie de [Set AzureRmVMExtension verwijzing](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -419,7 +420,7 @@ U kunt ook verwijderen extensie in de Azure portal als volgt:
 | Extensie voor aangepaste scripts voor Windows |Scripts uitvoeren op een virtuele machine van Azure |[Extensie voor aangepaste scripts voor Windows](custom-script-windows.md) |
 | DSC-extensie voor Windows |PowerShell DSC (Desired State Configuration)-extensie |[DSC-extensie voor Windows](dsc-overview.md) |
 | Azure Diagnostics-extensie |Azure Diagnostics beheren |[Azure Diagnostics-extensie](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Uitbreiding van de toegang tot Azure VM |Gebruikers en referenties beheren |[Uitbreiding van de VM-toegang voor Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Uitbreiding van de toegang tot Azure VM |Gebruikers en referenties beheren |[Uitbreiding van de VM-toegang voor Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Volgende stappen
 

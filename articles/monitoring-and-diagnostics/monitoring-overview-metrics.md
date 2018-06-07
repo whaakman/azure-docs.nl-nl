@@ -12,28 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 06/05/2018
 ms.author: ancav
-ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ceabefa47b7627b8a9f952d487f78a96e338838d
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824741"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Overzicht van metrische gegevens in Microsoft Azure
 Dit artikel wordt beschreven wat metrische gegevens zijn in Microsoft Azure, hun voordelen en het gebruik ervan.  
 
 ## <a name="what-are-metrics"></a>Wat zijn de metrische gegevens?
 Monitor voor Azure kunt u telemetrie om meer inzicht verkrijgen in de prestaties en de status van uw workloads in Azure gebruiken. De belangrijkste type Azure telemetriegegevens is de metrische gegevens die (ook wel prestatiemeteritems) die door de meeste Azure-resources. Monitor voor Azure biedt verschillende manieren configureren en gebruiken van deze metrische gegevens voor bewaking en probleemoplossing.
-
-## <a name="what-can-you-do-with-metrics"></a>Wat kunt u doen met metrische gegevens
-Metrische gegevens zijn een waardevolle bron van Telemetrie en kunt u de volgende taken uitvoeren:
-
-* **De prestaties bijhouden** van de bron (zoals een VM, website of logic app) door de metrische gegevens over een portal grafiek uitzetten en dat de grafiek aan een dashboard vastmaken.
-* **Blijf op de hoogte van een probleem** die van invloed is op de prestaties van uw resource wanneer een metriek een bepaalde drempelwaarde overschrijden.
-* **Configureer automatische acties**, zoals automatisch schalen van een resource of een runbook wordt gestart wanneer een metriek een bepaalde drempelwaarde overschrijden.
-* **Geavanceerde analyses uitvoeren** of rapportage over trends prestatie- of informatie over het gebruik van de bron.
-* **Archief** de geschiedenis van de prestaties of de status van de bron **voor naleving of controle** doeleinden.
 
 ## <a name="what-are-the-characteristics-of-metrics"></a>Wat zijn de kenmerken van metrische gegevens?
 Metrische gegevens hebben de volgende kenmerken:
@@ -43,19 +35,17 @@ Metrische gegevens hebben de volgende kenmerken:
 * U hebt toegang tot **93 dagen** voor elke metriek. U kunt snel zoeken op de recente en een maandelijkse trends in de prestaties of de status van de resource.
 * Sommige metrische naam / waarde-paar kenmerken aangeroepen kan hebben **dimensies**. Hiermee kunt u verder segmenteren en een waarde in een duidelijker manier verkennen.
 
-U kunt ook:
+## <a name="what-can-you-do-with-metrics"></a>Wat kunt u doen met metrische gegevens
+Metrische gegevens kunt u de volgende taken uitvoeren:
 
-* Configureren van een metriek **Waarschuwing regel waarmee u een melding verzendt of duurt automatische actie** wanneer de metriek overschrijdt de drempelwaarde die u hebt ingesteld. Automatisch schalen is een speciale geautomatiseerde actie op die u kunt u de bron om te voldoen aan de inkomende aanvragen worden uitgebreid of wordt op uw website of de computerbronnen is geladen. U kunt een regel van de instelling voor automatisch schalen schalen in- of configureren op basis van een metriek een drempelwaarde overschrijden.
 
-* **Route** alle metrische gegevens Application Insights of Log Analytics om in te schakelen instant analytics, zoeken en aangepaste waarschuwingen op metrische gegevens van uw resources. U kunt ook de metrische gegevens naar een Event Hub, zodat u kunt ze vervolgens doorsturen naar Azure Stream Analytics of aangepaste apps voor vrijwel in realtime analyse streamen. U instellen kunt de Event Hub met behulp van diagnostische instellingen voor streaming.
-
-* **Archiveren van metrische gegevens naar opslag** voor het bewaren van langer of te gebruiken voor het melden van offline. Bij het configureren van diagnostische instellingen voor uw resource, kunt u uw metrische gegevens routeren naar Azure Blob-opslag.
-
-* Eenvoudig detecteren, openen, en **alle metrische gegevens weergeven** via Azure portal als u een resource selecteert en de metrische gegevens in een grafiek te tekenen.
-
-* **Verbruiken** de metrische gegevens via de nieuwe Azure Monitor REST-API's.
-
-* **Query** metrische gegevens met behulp van de PowerShell-cmdlets of de REST-API voor Cross-Platform.
+- Configureren van een metriek **Waarschuwing regel waarmee u een melding verzendt of duurt automatische actie** wanneer de metriek overschrijdt de drempelwaarde die u hebt ingesteld. Acties worden beheerd via [actiegroepen](monitoring-action-groups.md). Voorbeeld van de acties omvatten e-mailadres, telefoonnummer en SMS-berichten voor het aanroepen van een webhook, het starten van een runbook en meer. **Automatisch schalen** is een speciale geautomatiseerde actie waarmee u kunt schalen u bent een resource omhoog en omlaag om de werklast verwerken nog voortdurend kosten lagere wanneer niet laden. U kunt een regel van de instelling voor automatisch schalen schalen in- of configureren op basis van een metriek een drempelwaarde overschrijden.
+- **Route** alle metrische gegevens aan *Application Insights* of *logboekanalyse* om in te schakelen instant analytics, zoeken en aangepaste waarschuwingen op metrische gegevens van uw resources. U kunt ook de metrische gegevens om te streamen een *Event Hub*, zodat u kunt vervolgens te routeren naar Azure Stream Analytics of aangepaste apps voor vrijwel in realtime analyse. U instellen kunt de Event Hub met behulp van diagnostische instellingen voor streaming.
+- **Archief** de geschiedenis van de prestaties of de status van de bron voor naleving, controle of offline rapportagedoeleinden.  Bij het configureren van diagnostische instellingen voor uw resource, kunt u uw metrische gegevens routeren naar Azure Blob-opslag.
+- Gebruik de **Azure-portal** openen om te detecteren, en alle metrische gegevens weergeven wanneer u een resource selecteren en de metrische gegevens in een grafiek te tekenen. U kunt de prestaties van uw resources (zoals een VM, website of logische app) bijhouden dat de grafiek aan uw dashboard vastmaken.  
+- **Geavanceerde analyses uitvoeren** of rapportage over trends prestatie- of informatie over het gebruik van de bron.
+- **Query** metrische gegevens met behulp van de PowerShell-cmdlets of de REST-API voor Cross-Platform.
+- **Verbruiken** de metrische gegevens via de nieuwe Azure Monitor REST-API's.
 
   ![Routering van metrische gegevens in Azure Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
@@ -107,9 +97,9 @@ Gaat u naar de **diagnostische instellingen** blade onder de **Monitor** tabblad
 U kunt dit configureren via Resource Manager-sjablonen, [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), of [REST-API's](https://msdn.microsoft.com/library/dn931943.aspx).
 
 > [!NOTE]
-> Verzenden van multidimensionale metrische gegevens via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte één dimensionale metrische gegevens, getotaliseerd over dimensiewaarden.
+> Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
-> *Bijvoorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een niveau van de wachtrij. Echter, wanneer geëxporteerd via diagnostische instellingen voor die de metrische gegevens worden weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
+> *Een voorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Maar wanneer de metriek wordt geëxporteerd via diagnostische instellingen, geeft de metriek alle binnenkomende berichten in alle wachtrijen in de Event Hub aan.
 >
 >
 

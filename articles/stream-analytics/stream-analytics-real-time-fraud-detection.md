@@ -9,15 +9,16 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4da848b9d7765b11db67973226a056e73ca5cced
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824758"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Aan de slag met Azure Stream Analytics: realtime-fraudedetectie
 
-Deze zelfstudie biedt een end-to-end-afbeelding van het gebruik van Azure Stream Analytics. Procedures voor: 
+Deze zelfstudie biedt een end-to-end-afbeelding van het gebruik van Azure Stream Analytics. In deze zelfstudie leert u procedures om het volgende te doen: 
 
 * Breng streaming-gebeurtenissen in een exemplaar van Azure Event Hubs. In deze zelfstudie gebruikt u een app die wij verstrekken die een stream van records met metagegevens van de mobiele telefoon simuleert.
 
@@ -35,7 +36,7 @@ Een bedrijf telecommunicatie heeft een grote hoeveelheid gegevens naar binnenkom
 
 In deze zelfstudie hebt u telefonische oproep gegevens met behulp van een client-app die voorbeeld telefoongesprek metagegevens genereert simuleren. Aantal records die de app produceert eruitzien als frauduleus aanroepen. 
 
-Voordat u begint, zorg er dan voor dat u hebt het volgende:
+Zorg ervoor dat u het volgende hebt voordat u begint:
 
 * Een Azure-account.
 * De aanroep-gebeurtenis generator-app. U kunt dit ophalen door het downloaden van de [TelcoGenerator.zip bestand](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) uit het Microsoft Download Center. Pak het pakket naar een map op uw computer. Als u wilt de bron code en voer de app in een foutopsporingsprogramma wilt zien, kunt u de bron-code van de app downloaden [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
@@ -69,7 +70,7 @@ In deze procedure maakt u eerst een event hub-naamruimte maken en vervolgens voe
 
     ![De knop toevoegen Event Hub voor het maken van nieuwe event hub ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. Naam van de nieuwe event hub `sa-eh-frauddetection-demo`. U kunt een andere naam gebruiken. Als u dit doet, noteer, omdat u de naam van de later nodig. U hoeft niet alle andere opties voor de event hub nu instellen.
+6. Naam van de nieuwe event hub `sa-eh-frauddetection-demo`. U kunt ook een andere naam gebruiken. Als u dit doet, noteer, omdat u de naam van de later nodig. U hoeft niet alle andere opties voor de event hub nu instellen.
 
     ![Blade voor het maken van nieuwe event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
     
@@ -77,7 +78,7 @@ In deze procedure maakt u eerst een event hub-naamruimte maken en vervolgens voe
 7. Klik op **Create**.
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Toegang verlenen tot de event hub en een verbindingsreeks ophalen
 
-Voordat een proces gegevens naar een event hub verzenden kan, moet een beleid waarmee u de juiste toegang hebben in de event hub. Het toegangsbeleid produceert een verbindingsreeks die autorisatie-informatie bevat.
+Voordat een proces gegevens naar een event hub verzenden kan, moet een beleid waarmee u de juiste toegang hebben in de event hub. Het toegangsbeleid genereert een verbindingsreeks die autorisatiegegevens bevat.
 
 1.  Klik in het deelvenster van de naamruimte gebeurtenis **Event Hubs** en klik vervolgens op de naam van uw nieuwe event hub.
 
@@ -98,7 +99,7 @@ Voordat een proces gegevens naar een event hub verzenden kan, moet een beleid wa
     
     ![Kopiëren van de primaire verbinding string-sleutel van het toegangsbeleid](./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png)
  
-7.  De verbindingsreeks in een teksteditor plakken. U moet deze verbindingsreeks voor de volgende sectie, nadat u een aantal kleine wijzigingen aangebracht.
+7.  Plak de verbindingsreeks in een teksteditor. U moet deze verbindingsreeks voor de volgende sectie, nadat u een aantal kleine wijzigingen aangebracht.
 
     De verbindingsreeks ziet er als volgt:
 
@@ -131,26 +132,26 @@ Voordat u de app TelcoGenerator, configureren u deze zo dat deze aanroep records
 1.  Open een opdrachtvenster en Ga naar de map waar de app TelcoGenerator uitgepakt is.
 2.  Voer de volgende opdracht in:
 
-        telcodatagen.exe 1000 .2 2
+        telcodatagen.exe 1000 0.2 2
 
     De parameters zijn: 
 
     * Aantal CDR per uur. 
-    * SIM-kaart fraude waarschijnlijkheid: Hoe vaak als een percentage van alle aanroepen, dat de app een aanroep van frauduleuze te simuleren. De waarde.2 betekent dat ongeveer 20% van de aanroep van records eruit frauduleuze.
+    * SIM-kaart fraude waarschijnlijkheid: Hoe vaak als een percentage van alle aanroepen, dat de app een aanroep van frauduleuze te simuleren. De waarde 0,2 betekent dat ongeveer 20% van de aanroep van records eruit frauduleuze.
     * De duur in uren. Het aantal uren dat de app moet worden uitgevoerd. U kunt ook de app elk gewenst moment stoppen door op Ctrl + C drukken op de opdrachtregel.
 
-    Na enkele seconden, wordt de app gestart telefoongesprek records weergeven op het scherm, zoals het zendt deze naar de event hub.
+    Na enkele seconden begint de app met het weergeven van telefoongesprekrecords op het scherm wanneer deze naar de event hub worden gestuurd.
 
 Enkele van de sleutelvelden die u in deze toepassing realtime fraude-detectie gebruiken wilt zijn de volgende:
 
 |**Record**|**Definitie**|
 |----------|--------------|
-|`CallrecTime`|Het tijdstempel voor de aanroep van de begintijd. |
-|`SwitchNum`|De telefoon switch waarmee verbinding wordt gemaakt de aanroep. In dit voorbeeld zijn de switches tekenreeksen die staan voor het land van oorsprong (VS, China, UK, Duitsland of Australië). |
-|`CallingNum`|Het telefoonnummer van de aanroepfunctie. |
+|`CallrecTime`|Het tijdstempel voor de begintijd van de oproep. |
+|`SwitchNum`|Het schakelnummer van de oproep. In dit voorbeeld zijn de schakelnummers tekenreeksen die staan voor het land van herkomst (VS, China, UK, Duitsland of Australië). |
+|`CallingNum`|Het telefoonnummer van de beller. |
 |`CallingIMSI`|De International Mobile Subscriber Identity (IMSI). Dit is de unieke id van de aanroepfunctie. |
-|`CalledNum`|Het telefoonnummer van de ontvanger aanroep. |
-|`CalledIMSI`|International Mobile Subscriber Identity (IMSI). Dit is de unieke id van de ontvanger. |
+|`CalledNum`|Het telefoonnummer van de ontvanger. |
+|`CalledIMSI`|De International Mobile Subscriber Identity (IMSI). Dit is de unieke id van de ontvanger. |
 
 
 ## <a name="create-a-stream-analytics-job-to-manage-streaming-data"></a>Maken van een Stream Analytics-taak voor het beheren van streaminggegevens
@@ -171,7 +172,7 @@ Nu dat u een stream van de aanroep van gebeurtenissen hebt, kunt u een Stream An
 
     De taak is gemaakt en de portal geeft taakdetails weer. Er is niets echter nog wordt uitgevoerd: u moet de taak configureren voordat deze kan worden gestart.
 
-### <a name="configure-job-input"></a>Taak invoer configureren
+### <a name="configure-job-input"></a>Taakinvoer configureren
 
 1. In het dashboard of de **alle resources** deelvenster, zoek en selecteer de `sa_frauddetection_job_demo` Stream Analytics-taak. 
 2. In de **taak topologie** sectie van het deelvenster Stream Analytics-taak klikt u op de **invoer** vak.
@@ -221,7 +222,7 @@ De app TelcoGenerator aanroep records verzendt naar de event hub en uw Stream An
 
     Azure 3 minuten aan gegevens uit de invoerstroom voorbeelden en waarschuwt u als de voorbeeldgegevens gereed is. (Dit duurt even.) 
 
-De voorbeeldgegevens worden tijdelijk opgeslagen en is beschikbaar wanneer u hebt de queryvenster geopend. Als u het query-venster sluit, wordt de voorbeeldgegevens worden genegeerd en hebt u een nieuwe set met voorbeeldgegevens. 
+De voorbeeldgegevens worden tijdelijk opgeslagen en zijn beschikbaar zolang u het queryvenster geopend houdt. Als u het queryvenster sluit, worden de voorbeeldgegevens verwijderd en zult u een nieuwe set voorbeeldgegevens moeten maken. 
 
 Als alternatief kunt u een .json-bestand met voorbeeldgegevens erin krijgen [vanuit GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), en vervolgens uploaden dat .json-bestand te gebruiken als u voorbeeldgegevens voor de `CallStream` invoer. 
 
@@ -289,7 +290,7 @@ Voor deze transformatie die u wilt een reeks van tijdelijke windows die elkaar n
  
 ### <a name="detect-sim-fraud-using-a-self-join"></a>Met behulp van een self-join SIM-fraude te detecteren
 
-In dit voorbeeld kunt we frauduleuze gebruik aanroepen die afkomstig van dezelfde gebruiker, maar in verschillende locaties binnen 5 seconden van elkaar zijn worden overwegen. Bijvoorbeeld, kan niet dezelfde gebruiker daadwerkelijk moet een aanroep van de Verenigde Staten en Australië op hetzelfde moment. 
+In dit voorbeeld kunt we frauduleuze gebruik aanroepen die afkomstig van dezelfde gebruiker, maar in verschillende locaties binnen 5 seconden van elkaar zijn worden overwegen. Zo kan dezelfde gebruiker niet op rechtmatige wijze op hetzelfde moment een telefoongesprek vanuit de Verenigde Staten en Australië initiëren. 
 
 Om te controleren of deze gevallen, kunt u een self-join van de streaminggegevens toevoegen aan de stroom op basis van de `CallRecTime` waarde. U kunt vervolgens zoeken aanroep registreert waar de `CallingIMSI` waarde (het oorspronkelijke aantal) is hetzelfde, maar de `SwitchNum` waarde (land van oorsprong) is niet hetzelfde.
 

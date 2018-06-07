@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ba4c9d9cd5f8a43be0f97053c02798e3b84a5f7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824333"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resource-functies voor Azure Resource Manager-sjablonen
 
@@ -95,7 +96,7 @@ Om te bepalen welke resourcetypen er een lijstbewerking, hebt u de volgende opti
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Geef de bron met behulp van de [resourceId functie](#resourceid), of de indeling `{providerNamespace}/{resourceType}/{resourceName}`.
+Geef de bron met de resourcenaam of de [resourceId functie](#resourceid). Wanneer u deze functie in dezelfde sjabloon die de bron waarnaar wordt verwezen implementeert, gebruikt u de resourcenaam.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -257,7 +258,7 @@ Elk resourcetype verschillende eigenschappen voor de verwijzing naar functie ger
 
 De functie verwijzing is afgeleid van de waarde van een runtimestatus en daarom niet worden gebruikt in het gedeelte variabelen. Het kan worden gebruikt in het gedeelte van de uitvoer van een sjabloon of [gekoppelde sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Het kan niet worden gebruikt in de sectie uitvoer van een [geneste sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, de sjabloon voor geneste niet converteren naar een gekoppelde sjabloon. 
 
-Met behulp van de functie verwijzing impliciet kunt declareren u één resource afhankelijk is van een andere bron, als de bron waarnaar wordt verwezen is ingericht binnen dezelfde sjabloon. U hoeft niet de eigenschap dependsOn ook gebruiken. De functie wordt niet geëvalueerd als de bron waarnaar wordt verwezen implementatie is voltooid.
+Met behulp van de functie verwijzing impliciet kunt declareren u één resource afhankelijk is van een andere bron, als de bron waarnaar wordt verwezen in dezelfde sjabloon is ingericht en u naar de resource met de naam (geen resource-ID verwijzen). U hoeft niet de eigenschap dependsOn ook gebruiken. De functie wordt niet geëvalueerd als de bron waarnaar wordt verwezen implementatie is voltooid.
 
 Overzicht van de eigenschapnamen en waarden voor een resourcetype, een sjabloon waarmee het object wordt geretourneerd in de sectie uitvoer te maken. Als u een bestaande resource van dat type hebt, retourneert de sjabloon voor het object zonder eventuele nieuwe resources implementeren. 
 

@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a4b704f433f02afcff7b94f98c19a478caaa02b2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808057"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Een toepassing blockchain maken in Azure Blockchain Workbench
 
@@ -237,7 +238,7 @@ De volgende versie pragma toevoegen aan de bovenkant van `HelloBlockchain.sol` c
 
 ### <a name="base-class"></a>Basisklasse
 
-**WorkbenchBase** basisklasse kunt Blockchain Workbench voor een update van het contract maken. De basisklasse is vereist voor Blockchain Workbench specifieke smart Contractcode. Het contract moet worden overgenomen van de **WorkbenchBase** basisklasse.
+**WorkbenchBase** basisklasse kunt Blockchain Workbench maken en bijwerken van het contract. De basisklasse is vereist voor Blockchain Workbench specifieke smart Contractcode. Het contract moet worden overgenomen van de **WorkbenchBase** basisklasse.
 
 In `HelloBlockchain.sol` slimme codebestand contract, het toevoegen van de **WorkbenchBase** klasse aan het begin van het bestand. 
 
@@ -374,7 +375,7 @@ Aanroepen voordat u de functie afsluit, de `ContractUpdated()` functie. De funct
 U uploaden om toe te voegen in een toepassing blockchain Blockchain Workbench, de configuratie en slimme contract-bestanden voor het definiëren van de toepassing.
 
 1. Ga naar het webadres Blockchain Workbench in een webbrowser. Bijvoorbeeld, `https://{workbench URL}.azurewebsites.net/` de webtoepassing wordt gemaakt wanneer u Blockchain Workbench implementeren. Zie voor meer informatie over het zoeken van de Blockchain Workbench webadres [Blockchain Workbench Web-URL](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
-2. Meld u als beheerder Blockchain Workbench. Zie voor meer informatie over het beheren van gebruikers, [gebruikers beheren in Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
+2. Meld u aan als een [Blockchain Workbench beheerder](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 3. Selecteer **toepassingen** > **nieuwe**. De **nieuwe toepassing** deelvenster wordt weergegeven.
 4. Selecteer **uploaden van de configuratie van het contract** > **Bladeren** vinden de **HelloBlockchain.json** configuratiebestand dat u hebt gemaakt. Het configuratiebestand is automatisch gevalideerd. Selecteer de **weergeven** koppeling validatiefouten wordt weergegeven. Validatiefouten oplossen voordat u de toepassing implementeren.
 5. Selecteer **uploaden van de Contractcode** > **Bladeren** vinden de **HelloBlockchain.sol** codebestand smart contract. De codebestand wordt automatisch gecontroleerd. Selecteer de **weergeven** koppeling validatiefouten wordt weergegeven. Validatiefouten oplossen voordat u de toepassing implementeren.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 29abd62b0602686c912f022ec8870dcb6f1b39eb
-ms.sourcegitcommit: 0a7c9629dea6f5eb52cc45a1e31112def210dfc2
+ms.openlocfilehash: 4b90d1b9b2ee64722d3c92bcbd8fa205c9b59ebd
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34730880"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809604"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Back-up en herstel voor SQL Server in Azure Virtual Machines
 
@@ -59,7 +59,7 @@ Zie een van de volgende artikelen voor meer informatie over het configureren van
 - **SQL Server 2016/2017**: [automatische back-v2 voor virtuele Machines in Azure ](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [automatische back-up voor virtuele Machines van SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Azure Backup voor virtuele SQL-machines
+## <a id="azbackup"></a> Azure Backup voor virtuele SQL-machines (openbare Preview)
 
 [Azure Backup](/azure/backup/) biedt u een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server wordt uitgevoerd in Azure VM's. Alle back-ups worden opgeslagen en beheerd in een Recovery Services-kluis. Er zijn verschillende voordelen, met deze oplossing, met name voor ondernemingen biedt:
 
@@ -128,7 +128,7 @@ Zie een van de volgende artikelen op basis van uw versie van SQL Server voor mee
 
 De volgende tabel geeft een overzicht van de mogelijkheden van elke optie back-up en herstel voor SQL Server virtuele machines in Azure.
 
-|| **Automatische back-up** | **Azure Backup voor virtuele SQL-machines** | **Handmatige back-up** |
+|| **Automatische back-up** | **Azure Backup voor SQL** | **Handmatige back-up** |
 |---|---|---|---|
 | Vereist extra Azure-service |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Back-upbeleid in Azure-portal configureren | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
@@ -139,11 +139,13 @@ De volgende tabel geeft een overzicht van de mogelijkheden van elke optie back-u
 | Korte termijn back-up bewaarbeleid (dagen) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Op lange termijn back-up bewaarbeleid (maanden, jaar) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Ingebouwde ondersteuning voor SQL Server Always On |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Geconsolideerde e-mailwaarschuwingen voor fouten |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Op rollen gebaseerd toegangsbeheer |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Back-up naar een Recovery Services-kluis |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Back-up naar Azure Storage-accounts | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Back-up naar Azure Storage-accounts | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatisch) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatisch) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(de klant beheerd) |
+| Beheer van opslag- en back-up-bestanden | | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
 | Back-up naar de gekoppelde schijven op de virtuele machine |   |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Centrale aanpasbare back-rapporten |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Geconsolideerde e-mailwaarschuwingen voor fouten |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Bewaking op basis van OMS aanpassen |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Monitor voor back-uptaken met SSMS of Transact-SQL-scripts | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Herstellen van databases met SSMS of Transact-SQL-scripts | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## <a name="next-steps"></a>Volgende stappen

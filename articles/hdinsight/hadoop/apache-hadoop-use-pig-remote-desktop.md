@@ -14,11 +14,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: f8d403e46f7460dff92cc418b829cc5510efd982
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 700569684888428032997dd81c10023c6fd5a7d8
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823302"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Pig-taken uitvoeren vanaf een extern bureaublad-verbinding
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -76,7 +77,7 @@ Extern bureaublad inschakelen voor het HDInsight-cluster en vervolgens verbindin
     <tr>
     <td>RESULTAAT = volgorde FREQUENTIES door aantal desc;</td><td>Hiermee worden de logboekniveaus gerangschikt op het aantal (aflopend) en opgeslagen in het resultaat</td>
     </tr>
-    </table>
+</table>
 6. U kunt ook de resultaten van een transformatie opslaan met behulp van de `STORE` instructie. Bijvoorbeeld de volgende opdracht slaat de `RESULT` naar de **/example/data/pigout** map in de standaard storage-container voor uw cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'

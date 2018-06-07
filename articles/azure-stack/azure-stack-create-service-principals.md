@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: c2e18f30e55007a0625a19258ec3745f64dc25da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd43d567a9839ae38c5b5eb4cdb851f8b80dcfff
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824567"
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang bieden tot Azure-Stack
+# <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang geven tot Azure Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
@@ -29,7 +30,7 @@ Als u bijvoorbeeld mogelijk hebt u een configuration management-hulpprogramma da
 
 Service-principals zijn beter voor het uitvoeren van de app met uw eigen referenties, omdat:
 
-* U kunt machtigingen toewijzen aan de service-principal die anders zijn dan de accountmachtigingen van uw eigen. Deze machtigingen zijn meestal beperkt tot precies wat de app moet doen.
+* U kunt machtigingen toewijzen aan de service-principal die anders zijn dan de accountmachtigingen van uw eigen. Deze machtigingen worden meestal beperkt tot de functies die met de app moeten kunnen worden uitgevoerd.
 * U hoeft niet te wijzigen van de app referenties als uw verantwoordelijkheden wijzigt.
 * U kunt een certificaat gebruiken voor het automatiseren van verificatie bij het uitvoeren van een onbewaakt script.  
 
@@ -76,7 +77,7 @@ Het script wordt uitgevoerd van de bevoegde eindpunt op een ERCS virtuele machin
 
 
 Vereisten:
-- Een gecertificeerde is vereist.
+- Er is een certificaat vereist.
 
 **Parameters**
 

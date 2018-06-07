@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809468"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Technische publishing handleiding van SaaS-toepassingen
 
@@ -50,7 +51,7 @@ SaaS-toepassingen zijn beschikbaar in beide winkelobjecten Azure de volgende tab
 | **Power BI / Dynamics** | Ja | Ja (Azure AD-integratie) |  
 | **SaaS-Apps**| Ja | Ja (Azure AD-integratie) |     
 
-Zie voor meer informatie over de Marketplace-winkelobjecten en een beschrijving van elke optie publishing de [Marketplace Publisher handleiding](https://aka.ms/sellerguide) en [publicatieopties](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+Zie voor meer informatie over de Marketplace-winkelobjecten en een beschrijving van elke optie publishing de [Marketplace Publisher handleiding](https://aka.ms/sellerguide) en [publicatieopties](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
 ## <a name="business-requirements"></a>Zakelijke vereisten
 De SaaS bieden bedrijfsvereisten in combinatie met de technische vereisten kunnen worden voltooid. De meeste zakelijke vereisten en gegevens worden verzameld tijdens het bouwen van de SaaS-aanbieding in de Cloud Partner-Portal. De zakelijke vereisten zijn de volgende: 
@@ -61,7 +62,7 @@ De SaaS bieden bedrijfsvereisten in combinatie met de technische vereisten kunne
 * Instellen van het privacybeleid en gebruiksvoorwaarden
 * Ondersteuning voor contactpersonen definiëren  
 
-Voor meer informatie kunt u vinden in het onderwerp [vereisten voor het publiceren van de marketplace](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
+Voor meer informatie kunt u vinden in het onderwerp [vereisten voor het publiceren van de marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
 
 ## <a name="technical-requirements"></a>Technische vereisten
 
@@ -71,11 +72,11 @@ Als u wilt starten, is het raadzaam dat u een abonnement specifiek voor uw Azure
 
 De beste Azure Active Directory-documentatie, voorbeelden en richtlijnen zich bevinden op de volgende sites: 
 
-* [Ontwikkelaarshandleiding Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Ontwikkelaarshandleiding Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Integreren met Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Overzicht van Azure - beveiliging en identiteit](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -124,7 +125,7 @@ De volgende tabel beschrijft de belangrijkste stappen publishing beschreven:
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Met behulp van Azure Active Directory proefversies inschakelen  
 
-Microsoft verifieert alle Marketplace-gebruikers met Azure AD, daarom wanneer een geverifieerde gebruiker klikt op via uw proefversie aanbieding in Marketplace en wordt omgeleid naar uw omgeving proefversie, kunt u de gebruiker rechtstreeks in een proefversie inrichten zonder een aanvullende aanmelden stap. Het token dat uw app van Azure AD tijdens verificatie ontvangt bevat waardevolle gebruikersgegevens die u gebruiken kunt voor het maken van een gebruikersaccount in uw app zodat u kunt de ervaring voor de inrichting automatiseren en vergroot de kans van de conversie. Zie voor meer informatie over het token [voorbeeld Tokens](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft verifieert alle Marketplace-gebruikers met Azure AD, daarom wanneer een geverifieerde gebruiker klikt op via uw proefversie aanbieding in Marketplace en wordt omgeleid naar uw omgeving proefversie, kunt u de gebruiker rechtstreeks in een proefversie inrichten zonder een aanvullende aanmelden stap. Het token dat uw app van Azure AD tijdens verificatie ontvangt bevat waardevolle gebruikersgegevens die u gebruiken kunt voor het maken van een gebruikersaccount in uw app zodat u kunt de ervaring voor de inrichting automatiseren en vergroot de kans van de conversie. Zie voor meer informatie over het token [voorbeeld Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Met behulp van Azure AD 1 Klik verificatie aan uw app of de evaluatieversie in te schakelen, gebeurt het volgende:  
 * Stroomlijnt de gebruikerservaring van Marketplace evaluatieversie.  
@@ -140,15 +141,15 @@ U kunt uw Azure AD-integratie in een aantal verschillende manieren, afhankelijk 
 
 Als u al Azure AD ondersteunen, het volgende doen:
 1.  Uw toepassing registreren in de Azure-portal
-2.  De multi-tenancymodus ondersteuning inschakelen in Azure AD om op te halen van een evaluatieversie van een enkele klik. Meer informatie vindt u [hier](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+2.  De multi-tenancymodus ondersteuning inschakelen in Azure AD om op te halen van een evaluatieversie van een enkele klik. Meer informatie vindt u [hier](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Als u niet bekend met Azure AD federatieve SSO bent, het volgende doen: 
 1.  Uw toepassing registreren in de Azure-portal
-2.  Eenmalige aanmelding ontwikkelen met Azure AD via [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) of [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Ondersteuning voor multitenancy functie in AAD ophalen van een enkele klik evaluatieversie meer specifieke informatie vindt u [hier](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Eenmalige aanmelding ontwikkelen met Azure AD via [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) of [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Ondersteuning voor multitenancy functie in AAD ophalen van een enkele klik evaluatieversie meer specifieke informatie vindt u [hier](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
 **Voor één tenant toepassing, moet u een van de volgende opties gebruiken:**  
-* Gebruikers toevoegen aan uw directory als gastgebruikers met [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Gebruikers toevoegen aan uw directory als gastgebruikers met [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 * Handmatig inrichten proefversies voor klanten met behulp van 'Contact Me'
 * Een per-klant Test-station ontwikkelen
 * Een voorbeeld van multitenant-demo-app met eenmalige aanmelding bouwen

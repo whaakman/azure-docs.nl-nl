@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 6/1/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 160055e4fdc6a5dfa401eaa3dc44427d13af22a8
-ms.sourcegitcommit: 0a7c9629dea6f5eb52cc45a1e31112def210dfc2
+ms.openlocfilehash: f48cbdb41f8ad7a3bad4546fa5cb77cf66780bed
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34730895"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808499"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Back-up van SQL Server-database in Azure
 
@@ -47,6 +47,34 @@ De volgende items zijn de bekende beperkingen voor de openbare Preview.
 - [Back-up van gedistribueerde beschikbaarheidsgroepreplica groepen heeft beperkingen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017).
 - SQL Failover Cluster exemplaren (FCI) worden niet ondersteund.
 - De Azure portal gebruiken voor het configureren van Azure Backup ter bescherming van SQL Server-databases. Ondersteuning voor Azure PowerShell, CLI en REST-API's is momenteel niet beschikbaar.
+
+## <a name="supported-azure-geos"></a>Ondersteunde Azure geografische gebieden
+
+- Australië - zuidoost (ASE) 
+- Brazilië - zuid (BRS)
+- Canada centraal (CNC)
+- Canada - oost (CE)
+- VS - centraal (CUS)
+- Oost-Azië (EA)
+- Oost-Australië (AE) 
+- VS - oost (EUS)
+- VS - oost 2 (EUS2)
+- Japan - oost (JPE)
+- Japan - west (JPW)
+- India - centraal (INC) 
+- India - zuid (INS)
+- Korea - centraal (KRC)
+- Korea - zuid (KRS)
+- VS - noord centraal (NCUS) 
+- Noord-Europa (NE) 
+- VS - zuid-centraal (SCUS) 
+- Zuidoost-Azië (SEA)
+- Verenigd Koninkrijk zuid (UKS) 
+- Verenigd Koninkrijk west (UKW) 
+- West-Europa (WE) 
+- VS - west (WUS)
+- VS - west-centraal (WCUS)
+- VS - west 2 (WUS 2) 
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Ondersteunde besturingssystemen en versies van SQL server
 

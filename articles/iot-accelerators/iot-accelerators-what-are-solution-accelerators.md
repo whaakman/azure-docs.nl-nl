@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 6f23324c697aa181179fd0ba4d81d1502bc5ac83
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: b961217317cea65b05cd58d66e64f0e4f012131e
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724887"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808550"
 ---
 # <a name="what-are-the-iot-solution-accelerators"></a>Wat zijn de IoT-oplossingsverbeteringen?
 
@@ -78,13 +78,13 @@ Wanneer u een oplossingsverbetering implementeert, wordt in het inrichtingsproce
 | Event Hubs           |                    | Ja                    |                   |
 | Time Series Insights |                    |                        | Ja               |
 | Containerservices   | Ja                |                        |                   |
-| Stream Analytics     |                    | Ja                    |                   |
+| Stream Analytics     | Ja                | Ja                    |                   |
 | Web Apps             | Ja                | Ja                    | Ja               |
 | Cosmos DB            | Ja                | Ja                    |                    |
 | Azure Storage         |                    | Ja                    | Ja               |
 
 > [!NOTE]
-> Zie voor meer informatie over de resources die zijn geïmplementeerd in de oplossing voor externe controle accelerator [artikel](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) op GitHub.
+> Zie voor meer informatie over de resources die zijn geïmplementeerd in de oplossing voor externe controle accelerator [bouwkundige keuzes externe controle](iot-accelerators-remote-monitoring-architectural-choices.md).
 
 * [Azure IoT Hub](../iot-hub/index.yml). Deze service verzorgt de berichtgeving van het apparaat naar de cloud en van de cloud naar het apparaat, en fungeert als toegangspoort tot de cloud en de andere belangrijke services voor oplossingsverbeteringen. Door deze service kunt u op grote schaal berichten ontvangen van uw apparaten en opdrachten naar uw apparaten verzenden. Met deze service kunt u ook [uw apparaten beheren](../iot-hub/iot-hub-device-management-overview.md). U kunt bijvoorbeeld een of meer apparaten die zijn verbonden met de hub configureren, opnieuw opstarten of hierop de fabrieksinstellingen terugzetten.
 * [Azure Event Hubs](../active-directory-domain-services/index.yml). Deze service biedt gebeurtenisopname naar de cloud met grote volumes. Zie [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md) (Vergelijking van Azure IoT Hub en Azure Event Hubs).

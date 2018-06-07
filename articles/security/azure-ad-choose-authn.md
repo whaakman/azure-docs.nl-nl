@@ -9,15 +9,16 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 6d107b9264a80c7b280ffed9a50b7bb0ffe354be
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 062b5e48cfba5de64aa11f79629e82645df87f96
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809257"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Kies de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
-In dit artikel begint een reeks van artikelen waarmee organisaties implementeren van een volledige hybride identiteitsoplossing met Azure Active Directory (Azure AD). Deze oplossing is als de hybride identiteit digitale transformatie Framework beschreven. Dit omvat de bedrijfsresultaten en doelstellingen organisaties kunnen zich concentreren op voor het implementeren van een robuuste en veilige hybride identiteitsoplossing. 
+In dit artikel begint een reeks van artikelen waarmee organisaties implementeren van een volledige hybride identiteitsoplossing met Azure Active Directory (Azure AD). Deze oplossing is beschreven als de [hybride identiteit digitale transformatie Framework](https://aka.ms/aadframework). Dit omvat de bedrijfsresultaten en doelstellingen organisaties kunnen zich concentreren op voor het implementeren van een robuuste en veilige hybride identiteitsoplossing. 
 
 Het eerste zakelijke resultaat van het framework worden de vereisten voor organisaties voor het beveiligen van het verificatieproces als gebruikers toegang hebben tot cloud-apps uitgeschreven. Het eerste zakelijke doel in het resultaat van de beveiligde business verificatie is de mogelijkheid aan te melden bij cloud-apps met behulp van de lokale gebruikersnamen en wachtwoorden van gebruikers. Dit proces aanmelden naar en hoe gebruikers verifiëren zich ervoor zorgen dat alles in de cloud mogelijk.
 
@@ -166,7 +167,7 @@ De architectuur op hoog niveau onderdelen vereist voor elke verificatiemethode d
 |Wat zijn de opties voor meervoudige verificatie?|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)<br><br>[Azure MFA-server](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA van derden](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|
 |Welke status voor het account van gebruikers worden ondersteund?|Uitgeschakelde accounts<br>(maximaal 30 minuten vertraging)|Uitgeschakelde accounts<br><br>Account vergrendeld<br><br>Wachtwoord is verlopen<br><br>-In uren|Uitgeschakelde accounts<br><br>Account vergrendeld<br><br>Wachtwoord is verlopen<br><br>-In uren|
 |Wat zijn de opties voor voorwaardelijke toegang?|[Voorwaardelijke toegang van Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Voorwaardelijke toegang van Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Voorwaardelijke toegang van Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Claimregels van AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Blokkeert verouderde protocollen ondersteund?|Nee|Nee|[Ja](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Blokkeert verouderde protocollen ondersteund?|[Ja](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Kunt u het logo, de installatiekopie en de beschrijving op de aanmeldingspagina's aanpassen?|[Ja, met Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Ja, met Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Ja](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |Welke geavanceerde scenario's worden ondersteund?|[Smart wachtwoord vergrendelen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords)<br><br>[Gelekte referenties rapporten](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[Smart wachtwoord vergrendelen](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Meerdere locaties verificatiesysteem lage latentie<br><br>[AD FS-extranetvergrendeling](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Integratie met identiteitssystemen van derden](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

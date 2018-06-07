@@ -5,20 +5,17 @@ services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
 ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 667efced715b904234bd2b941453ed27e9ef1c42
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 34b647c0405e4d0997eca12758c10b60cf862a5f
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809451"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
 
@@ -58,25 +55,19 @@ Dit communicatiemechanisme heeft verschillende voordelen ten opzichte van Direct
 
 In de volgende gedeelten wordt de code besproken waarmee deze architectuur wordt geïmplementeerd.
 
-## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
-Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen en uw ontwikkelomgeving instellen.
-
-1. Installeer de Azure-SDK voor .NET via de [pagina met downloads](https://azure.microsoft.com/downloads/) voor SDK.
-2. Klik in de kolom **.NET** op de versie van [Visual Studio](http://www.visualstudio.com) die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt, maar ze werken ook met Visual Studio 2017.
-3. Klik op **Uitvoeren** wanneer u wordt gevraagd of u het installatieprogramma wilt uitvoeren of opslaan.
-4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
-5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio.
-
 ## <a name="create-a-namespace"></a>Een naamruimte maken
-De volgende stap is het maken van een *naamruimte* en ophalen van een [SAS-sleutel (Shared Access Signature)](service-bus-sas.md) voor deze naamruimte. Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Er wordt automatisch een SAS-sleutel gegenereerd wanneer er een naamruimte wordt gemaakt. De combinatie van naamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
+
+De eerste stap is het maken van een *naamruimte*, en het verkrijgen van een [Shared Access Signature (SAS)](service-bus-sas.md) sleutel voor die naamruimte. Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Er wordt automatisch een SAS-sleutel gegenereerd wanneer er een naamruimte wordt gemaakt. De combinatie van naamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-web-role"></a>Een webrol maken
+
 In dit gedeelte maakt u de front-end van uw toepassing. U maakt eerst de pagina's die door uw toepassing worden weergegeven.
 Vervolgens voegt u code toe waarmee items worden verzonden naar een Service Bus-wachtrij en waarmee statusinformatie over de wachtrij wordt weergegeven.
 
 ### <a name="create-the-project"></a>Het project maken
+
 1. Visual Studio starten met administratorbevoegdheden: klik met de rechtermuisknop op het programmapictogram **Visual Studio** en klik vervolgens op **Als administrator uitvoeren**. Voor de Azure-rekenemulator, die verderop in dit artikel wordt besproken, is vereist dat Visual Studio wordt gestart met administratorbevoegdheden.
    
    Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.

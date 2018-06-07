@@ -1,6 +1,23 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: rogara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 06/03/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: bf0853b137e65ddd6ad40483c50fc8debb62f920
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34826545"
+---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
-Dit artikel worden enkele veelgestelde vragen over Azure beheerd schijven en Azure Premium-opslag.
+Dit artikel worden enkele veelgestelde vragen over Azure beheerd schijven en Azure Premium-SSD-schijven.
 
 ## <a name="managed-disks"></a>Beheerde schijven
 
@@ -46,7 +63,7 @@ Beheerde schijven elimineert de grenzen die aan opslagaccounts is gekoppeld. Het
 
 **Kan ik een incrementele momentopname van een beheerde schijf volgen?**
 
-Nee. De huidige momentopname maakt een volledige kopie van een beheerde schijf. We zijn echter van plan om ondersteuning voor incrementele momentopnamen in de toekomst.
+Nee. De huidige momentopname maakt een volledige kopie van een beheerde schijf.
 
 **Kunnen de virtuele machines in een beschikbaarheidsset bestaan uit een combinatie van beheerde en onbeheerde schijven?**
 
@@ -66,7 +83,7 @@ Afhankelijk van de regio waar de beschikbaarheidsset die gebruikmaakt van schijv
 
 **Hoe wordt het standaard opslagaccount voor diagnostische gegevens instellen?**
 
-Instellen van een persoonlijke opslagaccount voor diagnostische gegevens van virtuele machine. We zullen in de toekomst ook overschakelen van diagnostische gegevens naar de schijven worden beheerd.
+Instellen van een persoonlijke opslagaccount voor diagnostische gegevens van virtuele machine.
 
 **Wat voor soort toegangsbeheer op basis van rollen ondersteuning is beschikbaar voor schijven beheerd?**
 
@@ -86,7 +103,7 @@ Klanten kunnen een momentopname van het bijbehorende beheerde schijven en gebrui
 
 **Worden niet-beheerde schijven nog steeds ondersteund?**
 
-Ja. Wij ondersteunen onbeheerde en beheerde schijven. U wordt aangeraden dat u beheerde schijven voor nieuwe workloads en migreren van uw huidige werkbelastingen naar beheerde schijven.
+Ja, zowel beheerde als onbeheerde schijven worden ondersteund. U wordt aangeraden dat u beheerde schijven voor nieuwe workloads en migreren van uw huidige werkbelastingen naar beheerde schijven.
 
 
 **Als ik een schijf van 128 GB maken en vervolgens de grootte tot 130 GB te verhogen, ik gefactureerd voor de volgende schijfgrootte (512 GB)?**
@@ -113,6 +130,39 @@ Nee. U kunt de naameigenschap van de computer niet bijwerken. De nieuwe virtuele
 * [Lijst met sjablonen met schijven beheerd](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="standard-ssd-disks-preview"></a>Standaard SSD-schijven (Preview)
+
+**Wat Azure Standard SSD-schijven zijn?**
+Standaard SSD-schijven zijn standaard schijven ondersteund door SSD media, als rendabele opslag voor workloads die consistente prestaties op lagere niveaus van IOPS moet worden geoptimaliseerd. Preview-versie zijn ze beschikbaar in een beperkt aantal gebieden met beperkte beheermogelijkheden (beschikbaar via Resource Manager-sjablonen).
+
+<a id="standard-ssds-azure-regions"></a>**Wat zijn de gebieden die momenteel worden ondersteund voor standaard SSD-schijven (Preview)?**
+* Noord-Europa
+
+**Hoe maak ik standaard SSD-schijven**
+Op dit moment kunt u standaard SSD-schijven met behulp van Azure Resource Manager-sjablonen maken. Hieronder worden de parameters nodig in het Resource Manager-sjabloon maken standaard SSD-schijven:
+
+* *apiVersion* voor Microsoft.Compute moet worden ingesteld als `2018-04-01` (of hoger)
+* Geef *managedDisk.storageAccountType* als `StandardSSD_LRS`
+
+Het volgende voorbeeld wordt de *properties.storageProfile.osDisk* sectie voor een virtuele machine die gebruikmaakt van standaard SSD-schijven:
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+Zie voor een volledige sjabloon voorbeeld van een standaard SSD-schijf maken met een sjabloon, [een virtuele machine maken van een Windows-installatiekopie met SSD gegevens standaardschijven](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+
+**Kan ik standaard SSD's gebruiken als niet-beheerde schijven?**
+Nee, standaard SSD-schijven zijn alleen beschikbaar als schijven worden beheerd.
+
 ## <a name="migrate-to-managed-disks"></a>Migreren naar Managed Disks 
 
 **Welke wijzigingen vereist zijn in een bestaande Azure Backup-service configuration vóór na migratie naar schijven beheerd?**
@@ -127,9 +177,9 @@ Ja, back-ups naadloos werken.
 
 Er zijn geen wijzigingen vereist. 
 
-**Is automatische migratie van een bestaande VM Scale Sets (VMSS) van niet-beheerde schijven aan beheerde schijven ondersteund?**
+**Is automatische migratie van een bestaande virtuele-machineschaalset sets van niet-beheerde schijven aan beheerde schijven ondersteund?**
 
-Nee. U kunt een nieuwe VMSS maken met beheerde schijven met behulp van een installatiekopie van uw oude VMSS met niet-beheerde schijven. 
+Nee. U kunt een nieuwe schaal instellen met beheerd schijven met behulp van een installatiekopie van uw oude schaal instelt met niet-beheerde schijven kunt maken. 
 
 **Kan ik een schijf beheerd maken van een momentopname van een pagina-blob genomen voordat u migreert naar schijven beheerd?**
 
@@ -139,9 +189,9 @@ Nee. U kunt een momentopname van een pagina-blob exporteren als een pagina-blob 
 
 Ja, kunt u failover naar een virtuele machine met schijven beheerd.
 
-**Is er invloed van de migratie op Azure Virtual machines beveiligd door Azure Site Recovery (ASR) via replicatie van Azure naar Azure?**
+**Is er invloed van de migratie op Azure Virtual machines beveiligd door Azure Site Recovery via replicatie van Azure naar Azure?**
 
-Ja. ASR Azure-Azure-beveiliging voor VM's met schijven beheerd is momenteel alleen beschikbaar als een openbare preview-service.
+Ja. Azure Site Recovery Azure naar Azure-beveiliging voor virtuele machines met beheerde schijven is momenteel alleen beschikbaar als een openbare preview-service.
 
 **Kan ik virtuele machines migreren met niet-beheerde schijven die zich bevinden op opslagaccounts die zijn of die eerder zijn versleuteld met beheerde schijven?**
 
@@ -163,7 +213,7 @@ Nee.
 
 **Is versleuteling van opslag Service alleen beschikbaar in specifieke gebieden?**
 
-Nee. Het is beschikbaar in alle regio's waar beheerd schijven beschikbaar is. Beheerde schijven is beschikbaar in alle openbare regio's en Duitsland.
+Nee. Het is beschikbaar in alle regio's waar beheerd schijven beschikbaar zijn. Beheerde schijven is beschikbaar in alle openbare regio's en Duitsland.
 
 **Hoe vind ik als mijn beheerde schijf worden versleuteld?**
 
@@ -190,19 +240,19 @@ Nee. Maar als u een VHD naar een versleutelde storage-account van een gecodeerd 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Premium-schijven: beheerde en onbeheerde
 
-**Als een virtuele machine gebruikmaakt van een reeks grootte die ondersteuning biedt voor Premium-opslag, zoals een DSv2 kan ik koppelen zowel premium en standard gegevensschijven?** 
+**Als een virtuele machine gebruikmaakt van een reeks grootte die ondersteuning biedt voor Premium-SSD-schijven, zoals een DSv2 kan ik koppelen zowel premium en standard gegevensschijven?** 
 
 Ja.
 
-**Kan ik zowel premium en standard gegevensschijven koppelen aan een reeks grootte die biedt geen ondersteuning voor Premium-opslag, zoals D, Dv2, G of F-serie?**
+**Kan ik zowel premium en standard gegevensschijven koppelen aan een reeks grootte die geen ondersteuning voor Premium-SSD-schijven, zoals D, Dv2, G of F-serie biedt?**
 
-Nee. U kunt alleen standaard gegevensschijven koppelen aan virtuele machines die geen gebruikmaken van een reeks grootte die ondersteuning biedt voor Premium-opslag.
+Nee. U kunt alleen standaard gegevensschijven koppelen aan virtuele machines die geen gebruikmaken van een reeks grootte die ondersteuning biedt voor Premium-SSD-schijven.
 
 **Als ik een gegevensschijf premium van een bestaande VHD die 80 GB maken is, hoeveel die kost?**
 
 Een gegevensschijf premium is gemaakt op basis van een VHD 80 GB wordt beschouwd als de grootte van de schijf beschikbaar zijn voor het volgende premium, die een schijf P10. U kosten in rekening gebracht volgens de P10 schijf prijzen.
 
-**Zijn er transactiekosten Premium-opslag gebruiken?**
+**Zijn er transactiekosten Premium-SSD-schijven te gebruiken?**
 
 Er is een vaste kosten voor de grootte van elke schijf, dat wordt meegeleverd met specifieke limieten ingerichte op IOPS en doorvoerlimieten. De andere kosten zijn uitgaande bandbreedte en capaciteit van de momentopname, indien van toepassing. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/storage) voor meer informatie.
 
@@ -226,7 +276,7 @@ Het partitietype die Azure biedt ondersteuning voor de schijf van een besturings
 
 **Wat is de grootste blob paginagrootte die wordt ondersteund?**
 
-Pagina is-blob de maximumgrootte die ondersteuning biedt voor Azure 8 TB (8.191 GB). Pagina-blobs die groter zijn dan 4 TB (4095 GB) gekoppeld aan een virtuele machine als gegevens of besturingssysteem schijven worden niet ondersteund.
+Pagina is-blob de maximumgrootte die ondersteuning biedt voor Azure 8 TB (8.191 GB). De maxmium blog paginagrootte wanneer gekoppeld aan een virtuele machine als gegevens of besturingssysteem schijven is 4 TB (4095 GB).
 
 **Moet ik een nieuwe versie van Azure-hulpprogramma's kunt maken, te koppelen, te vergroten of verkleinen en uploaden schijven groter dan 1 TB?**
 

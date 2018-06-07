@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2aa1c33f138619283a8785aaf3772465df6c9aee
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8ee71a5c37357e0a92f794d7b808948f4e5b4ff0
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823925"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory-v2.0 en OAuth 2.0 On-Behalf-Of stroom
 De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
@@ -29,13 +30,13 @@ De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassi
 > [!NOTE]
 > Het v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen. Meer informatie over om te bepalen of het v2.0-eindpunt moet worden gebruikt, [v2.0 beperkingen](active-directory-v2-limitations.md).
 >
->
+
+
+> [!IMPORTANT]
+> De [impliciete grant](active-directory-v2-protocols-implicit.md) kan niet worden gebruikt voor de On-namens-stroom - kuuroorden hun toegangstoken (impliciete stroom) moeten doorgeven aan een vertrouwelijk client middelste laag om uit te voeren OBO stromen.  Zie [beperkingen](#client-limitations) voor meer informatie op die clients op-namens-van-aanroepen kunnen uitvoeren.  
 
 ## <a name="protocol-diagram"></a>Protocol-diagram
 Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met behulp van de [autorisatiecodetoekenning OAuth 2.0](active-directory-v2-protocols-oauth-code.md). Op dit punt wordt de toepassing heeft een toegangstoken *voor API-A* (token A) met de claims van de gebruiker en toestemming voor toegang tot de middelste laag web-API (A-API). API A moet nu een geverifieerde aanvraag om aan te brengen de downstream web-API (API-B).
-
-> [!IMPORTANT]
-> Tokens die zijn aangeschaft via de [impliciete grant](active-directory-v2-protocols-implicit.md) kan niet worden gebruikt voor de On-namens-stroom. De client in implcit stroomt is niet geverifieerd (via bijvoorbeeld een clientgeheim) en daarom niet mogen bootstrap uitvoeren naar een andere, mogelijk krachtigere token.
 
 Welke stappen volgen vormen van de On-namens-stroom en met behulp van het volgende diagram worden uitgelegd.
 
@@ -178,6 +179,9 @@ GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
+
+## <a name="client-limitations"></a>Beperkingen van client
+Als een client de impliciete stroom gebruikt ophalen van een id_token en dat de client ook jokertekens in een antwoord-URL heeft, kan de id_token kan niet worden gebruikt voor een OBO-stroom.  Toegangstokens die zijn verkregen via de impliciete grant-stroom kunnen nog steeds ingewisseld door een vertrouwelijk client, zelfs als de gang worden gezet client een jokerteken antwoord-URL is geregistreerd heeft. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over het OAuth 2.0-protocol en een andere manier om uit te voeren services auth met clientreferenties.

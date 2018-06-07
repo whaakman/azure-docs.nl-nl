@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: b406a0cd3e5176649b33d6ad8f41facb7043952d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c851a9a5c20c3f658e8681a4178ebe67294fd773
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808074"
 ---
 # <a name="business-understanding"></a>Inzicht in het bedrijf
 
@@ -80,7 +81,7 @@ Bijvoorbeeld: het kan gebeuren dat de bestaande systemen moeten verzamelen en me
 Hier volgen de producten in deze fase:
 
    * [Freelance document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): een standaardsjabloon is opgegeven in de definitie van TDSP project structuur. Het document Freelance is een levende-document. U kunt de sjabloon tijdens het project bijwerken als u nieuwe detecties en als zakelijke vereisten veranderen. De sleutel is te herhalen bij dit document nader bekijken, toe te voegen bij het detectieproces. Behouden van de klant en andere belanghebbenden betrokken bij het maken van de wijzigingen en duidelijk is de redenen waarom de wijzigingen aan te brengen.  
-   * [Gegevensbronnen](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): de **onbewerkte gegevensbronnen** sectie van de **gegevensdefinities** rapport dat gevonden in het project TDSP **rapport met inventarisatiegegevens** map bevat de gegevens bronnen. Deze sectie geeft de oorspronkelijke- en doellocaties voor de onbewerkte gegevens. In latere fasen verlopen, moet u extra details, zoals de scripts worden de gegevens verplaatsen naar uw omgeving analytische invullen.  
+   * [Gegevensbronnen](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): de **onbewerkte gegevensbronnen** sectie van de **gegevensdefinities** rapport dat gevonden in het project TDSP **rapport met inventarisatiegegevens** map bevat de gegevens bronnen. Deze sectie geeft de oorspronkelijke- en doellocaties voor de onbewerkte gegevens. In latere fasen verlopen, moet u extra details, zoals de scripts worden de gegevens verplaatsen naar uw omgeving analytische invullen.  
    * [Gegevens woordenlijsten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): dit document vindt u beschrijvingen van de gegevens die door de client wordt geleverd. Deze beschrijvingen bevatten informatie over het schema (de gegevenstypen en informatie over de validatieregels, indien van toepassing) en de diagrammen entiteit relatie, indien beschikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen

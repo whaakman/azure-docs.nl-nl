@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 8c8037fe3936485082299250e603b2f3ea3859b9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 12138ac5a173f66d8b6b0041de9f31f4ac326485
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34822952"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Back-up en gegevensherstel voor Azure-Stack met de infrastructuur Backup-Service
 
@@ -53,7 +54,7 @@ De services bevat de volgende functies.
 - **Referenties**  
   U moet een domeingebruikersaccount en referenties, bijvoorbeeld: u kunt de Azure-Stack-beheerdersreferenties.
 - **Coderingssleutel**  
-  Back-upbestanden zijn versleuteld met behulp van deze sleutel. Zorg ervoor dat deze sleutel opslaan op een veilige locatie. Zodra u deze sleutel voor het eerst definieert of de sleutel in de toekomst draaien, kunt u deze sleutel van deze interface niet weergeven. Voor meer instructies voor het genereren van een vooraf gedeelde sleutel, volgt u de scripts op [back-up inschakelen voor Azure-Stack met PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
+  Back-upbestanden zijn versleuteld met behulp van deze sleutel. Zorg ervoor dat deze sleutel opslaan op een veilige locatie. Zodra u deze sleutel voor het eerst definieert of de sleutel in de toekomst draaien, kunt u deze sleutel van deze interface niet weergeven. Voor meer instructies voor het genereren van een vooraf gedeelde sleutel, volgt u de scripts op [back-up inschakelen voor Azure-Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1557567170654506c0010fafea7b035a2535aaeb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 5db7d57045acea3ded82e880169ebf02f4151ec5
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643726"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824724"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -205,7 +205,7 @@ Lokale virtuele machines die u naar Azure repliceert moeten voldoen aan de virtu
 
 **Onderdeel** | **Vereisten** | **Details**
 --- | --- | ---
-Gastbesturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated machines). | Controle mislukt als een niet-ondersteund.
+Gastbesturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated-machines). | Controle mislukt als een niet-ondersteund.
 Architectuur van de Gast-besturingssysteem | 64-bits. | Controle mislukt als een niet-ondersteund.
 Grootte van de besturingssysteemschijf | Maximaal 2048 GB. | Controle mislukt als een niet-ondersteund.
 Het aantal schijven voor besturingssysteem | 1 | Controle mislukt als een niet-ondersteund.  

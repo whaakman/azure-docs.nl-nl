@@ -1,18 +1,19 @@
 ---
 title: Beheren van de apparaten in uw Azure IoT centrale toepassing | Microsoft Docs
 description: Informatie over het beheren van apparaten in uw Azure IoT centrale toepassing als operator.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807472"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Beheer van apparaten in uw Azure IoT centrale toepassing
 
@@ -76,8 +77,33 @@ Bulksgewijs registreren apparaten in uw toepassing:
 
     [![Bulksgewijs importeren geslaagd](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Als het apparaat mislukt importeert, wordt er een fout weergegeven in het raster apparaat. Een logboekbestand voor het vastleggen van alle fouten gegenereerd en door te klikken op het foutbericht kan worden gedownload.
+Als het apparaat mislukt importeren, ziet u een foutbericht weergegeven in het raster apparaat. Een logboekbestand voor het vastleggen van alle fouten gegenereerd en door te klikken op het foutbericht kan worden gedownload.
 
+## <a name="export-devices"></a>Exporteren van apparaten
+
+Voor het inrichten van apparaten verbinding maken met IoT centraal, moet u de verbindingsreeks van het apparaat dat wordt gegenereerd door IoT centraal. U kunt de exportfunctie in bulk ophalen van de verbindingsreeksen en andere eigenschappen van de apparaten van uw toepassing. Uitvoer maakt een CSV-bestand met de apparaat-id, de apparaatnaam en het primaire verbindingsreeks voor de geselecteerde apparaten.
+
+Bulksgewijs export apparaten van uw toepassing:
+1. Kies **Explorer** in het navigatiemenu links.
+
+1. Een het linkerpaneel kiest u de sjabloon van het apparaat waarvoor u wilt exporteren van de apparaten.
+
+1. Selecteer de apparaten die u wilt exporteren en klik op de **exporteren** in te grijpen.
+
+    [![Exporteren](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. Exportproces wordt gestart en u kunt de status aan de bovenkant van het raster volgen. 
+
+1. Zodra het exporteren is voltooid, wordt een bericht weergegeven samen met een koppeling naar het gegenereerde bestand downloaden.
+
+1. Klik op de **bericht** voor het downloaden van het bestand naar een lokale map op de schijf.
+
+    [![Exporteren geslaagd](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. Het geëxporteerde CSV-bestand heeft de volgende informatie:
+    1. Naam
+    1. Apparaat-id
+    1. Primaire verbindingsreeks
 
 
 ## <a name="delete-a-device"></a>Een apparaat verwijderen

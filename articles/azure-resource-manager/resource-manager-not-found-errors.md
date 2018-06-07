@@ -11,17 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/08/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5da2a74b3a399c60c518f386ccf2e60a617aeda
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 494526ae2084053f23bb3a096ac7d089c47a731a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823432"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Los fouten niet worden gevonden voor de Azure-resources
 
-In dit artikel beschrijft de fouten die optreden kunnen wanneer een resource kan niet worden gevonden tijdens de implementatie.
+In dit artikel beschrijft de fouten die mogelijk ziet u wanneer een resource kan niet worden gevonden tijdens de implementatie.
 
 ## <a name="symptom"></a>Symptoom
 
@@ -32,7 +33,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Als u probeert te gebruiken de [verwijzing](resource-group-template-functions-resource.md#reference) of [listKeys](resource-group-template-functions-resource.md#listkeys) werkt in combinatie met een resource die niet kunnen worden omgezet, het volgende foutbericht:
+Als u de [verwijzing](resource-group-template-functions-resource.md#reference) of [listKeys](resource-group-template-functions-resource.md#listkeys) werkt in combinatie met een resource die niet kunnen worden omgezet, het volgende foutbericht:
 
 ```
 Code=ResourceNotFound;
@@ -59,9 +60,9 @@ Als u de ontbrekende resource in de sjabloon implementeert probeert, controleert
 }
 ```
 
-Maar u wilt voorkomen dat afhankelijkheden die nodig zijn niet instellen. Wanneer u onnodige afhankelijkheden hebt, kunt u de duur van de implementatie verlengen door te voorkomen dat de bronnen die niet afhankelijk van elkaar worden geïmplementeerd parallel. U kunt bovendien circulaire afhankelijkheden die de implementatie blokkeren maken. De [verwijzing](resource-group-template-functions-resource.md#reference) functie maakt een impliciete afhankelijkheid voor de bron waarnaar wordt verwezen, wanneer deze resource is geïmplementeerd in dezelfde sjabloon. Daarom kunnen er meer afhankelijkheden dan de afhankelijkheden die zijn opgegeven de **dependsOn** eigenschap. De [resourceId](resource-group-template-functions-resource.md#resourceid) functie niet maken van een impliciete afhankelijkheid of valideren dat de resource bestaat.
+Maar u wilt voorkomen dat de instelling van de afhankelijkheden die niet nodig zijn. Wanneer u onnodige afhankelijkheden hebt, kunt u de duur van de implementatie verlengen door te voorkomen dat de bronnen die niet zijn afhankelijk van elkaar worden geïmplementeerd parallel. U kunt bovendien circulaire afhankelijkheden die de implementatie blokkeren maken. De [verwijzing](resource-group-template-functions-resource.md#reference) functie en [lijst *](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) functies wordt een impliciete afhankelijkheid gemaakt voor de bron waarnaar wordt verwezen, wanneer die resource in dezelfde sjabloon is geïmplementeerd en wordt verwezen door de naam ervan (geen resource-ID ). Daarom kunnen er meer afhankelijkheden dan de afhankelijkheden die zijn opgegeven de **dependsOn** eigenschap. De [resourceId](resource-group-template-functions-resource.md#resourceid) functie niet maken van een impliciete afhankelijkheid of valideren dat de resource bestaat. De [verwijzing](resource-group-template-functions-resource.md#reference) functie en [lijst *](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) functies een impliciete afhankelijkheid niet maken wanneer de bron wordt verwezen door de bron-ID. Geeft de naam van de resource die is geïmplementeerd in dezelfde sjabloon voor het maken van een impliciete afhankelijkheid.
 
-Wanneer u afhankelijkheid problemen ondervindt, moet u meer inzicht krijgen in de volgorde van de resource-implementatie. De volgorde van implementatiebewerkingen weergeven:
+Wanneer u problemen afhankelijkheid ziet, moet u meer inzicht krijgen in de volgorde van de implementatie van de resource. De volgorde van implementatiebewerkingen weergeven:
 
 1. Selecteer de geschiedenis van de implementatie voor de resourcegroep.
 
@@ -92,7 +93,7 @@ Wanneer de bron in een andere resourcegroep dan de versie die wordt geïmplement
 
 ## <a name="solution-3---check-reference-function"></a>Oplossing 3 - controle van verwijzing naar functie
 
-Zoek naar een expressie met de [verwijzing](resource-group-template-functions-resource.md#reference) functie. De waarden die u opgeeft variëren, afhankelijk van of de resource in de sjabloon, resourcegroep en -abonnement is. Controleer dat u de vereiste parameterwaarden voor uw scenario opgeeft. Als de bron in een andere resourcegroep is, geeft u de volledige resource-ID. Bijvoorbeeld, om te verwijzen naar een opslagaccount in een andere resourcegroep, gebruiken:
+Zoek naar een expressie met de [verwijzing](resource-group-template-functions-resource.md#reference) functie. De waarden die u opgeeft variëren, afhankelijk van of de resource in de sjabloon, resourcegroep en -abonnement is. Controleer dat u de waarden van de vereiste parameter voor uw scenario opgeeft bent. Als de bron in een andere resourcegroep is, geeft u de volledige resource-ID. Bijvoorbeeld, om te verwijzen naar een opslagaccount in een andere resourcegroep, gebruiken:
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

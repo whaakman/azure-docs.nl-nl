@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 959a483d293caa45180c946e92ac824fc56db084
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 61369fbf864db28ee0a9415bbb87dca2a185ed43
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809672"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA op Azure-bedieningshandleiding
 Dit document biedt richtlijnen voor SAP HANA besturingssystemen die worden geïmplementeerd op Azure systeemeigen virtuele machines (VM's). Dit document is niet bedoeld voor het vervangen van de standaard SAP-documentatie, waaronder de volgende inhoud:
@@ -105,7 +106,6 @@ De volgende tabel toont een configuratie van VM-typen die klanten wordt meestal 
 > Controleer of een bepaald type van de virtuele machine wordt ondersteund voor SAP HANA door SAP in voor productiescenario's de [SAP-documentatie voor IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
 
-
 | VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | hana/gegevens en hana/logboekbestanden<br /> striped met LVM of MDADM | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
@@ -113,6 +113,9 @@ De volgende tabel toont een configuratie van VM-typen die klanten wordt meestal 
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M32ts | 192 giB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 |1 x S30 |
 | M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
 | M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
@@ -139,6 +142,9 @@ Als u profiteren wilt van [virtuele machine van Azure VM SLA eenmalige](https://
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
 | E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
 | GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
+| M32ts | 192 giB | 500 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
+| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
+| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
 | M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
 | M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
@@ -163,6 +169,9 @@ De aanbevolen configuraties eruitzien als:
 
 | VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | hana/gegevens | hana/logboek | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
+| M32ts | 192 giB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
+| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
+| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P30 |
 | M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
 | M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
@@ -176,6 +185,7 @@ Er zijn limieten van Azure Premium Storage VHD's per virtuele machine die kan wo
 
 - 16 VHD's voor een M128xx VM
 - 8 VHD's voor een M64xx VM
+- 4 virtuele harde schijven voor een M32xx VM
 
 Meer gedetailleerde instructies over het inschakelen van Azure schrijven Accelerator vindt u in het artikel [schrijven Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 

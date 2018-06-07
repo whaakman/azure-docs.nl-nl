@@ -14,11 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ad6d48a03575e8fabd7eed2ebc1f7926ec4559d4
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808737"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 In dit artikel **stap 2**, wordt u begeleid bij het voorbereiden van de virtuele harde schijven (VHD's) dat u naar Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces is afhankelijk van of u een SKU op basis van Linux of op basis van Windows biedt. In dit artikel komen beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [accountaanmaking en registratie][link-acct-creation].
@@ -452,7 +453,7 @@ Hierna volgen de stappen voor het genereren van SAS-URL met Azure CLI
 
     Hieronder vindt u in de voorbeeldcode na het bijwerken van de juiste parameters
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
+          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=<account-key>"
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 

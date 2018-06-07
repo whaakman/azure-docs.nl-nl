@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807455"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -26,7 +27,7 @@ Deze zelfstudie leert u hoe u uw web-app beveiligen door het aanschaffen van een
 
 ## <a name="step-1---log-in-to-azure"></a>Stap 1 - logboek in naar Azure
 
-Aanmelden bij de Azure portal op http://portal.azure.com
+Aanmelden bij Azure Portal op http://portal.azure.com
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>Stap 2: een SSL-certificaat bestelling plaatsen
 
@@ -196,13 +197,24 @@ Klik op **sleutel opnieuw genereren** om het proces te starten. Dit kan 1 tot 10
 
 Het certificaat opnieuw genereren van sleutels, wordt het certificaat met een nieuw certificaat is uitgegeven door de certificeringsinstantie.
 
+## <a name="renew-the-certificate"></a>Het certificaat vernieuwen
+
+Klik in te schakelen op de automatische vernieuwing van het certificaat op elk gewenst moment **instellingen voor automatisch vernieuwen** op de pagina certificaat beheer. Selecteer **op** en klik op **opslaan**.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+Als u wilt handmatig vernieuwen van het certificaat in plaats daarvan, klikt u op **handmatig vernieuwen** in plaats daarvan.
+
+> [!NOTE]
+> Het verlengde certificaat is niet automatisch gebonden aan uw app, of u handmatig vernieuwd of deze automatisch wordt vernieuwd. Als u wilt koppelen aan uw app, Zie [certificaten vernieuwen](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+
 <a name="notrenewed"></a>
-## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>Waarom wordt mijn SSL-certificaat niet automatisch-verlengd?
+## <a name="why-is-my-certificate-not-auto-renewed"></a>Waarom wordt mijn certificaat niet automatisch-verlengd?
 
 Als uw SSL-certificaat is geconfigureerd voor automatisch verlengen, maar deze niet automatisch wordt vernieuwd, mogelijk hebt u de verificatie van een in behandeling domein. Houd rekening met het volgende: 
 
-- GoDaddy dit App Service-certificaten genereert, vereist verificatie van het domein om de drie jaar. De domeinbeheerder ontvangt een e-mailbericht om de drie jaar om te controleren of het domein. Controleer het e-mailbericht of verifieer uw domein voorkomt u het App Service-certificaat dat automatisch wordt vernieuwd. 
-- Alle App Service-certificaten uitgegeven vóór maart 31 2017 moeten Herverificatie van domein op het moment van de volgende vernieuwing (zelfs als de automatisch verlengen is ingeschakeld voor het certificaat). Dit is een resultaat van de wijziging in GoDaddy-beleid. Controleer je e-mail en voltooit deze domeinverificatie eenmalige om door te gaan automatisch verlengen van het App Service-certificaat. 
+- GoDaddy dit App Service-certificaten genereert, vereist verificatie van het domein om de twee jaar. De domeinbeheerder ontvangt een e-mailbericht om de drie jaar om te controleren of het domein. Controleer het e-mailbericht of verifieer uw domein voorkomt u het App Service-certificaat dat automatisch wordt vernieuwd. 
+- Vanwege een wijziging in GoDaddy-beleid moeten alle App Service-certificaten uitgegeven vóór 1 maart 2018 Herverificatie van domein op het moment van de volgende vernieuwing (zelfs als de automatisch verlengen is ingeschakeld voor het certificaat). Controleer je e-mail en voltooit deze domeinverificatie eenmalige om door te gaan automatisch verlengen van het App Service-certificaat. 
 
 ## <a name="more-resources"></a>Meer bronnen
 

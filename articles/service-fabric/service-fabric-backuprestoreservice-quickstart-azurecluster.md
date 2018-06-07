@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b2e2e7dcc26bece79ae0423d55b08416065d599e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ad2faabbab74ba343328b6fe30e09c87520e7019
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809791"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Periodieke back-up en herstel in Azure Service Fabric (Preview)
 > [!div class="op_single_selector"]
@@ -119,11 +120,11 @@ Eerste stap is het maken van back-upbeleid met een beschrijving van back-upschem
 
 Gebruik de Azure Storage-account hierboven gemaakt voor back-up. In dit voorbeeld wordt ervan uitgegaan dat de Azure Storage-account met de naam `sfbackupstore`. Container `backup-container` is geconfigureerd voor het opslaan van back-ups van de container met deze naam is gemaakt, als deze niet al aanwezig, tijdens het uploaden van back-up. Vullen `ConnectionString` met geldige verbindingsreeks voor de Azure Storage-account.
 
-Uitvoeren van volgende PowerShell-script om vereiste REST-API voor het maken van nieuw beleid aan te roepen.
+Uitvoeren van volgende PowerShell-script om vereiste REST-API voor het maken van nieuw beleid aan te roepen. Vervang `account-name` met de naam van uw opslagaccount, en `account-key` door de sleutel van uw opslagaccount.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.windows.net'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }

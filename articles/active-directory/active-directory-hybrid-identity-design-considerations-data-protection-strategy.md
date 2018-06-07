@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 71a49b3d1ce22906a534a71f745685981b93f594
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801895"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824165"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definieer de strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit
 In deze taak definieert u de strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in:
@@ -117,22 +117,21 @@ Als de gebruiker is geverifieerd met behulp van Azure AD, is het belangrijk om t
 
 Elke interactie in het diagram weergegeven zoals in afbeelding X vertegenwoordigt een access control-scenario die kan worden volstaan met Azure AD. Hieronder hebt u een beschrijving van elk scenario:
 
-1. Voorwaardelijke toegang tot toepassingen die worden gehost op de lokale: U kunt geregistreerde apparaten gebruiken met toegangsbeleid voor toepassingen die zijn geconfigureerd voor gebruik van AD FS met Windows Server 2012 R2. Zie [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](active-directory-conditional-access-azure-portal.md) (Engelstalig) voor meer informatie over het instellen van on-premises voorwaardelijke toegang.
+  1. Voorwaardelijke toegang tot toepassingen die worden gehost op de lokale: U kunt geregistreerde apparaten gebruiken met toegangsbeleid voor toepassingen die zijn geconfigureerd voor gebruik van AD FS met Windows Server 2012 R2. Zie [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](active-directory-conditional-access-azure-portal.md) (Engelstalig) voor meer informatie over het instellen van on-premises voorwaardelijke toegang.
 
-2. Beheer van toegang tot de Azure-portal: Azure kunt u ook toegang tot de portal beheren met behulp van op rollen gebaseerde toegangsbeheer (RBAC)). Deze methode kunt het bedrijf om het aantal bewerkingen die een persoon in de Azure portal uitvoeren kunt te beperken. Met behulp RBAC voor het beheren van toegang tot de portal, kunnen IT-beheerders toegang delegeren met behulp van de volgende methoden voor access management:
+  2. Beheer van toegang tot de Azure-portal: Azure kunt u ook toegang tot de portal beheren met behulp van op rollen gebaseerde toegangsbeheer (RBAC)). Deze methode kunt het bedrijf om het aantal bewerkingen die een persoon in de Azure portal uitvoeren kunt te beperken. Met behulp RBAC voor het beheren van toegang tot de portal, kunnen IT-beheerders toegang delegeren met behulp van de volgende methoden voor access management:
 
-    * Op basis van een groep roltoewijzing: U kunt toegang toewijzen aan Azure AD-groepen die kunnen worden gesynchroniseerd vanuit uw lokale Active Directory. Hiermee kunt u gebruikmaken van bestaande investeringen in uw organisatie heeft doorgevoerd in tooling en processen voor het beheren van groepen. U kunt ook de functie voor het beheer van gedelegeerd group van Azure AD Premium.
-    * Ingebouwde rollen in Azure gebruiken: U kunt drie rollen: eigenaar, bijdrager en Reader om ervoor te zorgen dat gebruikers en groepen gemachtigd bent alleen de taken die ze nodig hebben om hun werk te doen.
-    * Gedetailleerde toegang tot bronnen: U kunt rollen toewijzen aan gebruikers en groepen voor een bepaald abonnement, resourcegroep of een afzonderlijke Azure resource, zoals een website of de database. Op deze manier kunt u ervoor zorgen dat gebruikers hebben toegang tot alle bronnen die ze nodig hebben en geen toegang tot bronnen die ze niet hoeven te beheren.
+   - Op basis van een groep roltoewijzing: U kunt toegang toewijzen aan Azure AD-groepen die kunnen worden gesynchroniseerd vanuit uw lokale Active Directory. Hiermee kunt u gebruikmaken van bestaande investeringen in uw organisatie heeft doorgevoerd in tooling en processen voor het beheren van groepen. U kunt ook de functie voor het beheer van gedelegeerd group van Azure AD Premium.
+   - Ingebouwde rollen in Azure gebruiken: U kunt drie rollen: eigenaar, bijdrager en Reader om ervoor te zorgen dat gebruikers en groepen gemachtigd bent alleen de taken die ze nodig hebben om hun werk te doen.
+   -  Gedetailleerde toegang tot bronnen: U kunt rollen toewijzen aan gebruikers en groepen voor een bepaald abonnement, resourcegroep of een afzonderlijke Azure resource, zoals een website of de database. Op deze manier kunt u ervoor zorgen dat gebruikers hebben toegang tot alle bronnen die ze nodig hebben en geen toegang tot bronnen die ze niet hoeven te beheren.
 
-> [!NOTE]
-> Als u toepassingen bouwt en wilt aanpassen van het toegangsbeheer voor hen, is het ook mogelijk gebruik van Azure AD-toepassing-functies voor autorisatie. Bekijk dit [WebApp-RoleClaims-DotNet voorbeeld](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) over het bouwen van uw app om het gebruik van deze mogelijkheid.
->
->
+   > [!NOTE]
+   > Als u toepassingen bouwt en wilt aanpassen van het toegangsbeheer voor hen, is het ook mogelijk gebruik van Azure AD-toepassing-functies voor autorisatie. Bekijk dit [WebApp-RoleClaims-DotNet voorbeeld](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) over het bouwen van uw app om het gebruik van deze mogelijkheid.
 
-3. Voorwaardelijke toegang voor Office 365-toepassingen met Microsoft Intune: IT-beheerders kunnen apparaatbeleid voor voorwaardelijke toegang voor het beveiligen van bedrijfsbronnen, terwijl tegelijkertijd waardoor de informatiewerkers op compatibele apparaten toegang krijgen tot de services inrichten. Zie [Conditional Access Device Policies for Office 365 services (Engelstalig)](active-directory-conditional-access-device-policies.md) voor meer informatie.
 
-4. Voorwaardelijke toegang voor Saas-apps: [deze functie](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) kunt u regels voor toegang per toepassing multi-factor authentication-server en de mogelijkheid om te blokkeren van toegang voor gebruikers niet op een vertrouwd netwerk configureren. U kunt de multi-factor authentication-regels toepassen op alle gebruikers die zijn toegewezen aan de toepassing of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen. Gebruikers kunnen worden uitgesloten van de vereiste voor meervoudige verificatie als ze toegang hebben tot de toepassing van een IP-adres dat in binnen de organisatie-netwerk.
+  3. Voorwaardelijke toegang voor Office 365-toepassingen met Microsoft Intune: IT-beheerders kunnen apparaatbeleid voor voorwaardelijke toegang voor het beveiligen van bedrijfsbronnen, terwijl tegelijkertijd waardoor de informatiewerkers op compatibele apparaten toegang krijgen tot de services inrichten. Zie [Conditional Access Device Policies for Office 365 services (Engelstalig)](active-directory-conditional-access-device-policies.md) voor meer informatie.
+
+  4. Voorwaardelijke toegang voor Saas-apps: [deze functie](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) kunt u regels voor toegang per toepassing multi-factor authentication-server en de mogelijkheid om te blokkeren van toegang voor gebruikers niet op een vertrouwd netwerk configureren. U kunt de multi-factor authentication-regels toepassen op alle gebruikers die zijn toegewezen aan de toepassing of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen. Gebruikers kunnen worden uitgesloten van de vereiste voor meervoudige verificatie als ze toegang hebben tot de toepassing van een IP-adres dat in binnen de organisatie-netwerk.
 
 Omdat de opties voor toegangsbeheer gebruiken een gelaagde benadering, vergelijking tussen deze opties zijn niet geldig voor deze taak. Zorg ervoor dat u gebruik van alle beschikbare opties voor elk scenario dat vereist dat u toegang tot uw resources.
 

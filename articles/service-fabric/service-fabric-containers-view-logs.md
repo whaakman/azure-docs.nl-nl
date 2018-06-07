@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: ryanwi
-ms.openlocfilehash: b2b3562f65e7e861b7e4dff7b7c26d58081ff29e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824608"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Logboeken bekijken voor een Service Fabric-containerservice
 Azure Service Fabric is een container orchestrator en ondersteunt zowel [Linux- en Windows-containers](service-fabric-containers-overview.md).  Dit artikel wordt beschreven hoe u logboeken van de container van een actieve containerservice of een inactieve container weergeven, zodat u kunt onderzoeken en oplossen van problemen.
@@ -34,6 +35,14 @@ In de structuurweergave, kunt u de codepakket-zoeken op de *_lnxvm_0* knooppunt 
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Toegang tot de logboeken van een container dode of vastgelopen
 Vanaf v6.2, u kunt ook ophalen van de logboeken voor een inactieve of gecrashte container met [REST-API's](/rest/api/servicefabric/sfclient-index) of [Service Fabric CLI (SFCTL)](service-fabric-cli.md) opdrachten.
+
+### <a name="set-container-retention-policy"></a>Bewaarbeleid voor containers instellen
+Om gemakkelijker opstartfouten bij containers te analyseren, ondersteunt Service Fabric (versie 6.1 of hoger) het bewaren van containers die zijn gestopt of niet kunnen starten. Dit beleid kan worden ingesteld in het bestand **ApplicationManifest.xml**, zoals u in het volgende fragment ziet:
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+De instelling **ContainersRetentionCount** geeft aan hoeveel containers er moeten worden bewaard wanneer ze fouten genereren. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers bewaard. Wanneer de **ContainersRetentionCount** kenmerk niet is opgegeven, er zijn geen containers, blijven behouden. Het kenmerk **ContainersRetentionCount** ondersteunt ook toepassingsparameters, zodat gebruikers verschillende waarden kunnen opgeven voor test- en productieclusters. Bij het gebruik van deze functies dient u plaatsingsbeperkingen in te stellen om de containerservice op een bepaald knooppunt te richten. Zo voorkomt u dat de containerservice naar een ander knooppunt wordt verplaatst. Containers die met behulp van deze functie zijn bewaard, moeten handmatig worden verwijderd.
 
 ### <a name="rest"></a>REST
 Gebruik de [ophalen Container logboeken geïmplementeerd op knooppunt](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) bewerking voor het verkrijgen van de logboeken voor een vastgelopen container. Geef de naam van het knooppunt dat de container werd uitgevoerd op, toepassingsnaam, servicenaam manifest en de codenaam van het pakket.  Geef `&Previous=true`. Het antwoord bevat de logboeken van de container voor de inactieve container van het pakket code exemplaar.

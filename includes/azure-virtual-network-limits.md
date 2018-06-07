@@ -1,4 +1,21 @@
-<a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement.
+---
+title: bestand opnemen
+description: bestand opnemen
+services: networking
+author: jimdial
+ms.service: networking
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: f4071f2555607b6035352a2aec38c986941c41a9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34826528"
+---
+<a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over hoe [weergeven van het actuele Resourcegebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -18,7 +35,7 @@
 | Toegangsbeheerlijsten voor eindpunt (ACL's) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Netwerklimieten - Azure Resource Manager
-De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement.
+De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement. Meer informatie over hoe [weergeven van het actuele Resourcegebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |

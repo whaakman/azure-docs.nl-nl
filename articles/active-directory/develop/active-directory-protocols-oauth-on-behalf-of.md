@@ -13,18 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 06/06/2017
 ms.author: celested
-ms.reviewer: nacanuma
+ms.reviewer: hirsin; nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2bb0d10fee04c4ee48344695769fa7768b0f3a85
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823863"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service naar serviceaanroepen met behulp van gedelegeerde gebruikersidentiteit in de On-namens-stroom
-De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
+De OAuth 2.0 On-Behalf-Of (OBO) stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
+
+> [!IMPORTANT]
+> Openbare clients die gebruikmaken van de [impliciete OAuth 2.0-grant](active-directory-dev-understanding-oauth2-implicit-grant.md) de OBO-stroom kan niet worden gebruikt. Deze clients hun toegangstoken moeten worden doorgegeven aan een vertrouwelijk client middelste laag om uit te voeren OBO stromen. Zie voor meer informatie over welke clients OBO aanroepen kunnen uitvoeren, [Clientbeperkingen](#client-limitations).
 
 ## <a name="on-behalf-of-flow-diagram"></a>Op-andere gebruikers-Of stroomdiagram
 Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met behulp van de [autorisatiecodetoekenning OAuth 2.0](active-directory-protocols-oauth-code.md). De toepassing is op dit moment een toegangstoken (token A) met de claims van de gebruiker en toestemming voor toegang tot de web-API (A-API) voor de middelste laag. API A moet nu een geverifieerde aanvraag om aan te brengen de downstream web-API (API-B).
@@ -197,6 +201,8 @@ GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
+## <a name="client-limitations"></a>Beperkingen van client
+Openbare clients met jokertekens antwoord-URL's niet gebruiken een `id_token` voor OBO stromen. Een vertrouwelijk client kan echter nog steeds gebruikmaken van toegangstokens die zijn verkregen via de impliciete grant-stroom, zelfs als de openbare client heeft een jokerteken redirect die URI geregistreerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over het OAuth 2.0-protocol en een andere manier om uit te voeren services auth met clientreferenties.

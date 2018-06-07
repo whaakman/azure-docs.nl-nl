@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: fdb3ebe3820191a642c4503851b04dd5fc5e6048
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bb532f5e249947534ba44a41edfadac22ef9e217
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824911"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen aan met een Azure-Monitor  
 
@@ -39,9 +40,9 @@ Waarschuwing wordt de term **logboek waarschuwingen** te beschrijven waar signaa
 
 Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van waarschuwingen van Azure.
 
-## <a name="create-an-alert-rule-with-the-azure-portal"></a>Een waarschuwingsregel maken met de Azure portal
+## <a name="create-an-alert-rule-with-the-azure-portal"></a>Een waarschuwingsregel maken met de Azure Portal
 1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen**.  
-    ![Monitoring](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![Controle](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
 2. Selecteer de **nieuwe waarschuwingsregel** knop een nieuwe waarschuwing maken in Azure.
     ![Waarschuwing toevoegen](./media/monitor-alerts-unified/AlertsPreviewOption.png)
@@ -50,7 +51,7 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van waarsch
 
     ![Regel maken](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  De meldingsvoorwaarde definiëren met behulp van de **Resource selecteren** koppeling en het doel op te geven door het selecteren van een resource. Filteren op het kiezen van de *abonnement* , *brontype* , en ten slotte selecteren vereist *Resource*.
+4.  De meldingsvoorwaarde definiëren met behulp van de **Resource selecteren** koppeling en het doel op te geven door het selecteren van een resource. Filteren op het kiezen van de *-abonnement, * brontype en ten slotte selecteren vereist *Resource*.
 
     >[!NOTE]
 
@@ -67,7 +68,7 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van waarsch
 
     > Activiteit logboek waarschuwingen worden ook ondersteund, maar zijn Preview-versie. [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Metrische waarschuwingen* : Zorg ervoor dat **brontype** is geselecteerd als signaaltype als **metriek**, klikt u vervolgens één keer juiste **resource** gekozen Klik  *Gedaan* terug te keren naar waarschuwing maken. Vervolgens gebruikt de **criteria toevoegen** knop kiezen die het signaal specifieke lijst met opties signaal, hun monitoring-service en het type vermeld - die beschikbaar zijn voor de resource die eerder hebt geselecteerd.
+5. * Metrische waarschuwingen: Zorg ervoor dat **brontype** is geselecteerd als signaaltype als **metriek**, klikt u vervolgens één keer juiste **resource** gekozen Klik *gedaan*terug te keren naar waarschuwing maken. Vervolgens gebruikt de **criteria toevoegen** knop kiezen die het signaal specifieke lijst met opties signaal, hun monitoring-service en het type vermeld - die beschikbaar zijn voor de resource die eerder hebt geselecteerd.
 
     ![Een resource selecteren](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -83,9 +84,9 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van waarsch
 
     a. Kies een duur van de **geschiedenis weergeven** vervolgkeuzelijst voor het visualiseren van een andere periode. U kunt ervoor kiezen de afmetingen van de ondersteunde metrische gegevens te filteren op een tijdreeks; dimensies kiezen is optioneel en maximaal vijf dimensies kunnen worden gebruikt. 
 
-    b. **Waarschuwing logica** kan worden geselecteerd uit de weergegeven opties van *voorwaarde*, *aggregatie* en *drempelwaarde*. Als voorbeeld van de logica die is opgegeven, wordt de voorwaarde weergegeven in de visualisatie samen met de geschiedenis van een signaal om aan te geven wanneer de waarschuwing zou worden geactiveerd in het verleden. 
+    b. **Waarschuwing logica** kan worden geselecteerd uit de weergegeven opties van *voorwaarde*, * aggregatie en *drempelwaarde*. Als voorbeeld van de logica die is opgegeven, wordt de voorwaarde weergegeven in de visualisatie samen met de geschiedenis van een signaal om aan te geven wanneer de waarschuwing zou worden geactiveerd in het verleden. 
 
-    c. Opgeven hoe lang tijd hebt gekozen **periode** hoe vaak samen met waarschuwing moet worden uitgevoerd door het selecteren van **frequentie**.
+    c. Als de tijdsduur opgeven, kiest u **periode** hoe vaak samen met waarschuwing moet worden uitgevoerd door het selecteren van **frequentie**.
 
     ![Signaal logica voor multidimensionale metrische gegevens configureren](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
@@ -125,14 +126,20 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 
         ![Waarschuwingen voor logboek waarschuwingen onderdrukken](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
+        > [!TIP]
+        > Geef een waarschuwing onderdrukken waarde die groter is dan de frequentie van de waarschuwing om ervoor te zorgen meldingen zijn gestopt zonder overlap
+
 12. Als de derde stap, geef eventuele **actie groep** moet worden geactiveerd voor de waarschuwingsregel wanneer waarschuwing voorwaarde wordt voldaan. U kunt ervoor kiezen een bestaande groep actie met waarschuwing of maak een nieuwe actie-groep. Volgens geselecteerd actie groep wanneer de melding wordt trigger Azure: email(s) verzenden, SMS(s) verzenden, Webhook(s) aanroepen, herstellen met behulp van Runbooks in Azure, te pushen naar uw ITSM hulpprogramma, enzovoort. Meer informatie over [actiegroepen](monitoring-action-groups.md).
 
     Voor **logboek waarschuwingen** aanvullende functionaliteit is beschikbaar voor de standaardacties overschrijven:
 
-    - **E-mailmeldingen**: overschrijft *e-mailonderwerp* in het e-mailbericht verzonden via de actie groep; als een of meer e-actie aanwezig zijn in de groep met deze actie. U kunt de hoofdtekst van het e-mailbericht niet wijzigen en dit veld is **niet** voor e-mailadres.
-    - **Aangepaste Json-nettolading opnemen**: de webhook JSON die wordt gebruikt door de actiegroepen; onderdrukt als een of meer webhook actie aanwezig zijn in de groep met deze actie. De gebruiker kan nader indeling van JSON moet worden gebruikt voor alle webhooks die zijn geconfigureerd in de bijbehorende actie groep; Zie voor meer informatie over webhook indelingen [webhook-actie voor het logboek waarschuwingen](monitor-alerts-unified-log-webhook.md). Test Webhook-optie is opgegeven voor de indeling en verwerking door bestemming JSON-voorbeeld controleren en deze optie als u met het label bedoeld alleen voor **testen** doeleinden.
+    - **E-mailmeldingen**: overschrijft *e-mailonderwerp* in het e-mailbericht verzonden via de actie groep; als een of meer e-acties in de groep met deze actie bestaat. U kunt de hoofdtekst van het e-mailbericht niet wijzigen en dit veld is **niet** voor e-mailadres.
+    - **Aangepaste Json-nettolading opnemen**: de webhook JSON die wordt gebruikt door de actiegroepen; onderdrukt als een of meer webhookacties aanwezig zijn in de groep met deze actie. Gebruiker kan de indeling van JSON moet worden gebruikt voor alle webhooks die zijn geconfigureerd in de bijbehorende actie groep; opgeven Zie voor meer informatie over webhook indelingen [webhook-actie voor het logboek waarschuwingen](monitor-alerts-unified-log-webhook.md). Test Webhook-optie is opgegeven voor de indeling en verwerking door bestemming JSON-voorbeeld controleren en deze optie als u met het label bedoeld alleen voor **testen** doeleinden.
 
         ![Actie overschrijvingen voor logboek-waarschuwingen](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+
+        > [!NOTE]
+        > Voor **Test Webhook** optie om te werken, moet ondersteuning voor het eindpunt [Cross-Origin Resource delen (CORS)](https://www.w3.org/TR/cors/) en van de gebruiker kunt CORS proxy gebruiken om te omzeilen 'Er is geen header met de Access Control-toestaan-oorsprong' problemen
 
 13. Als alle velden geldig zijn en met groen maatstreepjes de **waarschuwingsregel maken** knop kan worden geklikt en wordt een waarschuwing gemaakt in Azure Monitor - waarschuwingen. Alle waarschuwingen kunnen worden weergegeven van het Dashboard-waarschuwingen.
 
@@ -140,7 +147,7 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 
     Binnen een paar minuten de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
 
-## <a name="view-your-alerts-in-azure-portal"></a>Waarschuwingen weergeven in Azure-portal
+## <a name="view-your-alerts-in-azure-portal"></a>Uw waarschuwingen weergeven in Azure Portal
 
 1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen**.  
 
@@ -151,7 +158,7 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 4. Een lijst met alle gestarte waarschuwingen weergegeven die de gebruiker kan klikken om details te bekijken
 5. Tot in zoeken naar specifieke waarschuwingen; een de dropdown-opties op de voorgrond kunt gebruiken voor het filteren van specifieke *abonnement, resourcegroep en/of Resource*. Verdere voor een niet-omgezette waarschuwing, gebruikt de *Filter waarschuwing* optie vinden voor het opgegeven trefwoord - specifieke overeenkomende waarschuwingen met *, waarschuwing Criteria, Resource-groep en doelbron*
 
-## <a name="managing-your-alerts-in-azure-portal"></a>Het beheren van uw waarschuwingen in Azure-portal
+## <a name="managing-your-alerts-in-azure-portal"></a>Het beheren van uw waarschuwingen in Azure Portal
 1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen**.  
 2. Selecteer de **regels beheren** knop op de bovenste balk, om te navigeren naar de sectie regel beheer - waarin alle waarschuwingsregels gemaakt worden weergegeven, met inbegrip van waarschuwingen die zijn uitgeschakeld.
 3. Als u wilt zoeken voor specifieke regels voor waarschuwingen, een kan gebruikmaken van de vervolgkeuzelijst filters op de voorgrond die lijst echtheidskenmerken waarschuwingsregels voor specifieke *abonnement, resourcegroepen en/of Resource*. U kunt ook op met de zoekfunctie deelvenster boven de waarschuwingsregel lijst gemarkeerd *waarschuwingen filteren*, een sleutelwoord waarmee wordt vergeleken met kan bieden *de naam van de waarschuwing, voorwaarde en doelbron*; alleen weergeven overeenkomende regels.

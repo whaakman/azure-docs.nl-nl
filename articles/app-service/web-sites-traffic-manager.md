@@ -2,7 +2,7 @@
 title: Azure App Service-verkeer met Azure Traffic Manager beheren
 description: Dit artikel bevat samenvattingsinformatie voor Azure Traffic Manager, omdat deze zich tot Azure App Service verhoudt.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: efb732e9be62313eb199cb2cfbb1fa4d2cde0282
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824037"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure App Service-verkeer met Azure Traffic Manager beheren
 > [!NOTE]
@@ -30,13 +31,13 @@ ms.lasthandoff: 11/29/2017
 ## <a name="introduction"></a>Inleiding
 U kunt Azure Traffic Manager gebruiken om te bepalen hoe aanvragen van de webserver en webclients worden gedistribueerd naar apps in Azure App Service. Wanneer de App Service-eindpunten worden toegevoegd aan een Azure Traffic Manager-profiel, Azure Traffic Manager houdt van de status van uw App Service-apps (actief, gestopt of verwijderd) zodat u deze kunt bepalen welke van deze eindpunten verkeer ontvangt.
 
-## <a name="routing-methods"></a>methoden voor het doorsturen
+## <a name="routing-methods"></a>Routeringsmethoden
 Azure Traffic Manager maakt gebruik van vier verschillende methoden voor het doorsturen. Deze methoden worden beschreven in de volgende lijst zoals ze betrekking op Azure App Service hebben.
 
-* **[Prioriteit](#priority):** een primaire app gebruiken voor al het verkeer en back-ups bieden voor het geval de primaire of back-apps niet beschikbaar zijn.
-* **[Gewogen](#weighted):** verkeer verdelen over een set van apps, gelijkmatig of volgens het gewicht, die u definieert.
-* **[Prestaties](#performance):** wanneer u apps in verschillende geografische locaties hebt, de 'dichtstbijzijnde' app in termen van de laagste netwerklatentie gebruiken.
-* **[Geografische](#geographic):** direct gebruikers tot bepaalde apps op basis van welke geografische locatie hun DNS-query is afkomstig uit. 
+* **[Prioriteit](../traffic-manager/traffic-manager-routing-methods.md#priority):** een primaire app gebruiken voor al het verkeer en back-ups bieden voor het geval de primaire of back-apps niet beschikbaar zijn.
+* **[Gewogen](../traffic-manager/traffic-manager-routing-methods.md#weighted):** verkeer verdelen over een set van apps, gelijkmatig of volgens het gewicht, die u definieert.
+* **[Prestaties](../traffic-manager/traffic-manager-routing-methods.md#performance):** wanneer u apps in verschillende geografische locaties hebt, de 'dichtstbijzijnde' app in termen van de laagste netwerklatentie gebruiken.
+* **[Geografische](../traffic-manager/traffic-manager-routing-methods.md#geographic):** direct gebruikers tot bepaalde apps op basis van welke geografische locatie hun DNS-query is afkomstig uit. 
 
 Zie voor meer informatie [methoden voor het doorsturen van Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 

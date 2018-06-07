@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
-ms.openlocfilehash: d7dea9a3d9eabdc9e4cdf21e6e584b745d22a54e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808720"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Gegevens kopiëren van MySQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +41,7 @@ In het bijzonder MySQL biedt ondersteuning voor deze connector MySQL **versie 5.
 Voor het gebruik van deze connector MySQL, moet u:
 
 - Stel een Self-hosted integratie-Runtime. Zie [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
-- Installeer de [MySQL Connector/Net voor Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versie 6.6.5 of hoger op de machine integratie Runtime. Deze 32-bits stuurprogramma is compatibel met 64-bits IR
+- Installeer de [MySQL Connector/Net voor Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versie tussen 6.6.5 en 6.10.7 op de machine integratie Runtime. Deze 32-bits stuurprogramma is compatibel met 64-bits IR
 
 > [!TIP]
 > Als u raakt-fout bij het 'Verificatie is mislukt omdat de externe partij heeft gesloten het transport-stroom.', kunt u de Connector MySQL/Net upgraden naar hogere versie.
@@ -60,7 +61,7 @@ De volgende eigenschappen worden ondersteund voor MySQL gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **MySql** | Ja |
 | server | Naam van de MySQL-server. | Ja |
 | database | Naam van de MySQL-database. | Ja |
-| schema | De naam van het schema in de database. | Nee |
+| Schema | De naam van het schema in de database. | Nee |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met de MySQL-database. | Ja |
 | wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |

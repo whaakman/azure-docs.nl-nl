@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 4fb0eb3dd3349bd901850d6b9dd0f3e33ee2e0d7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b802c7b96bd8d0cfa56347d45542495caf69d7e4
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824707"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS-bescherming: Best practices en verwijzen naar architecturen
 
@@ -291,18 +292,9 @@ In deze architectuur wordt verkeer dat is bestemd voor het HDInsight-cluster van
 
 Zie voor meer informatie over deze verwijzende architectuur, het [uitbreiden Azure HDInsight met behulp van een Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json) documentatie.
 
-### <a name="azure-api-management"></a>Azure API Management
-
-Deze verwijzende architectuur beschermt de openbaar eindpunt van de [Azure API Management](../api-management/api-management-key-concepts.md) resource publiceren van API's voor klanten buiten de organisatie. API Management implementeren in een extern virtueel netwerk DDoS-beveiliging in te schakelen.
-
-![Diagram van de referentiearchitectuur voor API Management](media/azure-ddos-best-practices/image15.png)
-
-Wanneer u de extern virtueel netwerk configureert, zijn de API Management-gateway en developer-portal toegankelijk is vanaf het openbare internet via een openbare load balancer. In deze architectuur is DDoS-bescherming standaard ingeschakeld op de extern virtueel netwerk voor API Management. Verkeer wordt gerouteerd via internet naar het openbare IP-adres van API Management, die is beveiligd tegen netwerkaanvallen op laag 3 en 4. Om te beschermen tegen aanvallen van laag 7 HTTP/HTTPS, kunt u Application Gateway configureren in de modus WAF.
-
-Zie voor een lijst van extra services die zijn geïmplementeerd in een virtueel netwerk en kunnen worden geconfigureerd voor DDoS-bescherming standaard [in dit artikel](../virtual-network/virtual-network-for-azure-services.md). DDoS-bescherming standaard ondersteunt alleen Azure Resource Manager-resources. 
 
 > [!NOTE]
-> Geïnjecteerde implementatie van App Service-omgeving voor PowerApps in een virtueel netwerk met een openbare IP-adres wordt niet standaard ondersteund. Zie voor meer informatie over het beveiligen van App Service-omgeving in deze sectie.
+> Azure App Service-omgeving voor PowerApps of API management in een virtueel netwerk met een openbare IP-adres zijn beide niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 

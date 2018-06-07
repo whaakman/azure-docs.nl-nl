@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83204132a7494dc766420520eeaf2362c98d878f
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 43cfb16e9471736c0f112ef879faaf01badebc4f
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801810"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824945"
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -56,7 +56,7 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken beoordelingen         |
-|Windows Server 2008 R2 SP1 en hoger     |Windows PowerShell 4.0 of hoger is vereist ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([downloaden WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) wordt aanbevolen voor een hogere mate van betrouwbaarheid.         |
+|Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5 of hoger is vereist ([downloaden .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> Windows PowerShell 4.0 of hoger is vereist ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([downloaden WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) wordt aanbevolen voor een hogere mate van betrouwbaarheid.         |
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |

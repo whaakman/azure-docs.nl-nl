@@ -2,7 +2,7 @@
 title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
 description: Hoe Application Insights in de cyclus devOps past
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 24e249bb515c509f2fba1f943ac5e23a1ea9965e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808475"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diepe diagnostische gegevens voor web-apps en services met Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Waarom moet ik Application Insights?
@@ -104,7 +105,7 @@ In beide gevallen wordt de waarschuwing niet geeft alleen aan de symptomen wordt
 
 Klant Samtec gezegd: 'we gevonden tijdens een recente functie cutover, een onder uitgebreide database die is roept de limieten en time-outs veroorzaakt. Waarschuwingen met proactieve detectie is geleverd door letterlijk we het probleem, zeer bijna realtime zijn gesorteerd geadverteerd. Deze waarschuwing samen met de Azure-platform-waarschuwingen helpen ons bijna onmiddellijk los het probleem. Totale downtime < 10 minuten."
 
-## <a name="live-metrics-stream"></a>Metrische gegevens livestream
+## <a name="live-metrics-stream"></a>Live Metrics Stream
 De laatste build te implementeren, kan een WENSENDE ervaring zijn. Als er problemen zijn, wilt u weten over deze meteen, zodat u kunt back uit, indien nodig. Metrische gegevens livestream biedt u de belangrijkste metrische gegevens met een latentie van ongeveer 1 seconde.
 
 ![Live metrische gegevens](./media/app-insights-devops/040.png)

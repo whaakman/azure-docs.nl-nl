@@ -14,18 +14,19 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e3267b54fa0c8593e0f9366c009656f36e4094ef
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807812"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Gebeurtenissen verzenden naar Azure Event Hubs met C
 
 ## <a name="introduction"></a>Inleiding
 Event Hubs is een zeer schaalbaar systeem die kan worden miljoenen gebeurtenissen per seconde opnemen voor het inschakelen van een toepassing te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Zodra verzameld in een event hub, kunt u transformeren en opslaan van gegevens met behulp van een realtime analytics-provider of opslagcluster.
 
-Zie voor meer informatie de [overzicht van Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
+Zie voor meer informatie de [overzicht van Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
 
 Deze zelfstudie wordt beschreven hoe u kunt gebeurtenissen verzenden naar een event hub met een consoletoepassing in C. Meer informatie over gebeurtenissen ontvangen, klikt u op de juiste ontvangende taal in de tabel links van inhoud.
 

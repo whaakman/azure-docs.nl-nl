@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807530"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions schalen en die als host fungeert
 
@@ -43,10 +44,10 @@ U kunt op een App Service-plan schalen tussen lagen andere hoeveelheid bronnen t
 
 ## <a name="consumption-plan"></a>Verbruiksabonnement
 
-Wanneer u een plan verbruik gebruikt, worden instanties van de Azure Functions-host dynamisch toegevoegd en verwijderd op basis van het aantal binnenkomende gebeurtenissen. Dit abonnement automatisch wordt geschaald en u in rekening worden gebracht rekenresources alleen wanneer uw functies worden uitgevoerd. Op een plan verbruik kan een functie voor een maximum van tien minuten uitgevoerd. 
+Wanneer u een plan verbruik gebruikt, worden instanties van de Azure Functions-host dynamisch toegevoegd en verwijderd op basis van het aantal binnenkomende gebeurtenissen. Dit abonnement automatisch wordt geschaald en u in rekening worden gebracht rekenresources alleen wanneer uw functies worden uitgevoerd. Een plan verbruik van time-out de uitvoering van een functie een configureerbare periode. 
 
 > [!NOTE]
-> De standaardtime-out voor de functies worden uitgevoerd op een plan verbruik is 5 minuten. De waarde kan worden verhoogd tot 10 minuten voor de functie-App met het wijzigen van de eigenschap `functionTimeout` in de [host.json](functions-host-json.md#functiontimeout) projectbestand.
+> De standaardtime-out voor de functies worden uitgevoerd op een plan verbruik is 5 minuten. De waarde voor de functie App maximaal 10 minuten kan worden verhoogd met het wijzigen van de eigenschap `functionTimeout` in de [host.json](functions-host-json.md#functiontimeout) projectbestand.
 
 Facturering is gebaseerd op aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Facturering wordt getotaliseerd over alle functies binnen een functie-app. Zie voor meer informatie de [Azure Functions pagina met prijzen].
 
@@ -90,7 +91,7 @@ Zie voor meer informatie over opslagaccounttypen, [introductie van de Azure Stor
 
 ## <a name="how-the-consumption-plan-works"></a>Hoe werkt dit plan verbruik
 
-In het plan verbruik schaalt de controller schaal automatisch CPU en geheugenbronnen door toe te voegen extra exemplaren van de host van functies, op basis van het aantal gebeurtenissen die de functies worden geactiveerd op. Elk exemplaar van de host van functies is beperkt tot 1,5 GB aan geheugen.  Een exemplaar van de host is de functie-App, wat betekent dat alle functies in een functie resources van de app delen binnen een exemplaar en de schaal op hetzelfde moment.
+In het plan verbruik schaalt de controller schaal automatisch CPU en geheugenbronnen door toe te voegen extra exemplaren van de host van functies, op basis van het aantal gebeurtenissen die de functies worden geactiveerd op. Elk exemplaar van de host van functies is beperkt tot 1,5 GB aan geheugen.  Een exemplaar van de host is de functie-app, wat betekent dat alle functies in een functie resources van de app delen binnen een exemplaar en de schaal op hetzelfde moment. Functie-apps die hetzelfde abonnement verbruik delen worden onafhankelijk geschaald.  
 
 Wanneer u het verbruik die als host fungeert voor plan gebruikt, wordt de functie codebestanden worden opgeslagen op Azure-bestandsshares op de belangrijkste storage-account van de functie. Wanneer u de belangrijkste storage-account van de functie-app verwijdert, wordt de functie code-bestanden worden verwijderd en kunnen niet worden hersteld.
 
