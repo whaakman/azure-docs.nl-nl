@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 981b6b65675550fd1403064ad3113c2dca0c3f6e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638667"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels logboek
 Wanneer een [waarschuwing is gemaakt in Azure ](monitor-alerts-unified-usage.md), hebt u de optie [configureren met de actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en de details over het configureren van de aangepaste JSON-indeling webhook.
@@ -44,14 +45,14 @@ Webhooks omvatten een URL en een nettolading opgemaakt in JSON is de gegevens na
 | Parameter | Variabele | Beschrijving |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Naam van de waarschuwingsregel. |
-| Ernst |#severity |Ernst instellen voor de waarschuwing gestarte logboek. |
+| Severity |#severity |Ernst instellen voor de waarschuwing gestarte logboek. |
 | AlertThresholdOperator |#thresholdoperator |Drempelwaarde voor de operator voor de waarschuwingsregel.  *Groter dan* of *minder dan*. |
 | AlertThresholdValue |#thresholdvalue |Drempelwaarde voor de waarschuwingsregel. |
-| LinkToSearchResults |#linktosearchresults |Koppelen aan logboekanalyse logboek zoeken waarmee de records geretourneerd van de query die de waarschuwing wordt gemaakt. |
+| LinkToSearchResults |#linktosearchresults |Koppelen aan Analytics-portal die de records retourneert uit de query die de waarschuwing wordt gemaakt. |
 | ResultCount |#searchresultcount |Het aantal records in de zoekresultaten. |
-| Eindtijd van Interval zoeken |#searchintervalendtimeutc |De eindtijd voor de query in UTC-notatie. |
-| Interval voor zoeken |#searchinterval |Tijdvenster voor de waarschuwingsregel. |
-| Zoeken Interval StartTime |#searchintervalstarttimeutc |Begintijd voor de query in UTC-notatie. 
+| Eindtijd van Interval zoeken |#searchintervalendtimeutc |Eindtijd van de query in UTC, format - mm/dd/jjjj uu: mm: ss AM/PM. |
+| Interval voor zoeken |#searchinterval |Tijdvenster voor de waarschuwing sluiten, opmaak -: mm: ss. |
+| Zoeken Interval StartTime |#searchintervalstarttimeutc |Begintijd voor de query in UTC, format - mm/dd/jjjj uu: mm: ss AM/PM... 
 | SearchQuery |#searchquery |Logboek zoekquery gebruikt door de waarschuwingsregel. |
 | Zoekresultaten |'IncludeSearchResults': true|Records dat wordt geretourneerd door de query als een JSON-tabel, beperkt tot de eerste 1000 records; Als 'IncludeSearchResults': true is toegevoegd in de aangepaste JSON-webhook definitie als eigenschap op het hoogste niveau. |
 | WorkspaceID |#workspaceid |ID van de werkruimte voor logboekanalyse. |
@@ -74,6 +75,7 @@ De nettolading van dit voorbeeld zou worden omgezet naar ongeveer het volgende w
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+Aangezien alle variabelen in een aangepaste webhook in JSON-behuizing zoals '#searchinterval' hebt opgegeven, de resulterende webhook variabele gegevens binnen behuizing zoals ook hebben ' 00: 05:00 '.
 
 Zorg ervoor dat zodanig zoekresultaten in een aangepaste nettolading **IncudeSearchResults** is ingesteld als eigenschap op het hoogste niveau in de json-nettolading. 
 

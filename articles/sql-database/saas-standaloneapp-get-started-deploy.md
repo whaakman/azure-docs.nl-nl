@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644719"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementeren en een zelfstandige één tenant-toepassing die gebruikmaakt van Azure SQL Database verkennen
 
@@ -73,16 +74,16 @@ De app gepresenteerd plaatsen die als host fungeren van gebeurtenissen.  De plaa
 
 1. Open de pagina gebeurtenissen voor elk van de drie tenants in afzonderlijke browsertabbladen:
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+    - http://events.contosoconcerthall.&lt; gebruiker&gt;. trafficmanager.net
+    - http://events.dogwooddojo.&lt; gebruiker&gt;. trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt; gebruiker&gt;. trafficmanager.net
 
     (In elke URL vervangt &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)
 
    ![Gebeurtenissen](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Om te bepalen van de distributie van inkomende aanvragen en het gebruik van de app [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Elk exemplaar van tenant-specifieke app bevat de naam van de tenant als onderdeel van de domeinnaam in de URL. De tenant URL's opnemen in uw specifieke **gebruiker** waarde. De URL's volgt u de volgende indeling:
-- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
+- http://events.&lt; venuename&gt;.&lt; gebruiker&gt;. trafficmanager.net
 
 Elke tenant database **locatie** is opgenomen in de app-instellingen van de bijbehorende geïmplementeerde app.
 

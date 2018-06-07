@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/20/2018
-ms.author: TomSh
+ms.date: 05/25/2018
+ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 3e229c4db44fc3c8d16aa2bd0a014fb1acc64a5e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8ceffb666eb18ee7b087ad1e1dbc27b57388ee49
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641193"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log-integratie met Azure Diagnostics logboekregistratie en Windows event forwarding
 
-Integratie van Azure Log biedt klanten met een alternatieve als een [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector is niet beschikbaar vanuit hun leverancier Security Incident en Event Management (SIEM). Integratie van Azure Log beschikbaar Azure logboeken naar uw SIEM zodat u een geïntegreerde beveiliging dashboard voor alle activa maken kunt.
+U moet Azure-logboekanalyse integratie alleen gebruiken als een [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector is niet beschikbaar vanuit de leverancier van uw Security Incident en Event Management (SIEM).
 
-> [!NOTE]
-> Zie voor meer informatie over Azure Monitor [aan de slag met Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md). Neem contact op met de leverancier van uw SIEM voor meer informatie over de status van een Azure-Monitor-connector.
+Integratie van Azure Log beschikbaar Azure logboeken naar uw SIEM zodat u een geïntegreerde beveiliging dashboard voor alle activa maken kunt.
+Neem contact op met de leverancier van uw SIEM voor meer informatie over de status van een Azure-Monitor-connector.
 
 > [!IMPORTANT]
 > Als uw primaire interesse met het verzamelen van Logboeken van de virtuele machine, omvatten de meeste leveranciers van SIEM deze optie in de oplossing. Met behulp van de SIEM is-connector van de leverancier altijd het aanbevolen alternatief is.
@@ -118,7 +119,7 @@ Nadat u basisinstellingen hebt voltooid, bent u klaar stappen na de installatie 
   > [!NOTE]
   > U kunt feedback niet ontvangen als de opdracht is geslaagd. 
 
-4. Voordat u een systeem bewaken kunt, moet u de naam van het opslagaccount dat wordt gebruikt voor Azure Diagnostics. In de Azure portal, gaat u naar **virtuele machines**. Zoek naar de virtuele machine die u controleert. In de **eigenschappen** sectie **diagnostische instellingen**.  Selecteer **Agent**. Noteer de opslagaccountnaam die opgegeven. U moet deze accountnaam voor een latere stap.
+4. Voordat u een systeem bewaken kunt, moet u de naam van het opslagaccount dat wordt gebruikt voor Azure Diagnostics. In de Azure portal, gaat u naar **virtuele machines**. Zoek naar een virtuele Windows-computer die u wilt bewaken. In de **eigenschappen** sectie **diagnostische instellingen**.  Selecteer **Agent**. Noteer de opslagaccountnaam die opgegeven. U moet deze accountnaam voor een latere stap.
 
   ![Schermopname van het deelvenster Azure Diagnostics-instellingen](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
@@ -134,14 +135,14 @@ Nadat u basisinstellingen hebt voltooid, bent u klaar stappen na de installatie 
   4. Meld u aan bij Azure.
   5. Controleren of u het opslagaccount dat u hebt geconfigureerd voor Azure Diagnostics kan zien: 
 
-    ![Schermafbeelding van de storage-accounts in Opslagverkenner](./media/security-azure-log-integration-get-started/storage-explorer.png)
+   ![Schermafbeelding van de storage-accounts in Opslagverkenner](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
   6. Enkele opties worden weergegeven onder de storage-accounts. Onder **tabellen**, ziet u een tabel met de naam **WADWindowsEventLogsTable**.
 
   Als controle is niet ingeschakeld wanneer de virtuele machine is gemaakt, kunt u, zoals eerder beschreven.
 
 
-## <a name="integrate-azure-diagnostics-logging"></a>Integratie van Azure Diagnostics-logboekregistratie
+## <a name="integrate-windows-vm-logs"></a>Integratie van Windows-Logboeken voor VM
 
 In deze stap configureert u de computer waarop de integratie van Azure Log-service verbinding maken met het opslagaccount waarin de logboekbestanden.
 
@@ -178,7 +179,7 @@ Als u de opslagsleutel, moet u de volgende stappen uitvoeren:
 
   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Voorbeeld: 
+  Voorbeeld:
   
   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -207,8 +208,37 @@ Als u problemen ondervindt tijdens de installatie en configuratie, kunt u een [o
 
 Een andere ondersteuningsoptie is de [Azure Log integratie MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). De community kan ondersteuning bieden door het beantwoorden van vragen en te delen tips en trucs over het ophalen van de meest buiten Azure Log-integratie in de MSDN-forum. Het team van Azure Log integratie bewaakt ook dit forum. Ze helpen wanneer ze kunnen.
 
+## <a name="integrate-azure-activity-logs"></a>Azure activiteitenlogboeken integreren
+
+De Azure Activity Log is een abonnementlogboek biedt inzicht in het abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit omvat een bereik van gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. Azure Security Center Alerts zijn ook opgenomen in dit logboek.
+> [!NOTE]
+> Voordat u de stappen in dit artikel, moet u controleren de [aan de slag](security-azure-log-integration-get-started.md) en voltooi de stappen bevat.
+
+### <a name="steps-to-integrate-azure-activity-logs"></a>Stappen voor het integreren van Logboeken van de Azure-activiteit
+
+1. Open de opdrachtprompt en voer deze opdracht uit:  ```cd c:\Program Files\Microsoft Azure Log Integration```
+2. Deze opdracht uitvoeren:  ```azlog createazureid```
+
+    Met deze opdracht wordt u gevraagd om uw Azure-aanmelding. De opdracht maakt u een Azure Active Directory service-principal in de Azure AD-tenants die als host fungeren van de Azure-abonnementen waarin de aangemelde gebruiker een beheerder, CO-beheerder of een eigenaar is. De opdracht mislukt als de aangemelde gebruiker een gastgebruiker in de Azure AD-tenant. Verificatie in Azure wordt gedaan door Azure AD. Maken van een service-principal voor Azure Log integratie maakt de identiteit van de Azure AD die toegang krijgt tot het lezen van de Azure-abonnementen.
+3.  Voer de volgende opdracht voor het autoriseren van de integratie van Azure Log-service-principal gemaakt in de vorige stap toegang tot het lezen van het activiteitenlogboek voor het abonnement. U moet een eigenaar voor het abonnement op de opdracht uit te voeren.
+
+    ```Azlog.exe authorize subscriptionId``` Voorbeeld:
+
+```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+4.  Controleer de volgende mappen om te bevestigen dat de Azure Active Directory audit log JSON-bestanden in deze zijn gemaakt:
+    - C:\Users\azlog\AzureResourceManagerJson
+    - C:\Users\azlog\AzureResourceManagerJsonLD
+
+> [!NOTE]
+> Neem contact op met de leverancier van uw SIEM voor specifieke instructies op de informatie in de JSON-bestanden te brengen in uw security information en event management (SIEM)-systeem.
+
+Hulp is beschikbaar via de [Azure Log integratie MSDN-Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Dit forum kunt mensen in de Azure Log integratie community ter ondersteuning van elkaar met vragen, antwoorden, tips en slagen. Bovendien het team van Azure Log integratie dit forum wordt bewaakt en helpt wanneer dat mogelijk is.
+
+U kunt ook openen een [ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer logboek integratie als de service waarvoor u ondersteuning aanvraagt.
+
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen voor meer informatie over de integratie van Azure-logboek:
+
+Zie de volgende artikelen voor meer informatie over de integratie van Azure Log: voordat u de stappen in dit artikel, moet u lees het artikel van Get-gestart en er de stappen uitvoeren.
 
 * [Integratie van Azure Log voor Azure logboeken](https://www.microsoft.com/download/details.aspx?id=53324). Het Download Center bevat details, systeemvereisten en installatie-instructies voor de integratie van Azure-logboek.
 * [Inleiding tot Azure-logboekanalyse integratie](security-azure-log-integration-overview.md). In dit artikel vindt u Azure Log integratie, de belangrijkste mogelijkheden en hoe het werkt.

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 900f6a2a8e75cc43a3cfaa0c9e7b8d91f57ea20d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5af46017dede0deac92ff5a7f35f17e083590d6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618603"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van een SAP Business Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +66,7 @@ De volgende eigenschappen worden ondersteund voor SAP Business Warehouse (BW) ge
 | server | Naam van de server waarop het exemplaar SAP BW zich bevindt. | Ja |
 | systemNumber | Systeemnummer van het SAP BW-systeem.<br/>Toegestane waarde: decimaal getal zijn twee cijfers weergegeven als een tekenreeks. | Ja |
 | clientId | Client-ID van de client in het systeem SAP-W.<br/>Toegestane waarde: decimaal nummer met drie cijfers weergegeven als een tekenreeks. | Ja |
-| userName | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
+| Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
 | wachtwoord | Wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
@@ -168,27 +169,27 @@ Bij het kopiëren van gegevens uit SAP BW, worden de volgende toewijzingen van g
 | Gegevenstype voor SAP BW | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | Tekenreeks |
-| CLNT | Tekenreeks |
-| CURR | Decimale |
-| CUKY | Tekenreeks |
-| DEC | Decimale |
-| FLTP | Double |
+| CHAR | Reeks |
+| CLNT | Reeks |
+| VAL | Decimale |
+| CUKY | Reeks |
+| DECEMBER | Decimale |
+| FLTP | dubbele |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | Tekenreeks |
-| LCHR | Tekenreeks |
+| LANG | Reeks |
+| LCHR | Reeks |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimale |
-| RAW | Byte[] |
+| ONBEWERKTE | Byte[] |
 | RAWSTRING | Byte[] |
-| TEKENREEKS | Tekenreeks |
-| EENHEID | Tekenreeks |
-| DATS | Tekenreeks |
-| NUMC | Tekenreeks |
-| TIMS | Tekenreeks |
+| TEKENREEKS | Reeks |
+| EENHEID | Reeks |
+| DATS | Reeks |
+| NUMC | Reeks |
+| TIM 'S | Reeks |
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -5,7 +5,7 @@ services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,17 +14,26 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: d9e463273fff0ecc198b0574443c4241dde7be79
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d3a7ebd135f705a6a3ea91feb4e037a9ed6d0c79
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641302"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Gebruik Service Bus-onderwerpen en abonnementen met behulp van Node.js
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Deze handleiding wordt beschreven hoe u Service Bus-onderwerpen en abonnementen van Node.js-toepassingen. De scenario's worden behandeld: **maken van onderwerpen en abonnementen**, **maken van abonnementsfilters**, **verzenden van berichten** naar een onderwerp **ontvangen berichten van een abonnement**, en **verwijderen van onderwerpen en abonnementen**. Zie de sectie [Volgende stappen](#next-steps) voor meer informatie over onderwerpen en abonnementen.
+Deze handleiding wordt beschreven hoe u Service Bus-onderwerpen en abonnementen van Node.js-toepassingen. De scenario's worden behandeld, zijn onder andere:
+
+- Maken van onderwerpen en abonnementen 
+- Maken van abonnementsfilters 
+- Verzenden van berichten naar een onderwerp 
+- Ontvangen van berichten van een abonnement
+- Verwijderen van onderwerpen en abonnementen 
+
+Zie voor meer informatie over onderwerpen en abonnementen [Vervolgstappen](#next-steps) sectie.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -35,8 +44,9 @@ Maak een lege Node.js-toepassing. Zie voor instructies over het maken van een No
 Voor het gebruik van Service Bus de Node.js-Azure-pakket te downloaden. Dit pakket bevat een set van bibliotheken die met de Service Bus REST-services communiceren.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Knooppunt Package Manager (NPM) gebruiken om het pakket te verkrijgen
-1. Een opdrachtregelinterface gebruiken zoals **PowerShell** (Windows), **Terminal** (Mac), of **Bash** (Unix), gaat u naar de map waar u uw voorbeeldtoepassing gemaakt.
-2. Type **npm installeren azure** in het opdrachtvenster die moet resulteren in de volgende uitvoer:
+1. Open een opdrachtregelinterface zoals **PowerShell** (Windows), **Terminal** (Mac) of **Bash** (Unix).
+2. Navigeer naar de map waar u uw voorbeeldtoepassing gemaakt.
+3. Type **npm installeren azure** in het opdrachtvenster die moet resulteren in de volgende uitvoer:
 
    ```
        azure@0.7.5 node_modules\azure
@@ -61,11 +71,11 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Een Service Bus-verbinding instellen
-De Azure-module leest de omgevingsvariabele `AZURE_SERVICEBUS_CONNECTION_STRING` voor de verbindingsreeks die u uit de vorige stap hebt verkregen, ' de referenties ophalen'. Als deze omgevingsvariabele niet is ingesteld, moet u de accountgegevens opgeven bij het aanroepen van `createServiceBusService`.
+De Azure-module leest de omgevingsvariabele `AZURE_SERVICEBUS_CONNECTION_STRING` voor de verbindingsreeks die u uit de vorige stap hebt verkregen, ' de referenties ophalen." Als deze omgevingsvariabele niet is ingesteld, moet u de accountgegevens opgeven bij het aanroepen van `createServiceBusService`.
 
 Zie voor een voorbeeld van de omgevingsvariabelen instellen voor een Azure Cloud Service [Node.js-Cloudservice met Storage][Node.js Cloud Service with Storage].
 
-Zie voor een voorbeeld van het instellen van de omgevingsvariabelen voor een Azure-Website [Node.js-webtoepassing met Storage][Node.js Web Application with Storage].
+
 
 ## <a name="create-a-topic"></a>Een onderwerp maken
 De **ServiceBusService** object kunt u werken met onderwerpen. De volgende code maakt een **ServiceBusService** object. Voeg deze toe aan de bovenkant van de **server.js** bestand na de instructie voor het importeren van de azure-module:
@@ -74,7 +84,7 @@ De **ServiceBusService** object kunt u werken met onderwerpen. De volgende code 
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Door het aanroepen van `createTopicIfNotExists` op de **ServiceBusService** object, wordt het opgegeven onderwerp geretourneerd (indien aanwezig) of een nieuw onderwerp met de opgegeven naam wordt gemaakt. De volgende code gebruikt `createTopicIfNotExists` maken of verbinding maken met het onderwerp met de naam `MyTopic`:
+Als u aanroept `createTopicIfNotExists` op de **ServiceBusService** object, het opgegeven onderwerp geretourneerd (indien aanwezig) of een nieuw onderwerp met de opgegeven naam is gemaakt. De volgende code gebruikt `createTopicIfNotExists` maken of verbinding maken met het onderwerp met de naam `MyTopic`:
 
 ```javascript
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
@@ -85,7 +95,9 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-De `createServiceBusService` methode biedt ook ondersteuning voor extra opties waarmee u kunt de standaardinstellingen voor onderwerp zoals bericht of grootte van het maximum aantal onderwerp negeren. Het volgende voorbeeld wordt de grootte van het maximum aantal onderwerp ingesteld op 5GB met een levensduur van 1 minuut:
+De `createServiceBusService` methode biedt ook ondersteuning voor extra opties waarmee u kunt de standaardinstellingen voor onderwerp zoals bericht of grootte van het maximum aantal onderwerp negeren. 
+
+Het volgende voorbeeld wordt de grootte van het maximum aantal onderwerp ingesteld op 5 GB met een levensduur van één minuut:
 
 ```javascript
 var topicOptions = {
@@ -107,13 +119,13 @@ Optionele filteren bewerkingen kunnen worden toegepast op de bewerkingen die wor
 function handle (requestOptions, next)
 ```
 
-Na het uitvoeren van voorverwerking van de aanvraag-opties, de methode roept `next`, een retouraanroep met de volgende handtekening doorgeven:
+Na het uitvoeren van voorverwerking van de aanvraag-opties, de methode roept `next`, en geeft een retouraanroep met de volgende handtekening:
 
 ```javascript
 function (returnObject, finalCallback, next)
 ```
 
-In deze retouraanroep en na de verwerking de `returnObject` (de reactie van de aanvraag naar de server), de callback moet vervolgens worden aangeroepen als het al bestaat als u wilt doorgaan met het verwerken van andere filters of aanroepen `finalCallback` anders wordt de aanroep van de service beëindigen.
+In deze retouraanroep en na de verwerking de `returnObject` (de reactie van de aanvraag naar de server), de callback moet de volgende aanroepen (indien aanwezig) om door te gaan met het verwerken van andere filters of aanroepen `finalCallback` naar einde van het service-aanroepen.
 
 Twee filters die Pogingslogica implementeren zijn opgenomen in de Azure SDK voor Node.js, **ExponentialRetryPolicyFilter** en **LinearRetryPolicyFilter**. De volgende code maakt een **ServiceBusService** -object dat gebruikmaakt van de **ExponentialRetryPolicyFilter**:
 
@@ -123,15 +135,15 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 ```
 
 ## <a name="create-subscriptions"></a>Abonnementen maken
-Ook onderwerpabonnementen worden gemaakt met de **ServiceBusService** object. Abonnementen kunnen worden genoemd en een optioneel filter waarmee de verzameling berichten in de virtuele wachtrij van het abonnement wordt beperkt.
+Ook onderwerpabonnementen worden gemaakt met de **ServiceBusService** object. Abonnementen kunnen met de naam zijn, en een optioneel filter waarmee de verzameling berichten in de virtuele wachtrij van het abonnement wordt beperkt.
 
 > [!NOTE]
-> Abonnementen worden permanent en blijft bestaan totdat beide ze of het onderwerp zijn gekoppeld, worden verwijderd. Als uw toepassing bevat de logica voor het maken van een abonnement, moet deze eerst controleren als het abonnement bestaat al met behulp van de `getSubscription` methode.
+> Abonnementen worden permanent wanneer beide ze of het onderwerp zijn gekoppeld, worden verwijderd. Als uw toepassing bevat de logica voor het maken van een abonnement, moet deze eerst controleren of het abonnement met behulp van bestaat de `getSubscription` methode.
 >
 >
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Een abonnement maken met het standaardfilter (MatchAll)
-Het **MatchAll**-filter is het standaardfilter dat wordt gebruikt als er bij het maken van een nieuw abonnement geen filter is opgegeven. Wanneer de **MatchAll** filter wordt gebruikt, worden alle berichten die zijn gepubliceerd naar het onderwerp in de virtuele wachtrij van het abonnement geplaatst. Het volgende voorbeeld wordt een abonnement genaamd 'AllMessages' en gebruikt de standaardinstallatielocatie **MatchAll** filter.
+De **MatchAll** filter is het standaardfilter dat wordt gebruikt wanneer een abonnement wordt gemaakt. Bij gebruik van het **MatchAll**-filter worden alle berichten die naar het onderwerp worden gepubliceerd, in de virtuele wachtrij van het abonnement geplaatst. Het volgende voorbeeld maakt u een abonnement met de naam AllMessages en gebruikt de standaardinstallatielocatie **MatchAll** filter.
 
 ```javascript
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
@@ -223,14 +235,14 @@ var rule={
 }
 ```
 
-Wanneer is nu een bericht verzonden naar `MyTopic`, deze wordt altijd worden bezorgd bij ontvangers die zijn geabonneerd op de `AllMessages` onderwerpabonnement en selectief bezorgd bij ontvangers die zijn geabonneerd op de `HighMessages` en `LowMessages` onderwerp abonnementen ( afhankelijk van de inhoud van het bericht).
+Wanneer is nu een bericht verzonden naar `MyTopic`, wordt deze worden bezorgd bij ontvangers die zijn geabonneerd op de `AllMessages` onderwerpabonnement en selectief bezorgd bij ontvangers die zijn geabonneerd op de `HighMessages` en `LowMessages` onderwerpabonnementen (afhankelijk van inhoud van het bericht).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Het verzenden van berichten naar een onderwerp
 Als u wilt een bericht verzendt naar een Service Bus-onderwerp, de toepassing moet gebruiken de `sendTopicMessage` methode van de **ServiceBusService** object.
 Berichten die worden verzonden naar Service Bus-onderwerpen zijn **BrokeredMessage** objecten.
 **BrokeredMessage** objecten hebben een aantal standaardeigenschappen (zoals `Label` en `TimeToLive`), een woordenlijst die wordt gebruikt om aangepaste toepassingsspecifieke eigenschappen te bewaren en een hoofdtekst met tekenreeksen. Een toepassing kunt instellen in de hoofdtekst van het bericht voor het doorgeven van een tekenreekswaarde naar het `sendTopicMessage` en alle vereiste standaardeigenschappen standaardwaarden worden ingevuld.
 
-Het volgende voorbeeld toont hoe vijf testberichten naar verzendt `MyTopic`. Houd er rekening mee dat de `messagenumber` eigenschapswaarde van elk bericht varieert op de herhaling van de lus (dit wordt bepaald welke abonnementen ontvangen):
+Het volgende voorbeeld toont hoe vijf testberichten naar verzendt `MyTopic`. De `messagenumber` eigenschapswaarde van elk bericht varieert op de herhaling van de lus (deze bepaalt welke abonnementen ontvangen):
 
 ```javascript
 var message = {
@@ -251,15 +263,15 @@ for (i = 0;i < 5;i++) {
 }
 ```
 
-Service Bus-onderwerpen ondersteunen een maximale grootte van 256 kB in de [Standard-laag](service-bus-premium-messaging.md) en 1 MB in de [Premium-laag](service-bus-premium-messaging.md). De koptekst, die de standaard- en aangepaste toepassingseigenschappen bevat, kan maximaal 64 kB groot zijn. Er is geen limiet voor het aantal berichten in een onderwerp, maar er is een limiet voor de totale grootte van de berichten in een onderwerp. De grootte van het onderwerp wordt gedefinieerd tijdens het maken, met een bovengrens van 5 GB.
+Service Bus-onderwerpen ondersteunen een maximale grootte van 256 kB in de [Standard-laag](service-bus-premium-messaging.md) en 1 MB in de [Premium-laag](service-bus-premium-messaging.md). De koptekst, die de standaard- en aangepaste toepassingseigenschappen bevat, kan maximaal 64 kB groot zijn. Er is geen limiet voor het aantal berichten in een onderwerp, maar er is een limiet op de totale grootte van de berichten in een onderwerp. De grootte van het onderwerp wordt gedefinieerd tijdens het maken, met een bovengrens van 5 GB.
 
 ## <a name="receive-messages-from-a-subscription"></a>Berichten ontvangen van een abonnement
-Berichten worden ontvangen van een abonnement met de `receiveSubscriptionMessage` methode op de **ServiceBusService** object. Standaard worden berichten uit het abonnement verwijderd als ze worden gelezen; u kunt echter (peek) lezen en vergrendelen van het bericht zonder het te verwijderen uit het abonnement door de optionele parameter `isPeekLock` naar **true**.
+Berichten worden ontvangen van een abonnement met de `receiveSubscriptionMessage` methode op de **ServiceBusService** object. Standaard berichten uit het abonnement verwijderd als ze worden gelezen. U kunt echter de optionele parameter instellen `isPeekLock` naar **true** (peek) lezen en vergrendelen van het bericht zonder het te verwijderen uit het abonnement.
 
-Het standaardgedrag van lezen van en het bericht is verwijderd als onderdeel van de bewerking receive is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht bij een storing. Neem bijvoorbeeld een scenario waarin de consument de ontvangstaanvraag uitgeeft en het systeem vervolgens vastloopt voordat de aanvraag wordt verwerkt. Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint, ontbreekt het bericht dat voor het vastlopen is verbruikt.
+Het standaardgedrag van lezen van en het bericht is verwijderd als onderdeel van de bewerking receive is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht bij een storing. Om dit probleem te begrijpen, stelt u zich een scenario waarin de consument de receive-aanvraag indient en vervolgens vastloopt voordat het wordt verwerkt. Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint, ontbreekt het bericht dat voor het vastlopen is verbruikt.
 
-Als de `isPeekLock` parameter is ingesteld op **true**, wordt het ontvangen, wordt een bewerking met twee fasen, waardoor er mogelijk worden ondersteuning voor toepassingen die geen ontbrekende berichten kunnen tolereren. Als Service Bus een aanvraag ontvangt, wordt het volgende te verbruiken bericht gevonden, wordt het bericht vergrendeld om te voorkomen dat andere consumenten het ontvangen en wordt het bericht vervolgens naar de toepassing geretourneerd.
-Nadat de toepassing klaar is met verwerking van het bericht (of veilig heeft opgeslagen voor toekomstige verwerking), is de tweede fase van het ontvangstproces voltooid door het aanroepen van **deleteMessage** methode en het geven van het bericht moet worden verwijderd als een parameter. De **deleteMessage** methode wordt het bericht als verbruikt markeren en deze te verwijderen uit het abonnement.
+Als de `isPeekLock` parameter is ingesteld op **true**, wordt het ontvangen, wordt een bewerking met twee fasen, waardoor er mogelijk worden ondersteuning voor toepassingen die gemiste berichten kunnen tolereren. Wanneer Service Bus een aanvraag ontvangt, het vindt het volgende bericht te gebruiken, wordt vergrendeld om te voorkomen dat andere consumenten het ontvangen en naar de toepassing wordt geretourneerd.
+Nadat de toepassing het bericht verwerkt (of veilig heeft opgeslagen voor toekomstige verwerking), is de tweede fase van het ontvangstproces voltooid door het aanroepen van **deleteMessage** methode, en wordt doorgegeven als parameter verwijderen. De **deleteMessage** methode wordt het bericht gemarkeerd als verbruikt en wordt deze verwijderd uit het abonnement.
 
 Het volgende voorbeeld laat zien hoe berichten kunnen worden ontvangen en verwerkt met behulp `receiveSubscriptionMessage`. In het voorbeeld eerst ontvangt en wordt een bericht wordt verwijderd uit het abonnement 'LowMessages' en vervolgens een bericht ontvangt van de 'HighMessages' abonnement met behulp `isPeekLock` is ingesteld op true. Vervolgens wordt verwijderd het bericht met `deleteMessage`:
 
@@ -285,11 +297,11 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Het vastlopen van de toepassing en onleesbare berichten afhandelen
-Service Bus biedt functionaliteit om netjes te herstellen bij fouten in uw toepassing of problemen bij het verwerken van een bericht. Als een ontvangende toepassing kan niet worden verwerkt het bericht om een bepaalde reden, dan kan worden aangeroepen de `unlockMessage` methode op de **ServiceBusService** object. Dit zorgt ervoor dat Service Bus het bericht in het abonnement ontgrendelt en beschikbaar zijn om opnieuw te ontvangen, ofwel door dezelfde consumerende toepassing of door een andere consumerende toepassing.
+Service Bus biedt functionaliteit om netjes te herstellen bij fouten in uw toepassing of problemen bij het verwerken van een bericht. Als een ontvangende toepassing kan niet worden verwerkt het bericht om een bepaalde reden, dan kan worden aangeroepen de `unlockMessage` methode op de **ServiceBusService** object. Deze methode zorgt ervoor dat Service Bus het bericht in het abonnement ontgrendelt en beschikbaar gesteld moet opnieuw worden ontvangen. In dit exemplaar, ofwel door dezelfde consumerende toepassing of door een andere consumerende toepassing.
 
-Er is ook een time-out gekoppeld aan een bericht in het abonnement is vergrendeld en als de toepassing niet kan verwerken van het bericht voordat de time-out van de vergrendeling verloopt (bijvoorbeeld als de toepassing vastloopt), en vervolgens de Service Bus het bericht automatisch ontgrendelt en wordt het beschikbaar worden om opnieuw te ontvangen.
+Er is een time-out gekoppeld aan een bericht in het abonnement is vergrendeld. Als de toepassing niet kan verwerken van het bericht voordat de time-out van de vergrendeling verloopt (bijvoorbeeld als de toepassing vastloopt), vervolgens ontgrendelt Service Bus het bericht automatisch en wordt het beschikbaar worden om opnieuw te ontvangen.
 
-In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de `deleteMessage` methode wordt aangeroepen en vervolgens het bericht opnieuw bezorgd bij de toepassing opnieuw wordt gestart. Dit wordt vaak genoemd *tenminste eenmaal verwerken*, dat wil zeggen elk bericht ten minste één keer wordt verwerkt maar in sommige situaties hetzelfde bericht opnieuw kan worden bezorgd. Als in het scenario dubbele verwerking niet wordt getolereerd, dan moeten toepassingsontwikkelaars extra logica toevoegen aan de toepassing om dubbele berichtbezorging af te handelen. Dit wordt vaak bereikt met behulp van de **MessageId** eigenschap van het bericht dat gelijk bij meerdere bezorgingspogingen blijft.
+In het geval van de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de `deleteMessage` methode wordt aangeroepen, wordt het bericht is opnieuw bezorgd bij de toepassing opnieuw wordt gestart. Dit gedrag wordt vaak genoemd *tenminste één keer worden verwerkt*. Dat wil zeggen dat elk bericht ten minste één keer wordt verwerkt, maar in sommige situaties hetzelfde bericht opnieuw kan worden bezorgd. Als het scenario kan geen dubbele verwerking tolereren, moet u logica toevoegen aan uw toepassing levering van dubbele berichten afhandelen. U kunt de **MessageId** eigenschap van het bericht dat gelijk blijft bij meerdere bezorgingspogingen.
 
 ## <a name="delete-topics-and-subscriptions"></a>Onderwerpen en abonnementen verwijderen
 Onderwerpen en abonnementen worden permanent en expliciet moet worden verwijderd via de [Azure-portal] [ Azure portal] of via een programma.
@@ -303,7 +315,7 @@ serviceBusService.deleteTopic('MyTopic', function (error) {
 });
 ```
 
-Als u een onderwerp verwijdert, verwijdert ook alle abonnementen die zijn geregistreerd bij het onderwerp. Abonnementen kunnen ook afzonderlijk worden verwijderd. Het volgende voorbeeld laat zien hoe u een abonnement met de naam `HighMessages` van de `MyTopic` onderwerp:
+Als een onderwerp wordt verwijderd, worden ook alle abonnementen verwijderd die zijn geregistreerd bij het onderwerp. Abonnementen kunnen ook afzonderlijk worden verwijderd. Het volgende voorbeeld laat zien hoe u een abonnement met de naam `HighMessages` van de `MyTopic` onderwerp:
 
 ```javascript
 serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
@@ -326,6 +338,6 @@ Nu u de basisprincipes van Service Bus-onderwerpen hebt geleerd, volgt u deze ko
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[maken en implementeren van een Node.js-toepassing naar een Azure-website]: ../app-service/app-service-web-get-started-nodejs.md
+[Maken en implementeren van een Node.js-toepassing naar een Azure-website]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
+

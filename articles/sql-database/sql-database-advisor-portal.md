@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d52838aa65ade8e2dfac75089ee82b4b1bae5257
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644192"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -101,8 +102,10 @@ U kunt de Azure SQL Database voor het implementeren van aanbevelingen automatisc
     ![Aanbevolen indexen](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Houd er rekening mee dat **DROP_INDEX** optie op dit moment is niet compatibel met toepassingen die gebruikmaken van partitie schakelen en de index-hints en in dergelijke gevallen niet worden ingeschakeld.
+> Houd er rekening mee dat **DROP_INDEX** optie op dit moment is niet compatibel met toepassingen die gebruikmaken van partitie schakelen en de index-hints en mag niet worden ingeschakeld in deze gevallen.
 >
+
+Nadat u de gewenste configuratie hebt geselecteerd, klikt u op toepassen.
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>Voer handmatig het aanbevolen T-SQL-script
 Selecteer elke aanbeveling en klik op **script weergeven**. Dit script wordt uitgevoerd in de database naar de aanbeveling handmatig toe te passen.

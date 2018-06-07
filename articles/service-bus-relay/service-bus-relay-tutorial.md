@@ -5,7 +5,7 @@ services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642305"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure Relay WCF-zelfstudie
 
-Deze zelfstudie wordt beschreven hoe u een eenvoudige WCF Relay-clienttoepassing en met Azure Relay-service. Voor een vergelijkbare zelfstudie waarin [Service Bus-berichtenservice](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), Zie [aan de slag met Service Bus-wachtrijen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Deze zelfstudie wordt beschreven hoe u een eenvoudige WCF Relay-clienttoepassing en met Azure Relay-service. Voor een vergelijkbare zelfstudie waarin [Service Bus-berichtenservice](../service-bus-messaging/service-bus-messaging-overview.md), Zie [aan de slag met Service Bus-wachtrijen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Het uitvoeren van deze zelfstudie hebt u een goed begrip van de stappen die nodig zijn voor het maken van een Relay WCF-client en service-toepassing. Als de oorspronkelijke WCF is is een service een middel met een of meer eindpunten, die allemaal een of meer servicebewerkingen. Het eindpunt van een service bevat het adres van de service, een binding met de informatie die een client moet doorgeven aan de service en een contract waarin staat welke functionaliteit de service biedt aan de clients. Het belangrijkste verschil tussen de WCF- en WCF Relay is dat het eindpunt wordt weergegeven in de cloud in plaats van lokaal op uw computer.
 
@@ -48,7 +49,7 @@ Het servicecontract wordt aangegeven welke bewerkingen (de webserviceterminologi
 ### <a name="create-a-relay-contract-with-an-interface"></a>Een relay-contract met een interface maken
 
 1. Open Visual Studio als beheerder door met de rechtermuisknop achtereenvolgens op het programma in het menu **Start** en op **Als administrator uitvoeren** te klikken.
-2. Maak een nieuw consoletoepassingsproject. Klik op het menu **Bestand**, selecteer **Nieuw** en klik vervolgens op **Project**. Klik in het dialoogvenster **Nieuw project** op **Visual C#** (als **Visual C#** niet wordt weergegeven, kijkt u bij **Andere talen**). Klik op de **Console-App (.NET Framework)** -sjabloon en noem deze **EchoService**. Klik op **OK** om het project te maken.
+2. Maak een nieuw consoletoepassingsproject aan. Klik op het menu **Bestand**, selecteer **Nieuw** en klik vervolgens op **Project**. Klik in het dialoogvenster **Nieuw project** op **Visual C#** (als **Visual C#** niet wordt weergegeven, kijkt u bij **Andere talen**). Klik op de **Console-App (.NET Framework)** -sjabloon en noem deze **EchoService**. Klik op **OK** om het project aan te maken.
 
     ![][2]
 
@@ -714,7 +715,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Deze zelfstudie hebt u geleerd hoe u een Azure-Relay-clienttoepassing en -service met behulp van de WCF-Relay-mogelijkheden van Service Bus. Voor een vergelijkbare zelfstudie waarin [Service Bus-berichtenservice](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), Zie [aan de slag met Service Bus-wachtrijen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Deze zelfstudie hebt u geleerd hoe u een Azure-Relay-clienttoepassing en -service met behulp van de WCF-Relay-mogelijkheden van Service Bus. Voor een vergelijkbare zelfstudie waarin [Service Bus-berichtenservice](../service-bus-messaging/service-bus-messaging-overview.md), Zie [aan de slag met Service Bus-wachtrijen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Zie de volgende onderwerpen voor meer informatie over Azure Relay.
 

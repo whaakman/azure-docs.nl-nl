@@ -1,24 +1,19 @@
 ---
 title: Azure IoT Hub taken begrijpen | Microsoft Docs
 description: Handleiding voor ontwikkelaars - plannen van taken uit te voeren op meerdere apparaten verbonden met uw IoT-hub. Taken kunnen bijwerken labels en gewenste eigenschappen en methoden niet aanroepen direct voor meerdere apparaten.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 367eb703465b2fbc6f1e06a383bc9df709cabe78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 35b8536b944df39d0d47bf3529698fc94e51110e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633941"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Taken op meerdere apparaten plannen
 
@@ -105,7 +100,7 @@ De volgende lijst bevat de eigenschappen en de bijbehorende beschrijvingen, die 
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| **jobId** |Aanvraag-ID opgegeven voor de taak. |
+| **JobId** |Aanvraag-ID opgegeven voor de taak. |
 | **startTime** |Toepassing opgegeven begintijd (ISO 8601-) voor de taak. |
 | **endTime** |IoT Hub opgegeven datum (ISO 8601-) voor wanneer de taak is voltooid. Geldig nadat de taak de status 'voltooid' bereikt. |
 | **type** |Typen taken: |

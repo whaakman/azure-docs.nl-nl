@@ -1,22 +1,19 @@
 ---
 title: Hulpprogramma's in de Azure IoT Hub apparaat inrichten Service SDK's gebruiken voor het vereenvoudigen van ontwikkeling
 description: Dit document worden de hulpprogramma's in Azure IoT Hub apparaat inrichten Service SDK's voor ontwikkeling
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 04/09/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: a7e1a55bcfc8c7a8f76416fb12edf712340fadd2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+services: iot-dps
+manager: arjmands
+ms.openlocfilehash: afc7059f3b066ac5f3c9b49d543bc2b3e52ad6af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631119"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Het gebruik van hulpprogramma's in de SDK's voor het vereenvoudigen van ontwikkeling voor inrichting
 De IoT Hub apparaat inrichtingsservice vereenvoudigt het inrichtingsproces met zonder tussenkomst, just in time [automatische inrichting](concepts-auto-provisioning.md) op een veilige en schaalbare manier.  Beveiliging attestation in de vorm van het X.509-certificaat of Trusted Platform Module (TPM) is vereist.  Microsoft is ook samenwerking met [andere hardwarepartners beveiliging](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) te vertrouwen bij het beveiligen van IoT-implementatie te verbeteren. Informatie over de hardwarevereisten voor de beveiliging kan erg lastig voor ontwikkelaars zijn gemaakt. Een set van Azure IoT inrichting Service-SDK's zijn bedoeld om ontwikkelaars kunnen gebruikmaken van een laag gemak voor schrijven-clients die met de inrichting service communiceren. De SDK's bieden ook voorbeelden voor algemene scenario's, evenals een aantal hulpprogramma's voor het vereenvoudigen van beveiliging attestation in ontwikkeling.

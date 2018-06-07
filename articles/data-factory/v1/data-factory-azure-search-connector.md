@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa5ca52f399f74ac6b3eae5c6918442292f87955
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e30cffa836beb2086e3bc4e94bf60be94136d3a0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620619"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Push-gegevens naar een Azure Search-index met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,7 +81,7 @@ Voor de Kopieeractiviteit, wanneer de sink van het type is **AzureSearchIndexSin
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Geeft aan of samenvoegen of wanneer een document al in de index bestaat te vervangen. Zie de [WriteBehavior eigenschap](#writebehavior-property).| samenvoegen (standaard)<br/>Uploaden| Nee |
-| WriteBatchSize | Gegevens geüpload naar de Azure Search-index wanneer de buffergrootte writeBatchSize bereikt. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie. | 1-1000. Standaardwaarde is 1000. | Nee |
+| writeBatchSize | Gegevens geüpload naar de Azure Search-index wanneer de buffergrootte writeBatchSize bereikt. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie. | 1-1000. Standaardwaarde is 1000. | Nee |
 
 ### <a name="writebehavior-property"></a>De eigenschap WriteBehavior
 AzureSearchSink upserts bij het schrijven van gegevens. Bij het schrijven van een document, als de documentsleutel al in de Azure Search-index bestaat, updates Azure Search met andere woorden, het bestaande document in plaats van er een conflict uitzondering is opgetreden.
@@ -100,10 +101,10 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 
 | Azure Search-gegevenstype | Ondersteund in Azure Search Sink |
 | ---------------------- | ------------------------------ |
-| Tekenreeks | J |
+| Reeks | J |
 | Int32 | J |
 | Int64 | J |
-| Double | J |
+| dubbele | J |
 | Boole-waarde | J |
 | DataTimeOffset | J |
 | Tekenreeksmatrix | N |

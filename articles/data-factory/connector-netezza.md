@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617889"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Gegevens kopiëren van Netezza met behulp van Azure Data Factory (bèta)
 
@@ -56,7 +57,7 @@ Een typische verbindingsreeks is `Server=<server>;Port=<port>;Database=<database
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | Het niveau van beveiliging SSL/TLS () die gebruikmaakt van het stuurprogramma voor de verbinding met het gegevensarchief. Bijvoorbeeld `SecurityLevel=preferredSecured`. Ondersteunde waarden zijn:<br/>-Alleen niet-beveiligde (**onlyUnSecured**): het stuurprogramma maakt geen gebruik van SSL.<br/>- **Voorkeur onbeveiligd (preferredUnSecured) (standaard)**: als de server een keuze biedt, het stuurprogramma geen gebruik van SSL. <br/>- **Voorkeur beveiligd (preferredSecured)**: als de server een keuze biedt, SSL wordt gebruikt door het stuurprogramma. <br/>- **Alleen beveiligd (onlySecured)**: het stuurprogramma geen verbinding maken tenzij een SSL-verbinding beschikbaar is | Nee |
-| CACertBestand | Het volledige pad naar het SSL-certificaat dat wordt gebruikt door de server. Bijvoorbeeld `UseSystemTrustStore=<cert path>;`| Ja, als SSL is ingeschakeld |
+| CACertBestand | Het volledige pad naar het SSL-certificaat dat wordt gebruikt door de server. Bijvoorbeeld `CaCertFile=<cert path>;`| Ja, als SSL is ingeschakeld |
 
 **Voorbeeld:**
 

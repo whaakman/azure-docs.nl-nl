@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c24cccde507873424e3c51d584f5cd094df2b876
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641166"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximum beperkt op opslag, workloads en aantallen van indexen, documenten en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **vrije**, **Basic**, of **Standaard** Prijscategorieën.
@@ -30,7 +31,7 @@ Maximum beperkt op opslag, workloads en aantallen van indexen, documenten en and
 > Een service is ingericht op een bepaalde laag. Categorieën voor het verkrijgen van capaciteit springen omvat het inrichten van een nieuwe service (Er is geen in-place upgrade). Zie voor meer informatie [Kies een SKU of laag](search-sku-tier.md). Zie voor meer informatie over het aanpassen van de capaciteit binnen een service die u al hebt ingericht, [schalen niveaus van de bron voor query's en workloads indexering](search-capacity-planning.md).
 >
 
-## <a name="subscription-limits"></a>Abonnementen
+## <a name="subscription-limits"></a>Abonnementslimieten
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
 ## <a name="storage-limits"></a>Opslaglimieten
@@ -92,13 +93,16 @@ Vergeet niet uitsluiten van niet-waarop gegevens van de aanvraag om de documentg
 
 Basic services die zijn gemaakt na laat 2017 hebben een hogere limiet van 15 indexen, gegevensbronnen, vaardigheden en indexeerfuncties.
 
+Bronintensieve bewerkingen, zoals afbeelding analyse in Azure blob-indexering of verwerking van natuurlijke taal in cognitieve zoekopdracht hebben kortere maximale tijden zodat andere indexeertaken kunnen worden opgeslagen. Als een taak voor indexering kan niet worden voltooid binnen de maximale toegestane tijd, probeert deze uitvoeren volgens een schema. Houdt de planner van Indexstatus. Als een geplande taak voor indexering om welke reden wordt onderbroken, kan de indexeerfunctie kiezen waar het laatst werd afgebroken op de volgende geplande start.
+
 | Resource | Gratis&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximale aantal indexeerfuncties |3 |5 of 15|50 |200 |200 |N/A |
 | Maximale aantal gegevensbronnen |3 |5 of 15 |50 |200 |200 |N/A |
 | Maximale vaardigheden <sup>4</sup> |3 |5 of 15 |50 |200 |200 |N/A |
 | Maximale indexering belasting per aanroep |10.000 documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |N/A |
-| Maximale uitvoeringstijd | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |
+| Maximale uitvoeringstijd <sup>5</sup> | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |
+| Maximale uitvoeringstijd voor cognitieve zoeken vaardigheden of blob-indexering met installatiekopie analysis <sup>5</sup> | 3-10 minuten |2 uur |2 uur |2 uur |2 uur |N/A  |
 | BLOB-indexeerfunctie: maximale blobgrootte, MB |16 |16 |128 |256 |256 |N/A  |
 | BLOB-indexeerfunctie: maximum aantal tekens inhoud opgehaald uit een blob |32,000 |64,000 |4 miljoen |4 miljoen |4 miljoen |N/A |
 
@@ -109,6 +113,8 @@ Basic services die zijn gemaakt na laat 2017 hebben een hogere limiet van 15 ind
 <sup>3</sup> S3 HD services omvatten geen indexeerfunctie ondersteuning.
 
 <sup>4</sup> maximaal 30 vaardigheden per vaardigheden.
+
+<sup>5</sup> cognitieve zoeken werkbelastingen en analyse van de installatiekopie in Azure blob-indexering hebben kortere tijden dan gewone tekst te indexeren. De installatiekopie van analyse en verwerking van natuurlijke taal zijn rekenkracht en buitensporige hoeveelheden beschikbaar verwerkingskracht in beslag nemen. Uitvoeringstijd is verlaagd zodat andere taken in de wachtrij een kans om uit te voeren.  
 
 ## <a name="queries-per-second-qps"></a>Query's per seconde (QPS)
 
@@ -123,7 +129,7 @@ Er zijn geen schattingen beter voorspelbaar wanneer berekend op services die wor
 * Maximaal 32 velden in de component $orderby
 * Maximale zoeken Termgrootte is 32.766 bytes (32 KB min 2-bytes) van UTF-8-gecodeerde tekst
 
-<sup>1</sup> in Azure Search de hoofdtekst van een aanvraag is onderworpen aan de bovengrens van 16 MB, om een limiet van de inhoud van afzonderlijke velden of verzamelingen die anders niet worden beperkt door theoretische limieten te leggen (Zie [gegevens ondersteund typen](https://msdn.microsoft.com/library/azure/dn798938.aspx) voor meer informatie over het veld samenstelling en beperkingen).
+<sup>1</sup> in Azure Search de hoofdtekst van een aanvraag is onderworpen aan de bovengrens van 16 MB, om een limiet van de inhoud van afzonderlijke velden of verzamelingen die anders niet worden beperkt door theoretische limieten te leggen (Zie [gegevens ondersteund typen](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor meer informatie over het veld samenstelling en beperkingen).
 
 ## <a name="api-response-limits"></a>API-reactie limieten
 * Maximaal 1000 documenten die worden geretourneerd per pagina met zoekresultaten

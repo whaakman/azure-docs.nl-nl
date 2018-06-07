@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cd3f947bfc44055bfec4198a1e7c6a9bb2fab5d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642621"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Waarom een microservices benadering voor het ontwikkelen van toepassingen?
 Software-ontwikkelaars zijn er geen nieuwe functies in onze verwachting over waarbij een toepassing in onderdelen. Het is het centrale paradigma stand object software abstracties en componentization. Vandaag de dag doorgaans dit factoriseren de vorm van klassen en interfaces tussen gedeelde bibliotheken en lagen van de technologie. Normaal gesproken wordt een gelaagde benadering gemaakt met een back-end-winkel, bedrijfslogica middelste laag en een front-gebruikersinterface (UI). Wat *heeft* gewijzigd in de afgelopen jaren is dat we, ontwikkelaars, bouwt gedistribueerde toepassingen die voor de cloud en aangedreven door het bedrijf.
@@ -162,7 +163,7 @@ Het is belangrijk om te benadrukken opnieuw kunt u **starten en stoppen op een v
 - Kosten vermindering ofwel vanwege consolidatie en verwijderen van bestaande hardware of met toepassingen met hogere dichtheid. 
 - Consistente implementatie contract tussen ontwikkel- en bewerkingen.
 
-Kosten kortingen zijn te begrijpen, en binnen Microsoft grote aantallen van bestaande toepassingen zijn wordt beperkte gewoon om op te slaan miljoenen bedragen. Consistente distributie is moeilijker te evalueren, maar als belangrijk. Wordt aangegeven dat ontwikkelaars nog steeds gratis worden kunnen kiezen van de technologie die suites ze, maar de bewerkingen slechts één methode accepteert te implementeren en beheren van deze toepassingen. Dit vermindert de bewerkingen van hoeven te maken met de complexiteit van veel verschillende technologieën of ontwikkelaars kunnen alleen bepaalde objecten kiezen om te dwingen. In wezen elke toepassing is beperkte in zelfstandige implementatie-installatiekopieën.
+Kosten kortingen zijn te begrijpen, en binnen Microsoft grote aantallen van bestaande toepassingen zijn wordt beperkte gewoon om op te slaan miljoenen bedragen. Consistente distributie is moeilijker te evalueren, maar als belangrijk. Wordt aangegeven dat ontwikkelaars nog steeds gratis worden kunnen kiezen de technologie die past bij, maar de bewerkingen slechts één methode accepteert te implementeren en beheren van deze toepassingen. Dit vermindert de bewerkingen van hoeven te maken met de complexiteit van veel verschillende technologieën of ontwikkelaars kunnen alleen bepaalde objecten kiezen om te dwingen. In wezen elke toepassing is beperkte in zelfstandige implementatie-installatiekopieën.
 
 Veel organisaties stoppen hier. Al heeft, de voordelen van containers en Service Fabric bevat de volledige beheerervaring van implementatie, upgrades, versiebeheer, Rollback, health monitoring enzovoort.
 

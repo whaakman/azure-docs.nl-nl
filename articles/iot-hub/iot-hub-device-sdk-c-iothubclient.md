@@ -1,24 +1,20 @@
 ---
 title: Azure IoT-apparaat SDK voor C - IoTHubClient | Microsoft Docs
 description: Het gebruik van de bibliotheek IoTHubClient in de Azure-IoT-apparaat-SDK voor C apps voor apparaten die communiceren met een IoT-hub maken.
-services: iot-hub
-documentationcenter: ''
 author: yzhong94
-manager: timlt
-editor: ''
-ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
+manager: arjmands
 ms.service: iot-hub
-ms.devlang: cpp
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: c
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: 0fa07b2a785bd7d1a26924918e4428fd420e1547
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 15541c8719e89080ba7685781cedf36fb4335e70
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633091"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-apparaat SDK voor C: meer informatie over IoTHubClient
 De [eerst artikel](iot-hub-device-sdk-c-intro.md) in deze reeks geïntroduceerd de **Azure IoT-device SDK voor C**. Dit artikel worden beschreven dat er twee architectuur lagen SDK zijn. Aan de basis is de **IoTHubClient** bibliotheek die rechtstreeks communicatie met IoT Hub beheert. Er is ook de **serialisatiefunctie** bibliotheek die op deze voortbouwt om serialisatie-services te bieden. In dit artikel bieden we aanvullende details over de **IoTHubClient** bibliotheek.
@@ -63,9 +59,9 @@ IoTHubClient_Destroy(iotHubClientHandle);
 Er zijn echter aanvullende functies aan elk van deze API's:
 
 * IoTHubClient\_LLE\_CreateFromConnectionString
-* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LLE\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_LL\_Destroy
+* IoTHubClient\_LLE\_vernietigen
 
 Deze functies alle opnemen 'LLE' in de naam van de API. De parameters van elk van deze functies zijn dan die identiek is aan hun niet LLE collega's. Het gedrag van deze functies verschilt echter op één belangrijk.
 
@@ -129,10 +125,10 @@ In feite is er slechts één set API's voor het verzenden en ontvangen van gegev
 
 Het model dat u kiest, moet u consistent in welke API's die u gebruikt. Als u met het aanroepen van Start **IoTHubClient\_LLE\_CreateFromConnectionString**, zorg ervoor dat u alleen de bijbehorende lager niveau API's gebruiken voor een vervolgzelfstudie werk:
 
-* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LLE\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_LL\_Destroy
-* IoTHubClient\_LL\_DoWork
+* IoTHubClient\_LLE\_vernietigen
+* IoTHubClient\_LLE\_DoWork
 
 Het omgekeerde geldt ook. Als u met opstart **IoTHubClient\_CreateFromConnectionString**, gebruikt u de niet - LLE API's voor alle verdere verwerking.
 

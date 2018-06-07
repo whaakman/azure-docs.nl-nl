@@ -13,11 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640367"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR cognitieve kwalificatie
 
@@ -60,7 +61,7 @@ Parameters zijn hoofdlettergevoelig.
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -131,7 +132,7 @@ Een algemene gebruiksvoorbeeld voor tekst fusie is de mogelijkheid om het samenv
 
 Het volgende voorbeeld vaardigheden maakt een *merged_text* veld bevat de tekstinhoud van het document, evenals de tekst OCRed van elk van de installatiekopieën die zijn ingesloten in dat document. 
 
-#### <a name="request-body-syntax"></a>Syntaxis van de aanvraag hoofdtekst
+#### <a name="request-body-syntax"></a>Syntaxis aanvraagbody
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -200,4 +201,4 @@ Het bovenstaande vaardigheden voorbeeld wordt ervan uitgegaan dat een veld genor
 + [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
 + [TextMerger kwalificatie](cognitive-search-skill-textmerger.md)
 + [Het definiëren van een vaardigheden](cognitive-search-defining-skillset.md)
-+ [Maak indexeerfunctie (REST)](ref-create-indexer.md)
++ [Maak indexeerfunctie (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

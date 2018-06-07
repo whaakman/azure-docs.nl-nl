@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d1de8baf725233bee30a14eca770e4f04e7a70b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f648bec7530260a6445f74b6d141140f728674ee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617158"
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Gegevens kopiëren van de OData-bron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +54,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde OData-service:
 | type | De eigenschap type moet worden ingesteld op: **OData** |Ja |
 | url | De URL van de hoofdmap van de OData-service. |Ja |
 | authenticationType | Het soort verificatie gebruikt voor verbinding met de OData-bron.<br/>Toegestane waarden zijn: **anoniem**, **Basic**, en **Windows**. Houd er rekening mee dat OAuth wordt niet ondersteund. | Ja |
-| userName | Geef de gebruikersnaam als u basisverificatie of Windows-verificatie gebruikt. | Nee |
+| Gebruikersnaam | Geef de gebruikersnaam als u basisverificatie of Windows-verificatie gebruikt. | Nee |
 | wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
@@ -133,7 +134,7 @@ Om gegevens te kopiëren uit OData, stel de eigenschap type van de gegevensset *
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **ODataResource** | Ja |
-| pad | Pad naar de OData-bron. | Nee |
+| pad | Pad naar de OData-bron. | Ja |
 
 **Voorbeeld**
 
@@ -207,18 +208,18 @@ Bij het kopiëren van gegevens uit OData, worden de volgende toewijzingen van OD
 | OData-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | Booleaans |
+| Edm.Boolean | BOOL |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimale |
-| Edm.Double | Double |
-| Edm.Single | Single |
+| Edm.Double | dubbele |
+| Edm.Single | Enkelvoudig |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Tekenreeks |
+| Edm.String | Reeks |
 | Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 

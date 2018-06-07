@@ -1,24 +1,20 @@
 ---
-title: 'IoT DevKit naar cloud: IoT MXChip DevKit verbinding maken met Azure IoT Hub | Microsoft Docs'
+title: IoT DevKit naar cloud--IoT MXChip DevKit verbinden met Azure IoT Hub | Microsoft Docs
 description: Informatie over het verzenden van status van sensoren op IoT DevKit AZ3166 naar Azure IoT Remote Monitoring solution accelerator in deze zelfstudie.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: d3de8241b42aff63faaf04477a58c5564407ac8b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6c5c12ffeacad9a3dd56ac561d9b4fe1a6e67eea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631493"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Verbinding maken met MXChip IoT DevKit oplossingsverbetering Azure IoT externe controle
 
@@ -40,7 +36,7 @@ Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van deze
 
 ## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Maken van een oplossing voor externe controle van Azure IoT accelerator
 
-1. Ga naar [Azure IoT-oplossing acclerators site](https://www.azureiotsuite.com/) en klik op **maken van een nieuwe oplossing**.
+1. Ga naar [Azure IoT-oplossing accelerators site](https://www.azureiotsolutions.com/) en klik op **maken van een nieuwe oplossing**.
   ![Azure IoT-oplossing accelerator type selecteren](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
   > Dit voorbeeld maakt standaard een IoT-Hub S2 na het maken van een externe controle IoT oplossingsverbetering. Als deze iothub niet met het grote aantal apparaten gebruikt is, raden we u het downgraden van S2 naar S1 en verwijderen van de accelerator externe controle IoT-oplossing, zodat gerelateerde IoT Hub kan ook worden verwijderd, wanneer u deze niet meer nodig. 

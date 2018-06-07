@@ -4,7 +4,7 @@ description: Back-handleiding voor SAP HANA bevat twee belangrijke back-mogelijk
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,11 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9346ed6b26b4fa4a7875354153b6847938253d1e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657006"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Back-uphandleiding voor SAP HANA op Azure Virtual Machines
 
@@ -227,7 +228,7 @@ Op basis van de resultaten van die de volgende tabellen tonen de voordelen en na
 
 |Oplossing                                           |Professionals                                 |Nadelen                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
-|Azure Backup Service                               | Kan back-up van de virtuele machine op basis van de blob-momentopnamen | Wanneer u geen herstelbewerkingen op bestand, het maken van een nieuwe virtuele machine is vereist voor het herstelproces, die vervolgens de noodzaak van een nieuwe sleutel voor SAP HANA-licentie impliceert|
+|Azure Backup-Service                               | Kan back-up van de virtuele machine op basis van de blob-momentopnamen | Wanneer u geen herstelbewerkingen op bestand, het maken van een nieuwe virtuele machine is vereist voor het herstelproces, die vervolgens de noodzaak van een nieuwe sleutel voor SAP HANA-licentie impliceert|
 |Handmatige blob momentopnamen                              | Flexibiliteit voor het maken en herstellen van specifieke VM-schijven zonder de unieke ID van de virtuele machine wijzigen|Alle handmatig werk die moet worden uitgevoerd door de klant|
 
 ## <a name="next-steps"></a>Volgende stappen

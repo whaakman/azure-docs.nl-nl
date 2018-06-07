@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: 40b409964d139641a06186114fb5e06c19971a36
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0ec6aa9d226231802cd753c7216e9988b85ae5bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617457"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filteren van activiteit in Azure Data Factory
 U kunt een activiteit Filter gebruiken in een pijplijn een filterexpressie toepassen op een invoermatrix. 
@@ -42,8 +43,8 @@ U kunt een activiteit Filter gebruiken in een pijplijn een filterexpressie toepa
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de `Filter` activiteit. | Tekenreeks | Ja
-type | Moet worden ingesteld op **filter**. | Tekenreeks | Ja
+naam | Naam van de `Filter` activiteit. | Reeks | Ja
+type | Moet worden ingesteld op **filter**. | Reeks | Ja
 voorwaarde | De voorwaarde moet worden gebruikt voor het filteren van de invoer. | Expressie | Ja
 items | De invoermatrix waarop filter moet worden toegepast. | Expressie | Ja
 

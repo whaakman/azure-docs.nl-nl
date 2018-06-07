@@ -15,15 +15,18 @@ ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e75f2cceed83d577730cd29490f80011bdb0a508
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640979"
 ---
 # <a name="create-custom-roles-in-azure"></a>Aangepaste rollen maken in Azure
 
-Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de behoeften van uw specifieke toegang, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource bereiken. Aangepaste rollen worden opgeslagen in een tenant van Azure Active Directory (Azure AD) en kunnen worden gedeeld door abonnementen. Aangepaste rollen kunnen worden gemaakt met Azure PowerShell, Azure CLI of de REST-API. Dit artikel bevat een voorbeeld van hoe om te beginnen met het maken van aangepaste rollen met behulp van PowerShell en Azure CLI.
+Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de behoeften van uw specifieke toegang, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource bereiken. Aangepaste rollen worden opgeslagen in een tenant van Azure Active Directory (Azure AD) en kunnen worden gedeeld door abonnementen. Elke tenant kan maximaal 2000 aangepaste rollen hebben. Aangepaste rollen kunnen worden gemaakt met Azure PowerShell, Azure CLI of de REST-API.
+
+Dit artikel bevat een voorbeeld van hoe om te beginnen met het maken van aangepaste rollen met behulp van PowerShell en Azure CLI.
 
 ## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Een aangepaste beveiligingsrol om te openen met behulp van PowerShell ondersteuningsaanvragen maken
 

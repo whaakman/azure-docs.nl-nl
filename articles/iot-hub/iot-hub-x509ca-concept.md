@@ -1,24 +1,19 @@
 ---
 title: Concepten van Azure IoT Hub X.509 beveiliging | Microsoft Docs
 description: Concept - inzicht in de waarde X.509-certificaat certificaten in de productie van IoT-apparaat en verificatie.
-services: iot-hub
-documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 34d4be431b76d5ba8258d932cb21ed6f4818863e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f7a02f66a8d87f33d7bac9068628dbd29e5bd7c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635692"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Algemene kennis van x.509-CA-certificaten in de branche IoT
 

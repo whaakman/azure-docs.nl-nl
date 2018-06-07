@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 05/21/2018
 ms.author: sethm
-ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1795c1ec0b4129e3c99fff3fc893148e191ce83e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641489"
 ---
 # <a name="azure-relay-faqs"></a>Veelgestelde vragen over Azure Relay
 
-In dit artikel worden enkele veelgestelde vragen (FAQ's) over [Azure Relay](https://azure.microsoft.com/services/service-bus/). Raadpleeg voor algemene Azure-prijzen en -ondersteuning informatie, [Azure ondersteunen Veelgestelde vragen over](https://azure.microsoft.com/en-in/support/faq/).
+In dit artikel worden enkele veelgestelde vragen (FAQ's) over [Azure Relay](https://azure.microsoft.com/services/service-bus/). Raadpleeg voor algemene Azure-prijzen en -ondersteuning informatie, de [Azure ondersteunen Veelgestelde vragen over](https://azure.microsoft.com/support/faq/).
 
 ## <a name="general-questions"></a>Algemene vragen
 ### <a name="what-is-azure-relay"></a>Wat is Azure Relay?
@@ -35,7 +36,7 @@ Een [naamruimte](relay-create-namespace-portal.md) is een scoping container die 
 De eerder genoemde Service Bus Relay-service heet nu [WCF Relay](relay-wcf-dotnet-get-started.md). U kunt blijven gewoon gebruik van deze service. De functie hybride verbindingen is een bijgewerkte versie van een service die wordt is getransplanteerd van Azure BizTalk Services. WCF Relay en hybride verbindingen nog steeds worden ondersteund.
 
 ## <a name="pricing"></a>Prijzen
-Deze sectie worden enkele veelgestelde vragen over de prijzen structuur Relay. U kunt ook zien [Veelgestelde vragen over Azure-ondersteuning](http://go.microsoft.com/fwlink/?LinkID=185083) voor algemene Azure prijsinformatie. Zie voor meer informatie over prijzen voor Relay [Service Bus prijsinformatie][Pricing overview].
+Deze sectie worden enkele veelgestelde vragen over de prijzen structuur Relay. Ook ziet u de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/) voor algemene Azure prijsinformatie. Zie voor meer informatie over prijzen voor Relay [Service Bus prijsinformatie][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Hoe u kosten in rekening gebracht voor hybride verbindingen en WCF Relay?
 Zie voor meer informatie over prijzen voor Relay de [hybride verbindingen en WCF-Relays] [ Pricing overview] tabel op de Service Bus detailpagina met prijzen. Naast de prijzen genoteerd op die pagina, u in rekening worden gebracht voor de bijbehorende gegevensoverdracht voor uitgaande buiten het datacenter waarin de toepassing is ingericht.
@@ -81,8 +82,8 @@ Relays die worden geopend met behulp van de **netTCPRelay** WCF binding berichte
 | Gelijktijdige listeners op een relay |Entiteit |De volgende aanvragen voor aanvullende verbindingen worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |25 |
 | Gelijktijdige relay-verbindingen per alle relay-eindpunten in de naamruimte van een service |Naamruimte |- |5.000 |
 | Relay-eindpunten per Servicenaamruimte |Naamruimte |- |10.000 |
-| Berichtgrootte voor [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) en [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) doorstuurt |Naamruimte |Binnenkomende berichten die groter is dan deze quota worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |64 kB |
-| Berichtgrootte voor [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) en [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) doorstuurt |Naamruimte |Geen limiet voor de grootte van het bericht. |Onbeperkt |
+| Berichtgrootte voor [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) en [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) doorstuurt |Naamruimte |Binnenkomende berichten die groter is dan deze quota worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |64 kB |
+| Berichtgrootte voor [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) en [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) doorstuurt |Naamruimte |Geen limiet voor de grootte van het bericht. |Onbeperkt |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Heeft Relay quota voor gebruik?
 Microsoft stelt voor elke cloudservice wordt standaard een cumulatieve maandelijkse gebruiksgegevens van die is berekend voor alle abonnementen voor een klant. We begrijpen dat op tijdstippen uw behoeften, deze limieten overschrijdt mogelijk. U kunt contact opnemen met customer support op elk gewenst moment zodat we kunnen uw behoeften te begrijpen en pas deze limieten op de juiste wijze. Service bus zijn de quota voor cumulatieve gebruik als volgt uit:
@@ -108,7 +109,7 @@ Zie voor het gebruik van de Azure-portal één abonnement Azure Relay naamruimte
 
 U kunt PowerShell verplaatsen van een naamruimte van één Azure-abonnement naar een ander abonnement, gebruiken de volgende reeks opdrachten. Om deze bewerking niet uitvoeren, de naamruimte moet al actief zijn en de gebruiker die de PowerShell-opdrachten moet een beheerder op de bron- en doel-abonnementen.
 
-```powershell
+```azurepowershell-interactive
 # Create a new resource group in the target subscription.
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -136,4 +137,4 @@ Ja. De relay-client maakt verbinding met de Azure-Relay-service met behulp van d
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
-[Shared access signatures]: ../service-bus-messaging/service-bus-sas.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

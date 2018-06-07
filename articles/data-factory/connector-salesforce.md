@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: f4de97ef2df5351ac7e8574717ee1439b54a90e8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 99429b8090eca6d8633abfb1309f02168f1d06fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618307"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -302,25 +303,25 @@ Als u gegevens van Salesforce kopieert, worden de volgende toewijzingen van Sale
 
 | SalesForce-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Automatische getal |Tekenreeks |
+| Automatische getal |Reeks |
 | Selectievakje |Boole-waarde |
-| Valuta |Double |
+| Valuta |dubbele |
 | Date |DateTime |
 | Datum/tijd |DateTime |
-| Email |Tekenreeks |
-| Id |Tekenreeks |
-| Opzoekrelatie |Tekenreeks |
-| Meervoudige selectie selectielijst |Tekenreeks |
-| Aantal |Double |
-| Procent |Double |
-| Telefoon |Tekenreeks |
-| Selectielijst |Tekenreeks |
-| Tekst |Tekenreeks |
-| Tekstgebied |Tekenreeks |
-| Tekstgebied (lang) |Tekenreeks |
-| Tekstgebied (uitgebreid) |Tekenreeks |
-| Tekst (versleuteld) |Tekenreeks |
-| URL |Tekenreeks |
+| Email |Reeks |
+| Id |Reeks |
+| Opzoekrelatie |Reeks |
+| Meervoudige selectie selectielijst |Reeks |
+| Aantal |dubbele |
+| Procent |dubbele |
+| Telefoon |Reeks |
+| Selectielijst |Reeks |
+| Tekst |Reeks |
+| Tekstgebied |Reeks |
+| Tekstgebied (lang) |Reeks |
+| Tekstgebied (uitgebreid) |Reeks |
+| Tekst (versleuteld) |Reeks |
+| URL |Reeks |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst van gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Gegevensfactory [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

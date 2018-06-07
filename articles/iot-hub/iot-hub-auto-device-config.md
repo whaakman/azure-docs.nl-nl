@@ -1,22 +1,19 @@
 ---
 title: Configureren en controleren van de IoT-apparaten op schaal met Azure IoT Hub | Microsoft Docs
 description: Azure IoT Hub automatische inrichting configuraties gebruiken voor het toewijzen van een configuratie aan meerdere apparaten
-services: iot-hub
-documentationcenter: ''
 author: ChrisGMsft
-manager: timlt
-editor: ''
+manager: bruz
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: 7146fba69857c3a612ce1b3dbb83387c1f3068d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fe5ce960663f39d4f2c87a7bbffa091d327e9559
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632445"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>Configureren en bewaken van IoT-apparaten op schaal - voorbeeld
 
@@ -31,6 +28,9 @@ Automatische inrichting configuraties werk door een reeks apparaat horende bijwe
 * De **inhoud** bepaalt de gewenste eigenschappen moeten worden toegevoegd of bijgewerkt in het betreffende apparaat horende. De inhoud bevat een pad naar het gedeelte van de gewenste eigenschappen die moeten worden gewijzigd.
 
 * De **metrische gegevens** definiëren van de samenvatting tellingen van verschillende configuratiestatussen zoals **geslaagd**, **In uitvoering**, en **fout**. Aangepaste metrische gegevens zijn opgegeven als de query's op apparaat twin eigenschappen gerapporteerd.  Systeem metrische gegevens zijn standaard metrische gegevens die het meten van de updatestatus twin, zoals het aantal horende apparaten die zijn gericht en het aantal horende die zijn bijgewerkt. 
+
+> [!Note]
+> Tijdens de preview, zijn deze functie is niet beschikbaar voor IoT Hubs in regio's VS-Oost, VS-West, Noord-Europa en West-Europa.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementeer apparaat horende apparaten configureren
 
@@ -52,7 +52,7 @@ Voordat u een configuratie maken kunt, moet u opgeven welke apparaten die u wilt
 ## <a name="create-a-configuration"></a>Een configuratie maken
 
 1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
-1. Selecteer **apparaatconfiguratie (preview)**.
+1. Selecteer **configuratie van de IoT-apparaat (preview)**.
 1. Selecteer **configuratie toevoegen**.
 
 Er zijn vijf stappen voor het maken van een configuratie. De volgende secties helpt bij elkaar. 
@@ -86,7 +86,7 @@ Metrische gegevens bieden een samenvatting van de aantallen voor de verschillend
 
 Bijvoorbeeld: `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-U kunt een component dat de configuratie is toegepast, bijvoorbeeld opnemen: `SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`
+U kunt een component dat de configuratie is toegepast, bijvoorbeeld opnemen: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'` met inbegrip van de dubbele vierkante haken.
 
 
 ### <a name="step-4-target-devices"></a>Stap 4: Doelapparaten
@@ -108,7 +108,7 @@ Controleer uw configuratie-informatie en selecteer vervolgens **indienen**.
 Bekijk de details van een configuratie en controleren van de apparaten waarop deze wordt uitgevoerd, gebruik de volgende stappen:
 
 1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
-1. Selecteer **apparaatconfiguratie (preview)**.
+1. Selecteer **configuratie van de IoT-apparaat (preview)**.
 1. Inspecteer de configuratielijst. U kunt de volgende gegevens bekijken voor elke configuratie:
    * **ID** -de naam van de configuratie.
    * **Doel voorwaarde** -de query gebruikt voor het definiëren van de betreffende apparaten.
@@ -136,7 +136,7 @@ Als u de doelvoorwaarden bijwerkt, gebeuren de volgende updates:
 Gebruik de volgende stappen voor het wijzigen van een configuratie: 
 
 1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
-1. Selecteer **apparaatconfiguratie (preview)**. 
+1. Selecteer **configuratie van de IoT-apparaat (preview)**. 
 1. Selecteer de configuratie die u wilt wijzigen. 
 1. Updates aanbrengen in de volgende velden: 
    * Doelvoorwaarden 
@@ -151,7 +151,7 @@ Gebruik de volgende stappen voor het wijzigen van een configuratie:
 Wanneer u een configuratie verwijdert, nemen alle horende apparaten op hun volgende hoogste prioriteit-configuratie. Als horende apparaten niet voldoen aan de voorwaarde van het doel van een andere configuratie, wordt er geen andere instellingen toegepast. 
 
 1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
-1. Selecteer **apparaatconfiguratie (preview)**. 
+1. Selecteer **configuratie van de IoT-apparaat (preview)**. 
 1. Gebruik het selectievakje in om de configuratie die u wilt verwijderen. 
 1. Selecteer **Verwijderen**.
 1. Een prompt wordt u gevraagd te bevestigen.

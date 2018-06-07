@@ -9,16 +9,17 @@ editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/18/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: HT
+ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643206"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -28,14 +29,21 @@ ms.lasthandoff: 05/04/2018
 Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. Dit artikel helpt u bij het maken van een Docker-installatiekopie met een Python [Flask](http://flask.pocoo.org/)-webtoepassing en het implementeren ervan in een Service Fabric-cluster. U gaat uw containertoepassing ook delen via [Azure Container Registry](/azure/container-registry/). In dit artikel wordt ervan uitgegaan dat u de basisbeginselen kent van Docker. Meer informatie over Docker kunt u lezen in het [Docker-overzicht](https://docs.docker.com/engine/understanding-docker/).
 
 ## <a name="prerequisites"></a>Vereisten
-Een ontwikkelcomputer waarop wordt uitgevoerd:
-* Visual Studio 2015 of Visual Studio 2017.
-* [Service Fabric SDK en hulpprogramma's](service-fabric-get-started.md).
-*  Docker voor Windows. [Download Docker CE voor Windows (stabiel)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Nadat u Docker hebt geïnstalleerd en gestart, klikt u met de rechtermuisknop op het systeemvakpictogram en selecteert u **Overschakelen naar Windows-containers**. Deze stap is vereist voor het uitvoeren van Docker-installatiekopieën onder Windows.
+* Een ontwikkelcomputer waarop wordt uitgevoerd:
+  * Visual Studio 2015 of Visual Studio 2017.
+  * [Service Fabric SDK en hulpprogramma's](service-fabric-get-started.md).
+  *  Docker voor Windows. [Download Docker CE voor Windows (stabiel)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Nadat u Docker hebt geïnstalleerd en gestart, klikt u met de rechtermuisknop op het systeemvakpictogram en selecteert u **Overschakelen naar Windows-containers**. Deze stap is vereist voor het uitvoeren van Docker-installatiekopieën onder Windows.
 
-Een Windows-cluster met drie of meer knooppunten die worden uitgevoerd op Windows Server 2016 met containers - [Een cluster maken](service-fabric-cluster-creation-via-portal.md) of [Service Fabric gratis uitproberen](https://aka.ms/tryservicefabric).
+* Een Windows-cluster met drie of meer knooppunten die worden uitgevoerd op Windows Server met Containers. 
 
-Een register in Azure Container Registry - [Een containerregister maken](../container-registry/container-registry-get-started-portal.md) in uw Azure-abonnement.
+  Dit artikel, de versie (build) van Windows Server met de Containers die worden uitgevoerd op de clusterknooppunten moet overeenkomen met die op uw ontwikkelcomputer. Dit is omdat u de docker-installatiekopie op uw ontwikkelcomputer bouwen en er beperkingen voor compatibiliteit tussen versies van de container OS en het hostbesturingssysteem waarop het wordt geïmplementeerd. Zie voor meer informatie [Windows Server-container OS en host besturingssysteemcompatibiliteit](#windows-server-container-os-and-host-os-compatibility). 
+  
+  Om te bepalen van de versie van Windows Server met de Containers die u nodig hebt voor uw cluster, voert de `ver` opdracht vanaf een opdrachtprompt van Windows op uw ontwikkelcomputer:
+
+  * Als de versie bevat *x.x.14323.x*, klikt u vervolgens [maken van een cluster](service-fabric-cluster-creation-via-portal.md) afzonderlijk selecteren *Windows Server 2016 Datacenter met Containers* voor het besturingssysteem of [Service Fabric gratis proberen](https://aka.ms/tryservicefabric) met een cluster van derden.
+  * Als de versie bevat *x.x.16299.x*, klikt u vervolgens [maken van een cluster](service-fabric-cluster-creation-via-portal.md) afzonderlijk selecteren *WindowsServerSemiAnnual Datacenter-Core-1709-met-Containers* voor de Besturingssysteem. U kunt een cluster partij niet gebruiken.
+
+* Een register in Azure Container Registry - [Een containerregister maken](../container-registry/container-registry-get-started-portal.md) in uw Azure-abonnement.
 
 > [!NOTE]
 > Containers implementeren in een Service Fabric-cluster in Windows 10 of in een cluster dat Docker CE niet ondersteunt. Met behulp van deze stapsgewijze handleiding test u lokaal de Docker-engine in Windows 10 en implementeert u de containerservices in een Windows Server-cluster in Azure met Docker EE. 
@@ -199,6 +207,8 @@ De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoi
 
 Als u een eindpunt opgeeft, publiceert Service Fabric het eindpunt naar de Naming-service. Andere services die in dit cluster worden uitgevoerd, kunnen deze container dan omzetten. U kunt ook communicatie van container naar container laten plaatsvinden met behulp van een [omgekeerde proxy](service-fabric-reverseproxy.md). Communicatie wordt uitgevoerd door de omgekeerde proxy de HTTP-poort voor luisteren en de naam van de services waarmee u wilt communiceren door te geven als omgevingsvariabelen.
 
+De service luistert op een specifieke poort (8081 in dit voorbeeld). Wanneer de toepassing in een cluster in Azure wordt geïmplementeerd, worden zowel het cluster als de toepassing achter een load balancer van Azure uitgevoerd. De poort van de toepassing moet open zijn in de load balancer van Azure zodat binnenkomend verkeer de service kan bereiken.  U kunt deze poort openen in de load balancer van Azure met een [PowerShell-script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) of in [Azure Portal](https://portal.azure.com).
+
 ## <a name="configure-and-set-environment-variables"></a>Omgevingsvariabelen configureren en instellen
 Er kunnen omgevingsvariabelen worden opgegeven voor ieder codepakket in het servicemanifest. Deze functie is beschikbaar voor alle services, ongeacht of ze zijn geïmplementeerd als containers, processen of uitvoerbare gastbestanden. U kunt waarden van omgevingsvariabelen overschrijven in het toepassingsmanifest of ze opgeven als toepassingsparameters tijdens de implementatie.
 
@@ -313,7 +323,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>Isolatiemodus configureren
-Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de procesisolatiemodus delen alle containers die worden uitgevoerd op dezelfde hostcomputer de kernel met de host. Met de Hyper-V-isolatiemodus hebben de kernels een scheiding tussen elke Hyper-V-container en de containerhost. De isolatiemodus is in het manifestbestand van de toepassing opgegeven in het element `ContainerHostPolicies`. De isolatiemodi die kunnen worden opgegeven zijn `process`, `hyperv` en `default`. De standaardmodus voor isolatie wordt standaard ingesteld op `process` op Windows Server-hosts en op `hyperv` op hosts met Windows 10. Het volgende codefragment toont hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
+Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de procesisolatiemodus delen alle containers die worden uitgevoerd op dezelfde hostcomputer de kernel met de host. Met de Hyper-V-isolatiemodus hebben de kernels een scheiding tussen elke Hyper-V-container en de containerhost. De isolatiemodus is in het manifestbestand van de toepassing opgegeven in het element `ContainerHostPolicies`. De isolatiemodi die kunnen worden opgegeven zijn `process`, `hyperv` en `default`. De standaardwaarde is isolatiemodus op Windows Server-hosts. Alleen Hyper-V-isolatiemodus wordt op Windows 10-hosts ondersteund, zodat de container wordt uitgevoerd in de isolatiemodus Hyper-V ongeacht de instelling van de isolatie-modus. Het volgende codefragment toont hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -384,19 +394,44 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
+## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server-container OS en host compatibiliteit met besturingssystemen
+
+Windows Server-containers zijn niet compatibel in alle versies van een gastbesturingssysteem. Bijvoorbeeld:
+ 
+- Windows Server-containers die zijn gebouwd met behulp van Windows Server versie 1709 werken niet op een host waarop Windows Server 2016-versie. 
+- Windows Server-containers die zijn gebouwd met behulp van Windows Server 2016 werken in de isolatiemodus Hyper-v alleen op een host waarop Windows Server versie 1709. 
+- Met Windows Server-containers die zijn gebouwd met behulp van Windows Server 2016, kan het nodig zijn om ervoor te zorgen dat de revisie van de container besturingssysteem en gastbesturingssysteem hetzelfde zijn als in de isolatiemodus uitgevoerd op een host waarop Windows Server 2016.
+ 
+Zie voor meer informatie, [Windows Container versiecompatibiliteit](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+
+Houd rekening met de compatibiliteit van het hostbesturingssysteem en de container OS bij het maken en implementeren van containers naar Service Fabric-cluster. Bijvoorbeeld:
+
+- Zorg ervoor dat u containers met een besturingssysteem dat compatibel is met het besturingssysteem implementeren op de clusterknooppunten.
+- Zorg ervoor dat de modus gebruikersisolatie is opgegeven voor uw app container is consistent met de ondersteuning voor de OS-container op het knooppunt waar deze wordt geïmplementeerd.
+- Houd rekening met hoe upgrades naar uw clusterknooppunten of containers voor het besturingssysteem kunnen invloed hebben op hun compatibiliteit. 
+
+U wordt aangeraden de volgende procedures om ervoor te zorgen dat containers correct zijn geïmplementeerd op uw Service Fabric-cluster:
+
+- Gebruik de installatiekopie van de expliciete tagging met uw Docker-installatiekopieën om op te geven van de versie van Windows Server-besturingssysteem die een container wordt samengesteld uit. 
+- Gebruik [OS tagging](#specify-os-build-specific-container-images) in het manifestbestand van uw toepassing om ervoor te zorgen dat uw toepassing compatibel, tussen verschillende versies van Windows Server en -upgrades is.
+
+> [!NOTE]
+> Met Service Fabric versie 6.2 en later, kunt u containers op basis van Windows Server 2016 lokaal op een host met Windows 10 implementeren. Voer in de isolatiemodus van Hyper-V, ongeacht de isolatiemodus ingesteld in het toepassingsmanifest containers op Windows 10. Zie voor meer informatie, [configureren isolatiemodus](#configure-isolation-mode).   
+>
+ 
 ## <a name="specify-os-build-specific-container-images"></a>Containerinstallatiekopieën opgeven die specifiek zijn voor de build van het besturingssysteem 
 
-Windows Server-containers (procesisolatiemodus) zijn mogelijk niet compatibel met nieuwere versies van het besturingssysteem. Windows Server-containers die zijn gebouwd met Windows Server 2016, zijn bijvoorbeeld niet geschikt voor Windows Server versie 1709. Als de clusterknooppunten worden bijgewerkt naar de nieuwste versie, werken containerservices die in eerdere versies van het besturingssysteem zijn gebouwd, daarom mogelijk niet meer correct. Om dit met versie 6.1 en later van de runtime te omzeilen, ondersteunt Service Fabric het opgeven van meerdere besturingssysteemkopieën per container en het taggen hiervan met de build-versie van het besturingssysteem (verkregen door `winver` uit te voeren in de Windows-opdrachtprompt). Werk eerst per besturingssysteemversie de toepassingsmanifesten bij en geef het gebruik van specifieke installatiekopieën op, en werk daarna het besturingssysteem op de knooppunten bij. Het volgende fragment toont hoe u meerdere containerinstallatiekopieën opgeeft in het toepassingsmanifest **ApplicationManifest.xml**:
+Windows Server-containers zijn mogelijk niet in verschillende versies van het besturingssysteem compatibel is. Windows Server-containers die zijn gebouwd met behulp van Windows Server 2016 werkt bijvoorbeeld niet op Windows Server versie 1709 in de isolatiemodus. Daarom als clusterknooppunten zijn bijgewerkt naar de nieuwste versie, mislukken containerservices gebouwd met behulp van de eerdere versies van het besturingssysteem. Om dit te omzeilen met versie 6.1 van de runtime en nieuwer, ondersteunt Service Fabric meerdere installatiekopieën van het besturingssysteem per container opgeven en deze met de build-versies van het besturingssysteem in het toepassingsmanifest labels. U krijgt de build-versie van het besturingssysteem door te voeren `winver` achter de opdrachtprompt van Windows. Werk eerst per besturingssysteemversie de toepassingsmanifesten bij en geef het gebruik van specifieke installatiekopieën op, en werk daarna het besturingssysteem op de knooppunten bij. Het volgende fragment toont hoe u meerdere containerinstallatiekopieën opgeeft in het toepassingsmanifest **ApplicationManifest.xml**:
 
 
 ```xml
-<ContainerHostPolicies> 
+      <ContainerHostPolicies> 
          <ImageOverrides> 
            <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
-     </ContainerHostPolicies> 
+      </ContainerHostPolicies> 
 ```
 De build-versie voor Windows Server 2016 is 14393, voor Windows Server versie 1709 is dat 16299. Het servicemanifest blijft slechts één installatiekopie per containerservice opgeven, zoals u hier ziet:
 

@@ -1,25 +1,21 @@
 ---
 title: Azure IoT device management met IoT-extensie voor Azure CLI 2.0 | Microsoft Docs
 description: Gebruik de IoT-extensie voor Azure CLI 2.0-hulpprogramma voor Azure IoT Hub Apparaatbeheer, met daarin de rechtstreekse methoden en de Twin eigenschappen van de gewenste opties.
-services: iot-hub
-documentationcenter: ''
 author: chrissie926
-manager: timlt
-tags: ''
+manager: ''
 keywords: Azure iot-Apparaatbeheer, Apparaatbeheer via azure iot hub, apparaat management iot, Apparaatbeheer via iot hub
-ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 27a8dca68000e3f4b7f33508fc6dbc3450fc80b4
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: dc96e70a031d6080217e71b829ec5de3c64e4cf7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632812"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>De IoT-uitbreiding voor Azure CLI 2.0 wordt gebruikt voor het beheer van Azure IoT Hub-apparaten
 

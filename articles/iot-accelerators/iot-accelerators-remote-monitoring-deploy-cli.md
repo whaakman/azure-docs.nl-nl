@@ -1,30 +1,27 @@
 ---
-title: Implementeren van de externe bewakingsoplossing - Azure Java | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u voor het inrichten van de externe controle oplossingsverbetering met behulp van de CLI.
-services: iot-suite
-suite: iot-suite
+title: De oplossing externe bewaking van Java - Azure implementeren | Microsoft Docs
+description: Deze zelfstudie laat zien hoe de oplossing voor externe controle accelerator met behulp van de CLI inrichten.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628120"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>De externe controle oplossingsverbetering met behulp van de CLI implementeren
+# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>De oplossing voor externe controle accelerator met behulp van de CLI implementeren
 
-Deze zelfstudie laat zien hoe de oplossingsverbetering voor externe controle inrichten. U implementeert de oplossing met behulp van de CLI. U kunt ook de oplossing met behulp van de gebruikersinterface voor het web gebaseerde op azureiotsuite.com, voor meer informatie over deze optie Zie implementeren [implementeren van de externe controle oplossingsverbetering](iot-accelerators-remote-monitoring-deploy.md).
+Deze zelfstudie laat zien hoe de oplossingsverbetering externe controle inrichten. U implementeert de oplossing met behulp van de CLI. U kunt ook de oplossing met behulp van de gebruikersinterface voor het web gebaseerde op azureiotsuite.com, voor meer informatie over deze optie Zie implementeren [implementeren Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het implementeren van de externe controle oplossingsverbetering, moet u een actief Azure-abonnement.
+Als u wilt de oplossingsverbetering externe controle implementeert, moet u een actief Azure-abonnement.
 
 Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
@@ -57,7 +54,7 @@ Wanneer u de oplossingsverbetering implementeert, zijn er verschillende opties d
 | SKU    | `basic`, `standard`, `local` | Een _basic_ implementatie is bedoeld voor test- en demonstraties, deze alle microservices op één virtuele machine implementeert. Een _standaard_ implementatie is bedoeld voor productie, deze de microservices op meerdere virtuele machines implementeert. Een _lokale_ implementatie configureert u een Docker-container voor het uitvoeren van de microservices op uw lokale computer en maakt gebruik van Azure-services, zoals opslag en Cosmos-database in de cloud. |
 | Runtime | `dotnet`, `java` | Hiermee selecteert u de implementatie van de taal van de microservices. |
 
-Zie voor meer informatie over het gebruik van de lokale implementatie, [die lokaal wordt uitgevoerd met de oplossing voor externe controle](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+Zie voor meer informatie over het gebruik van de lokale implementatie, [lokaal uitgevoerd van de oplossing voor externe controle](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="basic-vs-standard-deployments"></a>Basic vs. Standaard-implementaties
 
@@ -96,7 +93,7 @@ Maken van een standaardoplossing leidt ertoe dat de volgende Azure-services in u
 
 ### <a name="example-deploy-net-version"></a>Voorbeeld: .NET versie implementeren
 
-Het volgende voorbeeld ziet u hoe de basic, .NET-versie van de externe controle oplossingsverbetering implementeren:
+Het volgende voorbeeld ziet u hoe de basis, .NET-versie van de oplossing voor externe controle accelerator implementeren:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -104,7 +101,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>Voorbeeld: implementatie van Java-versie
 
-Het volgende voorbeeld ziet u hoe de standaard, Java-versie van de externe controle oplossingsverbetering implementeren:
+Het volgende voorbeeld ziet u hoe de standaard, Java-versie van de oplossing voor externe controle accelerator implementeren:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java

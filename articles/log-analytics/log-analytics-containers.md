@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638344"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container bewaking oplossing in Log Analytics
 
@@ -90,7 +91,7 @@ De volgende tabel licht de Docker-orchestration en het besturingssysteem onderst
 - Docker 17.03.0 en hoger
 
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
-Gebruik de volgende informatie om te installeren en configureren van de oplossing.
+Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
 1. De oplossing Container bewaking toevoegen aan uw werkruimte voor logboekanalyse van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
 
@@ -528,7 +529,7 @@ U kunt controleren of de bewaking van de Container-oplossing goed is ingesteld v
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 
-Als u van Windows-agents gebruikmaakt, klikt u vervolgens de volgende management pack is geïnstalleerd op elke computer met een agent wanneer u deze oplossing toevoegt. Er is geen configuratie of het onderhoud is vereist voor het management pack.
+Vanuit de OMS-portal gaat u naar de *galerie met oplossingen* en voeg de **Container bewaking oplossing**. Als u van Windows-agents gebruikmaakt, klikt u vervolgens de volgende management pack is geïnstalleerd op elke computer met een agent wanneer u deze oplossing toevoegt. Er is geen configuratie of het onderhoud is vereist voor het management pack.
 
 - *ContainerManagement.xxx* in C:\Program Files\Microsoft Monitoring Agent\Agent\Health State\Management servicepacks zijn geïnstalleerd
 
@@ -563,6 +564,7 @@ Labels toegevoegd aan *PodLabel* gegevenstypen zijn uw eigen aangepaste etikette
 
 ## <a name="monitor-containers"></a>Containers bewaken
 Nadat u de ingeschakeld in de portal Log Analytics-oplossing hebt de **Containers** tegel samenvattingsinformatie over de container-hosts en de containers die wordt uitgevoerd op hosts.
+
 
 ![Containers tegel](./media/log-analytics-containers/containers-title.png)
 

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5731e4249c94e77846f07870e4bba28aab70682e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619521"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Verplaatsen van gegevens vanaf Amazon Redshift, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -333,15 +334,15 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | SMALLINT |Int16 |
 | GEHEEL GETAL |Int32 |
 | BIGINT |Int64 |
-| DECIMAL |Decimale |
-| ECHTE |Single |
-| DUBBELE PRECISIE |Double |
-| BOOLEAANSE WAARDE |Tekenreeks |
-| CHAR |Tekenreeks |
-| VARCHAR |Tekenreeks |
+| DECIMALE |Decimale |
+| ECHTE |Enkelvoudig |
+| DUBBELE PRECISIE |dubbele |
+| BOOLEAANSE WAARDE |Reeks |
+| CHAR |Reeks |
+| VARCHAR |Reeks |
 | DATE |DateTime |
 | TIJDSTEMPEL |DateTime |
-| TEXT |Tekenreeks |
+| TEKST |Reeks |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen
 Zie voor informatie over het toewijzen van kolommen in de bron-gegevensset aan kolommen in de gegevensset sink, [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

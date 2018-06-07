@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 110297fd60b4a25f959b451f2952f32d66cb8c3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5f47379072f4e5d15ffd96c5e45a23d10fff187
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620245"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - logbestand voor .NET API
 > [!NOTE]
@@ -44,7 +45,7 @@ Functie toevoegingen:
 * De volgende optionele eigenschappen zijn toegevoegd aan TextFormat:
   * [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
   * [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
-  * [TreatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
+  * [treatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
 * De volgende typen van de gekoppelde service zijn toegevoegd:
   * [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
   * [SalesforceLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.salesforcelinkedservice.aspx)
@@ -80,7 +81,7 @@ Functie toevoegingen:
   * Maakt het gebruik van PolyBase om gegevens te kopiëren in SQL Data Warehouse.
 
 ## <a name="version-461"></a>Versie 4.6.1
-### <a name="bug-fixes"></a>Oplossen van fouten
+### <a name="bug-fixes"></a>Oplossingen voor problemen
 * HTTP-aanvraag voor het aanbieden van activiteit windows corrigeert.
   * Naam van de resourcegroep en de naam van de factory verwijdert uit de nettolading van de aanvraag.
 
@@ -137,7 +138,7 @@ Functie toevoegingen:
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>Versie 4.0.1
-### <a name="breaking-changes"></a>Wijzigingen op te splitsen
+### <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
 De volgende klassen hebben gekregen. De namen van de nieuwe zijn de namen van de oorspronkelijke van klassen voordat 4.0.0 loslaat.
 
 | Naam in 4.0.0 | Naam in 4.0.1 |
@@ -150,7 +151,7 @@ De volgende klassen hebben gekregen. De namen van de nieuwe zijn de namen van de
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>Versie 4.0.0
-### <a name="breaking-changes"></a>Wijzigingen op te splitsen
+### <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
 * De volgende klassen/interfaces zijn gewijzigd.
 
 | Oude naam | Nieuwe naam |

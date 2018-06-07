@@ -10,11 +10,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9f0cc6ee06042948442aace05d56fcffa3742a8d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b4fed559b6364149170dc8b1da421c9c3ee1203c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635760"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Sleutelkluis toevoegen aan uw webtoepassing met behulp van Visual Studio verbonden Services
 
@@ -25,7 +26,7 @@ Zie voor meer informatie over de wijzigingen die zijn verbonden Services maakt i
 ## <a name="prerequisites"></a>Vereisten
 
 - **Een Azure-abonnement**. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 versie 15,7** met de **webontwikkeling** werkbelasting geïnstalleerd. [Nu downloaden](https://aka.ms/vsdownload).
+- **Visual Studio 2017 versie 15,7** met de **webontwikkeling** werkbelasting geïnstalleerd. [Nu downloaden](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - Voor ASP.NET-(geen Core) moet u .NET Framework 4.7.1 ontwikkelingsprogramma's, die niet standaard worden geïnstalleerd. Als u wilt installeren, start u de Visual Studio Installer, kiest u **wijzigen**, en kies vervolgens **afzonderlijke onderdelen**, vouw vervolgens aan de rechterkant **ASP.NET en web ontwikkeling**, en kies **.NET Framework 4.7.1 ontwikkelingsprogramma's**.
 - Een ASP.NET 4.7.1 of ASP.NET Core 2.0-webproject openen.
 

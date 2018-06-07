@@ -35,9 +35,9 @@
       href: azure-stack-rest-api-use.md
     - name: Beveiliging en naleving
       items:
-        - name: RBAC beheren
+        - name: Op rollen gebaseerd toegangsbeheer gebruiken
           href: azure-stack-manage-permissions.md
-        - name: Service-principals maken
+        - name: Service-principals gebruiken
           href: Azure-stack-create-service-principals.md
     - name: Services gebruiken
       items:
@@ -107,7 +107,7 @@
           items:
             - name: PowerShell voor Azure Stack installeren
               href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: Hulpprogramma's downloaden
+            - name: Azure-Stack-hulpprogramma's downloaden
               href: azure-stack-powershell-download.md
             - name: PowerShell instellen voor gebruiker
               href: azure-stack-powershell-configure-user.md
@@ -128,13 +128,13 @@
                   href: azure-stack-version-profiles-python.md
                 - name: Resourceprovider API's die worden ondersteund door profielen
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Beleidsmodule gebruiken
+        - name: Gebruik de Azure-Stack-beleidsmodule
           href: azure-stack-policy-module.md
         - name: Sjablonen gebruiken
           items:
             - name: Overzicht van sjablonen
               href: azure-stack-arm-templates.md
-            - name: Sjablonen ontwikkelen
+            - name: Overwegingen voor sjabloon
               href: azure-stack-develop-templates.md
             - name: Sjablonen controleren
               href: azure-stack-validate-templates.md

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 151e84ffdcdc7c528c1708322c172901aed9a44e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e766cc989c3421b634c9fab1463077f18d4a25c4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617780"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Gegevens kopiëren van de Marketo met behulp van Azure Data Factory (bèta)
 
@@ -48,7 +49,7 @@ De volgende eigenschappen worden ondersteund voor Marketo gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Marketo** | Ja |
-| endpoint | Het eindpunt van de Marketo-server. (i.e. 123-ABC-321.mktorest.com)  | Ja |
+| endpoint | Het eindpunt van de Marketo-server. (dat wil zeggen 123-ABC-321.mktorest.com)  | Ja |
 | clientId | De client-Id van uw Marketo-service.  | Ja |
 | clientSecret | Het clientgeheim van uw Marketo-service. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Geeft aan of de eindpunten van de gegevensbron zijn versleuteld via HTTPS. De standaardwaarde is true.  | Nee |

@@ -10,17 +10,18 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643427"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>U maakt, werkt de statistieken voor tabellen in Azure SQL Data Warehouse
 Aanbevelingen en voorbeelden voor het maken en bijwerken van statistieken op tabellen in Azure SQL Data Warehouse-queryoptimalisatie.
 
 ## <a name="why-use-statistics"></a>Waarom statistieken gebruiken?
-Hoe meer Azure SQL Data Warehouse weet over uw gegevens, hoe sneller een query uitgevoerd op deze kan worden uitgevoerd. Verzamelen van gegevens over uw gegevens en klik vervolgens in SQL Data Warehouse te laden is een van de belangrijkste dingen die u doen kunt om uw query's optimaliseren. Dit komt omdat SQL Data Warehouse queryoptimalisatie optimalisatie kosten op basis van een. Het vergelijkt de kosten van verschillende queryplannen en kiest vervolgens het plan met de laagste kosten die in de meeste gevallen het plan dat de snelste uitvoert. Bijvoorbeeld, als het optimalisatieprogramma maakt een schatting van de datum die u hebt gefilterd in uw query retourneert één rij, kunt het een ander schema dan als u deze maakt een schatting van die de geselecteerde datum worden 1 miljoen rijen geretourneerd.
+Hoe meer Azure SQL Data Warehouse weet over uw gegevens, hoe sneller een query uitgevoerd op deze kan worden uitgevoerd. Verzamelen van gegevens over uw gegevens en klik vervolgens in SQL Data Warehouse te laden is een van de belangrijkste dingen die u doen kunt om uw query's optimaliseren. Dit komt omdat SQL Data Warehouse queryoptimalisatie optimalisatie kosten op basis van een. Het vergelijkt de kosten van verschillende queryplannen en kiest vervolgens het plan met de laagste kosten, dat in de meeste gevallen het plan is dat het snelst wordt uitgevoerd. Bijvoorbeeld, als het optimalisatieprogramma maakt een schatting van de datum die u hebt gefilterd in uw query retourneert één rij, kunt het een ander schema dan als u deze maakt een schatting van die de geselecteerde datum worden 1 miljoen rijen geretourneerd.
 
 ## <a name="automatic-creation-of-statistics"></a>Automatische aanmaak van statistieken
 Wanneer de automatische maakt statistieken optie is ingeschakeld, AUTO_CREATE_STATISTICS, SQL Data Warehouse analyseert binnenkomende gebruikersquery waarin statistieken voor één kolom worden gemaakt voor kolommen die statistieken ontbreken. De queryoptimizer maakt statistieken op afzonderlijke kolommen in de query predikaat of join-voorwaarde voor het verbeteren van kardinaliteit schattingen voor het queryplan. Automatische aanmaak van statistieken is momenteel standaard ingeschakeld.
@@ -49,11 +50,14 @@ Automatische aanmaak van statistieken wordt synchroon gegenereerd zodat u een li
 > Het maken van statistieken wordt ook vastgelegd in [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) in de context van een andere gebruiker.
 > 
 
-Wanneer automatische statistieken worden gemaakt, nemen ze de vorm: _WA_Sys_< 8 cijfers kolom-id in Hex > _ < 8 cijfers tabel-id in Hex >. U kunt bekijken statistieken die al zijn gemaakt met de volgende opdracht:
+Wanneer automatische statistieken worden gemaakt, nemen ze de vorm: _WA_Sys_< 8 cijfers kolom-id in Hex > _ < 8 cijfers tabel-id in Hex >. U kunt weergeven statistieken die al zijn gemaakt door het uitvoeren van de [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) opdracht:
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 ```
+Het eerste argument is een tabel die bevat de statistische gegevens om weer te geven. Dit kan een externe tabel niet. Het tweede argument is de naam van de doelindex, statistieken of kolom waarvoor om statistische gegevens weer te geven.
+
+
 
 ## <a name="updating-statistics"></a>Bijwerken van statistieken
 

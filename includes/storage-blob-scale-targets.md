@@ -1,6 +1,6 @@
 | Resource | Doel |
 |----------|---------------|
-| Maximale grootte van één blob-container | 500 TiB |
+| Maximale grootte van één blob-container | Hetzelfde als de maximale opslagcapaciteit voor account |
 | Maximaal aantal blokken in een blok-blob of toevoeg-blob | 50.000 blokken |
 | Maximale grootte van een blok in een blok-blob | 100 MiB |
 | Maximale grootte van een blok-blob | 50.000 x 100 MiB (ongeveer 4.75 TiB) |

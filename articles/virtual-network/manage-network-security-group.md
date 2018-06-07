@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658669"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -65,7 +66,7 @@ Voer in het zoekvak boven aan de portal *netwerkbeveiligingsgroepen*. Wanneer **
 ### <a name="view-details-of-a-network-security-group"></a>Details weergeven van een netwerkbeveiligingsgroep
 
 1. Voer in het zoekvak boven aan de portal *netwerkbeveiligingsgroepen*. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
-2. Selecteer de netwerkbeveiligingsgroep in de lijst die u wilt bekijken voor. Onder **instellingen** vindt u de **inkomende beveiligingsregels** en **uitgaande beveiligingsregels**, wordt de **netwerkinterfaces** en  **Subnetten** de netwerkbeveiligingsgroep is gekoppeld. U kunt ook in- of uitschakelen **diagnostische logboeken** en bekijk **effectieve beveiligingsregels**. Zie voor meer informatie, [diagnostische logboeken](virtual-network-nsg-manage-log.md) en [effectieve beveiligingsregels weergeven](virtual-network-nsg-troubleshoot-portal.md).
+2. Selecteer de netwerkbeveiligingsgroep in de lijst die u wilt bekijken voor. Onder **instellingen** vindt u de **inkomende beveiligingsregels** en **uitgaande beveiligingsregels**, wordt de **netwerkinterfaces** en  **Subnetten** de netwerkbeveiligingsgroep is gekoppeld. U kunt ook in- of uitschakelen **diagnostische logboeken** en bekijk **effectieve beveiligingsregels**. Zie voor meer informatie, [diagnostische logboeken](virtual-network-nsg-manage-log.md) en [effectieve beveiligingsregels weergeven](diagnose-network-traffic-filter-problem.md).
 3. Zie voor meer informatie over de algemene instellingen voor Azure vermeld, de volgende artikelen:
     *   [Activiteitenlogboek](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
@@ -152,7 +153,7 @@ De lijst bevat alle regels die u hebt gemaakt en de netwerkbeveiligingsgroep [be
 - Azure CLI: [az netwerk nsg Regellijst](/cli/azure/network/nsg/rule#az-network-nsg-rule-list)
 - PowerShell: [Get-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
 
-### <a name="view-details-of-a-security-rule"></a>Details weergeven van een beveiligingsregel
+### <a name="view-details-of-a-security-rule"></a>Details van een beveiligingsregel weergeven
 
 1. Voer in het zoekvak boven aan de portal *netwerkbeveiligingsgroepen*. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer de gewenste details wilt weergeven van een beveiligingsregel voor netwerk-beveiligingsgroep.

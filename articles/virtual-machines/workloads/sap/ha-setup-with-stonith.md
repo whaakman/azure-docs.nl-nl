@@ -2,10 +2,10 @@
 title: Hoge beschikbaarheid instellen met STONITH voor SAP HANA in Azure (grote exemplaren) | Microsoft Docs
 description: Hoge beschikbaarheid voor SAP HANA in Azure (grote exemplaren) in met behulp van de STONITH SUSE tot stand brengen
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d710fe24673c6ddc581d36e4f0cacdb750ff74f9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656360"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Hoge beschikbaarheid in SUSE met behulp van de STONITH instellen
 Dit document bevat de gedetailleerde stapsgewijze instructies voor het instellen van de hoge beschikbaarheid op SUSE-besturingssysteem met behulp van het apparaat STONITH.
 
-**Disclaimer:** *in deze handleiding wordt berekend door het testen van de set up in de omgeving Microsoft HANA grote instanties, die correct werkt. Als het besturingssysteem biedt geen ondersteuning voor Microsoft-Service Management-team voor grote exemplaren HANA, moet u mogelijk contact opnemen met SUSE voor eventuele problemen op te lossen of de informatie op de laag van het besturingssysteem. Service management-team van Microsoft STONITH apparaat ingesteld en volledig ondersteunt en kan worden betrokken bij voor het oplossen van problemen met STONITH apparaat.*
+**Disclaimer:** *in deze handleiding wordt berekend door het testen van de instellingen in de grote exemplaren van Microsoft HANA-omgeving, die correct werkt. Als het besturingssysteem biedt geen ondersteuning voor Microsoft-Service Management-team voor grote exemplaren HANA, moet u mogelijk contact opnemen met SUSE voor eventuele problemen op te lossen of de informatie op de laag van het besturingssysteem. Service management-team van Microsoft STONITH apparaat ingesteld en volledig ondersteunt en kan worden betrokken bij voor het oplossen van problemen met STONITH apparaat.*
 ## <a name="overview"></a>Overzicht
 Als u de hoge beschikbaarheid met behulp van SUSE clustering instelt, moeten aan de volgende vereisten voldoen.
 ### <a name="pre-requisites"></a>Vereisten
@@ -32,10 +33,10 @@ Als u de hoge beschikbaarheid met behulp van SUSE clustering instelt, moeten aan
 - Grote exemplaren HANA servers zijn verbonden met server SMT patches/pakketten ophalen
 - Besturingssysteem hebben de nieuwste patches die zijn geïnstalleerd
 - NTP (tijdserver) is ingesteld
-- Lees en begrijp de nieuwste versie van SUSE documentatie over HA instellen
+- Lees en begrijp de meest recente versie van SUSE-documentatie voor de installatie van de HA
 
-### <a name="set-up-details"></a>Details instellen
-- In deze handleiding gebruikt we het volgende instellen:
+### <a name="setup-details"></a>Details instellen
+Deze handleiding gebruikt de volgende instellingen:
 - Besturingssysteem: SLES 12 SP1 voor SAP
 - Grote exemplaren HANA: 2xS192 (4-sockets, 2 TB)
 - HANA versie: HANA 2.0 SP1
@@ -50,7 +51,7 @@ Wanneer u grote exemplaren met HSR HANA instelt, kunt u Microsoft Service Manage
 - Naam van de klant (bijvoorbeeld Microsoft)
 - SID - id van het systeem HANA (bijvoorbeeld H11)
 
-Zodra het apparaat STONITH is geconfigureerd, Microsoft Service Management-team biedt u de naam van het apparaat SBD en IP-adres van de iSCSI-opslag, dat u gebruiken kunt voor het configureren van STONITH instellen. 
+Zodra het apparaat STONITH is geconfigureerd, biedt Microsoft Service Management-team u de SBD apparaatnaam en het IP-adres van de iSCSI-opslag, dat u gebruiken kunt voor het configureren van STONITH setup. 
 
 Als u de end-to-end HA met STONITH instelt, moet de volgende stappen worden gevolgd:
 
@@ -64,7 +65,7 @@ Als u de end-to-end HA met STONITH instelt, moet de volgende stappen worden gevo
 8.  Het failoverproces van testen
 
 ## <a name="1---identify-the-sbd-device"></a>1.   Identificatie van het apparaat SBD
-Deze sectie wordt beschreven op het apparaat SBD voor uw set up bepalen wanneer de management-team van Microsoft-service heeft de STONITH geconfigureerd. **Deze sectie is alleen van toepassing op de bestaande klant**. Als u een nieuwe klant, biedt Microsoft service management-team SBD de naam van het apparaat bij u en u kunt deze sectie overslaan.
+Deze sectie wordt beschreven voor het vaststellen van het apparaat SBD voor uw installatie nadat het managementteam van Microsoft-service heeft de STONITH geconfigureerd. **Deze sectie is alleen van toepassing op de bestaande klant**. Als u een nieuwe klant, biedt Microsoft service management-team SBD de naam van het apparaat bij u en u kunt deze sectie overslaan.
 
 1.1 wijzigen */etc/iscsi/initiatorname.isci* naar 
 ``` 
@@ -134,12 +135,12 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternSAPHANASR doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3.2 instellen van het cluster
-3.2.1 u kunt gebruiken *ha-cluster-init* opdracht of het gebruik van de wizard yast2 voor het instellen van het cluster. In dit geval we yast2 wizard gebruikt. U deze stap uitvoeren **alleen op het primaire knooppunt**.
+3.2.1 u kunt gebruiken *ha-cluster-init* opdracht of het gebruik van de wizard yast2 voor het instellen van het cluster. In dit geval wordt wordt de wizard yast2 gebruikt. U deze stap uitvoeren **alleen op het primaire knooppunt**.
 
 Ga als volgt yast2 > hoge beschikbaarheid > Cluster ![yast-besturingselement-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-Klik op **annuleren** zoals we al de halk2 pakket is geïnstalleerd hebben.
+Klik op **annuleren** omdat het pakket halk2 al is geïnstalleerd.
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
@@ -163,7 +164,7 @@ De verificatie wordt uitgevoerd met de IP-adressen en pre-shared-sleutels in Csy
 Klik op **volgende**
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
-In de standaardoptie opgestart is uitgeschakeld, op 'aan' wijzigen zodat pacemaker heeft bij het opstarten is gestart. U kunt kiezen op basis van de instellingen van de vereisten.
+In de standaardoptie opgestart is uitgeschakeld, op 'aan' wijzigen zodat pacemaker heeft bij het opstarten is gestart. U kunt kiezen op basis van de installatievereisten van uw.
 Klik op **volgende** en configuratie van het cluster is voltooid.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4.   Instellen van de Softdog Watchdog
@@ -261,7 +262,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. De clustereigenschappen en Resources configureren 
 Deze sectie beschrijft de stappen voor het configureren van de clusterresources.
-In dit voorbeeld wordt de volgende resource hebt ingesteld, de rest kan worden geconfigureerd (indien nodig) door te verwijzen naar de SUSE HA-handleiding. Uitvoeren van de configuratie in **een van de knooppunten** alleen. Doet op het primaire knooppunt.
+In dit voorbeeld wordt de volgende bron instellen kan de rest worden geconfigureerd (indien nodig) door te verwijzen naar de SUSE HA-handleiding. Uitvoeren van de configuratie in **een van de knooppunten** alleen. Doet op het primaire knooppunt.
 
 - Cluster bootstrap
 - STONITH apparaat
@@ -342,7 +343,7 @@ Nu, stop de service pacemaker heeft op **Knooppunt2** en een failover naar resou
 
 
 ## <a name="9-troubleshooting"></a>9. Problemen oplossen
-Deze sectie beschrijft de enkele fout scenario's, die tijdens de instellen optreden kunnen. U kan deze problemen niet per se geconfronteerd.
+Deze sectie beschrijft de enkele fout scenario's kunnen worden aangetroffen tijdens de installatie. U kan deze problemen niet per se geconfronteerd.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Scenario 1: Clusterknooppunt niet online
 Als een van de knooppunten wordt niet weergegeven in het cluster manager online, kunt u proberen om online brengen te volgen.
@@ -369,7 +370,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scenario 2: yast2 wordt niet weergegeven voor grafische weergave
-We het yast2 grafische scherm gebruikt voor het instellen van het cluster met hoge beschikbaarheid in dit document. Als yast2 niet met de grafische venster, openen zoals wordt weergegeven en Qt fout genereert, voert u de stappen uit als de volgende. Als u deze met de grafische venster wordt geopend, kunt u de stappen overslaan.
+De grafische scherm yast2 wordt gebruikt voor het instellen van het cluster met hoge beschikbaarheid in dit document. Als yast2 niet met de grafische venster, openen zoals wordt weergegeven en Qt fout genereert, voert u de stappen uit als de volgende. Als u deze met de grafische venster wordt geopend, kunt u de stappen overslaan.
 
 **Fout**
 
@@ -397,7 +398,7 @@ Controleer de wijzigingen en klik op OK
 
 Pakket-installatie voortgezet ![yast-uitvoeren installation.png](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
-Klik op volgende
+Klik op Next
 
 ![yast-installatie-report.png](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
@@ -534,7 +535,7 @@ Na de vorige oplossing ophalen Knooppunt2 toegevoegd aan het cluster
 ![ha-cluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
 ## <a name="10-general-documentation"></a>10. Algemene documentatie
-U vindt meer informatie over SUSE HA ingesteld in de volgende artikelen: 
+U vindt meer informatie over SUSE HA setup in de volgende artikelen: 
 
 - [Scenario voor optimale SAP HANA SR prestaties](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
 - [Hekwerk op basis van opslag](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)

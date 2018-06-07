@@ -4,7 +4,7 @@ description: Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656190"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -539,9 +540,10 @@ We er wel een aantal scenario's waar u als klant wilt verplaatsen van een geïmp
 Als u schijven beheerd gebruikt, kunt u migreren naar Premium-opslag door:
 
 1. De virtuele machine ongedaan
-2. Indien nodig, het formaat van de virtuele machine een grootte die ondersteuning biedt voor Premium-opslag (bijvoorbeeld DS of GS)
-3. Het type schijf beheerd account Premium (SSD) wijzigen
-4. De virtuele machine starten
+1. Indien nodig, het formaat van de virtuele machine een grootte die ondersteuning biedt voor Premium-opslag (bijvoorbeeld DS of GS)
+1. Het type schijf beheerd account Premium (SSD) wijzigen
+1. Wijzig de caching van de gegevensschijven, zoals aanbevolen in hoofdstuk [in cache opslaan voor virtuele machines en gegevensschijven][dbms-guide-2.1]
+1. De virtuele machine starten
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Implementatie van virtuele machines voor SAP in Azure
 Microsoft Azure biedt verschillende manieren om virtuele machines en gekoppelde schijven te implementeren. Daardoor is het belangrijk te begrijpen van de verschillen omdat voorbereidingen van de virtuele machines afhankelijk van de manier van implementatie verschillen. In het algemeen kijken we naar de scenario's beschreven in de volgende hoofdstukken.

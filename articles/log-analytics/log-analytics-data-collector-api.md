@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/25/2018
 ms.author: bwren
-ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636729"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (openbare preview)
 In dit artikel laat zien hoe de HTTP-gegevens Collector API gebruiken om gegevens te verzenden met logboekanalyse van een REST-API-client.  Dit wordt beschreven hoe gegevens die door het script of een toepassing verzameld opmaken, opnemen in een aanvraag en die aanvraag geautoriseerd door logboekanalyse hebben.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -42,7 +43,7 @@ Voor het gebruik van de API van HTTP-Data Collector, moet u een POST-aanvraag me
 ### <a name="request-uri"></a>Aanvraag-URI
 | Kenmerk | Eigenschap |
 |:--- |:--- |
-| Methode |VERZENDEN |
+| Methode |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Inhoudstype |application/json |
 
@@ -59,7 +60,7 @@ Voor het gebruik van de API van HTTP-Data Collector, moet u een POST-aanvraag me
 | Autorisatie |De autorisatie-handtekening. U kunt later in dit artikel lezen over het maken van een HMAC SHA256-header. |
 | Log-Type |Geef het recordtype van de gegevens die wordt verzonden. Het logboektype ondersteunt momenteel alleen alfanumerieke tekens. Het ondersteunt geen numerieke waarden of speciale tekens. De maximale grootte voor deze parameter is 100 tekens. |
 | x-ms-date |De datum waarop de aanvraag is verwerkt in RFC 1123-indeling. |
-| Time-gegenereerd-veld |De naam van een veld in de gegevens die de tijdstempel van het gegevensitem bevat. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt ingenomen. De inhoud van het berichtenveld moeten volgen de ISO 8601-notatie jjjj-MM-ssZ. |
+| Time-gegenereerd-veld |De naam van een veld in de gegevens die de tijdstempel van het gegevensitem bevat. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Mag niet null zijn en deze moet een geldige datum-tijd bevatten. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt ingenomen. De inhoud van het berichtenveld moeten volgen de ISO 8601-notatie jjjj-MM-ssZ. |
 
 ## <a name="authorization"></a>Autorisatie
 Elk verzoek aan de API van Log Analytics HTTP Data Collector moet een autorisatie-header bevatten. Voor een aanvraag voor verificatie, moet u de aanvraag met de primaire of de secundaire sleutel voor de werkruimte die de aanvraag wordt ingediend ondertekenen. Vervolgens moet die handtekening doorgegeven als onderdeel van de aanvraag.   
@@ -134,9 +135,9 @@ Voor het gegevenstype van de eigenschap voegt Log Analytics het achtervoegsel vo
 
 | Het gegevenstype eigenschap | Achtervoegsel |
 |:--- |:--- |
-| Tekenreeks |_K |
+| Reeks |_K |
 | Boole-waarde |_b |
-| Double |_d |
+| dubbele |_d |
 | Datum/tijd |_t |
 | GUID |_g |
 
@@ -189,7 +190,7 @@ Deze tabel bevat de volledige reeks statuscodes die de service mogelijk geretour
 | 404 |Niet gevonden | | Op de opgegeven URL is onjuist of de aanvraag is te groot. |
 | 429 |Te veel aanvragen | | De service ondervindt een grote hoeveelheid gegevens uit uw account. Probeer de aanvraag later opnieuw. |
 | 500 |Interne serverfout |UnspecifiedError |De service heeft een interne fout aangetroffen. Probeer de aanvraag. |
-| 503 |De service is niet beschikbaar |ServiceUnavailable |De service is momenteel niet beschikbaar is om aanvragen te ontvangen. Probeer uw aanvraag. |
+| 503 |Service niet beschikbaar |ServiceUnavailable |De service is momenteel niet beschikbaar is om aanvragen te ontvangen. Probeer uw aanvraag. |
 
 ## <a name="query-data"></a>Querygegevens
 Query uitvoeren op gegevens verzonden door de Log Analytics HTTP Collector API van Data, zoekt u records met **Type** die gelijk is aan de **LogType** waarde die u hebt opgegeven, worden toegevoegd aan de **_CL**. Als u gebruikt bijvoorbeeld **MyCustomLog**, zou u alle records met geretourneerd **Type = MyCustomLog_CL**.
@@ -211,7 +212,7 @@ Voer deze stappen om de variabelen voor de autorisatie-header voor elk voorbeeld
 
 U kunt ook kunt u de variabelen voor de Logboektype en JSON-gegevens.
 
-### <a name="powershell-sample"></a>PowerShell-voorbeeld
+### <a name="powershell-sample"></a>Voorbeeld van PowerShell
 ```
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  

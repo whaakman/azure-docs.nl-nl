@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640197"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hoe worden verwerkt en gegevens ophalen van afbeeldingen in scenario's cognitieve zoeken
 
@@ -44,7 +45,7 @@ Stel de **parsingMode** -parameter voor `json` (om het indexeren van elke blob a
 De standaardwaarde van 2000 pixels voor de installatiekopieën van genormaliseerde maximale breedte en hoogte is gebaseerd op de maximale grootte wordt ondersteund door de [OCR kwalificatie](cognitive-search-skill-ocr.md) en de [analysis kwalificatie installatiekopie](cognitive-search-skill-image-analysis.md). Als u de maximale limieten verhogen, kan verwerking op de grotere afbeeldingen mislukken.
 
 
-U geeft de imageAction in uw [indexeerfunctie definitie](ref-create-indexer.md) als volgt:
+U geeft de imageAction in uw [indexeerfunctie definitie](https://docs.microsoft.com/rest/api/searchservice/create-indexer) als volgt:
 
 ```json
 {
@@ -217,7 +218,7 @@ Als een helper als u nodig hebt voor het transformeren van genormaliseerde coör
 ```
 
 ## <a name="see-also"></a>Zie ook
-+ [Maak indexeerfunctie (REST)](ref-create-indexer.md)
++ [Maak indexeerfunctie (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Afbeelding kwalificatie analyseren](cognitive-search-skill-image-analysis.md)
 + [OCR kwalificatie](cognitive-search-skill-ocr.md)
 + [Tekst samenvoegen kwalificatie](cognitive-search-skill-textmerger.md)

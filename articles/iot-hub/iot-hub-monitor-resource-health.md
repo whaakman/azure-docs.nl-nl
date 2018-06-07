@@ -1,30 +1,28 @@
 ---
 title: De status van uw Azure IoT Hub | Microsoft Docs
 description: Monitor voor Azure en Azure resourcestatus gebruiken om te bewaken van uw IoT-Hub en snel problemen onderzoeken
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: caf740e45c6de2b6ae52db48a588db67033e103d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634682"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>De status van Azure IoT Hub bewaken en problemen snel onderzoeken
 
 Bedrijven die Azure IoT Hub implementeren verwachten betrouwbare prestaties van hun bronnen. Als u een sluiten controle op uw activiteiten onderhouden, IoT-Hub volledig geïntegreerd met [Azure Monitor] [ lnk-AM] en [Azure resourcestatus] [ lnk-ARH]. Deze twee services werken samen om te voorzien van de gegevens die u moet ervoor zorgen dat uw IoT-oplossingen van en uitgevoerd in een foutloze toestand bevindt. 
 
-Monitor voor Azure is één bron van controle en logboekregistratie voor alle Azure-services. U kunt de logboeken die Azure Monitor genereert een Log Analytics, Event Hubs of Azure Storage verzenden voor aangepaste verwerking. Azure Monitor metrische gegevens en diagnostische instellingen bieden u realtime zicht krijgt op de prestaties van uw resources. Doorgaan met het lezen van dit artikel voor meer informatie over hoe [gebruik Azure Monitor](#use-azure-monitor) met uw IoT-hub. 
+Monitor voor Azure is één bron van controle en logboekregistratie voor alle Azure-services. Log Analytics, Event Hubs of Azure Storage kunt u de diagnostische logboeken die Azure Monitor genereert verzenden voor aangepaste verwerking. Azure Monitor metrische gegevens en diagnostische instellingen bieden u de zichtbaarheid van de prestaties van uw resources. Doorgaan met het lezen van dit artikel voor meer informatie over hoe [gebruik Azure Monitor](#use-azure-monitor) met uw IoT-hub. 
+
+> [!IMPORTANT]
+> De gebeurtenissen die door de IoT Hub-service met behulp van Azure Monitor diagnostische logboeken zijn niet gegarandeerd betrouwbaar of geordende. Sommige gebeurtenissen kunnen verloren of volgorde geleverd. Diagnostische logboeken ook zijn niet bedoeld als realtime en het kan enkele minuten duren voordat de gebeurtenissen moeten worden geregistreerd voor de keuze van de bestemming.
 
 Azure Resource Health helpt u bij het diagnosticeren en ondersteuning krijgen wanneer een Azure problemen heeft gevolgen voor uw resources. Huidige en eerdere status van biedt een aangepaste dashboard voor uw IoT-Hubs. Doorgaan met het lezen van dit artikel voor meer informatie over hoe [gebruik Azure resourcestatus](#use-azure-resource-health) met uw IoT-hub. 
 

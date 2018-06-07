@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 96d9da90114ae392c3a9e1c22d8e993fd787ada8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3afdcbfc2d1d6f40db0f0336be161a06908cb883
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617994"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +65,7 @@ De volgende eigenschappen worden ondersteund voor SAP HANA gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **SapHana** | Ja |
 | server | Naam van de server waarop het exemplaar SAP HANA zich bevindt. Als de server een aangepaste poort gebruikt is, geeft u `server:port`. | Ja |
 | authenticationType | Het soort verificatie die wordt gebruikt voor verbinding met de SAP HANA-database.<br/>Toegestane waarden zijn: **Basic**, en **Windows** | Ja |
-| userName | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
+| Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
 | wachtwoord | Wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
@@ -165,23 +166,23 @@ Bij het kopiëren van gegevens uit een SAP HANA, worden de volgende toewijzingen
 
 | SAP HANA-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| ALPHANUM | Tekenreeks |
+| ALPHANUM | Reeks |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | BOOLEAANSE WAARDE | Byte |
 | CLOB | Byte[] |
 | DATE | DateTime |
-| DECIMAL | Decimale |
-| DOUBLE | Single |
+| DECIMALE | Decimale |
+| DOUBLE | Enkelvoudig |
 | INT | Int32 |
-| NVARCHAR | Tekenreeks |
-| ECHTE | Single |
+| NVARCHAR | Reeks |
+| ECHTE | Enkelvoudig |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TIJD | TimeSpan |
 | TIJDSTEMPEL | DateTime |
 | TINYINT | Byte |
-| VARCHAR | Tekenreeks |
+| VARCHAR | Reeks |
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 

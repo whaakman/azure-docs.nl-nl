@@ -7,19 +7,20 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: giladm
-ms.openlocfilehash: b43b010a88f313930217289549448de30a82a070
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646776"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database-gegevens voor het opsporen en classificatie
 Detectie van de gegevens & classificatie (momenteel in preview) biedt geavanceerde mogelijkheden die zijn ingebouwd in Azure SQL Database voor **detecteren**, **classificeren**, **labels**  &  **beveiligen** de gevoelige gegevens in uw databases.
 Detecteren en classificeren van uw meest gevoelige gegevens (business, financiële, gezondheidszorg, PII, enz.) kan een belangrijke rol spelen in uw organisatiegegevens protection-status. Deze kan dienen als infrastructuur voor:
-* Helpt voldoen aan vereisten van de naleving van regelgeving, zoals GDPR en gegevens privacystandaarden.
+* Helpt voldoen aan gegevens privacystandaarden en regelgeving.
 * Verschillende security-scenario's, zoals controle (controleren) en waarschuwingen voor afwijkende toegang tot gevoelige gegevens.
 * Toegang tot beheren en beperken van de beveiliging van databases met uiterst gevoelige gegevens.
 

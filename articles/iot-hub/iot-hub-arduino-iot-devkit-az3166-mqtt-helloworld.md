@@ -1,24 +1,20 @@
 ---
-title: Berichten verzenden naar een MQTT-server met behulp van de clientbibliotheek van Azure MQTT | Microsoft Docs.
-description: De DevKit als een client gebruiken om berichten te verzenden naar een server MQTT.
-services: iot-hub
-documentationcenter: ''
+title: Berichten verzenden naar een MQTT-server met behulp van de clientbibliotheek van Azure MQTT | Microsoft Docs
+description: De DevKit als een client gebruiken om berichten te verzenden naar een server MQTT
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 62fdd3dae9513973d0284eda5250d9eb29bfde91
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ee8ff1acbaf5d97d62d6811e8e8abc86017b32fe
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632608"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Berichten verzenden naar een server MQTT
 

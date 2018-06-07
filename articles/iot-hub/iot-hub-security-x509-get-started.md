@@ -1,23 +1,19 @@
 ---
 title: Zelfstudie voor x.509-beveiliging in Azure IoT Hub | Microsoft Docs
 description: Aan de slag op de beveiliging op basis van X.509 in uw Azure-IoT-hub in een gesimuleerde omgeving.
-services: iot-hub
-documentationcenter: 
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 93f9099d7aef1161f7789e7b21a88a8691cb2a8e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: dd5b9f196f911011d9dd606d46f515b88d338531
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635573"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>X.509-beveiliging instellen in uw Azure-IoT-hub
 
@@ -67,7 +63,7 @@ Deze stappen ziet u hoe u een nieuwe CA toevoegt aan uw IoT-hub via de portal.
  
 9. De resulterende handtekening uit stap 8 hierboven naar uw IoT-hub in de portal uploaden. In de **certificaatdetails** blade in de Azure-portal, gaat u naar de **verificatiecertificaat .pem of .cer-bestand**, en selecteer de handtekening, bijvoorbeeld *VerifyCert4.cer*gemaakt met het voorbeeld PowerShell opdracht de _Verkenner_ pictogram naast het.
 
-10. Zodra het certificaat is geüpload, klikt u op **controleren**. De **STATUS** van uw certificaat wijzigingen aan  **_gecontroleerd_**  in de **certificaten** blade. Klik op **vernieuwen** als deze wordt niet automatisch bijgewerkt.
+10. Zodra het certificaat is geüpload, klikt u op **controleren**. De **STATUS** van uw certificaat wijzigingen aan **_gecontroleerd_** in de **certificaten** blade. Klik op **vernieuwen** als deze wordt niet automatisch bijgewerkt.
 
    ![Certificaatverificatie uploaden](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
@@ -80,7 +76,7 @@ Deze stappen ziet u hoe u een nieuwe CA toevoegt aan uw IoT-hub via de portal.
 
 2. Klik op **toevoegen** een nieuw apparaat toevoegen. 
 
-3. Geef een beschrijvende weergavenaam voor de **apparaat-ID**, en selecteer  **_X.509 CA ondertekend_**  als de **verificatietype**. Klik op **Opslaan**.
+3. Geef een beschrijvende weergavenaam voor de **apparaat-ID**, en selecteer **_X.509 CA ondertekend_** als de **verificatietype**. Klik op **Opslaan**.
 
    ![X.509-apparaat in de portal maken](./media/iot-hub-security-x509-get-started/create-x509-device.png)
 
@@ -179,7 +175,7 @@ Zie voor meer informatie over het beveiligen van uw IoT-oplossing:
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md

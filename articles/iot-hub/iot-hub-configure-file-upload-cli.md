@@ -1,24 +1,19 @@
 ---
 title: Bestand uploaden naar IoT Hub met Azure CLI (az.py) configureren | Microsoft Docs
 description: Het configureren van uploads met Azure IoT Hub met behulp van de platformoverschrijdende Azure CLI 2.0 (az.py).
-services: iot-hub
-documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 6b100e65aba604fd8becb02c3a205b3348872bc4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 378fb06f7ac9cbb6dc645994682786f474077d03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633849"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Uploaden van bestanden met Azure CLI IoT-Hub configureren
 
@@ -35,9 +30,9 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Aanmelden en uw Azure-account instellen
 
-Aanmelden bij uw Azure-account en uw abonnement te selecteren.
+Meld u aan bij uw Azure-account en selecteer uw abonnement.
 
-1. Voer bij de opdrachtprompt de [aanmelding opdracht][lnk-login-command]:
+1. Voer bij de opdrachtprompt deze [aanmeldingsopdracht][lnk-login-command] uit:
 
     ```azurecli
     az login
@@ -45,13 +40,13 @@ Aanmelden bij uw Azure-account en uw abonnement te selecteren.
 
     Volg de instructies om te verifiëren met de code en meld u aan bij uw Azure-account via een webbrowser.
 
-1. Als u meerdere Azure-abonnementen hebt, aanmelden bij Azure u toegang verleent tot de Azure accounts die zijn gekoppeld aan uw referenties. Gebruik de volgende [opdracht om een lijst van de Azure-accounts] [ lnk-az-account-command] beschikbaar moet worden gebruikt:
+1. Als u meerdere Azure-abonnementen hebt en u zich aanmeldt bij Azure, hebt u toegang tot alle Azure accounts die zijn gekoppeld aan uw referenties. Gebruik de volgende [opdracht om de Azure-accounts weer te geven][lnk-az-account-command] die u kunt gebruiken:
 
     ```azurecli
     az account list
     ```
 
-    Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het maken van uw IoT-hub te selecteren. U kunt de naam van abonnement of de ID van de uitvoer van de vorige opdracht gebruiken:
+    Gebruik de volgende opdracht om het abonnement te selecteren dat u wilt gebruiken voor het uitvoeren van de opdrachten voor het maken van uw IoT-hub. U kunt de naam van het abonnement of de id van de uitvoer van de vorige opdracht gebruiken:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -144,7 +139,7 @@ Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
 * [Beveiligen van uw IoT-oplossing bouwen up][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png

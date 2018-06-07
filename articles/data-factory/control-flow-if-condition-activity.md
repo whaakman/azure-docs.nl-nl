@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: db012097011d57434e35ef395ebe69a2156c92f4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f30b749d40cd2628ca6539d962d5a1153cd3e7c2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618521"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Als de activiteit in Azure Data Factory-voorwaarde
 De If Condition Activity biedt dezelfde functionaliteit als een If-instructie in een programmeertaal. Er wordt een reeks activiteiten mee geëvalueerd als de voorwaarde resulteert in `true` en een andere reeks activiteiten als de voorwaarde resulteert in `false`. 
@@ -70,8 +71,8 @@ De If Condition Activity biedt dezelfde functionaliteit als een If-instructie in
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | De naam van de activiteit als voorwaarde. | Tekenreeks | Ja
-type | Moet worden ingesteld op **IfCondition** | Tekenreeks | Ja
+naam | De naam van de activiteit als voorwaarde. | Reeks | Ja
+type | Moet worden ingesteld op **IfCondition** | Reeks | Ja
 expressie | Expressie die moet worden geëvalueerd op true of false | Ja
 ifTrueActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie resulteert in `true`. | Ja
 ifFalseActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie resulteert in `false`. | Ja

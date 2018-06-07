@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9a590050acff814834dac85085d1a4dc5fc8190f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab101d78320819b9fb48f2c431fb0f6afdb895ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657822"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Gedetailleerde probleemoplossing voor problemen met extern bureaublad-verbinding voor Windows-VM's in Azure
 In dit artikel bevat gedetailleerde stappen voor probleemoplossing opsporen en oplossen van complexe extern bureaublad-fouten voor op basis van Windows Azure virtual machines.
@@ -112,7 +113,7 @@ Verwijder het huidige eindpunt en maak een nieuwe, kiezen van een willekeurige p
 ## <a name="source-4-network-security-groups"></a>Bron 4: Netwerkbeveiligingsgroepen
 Netwerkbeveiligingsgroepen toestaan meer gedetailleerd beheer van toegestane binnenkomend en uitgaand verkeer. U kunt maken van regels spanning subnetten en cloudservices in een Azure-netwerk.
 
-Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) om te bevestigen of verkeer naar of van een virtuele machine wordt geblokkeerd door een regel in een netwerkbeveiligingsgroep. U kunt ook een effectieve beveiligingsmethode groep regels om ervoor te zorgen inkomende 'toestaan' NSG bekijken regel bestaat en is geplaatst voor RDP-poort (standaard 3389). Zie voor meer informatie [effectieve beveiligingsregels gebruiken om op te lossen VM verkeer stroom](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) om te bevestigen of verkeer naar of van een virtuele machine wordt geblokkeerd door een regel in een netwerkbeveiligingsgroep. U kunt ook een effectieve beveiligingsmethode groep regels om ervoor te zorgen inkomende 'toestaan' NSG bekijken regel bestaat en is geplaatst voor RDP-poort (standaard 3389). Zie voor meer informatie [effectieve beveiligingsregels gebruiken om op te lossen VM verkeer stroom](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Bron 5: Op basis van Windows Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

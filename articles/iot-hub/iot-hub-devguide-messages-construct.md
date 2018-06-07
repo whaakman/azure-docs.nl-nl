@@ -1,24 +1,19 @@
 ---
 title: Azure IoT Hub-berichtindeling begrijpen | Microsoft Docs
 description: Handleiding voor ontwikkelaars - descibes de indeling en de verwachte inhoud van IoT Hub berichten.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1d84fa5ca580a1e56ba9ce17dece9ad9680c74c6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633924"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Maken en IoT Hub berichten lezen
 
@@ -49,7 +44,7 @@ De volgende tabel bevat de reeks Systeemeigenschappen in IoT Hub berichten.
 | ExpiryTimeUtc |Datum en tijd van de verloopdatum voor het bericht. |
 | EnqueuedTime |Datum en tijd waarop de [Cloud-naar-apparaat] [ lnk-c2d] bericht is ontvangen door de IoT Hub. |
 | CorrelationId |Een tekenreekseigenschap in een antwoordbericht die normaal gesproken de MessageId van de aanvraag, in aanvragen / antwoorden patronen bestaat. |
-| Gebruikers-id |Een ID die wordt gebruikt voor het opgeven van de oorsprong van berichten. Wanneer berichten worden gegenereerd door de IoT Hub, is ingesteld op `{iot hub name}`. |
+| UserId |Een ID die wordt gebruikt voor het opgeven van de oorsprong van berichten. Wanneer berichten worden gegenereerd door de IoT Hub, is ingesteld op `{iot hub name}`. |
 | ACK |Een bericht generator van feedback. Deze eigenschap wordt gebruikt in de cloud-naar-apparaat-berichten aan te vragen van IoT Hub Feedbackberichten als gevolg van het verbruik van het bericht te genereren door het apparaat. Mogelijke waarden: **geen** (standaard): geen Feedbackbericht wordt gegenereerd, **positieve**: ontvangen een feedbackbericht als het bericht is voltooid, **negatieve**: ontvangen een feedbackbericht als het bericht is verlopen (of levering van het maximum aantal is bereikt) zonder wordt voltooid door het apparaat of **volledige**: positieve en negatieve. Zie voor meer informatie [bericht feedback][lnk-feedback]. |
 | ConnectionDeviceId |Een ID die is ingesteld door de IoT Hub apparaat-naar-cloud-berichten. Bevat de **deviceId** van het apparaat dat het bericht heeft verzonden. |
 | ConnectionDeviceGenerationId |Een ID die is ingesteld door de IoT Hub apparaat-naar-cloud-berichten. Bevat de **generationId** (conform [identiteit apparaateigenschappen][lnk-device-properties]) van het apparaat dat het bericht heeft verzonden. |

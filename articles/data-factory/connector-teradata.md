@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 287fc502a0a538660da86e028a81fba04bcac903
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4360ff12a435afc4347fa97bba4506ccd81618aa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618977"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Gegevens kopiëren van Teradata met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -170,12 +171,12 @@ Bij het kopiëren van gegevens uit een Teradata, worden de volgende toewijzingen
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| CHAR |Tekenreeks |
-| CLOB |Tekenreeks |
+| CHAR |Reeks |
+| CLOB |Reeks |
 | Date |DateTime |
 | Decimale |Decimale |
-| Double |Double |
-| Afbeelding |Tekenreeks |
+| dubbele |dubbele |
+| Afbeelding |Reeks |
 | Geheel getal |Int32 |
 | Interval dag |TimeSpan |
 | Interval dag uur |TimeSpan |
@@ -186,25 +187,25 @@ Bij het kopiëren van gegevens uit een Teradata, worden de volgende toewijzingen
 | Tweede interval uur |TimeSpan |
 | Interval minuut |TimeSpan |
 | Minuut tweede interval |TimeSpan |
-| Interval maand |Tekenreeks |
+| Interval maand |Reeks |
 | Interval tweede |TimeSpan |
-| Interval jaar |Tekenreeks |
-| Interval jaar, maand |Tekenreeks |
-| Aantal |Double |
-| Period(Date) |Tekenreeks |
-| Period(Time) |Tekenreeks |
-| Periode (tijd met tijdzone) |Tekenreeks |
-| Period(Timestamp) |Tekenreeks |
-| Periode (tijdstempel met tijdzone) |Tekenreeks |
+| Interval jaar |Reeks |
+| Interval jaar, maand |Reeks |
+| Aantal |dubbele |
+| Period(date) |Reeks |
+| Period(Time) |Reeks |
+| Periode (tijd met tijdzone) |Reeks |
+| Period(timestamp) |Reeks |
+| Periode (tijdstempel met tijdzone) |Reeks |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Tijd met de tijdzone |Tekenreeks |
+| Tijd met de tijdzone |Reeks |
 | Timestamp |DateTime |
 | Tijdstempel met tijdzone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |Tekenreeks |
-| VarGraphic |Tekenreeks |
-| Xml |Tekenreeks |
+| VarChar |Reeks |
+| VarGraphic |Reeks |
+| Xml |Reeks |
 
 
 ## <a name="next-steps"></a>Volgende stappen

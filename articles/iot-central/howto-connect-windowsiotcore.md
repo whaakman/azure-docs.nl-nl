@@ -1,18 +1,19 @@
 ---
 title: Een Windows-IoT Core-apparaat aansluit op uw Azure IoT centrale toepassing | Microsoft Docs
 description: Informatie over het verbinden van een apparaat MXChip IoT DevKit aan uw Azure IoT centrale toepassing als een ontwikkelaar apparaat.
-services: iot-central
 author: miriamb
 ms.author: mriamb
 ms.date: 04/09/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: peterpr
-ms.openlocfilehash: c38231f97eeb1c4511702bf3e788f72918cab045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 55c0d9c26cd4e7f8ae9f6ff2359e0f2d2a9970c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629140"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows-IoT Core-apparaat aansluit op uw Azure IoT centrale toepassing
 
@@ -29,7 +30,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 
 ### <a name="telemetry-measurements"></a>Telemetrie metingen
 
-| Veldnaam     | Eenheden  | Minimum | Maximum | Decimalen |
+| Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
 | -------------- | ------ | ------- | ------- | -------------- |
 | Vochtigheid       | %      | 0       | 100     | 0              |
 | TEMP           | ° C     | -40     | 120     | 0              |
@@ -39,7 +40,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 
 Numerieke instellingen
 
-| Weergavenaam | Veldnaam | Eenheden | Decimalen | Minimum | Maximum | Oorspronkelijk |
+| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Snelheid van ventilator    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
@@ -51,7 +52,7 @@ Numerieke instellingen
 | Apparaateigenschap | Aantal die   | dieNumber  | getal    |
 | Tekst            | Locatie     | location   | N/A       |
 
-## <a name="add-a-real-device"></a>Een echte apparaat toevoegen
+## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
 In uw Azure IoT centrale toepassing toevoegen een echte apparaat van de **Windows IoT Core** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie [een echte apparaat toevoegt aan uw Azure IoT centrale toepassing](tutorial-add-device.md).
 
@@ -59,7 +60,7 @@ In uw Azure IoT centrale toepassing toevoegen een echte apparaat van de **Window
 
 Voor het instellen van een apparaat met Windows IoT Core Volg de stapsgewijze handleiding op [instellen van een apparaat met Windows IoT Core] (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
-### <a name="add-a-real-device"></a>Een echte apparaat toevoegen
+### <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
 In uw Azure IoT centrale toepassing toevoegen een echte apparaat van de **Windows IoT Core** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie [een echte apparaat toevoegt aan uw Azure IoT centrale toepassing](tutorial-add-device.md).
 

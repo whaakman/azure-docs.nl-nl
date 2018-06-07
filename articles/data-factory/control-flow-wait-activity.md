@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 9887f735fab30c95241bd84f49f30140efc27873
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9eaa8f369c69468a9bd6f4c5403d6a11476e8595
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619011"
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Wacht activiteit in Azure Data Factory
 Als u een Wait Activity in een pijplijn gebruikt, wacht de pijplijn tot de opgegeven periode voorbij is voordat de volgende activiteiten worden uitgevoerd. 
@@ -42,8 +43,8 @@ Als u een Wait Activity in een pijplijn gebruikt, wacht de pijplijn tot de opgeg
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de `Wait` activiteit. | Tekenreeks | Ja
-type | Moet worden ingesteld op **wacht**. | Tekenreeks | Ja
+naam | Naam van de `Wait` activiteit. | Reeks | Ja
+type | Moet worden ingesteld op **wacht**. | Reeks | Ja
 waitTimeInSeconds | Het aantal seconden dat de pijplijn moet wachten voordat u doorgaat met de verwerking. | Geheel getal | Ja
 
 ## <a name="example"></a>Voorbeeld

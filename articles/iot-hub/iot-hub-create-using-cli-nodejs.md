@@ -1,24 +1,19 @@
 ---
 title: Maken van een iothub met Azure CLI (azure.js) | Microsoft Docs
 description: Het maken van een Azure-IoT-hub met behulp van de platformoverschrijdende Azure CLI (azure.js).
-services: iot-hub
-documentationcenter: .net
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5b8a7ded940f59bba63556e844c45bd7cfb8eb63
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632088"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Een iothub met de Azure CLI maken
 
@@ -87,7 +82,7 @@ Vereiste parameters:
 azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>
 ```
 
-* **resource-group**. De naam van de resourcegroep. De indeling is niet hoofdlettergevoelig alfanumerieke, onderstrepingstekens en liggende streepjes, 1-64-lengte.
+* **resourcegroep**. De naam van de resourcegroep. De indeling is niet hoofdlettergevoelig alfanumerieke, onderstrepingstekens en liggende streepjes, 1-64-lengte.
 * **Naam**. De naam van de iothub worden gemaakt. De indeling is niet hoofdlettergevoelig alfanumerieke en afbreekstreepjes, de lengte 3 50.
 * **Locatie**. De locatie (azure-regio/datacenter) voor het inrichten van de IoT-hub.
 * **SKU-naam**. De naam van de sku, een van: [F1, S1, S2, S3]. Zie voor meer informatie over elke sku [prijzen van Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). Basic-lagen zijn momenteel alleen beschikbaar via de portal. 
@@ -118,7 +113,7 @@ azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1
 
 Zie het volgende artikel voor meer informatie over het ontwikkelen voor IoT-Hub:
 
-* [IoT SDKs][lnk-sdks]
+* [IoT SDK 's][lnk-sdks]
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 

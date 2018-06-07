@@ -54,6 +54,7 @@
 ### [Inbouwen in aangepaste apps (SDK)](../active-directory/authentication/howto-mfa-sdk.md)
 
 ## [Rapportage](../active-directory/authentication/howto-mfa-reporting.md)
+### [Gegevensverzameling](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
 ## [MFA-gebruikershandleiding](./end-user/multi-factor-authentication-end-user.md)
 

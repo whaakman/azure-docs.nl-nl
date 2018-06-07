@@ -1,24 +1,19 @@
 ---
 title: Apparaatbeheer met Azure IoT Hub | Microsoft Docs
 description: "Overzicht van apparaatbeheer in Azure IoT Hub: levenscyclus van bedrijfsapparaten en apparaatbeheerpatronen, zoals opnieuw opstarten, de fabrieksinstellingen herstellen, firmware bijwerken, configuratie, apparaatdubbels, query's en taken."
-services: iot-hub
-documentationcenter: ''
 author: bzurcher
-manager: timlt
-editor: ''
-ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 4fe4328314e23bbd1ace13e935f82336e1e602a9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 82a3ebcf4d208b550a792deddba5ce214105af13
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632744"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Overzicht van apparaatbeheer met IoT Hub
 

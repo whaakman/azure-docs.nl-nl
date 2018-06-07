@@ -6,19 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: 9123160f42adea57c28dff265bd5b5dbbcbb7918
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724255"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introducing IDN's voor Azure-Stack
 
@@ -30,9 +31,9 @@ IDN's is een Azure-Stack netwerken functie waarmee u bij het oplossen van extern
 
 Met IDN's in Azure-Stack beschikt u over de volgende mogelijkheden zonder aangepaste DNS-serveringangen opgeven:
 
-* DNS-services voor naamomzetting tenantwerkbelastingen gedeeld.
-* Gezaghebbende DNS-service voor naamomzetting en DNS-registratie in het virtuele netwerk van de tenant.
-* Recursive DNS-service voor de omzetting van de Internet-namen van de tenant-VM's. Tenants niet langer nodig hebt om op te geven van aangepaste DNS-vermeldingen voor naamomzetting voor Internet (bijvoorbeeld www.bing.com.)
+- DNS-services voor naamomzetting tenantwerkbelastingen gedeeld.
+- Gezaghebbende DNS-service voor naamomzetting en DNS-registratie in het virtuele netwerk van de tenant.
+- Recursive DNS-service voor de omzetting van de Internet-namen van de tenant-VM's. Tenants niet langer nodig hebt om op te geven van aangepaste DNS-vermeldingen voor naamomzetting voor Internet (bijvoorbeeld www.bing.com.)
 
 U kunt nog steeds brengt uw eigen DNS en aangepaste DNS-servers gebruiken. Echter met behulp van IDN's, kunt u Internet-DNS-namen omzetten en verbinding maken met andere virtuele machines in hetzelfde virtuele netwerk, u hoeft niet te maken van aangepaste DNS-vermeldingen.
 
@@ -48,10 +49,10 @@ Als de vorige afbeelding toont, Azure maakt een 'A'-record in DNS voor het label
 
 Azure-Stack ondersteunt alleen IDN's voor registratie van de interne naam, zodat het volgende niet doen:
 
-* Maak een DNS-record onder een bestaande gehoste DNS-zone (bijvoorbeeld local.azurestack.external.)
-* Maken van een DNS-zone (zoals Contoso.com).
-* Een record bij uw eigen aangepaste DNS-zone maken.
-* Ondersteuning voor de aankoop van domeinnamen.
+- Maak een DNS-record onder een bestaande gehoste DNS-zone (bijvoorbeeld local.azurestack.external.)
+- Maken van een DNS-zone (zoals Contoso.com).
+- Een record bij uw eigen aangepaste DNS-zone maken.
+- Ondersteuning voor de aankoop van domeinnamen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

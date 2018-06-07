@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: douglasl
-ms.openlocfilehash: 2bb6491a470e7041568bb6b9183e996d2a9119d9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b998b47cdc65be91f62543369f5c3f18e4f270c4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619640"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk
 Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk in de volgende scenario's: 
@@ -86,7 +87,7 @@ Als u nodig hebt voor het implementeren van een netwerkbeveiligingsgroep (NSG) i
 
 | Richting | Protocol-transport | Bron | Poortbereik van bron | Doel | Poortbereik van doel | Opmerkingen |
 |---|---|---|---|---|---|---|
-| Inkomend | TCP | Internet | * | VirtualNetwork | 29876, 29877 (als u de IR aan een virtueel netwerk van Azure Resource Manager koppelt) <br/><br/>10100, 20100, 30100 (als u de IR aan een klassiek virtueel netwerk koppelt)| De Data Factory-service gebruikt deze poorten om te communiceren met de knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk. |
+| Inkomend | TCP | Internet | * | VirtualNetwork | 29876, 29877 (als u de IR aan een virtueel netwerk van Azure Resource Manager koppelt) <br/><br/>10100, 20100, 30100 (als u de IR aan een klassiek virtueel netwerk koppelt)| De Data Factory-service gebruikt deze poorten om te communiceren met de knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk. <br/><br/> Of u een NSG of niet opgeeft, Data Factory altijd configureert u een NSG op het niveau van de netwerkinterfacekaarten (NIC's) gekoppeld aan de virtuele machines die als host fungeren van de Azure-SSIS-IR Alleen inkomend verkeer van Data Factory-IP-adressen is toegestaan. Zelfs als u deze poorten om internetverkeer te openen, is het verkeer van IP-adressen die geen Data Factory-IP-adressen op het niveau van de NIC geblokkeerd. |
 | Uitgaand | TCP | VirtualNetwork | * | Internet | 443 | De knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk deze poort gebruiken voor toegang tot Azure-services, zoals Azure Storage en Azure Event Hubs. |
 | Uitgaand | TCP | VirtualNetwork | * | Internet- of Sql | 1433, 11000 11999, 14000 14999 | De knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk via deze poorten SSISDB gehost door uw Azure SQL Database-server. (Dit doel is niet van toepassing op SSISDB gehost door beheerde exemplaar van SQL Database (Preview).) |
 ||||||||

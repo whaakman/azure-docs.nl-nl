@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 35cdd157469556c071b03a0f25184df141057554
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639058"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stroom Azure voor het bewaken van gegevens naar een event hub voor verbruik door een extern hulpprogramma
 
@@ -97,7 +98,7 @@ Toepassing bewakingsgegevens is vereist dat uw code is uitgerust met een SDK, zo
 
 1. [Instellen van continue export](../application-insights/app-insights-export-telemetry.md) van de Application Insights-gegevens naar een opslagaccount.
 
-2. Een timer geactiveerd logische App ingesteld die [haalt gegevens uit blob storage](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) en [duwt deze als een bericht naar de event hub](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app).
+2. Een timer geactiveerd logische App ingesteld die [haalt gegevens uit blob storage](../connectors/connectors-create-api-azureblobstorage.md#add-action) en [duwt deze als een bericht naar de event hub](../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>Wat kan ik doen met de bewakingsgegevens naar Mijn event hub worden verzonden?
 

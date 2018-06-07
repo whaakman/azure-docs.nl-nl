@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5aa6f629b04a4c187a43b13c929a122a6304c575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639432"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
 
@@ -332,7 +333,7 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 * U wordt alleen gefactureerd als het kanaal in de **met** status. Raadpleeg voor meer informatie [dit](media-services-manage-live-encoder-enabled-channels.md#states) sectie.
 * De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
 * Zorg ervoor dat u hebt het streaming-eindpunt van waaruit u inhoud wilt streamen in de **met** status.
-* De codering voorinstelling maakt gebruik van het principe van 'max framesnelheid' van 30 fps. Als de invoer is 60fps / 59.97i, de ingevoerde frames zijn verwijderd/de-interlaced op 30/29,97 fps. Als de invoer 50fps/50i is, zijn de ingevoerde frames verwijderd/de-interlaced op 25 fps. Als de invoer 25 fps is, wordt de uitvoer blijft bij 25 fps.
+* De codering voorinstelling maakt gebruik van het principe van 'max framesnelheid' van 30 fps. Als de invoer is 60fps / 59.94i, de ingevoerde frames zijn verwijderd/de-interlaced op 30/29,97 fps. Als de invoer 50fps/50i is, zijn de ingevoerde frames verwijderd/de-interlaced op 25 fps. Als de invoer 25 fps is, wordt de uitvoer blijft bij 25 fps.
 * Vergeet niet te stoppen YOUR kanalen wanneer u klaar bent. Als u dit niet, blijven facturering.
 
 ## <a name="known-issues"></a>Bekende problemen

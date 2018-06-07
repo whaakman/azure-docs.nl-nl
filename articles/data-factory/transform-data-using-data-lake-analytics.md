@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1bf030d7eaba5c8aa608c504f65c5ebf291eab3d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619691"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformeer gegevens door het U-SQL-scripts uitvoeren op Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +44,7 @@ De volgende tabel bevat beschrijvingen van de algemene eigenschappen die in de J
 | **accountName**          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nee                                       |
 | **abonnements-id**       | Azure-abonnement-ID                    | Nee (als niet wordt opgegeven, abonnement van de gegevensfactory wordt gebruikt). |
-| **resourceGroupName**    | Naam van een Azure-resourcegroep                | Nee (als niet wordt opgegeven, brongroep van de gegevensfactory wordt gebruikt). |
+| **resourceGroupName**    | Naam van Azure-resourcegroep                | Nee (als niet wordt opgegeven, brongroep van de gegevensfactory wordt gebruikt). |
 
 ### <a name="service-principal-authentication"></a>Verificatie van service-principal
 De service Azure Data Lake Analytics gekoppeld vereist een service-principal-verificatie verbinding maken met de Azure Data Lake Analytics-service. Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) en het het toegang geven tot zowel de Data Lake Analytics en Data Lake Store wordt gebruikt voor het gebruik van verificatie van de service-principal. Zie voor gedetailleerde stappen [authentication Service-naar-serviceconnector](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Noteer de volgende waarden die u gebruikt voor het definiëren van de gekoppelde service:

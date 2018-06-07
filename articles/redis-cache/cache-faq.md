@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640469"
 ---
 # <a name="azure-redis-cache-faq"></a>Veelgestelde vragen over Azure Redis Cache
 Informatie over de antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure Redis-Cache.
@@ -82,7 +83,7 @@ De veelgestelde vragen in deze sectie hebben betrekking op algemene bewaking en 
 * [Welke aanbieding voor Azure-Cache is geschikt voor mij?](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-redis-cache"></a>Wat is Azure Redis-cache?
-Azure Redis-Cache is gebaseerd op de populaire open-source [Redis-cache](http://redis.io). Deze hebt u toegang tot een beveiligde, toegewezen Redis-cache, beheerd door Microsoft en toegankelijk vanuit elke toepassing in Azure. Zie voor een gedetailleerd overzicht de [Azure Redis-Cache](https://azure.microsoft.com/services/cache/) productpagina op Azure.com.
+Azure Redis Cache is gebaseerd op de populaire open-source [Redis Cache](http://redis.io). Deze hebt u toegang tot een beveiligde, toegewezen Redis-cache, beheerd door Microsoft en toegankelijk vanuit elke toepassing in Azure. Zie voor een gedetailleerd overzicht de [Azure Redis-Cache](https://azure.microsoft.com/services/cache/) productpagina op Azure.com.
 
 ### <a name="how-can-i-get-started-with-azure-redis-cache"></a>Hoe kan ik aan de slag met Azure Redis-Cache?
 Er zijn verschillende manieren die u kunt aan de slag met Azure Redis-Cache.
@@ -136,11 +137,11 @@ We kunnen de volgende conclusie trekt tekenen uit deze tabel:
 | --- | --- | --- | --- | --- | --- |
 | **Standaard cachegrootte** | | |**Megabits per seconde (Mb/s) / Megabytes per seconde (MB/s)** |**Aanvragen per tweede (RPS) niet-SSL** |**Aanvragen per tweede (RPS) SSL** |
 | C0 |250 MB |Gedeeld |100 / 12.5 |15,000 |7.500 |
-| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
+| C1 |1 GB |1 |500 / 62.5 |38.000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C5 |26 GB |4 |1,000 / 125 |102.000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
 | **Premium-cachegrootte** | |**CPU-kernen per shard** | **Megabits per seconde (Mb/s) / Megabytes per seconde (MB/s)** |**Aanvragen per tweede (RPS) niet-SSL, per shard** |**Aanvragen per tweede (RPS) SSL, per shard** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
@@ -385,7 +386,7 @@ Deze informatie gegeven, wordt aangeraden dat klanten de waarde van de minimale 
 
 Het configureren van deze instelling:
 
-* In ASP.NET, gebruikt u de ["minIoThreads" configuratie-instelling] [ "minIoThreads" configuration setting] onder de `<processModel>` configuratie-element in web.config. Als u in Azure WebSites uitvoert, wordt deze instelling niet beschikbaar via de configuratieopties. Echter nog steeds moet u kunnen voor het configureren van deze instelling via programmacode (Zie hieronder) van uw methode Application_Start in global.asax.cs.
+* In ASP.NET, gebruikt u de ['minIoThreads' of "minWorkerThreads" configuratie-instelling] [ "minIoThreads" configuration setting] onder de `<processModel>` configuratie-element in web.config. Als u in Azure WebSites uitvoert, wordt deze instelling niet beschikbaar via de configuratieopties. Echter nog steeds moet u kunnen voor het configureren van deze instelling via programmacode (Zie hieronder) van uw methode Application_Start in global.asax.cs.
 
   > [!NOTE] 
   > De waarde die is opgegeven in deze configuratie-element is een *core-* instelling. Bijvoorbeeld, als u een machine 4 kernen hebt en wilt dat uw instelling minIOThreads 200 tijdens runtime, gebruikt u `<processModel minIoThreads="50"/>`.

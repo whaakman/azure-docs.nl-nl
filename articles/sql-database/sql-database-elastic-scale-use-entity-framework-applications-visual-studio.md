@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: fba872b01d4ddf0bb4e6aa8d0217042617688b8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 2eafd4b23da8f21f1a4b3ffcf29e50b65882d6c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646759"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastische Database-clientbibliotheek met Entity Framework
 Dit document bevat de wijzigingen in een Entity Framework-toepassing die nodig zijn om te integreren met de [hulpmiddelen voor elastische databases](sql-database-elastic-scale-introduction.md). De focus is het samenstellen van [shard kaart management](sql-database-elastic-scale-shard-map-management.md) en [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) met de Entity Framework **Code First** benadering. De [Code eerst - nieuwe Database](http://msdn.microsoft.com/data/jj193542.aspx) zelfstudie voor EF fungeert als het actieve voorbeeld in dit hele document. De voorbeeldcode die bij dit document is onderdeel van de hulpmiddelen voor elastische databases ingesteld van de voorbeelden in de Visual Studio-codevoorbeelden.
@@ -176,11 +177,11 @@ De bovenstaande codevoorbeelden ziet u de standaard-constructor herschrijft vere
 | --- | --- | --- | --- |
 | MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |De verbinding moet een functie van de shard-toewijzing en het gegevensafhankelijke routering sleutel. U moet maken van de automatische verbinding omzeilen door EF en in plaats daarvan broker van de verbinding met de shard-toewijzing. |
 | MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |De verbinding is een functie van de shard-toewijzing en het gegevensafhankelijke routering sleutel. Een vaste databaserol of verbindingstekenreeks werkt niet als ze validatie omzeilen door de shard-toewijzing. |
-| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |De verbinding wordt gemaakt voor de opgegeven shard-toewijzing en sharding-sleutel met het model. Het gecompileerde model wordt doorgegeven aan de basis c'tor. |
+| MyContext(DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |De verbinding wordt gemaakt voor de opgegeven shard-toewijzing en sharding-sleutel met het model. Het gecompileerde model wordt doorgegeven aan de basis c'tor. |
 | MyContext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, bool) |DbContext (DbConnection, bool) |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. Deze kan niet worden opgegeven als invoer (tenzij deze invoer al voor de shard-toewijzing en de sleutel gebruikt is). De Booleaanse waarde is doorgegeven. |
-| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. Deze kan niet worden opgegeven als invoer (tenzij deze invoer is de shard-toewijzing en de sleutel). Het gecompileerde model is doorgegeven. |
+| MyContext (string, DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. Deze kan niet worden opgegeven als invoer (tenzij deze invoer is de shard-toewijzing en de sleutel). Het gecompileerde model is doorgegeven. |
 | MyContext (ObjectContext, bool) |ElasticScaleContext (ShardMap TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |De nieuwe constructor moet om ervoor te zorgen dat een verbinding in de ObjectContext is doorgegeven als invoer omgeleid naar een verbinding die wordt beheerd door elastisch schalen wordt. Een gedetailleerde discussie over ObjectContexts valt buiten het bereik van dit document. |
-| MyContext (DbConnection, DbCompiledModel, bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. De verbinding kan niet worden opgegeven als invoer (tenzij deze invoer al voor de shard-toewijzing en de sleutel gebruikt is). Model en Booleaanse waarde worden doorgegeven aan de constructor basisklasse. |
+| MyContext (DbConnection, DbCompiledModel, bool) |ElasticScaleContext (ShardMap TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |De verbinding moet worden afgeleid van de shard-toewijzing en de sleutel. De verbinding kan niet worden opgegeven als invoer (tenzij deze invoer al voor de shard-toewijzing en de sleutel gebruikt is). Model en Booleaanse waarde worden doorgegeven aan de constructor basisklasse. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Implementatie van de shard-schema via EF-migraties
 Automatische Schemabeheer is voor uw gemak geleverd door de Entity Framework. In de context van toepassingen met elastische database-hulpprogramma's die u wilt bewaren van deze mogelijkheid voor het automatisch inrichten van het schema voor de zojuist gemaakte shards wanneer databases worden toegevoegd aan de shard-toepassing. Er is een voornamelijk gebruikt om te verhogen voor shard-toepassingen met EF-capaciteit op de gegevenslaag. De database beheer inspanning vertrouwen op de EF mogelijkheden voor het Schemabeheer van het met een shard toepassing die is gebouwd op EF worden beperkt. 

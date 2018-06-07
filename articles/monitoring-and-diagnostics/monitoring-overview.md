@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 354aadd4377e054bc9c10561bbda8fc8009a98a7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640095"
 ---
-# <a name="monitoring-azure-applications-and-resources"></a>Bewaking van de Azure-toepassingen en bronnen
+# <a name="monitoring-azure-applications-and-resources"></a>Azure-toepassingen en -resources bewaken
 
 Bewaking wordt het verzamelen en analyseren van gegevens om te bepalen van de prestaties, status en beschikbaarheid van uw zakelijke toepassingen en de resources die deze afhankelijk is. Een strategie voor een effectieve bewaking helpt u de gedetailleerde werking van de onderdelen van uw toepassing te begrijpen. Hiermee kunt u ook uw bedrijfstijd verbeteren door het verwittigen van kritieke problemen proactief zodat u deze oplossen kunt voordat ze problemen.
 
@@ -117,9 +118,9 @@ Er zijn verschillende hulpprogramma's die samenwerken, zodat verschillende aspec
 
 [Netwerk-Watcher](../network-watcher/network-watcher-monitoring-overview.md) biedt scenario's gebaseerde controle en diagnostische gegevens voor scenario's met verschillende netwerken in Azure. Gegevens worden opgeslagen in Azure metrische gegevens en diagnostische gegevens voor verdere analyse. Dit proces werkt met de volgende oplossingen voor het bewaken van verschillende aspecten van uw netwerk.
 
-[Performance Monitor (NPM) netwerk](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) een netwerk met een cloud-gebaseerde bewakingsoplossing, die wordt bewaakt connectiviteit tussen openbare clouds, datacenters en on-premises omgevingen.
+[Performance Monitor (NPM) netwerk](../log-analytics/log-analytics-network-performance-monitor.md) een netwerk met een cloud-gebaseerde bewakingsoplossing, die wordt bewaakt connectiviteit tussen openbare clouds, datacenters en on-premises omgevingen.
 
-[ExpressRoute-Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) is een NPM-functie die de end-to-end-connectiviteit en prestaties via Azure ExpressRoute-circuits bewaakt.
+[ExpressRoute-Monitor](../expressroute/how-to-npm.md) is een NPM-functie die de end-to-end-connectiviteit en prestaties via Azure ExpressRoute-circuits bewaakt.
 
 [DNS-Analytics](../log-analytics/log-analytics-dns.md) is een oplossing die biedt beveiliging, prestaties en bewerkingen gerelateerd insights, op basis van uw DNS-servers.
 

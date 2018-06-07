@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b9884dac8a2716cbce6fca7b8172f7d272ad8f2f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 265b227520f25ebd1112d940aaf28fed9f88ecdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621017"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - functies en systeemvariabelen
 > [!NOTE]
@@ -31,8 +32,8 @@ Dit artikel bevat informatie over functies en variabelen die worden ondersteund 
 | --- | --- | --- | --- |
 | WindowStart |Begin van het tijdsinterval voor de huidige activiteit venster uitvoeren |activiteit |<ol><li>Geef op query's voor selectie. Zie connector artikelen waarnaar wordt verwezen in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
 | WindowEnd |Einde van het tijdsinterval voor de huidige activiteit venster uitvoeren |activiteit |hetzelfde als WindowStart. |
-| SliceStart |Begin van het tijdsinterval voor het segment wordt geproduceerd |activiteit<br/>dataset |<ol><li>Geef dynamische paden en bestandsnamen tijdens het werken met [Azure Blob](data-factory-azure-blob-connector.md) en [bestandssysteem gegevenssets](data-factory-onprem-file-system-connector.md).</li><li>Invoer afhankelijkheden data factory-functies in activiteit invoer verzameling opgeven.</li></ol> |
-| SliceEnd |Einde van de tijdsinterval voor het huidige segment. |activiteit<br/>dataset |hetzelfde als SliceStart. |
+| SliceStart |Begin van het tijdsinterval voor het segment wordt geproduceerd |activiteit<br/>Gegevensset |<ol><li>Geef dynamische paden en bestandsnamen tijdens het werken met [Azure Blob](data-factory-azure-blob-connector.md) en [bestandssysteem gegevenssets](data-factory-onprem-file-system-connector.md).</li><li>Invoer afhankelijkheden data factory-functies in activiteit invoer verzameling opgeven.</li></ol> |
+| SliceEnd |Einde van de tijdsinterval voor het huidige segment. |activiteit<br/>Gegevensset |hetzelfde als SliceStart. |
 
 > [!NOTE]
 > Op dit moment vereist gegevensfactory dat de planning die is opgegeven in de activiteit exact overeenkomt met het schema dat is opgegeven in de beschikbaarheid van de uitvoergegevensset. Daarom WindowStart, WindowEnd, en SliceStart en SliceEnd altijd toegewezen aan dezelfde periode en een segment één uitvoer.
@@ -74,7 +75,7 @@ In het volgende voorbeeld, **sqlReaderQuery** eigenschap in een JSON-bestand is 
 
 Zie [aangepaste datum en tijd-indeling tekenreeksen](https://msdn.microsoft.com/library/8kb3ddd4.aspx) onderwerp dat beschrijft de verschillende opmaakopties die u kunt gebruiken (bijvoorbeeld: ay versus jjjj). 
 
-### <a name="functions"></a>Functies
+### <a name="functions"></a>Functions
 De volgende tabellen worden de functies in Azure Data Factory:
 
 | Category | Functie | Parameters | Beschrijving |

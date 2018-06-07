@@ -12,22 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/20/2017
+ms.date: 5/21/2018
 ms.author: msfussell
-ms.openlocfilehash: c70db92d6071a295dfc329768ab8a0fd561f8ce5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe6db569c0f70362676251a9413fa859f27f5046
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641908"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric en containers
-> [!NOTE]
-> Containers implementeren naar een Service Fabric-cluster in Windows 10 of met Docker CE wordt niet ondersteund. 
->   
-
-> [!NOTE]
-> Service Fabric versie 6.1 biedt preview-ondersteuning voor Windows Server versie 1709. Open netwerken en de DNS-service voor Service Fabric werken niet met Windows Server versie 1709. 
-> 
 
 ## <a name="introduction"></a>Inleiding
 Azure Service Fabric is een [orchestrator](service-fabric-cluster-resource-manager-introduction.md) van services in een cluster van machines met jaar gebruiks- en optimalisatie in grootschalige services bij Microsoft. Services kunnen worden ontwikkeld op tal van manieren van het gebruik van de [Service Fabric modellen programming](service-fabric-choose-framework.md) tot het implementeren van [Gast uitvoerbare bestanden](service-fabric-guest-executables-introduction.md). Standaard wordt Service Fabric implementeert en deze services als processen wordt geactiveerd. Processen bieden de snelste activation en hoogste dichtheid gebruik van de resources in een cluster. Service Fabric kunnen ook services implementeren in container-installatiekopieën. Belangrijker nog, kunt u services in processen en -services in containers in dezelfde toepassing elkaar.   
@@ -44,10 +38,6 @@ Containers zijn een virtualisatietechnologie die het onderliggende besturingssys
 
 ## <a name="container-types-and-supported-environments"></a>Containertypen en ondersteunde omgevingen
 Service Fabric ondersteunt containers op Linux- en Windows, en ook isolatiemodus van Hyper-V op de laatste. 
-
-> [!NOTE]
-> Containers implementeren naar een Service Fabric-cluster op Windows 10 wordt momenteel niet ondersteund. 
-> 
 
 ### <a name="docker-containers-on-linux"></a>Docker-containers op Linux
 Docker biedt op hoog niveau API's maken en beheren van containers boven op Linux kernel containers. Docker-Hub is een centrale opslagplaats voor het opslaan en ophalen van installatiekopieën van de container.

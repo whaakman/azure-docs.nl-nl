@@ -1,24 +1,19 @@
 ---
 title: Opties voor Azure IoT Hub cloud-naar-apparaat | Microsoft Docs
 description: Handleiding voor ontwikkelaars - richtlijnen voor wanneer rechtstreekse methoden van apparaat twin gewenste eigenschappen of cloud-naar-apparaat-berichten gebruiken voor communicatie van cloud-naar-apparaat.
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff81be4bbf6d297c623c5d98b5dc22a540112fcc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634434"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Cloud-naar-apparaat communicatie richtlijnen
 IoT Hub biedt drie opties voor apparaat-apps om functionaliteit om een back-endserver voor apps weer te geven:
@@ -37,7 +32,7 @@ Hier volgt een gedetailleerde vergelijking van de verschillende communicatieopti
 | Gegevensstroom | Twee richtingen. De app voor het apparaat kan reageren op de methode meteen. De back-end oplossing ontvangt de uitkomst contextueel op de aanvraag. | Eenzijdige. De apparaat-app ontvangt een melding met de eigenschap wijziging. | Eenzijdige. De apparaat-app ontvangt het bericht
 | Duurzaamheid | Niet-verbonden apparaten geen contact wordt opgenomen. De back-end oplossing wordt gemeld dat het apparaat niet is verbonden. | Eigenschapswaarden worden bewaard in de apparaat-twin. Apparaat wordt lezen op de volgende opnieuw verbinding te maken. Eigenschapswaarden zijn worden opgehaald met de [IoT Hub-querytaal][lnk-query]. | Berichten worden behouden door de IoT Hub voor maximaal 48 uur. |
 | Doelen | Met behulp van één apparaat **deviceId**, of meerdere apparaten met behulp van [taken][lnk-jobs]. | Met behulp van één apparaat **deviceId**, of meerdere apparaten met behulp van [taken][lnk-jobs]. | Eén apparaat door **deviceId**. |
-| Grootte | Maximaal 8 KB aanvragen en antwoorden van 8 KB. | Maximum aantal gewenste grootte van de eigenschappen van 8 KB. | Berichten van maximaal 64 KB. |
+| Grootte | Directe methode maximale nettolading is 128 KB. | Maximum aantal gewenste grootte van de eigenschappen van 8 KB. | Berichten van maximaal 64 KB. |
 | Frequentie | Hoog. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Gemiddeld. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Laag. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. |
 | Protocol | Beschikbaar met MQTT of AMQP. | Beschikbaar met MQTT of AMQP. | Beschikbaar op alle protocollen. Apparaat moet controleren wanneer u HTTPS. |
 

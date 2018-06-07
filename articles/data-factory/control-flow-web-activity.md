@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: shlo
-ms.openlocfilehash: 58faed48f5031b26f1340f3766fdd8bdc6bd2ccb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6d14d84610d97e487e3bf4286267623681c4eb75
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619232"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webactiviteit in Azure Data Factory
 De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit. 
@@ -66,8 +67,8 @@ De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen 
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de webactiviteit | Tekenreeks | Ja
-type | Moet worden ingesteld op **WebActivity**. | Tekenreeks | Ja
+naam | Naam van de webactiviteit | Reeks | Ja
+type | Moet worden ingesteld op **WebActivity**. | Reeks | Ja
 method | Rest-API-methode voor het doel-eindpunt. | De tekenreeks. <br/><br/>Ondersteunde typen: 'GET', 'Posten', 'PUT' | Ja
 url | Doel-eindpunt en het pad | Tekenreeks (of een expressie met een resultType van een tekenreeks). De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt. | Ja
 headers | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, om de taal en type ingesteld op een aanvraag: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Tekenreeks (of een expressie met een resultType van een tekenreeks) | Ja, de header Content-type is vereist. `"headers":{ "Content-Type":"application/json"}`

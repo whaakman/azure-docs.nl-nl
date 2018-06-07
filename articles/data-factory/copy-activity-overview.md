@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 8ae1402b6821d1b42fa8f2bf9c2f6453a5ce7109
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c5ec07603088edd3f95f08f12b6982022b396d05
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618484"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -133,7 +134,7 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van een kopieeractiviteit moet worden ingesteld op: **kopiëren** | Ja |
-| Invoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de brongegevens. Kopieeractiviteit ondersteunt alleen een één invoer. | Ja |
+| invoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de brongegevens. Kopieeractiviteit ondersteunt alleen een één invoer. | Ja |
 | uitvoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de sink-gegevens. Kopieeractiviteit ondersteunt slechts één uitvoer. | Ja |
 | typeProperties | Een groep met eigenschappen voor het configureren van de kopieeractiviteit. | Ja |
 | source | Het brontype van het exemplaar en de bijbehorende eigenschappen opgeven voor het ophalen van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
@@ -170,7 +171,7 @@ Klik op de '**Details**' koppeling onder **acties** om details van de uitvoering
 
 De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken zijn ook geretourneerd als resultaat van uitgevoerde Kopieeractiviteit -> sectie uitvoer. Hieronder volgt een uitputtende lijst. alleen de van toepassing door op uw scenario kopie wordt weergegeven. Informatie over het bewaken van de activiteit die wordt uitgevoerd van [Quick Start sectie bewaking](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| De naam van eigenschap  | Beschrijving | Eenheid |
+| Naam van eigenschap  | Beschrijving | Eenheid |
 |:--- |:--- |:--- |
 | dataRead | Gegevensgrootte van het lezen van bron | Waarde voor Int64 in **bytes** |
 | dataWritten | Gegevensgrootte opvangen geschreven | Waarde voor Int64 in **bytes** |

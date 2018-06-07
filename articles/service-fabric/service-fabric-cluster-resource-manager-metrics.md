@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643335"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Het beheren van het brongebruik en de belasting in Service Fabric met metrische gegevens
 *Metrische gegevens* zijn de resources die uw services voorzichtig over en die worden geleverd door de knooppunten in het cluster. Een metriek is alles wat u wilt beheren om te kunnen verbeteren of de prestaties van uw services controleren. U kunt bijvoorbeeld geheugenverbruik als u wilt weten of de service is overbelast bekijken. Er wordt een andere gebruikt om te achterhalen of de service elders waarbij geheugen dat minder beperkt verplaatsen kan is, om betere prestaties wenst.
@@ -32,11 +33,12 @@ Stel dat u wilt schrijven en implementeren van uw service aan de slag. Op dit mo
   - ReplicaCount - telling van de totale stateful replica's op het knooppunt
   - Aantal - telling van alle service-objecten (stateless en stateful) op het knooppunt
 
-| Gegevens | Staatloze exemplaar laden | Stateful secundaire laden | Stateful primaire laden |
-| --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |
-| ReplicaCount |0 |1 |1 |
-| Count |1 |1 |1 |
+| Gegevens | Staatloze exemplaar laden | Stateful secundaire laden | Stateful primaire laden | Gewicht |
+| --- | --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |0 |
+| ReplicaCount |0 |1 |1 |0 |
+| Count |1 |1 |1 |0 |
+
 
 Voor algemene werkbelastingen geeft de standaard metrische gegevens een goede verdeling van het werk in het cluster. In het volgende voorbeeld gaan we kijken wat er gebeurt als er twee services en zijn afhankelijk van de standaard metrische gegevens voor netwerktaakverdeling. De eerste service is een stateful service met drie partities en een grootte van de drie doel replicaset. De tweede service is een staatloze service met één partitie en drie exemplaren.
 

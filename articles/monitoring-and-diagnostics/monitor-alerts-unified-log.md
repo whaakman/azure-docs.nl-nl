@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 175e512d0bdaa84d5251f4bbdb09aed3aed436f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638718"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Logboek waarschuwingen in Azure Monitor - waarschuwingen 
 Dit artikel vindt u details van logboek-waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de nieuwe [Azure waarschuwingen](monitoring-overview-unified-alerts.md) en toestaan dat gebruikers van Azure analytics platform gebruiken als basis voor het waarschuwen... Raadpleeg voor meer informatie van metriek waarschuwingen met Logboeken [bijna realtime metriek waarschuwingen](monitoring-near-real-time-metric-alerts.md)
@@ -35,7 +36,7 @@ Logboek zoeken regels zijn gedefinieerd door de volgende details:
 - **Meld u Query**.  De query die wordt uitgevoerd telkens als de waarschuwingsregel wordt geactiveerd.  De records geretourneerd door deze query worden gebruikt om te bepalen of een waarschuwing wordt gemaakt. *Azure Application Insights* query kan ook betekenen dat [tussen verschillende toepassingen aanroepen](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), mits de gebruiker heeft de toegangsrechten voor de externe toepassingen. 
 
     > [!IMPORTANT]
-    > Relatietype van [cross-toepassing-query voor Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) bevindt zich in het voorbeeld - de functionaliteit en gebruikerservaring kan worden gewijzigd. Informatie over het gebruik van [cross-werkruimte query](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) en [cross-resource-query voor logboekanalyse](../log-analytics/log-analytics-cross-workspace-search.md) is momenteel **niet ondersteund** in waarschuwingen van Azure.
+    > Relatietype van [cross-toepassing-query voor Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) is in de preview - de functionaliteit beperkt gebruik met 2 of meer apps en gebruikerservaring kan worden gewijzigd. Informatie over het gebruik van [cross-werkruimte query](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) en [cross-resource-query voor logboekanalyse](../log-analytics/log-analytics-cross-workspace-search.md) is momenteel **niet ondersteund** in waarschuwingen van Azure.
 
 - **Periode**.  Hiermee geeft u het tijdsbereik voor de query. De query retourneert alleen de records die zijn gemaakt binnen dit tijdsbereik. Periode Hiermee beperkt u de gegevens die zijn opgehaald voor logboek-query om te voorkomen dat misbruik en gevolg willekeurige opdracht van de tijd (zoals geleden) in logboek query gebruikt. <br>*Bijvoorbeeld, als de periode is ingesteld op 60 minuten en de query wordt uitgevoerd om 1:15 uur, wordt alleen records gemaakt tussen 12:15 uur en 1:15 uur geretourneerd logboek query uit te voeren. Nu als de query logboek gebruikt, zoals opdracht geleden tijd (7d), de logboek-query worden uitgevoerd alleen voor gegevens die tussen 12:15 uur en 1:15 PM - alsof er voor alleen de afgelopen 60 minuten gegevens. En niet voor de zeven dagen aan gegevens, zoals opgegeven in het logboek-query.*
 - **Frequentie**.  Hiermee geeft u op hoe vaak de query moet worden uitgevoerd. Is een waarde tussen 5 minuten en 24 uur. Moet gelijk zijn aan of kleiner is dan de periode.  Als de waarde groter dan de periode is, risico u records wordt overgeslagen.<br>*Neem bijvoorbeeld een periode van 30 minuten en een frequentie van 60 minuten.  Als de query wordt uitgevoerd om 1:00 uur, wordt er records tussen 12:30 en 13:00 uur.  De volgende keer dat de query werd uitgevoerd is 2:00 wanneer er records tussen 1:30 en 2:00 zou geretourneerd.  Alle records gemaakt tussen de 1:00 en 1:30 zou nooit worden geëvalueerd.*
@@ -125,7 +126,7 @@ API's zijn voorzien van logboek waarschuwingen RESTful zijn en toegankelijk zijn
 
 Voor meer informatie en voorbeelden van het gebruik van de REST-API, kunt u verwijzen naar:
 - [Meld u Analytics waarschuwing REST-API](../log-analytics/log-analytics-api-alerts.md) : als u wilt maken en beheren van logboek zoeken waarschuwingsregels voor Azure Log Analytics
-- [Azure Monitor gepland Query regels REST-API](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) : als u wilt maken en beheren van logboek zoeken waarschuwingsregels voor Azure Application Insights
+- [Azure Monitor gepland Query regels REST-API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) : als u wilt maken en beheren van logboek zoeken waarschuwingsregels voor Azure Application Insights
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
 Gebruikers kunnen ook gebruiken voor de flexibiliteit door [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) maken en bijwerken van resources - maken of bijwerken van logboek-waarschuwingen.
