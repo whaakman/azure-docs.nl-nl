@@ -14,11 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598076"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Het gebruik van de Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -33,7 +34,7 @@ Mobiele Apps biedt de mogelijkheid een gegevens geoptimaliseerd voor mobiele toe
 
 Beide bewerkingen kunnen worden gebruikt voor verificatie binnen alle id-providers waarmee Azure App Service. Deze providers bevatten sociale id-providers zoals Facebook, Twitter, Google, en Microsoft, evenals Azure Active Directory voor de identiteit van de onderneming.
 
-Vindt u voorbeelden voor elk geval gebruik in de [directory voorbeelden op GitHub].
+Vindt u voorbeelden voor elk geval gebruik in de [de map voorbeelden op GitHub].
 
 ## <a name="supported-platforms"></a>Ondersteunde platforms
 De Mobile Apps Node.js SDK biedt ondersteuning voor de huidige release TNS van knooppunt en hoger. De meest recente versie van de TNS is momenteel knooppunt v4.5.0. Andere versies van knooppunt werkt mogelijk, maar worden niet ondersteund.
@@ -80,17 +81,17 @@ Elke back-end van Mobile Apps Node.js wordt gestart als een toepassing ExpressJS
 Deze toepassing maakt een geoptimaliseerd voor mobiele Web-API met één eindpunt (`/tables/TodoItem`) die niet-geverifieerde toegang biedt tot onderliggende SQL gegevensopslag met behulp van een dynamische schema. Het is geschikt is voor de client-bibliotheek snelstartgidsen te volgen:
 
 * [Android client Quick Start]
-* [Quick Start Apache Cordova-client]
+* [Apache Cordova Client Quick Start]
 * [iOS Client Quick Start]
 * [Windows Store-client Quick Start]
-* [Snelstartgids voor Xamarin.iOS-client]
+* [Quick Start voor Xamarin.iOS-Client]
 * [Snelstartgids voor Xamarin.Android-client]
 * [Quick Start Xamarin.Forms-client]
 
 U vindt de code voor deze eenvoudige toepassing in de [basicapp voorbeeld op GitHub].
 
 ### <a name="howto-vs2015-basicapp"></a>Een back-end voor Node.js maken met behulp van Visual Studio 2015
-Visual Studio 2015 is een uitbreiding voor het ontwikkelen van Node.js-toepassingen IDE vereist. Als u wilt starten, installeer de [1.1 van Node.js-hulpprogramma's voor Visual Studio]. Wanneer u de installatie hebt voltooid, moet u een snelle 4.x-toepassing maken:
+Visual Studio 2015 is een uitbreiding voor het ontwikkelen van Node.js-toepassingen IDE vereist. Als u wilt starten, installeer de [Node.js Tools 1.1 voor Visual Studio]. Wanneer u de installatie hebt voltooid, moet u een snelle 4.x-toepassing maken:
 
 1. Open de **nieuw Project** in het dialoogvenster (van **bestand** > **nieuw** > **Project**).
 2. Vouw **sjablonen** > **JavaScript** > **Node.js**.
@@ -122,7 +123,7 @@ Visual Studio 2015 is een uitbreiding voor het ontwikkelen van Node.js-toepassin
 10. Ofwel de toepassing lokaal uitvoeren (de API wordt geleverd op http://localhost:3000) of publiceren naar Azure.
 
 ### <a name="create-node-backend-portal"></a>Een back-end voor Node.js maken met behulp van de Azure-portal
-U kunt een Mobile Apps back-end rechts maken in de [Azure-portal]. U kunt de volgende stappen uit of een client en server samen te maken door de [maken van een mobiele app](app-service-mobile-ios-get-started.md) zelfstudie. De zelfstudie bevat een vereenvoudigde versie van deze instructies en wordt aanbevolen voor bewijs van concept projecten.
+U kunt een Mobile Apps back-end rechts maken in de [Azure Portal]. U kunt de volgende stappen uit of een client en server samen te maken door de [maken van een mobiele app](app-service-mobile-ios-get-started.md) zelfstudie. De zelfstudie bevat een vereenvoudigde versie van deze instructies en wordt aanbevolen voor bewijs van concept projecten.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -234,7 +235,7 @@ De tabel kan worden gedefinieerd in de tabel definitie JavaScript-bestand (zich 
 
     module.exports = table;
 
-Als u tabellen statisch definieert, moet u ook aanroepen de `tables.initialize()` methode voor het maken van het databaseschema bij het opstarten. De `tables.initialize()` methode retourneert een [belofte] zodat de webservice geen aanvragen verwerken heeft voordat de database is geïnitialiseerd.
+Als u tabellen statisch definieert, moet u ook aanroepen de `tables.initialize()` methode voor het maken van het databaseschema bij het opstarten. De `tables.initialize()` methode retourneert een [CTP] zodat de webservice geen aanvragen verwerken heeft voordat de database is geïnitialiseerd.
 
 ### <a name="howto-sqlexpress-setup"></a>SQL Server Express gebruiken als gegevensopslag ontwikkeling op uw lokale computer
 De Mobile Apps Node.js SDK biedt drie opties voor die gegevens buiten het vak:
@@ -243,7 +244,7 @@ De Mobile Apps Node.js SDK biedt drie opties voor die gegevens buiten het vak:
 * Gebruik de **mssql** -stuurprogramma voor SQL Server Express gegevensopslag voor ontwikkeling.
 * Gebruik de **mssql** -stuurprogramma voor een Azure SQL Database-gegevensarchief voor productie.
 
-De Mobile Apps Node.js SDK gebruikt de [mssql Node.js pakket] voor het maken van een verbinding met SQL Server Express en SQL-Database gebruiken. Dit pakket vereist dat u TCP-verbindingen op uw exemplaar van SQL Server Express inschakelen.
+De Mobile Apps Node.js SDK gebruikt de [MSSQL Node.js-pakket] voor het maken van een verbinding met SQL Server Express en SQL-Database gebruiken. Dit pakket vereist dat u TCP-verbindingen op uw exemplaar van SQL Server Express inschakelen.
 
 > [!TIP]
 > Het stuurprogramma geheugen biedt geen een volledige set van opslagruimten voor het testen. Als u uw back-end lokaal testen wilt, raden wij het gebruik van een SQL Server Express-gegevensarchief en de mssql-stuurprogramma.
@@ -303,7 +304,7 @@ De Node.js-toepassing leest de `SQLCONNSTR_MS_TableConnectionString` omgevingsva
 Toegang tot de database via een TCP/IP-verbinding. Geef een gebruikersnaam en wachtwoord voor de verbinding.
 
 ### <a name="howto-config-localdev"></a>Uw project voor lokale ontwikkeling configureren
-Mobile Apps leest een JavaScript-bestand aangeroepen *azureMobile.js* uit het lokale bestandssysteem. Gebruik dit bestand niet voor het configureren van de Mobile Apps SDK in de productieomgeving. Gebruik in plaats daarvan **appinstellingen** in de [Azure-portal]. 
+Mobile Apps leest een JavaScript-bestand aangeroepen *azureMobile.js* uit het lokale bestandssysteem. Gebruik dit bestand niet voor het configureren van de Mobile Apps SDK in de productieomgeving. Gebruik in plaats daarvan **appinstellingen** in de [Azure Portal]. 
 
 Het bestand azureMobile.js moet een configuratieobject exporteren. De meest voorkomende instellingen zijn:
 
@@ -329,10 +330,10 @@ Dit voorbeeld azureMobile.js bestand implementeert de voorgaande database-instel
         }
     };
 
-Het is raadzaam dat u azureMobile.js aan uw bestand .gitignore toevoegen (of andere broncodebeheer bestand negeren) om te voorkomen dat wachtwoorden worden opgeslagen in de cloud. Configureer altijd productie-instellingen in **appinstellingen** binnen de [Azure-portal].
+Het is raadzaam dat u azureMobile.js aan uw bestand .gitignore toevoegen (of andere broncodebeheer bestand negeren) om te voorkomen dat wachtwoorden worden opgeslagen in de cloud. Configureer altijd productie-instellingen in **appinstellingen** binnen de [Azure Portal].
 
 ### <a name="howto-appsettings"></a>Appinstellingen voor uw mobiele app configureren
-De meeste instellingen in het bestand azureMobile.js hebben een equivalent app-instelling in de [Azure-portal]. Gebruik de volgende lijst voor het configureren van uw app in **appinstellingen**:
+De meeste instellingen in het bestand azureMobile.js hebben een equivalent app-instelling in de [Azure Portal]. Gebruik de volgende lijst voor het configureren van uw app in **appinstellingen**:
 
 | App-instelling | azureMobile.js instelling | Beschrijving | Geldige waarden |
 |:--- |:--- |:--- |:--- |
@@ -346,7 +347,7 @@ De meeste instellingen in het bestand azureMobile.js hebben een equivalent app-i
 
 Instellen van een app-instelling:
 
-1. Meld u aan bij de [Azure-portal].
+1. Meld u aan bij de [Azure Portal].
 2. Selecteer **alle resources** of **App Services**, en selecteer vervolgens de naam van uw mobiele app.
 3. De **instellingen** deelvenster standaard wordt geopend. Als dit niet zo is, selecteert **instellingen**.
 4. Op de **algemene** selecteert u **toepassingsinstellingen**.
@@ -362,7 +363,7 @@ Het wijzigen van de meeste appinstellingen voor vereist service opnieuw opstarte
 
 Met behulp van Azure SQL Database als gegevensopslag is identiek alle typen voor Azure App Service-toepassing. Als u nog niet gedaan hebt, volgt u deze stappen voor het maken van een back-end van Mobile Apps:
 
-1. Meld u aan bij de [Azure-portal].
+1. Meld u aan bij de [Azure Portal].
 2. Selecteer in de linkerbovenhoek van het venster de **+ nieuw** knop > **Web en mobiel** > **mobiele App**, en geef vervolgens een naam voor uw mobiele Apps van back-end.
 3. In de **resourcegroep** Voer dezelfde naam als uw app.
 4. De standaardwaarde van App Service-abonnement is geselecteerd. Als u uw App Service-abonnement wijzigen wilt:
@@ -401,7 +402,7 @@ U kunt verbinding maken met een bestaande SQL-database van uw back-end van Mobil
 Maken van de database kan enkele minuten duren. Gebruik de **meldingen** gebied de voortgang van de implementatie. Voortgang niet totdat de database wordt geïmplementeerd. Nadat de database is geïmplementeerd, wordt een verbindingsreeks voor de SQL Database-exemplaar in de instellingen van uw Mobile Apps-back-end-app gemaakt. U kunt deze appinstelling in zien **instellingen** > **toepassingsinstellingen** > **verbindingsreeksen**.
 
 ### <a name="howto-tables-auth"></a>Verificatie vereisen voor toegang tot tabellen
-Als u wilt gebruiken van App Service-verificatie met de `tables` eindpunt, moet u App Service-verificatie in de [Azure-portal] eerste. Zie voor meer informatie de configuratiehandleiding voor de id-provider die u wilt gebruiken:
+Als u wilt gebruiken van App Service-verificatie met de `tables` eindpunt, moet u App Service-verificatie in de [Azure Portal] eerste. Zie voor meer informatie de configuratiehandleiding voor de id-provider die u wilt gebruiken:
 
 * [Azure Active Directory-verificatie configureren]
 * [Facebook-verificatie configureren]
@@ -681,7 +682,7 @@ Wanneer u bent geregistreerd voor pushmeldingen vanuit een geverifieerde client,
 ### <a name="howto-customapi-basic"></a>Een aangepaste API definiëren
 Naast de API van de toegang tot gegevens via de `/tables` eindpunt, Mobile Apps dekking van uw aangepaste API kan bieden. Aangepaste API's zijn gedefinieerd in een vergelijkbare manier als bij de tabeldefinities en toegang tot dezelfde mogelijkheden, zoals verificatie.
 
-Als u wilt een App Service-verificatie met een aangepaste API gebruiken, moet u App Service-verificatie in de [Azure-portal] eerste. Zie voor meer informatie de configuratiehandleiding voor de id-provider die u wilt gebruiken:
+Als u wilt een App Service-verificatie met een aangepaste API gebruiken, moet u App Service-verificatie in de [Azure Portal] eerste. Zie voor meer informatie de configuratiehandleiding voor de id-provider die u wilt gebruiken:
 
 * [Azure Active Directory-verificatie configureren]
 * [Facebook-verificatie configureren]
@@ -818,7 +819,7 @@ Om te beginnen bij het oplossen van uw back-end voor Node.js Mobile Apps raadple
 * [Diagnostische logboekregistratie inschakelen in Azure App Service]
 * [In Visual Studio-Azure App Service oplossen]
 
-Node.js-toepassingen hebben toegang tot een breed scala aan extra diagnostische logboeken. De Mobile Apps Node.js SDK gebruikt intern, [Winston] voor diagnostische logboekregistratie. Logboekregistratie is standaard ingeschakeld wanneer u foutopsporing inschakelt modus of stel de `MS_DebugMode` app-instelling in op true in de [Azure-portal]. Gegenereerde logboeken worden weergegeven in de diagnostische logboeken in de [Azure-portal].
+Node.js-toepassingen hebben toegang tot een breed scala aan extra diagnostische logboeken. De Mobile Apps Node.js SDK gebruikt intern, [Winston] voor diagnostische logboekregistratie. Logboekregistratie is standaard ingeschakeld wanneer u foutopsporing inschakelt modus of stel de `MS_DebugMode` app-instelling in op true in de [Azure Portal]. Gegenereerde logboeken worden weergegeven in de diagnostische logboeken in de [Azure Portal].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Werken met gemakkelijk tabellen in de Azure portal
 U kunt gemakkelijk tabellen maken en ermee rechts van de tabellen in de portal. U kunt de gegevensset uploaden naar gemakkelijk tabellen in CSV-indeling. Houd er rekening mee dat u eigenschapnamen (in uw gegevensset CSV) die strijdig zijn niet gebruiken met de eigenschapsnamen van de back-end van Mobile Apps. De eigenschap Systeemnamen zijn:
@@ -886,22 +887,22 @@ U kunt uw Node.js back-end-scriptbestanden in App Service-Editor met behulp van 
 [Diagnostische logboekregistratie inschakelen in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
 [In Visual Studio-Azure App Service oplossen]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [Geef de versie van het knooppunt]: ../nodejs-specify-node-version-azure-apps.md
-[knooppunt-modules gebruiken]: ../nodejs-use-node-modules-azure-apps.md
+[Knooppunt-modules gebruiken]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
 
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [CTP]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp voorbeeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
-[todo-voorbeeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
-[directory voorbeelden op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
+[Todo-voorbeeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[de map voorbeelden op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[1.1 van Node.js-hulpprogramma's voor Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[mssql Node.js pakket]: https://www.npmjs.com/package/mssql
+[Node.js Tools 1.1 voor Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[MSSQL Node.js-pakket]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

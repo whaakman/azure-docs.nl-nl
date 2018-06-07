@@ -1,24 +1,20 @@
 ---
 title: Cloud-naar-apparaat-berichten met Azure IoT Hub (.NET) | Microsoft Docs
 description: Het cloud-naar-apparaat om berichten te verzenden naar een apparaat van een Azure IoT hub met de Azure IoT SDK's voor .NET. U kunt een apparaattoepassing cloud-naar-apparaat-berichten ontvangen en wijzigen van een back-end-app voor het verzenden van de cloud-naar-apparaat-berichten wijzigen.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: a31c05ed-6ec0-40f3-99ab-8fdd28b1a89a
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e4bec631550d6ca3dc2c702b3b3f56bd29c59f03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631884"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Verzenden van berichten vanuit de cloud op uw apparaat met IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -42,7 +38,7 @@ Aan het einde van deze zelfstudie, moet u twee apps voor .NET-console uitvoeren:
 * **SendCloudToDevice**, die verzendt een bericht cloud-naar-apparaat naar de apparaattoepassing via IoT Hub en vervolgens ontvangt de bevestiging levering.
 
 > [!NOTE]
-> IoT-Hub SDK-ondersteuning voor veel apparaatplatforms en talen (inclusief C, Java en Javascript) via heeft [apparaat Azure IoT SDK's]. Zie voor stapsgewijze instructies voor het koppelen van uw apparaat in deze zelfstudie code en in het algemeen naar Azure IoT Hub de [Ontwikkelaarshandleiding voor IoT Hub].
+> IoT-Hub SDK-ondersteuning voor veel apparaatplatforms en talen (inclusief C, Java en Javascript) via heeft [Apparaat met Azure IoT SDK 's]. Zie voor stapsgewijze instructies voor het koppelen van uw apparaat in deze zelfstudie code en in het algemeen naar Azure IoT Hub de [Ontwikkelaarshandleiding voor IoT Hub].
 > 
 > 
 
@@ -176,7 +172,7 @@ In deze sectie, wijzigt u de **SendCloudToDevice** app feedback aanvragen en ont
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe cloud-naar-apparaat-berichten verzenden en ontvangen. 
 
-Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [oplossingsverbetering Azure IoT externe controle].
+Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [Azure IoT-Remote-Monitoring oplossingsverbetering].
 
 Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub].
 
@@ -188,12 +184,12 @@ Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [O
 <!-- Links -->
 
 [Azure IoT service SDK NuGet-pakket]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[afhandeling van tijdelijke fout]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Afhandeling van tijdelijke fout]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [Ontwikkelaarshandleiding voor IoT Hub]: iot-hub-devguide.md
-[aan de slag met IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Aan de slag met IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[oplossingsverbetering Azure IoT externe controle]: https://docs.microsoft.com/azure/iot-suite/
-[apparaat Azure IoT SDK's]: iot-hub-devguide-sdks.md
+[Azure IoT-Remote-Monitoring oplossingsverbetering]: https://docs.microsoft.com/azure/iot-suite/
+[Apparaat met Azure IoT SDK 's]: iot-hub-devguide-sdks.md

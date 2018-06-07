@@ -4,7 +4,7 @@ description: Beschrijft Docker en de virtuele Machines van Azure-extensies en he
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 19cf64e8-f92c-43ad-a120-8976cd9102ac
@@ -15,18 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 674bc870bbbf4e076fbd1d88fcc3bf299eccde84
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 76497f58678e5ecfbab7d263b3adb4c475763cd8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653583"
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-portal"></a>Met behulp van de Docker-VM-extensie met de Azure-portal
 > [!IMPORTANT] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-[Docker](https://www.docker.com/) is een van de meest populaire virtualisatie-methoden die gebruikmaakt van [Linux containers](http://en.wikipedia.org/wiki/LXC) in plaats van virtuele machines als een manier om gegevens te isoleren en berekeningen op gedeelde bronnen. U kunt de Docker-VM-extensie die worden beheerd door [Azure Linux Agent] voor het maken van een Docker-virtuele machine die als host fungeert voor een onbeperkt aantal containers voor uw toepassingen in Azure.
+[Docker](https://www.docker.com/) is een van de meest populaire virtualisatie-methoden die gebruikmaakt van [Linux containers](http://en.wikipedia.org/wiki/LXC) in plaats van virtuele machines als een manier om gegevens te isoleren en berekeningen op gedeelde bronnen. U kunt de Docker-VM-extensie die worden beheerd door [Azure Linux-Agent] voor het maken van een Docker-virtuele machine die als host fungeert voor een onbeperkt aantal containers voor uw toepassingen in Azure.
 
 > [!NOTE]
 > In dit onderwerp wordt beschreven hoe een Docker-virtuele machine maken vanuit de Azure-portal. Zie voor het maken van een Docker-virtuele machine op de opdrachtregel [het gebruik van de Docker-VM-extensie met de Azure-opdrachtregelinterface (Azure CLI)]. Zie voor een hoog niveau bespreking van containers en hun voordelen de [Docker hoog niveau Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
@@ -153,8 +154,8 @@ Bent u klaar om te gaan naar de [Docker-gebruikershandleiding] en de Docker-VM t
 
 
 <!--Link references-->
-[het gebruik van de Docker-VM-extensie met de Azure-opdrachtregelinterface (Azure CLI)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Azure Linux Agent]:../../extensions/agent-linux.md
+[Het gebruik van de Docker-VM-extensie met de Azure-opdrachtregelinterface (Azure CLI)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Azure Linux-Agent]:../../extensions/agent-linux.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
 [Docker uitgevoerd met https]:http://docs.docker.com/articles/https/

@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 6364c0bec8437ba0dfa195c6532b26ec506a2e90
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807428"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>De schijfopslag virtuele machine in Azure-Stack inrichten
 
@@ -61,26 +62,26 @@ Nadat u een virtuele machine maakt, kunt u de portal om te gebruiken:
 Elke niet-beheerde schijf die u toevoegt, moet in een afzonderlijke container worden geplaatst.
 
 >[!NOTE]
->Schijven gemaakt en beheerd door Azure worden genoemd [schijven die worden beheerd](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+>Schijven gemaakt en beheerd door Azure worden genoemd [schijven die worden beheerd](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Met de portal kunt maken en een nieuwe gegevensschijf koppelen
 
-1.  Klik in de portal op **virtuele machines**.    
+1.  Kies in de portal **virtuele machines**.    
     ![Voorbeeld: VM-dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Selecteer een virtuele machine die eerder zijn ingericht.   
     ![Voorbeeld: Een virtuele machine in het dashboard selecteren](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Voor de virtuele machine, klikt u op **schijven** > **Attach nieuwe**.       
+3.  Selecteer voor de virtuele machine, **schijven** > **Attach nieuwe**.       
     ![Voorbeeld: Een nieuwe schijf koppelen aan de virtuele machine](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  In de **nieuwe schijf koppelen** deelvenster, klikt u op **locatie**. De locatie is standaard ingesteld op de container die schijf met het besturingssysteem bevat.      
+4.  In de **nieuwe schijf koppelen** deelvenster **locatie**. De locatie is standaard ingesteld op de container die schijf met het besturingssysteem bevat.      
     ![Voorbeeld: Stel de schijflocatie](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.  Selecteer de **opslagaccount** te gebruiken. Selecteer vervolgens de **Container** waar u de gegevensschijf wilt. Van de **Containers** pagina kunt u een nieuwe container maken als u wilt. Vervolgens kunt u de locatie voor de nieuwe schijf wijzigen naar een eigen container. Wanneer u een afzonderlijke container voor elke schijf gebruikt, kunt u de plaatsing van de gegevensschijf die u kunt de prestaties verbeteren distribueren. Klik op **Selecteer** de selectie opslaan.     
+5.  Selecteer de **opslagaccount** te gebruiken. Selecteer vervolgens de **Container** waar u de gegevensschijf wilt. Van de **Containers** pagina kunt u een nieuwe container maken als u wilt. Vervolgens kunt u de locatie voor de nieuwe schijf wijzigen naar een eigen container. Wanneer u een afzonderlijke container voor elke schijf gebruikt, kunt u de plaatsing van de gegevensschijf die u kunt de prestaties verbeteren distribueren. Kies **Selecteer** de selectie opslaan.     
     ![Voorbeeld: Selecteer een container](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.  In de **nieuwe schijf koppelen** pagina, werkt de **naam**, **Type**, **grootte**, en **Hostcaching** instellingen van de schijf. Klik vervolgens op **OK** om op te slaan van de nieuwe schijfconfiguratie voor de virtuele machine.  
+6.  In de **nieuwe schijf koppelen** pagina, werkt de **naam**, **Type**, **grootte**, en **Hostcaching** instellingen van de schijf. Selecteer vervolgens **OK** om op te slaan van de nieuwe schijfconfiguratie voor de virtuele machine.  
     ![Voorbeeld: Volledige schijf koppelen](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Nadat de Azure-Stack de schijf wordt gemaakt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen voor de schijf van de virtuele machine onder **GEGEVENSSCHIJVEN**.   
@@ -94,22 +95,22 @@ Elke niet-beheerde schijf die u toevoegt, moet in een afzonderlijke container wo
   Wilt u een andere container gebruiken voor het opslaan van het VHD-bestand dan de container met de besturingssysteemschijf.   
   ![Voorbeeld: Een VHD-bestand uploaden](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  Nadat het VHD-bestand is geüpload, bent u klaar om te koppelen van de VHD op een virtuele machine. Klik in het menu aan de linkerkant op **virtuele machines**.  
+2.  Nadat het VHD-bestand is geüpload, bent u klaar om te koppelen van de VHD op een virtuele machine. Selecteer in het menu aan de linkerkant **virtuele machines**.  
  ![Voorbeeld: Een virtuele machine in het dashboard selecteren](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.  Selecteer de virtuele machine in de lijst.    
+3.  Kies de virtuele machine in de lijst.    
   ![Voorbeeld: Een virtuele machine in het dashboard selecteren](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  Klik op de pagina voor de virtuele machine op **schijven** > **Attach bestaande**.   
+4.  Selecteer op de pagina voor de virtuele machine **schijven** > **Attach bestaande**.   
   ![Voorbeeld: Een bestaande schijf koppelen](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  In de **bestaande schijf koppelen** pagina, klikt u op **VHD-bestand**. De **opslagaccounts** pagina wordt geopend.    
+5.  In de **bestaande schijf koppelen** pagina **VHD-bestand**. De **opslagaccounts** pagina wordt geopend.    
   ![Voorbeeld: Selecteer een VHD-bestand](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  Onder **opslagaccounts**, selecteer het account te gebruiken en selecteer vervolgens een container met het VHD-bestand dat u eerder hebt geüpload. Selecteer het VHD-bestand en klik vervolgens op **Selecteer** de selectie opslaan.    
+6.  Onder **opslagaccounts**, selecteer het account te gebruiken en kies vervolgens een container met het VHD-bestand dat u eerder hebt geüpload. Selecteer het VHD-bestand en kies vervolgens **Selecteer** de selectie opslaan.    
   ![Voorbeeld: Selecteer een container](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  Onder **bestaande schijf koppelen**, het geselecteerde bestand wordt vermeld onder **VHD-bestand**. Update de **Hostcaching** instelling van de schijf en klik vervolgens op **OK** om op te slaan van de nieuwe schijfconfiguratie voor de virtuele machine.    
+7.  Onder **bestaande schijf koppelen**, het geselecteerde bestand wordt vermeld onder **VHD-bestand**. Update de **Hostcaching** instelling van de schijf en selecteer vervolgens **OK** om op te slaan van de nieuwe schijfconfiguratie voor de virtuele machine.    
   ![Voorbeeld: Koppel het VHD-bestand](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Nadat de Azure-Stack de schijf wordt gemaakt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen voor de schijf van de virtuele machine onder **gegevensschijven**.   

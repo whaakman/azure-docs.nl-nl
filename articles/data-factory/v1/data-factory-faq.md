@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 387b5e944b0fd198e37a35d7bf1c54f7795c9f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12422a1123673feac1977fa5f52f49b2cdfda777
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621343"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Veelgestelde vragen
 > [!NOTE]
@@ -40,7 +41,7 @@ Zie [prijsinformatie voor Data Factory pagina] [ adf-pricing-details] voor de pr
 * Voor een zelfstudie over het **gegevens kopiëren of verplaatsen** Kopieeractiviteit gebruikt, Zie [gegevens kopiëren van Azure Blob-opslag naar Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Voor een zelfstudie over het **gegevens transformeren** met HDInsight Hive-activiteit. Zie [gegevens verwerken door het Hive-script uitvoeren op Hadoop-cluster](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>Wat is de Data Factory beschikbaarheid in regio's?
+### <a name="what-is-the-data-factorys-region-availability"></a>Wat is de beschikbaarheid van de Data Factory-s-regio?
 Data Factory is beschikbaar in **VS-West** en **Noord-Europa**. De berekenings- en -services die worden gebruikt door gegevensfactory's kunnen zich in andere regio's. Zie [ondersteunde regio's](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Wat zijn de limieten van het aantal data factory's / pijplijnen/activiteiten, gegevenssets?
@@ -73,7 +74,7 @@ De volgende tabel bevat een lijst van compute-omgevingen wordt ondersteund door 
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning-activiteiten: batchuitvoering en resources bijwerken](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Opgeslagen procedure](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL datawarehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Opgeslagen procedure](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Hoe Azure Data Factory vergelijken met SQL Server Integration Services (SSIS)? 
 Zie de [tegenover Azure Data Factory. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentatie van een van onze MVP's (meest waardevolle Professionals): Reza Rad. Sommige van de meest recente wijzigingen in de Data Factory kan niet worden vermeld in de presentatie. We zijn voortdurend meer mogelijkheden toegevoegd aan Azure Data Factory. We zijn voortdurend meer mogelijkheden toegevoegd aan Azure Data Factory. We zullen deze updates opnemen in de vergelijking van gegevens integratietechnologieën van Microsoft enige tijd later dit jaar.   

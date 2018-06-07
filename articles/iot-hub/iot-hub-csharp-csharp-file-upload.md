@@ -1,24 +1,20 @@
 ---
 title: Uploaden van bestanden van apparaten naar Azure IoT Hub met .NET | Microsoft Docs
 description: Het uploaden van bestanden van een apparaat naar de cloud met Azure IoT-device SDK voor .NET. Geüploade bestanden worden opgeslagen in een Azure storage-blob-container.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: 901b4b6c631d47a6c37eb232f66d8350faa9be76
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c57f93a755d01dc17b369e712285c2ac8f0ef37
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807489"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Uploaden van bestanden op uw apparaat naar de cloud met IoT Hub met .NET
 
@@ -29,7 +25,7 @@ Deze zelfstudie bouwt voort op de code in de [Cloud naar apparaat verzenden met 
 - Veilig een apparaat voorzien van een Azure blob-URI voor het uploaden van een bestand.
 - Gebruik de IoT Hub-bestand uploaden meldingen voor het activeren van het bestand in de back-end van uw app wordt verwerkt.
 
-De [aan de slag met IoT Hub](iot-hub-csharp-csharp-getstarted.md) en [Cloud naar apparaat verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) zelfstudies ziet de apparaat-naar-cloud- en cloud-naar-apparaat messaging basisfunctionaliteit van IoT-Hub. De [proces apparaat-naar-cloudberichten](iot-hub-csharp-csharp-process-d2c.md) zelfstudie een manier voor het apparaat-naar-cloud-berichten veilig opslaan in Azure blob-opslag beschreven. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens verzenden van uw apparaten in de relatief klein apparaat-naar-cloud-berichten die IoT Hub accepteert. Bijvoorbeeld:
+De [aan de slag met IoT Hub](iot-hub-csharp-csharp-getstarted.md) en [Cloud naar apparaat verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) zelfstudies ziet de apparaat-naar-cloud- en cloud-naar-apparaat messaging basisfunctionaliteit van IoT-Hub. De [proces apparaat-naar-cloudberichten](tutorial-routing.md) zelfstudie een manier voor het apparaat-naar-cloud-berichten veilig opslaan in Azure blob-opslag beschreven. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens verzenden van uw apparaten in de relatief klein apparaat-naar-cloud-berichten die IoT Hub accepteert. Bijvoorbeeld:
 
 * Grote bestanden met afbeeldingen
 * Video's
@@ -44,7 +40,7 @@ Aan het einde van deze zelfstudie kunt u twee apps voor .NET-console uitvoeren:
 * **ReadFileUploadNotification**, dat bestand uploaden meldingen ontvangt van uw IoT-hub.
 
 > [!NOTE]
-> IoT Hub biedt ondersteuning voor veel apparaatplatforms en talen (inclusief C, Java en Javascript) via Azure IoT-apparaat SDK's. Raadpleeg de [Azure IoT Developer Center] voor stapsgewijze instructies voor het koppelen van uw apparaat met Azure IoT Hub.
+> IoT Hub biedt ondersteuning voor veel apparaatplatforms en talen (inclusief C, Java en Javascript) via Azure IoT-apparaat SDK's. Raadpleeg de [Azure IoT-ontwikkelaarscentrum] voor stapsgewijze instructies voor het koppelen van uw apparaat met Azure IoT Hub.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -166,7 +162,7 @@ U kunt nu de toepassingen gaan uitvoeren.
 
 1. Met de rechtermuisknop op uw oplossing in Visual Studio, en selecteer **Set StartUp projects**. Selecteer **meerdere opstartprojecten**, selecteer vervolgens de **Start** actie voor **ReadFileUploadNotification** en **SimulatedDevice**.
 
-1. Druk op **F5**. Beide toepassingen moeten worden gestart. U ziet het uploaden is voltooid in één console-app en het meldingsbericht uploaden is ontvangen door de console-app. U kunt de [Azure-portal] of Visual Studio Server Explorer om te controleren op de aanwezigheid van het geüploade bestand in uw Azure Storage-account.
+1. Druk op **F5**. Beide toepassingen moeten worden gestart. U ziet het uploaden is voltooid in één console-app en het meldingsbericht uploaden is ontvangen door de console-app. U kunt de [Azure Portal] of Visual Studio Server Explorer om te controleren op de aanwezigheid van het geüploade bestand in uw Azure Storage-account.
 
     ![][50]
 
@@ -190,11 +186,11 @@ Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 <!-- Links -->
 
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
-[Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
+[Azure IoT-ontwikkelaarscentrum]: http://azure.microsoft.com/develop/iot
 
-[afhandeling van tijdelijke fout]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Afhandeling van tijdelijke fout]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure IoT service SDK NuGet-pakket]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
