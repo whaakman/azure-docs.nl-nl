@@ -1,24 +1,20 @@
 ---
 title: Uploaden van bestanden van apparaten naar Azure IoT Hub met knooppunt | Microsoft Docs
 description: Het uploaden van bestanden van een apparaat naar de cloud met Azure IoT-device SDK voor Node.js. Geüploade bestanden worden opgeslagen in een Azure storage-blob-container.
-services: iot-hub
-documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: v-masebo;dobett
-ms.openlocfilehash: b28a02462fe7a5a7f831102b3707fe03f84342ad
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: dobett
+ms.openlocfilehash: 48a2d302727f2f8e9c87552a05bc7506fbef3120
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634621"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden op uw apparaat naar de cloud met IoT Hub
 
@@ -44,7 +40,7 @@ Aan het einde van deze zelfstudie kunt u twee console Node.js-apps uitvoeren:
 * **ReadFileUploadNotification.js**, dat bestand uploaden meldingen ontvangt van uw IoT-hub.
 
 > [!NOTE]
-> IoT Hub biedt ondersteuning voor veel apparaatplatforms en talen (inclusief C, .NET, Python, Javascript en Java) via Azure IoT-apparaat-SDK's. Raadpleeg de [Azure IoT Developer Center] voor stapsgewijze instructies voor het koppelen van uw apparaat met Azure IoT Hub.
+> IoT Hub biedt ondersteuning voor veel apparaatplatforms en talen (inclusief C, .NET, Python, Javascript en Java) via Azure IoT-apparaat-SDK's. Raadpleeg de [Azure IoT-ontwikkelaarscentrum] voor stapsgewijze instructies voor het koppelen van uw apparaat met Azure IoT Hub.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -222,7 +218,7 @@ In deze zelfstudie hebt u geleerd hoe de mogelijkheden voor het uploaden van bes
 * [Azure IoT SDK 's][lnk-sdks]
 
 <!-- Links -->
-[Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
+[Azure IoT-ontwikkelaarscentrum]: http://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

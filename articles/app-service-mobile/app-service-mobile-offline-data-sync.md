@@ -4,7 +4,7 @@ description: Overzicht van de functie voor het synchroniseren van offline gegeve
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597974"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Offlinesynchronisatie van gegevens in Azure Mobile Apps
 ## <a name="what-is-offline-data-sync"></a>Wat is offline synchroniseren van gegevens?
@@ -42,7 +43,7 @@ De volgende zelfstudies weergeven offlinesynchronisatie toevoegen aan uw mobiele
 * [Xamarin iOS: offlinesynchronisatie inschakelen]
 * [Xamarin Android: Offlinesynchronisatie inschakelen]
 * [Xamarin.Forms: Offlinesynchronisatie inschakelen](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [universele Windows-Platform: inschakelen offlinesynchronisatie]
+* [Universele Windows-Platform: Offlinesynchronisatie inschakelen]
 
 ## <a name="what-is-a-sync-table"></a>Wat is een tabel synchroniseren?
 Voor toegang tot het eindpunt (/ tabellen), geef de client-SDK's van Azure Mobile interfaces, zoals `IMobileServiceTable` (.NET client SDK) of `MSTable` (iOS-client). Deze API's direct verbinding maken met de back-end voor mobiele Apps van Azure en mislukken als de clientapparaat beschikt niet over een netwerkverbinding.
@@ -52,7 +53,7 @@ Ter ondersteuning van offlinegebruik, moet uw app in plaats daarvan gebruiken de
 ## <a name="what-is-a-local-store"></a>Wat is een lokaal archief?
 Een lokaal archief is de laag voor gegevenspersistentie op het clientapparaat. De Azure Mobile Apps-client-SDK's bieden een standaardimplementatie van het lokale archief. Op Windows, Xamarin en Android, is gebaseerd op SQLite. In iOS, is gebaseerd op gegevens van de Core.
 
-Als u wilt de SQLite-gebaseerde implementatie van Windows Phone of Windows Store 8.1 gebruikt, moet u een SQLite-uitbreiding te installeren. Zie voor meer informatie [universele Windows-Platform: inschakelen offlinesynchronisatie]. Android en iOS worden geleverd met een versie van SQLite in het besturingssysteem van het apparaat zelf, zodat deze niet nodig om te verwijzen naar uw eigen versie van SQLite.
+Als u wilt de SQLite-gebaseerde implementatie van Windows Phone of Microsoft Store gebruikt, moet u een SQLite-uitbreiding te installeren. Zie voor meer informatie [Universele Windows-Platform: Offlinesynchronisatie inschakelen]. Android en iOS worden geleverd met een versie van SQLite in het besturingssysteem van het apparaat zelf, zodat deze niet nodig om te verwijzen naar uw eigen versie van SQLite.
 
 Ontwikkelaars kunnen ook hun eigen lokale store implementeren. Als u gegevens opslaan in een versleutelde indeling op de mobiele-client wenst, kunt u bijvoorbeeld een lokaal archief die gebruikmaakt van SQLCipher voor versleuteling definiëren.
 
@@ -92,7 +93,7 @@ Wanneer u de synchronisatie-tabellen, bepaalt de clientcode als lokale wijziging
 * [iOS: offlinesynchronisatie inschakelen]
 * [Xamarin iOS: offlinesynchronisatie inschakelen]
 * [Xamarin Android: Offlinesynchronisatie inschakelen]
-* [universele Windows-Platform: inschakelen offlinesynchronisatie]
+* [Universele Windows-Platform: Offlinesynchronisatie inschakelen]
 
 <!-- Links -->
 [SDK voor .NET-clients]: app-service-mobile-dotnet-how-to-use-client-library.md
@@ -100,4 +101,4 @@ Wanneer u de synchronisatie-tabellen, bepaalt de clientcode als lokale wijziging
 [iOS: offlinesynchronisatie inschakelen]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: offlinesynchronisatie inschakelen]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Offlinesynchronisatie inschakelen]: app-service-mobile-xamarin-android-get-started-offline-data.md
-[universele Windows-Platform: inschakelen offlinesynchronisatie]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Universele Windows-Platform: Offlinesynchronisatie inschakelen]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
