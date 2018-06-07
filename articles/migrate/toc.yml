@@ -10,7 +10,7 @@
       href: tutorial-assessment-vmware.md
 - name: Concepten
   items:
-    - name: Concepten van de collector
+    - name: Over de collector
       href: concepts-collector.md
     - name: Beoordelingsberekeningen
       href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
       href: concepts-dependency-visualization.md
 - name: Handleidingen
   items:
-    - name: Uw on-premises resources migreren naar Azure
+    - name: Migratieserie Contoso
       items:
-        - name: Scenario-overzicht - Uw lokale resources migreren naar Azure
-          href: migrate-scenarios-overview.md
-        - name: Scenario 1 - On-premises resources beoordelen voor een migratie naar Azure
+        - name: 1. Contoso - Migratieoverzicht
+          href: contoso-migration-overview.md
+        - name: 2. Contoso - Een Azure-infrastructuur instellen
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso - On-premises resources beoordelen voor een migratie naar Azure
           href: migrate-scenarios-assessment.md
-        - name: 'Scenario 2: Lift-and-shift-migratie naar Azure'
+        - name: 4. Contoso - Opnieuw hosten op virtuele Azure-machines en een met Azure SQL beheerd exemplaar
           href: migrate-scenarios-lift-and-shift.md
     - name: Een grote omgeving verkennen en beoordelen
       href: how-to-scale-assessment.md

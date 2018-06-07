@@ -1,25 +1,42 @@
-1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**. Kies **maken van nieuwe** en vervolgens **publiceren**. 
+---
+title: bestand opnemen
+description: bestand opnemen
+services: functions
+author: ggailey777
+ms.service: functions
+ms.topic: include
+ms.date: 05/22/2018
+ms.author: glenga
+ms.custom: include file
+ms.openlocfilehash: 6cbf24c56458ab8b3b6c7b44bedbd8b48d4677b3
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34702414"
+---
+1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**.
 
-    ![Nieuwe functie-app maken publiceren](./media/functions-vstools-publish/functions-vstools-publish-new-function-app.png)
+2. Selecteer **Azure-functie-app**, kies **Nieuwe maken** en selecteer vervolgens **Publiceren**.
 
-2. Als u dit nog niet hebt Visual Studio al met uw Azure-account verbonden, selecteert u **account toevoegen...** .  
+    ![Kies een publicatiedoel](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
 
-3. In het dialoogvenster **App-service maken** gebruikt u de **hosting**instellingen zoals opgegeven in de volgende tabel: 
+2. Als u Visual Studio nog niet aan uw Azure-account hebt gekoppeld, selecteert u **Een account toevoegen...**.
 
-    ![Lokale Azure-runtime](./media/functions-vstools-publish/functions-vstools-publish.png)
+3. In het dialoogvenster **App-service maken** gebruikt u de **hosting**instellingen zoals weergegeven in de tabel onder de afbeelding:
+
+    ![Het dialoogvenster App Service maken](./media/functions-vstools-publish/functions-vstools-publish.png)
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Naam van app** | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app uniek wordt aangeduid. |
     | **Abonnement** | Kies uw abonnement | Het te gebruiken Azure-abonnement. |
-    | **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Naam van de resourcegroep waarin uw functie-app moet worden gemaakt. Kies **nieuw** om een nieuwe resourcegroep te maken.|
-    | **[App-serviceabonnement](../articles/azure-functions/functions-scale.md)** | Verbruiksabonnement | Zorg dat u kiest de **verbruik** onder **grootte** nadat u op **nieuw** om een nieuw plan te maken. Ook kiezen een **locatie** in een [regio](https://azure.microsoft.com/regions/) in de buurt of in de buurt van andere services uw functies toegang hebben tot.  |
+    | **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Naam van de resourcegroep waarin uw functie-app moet worden gemaakt. Kies **Nieuw** om een nieuwe resourcegroep te maken.|
+    | **[App-serviceabonnement](../articles/azure-functions/functions-scale.md)** | Verbruiksabonnement | Zorg dat u het **Verbruik** kiest onder **Grootte** nadat u op **Nieuw** hebt geklikt om een abonnement te maken. Kies ook een **Locatie** in een [regio](https://azure.microsoft.com/regions/) bij u in de buurt of in de buurt van andere services die door uw functies worden gebruikt.  |
+    | **[Opslagaccount](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | Algemeen opslagaccount | Er is een Azure-opslagaccount vereist voor de Functions-runtime. Klik op **Nieuw** om een algemeen opslagaccount te maken of gebruik een bestaand account.  |
 
-    >[!NOTE]
-    >Een Azure storage-account is vereist door de runtime functies. Als gevolg hiervan een nieuw Azure Storage-account voor u gemaakt wanneer u een functie-app maakt.
+4. Klik op **Maken** om een functie-app en verwante resources met deze instellingen te maken in Azure en implementeer de code voor uw functieproject. 
 
-4. Klik op **maken** voor het maken van een functie-app en verwante resources in Azure met deze instellingen en implementeren van uw project functiecode. 
+5. Noteer de **Site-URL** wanneer de implementatie is voltooid. Dit is het adres van uw functie-app in Azure.
 
-5. Nadat de implementatie voltooid is, noteert u de **Site-URL** waarde, dit het adres van de functie-app in Azure is.
-
-    ![Lokale Azure-runtime](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Succesbericht publiceren](./media/functions-vstools-publish/functions-vstools-publish-profile.png)

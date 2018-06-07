@@ -50,8 +50,6 @@
   items:
     - name: Beheren
       items:
-        - name: Een taak bijwerken
-          href: stream-analytics-job-reliability.md
         - name: Referenties bijwerken
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Waarschuwingen configureren
@@ -60,6 +58,10 @@
           href: stream-analytics-test-query.md
         - name: De resultaten bekijken in een dashboard
           href: stream-analytics-power-bi-dashboard.md
+        - name: Uw taak opschonen
+          href: stream-analytics-clean-up-your-job.md
+        - name: Taken koppelen voor betrouwbaarheid
+          href: stream-analytics-job-reliability.md
     - name: Oplossingen bouwen
       items:
         - name: Twitter-sentimentanalyse

@@ -1,5 +1,5 @@
 
 
-Voor het uitvoeren van dit voorbeeld, zorg ervoor dat u hebt de meest recente geïnstalleerd [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Als u wilt starten, uitvoeren `az login` geen verbinding maken met Azure.
+Controleer of de nieuwste versie van [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) is geïnstalleerd om dit voorbeeld uit te voeren. Voer eerst `az login` uit om een verbinding op te zetten met Azure.
 
-Dit voorbeeld werkt in een Bash-shell. Zie voor opties op Azure CLI-scripts die worden uitgevoerd op Windows-client [uitvoeren van de Azure CLI in Windows](../articles/virtual-machines/windows/cli-options.md).
+Dit voorbeeld werkt in een Bash-shell. Zie [De Azure CLI installeren in Windows](/cli/azure/install-azure-cli-windows) voor opties voor het uitvoeren van Azure CLI-scripts in de Windows-client.

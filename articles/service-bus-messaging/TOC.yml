@@ -1,0 +1,222 @@
+- name: Documentatie over Service Bus-berichten
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Service Bus Messaging?
+      href: service-bus-messaging-overview.md
+    - name: Berichtenservices vergelijken
+      href: ../event-grid/compare-messaging-services.md
+- name: Snelstartgidsen
+  items:
+    - name: Berichten verzenden - PowerShell
+      href: service-bus-quickstart-powershell.md
+    - name: Berichten verzenden - Portal
+      href: service-bus-quickstart-portal.md
+    - name: Berichten verzenden - CLI
+      href: service-bus-quickstart-cli.md
+- name: Zelfstudies
+  items:
+    - name: Inventaris bijwerken - PowerShell
+      href: service-bus-tutorial-topics-subscriptions-powershell.md
+    - name: Inventaris bijwerken - Portal
+      href: service-bus-tutorial-topics-subscriptions-portal.md
+    - name: Inventaris bijwerken - CLI
+      href: service-bus-tutorial-topics-subscriptions-cli.md
+- name: Voorbeelden
+  items:
+    - name: Voorbeelden van Service Bus
+      href: service-bus-samples.md
+- name: Concepten
+  items:
+    - name: Beheerde service-identiteit (preview)
+      href: service-bus-managed-service-identity.md
+    - name: Op rollen gebaseerd toegangsbeheer (preview)
+      href: service-bus-role-based-access-control.md
+    - name: Premium Messaging
+      href: service-bus-premium-messaging.md
+    - name: Azure Queues en Service Bus-wachtrijen vergelijken
+      href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+    - name: Prestaties optimaliseren
+      href: service-bus-performance-improvements.md
+    - name: Geo-herstel na noodgeval en geo-replicatie
+      href: service-bus-geo-dr.md
+    - name: Asynchrone berichten en hoge beschikbaarheid
+      href: service-bus-async-messaging.md
+    - name: Uitval en -noodgevallen afhandelen
+      href: service-bus-outages-disasters.md
+- name: Handleidingen
+  items:
+    - name: Een naamruimte maken
+      href: service-bus-create-namespace-portal.md
+    - name: Wachtrijen gebruiken
+      items:
+        - name: .NET
+          href: service-bus-dotnet-get-started-with-queues.md
+        - name: Java
+          href: service-bus-java-how-to-use-queues.md
+        - name: Node.js
+          href: service-bus-nodejs-how-to-use-queues.md
+        - name: PHP
+          href: service-bus-php-how-to-use-queues.md
+        - name: Python
+          href: service-bus-python-how-to-use-queues.md
+        - name: Ruby
+          href: service-bus-ruby-how-to-use-queues.md
+        - name: REST
+          href: /rest/api/servicebus/queues
+    - name: Onderwerpen en abonnementen gebruiken
+      items:
+        - name: .NET
+          href: service-bus-dotnet-how-to-use-topics-subscriptions.md
+        - name: Java
+          href: service-bus-java-how-to-use-topics-subscriptions.md
+        - name: Node.js
+          href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+        - name: PHP
+          href: service-bus-php-how-to-use-topics-subscriptions.md
+        - name: Python
+          href: service-bus-python-how-to-use-topics-subscriptions.md
+        - name: Ruby
+          href: service-bus-ruby-how-to-use-topics-subscriptions.md
+    - name: Ontwikkelen
+      items:
+        - name: Afhandeling van berichten
+          items:
+            - name: 'Wachtrijen, onderwerpen en abonnementen'
+              href: service-bus-queues-topics-subscriptions.md
+            - name: 'Berichten, nettoladingen en serialisatie'
+              href: service-bus-messages-payloads.md
+            - name: 'Berichten overdragen, vergrendelen en verwerken'
+              href: message-transfers-locks-settlement.md
+            - name: Berichtvolgorde en -timestamps
+              href: message-sequencing.md
+            - name: Verlopen van berichten (Time to Live)
+              href: message-expiration.md
+            - name: Afhandeling van berichten met behulp van Azure Event Grid
+              href: service-bus-to-event-grid-integration-concept.md
+            - name: Voorbeelden van Azure Event Grid
+              href: service-bus-to-event-grid-integration-example.md
+        - name: Verificatie en autorisatie
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: Van ACS naar SAS migreren
+              href: service-bus-migrate-acs-sas.md
+            - name: Verificatie met Shared Access Signatures
+              href: service-bus-sas.md
+        - name: Onderwerpfilters en acties
+          href: topic-filters.md
+        - name: Gepartitioneerde wachtrijen en onderwerpen
+          href: service-bus-partitioning.md
+        - name: Berichtsessies
+          href: message-sessions.md
+        - name: AMQP
+          items:
+            - name: AMQP-overzicht
+              href: service-bus-amqp-overview.md
+            - name: .NET
+              href: service-bus-amqp-dotnet.md
+            - name: Java
+              href: service-bus-amqp-java.md
+            - name: Java Message Service en AMQP
+              href: service-bus-java-how-to-use-jms-api-amqp.md
+            - name: AMQP-protocolhandleiding
+              href: service-bus-amqp-protocol-guide.md
+            - name: Bewerkingen op basis van antwoorden op AMQP-aanvragen
+              href: service-bus-amqp-request-response.md
+        - name: Geavanceerde functies
+          items:
+            - name: Wachtrijen voor onbestelbare berichten
+              href: service-bus-dead-letter-queues.md
+            - name: Berichten vooraf ophalen
+              href: service-bus-prefetch.md
+            - name: Detectie van dubbele berichten
+              href: duplicate-detection.md
+            - name: Berichtentellers
+              href: message-counters.md
+            - name: Berichten uitstellen
+              href: message-deferral.md
+            - name: Berichten doorzoeken
+              href: message-browsing.md
+            - name: Entiteiten koppelen met automatisch doorsturen
+              href: service-bus-auto-forwarding.md
+            - name: Transactieverwerking
+              href: service-bus-transactions.md
+            - name: Gekoppelde naamruimte implementeren
+              href: service-bus-paired-namespaces.md
+        - name: End-to-end tracering en diagnostische gegevens
+          href: service-bus-end-to-end-tracing.md
+        - name: Een Service Bus-toepassing met meerdere lagen maken
+          href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+    - name: Beheren
+      items:
+        - name: Azure PowerShell gebruiken om entiteiten in te richten
+          href: service-bus-manage-with-ps.md
+        - name: Service Bus bewaken met Azure Monitoring
+          href: service-bus-metrics-azure-monitor.md
+        - name: Service Bus-beheerbibliotheken
+          href: service-bus-management-libraries.md
+        - name: Diagnostische logboeken
+          href: service-bus-diagnostic-logs.md
+        - name: Bericht-entiteiten onderbreken en opnieuw activeren
+          href: entity-suspend.md
+        - name: Azure Resource Manager-sjablonen gebruiken
+          href: service-bus-resource-manager-overview.md
+          items:
+            - name: Een naamruimte maken
+              href: service-bus-resource-manager-namespace.md
+            - name: Een naamruimte en een wachtrij maken
+              href: service-bus-resource-manager-namespace-queue.md
+            - name: Een naamruimte met een onderwerp en een abonnement maken
+              href: service-bus-resource-manager-namespace-topic.md
+            - name: Een autorisatieregel voor de naamruimte en wachtrij maken
+              href: service-bus-resource-manager-namespace-auth-rule.md
+            - name: 'Een naamruimte met een onderwerp, abonnement en regel maken'
+              href: service-bus-resource-manager-namespace-topic-with-rule.md
+- name: Naslaginformatie
+  items:
+    - name: .NET
+      items:
+        - name: Microsoft.ServiceBus.Messaging (.NET Framework)
+          href: /dotnet/api/microsoft.servicebus.messaging
+        - name: Microsoft.Azure.ServiceBus (.NET Standard)
+          href: /dotnet/api/microsoft.azure.servicebus
+    - name: Java
+      href: /java/api/overview/azure/servicebus
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.servicebus
+    - name: REST
+      href: /rest/api/servicebus
+    - name: Uitzonderingen
+      href: service-bus-messaging-exceptions.md
+    - name: Quota
+      href: service-bus-quotas.md
+    - name: SQLFilter-syntaxis
+      href: service-bus-messaging-sql-filter.md
+    - name: SQLRuleAction-syntaxis
+      href: service-bus-messaging-sql-rule-action.md
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: service-bus-faq.md
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
+    - name: Blog
+      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+    - name: MSDN-forums
+      href: 'https://social.msdn.microsoft.com/forums/home?forum=servbus'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/service-bus/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Prijsdetails
+      href: service-bus-pricing-billing.md
+    - name: ServiceBus360
+      href: 'https://www.servicebus360.com/'
+    - name: Service Bus Explorer
+      href: 'https://github.com/paolosalvatori/ServiceBusExplorer'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=service-bus'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azureservicebus'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-bus'

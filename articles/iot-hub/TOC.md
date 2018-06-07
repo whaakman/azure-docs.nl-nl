@@ -9,6 +9,7 @@
 ## [Telemetrie verzenden (.NET)](quickstart-send-telemetry-dotnet.md)
 ## [Telemetrie verzenden (Java)](quickstart-send-telemetry-java.md)
 ## [Telemetrie verzenden (Python)](quickstart-send-telemetry-python.md)
+## [Telemetrie verzenden (iOS)](quickstart-send-telemetry-ios.md)
 ## [Een apparaat beheren (Node.js)](quickstart-control-device-node.md)
 ## [Een apparaat beheren (.NET)](quickstart-control-device-dotnet.md)
 ## [Een apparaat beheren (Java)](quickstart-control-device-java.md)
@@ -18,29 +19,19 @@
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Berichten routeren](tutorial-routing.md)
+## [Uw apparaten configureren](tutorial-device-twins.md)
+## [Connectiviteit van apparaten testen](tutorial-connectivity.md)
 ## Cloud-naar-apparaat-berichten verzenden
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
 ### [Node.js](iot-hub-node-node-c2d.md)
 ### [Python](iot-hub-python-python-c2d.md)
-## Aan de slag met apparaatdubbels
-### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-twin-getstarted.md)
-### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-twin-getstarted.md)
-### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-twin-getstarted.md)
-### [Java-back-end/Java-apparaat](iot-hub-java-java-twin-getstarted.md)
-### [Python-back-end/Python-apparaat](iot-hub-python-twin-getstarted.md)
 ## Aan de slag met apparaatbeheer
 ### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-device-management-get-started.md)
 ### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-device-management-get-started.md)
 ### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java-back-end/Java-apparaat](iot-hub-java-java-device-management-getstarted.md)
 ### [Python-back-end/Python-apparaat](iot-hub-python-python-device-management-get-started.md)
-## Dubbeleigenschappen gebruiken
-### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-twin-how-to-configure.md)
-### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-twin-how-to-configure.md)
-### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-twin-how-to-configure.md)
-### [Java-back-end/Java-apparaat](iot-hub-java-java-twin-how-to-configure.md)
-### [Python-back-end/Python-apparaat](iot-hub-python-python-twin-how-to-configure.md)
 ## Apparaattaken gebruiken om apparaatfirmware bij te werken
 ### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-firmware-update.md)
 ### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-firmware-update.md)
@@ -80,6 +71,8 @@
 ### [Quota en beperkingen](iot-hub-devguide-quotas-throttling.md)
 ### [Prijsvoorbeelden](iot-hub-devguide-pricing.md)
 ### [Apparaat- en service-SDK's](iot-hub-devguide-sdks.md)
+### [Ontwikkelen voor beperkte apparaten](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Ontwikkelen voor mobiele apparaten](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT-ondersteuning](iot-hub-mqtt-support.md)
 ### [Woordenlijst](iot-hub-devguide-glossary.md)
 
@@ -89,7 +82,6 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
-#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [De IoT-apparaat-SDK voor C gebruiken](iot-hub-device-sdk-c-intro.md)
 ### [De IoTHubClient gebruiken](iot-hub-device-sdk-c-iothubclient.md)
 ### [De serialisatiefunctie gebruiken](iot-hub-device-sdk-c-serializer.md)
@@ -157,17 +149,26 @@
 ### [De IoT-apparaat-SDK voor C gebruiken](iot-hub-device-sdk-c-intro.md)
 #### [De IoTHubClient gebruiken](iot-hub-device-sdk-c-iothubclient.md)
 #### [De serialisatiefunctie gebruiken](iot-hub-device-sdk-c-serializer.md)
+### [Ontwikkelen voor beperkte apparaten](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Ontwikkelen voor mobiele apparaten](iot-hub-how-to-develop-for-mobile-devices.md)
 ### Berichten routeren
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
+### [Avro-gegevens opvragen van een hubroute](iot-hub-query-avro-data.md)
 ### Cloud-naar-apparaat-berichten verzenden
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 #### [iOS](iot-hub-ios-swift-c2d.md)
+### Aan de slag met apparaatdubbels
+#### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-twin-getstarted.md)
+#### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java-back-end/Java-apparaat](iot-hub-java-java-twin-getstarted.md)
+#### [Python-back-end/Python-apparaat](iot-hub-python-twin-getstarted.md)
 ### Bestanden uploaden vanaf apparaten
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -217,13 +218,6 @@
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## Taken plannen en uitzenden
-### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-schedule-jobs.md)
-### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-schedule-jobs.md)
-### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java-back-end/Java-apparaat](iot-hub-java-java-schedule-jobs.md)
-### [Python-back-end/Python-apparaat](iot-hub-python-python-schedule-jobs.md)
 
 ## Een IoT Hub maken 
 ### [Azure Portal gebruiken](iot-hub-create-through-portal.md)

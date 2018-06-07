@@ -1,6 +1,6 @@
 ## <a name="help-and-support"></a>Help en ondersteuning
 
-Als u moet helpen, wil een probleem melden of wilt meer informatie over uw opties voor ondersteuning, Zie het volgende artikel:
+Zie het volgende artikel als u hulp nodig hebt, een probleem wilt melden of meer over uw ondersteuningsopties wilt weten:
 
 > [!div class="nextstepaction"]
-> [Help en ondersteuning voor ontwikkelaars](../articles/active-directory/develop/active-directory-develop-help-support.md)
+> [Hulp en ondersteuning voor ontwikkelaars](../articles/active-directory/develop/active-directory-develop-help-support.md)

@@ -78,22 +78,43 @@
       href: storage-samples-blobs-cli.md
 - name: Concepten
   items:
-    - name: Plannen en ontwerpen
+    - name: Opslagaccounts
       items:
-        - name: Opslagaccountopties
+        - name: Overzicht van opslagaccounts
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: De gegevensredundantie
+        - name: Autorisatie
+          href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           items:
-            - name: Redundantieoverzicht
-              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Verifiëren met Azure AD
+              href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Toegangsrechten beheren met RBAC
+                  href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Verifiëren vanuit een toepassing
+                  href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Verifiëren vanuit een beheerde service-identiteit
+                  href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Een Azure AD-identiteit gebruiken met CLI of PowerShell
+                  href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Autoriseren met gedeelde sleutel
+              href: /rest/api/storageservices/authenticate-with-shared-key
+            - name: Autoriseren met SAS
+              href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Anonieme toegang tot blobs
+              href: storage-manage-access-to-resources.md
+        - name: De gegevensredundantie
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
             - name: Lokaal redundante opslag
               href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Zoneredundante opslag
               href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Geografisch redundante opslag
               href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 'Warme, koude en archieflagen'
+        - name: Toegangslagen
           href: storage-blob-storage-tiers.md
+        - name: De levenscyclus van Azure Blob Storage beheren
+          href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Reageren op gebeurtenissen
           href: storage-blob-event-overview.md
         - name: Schaalbaarheids- en prestatiedoelen
@@ -108,34 +129,51 @@
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Functies voor pagina-blobs
           href: storage-blob-pageblob-overview.md
-        - name: Premium Storage
+        - name: Azure-schijven
           items:
-            - name: Linux
+            - name: Premium Storage
               items:
-                - name: Krachtige Premium Storage voor VM-schijven
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage'
-                - name: Migreren naar Premium Storage met Azure Site Recovery
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery'
-                - name: Ontwerp voor hoge prestaties
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance'
-            - name: Windows
+                - name: Linux
+                  items:
+                    - name: Krachtige Premium Storage voor VM-schijven
+                      href: ../../virtual-machines/linux/premium-storage.md
+                    - name: Migreren naar Premium Storage met Azure Site Recovery
+                      href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
+                    - name: Ontwerp voor hoge prestaties
+                      href: ../../virtual-machines/linux/premium-storage-performance.md
+                - name: Windows
+                  items:
+                    - name: Krachtige Premium Storage voor VM-schijven
+                      href: ../../virtual-machines/windows/premium-storage.md
+                    - name: Migreren naar Premium Storage met Azure Site Recovery
+                      href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
+                    - name: Ontwerp voor hoge prestaties
+                      href: ../../virtual-machines/windows/premium-storage-performance.md
+            - name: Standaardopslag
               items:
-                - name: Krachtige Premium Storage voor VM-schijven
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage'
-                - name: Migreren naar Premium Storage met Azure Site Recovery
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery'
-                - name: Ontwerp voor hoge prestaties
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance'
-        - name: Standaardopslag
-          items:
-            - name: Linux
+                - name: Linux
+                  items:
+                    - name: Standard Storage voor VM-schijven
+                      href: ../../virtual-machines/linux/standard-storage.md
+                - name: Windows
+                  items:
+                    - name: Standard Storage voor VM-schijven
+                      href: ../../virtual-machines/windows/standard-storage.md
+            - name: Problemen met gekoppelde VHD's oplossen
+              href: storage-troubleshoot-vhds.md
               items:
-                - name: Standard Storage voor VM-schijven
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage'
-            - name: Windows
-              items:
-                - name: Standard Storage voor VM-schijven
-                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage'
+                - name: Linux
+                  items:
+                    - name: Fouten bij het verwijderen van een Storage-resource
+                      href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
+                    - name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
+                      href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
+                - name: Windows
+                  items:
+                    - name: Fouten bij het verwijderen van een Storage-resource
+                      href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
+                    - name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
+                      href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md
     - name: Beveiligen
       items:
         - name: Beveiligingshandleiding
@@ -148,12 +186,6 @@
           href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Veilige overdracht vereisen
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gedeelde sleutelverificatie
-          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
-        - name: Shared Access Signatures (SAS)
-          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Anonieme toegang tot blobs
-          href: storage-manage-access-to-resources.md
         - name: De Azure CDN gebruiken om toegang te krijgen tot blobs met aangepaste domeinen via HTTPS
           href: storage-https-custom-domain-cdn.md
     - name: Controleren en problemen oplossen
@@ -172,6 +204,79 @@
               href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Meetwaarden inschakelen en weergeven (klassiek)
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Gegevens importeren/exporteren
+      href: ../common/storage-import-export-service.md
+      items:
+        - name: Vereisten beoordelen
+          href: ../common/storage-import-export-requirements.md
+        - name: Gegevens naar blobs importeren
+          href: ../common/storage-import-export-data-to-blobs.md
+        - name: Gegevens naar bestanden importeren
+          href: ../common/storage-import-export-data-to-files.md
+        - name: Gegevens uit blobs exporteren
+          href: ../common/storage-import-export-data-from-blobs.md
+        - name: Uitleg
+          items:
+            - name: Status van station weergeven
+              href: ../common/storage-import-export-view-drive-status.md
+            - name: Taakstatus controleren
+              href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
+            - name: Importtaak herstellen
+              href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
+            - name: Exporttaak herstellen
+              href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
+        - name: Veelgestelde vragen
+          href: ../common/storage-import-export-service-faq.md
+        - name: REST-API
+          href: 'https://docs.microsoft.com/rest/api/storageimportexport/jobs'
+        - name: Contact met ondersteuning
+          href: ../common/storage-import-export-contact-microsoft-support.md
+        - name: Archiveren
+          items:
+            - name: Stations voorbereiden voor importeren (v1)
+              href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+              items:
+                - name: Eigenschappen en metagegevens instellen
+                  href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+                - name: Voorbeeld - Stations voorbereiden voor importeren
+                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+                - name: Snelzoekgids voor opdrachten voor importeren
+                  href: ../common/storage-import-export-tool-quick-reference-v1.md
+            - name: Stations voorbereiden voor importeren (v2)
+              href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
+              items:
+                - name: Eigenschappen en metagegevens instellen
+                  href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+                - name: Voorbeeld - Stations voorbereiden voor importeren
+                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+                - name: Snelzoekgids voor opdrachten voor importeren
+                  href: ../common/storage-import-export-tool-quick-reference-v1.md
+            - name: Importtaak maken
+              href: ../common/storage-import-export-creating-an-import-job.md
+            - name: Exporttaak maken
+              href: ../common/storage-import-export-creating-an-import-job.md
+            - name: Taakstatus ophalen
+              href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+            - name: Exporttaak maken
+              href: ../common/storage-import-export-creating-an-import-job.md
+            - name: Taken opsommen
+              href: ../common/storage-import-export-enumerating-jobs.md
+            - name: Taak annuleren en verwijderen
+              href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+            - name: Back-up maken van stationsmanifest
+              href: ../common/storage-import-export-backing-up-drive-manifests.md
+            - name: Taken opsommen
+              href: ../common/storage-import-export-enumerating-jobs.md
+            - name: Diagnoses en het herstel van fouten
+              href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+            - name: Opdrachten voor importtaken
+              href: ../common/storage-import-export-tool-quick-reference-v1.md
+            - name: Manifestbestand van service
+              href: ../common/storage-import-export-file-format-manifest.md
+            - name: Metagegevens- en eigenschappenbestand van service
+              href: ../common/storage-import-export-file-format-metadata-and-properties.md
+            - name: Logboekbestand van service
+              href: ../common/storage-import-export-file-format-log.md
 - name: Procedures
   items:
     - name: Create a storage account
@@ -234,87 +339,6 @@
           href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Blob-opslag koppelen als bestandssysteem in Linux
           href: storage-how-to-mount-container-linux.md
-        - name: De Import/Export-service gebruiken
-          href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Het Import/Export-hulpprogramma gebruiken
-          href: ../common/storage-import-export-tool-how-to.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          items:
-            - name: Het Import/Export-hulpprogramma instellen
-              href: ../common/storage-import-export-tool-setup.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Harde schijven voorbereiden voor een importtaak
-              href: ../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              items:
-                - name: Eigenschappen en metagegevens instellen tijdens het importproces
-                  href: ../common/storage-import-export-tool-setting-properties-metadata-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
-                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Snelzoekgids voor veelgebruikte opdrachten voor importtaken
-                  href: ../common/storage-import-export-tool-quick-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Op voorhand het schijfgebruik voor een exporttaak bekijken
-              href: ../common/storage-import-export-tool-previewing-drive-usage-export-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: De taakstatus controleren met kopielogboekbestanden
-              href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Een importtaak herstellen
-              href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Een exporttaak herstellen
-              href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Problemen met het Import/Export-hulpprogramma oplossen
-              href: ../common/storage-import-export-tool-troubleshooting-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Bestandsindeling van het Import/Export-servicemanifest
-              href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Bestandsindeling van het metagegevens- en eigenschappenbestand van de Import/Export-service
-              href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Bestandsindeling van het logboekbestand van de Import/Export-service
-              href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Het Import/Export-hulpprogramma gebruiken (v1)
-          href: ../common/storage-import-export-tool-how-to-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          items:
-            - name: Het Import/Export-hulpprogramma instellen
-              href: ../common/storage-import-export-tool-setup-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Harde schijven voorbereiden voor een importtaak
-              href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              items:
-                - name: Eigenschappen en metagegevens instellen tijdens het importproces
-                  href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
-                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Snelzoekgids voor veelgebruikte opdrachten voor importtaken
-                  href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Op voorhand het schijfgebruik voor een exporttaak bekijken
-              href: ../common/storage-import-export-tool-previewing-drive-usage-export-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: De taakstatus controleren met kopielogboekbestanden
-              href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Een importtaak herstellen
-              href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Een exporttaak herstellen
-              href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Problemen met het Import/Export-hulpprogramma oplossen
-              href: ../common/storage-import-export-tool-troubleshooting-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Bestandsindeling van het Import/Export-servicemanifest
-              href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Bestandsindeling van het metagegevens- en eigenschappenbestand van de Import/Export-service
-              href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Bestandsindeling van het logboekbestand van de Import/Export-service
-              href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: De REST-API van de Azure-service Import/Export gebruiken
-          href: ../common/storage-import-export-using-the-rest-api.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          items:
-            - name: Een importtaak maken
-              href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Een exporttaak maken
-              href: ../common/storage-import-export-creating-an-export-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Statusinformatie van een taak ophalen
-              href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Taken opsommen
-              href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Taken annuleren en verwijderen
-              href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Een back-up maken van stationsmanifesten
-              href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Diagnoses en het herstel van fouten voor Import/Export-taken
-              href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Contact opnemen met ondersteuning voor importeren/exporteren
-          href: ../common/storage-import-export-contact-microsoft-support.md
         - name: Veelgestelde vragen over opslagmigratie
           href: ../common/storage-migration-faq.md
 - name: Naslaginformatie

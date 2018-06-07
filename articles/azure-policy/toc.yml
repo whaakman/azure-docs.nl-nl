@@ -17,26 +17,50 @@
   items:
     - name: Azure-beleid maken en beheren
       href: create-manage-policy.md
+    - name: Azure-beleid verkennen (praktijksessies)
+      href: 'https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Voorbeelden
   items:
-    - name: Beleidssjablonen
+    - name: Voorbeelden van Azure-beleid
       href: json-samples.md
 - name: Concepten
   items:
     - name: Structuur van Azure-beleidsdefinities
       href: policy-definition.md
+    - name: Informatie over de effecten van het beleid
+      href: policy-effects.md
 - name: Handleidingen
   items:
     - name: Programmatisch beleid maken
       href: policy-insights.md
+    - name: Nalevingsgegevens verzamelen
+      href: policy-compliance.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.resources/#policies'
+    - name: REST-API
+      items:
+        - name: Gebeurtenissen
+          href: /rest/api/policy-insights/policyevents
+        - name: Staten
+          href: /rest/api/policy-insights/policystates
+        - name: Toewijzingen
+          href: /rest/api/resources/policyassignments
+        - name: Definities voor beleid
+          href: /rest/api/resources/policydefinitions
+        - name: Definities voor initiatieven
+          href: /rest/api/resources/policysetdefinitions
 - name: Resources
   items:
+    - name: GitHub - voorbeelden van Azure-beleid
+      href: 'https://github.com/Azure/azure-policy'
+    - name: Video - Build 2018
+      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: Video - Ignite 2017
+      href: 'https://myignite.microsoft.com/videos/54781'
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prijscalculator

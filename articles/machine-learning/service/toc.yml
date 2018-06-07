@@ -155,6 +155,8 @@
               href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
             - name: Modellen voor classificatie van afbeeldingen bouwen en implementeren
               href: how-to-build-deploy-image-classification-models.md
+            - name: Modellen voor objectdetectie bouwen en implementeren
+              href: how-to-build-deploy-object-detection-models.md
             - name: Nauwkeurigheid van model
               href: how-to-improve-accuracy-for-computer-vision-models.md
         - name: Prognose
@@ -219,6 +221,8 @@
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemen en probleemoplossing
       href: known-issues-and-troubleshooting-guide.md
+    - name: Accountgegevens exporteren of verwijderen
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Ondersteuning en training
       href: support-for-aml-services.md
     - name: Azure-roadmap
