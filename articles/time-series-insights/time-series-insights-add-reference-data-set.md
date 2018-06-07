@@ -1,21 +1,21 @@
 ---
 title: Een gegevensset verwijzing toevoegen aan uw omgeving Azure Time Series Insights
 description: Dit artikel wordt beschreven hoe u een gegevensset verwijzing naar het verbeteren van de gegevens in uw omgeving Azure Time Series Insights toevoegt.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: e0d11f253d5aa143ff636c4dc8dff7665a80360e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7da2393bb5114de20747581e366a8f416c9ff9a4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653634"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Een verwijzing gegevensset voor uw Time Series Insights-omgeving met de Azure portal maken
 
@@ -63,7 +63,7 @@ Referentiegegevens met terugwerkende kracht niet is toegevoegd. Dit betekent dat
 
    ![Referentiegegevens toevoegen](media/add-reference-data-set/parse_data.png)
 
-9. Bekijk elke kolom als u wilt zien van het gegevenstype wordt aangenomen en het gegevenstype wijzigen indien nodig.  Selecteer het type gegevens symbool in de kolomkop:  **#**  voor dubbele (numerieke gegevens), **T | F** als Boole-waarden, of **Abc** voor tekenreeks.
+9. Bekijk elke kolom als u wilt zien van het gegevenstype wordt aangenomen en het gegevenstype wijzigen indien nodig.  Selecteer het type gegevens symbool in de kolomkop: **#** voor dubbele (numerieke gegevens), **T | F** als Boole-waarden, of **Abc** voor tekenreeks.
 
    ![Gegevenstypen op de kolomkoppen kiezen.](media/add-reference-data-set/choose_datatypes.png)
 
@@ -81,7 +81,7 @@ Referentiegegevens met terugwerkende kracht niet is toegevoegd. Dit betekent dat
 
    ![Selecteer de-sleutelkolommen.](media/add-reference-data-set/set_primary_key.png)
 
-   Selecteer desgewenst de  **+**  om een secundaire sleutelkolom toevoegen als een samengestelde primaire sleutel. Als u de selectie ongedaan maken moet, kiest u de lege waarden in de vervolgkeuzelijst om te verwijderen van de secundaire sleutel.
+   Selecteer desgewenst de **+** om een secundaire sleutelkolom toevoegen als een samengestelde primaire sleutel. Als u de selectie ongedaan maken moet, kiest u de lege waarden in de vervolgkeuzelijst om te verwijderen van de secundaire sleutel.
 
 15.  Als u wilt de gegevens uploaden, selecteer de **rijen uploaden** knop.
 

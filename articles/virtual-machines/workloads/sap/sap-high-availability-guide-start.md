@@ -4,10 +4,10 @@ description: Hoge beschikbaarheid-handleiding voor SAP NetWeaver op Azure Virtua
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 1cfcc14a-6795-4cfd-a740-aa09d6d2b817
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf60a053c832c6f201705301454ab7cdbe106087
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fdf6a1ecf71229dd2b641e2711a5f445e88f7afb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658431"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuele Machines hoge beschikbaarheid voor SAP NetWeaver
 
@@ -85,7 +86,7 @@ ms.lasthandoff: 11/15/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuratie voor hoge beschikbaarheid van SAP multi-SID)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -190,7 +191,7 @@ Deze reeks artikelen worden behandeld:
     > Wij raden u aan het Azure Resource Manager-implementatiemodel te gebruiken voor uw SAP-installaties. Dit biedt veel voordelen die niet beschikbaar in het klassieke implementatiemodel. Meer informatie over Azure [implementatiemodellen][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
     >
 * SAP hoge beschikbaarheid op:
-  * ![Windows][Logo_Windows]**Windows**met **Windows Server Failover Cluster (WSFC)** 
+  * ![Windows][Logo_Windows]**Windows**met **Windows Server Failover Cluster (WSFC)**
   * ![Linux][Logo_Linux] **Linux**met **Linux Cluster Framework**
 
 In deze artikelen, informatie over het beveiligen van één toegangspunt is mislukt (SPOF)-onderdelen, zoals SAP centrale Services (ASC's / SCS) en databasebeheersystemen (DBMS). U leert ook over redundante componenten in Azure, zoals SAP-toepassingsserver.

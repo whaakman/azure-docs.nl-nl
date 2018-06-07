@@ -4,10 +4,10 @@ description: Snel gebruiksklaar Oracle ASM omhoog in uw Azure-omgeving.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cc75235680eeace5107ef6ac0380e8b7a42974fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656106"
 ---
-# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Oracle ASM instellen op een virtuele machine van Azure Linux  
+# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Oracle ASM installeren op een virtuele Azure Linux-machine  
 
-Virtuele machines van Azure bieden een volledig worden geconfigureerd en flexibele computeromgeving. Deze zelfstudie bevat informatie over basic virtuele machine van Azure-implementatie in combinatie met de installatie en configuratie van Oracle geautomatiseerde Storage Management (ASM).  Procedures voor:
+Virtuele machines in Azure bieden een volledig geconfigureerde en flexibele computeromgeving. Deze zelfstudie bevat informatie over basic virtuele machine van Azure-implementatie in combinatie met de installatie en configuratie van Oracle geautomatiseerde Storage Management (ASM).  In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Maken en verbinding maken met een Oracle-Database VM
@@ -200,7 +201,7 @@ Voor deze zelfstudie is het de standaardgebruiker *raster* en de standaardgroep 
    ```
 
 3. Schijf formatteren */dev/sdc* door de volgende opdracht uit te voeren en de prompts met beantwoorden:
-   - *n*voor nieuwe partitie
+   - *n* voor nieuwe partitie
    - *p* voor primaire partitie
    - *1* om de eerste partitie te selecteren
    - Druk op `enter` voor de eerste cilinder standaard
@@ -572,7 +573,7 @@ De software van Oracle-database is al geïnstalleerd op de Azure Marketplace-ins
 
 5. De Database is gemaakt. Op de **voltooien** pagina, hebt u de optie voor het ontgrendelen van extra accounts voor deze database en de wachtwoorden wijzigen. Als u doen wilt, selecteert u **wachtwoordbeheer** -anders klikt u op `close`.
 
-## <a name="delete-the-vm"></a>De virtuele machine verwijderen
+## <a name="delete-the-vm"></a>De VM verwijderen
 
 U hebt Oracle automatisch beheer van opslag geconfigureerd op de installatiekopie Oracle DB vanuit Azure Marketplace.  Wanneer u deze virtuele machine niet meer nodig hebt, kunt u de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen:
 

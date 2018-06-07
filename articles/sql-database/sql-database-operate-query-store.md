@@ -6,14 +6,15 @@ author: bonova
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: bonova
-ms.openlocfilehash: 4722399525b376e232f2bc7802a570836da79e29
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92e4180f1efe62d2dae9778f70e25f1bb0273b7f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649880"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Besturingssysteem van de queryopslag in Azure SQL Database
 Query Store in Azure is een volledig beheerde databasefunctie die voortdurend verzamelt en toont gedetailleerde historische informatie over alle query's. U kunt zien over Query Store als vergelijkbaar met een vliegtuig zwarte gegevens doos die aanzienlijk vereenvoudigt queryprestaties probleemoplossing voor cloud en on-premises-klanten. Dit artikel wordt uitgelegd dat bepaalde aspecten van het besturingssysteem van de Query Store in Azure. Met deze vooraf verzamelde querygegevens kunt u snel te analyseren en oplossen van prestatieproblemen en dus besteden meer tijd aan hun bedrijf. 

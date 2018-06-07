@@ -1,22 +1,22 @@
 ---
 title: Gegevens met behulp van de Azure Time Series Insights explorer verkennen | Microsoft Docs
 description: In dit artikel wordt beschreven hoe het gebruik van Azure Time Series Insights explorer in uw webbrowser om snel een globale weergave van uw big data te bekijken en valideren van uw IoT-omgeving.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: de676efdd7dd2a4035bbeca4bddd8b1d7ee7e989
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651774"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 Dit artikel bevat informatie over de verschillende functies en opties die beschikbaar zijn binnen de Time Series Insights explorer web-app. U kunt explorer Time Series inzicht in uw webbrowser maken visualisaties van uw gegevens.
@@ -60,7 +60,7 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron op uw om
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, is NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, is NULL        |  Alle operanden moeten van hetzelfde type zijn of NULL-constante.        |
-         |HAS     | Tekenreeks        |  Alleen constante letterlijke tekenreeksen zijn toegestaan op de rechterkant. Lege tekenreeks en NULL zijn niet toegestaan.       |
+         |HEEFT     | Reeks        |  Alleen constante letterlijke tekenreeksen zijn toegestaan op de rechterkant. Lege tekenreeks en NULL zijn niet toegestaan.       |
 
       - **Voorbeelden van query 's**
       

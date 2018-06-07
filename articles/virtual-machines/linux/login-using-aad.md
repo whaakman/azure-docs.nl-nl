@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652869"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Aanmelden bij een virtuele Linux-machine in Azure met Azure Active Directory-verificatie (Preview)
 
@@ -74,7 +75,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Het duurt enkele minuten voor het maken van de virtuele machine en de ondersteunende resources.
+Het maken van de virtuele machine en de ondersteunende resources duurt enkele minuten.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installeer de Azure AD-aanmelding VM-extensie
 
@@ -111,6 +112,9 @@ az role assignment create \
     --assignee $username \
     --scope $vm
 ```
+
+> [!NOTE]
+> Als uw AAD-domein en gebruikersnaam aanmeldingsdomein niet overeenkomen, moet u de object-ID van uw gebruikersaccount met de *--toegewezen gebruiker-object-id*, niet alleen de gebruikersnaam voor *--toegewezen gebruiker*. U kunt de object-ID ophalen voor uw gebruikersaccount met [az ad gebruikerslijst](/cli/azure/ad/user#az-ad-user-list).
 
 Zie voor meer informatie over het gebruik van RBAC voor het beheren van toegang tot de resources van uw Azure-abonnement met behulp van de [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure-portal](../../role-based-access-control/role-assignments-portal.md), of [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 

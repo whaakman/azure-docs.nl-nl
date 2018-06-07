@@ -6,17 +6,17 @@ ms.service: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 45f081c4e1dbd32b46c8a69f32b0b205b948f9b5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652318"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Uw omgeving Azure Time Series Insights plannen
 
@@ -51,7 +51,7 @@ U kunt maximaal 400 dagen bewaren van gegevens in uw omgeving Time Series Insigh
 
 3. In de **bewaartijd van gegevens (in dagen)** Voer een waarde van 1 tot en met 400.
 
-   ![Bewaartermijn configureren](media/environment-mitigate-latency/configure-retention.png)
+   ![Bewaren configureren](media/environment-mitigate-latency/configure-retention.png)
 
 ## <a name="understand-ingress-capacity"></a>Inkomend capaciteit begrijpen
 

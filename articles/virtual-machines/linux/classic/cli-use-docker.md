@@ -4,7 +4,7 @@ description: Beschrijving van Docker en de virtuele Machines van Azure-extensies
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: eaff75e3-d929-4931-a4a1-8c377a8e7302
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: 91f7ea54afce0e94953d4bb01bbb1b33f167fe22
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2a8672ab6a37eb383d35ad71384bb47cc3767a6d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653141"
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>De Docker VM-extensie gebruiken met de Azure-opdrachtregelinterface (Azure CLI)
 > [!IMPORTANT] 
@@ -176,8 +177,8 @@ De Docker-daemon op de host is geconfigureerd om te luisteren naar en verifiëre
 [Link 1 to another azure.microsoft.com documentation topic]:../../virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]:../../../app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
-[het gebruik van de Docker-VM-extensie met de Portal]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Het gebruik van de Docker-VM-extensie met de Portal]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Docker-gebruikershandleiding]:https://docs.docker.com/userguide/
 
-[aan de slag met Docker en opstellen om te definiëren en een toepassing met meerdere container uitvoert op een virtuele machine van Azure]:../docker-compose-quickstart.md
+[Aan de slag met Docker en opstellen om te definiëren en een toepassing met meerdere container uitvoert op een virtuele machine van Azure]:../docker-compose-quickstart.md

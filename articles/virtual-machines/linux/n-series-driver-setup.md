@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654280"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-reeks virtuele machines waarop Linux wordt uitgevoerd
 
@@ -30,7 +31,7 @@ Zie voor N-serie VM specificaties opslagcapaciteit en details van de schijf, [GP
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Voor NC, NCv2 NCv3 en ND-serie VMs CUDA stuurprogramma's installeren
+## <a name="install-cuda-drivers-on-n-series-vms"></a>CUDA stuurprogramma's installeren op virtuele machines N-serie
 
 Hier vindt u stappen voor het installeren van stuurprogramma's CUDA uit de werkset NVIDIA CUDA op virtuele machines N-serie. 
 
@@ -155,7 +156,7 @@ Als het stuurprogramma is geïnstalleerd, ziet u uitvoer ziet er als volgt. Houd
 
 ## <a name="rdma-network-connectivity"></a>RDMA-netwerkverbinding
 
-RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines RDMA-compatibele N-serie, zoals NC24r geïmplementeerd in de dezelfde beschikbaarheidsset of VM-schaalset bevatten. Het netwerk RDMA ondersteunt Message Passing Interface (MPI)-verkeer voor toepassingen die worden uitgevoerd met Intel MPI 5.x of een latere versie. Aanvullende vereisten als volgt:
+RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines van RDMA-compatibele N-serie, zoals NC24r geïmplementeerd in dezelfde beschikbaarheidsset of in een groep één positie in een VM-schaalset. Het netwerk RDMA ondersteunt Message Passing Interface (MPI)-verkeer voor toepassingen die worden uitgevoerd met Intel MPI 5.x of een latere versie. Aanvullende vereisten als volgt:
 
 ### <a name="distributions"></a>Distributies
 
@@ -167,7 +168,7 @@ RDMA-compatibele N-reeks-virtuele machines van een van de afbeeldingen in de Azu
 
 * **7.4 HPC op basis van centOS** -RDMA-stuurprogramma's en Intel MPI 5.1 zijn geïnstalleerd op de virtuele machine.
 
-## <a name="install-grid-drivers-for-nv-series-vms"></a>RASTER stuurprogramma's installeren voor virtuele machines NV-serie
+## <a name="install-grid-drivers-on-nv-series-vms"></a>RASTER stuurprogramma's installeren op virtuele machines NV-serie
 
 Een SSH-verbinding maken met elke VM wilt NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV-serie, en volg de stappen voor uw Linux-distributie. 
 
@@ -330,7 +331,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-Vervolgens maakt u een vermelding voor het script update hebt geïnstalleerd in `/etc/rc.d/rc3.d` zodat het script als basis bij het opstarten is aangeroepen.
+Vervolgens maakt u een vermelding voor het updatescript in `/etc/rc.d/rc3.d` zodat het script als basis bij het opstarten is aangeroepen.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

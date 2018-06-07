@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 674f4ec53300643450d8a576db6fcb50e86dd9d2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c500725508d2bf9f09279e665871ab286d9e495a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652066"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Toegangsbeheer op basis van rollen voor StorSimple
 
@@ -30,7 +31,7 @@ In dit artikel is van toepassing op StorSimple 8000 series apparaten met Update 
 
 RBAC kan worden toegewezen op basis van de rollen. De rollen ervoor zorgen dat bepaalde machtigingsniveaus op basis van de beschikbare bronnen in de omgeving. Er zijn twee typen van functies die StorSimple gebruikers kunnen kiezen uit: ingebouwde of aangepaste.
 
-* **Ingebouwde rollen** -de ingebouwde rollen zijn eigenaar, bijdrager, lezer en beheerder voor gebruikerstoegang. Zie voor meer informatie [ingebouwde functies voor toegangsbeheer op basis van rollen in Azure](../role-based-access-control/overview.md#built-in-roles).
+* **Ingebouwde rollen** -de ingebouwde rollen zijn eigenaar, bijdrager, lezer en beheerder voor gebruikerstoegang. Zie voor meer informatie [ingebouwde functies voor toegangsbeheer op basis van rollen in Azure](../role-based-access-control/built-in-roles.md).
 
 * **Aangepaste rollen** -als de ingebouwde rollen niet behoeften, kunt u aangepaste RBAC-rollen maken voor StorSimple. Beginnen met een ingebouwde rol voor het maken van een aangepaste RBAC-rol, bewerken en vervolgens importeren in de omgeving. Het downloaden en het uploaden van de rol worden beheerd met behulp van Azure PowerShell of Azure CLI. Zie voor meer informatie [aangepaste rollen maken voor toegangsbeheer op basis van rollen](../role-based-access-control/custom-roles.md).
 
@@ -153,7 +154,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>Gebruikers toevoegen aan de aangepaste rol
 
-U verleent toegang vanuit de resource en resourcegroep die of het abonnement dat het bereik van de roltoewijzing is. Wanneer ze toegang verlenen, draagt u er rekening mee dat de toegang verleend aan het bovenliggende knooppunt wordt overgenomen door de onderliggende. Ga voor meer informatie naar [Resource hiërarchie en toegang overname](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
+U verleent toegang vanuit de resource en resourcegroep die of het abonnement dat het bereik van de roltoewijzing is. Wanneer ze toegang verlenen, draagt u er rekening mee dat de toegang verleend aan het bovenliggende knooppunt wordt overgenomen door de onderliggende. Ga voor meer informatie naar [toegangsbeheer op basis van rollen](../role-based-access-control/overview.md).
 
 1. Ga naar **toegangsbeheer (IAM)**. Klik op **+ toevoegen** op de Access control-blade.
 

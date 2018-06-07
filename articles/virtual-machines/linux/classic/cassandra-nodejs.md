@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: nodejs
 author: craigshoemaker
 manager: routlaw
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
 ms.service: virtual-machines-linux
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5d800daa2589effe342cb2bf8b1d59d7bfce6d8c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652835"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uitvoeren van een cluster Cassandra op Linux in Azure met behulp van Node.js
 
@@ -117,10 +118,10 @@ De volgende softwareversies worden gebruikt tijdens de implementatie:
 
 <table>
 <tr><th>Software</th><th>Bron</th><th>Versie</th></tr>
-<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JAVA RUNTIME ENVIRONMENT    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 TNS</td></tr>
 </table>
 
 Wanneer u JRE downloadt, moet u handmatig de Oracle-licentie accepteren. Downloaden dus om de implementatie vereenvoudigen, de vereiste software op het bureaublad. Upload het naar de Ubuntu-sjablooninstallatiekopie maken als een voordat de implementatie van het cluster.
@@ -139,7 +140,7 @@ De VM-sjabloon maken, meld u aan bij de Azure-portal en gebruik de volgende volg
 Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #1:
 
 <table>
-<tr><th>VELDNAAM              </td><td>       WAARDE VAN VELD               </td><td>         REMARKS                </td><tr>
+<tr><th>VELDNAAM              </td><td>       WAARDE VAN VELD               </td><td>         OPMERKINGEN                </td><tr>
 <tr><td>RELEASEDATUM VERSIE    </td><td> Selecteer een datum in de vervolgkeuzelijst omlaag</td><td></td><tr>
 <tr><td>NAAM VAN VIRTUELE MACHINE    </td><td> Cass-sjabloon                   </td><td> Dit is de hostnaam van de virtuele machine </td><tr>
 <tr><td>LAAG                     </td><td> STANDARD                           </td><td> Laat de standaardwaarde              </td><tr>
@@ -154,13 +155,13 @@ Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #1:
 Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #2:
 
 <table>
-<tr><th>VELDNAAM             </th><th> WAARDE VAN VELD                       </th><th> REMARKS                                 </th></tr>
+<tr><th>VELDNAAM             </th><th> WAARDE VAN VELD                       </th><th> OPMERKINGEN                                 </th></tr>
 <tr><td> CLOUDSERVICE    </td><td> Maak een nieuwe cloudservice    </td><td>Cloudservice is een container compute-bronnen zoals virtuele machines</td></tr>
 <tr><td> DNS-NAAM VAN CLOUD-SERVICE    </td><td>ubuntu-template.cloudapp.net    </td><td>Geef de naam van een machine agnostisch load balancer</td></tr>
 <tr><td> REGIO/AFFINITEITSGROEP/VIRTUEEL NETWERK </td><td>    VS - west    </td><td> Selecteer een regio van waaruit de toegang tot het cluster Cassandra van uw webtoepassingen</td></tr>
-<tr><td>OPSLAGACCOUNT </td><td>    Standaardinstelling gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
-<tr><td>BESCHIKBAARHEIDSSET </td><td>    None </td><td>    Laat dit veld leeg</td></tr>
-<tr><td>EINDPUNTEN    </td><td>Standaardinstelling gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
+<tr><td>OPSLAGACCOUNT </td><td>    Standaardwaarde gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
+<tr><td>BESCHIKBAARHEIDSSET </td><td>    Geen </td><td>    Laat dit veld leeg</td></tr>
+<tr><td>EINDPUNTEN    </td><td>Standaardwaarde gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
 </table>
 
 Klik op de pijl naar rechts, de standaardinstellingen laten staan op het scherm #3. Klik op de knop 'controleren' voor het voltooien van het proces van de VM-inrichting. Na een paar minuten moet de virtuele machine met de naam 'ubuntu-sjabloon' status 'actief'.
@@ -279,7 +280,7 @@ Cassandra.yaml op elke virtuele machine in overeenstemming met configuratie is v
 
 <table>
 <tr><th>Veldnaam   </th><th> Waarde  </th><th>    Opmerkingen </th></tr>
-<tr><td>cluster_name </td><td>    “CustomerService”    </td><td> Gebruik de naam die overeenkomt met uw implementatie</td></tr>
+<tr><td>clusternaam </td><td>    'CustomerService'    </td><td> Gebruik de naam die overeenkomt met uw implementatie</td></tr>
 <tr><td>listen_address    </td><td>[laat dit veld leeg]    </td><td> Verwijderen van 'localhost' </td></tr>
 <tr><td>rpc_addres   </td><td>[laat dit veld leeg]    </td><td> Verwijderen van 'localhost' </td></tr>
 <tr><td>zaden    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Lijst met alle IP-adressen die zijn aangewezen als basis.</td></tr>
@@ -309,7 +310,7 @@ Dit proces duurt een paar seconden en de installatiekopie moet beschikbaar zijn 
 <tr><th>De naam van de VM-kenmerk</th><th>Waarde</th><th>Opmerkingen</th></tr>
 <tr><td>Naam</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Regio</td><td>VS - west</td><td></td></tr>
-<tr><td>DNS-servers</td><td>None</td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
+<tr><td>DNS-servers</td><td>Geen</td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
 <tr><td>Adresruimte</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>IP-beginadres</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
@@ -330,15 +331,15 @@ Gegevens en Web subnetten kunnen worden beveiligd via netwerkbeveiligingsgroepen
 <table>
 <tr><th>Machinenaam    </th><th>Subnet    </th><th>IP-adres    </th><th>Beschikbaarheidsset</th><th>DC/Rack</th><th>Seed?</th></tr>
 <tr><td>hk-c1-west-us    </td><td>gegevens    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack rack1 = </td><td>Ja</td></tr>
-<tr><td>hk-c2-west-us    </td><td>gegevens    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack rack1 =    </td><td>Nee </td></tr>
+<tr><td>HK-c2-west-ons    </td><td>gegevens    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack rack1 =    </td><td>Nee </td></tr>
 <tr><td>hk-c3-west-us    </td><td>gegevens    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Ja</td></tr>
 <tr><td>hk-c4-west-us    </td><td>gegevens    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Nee </td></tr>
 <tr><td>hk-c5-west-us    </td><td>gegevens    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Ja</td></tr>
 <tr><td>hk-c6-west-us    </td><td>gegevens    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Nee </td></tr>
-<tr><td>hk-c7-west-us    </td><td>gegevens    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Ja</td></tr>
+<tr><td>HK-c7-west-ons    </td><td>gegevens    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Ja</td></tr>
 <tr><td>hk-c8-west-us    </td><td>gegevens    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Nee </td></tr>
-<tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
-<tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
+<tr><td>HK-w1-west-ons    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
+<tr><td>HK-w2-west-ons    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
 </table>
 
 Maken van de bovenstaande lijst met virtuele machines moeten het volgende proces:
@@ -355,7 +356,7 @@ Dit proces kan worden uitgevoerd met Azure portal; Gebruik een Windows-machine (
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -451,14 +452,14 @@ Gebruik de volgende stappen voor het testen van het cluster:
 U ziet dat lijkt op de volgende resultaten:
 
 <table>
-  <tr><th> customer_id </th><th> Voornaam </th><th> lastname </th></tr>
-  <tr><td> 1 </td><td> Jan </td><td> Jansen </td></tr>
-  <tr><td> 2 </td><td> ANS </td><td> Jansen </td></tr>
+  <tr><th> customer_id </th><th> Voornaam </th><th> Achternaam </th></tr>
+  <tr><td> 1 </td><td> John </td><td> De Vries </td></tr>
+  <tr><td> 2 </td><td> ANS </td><td> De Vries </td></tr>
 </table>
 
 De keyspace gemaakt in stap 4 gebruikt SimpleStrategy met een replication_factor van 3. SimpleStrategy wordt aanbevolen voor één data center-implementaties terwijl NetworkTopologyStrategy voor meerdere data center-implementaties. Een replication_factor van 3 geeft tolerantie voor knooppuntfouten.
 
-## <a id="tworegion"></a>Meerdere landen/regio-implementatieproces
+## <a id="tworegion"> </a>Meerdere landen/regio-implementatieproces
 U gebruikmaken van de implementatie van één regio is voltooid en hetzelfde proces herhalen voor het installeren van de tweede regio. Het belangrijkste verschil tussen de implementatie van één of meerdere regio is de installatie van de VPN-tunnel voor communicatie tussen regio; met de netwerkinstallatie te starten, de virtuele machines inrichten en Cassandra configureren.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Stap 1: Het virtuele netwerk op de 2e regio maken
@@ -498,7 +499,7 @@ Maak twee lokale netwerken per de volgende details:
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Stap 3: "Local" netwerkverbinding naar de respectieve VNETs
 Selecteer elke vnet vanuit de Azure-portal, klik op 'Configureren', controleren 'Verbinding maken met het lokale netwerk' en selecteert u de lokale netwerken per de volgende details:
 
-| Virtueel netwerk | Lokale netwerk |
+| Virtual Network | Lokale netwerk |
 | --- | --- |
 | hk-vnet-west-us |hk-lnet-map-to-east-us |
 | hk-vnet-east-us |hk-lnet-map-to-west-us |
@@ -527,14 +528,14 @@ De installatiekopie Ubuntu maken zoals beschreven in de regio #1 implementatie d
 | Machinenaam | Subnet | IP-adres | Beschikbaarheidsset | DC/Rack | Seed? |
 | --- | --- | --- | --- | --- | --- |
 | hk-c1-east-us |gegevens |10.2.2.4 |hk-c-aset-1 |DC = EASTUS rack rack1 = |Ja |
-| hk-c2-east-us |gegevens |10.2.2.5 |hk-c-aset-1 |DC = EASTUS rack rack1 = |Nee |
-| hk-c3-east-us |gegevens |10.2.2.6 |hk-c-aset-1 |DC = EASTUS rack rack2 = |Ja |
+| HK-c2-Oost-ons |gegevens |10.2.2.5 |hk-c-aset-1 |DC = EASTUS rack rack1 = |Nee |
+| HK-c3-Oost-ons |gegevens |10.2.2.6 |hk-c-aset-1 |DC = EASTUS rack rack2 = |Ja |
 | hk-c5-east-us |gegevens |10.2.2.8 |hk-c-aset-2 |DC = EASTUS rack rack3 = |Ja |
 | hk-c6-east-us |gegevens |10.2.2.9 |hk-c-aset-2 |DC = EASTUS rack rack3 = |Nee |
-| hk-c7-east-us |gegevens |10.2.2.10 |hk-c-aset-2 |DC = EASTUS rack rack4 = |Ja |
+| HK-c7-Oost-ons |gegevens |10.2.2.10 |hk-c-aset-2 |DC = EASTUS rack rack4 = |Ja |
 | hk-c8-east-us |gegevens |10.2.2.11 |hk-c-aset-2 |DC = EASTUS rack rack4 = |Nee |
 | hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
-| hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
+| HK-w2-Oost-ons |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
 
 Volg de instructies van regio #1, maar gebruik 10.2.xxx.xxx adresruimte.
 
@@ -564,10 +565,10 @@ Nu is Cassandra met 16 knooppunten met 8 knooppunten in elke Azure-regio geïmpl
 
 U ziet een scherm wordt weergegeven zoals hieronder:
 
-| customer_id | Voornaam | Lastname |
+| customer_id | Voornaam | Achternaam |
 | --- | --- | --- |
-| 1 |Jan |Jansen |
-| 2 |ANS |Jansen |
+| 1 |John |De Vries |
+| 2 |ANS |De Vries |
 
 ### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>Stap 3: Voer het volgende in de regio Oost na de aanmelding bij hk-w1-Oost-ons:
 1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
@@ -577,15 +578,15 @@ U ziet een scherm wordt weergegeven zoals hieronder:
 
 U ziet de dezelfde weergave zoals te zien voor de regio West:
 
-| customer_id | Voornaam | Lastname |
+| customer_id | Voornaam | Achternaam |
 | --- | --- | --- |
-| 1 |Jan |Jansen |
-| 2 |ANS |Jansen |
+| 1 |John |De Vries |
+| 2 |ANS |De Vries |
 
 Enkele meer invoegingen uitvoeren en Zie dat die worden gerepliceerd naar west-ons deel uit van het cluster.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Cassandra Testcluster met Node.js
-Met een van de virtuele Linux-machines eerder hebt gemaakt in de laag 'web', uitvoeren u een eenvoudige Node.js-script om te lezen van de eerder ingevoegde gegevens
+Met een van de virtuele Linux-machines in de laag 'web' eerder hebt gemaakt, uitvoeren u een eenvoudige Node.js-script om te lezen van de eerder ingevoegde gegevens
 
 **Stap 1: Node.js en Cassandra-Client installeren**
 

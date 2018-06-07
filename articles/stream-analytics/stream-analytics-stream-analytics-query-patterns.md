@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652243"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene gebruikspatronen van de Stream Analytics query
 
@@ -117,7 +118,7 @@ Geef bijvoorbeeld een beschrijving van de tekenreeks voor het maken van het aant
         Make,
         TumblingWindow(second, 10)
 
-**Uitleg**: de **geval** component kan wij verschillende berekeningen, op basis van bepaalde criteria (in ons geval de telling van de auto's in het venster cumulatieve).
+**Uitleg**: de **geval** expressie een expressie aan een set van eenvoudige expressies om te bepalen van het resultaat wordt vergeleken. In dit voorbeeld maakt vehicle met een telling van 1 heeft een andere tekenreeks beschrijving geretourneerd dan vehicle met een telling dan 1 maakt. 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Query-voorbeeld: gegevens verzenden naar meerdere uitgangen
 **Beschrijving**: gegevens verzenden naar meerdere doelen van de uitvoer van een enkele taak.
@@ -173,7 +174,7 @@ Bijvoorbeeld, analyseren van gegevens voor een waarschuwing op basis van drempel
         [Count] >= 3
 
 **Uitleg**: de **INTO** component Stream Analytics wordt uitgelegd welke van de uitvoer schrijven van de gegevens uit deze instructie.
-Is het doorgeven van de gegevens die we ontvangen op een uitvoer die we met de naam van de eerste query **ArchiveOutput**.
+Is het doorgeven van de gegevens die zijn ontvangen op een uitvoer die met de naam van de eerste query **ArchiveOutput**.
 De tweede query biedt een aantal eenvoudige aggregatie en filteren en deze stuurt de resultaten naar een downstream waarschuwingsmethoden systeem.
 
 Opmerking u kunt ook opnieuw gebruiken de resultaten van de algemene tabelexpressies (CTE's) (zoals **WITH** instructies) in meerdere uitvoer-instructies. Deze optie heeft het voordeel van het openen van de invoerbron minder lezers.
@@ -418,7 +419,7 @@ Bijvoorbeeld: hebt 2 opeenvolgende auto's uit hetzelfde merk onderweg tolstation
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Voorbeeld van de query: de duur van een voorwaarde detecteren
 **Beschrijving**: vinden out hoe lang een voorwaarde is opgetreden.
-Stel dat een fout heeft geresulteerd in alle auto's met een onjuiste gewicht (meer dan 20.000 pond). We willen berekenen van de duur van de fout.
+Stel bijvoorbeeld dat een fout heeft geresulteerd in alle auto's met een onjuiste gewicht (meer dan 20.000 pond) en de duur van die fout moet worden berekend.
 
 **Invoer**:
 
@@ -506,8 +507,8 @@ Bijvoorbeeld, een gebeurtenis om de vijf seconden die het meest recent waargenom
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Query-voorbeeld: twee typen gebeurtenissen binnen dezelfde stream correleren
-**Beschrijving**: soms moeten we voor het genereren van waarschuwingen op basis van meerdere gebeurtenistypen dat is opgetreden in een bepaalde periode.
-In de IoT-scenario voor thuis weerstaan willen we bijvoorbeeld een waarschuwing genereren wanneer ventilator temperatuur korter dan 40 is en maximale stroom tijdens de afgelopen 3 minuten kleiner dan 10 is.
+**Beschrijving**: soms waarschuwingen moeten worden gegenereerd op basis van meerdere gebeurtenistypen dat is opgetreden in een bepaalde periode.
+Bijvoorbeeld in een IoT-scenario voor thuis weerstaan, moet een waarschuwing worden gegenereerd wanneer de temperatuur ventilator korter dan 40 is en de maximale kracht gedurende de laatste 3 minuten kleiner dan 10 is.
 
 **Invoer**:
 
@@ -577,6 +578,46 @@ WHERE
 ````
 
 **Uitleg**: de eerste query `max_power_during_last_3_mins`, gebruikt de [schuifregelaar venster](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) naar de maximale waarde van de sensor power voor elk apparaat tijdens de afgelopen 3 minuten. De tweede query is gekoppeld aan de eerste query om de energie-waarde in het venster van de meest recente relevant vinden voor de huidige gebeurtenis. En vervolgens, mits de voorwaarden wordt voldaan, wordt een waarschuwing gegenereerd voor het apparaat.
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Query-voorbeeld: gebeurtenissen onafhankelijk van het apparaat klok leiden tot onjuiste (substreams)
+**Beschrijving**: gebeurtenissen kunnen laat plaatsvinden of volgorde vanwege klok laat tussen producenten gebeurtenis de klok die zijn hellen tussen partities of netwerklatentie. In het volgende voorbeeld wordt de apparaatklok voor TollID 2 is tien seconden achter TollID 1 en de apparaatklok voor TollID 3 is vijf seconden achter TollID 1. 
+
+
+**Invoer**:
+| LicensePlate | Maken | Time | TollID |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Uitvoer**:
+| TollID | Count |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**Oplossing**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**Uitleg**: de [TIMESTAMP-door via](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) component kijkt naar de tijdlijn van elk apparaat afzonderlijk met substreams. De uitvoergebeurtenissen voor elke TollID zijn gegenereerd als ze worden berekend, wat betekent dat de gebeurtenissen in volgorde ten opzichte van elke TollID in plaats van de volgorde van worden alsof alle apparaten op de dezelfde klok wordt gewijzigd.
 
 
 ## <a name="get-help"></a>Help opvragen

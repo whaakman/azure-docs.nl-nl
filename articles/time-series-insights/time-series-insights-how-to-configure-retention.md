@@ -1,21 +1,21 @@
 ---
 title: Het configureren van bewaren in uw omgeving Azure Time Series Insights | Microsoft Docs
 description: In dit artikel wordt beschreven hoe bewaren in uw omgeving Azure Time Series Insights configureren.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: anshan
 ms.author: anshan
 manager: kfile
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: bd688f516e200a37a6c88a8779282f7391eaf8b8
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9a236ba500af36e8fb1c8c089389ffd74b9d2abb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653916"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configuratie van de bewaartermijn in tijd reeks inzichten
 In dit artikel wordt beschreven hoe u **gegevensretentietijd** en **opslaglimiet overschreden gedrag** in Azure Time Series Insights.
@@ -28,7 +28,7 @@ Elke omgeving TSI heeft een extra instelling **opslaglimiet overschreden gedrag*
 
 Raadpleeg voor gedetailleerde informatie voor een beter begrip van deze instellingen [Understanding bewaren in tijd reeks inzichten](time-series-insights-concepts-retention.md).  
 
-## <a name="configure-data-retention"></a>Bewaren van gegevens configureren
+## <a name="configure-data-retention"></a>Gegevensretentie configureren
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 

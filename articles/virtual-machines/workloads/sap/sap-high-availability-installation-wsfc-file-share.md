@@ -4,10 +4,10 @@ description: SAP NetWeaver maximaal beschikbare installatie op een Windows failo
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc957ece0250d233db9cec4f1fdd8b063c13a136
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 2fa9cebe092f726b2df3dec99cee1bb97ccc92dc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658652"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>SAP NetWeaver hoge beschikbaarheid installeren op een Windows failover cluster en bestandsshare voor SAP ASC's / SCS-exemplaren op Azure
 
@@ -88,7 +89,7 @@ ms.lasthandoff: 11/17/2017
 
 [sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuratie voor hoge beschikbaarheid van SAP multi-SID)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -236,12 +237,12 @@ Installeer een SAP ASC's / SCS-exemplaar op *beide* knooppunten van het cluster 
 
 Voor het installeren van het exemplaar in het hulpprogramma SAP SWPM installation, gaat u naar:
 
-**\<Product >** > **\<DBMS >** > **installatie** > **toepassingsserver ABAP**(of **Java**) > **Distributed System** > **ASC's / SCS-exemplaar**
+**\<Product >** > **\<DBMS >** > **installatie** > **toepassingsserver ABAP** () of **Java**) > **Distributed System** > **ASC's / SCS-exemplaar**
 
 > [!IMPORTANT]
 > Het scenario voor bestandsdeling wordt op dit moment niet ondersteund door het hulpprogramma SWPM SAP-installatie. U *kan niet worden gebruikt* het volgende installatiepad:
 >
-> **\<Product >** > **\<DBMS >** > **installatie** > **toepassingsserver ABAP**(of **Java**) > **hoge beschikbaarheid System** >...
+> **\<Product >** > **\<DBMS >** > **installatie** > **toepassingsserver ABAP** () of **Java**) > **hoge beschikbaarheid System** >...
 >
 
 ### <a name="remove-sapmnt-and-create-an-saploc-file-share"></a>SAPMNT verwijderen en een bestandsshare SAPLOC maken
@@ -390,7 +391,7 @@ Als u wilt gebruikmaken van de nieuwe virtuele SAP ASC's / SCS-hostnaam en SAP g
 ### <a name="update-sap-default-profile"></a>SAP standaardprofiel bijwerken
 
 
-| Parameternaam | Waarde van parameter |
+| Parameternaam | Parameterwaarde |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
 | rdisp/mshost | **PR1-ASC 's** |
@@ -398,7 +399,7 @@ Als u wilt gebruikmaken van de nieuwe virtuele SAP ASC's / SCS-hostnaam en SAP g
 
 ### <a name="update-the-sap-ascsscs-instance-profile"></a>Het exemplaar SAP ASC's / SCS profiel bijwerken
 
-| Parameternaam | Waarde van parameter |
+| Parameternaam | Parameterwaarde |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
 | DIR_PROFILE | \\\sapglobal\sapmnt\PR1\SYS\profile |
@@ -407,7 +408,7 @@ Als u wilt gebruikmaken van de nieuwe virtuele SAP ASC's / SCS-hostnaam en SAP g
 | SAPLOCALHOST | **PR1-ASC 's** |
 | Restart_Program_03 local$(_EN) pf=$(_PF) = | **Start**_Program_03 local$(_EN) pf=$(_PF) = |
 | GW/netstat_once | **0** |
-| encni-CLR niet/set_so_keepalive  | **True** |
+| encni-CLR niet/set_so_keepalive  | **true** |
 | Service/ha_check_node | **1** |
 
 > [!IMPORTANT]

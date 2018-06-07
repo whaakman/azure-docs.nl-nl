@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 39cd7fa2232329716ba16abf92ba4a5f2cc15487
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652777"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Een virtuele-machineschaalset ingesteld met Azure PowerShell beheren
-Gedurende de levenscyclus van een virtuele-machineschaalset, moet u wellicht een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. In dit artikel vindt u details van de algemene Azure PowerShell-cmdlets waarmee u kunt deze taken uitvoeren.
+Gedurende de levenscyclus van een schaalset voor virtuele machines moet u mogelijk een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. In dit artikel vindt u details van de algemene Azure PowerShell-cmdlets waarmee u kunt deze taken uitvoeren.
 
 U moet de meest recente Azure PowerShell-module voor het voltooien van deze beheertaken. Zie voor informatie [aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps). Als u maken van een virtuele-machineschaalset wilt, kunt u [maken van een schaal ingesteld met Azure PowerShell](quick-create-powershell.md).
 
@@ -36,7 +37,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Virtuele machines weergeven in een schaalset
-Een overzicht van VM-instantie in een schaalset gebruiken [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). Het volgende voorbeeld lijst met alle VM-exemplaren in de set met de naam scale *myScaleSet* en in de *myResourceGroup* resourcegroep. Uw eigen waarden opgeven voor deze namen:
+Een overzicht van VM-instantie in een schaalset gebruiken [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). Het volgende voorbeeld worden alle VM-exemplaren in de set met de naam scale *myScaleSet* en in de *myResourceGroup* resourcegroep. Uw eigen waarden opgeven voor deze namen:
 
 ```powershell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -52,7 +53,7 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 ## <a name="change-the-capacity-of-a-scale-set"></a>De capaciteit van een schaalset wijzigen
 De voorgaande opdrachten hebt u geleerd informatie over uw schaalset en de VM-exemplaren. Als u wilt vergroten of verkleinen het aantal exemplaren in de schaalset, kunt u de capaciteit. De schaal automatisch ingesteld maakt of verwijdert u het vereiste aantal virtuele machines en configureert u de virtuele machines voor het ontvangen verkeer van de toepassing.
 
-Maak eerst een object met een scale set [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss), typt u een nieuwe waarde voor `sku.capacity`. De als capaciteitswijziging wilt toepassen, gebruikt u [Update AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Het volgende voorbeeld updates *myScaleSet* in de *myResourceGroup* resourcegroep naar een capaciteit van *5* exemplaren. Geef uw eigen waarden als volgt:
+Maak eerst een schaalsetobject met [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) en geef vervolgens een nieuwe waarde op voor `sku.capacity`. Gebruik [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) om de capaciteitswijziging toe te passen. Het volgende voorbeeld updates *myScaleSet* in de *myResourceGroup* resourcegroep naar een capaciteit van *5* exemplaren. Geef uw eigen waarden als volgt:
 
 ```powershell
 # Get current scale set
@@ -60,28 +61,28 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
 
-Als duurt een paar minuten bijwerken van de capaciteit van de schaal is ingesteld. Als u verlaagt de capaciteit van een schaal ingesteld, wordt de virtuele machines met de hoogste exemplaar id's eerst worden verwijderd.
+Het duurt een paar minuten om de capaciteit van de schaalset bij te werken. Als u verlaagt de capaciteit van een schaal ingesteld, wordt de virtuele machines met de hoogste exemplaar id's eerst worden verwijderd.
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Stoppen en starten van virtuele machines in een schaalset
-Voor het beëindigen van een of meer virtuele machines in een schaalset gebruikt [Stop AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). De `-InstanceId` parameter kunt u een of meer virtuele machines stoppen opgeven. Als u een exemplaar-ID niet opgeeft, worden alle virtuele machines in de schaalset gestopt. Als u wilt stoppen met meerdere virtuele machines, elk exemplaar-ID met een komma te scheiden.
+Als u een of meer VM's in een schaalset wilt stoppen, gebruikt u [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). Met de parameter `-InstanceId` kunt u een of meer VM's opgeven om te stoppen. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestopt. Als u wilt stoppen met meerdere virtuele machines, elk exemplaar-ID met een komma te scheiden.
 
-Het volgende voorbeeld gestopt exemplaar *0* in de set met de naam scale *myScaleSet* en de *myResourceGroup* resourcegroep. Geef de waarden als volgt:
+Het volgende voorbeeld gestopt exemplaar *0* in de set met de naam scale *myScaleSet* en de *myResourceGroup* resourcegroep. Geef uw eigen waarden als volgt:
 
 ```powershell
 Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
-Standaard gestopte virtuele machines zijn de toewijzing ongedaan gemaakt en kunnen niet worden compute-kosten in rekening. Als u wilt dat de virtuele machine te blijven ingerichte status gestopt, het toevoegen van de `-StayProvisioned` -parameter voor de voorgaande opdracht. Gestopte virtuele machines die ingerichte blijven worden regelmatig compute-kosten in rekening.
+De standaardinstelling is dat de toewijzing van gestopte VM's ongedaan wordt gemaakt en er dus geen compute-kosten meer in rekening worden gebracht. Als u wilt dat de VM de ingerichte status blijft houden nadat deze is gestopt, voeg u de parameter `-StayProvisioned` toe aan de voorgaande opdracht. Voor gestopte VM's die ingericht blijven, worden periodieke compute-kosten in rekening gebracht.
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Starten van virtuele machines in een schaalset
-Gebruik voor het starten van een of meer virtuele machines in een schaalset, [Start AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). De `-InstanceId` parameter kunt u opgeven van een of meer virtuele machines worden gestart. Als u een exemplaar-ID niet opgeeft, worden alle virtuele machines in de schaalset gestart. U kunt meerdere virtuele machines starten door elk exemplaar-ID met een komma te scheiden.
+Als u een of meer VM's in een schaalset wilt starten, gebruikt u [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). Met de parameter `-InstanceId` kunt u een of meer VM's opgeven om te starten. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestart. U kunt meerdere virtuele machines starten door elk exemplaar-ID met een komma te scheiden.
 
-Het volgende voorbeeld wordt een exemplaar gestart *0* in de set met de naam scale *myScaleSet* en de *myResourceGroup* resourcegroep. Geef de waarden als volgt:
+Het volgende voorbeeld wordt een exemplaar gestart *0* in de set met de naam scale *myScaleSet* en de *myResourceGroup* resourcegroep. Geef uw eigen waarden als volgt:
 
 ```powershell
 Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -89,9 +90,9 @@ Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Opnieuw opstarten van virtuele machines in een schaalset
-Als een of meer virtuele machines in een schaalset opnieuw, wilt u [Retart AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). De `-InstanceId` parameter kunt u een of meer virtuele machines opnieuw opstarten opgeven. Als u een exemplaar-ID niet opgeeft, worden alle virtuele machines in de schaalset opnieuw gestart. Als u wilt meerdere virtuele machines opnieuw is opgestart, elke instantie-ID met een komma te scheiden.
+Als u een of meer VM's in een schaalset opnieuw wilt opstarten, gebruikt u [Restart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). Met de parameter `-InstanceId` kunt u een of meer VM's opgeven om opnieuw op te starten. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset opnieuw opgestart. Als u wilt meerdere virtuele machines opnieuw is opgestart, elke instantie-ID met een komma te scheiden.
 
-Het volgende voorbeeld wordt opnieuw opgestart exemplaar *0* in de set met de naam scale *myScaleSet* en de *myResourceGroup* resourcegroep. Geef de waarden als volgt:
+Het volgende voorbeeld wordt opnieuw opgestart exemplaar *0* in de set met de naam scale *myScaleSet* en de *myResourceGroup* resourcegroep. Geef uw eigen waarden als volgt:
 
 ```powershell
 Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -101,7 +102,7 @@ Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScal
 ## <a name="remove-vms-from-a-scale-set"></a>Virtuele machines uit een set scale verwijderen
 Gebruik te verwijderen van een of meer virtuele machines in een set scale [verwijderen AzureRmVmss](/powershell/module/azurerm.compute/remove-azurermvmss). De `-InstanceId` parameter kunt u opgeven van een of meer VM's te verwijderen. Als u een exemplaar-ID niet opgeeft, worden alle virtuele machines in de schaalset verwijderd. Als u wilt verwijderen van meerdere virtuele machines, elk exemplaar-ID met een komma te scheiden.
 
-Het volgende voorbeeld verwijdert exemplaar *0* in de set met de naam scale *myScaleSet* en de *myResourceGroup* resourcegroep. Geef de waarden als volgt:
+Het volgende voorbeeld verwijdert exemplaar *0* in de set met de naam scale *myScaleSet* en de *myResourceGroup* resourcegroep. Geef uw eigen waarden als volgt:
 
 ```powershell
 Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"

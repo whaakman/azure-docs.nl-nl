@@ -1,22 +1,22 @@
 ---
 title: Het controleren en te verminderen beperking in Azure Time Series Insights | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u kunt controleren, diagnoses stellen en prestatieproblemen waardoor latentie en beperking in Azure Time Series Insights beperken.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: ac59359eb6af268f311534d90e1529fc5e41094f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a7720934870818a4e13d3d6b5d391d9bd3cddcd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653668"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Bewaken en te verhelpen bandbreedtebeperking om de latentie in Azure Time Series inzichten te verminderen
 Wanneer de hoeveelheid binnenkomende gegevens groter is dan de configuratie van uw omgeving, kunnen wachttijden of beperking in Azure Time Series Insights optreden.
@@ -41,7 +41,7 @@ Waarschuwingen kunnen u helpen te opsporen en latentieproblemen veroorzaakt door
 
 2. Klik op **metrische waarschuwing toevoegen**.  
 
-    ![Waarschuwing voor metrische gegevens toevoegen](media/environment-mitigate-latency/add-metric-alert.png)
+    ![Metrische waarschuwing toevoegen](media/environment-mitigate-latency/add-metric-alert.png)
 
 Daar kunt u waarschuwingen met behulp van de volgende metrische gegevens:
 

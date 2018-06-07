@@ -4,10 +4,10 @@ description: Hoge beschikbaarheid voor een SAP ASC's / SCS-exemplaar met Windows
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c82cc943f983b3dedfc0f64f2eec5b4425a4bf81
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ee5dc346def58ea7362a763d088145eb0d04a608
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656727"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -248,13 +249,13 @@ De volledige Liggend met twee SAP-systemen voor hoge beschikbaarheid eruit als v
 
 ![SAP hoge beschikbaarheid multi-SID-configuratie met twee SAP-systeem beveiligings-id 's][sap-ha-guide-figure-6003]
 
-## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>De infrastructuur voorbereiden voor een SAP multi-SID-scenario
+## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> De infrastructuur voorbereiden voor een SAP multi-SID-scenario
 
 Als u met het voorbereiden van uw infrastructuur, kunt u een extra exemplaar van de SAP ASC's / SCS installeren met de volgende parameters:
 
 | Parameternaam | Waarde |
 | --- | --- |
-| SAP ASC 'S/SCS SID |PR1-lb-ASC 's |
+| SAP ASC 'S/SCS SID |pr1-lb-ascs |
 | SAP DBMS interne load balancer | PR5 |
 | Naam van de virtuele host SAP | pr5-sap-cl |
 | SAP ASC's / SCS virtuele host (extra Azure load balancer IP-adres) | 10.0.0.50 |
@@ -270,8 +271,8 @@ U kunt extra exemplaren van het SAP ASC's / SCS installeren in de bestaande WSFC
 
 | De rol virtuele machine | Hostnaam van de virtuele machine | Statisch IP-adres |
 | --- | --- | --- |
-| Eerste clusterknooppunt voor ASC's / SCS-exemplaar |PR1-ASC's-0 |10.0.0.10 |
-| Tweede clusterknooppunt voor ASC's / SCS-exemplaar |PR1-ASC's-1 |10.0.0.9 |
+| Eerste clusterknooppunt voor ASC's / SCS-exemplaar |pr1-ascs-0 |10.0.0.10 |
+| Tweede clusterknooppunt voor ASC's / SCS-exemplaar |pr1-ascs-1 |10.0.0.9 |
 
 ### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a>De naam van een virtuele host op voor het geclusterde exemplaar van de SAP ASC's / SCS maken op de DNS-server
 

@@ -2,22 +2,18 @@
 title: Het aanroepen van REST-API van Azure Storage Services bewerkingen zoals verificatie | Microsoft Docs
 description: Het aanroepen van REST-API van Azure Storage Services bewerkingen zoals verificatie
 services: storage
-documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
+author: tamram
+manager: twooley
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/27/2017
-ms.author: robinsh
-ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 05/22/2018
+ms.author: tamram
+ms.openlocfilehash: 6009ebd18eb089b21c98d6f7d9f49044a8d96098
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650448"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>De Azure Storage REST API gebruiken
 
@@ -48,19 +44,17 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Open de Visual Studio-oplossing, zoekt u naar de map storage-dotnet-rest-api-with-auth, openen en dubbelklik op StorageRestApiAuth.sln. 
 
-## <a name="why-do-i-need-to-know-rest"></a>Waarom moet ik te weten REST?
-
-Weten hoe u REST is een nuttig kwalificatie. Het Azure-productteam versies regelmatig nieuwe functies. In veel gevallen de nieuwe functies zijn toegankelijk via de REST-interface, maar nog niet zijn opgehaald via **alle** van de opslag-clientbibliotheken of de gebruikersinterface (zoals de Azure-portal). Als u altijd de nieuwste en beste gebruiken wilt, REST learning is een vereiste. Als u wilt schrijven van uw eigen bibliotheek om te kunnen communiceren met Azure Storage of u wilt toegang krijgen tot Azure Storage met een programmeertaal die geen een clientbibliotheek SDK of de opslag, kunt u de REST-API.
-
 ## <a name="what-is-rest"></a>Wat is REST?
 
 REST-betekent *representational state transfer*. Bekijk voor de definitie van een specifieke [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
 
 In principe REST is voor een architectuur die u kunt gebruiken bij het aanroepen van API's of het maken van API's beschikbaar moet worden aangeroepen. Het is niet afhankelijk van wat er aan beide zijden gebeurt en welke andere software wordt gebruikt bij het verzenden of ontvangen van de REST-aanroepen. U kunt een toepassing die wordt uitgevoerd op een Mac, Windows, Linux, een Android-telefoon of tablet, iPhone, iPod of website schrijven en de dezelfde REST-API gebruiken voor elk van deze platforms. Gegevens kunnen worden doorgegeven en/of uit wanneer de REST-API wordt aangeroepen. De REST-API belangrijk niet vanaf welk platform wordt genoemd – wat belangrijk is de informatie die wordt doorgegeven in de aanvraag en de gegevens die zijn opgegeven in het antwoord.
 
-## <a name="heres-the-plan"></a>Hier wordt het plan
+Weten hoe u REST is een nuttig kwalificatie. Het Azure-productteam versies regelmatig nieuwe functies. In veel gevallen de nieuwe functies zijn toegankelijk via de REST-interface, maar nog niet zijn opgehaald via **alle** van de opslag-clientbibliotheken of de gebruikersinterface (zoals de Azure-portal). Als u altijd de nieuwste en beste gebruiken wilt, REST learning is een vereiste. Als u wilt schrijven van uw eigen bibliotheek om te kunnen communiceren met Azure Storage of u wilt toegang krijgen tot Azure Storage met een programmeertaal die geen een clientbibliotheek SDK of de opslag, kunt u de REST-API.
 
-De voorbeeldproject bevat de containers in een opslagaccount. Wanneer u hoe de informatie in de documentatie voor REST-API heeft betrekking op uw eigen code begrijpt, zijn andere REST-aanroepen gemakkelijker te achterhalen. 
+## <a name="about-the-sample-application"></a>Over de voorbeeldtoepassing
+
+De voorbeeldtoepassing geeft een lijst van de containers in een opslagaccount. Wanneer u hoe de informatie in de documentatie voor REST-API heeft betrekking op uw eigen code begrijpt, zijn andere REST-aanroepen gemakkelijker te achterhalen. 
 
 Als u naar kijkt de [REST-API van Blob](/rest/api/storageservices/fileservices/Blob-Service-REST-API), ziet u de bewerkingen die u op de blob-opslag uitvoeren kunt. De clientbibliotheken storage wrappers voor de REST API's zijn – ze eenvoudiger voor u toegang tot opslag zonder gebruik van de REST API's direct. Maar zoals eerder vermeld, soms wilt u de REST-API gebruiken in plaats van een storage-clientbibliotheek.
 
@@ -70,7 +64,7 @@ Bekijk de pagina in de REST-API-referentiemateriaal voor de [ListContainers](/re
 
 **Verzoekmethode**: ophalen. Deze opdracht wordt de HTTP-methode die u als een eigenschap van het request-object opgeeft. Andere waarden voor deze opdracht zijn HEAD, PUT en DELETE, afhankelijk van de API die u aanroept.
 
-**URI van de aanvraag**: dit wordt gemaakt van het eindpunt van blob storage-account https://myaccount.blob.core.windows.net/?comp=list `http://myaccount.blob.core.windows.net` en de brontekenreeks `/?comp=list`.
+**URI van de aanvraag**: https://myaccount.blob.core.windows.net/?comp=list wordt dit gemaakt van het eindpunt van blob storage-account `http://myaccount.blob.core.windows.net` en de brontekenreeks `/?comp=list`.
 
 [URI-parameters](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): Er zijn aanvullende queryparameters die u gebruiken kunt bij het aanroepen van ListContainers. Enkele van deze parameters worden *time-out* voor de oproep (in seconden) en *voorvoegsel*, die wordt gebruikt voor het filteren.
 
@@ -141,7 +135,7 @@ Voeg de headers van de aanvraag voor x-ms-datum- en x-ms-version. Deze locatie i
     // Add the request headers for x-ms-date and x-ms-version.
     DateTime now = DateTime.UtcNow;
     httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-04-17");
+    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
     // If you need any additional headers, add them here before creating
     //   the authorization header. 
 ```
@@ -205,7 +199,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 3e889876-001e-0039-6a3a-5f4396000000
-x-ms-version: 04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
@@ -271,6 +265,9 @@ Nu u weet hoe u de aanvraag maken, de service aanroepen en parseren van de resul
 
 ## <a name="creating-the-authorization-header"></a>Maken van de autorisatie-header
 
+> [!TIP]
+> Azure Storage biedt nu ondersteuning voor integratie met Azure Active Directory (Azure AD) voor de services Blob en Queue (Preview). Azure AD biedt een veel eenvoudiger ervaring voor het machtigen van een aanvraag naar Azure Storage. Zie voor meer informatie over het gebruik van Azure AD te autoriseren REST-bewerkingen [verifiëren met Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Zie voor een overzicht van Azure AD-integratie met Azure Storage [verifiëren van toegang tot Azure Storage met Azure Active Directory (Preview)](storage-auth-aad.md).
+
 Er is een artikel waarin wordt uitgelegd conceptueel (geen code) het uitvoeren van [verificatie voor de Azure Storage-Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services).
 Laten we dat artikel omlaag naar exact distill is vereist en de code niet weergeven.
 
@@ -312,7 +309,7 @@ We beginnen met de twee gestandaardiseerde velden, omdat ze zijn vereist voor he
 Voor het maken van deze waarde ophalen van de headers die beginnen met 'x - ms-' en sorteren en maak deze naar een tekenreeks van `[key:value\n]` exemplaren, samengevoegd tot één tekenreeks. In dit voorbeeld uitzien de canonieke headers: 
 
 ```
-x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 Dit is de code die wordt gebruikt voor het maken van die uitvoer:
@@ -417,7 +414,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 Wanneer u deze code uitvoert, wordt de resulterende MessageSignature ziet er als volgt:
 
 ```
-GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-04-17\n/contosorest/\ncomp:list
+GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
 ```
 
 Hier wordt de eindwaarde voor AuthorizationHeader:
@@ -463,7 +460,7 @@ Als u dit voorbeeld uitvoert, krijgt u resultaten als volgt:
 **Canonieke Headers:**
 
 ```
-x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 **Canonieke Resource:**
@@ -476,7 +473,7 @@ x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
-  \nx-ms-version:2017-04-17\n/contosorest/container-1\ncomp:list\nrestype:container
+  \nx-ms-version:2017-07-29\n/contosorest/container-1\ncomp:list\nrestype:container
 ```
 
 **AuthorizationHeader:**
@@ -497,7 +494,7 @@ GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=
 
 ```
 x-ms-date: Fri, 17 Nov 2017 05:16:48 GMT
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Authorization: SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
@@ -510,7 +507,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 7e9316da-001e-0037-4063-5faf9d000000
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```

@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650934"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-beveiliging en gegevensbescherming
 
@@ -204,6 +205,18 @@ StorSimple maakt gebruik van de volgende versleutelingsalgoritmen ter beschermin
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
+## <a name="managing-personal-inforamation"></a>Het beheren van persoonlijke informatie
+
+Apparaatbeheer voor zowel fysieke en virtuele-serie StorSimple verzamelt persoonlijke gegevens in de belangrijkste exemplaren van dit:
+
+- Waarschuwing gebruikersinstellingen waar e-mailadres van gebruikers zijn geconfigureerd. Deze informatie kunt weergeven en door de beheerder uitgeschakeld. Dit geldt voor de StorSimple 8000 series apparaten en de virtuele StorSimple-matrices.
+ * Als u wilt weergeven en schakelt u de instellingen voor StorSimple 8000-serie, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Als u wilt weergeven en schakelt u de instellingen voor virtuele StorSimple-matrix, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Gebruikers die toegang tot de gegevens die zich op de shares. Een lijst met gebruikers die toegang de sharegegevens tot wordt weergegeven en kan worden weergegeven. Deze lijst wordt ook verwijderd wanneer de shares is verwijderd. Dit geldt alleen voor virtuele StorSimple-matrices.
+ * Om weer te geven van de lijst van gebruikers kunt openen of verwijderen van een share, volg de stappen in [shares op de virtuele StorSimple-matrix kunt beheren](storsimple-virtual-array-manage-shares.md)
+
+Raadpleeg voor meer informatie, het beleid voor Microsoft Privacy [Vertrouwenscentrum](https://www.microsoft.com/trustcenter).
+
 ## <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
 Hier volgen enkele vragen en antwoorden over de beveiliging en Microsoft Azure StorSimple.
@@ -268,19 +281,7 @@ Hier volgen enkele vragen en antwoorden over de beveiliging en Microsoft Azure S
 
 **A:** omdat alle gegevens worden versleuteld op de service en de persoonlijke sleutel wordt gehouden met het apparaat, de overheidsinstelling moet de klant gegevens opvragen.
 
-## <a name="gdpr-compliance"></a>GDPR naleving
 
-[Algemene gegevens beveiliging regelgeving (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is van een Europese Unie beveiliging en privacy-wet. De GDPR bevat veel vereisten over hoe u verzamelen, opslaan en persoonlijke gegevens gebruikt. De regels GDPR worden opgelegd voor bedrijven, overheidsinstanties en andere organisaties die in EU werken en te verzamelen, analyseren van gegevens die zijn gekoppeld aan de EU inwoners. 
-
-Apparaatbeheer voor zowel fysieke en virtuele-serie StorSimple is GDPR compatibel. Er zijn twee belangrijke instanties waar persoonlijke gegevens worden verzameld en weergegeven in de service:
-
-- Waarschuwing gebruikersinstellingen waar e-mailadres van gebruikers zijn geconfigureerd. Deze informatie kunt weergeven en door de beheerder uitgeschakeld. Dit geldt voor de StorSimple 8000 series apparaten en de virtuele StorSimple-matrices.
- * Als u wilt weergeven en schakelt u de instellingen voor StorSimple 8000-serie, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Als u wilt weergeven en schakelt u de instellingen voor virtuele StorSimple-matrix, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
-- Gebruikers die toegang tot de gegevens die zich op de shares. Een lijst met gebruikers die toegang de sharegegevens tot wordt weergegeven en kan worden weergegeven. Deze lijst wordt ook verwijderd wanneer de shares is verwijderd. Dit geldt alleen voor virtuele StorSimple-matrices.
- * Om weer te geven van de lijst van gebruikers kunt openen of verwijderen van een share, volg de stappen in [shares op de virtuele StorSimple-matrix kunt beheren](storsimple-virtual-array-manage-shares.md)
-
-Raadpleeg voor meer informatie, het beleid voor Microsoft Privacy [Vertrouwenscentrum](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Volgende stappen
 

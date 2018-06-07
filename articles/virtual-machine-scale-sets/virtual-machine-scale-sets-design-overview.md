@@ -3,7 +3,7 @@ title: Ontwerpoverwegingen voor het virtuele Azure-Machine-Schaalsets | Microsof
 description: Meer informatie over overwegingen bij het ontwerpen voor uw Azure virtuele-Machineschaalsets
 keywords: virtuele Linux-machine, virtuele-machineschaalsets
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -16,36 +16,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652396"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Ontwerpoverwegingen voor Schaalsets
 Dit artikel wordt beschreven ontwerpoverwegingen voor het virtuele-Machineschaalsets. Raadpleeg voor informatie over wat virtuele-Machineschaalsets zijn [overzicht van virtuele machines Scale Sets](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Het gebruik van scale Hiermee stelt u in plaats van virtuele machines?
-In het algemeen zijn schaalsets nuttig voor het implementeren van maximaal beschikbare infrastructuur waarin een set machines vergelijkbare configuratie hebben. Sommige functies zijn echter alleen beschikbaar in schaalsets terwijl andere functies alleen beschikbaar in virtuele machines zijn. Om te beslissen over het gebruik van elke technologie, moet u eerst een overzicht van enkele van de meest gebruikte functies die beschikbaar in-schaalsets, maar geen virtuele machines zijn uitvoeren:
+In het algemeen zijn schaalsets nuttig voor het implementeren van maximaal beschikbare infrastructuur waarin een set machines vergelijkbare configuratie heeft. Sommige functies zijn echter alleen beschikbaar in schaalsets terwijl andere functies alleen beschikbaar in virtuele machines zijn. Om te beslissen over het gebruik van elke technologie, moet u eerst een overzicht van enkele van de meest gebruikte functies die beschikbaar in-schaalsets, maar geen virtuele machines zijn uitvoeren:
 
 ### <a name="scale-set-specific-features"></a>Scale set-specifieke functies
 
-- Zodra u de schaal configuratie instellen opgeeft, kunt u de eigenschap 'capaciteit' voor het implementeren van meer virtuele machines parallel bijwerken. Dit is veel eenvoudiger dan het schrijven van een script voor de organisatie veel afzonderlijke VM's parallel te implementeren.
+- Zodra u de schaal configuratie instellen opgeeft, kunt u bijwerken de *capaciteit* eigenschap meer virtuele machines parallel te implementeren. Dit proces is beter dan het schrijven van een script voor de organisatie veel afzonderlijke VM's parallel te implementeren.
 - U kunt [Azure automatisch schalen gebruiken voor het automatisch schalen een schaalset](./virtual-machine-scale-sets-autoscale-overview.md) maar geen afzonderlijke virtuele machines.
 - U kunt [terugzetten van de installatiekopie schaalset VMs](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) maar [geen afzonderlijke virtuele machines](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- U kunt [overprovision](./virtual-machine-scale-sets-design-overview.md) schaalset virtuele machines voor grotere betrouwbaarheid en sneller implementatietijden. U doen dit niet met afzonderlijke virtuele machines tenzij u aangepaste code schrijven voor dit doen.
+- U kunt [overprovision](./virtual-machine-scale-sets-design-overview.md) schaalset virtuele machines voor grotere betrouwbaarheid en sneller implementatietijden. U kunt afzonderlijke virtuele machines kan niet overprovision, tenzij u aangepaste code schrijven voor deze actie niet uitvoeren.
 - Kunt u een [Upgradebeleid](./virtual-machine-scale-sets-upgrade-scale-set.md) gemakkelijker uitrolt upgrades over VM's in de schaalset. Met afzonderlijke virtuele machines, u moet u updates indeelt zelf.
 
 ### <a name="vm-specific-features"></a>VM-specifieke functies
 
 Sommige functies zijn alleen beschikbaar in virtuele machines:
 
-- U kunt gegevensschijven koppelen aan specifieke afzonderlijke virtuele machines, maar de bijgesloten gegevensschijven zijn geconfigureerd voor alle virtuele machines in een schaalset.
-- Afzonderlijke virtuele machines, maar geen virtuele machines in een schaalset kunt u niet-lege gegevensschijven koppelen.
-- U kunt een momentopname van een afzonderlijke VM, maar niet een virtuele machine in een schaalset.
-- U kunt een installatiekopie van een afzonderlijke virtuele machine, maar niet op een virtuele machine in een set scale vastleggen.
-- U kunt een afzonderlijke virtuele machine migreren vanaf systeemeigen schijven aan beheerde schijven, maar kan geen u dit doen voor virtuele machines in een schaalset.
-- U kunt IPv6 openbare IP-adressen toewijzen aan afzonderlijke NIC's van VM maar niet voor virtuele machines in een schaalset. U kunt IPv6 openbare IP-adressen aan load balancers voor een afzonderlijke virtuele machines toewijzen of VM-schaalset.
+- U kunt een installatiekopie van een afzonderlijke virtuele machine, maar niet van een virtuele machine in een set scale vastleggen.
+- U kunt een afzonderlijke virtuele machine migreren vanaf systeemeigen schijven aan beheerde schijven, maar u kunt geen VM-exemplaren in een schaalset migreren.
+- U kunt IPv6 openbare IP-adressen toewijzen aan afzonderlijke VM virtuele netwerkinterfacekaarten (NIC's), maar niet voor VM-exemplaren in een schaalset. U kunt IPv6 openbare IP-adressen aan load balancers voor een afzonderlijke virtuele machines toewijzen of VM-schaalset.
 
 ## <a name="storage"></a>Storage
 

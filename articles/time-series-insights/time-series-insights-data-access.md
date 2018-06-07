@@ -1,21 +1,21 @@
 ---
 title: Beveiliging configureren om te raadplegen en beheren van Azure Time Series Insights | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u beveiliging en machtigingen als access management-beleid en de data access-beleid voor het beveiligen van Azure Time Series Insights.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: ashannon7
 ms.author: anshan
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: c7d4079c9106226e0d07aa97c4a52c16ddb257c3
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 4306d22f03faa55fb6fc8be1a359aea3410e8038
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653807"
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Gegevenstoegang verlenen tot een Time Series Insights-omgeving met Azure Portal
 

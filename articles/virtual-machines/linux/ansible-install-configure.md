@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
 ms.author: iainfou
-ms.openlocfilehash: e6fad548eda35d1832cb4ecc2fd9bdabf825f361
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c00ebcb771081f8e35c67bf384f5f6822e16f268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652988"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installeren en configureren van Ansible voor het beheren van virtuele machines in Azure
 
@@ -149,7 +150,7 @@ Nu wordt verplaatst naar [maken Azure-referenties](#create-azure-credentials).
 
 Ansible communiceert met Azure met behulp van een gebruikersnaam en wachtwoord of een service-principal. Een Azure-service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's zoals Ansible gebruiken kunt. U de machtigingen over welke bewerkingen die de service-principal in Azure uitvoeren kunt te definiëren en beheren. Voor betere beveiliging via gewoon een gebruikersnaam en wachtwoord voor het bieden, in dit voorbeeld wordt een basic service principal.
 
-Op de hostcomputer of in de Azure-Cloud-Shell, maakt u een service principal met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#create-for-rbac). De referenties die Ansible moet worden uitgevoerd op het scherm:
+Op de hostcomputer of in de Azure-Cloud-Shell, maakt u een service principal met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). De referenties die Ansible moet worden uitgevoerd op het scherm:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -165,7 +166,7 @@ Een voorbeeld van de uitvoer van de bovenstaande opdrachten is als volgt:
 }
 ```
 
-Om te verifiëren naar Azure, moet u ook verkrijgen van uw Azure-abonnement-ID met [az account weergeven](/cli/azure/account#az_account_show):
+Om te verifiëren naar Azure, moet u ook verkrijgen van uw Azure-abonnement-ID met [az account weergeven](/cli/azure/account#az-account-show):
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"

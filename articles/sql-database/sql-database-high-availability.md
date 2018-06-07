@@ -5,15 +5,16 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 839cadffc37a1c4a6ceae77fbe1e01020c28fe1d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: c7c2b72b3a164e35c464a92f82cddb3329250283
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650057"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 Microsoft heeft de belofte aangebracht in de klanten die hoge beschikbaarheid (HA) is ingebouwd in de service en de klanten hoeven niet te werken, speciale logica voor het toevoegen of beslissingen rond HA vanaf het begin van de Azure SQL Database PaaS-aanbieding. Microsoft onderhoudt volledige controle over de HA-systeemconfiguratie en bewerking, biedt klanten een SLA. De HA-SLA van toepassing op een SQL-database in een regio en biedt geen bescherming in geval van een mislukking van de totale regio die wordt veroorzaakt door factoren buiten het beheer van Microsoft redelijkerwijs (bijvoorbeeld een natuurramp, war, besluiten van terrorisme, riots, overheids-actie of een netwerk- of apparaatstoring buiten de datacenters van Microsoft, waaronder op klant sites of tussen sites van de klant en Datacenter van Microsoft).
@@ -30,7 +31,7 @@ Klanten meest geïnteresseerd bent in de tolerantie van hun eigen databases en m
 
 SQL-Database gebruikt voor gegevens, zowel lokale opslag (LS) op basis van direct gekoppelde schijven VHD en externe opslag (RS) op basis van Azure Premium-opslag-pagina-blobs. 
 - Lokale opslag wordt gebruikt in de Premium- of Business-kritische (preview) databases en elastische pools, die zijn ontworpen voor bedrijfskritieke kritieke OLTP-toepassingen met een hoge IOPS-vereisten. 
-- Externe opslag wordt gebruikt voor Basic en Standard Servicelagen, die zijn bestemd voor budget georiënteerde zakelijke workloads waarvoor opslag is vereist en rekencapaciteit afzonderlijk van elkaar schalen. Ze een één-pagina-blob voor de database en logboekbestanden en de replicatie en failover mechanismen ingebouwde opslag gebruiken.
+- Externe opslag wordt gebruikt in Basic, Standard en algemeen Servicelagen, die zijn ontworpen voor budget georiënteerde zakelijke workloads waarvoor opslag is vereist en rekencapaciteit afzonderlijk van elkaar schalen. Ze een één-pagina-blob voor de database en logboekbestanden en de replicatie en failover mechanismen ingebouwde opslag gebruiken.
 
 In beide gevallen worden de replicatie, foutdetectie en failover-mechanismen van SQL-Database zijn volledig geautomatiseerd en werkt zonder menselijke tussenkomst. Deze architectuur is ontworpen om ervoor te zorgen dat doorgevoerd gegevens nooit verloren en wordt dat gegevens duurzaamheid voorrang hebben op alle anders.
 
@@ -56,7 +57,7 @@ De [Service Fabric](../service-fabric/service-fabric-overview.md) system failove
 
 ## <a name="remote-storage-configuration"></a>Configuratie van de externe opslag
 
-Voor externe opslagconfiguraties (Basic en Standard lagen), wordt precies één kopie beheerd in externe blob-opslag, met behulp van de opslagmogelijkheden van systemen voor duurzaamheid en redundantie bits rotting detectie. 
+Voor externe opslagconfiguraties (Basic, Standard of algemeen lagen), wordt precies één kopie beheerd in externe blob-opslag, met behulp van de opslagmogelijkheden van systemen voor duurzaamheid en redundantie bits rotting detectie. 
 
 De architectuur van hoge beschikbaarheid wordt door het volgende diagram geïllustreerd:
  

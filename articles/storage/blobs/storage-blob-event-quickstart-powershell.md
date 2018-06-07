@@ -5,25 +5,25 @@ services: storage,event-grid
 keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: b6764ffa0e7cfbc888f11c22af855d48d8160372
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650499"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Blob storage gebeurtenissen routeren naar een aangepaste website-eindpunt met PowerShell
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel, Azure PowerShell gebruiken om u te abonneren op gebeurtenissen in de Blob-opslag, trigger een gebeurtenis en het resultaat te bekijken. 
 
-Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Om te vereenvoudigen het voorbeeld in dit artikel, worden gebeurtenissen verzonden naar een URL die alleen de berichten worden verzameld. U maakt deze URL met behulp van een hulpprogramma van derden, [Hookbin](https://hookbin.com/).
+Normaal gesproken verzenden u gebeurtenissen naar een eindpunt dat gegevens van de gebeurtenis wordt verwerkt en acties onderneemt. Echter, om te vereenvoudigen in dit artikel, u de gebeurtenissen verzenden naar een web-app die worden verzameld en worden de berichten weergegeven.
 
-> [!NOTE]
-> **Hookbin** is niet bedoeld voor gebruik met hoge doorvoer. Dit hulpprogramma wordt alleen gebruikt ter demonstratie. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma. Houd rekening met ook **Hookbin** opgehaald [speciale behandeling](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) door Azure gebeurtenis raster. Om te bevorderen testen, verzendt gebeurtenis raster er gebeurtenissen zonder een juiste reactie op aanvragen voor validatie van abonnement (dat gebeurt [anders](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
+Wanneer u klaar bent, ziet u dat gegevens van de gebeurtenis is verzonden naar de web-app.
 
-Als u de stappen in dit artikel hebt voltooid, ziet u dat de gegevens van gebeurtenissen naar een eindpunt zijn verzonden.
+![Resultaten weergeven](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
 ## <a name="setup"></a>Instellen
 
@@ -82,23 +82,41 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
 
-Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. In plaats van code te schrijven om op de gebeurtenis te reageren, maken we een eindpunt waarop de berichten worden verzameld, zodat u ze kunt weergeven. Hookbin is een hulpprogramma van derden waarmee u een eindpunt kunt maken en aanvragen kunt weergeven die naar dit eindpunt worden verzonden. Ga naar [Hookbin](https://hookbin.com/) en klik op **Create New Endpoint**. Kopieer de URL van de opslaglocatie en vervang `<bin URL>` in het volgende script.
+Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. Het eindpunt duurt normaal gesproken acties op basis van gegevens van de gebeurtenis. Als u wilt deze snelstartgids vereenvoudigen, die u implementeert een [vooraf samengestelde web-app](https://github.com/dbarkol/azure-event-grid-viewer) waarmee de event-berichten worden weergegeven. De geïmplementeerde oplossing omvat een App Service-abonnement, een App Service-web-app en de broncode van GitHub.
+
+Vervang `<your-site-name>` met een unieke naam voor uw web-app. De naam van de web-app moet uniek zijn, omdat deze deel uitmaakt van de DNS-vermelding.
 
 ```powershell
-$binEndPoint = "<bin URL>"
+$sitename="<your-site-name>"
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateUri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" `
+  -siteName $sitename `
+  -hostingPlanName viewerhost
 ```
+
+De implementatie kan enkele minuten duren. Nadat de implementatie voltooid is, geven uw web-app zodat deze wordt uitgevoerd. Navigeer in een webbrowser naar: `https://<your-site-name>.azurewebsites.net`
+
+U ziet de site geen berichten sturen die momenteel wordt weergegeven.
 
 ## <a name="subscribe-to-your-storage-account"></a>Abonneren op uw storage-account
 
-U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. Het opslagaccount hebt gemaakt de URL van Hookbin doorgegeven als het eindpunt voor gebeurtenismelding lid van het volgende voorbeeld. 
+U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. Het volgende voorbeeld is lid van het opslagaccount dat u hebt gemaakt en wordt de URL van uw web-app als het eindpunt voor gebeurtenismelding doorgegeven. Het eindpunt voor uw web-app moet het achtervoegsel bevatten `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$endpoint="https://$sitename.azurewebsites.net/api/updates"
+
 New-AzureRmEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
-  -Endpoint $binEndPoint `
+  -Endpoint $endpoint `
   -ResourceId $storageId
 ```
+
+Uw web-app weer en merk op dat een gebeurtenis abonnement-validatie is verzonden naar het. Selecteer het pictogram ogen uit te breiden de gebeurtenisgegevens worden opgeslagen. Gebeurtenis raster verzendt de validatiegebeurtenis zodat het eindpunt controleren kunt, dat wil ontvangen van gegevens van gebeurtenissen. De web-app bevat een code voor het valideren van het abonnement.
+
+![De gebeurtenis abonnement weergeven](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Een gebeurtenis van Blob Storage activeren
 
@@ -113,7 +131,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Blader naar de eindpunt-URL die u eerder hebt gemaakt. U kunt ook op Vernieuwen klikken in het geopende browservenster. U ziet de gebeurtenis die u zojuist hebt verzonden. 
+U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk uw web-app om te zien van de gebeurtenis die u zojuist hebt verzonden.
 
 ```json
 [{

@@ -5,17 +5,18 @@ ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bea1dc88d66717717cdeacbc8504f5df7e37ba04
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647830"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken met uw toepassing met Azure SQL Database beheerd exemplaar
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database
 
 Vandaag hebt u meerdere opties bij het bepalen hoe en waar u uw toepassing wordt gehost. 
  
@@ -39,10 +40,10 @@ Er zijn twee opties voor het verbinden van VNets:
 - [Azure Virtual Network-peering](../virtual-network/virtual-network-peering-overview.md) 
 - VNet-naar-VNet-VPN-gateway ([Azure-portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-De peering optie is de voorkeur omdat peering gebruikmaakt van het Microsoft-backbone-netwerk, vanuit het perspectief van de connectiviteit, er is geen merkbaar verschil in latentie tussen virtuele machines in VNet peer is ingesteld en in hetzelfde VNet. VNet-peering is beperkt tot de netwerken in dezelfde regio, hoewel regio-overschrijdende peering is ingeschakeld in bepaalde gebieden als voorbeeld.  
+De peering optie is de voorkeur omdat peering gebruikmaakt van het Microsoft-backbone-netwerk, vanuit het perspectief van de connectiviteit, er is geen merkbaar verschil in latentie tussen virtuele machines in VNet peer is ingesteld en in hetzelfde VNet. VNet-peering is beperkt tot de netwerken in dezelfde regio.  
  
 > [!IMPORTANT]
-> VNet-peerings regio-overschrijdende gemaakt wellicht niet dezelfde mate van beschikbaarheid en betrouwbaarheid als peerings in een versie van de algemene beschikbaarheid. VNet-peerings kan hebben beperkte mogelijkheden en mogelijk niet beschikbaar in alle Azure-regio's. Voor de meest recente meldingen op beschikbaarheid en de status van deze functie, Controleer de [Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) pagina updates. 
+> VNet-peering scenario voor beheerde exemplaar is beperkt tot de netwerken in dezelfde regio vanwege [beperkingen van de globale virtueel netwerk peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
 
 ## <a name="connect-an-on-premises-application"></a>Verbinding maken met een on-premises toepassing 
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 83558b9d8d47ac5e6bd15dd54db38125376d11bd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fd290420c2c755e07f6949750e3a88bcb64682f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656904"
 ---
 # <a name="plan-virtual-networks"></a>Virtuele netwerken plannen
 
@@ -26,7 +27,7 @@ Maken van een virtueel netwerk als u wilt experimenteren met eenvoudig genoeg is
 
 ## <a name="naming"></a>Naamgeving
 
-Alle Azure-resources hebben een naam. De naam moet uniek zijn binnen een scope die voor elk resourcetype verschillen kan. Bijvoorbeeld, de naam van een virtueel netwerk moet uniek zijn binnen een [resourcegroep](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), maar kan worden gedupliceerd binnen een [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) of Azure [regio](https://azure.microsoft.com/regions/#services). Het definiëren van een naamgevingsconventie die u consequent gebruiken kunt bij het benoemen van resources is handig bij het beheren van verschillende netwerkbronnen gedurende een bepaalde periode. Zie voor suggesties [naamconventies](/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Alle Azure-resources hebben een naam. De naam moet uniek zijn binnen een scope die voor elk resourcetype verschillen kan. Bijvoorbeeld, de naam van een virtueel netwerk moet uniek zijn binnen een [resourcegroep](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), maar kan worden gedupliceerd binnen een [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) of Azure [regio](https://azure.microsoft.com/regions/#services). Het definiëren van een naamgevingsconventie die u consequent gebruiken kunt bij het benoemen van resources is handig bij het beheren van verschillende netwerkbronnen gedurende een bepaalde periode. Zie voor suggesties [naamconventies](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking).
 
 ## <a name="regions"></a>Regio's
 
@@ -38,7 +39,7 @@ Alle Azure-resources worden in een Azure-regio en het abonnement gemaakt. Een re
 
 ## <a name="subscriptions"></a>Abonnementen
 
-U kunt zoveel virtuele netwerken, zoals vereist in elk abonnement maximaal implementeren de [limiet](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Sommige organisaties hebben bijvoorbeeld verschillende abonnementen voor verschillende afdelingen. Zie voor meer informatie en overwegingen omtrent het abonnementen [abonnement governance](../azure-resource-manager/resource-manager-subscription-governance.md?toc=%2fazure%2fvirtual-network%2ftoc.json#define-your-hierarchy).
+U kunt zoveel virtuele netwerken, zoals vereist in elk abonnement maximaal implementeren de [limiet](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Sommige organisaties hebben bijvoorbeeld verschillende abonnementen voor verschillende afdelingen. Zie voor meer informatie en overwegingen omtrent het abonnementen [abonnement governance](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentatie
 
@@ -81,7 +82,7 @@ U kunt bekijken voorbeeld ontwerpen voor het implementeren van een DMZ tussen Az
 ### <a name="traffic-routing"></a>voor verkeersroutering
 
 Azure maakt verschillende standaardroutes voor uitgaand verkeer van een subnet. U kunt Azure standaard routering door een routetabel maken en koppelen aan een subnet overschrijven. Veelvoorkomende redenen voor het onderdrukken van Azure standaard routering zijn:
-- Omdat u wilt dat verkeer tussen subnetten door middel van een NVA stromen. Voor meer informatie over het [routetabellen om af te dwingen verkeer via een NVA configureren](tutorial-create-route-table-portal.md)
+- Omdat u wilt dat verkeer tussen subnetten door middel van een NVA stromen. Voor meer informatie over het [configureren routetabellen om af te dwingen verkeer via een NVA](tutorial-create-route-table-portal.md).
 - Omdat u afdwingen van alle internetverkeer door middel van een NVA of on-premises via een Azure VPN-gateway wilt. Forceren internet verkeer on-premises voor controle en logboekregistratie vaak aangeduid als geforceerde tunneling. Meer informatie over het configureren van [geforceerde tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 Als u implementeren met aangepaste routering wilt, kunt u vertrouwd raken met [routering in Azure](virtual-networks-udr-overview.md).
@@ -92,7 +93,7 @@ U kunt een virtueel netwerk verbinden op andere virtuele netwerken met behulp va
 
 ### <a name="peering"></a>Peering
 
-Wanneer u [virtueel netwerk peering](virtual-network-peering-overview.md), de virtuele netwerken kunnen worden ondersteund in de dezelfde of verschillende Azure-regio's. De virtuele netwerken kunnen zich in dezelfde of verschillende Azure-abonnementen, als beide abonnementen zijn toegewezen aan dezelfde Azure Active Directory-tenant. Voordat u maakt een peering, wordt aanbevolen dat u vertrouwd raken met alle van de peering [vereisten en beperkingen](virtual-network-manage-peering.md#requirements-and-constraints). Bandbreedte tussen resources in virtuele netwerken brengen is hetzelfde als de bronnen in hetzelfde virtuele netwerk zijn.
+Wanneer u [virtueel netwerk peering](virtual-network-peering-overview.md), de virtuele netwerken kunnen worden ondersteund in de dezelfde of verschillende Azure-regio's. De virtuele netwerken kunnen zich in dezelfde of verschillende Azure-abonnementen, als beide abonnementen zijn toegewezen aan dezelfde Azure Active Directory-tenant. Voordat u maakt een peering, wordt aanbevolen dat u vertrouwd raken met alle van de peering [vereisten en beperkingen](virtual-network-manage-peering.md#requirements-and-constraints). Bandbreedte tussen resources in virtuele netwerken brengen in dezelfde regio is hetzelfde als wanneer de bronnen in hetzelfde virtuele netwerk zijn.
 
 ### <a name="vpn-gateway"></a>VPN-gateway
 
@@ -102,14 +103,18 @@ U kunt combineren peering en een VPN-gateway maken [hub en spoke-netwerken](/arc
 
 ### <a name="name-resolution"></a>Naamomzetting
 
-De namen van bronnen in de peered virtueel netwerk met behulp van Azure kunnen niet worden omgezet in resources in een virtueel netwerk [ingebouwde DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). Omzetten van namen in een virtueel netwerk peered, [uw eigen DNS-server implementeren](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), of gebruik van Azure DNS [persoonlijke domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Het omzetten van namen tussen resources in een virtueel netwerk en on-premises netwerken moet u uw eigen DNS-server implementeren.
+De namen van bronnen in een peered virtueel netwerk met behulp van Azure kunnen niet worden omgezet in resources in een virtueel netwerk [ingebouwde DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). Omzetten van namen in een virtueel netwerk peered, [uw eigen DNS-server implementeren](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), of gebruik van Azure DNS [persoonlijke domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Het omzetten van namen tussen resources in een virtueel netwerk en on-premises netwerken moet u uw eigen DNS-server implementeren.
 
 ## <a name="permissions"></a>Machtigingen
 
-Maakt gebruik van Azure [toegangsbeheer op basis van rollen](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) tot bronnen. Machtigingen zijn toegewezen aan een [bereik](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-hierarchy-and-access-inheritance) in de volgende hiërarchie: abonnement, beheergroep, resourcegroep en afzonderlijke resource. Zie voor meer informatie over de hiërarchie, [ordenen van uw resources](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Met virtuele Azure-netwerken en alle bijbehorende gerelateerde mogelijkheden, zoals peering, netwerkbeveiligingsgroepen, service-eindpunten en routetabellen wilt werken, kunt u leden van uw organisatie toewijzen aan de ingebouwde [eigenaar](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), of [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rollen, en vervolgens wijst u de rol aan het juiste bereik. Als u toewijzen specifieke machtigingen voor een subset van virtueel netwerkmogelijkheden wilt, maakt u een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en toewijzen van de specifieke machtigingen vereist voor [virtuele netwerken](manage-virtual-network.md#permissions), [ subnetten en service-eindpunten](virtual-network-manage-subnet.md#permissions), [netwerkinterfaces](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md#permissions), [netwerk- en beveiligingsgroepen](manage-network-security-group.md#permissions), of [routetabellen](manage-route-table.md#permissions) aan de rol.
+Maakt gebruik van Azure [toegangsbeheer op basis van rollen](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) tot bronnen. Machtigingen zijn toegewezen aan een [bereik](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) in de volgende hiërarchie: abonnement, beheergroep, resourcegroep en afzonderlijke resource. Zie voor meer informatie over de hiërarchie, [ordenen van uw resources](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Met virtuele Azure-netwerken en alle bijbehorende gerelateerde mogelijkheden, zoals peering, netwerkbeveiligingsgroepen, service-eindpunten en routetabellen wilt werken, kunt u leden van uw organisatie toewijzen aan de ingebouwde [eigenaar](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), of [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rollen, en vervolgens wijst u de rol aan het juiste bereik. Als u toewijzen specifieke machtigingen voor een subset van virtueel netwerkmogelijkheden wilt, maakt u een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en toewijzen van de specifieke machtigingen vereist voor [virtuele netwerken](manage-virtual-network.md#permissions), [ subnetten en service-eindpunten](virtual-network-manage-subnet.md#permissions), [netwerkinterfaces](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [netwerk- en beveiligingsgroepen](manage-network-security-group.md#permissions), of [routetabellen](manage-route-table.md#permissions) aan de rol.
 
 ## <a name="policy"></a>Beleid
 
-Azure-beleid kunt u maakt, toewijst en beleidsdefinities beheren. Beleidsdefinities verschillende regels en afdwingen effecten via uw resources, zodat de resources voldoen aan uw organisatie-standaarden en de serviceovereenkomsten blijven. Azure-beleid wordt een evaluatie van uw resources, het zoeken naar resources die niet compatibel met de beleidsdefinities die u hebt uitgevoerd. U kunt bijvoorbeeld een beleid waarmee het maken van virtuele netwerken in een specifieke resourcegroep hebben. Een ander beleid kan vereisen dat elk subnet een netwerkbeveiligingsgroep gekoppeld heeft. Het beleid wordt vervolgens geëvalueerd bij het maken en bijwerken van resources.
+Azure-beleid kunt u maakt, toewijst en beleidsdefinities beheren. Beleidsdefinities van het afdwingen verschillende regels via uw resources, zodat de resources voldoen aan uw organisatie-standaarden en de serviceovereenkomsten blijven. Azure-beleid wordt een evaluatie van uw resources, het zoeken naar resources die niet compatibel met de beleidsdefinities die u hebt uitgevoerd. U kunt bijvoorbeeld definiëren en toepassen van een beleid waarmee het maken van virtuele netwerken in een specifieke resourcegroep of een regio. Een ander beleid kan vereisen dat elk subnet een netwerkbeveiligingsgroep gekoppeld heeft. Het beleid wordt vervolgens geëvalueerd bij het maken en bijwerken van resources.
 
 Beleidsregels worden toegepast op de volgende hiërarchie: abonnement, beheergroep en resourcegroep. Meer informatie over [Azure beleid](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of implementeren van een virtueel netwerk [beleidssjabloon](policy-samples.md) voorbeelden.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Meer informatie over alle taken, instellingen en opties voor een [virtueel netwerk](manage-virtual-network.md), [subnet en service-eindpunt](virtual-network-manage-subnet.md), [netwerkinterface](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md), [netwerk- en beveiligingsgroep](manage-network-security-group.md), of [routetabel](manage-route-table.md).

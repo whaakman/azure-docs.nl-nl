@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: df1bb64d0d753ae1853a2212c7c89d2e1613b8bc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657312"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>De Azure VM-Agent installeren in de offlinemodus bevindt 
 
@@ -108,7 +109,7 @@ Gebruik de volgende stappen voor het installeren van de VM-Agent in de offlinemo
 
 Als u de virtuele machine met behulp van het implementatiemodel van Resource Manager implementatie hebt gemaakt, kunt u klaar bent.
 
-### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Gebruik de eigenschap ProvisionGuestAgent voor virtuele machines die zijn gemaakt met Azure Resource Manager
+### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>Gebruik de eigenschap ProvisionGuestAgent voor klassieke virtuele machines
 
 Als u de virtuele machine gemaakt met behulp van het klassieke model, de Azure PowerShell-module gebruiken om bij te werken de **ProvisionGuestAgent** eigenschap. De eigenschap informeert Azure dat de virtuele machine het VM-Agent is geïnstalleerd.
 

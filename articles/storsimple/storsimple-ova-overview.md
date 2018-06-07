@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/28/2018
+ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651202"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Inleiding tot het virtuele StorSimple-matrix
 
@@ -206,10 +207,9 @@ Compressie van gegevens voor Ontdubbeling en het StorSimple gebruikt voor het ve
 
 Functies voor gegevensbeveiliging StorSimple kunnen u back-ups op aanvraag maken. Een back-upschema standaard Bovendien zorgt ervoor dat de back-up dagelijks. Back-ups zijn gemaakt in de vorm van incrementele momentopnamen die zijn opgeslagen in de cloud. Momentopnamen die alleen de wijzigingen sinds de laatste back-up vastlegt, worden gemaakt en snel worden hersteld. Deze momentopnamen is zeer belangrijk in herstel na noodgevallen, omdat ze secundaire opslagsystemen (zoals tapeback-up vervangen) en kunnen u gegevens op uw datacenter of op alternatieve locaties herstellen indien nodig.
 
-## <a name="gdpr-compliance"></a>GDPR naleving
-[Algemene gegevens beveiliging regelgeving (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is van een Europese Unie beveiliging en privacy-wet. De GDPR bevat veel vereisten over hoe u verzamelen, opslaan en persoonlijke gegevens gebruikt. De regels GDPR worden opgelegd voor bedrijven, overheidsinstanties en andere organisaties die in EU werken en te verzamelen, analyseren van gegevens die zijn gekoppeld aan de EU inwoners.
+## <a name="managing-personal-information"></a>Persoonlijke gegevens beheren
 
-Apparaatbeheer voor virtuele-serie StorSimple is GDPR compatibel. Er zijn twee belangrijke instanties waar persoonlijke gegevens worden verzameld en weergegeven in de service:
+Apparaatbeheer voor virtuele-serie StorSimple verzamelt persoonlijke gegevens in de twee belangrijkste exemplaren:
  - Waarschuwing gebruikersinstellingen waar e-mailadressen van gebruikers zijn geconfigureerd. Deze informatie kan worden gewist door de beheerder. 
  - Gebruikers die toegang tot de gegevens die zich op de shares. Een lijst met gebruikers die toegang de sharegegevens tot wordt weergegeven en kan worden geëxporteerd. Deze lijst wordt ook verwijderd wanneer de shares is verwijderd.
 

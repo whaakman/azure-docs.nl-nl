@@ -4,7 +4,7 @@ description: Informatie over het back-up en herstellen van een Oracle-Database 1
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: e804fd17c3dbe9df9e9dc258e67b8f9192c1f8ad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e01a347607b2c2ff82d15172756f32c9c6a474a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656161"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Back-up en herstellen van een Oracle-Database 12c-database op een virtuele machine van Azure Linux
 
@@ -553,7 +554,7 @@ Nadat de virtuele machine is hersteld, instellen van het openbare IP-adres.
 
 De back-up en herstel van de Oracle-Database 12c-database op een Azure Linux VM is nu voltooid.
 
-## <a name="delete-the-vm"></a>De virtuele machine verwijderen
+## <a name="delete-the-vm"></a>De VM verwijderen
 
 Wanneer u de virtuele machine niet meer nodig hebt, kunt u de volgende opdracht om de resourcegroep, de virtuele machine en alle gerelateerde resources te verwijderen:
 

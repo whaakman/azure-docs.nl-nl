@@ -8,11 +8,12 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: db062fc36478d6ba2cf0f00544793f635ccdbb06
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650125"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen voor Blob-opslag
 
@@ -30,7 +31,7 @@ BLOB storage gebeurtenissen zijn beschikbaar in [Blob storage-accounts](../commo
 ## <a name="available-blob-storage-events"></a>Beschikbare Blob storage-gebeurtenissen
 Gebruikt voor gebeurtenis raster [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren naar abonnees.  BLOB storage gebeurtenisabonnementen kunnen bevatten twee soorten gebeurtenissen:  
 
-> |De naam van gebeurtenis|Beschrijving|
+> |Naam van de gebeurtenis|Beschrijving|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Deze gebeurtenis wordt gestart wanneer een blob wordt gemaakt of vervangen door de `PutBlob`, `PutBlockList`, of `CopyBlob` bewerkingen|
 > |`Microsoft.Storage.BlobDeleted`|Deze gebeurtenis wordt gestart wanneer een blob is verwijderd via een `DeleteBlob` bewerking|
@@ -46,7 +47,7 @@ Meer informatie over het gebruik van eigenschappen van gebeurtenis raster gebeur
 > |eventTime|tekenreeks|De gebeurtenis is gegenereerd, in de ISO 8601-notatie van datum/tijd|
 > |EventType|tekenreeks|'Microsoft.Storage.BlobCreated' of 'Microsoft.Storage.BlobDeleted'|
 > |Id|tekenreeks|De unieke id als deze gebeurtenis|
-> |dataVersion|tekenreeks|De versie van het schema van het gegevensobject.|
+> |dataVersion|tekenreeks|De schemaversie van het gegevensobject.|
 > |metadataVersion|tekenreeks|De schemaversie van de eigenschappen van het hoogste niveau.|
 > |gegevens|object|Verzameling van blob storage-specifieke gebeurtenisgegevens|
 > |data.contentType|tekenreeks|Het inhoudstype van de blob, zoals in de header Content-Type van de blob wordt geretourneerd|
@@ -118,7 +119,7 @@ Zodat deze overeenkomen met gebeurtenissen van de blobs in specifieke delen van 
 
 Zodat deze overeenkomen met gebeurtenissen van de blobs in specifieke delen van een achtervoegsel van de blob-container gemaakt, gebruikt u een `subjectEndsWith` filter zoals 'Log' of 'jpg'
 
-Zie voor meer informatie [gebeurtenis raster concepten](../../event-grid/concepts.md#filters).
+Zie voor meer informatie [gebeurtenis raster concepten](../../event-grid/concepts.md#event-subscriptions).
 
 ## <a name="practices-for-consuming-events"></a>Procedures voor het gebruiken van gebeurtenissen
 Toepassingen die Blob storage gebeurtenissen verwerken moeten volgen enkele aanbevolen procedures:

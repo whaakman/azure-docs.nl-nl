@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653498"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migratie van IaaS-middelen van klassiek naar Azure Resource Manager plannen
 Hoewel Azure Resource Manager veel mogelijkheden biedt, is het essentieel dat u van plan bent om uw migratie reis naar zeker dat u besturingssysteemupgrades soepel verlopen. Tijd besteedt over het plannen, zorgt u ervoor dat u geen problemen ondervindt tijdens het uitvoeren van de migratieactiviteiten worden bewaakt. 
 
 > [!NOTE] 
-> De volgende hulp is sterk hebben bijgedragen door de Azure Customer Advisory team en de oplossing Cloud-architecten die werken met klanten op migreren grote enviornments. Als u dergelijke dit document blijven als er ontstaan nieuwe patronen van succes wordt bijgewerkt, dus controleer terug vanaf het moment dat op de tijd om te zien of er zijn geen nieuwe aanbevelingen.
+> De volgende hulp is sterk hebben bijgedragen door de Azure Customer Advisory team en de oplossing Cloud-architecten die werken met klanten op grote omgevingen migreren. Als u dergelijke dit document blijven als er ontstaan nieuwe patronen van succes wordt bijgewerkt, dus controleer terug vanaf het moment dat op de tijd om te zien of er zijn geen nieuwe aanbevelingen.
 
 Er zijn vier algemene fasen van het traject migratie:
 
@@ -51,10 +52,10 @@ Afhankelijk van de grootte van de technische vereisten, locaties en operationele
 
 ### <a name="patterns-of-success"></a>Patronen van geslaagd
 
-Geslaagde klanten hebben gedetailleerde plannen waar de bovenstaande vragen zijn besproken, gedocumenteerd en bepaald.  Zorg ervoor dat de migratieplannen grote schaal worden gecommuniceerd naar sponsors en belanghebbenden.  Geef uzelf met kennis over uw opties voor de migratie; lezen door deze migratie-document dat is ingesteld onder wordt sterk aanbevolen.
+Geslaagde klanten hebben gedetailleerde plannen waar de voorgaande vragen zijn besproken, gedocumenteerd en bepaald.  Zorg ervoor dat de migratieplannen grote schaal worden gecommuniceerd naar sponsors en belanghebbenden.  Geef uzelf met kennis over uw opties voor de migratie; lezen door deze migratie-document dat is ingesteld onder wordt sterk aanbevolen.
 
 * [Overzicht van de migratie van IaaS resources van klassieke in Azure Resource Manager-platform ondersteund](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Technische deep dive op platform ondersteund migratie van klassiek naar Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Technische details over door platforms ondersteunde migratie van klassiek naar Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planning voor de migratie van IaaS-resources van het klassieke implementatiemodel naar Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [PowerShell gebruiken voor het migreren van IaaS-middelen van klassiek naar Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [CLI gebruiken voor het migreren van IaaS-middelen van klassiek naar Azure Resource Manager](migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -79,7 +80,7 @@ Geslaagde klanten hebben gedetailleerde plannen waar de bovenstaande vragen zijn
   Uitvoering van een test lab van uw exacte scenario (compute, netwerk en opslag), is de beste manier om te zorgen voor een soepele migratie. Dit helpt ervoor te zorgen:
 
   - Een geheel afzonderlijke testomgeving of een bestaande niet-productieomgeving om te testen. U wordt aangeraden een geheel afzonderlijke lab die herhaaldelijk kan worden gemigreerd en destructief kan worden gewijzigd.  Scripts verzamelen/hydraat metagegevens uit de echte abonnementen worden hieronder vermeld.
-  - Het is een goed idee om het lab maken in een apart abonnement. De reden is dat de testomgeving verwijderd herhaaldelijk en met een afzonderlijke, geïsoleerd abonnement u de kans beperkt dat er iets echte per ongeluk ontvangt verwijderd.
+  - Het is een goed idee om het lab maken in een apart abonnement. De reden is dat de testomgeving verwijderd herhaaldelijk en met een afzonderlijke, geïsoleerd abonnement u de kans beperkt dat er iets echt per ongeluk verwijderd.
 
   Dit kan worden bewerkstelligd met het hulpprogramma AsmMetadataParser. [Lees meer over dit hulpprogramma hier](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -205,7 +206,7 @@ Houd er rekening mee waarom u deze van klassiek naar Azure Resource Manager migr
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Overzicht van de migratie van IaaS resources van klassieke in Azure Resource Manager-platform ondersteund](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Technische deep dive op platform ondersteund migratie van klassiek naar Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Technische details over door platforms ondersteunde migratie van klassiek naar Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planning voor de migratie van IaaS-resources van het klassieke implementatiemodel naar Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [PowerShell gebruiken voor het migreren van IaaS-middelen van klassiek naar Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Community-hulpprogramma's voor hulp bij de migratie van IaaS-middelen van klassiek naar Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

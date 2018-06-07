@@ -13,25 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 05/29/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 49ef3821ba5dd10d745649c6b4546ec04282714f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652301"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Overzicht van automatisch schalen binnen de schaal van de virtuele machine van Azure wordt ingesteld
-Een virtuele machine van Azure scale set kan automatisch vergroten of verkleinen van het aantal VM-exemplaren die uw toepassing uitvoeren. Dit gedrag geautomatiseerde en elastische vermindert de overhead voor het controleren en optimaliseren van de prestaties van uw toepassing. U maken regels die de minimaal toegestane prestaties voor een positieve klantervaring definiëren. Wanneer deze gedefinieerde drempels wordt voldaan, maatregelen regels voor automatisch schalen die nemen om aan te passen, de capaciteit van uw scale set. U kunt ook gebeurtenissen automatisch vergroten of verkleinen de capaciteit van uw scale set op tijden vaste plannen. In dit artikel biedt een overzicht van welke prestaties metrische gegevens beschikbaar zijn en welke acties automatisch schalen kunt uitvoeren.
+Een virtuele machine van Azure scale set kan automatisch vergroten of verkleinen van het aantal VM-exemplaren die uw toepassing uitvoeren. Dit gedrag geautomatiseerde en elastische vermindert de overhead voor het controleren en optimaliseren van de prestaties van uw toepassing. U maken regels die de aanvaardbare prestaties voor een positieve klantervaring definiëren. Wanneer deze gedefinieerde drempels wordt voldaan, maatregelen regels voor automatisch schalen die nemen om aan te passen, de capaciteit van uw scale set. U kunt ook gebeurtenissen automatisch vergroten of verkleinen de capaciteit van uw scale set op tijden vaste plannen. In dit artikel biedt een overzicht van welke prestaties metrische gegevens beschikbaar zijn en welke acties automatisch schalen kunt uitvoeren.
 
 
 ## <a name="benefits-of-autoscale"></a>Voordelen van het automatisch schalen
-Als uw toepassing vraag toeneemt stelt de belasting van de VM-exemplaren in uw scale toeneemt. Als deze toegenomen belasting consistent is, in plaats van slechts een korte vraag, kunt u regels voor automatisch schalen voor een verhoging van het aantal VM-exemplaren in de schaalset configureren.
+Als de vraag van uw toepassing toeneemt, neemt de belasting van de VM-exemplaren in de schaalset ook toe. Als deze toegenomen belasting consistent is, en geen piekbelasting is, kunt u regels voor automatisch schalen configureren om het aantal VM-exemplaren in de schaalset te verhogen.
 
-Wanneer deze VM-exemplaren zijn gemaakt en uw toepassingen worden geïmplementeerd, wordt de schaalaanpassingsset begint met het distribueren van verkeer via de load balancer. U bepaalt welke metrische gegevens moeten worden bewaakt, zoals CPU of geheugen, hoe lang het laden van toepassingen moet voldoen aan een bepaalde drempelwaarde en instellen hoeveel exemplaren van virtuele machine toevoegen aan de schaal.
+Wanneer deze VM-exemplaren worden gemaakt en uw toepassingen worden geïmplementeerd, zorgt de schaalset ervoor dat er via de load balancer verkeer wordt gedistribueerd naar de exemplaren. U bepaalt welke metrische gegevens moeten worden bewaakt, zoals CPU of geheugen, hoe lang het laden van toepassingen moet voldoen aan een bepaalde drempelwaarde en instellen hoeveel exemplaren van virtuele machine toevoegen aan de schaal.
 
-Op een 's avonds of het weekend en kan uw aanvraag toepassing afnemen. Als deze minder belasting gedurende een periode consistent is, kunt u regels voor automatisch schalen Verminder het aantal VM-exemplaren in de schaalset configureren. Deze actie schaal in reduceert de kosten voor het uitvoeren van uw scale instellen als u alleen het aantal exemplaren is vereist om te voldoen aan de huidige aanvraag uitvoeren.
+In het weekend of 's avonds kan de vraag voor uw toepassing afnemen. Als deze afgenomen belasting consistent is gedurende een bepaalde periode, kunt u regels voor automatisch schalen configureren om het aantal VM-exemplaren in de schaalset te verlagen. Deze inschaalactie reduceert de kosten voor het uitvoeren van uw schaalset, aangezien u alleen het aantal exemplaren uitvoert dat vereist is om te voldoen aan de actuele vraag.
 
 
 ## <a name="use-host-based-metrics"></a>Gebruik van metrische gegevens op de host
@@ -115,7 +116,7 @@ De extensie Azure diagnostics is een agent die wordt uitgevoerd binnen een VM-in
 
 Voor het gebruik van de extensie Azure diagnostics, moet u Azure storage-accounts maken voor uw VM-exemplaren, de Azure diagnostics-agent installeren en configureren van de virtuele machines naar de stroom specifieke prestatiemeteritems naar het opslagaccount.
 
-Zie voor meer informatie de artikelen voor het inschakelen van de diagnostische Azure-extensie op een [Linux-VM](../virtual-machines/linux/diagnostic-extension.md) of [Windows-VM](../virtual-machines/windows/ps-extensions-diagnostics.md).
+Zie voor meer informatie de artikelen voor het inschakelen van de diagnostische Azure-extensie op een [Linux-VM](../virtual-machines/extensions/diagnostics-linux.md) of [Windows-VM](../virtual-machines/extensions/diagnostics-windows.md).
 
 
 ## <a name="application-level-metrics-with-app-insights"></a>Metrische gegevens op toepassingsniveau met App Insights

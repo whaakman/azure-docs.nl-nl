@@ -1,22 +1,22 @@
 ---
 title: Schalen van uw omgeving Azure Time Series Insights | Microsoft Docs
 description: In dit artikel wordt beschreven hoe uw omgeving Azure Time Series Insights te schalen. Gebruik de Azure-portal toevoegen aan of aftrekken capaciteit binnen een prijscategorie SKU.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7e603cc9c130de6b65ae1935ac974557f5e74737
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651988"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Schalen van uw omgeving Time Series Insights
 

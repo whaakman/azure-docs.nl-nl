@@ -4,7 +4,7 @@ description: Informatie over het implementeren van SAP-software op Linux virtuel
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: a8929cfd0a484cdcd1adbd3d2ead4fd36cc49cd3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cb402f51ca20551bf34140322f3f259470a637ac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656394"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure virtuele Machines-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -427,7 +428,7 @@ De wizard begeleidt u bij het instellen van de vereiste parameters voor het make
     * **Netwerkbeveiligingsgroep**: Zie voor meer informatie [beheren van netwerkverkeer met netwerkbeveiligingsgroepen][virtual-networks-nsg].
   * **Extensies**: U kunt extensies van virtuele machine installeren door ze toe te voegen aan de implementatie. U hoeft niet de extensies toevoegen in deze stap. De extensies die zijn vereist voor ondersteuning van SAP worden later geïnstalleerd. Zie hoofdstuk [configureren van de Azure verbeterde extensie Monitoring voor SAP] [ deployment-guide-4.5] in deze handleiding.
   * **Hoge beschikbaarheid**: een beschikbaarheidsset selecteren of geef de parameters voor het maken van een nieuwe beschikbaarheidsset. Zie voor meer informatie [Azure beschikbaarheidssets][planning-guide-3.2.3].
-  * **Bewaking**
+  * **Controle**
     * **Diagnostische gegevens starten**: U kunt selecteren **uitschakelen** voor diagnostische gegevens over opstarten.
     * **Gastbesturingssysteem diagnostics**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens.
 
@@ -558,7 +559,7 @@ De wizard begeleidt u bij het instellen van de vereiste parameters voor het make
     * **Netwerkbeveiligingsgroep**: Zie voor meer informatie [beheren van netwerkverkeer met netwerkbeveiligingsgroepen][virtual-networks-nsg].
   * **Extensies**: U kunt extensies van virtuele machine installeren door ze toe te voegen aan de implementatie. U hoeft niet te-extensie toevoegen in deze stap. De extensies die zijn vereist voor ondersteuning van SAP worden later geïnstalleerd. Zie hoofdstuk [configureren van de Azure verbeterde extensie Monitoring voor SAP] [ deployment-guide-4.5] in deze handleiding.
   * **Hoge beschikbaarheid**: een beschikbaarheidsset selecteren of geef de parameters voor het maken van een nieuwe beschikbaarheidsset. Zie voor meer informatie [Azure beschikbaarheidssets][planning-guide-3.2.3].
-  * **Bewaking**
+  * **Controle**
     * **Diagnostische gegevens starten**: U kunt selecteren **uitschakelen** voor diagnostische gegevens over opstarten.
     * **Gastbesturingssysteem diagnostics**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens.
 

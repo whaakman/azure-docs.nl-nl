@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2372550548f40ad07b4f76c19bc3bc1cb8380830
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99838a7038672998d4940bfb437bd31311d3600f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653430"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Een op SLES of openSUSE gebaseerde virtuele machine voor Azure voorbereiden
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -93,9 +94,9 @@ Als alternatief voor het bouwen van uw eigen VHD SUSE publiceert ook BYOS (uw ei
      ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## Opmerking: Stel dit in op wat u ook nodig om te worden.
 15. Voer de volgende opdrachten inrichting ervan ongedaan maakt de virtuele machine en deze voorbereiden voor het inrichten op Azure:
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - deprovision
-    # <a name="export-histsize0"></a>exporteren van HISTSIZE = 0
-    # <a name="logout"></a>afmelden
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. Klik op **actie-Afsluiten > omlaag** in Hyper-V-beheer. Uw Linux VHD is nu gereed om te worden geüpload naar Azure.
 
 - - -
@@ -128,7 +129,7 @@ Als alternatief voor het bouwen van uw eigen VHD SUSE publiceert ook BYOS (uw ei
         # sudo zypper update
 5. Installeer de Azure Linux Agent.
    
-   # <a name="sudo-zypper-install-walinuxagent"></a>sudo zypper installeren WALinuxAgent
+        # sudo zypper install WALinuxAgent
 6. De regel voor het opstarten van kernel in uw configuratie wormgaten aanvullende kernel-parameters voor Azure opnemen wijzigen. Open hiervoor ' / boot/grub/menu.lst ' in een teksteditor en zorg ervoor dat de kernel standaard de volgende parameters bevat:
    
      console = ttyS0 earlyprintk ttyS0 rootdelay = 300 =
@@ -150,9 +151,9 @@ Als alternatief voor het bouwen van uw eigen VHD SUSE publiceert ook BYOS (uw ei
      ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## Opmerking: Stel dit in op wat u ook nodig om te worden.
 11. Voer de volgende opdrachten inrichting ervan ongedaan maakt de virtuele machine en deze voorbereiden voor het inrichten op Azure:
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - deprovision
-    # <a name="export-histsize0"></a>exporteren van HISTSIZE = 0
-    # <a name="logout"></a>afmelden
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. Zorg ervoor dat de Azure Linux Agent wordt uitgevoerd bij het opstarten:
     
         # sudo systemctl enable waagent.service

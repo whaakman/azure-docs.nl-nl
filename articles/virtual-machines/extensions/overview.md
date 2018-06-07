@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 01178995dbf9203082a6250ef256522bc1101e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653260"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Virtuele machine van Azure-extensies en functies
 Azure virtuele machine (VM)-uitbreidingen zijn kleine toepassingen waarmee de configuratie en automatisering taken na de implementatie op Azure Virtual machines, kunt u bestaande installatiekopieën gebruiken en ze vervolgens aanpassen als onderdeel van uw implementaties u buiten het bedrijf van aangepaste ophalen installatiekopie bouwen.
@@ -52,7 +53,7 @@ Extensies toepassingen installeren, zoals toepassingen er zijn een aantal vereis
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over de werking van de Linux-Agent en -extensies [Azure VM-extensies en functies voor Linux](features-linux.md).
-* Zie voor meer informatie over de werking van de Windows-Gastagent en -extensies [Azure VM-extensies en functies voor Linux](features-windows.md).  
+* Zie voor meer informatie over de werking van de Windows-Gastagent en -extensies [Azure VM-extensies en functies voor Windows](features-windows.md).  
 * Zie het installeren van de Windows-Gastagent [overzicht van Azure Windows virtuele machines Agent ](agent-windows.md).  
 * Zie de Linux-Agent installeren [overzicht van Azure Linux VM-Agent ](agent-linux.md).  
 

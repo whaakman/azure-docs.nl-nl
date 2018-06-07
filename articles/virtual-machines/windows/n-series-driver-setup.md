@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efa8c2603d6ff4493656cda41306a5dad46bc5f3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bc4b9cb9940f073034df01143f4d9e77a47cb19b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654382"
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>GPU-stuurprogramma's instellen voor N-reeks virtuele machines waarop Windows wordt uitgevoerd 
 Als u wilt profiteren van de GPU-mogelijkheden van N-reeks virtuele machines in Azure met een ondersteunde versie van Windows Server of Windows, moeten de NVIDIA grafische stuurprogramma's worden geïnstalleerd. Dit artikel bevat de installatiestappen stuurprogramma nadat u een VM N-serie implementeren. Stuurprogramma-installatie-informatie is ook beschikbaar voor [virtuele Linux-machines](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -53,7 +54,7 @@ Om te vragen van de apparaatstatus GPU, voer de [nvidia smi](https://developer.n
 
 ## <a name="rdma-network-connectivity"></a>RDMA-netwerkverbinding
 
-RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines RDMA-compatibele N-serie, zoals NC24r geïmplementeerd in de dezelfde beschikbaarheidsset of VM-schaalset bevatten. De extensie HpcVmDrivers moet worden toegevoegd voor het installeren van Windows network apparaatstuurprogramma's die RDMA-verbindingen. U kunt de VM-extensie toevoegen naar een virtuele machine van RDMA-functionaliteit N-reeks met [Azure PowerShell](/powershell/azure/overview) cmdlets voor Azure Resource Manager.
+RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines van RDMA-compatibele N-serie, zoals NC24r geïmplementeerd in dezelfde beschikbaarheidsset of in een groep één positie in een VM-schaalset. De extensie HpcVmDrivers moet worden toegevoegd voor het installeren van Windows network apparaatstuurprogramma's die RDMA-verbindingen. U kunt de VM-extensie toevoegen naar een virtuele machine van RDMA-functionaliteit N-reeks met [Azure PowerShell](/powershell/azure/overview) cmdlets voor Azure Resource Manager.
 
 Voor het installeren van de meest recente versie 1.1 HpcVMDrivers-extensie op een bestaande virtuele machine van RDMA-compatibel is met de naam myVM in de regio VS-West:
   ```PowerShell
@@ -66,6 +67,6 @@ Het netwerk RDMA ondersteunt Message Passing Interface (MPI)-verkeer voor toepas
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Ontwikkelaars die toepassingen voor de NVIDIA Tesla GPU's GPU-versnelde maken ook kunnen downloaden en installeren de [CUDA Toolkit 9.1](https://developer.nvidia.com/cuda-downloads). Zie voor meer informatie de [CUDA installatiehandleiding](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Ontwikkelaars die toepassingen voor de NVIDIA Tesla GPU's GPU-versnelde maken ook kunnen downloaden en installeer de meest recente [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Zie voor meer informatie de [CUDA installatiehandleiding](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

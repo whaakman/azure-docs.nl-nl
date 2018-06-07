@@ -6,15 +6,16 @@ author: douglaslms
 manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: aa8f5e3b78a65c42840bbe831f5a4f2984a4a357
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650397"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL synchroniseren van gegevens (Preview)
 
@@ -177,7 +178,7 @@ Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 
 -   [Azure SQL Data Sync instellen](sql-database-get-started-sql-data-sync.md)
 -   [Aanbevolen procedures voor Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Monitor voor Azure SQL-gegevens synchroniseren met logboekanalyse](sql-database-sync-monitor-oms.md)
+-   [Azure SQL Data Sync bewaken met Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Problemen oplossen met Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:

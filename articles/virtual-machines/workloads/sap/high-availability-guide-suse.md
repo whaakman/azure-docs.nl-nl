@@ -4,7 +4,7 @@ description: Hoge beschikbaarheid handleiding voor SAP NetWeaver op SUSE Linux E
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: f1d2725237d2cf059450ce7e2c1600b24d17f35c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 12efeba68f30aa8723acc32449ae05ffac4c1ac4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658754"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's op SUSE Linux Enterprise Server voor SAP-toepassingen
 
@@ -94,17 +95,17 @@ De NFS-server, SAP NetWeaver ASC's SAP NetWeaver SCS, SAP NetWeaver Ebruikers en
 * Back-endconfiguratie
   * Verbonden met de primaire netwerkinterfaces van alle virtuele machines die deel van de (A uitmaken moet) SCS Ebruikers/cluster
 * De Testpoort
-  * Port 620**&lt;nr&gt;**
+  * Poort 620**&lt;nr&gt;**
 * Loadbalancing regels
   * 32**&lt;nr&gt;** TCP
   * 36**&lt;nr&gt;** TCP
   * 39**&lt;nr&gt;** TCP
   * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 5**&lt;nr&gt;** 13 TCP
+  * 5**&lt;nr&gt;** 14 TCP
+  * 5**&lt;nr&gt;** 16 TCP
 
-### <a name="ers"></a>ERS
+### <a name="ers"></a>EBRUIKERS
 
 * Frontend configuratie
   * IP-adres 10.0.0.8
@@ -114,9 +115,9 @@ De NFS-server, SAP NetWeaver ASC's SAP NetWeaver SCS, SAP NetWeaver Ebruikers en
   * Poort 621**&lt;nr&gt;**
 * Loadbalancing regels
   * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 5**&lt;nr&gt;** 13 TCP
+  * 5**&lt;nr&gt;** 14 TCP
+  * 5**&lt;nr&gt;** 16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Een maximaal beschikbare NFS-server instellen
 
@@ -264,9 +265,9 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    </code></pre>
@@ -349,7 +350,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
    sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
@@ -379,7 +380,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
 
 1. **[1]**  SAP NetWeaver ASC's installeren  
 
-   SAP NetWeaver ASC's installeren als hoofdmap op het eerste knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer frontend-configuratie voor de ASC's, bijvoorbeeld <b>nw1-ASC's</b>, <b>10.0.0.11</b> en de exemplaar nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>00</b>.
+   SAP NetWeaver ASC's installeren als hoofdmap op het eerste knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer frontend-configuratie voor de ASC's, bijvoorbeeld <b>nw1-ASC's</b>, <b>10.0.0.7</b> en de exemplaar nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>00</b>.
 
    De parameter sapinst SAPINST_REMOTE_ACCESS_USER kunt u een niet-hoofdgebruiker verbinding maken met sapinst toestaan.
 
@@ -401,7 +402,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
    sudo crm node standby <b>nw1-cl-0</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
@@ -436,7 +437,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
 
 1. **[2]**  SAP NetWeaver Ebruikers installeren  
 
-   SAP NetWeaver Ebruikers installeren als de hoofdmap van het tweede knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer frontend-configuratie voor de gebruikers bijvoorbeeld <b>nw1 aers</b>, <b>10.0.0.12</b> en de exemplaar nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>02</b>.
+   SAP NetWeaver Ebruikers installeren als de hoofdmap van het tweede knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer frontend-configuratie voor de gebruikers bijvoorbeeld <b>nw1 aers</b>, <b>10.0.0.8</b> en de exemplaar nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>02</b>.
 
    De parameter sapinst SAPINST_REMOTE_ACCESS_USER kunt u een niet-hoofdgebruiker verbinding maken met sapinst toestaan.
 
@@ -581,14 +582,14 @@ De onderstaande stappen wordt ervan uitgegaan dat u de toepassingsserver install
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    # IP address of all application servers
-   <b>10.0.0.8 nw1-di-0</b>
-   <b>10.0.0.7 nw1-di-1</b>
+   <b>10.0.0.20 nw1-di-0</b>
+   <b>10.0.0.21 nw1-di-1</b>
    </code></pre>
 
 1. Maken van de map sapmnt

@@ -6,17 +6,18 @@ author: joesackmsft
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650108"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud: uw database in Azure SQL Database beheren
 
@@ -70,7 +71,7 @@ SQL-Database hecht veel waarde beveiliging en Privacy. Beveiliging in SQL-Databa
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Welke gebruikersverificatiemethoden zijn beschikbaar in SQL-Database?
 Er zijn [twee verificatiemethoden](sql-database-control-access.md#authentication) aangeboden in SQL-Database: 
-- [Azure Active Directory Authentication](sql-database-aad-authentication.md)
+- [Azure Active Directory-verificatie](sql-database-aad-authentication.md)
 - SQL-verificatie. 
 
 De traditionele windows-verificatie wordt niet ondersteund. Azure Active Directory (AD) is een gecentraliseerde service voor identiteits- en toegangsbeheer. Dit kunt u heel gemakkelijk een eenmalige aanmelding toegang (SSO) opgeven voor alle medewerkers in uw organisatie. Dit betekent dat de referenties worden gedeeld door alle Azure-services voor eenvoudigere verificatie. Biedt ondersteuning voor AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) en een met een [enkele muisklikken](../active-directory/connect/active-directory-aadconnect-get-started-express.md) AAD kan worden geïntegreerd met Windows Server Active Directory. SQL-verificatie werkt precies zoals u hebt gebruikt deze in het verleden. U geeft een gebruikersnaam en wachtwoord en u kunt gebruikers met een database op een bepaalde logische server verifiëren. Hierdoor kunnen ook SQL-Database en SQL Data Warehouse te bieden multi-factor authentication en Gast gebruikersaccounts in Azure AD-domein. Als u een Active Directory on-premises al hebt, kunt u de map met Azure Active Directory om uw directory naar Azure uitbreiden federeren.
@@ -225,7 +226,7 @@ Zie voor een uitgebreide set met aanbevelingen voor het afstemmen van prestatiep
 ### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-performance-level"></a>Hoe voorkom ik dat ik gebruik het juiste prijscategorie en prestatieniveau serviceniveau
 SQL-Database biedt verschillende servicecategorieën Basic, Standard en Premium. Elke servicelaag krijgt u een gegarandeerde voorspelbare prestaties gekoppeld aan dit serviceniveau. Afhankelijk van uw werkbelasting wellicht bursts van activiteit waar uw Resourcegebruik het maximum van het huidige prestatieniveau die u in mogelijk bereikt. In dergelijke gevallen is dit handig voor het opnieuw opstarten door te evalueren of eventuele afstemmen kunt (bijvoorbeeld toe te voegen of te wijzigen van een index enz.). Als u nog steeds limiet problemen ondervindt, kunt u verplaatsen naar een hoger prestatieniveau of serviceniveau. 
 
-|**Service level**|**Veelvoorkomende gebruiksscenario 's**|
+|**Serviceniveau**|**Veelvoorkomende gebruiksscenario 's**|
 |---|---|
 |**Basic**|Toepassingen met een enkele gebruikers en een database die geen hoge eisen voor gelijktijdigheid van taken, schaal en prestaties. |
 |**Standard**|Toepassingen met een aanzienlijke gelijktijdigheid, schaal en prestaties vereisten, samen met een laag tot gemiddeld i/o-vereisten. |
