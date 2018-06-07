@@ -4,7 +4,7 @@ description: Informatie over het gebruik van mobiele Apps om pushmeldingen te ve
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6af5fa51f2e6553431b9f0aa2dbb368651e7e209
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597991"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Pushmeldingen toevoegen aan uw Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -33,13 +34,13 @@ Deze zelfstudie wordt ervan uitgegaan dat u hebt een Apache Cordova-toepassing d
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
-* Een PC met [Visual Studio Community 2015] [ 2] of hoger 
+* Een PC met [Visual Studio Community 2015] [ 2] of hoger
 * [Visual Studio Tools voor Apache Cordova][4]
 * Een [actief Azure-account][3]
 * Een voltooide [Apache Cordova-Quick Start] [ 5] project
 * (Android) Een [Google-account] [ 6] met een geverifieerde e-mailadres
 * (iOS) Een [Apple Developer Program-lidmaatschap] [ 7] en een iOS-apparaat (iOS-Simulator biedt geen ondersteuning voor pushmeldingen)
-* (Windows) Een [Windows Store-ontwikkelaarsaccount] [ 8] en een Windows 10-apparaat
+* (Windows) Een [Microsoft Store-ontwikkelaarsaccount] [ 8] en een Windows 10-apparaat
 
 ## <a name="configure-hub"></a>Een notification hub configureren
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -340,7 +341,7 @@ Meer informatie over het gebruik van de volgende SDK's:
 
 * [Apache Cordova SDK][15]
 * [ASP.NET Server SDK][1]
-* [Node.js Server SDK][16]
+* [Server-SDK voor node.js][16]
 
 <!-- Images -->
 [img1]: ./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png

@@ -2,23 +2,20 @@
 title: Werken met gegevens in Azure Cosmos DB georuimtelijke | Microsoft Docs
 description: Begrijpen hoe maken, index en query ruimtelijke-objecten met Azure Cosmos DB en de SQL-API.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 858d6c2154a74a6e5fe16c9392827cc8a6354f9c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 893b985514f4c812da673a90fc40148e8ac9ce81
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611364"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Werken met georuimtelijke en GeoJSON locatiegegevens in Azure Cosmos-DB
 In dit artikel bevat een inleiding tot de functionaliteit georuimtelijke in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Na het lezen van dit, kunt u zich de volgende vragen beantwoorden:
@@ -98,7 +95,7 @@ Naast punten ondersteunt GeoJSON ook multipoint en veelhoek. **Multipoint** vert
 Naast Point, LineString en Veelhoek, GeoJSON ook Hiermee geeft u de weergave voor het groeperen van meerdere locaties voor georuimtelijke, evenals willekeurige eigenschappen koppelen aan geolocatie als een **functie**. Aangezien deze objecten geldige JSON zijn, kunnen ze alle worden opgeslagen en verwerkt in Azure Cosmos DB. Maar Azure Cosmos DB biedt alleen ondersteuning voor automatisch indexeren van punten.
 
 ### <a name="coordinate-reference-systems"></a>Coördinaat referentiesystemen
-Omdat de vorm van de aarde onregelmatige is, worden in veel coördinaat referentiesystemen (CRS), elk met hun eigen frames van verwijzing en maateenheden coördinaten van georuimtelijke gegevens weergegeven. Bijvoorbeeld, de 'National raster van-Brittannië' is een referentiesysteem zeer nauwkeurig is voor het Verenigd Koninkrijk, maar niet buiten. 
+Omdat de vorm van de aarde onregelmatige is, worden in veel coördinaat referentiesystemen (CRS), elk met hun eigen frames van verwijzing en maateenheden coördinaten van georuimtelijke gegevens weergegeven. Bijvoorbeeld, de 'National raster van-Brittannië' is een referentiesysteem juist is voor het Verenigd Koninkrijk, maar niet buiten. 
 
 De meest populaire CRS in gebruik is vandaag de dag de wereld geodetisch systeem [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). Gebruik WGS 84 GPS-apparaten en veel toewijzing services, met inbegrip van Google-kaarten en Bing kaarten-API's. Azure Cosmos DB ondersteunt indexeren en query's naar georuimtelijke gegevens met behulp van de WGS 84 CRS alleen. 
 
@@ -223,7 +220,7 @@ Argumenten van de veelhoek in ST_WITHIN mag slechts één keer, dat wil zeggen, 
 > 
 > 
 
-Azure Cosmos DB biedt ook ondersteuning voor inverse query's uitvoeren, dat wil zeggen, kunt u Multilinestring of regels in Azure DB die Cosmos-index en vervolgens een query voor de gebieden die een opgegeven punt bevatten. Dit patroon wordt vaak gebruikt in logistiek om bijvoorbeeld te identificeren wanneer een vrachtwagen binnengaat of een aangewezen gebied verlaat. 
+Azure Cosmos DB biedt ook ondersteuning voor inverse query's uitvoeren, dat wil zeggen, kunt u multilinestring of regels in Azure DB die Cosmos-index en vervolgens een query voor de gebieden die een opgegeven punt bevatten. Dit patroon wordt vaak gebruikt in logistiek te identificeren, bijvoorbeeld wanneer een vrachtwagen binnengaat of een aangewezen gebied verlaat. 
 
 **Query**
 
@@ -272,7 +269,7 @@ Deze functies kunnen ook worden gebruikt voor het valideren van de veelhoek. Bij
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>LINQ-query in de .NET SDK
-De SQL .NET SDK ook providers stub-methoden `Distance()` en `Within()` voor gebruik in een LINQ-expressies. De SQL-LINQ-provider vertaalt deze methodeaanroepen naar de equivalente SQL ingebouwde functieaanroepen (ST_DISTANCE en ST_WITHIN respectievelijk). 
+De SQL .NET SDK ook providers stub-methoden `Distance()` en `Within()` voor gebruik in een LINQ-expressies. De SQL-LINQ-provider vertaalt deze methode aanroepen naar de equivalente SQL ingebouwde functieaanroepen (ST_DISTANCE en ST_WITHIN respectievelijk). 
 
 Hier volgt een voorbeeld van een LINQ-query waarmee wordt gezocht naar alle documenten in de Azure DB die Cosmos-verzameling waarvan de waarde 'locatie' wordt binnen een straal van 30 km van de opgegeven verwijzen met behulp van LINQ.
 
@@ -391,7 +388,7 @@ En hier ziet u hoe u een bestaande verzameling om te profiteren van de ruimtelij
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nolearned die u hierover aan de slag met ondersteuning voor georuimtelijke in Azure Cosmos DB vernomen dat hebt, kunt u:
+U hebt geleerd hoe u aan de slag met ondersteuning voor georuimtelijke in Azure Cosmos DB, naast kunt u:
 
 * Gaan coderen met de [georuimtelijke .NET-codevoorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * U handen op waarop het georuimtelijke uitvoeren van query's op de [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)

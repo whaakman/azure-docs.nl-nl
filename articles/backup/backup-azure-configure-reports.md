@@ -2,24 +2,19 @@
 title: Rapporten voor Azure Backup configureren
 description: In dit artikel wordt gesproken over het configureren van Power BI-rapporten voor Azure Backup aan de hand van de Recovery Services-kluis.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 86e465f1-8996-4a40-b582-ccf75c58ab87
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b645d12255ab2bd6c3747eb966b2a6ecc3e284b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605226"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel wordt gesproken over de stappen voor het configureren van rapporten voor Azure Backup aan de hand van de Recovery Services-kluis en toegang tot deze rapporten via Power BI. Na deze stappen uitvoert, kunt u direct naar Power BI om alle rapporten weer te geven, aanpassen en rapporten maken gaan. 
@@ -147,7 +142,7 @@ Nadat het opslagaccount voor het configureren van rapporten met behulp van de re
 
    Ja, kunt u hetzelfde opslagaccount configureren op verschillende kluizen cross-kluis rapporten weer te geven. U kunt ook hetzelfde opslagaccount voor kluizen configureren voor abonnementen. U kunt dit opslagaccount vervolgens bij het verbinden met Azure Backup in Power BI-inhoudspakket gebruiken om de rapporten weer te geven. Het geselecteerde opslagaccount moet echter in dezelfde regio bevinden als de recovery services-kluis.
    
-## <a name="troubleshooting-errors"></a>Het oplossen van problemen
+## <a name="troubleshooting-errors"></a>Fouten oplossen
 | Foutdetails | Oplossing |
 | --- | --- |
 | Na het instellen van het opslagaccount voor back-up-rapporten **Opslagaccount** nog steeds **niet geconfigureerd**. | Als u de storage-account is geconfigureerd, worden uw rapportagegegevens overgebracht ondanks dit probleem. U lost dit probleem, gaat u naar Azure portal > alle services > diagnostische instellingen > RS kluis > instelling bewerken. De eerder geconfigureerde instelling verwijderen en een nieuwe instelling maken op basis van de dezelfde blade. Deze tijd stelt u het veld **naam** naar **service**. Dit moet het geconfigureerde storage-account worden weergegeven. |

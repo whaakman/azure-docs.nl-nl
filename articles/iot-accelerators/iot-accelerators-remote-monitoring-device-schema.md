@@ -1,22 +1,19 @@
 ---
 title: Apparaat-schema in de oplossing voor externe controle - Azure | Microsoft Docs
 description: In dit artikel beschrijft de JSON-schema dat een gesimuleerd apparaat in de oplossing voor externe controle definieert.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 186eaee952435573a861d144195c3165e4940cc1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 1ba73d24aaa113a9124e17ea91946c205b21fba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627430"
 ---
 # <a name="understand-the-device-model-schema"></a>Het modelschema apparaat begrijpen
 
@@ -26,7 +23,7 @@ In dit artikel beschrijft het modelschema apparaat waarmee de mogelijkheden en h
 
 De volgende artikelen hebben betrekking op het huidige artikel:
 
-* [De model-gedrag van het apparaat implementeren](../iot-suite/iot-suite-remote-monitoring-device-behavior.md) beschrijft de JavaScript-bestanden die u gebruikt voor het implementeren van het gedrag van een gesimuleerd apparaat.
+* [De model-gedrag van het apparaat implementeren](iot-accelerators-remote-monitoring-device-behavior.md) beschrijft de JavaScript-bestanden die u gebruikt voor het implementeren van het gedrag van een gesimuleerd apparaat.
 * [Maak een nieuw gesimuleerd apparaat](iot-accelerators-remote-monitoring-test.md) helemaal plaatst en ziet u hoe u een nieuw gesimuleerd apparaattype implementeert in uw oplossing.
 
 In dit artikel leert u het volgende:
@@ -203,7 +200,7 @@ Toevoegen voor het verzenden van telemetrieberichten met verschillende intervall
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-Een gesimuleerd apparaat kan reageren op cloud-naar-apparaat methoden aangeroepen vanuit de oplossing voor externe controle. De `CloudToDeviceMethods` sectie in het schema van apparaat modelbestand:
+Een gesimuleerd apparaat kan reageren op cloud-naar-apparaat methoden die worden aangeroepen vanuit de oplossing voor externe controle. De `CloudToDeviceMethods` sectie in het schema van apparaat modelbestand:
 
 * Definieert de methoden die het gesimuleerde apparaat kan reageren.
 * Geeft het JavaScript-bestand dat de logica bevat worden uitgevoerd.
@@ -246,7 +243,7 @@ Dit artikel wordt beschreven hoe u uw eigen aangepaste gesimuleerd Apparaatmodel
 
 Nu u over de JSON-schema hebt geleerd, de voorgestelde volgende stap is te leren hoe u [implementeren van het gedrag van uw gesimuleerde apparaat](iot-accelerators-remote-monitoring-device-behavior.md).
 
-Zie voor meer informatie voor ontwikkelaars over de oplossing voor externe controle:
+Voor meer informatie voor ontwikkelaars over de oplossing voor externe controle, Zie:
 
 * [Snelzoekgids voor ontwikkelaars](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Ontwikkelaarsgids voor het oplossen van problemen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

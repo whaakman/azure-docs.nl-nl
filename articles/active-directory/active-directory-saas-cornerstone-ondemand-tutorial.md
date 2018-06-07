@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 05/15/2017
 ms.author: jeedes
-ms.openlocfilehash: df2bc27a5f17120b222e91007a47f85f0566b616
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c609c32e423625c479f3f169da4a31616d200e57
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589352"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Zelfstudie: Azure Active Directory-integratie met basis OnDemand
 
@@ -64,7 +65,7 @@ Voor het configureren van de integratie van basis OnDemand in Azure AD, moet u b
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
-    
+
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
@@ -103,7 +104,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_samlbase.png)
 
 3. Op de **basis OnDemand domein en de URL's** sectie, voert u de volgende stap:
@@ -115,8 +116,8 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     b. In **id** textbox, typ een URL met het volgende patroon volgen: `https://<company>.csod.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [basis OnDemand Client ondersteuningsteam](mailTo:moreinfo@csod.com) ophalen van deze waarden. 
- 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [basis OnDemand Client ondersteuningsteam](mailTo:moreinfo@csod.com) ophalen van deze waarden.
+
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_certificate.png) 
@@ -131,9 +132,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 7. Eenmalige aanmelding configureren op **basis OnDemand** zijde, moet u de gedownloade verzenden **certificaat**, **Sign-Out URL** en **SAML Single Sign-On Service-URL** naar [ondersteuningsteam voor OnDemand basis](mailTo:moreinfo@csod.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
@@ -143,18 +141,18 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_01.png) 
+    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_01.png)
 
 2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
-    
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_02.png) 
 
 3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_03.png) 
+
+    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_03.png)
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_04.png) 
 
     a. In de **naam** textbox type **BrittaSimon**.
@@ -164,10 +162,12 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
- 
+
 ### <a name="creating-a-cornerstone-ondemand-test-user"></a>Maken van een basis OnDemand testgebruiker
 
-Om in te schakelen gebruikers van Azure AD aan te melden bij basis OnDemand, moeten ze worden ingericht in basis OnDemand. In het geval van een basis-OnDemand is inrichting een handmatige taak.
+Het doel van deze sectie is het maken van een gebruiker Britta Simon in basis OnDemand genoemd. Basis OnDemand ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. U vindt meer informatie [hier](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
+
+**Als u moet de gebruiker handmatig maken, voert u de volgende stappen uit:**
 
 Als u wilt configureren voor gebruikers inrichten, verzendt de gegevens (bijvoorbeeld: naam, e) over de Azure AD-gebruiker u wilt inrichten op de [ondersteuningsteam voor OnDemand basis](mailTo:moreinfo@csod.com).
 
@@ -215,8 +215,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Gebruikers inrichten configureren](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -231,4 +230,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_203.png
-

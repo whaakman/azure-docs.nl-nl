@@ -6,7 +6,7 @@ documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598637"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Python configureren met Azure App Service WebApps
 Deze zelfstudie wordt beschreven opties voor het ontwerpen en configureren van een eenvoudige Web Server Gateway Interface (WSGI) compatibele Python-toepassing op [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -29,9 +30,9 @@ Aanvullende functies van Git-implementatie, zoals virtuele omgeving en de instal
 ## <a name="bottle-django-or-flask"></a>Bottle, Django of Flask?
 Azure Marketplace bevat sjablonen voor de frameworks Bottle, Django en Flask. Als u uw eerste web-app in Azure App Service ontwikkelt, kunt u snel van de Azure-portal kunt maken:
 
-* [Web-apps maken met Bottle](https://portal.azure.com/#create/PTVS.Bottle)
-* [Web-apps maken met Django](https://portal.azure.com/#create/PTVS.Django)
-* [Web-apps maken met Flask](https://portal.azure.com/#create/PTVS.Flask)
+* [Web-app met Bottle](https://portal.azure.com/#create/PTVS.Bottle)
+* [Met Django-web-app](https://portal.azure.com/#create/PTVS.Django)
+* [Web-app met Flask op Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
 
 ## <a name="web-app-creation-on-azure-portal"></a>Web-Apps maken in Azure portal
 Deze zelfstudie wordt ervan uitgegaan van een bestaand Azure-abonnement en de toegang tot de Azure-portal.

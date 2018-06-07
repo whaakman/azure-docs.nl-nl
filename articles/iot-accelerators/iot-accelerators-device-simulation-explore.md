@@ -1,22 +1,19 @@
 ---
 title: Aan de slag met de oplossing apparaat simulatie - Azure | Microsoft Docs
 description: De IoT-oplossing accelerators simulatie-oplossing is een hulpprogramma dat kan worden gebruikt om te helpen bij het ontwikkelen en testen van een IoT-oplossing. De simulatie-service is een zelfstandige die kan worden gebruikt in combinatie met andere accelerators oplossing of gebruikt met uw eigen aangepaste oplossingen bieden.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/15/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 742998dce07f6ceef0ad906831c60f11a7d08bd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: c427f2640e605533324eb349579c6a40a2a6a47f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627122"
 ---
 # <a name="device-simulation-walkthrough"></a>Apparaat simulatie scenario
 
@@ -39,7 +36,7 @@ Als u de simulatie van het apparaat nog niet hebt geïmplementeerd, maar u moet 
 
 ## <a name="configuring-device-simulation"></a>De simulatie apparaat configureren
 
-U kunt configureren en uitvoeren van de simulatie apparaat volledig uit in het dashboard. Open het dashboard van de IoT-oplossing accelerators [ingerichte oplossingen](https://www.azureiotsuite.com/) pagina. Klik op **starten** onder uw nieuwe apparaat simulatie-implementatie.
+U kunt configureren en uitvoeren van de simulatie apparaat volledig uit in het dashboard. Open het dashboard van de IoT-oplossing accelerators [ingerichte oplossingen](https://www.azureiotsolutions.com/) pagina. Klik op **starten** onder uw nieuwe apparaat simulatie-implementatie.
 
 ### <a name="target-iot-hub"></a>Doel IoT-Hub
 
@@ -77,7 +74,7 @@ De volgende tabel bevat een overzicht van de configuraties voor elke vooraf geco
 | -------------| ------ | -----| 
 | Koelunit | Vochtigheid | % |
 | | pressure | psig | 
-| | Temperatuur | F | 
+| | temperatuur | F | 
 | Lift | Floor | 
 | | trillingen | mm | 
 | | Temperatuur | F | 

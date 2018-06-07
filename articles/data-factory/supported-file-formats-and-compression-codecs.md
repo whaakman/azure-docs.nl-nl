@@ -6,14 +6,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfee4e06994de1b9a63996203b1a1b9fed9b768
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c96d8b273a0e74ced5b121d19e1c3e5343a754b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621816"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde bestandsindelingen en compressiecodecs in Azure Data Factory
 
@@ -456,16 +457,16 @@ Houd rekening met de volgende punten:
 | Int32 | Int |
 | UInt32 | Lang |
 | Int64 | Lang |
-| UInt64 | Tekenreeks |
+| UInt64 | Reeks |
 | Enkelvoudig | Float |
 | dubbele | dubbele |
 | Decimale | Decimale |
-| Tekenreeks | Tekenreeks |
+| Reeks | Reeks |
 | DateTime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binair bestand |
-| GUID | Tekenreeks |
+| GUID | Reeks |
 | CHAR | CHAR(1) |
 
 ## <a name="parquet-format"></a>Parquet-indeling
@@ -504,7 +505,7 @@ Houd rekening met de volgende punten:
 | Enkelvoudig | Float | N/A | N/A |
 | dubbele | dubbele | N/A | N/A |
 | Decimale | Binair bestand | Decimale | Decimale |
-| Tekenreeks | Binair bestand | Utf8 | Utf8 |
+| Reeks | Binair bestand | Utf8 | Utf8 |
 | DateTime | Int96 | N/A | N/A |
 | TimeSpan | Int96 | N/A | N/A |
 | DateTimeOffset | Int96 | N/A | N/A |

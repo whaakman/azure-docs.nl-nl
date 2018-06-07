@@ -1,25 +1,19 @@
 ---
 title: Externe controle oplossingsverbetering Veelgestelde vragen | Microsoft Docs
 description: Veelgestelde vragen voor externe controle oplossingsverbetering
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: a65f2a90aedf5aa50016a6c5e5019094f202bf55
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 094bb4b781bb554d340580377ec343f33579299e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627651"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Veelgestelde vragen voor externe controle oplossingsverbetering
 
@@ -48,7 +42,7 @@ Zie voor meer informatie [Upgrade kaart sleutel apparaten wilt bekijken op een d
 
 U kunt ook enkele van de andere functies en mogelijkheden van de IoT-oplossingsversnellers bekijken:
 
-* [De mogelijkheden van de externe controle oplossingsverbetering verkennen](iot-accelerators-remote-monitoring-explore.md)
-* [Een overzicht van de oplossingsversneller voor Predictief onderhoud](../iot-suite/iot-suite-predictive-overview.md)
+* [De mogelijkheden van de oplossing voor externe controle accelerator verkennen](iot-accelerators-remote-monitoring-explore.md)
+* [Een overzicht van de oplossingsversneller voor Predictief onderhoud](iot-accelerators-predictive-overview.md)
 * [Overzicht van verbonden Factory oplossing accelerator](iot-accelerators-connected-factory-overview.md)
-* [Beveiliging van een compleet nieuwe IoT](../iot-suite/securing-iot-ground-up.md)
+* [Beveiliging van een compleet nieuwe IoT](securing-iot-ground-up.md)

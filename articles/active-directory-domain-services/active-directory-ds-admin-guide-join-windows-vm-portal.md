@@ -2,23 +2,25 @@
 title: 'Azure Active Directory Domain Services: Een virtuele machine van Windows Server toevoegen aan een beheerd domein | Microsoft Docs'
 description: Windows Server een virtuele machine toevoegen aan Azure AD DS
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 7b5c23f1f4b6180d8b664f1371ccfd8a075572e6
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: dadc20cdee68730fa1d81dd86b3ffa0b0022a5b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586950"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Een virtuele Windows Server-machine toevoegen aan een beheerd domein
 In dit artikel laat zien hoe een virtuele machine van Windows Server implementeren met behulp van de Azure-portal. Vervolgens ziet u hoe de virtuele machine toevoegen aan een beheerd domein van Azure Active Directory Domain Services (Azure AD DS).
@@ -103,7 +105,7 @@ Als u wilt toevoegen aan de virtuele machine van Windows Server de Azure AD DS b
 
 7. U kunt referenties opgeven in een van de volgende manieren:
 
-   * **UPN-indeling**: (aanbevolen) Geef de UPN (user Principal name)-achtervoegsel voor de gebruikersaccount, zoals geconfigureerd in Azure AD. In dit voorbeeld wordt het UPN-achtervoegsel van de gebruiker *bob* is  *bob@domainservicespreview.onmicrosoft.com* .
+   * **UPN-indeling**: (aanbevolen) Geef de UPN (user Principal name)-achtervoegsel voor de gebruikersaccount, zoals geconfigureerd in Azure AD. In dit voorbeeld wordt het UPN-achtervoegsel van de gebruiker *bob* is *bob@domainservicespreview.onmicrosoft.com*.
 
    * **SAMAccountName indeling**: U kunt de accountnaam opgeven in de indeling SAMAccountName. In dit voorbeeld wordt de gebruiker *bob* zou moet invoeren *CONTOSO100\bob*.
 
@@ -142,7 +144,7 @@ Als u problemen met de referenties ondervindt en kan niet deelnemen aan het dome
 
 * Zorg ervoor dat er [ingeschakeld Wachtwoordsynchronisatie](active-directory-ds-getting-started-password-sync.md) in overeenstemming met de stappen in de introductiehandleiding.
 
-* Zorg dat u de UPN van de gebruiker gebruikt zoals geconfigureerd in Azure AD (bijvoorbeeld  *bob@domainservicespreview.onmicrosoft.com* ) aan te melden.
+* Zorg dat u de UPN van de gebruiker gebruikt zoals geconfigureerd in Azure AD (bijvoorbeeld *bob@domainservicespreview.onmicrosoft.com*) aan te melden.
 
 * Zorg ervoor dat u hebt gewacht lang genoeg voor Wachtwoordsynchronisatie te worden uitgevoerd, zoals opgegeven in de introductiehandleiding.
 

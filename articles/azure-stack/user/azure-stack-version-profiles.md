@@ -10,14 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: e568ffd2c3adb97ed0b727b85e7888fb797db1f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: adbe88a44ac38868a68a6845c328ef4cf7fba60c
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604434"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Profielen voor API-versie in Azure-Stack beheren
 
@@ -36,7 +37,7 @@ In dit onderwerp helpt u:
 ## <a name="summary-of-api-profiles"></a>Overzicht van de API-profielen
 
 - API-profielen worden gebruikt om een verzameling Azure-resourceproviders en de versies van hun API te representeren.
-- API-profielen zijn gemaakt voor ontwikkelaars, zodat ze sjablonen tussen meerdere Azure-Clouds maken kunnen. Profielen zijn ontworpen om te voldoen aan de noodzaak van een compatibel en stabiele-interface.
+- API-profielen zijn gemaakt voor u om sjablonen te maken tussen meerdere Azure-clouds. Profielen zijn ontworpen om te voldoen aan uw behoeften voor een compatibel en stabiele-interface.
 - Profielen worden vrijgegeven vier keer per jaar.
 - Drie profiel naamconventies worden gebruikt:
     - **meest recente**  
@@ -66,17 +67,11 @@ In plaats daarvan dan onderzoek elke resourceprovider en de specifieke versie on
 
 API-profielen werken met hulpprogramma's die gebruikmaken van Azure Resource Manager, zoals PowerShell, Azure CLI, opgegeven in de SDK en Microsoft Visual Studio code. Hulpprogramma's en SDK's kunnen profielen gebruiken om te lezen welke versie van de modules en bibliotheken om op te nemen bij het bouwen van een toepassing.
 
-**Ontwikkelingsscenario's voor het gebruik van profiel**  
-Stel dat u PowerShell gebruikt om te maken:
+Bijvoorbeeld, als gebruik PowerShell voor het maken van een storage-account met de **Microsoft.Storage** resourceprovider, die ondersteuning biedt voor 2016-03-30 api-versie en een virtuele machine met behulp van de Microsoft.Compute-resourceprovider met api-versie 2015-12-01 , moet u om te zoeken die ondersteuning voor PowerShell-Module biedt 2016-03-30 voor opslag en welke Module ondersteunt 2015-02-01 voor berekeningen en te installeren. In plaats daarvan kunt u een profiel. Gebruik de cmdlet ** installeren profiel * profilename *** en PowerShell laadt u de juiste versie van de modules.
 
-* Een opslagaccount die gebruikmaakt van de **Microsoft.Storage** resourceprovider, die ondersteuning biedt voor api-versie 2016-03-30.
-* Een virtuele machine die gebruikmaakt van de **Microsoft.Compute** resourceprovider, die ondersteuning biedt voor api-versie 2015-12-01.
+Wanneer u de Python SDK voor het bouwen van een toepassing op basis van Python, kunt u ook het profiel opgeven. De SDK worden de juiste modules geladen voor de resourceproviders die u hebt opgegeven in uw script.
 
-In plaats van zoeken en installeren van de PowerShell-modules die ondersteuning bieden voor de api-versies die u voor opslagruimte en rekencapaciteit nodig hebt, kunt u een profiel. Gebruik de cmdlet ** installeren profiel * profilename *** en PowerShell laadt u de juiste versie van de modules.
-
-Op dezelfde manier als u de Python SDK voor het bouwen van een toepassing op basis van Python gebruikt, kunt u een profiel. De SDK worden de juiste modules geladen voor de resourceproviders die u hebt opgegeven in uw script.
-
-Als een ontwikkelaar, kunt u zich richten op het schrijven van uw oplossing. U kunt een profiel dat bekend is dat uw code zal werken tussen alle clouds die ondersteuning bieden voor het profiel gebruiken.
+Als een ontwikkelaar, kunt u zich richten op het schrijven van uw oplossing. In plaats van te onderzoeken welke api-versies, resourceprovider, en welke cloud-werkt samen, moet u gebruikmaken van een profiel en weet dat uw code zal werken tussen alle clouds die ondersteuning bieden voor dit profiel.
 
 ## <a name="api-profile-code-samples"></a>API-profiel-codevoorbeelden
 
@@ -85,11 +80,13 @@ Hier vindt u codevoorbeelden kunt u uw oplossing integreren met uw voorkeurstaal
 - **PowerShell**  
 U kunt de **AzureRM.Bootstrapper** module beschikbaar via de PowerShell-galerie ophalen van de PowerShell-cmdlets die werken met profielen voor API-versie vereist. Zie voor informatie [profielen voor gebruik API-versie voor PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI 2.0**  
-U kunt de configuratie van uw omgeving voor het gebruik van de Azure-Stack specifiek API-versie profiel bijwerken. Zie voor meer informatie [profielen voor gebruik API-versie voor Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+U kunt de configuratie van uw omgeving voor het gebruik van de Azure-Stack specifiek API-versie profiel bijwerken. Zie voor informatie [profielen voor gebruik API-versie voor Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
 - **GO**  
 In de SDK gaat u is een profiel een combinatie van verschillende brontypen met verschillende versies van andere services. profielen zijn beschikbaar onder de profielen / pad met de versie in de **jjjj-MM-DD** indeling. Zie voor informatie [profielen voor gebruik API-versie voor Ga](azure-stack-version-profiles-go.md).
 - **Ruby**  
 De SDK voor Ruby voor Azure Stack van Resource Manager biedt hulpprogramma's waarmee u kunt ontwikkelen en beheren van uw infrastructuur. Resourceproviders in de SDK bevatten compute, virtuele netwerken en opslag, waarbij de Ruby taal. Zie voor informatie [gebruik API-versie profielen met Ruby](azure-stack-version-profiles-ruby.md)
+- **Python**  
+- De Python SDK biedt ondersteuning voor API-versie profielen voor verschillende cloudplatforms zoals Azure Stack en globale Azure als doel. U kunt profielen API bij het maken van oplossingen voor een hybride cloud. Zie voor informatie [gebruik API-versie profielen met behulp van Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

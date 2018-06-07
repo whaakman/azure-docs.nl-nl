@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/24/2018
 ms.author: brenduns
-ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4c5b53a46792e31316f752f8902d7a05554b57d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604145"
 ---
 # <a name="azure-stack-1712-update"></a>Azure-Stack 1712 update
 
@@ -116,7 +117,25 @@ Deze sectie bevat na de installatie bekende problemen met build **180106.1**.
 
 #### <a name="health-and-monitoring"></a>Status en bewaking
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Waarschuwing #1:
+   - NAAM: De functie van de infrastructuur is slecht
+   - ERNST: waarschuwing
+   - ONDERDEEL: Health-domeincontroller
+   - Beschrijving: De health-domeincontroller Heartbeat-Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.  
+
+  Waarschuwing #2:
+   - NAAM: De functie van de infrastructuur is slecht
+   - ERNST: waarschuwing
+   - ONDERDEEL: Health-domeincontroller
+   - Beschrijving: De health-domeincontroller veroorzaakt Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.
+
+  Beide waarschuwingen kunnen worden genegeerd. Ze worden automatisch gesloten na verloop van tijd.  
+
 - Als u een exemplaar van de rol infrastructuur opnieuw opstarten, verschijnt er een bericht weergegeven dat aangeeft dat het opnieuw opstarten is mislukt. Echter, het opnieuw opstarten daadwerkelijk is voltooid.
+
+
 
 #### <a name="marketplace"></a>Marketplace
 - Sommige marketplace-items zijn verwijderd in deze release vanwege compatibiliteit problemen. Deze worden opnieuw ingeschakeld na verdere validatie.

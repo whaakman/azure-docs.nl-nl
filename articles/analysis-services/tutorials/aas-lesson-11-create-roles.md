@@ -3,16 +3,17 @@ title: 'Azure Analysis Services-zelfstudie - Les 11: Rollen maken | Microsoft Do
 description: In deze les wordt beschreven hoe u rollen maakt in de zelfstudie over Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7a34884482a53a9b96dac87dc30803be08fdc806
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0d71edd74c26f7888fca41838f164ec896dd1d90
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596114"
 ---
 # <a name="create-roles"></a>Rollen maken
 

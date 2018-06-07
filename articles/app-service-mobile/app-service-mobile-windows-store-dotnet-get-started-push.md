@@ -5,7 +5,7 @@ services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: d51fa215ace8b33acb5d36b98e9a1a86e3296a65
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9e3ed6d19b0f830923745ad0263c5c4f920c0f51
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597855"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Pushmeldingen toevoegen aan uw Windows-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -32,18 +33,18 @@ Als u het gedownloade quick start-serverproject niet gebruikt, moet u het push n
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Uw app voor pushmeldingen registreren
-U moet uw app naar de Windows Store verzenden, moet u uw serverproject voor de integratie met Windows Notification Services (WNS) voor het verzenden van pushmeldingen configureren.
+U moet uw app om de Microsoft Store te verzenden, moet u uw serverproject voor de integratie met Windows Notification Services (WNS) voor het verzenden van pushmeldingen configureren.
 
 1. Klik in Visual Studio Solution Explorer met de rechtermuisknop op de UWP-app-project, klikt u op **Store** > **App aan de Store koppelen...** .
 
-    ![App aan Windows Store koppelen](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+    ![App koppelen aan Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 2. Klik in de wizard op **volgende**, meld u aan met uw Microsoft-account, typ een naam voor uw app in **een nieuwe appnaam reserveren**, klikt u vervolgens op **Reserve**.
-3. Nadat de registratie van de app is gemaakt, selecteert u de naam van de nieuwe app, klikt u op **volgende**, en klik vervolgens op **koppelen**. Hierdoor worden de vereiste registratiegegevens voor Windows Store toegevoegd aan het toepassingsmanifest.  
+3. Nadat de registratie van de app is gemaakt, selecteert u de naam van de nieuwe app, klikt u op **volgende**, en klik vervolgens op **koppelen**. Hiermee wordt de vereiste registratiegegevens voor de Microsoft Store toegevoegd aan het toepassingsmanifest.
 4. Navigeer naar de [Windows-ontwikkelaarscentrum](https://dev.windows.com/en-us/overview), voor het aanmelden met je Microsoft-account, klikt u op de nieuwe app-registratie in **mijn apps**, vouw vervolgens **Services** > **Pushmeldingen**.
 5. In de **Pushmeldingen** pagina, klikt u op **Live Services site** onder **Microsoft Azure Mobile Services**.
 6. In de registratiepagina Noteer de waarde onder **toepassing geheimen** en de **pakket-SID**, die u vervolgens worden gebruikt voor het configureren van uw back-end voor de mobiele app.
 
-    ![App aan Windows Store koppelen](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
+    ![App koppelen aan Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > Het clientgeheim en de pakket-SID zijn belangrijke beveiligingsreferenties. Deel deze waarden met niemand en distribueer ze niet met uw app. De **toepassings-Id** wordt gebruikt met het geheim verificatie van de Microsoft-Account configureren.
@@ -185,17 +186,13 @@ Vervolgens moet uw app registreren voor pushmeldingen op opstarten. Wanneer u ve
 ## <a id="more"></a>Volgende stappen
 Meer informatie over pushmeldingen:
 
-* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
-  Sjablonen bieden u de flexibiliteit om platformoverschrijdende pushes en gelokaliseerde pushes te verzenden. Informatie over het registreren van sjablonen.
-* [Push notification problemen vaststellen](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-  Er zijn diverse redenen waarom meldingen mogelijk ophalen verwijderd of kunnen niet eindigen op apparaten. Dit onderwerp leest u hoe te analyseren en te achterhalen van de hoofdoorzaken van fouten voor push-melding.
+* [Het gebruik van de beheerde client voor mobiele Apps van Azure](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) sjablonen bieden u de flexibiliteit om platformoverschrijdende pushes en gelokaliseerde pushes te verzenden. Informatie over het registreren van sjablonen.
+* [Vaststellen van problemen met push notification](../notification-hubs/notification-hubs-push-notification-fixer.md) er zijn diverse redenen waarom meldingen mogelijk ophalen verwijderd of kunnen niet eindigen op apparaten. Dit onderwerp leest u hoe te analyseren en te achterhalen van de hoofdoorzaken van fouten voor push-melding.
 
 U kunt u verder gaat u aan bij een van de volgende zelfstudies:
 
-* [Verificatie toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  Ontdek hoe u gebruikers van uw app verifieert met een id-provider.
-* [Offlinesynchronisatie voor uw app inschakelen](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Informatie over het toevoegen van offlineondersteuning aan uw app met een back-end voor mobiele apps. Met offlinesynchronisatie kunnen eindgebruikers interactie aangaan met een mobiele app&mdash;gegevens weergeven, toevoegen of wijzigen&mdash;ook als er geen netwerkverbinding is.
+* [Verificatie toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-users.md) informatie over het verifiëren van gebruikers van uw app met een id-provider.
+* [Offlinesynchronisatie voor uw app inschakelen](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) informatie over het toevoegen van Offlineondersteuning uw app met een back-end voor de mobiele App. Met offlinesynchronisatie kunnen eindgebruikers interactie aangaan met een mobiele app&mdash;gegevens weergeven, toevoegen of wijzigen&mdash;ook als er geen netwerkverbinding is.
 
 <!-- Anchors. -->
 

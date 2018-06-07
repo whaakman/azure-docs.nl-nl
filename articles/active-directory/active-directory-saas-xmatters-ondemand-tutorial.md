@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 2696be33c97b411a9f4809f0ff6ca56cd2fe6080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3d2e64a88492db396b1c4771e605245c0cd744f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Zelfstudie: Azure Active Directory-integratie met xMatters OnDemand
 
@@ -103,14 +104,14 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
 
 3. Op de **xMatters OnDemand domein en de URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:   
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen:
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -133,7 +134,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand lokaal als **c:\\XMatters OnDemand.cer**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
-    
+
     > [!IMPORTANT]
     > U moet voor het doorsturen van het certificaat naar de [ondersteuningsteam voor OnDemand xMatters](https://www.xmatters.com/company/contact-us/). Het certificaat moet worden geüpload door het ondersteuningsteam xMatters voordat u de configuratie voor eenmalige aanmelding kunt voltooien. 
 
@@ -148,28 +149,24 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 7. In een ander browservenster, meld u aan bij uw bedrijf XMatters OnDemand site als beheerder.
 
 8. Klik in de werkbalk bovenaan op **Admin**, en klik vervolgens op **bedrijfsgegevens** in de navigatiebalk aan de linkerkant.
-   
+
     ![Beheerder](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "Admin")
 
 9. Op de **SAML-configuratie** pagina, voert u de volgende stappen uit:
-   
-    ![De SAML-configuratie](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML-configuratie")
-   
-    a. Selecteer **SAML inschakelen**.
-   
-    b. Plakken **SAML entiteit-ID**, die u hebt gekopieerd vanuit de Azure-portal in de **identiteit Provider-ID** textbox.
-   
-    c. Plakken **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit de Azure-portal in de **eenmalige aanmelding op URL** textbox.
-   
-    d. Plakken **Sign-Out URL**, die u hebt gekopieerd vanuit de Azure-portal in de **-URL met eenmalige afmelding** textbox.
-   
-    e. Klik op de pagina Bedrijfsgegevens aan de bovenkant op **wijzigingen opslaan**.
-    
-    ![Details voor de bedrijfsportal](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "details voor de bedrijfsportal")
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![De SAML-configuratie](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML-configuratie")
+
+    a. Selecteer **SAML inschakelen**.
+
+    b. In de **identiteit Provider-ID** textbox plakken **SAML entiteit-ID** waarde die u hebt gekopieerd uit de Azure portal.
+
+    c. In de **eenmalige aanmelding op URL** textbox plakken **SAML Single Sign-On Service-URL** waarde die u hebt gekopieerd uit de Azure portal.
+
+    d. In de **-URL met eenmalige afmelding** textbox plakken **Sign-Out URL**, die u hebt gekopieerd uit de Azure portal.
+
+    e. Klik op de pagina Bedrijfsgegevens aan de bovenkant op **wijzigingen opslaan**.
+
+    ![Details voor de bedrijfsportal](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "details voor de bedrijfsportal")
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -183,15 +180,15 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_01.png) 
 
 2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
-    
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_02.png) 
 
 3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_03.png) 
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
     a. In de **naam** textbox type **BrittaSimon**.
@@ -201,32 +198,33 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
- 
+
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>Maken van een gebruiker xMatters OnDemand testen
 
-Om Azure AD-gebruikers zich aanmelden bij XMatters OnDemand inschakelt, moeten ze worden ingericht in XMatters OnDemand. In het geval van XMatters OnDemand is inrichting een handmatige taak.
+Het doel van deze sectie is het maken van een gebruiker Britta Simon in xMatters OnDemand genoemd. xMatters OnDemand ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. U vindt meer informatie [hier](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:
+**Als u moet de gebruiker handmatig maken, voert u de volgende stappen uit:**
+
 1. Meld u aan bij uw **XMatters OnDemand** tenant.
 
 2.  Klik op **gebruikers** tabblad en klik vervolgens op **gebruiker toevoegen**.
-  
+
     ![Gebruikers](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "gebruikers")
 
 3. In de **toevoegen van een gebruiker** sectie, voert u de volgende stappen uit:
-   
+
     ![Een gebruiker toevoegen](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "een gebruiker toevoegen")
 
     a. Selecteer **Active**.
 
     b. In de **gebruikers-ID** textbox type de gebruikers-id van gebruiker, zoals Brittasimon@contoso.com.
-   
+
     c. In de **voornaam** textbox type voornaam van de gebruiker zoals Britta.
 
     d. In de **achternaam** textbox achternaam van de gebruiker zoals Simon type.
-    
+
     e. In de **Site** textbox, voer de geldige site van een geldig Azure AD-account die u inrichten wilt.
-    
+
     f. Klik op **Opslaan**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
@@ -270,6 +268,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Gebruikers inrichten configureren](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -284,4 +283,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_203.png
-

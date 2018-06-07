@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 70dd61758b30c1c7a89374e708fe37c1443d3a2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4489f194329727160d770ab72d9cd36115f2e64d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594754"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Zelfstudie: Beheerde Service identiteit gebruiken voor een Linux-VM voor toegang tot Azure Data Lake Store
 
@@ -181,12 +182,9 @@ Met andere API's voor het bestandssysteem van Data Lake Store, kunt u toevoegen 
 
 Gefeliciteerd! U hebt geverifieerd naar het bestandssysteem van Data Lake Store met behulp van MSI voor een Linux-VM.
 
-## <a name="related-content"></a>Gerelateerde inhoud
+## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](overview.md).
-- Data Lake Store gebruikt voor beheerbewerkingen, Azure Resource Manager.  Zie voor meer informatie over het gebruik van MSI om te verifiëren naar Resource Manager [een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot de Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
-- Meer informatie over [verificatie met Data Lake Store met behulp van Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Meer informatie over [file systeembewerkingen op Azure Data Lake Store met behulp van de REST-API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) of de [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
-- Meer informatie over [toegangsbeheer in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+In deze zelfstudie hebt u geleerd hoe u een Service-identiteit beheerd voor een virtuele Linux-machine wordt gebruikt voor toegang tot een Azure Data Lake Store. Zie voor meer informatie over Azure Data Lake Store:
 
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.
+> [!div class="nextstepaction"]
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

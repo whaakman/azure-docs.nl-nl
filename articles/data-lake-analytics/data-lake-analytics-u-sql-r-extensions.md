@@ -1,26 +1,23 @@
 ---
-title: Uitbreiden met R in Azure Data Lake Analytics U-SQL-scripts | Microsoft Docs
-description: Meer informatie over het R-code in de U-SQL-Scripts uitvoeren
+title: Uitbreiden met R in Azure Data Lake Analytics U-SQL-scripts
+description: Meer informatie over het R-code in met behulp van Azure Data Lake Analytics U-SQL-scripts uitvoeren
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: sukvg
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 8b22b4238b20f56727d1c7858094328ab8817dad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624921"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>Zelfstudie: Aan de slag met de U-SQL met R uitbreiden
+# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Uitbreiden met R-code in Azure Data Lake Analytics U-SQL-scripts
 
 Het volgende voorbeeld wordt de basisstappen voor het implementeren van R-code:
 * Gebruik de `REFERENCE ASSEMBLY` instructie R uitbreidingen inschakelen voor de U-SQL-Script.
@@ -97,7 +94,7 @@ Gebruik een U-SQL-script wilt implementeren die R-script met de instructie RESOU
 ### <a name="datatypes"></a>Gegevenstypen
 * Zo worden geconverteerd als tekenreeks en numerieke kolommen uit de U-SQL-tussen R DataFrame en U-SQL [ondersteunde typen: `double`, `string`, `bool`, `integer`, `byte`].
 * De `Factor` gegevenstype wordt niet ondersteund in de U-SQL.
-* `byte[]`Als een base64-codering moet worden geserialiseerd `string`.
+* `byte[]` Als een base64-codering moet worden geserialiseerd `string`.
 * U-SQL-tekenreeksen kunnen worden geconverteerd naar factoren in R code, wanneer U-SQL maakt R invoer dataframe of door de parameter reducer `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Schema 's

@@ -2,10 +2,10 @@
 title: 'Azure AD Connect: Upgraden van een vorige versie | Microsoft Docs'
 description: Verklaart de verschillende methoden om te upgraden naar de nieuwste versie van Azure Active Directory Connect, met inbegrip van een in-place upgrade en een swing-migratie.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 1a6fe4fc7fd5f47bfd4bc4d9168f76c31c78b47b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592473"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Upgraden van een eerdere versie naar de nieuwste versie
 Dit onderwerp beschrijft de verschillende methoden waarmee u kunt de Azure Active Directory (Azure AD) Connect-installatie bijwerken naar de meest recente versie. We adviseren dat u zelf de meest recente de releases van Azure AD Connect. U ook de stappen in de [migratie bewegen](#swing-migration) sectie wanneer u een aanzienlijke configuratie wijzigen.
@@ -102,7 +104,7 @@ Mogelijk zijn er situaties waarin u niet dat deze overschrijvingen wilt te kunne
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
 
-2. Nadat de upgrade is voltooid, voert u de volgende cmdlet om erachter te komen welke onderdrukkingen zijn toegevoegd:`Get-ADSyncSchedulerConnectorOverride | fl`
+2. Nadat de upgrade is voltooid, voert u de volgende cmdlet om erachter te komen welke onderdrukkingen zijn toegevoegd: `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > De onderdrukkingen zijn specifiek voor een connector. In het volgende voorbeeld zijn stap van de volledige Import en volledige synchronisatie toegevoegd aan zowel de on-premises AD-Connector en Azure AD-Connector.
@@ -111,7 +113,7 @@ Mogelijk zijn er situaties waarin u niet dat deze overschrijvingen wilt te kunne
 
 3. Noteer de bestaande onderdrukkingen die zijn toegevoegd.
    
-4. Als u wilt de onderdrukkingen voor zowel volledige import en een volledige synchronisatie op een willekeurige connector verwijderen, moet u de volgende cmdlet uitvoeren:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Als u wilt de onderdrukkingen voor zowel volledige import en een volledige synchronisatie op een willekeurige connector verwijderen, moet u de volgende cmdlet uitvoeren: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    Voor het verwijderen van de onderdrukkingen op alle connectors kunt u het volgende PowerShell-script uitvoeren:
 
@@ -122,12 +124,12 @@ Mogelijk zijn er situaties waarin u niet dat deze overschrijvingen wilt te kunne
    }
    ```
 
-5. Als u wilt doorgaan met de scheduler, voer de volgende cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Als u wilt doorgaan met de scheduler, voer de volgende cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > Vergeet niet de vereiste synchronisatie stappen zo snel mogelijk uitvoeren. U kunt handmatig uitvoeren van deze stappen Synchronization Service Manager of de onderdrukkingen back-met de cmdlet Set-ADSyncSchedulerConnectorOverride toevoegen.
 
-Als u wilt de onderdrukkingen voor zowel volledige import en een volledige synchronisatie op een willekeurige connector toevoegt, moet u de volgende cmdlet uitvoeren:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Als u wilt de onderdrukkingen voor zowel volledige import en een volledige synchronisatie op een willekeurige connector toevoegt, moet u de volgende cmdlet uitvoeren:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md).

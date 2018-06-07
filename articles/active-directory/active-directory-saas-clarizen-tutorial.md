@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a77ac397dfca1be948b6d0c05a50c23c0cd7879c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590644"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Zelfstudie: Azure Active Directory-integratie met Clarizen
 
@@ -185,6 +186,11 @@ Maak een testgebruiker Britta Simon aangeroepen in de Azure portal.
     d. Klik op **Create**.
 
 ### <a name="create-a-clarizen-test-user"></a>Een testgebruiker Clarizen maken
+
+Het doel van deze sectie is het maken van een gebruiker Britta Simon in Clarizen genoemd. Clarizen ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. U vindt meer informatie [hier](active-directory-saas-clarizen-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
+
+**Als u handmatig maken van de gebruiker moet, neem voert u de volgende stappen:**
+
 Om Azure AD-gebruikers aan te melden bij Clarizen, moet u gebruikersaccounts inrichten. In het geval van Clarizen is inrichting een handmatige taak.
 
 1. Meld u aan bij uw bedrijf Clarizen site als beheerder.
@@ -244,6 +250,7 @@ Als u op de tegel Clarizen in het deelvenster toegang, moet u worden automatisch
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Gebruikers inrichten configureren](active-directory-saas-clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

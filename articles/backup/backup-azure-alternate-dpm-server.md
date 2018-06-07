@@ -1,30 +1,25 @@
 ---
-title: Gegevens herstellen vanaf een back-upserver van Azure | Microsoft Docs
+title: Gegevens herstellen vanaf een back-upserver van Azure
 description: Herstel de gegevens die u naar een Recovery Services-kluis hebt beveiligd vanaf een willekeurige Azure-back-up-Server geregistreerd in deze kluis.
 services: backup
-documentationcenter: 
 author: nkolli1
 manager: shreeshd
-editor: 
-ms.assetid: a55f8c6b-3627-42e1-9d25-ed3e4ab17b1f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/18/2017
-ms.author: adigan;giridham;trinadhk;markgal
-ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 8559532f873e8073e736f881374fec1c080d08c3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604400"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Gegevens herstellen vanaf Azure Backup Server
 U kunt Azure Backup-Server gebruiken voor het herstellen van de gegevens die u hebt een back-up naar een Recovery Services-kluis. Het proces voor dit zo is geïntegreerd in de beheerconsole voor Azure Backup-Server en is vergelijkbaar met de werkstroom herstellen voor andere Azure Backup-onderdelen.
 
 > [!NOTE]
-> In dit artikel is van toepassing voor [System Center Data Protection Manager 2012 R2 met UR7 of hoger] (https://support.microsoft.com/en-us/kb/3065246), gecombineerd met de [meest recente Azure backup-agent](http://aka.ms/azurebackup_agent).
+> In dit artikel is van toepassing op [System Center Data Protection Manager 2012 R2 met UR7 of hoger] (https://support.microsoft.com/en-us/kb/3065246), gecombineerd met de [meest recente Azure backup-agent](http://aka.ms/azurebackup_agent).
 >
 >
 
@@ -90,7 +85,7 @@ Gegevens herstellen uit een Azure Backup-Server:
 | 1. |Deze server is niet geregistreerd bij de kluis die is opgegeven bij de kluisreferentie. |**Oorzaak:** deze fout treedt op wanneer het kluisreferentiebestand geselecteerd behoort niet tot de Recovery Services-kluis die is gekoppeld aan Azure Backup-Server waarop het herstel wordt uitgevoerd. <br> **Oplossing:** Download het kluisreferentiebestand van de Recovery Services-kluis voor de Azure Backup-Server is geregistreerd. |
 | 2. |De herstelbare gegevens is niet beschikbaar of de geselecteerde server is niet een DPM-server. |**Oorzaak:** er zijn geen andere Azure back-up-Servers naar de Recovery Services-kluis geregistreerd of de servers zijn nog niet geüpload voor de metagegevens of de geselecteerde server is niet een back-upserver van Azure (ook wel Windows-Server of Windows-Client). <br> **Oplossing:** als er andere Azure-back-up-Servers geregistreerd in de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd. <br>Als er dat andere Azure-back-up-Servers geregistreerd in de Recovery Services-kluis, wacht u totdat een dag na de installatie van het herstelproces te starten. De nachtelijke taak gaat u de metagegevens voor alle beveiligde back-ups naar cloud uploaden. De gegevens zijn beschikbaar voor herstel. |
 | 3. |Er zijn geen andere DPM-server is geregistreerd in deze kluis. |**Oorzaak:** er zijn geen andere Azure back-up Servers die zijn geregistreerd bij de kluis van waaruit het herstel wordt wordt uitgevoerd.<br>**Oplossing:** als er andere Azure-back-up-Servers geregistreerd in de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd.<br>Als er dat andere Azure-back-up-Servers geregistreerd in de Recovery Services-kluis, wacht u totdat een dag na de installatie van het herstelproces te starten. De nachtelijke taak uploadt u de metagegevens voor alle beveiligde back-ups in de cloud. De gegevens zijn beschikbaar voor herstel. |
-| 4. |De opgegeven wachtwoordzin voor versleuteling komt niet overeen met de wachtwoordzin die bij de volgende server hoort:**<server name>** |**Oorzaak:** de wachtwoordzin voor versleuteling gebruikt voor het versleutelen van de gegevens van de gegevens van de Azure Backup-Server die wordt hersteld komt niet overeen met de opgegeven wachtwoordzin voor versleuteling. De agent is niet de gegevens ontsleutelen. Daarom wordt het herstel mislukt.<br>**Oplossing:** Geef de exacte dezelfde wachtwoordzin voor versleuteling die zijn gekoppeld aan de Azure Backup-Server waarvan gegevens worden hersteld. |
+| 4. |De opgegeven wachtwoordzin voor versleuteling komt niet overeen met de wachtwoordzin die bij de volgende server hoort: **<server name>** |**Oorzaak:** de wachtwoordzin voor versleuteling gebruikt voor het versleutelen van de gegevens van de gegevens van de Azure Backup-Server die wordt hersteld komt niet overeen met de opgegeven wachtwoordzin voor versleuteling. De agent is niet de gegevens ontsleutelen. Daarom wordt het herstel mislukt.<br>**Oplossing:** Geef de exacte dezelfde wachtwoordzin voor versleuteling die zijn gekoppeld aan de Azure Backup-Server waarvan gegevens worden hersteld. |
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -100,7 +95,7 @@ De DPM-servers met gegevensbronnen die zijn beveiligd met de cloud (met behulp v
 
 ### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Wat is de minimale versie van de Microsoft Azure Recovery Services agent nodig?
 
-De minimumversie van de Microsoft Azure Recovery Services-agent of de Azure backup-agent, vereist voor het inschakelen van deze functie is 2.0.8719.0.  Om weer te geven van de agent-versie: open het Configuratiescherm  **>**  alle Configuratiescherm-items  **>**  programma's en onderdelen  **>**  Microsoft Azure Recovery Services-Agent. Als de versie minder dan 2.0.8719.0 is, downloadt en installeert de [meest recente Azure backup-agent](https://go.microsoft.com/fwLink/?LinkID=288905).
+De minimumversie van de Microsoft Azure Recovery Services-agent of de Azure backup-agent, vereist voor het inschakelen van deze functie is 2.0.8719.0.  Om weer te geven van de agent-versie: open het Configuratiescherm **>** alle Configuratiescherm-items **>** programma's en onderdelen **>** Microsoft Azure Recovery Services-Agent. Als de versie minder dan 2.0.8719.0 is, downloadt en installeert de [meest recente Azure backup-agent](https://go.microsoft.com/fwLink/?LinkID=288905).
 
 ![Externe DPM wissen](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 

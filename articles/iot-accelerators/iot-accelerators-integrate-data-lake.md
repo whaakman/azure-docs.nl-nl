@@ -1,19 +1,19 @@
 ---
 title: De externe controle-oplossing integreren met Azure Data Lake Store | Microsoft Docs
 description: Ontdek hoe u de externe controle-oplossing integreren met Azure Data Lake Store met behulp van een Azure Stream Analytics-taak.
-+services: ''
-+suite: iot-suite
-+author: philmea
-+manager: timlt
-+ms.author: philmea
-+ms.date: 04/029/2018
-+ms.topic: article
-+ms.service: iot-suite
-ms.openlocfilehash: 426ded8079ba5d6de4c186a8d18dd284082b0c1c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+author: philmea
+manager: timlt
+ms.author: philmea
+ms.date: 04/29/2018
+ms.topic: conceptual
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.openlocfilehash: 3bd29e348fd067c12def8ca36fbdc1d7e35b2874
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627583"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>De externe controle-oplossing integreren met Azure Data Lake Store
 
@@ -25,7 +25,7 @@ In deze instructies gebruikt u een Azure Stream Analytics-taak gegevens van de s
 
 Als u deze instructies, moet u het volgende:
 
-* [De vooraf geconfigureerde oplossing voor externe controle implementeert](iot-accelerators-remote-monitoring-deploy.md).
+* [Implementeren van de oplossing voor externe controle accelerator](iot-accelerators-remote-monitoring-deploy.md).
   * De oplossing voor externe controle implementeert de iothub en Azure Stream Analytics-taak die in dit artikel wordt gebruikt in uw Azure-abonnement.
 * [Een Azure Data Lake Store implementeren](../data-lake-store/data-lake-store-get-started-portal.md)
   * Uw Data Lake Store moeten worden geïmplementeerd op dezelfde regio bevinden als uw oplossing voor externe controle.

@@ -4,20 +4,17 @@ description: Meer informatie over het begrijpen en vereisten voor aanvraag-eenhe
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b8084008089225c11c8052c60be3afc152881040
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34614829"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 
@@ -25,7 +22,7 @@ ms.lasthandoff: 05/10/2018
 
 De valuta van Azure DB die Cosmos is de **aanvragen Unit (RU)**. Met RUs hoeft u niet reserveren lezen/schrijven capaciteiten of inrichten CPU, geheugen en IOPS. Azure Cosmos DB ondersteunt een aantal API's met verschillende bewerkingen, variërend van eenvoudige leest en schrijft naar grafiek complexe query's. Omdat niet alle aanvragen gelijk zijn, zijn ze een genormaliseerde hoeveelheid toegewezen **aanvraageenheden** op basis van de hoeveelheid berekeningen voor het uitvoeren van de aanvraag. Het aantal aanvraageenheden voor een bewerking is deterministisch en kunt u het aantal aanvraageenheden verbruikt door elke bewerking in Azure Cosmos DB via een antwoordheader bijhouden. 
 
-Om te bieden voorspelbare prestaties, die u wilt reserveren doorvoer in eenheden van 100 RU/seconde. U kunt [schat uw doorvoer moet](request-units.md#estimating-throughput-needs) met behulp van de Cosmos Azure DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner).
+Om voorspelbare prestaties te bieden, dient u doorvoer in eenheden van 100 RU/seconde te reserveren. U kunt [schat uw doorvoer moet](request-units.md#estimating-throughput-needs) met behulp van de Cosmos Azure DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner).
 
 ![Doorvoer Rekenmachine][5]
 

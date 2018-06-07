@@ -2,10 +2,10 @@
 title: Azure AD Connect - LargeObject fouten worden veroorzaakt door userCertificate-kenmerk | Microsoft Docs
 description: Dit onderwerp bevat de herstelstappen voor LargeObject fouten worden veroorzaakt door userCertificate-kenmerk.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9866454735b33239a812dca238006299c74e5ae2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592803"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: LargeObject afhandeling van fouten als gevolg van userCertificate-kenmerk
 
@@ -71,7 +73,7 @@ De stappen kunnen worden samengevat als:
 Zorg ervoor dat er geen synchronisatie plaats terwijl u bent in het midden van de implementatie van een nieuwe synchronisatieregel om onbedoelde wijzigingen wordt geëxporteerd naar Azure AD te voorkomen. De ingebouwde sync scheduler uitschakelen:
 1. Start PowerShell-sessie op de Azure AD Connect-server.
 
-2. Geplande synchronisatie uitschakelen door de cmdlet uit te voeren:`Set-ADSyncScheduler -SyncCycleEnabled $false`
+2. Geplande synchronisatie uitschakelen door de cmdlet uit te voeren: `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 > [!Note]
 > De voorgaande stappen zijn alleen van toepassing op nieuwere versies (1.1.xxx.x) van Azure AD Connect met de ingebouwde scheduler. Als u gebruikmaakt van oudere versies (1.0.xxx.x) van Azure AD Connect die gebruikmaakt van Windows Taakplanner of u uw eigen aangepaste scheduler (niet-algemene) gebruikt voor het activeren van periodieke synchronisatie, moet u deze dienovereenkomstig uitschakelen.
@@ -90,9 +92,9 @@ Er moet een bestaande regel voor synchroniseren die is ingeschakeld en geconfigu
     | Kenmerk | Waarde |
     | --- | --- |
     | Richting |**Uitgaand** |
-    | MV-objecttype |**Person** |
+    | MV-objecttype |**Persoon** |
     | Connector |*naam van uw Azure AD-connector* |
-    | Connector-objecttype |**user** |
+    | Connector-objecttype |**Gebruiker** |
     | MV-kenmerk |**userCertificate** |
 
 3. Als u OOB-synchronisatie (out of box) regels voor Azure AD-connector gebruikt voor het kenmerk userCertficiate voor gebruikersobjecten exporteren, ontvangt u de *'Uit naar AAD – gebruiker ExchangeOnline'* regel.
@@ -104,7 +106,7 @@ Er moet een bestaande regel voor synchroniseren die is ingeschakeld en geconfigu
 
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
-    | sourceObjectType | GELIJK ZIJN AAN | Gebruiker |
+    | Bronobjecttype | GELIJK ZIJN AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Stap 3. De synchronisatieregel voor uitgaande vereist maken
@@ -117,8 +119,8 @@ De nieuwe synchronisatieregel moet hebben dezelfde **bereik filter** en **hogere
     | Naam | *Geef een naam* | Bijvoorbeeld *'Uit voor AAD – aangepaste onderdrukking voor userCertificate'* |
     | Beschrijving | *Geef een beschrijving* | Bijvoorbeeld *"Als userCertificate-kenmerk meer dan 15 waarden heeft, exporteren NULL."* |
     | Verbonden systeem | *Selecteer de Azure AD-Connector* |
-    | Verbonden systeem objecttype | **user** | |
-    | Metaverse-objecttype | **persoon** | |
+    | Verbonden systeem objecttype | **Gebruiker** | |
+    | Metaverse-objecttype | **Persoon** | |
     | Koppelingstype | **Koppelen** | |
     | Prioriteit | *Kies een getal tussen 1 en 99 liggen* | Het aantal gekozen mogen niet worden gebruikt door een bestaande synchronisatieregel en heeft een lagere waarde (en dus hogere prioriteit) dan de bestaande synchronisatieregel. |
 
@@ -128,9 +130,9 @@ De nieuwe synchronisatieregel moet hebben dezelfde **bereik filter** en **hogere
 
     | Kenmerk | Waarde |
     | --- | --- |
-    | Stroomtype |**Expressie** |
+    | Stroomtype |**expressie** |
     | Doelkenmerk |**userCertificate** |
-    | Kenmerk van de gegevensbron |*Gebruik de volgende expressie*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | Kenmerk van de gegevensbron |*Gebruik de volgende expressie*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Klik op de **toevoegen** knop om de synchronisatieregel te maken.
 
@@ -173,7 +175,7 @@ De wijzigingen naar Azure AD exporteren:
 ### <a name="step-8-re-enable-sync-scheduler"></a>Stap 8. Sync scheduler opnieuw inschakelen
 Nu dat het probleem is opgelost, schakelt u de ingebouwde sync scheduler:
 1. Start PowerShell-sessie.
-2. Geplande synchronisatie opnieuw inschakelen door de cmdlet uit te voeren:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Geplande synchronisatie opnieuw inschakelen door de cmdlet uit te voeren: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
 > De voorgaande stappen zijn alleen van toepassing op nieuwere versies (1.1.xxx.x) van Azure AD Connect met de ingebouwde scheduler. Als u gebruikmaakt van oudere versies (1.0.xxx.x) van Azure AD Connect die gebruikmaakt van Windows Taakplanner of u uw eigen aangepaste scheduler (niet-algemene) gebruikt voor het activeren van periodieke synchronisatie, moet u deze dienovereenkomstig uitschakelen.

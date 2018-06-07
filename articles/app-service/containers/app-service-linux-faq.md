@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/25/2018
+ms.author: msangapu
+ms.openlocfilehash: c1dbcf83927da23ceab652f8bc4dbe8d6343c1a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598399"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Op Linux FAQ-Azure App Service
 
@@ -47,8 +48,8 @@ Deze actie is hetzelfde als een herstart Docker.
 
 Ja, kunt u dat doen via de bronsite van de besturingselement-management (SCM).
 
-> [!NOTE] 
-> U kunt ook verbinding maken met de app-container rechtstreeks vanuit uw lokale ontwikkelcomputer met SSH, SFTP of Visual Studio Code (voor live foutopsporing Node.js-apps). Zie voor meer informatie [foutopsporing op afstand en SSH in App Service op Linux](https://aka.ms/linux-debug).
+> [!NOTE]
+> U kunt ook rechtstreeks vanaf uw lokale ontwikkelcomputer verbinding maken met de app-container via SSH, SFTP of Visual Studio Code (voor live foutopsporing gebruikt u Node.js-apps). Zie [Foutopsporing op afstand en SSH in App Service in Linux](https://aka.ms/linux-debug) voor meer informatie.
 >
 
 **Hoe kan ik een Linux-App Service-abonnement via een SDK of een Azure Resource Manager-sjabloon maken?**
@@ -113,7 +114,7 @@ U kunt dit doen door het instellen van de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 
 
 **Mijn aangepaste container lang duurt om te starten en het platform de container opnieuw wordt opgestart voordat is gestart.**
 
-U kunt de hoeveelheid tijd die het platform wordt gewacht voordat opnieuw wordt gestart van de container. Stel om dit te doen de `WEBSITES_CONTAINER_START_TIME_LIMIT` app-instelling op de gewenste waarde. De standaardwaarde is 230 seconden en de maximumwaarde is 600 seconden.
+U kunt de hoeveelheid tijd die het platform wordt gewacht voordat opnieuw wordt gestart van de container. Stel om dit te doen de `WEBSITES_CONTAINER_START_TIME_LIMIT` app-instelling op de gewenste waarde. De standaardwaarde is 230 seconden en de maximumwaarde is 1800 seconden.
 
 **Wat is de indeling voor de URL van de persoonlijke register?**
 

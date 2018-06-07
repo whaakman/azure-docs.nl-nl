@@ -1,23 +1,20 @@
 ---
-title: Back-up van virtuele machine van Azure inschakelen tijdens het maken van | Microsoft Docs
+title: Back-up van de virtuele machine in Azure tijdens het maken van inschakelen
 description: Zie de stappen voor het inschakelen van back-up van de virtuele machine in Azure tijdens het maken.
 services: backup, virtual-machines
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup, virtual-machines
-ms.devlang: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 928481f07875286a21f68dae6556f04eb2b6ae5c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606117"
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Back-up tijdens het maken van de virtuele machine van Azure inschakelen 
 
@@ -69,12 +66,12 @@ De vorige stappen wordt uitgelegd hoe de Azure portal gebruiken voor het maken v
 De volgende lijst met core installatiekopieën die zijn gepubliceerd door Microsoft worden ondersteund voor het inschakelen van back-up tijdens het maken van VM. U kunt back-up voor andere VM's inschakelen wanneer de virtuele machine is gemaakt. Meer informatie [back-up nadat de virtuele machine wordt gemaakt](quick-backup-vm-portal.md) 
 
 - **Windows** -datacenter van Windows Server 2016, Windows Server 2016 Data Center core, Windows Server 2012 DataCenter, Windows Server 2012 R2 DataCenter, Windows Server 2008 R2 SP1 
-- **Ubuntu** - Ubuntu Server 1710, Ubuntu Server 1704, UUbuntu Server 1604(LTS), Ubuntu Server 1404(LTS) 
+- **Ubuntu** -Ubuntu Server 1710, Ubuntu Server 1704, UUbuntu Server 1604(LTS), Ubuntu Server 1404(LTS) 
 - **RedHat** -RHEL 6.7, 6,8, 6,9, 7.2, 7.3, 7.4 
-- **SUSE** - SUSE Linux Enterprise Server 11 SP4, 12 SP2, 12 SP3 
+- **SUSE** -SP4 van SUSE Linux Enterprise Server 11, 12 SP2 en 12 SP3 
 - **Debian** -Debian 8, 9 Debian 
 - **CentOS** - CentOS 6.9, CentOS 7.3 
-- **Oracle Linux** - Oracle Linux 6.7, 6.8, 6.9, 7.2, 7.3 
+- **Oracle Linux** -Oracle Linux 6.7, 6,8, 6,9, 7.2, 7.3 
  
 ### <a name="is-backup-cost-included-in-the-vm-cost"></a>Back-kosten die zijn opgenomen in de VM-kosten is? 
 

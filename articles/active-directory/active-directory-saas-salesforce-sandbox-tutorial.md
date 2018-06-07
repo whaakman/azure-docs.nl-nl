@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0660bdb3592e36cb25f68243f16e32d7e51fb85c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4ccb3fd457f9541354281e3dc11dce273f75d9a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590423"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Zelfstudie: Azure Active Directory-integratie met Salesforce Sandbox
 
@@ -153,51 +154,48 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     b. In de **verlener** veld, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal
 
-    c. In de **entiteit-Id** textbox type `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` als dit het eerste exemplaar van Salesforce Sandbox die u aan uw directory toevoegen wilt. Als u al hebt toegevoegd een exemplaar van Salesforce-Sandbox vervolgens voor de **entiteit-ID** typt u in de **aanmelding op URL**, die moet worden in deze indeling: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
- 
-    d. Voor het uploaden van de **Provider identiteitscertificaat**, klikt u op **bestand kiezen** om te bladeren en selecteer het certificaatbestand dat u hebt gedownload vanuit Azure-portal.  
+    c. In de **entiteit-Id** textbox type `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` als dit het eerste exemplaar van Salesforce Sandbox die u aan uw directory toevoegen wilt. Als u al hebt toegevoegd een exemplaar van Salesforce-Sandbox vervolgens voor de **entiteit-ID** typt u in de **aanmelding op URL**, die moet worden in deze indeling: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+
+    d. Voor het uploaden van de **Provider identiteitscertificaat**, klikt u op **bestand kiezen** om te bladeren en selecteer het certificaatbestand dat u hebt gedownload vanuit Azure-portal.
 
     e. Als **SAML identiteitstype**, kies een van de volgende opties:
-    
+
       * Selecteer **Assertion bevat de gebruikersnaam van de Salesforce**als van de gebruiker Salesforce Username wordt doorgegeven in SAML-verklaring
 
       * Selecteer **Assertion bevat de Federation-ID van het gebruikersobject**als Federation-ID van het gebruikersobject wordt doorgegeven in SAML-verklaring
 
       * Selecteer **Assertion bevat de ID van het gebruik van het gebruikersobject**als gebruikers-ID van het gebruikersobject wordt doorgegeven in SAML-verklaring
- 
+
     f. Als **SAML identiteit locatie**, selecteer **identiteit is in het element NameIdentifier van het onderwerp overzicht**.
 
-    g. Als **Provider geïnitieerd aanvragen servicebinding**, selecteer **HTTP POST**. 
+    g. Als **Provider geïnitieerd aanvragen servicebinding**, selecteer **HTTP POST**.
 
-    h. In **identiteit Provider aanmeldings-URL** textbox, plak de waarde van **Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal. 
+    h. In **identiteit Provider aanmeldings-URL** textbox, plak de waarde van **Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
 
     i. SFDC biedt geen ondersteuning voor SAML-afmelden.  Als een tijdelijke oplossing te plakken `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` in de **identiteit Provider afmelding URL** textbox.
 
     j. Klik op **Opslaan**.
 
 ### <a name="enable-your-domain"></a>Uw domein inschakelen
+
 Deze sectie wordt ervan uitgegaan dat u al hebt gemaakt een domein.  Zie voor meer informatie [definiëren van uw domeinnaam](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 **Als u wilt maken voor uw domein, moet u de volgende stappen uitvoeren:**
 
 1. Klik op het linkernavigatiedeelvenster in Salesforce **Bedrijfsinstellingen** Vouw de bijbehorende sectie en klik vervolgens op **mijn domein**.
-   
-     ![Eenmalige aanmelding configureren](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
-   
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
+
    >[!NOTE]
-   >Zorg dat uw domein correct is geconfigureerd. 
+   >Zorg dat uw domein correct is geconfigureerd.
 
 2. In de **verificatieconfiguratie** sectie, klikt u op **bewerken**, naarmate **verificatieservice**, selecteert u de naam van de SAML Single Sign-On-instelling van de vorige sectie en ten slotte op **opslaan**.
-   
+
    ![Eenmalige aanmelding configureren](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
-Als u een domein geconfigureerd hebt, moeten uw gebruikers de domein-URL voor aanmelding bij de sandbox Salesforce gebruiken.  
+Als u een domein geconfigureerd hebt, moeten uw gebruikers de domein-URL voor aanmelding bij de sandbox Salesforce gebruiken.
 
 Als u de waarde van de URL, klikt u op de SSO-profiel dat u hebt gemaakt in de vorige sectie.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -230,17 +228,16 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
- 
+
 ### <a name="create-a-salesforce-sandbox-test-user"></a>Maak een testgebruiker Salesforce Sandbox
 
-In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Salesforce Sandbox. SalesForce Sandbox ondersteunt just-in-time-inrichting, die standaard is ingeschakeld.
-Er is geen actie-item voor u in deze sectie. Als een gebruiker in Salesforce Sandbox nog niet bestaat, wordt een nieuw gemaakt wanneer u probeert te krijgen tot de Salesforce-Sandbox.
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Salesforce Sandbox. SalesForce Sandbox ondersteunt just-in-time-inrichting, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker in Salesforce Sandbox nog niet bestaat, wordt een nieuw gemaakt wanneer u probeert te krijgen tot de Salesforce-Sandbox. SalesForce Sandbox ondersteunt ook automatisch gebruikers inrichten, vindt u meer informatie [hier](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang te verlenen aan de Salesforce Sandbox.
 
-![Toewijzen van de gebruikersrol][200] 
+![Toewijzen van de gebruikersrol][200]
 
 **Britta Simon om aan te wijzen Salesforce Sandbox, moet u de volgende stappen uitvoeren:**
 
@@ -277,6 +274,8 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Gebruikers inrichten configureren](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)
+
 
 <!--Image references-->
 
@@ -291,4 +290,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_203.png
-

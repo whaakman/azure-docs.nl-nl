@@ -2,10 +2,10 @@
 title: 'Azure AD Connect-synchronisatie: operationele taken en overwegingen | Microsoft Docs'
 description: Dit onderwerp beschrijft operationele taken voor Azure AD Connect-synchronisatie en voorbereiden voor de werking van dit onderdeel.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0dfdae45ef7508337a1233c651d355d83b9f0430
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 6e35dc0ad8493d2f92b7e81fc66f444048482bd9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592939"
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synchronisatie: operationele taken en afweging
 Het doel van dit onderwerp is om operationele taken voor Azure AD Connect-synchronisatie te beschrijven.
@@ -51,7 +53,7 @@ Als u wilt toepassen op deze methode, de volgende stappen uit:
 1. [Voorbereiden](#prepare)
 2. [Configuratie](#configuration)
 3. [Importeren en synchroniseren](#import-and-synchronize)
-4. [Verify](#verify)
+4. [Controleer of](#verify)
 5. [Actieve switchserver](#switch-active-server)
 
 #### <a name="prepare"></a>Voorbereiden
@@ -71,7 +73,7 @@ Als u aangepaste wijzigingen hebt aangebracht in de primaire server en u wilt ve
 U hebt nu gefaseerde export wijzigingen naar Azure AD en on-premises AD (als u hybride implementatie voor Exchange). De volgende stappen kunnen u controleren wat bijna wordt gewijzigd voordat u de uitvoer naar de mappen daadwerkelijk wordt gestart.
 
 #### <a name="verify"></a>Verifiëren
-1. Start een opdrachtprompt en Ga naar`%ProgramFiles%\Microsoft Azure AD Sync\bin`
+1. Start een opdrachtprompt en Ga naar `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Voer: `csexport "Name of Connector" %temp%\export.xml /f:x` de naam van de Connector vindt u in de synchronisatieservice. Een naam die vergelijkbaar is met 'contoso.com – AAD' voor Azure AD.
 3. Voer: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` hebt u een bestand in % temp % met de naam export.csv die kan worden onderzocht in Microsoft Excel. Dit bestand bevat alle wijzigingen die zullen worden uitgevoerd.
 4. Noodzakelijke wijzigingen aanbrengen in de gegevens of configuratie en voer deze stappen opnieuw (importeren en synchroniseren en controleer of) totdat de wijzigingen die zijn geëxporteerd worden verwacht.

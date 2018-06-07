@@ -3,7 +3,7 @@ title: Vereisten voor toegang tot de Azure Active Directory rapportage-API | Mic
 description: Meer informatie over de vereisten voor toegang tot de Azure AD rapportage-API
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/07/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a38447150dd283ff21a852690cfd48477472f7b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588757"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Vereisten voor toegang tot de Azure Active Directory rapportage-API
 
-De [Azure Active Directory (Azure AD) API's reporting](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) u programmatische toegang bieden tot de gegevens via een set op basis van REST-API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen.
+De [Azure Active Directory (Azure AD) rapportage-API's](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) bieden toegang tot de gegevens op programmeerniveau via een set op REST-gebaseerde API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen.
 
 De rapportage-API maakt gebruikt [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) toegang verlenen aan de web-API's.
 
@@ -230,7 +232,7 @@ Als u uw toepassing clientgeheim, moet u een nieuwe sleutel maken en opslaan van
 
 - [Ophalen van gegevens met behulp van de Azure Active Directory rapportage-API met certificaten](active-directory-reporting-api-with-certificates.md).
 
-- [Ophalen van een eerste indruk van de rapportage-API 's](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+- [Een eerste indruk van de rapportage-API 's krijgen](active-directory-reporting-api-getting-started-azure-portal.md#explore)
 
 - [Uw eigen oplossing maken](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

@@ -1,18 +1,19 @@
 ---
 title: Een sjabloon van het apparaat in een Azure IoT centrale toepassing instellen | Microsoft Docs
 description: Informatie over het instellen van een sjabloon van het apparaat met metingen, instellingen, eigenschappen, regels en dashboard.
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: c88b27edab71527b4b3eca71c00af2930c22f8cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629232"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
@@ -39,7 +40,7 @@ Met deze sjabloon apparaat een operator kunt maken en verbinding maken met echte
 > [!NOTE]
 Alleen opbouwfuncties en beheerders kunnen maken, bewerken en verwijderen van apparaat-sjablonen. Elke gebruiker kan maken van apparaten in de **apparaat Explorer** pagina via bestaande sjablonen van het apparaat.
 
-## <a name="create-a-new-device-template"></a>Maak een nieuwe apparaat-sjabloon
+## <a name="create-a-new-device-template"></a>Een nieuwe apparaatsjabloon maken
 
 1. Navigeer naar de **toepassing Builder** pagina.
 
@@ -106,7 +107,7 @@ Nadat u hebt gekozen **opslaan**, wordt de **ventilator modus** status meting wo
 
 ![Metingen Statusgrafiek](./media/howto-set-up-template/statemeasurementschart.png)
 
-Voor het geval er te veel gegevenspunten die zijn verzonden door het apparaat binnen een kleine duur zijn, wordt de status meting met een andere visuele weergegeven zoals hieronder wordt weergegeven. Als u op de grafiek klikt, worden alle gegevenspunten binnen deze periode weergegeven in chronologische volgorde. U kunt ook het tijdsbereik voor een overzicht van de meting in de grafiek getekend afbakenen.
+Als er binnen een korte tijdsduur te veel gegevenspunten door het apparaat worden verzonden, wordt de statusmeting weergegeven met een andere visualisatie, zoals hieronder weergegeven. Als u op het diagram klikt, worden alle gegevenspunten binnen die periode in chronologische volgorde weergegeven. U kunt ook het tijdsbereik voor een overzicht van de meting in de grafiek getekend afbakenen.
 
 ![Details van status metingen](./media/howto-set-up-template/statemeasurementsdetail.png)
 

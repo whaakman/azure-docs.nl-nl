@@ -1,18 +1,19 @@
 ---
-title: Processtappen verbinden een algemene Node.js-clienttoepassing op Azure IoT centrale | Microsoft Docs
+title: Verbinding maken met een algemene Node.js-clienttoepassing op Azure IoT centrale | Microsoft Docs
 description: Als een ontwikkelaar van het apparaat, hoe u een algemene Node.js-apparaat aansluit op uw Azure IoT centrale toepassing.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 8666a2db051cbd4a93c3e587aeaef3e1722b1b83
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628535"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing naar uw Azure IoT centrale (Node.js)
 
@@ -31,9 +32,9 @@ In de Azure IoT centrale toepassing moet u een sjabloon van het apparaat met de 
 
 Voeg de volgende telemetrie in de **metingen** pagina:
 
-| Weergavenaam | Veldnaam  | Eenheden | Min | Max. | Decimalen |
+| Weergavenaam | Veldnaam  | Eenheden | Min. | Max. | Decimalen |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Temperatuur  | Temperatuur | F     | 60  | 110 | 0              |
+| Temperatuur  | temperatuur | F     | 60  | 110 | 0              |
 | Vochtigheid     | Vochtigheid    | %     | 0   | 100 | 0              |
 | Druk     | pressure    | kPa   | 80  | 110 | 0              |
 
@@ -48,7 +49,7 @@ Voeg de volgende status in de **metingen** pagina:
 
 | Weergavenaam | Veldnaam  | Waarde 1 | Weergavenaam | Waarde 2 | Weergavenaam |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Ventilator modus     | fanmode     | 1       | In uitvoering      | 0       | Gestopt      |
+| Ventilatormodus     | ventilatormodus     | 1       | In uitvoering      | 0       | Gestopt      |
 
 > [!NOTE]
   Het gegevenstype van de meting van de status is een tekenreeks.
@@ -59,7 +60,7 @@ Voer veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het app
 
 Voeg de volgende gebeurtenis in de **metingen** pagina:
 
-| Weergavenaam | Veldnaam  | Ernst |
+| Weergavenaam | Veldnaam  | Severity |
 | ------------ | ----------- | -------- |
 | Oververhitting  | oververhit    | Fout    |
 
@@ -81,14 +82,14 @@ Voer de veldnamen precies zoals weergegeven in de tabel in de sjabloon voor het 
 
 Voeg de volgende **getal** instellingen in de **instellingenpagina**:
 
-| Weergavenaam    | Veldnaam     | Eenheden | Decimalen | Min | Max.  | Oorspronkelijk |
+| Weergavenaam    | Veldnaam     | Eenheden | Decimalen | Min. | Max.  | Oorspronkelijk |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Snelheid van ventilator       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
-| Set temperaturen | setTemperature | F     | 0        | 20  | 200  | 80      |
+| Temperatuur instellen | temperatuurInstellen | F     | 0        | 20  | 200  | 80      |
 
 Geef veldnaam precies zoals weergegeven in de tabel in de sjabloon voor het apparaat. Als de veldnamen niet overeenkomen, kan het apparaat geen waarde van de instelling ontvangen.
 
-### <a name="add-a-real-device"></a>Een echte apparaat toevoegen
+### <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
 In uw Azure IoT centrale toepassing, voegt u een echte apparaat van de sjabloon van het apparaat u maken en noteer de verbindingsreeks van het apparaat. Zie voor meer informatie [een echte apparaat toevoegt aan uw Azure IoT centrale toepassing](tutorial-add-device.md)
 
@@ -96,7 +97,7 @@ In uw Azure IoT centrale toepassing, voegt u een echte apparaat van de sjabloon 
 
 De volgende stappen laten zien hoe een clienttoepassing maken die het echte apparaat dat u hebt toegevoegd aan de toepassing implementeert.
 
-1. Maak een map `connected-air-conditioner-adv` op uw computer. Navigeer naar de map in uw omgeving vanaf de opdrachtregel.
+1. Maak de map `connected-air-conditioner-adv` op uw computer. Navigeer naar de map in uw omgeving vanaf de opdrachtregel.
 
 1. Als u wilt initialiseren uw Node.js-project, voer de volgende opdrachten:
 
@@ -118,7 +119,7 @@ De volgende stappen laten zien hoe een clienttoepassing maken die het echte appa
     var ConnectionString = require('azure-iot-device').ConnectionString;
     ```
 
-1. De volgende variabele declaraties toevoegen aan het bestand:
+1. Voeg de volgende variabelendeclaraties aan het bestand toe:
 
     ```javascript
     var connectionString = '{your device connection string}';
@@ -273,5 +274,5 @@ Als operator in uw Azure IoT centrale toepassing voor het echte apparaat kunt u:
 ## <a name="next-steps"></a>Volgende stappen
 
 U hebt geleerd hoe u een algemene Node.js-client verbindt met uw Azure IoT centrale toepassing, vindt hier u de voorgestelde volgende stappen uit:
-* [Bereid en verbinding maken met een Pi frambozen](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi voorbereiden en verbinden](howto-connect-raspberry-pi-python.md)
 <!-- Next how-tos in the sequence -->

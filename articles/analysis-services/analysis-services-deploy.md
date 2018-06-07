@@ -3,16 +3,17 @@ title: Implementeren naar Azure Analysis Services met behulp van SSDT | Microsof
 description: Leer hoe u een tabellair model met behulp van SSDT implementeert op een Azure Analysis Services-server.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a25066ef8446449148bc0ca95989dc6ca3ca6839
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5cbad33bf98e4138b94916a8f87cc7e34901b3da
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595655"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Een model implementeren vanuit SSDT
 Wanneer u een server in uw Azure-abonnement hebt gemaakt, kunt u een tabellaire modeldatabase op de server implementeren. U kunt SQL Server Data Tools (SSDT) gebruiken om een project voor een tabellair model te bouwen en implementeren waaraan u werkt. 
@@ -29,15 +30,18 @@ Om aan de slag te gaan, hebt u het volgende nodig:
 > 
 > 
 
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Een tabellair model implementeren vanuit SSDT
+## <a name="get-the-server-name"></a>Naam van de server ophalen
 
-1. Voordat u kunt gaan implementeren, moet u de naam van de server weten. In **Azure Portal** > server > **Overview** > **Servernaam**,kopieer de servernaam.
+In **Azure Portal** > server > **Overview** > **Servernaam**,kopieer de servernaam.
    
-    ![Servernaam bepalen in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. In SSDT > **Solution Explorer**, klik met de rechtermuisknop op het project > **Properties**. Plak vervolgens in **Deployment** > **Server** de naam van de server.   
+![Servernaam bepalen in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+## <a name="to-deploy-from-ssdt"></a>Voor het implementeren van SSDT
+
+1. In SSDT > **Solution Explorer**, klik met de rechtermuisknop op het project > **Properties**. Plak vervolgens in **Deployment** > **Server** de naam van de server.   
    
     ![Servernaam plakken in de eigenschap Deployment Server](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. Klik in **Solution Explorer** met de rechtermuisknop op **Properties** en klik vervolgens op **Deploy**. U wordt mogelijk gevraagd u aan te melden bij Azure.
+2. Klik in **Solution Explorer** met de rechtermuisknop op **Properties** en klik vervolgens op **Deploy**. U wordt mogelijk gevraagd u aan te melden bij Azure.
    
     ![Implementeren op server](./media/analysis-services-deploy/aas-deploy-deploy.png)
    

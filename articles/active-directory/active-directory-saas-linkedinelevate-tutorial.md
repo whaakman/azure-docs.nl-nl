@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e82cf4ccdc09cd6505994f9db952ac718342bf2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5b940ac896f95ec796179f44e0dd11dcf6184464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn uitbreiden
 
@@ -47,7 +48,8 @@ Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving.
+Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Het toevoegen van LinkedIn worden de bevoegdheden van de galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
@@ -57,14 +59,14 @@ Voor het configureren van de integratie van LinkedIn bevoegdheden in Azure AD, m
 
 **Als u wilt toevoegen LinkedIn bevoegdheden uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure Management Portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure Management Portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram.
 
     ![Active Directory][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
-    
+
 3. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
@@ -99,7 +101,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
     ![Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **op basis van SAML aanmelding** eenmalige aanmelding inschakelen op.
- 
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedin_01.png)
 
 3. In een ander browservenster aanmelding in uw tenant, LinkedIn bevoegdheden als beheerder.
@@ -123,17 +125,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 7. Als u wilt configureren van SSO in **SP geïnitieerd**, klikt u op geavanceerde URL weergeven instelling optie in de configuratiesectie en het teken op URL configureren met het volgende patroon volgen:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>` 
-    
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_signon_02.png) 
-    
-8. Uw toepassing LinkedIn bevoegdheden verwacht de SAML-asserties in een specifieke indeling waarvoor u aangepaste kenmerktoewijzingen toevoegen aan uw configuratie van SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar deze optie om te worden toegewezen met e-mailadres van de gebruiker LinkedIn bevoegdheden verwacht. Die u kunt **user.mail** kenmerk uit de lijst of gebruik de juiste kenmerkwaarde op basis van de organisatieconfiguratie van uw. 
+
+8. Uw toepassing LinkedIn bevoegdheden verwacht de SAML-asserties in een specifieke indeling waarvoor u aangepaste kenmerktoewijzingen toevoegen aan uw configuratie van SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar deze optie om te worden toegewezen met e-mailadres van de gebruiker LinkedIn bevoegdheden verwacht. Die u kunt **user.mail** kenmerk uit de lijst of gebruik de juiste kenmerkwaarde op basis van de organisatieconfiguratie van uw.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-linkedinElevate-tutorial/updateusermail.png)
 
 9. In **gebruikerskenmerken** sectie, klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** en kenmerken instellen. U moet een andere claim met de naam toevoegen **afdeling** en de waarde moet worden toegewezen aan **user.department**.
 
     | Naam kenmerk | Waarde kenmerk |
-    | --- | --- |    
+    | --- | --- |
     | afdeling| User.Department |
 
       ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
@@ -145,7 +147,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
       b. Klik op **Ok** voor het kenmerk niet opslaan.
 
       c. Wijzig de naam van het kenmerk **emailaddress** naar **e**.
-
 
 10. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
 
@@ -175,15 +176,15 @@ Het doel van deze sectie is het een testgebruiker maken in Azure Management port
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_01.png) 
 
 2. Ga naar **gebruikers en groepen** en klik op **alle gebruikers** om de lijst met gebruikers weer te geven.
-    
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_02.png) 
 
 3. Klik aan de bovenkant van het dialoogvenster **toevoegen** openen de **gebruiker** dialoogvenster.
- 
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_03.png) 
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_04.png) 
 
     a. In de **naam** textbox type **BrittaSimon**.
@@ -192,11 +193,11 @@ Het doel van deze sectie is het een testgebruiker maken in Azure Management port
 
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
-    d. Klik op **Create**. 
+    d. Klik op **Create**.
 
 ### <a name="creating-a-linkedin-elevate-test-user"></a>Maken van een testgebruiker LinkedIn uitbreiden
 
-Gekoppelde bevoegdheden toepassing ondersteunt Just in tijd gebruikers inrichten en na verificatie gebruikers wordt in de toepassing automatisch gemaakt. Op de beheerder van het tabblad instellingen op de portal worden de bevoegdheden LinkedIn-spiegelen de switch **automatisch toewijzen van licenties** actief voor het inschakelen van Just in time-inrichting en dit wordt ook een licentie toewijzen aan de gebruiker.
+LinkedIn bevoegdheden toepassing ondersteunt Just in tijd gebruikers inrichten en na verificatie gebruikers wordt in de toepassing automatisch gemaakt. Op de beheerder van het tabblad instellingen op de portal worden de bevoegdheden LinkedIn-spiegelen de switch **automatisch toewijzen van licenties** naar active Just in time-inrichting en dit wordt ook een licentie toewijzen aan de gebruiker. LinkedIn bevoegdheden biedt ook ondersteuning voor automatisch gebruikers inrichten, vindt u meer informatie [hier](active-directory-saas-linkedinelevate-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
 
    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-linkedinElevate-tutorial/LinkedinUserprovswitch.png)
 
@@ -210,7 +211,7 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
 1. In de Azure-beheerportal, opent u de weergave toepassingen en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
-    ![Gebruiker toewijzen][201] 
+    ![Gebruiker toewijzen][201]
 
 2. Selecteer in de lijst met toepassingen **LinkedIn bevoegdheden**.
 
@@ -229,7 +230,7 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
-    
+
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
@@ -241,7 +242,7 @@ Als u op de tegel LinkedIn bevoegdheden in het deelvenster toegang, krijgt u de 
 * [Zelfstudie: LinkedIn bevoegdheden configureren voor automatisch gebruikers inrichten met Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
+* [Gebruikers inrichten configureren](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 
 <!--Image references-->
 

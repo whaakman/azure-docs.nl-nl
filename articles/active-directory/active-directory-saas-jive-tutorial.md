@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: d766af40ab5d99f33605f5aef7f9c2e7140896e4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2a3b4efb766b58faa63caa31caeaf8699d8c5c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589488"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Zelfstudie: Azure Active Directory-integratie met Jive
 
@@ -47,7 +48,8 @@ Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving.
+Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Jive uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
@@ -64,7 +66,7 @@ Voor het configureren van de integratie van Jive met Azure AD, moet u Jive uit d
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
-    
+
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
@@ -103,7 +105,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-jive-tutorial/tutorial_jive_samlbase.png)
 
 3. Op de **Jive domein en de URL's** sectie, voert u de volgende stappen uit:
@@ -114,12 +116,12 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<instance name>.jiveon.com`
 
-    > [!NOTE] 
-    > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke aanmeldings-URL en de id. Neem contact op met [Jive Client ondersteuningsteam](https://www.jivesoftware.com/services-support/) ophalen van deze waarden. 
- 
+    > [!NOTE]
+    > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke aanmeldings-URL en de id. Neem contact op met [Jive Client ondersteuningsteam](https://www.jivesoftware.com/services-support/) ophalen van deze waarden.
+
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-jive-tutorial/tutorial_jive_certificate.png) 
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-jive-tutorial/tutorial_jive_certificate.png)
 
 5. Klik op **opslaan** knop.
 
@@ -131,29 +133,25 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![App-zijde eenmalige aanmelding configureren](./media/active-directory-saas-jive-tutorial/tutorial_jive_002.png)
 
-    a. Selecteer **ingeschakeld** onder de **algemene** tabblad.   
-    b. Klik op de '**alle saml-instellingen opslaan**' knop.
+    a. Selecteer **ingeschakeld** onder de **algemene** tabblad b. Klik op de '**alle saml-instellingen opslaan**' knop.
 
 8. Navigeer naar de '**Idp metagegevens**' tabblad.
-   
+
     ![App-zijde eenmalige aanmelding configureren](./media/active-directory-saas-jive-tutorial/tutorial_jive_003.png)
-   
+
     a. Kopieer de inhoud van het gedownloade metagegevens-XML-bestand en plakt u deze in de **Identity-Provider (IDP) metagegevens** textbox.
-    
-    b. Klik op de '**alle saml-instellingen opslaan**' knop. 
+
+    b. Klik op de '**alle saml-instellingen opslaan**' knop.
 
 9. Ga naar de '**kenmerk Gebruikerskoppeling**' tabblad.
-   
-    ![App-zijde eenmalige aanmelding configureren](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
-   
-    a. In de **e** textbox kopieert en plakt u de naam van het kenmerk van **mail** waarde.
-   
-    b. In de **voornaam** textbox kopieert en plakt u de naam van het kenmerk van **givenname** waarde.
-   
-    c. In de **achternaam** textbox kopieert en plakt u de naam van het kenmerk van **achternaam** waarde.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![App-zijde eenmalige aanmelding configureren](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
+
+    a. In de **e** textbox kopieert en plakt u de naam van het kenmerk van **mail** waarde.
+
+    b. In de **voornaam** textbox kopieert en plakt u de naam van het kenmerk van **givenname** waarde.
+
+    c. In de **achternaam** textbox kopieert en plakt u de naam van het kenmerk van **achternaam** waarde.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -167,16 +165,16 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-jive-tutorial/create_aaduser_01.png) 
 
 2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
-    
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-jive-tutorial/create_aaduser_02.png) 
+
+    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-jive-tutorial/create_aaduser_02.png)
 
 3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-jive-tutorial/create_aaduser_03.png) 
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png) 
+
+    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png)
 
     a. In de **naam** textbox type **BrittaSimon**.
 
@@ -185,10 +183,12 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
- 
+
 ### <a name="creating-a-jive-test-user"></a>Een testgebruiker Jive maken
 
-Werken met [Jive Client ondersteuningsteam](https://www.jivesoftware.com/services-support/) de gebruikers van het platform Jive toevoegen.
+Het doel van deze sectie is het maken van een gebruiker Britta Simon in Jive genoemd. Jive ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. U vindt meer informatie [hier](active-directory-saas-jive-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
+
+Als u moet de gebruiker handmatig maken, samen met [Jive Client ondersteuningsteam](https://www.jivesoftware.com/services-support/) de gebruikers van het platform Jive toevoegen.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
@@ -245,4 +245,3 @@ Als u op de tegel Jive in het deelvenster toegang, u moet ophalen automatisch aa
 [201]: ./media/active-directory-saas-jive-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jive-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jive-tutorial/tutorial_general_203.png
-

@@ -1,28 +1,25 @@
 ---
 title: Aan de slag met de oplossing voor externe controle - Azure | Microsoft Docs
 description: In deze zelfstudie maakt gebruik van gesimuleerde scenario's voor externe controle oplossingsverbetering introduceren. Deze scenario's worden gemaakt wanneer u de externe controle oplossingsverbetering voor de eerste keer implementeren.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c8a055dd0dc8e2d9a9a64b492fb134caaacda489
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e354e110df8d168e153c50de6f7aad08dd416464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627804"
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>De mogelijkheden van de externe controle oplossingsverbetering verkennen
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>De mogelijkheden van de oplossing voor externe controle accelerator verkennen
 
 Deze zelfstudie ziet u de belangrijkste mogelijkheden van de oplossing voor externe controle. Ter introductie van het volgen van deze mogelijkheden worden in de zelfstudie algemene scenario's voor klanten met een gesimuleerde IoT-toepassing voor een bedrijf met de naam Contoso gepresenteerd.
 
-De zelfstudie geeft u inzicht in de typische IoT-scenario's met de oplossing voor externe controle biedt een out-of-the-box.
+De zelfstudie geeft u inzicht in de typische IoT-scenario's de oplossing voor externe controle biedt een out-of-the-box.
 
 In deze zelfstudie leert u het volgende:
 
@@ -41,11 +38,11 @@ De volgende video ziet u een overzicht van de oplossing voor externe controle:
 
 Voor deze zelfstudie hebt voltooid, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>De Contoso-voorbeeld IoT-implementatie
 
-U kunt de implementatie van Contoso voorbeeld IoT basisscenario's begrijpen de externe bewakingsoplossing biedt out-of-the-box. Deze scenario's zijn gebaseerd op de praktijk IoT-implementaties. Waarschijnlijk, kiest u voor het aanpassen van de oplossing voor externe controle om te voldoen aan uw specifieke vereisten, maar de Contoso-voorbeeld kunt u de basisprincipes uitgelegd.
+U kunt de implementatie van Contoso voorbeeld IoT inzicht in de algemene scenario's voor externe controle oplossing biedt out-of-the-box. Deze scenario's zijn gebaseerd op de praktijk IoT-implementaties. Waarschijnlijk, kiest u voor het aanpassen van de oplossing voor externe controle om te voldoen aan uw specifieke vereisten, maar de Contoso-voorbeeld kunt u de basisprincipes uitgelegd.
 
 > [!NOTE]
 > Als u de CLI gebruikt voor het implementeren van de oplossingsverbetering, het bestand `deployment-{your deployment name}-output.json` bevat informatie over de implementatie, zoals de URL om de geïmplementeerde voorbeeld te openen.

@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 7023ce1c9d8a115ae791d40c5d40a5b5d1fabed9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598382"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: afhankelijkheid bijhouden
 Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Dit is doorgaans een service die is aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](app-insights-overview.md) maatregelen hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.
@@ -116,7 +117,7 @@ Er is geen afhankelijkheidsaanroep die is een bijzonder lange in andere gevallen
 
 ![Vinden van aanroepen naar externe afhankelijkheden, het identificeren van ongebruikelijke duur](./media/app-insights-asp-net-dependencies/04-1.png)
 
-Er lijkt een gap big nadat de eerste afhankelijkheid aangeroepen, zodat we onze code om te zien waarom moet kijken.
+Er lijkt een wijd nadat de eerste afhankelijkheid aangeroepen, zodat we onze code om te zien waarom moet kijken.
 
 ### <a name="profile-your-live-site"></a>Profiel van uw live site
 
@@ -200,12 +201,13 @@ Als u de standaard afhankelijkheid bijhouden module uitschakelen wilt, verwijder
 
 *SQL-query is niet volledig worden weergegeven.*
 
-* Upgrade uitvoeren naar de nieuwste stabiele versie van de Application Insights-SDK.
+Raadpleeg de onderstaande tabel en zorgen dat u hebt ervoor gekozen de juiste configuratie bewaking van afhankelijkheid voor uw toepassing wilt inschakelen.
 
- Als uw versie van .NET minder dan 4.6 is:
-
-* IIS-host: installeren [Application Insights-Agent](app-insights-monitor-performance-live-website-now.md) op de host-servers.
-* Azure-web-app: Open Application Insights tabblad in het Configuratiescherm van de web-app en installeer Application Insights.
+| Platform | Installeren |
+| --- | --- |
+| IIS-Server |Beide [Status Monitor installeren op uw server](app-insights-monitor-performance-live-website-now.md). Of [Upgrade van uw toepassing naar .NET framework 4.6 of hoger](http://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](app-insights-asp-net.md) in uw app. |
+| Azure Web App |In het Configuratiescherm voor web-app [de Application Insights-blade geopend in het Configuratiescherm van de web-app](app-insights-azure-web-apps.md) en kies installeren als u wordt gevraagd. |
+| Azure-Cloudservice |[Gebruik opstarttaak](app-insights-cloudservices.md) of [installeren .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="video"></a>Video
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: arluca
-ms.openlocfilehash: d04bfe601760dcbf832aeec0cc66d8e1eda51178
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ed225206e512ff64835d4d90b35bd44800e0a559
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595373"
 ---
 # <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Zelfstudie: Een virtuele machine Windows MSI gebruiken voor toegang tot Azure Cosmos-DB
 
@@ -209,4 +210,9 @@ Met deze opdracht CLI retourneert details over de verzameling:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](overview.md).
+In deze zelfstudie hebt u geleerd het maken van een Windows beheerde Service-identiteit voor toegang tot Cosmos DB.  Zie voor meer informatie over Cosmos DB:
+
+> [!div class="nextstepaction"]
+>[Overzicht van Azure DB Cosmos](/azure/cosmos-db/introduction)
+
+

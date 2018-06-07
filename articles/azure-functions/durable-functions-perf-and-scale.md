@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18a3f3080c58e01117e0fc73adad76d28c298536
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 110f393e723c7e784a4bd7e79559dd9d55147140
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599429"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestaties en schaalbaarheid in duurzame functies (Azure-functies)
 
@@ -161,7 +162,7 @@ Bij het plannen van duurzame functies gebruiken voor een productietoepassing, is
 > [!TIP]
 > In tegenstelling tot fan-out zijn fan-in operations beperkt tot één VM. Als uw toepassing de fan-out, fan-in patroon gebruikt en u zich zorgen maakt over de prestaties van fan-in, kunt u de functie activiteit fan-out subplan verdelen over meerdere [onderliggende integraties](durable-functions-sub-orchestrations.md).
 
-De volgende tabel bevat de verwachte *maximale* doorvoer cijfers voor de eerder beschreven scenario's. "Exemplaar" verwijst naar één exemplaar van een orchestrator-functie die is uitgevoerd op een enkele kleine ([A1](../virtual-machines/windows/sizes-general.md#a-series)) virtuele machine in Azure App Service. In alle gevallen wordt ervan uitgegaan dat [uitgebreide sessies](#orchestrator-function-replay) zijn ingeschakeld. Werkelijke resultaten kunnen variëren afhankelijk van de CPU of i/o-werkzaamheden van de programmacode.
+De volgende tabel bevat de verwachte *maximale* doorvoer cijfers voor de eerder beschreven scenario's. "Exemplaar" verwijst naar één exemplaar van een orchestrator-functie die is uitgevoerd op een enkele kleine ([A1](../virtual-machines/windows/sizes-previous-gen.md#a-series)) virtuele machine in Azure App Service. In alle gevallen wordt ervan uitgegaan dat [uitgebreide sessies](#orchestrator-function-replay) zijn ingeschakeld. Werkelijke resultaten kunnen variëren afhankelijk van de CPU of i/o-werkzaamheden van de programmacode.
 
 | Scenario | Maximale doorvoer |
 |-|-|

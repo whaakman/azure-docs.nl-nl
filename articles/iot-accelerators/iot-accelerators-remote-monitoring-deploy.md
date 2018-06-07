@@ -1,26 +1,23 @@
 ---
-title: De oplossing voor externe controle - Azure implementeren | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u de externe controle oplossingsverbetering van azureiotsuite.com inrichten.
-services: iot-suite
-suite: iot-suite
+title: De oplossing externe controle - Azure implementeren | Microsoft Docs
+description: In deze zelfstudie laat zien hoe de oplossing voor externe controle accelerator van azureiotsuite.com inrichten.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 8738fbfc29f6776a091cdc2b872eab88abd195cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 42f6afcd3cb6880ba6c9cdd2a51e2a3e9ff2c2d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626850"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator"></a>De externe controle oplossingsverbetering implementeren
+# <a name="deploy-the-remote-monitoring-solution-accelerator"></a>De oplossing voor externe controle accelerator implementeren
 
-Deze zelfstudie laat zien hoe de oplossingsverbetering voor externe controle inrichten. U implementeren de oplossing van azureiotsuite.com. U kunt ook de oplossing met behulp van de CLI voor meer informatie over deze optie Zie implementeren [een oplossingsverbetering vanaf de opdrachtregel implementeren](iot-accelerators-remote-monitoring-deploy-cli.md).
+Deze zelfstudie laat zien hoe de oplossingsverbetering externe controle inrichten. U implementeren de oplossing van azureiotsuite.com. U kunt ook de oplossing met behulp van de CLI voor meer informatie over deze optie Zie implementeren [een oplossingsverbetering vanaf de opdrachtregel implementeren](iot-accelerators-remote-monitoring-deploy-cli.md).
 
 In deze zelfstudie leert u het volgende:
 
@@ -45,7 +42,7 @@ Voordat u de oplossingsverbetering voor uw Azure-abonnement hebt geïmplementeer
 
     ![Kies externe controle](./media/iot-accelerators-remote-monitoring-deploy/remotemonitoring.png)
 
-1. Op de **oplossing voor externe controle maken** pagina, voert u een **oplossingsnaam** voor uw externe controle oplossingsverbetering.
+1. Op de **oplossing voor externe controle maken** pagina, voert u een **oplossingsnaam** voor uw oplossing voor externe controle sneltoets.
 
 1. Selecteer een **Basic** of **standaard** implementatie. Als u de oplossing voor meer informatie over hoe het werkt of een demonstratie uitvoeren, kiest u implementeert de **Basic** optie voor de kosten kunt minimaliseren.
 
@@ -63,7 +60,7 @@ Zie voor informatie over probleemoplossing, [wat te doen wanneer een implementat
 
 ## <a name="sign-in-to-the-solution-accelerator"></a>Aanmelden bij de oplossingsverbetering
 
-Wanneer het inrichtingsproces voltooid is, kunt u zich aanmeldt bij uw externe controle oplossingsverbetering.
+Wanneer het inrichtingsproces voltooid is, kunt u zich aanmeldt bij uw oplossingsverbetering externe controle.
 
 1. Op de **ingerichte oplossingen** pagina, kiest u uw nieuwe oplossing voor externe controle:
 
@@ -76,7 +73,7 @@ Wanneer het inrichtingsproces voltooid is, kunt u zich aanmeldt bij uw externe c
 
     ![Oplossing Configuratiescherm](./media/iot-accelerators-remote-monitoring-deploy/solutionpanel.png)
 
-1. Het dashboard externe controle oplossing wordt weergegeven in uw browser.
+1. Het dashboard van de oplossing voor externe controle wordt weergegeven in uw browser.
 
 ## <a name="next-steps"></a>Volgende stappen
 

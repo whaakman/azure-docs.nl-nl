@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622496"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server opgeslagen Procedure-activiteit
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -313,7 +314,7 @@ De volgende tabel beschrijft deze JSON-eigenschappen:
 | naam | Naam van de activiteit |Ja |
 | description |Beschrijving van wat de activiteit wordt gebruikt |Nee |
 | type | Moet worden ingesteld op: **SqlServerStoredProcedure** | Ja |
-| Invoer | Optioneel. Als u een invoergegevensset opgeeft, moet dit beschikbaar is (in de status 'Gereed') voor de activiteit opgeslagen procedure moet worden uitgevoerd. Invoergegevensset kan niet worden gebruikt in de opgeslagen procedure als een parameter. Het wordt alleen gebruikt om te controleren van de afhankelijkheid voordat u de activiteit opgeslagen procedure start. |Nee |
+| invoer | Optioneel. Als u een invoergegevensset opgeeft, moet dit beschikbaar is (in de status 'Gereed') voor de activiteit opgeslagen procedure moet worden uitgevoerd. Invoergegevensset kan niet worden gebruikt in de opgeslagen procedure als een parameter. Het wordt alleen gebruikt om te controleren van de afhankelijkheid voordat u de activiteit opgeslagen procedure start. |Nee |
 | uitvoer | U moet een uitvoergegevensset voor een activiteit opgeslagen procedure opgeven. Uitvoergegevensset geeft de **planning** voor de activiteit opgeslagen procedure (elk uur, wekelijks, maandelijks, enzovoort). <br/><br/>De uitvoergegevensset moet gebruiken een **gekoppelde service** die verwijst naar een Azure SQL Database of een Azure SQL Data Warehouse of een SQL Server-Database die u wilt de opgeslagen procedure om uit te voeren. <br/><br/>De uitvoergegevensset kan fungeren als een manier om door te geven het resultaat van de opgeslagen procedure voor verdere verwerking door een andere activiteit ([activiteiten chaining](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) in de pijplijn. Echter, Data Factory automatisch schrijft niet de uitvoer van een opgeslagen procedure bij deze dataset. De opgeslagen procedure die naar een SQL-tabel die de uitvoergegevensset die naar verwijst schrijft is. <br/><br/>In sommige gevallen kan de uitvoergegevensset mag een **dummy gegevensset**, die wordt alleen gebruikt om de planning voor het uitvoeren van de activiteit opgeslagen procedure opgeven. |Ja |
 | storedProcedureName |Geef de naam van de opgeslagen procedure in de Azure SQL database of Azure SQL Data Warehouse of SQL Server-database die wordt vertegenwoordigd door de gekoppelde service die gebruikmaakt van de uitvoertabel. |Ja |
 | storedProcedureParameters |Geef waarden op voor parameters van opgeslagen procedure. Als u null zijn voor een parameter doorgeven moet, gebruikt u de syntaxis: "param1": null (alle kleine letter). Zie het volgende voorbeeld voor meer informatie over het gebruik van deze eigenschap. |Nee |

@@ -2,10 +2,10 @@
 title: 'Azure AD Connect: Vereisten en hardware | Microsoft Docs'
 description: Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 23d2c858fc51e35948bf83c6b5824b35020cb2e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593364"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -121,7 +123,7 @@ Azure AD Connect, hangt af van de Microsoft PowerShell en .NET Framework 4.5.1. 
 * Windows Server 2012R2
   * Microsoft PowerShell wordt standaard geïnstalleerd. Er is geen actie vereist.
   * .NET framework 4.5.1 en latere versies worden aangeboden via Windows Update. Zorg ervoor dat u de meest recente updates hebt geïnstalleerd met Windows Server in het Configuratiescherm.
-* Windows Server 2008R2 and Windows Server 2012
+* Windows Server 2008 R2 en WindowsServer 2012
   * De nieuwste versie van Microsoft PowerShell is beschikbaar in **Windows Management Framework 4.0**, beschikbaar op [Microsoft Download Center](http://www.microsoft.com/downloads).
   * .NET framework 4.5.1 en latere versies zijn beschikbaar op [Microsoft Download Center](http://www.microsoft.com/downloads).
 * Windows Server 2008
@@ -157,7 +159,7 @@ Als u Azure AD Connect om Active Directory Federation Services of de Webtoepassi
     * Gebruik in een venster met verhoogde bevoegdheid PSH opdracht de opdracht `Enable-PSRemoting –force`
   * Op de computer waarop de wizard wordt uitgevoerd (als de doelcomputer niet van het domein gekoppelde of niet-vertrouwd domein is):
     * Gebruik de opdracht in een venster met verhoogde bevoegdheid PSH opdracht `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
-    * In Server Manager:
+    * In Serverbeheer:
       * DMZ WAP host toevoegen aan Machinegroep (Serverbeheer beheren ->-Servers toevoegen... > tabblad DNS gebruiken)
       * Tabblad Serverbeheer alle Servers: klik WAP-server met de rechtermuisknop en kies beheren als..., lokale (niet domein) referenties invoeren voor de machine WAP
       * Valideren van externe PSH connectiviteit, in het tabblad Server Manager alle Servers: klik met de rechtermuisknop op WAP-server en kies Windows PowerShell. Een externe PSH-sessie geopend om te controleren of externe PowerShell-sessies kunnen worden vastgesteld.

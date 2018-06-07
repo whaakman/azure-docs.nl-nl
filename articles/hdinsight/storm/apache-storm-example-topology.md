@@ -4,7 +4,7 @@ description: Een lijst met Storm-voorbeeldtopologieën gemaakt en getest met Apa
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: f9b1bdff-5928-4705-a76d-52fd200917cb
@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/30/2018
 ms.author: larryfr
-ms.openlocfilehash: f633797147b2090680ebb5ea11f60271addc7f52
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 429373a27ad9be23b986116182a4eda80bace7f7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626884"
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Voorbeeld van de Storm-topologieën en onderdelen voor Apache Storm op HDInsight
 
@@ -38,6 +39,11 @@ Hier volgt een lijst met voorbeelden gemaakt en beheerd door Microsoft voor gebr
 | [Schaalbaarheid benchmarks voor het lezen van Azure Event Hubs met behulp van Storm op HDInsight][d6c540e3] |Bericht doorvoer, Event Hubs, SQL-Database |C#, Java |
 | [Python met Storm op HDInsight gebruiken](apache-storm-develop-python-topology.md) |Python-onderdelen met een lichtstroom-topologie |Python |
 | [Gebruik Kafka met Storm op HDInsight](../hdinsight-apache-storm-with-kafka.md) | Apache Storm lezen en schrijven van Apache Kafka | Java |
+
+> [!WARNING]
+> De C#-voorbeelden in deze lijst zijn oorspronkelijk gemaakt en is getest met HDInsight op basis van Windows en kan niet werken goed met HDInsight op basis van Linux-clusters. Op basis van Linux-clusters Mono gebruiken voor het uitvoeren van .NET-code, en mogelijk compatibiliteitsproblemen met de frameworks en pakketten in dit voorbeeld gebruikt.
+>
+> Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger.
 
 ### <a name="next-steps"></a>Volgende stappen
 

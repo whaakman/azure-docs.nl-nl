@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ae79d081cc171fe904bf50b2341d7abd8f58e4f5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594496"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-beperkte delegatie voor eenmalige aanmelding tot uw apps met toepassingsproxy
 
@@ -84,7 +85,23 @@ Sharepointserviceaccount mag de computeraccount SP's zijn of een serviceaccount 
 
 
 ## <a name="sso-for-non-windows-apps"></a>Eenmalige aanmelding voor niet-Windows-apps
-De Kerberos-delegatie-stroom in Azure AD-toepassingsproxy wordt gestart wanneer het Azure AD verifieert de gebruiker in de cloud. Zodra de aanvraag is ontvangen op de lokale, wordt in de Azure AD-toepassingsproxy-connector namens de gebruiker een Kerberos-ticket uitgeeft door interactie met de lokale Active Directory. Dit proces wordt aangeduid als Kerberos-beperkt delegatie (KCD). In de volgende fase wordt een aanvraag verzonden naar de back-end-toepassing met dit Kerberos-ticket. Er zijn verschillende protocollen die het verzenden van dergelijke aanvragen definiëren. De meeste niet-Windows-servers verwachten Negotiate/SPNego die nu wordt ondersteund op Azure AD-toepassingsproxy.
+
+De Kerberos-delegatie-stroom in Azure AD-toepassingsproxy wordt gestart wanneer het Azure AD verifieert de gebruiker in de cloud. Zodra de aanvraag is ontvangen op de lokale, wordt in de Azure AD-toepassingsproxy-connector namens de gebruiker een Kerberos-ticket uitgeeft door interactie met de lokale Active Directory. Dit proces wordt aangeduid als Kerberos-beperkt delegatie (KCD). In de volgende fase wordt een aanvraag verzonden naar de back-end-toepassing met dit Kerberos-ticket. 
+
+Er zijn verschillende protocollen die het verzenden van dergelijke aanvragen definiëren. De meeste niet-Windows-servers verwachten worden onderhandeld met SPNEGO. Dit protocol wordt ondersteund op Azure AD-toepassingsproxy, maar is standaard uitgeschakeld. Een server kan worden geconfigureerd voor SPNEGO of standaard KCD, maar niet beide.
+
+Als u een connector-machine voor SPNEGO configureert, zorg ervoor dat alle connectors in die groep Connector ook met SPNEGO zijn geconfigureerd. Standaard KCD verwacht toepassingen moeten worden gerouteerd via andere connectors die niet zijn geconfigureerd voor SPNEGO.
+ 
+
+SPNEGO inschakelen:
+
+1. Open een opdrachtprompt die wordt uitgevoerd als beheerder.
+2. Voer de volgende opdrachten op de Connectorservers die SPNEGO moeten vanaf de opdrachtprompt.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 Zie voor meer informatie over Kerberos [alle u wilt weten over Kerberos-beperkt delegatie (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 

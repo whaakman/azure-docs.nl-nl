@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 77285692846d2a301e091426801e20203816181a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 498ca342976888ab4ae67826689bb5e21325b94d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618246"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systeemvariabelen die worden ondersteund door Azure Data Factory
 Dit artikel wordt beschreven systeemvariabelen die worden ondersteund door Azure Data Factory. U kunt deze variabelen gebruiken in expressies voor bij het definiëren van Data Factory-entiteiten. 
@@ -42,7 +43,7 @@ Dit artikel wordt beschreven systeemvariabelen die worden ondersteund door Azure
 
 | Naam variabele | Beschrijving |
 | --- | --- |
-| trigger().scheduledTime |De tijd wanneer de trigger is gepland voor het aanroepen van de pijplijn worden uitgevoerd. Bijvoorbeeld: deze variabele voor een trigger die elke 5 min wordt geactiveerd, zou retourneren `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` respectievelijk.|
+| activeren van .scheduledTime) |De tijd wanneer de trigger is gepland voor het aanroepen van de pijplijn worden uitgevoerd. Bijvoorbeeld: deze variabele voor een trigger die elke 5 min wordt geactiveerd, zou retourneren `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` respectievelijk.|
 | trigger().startTime |Tijd wanneer de trigger **daadwerkelijk** geactiveerd om aan te roepen de pijplijn worden uitgevoerd. Bijvoorbeeld voor een trigger die elke 5 min wordt geactiveerd, deze variabele kan retourneren ongeveer het volgende `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` respectievelijk.|
 
 ## <a name="next-steps"></a>Volgende stappen

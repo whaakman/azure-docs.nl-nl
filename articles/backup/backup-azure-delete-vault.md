@@ -1,24 +1,19 @@
 ---
-title: " Een Recovery Services-kluis in Azure verwijderen | Microsoft Docs "
+title: Een Recovery Services-kluis in Azure verwijderen '
 description: In dit artikel wordt uitgelegd hoe een Recovery Services-kluis verwijderen. Dit artikel bevat stappen voor probleemoplossing als u probeert te verwijderen van een kluis, maar niet.
 services: service-name
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 4f4a92159b01b197984130c15195419e1b166fd3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal
+ms.openlocfilehash: 844a70aa6fe003c6ad5816aaec9c32db9104c620
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605337"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 Dit artikel wordt uitgelegd hoe u verwijdert een Recovery Services-kluis in de Azure portal. Als u de Backup-kluizen had, zijn die geconverteerd naar een Recovery Services-kluizen.   
@@ -165,4 +160,4 @@ Als u meerdere servers die zijn geregistreerd in een kluis hebt, kan het lastig 
     ![lijst met back-beheerservers](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
 5. Als u wilt een server verwijderen uit de lijst, klik met de rechtermuisknop op de naam van de server en klik vervolgens op **verwijderen**.
     De **verwijderen** menu wordt geopend.
-6. Op de **verwijderen** menu, geeft u de naam van de server. Als het een lange naam, kunt u kopieert en plakt deze uit de lijst met Servers voor het beheer van back-up. Klik vervolgens op **verwijderen**.  
+6. Op de **verwijderen** menu, geeft u de naam van de server. Als het een lange naam, kunt u kopieert en plakt deze uit de lijst met Servers voor het beheer van back-up. Klik vervolgens op **Verwijderen**.  

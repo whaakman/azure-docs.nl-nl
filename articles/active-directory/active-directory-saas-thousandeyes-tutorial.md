@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d40ab6d2587f5d842ac98479a6db7609d8a9ce4d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 80d13b0a42239466a1e13d065ed5f52bd84b8008
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Zelfstudie: Azure Active Directory-integratie met ThousandEyes
 
@@ -103,7 +104,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_samlbase.png)
 
 3. Op de **ThousandEyes domein en de URL's** sectie, voert u de volgende stappen uit:
@@ -114,7 +115,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png) 
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png)
 
 5. Klik op **opslaan** knop.
 
@@ -127,35 +128,32 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 7. In een ander browservenster, meld u aan bij uw **ThousandEyes** bedrijf site als beheerder.
 
 8. Klik in het menu bovenaan op **instellingen**.
-   
+
     ![Instellingen](./media/active-directory-saas-thousandeyes-tutorial/ic790066.png "instellingen")
 
 9. Klik op **Account**
-   
+
     ![Account](./media/active-directory-saas-thousandeyes-tutorial/ic790067.png "Account")
 
 10. Klik op de **beveiliging & verificatie** tabblad.
-   
+
     ![Beveiliging en verificatie](./media/active-directory-saas-thousandeyes-tutorial/ic790068.png "beveiliging en verificatie")
 
 11. In de **Setup Single Sign-On** sectie, voert u de volgende stappen uit:
-   
+
     ![Instellen van eenmalige aanmelding](./media/active-directory-saas-thousandeyes-tutorial/ic790069.png "eenmalige aanmelding instellen")
-  
+
     a. Selecteer **eenmalige aanmelding inschakelen**.
-  
-    b. In **URL aanmeldingspagina** textbox plakken **SAML Single Sign-On Service-URL** die u hebt gekopieerd vanuit Azure-portal.
-  
-    c. In **pagina-URL voor afmelden** textbox plakken **Sign-Out URL** die u hebt gekopieerd vanuit Azure-portal.
-  
-    d. **ID-Provider verlener** textbox plakken **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure-portal.
-  
+
+    b. In **URL aanmeldingspagina** textbox plakken **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
+
+    c. In **pagina-URL voor afmelden** textbox plakken **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal.
+
+    d. **ID-Provider verlener** textbox plakken **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal.
+
     e. In **verificatiecertificaat**, klikt u op **bestand kiezen**, en vervolgens het certificaat dat u hebt gedownload vanuit Azure-portal uploaden.
-  
+
     f. Klik op **Opslaan**.
- 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -173,12 +171,12 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_02.png) 
 
 3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_03.png) 
+
+    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_03.png)
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_04.png) 
+
+    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_04.png)
 
     a. In de **naam** textbox type **BrittaSimon**.
 
@@ -187,43 +185,42 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
- 
+
 ### <a name="creating-a-thousandeyes-test-user"></a>Een testgebruiker ThousandEyes maken
 
-Om in te schakelen gebruikers van Azure AD aan te melden bij ThousandEyes, moeten ze worden ingericht in ThousandEyes.  
-In het geval van ThousandEyes is inrichting een handmatige taak.
+Het doel van deze sectie is het maken van een gebruiker Britta Simon in ThousandEyes genoemd. ThousandEyes ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. U vindt meer informatie [hier](active-directory-saas-thousandeyes-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
 
->[!NOTE]
->U kunt andere ThousandEyes gebruiker account hulpmiddelen voor het maken of API's geleverd door ThousandEyes om in te richten Azure Active Directory-gebruikersaccounts.
-
-**Voor het inrichten van een gebruikersaccount aan ThousandEyes, moet u de volgende stappen uitvoeren:**
+**Als u moet de gebruiker handmatig maken, voert u de volgende stappen uit:**
 
 1. Meld u aan bij uw bedrijf ThousandEyes site als beheerder.
 
 2. Klik op **instellingen**.
-   
+
     ![Instellingen](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "instellingen")
 
 3. Klik op **Account**.
-   
+
     ![Account](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
 
 4. Klik op de **Accounts gebr & uikers** tabblad.
-   
+
     ![Accounts gebr & uikers](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "Accounts gebr & uikers")
 
 5. In de **gebruikers toevoegen & Accounts** sectie, voert u de volgende stappen uit:
-   
-    ![Gebruikersaccounts toevoegen](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "gebruikersaccounts toevoegen")   
-  
+
+    ![Gebruikersaccounts toevoegen](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "gebruikersaccounts toevoegen")
+
     a. In **naam** textbox, typ de naam van gebruiker, zoals **Britta Simon**.
 
     b. In **e** textbox, typ het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
-   
+
     b. Klik op **nieuwe gebruiker toevoegen aan het Account**.
-      
-     >[!NOTE]
-     >De houder van Azure Active Directory-account ontvangt een e-mailbericht een koppeling om te bevestigen en activeren van het account waaronder.
+
+    > [!NOTE]
+    > De houder van Azure Active Directory-account ontvangt een e-mailbericht een koppeling om te bevestigen en activeren van het account waaronder.
+
+> [!NOTE]
+> U kunt andere ThousandEyes gebruiker account hulpmiddelen voor het maken of API's geleverd door ThousandEyes om in te richten Azure Active Directory-gebruikersaccounts.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
@@ -267,7 +264,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
+* [Gebruikers inrichten configureren](active-directory-saas-thousandeyes-provisioning-tutorial.md)
 
 
 <!--Image references-->
@@ -283,4 +280,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_203.png
-

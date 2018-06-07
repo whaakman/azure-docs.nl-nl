@@ -1,23 +1,19 @@
 ---
 title: Inzicht in Azure IoT Hub cloud-naar-apparaat messaging | Microsoft Docs
 description: Handleiding voor ontwikkelaars - het gebruik van cloud-naar-apparaat met IoT Hub berichten. Bevat informatie over de levenscyclus van het bericht en configuratie-opties.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 670cf45a48ca4b72576cedddd4678c0d569401cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d3d8df0d1e00fdff4d0e1e93715e1a408116d1e7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632472"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Cloud-naar-apparaat-berichten uit IoT Hub verzenden
 
@@ -78,7 +74,7 @@ Wanneer u een cloud-naar-apparaat-bericht verzendt, kunnen de levering van per b
 | ACK-eigenschap | Gedrag |
 | ------------ | -------- |
 | **Positief** | Als het cloud-naar-apparaat-bericht bereikt de **voltooid** staat, IoT-Hub genereert een feedbackbericht. |
-| **negative** | Als het cloud-naar-apparaat-bericht bereikt de **dode lettered** staat, IoT-Hub genereert een feedbackbericht. |
+| **Negatieve** | Als het cloud-naar-apparaat-bericht bereikt de **dode lettered** staat, IoT-Hub genereert een feedbackbericht. |
 | **Volledige**     | IoT Hub genereert een feedbackbericht in beide gevallen. |
 
 Als **Ack** is **volledige**, en u niet een feedbackbericht ontvangt, betekent dit dat het Feedbackbericht is verlopen. De service kan niet weet wat is er gebeurd met het oorspronkelijke bericht. In de praktijk kan een service Zorg ervoor dat de feedback verwerken kan voordat deze verloopt. De maximale verlooptijd is twee dagen, die tijd om de service blijft nogmaals uit te voeren als er een fout optreedt.
@@ -88,7 +84,7 @@ Zoals uitgelegd in [eindpunten][lnk-endpoints], IoT-Hub levert feedback via een 
 | Eigenschap     | Beschrijving |
 | ------------ | ----------- |
 | EnqueuedTime | De tijdstempel die aangeeft wanneer het Feedbackbericht is ontvangen door de hub. |
-| Gebruikers-id       | `{iot hub name}` |
+| UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
 De hoofdtekst is een JSON-geserialiseerd matrix met records, elk met de volgende eigenschappen:
@@ -97,9 +93,9 @@ De hoofdtekst is een JSON-geserialiseerd matrix met records, elk met de volgende
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | De tijdstempel die aangeeft wanneer het resultaat van het bericht is er gebeurd. Bijvoorbeeld, de hub de Feedbackbericht ontvangen of het oorspronkelijke bericht is verlopen. |
 | OriginalMessageId  | **MessageId** van het cloud-naar-apparaat-bericht waarop deze informatie feedback betrekking heeft. |
-| StatusCode         | Een vereiste tekenreeks. In de feedbackberichten die gegenereerd worden door de IoT Hub gebruikt. <br/> 'Success' <br/> 'Expired' <br/> 'DeliveryCountExceeded' <br/> 'Geweigerd' <br/> 'Purged' |
+| statusCode         | Een vereiste tekenreeks. In de feedbackberichten die gegenereerd worden door de IoT Hub gebruikt. <br/> 'Geslaagd' <br/> 'Verlopen' <br/> 'DeliveryCountExceeded' <br/> 'Geweigerd' <br/> 'Opgeschoond' |
 | Beschrijving        | Waarden voor de tekenreeks **StatusCode**. |
-| Apparaat-id           | **DeviceId** van het doelapparaat van het cloud-naar-apparaat-bericht waarop deze stukje feedback betrekking heeft. |
+| DeviceId           | **DeviceId** van het doelapparaat van het cloud-naar-apparaat-bericht waarop deze stukje feedback betrekking heeft. |
 | DeviceGenerationId | **DeviceGenerationId** van het doelapparaat van het cloud-naar-apparaat-bericht waarop deze stukje feedback betrekking heeft. |
 
 De service moet opgeven een **MessageId** voor het bericht cloud-naar-apparaat kunnen de feedback correleren met het oorspronkelijke bericht.

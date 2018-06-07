@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604281"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een Azure-Stack omgeving zonder verbinding beveiligd met AD FS
 
@@ -81,6 +82,12 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
     1. Klik op de **Connect** naast de **Stack-Azure-abonnementen** vak.
         - Geef uw beheerdersaccount. Bijvoorbeeld cloudadmin@azurestack.local. Voer uw wachtwoord in en klikt u op **aanmelden**.
     2. In de **Stack-Azure-abonnementen** de optie de **Provider-abonnement standaard**.
+    
+    > [!NOTE]
+    > App Service kan alleen worden geïmplementeerd in de **Provider-abonnement standaard** op dit moment.  In een toekomstige update App Service implementeert in het nieuwe abonnement softwarelicentiecontrole geïntroduceerd in Azure Stack 1804 en alle bestaande implementaties worden gemigreerd naar het nieuwe abonnement ook.
+    >
+    >
+    
     3. In de **Azure stacklocaties** Selecteer de locatie die overeenkomt met de regio die u implementeert op. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure-Stack Development Kit.
     4. Klik op **Volgende**.
 
@@ -96,12 +103,12 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
     ![App Service-installatie][5]
 
-9. Geef de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken voor de FQDN-naam of IP-adres van de bestandsserver. Bijvoorbeeld: \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites.
+9. Geef de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken voor de FQDN-naam of IP-adres van de bestandsserver. Bijvoorbeeld: \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites
 
-> [!NOTE]
-> Het installatieprogramma probeert te testen van verbinding met de bestandsshare voordat u doorgaat.  Echter, als u wilt implementeren in een bestaand virtueel netwerk, het installatieprogramma mogelijk geen verbinding maken met de bestandsshare en een waarschuwing weergegeven waarin wordt gevraagd of u wilt doorgaan.  Controleer de bestandsshare en doorgaan als ze juist zijn.
->
->
+    > [!NOTE]
+    > Het installatieprogramma probeert te testen van verbinding met de bestandsshare voordat u doorgaat.  Echter, als u wilt implementeren in een bestaand virtueel netwerk, het installatieprogramma mogelijk geen verbinding maken met de bestandsshare en een waarschuwing weergegeven waarin wordt gevraagd of u wilt doorgaan.  Controleer de bestandsshare en doorgaan als ze juist zijn.
+    >
+    >
 
    ![App Service-installatie][8]
 
@@ -128,10 +135,10 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
 12. Voer de SQL Server-gegevens voor het serverexemplaar waarmee de App Service resource provider-databases hosten en klik vervolgens op **volgende**. Het installatieprogramma valideert de eigenschappen van de SQL-verbinding. U **moet** Voer de intern IP-adres of FQDN-naam voor de SQL Server-naam.
 
-> [!NOTE]
-> Het installatieprogramma probeert te testen van verbinding met de SQl-Server voordat u doorgaat.  Echter, als u wilt implementeren in een bestaand virtueel netwerk, het installatieprogramma mogelijk geen verbinding maken met de SQL-Server en toont een waarschuwing waarin wordt gevraagd of u wilt doorgaan.  Controleer of de SQL Server-gegevens en doorgaan als ze juist zijn.
->
->
+    > [!NOTE]
+    > Het installatieprogramma probeert te testen van verbinding met de SQl-Server voordat u doorgaat.  Echter, als u wilt implementeren in een bestaand virtueel netwerk, het installatieprogramma mogelijk geen verbinding maken met de SQL-Server en toont een waarschuwing waarin wordt gevraagd of u wilt doorgaan.  Controleer of de SQL Server-gegevens en doorgaan als ze juist zijn.
+    >
+    >
    
    ![App Service-installatie][12]
 

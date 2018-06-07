@@ -3,26 +3,27 @@ title: Gegevensmodel compatibiliteitsniveau in Azure Analysis Services | Microso
 description: Understanding tabelgegevens model compatibiliteitsniveau.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 231a7ea42560aac3fba0ccf27e27123320f219a3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d68d544a66448fbbf193ff53fa43e179b1edb706
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602064"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Het compatibiliteitsniveau voor Analysis Services-modellen in tabelvorm
 
-*Het compatibiliteitsniveau* verwijst naar de release-specifieke gedrag in de Analysis Services-engine. Wijzigingen in het compatibiliteitsniveau wordt doorgaans samenvallen met belangrijke releases van SQL Server. Deze wijzigingen zijn ook geïmplementeerd in Azure Analysis Services onderhouden pariteit tussen beide platforms. Compatibiliteit niveau wijzigingen zijn ook van invloed op functies die beschikbaar zijn in uw modellen in tabelvorm. Bijvoorbeeld, hebben DirectQuery en metagegevens in tabelvorm object verschillende implementaties, afhankelijk van het compatibiliteitsniveau. 
+*Het compatibiliteitsniveau* verwijst naar de release-specifieke gedrag in de Analysis Services-engine. Wijzigingen in het compatibiliteitsniveau wordt doorgaans samenvallen met belangrijke releases van SQL Server. Deze wijzigingen zijn ook geïmplementeerd in Azure Analysis Services onderhouden pariteit tussen beide platforms. Het compatibiliteitsniveau wijzigt ook effect die beschikbaar zijn in uw modellen in tabelvorm. Bijvoorbeeld, hebben DirectQuery en metagegevens in tabelvorm object verschillende implementaties, afhankelijk van het compatibiliteitsniveau. Het compatibiliteitsniveau is opgegeven in het model in tabelvorm-project in Visual Studio (SSDT). Alleen het 1400 compatibiliteitsniveau zijn modellen in tabelvorm gemaakt in en uit Power BI Desktop geïmporteerd.
 
-Azure Analysis Services biedt ondersteuning voor tabelmodellen op het niveau van de compatibiliteit 1200 en 1400.
+Azure Analysis Services biedt ondersteuning voor tabelmodellen op het niveau van de compatibiliteit 1200 en 1400. 
 
 Het compatibiliteitsniveau van de meest recente is 1400. Dit niveau samenvalt met SQL Server 2017 Analysis Services. Belangrijke functies in het compatibiliteitsniveau 1400:
 
-*  Nieuwe infrastructuur voor toegang tot gegevens en importeren in modellen in tabelvorm met ondersteuning voor TOM APIs en TMSL scripting. Deze nieuwe functie biedt ondersteuning voor extra gegevensbronnen zoals Azure Blob-opslag.
+*  Nieuwe functies voor toegang tot gegevens en importeren met ondersteuning voor TOM APIs en TMSL scripting. 
 *  Gegevenstransformatie en gegevens mashup mogelijkheden met behulp van expressies gegevens ophalen en M.
 *  Metingen ondersteuning voor een eigenschap detailrijen met een DAX-expressie. Deze eigenschap kunt clienthulpprogramma's zoals Microsoft Excel om in te zoomen naar beneden gedetailleerde gegevens van een samengevoegde lijst. Bijvoorbeeld, wanneer gebruikers totale verkoop voor een regio en de maand bekijken, kunnen ze de details van de bijbehorende bekijken. 
 *  Beveiliging op objectniveau voor tabel- en kolomnamen, naast de gegevens daarin.

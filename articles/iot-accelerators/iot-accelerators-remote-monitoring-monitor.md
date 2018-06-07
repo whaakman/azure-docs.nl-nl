@@ -1,26 +1,23 @@
 ---
 title: Geavanceerde bewaking in de oplossing voor externe controle - Azure | Microsoft Docs
 description: Deze zelfstudie laat zien hoe u apparaten met het dashboard externe controle oplossing controleren.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 02/22/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 0456594a4a7776175781968779b4540a98070b78
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627396"
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Geavanceerde bewaking met behulp van de oplossing voor externe controle uitvoeren
 
-Deze zelfstudie ziet de mogelijkheden van het dashboard voor externe controle. De zelfstudie maakt ter introductie van het volgen van deze mogelijkheden gebruik van een scenario in de Contoso IoT-toepassing.
+Deze zelfstudie ziet de mogelijkheden van het dashboard externe controle. De zelfstudie maakt ter introductie van het volgen van deze mogelijkheden gebruik van een scenario in de Contoso IoT-toepassing.
 
 In deze zelfstudie maakt u twee gesimuleerde Contoso vrachtwagen apparaten gebruiken voor informatie over het bewaken van uw apparaten vanuit het dashboard van de accelerator oplossing. Als een Contoso-operator moet u de locatie en het gedrag van uw vrachtwagens in het veld bewaken.
 
@@ -37,7 +34,7 @@ In deze zelfstudie leert u het volgende:
 
 Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="choose-the-devices-to-display"></a>Kiezen welke apparaten om weer te geven
 

@@ -1,27 +1,29 @@
 ---
-title: 'Netwerken van Azure Stack: De verschillen en overwegingen met betrekking tot'
+title: Azure Stack verschillen en overwegingen met betrekking tot netwerken | Microsoft Docs
 description: Meer informatie over verschillen en overwegingen bij het werken met netwerken in Azure-Stack.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: faff52ba5b5e2f0d573a67633d3a8411b2d7de74
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606423"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Overwegingen voor het Azure-Stack-netwerken
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Azure-Stack toegang heeft veel van de functies van Azure-netwerken. Er zijn echter enkele belangrijke verschillen die u begrijpen moet voordat u een Azure-Stack netwerk implementeert.
+Azure Stack netwerken heeft veel van de functies van Azure-netwerken. Er zijn echter enkele belangrijke verschillen die u begrijpen moet voordat u een Azure-Stack netwerk implementeert.
 
-Dit artikel bevat een overzicht van de unieke aandachtspunten voor netwerken van Azure-Stack en de bijbehorende functies. Zie voor meer informatie over belangrijke verschillen tussen Azure-Stack en Azure, de [belangrijke overwegingen](azure-stack-considerations.md) onderwerp.
+Dit artikel bevat een overzicht van de unieke overwegingen voor Azure-Stack-netwerken en de bijbehorende functies. Zie voor meer informatie over belangrijke verschillen tussen Azure-Stack en Azure, de [belangrijke overwegingen](azure-stack-considerations.md) onderwerp.
 
 ## <a name="cheat-sheet-networking-differences"></a>Blad cheats: netwerken verschillen
 

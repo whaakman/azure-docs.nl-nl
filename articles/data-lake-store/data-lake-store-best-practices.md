@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/25/2018
 ms.author: sachins
-ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625335"
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Store
 In dit artikel leert u over aanbevolen procedures en overwegingen voor het werken met Azure Data Lake Store. Dit artikel bevat informatie over beveiliging, prestaties, tolerantie en bewaking voor Data Lake Store. Werken met echte big data in services zoals Azure HDInsight is voordat u Data Lake Store complex. Moest u gegevens verdelen over meerdere Blob storage-accounts zodat petabyte opslag en optimale prestaties op deze schaal kunnen worden gerealiseerd. Met Data Lake Store worden de meeste van de vaste limieten voor de grootte en de prestaties verwijderd. Er zijn echter nog steeds bepaalde overwegingen die van dit artikel behandelt zodat u de beste prestaties met Data Lake Store kunt ophalen. 
@@ -65,9 +66,9 @@ POSIX-machtigingen en controle in Data Lake Store beschikt over een overhead die
 * Snellere kopiëren/replicatie
 * Minder bestanden worden verwerkt bij het bijwerken van Data Lake Store POSIX-machtigingen 
 
-Afhankelijk van welke services en werkbelastingen gegevens gebruikt worden, is een goede bereik voor bestandsgrootten 256 MB tot 1 GB, bij voorkeur geen randvoorwaarden 100 MB of meer dan 2 GB. Als de grootte kunnen niet batch worden opgenomen wanneer die terechtkomen in Data Lake Store, kunt u een afzonderlijke compressie-taak die deze bestanden tot grotere groepen combineert hebben. Zie voor meer informatie en aanbeveling op grootte en de gegevens in Data Lake Store ordenen [structuur, uw gegevensset](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+Afhankelijk van welke services en werkbelastingen gegevens gebruikt worden, is het een goede grootte in overweging moet nemen voor bestanden 256 MB of hoger. Als de grootte kunnen niet batch worden opgenomen wanneer die terechtkomen in Data Lake Store, kunt u een afzonderlijke compressie-taak die deze bestanden tot grotere groepen combineert hebben. Zie voor meer informatie en aanbeveling op grootte en de gegevens in Data Lake Store ordenen [structuur, uw gegevensset](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### <a name="large-file-sizes-and-potential-performance-impact"></a>Grootten van grote bestanden en potentiële invloed op de prestaties 
+### <a name="large-file-sizes-and-potential-performance-impact"></a>Grootten van grote bestanden en potentiële invloed op de prestaties
 
 Hoewel Data Lake Store biedt ondersteuning voor grote bestanden tot petabytes in grootte, voor optimale prestaties en afhankelijk van het proces voor het lezen van de gegevens kan niet zijn ideaal om te gaan gemiddeld boven de 2 GB. Wanneer u bijvoorbeeld **Distcp** om gegevens te kopiëren tussen locaties of andere storage-accounts, bestanden, het hoogste niveau van granulatie gebruikt om te bepalen van de kaart taken zijn. Dus als u 10 bestanden die zijn van 1 TB kopieert, maximaal 10 mappers toegewezen. Bovendien hebt u veel bestanden met mappers toegewezen, werken in eerste instantie de mappers parallel grote bestanden te verplaatsen. Als de taak wordt gestart kon worden afgesloten omlaag slechts enkele mappers blijven toegewezen en u kunt worden vastgelopen met een enkele mapper toegewezen aan een groot bestand. Microsoft heeft ingediend verbeteringen in Distcp voor het oplossen van dit probleem in toekomstige versies van Hadoop.  
 

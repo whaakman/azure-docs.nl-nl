@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: b84426ad28dbc2264bd9b28fe0697a88390bb58d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c395851fbcc3e46357b390d9dfa20bd9ac944716
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594428"
 ---
 # <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Zelfstudie: Een Linux VM MSI gebruiken voor toegang tot Azure Cosmos-DB 
 
@@ -254,5 +255,8 @@ Met deze opdracht CLI retourneert details over de verzameling:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht van MSI [beheerde Service identiteit (MSI) voor Azure-resources](overview.md).
+In deze zelfstudie hebt u geleerd hoe een beheerde Service-identiteit op een virtuele Linux-machine gebruiken voor toegang tot Cosmos-DB.  Zie voor meer informatie over Cosmos DB:
+
+> [!div class="nextstepaction"]
+>[Overzicht van Azure DB Cosmos](/azure/cosmos-db/introduction)
 

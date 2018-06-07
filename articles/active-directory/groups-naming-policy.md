@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594547"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Afdwingen van een naamgevingscontainer beleid voor Office 365-groepen in Azure Active Directory (preview)
 
@@ -189,7 +190,7 @@ Gegevenssynchronisatie school (SDS) | Groepen die zijn gemaakt via SDS voldoen a
 Outlook klant Manager OCM) | Outlook Customer Manager is compatibel met de naamgevingsconventie beleid, automatisch op de groep gemaakt in Outlook Customer Manager toegepast wordt. Als een aangepaste geblokkeerde woord wordt gedetecteerd, wordt het maken van de groep in OCM is geblokkeerd en wordt de gebruiker wordt geblokkeerd vanuit de App OCM.
 Leslokaal app | Groepen die zijn gemaakt in een klaslokaal app voldoen aan de naamgeving beleid, maar het naming beleid wordt niet automatisch toegepast, en de naamgevingsconventie beleid preview wordt niet weergegeven aan gebruikers bij het invoeren van een groepsnaam leslokaal. Gebruikers moeten de naam van de groep afgedwongen leslokaal met de voor- en achtervoegsels invoeren. Zo niet, in de leslokaalgroep maken of bewerken mislukt met fouten.
 Power BI | Power BI werkruimten zijn compatibel met de naamgevingsconventie beleid.    
-Yammer | Yammer verbonden groepen niet de geconfigureerde naming beleid afdwingen. Voor organisaties met de naam van beleid is ingeschakeld, wordt met Yammer verouderde Yammer-groepen die niet zijn verbonden met Office 365 voor groepen die aan de naamgeving beleid voldoen Won't gemaakt.
+Yammer | Wanneer een gebruiker aangemeld bij Yammer met de Azure Active Directory-account een groep maakt of bewerkt de naam van een groep, wordt de groepsnaam voldoen aan de naamgeving van beleid. Dit geldt zowel voor Office 365 verbonden groepen en alle andere Yammer-groepen.<br>Als een verbonden Office 365-groep is gemaakt voordat het naming beleid geïmplementeerd is, wordt naam van de groep automatisch volgt niet de naamgevingsconventie beleidsregels. Wanneer een gebruiker de groepsnaam bewerkt, wordt ze gevraagd om toe te voegen voor- en achtervoegsel.
 StaffHub  | StaffHub teams Volg niet de naamgevingsconventie beleid, terwijl de onderliggende Office 365-groep heeft. StaffHub Teamnaam is niet van toepassing de voor- en achtervoegsels en controleert niet op aangepaste geblokkeerde woorden. Maar StaffHub geldt de voor- en achtervoegsels en geblokkeerde woorden verwijderd uit de onderliggende Office 365-groep.
 Exchange PowerShell | Exchange PowerShell cmdlets zijn compatibel met de naamgevingsconventie beleid. Gebruikers ontvangen juiste foutberichten met voorgestelde voor- en achtervoegsels en voor aangepaste geblokkeerde woorden als ze niet het naming beleid in de groepsnaam en groepsalias (mailNickname volgen).
 Azure Active Directory PowerShell-cmdlets | Azure Active Directory PowerShell-cmdlets zijn voldoen aan de naamgeving van beleid. Gebruikers ontvangen juiste foutberichten met voorgestelde voor- en achtervoegsels en voor aangepaste geblokkeerde woorden als ze niet de naamconventie in namen en groepsalias volgen.

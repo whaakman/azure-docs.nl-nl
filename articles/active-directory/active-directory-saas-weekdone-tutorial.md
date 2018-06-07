@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 05/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 2889e509d4ba0e055d86a67adaf4bd734f4f9e0c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4f5e0cf0b45e4972cc1c318861025ae4b926a966
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590168"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Zelfstudie: Azure Active Directory-integratie met Weekdone
 
@@ -44,7 +45,7 @@ Voor het configureren van Azure AD-integratie met Weekdone, moet u de volgende i
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand hier downloaden: [proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -82,8 +83,6 @@ In deze sectie configureert en test eenmalige aanmelding Azure AD met Weekdone o
 
 Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Weekdone is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Weekdone tot stand worden gebracht.
 
-Wijs in Weekdone, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
 Om te configureren en testen van Azure AD eenmalige aanmelding met Weekdone, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
@@ -110,7 +109,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_url1.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://weekdone.com/a/<tenantname>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://weekdone.com/a/<tenant>/metadata`
+
+    > [!NOTE]
+    > Het metagegevensbestand van weekdone kan worden opgehaald met behulp van dezelfde URL.
 
     b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://weekdone.com/a/<tenantname>`
 
@@ -136,10 +138,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_configure.png) 
 
 8. Eenmalige aanmelding configureren op **Weekdone** zijde, moet u de gedownloade verzenden **Metadata XML, Sign-Out URL SAML entiteit-ID en SAML Single Sign-On Service-URL** naar [Weekdone ondersteuningsteam ](mailto:hello@weekdone.com).
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -235,4 +233,3 @@ Als u op de tegel Weekdone in het deelvenster toegang, u moet ophalen automatisc
 [201]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_203.png
-

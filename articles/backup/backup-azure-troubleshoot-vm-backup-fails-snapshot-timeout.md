@@ -1,25 +1,20 @@
 ---
-title: 'Azure Backup-fout oplossen: Guest Agent Status niet beschikbaar | Microsoft Docs'
+title: 'Azure Backup-fout oplossen: Guest Agent Status niet beschikbaar'
 description: Symptomen, oorzaken en oplossingen van Azure Backup-fouten die betrekking hebben op de agent, uitbreiding en schijven.
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Azure back-up. VM-agent; Verbinding met het netwerk;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: genli
+ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606355"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup-fout oplossen: problemen met de agent of de extensie
 
@@ -63,7 +58,7 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Back-up is mislukt omdat de VM-agent reageert niet
 
-Foutbericht weergegeven: 'Kan niet aan de bewerking niet uitvoeren omdat de VM-Agent niet reageert' <br>
+Foutbericht weergegeven: 'Kan niet communiceren met de VM-agent voor de status van de momentopname' <br>
 Foutcode: 'GuestAgentSnapshotTaskStatusError'
 
 Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan voorkomen dat de momentopname wordt geactiveerd. Als de momentopname is niet geactiveerd, optreden een back-upfouten. De volgende stappen voor probleemoplossing in de volgorde en probeer de bewerking vervolgens opnieuw:  
@@ -91,6 +86,16 @@ De virtuele machine geen toegang tot internet, per de implementatievereiste. Of 
 
 Voor een juiste werking van de Backup-extensie is verbinding naar Azure openbare IP-adressen vereist. De extensie stuurt opdrachten naar een Azure-opslag-eindpunt (http-URL) voor het beheren van de momentopnamen van de virtuele machine. Als de extensie heeft geen toegang tot het openbare internet, wordt uiteindelijk de back-up mislukt.
 
+Deze het mogelijk voor het implementeren van een proxyserver om de VM-verkeer te routeren.
+##### <a name="create-a-path-for-http-traffic"></a>Een pad voor HTTP-verkeer maken
+
+1. Als u beschikken over netwerkbeperkingen (bijvoorbeeld een netwerkbeveiligingsgroep), implementeert u een HTTP-proxyserver om het verkeer te routeren.
+2. Als u wilt toegang tot het internet toestaat vanaf de HTTP-proxyserver, regels toevoegen aan de netwerkbeveiligingsgroep als er een.
+
+Zie voor meer informatie over het instellen van een HTTP-proxy voor VM-back-ups, [voorbereiden van uw back-up van virtuele machines in Azure-omgeving](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+De back-up VM of de proxy-server waarmee het verkeer wordt gerouteerd vereist toegang tot Azure openbare IP-adressen
+
 ####  <a name="solution"></a>Oplossing
 U lost het probleem probeert u een van de volgende methoden:
 
@@ -104,13 +109,6 @@ Om te begrijpen van de stapsgewijze procedure voor het configureren van de servi
 
 > [!WARNING]
 > Storage-service-tags zijn Preview-versie. Ze zijn alleen beschikbaar in specifieke gebieden. Zie voor een lijst met regio's, [Service-tags voor opslag](../virtual-network/security-overview.md#service-tags).
-
-##### <a name="create-a-path-for-http-traffic"></a>Een pad voor HTTP-verkeer maken
-
-1. Als u beschikken over netwerkbeperkingen (bijvoorbeeld een netwerkbeveiligingsgroep), implementeert u een HTTP-proxyserver om het verkeer te routeren.
-2. Als u wilt toegang tot het internet toestaat vanaf de HTTP-proxyserver, regels toevoegen aan de netwerkbeveiligingsgroep als er een.
-
-Zie voor meer informatie over het instellen van een HTTP-proxy voor VM-back-ups, [voorbereiden van uw back-up van virtuele machines in Azure-omgeving](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Als u Azure beheerd schijven gebruikt, moet u mogelijk een geopende extra poort (poort 8443) op de firewalls.
 
@@ -194,6 +192,19 @@ Dit probleem is specifiek voor VM's van beheerde waarin de gebruiker Hiermee ver
 
 #### <a name="solution"></a>Oplossing
 
-U lost het probleem door de vergrendeling te verwijderen uit de resourcegroep en laat de Azure Backup-service, wist u de recovery point-verzameling en de onderliggende momentopnamen in de volgende back-up.
-Hierna kunt u opnieuw plaatsen terug de vergrendeling op de VM-resourcegroep. 
+U lost het probleem door de vergrendeling te verwijderen uit de resourcegroep en de volgende stappen uit om te verwijderen van de verzameling van de punt herstellen: 
+ 
+1. Verwijder de vergrendeling in de resourcegroep waarin de virtuele machine zich bevindt. 
+2. Installeer ARMClient Chocolatey met: <br>
+   https://github.com/projectkudu/ARMClient
+3. Aanmelden bij ARMClient: <br>
+    `.\armclient.exe login`
+4. De verzameling van herstelpunt die overeenkomt met de virtuele machine ophalen: <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
+    Voorbeeld: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+5. Verwijder de verzameling van de punt herstellen: <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. De volgende geplande back-up maakt automatisch een punt-verzameling van herstel en nieuwe herstelpunten.
+
+Hierna kunt u opnieuw plaatsen terug de vergrendeling op de VM-resourcegroep. 

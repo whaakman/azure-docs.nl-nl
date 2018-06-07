@@ -1,24 +1,19 @@
 ---
-title: Maak een back-up van een Exchange-server op Azure Backup met Azure Backup-Server | Microsoft Docs
+title: Back-up van een Exchange-server op Azure Backup met Azure Backup-Server
 description: Meer informatie over het back-up van een Exchange-server op Azure Backup met behulp van Azure Backup-Server
 services: backup
-documentationcenter: 
 author: pvrk
 manager: shivamg
-editor: 
-ms.assetid: e46557e8-2eaf-4ee0-99ea-00fbb8687dca
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d64c273a189b1fe2337c4430b156874e0adf54b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605957"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Back-up van een Exchange-server op Azure Backup met Azure Backup-Server
 In dit artikel wordt beschreven hoe u van Microsoft Azure Backup Server (MABS) voor back-up van een Microsoft Exchange-server naar Azure.  

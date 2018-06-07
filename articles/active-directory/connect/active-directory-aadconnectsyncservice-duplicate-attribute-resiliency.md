@@ -2,10 +2,10 @@
 title: Tolerantie voor synchronisatie en dubbel kenmerk | Microsoft Docs
 description: Nieuwe gedrag van het werken met objecten met UPN- of ProxyAddress conflicten tijdens de directorysynchronisatie via Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
+ms.component: hybrid
 ms.author: markvi
-ms.openlocfilehash: 975abed469a78573553c0879b33181d2a58ec48c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: cfed9d32e919cc3c1b7b9c2a6ea5ddb31f2a8fb9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593205"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren
 Dubbele kenmerk tolerantie is een functie in Azure Active Directory, die wordt veroorzaakt door wrijving elimineren **UserPrincipalName** en **ProxyAddress** veroorzaakt een conflict bij het uitvoeren van een van de hulpprogramma's voor Microsoft synchronisatie.
@@ -37,7 +39,7 @@ Als er een poging tot het inrichten van een nieuw object met een UPN- of ProxyAd
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Gedrag met dubbel kenmerk tolerantie
 In plaats van volledig niet in te richten of bijwerken van een object met een dubbel kenmerk, quarantaine Azure Active Directory' ' het dubbele kenmerk dat de beperking voor uniekheid zou schenden. Als dit kenmerk vereist is voor het inrichten, zoals UserPrincipalName, wijst de service een tijdelijke aanduidingswaarde. De indeling van deze tijdelijke waarden is  
-“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
+"***<OriginalPrefix>+ < 4DigitNumber > @<InitialTenantDomain>. onmicrosoft.com***'.  
 Als het kenmerk niet vereist is, zoals een **ProxyAddress**, Azure Active Directory gewoon quarantaine plaatst het kenmerk conflict en wordt doorgegaan met het maken van het object of de update.
 
 Bij het kenmerk in quarantaine plaatsen, wordt informatie over het conflict in de dezelfde fout rapport e-mail gebruikt in het oude gedrag verzonden. Deze informatie wordt alleen weergegeven in het foutenrapport één keer wanneer de quarantaine gebeurt, deze komt niet blijft echter in toekomstige e-mailberichten worden vastgelegd. Ook, omdat de uitvoer voor dit object is geslaagd, sync-client wordt niet geregistreerd voor een fout en probeert de maken niet opnieuw / update-bewerking op de volgende synchronisatiecycli.
@@ -141,9 +143,9 @@ Geen van deze bekende problemen zorgt ervoor dat gegevens verloren gaan of de se
 1. Objecten van het specifieke kenmerk configuraties blijven ontvangen fouten exporteren in plaats van de dubbele kenmerken die in quarantaine wordt geplaatst.  
    Bijvoorbeeld:
    
-    a. Nieuwe gebruiker is gemaakt in AD met de UPN-  **Joe@contoso.com**  en ProxyAddress**smtp:Joe@contoso.com**
+    a. Nieuwe gebruiker is gemaakt in AD met de UPN- **Joe@contoso.com** en ProxyAddress **smtp:Joe@contoso.com**
    
-    b. De eigenschappen van dit object in conflict met een bestaande groep, waarbij ProxyAddress is  **SMTP:Joe@contoso.com** .
+    b. De eigenschappen van dit object in conflict met een bestaande groep, waarbij ProxyAddress is **SMTP:Joe@contoso.com**.
    
     c. Bij het exporteren, een **ProxyAddress conflict** fout wordt gegenereerd in plaats van de conflict kenmerken in quarantaine geplaatst. De bewerking wordt opnieuw geprobeerd bij elke cyclus van de volgende synchronisatie, zoals zijn zou voordat de tolerantiefunctie is ingeschakeld.
 2. Als twee groepen worden gemaakt van lokale met hetzelfde SMTP-adres, een mislukt om in te richten op de eerste poging met een standaard duplicaat **ProxyAddress** fout. Dubbele waarden in goed quarantaine bij de volgende synchronisatiecyclus.
@@ -157,16 +159,16 @@ Geen van deze bekende problemen zorgt ervoor dat gegevens verloren gaan of de se
    
     b. **Gebruiker B** wordt geprobeerd om te worden gesynchroniseerd volgende met **UPN = User@contoso.com** .
    
-    c. **Gebruiker B** UPN wordt gewijzigd naar  **User1234@contoso.onmicrosoft.com**  en  **User@contoso.com**  wordt toegevoegd aan **DirSyncProvisioningErrors**.
+    c. **Gebruiker B** UPN wordt gewijzigd naar **User1234@contoso.onmicrosoft.com** en **User@contoso.com** wordt toegevoegd aan **DirSyncProvisioningErrors**.
    
-    d. Het foutbericht voor **gebruiker B** zou moeten aangeven die **gebruiker A** al  **User@contoso.com**  zoals u ziet een UPN, maar het **van gebruiker B** eigen weergavenaam.
+    d. Het foutbericht voor **gebruiker B** zou moeten aangeven die **gebruiker A** al **User@contoso.com** zoals u ziet een UPN, maar het **van gebruiker B** eigen weergavenaam.
 
 **Identiteit synchronisatie foutenrapport**:
 
 De koppeling voor *stappen over het oplossen van dit probleem* is onjuist:  
     ![Actieve gebruikers](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "actieve gebruikers")  
 
-Het moet verwijzen naar [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
+Het moet verwijzen naar [ https://aka.ms/duplicateattributeresiliency ](https://aka.ms/duplicateattributeresiliency).
 
 ## <a name="see-also"></a>Zie ook
 * [Azure AD Connect-synchronisatie](active-directory-aadconnectsync-whatis.md)

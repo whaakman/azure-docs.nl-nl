@@ -16,11 +16,12 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 93de62a21ca1d3b8c88715fc9207a583920ac33e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a01c5bc2ca6310ee87f2ead1ea590987c854e733
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595322"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Toegang verlenen aan Azure Active Directory-webtoepassingen met behulp van de stroom van OAuth 2.0 code verlenen
 Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze [open source-bibliotheken](active-directory-authentication-libraries.md).
@@ -59,7 +60,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [voorkomen van aanvraagvervalsing op meerdere sites aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
 | Bron | Aanbevolen |De App ID URI van de doel-web-API (beveiligde resource). Voor de App ID URI, in de Azure Portal, klikt u **Azure Active Directory**, klikt u op **toepassing registraties**, opent u de toepassing **instellingen** pagina, en klik vervolgens op  **Eigenschappen**. Mogelijk ook een externe bron, zoals `https://graph.microsoft.com`. Dit is vereist in een van de autorisatie of de aanvragen voor beveiligingstokens. Om ervoor te zorgen minder verificatie plaats wordt u gevraagd deze in de autorisatieaanvraag om ervoor te zorgen toestemming van de gebruiker wordt ontvangen. |
 | scope | **genegeerd** | Voor de Azure AD-apps v1 scopes statisch moeten worden geconfigureerd in de Azure-Portal onder de toepassingen **instellingen**, **Required Permissions**. |
-| prompt |optioneel |Geef het type van de interactie van de gebruiker die is vereist.<p> Geldige waarden zijn: <p> *aanmelding*: de gebruiker moet worden gevraagd om te verifiëren. <p> *toestemming*: gebruiker toestemming heeft gekregen, maar moet worden bijgewerkt. De gebruiker moet worden gevraagd om toestemming. <p> *admin_consent*: een beheerder moet worden gevraagd om toestemming namens alle gebruikers in hun organisatie |
+| prompt |optioneel |Geef het type van de interactie van de gebruiker die is vereist.<p> Geldige waarden zijn: <p> *aanmelding*: de gebruiker moet worden gevraagd om te verifiëren. <p> *select_account*: de gebruiker wordt gevraagd een account selecteren voor eenmalige onderbreken op. De gebruiker kan een bestaand account aangemeld selecteren, hun referenties invoeren voor een account te onthouden of kies een ander account helemaal. <p> *toestemming*: gebruiker toestemming heeft gekregen, maar moet worden bijgewerkt. De gebruiker moet worden gevraagd om toestemming. <p> *admin_consent*: een beheerder moet worden gevraagd om toestemming namens alle gebruikers in hun organisatie |
 | login_hint |optioneel |Kan worden gebruikt voor het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten. Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
 | domain_hint |optioneel |Biedt een aanwijzing over de tenant of het domein dat de gebruiker gebruiken moet om aan te melden. De waarde van de domain_hint is een geregistreerd domein voor de tenant. Als de tenant aan een lokale directory is gefedereerd, is AAD wordt omgeleid naar de opgegeven tenant federation-server. |
 | code_challenge_method | optioneel    | De methode die wordt gebruikt voor het coderen van de `code_verifier` voor de `code_challenge` parameter. Een van `plain` of `S256`. Als uitgesloten, `code_challenge` wordt ervan uitgegaan dat als leesbare tekst als `code_challenge` is opgenomen. Azure AAD v1.0 ondersteunt zowel `plain` en `S256`. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
@@ -217,7 +218,7 @@ De `id_token` parameter bevat de volgende claimtypen:
 | IAT |Op tijdstip afgegeven. De tijd waarop de JWT is uitgegeven. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de tijd die het token is uitgegeven. |
 | ISS |Identificeert de uitgever van het beveiligingstoken |
 | nbf |Niet voor de tijd. De tijd waarop het token van kracht. Voor het token geldig, moet de huidige datum en tijd groter dan of gelijk aan de Nbf-waarde. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de tijd die het token is uitgegeven. |
-| OID |Object-id (ID) van het gebruikersobject in Azure AD. |
+| OID |De object-id (id) van het gebruikersobject in Azure AD. |
 | Sub |Token onderwerp-id. Dit is een permanente en onveranderbare id voor de gebruiker die het token wordt beschreven. Gebruik deze waarde in de cache logica. |
 | TID |Tenant-id (ID) van de Azure AD-tenant die het token heeft uitgegeven. |
 | unique_name |Een unieke id voor die kan worden weergegeven voor de gebruiker. Dit is meestal een UPN (user Principal name). |

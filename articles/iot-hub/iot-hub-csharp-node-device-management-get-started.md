@@ -1,24 +1,19 @@
 ---
 title: Aan de slag met Azure IoT Hub Apparaatbeheer (.NET/knooppunt) | Microsoft Docs
-description: "Het gebruik van Azure IoT Hub Apparaatbeheer initiëren externe apparaten opnieuw worden opgestart. U kunt het apparaat met Azure IoT SDK voor Node.js gebruiken voor het implementeren van een gesimuleerde apparaattoepassing met een directe methode en de service Azure IoT SDK voor .NET voor het implementeren van een service-app die de directe methode aanroept."
-services: iot-hub
-documentationcenter: .net
+description: Het gebruik van Azure IoT Hub Apparaatbeheer initiëren externe apparaten opnieuw worden opgestart. U kunt het apparaat met Azure IoT SDK voor Node.js gebruiken voor het implementeren van een gesimuleerde apparaattoepassing met een directe methode en de service Azure IoT SDK voor .NET voor het implementeren van een service-app die de directe methode aanroept.
 author: juanjperez
-manager: timlt
-editor: 
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/05/2017
 ms.author: juanpere
-ms.openlocfilehash: 5d0b7b1ab5893e55a6e2aa16451b6a9fc1481966
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: df41d8b88cf630183afc314dafdc1e898f4e02d9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632234"
 ---
 # <a name="get-started-with-device-management-netnode"></a>Aan de slag met Apparaatbeheer (.NET/knooppunt)
 
@@ -70,7 +65,7 @@ In deze sectie maakt u een .NET-consoletoepassing (met C#) die een externe opnie
         static JobClient jobClient;
         static string targetDevice = "myDeviceId";
         
-6. Voeg de volgende methode voor de **programma** klasse.  Deze code haalt de apparaat-twin voor het apparaat rebooting en levert de gerapporteerde eigenschappen.
+6. Voeg de volgende methode toe aan de klasse **Program**.  Deze code haalt de apparaat-twin voor het apparaat rebooting en levert de gerapporteerde eigenschappen.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -78,7 +73,7 @@ In deze sectie maakt u een .NET-consoletoepassing (met C#) die een externe opnie
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Voeg de volgende methode voor de **programma** klasse.  Deze code wordt het opnieuw opstarten op het apparaat met een directe methode gestart.
+7. Voeg de volgende methode toe aan de klasse **Program**.  Deze code wordt het opnieuw opstarten op het apparaat met een directe methode gestart.
 
         public static async Task StartReboot()
         {
@@ -99,7 +94,7 @@ In deze sectie maakt u een .NET-consoletoepassing (met C#) die een externe opnie
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
         
-8. De oplossing bouwen.
+8. Bouw de oplossing.
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 In deze sectie wordt u

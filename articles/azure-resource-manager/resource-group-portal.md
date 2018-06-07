@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: fda195c03c589361b8a798166b0ae4d93611bcd0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7398e01a46b5d296f26905e2063acdb98383f567
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603382"
 ---
 # <a name="manage-azure-resources-through-portal"></a>Azure-resources via de portal beheren
 
@@ -58,7 +59,7 @@ De resourcegroep slaat metagegevens op over de resources. Dat is de reden waarom
    
     ![pincode resourcegroep](./media/resource-group-portal/show-resource-group-dashboard.png)
 
-## <a name="tag-resources"></a>Tag resources
+## <a name="tag-resources"></a>Resources taggen
 U kunt tags toepassen resourcegroepen en resources voor uw assets logische manier te organiseren. Zie voor meer informatie over het werken met labels [met labels om uw Azure-resources te organiseren](resource-group-using-tags.md).
 
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
@@ -130,5 +131,5 @@ Verwijderen van een resourcegroep, worden alle resources daarin verwijderd. U ku
 * Zie voor meer informatie over een implementatie, [implementatiebewerkingen weergeven](resource-manager-deployment-operations.md).
 * Zie voor het implementeren van resources via de portal [implementeren van resources met Resource Manager-sjablonen en Azure-portal](resource-group-template-deploy-portal.md).
 * Zie voor het beheren van toegang tot bronnen [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).
-* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).
+* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

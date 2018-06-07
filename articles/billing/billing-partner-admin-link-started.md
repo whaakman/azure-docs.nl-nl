@@ -10,11 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a5b6bb683538bd5359ebcbbe2640216e574b3e00
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608709"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Partner-ID voor koppeling naar uw Azure-accounts
 
@@ -32,7 +33,7 @@ Voordat u uw partner-ID koppelt, moet de klant krijgt u toegang tot Azure-resour
 
 - **Service-principal:** uw klant kunt toevoegen van een app of script uit uw organisatie in de directory en eventuele RBAC-rol toe te wijzen. De identiteit van de app of het script staat bekend als service-principal.
 
-## <a name="link-partner-id"></a>Koppeling partner-ID
+## <a name="link-partner-id"></a>Partner-id koppelen
 
 Wanneer u toegang tot bronnen van de klant hebt, gebruik Azure-portal, PowerShell of CLI om te koppelen van uw Microsoft Partner Network-ID (ID MPN) aan uw gebruikers-ID of service-principal. U moet de partner-ID in elke tenant klant koppelen.
 
@@ -52,7 +53,7 @@ Wanneer u toegang tot bronnen van de klant hebt, gebruik Azure-portal, PowerShel
 
 ### <a name="use-powershell-to-link-new-partner-id"></a>PowerShell gebruiken voor het koppelen van nieuwe partner-ID
 
-1. Installeer de [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview) PowerShell-Module.
+1. Installeer de [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell-Module.
 
 2. Aanmelden bij de klant tenant met het gebruikersaccount of de service-principal, voor meer informatie, Zie [aanmelding met Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  

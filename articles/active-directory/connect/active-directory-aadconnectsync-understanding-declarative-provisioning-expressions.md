@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 12d7e997d82c0ac15d1c81b92491e0a16f4c214e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593670"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synchronisatie: inzicht declaratieve inrichting expressies
 Azure AD Connect-synchronisatie is gebaseerd op het declaratieve inrichting is geïntroduceerd in Forefront Identity Manager 2010. Hiermee kunt u voor het implementeren van uw identiteit van de volledige integratie bedrijfslogica zonder de noodzaak om gecompileerde code te schrijven.
@@ -38,7 +40,7 @@ De kenmerken zijn sterk getypeerd. Een functie accepteert alleen de kenmerken va
 * Boole-waarden worden uitgedrukt met constanten: True, False.
 * Ingebouwde constanten en letterlijke waarden worden uitgedrukt met alleen de naam: NULL, CRLF, IgnoreThisFlow
 
-### <a name="functions"></a>Functies
+### <a name="functions"></a>Functions
 Declaratieve inrichting veel functies gebruikt om in te schakelen, de mogelijkheid voor het transformeren van kenmerkwaarden. Deze functies kunnen worden genest, zodat het resultaat van een functie aan een andere functie doorgegeven.
 
 `Function1(Function2(Function3()))`

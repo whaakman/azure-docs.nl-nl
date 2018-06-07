@@ -1,22 +1,20 @@
 ---
 title: Zoekresultaten met Azure-kaarten weergeven | Microsoft Docs
 description: Het uitvoeren van een zoekopdracht met Azure Maps aanvragen en vervolgens de resultaten weergeven op een kaart Javascrip
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f66b1f93d7bc4c2e7c511c10d7091760e8f6d023
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b77737b16b23ed00c8f12f84e6a8558a665a7d15
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599878"
 ---
 # <a name="show-search-results-on-the-map"></a>Zoekresultaten weergeven op de kaart
 
@@ -43,3 +41,7 @@ Meer informatie over de klassen en methoden die worden gebruikt in dit artikel:
 * [Azure toegewezen Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 * [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+    
+Zie de volgende artikelen voor meer voorbeelden van programmacode toevoegen aan uw maps: 
+* [Informatie ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
+* [Richtlijnen voor het weergeven van A naar B](./map-route.md)

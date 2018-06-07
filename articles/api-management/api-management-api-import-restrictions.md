@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03d785898398cb0bcd7b43e8d7feab705bce4b34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598467"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API importeren beperkingen en bekende problemen
 ## <a name="about-this-list"></a>Over deze lijst
 Bij het importeren van een API kunt u tegenkomt enkele beperkingen of geven aan welke problemen die worden verholpen moeten voordat u met succes kunt importeren. Deze documenten artikel, ingedeeld door de importindeling van de API.
 
-## <a name="open-api"> </a>Open API/Swagger
-Als u uw document Open API importeren fouten ontvangt, controleert u of u hebt deze - met de ontwerpfunctie voor in de Azure portal (ontwerp - Front-End - API specificatie Editor openen), gevalideerd of met een derde hulpprogramma zoals <a href="http://www.swagger.io">Swagger Editor</a>.
+## <a name="open-api"> </a>OpenAPI/Swagger
+Als u uw document OpenAPI importeren fouten ontvangt, controleert u of u hebt deze - met de ontwerpfunctie voor in de Azure portal (ontwerp - Front-End - OpenAPI specificatie Editor), gevalideerd of met een derde hulpprogramma zoals <a href="http://www.swagger.io">Swagger Editor</a>.
 
 * Alleen JSON-indeling voor OpenAPI wordt ondersteund.
+* Vereiste parameters voor het pad en de query moeten unieke namen hebben. (In OpenAPI een parameternaam alleen moet uniek zijn binnen een locatie, zoals pad, query, -header.  In API Management kunt we echter bewerkingen worden discriminated pad en de query-parameters (die OpenAPI biedt geen ondersteuning voor). Daarom moet parameternamen moet uniek zijn binnen de volledige URL-sjabloon.)
 * Schema's waarnaar wordt verwezen met **$ref** eigenschappen mogen niet andere **$ref** eigenschappen.
 * **$ref** verwijzingen kunnen niet naar externe bestanden.
 * **x-ms-paden** en **x servers** zijn de enige ondersteunde extensies.

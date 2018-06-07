@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 57d4a3767d0ad02f136686d95703817055566c33
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e5e08985f88c7cf3018ecadce2cabac743e4bd37
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594849"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Een Linux VM beheerde Service-identiteit gebruiken voor toegang tot Azure Storage via een SAS-referentie
 
@@ -253,10 +254,7 @@ Antwoord:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](overview.md).
-- Voor meer informatie over hoe u deze dezelfde zelfstudie wilt met behulp van de sleutel van een opslagaccount zien [gebruiken van een Linux VM beheerde Service-identiteit voor toegang tot Azure Storage](tutorial-linux-vm-access-storage.md)
-- Zie voor meer informatie over de SAS-functie van Azure Storage-account:
-  - [Met behulp van handtekeningen voor gedeelde toegang (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Maken van een Service-SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+In deze zelfstudie hebt u geleerd hoe op een beheerde Service-identiteit op een virtuele Linux-machine voor toegang tot Azure Storage met behulp van een SAS-referentie.  Zie voor meer informatie over Azure Storage SAS:
 
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.
+> [!div class="nextstepaction"]
+>[Met behulp van handtekeningen voor gedeelde toegang (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

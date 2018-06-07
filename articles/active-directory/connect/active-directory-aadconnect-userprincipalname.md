@@ -2,17 +2,19 @@
 title: Azure AD UserPrincipalName populatie
 description: Het volgende document wordt beschreven hoe het kenmerk UserPrincipalName is gevuld.
 author: billmath
+ms.component: hybrid
 ms.author: billmath
 ms.date: 02/02/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 73238b1f79e639f832499eed15ac1e4499eb6e84
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593386"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName populatie
 
@@ -35,7 +37,7 @@ De volgende terminologie wordt in dit artikel gebruikt:
 UserPrincipalName is een kenmerk dat een Internet-aanmeldingsnaam voor een gebruiker op basis van de standaard Internet [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>UPN-indeling
-Een UPN bestaat uit een UPN-voorvoegsel (naam van de gebruikersaccount) en een UPN-achtervoegsel (een DNS-domeinnaam). Het voorvoegsel op dat wordt samengevoegd met het achtervoegsel met behulp van de ' @ ' symbool. Bijvoorbeeld 'someone@example.com'. Een UPN moet uniek zijn in alle beveiligings-principals binnen een directory-forest. 
+Een UPN bestaat uit een UPN-voorvoegsel (naam van de gebruikersaccount) en een UPN-achtervoegsel (een DNS-domeinnaam). Het voorvoegsel op dat wordt samengevoegd met het achtervoegsel met behulp van de ' @ ' symbool. Bijvoorbeeld someone@example.com. Een UPN moet uniek zijn in alle beveiligings-principals binnen een directory-forest. 
 
 ## <a name="upn-in-azure-ad"></a>UPN in Azure AD 
 De UPN wordt gebruikt door Azure AD om te kunnen gebruikers zich aanmelden.  De UPN die een gebruiker kan gebruiken, is afhankelijk van of het domein is geverifieerd.  Als het domein is geverifieerd, klikt u vervolgens een gebruiker met dat achtervoegsel toegestaan om aan te melden bij Azure AD.  
@@ -97,7 +99,7 @@ Het gebruikersobject in Azure AD-Tenant voor de eerste keer is gesynchroniseerd
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us1           
-- UserPrincipalName: us1@contoso.onmicrosoft.com
+- userPrincipalName: us1@contoso.onmicrosoft.com
 
 
 ### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Scenario 2: Niet-geverifieerd UPN-achtervoegsel – set lokale kenmerk mailNickName
@@ -114,7 +116,7 @@ Update op de lokale mailNickName kenmerk met Azure AD-Tenant synchroniseren
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us4
-- UserPrincipalName: us1@contoso.onmicrosoft.com
+- userPrincipalName: us1@contoso.onmicrosoft.com
 
 ### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Scenario 3: Niet-geverifieerd UPN-achtervoegsel: update lokale kenmerk userPrincipalName
 
@@ -131,7 +133,7 @@ Update op de lokale userPrincipalName kenmerk met Azure AD-Tenant synchroniseren
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us4
-- UserPrincipalName: us4@contoso.onmicrosoft.com
+- userPrincipalName: us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scenario 4: Niet-geverifieerd UPN-achtervoegsel: het primaire SMTP-adres bijwerken en on-premises e-kenmerk
 
@@ -146,7 +148,7 @@ Update op de lokale e-mailkenmerk en het primaire SMTP-adres met Azure AD-Tenant
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us4
-- UserPrincipalName: us4@contoso.onmicrosoft.com
+- userPrincipalName: us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Scenario 5: Geverifieerde UPN-achtervoegsel: update lokale userPrincipalName kenmerk achtervoegsel
 
@@ -162,7 +164,7 @@ Update op de lokale userPrincipalName kenmerk met de Azure AD-Tenant synchronise
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us4     
-- UserPrincipalName: us5@verified.contoso.com
+- userPrincipalName: us5@verified.contoso.com
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Uw on-premises directory's integreren met Azure Active Directory](active-directory-aadconnect.md)

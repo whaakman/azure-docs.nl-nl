@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622020"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory-Kopieeractiviteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -311,9 +312,9 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | SmallInt |Int16 |
 | Geheel getal |Int32 |
 | BigInt |Int64 |
-| Real |Single |
-| Double |Double |
-| Float |Double |
+| Real |Enkelvoudig |
+| dubbele |dubbele |
+| Float |dubbele |
 | Decimale |Decimale |
 | DecimalFloat |Decimale |
 | Numeriek |Decimale |
@@ -321,25 +322,25 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Time |TimeSpan |
 | Timestamp |DateTime |
 | Xml |Byte[] |
-| CHAR |Tekenreeks |
-| VarChar |Tekenreeks |
-| LongVarChar |Tekenreeks |
-| DB2DynArray |Tekenreeks |
+| CHAR |Reeks |
+| VarChar |Reeks |
+| LongVarChar |Reeks |
+| DB2DynArray |Reeks |
 | Binair bestand |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Afbeelding |Tekenreeks |
-| VarGraphic |Tekenreeks |
-| LongVarGraphic |Tekenreeks |
-| CLOB |Tekenreeks |
+| Afbeelding |Reeks |
+| VarGraphic |Reeks |
+| LongVarGraphic |Reeks |
+| CLOB |Reeks |
 | Blob |Byte[] |
-| DbClob |Tekenreeks |
+| DbClob |Reeks |
 | SmallInt |Int16 |
 | Geheel getal |Int32 |
 | BigInt |Int64 |
-| Real |Single |
-| Double |Double |
-| Float |Double |
+| Real |Enkelvoudig |
+| dubbele |dubbele |
+| Float |dubbele |
 | Decimale |Decimale |
 | DecimalFloat |Decimale |
 | Numeriek |Decimale |
@@ -347,7 +348,7 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Time |TimeSpan |
 | Timestamp |DateTime |
 | Xml |Byte[] |
-| CHAR |Tekenreeks |
+| CHAR |Reeks |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen
 Zie voor informatie over het toewijzen van kolommen in de bron-gegevensset aan kolommen in de gegevensset sink, [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

@@ -1,30 +1,24 @@
 ---
-title: 'Azure Data Lake Tools: U-SQL lokaal uitvoeren en lokale foutopsporing met Visual Studio Code | Microsoft Docs'
-description: Informatie over het gebruik van Azure Data Lake Tools voor Visual Studio Code voor lokale uitvoering en lokale foutopsporing.
-Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview storage file,upload to storage path
+title: Uitvoeren van U-SQL en lokaal voor foutopsporing in Azure Data Lake Tools voor Visual Studio Code
+description: Informatie over het Azure Data Lake Tools voor Visual Studio Code gebruiken om te worden uitgevoerd en U-SQL-taken lokaal fouten opsporen.
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
-manager: DJ
-editor: jejiang
-tags: azure-portal
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-data
-ms.date: 07/14/2017
+author: jejiang
 ms.author: jejiang
-ms.openlocfilehash: d109e4d57f4ad5ab2be73805ba41bf9ed362cccb
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+manager: kfile
+editor: jasonwhowell
+ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
+ms.topic: conceptual
+ms.date: 07/14/2017
+ms.openlocfilehash: de41120a3a9d399dafecde4225d56767efcd9f38
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624826"
 ---
-# <a name="u-sql-local-run-and-local-debug-for-windows-with-visual-studio-code"></a>U-SQL lokaal uitvoeren en lokale foutopsporing voor Windows met Visual Studio Code
-In dit document leert u hoe U-SQL-taken uitvoeren op een lokale ontwikkelcomputer vroege codering fasen versnellen of voor foutopsporing van code lokaal in Visual Studio Code. Zie voor instructies voor Azure Data Lake Tool voor Visual Studio Code, [gebruik Azure Data Lake Tools voor Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md). 
-
+# <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Uitvoeren van U-SQL en foutopsporing lokaal in Visual Studio Code
+In dit artikel wordt beschreven hoe U-SQL-taken uitvoeren op een lokale ontwikkelcomputer vroege codering fasen versnellen of voor foutopsporing van code lokaal in Visual Studio Code. Zie voor instructies voor Azure Data Lake Tool voor Visual Studio Code, [gebruik Azure Data Lake Tools voor Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md). 
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>Instellen van de omgeving U-SQL lokaal uitvoeren
 
@@ -91,7 +85,6 @@ Volg onderstaande stappen voor het lokale foutopsporing uitvoeren:
 ## <a name="next-steps"></a>Volgende stappen
 * [De Azure Data Lake-tools gebruiken voor Visual Studio-code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [U-SQL met Python, R en CSharp voor Azure Data Lake Analytics in VSCode ontwikkelen](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-* [Ontwikkelen van U-SQL-assembly's voor Azure Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-assemblies.md)
 * [Aan de slag met Data Lake Analytics met PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Aan de slag met Data Lake Analytics met Azure portal](data-lake-analytics-get-started-portal.md)
 * [Data Lake Tools voor Visual Studio gebruiken voor het ontwikkelen van U-SQL-toepassingen](data-lake-analytics-data-lake-tools-get-started.md)

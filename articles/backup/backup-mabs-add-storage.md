@@ -1,24 +1,19 @@
 ---
-title: Moderne back-upopslag gebruiken met Azure Backup-Server v2 | Microsoft Docs
+title: Moderne back-upopslag gebruiken met Azure Backup-Server v2
 description: Meer informatie over de nieuwe functies in v2 voor Azure Backup-Server. In dit artikel wordt beschreven hoe een back-upserver van upgrade.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
-ms.openlocfilehash: 751b9b495fd368dff1f72429707f5f33a0ccb569
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: 7c583ea048ed1837c662869c62039165aaa3c024
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606751"
 ---
 # <a name="add-storage-to-azure-backup-server-v2"></a>Opslag toevoegen aan Azure Backup-Server v2
 
@@ -77,7 +72,7 @@ Een volume toevoegen aan back-up-Server, in de **Management** deelvenster opnieu
 
 Met de werkbelasting-bewuste opslag, kunt u de volumes waarop bepaalde soorten belasting bij voorkeur opgeslagen. U kunt bijvoorbeeld instellen dat dure volumes die ondersteuning bieden voor een groot aantal i/o-bewerkingen per seconde (IOPS) voor het opslaan van alleen de werkbelastingen die regelmatig, hoog volume back-ups vereisen. Een voorbeeld is SQL Server met de transactielogboeken. Andere werkbelastingen zijn back-ups minder vaak, zoals virtuele machines, kunnen een back-up naar goedkope volumes.
 
-### <a name="update-dpmdiskstorage"></a>Update DPMDiskStorage
+### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
 U kunt de werkbelasting-bewuste opslag instellen met behulp van de PowerShell-cmdlet Update-DPMDiskStorage, die de eigenschappen van een volume in de opslaggroep op een server met Data Protection Manager-updates.
 

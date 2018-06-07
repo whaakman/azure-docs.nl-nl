@@ -1,19 +1,19 @@
 ---
 title: Documentatie voor Azure IoT-oplossingsversnellers - zelfstudies, API-verwijzing | Microsoft Docs
 description: De documentatie voor Azure IoT-oplossingsversnellers bevat beginnershandleidingen, gebruikersinstructies, zelfstudies en een API-verwijzing.
-services: iot-suite
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.service: iot-suite
+author: dominicbetts
+manager: timlt
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: landing-page
 ms.date: 11/27/2017
-ms.author: carolz
-ms.openlocfilehash: cacc09cf926c5af9a770e42967a5e6cbbb46bfd7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: dobett
+ms.openlocfilehash: 3e9fe2b67980e83f57732c10da99738a15a5219e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626969"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>Documentatie voor IoT-oplossingsversnellers
 
@@ -30,10 +30,10 @@ Snel aan de slag met de IoT-oplossingsversnellers voor het bouwen van uw IoT-opl
                         <ul>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">Overzicht oplossingsversnellers</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Een oplossingsversnellers implementeren</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Niet-standaardoplossingsmogelijkheden</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">Bewakingsmogelijkheden</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore">Niet-standaardoplossingsmogelijkheden</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Bewakingsmogelijkheden</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Beheermogelijkheden voor regels</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-manage">Beheermogelijkheden voor apparaten</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Beheermogelijkheden voor apparaten</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,9 +53,9 @@ Snel aan de slag met de IoT-oplossingsversnellers voor het bouwen van uw IoT-opl
                     <div class="cardText">
                         <p>Meer informatie over het verbinden van uw apparaten met een oplossingsversneller</p>
                         <ul>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">Overzicht van het apparaatmodel</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">Uw gesimuleerde apparaten aanpassen</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">Een fysiek apparaat verbinden</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema">Overzicht van het apparaatmodel</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior">Uw gesimuleerde apparaten aanpassen</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-connecting-devices-node">Een fysiek apparaat verbinden</a></li>
                         </ul>
                     </div>
                 </div>
@@ -95,10 +95,10 @@ Snel aan de slag met de IoT-oplossingsversnellers voor het bouwen van uw IoT-opl
                 <div class="card">
                     <div class="cardText">
                         <h3>Resources</h3>
-                        <p><a href="/azure/iot-suite/iot-security-architecture">Beveiligingsarchitectuur</a></p>
-                        <p><a href="/azure/iot-suite/iot-security-best-practices">Best practices voor beveiliging</a></p>
-                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">Uw IoT-implementatie beveiligen</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Fundamentele beveiliging</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-architecture">Beveiligingsarchitectuur</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-best-practices">Best practices voor beveiliging</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-accelerators-security-deployment">Uw IoT-implementatie beveiligen</a></p>
+                        <p><a href="/azure/iot-accelerators/securing-iot-ground-up">Fundamentele beveiliging</a></p>
                    </div>
                 </div>
             </div>

@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 27c4f35cbd8cc69e689b26078d5a07c8558d8e2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 5805dbc0a4831f14a4f9a98943a7611fa49961eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594948"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Zelfstudie: Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure SQL
 
@@ -269,11 +270,9 @@ U kunt ook een snelle manier om de end-to-end-installatie testen zonder om te sc
 
 Bekijk de waarde van `$DataSet.Tables[0]` de resultaten van de query wilt weergeven.  Gefeliciteerd, u de database met een VM MSI hebt opgevraagd en zonder op te geven referenties!
 
-## <a name="related-content"></a>Gerelateerde inhoud
+## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](overview.md).
-- Meer informatie over [Azure SQL-ondersteuning voor verificatie met Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
-- Meer informatie over [Azure SQL-ondersteuning voor verificatie met Azure AD configureren](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).
-- Meer informatie over [verificatie en toegang in SQL server](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
+In deze zelfstudie hebt u geleerd het maken van een Service-identiteit beheerd voor toegang tot Azure SQL-server.  Zie voor meer informatie over Azure SQL-Server:
 
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.
+> [!div class="nextstepaction"]
+>[Azure SQL Database-service](/azure/sql-database/sql-database-technical-overview)

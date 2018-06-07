@@ -1,24 +1,19 @@
 ---
-title: Azure Backup - Offline back-ups of het eerste seeding via de Azure Import/Export-service | Microsoft Docs
+title: Azure Backup - Offline back-ups of het eerste seeding via de Azure Import/Export-service
 description: Meer informatie over hoe Azure back-up kunt u gegevens uit het netwerk via de Azure Import/Export-service worden verzonden. Dit artikel wordt uitgelegd in de offline seeding van de eerste back-upgegevens met de service Azure Import exporteren.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 801de343ebb88394f04a65236997f9ec80a2f535
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 05/17/2018
+ms.author: saurse
+ms.openlocfilehash: cb37c94d3ec819823083041708cfc28ead0ed5cf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606134"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiency die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Eerste volledige back-ups brengen grote hoeveelheden gegevens doorgaans en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / incrementele worden overgedragen. Door het proces van het offline seeding kunt Azure Backup schijven gebruiken voor het uploaden van de offline back-upgegevens naar Azure.
@@ -67,7 +62,7 @@ Voordat u de werkstroom voor Offline back-up begint, moet u de volgende vereiste
     4. In de lijst met providers Blader naar beneden naar Microsoft.ImportExport. Als de Status NotRegistered is, klikt u op **registreren**.
     ![de resourceprovider wordt geregistreerd](./media/backup-azure-backup-import-export/registerimportexport.png)
 * Een tijdelijke locatie, dit kan een netwerkshare of een extra station op de computer, intern of extern, met voldoende schijfruimte voor het opslaan van uw eerste kopie is gemaakt. Bijvoorbeeld, als u back-up van een bestandsserver van 500 GB wilt, zorg ervoor dat het faseringsgebied ten minste 500 GB. (Een lager bedrag wordt gebruikt als gevolg van comprimering.)
-* Wanneer u schijven verzendt naar Azure, alleen 2,5 inch SSD of 2,5-inch of 3.5-inch SATA III-II interne harde schijven gebruiken. U kunt harde schijven tot 10 TB. Controleer de [documentatie van de service Azure Import/Export](../storage/common/storage-import-export-service.md#hard-disk-drives) voor de meest recente set met schijven die ondersteuning biedt voor de service.
+* Wanneer u schijven verzendt naar Azure, alleen 2,5 inch SSD of 2,5-inch of 3.5-inch SATA III-II interne harde schijven gebruiken. U kunt harde schijven tot 10 TB. Controleer de [documentatie van de service Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) voor de meest recente set met schijven die ondersteuning biedt voor de service.
 * De SATA-stations moeten zijn verbonden met een computer (aangeduid als een *kopie*) waar de kopie van de back-upgegevens van de *faseringslocatie* naar de SATA stations wordt uitgevoerd. Zorg ervoor dat Bitlocker is ingeschakeld op de *kopie*.
 
 ## <a name="workflow"></a>Werkstroom

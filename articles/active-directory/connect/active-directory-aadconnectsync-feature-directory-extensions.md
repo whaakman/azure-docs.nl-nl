@@ -2,10 +2,10 @@
 title: 'Azure AD Connect-synchronisatie: Directory uitbreidingen | Microsoft Docs'
 description: In dit onderwerp beschrijft de functie van de extensies directory in Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4430f445a836f4baa90511c71bb734eda8674249
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dda35e63c209951547a667c46639dc0f37c87b43
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593629"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synchronisatie: Directory-uitbreidingen
 Directory-uitbreidingen kunt u het schema in Azure Active Directory (Azure AD) uit te breiden met uw eigen kenmerken van lokale Active Directory. Deze functie kunt u LOB-apps bouwen door kenmerken die u voor het beheren van lokale blijven gebruiken. Deze kenmerken kunnen worden gebruikt via [directory-Azure AD Graph API-uitbreidingen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) of [Microsoft Graph](https://graph.microsoft.io/). U kunt de beschikbare kenmerken zien met behulp van [Explorer van Azure AD Graph](https://graphexplorer.azurewebsites.net/) en [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)respectievelijk.
@@ -56,7 +58,7 @@ Deze kenmerken zijn nu beschikbaar via de Azure AD Graph API. U kunt deze query 
 Of u kunt de kenmerken via de Microsoft Graph-API met behulp van een query [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer#).
 
 >[!NOTE]
-> U moet vragen van de kenmerken die moeten worden geretourneerd. Selecteer expliciet de kenmerken die u als volgt: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
+> U moet vragen van de kenmerken die moeten worden geretourneerd. Selecteer expliciet de kenmerken die u als volgt: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > Zie voor meer informatie [Microsoft Graph: gebruik queryparameters](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
 

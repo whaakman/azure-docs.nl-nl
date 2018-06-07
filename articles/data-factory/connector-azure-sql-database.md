@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0503b355089fe6bbcc7632ac93fd21e71f268032
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bdff5b188653704cca51f70ab24a32e13f522a66
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615985"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -579,7 +580,7 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database, worden de volgende t
 | Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |Double |
+| Float |dubbele |
 | Afbeelding |Byte[] |
 | int |Int32 |
 | Money |Decimale |
@@ -593,7 +594,7 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database, worden de volgende t
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |
-| Tekst |Tekenreeks, Char] |
+| tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |
 | tijdstempel |Byte[] |
 | tinyint |Byte |

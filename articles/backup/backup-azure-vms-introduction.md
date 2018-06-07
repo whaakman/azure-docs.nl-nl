@@ -1,25 +1,20 @@
 ---
-title: Planning van uw back-upinfrastructuur VM in Azure | Microsoft Docs
+title: Planning van uw back-upinfrastructuur VM in Azure
 description: Belangrijke overwegingen bij het plannen van de back-up van virtuele machines in Azure
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: back-up van virtuele machines, back-up van virtuele machines
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk;sogup
-ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: markgal
+ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606083"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>De infrastructuur voor back-ups van virtuele Azure-machines plannen
 In dit artikel biedt de prestaties en suggesties voor het plannen van uw back-upinfrastructuur VM resource. Definieert ook belangrijke aspecten van de Backup-service; deze aspecten kunnen essentieel bij het bepalen van uw architectuur zijn capaciteitsplanning en planning. Als u hebt [uw omgeving voorbereid](backup-azure-arm-vms-prepare.md), is de volgende stap plannen voordat u begint met [back-up van virtuele machines](backup-azure-arm-vms.md). Als u meer informatie over virtuele machines in Azure nodig hebt, raadpleegt u de [documentatie Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -27,7 +22,7 @@ In dit artikel biedt de prestaties en suggesties voor het plannen van uw back-up
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Hoe biedt Azure back-up van virtuele machines?
 Wanneer de Azure Backup-service initieert een back-uptaak op het geplande tijdstip, de triggers service de Backup-extensie de momentopname van een punt in tijd. De Azure Backup-service wordt gebruikt de _VMSnapshot_ de extensie in Windows, en de _VMSnapshotLinux_ extensie in Linux. De uitbreiding wordt geïnstalleerd tijdens de eerste VM back-up. Voor het installeren van de uitbreiding voor moet de virtuele machine worden uitgevoerd. Als de VM niet actief is, wordt met de Backup-service een momentopname gemaakt van de onderliggende opslag (aangezien er geen schrijfbewerkingen van toepassingen plaatsvinden als de VM is gestopt).
 
-Wanneer een momentopname maken van VM's van Windows, coördineert de Backup-service met de Volume Shadow Copy Service (VSS) om op te halen van een consistente momentopname van de schijven van de virtuele machine. Als u een back-up van Linux VM's, kunt u uw eigen aangepaste scripts consistentie bij het maken van een VM-momentopname schrijven. Verderop in dit artikel vindt u meer informatie over het aanroepen van deze scripts.
+Wanneer er een momentopname van virtuele Windows-machines wordt gemaakt, werkt de Backup-service samen met de Volume Shadow Copy Service (VSS) om een consistente momentopname van de schijven van de virtuele machine op te halen. Als u een back-up van Linux VM's, kunt u uw eigen aangepaste scripts consistentie bij het maken van een VM-momentopname schrijven. Verderop in dit artikel vindt u meer informatie over het aanroepen van deze scripts.
 
 Nadat de momentopname is gemaakt met de Azure Backup-service, worden de gegevens overgedragen naar de kluis. Voor maximale efficiëntie wordt met de service geïdentificeerd welke gegevensblokken sinds de vorige back-up zijn gewijzigd. Alleen deze worden vervolgens overgedragen.
 
@@ -119,7 +114,7 @@ We raden na deze procedures bij het configureren van de back-ups voor virtuele m
 * VM-back-ups plannen tijdens daluren. IOPS op deze manier de Backup-service gebruikt voor het overdragen van gegevens van het opslagaccount van de klant naar de kluis.
 * Zorg ervoor dat er een beleid wordt toegepast op virtuele machines die zijn verdeeld over verschillende opslagaccounts. We raden niet meer dan 20 totaal aantal schijven van een enkele storage-account worden beveiligd door dezelfde back-upschema. Als u meer dan 20 schijven in een opslagaccount hebt, moet u deze VMs verdeeld over meerdere beleidsregels voor het ophalen van het vereiste aantal IOPS dat tijdens de fase van de overdracht van het back-upproces.
 * Een virtuele machine uitgevoerd op de Premium-opslag hetzelfde opslagaccount niet terugzetten. Als u het herstelproces bewerking samenvalt met de back-upbewerking, vermindert het aantal IOPS dat beschikbaar is voor back-up.
-* Premium VM back-up, zorg ervoor dat dit opslagaccount of premium-schijven voor hosts is ten minste 50% vrije ruimte voor het Faseren van momentopname voor een goede back-up. 
+* Premium VM back-up op VM-back-stack V1, wordt aangeraden slechts 50% van de totale opslagruimte voor de account toe te wijzen zodat Azure Backup-service de momentopname naar de storage-account en overdracht gegevens vanaf deze locatie gekopieerd in opslagaccount naar de kluis kopiëren kan.
 * Zorg ervoor dat python-versie op de virtuele Linux-machines ingeschakeld voor back-up 2.7 is
 
 ## <a name="data-encryption"></a>Gegevensversleuteling
@@ -149,7 +144,7 @@ Facturering voor een opgegeven virtuele machine stopt alleen als de beveiliging 
 Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [stuur ons dan uw feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Back-up van virtuele machines](backup-azure-arm-vms.md)
+* [Back-up maken van virtuele machines](backup-azure-arm-vms.md)
 * [Back-up van virtuele machine beheren](backup-azure-manage-vms.md)
 * [Virtuele machines herstellen](backup-azure-arm-restore-vms.md)
 * [VM-back-problemen](backup-azure-vms-troubleshoot.md)

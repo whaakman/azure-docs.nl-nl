@@ -1,29 +1,27 @@
 ---
-title: Azure Data Lake Analytics beheren met behulp van de Azure portal | Microsoft Docs
-description: Informatie over het beheren van Data Lake Analytics acounts, gegevensbronnen, gebruikers en taken.
+title: Azure Data Lake Analytics beheren met behulp van de Azure-portal
+description: In dit artikel wordt beschreven hoe de Azure portal gebruiken voor het beheren van Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 99b638279b38ce3b583208ec0b80617f9046a6d7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+manager: kfile
+editor: jasonwhowell
+ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 1ccd4dd6b8d4ee15b7d9f14e7436ccd87392121e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623703"
 ---
-# <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Azure Data Lake Analytics beheren met behulp van de Azure-portal
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Data Lake Analytics met Azure portal beheren
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Informatie over het beheren van Azure Data Lake Analytics-accounts, gegevensbronnen account, gebruikers en -taken via de Azure-portal. Klik op een tabblad boven aan de pagina overzicht management onderwerpen over het gebruik van andere hulpprogramma's.
+Dit artikel wordt beschreven hoe u Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken beheren via de Azure-portal.
+
 
 <!-- ################################ -->
 <!-- ################################ -->

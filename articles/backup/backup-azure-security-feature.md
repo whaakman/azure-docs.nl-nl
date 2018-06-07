@@ -1,24 +1,19 @@
 ---
-title: Beveiligingsfuncties die beschermen hybride back-ups die gebruikmaken van Azure Backup | Microsoft Docs
+title: Beveiligingsfuncties die beschermen hybride back-ups die gebruikmaken van Azure Backup
 description: Informatie over het gebruik van beveiligingsfuncties in Azure Backup back-ups om veiliger te maken
 services: backup
-documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: ''
-ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 11483cd87600ef8b10c2c7492e2434b9ab97149e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606202"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Beveiligingsfuncties die beschermen hybride back-ups die gebruikmaken van Azure Backup
 Opmerkingen over beveiligingsproblemen, zoals malware, ransomware en inbraakdetectie, meer. Deze beveiligingsproblemen kunnen kostbare in termen van gegevens en geld zijn. Azure Backup biedt nu beveiligingsfuncties ter bescherming van back-ups hybride als bescherming tegen dergelijke aanvallen. In dit artikel bevat informatie over het inschakelen en gebruiken van deze functies met behulp van een Azure Recovery Services-agent en de Azure Backup-Server. Deze functies:

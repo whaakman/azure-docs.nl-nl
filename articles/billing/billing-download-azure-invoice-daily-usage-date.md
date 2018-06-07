@@ -2,13 +2,12 @@
 title: Azure-facturering facturen en dagelijks gebruiksgegevens downloaden | Microsoft Docs
 description: Beschrijft hoe downloaden of weergeven van uw Azure facturen en dagelijks gebruik factureringsgegevens.
 keywords: factuur, factuur downloaden, azure factuur, azure gebruik
-services: ''
+services: billing
 documentationcenter: ''
 author: genlin
 manager: tonguyen
 editor: ''
 tags: billing
-ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 59ee992518b5e529f486415f962c6f26881875f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607409"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
 U kunt downloaden via uw factuur van de [Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) of wordt verzonden in e-mailbericht. Het gebruik van uw dagelijkse downloaden, gaat u naar de [Azure-Accountcentrum](https://account.azure.com/Subscriptions). Alleen bepaalde functies gemachtigd factuur en informatie over het gebruik, zoals de accountbeheerder. Zie voor meer informatie over het verkrijgen van toegang tot factureringsgegevens, [beheren van toegang tot Azure-facturering rollen](billing-manage-access.md).
 
 In dit artikel geldt niet voor klanten met Enterprise Agreement (EA). Als u een EA-klant bent, worden uw facturen rechtstreeks naar de beheerders inschrijving verzonden.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Uw factuur ophalen in e-mailbericht (PDF)
 U kunt aanmelden en configureren van extra ontvangers voor het ontvangen van uw Azure factuur in een e-mailbericht. Deze functie is mogelijk niet beschikbaar voor bepaalde abonnementen zoals ondersteuning biedt, Enterprise overeenkomsten of Azure in Open.
@@ -39,13 +38,18 @@ U kunt aanmelden en configureren van extra ontvangers voor het ontvangen van uw 
     
 2. Klik op **Opt-in** en accepteer de voorwaarden.
 
-    ![Schermafbeelding van de stroom opt-in](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+    ![Schermafbeelding van de opt-in stroom stap 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
-3. Nadat u de overeenkomst hebt geaccepteerd, kunt u extra ontvangers configureren.
+3. Nadat u de overeenkomst hebt geaccepteerd, kunt u extra ontvangers configureren. Als u een ontvanger is verwijderd, wordt het e-mailadres niet meer worden opgeslagen. Als u van gedachten verandert, moet u deze opnieuw toevoegen.
 
-    ![Schermafbeelding van de stroom opt-in](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Schermafbeelding van de opt-in stroom stap 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
 Als u een e-mailbericht geen krijgt nadat de stappen hebt uitgevoerd, controleert u of uw e-mailadres klopt de [communicatievoorkeuren in uw profiel](https://account.windowsazure.com/profile).
+
+### <a name="opt-out-from-getting-your-invoice-in-email"></a>Opt-out voor toegang krijgen tot uw factuur in e-mailbericht
+Als u niet dat uw factuur ophalen in e-mailbericht wilt, klikt u op Opt uit maild facturen. Hiermee verwijdert u e-mailadressen ingesteld op facturen via e-mail ontvangt. Als u ervoor kiezen hebt back in uw ontvangers opnieuw configureren.
+
+ ![Schermafbeelding van de stroom opt-out](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Facturen downloaden vanuit Azure-portal (PDF)
 

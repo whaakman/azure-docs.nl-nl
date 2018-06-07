@@ -1,18 +1,19 @@
 ---
 title: Connectiviteit van apparaten in Azure IoT centrale | Microsoft Docs
 description: Dit artikel bevat belangrijke concepten met betrekking tot connectiviteit van apparaten in Azure IoT centrale
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: conceptual
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: 00b621a4635ef1ceda26772ac5876fa2599b56f8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dc9fe144c2258f33ce59c61ce63c15835cc3fa53
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628331"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT centrale
 
@@ -49,7 +50,7 @@ De volgende tabel ziet u hoe Azure IoT centrale apparaatfuncties toegewezen door
 
 Zie voor meer informatie over het gebruik van de apparaat-SDK's, een van de volgende artikelen bijvoorbeeld code:
 
-- [Een algemene Node.js-client verbindt met uw Azure IoT centrale toepassing](howto-connect-nodejs.md)
+- [Een generieke Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)
 - [Een frambozen Pi apparaat aansluit op uw Azure IoT centrale toepassing](howto-connect-raspberry-pi-python.md)
 - [Een DevDiv kit apparaat aansluit op uw Azure IoT centrale toepassing](howto-connect-devkit.md).
 
@@ -81,5 +82,5 @@ Alle gegevens die worden uitgewisseld tussen apparaten en uw Azure IoT centrale 
 U hebt geleerd over connectiviteit van apparaten in Azure IoT centraal, vindt hier u de voorgestelde volgende stappen uit:
 
 - [Bereid en verbinding maken met een apparaat DevKit](howto-connect-devkit.md)
-- [Bereid en verbinding maken met een Pi frambozen](howto-connect-raspberry-pi-python.md)
-- [Een algemene Node.js-client verbindt met uw Azure IoT centrale toepassing](howto-connect-nodejs.md)
+- [Raspberry Pi voorbereiden en verbinden](howto-connect-raspberry-pi-python.md)
+- [Een generieke Node.js-client verbinden met uw Azure IoT Central-toepassing](howto-connect-nodejs.md)

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 3c01a31eae2b90ecb54cbfba7f565fd140db3773
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608947"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Het oplossen van problemen & beperkingen van Azure Cloud Shell
 
@@ -43,11 +44,6 @@ Bekende oplossingen voor het oplossen van problemen in de Azure-Cloud-Shell zijn
  - **Resolutie**: Controleer u de netwerkinstellingen zodat verzenden https-aanvragen en websocket-aanvragen voor domeinen op hebt geconfigureerd *. console.azure.com.
 
 ## <a name="bash-troubleshooting"></a>Bash probleemoplossing
-
-### <a name="cannot-run-az-login"></a>Az aanmelding kan niet worden uitgevoerd.
-
-- **Details**: uitgevoerd `az login` werkt niet als u al onder het account dat wordt gebruikt voor aanmelding bij Cloud-Shell of Azure portal zijn geverifieerd.
-- **Resolutie**: gebruikmaken van je account aanmelden of afmelden en verifiëren met uw Azure-account van de beoogde gebruikt.
 
 ### <a name="cannot-run-the-docker-daemon"></a>De docker-daemon kan niet worden uitgevoerd.
 

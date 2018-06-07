@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6052dae1321e8ac8238ec2994886de30db27551e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0149b15fdfbd9fd7a3c9f9c099db9d505d27d1c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623057"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Verplaatsen van gegevens uit SAP HANA, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,7 +83,7 @@ Wanneer u de gegevensbron in de kopieerbewerking is van het type **RelationalSou
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| query | Hiermee geeft u de SQL-query voor het lezen van gegevens uit de SAP HANA-exemplaar. | SQL query. | Ja |
+| query | Hiermee geeft u de SQL-query voor het lezen van gegevens uit de SAP HANA-exemplaar. | SQL-query. | Ja |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON-voorbeeld: gegevens kopiëren van SAP HANA naar Azure Blob
 Het volgende voorbeeld bevat definities van de voorbeeld-JSON die u een pijplijn maken kunt met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Dit voorbeeld laat zien hoe gegevens kopiëren van een lokale SAP HANA naar een Azure Blob Storage. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** vermeld met een van de PUT [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.  
@@ -288,14 +289,14 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-ECHTE | Single
-DOUBLE | Single
-DECIMAL | Decimale
+ECHTE | Enkelvoudig
+DOUBLE | Enkelvoudig
+DECIMALE | Decimale
 BOOLEAANSE WAARDE | Byte
-VARCHAR | Tekenreeks
-NVARCHAR | Tekenreeks
+VARCHAR | Reeks
+NVARCHAR | Reeks
 CLOB | Byte[]
-ALPHANUM | Tekenreeks
+ALPHANUM | Reeks
 BLOB | Byte[]
 DATE | DateTime
 TIJD | TimeSpan

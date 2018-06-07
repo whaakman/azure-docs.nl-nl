@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 74bc28619996b7cd52d2280d4d8b6288aa7c904f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 280b1340c094a89ad5980178947045b707128807
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595016"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Zelfstudie: Een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Sleutelkluis 
 
@@ -134,12 +135,12 @@ Deze stappen uit te voeren, moet u een SSH-client.  Als u van Windows gebruikmaa
     
 Zodra u het geheim hebt opgehaald uit de Sleutelkluis, kunt u deze kunt gebruiken voor verificatie bij een service waarvoor een gebruikersnaam en wachtwoord.
 
+## <a name="next-steps"></a>Volgende stappen
 
-## <a name="related-content"></a>Gerelateerde inhoud
+In deze zelfstudie hebt u geleerd hoe op een beheerde Service-identiteit op een virtuele Linux-machine voor toegang tot Azure Sleutelkluis.  Zie voor meer informatie over Azure Sleutelkluis:
 
-- Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](overview.md).
-
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.
+> [!div class="nextstepaction"]
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)
 
 
 

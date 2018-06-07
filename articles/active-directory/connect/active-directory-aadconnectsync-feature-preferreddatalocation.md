@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5eae173e02c92bd43faaa9533ce29489d40f1389
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592922"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: locatie van de gewenste gegevens voor Office 365-bronnen configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het configureren van het kenmerk voor de gegevenslocatie van de gewenste in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand Multi-Geo-mogelijkheden in Office 365 gebruikt, kunt u dit kenmerk gebruiken om aan te wijzen de geografische locatie van de Office 365-gegevens van de gebruiker. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
@@ -135,7 +137,7 @@ De synchronisatieregel voor binnenkomende kan de waarde van het kenmerk van het 
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    |Direct | PreferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
+    |Rechtstreeks | PreferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
 
 7. Voor het maken van de binnenkomende regel selecteert **toevoegen**.
 
@@ -172,7 +174,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk vanu
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Direct | PreferredDataLocation | PreferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
+    | Rechtstreeks | PreferredDataLocation | PreferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
 
 7. Sluit **toevoegen** de uitgaande regel maken.
 

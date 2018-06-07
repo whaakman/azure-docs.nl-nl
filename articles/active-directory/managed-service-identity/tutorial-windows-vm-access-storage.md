@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7bdbee064e6acdd3d1ef95879b98daa43fdb230
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 9bfaf7f4fa4b7778650638b3b4670e29906838a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594778"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Zelfstudie: Een Windows VM beheerde Service-identiteit gebruiken voor toegang tot Azure Storage via toegangssleutel
 
@@ -195,15 +196,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
+## <a name="next-steps"></a>Volgende stappen
 
-## <a name="related-content"></a>Gerelateerde inhoud
+In deze zelfstudie hebt u geleerd het maken van een Service-identiteit beheerd voor toegang tot Azure Storage met een toegangssleutel.  Zie voor meer informatie over Azure Storage toegangstoetsen:
 
-- Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](overview.md).
-- Zie voor meer informatie over hoe u doet dit dezelfde zelfstudie gebruik van een SAS-referentie van opslag, [gebruiken van een Windows VM beheerde Service-identiteit voor toegang tot Azure Storage via een SAS-referentie](tutorial-windows-vm-access-storage-sas.md)
-- Zie voor meer informatie over de SAS-functie van Azure Storage-account:
-  - [Met behulp van handtekeningen voor gedeelde toegang (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Maken van een Service-SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
-
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm
-
+> [!div class="nextstepaction"]
+>[Beheren van uw toegangssleutels voor opslag](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

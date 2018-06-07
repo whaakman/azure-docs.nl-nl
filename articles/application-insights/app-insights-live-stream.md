@@ -11,15 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/24/2018
 ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: 3b17344af099ea8b5d2554d5f6045a10641ff861
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 352fff53d9e35ddd8d8e0c107e969357d9c766b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599232"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Livestream metrische gegevens: De Monitor & spoor met een latentie van 1 seconde 
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Livestream metrische gegevens: De Monitor & spoor met een latentie van 1 seconde
 
 Test de kern kloppen in de race van uw live, in productie-webtoepassing met behulp van livestream metrische gegevens van [Application Insights](app-insights-overview.md). Selecteer en filteren van de prestatiemeteritems voor metrieken als bekijkt in real-time, zonder eventuele storingen van uw service. Inspecteer de stack-traces van voorbeeld kan aanvragen en uitzonderingen. Samen met [Profiler](app-insights-profiler.md), [momentopname foutopsporingsprogramma](app-insights-snapshot-debugger.md), en [prestatietests](app-insights-monitor-web-app-availability.md#performance-tests), metrische gegevens livestream biedt een krachtige en niet-Invasief diagnostisch hulpprogramma van uw live web site.
 
@@ -34,8 +35,6 @@ U kunt met livestream metrische gegevens:
 * Een server die problemen en filter die alle de KPI/live feed met alleen die server gemakkelijk herkennen.
 
 [![Live video van de gegevensstroom van de metrische](./media/app-insights-live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
-
-Metrische gegevens livestream is momenteel beschikbaar op de lokale met ASP.NET-apps of in de Cloud. 
 
 ## <a name="get-started"></a>Aan de slag
 

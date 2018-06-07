@@ -4,7 +4,7 @@ description: Stapsgewijze instructies over het implementeren van de Cloud Foundr
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608998"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Azure Log Analytics pijp implementeren voor het bewaken van de Cloud Foundry-systeem
 
@@ -55,9 +56,9 @@ Voordat u de client voor de opdrachtregel UAA instelt, zorg ervoor dat de Rubyge
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Maken van een werkruimte voor logboekanalyse in Azure
 
-U kunt de werkruimte voor logboekanalyse handmatig of met behulp van een sjabloon maken. De vooraf geconfigureerde OMS-weergaven en waarschuwingen nadat u de implementatie van de pijp worden geladen.
+U kunt de werkruimte voor logboekanalyse handmatig of met behulp van een sjabloon maken. De sjabloon implementeert een installatie van de vooraf geconfigureerde OMS KPI weergaven en waarschuwingen voor de OMS-console. 
 
-De werkruimte handmatig maken:
+#### <a name="to-create-the-workspace-manually"></a>De werkruimte handmatig maken:
 
 1. In de Azure portal zoeken in de lijst van services in Azure Marketplace en selecteer vervolgens logboekanalyse.
 2. Selecteer **maken**, en selecteer vervolgens de opties voor de volgende items:
@@ -70,7 +71,22 @@ De werkruimte handmatig maken:
 
 Zie voor meer informatie [aan de slag met logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-U kunt ook de werkruimte voor logboekanalyse via de OMS-sjabloon maken. Met deze methode, de sjabloon de vooraf geconfigureerde OMS-weergaven en waarschuwingen automatisch geladen. Zie voor meer informatie de [Azure Log Analytics-oplossing voor Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>De OMS-werkruimte via de OMS monitoring-sjabloon maken van Azure-marktplaats:
+
+1. Azure portal openen.
+2. Klik op het teken '+' of 'Een resource maken' in de linkerbovenhoek.
+3. 'Cloud Foundry' typt in het zoekvenster, selecteert u 'OMS Foundry bewaking Cloudoplossing'.
+4. De OMS Cloud Foundry bewaking oplossing sjabloon voorpagina is geladen, klikt u op 'Maken' in de blade sjabloon starten.
+5. Geef de vereiste parameters:
+    * **Abonnement**: Selecteer een Azure-abonnement voor de OMS-werkruimte, meestal hetzelfde met Cloud Foundry-implementatie.
+    * **Resourcegroep**: Selecteer een bestaande resourcegroep of maak een nieuwe voor de OMS-werkruimte.
+    * **Locatie van resourcegroep**: Selecteer de locatie van de resourcegroep.
+    * **OMS_Workspace_Name**: Voer de naam van een werkruimte als de werkruimte niet bestaat, de sjabloon een nieuwe maakt.
+    * **OMS_Workspace_Region**: Selecteer de locatie voor de werkruimte.
+    * **OMS_Workspace_Pricing_Tier**: Selecteer de OMS-werkruimte SKU. Zie de [richtlijnen prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) ter referentie.
+    * **Juridische voorwaarden**: klik op juridische voorwaarden, klik vervolgens op 'Maken' om de juridische voorwaarden te accepteren.
+- Nadat alle parameters zijn opgegeven, klikt u op 'Maken' als de sjabloon wilt implementeren. Als de implementatie is voltooid, wordt de status op het tabblad melding weergegeven.
+
 
 ## <a name="deploy-the-nozzle"></a>De pijp implementeren
 
@@ -78,9 +94,9 @@ Er zijn een aantal verschillende manieren voor het implementeren van de pijp: al
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>De pijp implementeren als een tegel PCF Ops Manager
 
-Als u PCF hebt geïmplementeerd met behulp van Ops Manager, volgt u de stappen voor het [installeren en configureren van de pijp voor PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). De pijp wordt geïnstalleerd als een tegel met Operations Manager.
+Volg de stappen voor [installeren en configureren van de pijp Azure Log Analytics voor PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Dit is de vereenvoudigde benadering, de PCF Ops manager-tegel wordt automatisch configureren en de pijp push. 
 
-### <a name="deploy-the-nozzle-as-a-cf-application"></a>De pijp implementeren als een toepassing CF
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>De pijp handmatig implementeren als een toepassing CF
 
 Als u geen PCF Ops Manager gebruikt, moet u de pijp implementeren als een toepassing. De volgende secties beschrijven dit proces.
 
@@ -163,6 +179,10 @@ Zorg ervoor dat de pijp OMS-toepassing wordt uitgevoerd.
 
 ## <a name="view-the-data-in-the-oms-portal"></a>De gegevens weergeven in de OMS-portal
 
+Als u de OMS bewakingsoplossing via hebt geïmplementeerd wordt de sjabloon marktplaats, Ga naar Azure-portal en de OMS-oplossing bevinden. U vindt de oplossing in de resourcegroep die u hebt opgegeven in de sjabloon. Klik op de oplossing, blader naar de 'OMS Console', de vooraf geconfigureerde weergaven worden weergegeven, met de hoogste Cloud Foundry system KPI's, toepassingsgegevens, waarschuwingen en VM health metrische gegevens. 
+
+Als u de OMS-werkruimte handmatig hebt gemaakt, voert u de onderstaande stappen voor het maken van de weergaven en waarschuwingen:
+
 ### <a name="1-import-the-oms-view"></a>1. Importeer de OMS-weergave
 
 Vanuit de OMS-portal bladert u naar **ontwerper** > **importeren** > **Bladeren**, en selecteer een van de omsview-bestanden. Selecteer bijvoorbeeld *Cloud Foundry.omsview*, en de weergave op te slaan. Nu u een tegel wordt weergegeven op de **overzicht** pagina. Selecteer het gevisualiseerde metrische gegevens te verzamelen.
@@ -181,7 +201,7 @@ U kunt [maken van de waarschuwingen](https://docs.microsoft.com/azure/log-analyt
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Aantal resultaten > 0   | Voor Diego cellen 0 betekent in orde en 1 betekent dat niet in orde. Stel de waarschuwing als meerdere slecht Diego cellen worden gedetecteerd in de opgegeven periode. |
 | Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Aantal resultaten > 0 | 1 betekent dat het systeem in orde is en 0 betekent dat het systeem is niet in orde. |
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Aantal resultaten > 0   | Ge verzendt periodiek de status. 0 betekent dat het systeem is in orde en 1 betekent dat de zender route detecteert dat ge niet actief is. |
-| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Aantal resultaten > 0 | De delta aantal berichten opzettelijk verwijderd door Doppler vanwege een zware belasting op het vorige. |
+| Type = CF_CounterEvent_CL Origin_s Delta_d DopplerServer (Name_s="TruncatingBuffer.DroppedMessages' of Name_s="doppler.shedEnvelopes') = > 0 | Aantal resultaten > 0 | De delta aantal berichten opzettelijk verwijderd door Doppler vanwege een zware belasting op het vorige. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Aantal resultaten > 0   | Loggregator verzendt **LGR** om aan te duiden op problemen met het registratieproces. Een voorbeeld van een dergelijk probleem is wanneer de uitvoer van het bericht te hoog is. |
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Aantal resultaten > 0   | Wanneer de pijp wordt een waarschuwing trage consumer van loggregator ontvangt, stuurt de **slowConsumerAlert** ValueMetric met logboekanalyse. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Aantal resultaten > 0   | Als de delta-aantal gebeurtenissen dat verloren een drempel bereikt, betekent dit dat de pijp mogelijk een probleem dat wordt uitgevoerd. |
@@ -226,6 +246,6 @@ Azure Log Analytics pijp is brongegevens geopend. Uw vragen en feedback verzende
 
 ## <a name="next-step"></a>Volgende stap
 
-Naast de Cloud Foundry metrische gegevens die in de pijp worden behandeld en kunt u de OMS-agent inzicht in de operationele gegevens van de VM-niveau (zoals Syslog, prestaties, waarschuwingen, inventarisatie). De OMS-agent wordt geïnstalleerd als een invoegtoepassing Bosh voor uw CF virtuele machines.
+Maatstaven voor prestaties van virtuele machine zijn van PCF2.0, verzonden naar Azure log analytics pijp door systeem metrische gegevens doorstuurserver en geïntegreerd in de OMS-werkruimte. U hoeft niet meer de OMS-agent voor de prestatiegegevens van de virtuele machine. U kunt echter nog steeds de OMS-agent gebruiken om Syslog-informatie te verzamelen. De OMS-agent wordt geïnstalleerd als een invoegtoepassing Bosh voor uw CF virtuele machines. 
 
 Zie voor meer informatie [implementeren OMS-agent voor uw implementatie Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).

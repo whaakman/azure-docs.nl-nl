@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 095356e76dc72c3e549c23ab3855962e9c2f1d26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 1186776742562566be893c411a642d2feb819a86
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603941"
 ---
 # <a name="azure-stack-1803-update"></a>Azure-Stack 1803 update
 
@@ -56,7 +57,7 @@ Het buildnummer van Azure Stack 1803 update **20180329.1**.
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
 - Na de installatie van 1803 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).
 
-  - [KB 4103348 - API van de netwerkcontroller-service vastloopt wanneer u probeert een Azure-Stack-update te installeren](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441 - bewerkingen op de tenant resources mislukken en onverwachte shares worden gemaakt op de dezelfde tenant of het volume van de infrastructuur](https://support.microsoft.com/en-us/help/4294441)
 
 - Nadat deze update is geïnstalleerd, Controleer de firewallconfiguratie van uw om ervoor te zorgen [nodig poorten](azure-stack-integrate-endpoints.md) zijn geopend. Deze update introduceert bijvoorbeeld Azure-Monitor die een wijziging van controlelogboeken voor activiteitenlogboeken bevat. Met deze wijziging wordt poort 13012 wordt nu gebruikt en moet ook zijn geopend.  
 
@@ -110,6 +111,9 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2**.
 
 #### <a name="portal"></a>Portal
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Tijdelijke oplossing: Los dit probleem nadat u deze update installeert, gebruikt u stap 3 van de [Trigger automation voor het configureren van een claimprovider in Azure-Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure opnieuw instellen van de eigenaar van het standaard provider-abonnement.   
+
 - De mogelijkheid [een nieuwe ondersteuningsaanvraag openen vanuit de vervolgkeuzelijst](azure-stack-manage-portals.md#quick-access-to-help-and-support) uit binnen de beheerder van de portal is niet beschikbaar. Gebruik in plaats daarvan de volgende koppeling:     
     - Gebruik voor Azure-Stack geïntegreerde systemen https://aka.ms/newsupportrequest.
 
@@ -131,7 +135,23 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
   Deze waarschuwing kan worden genegeerd. 
 
 
-<!-- #### Health and monitoring --> 
+#### <a name="health-and-monitoring"></a>Status en bewaking
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Waarschuwing #1:
+   - NAAM: De functie van de infrastructuur is slecht
+   - ERNST: waarschuwing
+   - ONDERDEEL: Health-domeincontroller
+   - Beschrijving: De health-domeincontroller Heartbeat-Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.  
+
+  Waarschuwing #2:
+   - NAAM: De functie van de infrastructuur is slecht
+   - ERNST: waarschuwing
+   - ONDERDEEL: Health-domeincontroller
+   - Beschrijving: De health-domeincontroller veroorzaakt Scanner is niet beschikbaar. Dit kan beïnvloeden statusrapporten en metrische gegevens.
+
+  Beide waarschuwingen kunnen worden genegeerd. Ze worden automatisch gesloten na verloop van tijd.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Gebruikers de volledige marketplace zonder een abonnement kunnen bladeren en beheeritems zoals plannen en aanbiedingen kunnen zien. Deze items zijn niet-functioneel voor gebruikers.
@@ -143,7 +163,7 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
 
 - Bij het maken van een beschikbaarheidsset in de portal door te gaan naar **nieuw** > **Compute** > **beschikbaarheidsset**, kunt u alleen maken een beschikbaarheidsset met een domein met fouten en het updatedomein van 1. Als tijdelijke oplossing bij het maken van een nieuwe virtuele machine, maakt u de beschikbaarheidsset met behulp van PowerShell, CLI of vanuit de portal.
 
-- Wanneer u virtuele machines op de gebruikersportal van Azure-Stack maakt, wordt een onjuist aantal gegevensschijven dat aan een DS-serie VM koppelen kunt in de portal weergegeven. DS-serie VMs aankan zo veel gegevensschijven als de configuratie van de Azure.
+- Wanneer u virtuele machines op de gebruikersportal van Azure-Stack maakt, wordt een onjuist aantal gegevensschijven dat aan een virtuele machine van de D-reeks koppelen kunt weergegeven in de portal. Alle ondersteunde D-reeks VMs aankan zo veel gegevensschijven als de configuratie van de Azure.
 
 - Wanneer een installatiekopie van een virtuele machine niet kan worden gemaakt, kan een mislukte item dat u niet verwijderen, worden toegevoegd aan de VM-installatiekopieën compute-blade.
 
@@ -264,6 +284,8 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Hulpprogramma's voor Azure Stack downloaden vanuit GitHub
 - Wanneer u de *aanroepen webrequest* PowerShell-cmdlet voor het downloaden van de Azure-Stack van hulpprogramma's voor vanuit Github, er een foutbericht:     

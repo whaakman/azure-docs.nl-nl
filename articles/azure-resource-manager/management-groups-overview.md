@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604740"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Breng uw resources met Azure-beheergroepen 
 
@@ -69,7 +70,7 @@ Elke directory is een enkel op het hoogste niveau beheergroep met de naam van de
 
 Biedt ondersteuning voor Azure beheergroepen [gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) voor alle toegang tot een resource en roldefinities. Deze machtigingen worden overgenomen voor de onderliggende resources die zijn opgenomen in de hiërarchie.   
 
-Tijdens een [ingebouwde RBAC-rol](../role-based-access-control/overview.md#built-in-roles) kunnen worden toegewezen aan een beheergroep zijn vier rollen die vaak worden gebruikt: 
+Tijdens een [ingebouwde RBAC-rol](../role-based-access-control/built-in-roles.md) kunnen worden toegewezen aan een beheergroep zijn vier rollen die vaak worden gebruikt: 
 - **Eigenaar** heeft volledige toegang tot alle bronnen, waaronder het recht op toegang aan anderen delegeren. 
 - **Inzender** kunt maken en beheren van alle soorten Azure-resources, maar kan geen toegang tot de overige verlenen.
 - **Resource beleid Inzender** kunt maken en beheren van beleid in de map op de bronnen.     

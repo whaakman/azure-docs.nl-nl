@@ -1,29 +1,24 @@
 ---
-title: Ontwikkelen van U-SQL-gebruiker gedefinieerde operators (UDO's) | Microsoft Docs
-description: 'Informatie over het ontwikkelen van de gebruiker gedefinieerde operators moeten worden gebruikt en hergebruikt in Data Lake Analytics-taken. '
+title: Ontwikkelen van U-SQL gebruiker gedefinieerde operators (UDO's) in Azure Data Lake Analytics
+description: Informatie over het ontwikkelen van de gebruiker gedefinieerde operators moeten worden gebruikt en opnieuw worden gebruikt in Azure Data Lake Analytics-taken.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+manager: kfile
+editor: jasonwhowell
+ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 8d8937a6132f770e989d7595883b2c5cf804c44f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623852"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Ontwikkelen van U-SQL-gebruiker gedefinieerde operators (UDO's)
-Informatie over het ontwikkelen van de gebruiker gedefinieerde operators voor het verwerken van gegevens in een U-SQL-taak.
-
-Zie voor instructies over het ontwikkelen van algemene assembly's voor de U-SQL [ontwikkelen van U-SQL-assembly's voor Azure Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-assemblies.md)
+Dit artikel wordt beschreven hoe u voor het ontwikkelen van de gebruiker gedefinieerde operators voor het verwerken van gegevens in een U-SQL-taak.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definieer en het gebruik van een gebruiker gedefinieerde operator in U-SQL
 **Maken en verzenden van een U-SQL-taak**

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: damaerte
-ms.openlocfilehash: 209ca603a3826c6516444ea4f3f4fe592e3b3f2e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f099c2dd9b5ab82852f86eb82fb4060321a3d419
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608794"
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Functies en hulpprogramma's voor PowerShell in Azure Cloud-Shell (Preview)
 
@@ -90,7 +91,7 @@ Deze opdrachten zijn gebouwd op PowerShell voor externe toegang en PowerShell ve
 
 |**Categorie**    |**Naam**                                 |
 |----------------|-----------------------------------------|
-|Azure-hulpprogramma 's     |[Azure PowerShell (6.0.1)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.32)](https://docs.microsoft.com/cli/azure)|
+|Azure-hulpprogramma 's     |[Azure PowerShell (6.1.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.33)](https://docs.microsoft.com/cli/azure)|
 |Teksteditors    |VIM<br> nano                             |
 |Pakketbeheer |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Resourcebeheer  |GIT                                      |

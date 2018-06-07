@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f54f0fb16838b245ac09c08c7afd9e6a53449afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594224"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: filtering configureren
 U gebruikt voor het filteren, kunt u bepalen welke objecten worden weergegeven in Azure Active Directory (Azure AD) van uw on-premises directory. De standaardconfiguratie wordt van alle objecten in alle domeinen in de geconfigureerde forests. Dit is in het algemeen zijn de aanbevolen configuratie. Gebruikers met behulp van Office 365-werkbelastingen, zoals Exchange Online en Skype voor bedrijven profiteren van een volledige lijst met globale adressen zodat ze kunnen e-mail verzenden en iedereen. Met de standaardconfiguratie hebben ze dezelfde ervaring die ze met een lokale implementatie van Exchange- of Lync hebben zou.
@@ -33,7 +35,7 @@ In sommige gevallen echter je vereist een aantal wijzigingen aanbrengen in de st
 In dit artikel bevat informatie over het configureren van de verschillende methoden voor filteren.
 
 > [!IMPORTANT]
-> Microsoft biedt geen ondersteuning te wijzigen of het besturingssysteem van Azure AD Connect-synchronisatie buiten de acties die formeel zijn gedocumenteerd. Een van deze acties kan leiden tot een inconsistente of niet-ondersteunde status van Azure AD Connect-synchronisatie. Microsoft kan niet als gevolg hiervan technische ondersteuning bieden voor dergelijke implementaties.
+> Microsoft biedt geen ondersteuning voor het wijzigen of uitvoeren van Azure AD Connect-synchronisatie anders dan op de manier die officieel is gedocumenteerd. Alle andere acties kunnen resulteren in een inconsistente of niet-ondersteunde status van de Azure AD Connect-synchronisatie. Daarom biedt Microsoft geen technische ondersteuning voor dergelijke implementaties.
 
 ## <a name="basics-and-important-notes"></a>Basisbeginselen en belangrijke opmerkingen
 In Azure AD Connect-synchronisatie, kunt u filteren op elk gewenst moment inschakelen. Als u met een standaardconfiguratie van directory-synchronisatie begint en filtering configureren, worden de objecten die worden gefilterd niet meer gesynchroniseerd naar Azure AD. Vanwege deze wijziging worden alle objecten in Azure AD die eerder zijn gesynchroniseerd, maar vervolgens zijn gefilterd verwijderd in Azure AD.

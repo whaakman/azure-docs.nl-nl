@@ -4,15 +4,16 @@ description: Hierin wordt beschreven hoe resourcedefinitie beleid door het belei
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f864cf45b255ac26ccf0efac9a89683d1ae650b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601255"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -63,7 +64,7 @@ De volgende JSON ziet u bijvoorbeeld een beleid dat wordt beperkt welke resource
 }
 ```
 
-Alle Azure-beleid sjabloon voorbeelden zijn op [sjablonen voor Azure beleid](json-samples.md).
+Alle Azure-beleid-voorbeelden zijn op [beleid voorbeelden](json-samples.md).
 
 ## <a name="mode"></a>Modus
 
@@ -203,7 +204,7 @@ De volgende velden worden ondersteund:
 
 - `name`
 - `fullName`
-  - Retourneert de volledige naam van de bron, met inbegrip van eventuele bovenliggende items (bijvoorbeeld ' MijnServer/MijnDatabase')
+  - Retourneert de volledige naam van de resource. De volledige naam van een bron is de naam van de resource voorafgegaan door een bovenliggende-resourcenamen (bijvoorbeeld ' MijnServer/MijnDatabase').
 - `kind`
 - `type`
 - `location`
@@ -250,6 +251,8 @@ De waarde kan niet een tekenreeks of een object van JSON-indeling.
 
 Met **AuditIfNotExists** en **DeployIfNotExists** kunt u het bestaan van gerelateerde bron evalueren en toepassen van een regel en een bijbehorende effect wanneer die resource niet bestaat. U kunt bijvoorbeeld vereisen dat een netwerk-watcher wordt geïmplementeerd voor alle virtuele netwerken.
 Zie voor een voorbeeld van het controle-wanneer de extensie van een virtuele machine niet is geïmplementeerd, [controleren als de extensie is niet opgenomen](scripts/audit-ext-not-exist.md).
+
+Zie voor meer informatie over elk effect, de volgorde van de evaluatie, eigenschappen en voorbeelden [Understanding beleid effecten](policy-effects.md).
 
 ## <a name="aliases"></a>Aliassen
 
@@ -391,4 +394,4 @@ Het volgende voorbeeld wordt het maken van een initiatief voor het verwerken van
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk de voorbeelden van de sjabloon Azure beleid op [sjablonen voor Azure beleid](json-samples.md).
+- Bekijk meer voorbeelden op [Azure beleid voorbeelden](json-samples.md).

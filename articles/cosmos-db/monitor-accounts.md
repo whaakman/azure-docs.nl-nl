@@ -2,24 +2,21 @@
 title: Azure DB die Cosmos-aanvragen en opslag bewaken | Microsoft Docs
 description: Informatie over het bewaken van uw Azure DB die Cosmos-account voor prestatiegegevens, zoals aanvragen en serverfouten, en meetgegevens voor softwaregebruik, zoals opslagverbruik.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: sngun
-ms.openlocfilehash: 008c47bbceeba1345c56b5171f5fbc1f8676b02c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1e5dba722f240bd6535ba64494912a153e9224c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612636"
 ---
-# <a name="monitor-azure-cosmos-db"></a>Monitor Azure Cosmos DB
+# <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB bewaken
 U kunt uw Azure DB die Cosmos-accounts in bewaken de [Azure-portal](https://portal.azure.com/). Voor elk Azure DB die Cosmos-account is een volledige reeks metrische gegevens beschikbaar zijn voor het bewaken van doorvoer, opslag, beschikbaarheid, latentie en consistentie.
 
 Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor de nieuwe pagina van de metrische gegevens of in de Azure-Monitor.

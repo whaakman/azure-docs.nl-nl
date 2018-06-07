@@ -3,10 +3,10 @@ title: Azure AD Connect - AD FS-beheer en de aanpassing | Microsoft Docs
 description: AD FS-beheer met Azure AD Connect en aanpassen van AD FS-aanmeldingspagina gebruikerservaring met Azure AD Connect en PowerShell.
 keywords: AD FS, ADFS, AD FS-beheer zijn AAD Connect, Connect, aanmelden, AD FS aanpassing, trust, O365, Federatie, relying party herstellen
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590851"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Beheren en aanpassen van Active Directory Federation Services met behulp van Azure AD Connect
 Dit artikel wordt beschreven hoe u kunt beheren en aanpassen van Active Directory Federation Services (AD FS) met behulp van Azure Active Directory (Azure AD) verbinding maken. Dit omvat ook andere algemene AD FS-taken die u moet doen voor een volledige configuratie van een AD FS-farm.
 
 | Onderwerp | Er wordt aangegeven |
 |:--- |:--- |
-| **Manage AD FS** | |
+| **Beheren van AD FS** | |
 | [Herstellen van de vertrouwensrelatie](#repairthetrust) |Klik hier voor meer informatie over het herstellen van de federatieve vertrouwensrelatie met Office 365. |
-| [Gefedereerd met Azure AD met behulp van alternatieve aanmeldings-ID](#alternateid) | Federatie met behulp van alternatieve aanmeldings-ID configureren  |
+| [Gefedereerd met Azure AD met behulp van alternatieve aanmeldings-ID ](#alternateid) | Federatie met behulp van alternatieve aanmeldings-ID configureren  |
 | [Een AD FS-server toevoegen](#addadfsserver) |Het uitbreiden van een AD FS-farm met een extra AD FS-server. |
 | [Een AD FS Web Application Proxy-server toevoegen](#addwapserver) |Het uitbreiden van een AD FS-farm met een extra Webtoepassingsproxy (WAP)-server. |
 | [Een federatieve domein toevoegen](#addfeddomain) |Het toevoegen van een federatieve domein. |
@@ -223,7 +225,7 @@ Ook met behulp van **toevoegen** en niet **probleem**, u te voorkomen dat een ui
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Deze regel definieert een tijdelijke vlag aangeroepen **idflag** die is ingesteld op **useguid** als er geen **ms-ds-consistencyguid** ingevuld voor de gebruiker. De logica achter dit is het feit dat AD FS leeg claims niet toegestaan. Dus als u claims http://contoso.com/ws/2016/02/identity/claims/objectguid en http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid in regel 1 toevoegt, u uiteindelijk met eindigen een **msdsconsistencyguid** claim alleen als de waarde wordt voor de gebruiker gevuld. Als deze niet is ingevuld, wordt AD FS ziet dat het een lege waarde hebben en onmiddellijk verwijderd. Alle objecten hebben **objectGuid**, zodat deze claim wordt altijd er nadat regel 1 wordt uitgevoerd.
+Deze regel definieert een tijdelijke vlag aangeroepen **idflag** die is ingesteld op **useguid** als er geen **ms-ds-consistencyguid** ingevuld voor de gebruiker. De logica achter dit is het feit dat AD FS leeg claims niet toegestaan. Wanneer u claims toe te voegen http://contoso.com/ws/2016/02/identity/claims/objectguid en http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid in regel 1 u uiteindelijk eindigen met een **msdsconsistencyguid** claim alleen als de waarde voor de gebruiker is ingevuld. Als deze niet is ingevuld, wordt AD FS ziet dat het een lege waarde hebben en onmiddellijk verwijderd. Alle objecten hebben **objectGuid**, zodat deze claim wordt altijd er nadat regel 1 wordt uitgevoerd.
 
 **Regel 3: Ms-ds-consistencyguid verlenen als niet-wijzigbaar ID indien aanwezig**
 
@@ -262,7 +264,7 @@ De standaardregel gewoon duurt het UPN-achtervoegsel en wordt gebruikt in de cla
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
-**Claim value:**  http://sub.contoso.com/adfs/services/trust/
+**De waarde van de claim:**  http://sub.contoso.com/adfs/services/trust/
 
 Als u alleen het hoofddomein in de claimwaarde van de certificaatverlener wilt weergeven, wijzigen de claimregel zodat deze overeenkomt met het volgende:
 

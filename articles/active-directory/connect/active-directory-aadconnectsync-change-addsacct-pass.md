@@ -3,10 +3,10 @@ title: 'Azure AD Connect-synchronisatie: het wachtwoord voor de AD DS-account wi
 description: Dit document onderwerp beschrijft hoe u Azure AD Connect bijwerken nadat het wachtwoord van het AD DS-account wordt gewijzigd.
 services: active-directory
 keywords: AD DS-account, Active Directory-account, wachtwoord
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5bc296b594917f68f35d7d15653b7b0c60cde514
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: a4d0d062b28b03de7f1e606202dddae28bf6a2f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592456"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Het wachtwoord voor de AD DS-account wijzigen
 De AD DS-account verwijst naar het gebruikersaccount dat door Azure AD Connect worden gebruikt om te communiceren met de lokale Active Directory. Als u het wachtwoord van de AD DS-account wijzigt, moet u Azure AD Connect-synchronisatieservice bijwerken met het nieuwe wachtwoord. Anders wordt de synchronisatie kan niet meer correct synchroniseren met de lokale Active Directory en de volgende fouten optreden:

@@ -1,24 +1,19 @@
 ---
 title: De gateway van uw verbonden Factory - Azure implementeren | Microsoft Docs
 description: Klik hier voor meer informatie over het implementeren van een gateway op Windows of Linux voor verbindingen met de oplossingsverbetering Factory verbonden.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 829b2031458b78a1046e900dbf37028ac9eb4dc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626901"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Een gateway aan de rand van de Factory verbonden oplossingsverbetering op Windows of Linux implementeren
 
@@ -170,6 +165,6 @@ Uw eigen OPC UA-servers toevoegen aan de oplossingsverbetering Factory verbonden
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de architectuur van de Factory verbonden oplossingsverbetering, [verbonden Factory oplossing accelerator scenario](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Zie voor meer informatie over de architectuur van de Factory verbonden oplossingsverbetering, [verbonden Factory oplossing accelerator scenario](iot-accelerators-connected-factory-sample-walkthrough.md).
 
 Meer informatie over de [OPC Publisher verwijzing implementatie](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

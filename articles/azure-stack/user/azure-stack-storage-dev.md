@@ -1,34 +1,35 @@
 ---
-title: Aan de slag met Azure Stack Storage ontwikkelingsprogramma 's
-description: Richtlijnen aan de slag met het gebruik van Azure Stack Storage ontwikkelingsprogramma 's
+title: Aan de slag met Azure-Stack opslag ontwikkelingsprogramma's | Microsoft Docs
+description: Richtlijnen aan de slag met het gebruik van Azure-Stack opslag ontwikkelingsprogramma 's
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0ceda393412f8217a893a347ec5f3a9ac03efa3d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604474"
 ---
-# <a name="get-started-with-azure-stack-storage-development-tools"></a>Aan de slag met Azure Stack Storage ontwikkelingsprogramma 's
+# <a name="get-started-with-azure-stack-storage-development-tools"></a>Aan de slag met Azure-Stack opslag ontwikkelingsprogramma 's
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 Microsoft Azure-Stack biedt een set van opslagservices met blob, table en queue storage.
 
-Gebruik dit artikel als richtlijn bij aan de slag met Azure Stack Storage ontwikkelingsprogramma's. U vindt meer gedetailleerde informatie en voorbeeldcode in bijbehorende zelfstudies voor Azure Storage.
+Gebruik dit artikel als richtlijn bij aan de slag met Azure-Stack opslag ontwikkelingsprogramma's. U vindt meer gedetailleerde informatie en voorbeeldcode in bijbehorende zelfstudies voor Azure-opslag.
 
->[!NOTE]
->Er zijn bekende verschillen tussen Azure Stack Storage en Azure Storage, met inbegrip van de specifieke vereisten voor elk platform. Er zijn bijvoorbeeld specifieke clientbibliotheken en specifieke eindpunt achtervoegsel vereisten voor Azure-Stack. Zie voor meer informatie [Azure Stack Storage: verschillen en overwegingen](azure-stack-acs-differences.md).
+> [!NOTE]  
+> Er zijn bekende verschillen tussen de Stack van Azure storage en Azure-opslag, met inbegrip van de specifieke vereisten voor elk platform. Er zijn bijvoorbeeld specifieke clientbibliotheken en specifieke eindpunt achtervoegsel vereisten voor Azure-Stack. Zie voor meer informatie [Stack Azure storage: verschillen en overwegingen](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Azure-clientbibliotheken
 
-De ondersteunde versies van de REST-API voor Azure Stack Storage zijn 2017-04-17, 2016-05-31 2015-12-11, 07-2015-08, 2015-04-05 voor de 1802 update of een nieuwere versies en 2015-04-05 voor eerdere versies. De Stack van Azure-eindpunten beschikt niet over volledige pariteit met de nieuwste versie van de REST-API van Azure Storage. Voor de clientbibliotheken van opslag moet u rekening houden met de versie die compatibel is met de REST-API.
+De ondersteunde versies van de REST-API voor Azure-Stack opslag zijn 2017-04-17, 2016-05-31 2015-12-11, 07-2015-08, 2015-04-05 voor de 1802 update of een nieuwere versies en 2015-04-05 voor eerdere versies. De Stack van Azure-eindpunten beschikt niet over volledige pariteit met de nieuwste versie van de Azure storage REST-API. Voor de clientbibliotheken van opslag moet u rekening houden met de versie die compatibel is met de REST-API.
 
 ### <a name="1802-update-or-newer-versions"></a>1802 update of een nieuwere versie
 
@@ -209,4 +210,4 @@ De volgende zelfstudies voor Azure Table-opslag van toepassing zijn op Azure-Sta
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Inleiding tot Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* [Inleiding tot Microsoft Azure storage](../../storage/common/storage-introduction.md)

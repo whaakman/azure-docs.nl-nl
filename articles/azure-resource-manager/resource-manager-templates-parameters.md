@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604332"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sectie opdrachtregelparameters van Azure Resource Manager-sjablonen
 U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in het gedeelte parameters van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft niet te bieden parameters in de sjabloon, maar zonder parameters uw sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen zou implementeren.
 
-U bent beperkt tot 255 parameters in een sjabloon. Verminder het aantal parameters kunt u met behulp van de objecten die meerdere eigenschappen als weergeven in dit artikel bevatten.
+U bent beperkt tot 255 parameters in een sjabloon. U kunt het aantal parameters verkleinen door middel van objecten die meerdere eigenschappen bevatten, zoals weergegeven in dit artikel.
 
 ## <a name="define-and-use-a-parameter"></a>Definieer en het gebruik van parameter
 

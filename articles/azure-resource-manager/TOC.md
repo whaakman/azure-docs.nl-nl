@@ -4,7 +4,7 @@
 ## [Wat is Resource Manager?](resource-group-overview.md)
 ## [Resourceproviders en -typen](resource-manager-supported-services.md)
 ## [Resource Manager en klassieke implementatie](resource-manager-deployment-model.md)
-## [Abonnementsgovernance](resource-manager-subscription-governance.md)
+## [Abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Resources organiseren met beheergroepen](management-groups-overview.md)
 
 # Aan de slag
@@ -50,7 +50,6 @@
 ### [Programmatisch EA-abonnementen maken](programmatically-create-subscription.md)
 ### [Beheergroepen maken](management-groups-create.md)
 ### [Uw beheergroepen beheren](management-groups-manage.md)
-### [Voorbeelden governance](resource-manager-subscription-examples.md)
 
 ## Toegang beheren
 ### Een service-principal maken

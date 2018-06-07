@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3a7a0eab4e7e3a6e030069c3562a501fc696060f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0440d4f5db9b8b08d1d143495b1d3118537c3823
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Zelfstudie: Azure Active Directory-integratie met Cerner-centraal
 
@@ -64,7 +65,7 @@ Voor het configureren van de integratie van Cerner centraal in Azure AD, moet u 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
-    
+
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven op het dialoogvenster.
 
     ![Toepassingen][3]
@@ -109,7 +110,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
 
     a. In de **id** textbox, typ de waarde die met behulp van de volgende patronen:
-    
+
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
@@ -120,14 +121,14 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
-    
+
     > [!NOTE]
     > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Cerner centraal ondersteuningsteam](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) ophalen van deze waarden.
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
-    
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cernercentral-tutorial/tutorial_metadataurl.png)
-     
+
 5. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
@@ -135,7 +136,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 6. Eenmalige aanmelding configureren op **Cerner centraal** kant die u wilt verzenden de **App-Url voor federatieve metagegevens** naar [Cerner centraal ondersteuning](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Ze configureren met SSO zijde van de toepassing aan de integratie worden voltooid.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen. 
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -146,15 +147,15 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_01.png) 
 
 2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
-    
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_02.png) 
 
 3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen**.
- 
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_03.png) 
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
+
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_04.png) 
 
     a. In de **naam** textbox type **BrittaSimon**.
@@ -164,30 +165,30 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
- 
+
 ### <a name="creating-a-cerner-central-test-user"></a>Maken van een testgebruiker Cerner-centraal
 
-**Cerner centraal** toepassing kunt verificatie van elke provider federatieve identiteiten. Als een gebruiker zich kan aanmelden bij de startpagina van de toepassing, wordt deze federatieve zijn en niet nodig is voor handmatige inrichting.
+**Cerner centraal** toepassing kunt verificatie van elke provider federatieve identiteiten. Als een gebruiker zich kan aanmelden bij de startpagina van de toepassing, wordt deze federatieve zijn en niet nodig is voor handmatige inrichting. U vindt meer informatie [hier](active-directory-saas-cernercentral-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
 In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Cerner centraal.
 
-![Gebruiker toewijzen][200] 
+![Gebruiker toewijzen][200]
 
 **Britta Simon om aan te wijzen Cerner centraal, moet u de volgende stappen uitvoeren:**
 
 1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
-    ![Gebruiker toewijzen][201] 
+    ![Gebruiker toewijzen][201]
 
 2. Selecteer in de lijst met toepassingen **Cerner centraal**.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_app.png) 
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_app.png)
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![Gebruiker toewijzen][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
@@ -198,7 +199,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
-    
+
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
@@ -209,8 +210,7 @@ Als u op de tegel Cerner centraal in het deelvenster toegang, u moet ophalen aut
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Gebruikers inrichten configureren](active-directory-saas-cernercentral-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -1,22 +1,19 @@
 ---
 title: Apparaat-concepten in Azure apparaten inrichten | Microsoft Docs
 description: Beschrijft het inrichten van de concepten die specifiek zijn voor apparaten met inrichtingsservice apparaat en IoT-Hub
-services: iot-dps
-keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 5482801461e2afea33d65d559723116f37a35d1f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+services: iot-dps
+manager: briz
+ms.openlocfilehash: bd77a56acee948995bb2fcbb5beea60f69cda9ee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630150"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT Hub apparaat-inrichtingsservice apparaat concepten
 

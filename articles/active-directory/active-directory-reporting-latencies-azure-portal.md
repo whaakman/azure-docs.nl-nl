@@ -2,24 +2,26 @@
 title: Azure Active Directory-rapportage latenties | Microsoft Docs
 description: Meer informatie over de hoeveelheid tijd die nodig is voor rapportage gebeurtenissen worden weergegeven in uw Azure-portal
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/15/2017
-ms.author: markvi;dhanyahk
+ms.author: rolyon;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f27efab05dc8580735c58eed20e9b48d8003dd17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589777"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapportage latenties
 
@@ -37,10 +39,10 @@ Er zijn twee gebieden van de activiteit reporting:
 
 De volgende tabel bevat de latentie-informatie voor activiteitsrapporten.
 
-| Rapport | Minimum | Gemiddeld | Opmerkingen |
-| :-- | --- | --- | :-- |
-| Controlelogboeken | 30 minuten  | 1 uur  |In sommige gevallen kan deze activiteit controlegegevens worden weergegeven tot 2 uur duren.|
-| Aanmeldingen | 15 minuten  | 2 uur |In sommige gevallen kan het voor aanmeldingsactiviteiten gegevens worden weergegeven tot 24 uur duren. Dit omvat activiteitsgegevens aanmeldingen die afkomstig zijn van verouderde office-toepassingen. |
+| Rapport | Latentie (P95) |Latentie (P99)|
+| :-- | --- | --- | 
+| Controlelogboeken | 2 minuten  | 5 minuten  |
+| Aanmeldingen | 2 minuten  | 5 minuten |
 
 
 

@@ -17,11 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 90c70837b3afb589e5a503681aa9cd7cf1dae930
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594107"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js-web-app aan de slag
 We gebruiken hier Passport:
@@ -61,6 +62,10 @@ De voltooide toepassing wordt verstrekt aan het einde van deze zelfstudie ook.
 
 6. Nadat u hebt geregistreerd, wijst Azure AD van uw app een unieke toepassings-ID. U moet deze waarde in de volgende secties, dus kopiëren van de toepassingspagina.
 7. Van de **instellingen** -> **eigenschappen** pagina voor uw toepassing, het bijwerken van de App ID URI. De **App ID URI** is de unieke id voor uw toepassing. De overeenkomst is met de indeling `https://<tenant-domain>/<app-name>`, bijvoorbeeld: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+8. Voor het maken van een geheime sleutel, volgt u stap 4 in [toepassing referenties of machtigingen voor toegang tot web-API's toe te voegen](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+   > [!IMPORTANT]
+   > Kopieer de waarde van de toepassing. Dit is de waarde voor de `clientSecret`, die u nodig hebt voor **stap 3** hieronder. 
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>Stap 2: Vereisten voor uw directory toevoegen
 1. Vanaf de opdrachtregel, wijzig de mappen in de hoofdmap bent u niet al er, en voer de volgende opdrachten:

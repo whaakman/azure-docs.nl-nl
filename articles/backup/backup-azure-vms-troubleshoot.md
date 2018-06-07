@@ -1,24 +1,19 @@
 ---
-title: Back-fouten met de virtuele machine van Azure oplossen | Microsoft Docs
+title: Back-fouten met de virtuele machine van Azure oplossen
 description: Back-up en herstel van virtuele machines in Azure oplossen
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: trinadhk
+ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607256"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met informatie die worden vermeld in de onderstaande tabel kunt oplossen.
@@ -30,7 +25,7 @@ U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met inform
 | VM-agent is kan niet communiceren met de Azure Backup-Service. -Zorg ervoor dat de VM heeft verbinding met het netwerk en de VM-agent is de meest recente en wordt uitgevoerd. Raadpleeg voor meer informatie  http://go.microsoft.com/fwlink/?LinkId=800034 |Deze fout wordt gegenereerd als er een probleem met de VM-Agent of netwerktoegang tot de Azure-infrastructuur is geblokkeerd op een bepaalde manier. [Meer informatie](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) over foutopsporing van de virtuele machine een momentopname van problemen.<br> Als de VM-agent is niet wordt veroorzaakt door problemen, start u de virtuele machine. Een onjuiste status voor de virtuele machine kan soms problemen veroorzaken en stelt deze 'slechte staat' opnieuw starten van de virtuele machine opnieuw. |
 | De VM bevindt zich in een mislukte inrichten status: Start de virtuele machine en zorg ervoor dat de virtuele machine uitgevoerd of afsluiten van de status voor back-up wordt | Dit gebeurt wanneer een van de extensie fouten status van de virtuele machine zich in een mislukte Inrichtingsstatus leidt. Ga naar de lijst met extensies en zien of er een mislukte uitbreiding, verwijderen en probeer het opnieuw starten van de virtuele machine. Als alle uitbreidingen zijn uitgevoerd, controleert u of de VM-agent-service wordt uitgevoerd. Als dat niet het geval is, start de VM-agent-service opnieuw. | 
 | VMSnapshot-uitbreiding is mislukt voor beheerde schijven - probeer de back-upbewerking. Als het probleem zich weer voordoet, volgt u de instructies in 'http://go.microsoft.com/fwlink/?LinkId=800034'. Als dat niet meer werkt, neem contact op met Microsoft ondersteuning | Deze fout als Azure Backup-service is mislukt voor het activeren van een momentopname. [Meer informatie](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) over foutopsporing van de virtuele machine een momentopname van problemen. |
-| Kan niet worden gekopieerd de momentopname van de virtuele machine vanwege onvoldoende beschikbare ruimte in het opslagaccount - Zorg ervoor dat opslagaccount vrije schijfruimte die gelijk is aan de gegevens op de premium-opslag-schijven gekoppeld aan de virtuele machine heeft | In geval van een VM's voor premium kopiëren we de momentopname naar storage-account. Dit is om ervoor te zorgen dat managementverkeer van back-op momentopname werkt, niet worden gebruikt voor het beperken van het aantal IOPS beschikbaar voor de toepassing met premium-schijven. Microsoft raadt dat u slechts 50% van de totale opslagruimte voor de account toewijzen, zodat de Azure Backup-service de momentopname naar storage-account en overdracht gegevens vanaf deze locatie gekopieerd in opslagaccount naar de kluis kopiëren kan. | 
+| Kan niet worden gekopieerd de momentopname van de virtuele machine vanwege onvoldoende beschikbare ruimte in het opslagaccount - Zorg ervoor dat opslagaccount vrije schijfruimte die gelijk is aan de gegevens op de premium-opslag-schijven gekoppeld aan de virtuele machine heeft | In geval van een premium virtuele machines op de VM-back-stack V1 Kopieer we de momentopname naar de storage-account. Dit is om ervoor te zorgen dat managementverkeer van back-op momentopname werkt, niet worden gebruikt voor het beperken van het aantal IOPS beschikbaar voor de toepassing met premium-schijven. Microsoft raadt dat u slechts 50% (17,5 TB) toewijzen van de totale opslagruimte voor de account zodat de Azure Backup-service de momentopname naar storage-account en overdracht gegevens vanaf deze locatie gekopieerd in opslagaccount naar de kluis kopiëren kan. | 
 | Kan de bewerking niet uitvoeren omdat de VM-agent niet reageert niet |Deze fout wordt gegenereerd als er een probleem met de VM-Agent of netwerktoegang tot de Azure-infrastructuur is geblokkeerd op een bepaalde manier. Controleer de servicestatus van de VM-agent op services en of de agent wordt weergegeven in het Configuratiescherm voor Windows-VM's. Verwijder het programma uit besturingselement deelvenster en de agent opnieuw te installeren zoals is vermeld [hieronder](#vm-agent). Nadat de agent opnieuw is geïnstalleerd, activeert een ad-hoc back-up om te controleren. |
 | Recovery services-uitbreiding is mislukt. -Zorg dat de meest recente agent van de virtuele machine aanwezig op de virtuele machine is en agent-service wordt uitgevoerd. Probeer de back-upbewerking en als het mislukt, neem dan contact op met Microsoft ondersteuning. |Deze fout wordt gegenereerd wanneer de VM-agent is verouderd. Raadpleeg de sectie 'De VM-Agent bijwerken' hieronder om te werken van de VM-agent. |
 | Virtuele machine bestaat niet. -Geef Zorg ervoor dat de virtuele machine bestaat, of Selecteer een andere virtuele machine. |Dit gebeurt wanneer de primaire virtuele machine is verwijderd, maar blijft de back-upbeleid zoekt u naar een virtuele machine back-up uitvoeren. Deze fout oplossen: <ol><li> Maak de virtuele machine met dezelfde naam en hetzelfde Resourcegroepnaam [cloudservicenaam]<br>(OR)<br></li><li>Stop de beveiliging van de virtuele machine zonder te verwijderen van de back-upgegevens. [meer informatie](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

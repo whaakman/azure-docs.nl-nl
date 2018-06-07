@@ -9,17 +9,18 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bf5a3a1dc67752e3f911d07f23c7b408e6d38c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c1ac698a1774a7a6242506ec65193434bb81cc25
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598766"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>De verificatie van een Azure Automation Uitvoeren als-account testen
 Nadat een Automation-account is gemaakt, kunt u een eenvoudige test uitvoeren om te controleren of u zich met het zojuist gemaakte of bijgewerkte Automation Uitvoeren als-account kunt verifiëren in Azure Resource Manager of de klassieke Azure-implementatie.    
 
 ## <a name="automation-run-as-authentication"></a>Automation Uitvoeren als-verificatie
-Gebruik de voorbeeldcode hieronder om [een PowerShell-runbook te maken](automation-creating-importing-runbook.md) om verificatie met behulp van het Uitvoeren als-account te controleren. Gebruik deze voorbeeldcode ook in de aangepaste runbooks om Resource Manager-resources te beheren met behulp van het Automation-account.   
+Gebruik de voorbeeldcode hieronder om [een PowerShell-runbook te maken](automation-creating-importing-runbook.md) om verificatie met behulp van het Uitvoeren als-account te controleren. Gebruik deze voorbeeldcode ook in de aangepaste runbooks om Resource Manager-resources te beheren met behulp van het Automation-account.
 
     $connectionName = "AzureRunAsConnection"
     try
@@ -60,6 +61,9 @@ Gebruik de voorbeeldcode hieronder om [een PowerShell-runbook te maken](automati
     } 
 
 U ziet de cmdlet gebruikt voor de verificatie in het runbook - **Connect-AzureRmAccount**, gebruikt de *ServicePrincipalCertificate* parameterset.  In plaats van referenties wordt voor verificatie het certificaat van de service-principal gebruikt.  
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** is nu een alias voor **Connect-AzureRMAccount**. Als er geen **Connect-AzureRMAccount**, kunt u **Add-AzureRmAccount**, of u kunt uw modules op uw Automation-Account bijwerken.
 
 Wanneer u [uitvoeren van het runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) uw Run As-account te valideren een [runbooktaak](automation-runbook-execution.md) is gemaakt, de taak pagina wordt weergegeven en de taakstatus wordt weergegeven in de **taakoverzicht** tegel. In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot in de cloud een runbook-werkrol beschikbaar is. De taakstatus verandert daarna in *Starten* wanneer een werkrol de taak claimt en daarna in *Wordt uitgevoerd* wanneer het runbook daadwerkelijk wordt uitgevoerd.  Wanneer de runbooktaak is voltooid, is de status **Voltooid**.
 

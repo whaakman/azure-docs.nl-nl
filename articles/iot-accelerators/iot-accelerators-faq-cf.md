@@ -1,25 +1,19 @@
 ---
 title: Factory-oplossing FAQ - Azure verbonden | Microsoft Docs
 description: Veelgestelde vragen over de Factory verbonden oplossingsverbetering
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627498"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Veelgestelde vragen over verbonden Factory oplossingsverbetering
 
@@ -67,7 +61,7 @@ U hebt twee opties voor het verwijderen van het IP-adres:
 
 Aanmelden bij de simulatie VM wordt alleen ondersteund als u uw oplossing met behulp van het PowerShell-script hebt geïmplementeerd `build.ps1` in de [opslagplaats](https://github.com/Azure/azure-iot-connected-factory).
 
-Als u de oplossing van www.azureiotsuite.com hebt geïmplementeerd, kunt u zich niet aanmelden met de virtuele machine. Je aanmelden niet, omdat het wachtwoord wordt willekeurig gegenereerd en kunt u deze niet herstellen.
+Als u de oplossing van www.azureiotsolutions.com hebt geïmplementeerd, kunt u zich niet aanmelden met de virtuele machine. Je aanmelden niet, omdat het wachtwoord wordt willekeurig gegenereerd en kunt u deze niet herstellen.
 
 1. Een openbaar IP-adres toevoegen aan de virtuele machine. Zie [hoe voeg ik een openbaar IP-adres toe aan de simulatie VM?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. Maak een SSH-sessie met uw virtuele machine met behulp van het IP-adres van de virtuele machine.
@@ -148,11 +142,11 @@ Als er geen gegevens die worden verzonden naar IoT Hub, is er een probleem met d
 
 Om een interactieve kaart in uw oplossing Factory verbonden, moet u een bestaande Bing kaarten-API voor Enterprise-abonnement hebben.
 
-Bij het implementeren van [www.azureiotsuite.com](http://www.azureiotsuite.com), het implementatieproces wordt gecontroleerd of uw abonnement een ingeschakelde Bing kaarten-API voor Enterprise-plan heeft en implementeert automatisch een interactieve hyperlinks in Factory verbonden. Als dit niet het geval is, kunt u nog steeds inschakelen een interactieve hyperlinks in uw implementatie als volgt:
+Bij het implementeren van [www.azureiotsolutions.com](http://www.azureiotsolutions.com), het implementatieproces wordt gecontroleerd of uw abonnement een ingeschakelde Bing kaarten-API voor Enterprise-plan heeft en implementeert automatisch een interactieve hyperlinks in Factory verbonden. Als dit niet het geval is, kunt u nog steeds inschakelen een interactieve hyperlinks in uw implementatie als volgt:
 
 Wanneer u implementeert met behulp van de `build.ps1` script in de fabriek verbonden GitHub-opslagplaats en u een Bing kaarten-API voor Enterprise-abonnement hebt, stelt u de omgevingsvariabele `$env:MapApiQueryKey` in het venster build voor de querysleutel van uw abonnement. De interactieve kaart wordt automatisch ingeschakeld.
 
-Als u geen Bing kaarten-API voor Enterprise-abonnement hebt, implementeert u de verbonden Factory-oplossing van [www.azureiotsuite.com](http://www.azureiotsuite.com) of met behulp van de `build.ps1` script. Bing kaarten-API voor Enterprise-plan vervolgens toevoegen aan uw abonnement zoals toegelicht in [hoe maak ik een Bing kaarten-API voor Enterprise-account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Opzoeken van de querysleutel van dit account, zoals wordt beschreven in [het verkrijgen van uw Bing kaarten-API voor Enterprise-querysleutel](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) en deze sleutel op te slaan. Navigeer naar de Azure-portal en toegang tot de App Service-bron in uw implementatie Factory verbonden. Navigeer naar **toepassingsinstellingen**, waar u een sectie vinden **appinstellingen**. Stel de **MapApiQueryKey** aan de querysleutel die u hebt verkregen. Sla de instellingen en navigeer vervolgens naar **overzicht** en start de App-Service opnieuw.
+Als u geen Bing kaarten-API voor Enterprise-abonnement hebt, implementeert u de verbonden Factory-oplossing van [www.azureiotsolutions.com](http://www.azureiotsolutions.com) of met behulp van de `build.ps1` script. Bing kaarten-API voor Enterprise-plan vervolgens toevoegen aan uw abonnement zoals toegelicht in [hoe maak ik een Bing kaarten-API voor Enterprise-account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Opzoeken van de querysleutel van dit account, zoals wordt beschreven in [het verkrijgen van uw Bing kaarten-API voor Enterprise-querysleutel](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) en deze sleutel op te slaan. Navigeer naar de Azure-portal en toegang tot de App Service-bron in uw implementatie Factory verbonden. Navigeer naar **toepassingsinstellingen**, waar u een sectie vinden **appinstellingen**. Stel de **MapApiQueryKey** aan de querysleutel die u hebt verkregen. Sla de instellingen en navigeer vervolgens naar **overzicht** en start de App-Service opnieuw.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hoe maak ik een Bing kaarten-API voor Enterprise-account
 
@@ -212,6 +206,6 @@ Telemetriegegevens te verzenden vanaf niet OPC UA apparaten tot Factory verbonde
 
 U kunt ook enkele van de andere functies en mogelijkheden van de IoT-oplossingsversnellers bekijken:
 
-* [Een overzicht van de oplossingsversneller voor Predictief onderhoud](../iot-suite/iot-suite-predictive-overview.md)
+* [Een overzicht van de oplossingsversneller voor Predictief onderhoud](iot-accelerators-predictive-overview.md)
 * [Overzicht van verbonden Factory oplossing accelerator](iot-accelerators-connected-factory-overview.md)
-* [Beveiliging van een compleet nieuwe IoT](../iot-suite/securing-iot-ground-up.md)
+* [Beveiliging van een compleet nieuwe IoT](securing-iot-ground-up.md)

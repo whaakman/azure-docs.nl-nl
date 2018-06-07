@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2326f37afcb845b8c484bdf57db0876026f8e8a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602717"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -91,6 +92,8 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** op de bron-resourcegroep.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** op de doel-resourcegroep.
+
+5. Indien mogelijk, door grote break in afzonderlijke migratiebewerkingen geplaatst. Resource Manager mislukt onmiddellijk pogingen tot meer dan 800 resources verplaatsen in één bewerking. Verplaatsen van minder dan 800 resources kan ook mislukken door een time-out optreedt.
 
 ## <a name="when-to-call-support"></a>Het aanroepen van ondersteuning
 

@@ -3,7 +3,7 @@ title: Azure Active Directory-risicogebeurtenissen | Microsoft Docs
 description: Deze artice biedt u een gedetailleerd overzicht van wat risicogebeurtenissen zijn.
 services: active-directory
 keywords: beveiliging voor Azure active directory-identiteit, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
-author: MarkusVi
+author: rolyon
 manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -11,14 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 05/14/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2a616cf644ee4f71e1340993f01b37031d567a09
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588774"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -73,7 +75,7 @@ Dit type risico gebeurtenis identificeert twee aanmeldingen die afkomstig zijn v
 
 De algoritme wordt genegeerd voor de hand liggende 'valse positieven' bijdragen aan de voorwaarden onmogelijke reis, zoals VPN-verbindingen en de locaties die regelmatig worden gebruikt door andere gebruikers in de organisatie. Het systeem heeft een initiële learning periode van 14 dagen gedurende welke aan een nieuwe gebruiker aanmelden gedrag leert. 
 
-### <a name="sign-in-from-unfamiliar-locations"></a>Aanmelden vanaf onbekende locaties
+### <a name="sign-in-from-unfamiliar-locations"></a>Aanmelding vanaf onbekende locaties
 
 Dit type risico gebeurtenis uit het verleden aanmelden locaties overweegt (IP, breedtegraad / lengtegraad en ASN) om te bepalen van de nieuwe / onbekende locaties. Het systeem wordt informatie opgeslagen over de voorgaande locaties die worden gebruikt door een gebruiker en deze 'bekend' locaties overweegt. De risicogebeurtenis wordt geactiveerd wanneer de aanmeldingspagina plaatsvindt vanaf een locatie die nog niet in de lijst met vertrouwde sites. Het systeem heeft een initiële learning periode van 30 dagen, waarover biedt het geen nieuwe locaties als onbekende locaties vlag. Aanmeldingen vanaf bekende apparaten en de locaties die geografisch zich dicht bij een vertrouwde locatie worden ook negeert door het systeem. 
 
@@ -143,7 +145,7 @@ Onmogelijke reis is meestal een goede indicatie die een hacker kon te kunnen aan
 > [!TIP]
 > U kunt de hoeveelheid gemelde ONWAAR-positieven voor dit type van de gebeurtenis risico verkleinen door te configureren [locaties met de naam](active-directory-named-locations.md). 
 
-### <a name="sign-in-from-unfamiliar-locations"></a>Aanmelden vanaf onbekende locaties
+### <a name="sign-in-from-unfamiliar-locations"></a>Aanmelding vanaf onbekende locaties
 
 Onbekende locaties kunnen bieden een sterke aanwijzing dat een aanvaller gebruikmaken van de identiteit van een gestolen is. ONWAAR-positieven kunnen optreden wanneer een gebruiker op reis gaat, wordt geprobeerd om een nieuw apparaat of met behulp van een nieuwe VPN. Als gevolg van deze fout-positieven het risiconiveau voor dit gebeurtenistype is **gemiddeld**.
 

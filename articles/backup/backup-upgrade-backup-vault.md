@@ -1,25 +1,19 @@
 ---
-title: Upgrade Backup-kluis in Recovery Services-kluis van Azure Backup | Microsoft Docs
+title: Upgrade Backup-kluis in Recovery Services-kluis van Azure Backup'
 description: Upgrade Backup-kluis in Recovery Services-kluis nieuwe functies zoals back-up van resourcemanager virtuele machines, verbeterde beveiliging, VMware VM-back- en back-up van systeemstatus voor Windows-Servers ophalen
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-keyword: backup vault; upgrade vault; recovery services vault
-ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/10/2017
-ms.author: trinadhk, sogup
-ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: trinadhk
+ms.openlocfilehash: 358c7b0e61d1c85e236007c2495941a31502431a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606856"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Back-upkluis bijgewerkt naar een Recovery Services-kluis
 In dit artikel biedt een overzicht van welke Recovery Services-kluis biedt, veelgestelde vragen over het upgraden van bestaande back-up vault Recovery Services-kluis en stappen na de upgrade. Een Recovery Services-kluis is de Azure Resource Manager-equivalent van een back-upkluis met uw back-upgegevens. De gegevens zijn of doorgaans kopieën van gegevens of configuratie-informatie voor virtuele machines (VM's), werkbelastingen, servers of werkstations, lokaal of in Azure.

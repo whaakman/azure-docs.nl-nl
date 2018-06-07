@@ -1,25 +1,22 @@
 ---
-title: De DB2-connector in uw logische Apps toevoegen | Microsoft Docs
-description: Overzicht van DB2-connector met de parameters van de REST-API
-services: 
-documentationcenter: 
+title: Verbinding maken met de DB2 - Azure Logic Apps | Microsoft Docs
+description: Resources beheren met de DB2 REST-API's en Azure Logic Apps
 author: gplarsen
-manager: erikre
-editor: 
-tags: connectors
-ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, estfan
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 9e86273a8b614098aa77608386ab050c20926d23
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609746"
 ---
 # <a name="get-started-with-the-db2-connector"></a>Aan de slag met de DB2-connector
 Microsoft-connector voor DB2 verbindt Logic Apps met resources die zijn opgeslagen in een IBM DB2-database. Deze connector omvat een Microsoft-client om te communiceren met externe computers voor DB2-server via een TCP/IP-netwerk. Dit omvat cloud databases, zoals IBM Bluemix dashDB of IBM DB2 voor Windows wordt uitgevoerd in Azure virtualisatie en het on-premises databases die gebruikmaken van de lokale data gateway. Zie de [ondersteund lijst](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2-platformen en-versies (in dit onderwerp).
@@ -47,13 +44,13 @@ De DB2-connector ondersteunt de volgende logic app acties:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Lijst met tabellen
+## <a name="list-tables"></a>Lijst met tabellen weergeven
 Maken van een logische app voor een bewerking bestaat uit een groot aantal stappen uitgevoerd via de Microsoft Azure portal.
 
 In de logische app, kunt u een actie toevoegen aan de lijst met tabellen in een DB2-database. Hiermee geeft u de actie die de connector voor het verwerken van een instructie DB2 schema zoals `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `Db2getTables`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -90,7 +87,7 @@ Deze connector ondersteunt verbindingen met databases die worden gehost on-premi
 | verificatie |Optioneel. Een item lijstwaarde, Basic of Windows (kerberos) accepteert. |
 | gebruikersnaam |Vereist. Een string-waarde accepteert. DB2 voor z/OS accepteert een 8-byte-tekenreeks. DB2 voor i een 10-byte-tekenreeks accepteert. DB2 voor Linux of UNIX accepteert een 8-byte-tekenreeks. DB2 voor Windows accepteert een 30-byte-tekenreeks. |
 | wachtwoord |Vereist. Een string-waarde accepteert. |
-| Gateway |Vereist. Een lijst item-waarde die aangeeft van de lokale data gateway gedefinieerd voor Logic Apps in de opslaggroep accepteert. |
+| gateway |Vereist. Een lijst item-waarde die aangeeft van de lokale data gateway gedefinieerd voor Logic Apps in de opslaggroep accepteert. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>De on-premises gatewayverbinding maken
 Deze connector hebben toegang tot een lokale DB2-database met behulp van de lokale gateway. Zie gateway-onderwerpen voor meer informatie. 
@@ -123,7 +120,7 @@ Deze connector hebben toegang tot een cloud DB2-database.
 U kunt een logische app-actie voor het ophalen van alle rijen in een tabel DB2 definiëren. Dit geeft de connector voor het verwerken van een DB2 SELECT-instructie, zoals de instructie `SELECT * FROM AREA`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `Db2getRows`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -160,7 +157,7 @@ U kunt een logische app-actie voor het ophalen van alle rijen in een tabel DB2 d
 U kunt een logische app-actie voor het toevoegen van een rij in een tabel DB2 definiëren. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie INSERT DB2 zoals `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `Db2insertRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -187,7 +184,7 @@ U kunt een logische app-actie voor het toevoegen van een rij in een tabel DB2 de
 U kunt een logische app-actie voor het ophalen van een rij in een tabel DB2 definiëren. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie DB2 selecteren waar zoals `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam** (bijvoorbeeld) "**Db2getRow**'), **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -215,7 +212,7 @@ U kunt een logische app-actie voor het ophalen van een rij in een tabel DB2 defi
 U kunt een logische app actie om te wijzigen van een rij in een tabel DB2 definiëren. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie UPDATE DB2 zoals `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `Db2updateRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
@@ -242,7 +239,7 @@ U kunt een logische app actie om te wijzigen van een rij in een tabel DB2 defini
 U kunt een logische app-actie voor het verwijderen van een rij in een tabel DB2 definiëren. Deze actie Hiermee geeft u de connector voor het verwerken van een DB2-instructie DELETE, zoals `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer  **+**  (plusteken) **Web en mobiel**, en vervolgens **logische App**.
+1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
 2. Voer de **naam**, zoals `Db2deleteRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
 
 ### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action

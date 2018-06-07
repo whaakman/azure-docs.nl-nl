@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c223091e423d0f342f14424c58d6b7447cda50e8
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593449"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Hash-Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie implementeren
 In dit artikel bevat informatie die u wilt synchroniseren van uw wachtwoorden van een lokale Active Directory-exemplaar naar een cloud-gebaseerde Azure Active Directory (Azure AD)-exemplaar.
@@ -81,9 +83,9 @@ Hieronder wordt beschreven diepgaande de werking van synchronisatie van wachtwoo
 2. Voordat u verzendt, de domeincontroller de wachtwoordhash MD4 versleuteld met behulp van een sleutel die is een [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) hash van de sessiesleutel RPC en een salt. Vervolgens verzendt via RPC het resultaat naar de agent voor Wachtwoordsynchronisatie hash. De DC geeft ook de salt aan de agent voor Wachtwoordsynchronisatie met behulp van het protocol van de DC-replicatie, zodat de agent wordt de envelop ontsleutelen.
 3.  Nadat de agent voor Wachtwoordsynchronisatie hash het versleutelde envelop heeft, gebruikt [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) en de salt voor het genereren van een sleutel voor het ontsleutelen van de ontvangen gegevens terug naar de oorspronkelijke MD4-indeling. Op geen enkel heeft de agent voor Wachtwoordsynchronisatie hash toegang tot het wachtwoord met ongecodeerde tekst. De hash-agent voor Wachtwoordsynchronisatie van gebruik van MD5 geldt uitsluitend voor replicatie protocol compatibiliteit met de domeincontroller en wordt alleen gebruikt on-premises tussen de domeincontroller en de agent voor Wachtwoordsynchronisatie hash.
 4.  De agent voor Wachtwoordsynchronisatie hash breidt de 16-bytes binary wachtwoordhash 64 bytes door eerst te converteren back-the-hash naar een hexadecimale tekenreeks van 32-byte, vervolgens deze tekenreeks te converteren naar binair met UTF-16-codering.
-5.  De agent voor Wachtwoordsynchronisatie hash voegt een salt die bestaan uit een lengte in 10 bytes salt, naar de 64-bytes binary naar de oorspronkelijke hash verder te beschermen.
-6.  De agent voor Wachtwoordsynchronisatie hash combineert de MD4-hash plus salt en ingangen in de [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) functie. 1000 herhalingen van de [HMAC SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) sleutelhash hash-algoritme wordt gebruikt. 
-7.  De agent voor Wachtwoordsynchronisatie hash neemt de resulterende 32-byte-hash, worden zowel de salt en het aantal iteraties SHA256 ernaar (voor gebruik door Azure AD) en brengt de tekenreeks van Azure AD Connect naar Azure AD via SSL.</br> 
+5.  De agent voor Wachtwoordsynchronisatie hash wordt toegevoegd een per gebruiker salt, die bestaan uit een lengte in 10 bytes salt, naar de 64-bytes binary naar de oorspronkelijke hash verder te beschermen.
+6.  De agent voor Wachtwoordsynchronisatie hash vervolgens combineert de MD4-hash plus de per gebruiker salt, en de bestelling in de [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) functie. 1000 herhalingen van de [HMAC SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) sleutelhash hash-algoritme wordt gebruikt. 
+7.  De agent voor Wachtwoordsynchronisatie hash neemt de resulterende 32-byte-hash, worden zowel de per gebruiker salt en het aantal SHA256 iteraties ernaar (voor gebruik door Azure AD), vervolgens brengt de tekenreeks van Azure AD Connect naar Azure AD via SSL.</br> 
 8.  Wanneer een gebruiker wil zich aanmelden bij Azure AD en hun wachtwoord invoert, wordt het wachtwoord uitvoeren via de dezelfde MD4 + salt + PBKDF2 + HMAC SHA256-proces. Als de resulterende hash overeenkomt met de hash die is opgeslagen in Azure AD, wordt de gebruiker het juiste wachtwoord heeft ingevoerd en is geverifieerd. 
 
 >[!Note] 

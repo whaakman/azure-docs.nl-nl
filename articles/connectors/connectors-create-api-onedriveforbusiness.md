@@ -1,25 +1,22 @@
 ---
-title: OneDrive voor bedrijven | Microsoft Docs
-description: Logic apps maken met Azure App service. Verbinding maken met OneDrive voor bedrijven om uw bestanden te beheren. U kunt verschillende bewerkingen uitvoeren zoals het uploaden, bijwerken, ophalen en verwijderen van bestanden.
-services: logic-apps
-documentationcenter: .net,nodejs,java
+title: Verbinding maken met OneDrive voor bedrijven - Azure Logic Apps | Microsoft Docs
+description: Uploaden en beheren van bestanden met OneDrive voor bedrijven REST-API's en Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: cf9484e9-7a20-4de0-93c8-0fa132221f2b
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: a572d3d858bcaed817198420db7f2e09732b2366
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: cf0541fc4271766ed5fe2e9720c6312f229bc450
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609591"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Aan de slag met de OneDrive voor bedrijven-connector
 Verbinding maken met OneDrive voor bedrijven om uw bestanden te beheren. U kunt verschillende bewerkingen uitvoeren zoals het uploaden, bijwerken, ophalen en verwijderen van bestanden.
@@ -31,7 +28,7 @@ Logische apps maakt met OneDrive voor bedrijven, moet u eerst maken een **verbin
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| Token |Ja |OneDrive voor bedrijven-referenties opgeven |
+| Token |Ja |OneDrive voor Bedrijven-referenties opgeven |
 
 Nadat u de verbinding hebt gemaakt, kunt u het uitvoeren van de acties te luisteren voor de triggers die in dit artikel wordt beschreven.
 

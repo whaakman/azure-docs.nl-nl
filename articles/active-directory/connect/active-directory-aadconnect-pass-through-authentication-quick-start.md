@@ -3,7 +3,7 @@ title: Azure AD Pass-through-verificatie - snel aan de slag | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u aan de slag met Azure Active Directory (Azure AD) Pass through-verificatie.
 services: active-directory
 keywords: Azure AD Connect Pass through-verificatie, install Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
-documentationcenter: 
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da3d78880a3d389c2a247f9940b708c026c96e03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591327"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass-through-verificatie: Snel starten
 
@@ -139,7 +141,7 @@ Eerst, u kunt dit doen interactief door alleen de gedownloade uitvoerbare verifi
 Ten tweede kunt u maken en uitvoeren van een script zonder toezicht implementatie. Dit is handig als u wilt implementeren meerdere verificatie Agents tegelijk of verificatie Agents installeren op Windows-servers hebt die geen gebruikersinterface is ingeschakeld of dat u kunt openen met extern bureaublad. Hier vindt u de instructies voor het gebruik van deze benadering:
 
 1. Voer de volgende opdracht om een verificatie-Agent te installeren: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. U kunt de verificatie-Agent registreren met onze service met behulp van Windows PowerShell. Maak een object PowerShell-referenties `$cred` die een globale beheerder gebruikersnaam en wachtwoord voor uw tenant bevat. Voer de volgende opdracht vervangen  *\<gebruikersnaam\>*  en  *\<wachtwoord\>*:
+2. U kunt de verificatie-Agent registreren met onze service met behulp van Windows PowerShell. Maak een object PowerShell-referenties `$cred` die een globale beheerder gebruikersnaam en wachtwoord voor uw tenant bevat. Voer de volgende opdracht vervangen *\<gebruikersnaam\>* en  *\<wachtwoord\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'

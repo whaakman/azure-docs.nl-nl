@@ -10,13 +10,14 @@ ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ea5d658b8f465b3a527033ef5e9d2126732c7029
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3f1bc925b772265a9f72c34f5ac661088123bb1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626134"
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registreert gegevens van Data Lake Store in Azure Data Catalog
 In dit artikel leert u hoe u Azure Data Lake Store integreert met Azure Data Catalog zodat uw gegevens binnen een organisatie kan worden gedetecteerd door integratie met Data Catalog. Zie voor meer informatie over de gegevens worden gecatalogiseerd, [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Zie voor informatie over scenario's voor gebruik van Data Catalog, [algemene scenario's voor een Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
@@ -26,7 +27,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Uw Azure-abonnement inschakelen** voor openbare Preview van Data Lake Store. Zie [Instructies](data-lake-store-get-started-portal.md).
-* **Azure Data Lake Store-account**. Volg de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](data-lake-store-get-started-portal.md). Voor deze zelfstudie maken we een Data Lake Store-account genoemd **datacatalogstore**.
+* **Azure Data Lake Store-account**. Volg de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](data-lake-store-get-started-portal.md). Voor deze zelfstudie maakt u een Data Lake Store-account genoemd **datacatalogstore**.
 
     Nadat u het account hebt gemaakt, een verzameling voorbeeldgegevens te uploaden. Voor deze zelfstudie laat het ons uploaden de CSV-bestanden onder de **AmbulanceData** map in de [Azure Data Lake Git-opslagplaats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). U kunt verschillende clients, zoals [Azure Opslagverkenner](http://storageexplorer.com/), gegevens te uploaden naar een blob-container.
 * **Azure Data Catalog**. Uw organisatie moet een Azure Data Catalog gemaakt voor uw organisatie al hebben. Slechts één catalogus is toegestaan voor elke organisatie.
@@ -55,12 +56,12 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 
     b. De **beschikbare objecten** vak geeft een lijst van de bestanden en mappen onder de **AmbulanceData** map.
 
-    c. **Objecten die geregistreerde vak** geeft een lijst van de bestanden en mappen die u wilt registreren in Azure Data Catalog.
+    c. **Objecten moeten worden geregistreerd** vak geeft een lijst van de bestanden en mappen die u wilt registreren in Azure Data Catalog.
 
     ![Bekijk gegevensstructuur](./media/data-lake-store-with-data-catalog/view-data-structure.png "gegevensstructuur weergeven")
 8. Voor deze zelfstudie moet u alle bestanden in de directory te registreren. Die, klikt u op de (![objecten verplaatsen](./media/data-lake-store-with-data-catalog/move-objects.png "objecten verplaatsen")) om alle bestanden te verplaatsen **te registreren objecten** vak.
 
-    Omdat de gegevens worden geregistreerd in een catalogus met gegevens van de hele organisatie, is een aanbevolen aanpak om toe te voegen, bepaalde metagegevens die u later gebruiken kunt om snel te zoeken de gegevens. U kunt bijvoorbeeld een e-mailadres toevoegen voor de eigenaar van de gegevens (bijvoorbeeld een die van de gegevens uploaden) of tag om te bepalen welke gegevens toevoegen. De schermafbeelding hieronder ziet u een label dat we aan de gegevens toevoegen.
+    Omdat de gegevens worden geregistreerd in een catalogus met gegevens van de hele organisatie, is een aanbevolen aanpak om toe te voegen, bepaalde metagegevens die u later gebruiken kunt om snel te zoeken de gegevens. U kunt bijvoorbeeld een e-mailadres toevoegen voor de eigenaar van de gegevens (bijvoorbeeld een die van de gegevens uploaden) of tag om te bepalen welke gegevens toevoegen. De schermafbeelding hieronder ziet u een label dat u aan de gegevens toevoegt.
 
     ![Bekijk gegevensstructuur](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "gegevensstructuur weergeven")
 

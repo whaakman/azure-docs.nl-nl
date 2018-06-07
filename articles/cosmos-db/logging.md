@@ -2,23 +2,20 @@
 title: Diagnostische logboekregistratie van Azure DB Cosmos | Microsoft Docs
 description: Met deze zelfstudie kunt u aan de slag met Azure Cosmos DB logboekregistratie.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612211"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Diagnostische logboekregistratie van Azure DB Cosmos
 
@@ -47,9 +44,9 @@ De Azure Activity Log is een abonnementlogboek biedt inzicht in het abonnement o
 
 Het activiteitenlogboek verschilt van diagnostische logboeken. Het activiteitenlogboek biedt gegevens over de bewerkingen van een resource van buitenaf (de _besturingselement vlak_). In de context Azure Cosmos DB maken besturingselement vlak bewerkingen behoren verzameling, lijst met sleutels, delete-sleutels, lijst database, enzovoort. Logboeken met diagnostische gegevens worden gegenereerd door een resource en bieden informatie over de werking van de bron (de _gegevens vlak_). Enkele voorbeelden van de bewerkingen voor het vlak van gegevens in de diagnostische logboeken zijn Delete, Insert en ReadFeed.
 
-Activiteitenlogboeken (vlak beheerbewerkingen) kunnen uitgebreidere van aard en de volledige e-mailadres van de aanroeper, aanroeper IP-adres, Resourcenaam, naam van de bewerking, TenantId en meer kunnen opnemen. Het activiteitenlogboek bevat verschillende [categorieën](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) van gegevens. Zie voor volledige informatie over de schema's uit deze categorieën [Azure Activity Log gebeurtenis schema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Diagnostische logboeken kan echter zijn beperkende aard zoals PII gegevens vaak wordt verwijderd uit deze logboeken. Mogelijk hebt u het IP-adres van de aanroepfunctie, maar de laatste octant is verwijderd.
+Activiteitenlogboeken (vlak beheerbewerkingen) kunnen uitgebreidere van aard en de volledige e-mailadres van de aanroeper, aanroeper IP-adres, Resourcenaam, naam van de bewerking, TenantId en meer kunnen opnemen. Het activiteitenlogboek bevat verschillende [categorieën](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) van gegevens. Zie voor volledige informatie over de schema's uit deze categorieën [Azure Activity Log gebeurtenis schema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Diagnostische logboeken kan echter zijn beperkende aard als persoonlijke gegevens vaak wordt verwijderd uit deze logboeken. Mogelijk hebt u het IP-adres van de aanroepfunctie, maar de laatste octant is verwijderd.
 
-### <a name="azure-metrics"></a>Azure metrische gegevens
+### <a name="azure-metrics"></a>Metrische gegevens voor Azure
 
 [Azure metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) het belangrijkste soort Azure telemetrische gegevens (ook wel _prestatiemeteritems_) die wordt verzonden door de meeste Azure-resources. Metrische gegevens kunt u informatie weergeven over de doorvoer, opslag, consistentie, beschikbaarheid en de latentie van uw Azure DB die Cosmos-resources. Zie voor meer informatie [bewaking en foutopsporing met metrische gegevens in Azure Cosmos DB](use-metrics.md).
 
@@ -445,7 +442,7 @@ De volgende tabel beschrijft de inhoud van elke logboekvermelding.
 | **Tijd** | **TimeGenerated** | De datum en tijd (UTC) wanneer de bewerking opgetreden. |
 | **ResourceId** | **Resource** | Het account voor Azure Cosmos DB waarvoor logboeken zijn ingeschakeld.|
 | **Categorie** | **Categorie** | Voor Azure DB die Cosmos-logboeken **DataPlaneRequests** is de enige beschikbare waarde. |
-| **OperationName** | **OperationName** | De naam van de bewerking. Deze waarde kan een van de volgende bewerkingen zijn: maken, bijwerken, lezen, ReadFeed, verwijderen, vervangen, uitvoeren, SqlQuery, Query, JSQuery, Head, HeadFeed of Upsert.   |
+| **OperationName** | **OperationName** | Naam van de bewerking. Deze waarde kan een van de volgende bewerkingen zijn: maken, bijwerken, lezen, ReadFeed, verwijderen, vervangen, uitvoeren, SqlQuery, Query, JSQuery, Head, HeadFeed of Upsert.   |
 | **Eigenschappen** | N.v.t. | De inhoud van dit veld worden beschreven in de volgende rijen. |
 | **ActivityId** | **activityId_g** | De unieke GUID voor de geregistreerde bewerking. |
 | **UserAgent** | **userAgent_s** | Een tekenreeks die opgeeft van de clientagent van de gebruiker die de aanvraag uitvoert. De indeling is {agent gebruikersnaam} / {version}.|

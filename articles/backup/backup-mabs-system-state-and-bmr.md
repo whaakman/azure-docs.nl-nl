@@ -1,24 +1,20 @@
 ---
-title: Azure Backup-Server systeemstatus beveiligt en herstelt u bare-metal | Microsoft Docs
+title: Azure Backup-Server systeemstatus beveiligt en herstelt u bare metal
 description: Azure Backup-Server gebruiken om back-up van de systeemstatus en bare metal recovery (BMR) bescherming te bieden.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-keywords: 
-ms.assetid: 
+keywords: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.targetplatform: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal,masaran
-ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607205"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Back-up van systeemstatus en bare metal met Azure Backup-Server herstellen
 
@@ -33,7 +29,7 @@ Azure Backup-Server maakt een back-up van systeemstatus en bare metal recovery (
 
 De volgende tabel geeft een overzicht van wat u kunt back-up en herstellen. Zie voor gedetailleerde informatie over app-versies die kunnen worden beveiligd met systeemstatus en BMR [wat Azure Backup-Server doet een back-up?](backup-mabs-protection-matrix.md).
 
-|Back-up|Probleem|Herstellen vanuit back-up van Azure Backup-Server|Herstellen van een systeemstatusback-up|BMR|
+|Backup|Probleem|Herstellen vanuit back-up van Azure Backup-Server|Herstellen van een systeemstatusback-up|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Bestandsgegevens**<br /><br />Regelmatig back-up<br /><br />BMR/systeemstatus|Verloren bestandsgegevens|J|N|N|
 |**Bestandsgegevens**<br /><br />Azure Backup-Server back-up van gegevens uit een bestand<br /><br />BMR/systeemstatus|Verloren of beschadigd besturingssysteem|N|J|J|
@@ -55,11 +51,11 @@ De volgende tabel geeft een overzicht van wat u kunt back-up en herstellen. Zie 
 
 Wanneer een systeemstatusback-up wordt uitgevoerd, wordt de back-Server communiceert met Windows Server back-up voor het aanvragen van een back-up van de systeemstatus van de server. Gebruik het station dat de meeste beschikbare vrije ruimte heeft standaard back-up-Server en Windows Server back-up. Informatie over dit station is opgeslagen in het bestand PSDataSourceConfig.xml. Dit is het station dat gebruikmaakt van Windows Server back-up voor back-ups.
 
-U kunt het station dat gebruikmaakt van back-upserver voor de systeemstatusback-up. Ga op de beveiligde server naar C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources. Open het bestand PSDataSourceConfig.xml om te bewerken. Wijzig de \<FilesToProtect\> waarde voor de stationsletter. Sla en sluit het bestand. Als er een beveiligingsgroepset ter bescherming van de systeemstatus van de computer, moet u een consistentiecontrole uitvoeren. Als u een waarschuwing wordt gegenereerd, selecteert u **beveiligingsgroep wijzigen** in de waarschuwing en voltooi de wizard. Voer vervolgens nog een consistentiecontrole uit.
+U kunt het station dat gebruikmaakt van back-upserver voor de systeemstatusback-up. Ga op de beveiligde server naar C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources. Open het bestand PSDataSourceConfig.xml om te bewerken. Wijzig de \<FilesToProtect\> waarde voor de stationsletter. Sla het bestand op en sluit het. Als er een beveiligingsgroepset ter bescherming van de systeemstatus van de computer, moet u een consistentiecontrole uitvoeren. Als u een waarschuwing wordt gegenereerd, selecteert u **beveiligingsgroep wijzigen** in de waarschuwing en voltooi de wizard. Voer vervolgens nog een consistentiecontrole uit.
 
 Houd er rekening mee dat als de beveiligingsserver zich in een cluster, is het mogelijk dat een clusterstation wordt geselecteerd als de schijf met de meeste vrije ruimte. Als eigendom van het station is overgeschakeld naar een ander knooppunt en een systeem status back-up wordt uitgevoerd, wordt het station is niet beschikbaar en wordt de back-up is mislukt. In dit scenario PSDataSourceConfig.xml om te verwijzen naar een lokaal station te wijzigen.
 
-Windows Server back-up maakt vervolgens een map met de naam WindowsImageBackup in de hoofdmap van de map terugzetten. Als Windows Server back-up als de back-up wordt gemaakt, wordt alle gegevens in deze map geplaatst. Wanneer de back-up is voltooid, wordt het bestand overgebracht naar de back-Server-computer. Houd rekening met de volgende informatie:
+Windows Server back-up maakt vervolgens een map met de naam WindowsImageBackup in de hoofdmap van de map terugzetten. Als Windows Server back-up als de back-up wordt gemaakt, wordt alle gegevens in deze map geplaatst. Wanneer de back-up is voltooid, wordt het bestand overgebracht naar de back-Server-computer. Let op de volgende informatie:
 
 * Deze map en de inhoud ervan worden niet opgeschoond wanneer de back-up of overdracht is voltooid. De beste manier om na te denken hiervan is dat de ruimte wordt gereserveerd voor de volgende keer dat een back-up is voltooid.
 * De map wordt gemaakt telkens wanneer een back-up wordt gemaakt. De datum en tijd stempel geven de tijd van de laatste systeemstatusback-up.
@@ -220,9 +216,9 @@ Windows Server back-up uitvoeren:
 
 5.  Op de **bevestiging** pagina **herstellen**. De server opnieuw opstarten na het terugzetten.
 
-6.  U kunt ook de systeemstatusherstel uitvoeren bij een opdrachtprompt. U doet dit door Windows Server back-up te starten op de computer die u wilt herstellen. Als u de versie-id bij een opdrachtprompt, typ:```wbadmin get versions -backuptarget \<servername\sharename\>```
+6.  U kunt ook de systeemstatusherstel uitvoeren bij een opdrachtprompt. U doet dit door Windows Server back-up te starten op de computer die u wilt herstellen. Als u de versie-id bij een opdrachtprompt, typ: ```wbadmin get versions -backuptarget \<servername\sharename\>```
 
-    De versie-id gebruiken het systeemstatusherstel te starten. Voer het volgende achter de opdrachtprompt:```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
+    De versie-id gebruiken het systeemstatusherstel te starten. Voer het volgende achter de opdrachtprompt: ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
     U wilt bevestigen dat het herstel te starten. Hier ziet u het proces in het opdrachtpromptvenster. Er wordt een herstellogboek gemaakt. De server opnieuw opstarten na het terugzetten.
 

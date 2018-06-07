@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 46d00fdcc535b85754eb2f805d2844e1526f1f86
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25777001907f705700d1c90e238d19a20242b50d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Zelfstudie: Azure Active Directory-integratie met Pingboard
 
@@ -65,7 +66,7 @@ Voor het configureren van de integratie van Pingboard in Azure AD, moet u Pingbo
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De Enterprise-toepassingen][2]
-    
+
 3. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
     ![De knop Nieuw toepassing][3]
@@ -101,7 +102,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2.  Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
 3. Op de **Pingboard domein en de URL's** sectie, voert u de volgende stappen uit als u wilt configureren, de toepassing in **IDP** modus gestart:
@@ -118,12 +119,12 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
      In de **aanmeldings-URL** textbox, typ de URL die met het volgende patroon volgen: `https://<sub-domain>.pingboard.com/sign_in`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Houd er rekening mee dat deze waarden niet echt zijn. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [Pingboard Client ondersteuningsteam](https://support.pingboard.com/) ophalen van deze waarden.
 
 5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
 
-    ![Pingboard van metagegevens-xml](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png) 
+    ![Pingboard van metagegevens-xml](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png)
 
 6. Klik op **opslaan** knop.
 
@@ -135,7 +136,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
-9.  Op de **integraties** pagina, zoek de **'Azure Active Directory'** tegel en klik erop.
+9. Op de **integraties** pagina, zoek de **'Azure Active Directory'** tegel en klik erop.
 
     ![Pingboard Single Sign-On-integratie](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
@@ -162,16 +163,16 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     ![De Azure Active Directory-knop](./media/active-directory-saas-pingboard-tutorial/create_aaduser_01.png) 
 
 2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
-    
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png) 
+
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png)
 
 3. Aan de bovenkant van het dialoogvenster, klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
- 
+
     ![Knop Toevoegen](./media/active-directory-saas-pingboard-tutorial/create_aaduser_03.png) 
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het dialoogvenster gebruiker](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png) 
+
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png)
 
     a. In de **naam** textbox type **BrittaSimon**.
 
@@ -180,12 +181,12 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
- 
+
 ### <a name="create-a-pingboard-test-user"></a>Een testgebruiker Pingboard maken
 
-Om in te schakelen gebruikers van Azure AD aan te melden bij Pingboard, moeten ze worden ingericht in Pingboard. Voor Pingboard is inrichting een handmatige taak.
+Het doel van deze sectie is het maken van een gebruiker Britta Simon in Pingboard genoemd. Pingboard ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. U vindt meer informatie [hier](active-directory-saas-pingboard-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**Als u moet de gebruiker handmatig maken, voert u de volgende stappen uit:**
 
 1. Meld u aan bij uw bedrijf Pingboard site als beheerder.
 
@@ -204,13 +205,13 @@ Om in te schakelen gebruikers van Azure AD aan te melden bij Pingboard, moeten z
     c. In de **taaktitel** textbox, typt u de functie van Britta Simon.
 
     d. In de **locatie** vervolgkeuzelijst, selecteer de locatie van Britta Simon.
-    
-    e. Klik op **Add**.   
+
+    e. Klik op **Add**.
 
 4. Om te bevestigen dat het toevoegen van gebruiker wordt een bevestigingsvenster.
-    
+
     ![Bevestigen](./media/active-directory-saas-pingboard-tutorial/create_testuser_confirm.png)
-        
+
     > [!NOTE]
     > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om hun account te bevestigen voordat deze geactiveerd wordt.
 
@@ -255,8 +256,7 @@ Als u op de tegel Pingboard in het deelvenster toegang, u moet ophalen automatis
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Gebruikers inrichten configureren](active-directory-saas-pingboard-provisioning-tutorial.md)
 
 <!--Image references-->
 

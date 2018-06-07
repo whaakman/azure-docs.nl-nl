@@ -6,19 +6,20 @@ services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611157"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Met BulkExecutor .NET-bibliotheek voor het uitvoeren van bulkbewerkingen in Azure Cosmos-DB
 
-Deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos-DB BulkExecutor .NET-bibliotheek te importeren en bijwerken van documenten voor Azure DB die Cosmos-verzamelingen. Zie voor meer informatie over BulkExecutor-bibliotheek en hoe kunt u gebruikmaken van grote doorvoer en opslag, [BulkExecutor bibliotheek overzicht](bulk-executor-overview.md) artikel. Deze zelfstudie helpt u bij een voorbeeldtoepassing .NET welke bulksgewijs willekeurig gegenereerde documenten in een verzameling Azure Cosmos DB importeert. Nadat u hebt geïmporteerd ziet u hoe u kunt bulksgewijs de geïmporteerde gegevens door te geven van patches als bewerkingen om uit te voeren op specifieke documentvelden bijwerken.
+Deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos-DB BulkExecutor .NET-bibliotheek te importeren en bijwerken van documenten voor Azure DB die Cosmos-verzamelingen. Zie voor meer informatie over BulkExecutor-bibliotheek en hoe kunt u gebruikmaken van grote doorvoer en opslag, [BulkExecutor bibliotheek overzicht](bulk-executor-overview.md) artikel. Deze zelfstudie helpt u bij een voorbeeldtoepassing voor .NET die invoer willekeurig gegenereerde documenten bulksgewijs in een verzameling Azure Cosmos DB. Nadat u hebt geïmporteerd ziet u hoe u kunt bulksgewijs de geïmporteerde gegevens door te geven van patches als bewerkingen om uit te voeren op specifieke documentvelden bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -169,9 +170,9 @@ Houd rekening met de volgende punten voor betere prestaties bij gebruik van Bulk
 
 * Voer uw toepassing van een Azure virtuele machine die zich in dezelfde regio bevinden als uw regio Cosmos DB account schrijven voor de beste prestaties.  
 
-* Wordt u aangeraden het instantiëren van een enkel object BulkExecutor voor de gehele toepassing binnen één virtuele machine overeenkomt met een specifieke verzameling van de Cosmos-DB.  
+* Het verdient het instantiëren van een enkel object BulkExecutor voor de gehele toepassing binnen één virtuele machine overeenkomt met een specifieke verzameling van de Cosmos-DB.  
 
-* Omdat de uitvoering van een één bulksgewijze bewerking API een grote hoeveelheid CPU en het netwerk-IO van de client-computer verbruikt. Dit gebeurt door het starten van meerdere taken intern, Vermijd meerdere gelijktijdige taken in uw toepassingsproces voor die elke uitvoering bulksgewijze bewerking API-aanroepen te starten. Als een enkel bulksgewijs bewerking API-aanroep uitgevoerd op een enkele virtuele machine niet kan gebruiken voor uw hele verzameling doorvoer (als uw verzameling doorvoer > 1 miljoen RU/s), de voorkeur boven het maken van afzonderlijke virtuele machines voor het gelijktijdig uitvoeren bulksgewijs bewerking API-aanroepen.  
+* Omdat de uitvoering van een één bulksgewijze bewerking API een grote hoeveelheid CPU en het netwerk-IO van de client-computer verbruikt. Dit gebeurt door het starten van meerdere taken intern, Vermijd meerdere gelijktijdige taken in uw toepassingsproces voor die elke uitvoering bulksgewijze bewerking API-aanroepen te starten. Als een enkel bulksgewijs bewerking API-aanroep uitgevoerd op een enkele virtuele machine niet kan gebruiken voor uw hele verzameling doorvoer (als uw verzameling doorvoer > 1 miljoen RU/s), is het raadzaam om het maken van afzonderlijke virtuele machines voor het gelijktijdig uitvoeren bulksgewijs bewerking API-aanroepen.  
 
 * Zorg ervoor dat InitializeAsync() wordt aangeroepen nadat het instantiëren van een object op BulkExecutor om het ophalen van de doelmap Cosmos DB verzameling partitie.  
 
@@ -181,7 +182,7 @@ Houd rekening met de volgende punten voor betere prestaties bij gebruik van Bulk
     <gcServer enabled="true" />
   </runtime>
   ```
-* De bibliotheek verzendt traceringen dat kunnen worden verzameld in een logboekbestand of op de console. Voeg de volgende zodat beide App.Config van uw toepassing.
+* De bibliotheek verzendt traceringen die kunnen worden verzameld in een logboekbestand of op de console. Voeg de volgende zodat beide App.Config van uw toepassing.
 
   ```xml
   <system.diagnostics>

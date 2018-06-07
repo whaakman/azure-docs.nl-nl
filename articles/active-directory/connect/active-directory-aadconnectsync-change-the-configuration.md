@@ -2,10 +2,10 @@
 title: 'Azure AD Connect-synchronisatie: een configuratiewijziging in Azure AD Connect-synchronisatie wijzigen | Microsoft Docs'
 description: Leert u hoe u een wijziging aanbrengt in de configuratie in Azure AD Connect-synchronisatie.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bad1cbe0b142e146ada28f2af5d152973100e919
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595101"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: een wijziging aanbrengt in de standaardconfiguratie
 Het doel van dit artikel is om te zien hoe u wijzigingen aanbrengen in de standaardconfiguratie in Azure Active Directory (Azure AD) Connect-synchronisatie. Het bevat stappen voor enkele algemene scenario's. Met deze kennis moet u het volgende kunnen eenvoudige wijzigingen aanbrengen in uw eigen configuratie op basis van uw eigen bedrijfsregels.
@@ -204,7 +206,7 @@ Voordat de synchronisatie van het UserType-kenmerk is ingeschakeld, moet u eerst
 
     Als u deze benadering kiest, moet u ervoor zorgen dat het opgegeven kenmerk is gevuld met de juiste waarde voor alle bestaande gebruikersobjecten in de lokale Active Directory die worden gesynchroniseerd naar Azure AD voordat de synchronisatie van het UserType-kenmerk is ingeschakeld .
 
-- U kunt ook de waarde voor het UserType-kenmerk afleiden van andere eigenschappen. Bijvoorbeeld, u wilt synchroniseren van alle gebruikers als **Gast** als hun on-premises AD userPrincipalName kenmerk eindigt op domeingedeelte  *@partners.fabrikam123.org* . 
+- U kunt ook de waarde voor het UserType-kenmerk afleiden van andere eigenschappen. Bijvoorbeeld, u wilt synchroniseren van alle gebruikers als **Gast** als hun on-premises AD userPrincipalName kenmerk eindigt op domeingedeelte *@partners.fabrikam123.org*. 
 
     Zoals eerder vermeld, Azure AD Connect niet is toegestaan het UserType-kenmerk op bestaande Azure AD-gebruikers met Azure AD Connect worden gewijzigd. Daarom moet u ervoor zorgen dat de logica die u hebt besloten consistent is met hoe het UserType-kenmerk al is geconfigureerd voor alle Azure AD-gebruikers in uw tenant.
 
@@ -263,8 +265,8 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
     | Naam | *Geef een naam* | Bijvoorbeeld: *In uit Active Directory-gebruiker UserType* |
     | Beschrijving | *Geef een beschrijving* |  |
     | Verbonden systeem | *Kies de on-premises AD-connector* |  |
-    | Verbonden systeem objecttype | **User** |  |
-    | Metaverse-objecttype | **Person** |  |
+    | Verbonden systeem objecttype | **Gebruiker** |  |
+    | Metaverse-objecttype | **Persoon** |  |
     | Koppelingstype | **Koppelen** |  |
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
@@ -280,13 +282,13 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | extensionAttribute1 | Dit selectievakje is uitgeschakeld | Update |
+    | Rechtstreeks | UserType | extensionAttribute1 | Dit selectievakje is uitgeschakeld | Update |
 
-    In een ander voorbeeld wilt u de waarde voor het UserType-kenmerk worden afgeleid van andere eigenschappen. U wilt bijvoorbeeld alle gebruikers gesynchroniseerd als Gast als hun on-premises AD userPrincipalName kenmerk eindigt op domeingedeelte  *@partners.fabrikam123.org* . U kunt een expressie als volgt implementeren:
+    In een ander voorbeeld wilt u de waarde voor het UserType-kenmerk worden afgeleid van andere eigenschappen. U wilt bijvoorbeeld alle gebruikers gesynchroniseerd als Gast als hun on-premises AD userPrincipalName kenmerk eindigt op domeingedeelte *@partners.fabrikam123.org*. U kunt een expressie als volgt implementeren:
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName])'@partners.fabrikam123.org')=0) 'Lid', 'Gast'), fout ('UserPrincipalName is niet aanwezig zijn om te bepalen UserType')) | Dit selectievakje is uitgeschakeld | Update |
+    | Rechtstreeks | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName])'@partners.fabrikam123.org')=0) 'Lid', 'Gast'), fout ('UserPrincipalName is niet aanwezig zijn om te bepalen UserType')) | Dit selectievakje is uitgeschakeld | Update |
 
 7. Klik op **toevoegen** om de binnenkomende regel te maken.
 
@@ -305,8 +307,8 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
     | Naam | *Geef een naam* | Bijvoorbeeld: *buiten het AAD-gebruiker UserType* |
     | Beschrijving | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de AAD-connector* ||
-    | Verbonden systeem objecttype | **User** ||
-    | Metaverse-objecttype | **Person** ||
+    | Verbonden systeem objecttype | **Gebruiker** ||
+    | Metaverse-objecttype | **Persoon** ||
     | Koppelingstype | **Koppelen** ||
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
@@ -314,7 +316,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
 
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
-    | sourceObjectType | GELIJK ZIJN AAN | Gebruiker |
+    | Bronobjecttype | GELIJK ZIJN AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
 
     Het bereik filter bepaalt die Azure AD-objecten dat deze uitgaande synchronisatieregel wordt toegepast. In dit voorbeeld gebruiken we het filter voor hetzelfde bereik van de *Out naar AD – gebruikersidentiteit* out of box synchronisatieregel. Dit voorkomt dat de synchronisatieregel wordt toegepast op objecten die niet zijn gesynchroniseerd vanaf de lokale Active Directory. Mogelijk moet u het bereik filter op basis van uw Azure AD Connect-implementatie aanpassen.
@@ -323,7 +325,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | UserType | Dit selectievakje is uitgeschakeld | Update |
+    | Rechtstreeks | UserType | UserType | Dit selectievakje is uitgeschakeld | Update |
 
 7. Klik op **toevoegen** de uitgaande regel maken.
 

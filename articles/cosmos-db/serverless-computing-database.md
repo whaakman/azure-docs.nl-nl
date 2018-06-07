@@ -4,20 +4,17 @@ description: Meer informatie over hoe Azure Cosmos DB en Azure Functions kunnen 
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 9b1ffe7e63157f86a1cfe643e297c0cb3eb5c235
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34613962"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Zonder Server database computing met behulp van Azure Functions
 
@@ -141,7 +138,7 @@ Als u op zoek bent om te integreren met Azure Functions voor het opslaan van geg
 
 Voordelen van Azure Functions: 
 
-* **Event-driven**. Azure Functions zijn gebeurtenisafhankelijke en een wijziging in de feed vanuit Azure Cosmos DB kunnen volgen. Dit betekent dat u hoeft niet te luisteren logica maken, u alleen Let om de wijzigingen die u voor luistert. 
+* **Gebeurtenisafhankelijke**. Azure Functions zijn gebeurtenisafhankelijke en een wijziging in de feed vanuit Azure Cosmos DB kunnen volgen. Dit betekent dat u hoeft niet te luisteren logica maken, u alleen Let om de wijzigingen die u voor luistert. 
 
 * **Er zijn geen limieten**. Functies uitvoeren in parallelle instructies en de service draaien up zoveel als u nodig hebt. U instellen de parameters.
 

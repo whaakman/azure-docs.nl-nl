@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a9d8d0daae3fd35cd8a2527a3a29da235424830e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 62b838212f94c48e39daf31877aeb5b344836571
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622557"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Verplaatsen van gegevens uit een Teradata met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -285,24 +286,24 @@ Wanneer u gegevens naar Teradata verplaatst, worden de volgende toewijzingen van
 
 | Type Teradata-Database | .NET framework-type |
 | --- | --- |
-| CHAR |Tekenreeks |
-| CLOB |Tekenreeks |
-| Afbeelding |Tekenreeks |
-| VarChar |Tekenreeks |
-| VarGraphic |Tekenreeks |
+| CHAR |Reeks |
+| CLOB |Reeks |
+| Afbeelding |Reeks |
+| VarChar |Reeks |
+| VarGraphic |Reeks |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimale |Decimale |
-| Double |Double |
+| dubbele |dubbele |
 | Geheel getal |Int32 |
-| Aantal |Double |
+| Aantal |dubbele |
 | SmallInt |Int16 |
 | Date |DateTime |
 | Time |TimeSpan |
-| Tijd met de tijdzone |Tekenreeks |
+| Tijd met de tijdzone |Reeks |
 | Timestamp |DateTime |
 | Tijdstempel met tijdzone |DateTimeOffset |
 | Interval dag |TimeSpan |
@@ -315,15 +316,15 @@ Wanneer u gegevens naar Teradata verplaatst, worden de volgende toewijzingen van
 | Interval minuut |TimeSpan |
 | Minuut tweede interval |TimeSpan |
 | Interval tweede |TimeSpan |
-| Interval jaar |Tekenreeks |
-| Interval jaar, maand |Tekenreeks |
-| Interval maand |Tekenreeks |
-| Period(Date) |Tekenreeks |
-| Period(Time) |Tekenreeks |
-| Periode (tijd met tijdzone) |Tekenreeks |
-| Period(Timestamp) |Tekenreeks |
-| Periode (tijdstempel met tijdzone) |Tekenreeks |
-| Xml |Tekenreeks |
+| Interval jaar |Reeks |
+| Interval jaar, maand |Reeks |
+| Interval maand |Reeks |
+| Period(date) |Reeks |
+| Period(Time) |Reeks |
+| Periode (tijd met tijdzone) |Reeks |
+| Period(timestamp) |Reeks |
+| Periode (tijdstempel met tijdzone) |Reeks |
+| Xml |Reeks |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen
 Zie voor meer informatie over het toewijzen van kolommen in gegevensset naar kolommen in gegevensset sink bron, [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

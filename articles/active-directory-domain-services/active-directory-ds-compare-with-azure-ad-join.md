@@ -2,23 +2,25 @@
 title: Koppelen aan Azure AD en Azure Active Directory Domain Services vergelijken | Microsoft Docs
 description: Kiezen tussen Azure AD Join en Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: fb28c7a66d26119444dd720c2e134f2818d46cfc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f2d09e896a41647ef3211a754a4c7aa403d8cea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587851"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Kiezen tussen Azure Active Directory join en Azure Active Directory Domain Services
 Dit artikel worden de verschillen tussen koppelen aan Azure Active Directory (AD) en Azure AD Domain Services en zorgt die u ervoor kiest, op basis van uw use cases.
@@ -56,7 +58,7 @@ Op een machine domein gebruikersverificatie gebeurt met behulp van NTLM of Kerbe
 |:---| --- | --- |
 | Apparaat beheerd door | Azure AD | Azure AD Domain Services beheerd domein |
 | Weergave in de map | Apparaatobjecten in de Azure AD-directory. | Computerobjecten in het AAD-DS beheerde domein. |
-| Authentication | OAuth/OpenID Connect gebaseerde protocollen | Kerberos, NTLM-protocollen |
+| Verificatie | OAuth/OpenID Connect gebaseerde protocollen | Kerberos, NTLM-protocollen |
 | Beheer | Mobile Device Management (MDM)-software, zoals Intune | Groepsbeleid |
 | Netwerken | Werkt via het internet | Vereist machines zich in hetzelfde virtuele netwerk als het beheerde domein.|
 | Ideaal voor... | Eindgebruikers mobiele of bureaubladtoepassingen apparaten | Server virtuele machines zijn geïmplementeerd in Azure |

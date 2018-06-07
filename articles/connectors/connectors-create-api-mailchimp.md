@@ -1,25 +1,22 @@
 ---
-title: MailChimp-connector in Azure Logic Apps | Microsoft Docs
-description: Logic apps maken met Azure App service. MailChimp is een SaaS-service waarmee bedrijven e-mailmarketingactiviteiten kunnen beheren en automatiseren, zoals het verzenden van marketing-e-mails, geautomatiseerde berichten en gerichte campagnes.
-services: logic-apps
-documentationcenter: .net,nodejs,java
+title: Verbinding maken met MailChimp - Azure Logic Apps | Microsoft Docs
+description: Maken en beheren van marketing e-mailberichten met MailChimp REST-API's en Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: 36559de2-94f0-4355-b492-2926dfc56486
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 041212771db5b5971ccd220e68d71d59d8220531
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: a11dbee8a0aab70abad60b8b783b2caa4f03c9c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609325"
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Aan de slag met de MailChimp-connector
 MailChimp is een SaaS-service waarmee bedrijven beheren en automatiseren e marketing activiteiten, waaronder het verzenden van e-mailberichten marketing, geautomatiseerde berichten en gerichte campagnes.

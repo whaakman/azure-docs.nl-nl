@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625794"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Gebeurtenis raster berichtbezorging en probeer het opnieuw 
 
@@ -62,10 +63,10 @@ Een beleid voor opnieuw proberen van exponentieel uitstel gebruikt voor gebeurte
 
 Gebeurtenis raster voegt een kleine willekeurige toe aan alle intervallen voor opnieuw proberen. Levering van de gebeurtenis wordt opnieuw geprobeerd eens per uur na een uur.
 
-Gebeurtenis raster verloopt standaard alle gebeurtenissen die niet worden bezorgd binnen 24 uur.
+Gebeurtenis raster wordt gestopt voor het afleveren van alle gebeurtenissen die niet worden bezorgd binnen 24 uur.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * De status van de gebeurtenis leveringen Zie [Monitor gebeurtenis raster berichtbezorging](monitor-event-delivery.md).
-* Zie voor een inleiding tot gebeurtenis raster, [over gebeurtenis raster](overview.md).
+* Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
 * Zie om snel aan de slag met Event raster [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md).

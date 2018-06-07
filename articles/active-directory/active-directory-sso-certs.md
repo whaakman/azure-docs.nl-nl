@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 9924d06f149b0d234cd8f5546cab8abbab740aac
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7041bd19c464c0ce6fb0f3d695a87581fed290e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592011"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding bij Azure Active Directory beheren
 In dit artikel bevat informatie over veelgestelde vragen en informatie met betrekking tot de certificaten die Azure Active Directory (Azure AD) maakt om vast te stellen federatieve eenmalige aanmelding (SSO) aan uw SaaS-toepassingen. Toepassingen toevoegen vanuit de app-galerie van Azure AD of met behulp van een sjabloon voor niet-galerie toepassingen. De toepassing configureren met behulp van de federatieve SSO-optie.
@@ -57,6 +58,15 @@ De schermafbeeldingen Salesforce voorbeeld gebruiken, maar deze stappen kunnen t
 6. Het nieuwe certificaat is nu beschikbaar voor downloaden. Klik op de **certificaat** koppeling om deze te downloaden. Uw certificaat is op dit moment niet actief. Als u overschakelen naar dit certificaat wilt, selecteert u de **nieuwe certificaat activeren** selectievakje in en klik op **opslaan**. Vanaf dat moment Azure AD begint met het nieuwe certificaat voor ondertekening van het antwoord.
 
 7.  Als u wilt weten hoe u het certificaat uploaden naar uw bepaalde SaaS-toepassing, klikt u op de **weergave configuratie zelfstudie** koppeling.
+
+## <a name="certificate-expiration-notification-email"></a>Certificaat verloopt meldingse-mail
+
+Azure AD ontvangt een e-mailbericht melding 60, 30 en 7 dagen voordat het SAML-certificaat verloopt. Het e-mailadres voor de locatie waar u de melding verzenden opgeven:
+
+- Op de Azure Active Directory-toepassing één aanmelding pagina, gaat u naar het e-mailmelding-veld.
+- Voer het e-mailadres dat moet de e-mailmelding verlopen certificaat ontvangen. Dit veld gebruikt standaard het e-mailadres van de beheerder die de toepassing toegevoegd.
+
+U ontvangt de e-mailmelding van aadnotification@microsoft.com. Om te voorkomen dat het e-mailbericht naar uw locatie spam, moet u dit e-mailadres toevoegen aan uw contactpersonen. 
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Een certificaat vernieuwen dat binnenkort verloopt
 De volgende vernieuwing stappen moeten resulteren in geen aanzienlijke uitvaltijd voor uw gebruikers. De schermafbeeldingen in deze sectie functie Salesforce als een voorbeeld, maar deze stappen kunt toepassen op alle federatieve SaaS-Apps.

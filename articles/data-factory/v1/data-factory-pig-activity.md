@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af0c19988c52760a681477a5cea7ebbc48492c83
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d65851f73ca3cc0bc85caff39b3a322900b78843
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622513"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformeer gegevens met behulp van Pig-activiteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -86,7 +87,7 @@ De HDInsight Pig-activiteit in een Data Factory [pijplijn](data-factory-create-p
 | naam |Naam van de activiteit |Ja |
 | description |Beschrijving van wat de activiteit wordt gebruikt |Nee |
 | type |HDinsightPig |Ja |
-| Invoer |Een of meer invoerwaarden verbruikt door de activiteit Pig |Nee |
+| invoer |Een of meer invoerwaarden verbruikt door de activiteit Pig |Nee |
 | uitvoer |Een of meer uitvoer geproduceerd door de Pig-activiteit |Ja |
 | linkedServiceName |Verwijzing naar het HDInsight-cluster dat is geregistreerd als een gekoppelde service in de Data Factory |Ja |
 | Script |Geef de inline Pig-script |Nee |

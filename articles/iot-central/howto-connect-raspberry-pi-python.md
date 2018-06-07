@@ -1,18 +1,19 @@
 ---
 title: Processtappen verbinden een Pi frambozen aan uw Azure IoT centrale toepassing (Python) | Microsoft Docs
 description: Als een ontwikkelaar van het apparaat een Pi frambozen verbinding met uw Azure IoT centrale toepassing met behulp van Python.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/23/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: 23ab31d6d2357bfcb184e5b3022155bef5ace658
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9c2d18a518bd5c98fcc35efdb0dff36970a49b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629062"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Verbinding maken met een Pi frambozen aan uw Azure IoT centrale toepassing (Python)
 
@@ -32,7 +33,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 
 ### <a name="telemetry-measurements"></a>Telemetrie metingen
 
-| Veldnaam     | Eenheden  | Minimum | Maximum | Decimalen |
+| Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
 | -------------- | ------ | ------- | ------- | -------------- |
 | Vochtigheid       | %      | 0       | 100     | 0              |
 | TEMP           | ° C     | -40     | 120     | 0              |
@@ -51,7 +52,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 
 Numerieke instellingen
 
-| Weergavenaam | Veldnaam | Eenheden | Decimalen | Minimum | Maximum | Oorspronkelijk |
+| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Spanning      | setVoltage | V | 0              | 0       | 240     | 0       |
 | Huidige      | setCurrent | Stroom  | 0              | 0       | 100     | 0       |
@@ -70,7 +71,7 @@ Instellingen voor in-of uitschakelen
 | Apparaateigenschap | Aantal die   | dieNumber  | getal    |
 | Tekst            | Locatie     | location   | N/A       |
 
-### <a name="add-a-real-device"></a>Een echte apparaat toevoegen
+### <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
 In uw Azure IoT centrale toepassing toevoegen een echte apparaat van de **frambozen Pi** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie [een echte apparaat toevoegt aan uw Azure IoT centrale toepassing](tutorial-add-device.md).
 

@@ -2,23 +2,19 @@
 title: Gebeurtenissen verzenden naar Azure Event Hubs met behulp van Java | Microsoft Docs
 description: Aan de slag verzenden naar Event Hubs met behulp van Java
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/30/2018
 ms.author: sethm
-ms.openlocfilehash: 5dd0c88dab9ff4b7073a9acf6872b4c3ff085586
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6d3bf0b8ac5c5bdc7bf3deda21e800fe3cc6be2e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626408"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Gebeurtenissen verzenden naar Azure Event Hubs met Java
 
@@ -28,12 +24,14 @@ Zie voor meer informatie de [overzicht van Event Hubs][Event Hubs overview].
 
 Deze zelfstudie laat zien hoe gebeurtenissen verzenden naar een event hub met behulp van een Java-consoletoepassing. Zie voor het ontvangen van gebeurtenissen met de bibliotheek Java Event Processor Host [in dit artikel](event-hubs-java-get-started-receive-eph.md), of klik op de juiste ontvangende taal in de tabel links van inhoud.
 
-Om deze zelfstudie hebt voltooid, moet u het volgende:
+## <a name="prerequisites"></a>Vereisten
 
-* Een Java-ontwikkelomgeving. Voor deze zelfstudie gaan we ervan uit [Eclipse](https://www.eclipse.org/).
+Om deze zelfstudie hebt voltooid, moet u de volgende vereisten:
+
+* Een Java-ontwikkelomgeving. Deze zelfstudie wordt gebruikgemaakt van [Eclipse](https://www.eclipse.org/).
 * Een actief Azure-account. Als u niet een Azure-abonnement hebt, maakt u een [gratis account][] voordat u begint.
 
-De code in deze zelfstudie is gebaseerd op de [verzenden GitHub voorbeeld](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send), die u kunt bekijken om te zien van de volledige werkende toepassing.
+De code in deze zelfstudie is gebaseerd op de [SimpleSend GitHub voorbeeld](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), die u kunt bekijken om te zien van de volledige werkende toepassing.
 
 ## <a name="send-events-to-event-hubs"></a>Gebeurtenissen verzenden naar Event Hubs
 
@@ -94,7 +92,7 @@ De klasse ConnectionStringBuilder gebruiken om een string-waarde van de verbindi
 
 ### <a name="send-events"></a>Gebeurtenissen verzenden
 
-Vervolgens maakt u een enkelvoudige gebeurtenis door het omzetten van een tekenreeks in de UTF-8-byte-codering. Vervolgens maakt u een nieuw exemplaar van de Event Hubs-client uit de verbindingsreeks en verzend het bericht.   
+Een enkelvoudige gebeurtenis maken door het omzetten van een tekenreeks in de UTF-8-byte-codering. Vervolgens maakt u een nieuw exemplaar van de Event Hubs-client uit de verbindingsreeks en verzend het bericht:   
 
 ```java 
 byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
@@ -119,5 +117,5 @@ U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md
-[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[Gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 

@@ -3,22 +3,19 @@ title: Feed voor HL7 FHIR resources - Azure Cosmos DB wijzigen | Microsoft Docs
 description: Informatie over het instellen van HL7 FHIR gezondheidszorg patiëntrecords met Azure Logic Apps, Azure Cosmos DB en Service Bus-wijzigingsmeldingen.
 keywords: HL7 fhir
 services: cosmos-db
-author: hedidin
+author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 0d25c11f-9197-419a-aa19-4614c6ab2d06
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: d9894709cc10c55295e63f64a0db89137bf36826
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9d05c41e7ebf9d1cc0735da8853e4ad1617eb810
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34610494"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Melding patiënten van HL7 FHIR gezondheidszorg recordwijzigingen met Logic Apps en Azure Cosmos-DB
 
@@ -90,7 +87,7 @@ We gebruiken de [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/l
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>GetNewOrModifiedFhirDocuments bewerking
 
 **Invoer**
-- DatabaseId
+- Database-id
 - CollectionId
 - De naam van de HL7 FHIR brontype
 - Booleaanse waarde: Starten vanaf het begin

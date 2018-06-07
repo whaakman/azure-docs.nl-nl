@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7713e1b6a74fd099206804133d2dc8140fe83a8d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 808405de3391912433919d21b59214831b024866
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616393"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Gegevens kopiëren van DB2 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -179,28 +180,28 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | BigInt |Int64 |
 | Binair bestand |Byte[] |
 | Blob |Byte[] |
-| CHAR |Tekenreeks |
-| CLOB |Tekenreeks |
+| CHAR |Reeks |
+| CLOB |Reeks |
 | Date |Datum en tijd |
-| DB2DynArray |Tekenreeks |
-| DbClob |Tekenreeks |
+| DB2DynArray |Reeks |
+| DbClob |Reeks |
 | Decimale |Decimale |
 | DecimalFloat |Decimale |
-| Double |Double |
-| Float |Double |
-| Afbeelding |Tekenreeks |
+| dubbele |dubbele |
+| Float |dubbele |
+| Afbeelding |Reeks |
 | Geheel getal |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Tekenreeks |
-| LongVarGraphic |Tekenreeks |
+| LongVarChar |Reeks |
+| LongVarGraphic |Reeks |
 | Numeriek |Decimale |
-| Real |Single |
+| Real |Enkelvoudig |
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |Tekenreeks |
-| VarGraphic |Tekenreeks |
+| VarChar |Reeks |
+| VarGraphic |Reeks |
 | Xml |Byte[] |
 
 

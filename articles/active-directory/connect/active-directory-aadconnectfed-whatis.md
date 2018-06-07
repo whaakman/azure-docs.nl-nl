@@ -2,10 +2,10 @@
 title: Azure AD Connect en Federatie | Microsoft Docs
 description: Deze pagina is de centrale locatie voor alle documentatie over AD FS-bewerkingen die gebruikmaken van Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
+ms.component: hybrid
 ms.author: anandy
-ms.openlocfilehash: 04516e38e72405ca797a0d748d9ed825ae452966
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c14b673bd9664aad54ea8002175999470661e34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593850"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect en federatie
 Azure Active Directory (Azure AD) Connect kunt configureren van Federatie met lokale Active Directory Federation Services (AD FS) en Azure AD. Met federation aanmelden kunt u gebruikers aan te melden bij Azure AD-services op basis van hun on-premises wachtwoorden-- en klik op het bedrijfsnetwerk, zonder te hoeven hun wachtwoord opnieuw invoeren. Met de optie Federatie met AD FS, kunt u een nieuwe installatie van AD FS implementeren of u kunt een bestaande installatie opgeven in een farm met Windows Server 2012 R2.
@@ -33,7 +35,7 @@ Dit onderwerp is de startpagina voor informatie over de federation-gerelateerde 
 | **AD FS installeren met behulp van Azure AD Connect** | |
 | [Vereisten](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |Zie de vereisten voor een geslaagde installatie van AD FS via Azure AD Connect. |
 | [Een AD FS-farm configureren](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |Installeer een nieuwe AD FS-farm met behulp van Azure AD Connect. |
-| [Gefedereerd met Azure AD met behulp van alternatieve aanmeldings-ID](active-directory-aadconnect-federation-management.md#alternateid) | Federatie met behulp van alternatieve aanmeldings-ID configureren  |
+| [Gefedereerd met Azure AD met behulp van alternatieve aanmeldings-ID ](active-directory-aadconnect-federation-management.md#alternateid) | Federatie met behulp van alternatieve aanmeldings-ID configureren  |
 | **De AD FS-configuratie wijzigen** | |
 | [Herstellen van de vertrouwensrelatie](active-directory-aadconnect-federation-management.md#repairthetrust) |Herstel de vertrouwensrelatie van de huidige tussen lokale AD FS en Office 365/Azure. |
 | [Een nieuwe AD FS-server toevoegen](active-directory-aadconnect-federation-management.md#addadfsserver) |Vouw een AD FS-farm met een extra AD FS-server na de eerste installatie. |
@@ -48,7 +50,7 @@ Dit onderwerp is de startpagina voor informatie over de federation-gerelateerde 
 | [Wijzigen van de claimregels van AD FS](active-directory-aadconnect-federation-management.md#modclaims) |Wijzig of claimregels in AD FS die overeenkomen met het toevoegen aan Azure AD Connect sync-configuratie. |
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [Federatie twee Azure AD met één AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 * [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md)
 * [Hoge beschikbaarheid cross-geografische AD FS-implementatie in Azure met Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)

@@ -1,24 +1,20 @@
 ---
-title: 'Azure Backup: toepassingsconsistente back-ups van virtuele Linux-machines | Microsoft Docs'
-description: "Maak toepassingsconsistente back-ups van uw virtuele Linux-machines naar Azure. Dit artikel wordt uitgelegd in de script-framework back-up Azure geïmplementeerd virtuele Linux-machines te configureren. In dit artikel bevat ook informatie over probleemoplossing."
+title: 'Azure Backup: toepassingsconsistente back-ups van virtuele Linux-machines'
+description: Maak toepassingsconsistente back-ups van uw virtuele Linux-machines naar Azure. Dit artikel wordt uitgelegd in de script-framework back-up Azure geïmplementeerd virtuele Linux-machines te configureren. In dit artikel bevat ook informatie over probleemoplossing.
 services: backup
-documentationcenter: dev-center-name
 author: anuragmehrotra
 manager: shivamg
 keywords: App-consistente back-up. toepassingsconsistente virtuele machine van Azure back-up. Back-up van Linux-VM. Azure Backup
-ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm;markgal
-ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.author: anuragm
+ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605209"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Toepassingsconsistente back-up van Linux virtuele machines van Azure
 
@@ -78,7 +74,7 @@ Vooraf scripts systeemeigen toepassing API's, welke stilleggen de IOs aanroepen 
 
 Zorg ervoor dat u passende logboekregistratie tijdens het schrijven van uw script voor vóór en na toevoegen en bekijk de logboeken van uw script om op te lossen problemen script. Als u nog steeds problemen bij het uitvoeren van scripts hebt, raadpleegt u de volgende tabel voor meer informatie.
 
-| Fout | Bericht invoeren | Aanbevolen actie |
+| Fout | Foutbericht | Aanbevolen actie |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Het vooraf script heeft een fout, dus mogelijk toepassingsconsistente back-up niet.   | Bekijk de logboeken is mislukt voor uw script om het probleem te verhelpen.|  
 |   Post-ScriptExecutionFailed |    Het script voor na een fout die voor de toepassingsstatus gevolgen mogelijk geretourneerd. |    Bekijk de logboeken is mislukt voor uw script om los het probleem en controleer de toepassingsstatus van de. |

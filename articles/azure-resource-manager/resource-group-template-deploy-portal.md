@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603721"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Resources implementeren met Resource Manager-sjablonen en Azure Portal
 
@@ -85,7 +86,7 @@ Als u wilt uitvoeren van een implementatie, maar geen gebruik van de sjablonen i
 
 1. Selecteer **Maken**.
 
-   ![Selecteer maken](./media/resource-group-template-deploy-portal/show-template-option.png)
+   ![Selecteer Maken](./media/resource-group-template-deploy-portal/show-template-option.png)
 
 1. Er zijn verschillende opties voor het maken van een sjabloon. Selecteer **bouwen van uw eigen sjabloon in de editor**.
 
@@ -113,7 +114,7 @@ Als u wilt uitvoeren van een implementatie, maar geen gebruik van de sjablonen i
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Resources van een sjabloon die is opgeslagen in uw account implementeren
 
-De portal kunt u een sjabloon opslaan in uw Azure-account en het later opnieuw te implementeren. Voor meer informatie over het werken met deze sjablonen, opgeslagen [aan de slag met persoonlijke sjablonen in de Azure portal](../marketplace-consumer/mytemplates-getstarted.md).
+De portal kunt u een sjabloon opslaan in uw Azure-account en het later opnieuw te implementeren. Zie voor meer informatie over sjablonen [maken en implementeren van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
 
 1. Selecteer uw opgeslagen sjablonen vindt **meer services**.
 
@@ -135,4 +136,4 @@ De portal kunt u een sjabloon opslaan in uw Azure-account en het later opnieuw t
 * Controlelogboeken Zie [bewerkingen met Resource Manager controleren](resource-group-audit.md).
 * Zie voor het oplossen van implementatiefouten [implementatiebewerkingen weergeven](resource-manager-deployment-operations.md).
 * Zie voor het ophalen van een sjabloon van een implementatie of de resourcegroep, [Azure Resource Manager-sjabloon exporteren uit bestaande resources](resource-manager-export-template.md).
-* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).
+* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).
