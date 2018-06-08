@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 02c3a3d996fa253cf56e551a37e098639bf73533
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32151940"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Het overdragen van de gebruiker de registratie- en productinformatie abonnement
 Overdracht kunt u uw bestaande website te gebruiken voor het verwerken van ontwikkelaars sign-in/sign-up-to-date en abonnement op producten in plaats van met behulp van de ingebouwde functie in de portal voor ontwikkelaars. Hierdoor kan uw website aan de eigenaar van de gebruikersgegevens en de validatie van de volgende stappen uitvoeren in een aangepaste manier.
@@ -64,7 +65,7 @@ Nu moet u maken de **delegering eindpunt**. Er is een aantal acties uitvoeren:
    * Vergelijk de bovenstaande berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders dat de aanvraag wordt geweigerd.
 3. Controleer of u een aanvraag voor sign-in/aanmelding-up worden ontvangen: de **bewerking** queryparameter wordt ingesteld op '**SignIn**'.
 4. Presenteren aan de gebruiker om te ondertekenen in of aanmelding met de gebruikersinterface
-5. Als de gebruiker de aanmelding is die u moet een bijbehorende account voor hen maken in API Management. [Maken van een gebruiker] met de REST-API van API Management. Wanneer doet, zorg ervoor dat u de gebruikers-ID ingesteld op hetzelfde is in uw archief van de gebruiker of een id die u kunt van bijhouden.
+5. Als de gebruiker de aanmelding is die u moet een bijbehorende account voor hen maken in API Management. [Een gebruiker maken] met de REST-API van API Management. Wanneer doet, zorg ervoor dat u de gebruikers-ID ingesteld op hetzelfde is in uw archief van de gebruiker of een id die u kunt van bijhouden.
 6. Wanneer de gebruiker is geverifieerd:
    
    * [eenmalige aanmelding (SSO)-token van een aanvraag] via de API Management REST API
@@ -124,7 +125,7 @@ Verzeker u ervan dat het eindpunt van de overdracht worden de volgende acties ui
      > 
    * Vergelijk de bovenstaande berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders dat de aanvraag wordt geweigerd.
 3. De verwerking van een abonnement die op basis van het type in de aangevraagde bewerking uitvoeren **bewerking** - bijvoorbeeld facturering, vragen, enzovoort.
-4. Abonneren op het abonnement is de gebruiker op het product aan uw kant, door de gebruiker het API Management-product door [aanroepen van de REST-API voor het product abonnement].
+4. Abonneren op het abonnement is de gebruiker op het product aan uw kant, door de gebruiker het API Management-product door [de REST-API aanroepen voor het product abonnement].
 
 ## <a name="delegate-example-code"> </a> Voorbeeldcode
 Deze codevoorbeelden laten zien hoe nemen de *delegering validatiesleutel*, die in het scherm van de overdracht van de publicatieportal is ingesteld voor het maken van een HMAC, die vervolgens wordt gebruikt om de handtekening te valideren, de geldigheid van de doorgegeven aan te tonen returnUrl. De dezelfde code werkt voor de product-id en gebruikers-id met kleine wijziging.
@@ -174,7 +175,7 @@ Zie voor meer informatie over delegering, de volgende video:
 [Delegating product subscription]: #delegate-product-subscription
 [eenmalige aanmelding (SSO)-token van een aanvraag]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Een gebruiker maken]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[aanroepen van de REST-API voor het product abonnement]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[de REST-API aanroepen voor het product abonnement]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [voorbeeldcode hieronder]: #delegate-example-code
 

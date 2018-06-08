@@ -9,18 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34735138"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden in Azure Active Directory voorwaardelijke toegang 
 
@@ -148,7 +150,7 @@ De voorwaarde van client-apps kunt u een beleid toepassen op verschillende typen
 - Websites en services
 - Mobiele apps en bureaubladtoepassingen. 
 
-![Voorwaarden](./media/active-directory-conditional-access-conditions/04.png)
+
 
 Een toepassing wordt ingedeeld als:
 
@@ -156,7 +158,7 @@ Een toepassing wordt ingedeeld als:
 
 - A een mobiele app of bureaubladtoepassing als de mobiele app OpenID Connect wordt gebruikt voor een native client.
 
-Zie voor een volledige lijst van de ClientApps kunt u in uw beleid voor voorwaardelijke toegang, de [technische documentatie voor Azure Active Directory voorwaardelijke toegang](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+Zie voor een volledige lijst van de ClientApps kunt u in uw beleid voor voorwaardelijke toegang [Client apps voorwaarde](active-directory-conditional-access-technical-reference.md#client-apps-condition) in de technische documentatie voor Azure Active Directory voorwaardelijke toegang.
 
 Algemene gebruiksvoorbeelden voor deze voorwaarde zijn beleidsregels die:
 
@@ -166,6 +168,20 @@ Algemene gebruiksvoorbeelden voor deze voorwaarde zijn beleidsregels die:
 
 Naast het gebruik van web-SSO en moderne verificatieprotocollen, kunt u deze voorwaarde toepassen op e-toepassingen die gebruikmaken van Exchange ActiveSync, zoals de systeemeigen e-mailapps op de meeste smartphones. Op dit moment kunnen client-apps met behulp van verouderde protocollen moeten worden beveiligd met AD FS.
 
+U kunt deze voorwaarde alleen selecteren als **Office 365 Exchange Online** is de enige cloud-app die u hebt geselecteerd.
+
+![Cloud-apps](./media/active-directory-conditional-access-conditions/32.png)
+
+Selecteren **Exchange ActiveSync** als client-apps voorwaarde wordt alleen ondersteund als er geen andere voorwaarden in een beleid dat is geconfigureerd. U kunt echter het bereik van dit probleem is alleen van toepassing op ondersteunde platforms afbakenen.
+
+ 
+![Ondersteunde platforms](./media/active-directory-conditional-access-conditions/33.png)
+
+Deze voorwaarde toepassen alleen op ondersteunde platforms komt overeen met alle apparaatplatforms in een [apparaat platform voorwaarde](active-directory-conditional-access-conditions.md#device-platforms).
+
+![Ondersteunde platforms](./media/active-directory-conditional-access-conditions/34.png)
+
+
  Zie voor meer informatie:
 
 - [SharePoint Online en Exchange Online instellen voor voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md)
@@ -173,9 +189,53 @@ Naast het gebruik van web-SSO en moderne verificatieprotocollen, kunt u deze voo
 - [Azure Active Directory op basis van een app voorwaardelijke toegang](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>Verouderde verificatie  
+
+Voorwaardelijke toegang is nu van toepassing op oudere Office-clients die moderne verificatie niet ondersteunen, evenals de clients die gebruikmaken van e-protocollen zoals POP-, IMAP-, SMTP-, enzovoort. Hiermee kunt u voor het configureren van beleid zoals **blokkeert de toegang van andere clients**.
+
+
+![Verouderde verificatie](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>Bekende problemen
+
+- Een beleid configureert voor **andere clients** blokkeert de hele organisatie van bepaalde clients zoals SPConnect. Dit komt door deze oudere clients verifiëren op onverwachte manieren. Dit probleem is niet van toepassing op de primaire Office-toepassingen zoals de oudere Office-clients. 
+
+- Het kan tot 24 uur voor het beleid van kracht duren. 
+
+
+#### <a name="frequently-asked-questions"></a>Veelgestelde vragen
+
+**Wordt dit Exchange Web Services (EWS) blokkeren?**
+
+Dit is afhankelijk van het verificatieprotocol dat EWS wordt gebruikt. Als de toepassing EWS moderne verificatie gebruikt, zal het worden gedekt door de client-app 'mobiele apps en bureaublad-clients'. Als de toepassing EWS met behulp van basisverificatie, zal het worden gedekt door de client-app 'Andere clients'.
+
+
+**Welke besturingselementen kan ik gebruiken voor andere clients**
+
+Een besturingselement kan worden geconfigureerd voor 'Andere clients'. De eindgebruiker zich echter toegang blokkeren voor alle aanvragen. 'Andere clients' bieden geen ondersteuning voor besturingselementen zoals MFA compatibel apparaat, domein, enzovoort. 
+ 
+**Welke voorwaarden kan ik gebruiken voor andere clients?**
+
+Alle voorwaarden kunnen worden geconfigureerd voor 'Andere clients'.
+
+**Ondersteunt Exchange ActiveSync alle voorwaarden en besturingselementen?**
+
+Nee. Hier volgt een samenvatting van ondersteuning voor Exchange ActiveSync (EAS):
+
+- EAS ondersteunt alleen gebruikers en groepen. Deze biedt geen ondersteuning voor gast, rollen. Als gast/rol voorwaarde is geconfigureerd, worden alle gebruikers worden geblokkeerd omdat als het beleid voor de gebruiker gelden moet kan niet worden bepaald.
+
+- EAS werkt alleen als de cloud-app met Exchange. 
+
+- EAS biedt geen ondersteuning voor elke voorwaarde met uitzondering van de clientapp zelf.
+
+- EAS kan worden geconfigureerd met een besturingselement (Alles behalve apparaatcompatibiliteit zal leiden tot block).
+
+**Zijn de beleidsregels van toepassing op alle client-apps standaard voortaan?**
+
+Nee. Er is geen wijziging in het standaardgedrag voor het beleid. Het beleid blijven standaard toegepast op de browser en mobiele toepassingen/bureaublad-clients.
 
 
 

@@ -5,20 +5,17 @@ keywords: Databasevragen, veelgestelde vragen, documentdb, azure, Microsoft azur
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34735161"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -61,6 +58,9 @@ Er is geen limiet voor de totale hoeveelheid gegevens die een container kunt ops
 
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Wat zijn de doorvoerlimieten van Azure DB die Cosmos?
 Er is geen limiet voor de totale hoeveelheid doorvoer die een container in Azure Cosmos DB kan ondersteunen. Het belangrijkste idee is dat uw werkbelasting verdelen ongeveer een voldoende aantal partitiesleutels.
+
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>Zijn Direct en Gateway connectiviteit modi versleuteld? 
+Ja zijn beide modi altijd volledig versleuteld. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Wat kost Azure Cosmos DB?
 Raadpleeg voor meer informatie, de [Azure Cosmos DB prijsinformatie](https://azure.microsoft.com/pricing/details/cosmos-db/) pagina. Azure DB Cosmos gebruikskosten worden bepaald door het aantal ingerichte containers, het aantal uren de containers online zijn en de ingerichte doorvoer voor elke container. De term *containers* verwijst hier naar de verzameling van de SQL-API, Graph API grafiek, MongoDB-API-verzameling en tabel API tabellen. 
@@ -164,6 +164,10 @@ U kunt bulksgewijs invoegen documenten naar Azure Cosmos DB op twee manieren:
 * Het hulpprogramma voor migratie, zoals beschreven in [hulpprogramma voor migratie van Database voor Azure Cosmos DB](import-data.md).
 * Opgeslagen procedures, zoals beschreven in [serverzijde JavaScript programmeren voor Azure Cosmos DB](programming.md).
 
+### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Setup Mijn verzameling om te gebruiken vertraagde indexeren laten, zie ik dat mijn query's niet verwachte resultaten retourneren. 
+Zoals wordt beschreven in de sectie indexering, kan vertraagde indexeren leiden tot dit probleem. U moet altijd een consistente indexeren voor alle toepassingen gebruiken. 
+
+
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>Ondersteunt de SQL-API ondersteuning resourcekoppelingen?
 Ja, omdat Azure Cosmos DB een RESTful-service, resourcekoppelingen onveranderbaar zijn en kunnen in de cache worden opgeslagen. SQL-API-clients kunnen een header 'If-None-Match' opgeven voor leesbewerkingen voor een resource-achtige document of een verzameling en vervolgens hun lokale kopieën werken nadat de serverversie is gewijzigd.
 
@@ -171,7 +175,12 @@ Ja, omdat Azure Cosmos DB een RESTful-service, resourcekoppelingen onveranderbaa
 Ja. De [Azure Cosmos DB Emulator](local-emulator.md) biedt een hoogwaardige emulatie van de Cosmos-DB-service. Het ondersteunt functionaliteit die identiek is aan Azure Cosmos DB, inclusief ondersteuning voor het maken en uitvoeren van query's JSON-documenten, inrichting en schalen van verzamelingen en uitvoering van opgeslagen procedures en triggers. U kunt ontwikkelen en testen van toepassingen met behulp van de Azure-Emulator Cosmos DB en deze implementeren in Azure op een wereldwijde schaal door het maken van een configuratie voor één eindpunt van de verbinding voor Azure Cosmos DB wijzigen.
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Waarom zijn lang drijvende-kommawaarden in een document afgerond weergeeft vanuit Gegevensverkenner in de portal. 
-Dit is de beperking van JavaScript. JavaScript drijvende-indeling met dubbele precisie getallen gebruikt zoals opgegeven in de IEEE 754 en deze kan bestaan uit getallen tussen - veilig vertegenwoordigen (253 - 1) en 253 – 1 (dat wil zeggen, 9007199254740991) alleen.
+Dit is de beperking van JavaScript. JavaScript drijvende-indeling met dubbele precisie getallen gebruikt zoals opgegeven in de IEEE 754 en deze kan bestaan uit getallen tussen - veilig vertegenwoordigen (253 - 1) en 253-1 (dat wil zeggen, 9007199254740991) alleen.
+
+### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Waar zijn de machtigingen in de objecthiërarchie toegestaan?
+
+Machtigingen maken met behulp van ResourceTokens is toegestaan op het niveau verzameling en de afgeleide elementen (zoals documenten, bijlagen). Dit houdt in dat bij het maken van een machtiging op de database of het accountniveau van een is momenteel niet toegestaan.
+
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Ontwikkelen met de API voor MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Wat is de Azure DB-API voor MongoDB Cosmos?
@@ -213,7 +222,7 @@ Er zijn enkele gedrag van die afkomstig zijn van Azure Table storage gebruikers 
 * CORS wordt momenteel niet ondersteund.
 * Namen van tabellen in de Azure Table storage zijn niet hoofdlettergevoelig, maar ze zijn in Azure Cosmos DB tabel-API
 * Sommige Azure Cosmos DB interne indelingen voor codering informatie, zoals binaire velden zijn momenteel niet zo efficiënt als een mogelijk nodig hebt. Daarom kan dit onverwachte beperkingen op gegevensgrootte veroorzaken. Bijvoorbeeld: momenteel een kan niet gebruiken de volledige 1 Meg van een Tabelentiteit voor het opslaan van binaire gegevens omdat de codering van de gegevens groter wordt.
-* Naam van de eigenschap entiteit 'Id' momenteel niet ondersteund
+* Naam van de eigenschap entiteit Id wordt momenteel niet ondersteund
 * TableQuery TakeCount is niet beperkt tot 1000
 
 Er zijn een aantal eindpunten/query-opties die niet worden ondersteund door Azure Cosmos DB tabel API in termen van de REST-API:
@@ -414,7 +423,7 @@ Met behulp van de specificatie doorvoer, kunt u deze om te profiteren van de sei
 
 Azure Cosmos DB is ontworpen om te worden van een systeem globaal gedistribueerd, op basis van een SLA met garanties met betrekking tot beschikbaarheid, latentie en doorvoer. Bij het reserveren van doorvoer in Azure DB die Cosmos is gegarandeerd, in tegenstelling tot de doorvoer van andere systemen. Azure Cosmos DB biedt aanvullende functies die klanten hebt aangevraagd, zoals secundaire indexen en distributielijsten.  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Krijg ik nooit een ' volledige ' quotamelding (waarmee wordt aangegeven dat een partitie vol is) wanneer ik opnemen van gegevens in Azure Table storage. Met de API tabel krijg ik dit bericht. Dit biedt mij beperken en dwingen mij mijn bestaande toepassing aan te passen?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Ik nooit een volledige quotum ophalen' melding (een partitie is vol) wanneer ik opnemen van gegevens in Azure Table storage. Met de API tabel krijg ik dit bericht. Dit biedt mij beperken en dwingen mij mijn bestaande toepassing aan te passen?
 
 Azure Cosmos-database is een SLA-systeem waarmee onbeperkte scale garanties met betrekking tot latentie, doorvoer, beschikbaarheid en consistentie. Om ervoor te zorgen gegarandeerde premium prestaties, zorg ervoor dat uw gegevensgrootte en een index beheerbare en schaalbare. De limiet van 10 GB op het aantal entiteiten of items per partitiesleutel is om ervoor te zorgen dat wij goede zoekopdracht en query-prestaties. Om ervoor te zorgen dat uw toepassing, zelfs voor Azure Storage schaalt, raden we u *niet* een hot partitie maken door alle informatie in een partitie op te slaan en het uitvoeren van query's. 
 
@@ -475,7 +484,7 @@ Diagnostische logboeken worden beschreven de [Diagnostische logboekregistratie v
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>Ondersteunt de primaire sleutel toewijzen aan de partitie sleutel concept van Azure DB die Cosmos?
 Ja, de partitiesleutel wordt gebruikt voor de entiteit in de juiste locatie plaatsen. In Azure Cosmos DB gebruikt dit recht logische partitie die is opgeslagen op een fysieke partitie vinden. Het concept partitionering wordt ook uitgelegd in de [partitie en schalen in Azure Cosmos DB](partition-data.md) artikel. De essentiële nemen is afwezig hier dat een logische partitie mag niet langer zijn dan de limiet van 10 GB vandaag. 
 
-### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>Wat gebeurt er wanneer ik een ' volledige ' quotamelding die aangeeft dat een partitie ophalen vol is?
+### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>Wat gebeurt er bij het ophalen van een volledige quotum' melding dat er een partitie vol is?
 Azure Cosmos-database is een SLA-systeem waarmee onbeperkte scale garanties met betrekking tot latentie, doorvoer, beschikbaarheid en consistentie. De Cassandra API kunt te onbeperkte opslag van gegevens. Deze onbeperkte opslag is gebaseerd op de horizontale scaleout van gegevens met behulp van partitioneren van de belangrijkste concept. Het concept partitionering wordt ook uitgelegd in de [partitie en schalen in Azure Cosmos DB](partition-data.md) artikel.
 
 De limiet van 10 GB op het aantal entiteiten of items per logische partitie die moet u voldoen aan. Om ervoor te zorgen dat uw toepassing goed schaalbaar, raden we u *niet* een hot partitie maken door alle informatie in een partitie op te slaan en het uitvoeren van query's. Deze fout kan alleen afkomstig zijn als u gegevens is vervormd - die is dat u grote hoeveelheden gegevens voor een partitiesleutel - dat wil zeggen, zijn meer dan 10 GB. U vindt de distributie van gegevens met behulp van de portal van de opslag. Manier om deze fout te herstellen is het recrete in de tabel en kies een gedetailleerde primaire (partitiesleutel), waardoor betere verdeling van gegevens.

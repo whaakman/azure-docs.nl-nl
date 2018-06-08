@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32309977"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure-functies)
 
@@ -130,7 +131,7 @@ De nettolading van de reactie voor de **HTTP 200** en **HTTP 202** gevallen is e
 | Veld           | Gegevenstype | Beschrijving |
 |-----------------|-----------|-------------|
 | runtimeStatus   | tekenreeks    | De runtimestatus van het exemplaar. Mogelijke waarden zijn *met*, *in behandeling*, *mislukt*, *geannuleerd*, *beëindigd*, *Voltooid*. |
-| Invoer           | JSON      | De JSON-gegevens die wordt gebruikt voor het initialiseren van het exemplaar. |
+| invoer           | JSON      | De JSON-gegevens die wordt gebruikt voor het initialiseren van het exemplaar. |
 | customStatus    | JSON      | De JSON-gegevens voor de status van de aangepaste orchestration gebruikt. Dit veld is `null` niet ingesteld. |
 | output          | JSON      | De JSON-uitvoer van het exemplaar. Dit veld is `null` als het exemplaar niet in een voltooide status is. |
 | createdTime     | tekenreeks    | De tijd waarop het exemplaar is gemaakt. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |

@@ -1,4 +1,4 @@
-1. Meld u aan bij de [Azure-portal].
+1. Meld u aan bij de [Azure Portal].
 2. Selecteer **+ nieuw** > **Web en mobiel** > **mobiele App**, en geef vervolgens een naam voor uw mobiele Apps van back-end.
 3. Voor **resourcegroep**, selecteer een bestaande resourcegroep of maak een nieuwe (met behulp van dezelfde naam als uw app). 
 4. Voor **App Service-abonnement**, het standaardabonnement (in de [standaardcategorie](https://azure.microsoft.com/pricing/details/app-service/)) is geselecteerd. U kunt ook een ander abonnement selecteren of [Maak een nieuwe](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
@@ -18,4 +18,4 @@
    Wacht een paar minuten voor de database is geïmplementeerd voordat u doorgaat.
 
 <!-- URLs. -->
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

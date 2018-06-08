@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32178233"
 ---
 # <a name="what-is-appsource"></a>Wat is AppSource
 AppSource kunnen Microsoft-partners hun technologie en services kunnen worden gedetecteerd te maken voor klanten via een ondersteunde Microsoft online winkel. Als een publisher AppSource kunt u benaderen zakelijke gebruikers op AppSource om te zoeken, probeer en ophalen van de SaaS-line-of-business-toepassingen, evenals een van implementatieservices om te helpen station bedrijfsresultaten en tijdwaarde te verminderen: 

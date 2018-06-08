@@ -6,19 +6,20 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34701680"
 ---
-# <a name="soft-delete-for-azure-storage-blobs-preview"></a>Voorlopig verwijderen voor Azure Storage-blobs (Preview)
+# <a name="soft-delete-for-azure-storage-blobs"></a>Soft voor Azure Storage-blobs verwijderen
 
 ## <a name="overview"></a>Overzicht
 
-Azure Storage biedt nu voorlopig verwijderen (Preview) voor objecten van de blob zodat u uw gegevens eenvoudig kunt herstellen kunt wanneer ten onrechte wordt gewijzigd of verwijderd door een toepassing of een andere gebruiker storage-account.
+Azure Storage biedt nu voorlopig verwijderen voor blob-objecten, zodat u uw gegevens eenvoudig kunt herstellen kunt wanneer ten onrechte wordt gewijzigd of verwijderd door een toepassing of een andere gebruiker van de account opslag.
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
 
@@ -29,10 +30,6 @@ U kunt de hoeveelheid tijd voorlopig verwijderde gegevens kunnen hersteld worden
 
 Voorlopig verwijderen is achterwaarts compatibel; u moet geen wijzigingen aanbrengen in uw toepassingen om te profiteren van deze functie biedt bescherming. Echter, [gegevensherstel](#recovery) introduceert een nieuwe **ongedaan Blob** API.
 
-> [!NOTE]
-> Tijdens de openbare Preview aanroepen van Blob-laag ingesteld met een blob met momentopnamen is niet toegestaan.
-Voorlopige verwijderingen genereert momentopnamen van uw gegevens beveiligen wanneer deze wordt overschreven. Er wordt gewerkt aan een oplossing voor het inschakelen van BLOB's met momentopnamen lagen.
-
 ### <a name="configuration-settings"></a>Configuratie-instellingen
 
 Wanneer u een nieuw account maakt, is voorlopig verwijderen standaard uitgeschakeld. Voorlopig verwijderen is ook standaard uitgeschakeld voor de bestaande opslagaccounts. U kunt de functie in of uit kunt schakelen op elk gewenst moment tijdens de levensduur van een opslagaccount.
@@ -41,7 +38,7 @@ U wordt nog steeds toegang tot en voorlopig verwijderde gegevens herstellen als 
 
 De bewaarperiode geeft de hoeveelheid tijd die voorlopig verwijderde gegevens opgeslagen en beschikbaar voor herstel worden. De bewaarperiode kloksnelheid voor blobs en blob momentopnamen die expliciet worden verwijderd, wordt gestart wanneer de gegevens worden verwijderd. Voor voorlopig verwijderde momentopnamen gegenereerd door de functie voorlopig verwijderen wanneer gegevens worden overschreven, begint de klok wanneer de momentopname is gegenereerd. Momenteel kunt u voorlopig verwijderde gegevens voor tussen 1 en 365 dagen bewaren.
 
-U kunt de bewaarperiode voor voorlopige verwijderingen op elk gewenst moment wijzigen. Een bijgewerkte bewaarperiode gelden alleen voor nieuwe verwijderde gegevens. Eerder verloopt verwijderde gegevens op basis van de bewaarperiode op die is geconfigureerd als deze gegevens is verwijderd.
+U kunt de bewaarperiode voor voorlopige verwijderingen op elk gewenst moment wijzigen. Een bijgewerkte bewaarperiode gelden alleen voor nieuwe verwijderde gegevens. Eerder verloopt verwijderde gegevens op basis van de bewaarperiode op die is geconfigureerd als deze gegevens is verwijderd. De verlooptijd niet van invloed op bij het verwijderen van een voorlopig verwijderd object.
 
 ### <a name="saving-deleted-data"></a>Verwijderde gegevens opslaan
 
@@ -140,7 +137,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-Zie de [Vervolgstappen](#Next steps) sectie voor een verwijzing naar de toepassing die deze uitvoer geproduceerd.
+Zie de [Vervolgstappen](#next-steps) sectie voor een verwijzing naar de toepassing die deze uitvoer geproduceerd.
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 
@@ -204,6 +201,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### <a name="azure-cli"></a>Azure-CLI 
+Bijwerken van de client van een blob-service-eigenschappen zodat voorlopig verwijderen:
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+Om te controleren of soft delete is ingeschakeld, gebruikt u de volgende opdracht: 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### <a name="python-client-library"></a>Python-clientbibliotheek
 
 Bijwerken van de client van een blob-service-eigenschappen zodat voorlopig verwijderen:
@@ -276,11 +286,15 @@ Voorlopig verwijderen is momenteel alleen beschikbaar voor blobopslag (object).
 
 **Is voorlopig verwijderen beschikbaar voor alle opslagaccounttypen?**
 
-Ja, voorlopig verwijderen is beschikbaar voor blob storage-accounts ook als blobs in opslagaccounts voor. Dit geldt voor standard en premium-accounts. Voorlopig verwijderen is niet beschikbaar voor beheerde schijven.
+Ja, voorlopig verwijderen is beschikbaar voor blob storage-accounts ook als blobs in algemene voor storage-accounts (GPv1 en GPv2). Dit geldt voor standard en premium-accounts. Voorlopig verwijderen is niet beschikbaar voor beheerde schijven.
 
 **Is voorlopig verwijderen beschikbaar voor alle opslaglagen?**
 
 Ja, voorlopig verwijderen is beschikbaar voor alle opslaglagen, met inbegrip van hot, cool en te archiveren. Echter voorlopig verwijderen niet van bieden bescherming voor blobs in de laag archief overschrijven.
+
+**Kan ik de API Blob laag ingesteld trapsgewijs blobs met voorlopig verwijderde momentopnamen gebruiken?**
+
+Ja. De voorlopig verwijderde momentopnamen blijven in de oorspronkelijke laag, maar de basis blob wordt verplaatst naar de nieuwe laag. 
 
 **Premium-opslagaccounts hebben een blob momentopnamelimiet van 100 per. Voorlopig verwijderde momentopnamen meetellen voor deze limiet?**
 
