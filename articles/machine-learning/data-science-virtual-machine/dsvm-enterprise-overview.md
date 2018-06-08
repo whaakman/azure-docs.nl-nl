@@ -8,17 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830534"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Gegevens wetenschappelijke virtuele Machine op basis van Team Analytics en AI-omgeving 
 De [gegevens wetenschappelijke virtuele Machine](overview.md) (DSVM) biedt een uitgebreide omgeving op de Azure-Cloud met vooraf gemaakte software voor analyses AI en gegevens. Traditioneel de DSVM is gebruikt als afzonderlijke analytics bureaublad en afzonderlijke gegevenswetenschappers productiviteit met deze gedeelde begrip van hun omgeving vooraf samengestelde analytics krijgen. Als grote analytics teams hun gegevenswetenschappers en ontwikkelaars AI hun omgeving analytics plannen, een van de terugkerende thema's is voor een gedeelde analytics ontwikkeling en experimenteren infrastructuur die wordt beheerd in overeenstemming met de IT-onderneming beleid die ook kunt u samenwerking en consistentie in de hele gegevenswetenschap / analytics teams. Een gedeelde infrastructuur kan ook IT beter gebruikmaken van de omgeving analytics. De gegevens op basis van een team wetenschap / analytics infrastructuur wordt ook wel aangeduid door sommige organisaties als 'Analytics Sandbox' waarmee de gegevenswetenschappers tot snel inzicht in gegevens, experimenten uitvoeren, hypothese valideren, voorspellende modellen maken op een veilige manier zonder enige impact op de productieomgeving en toegang hebben tot verschillende gegevensassets. 

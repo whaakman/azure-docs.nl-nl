@@ -2,25 +2,26 @@
 title: Een inleiding op Azure Stack Development Kit (ASDK) | Microsoft Docs
 description: Hierin wordt beschreven wat de ASDK is en algemene gebruiksvoorbeelden voor het evalueren van Microsoft Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5a268a29c7a767084049bf56270aa8bc9d2ccc3f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 951cd1adc09373b9af560097b088fd740ceb51a8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850624"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Wat is Azure Stack Development Kit?
 [Microsoft Azure-Stack geïntegreerd systemen](.\.\azure-stack-poc.md) in grootte variëren van 4-12-knooppunten en gezamenlijk worden ondersteund door een partner voor hardware- en Microsoft. Gebruik Azure Stack geïntegreerd systemen nieuwe scenario's voor uw productie-workloads te maken. Als u een Azure-Stack-operator die de infrastructuur geïntegreerde systemen beheert en -services biedt, Zie onze [operator documentatie](https://docs.microsoft.com/azure/azure-stack).
@@ -79,4 +80,4 @@ Azure Stack blijft ondersteuning toevoegen voor extra Azure-services. Zie voor m
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Om te beginnen Azure Stack evalueren, moet u de development kit host voorbereiden server-computer en vervolgens [installeren de ASDK](asdk-deploy.md). Daarna kunt kunt u aanmelden bij de portals beheerder en gebruiker aan de slag met Azure-Stack.
+Om te beginnen Azure Stack evalueren, moet u de development kit host voorbereiden server-computer en vervolgens [installeren de ASDK](asdk-install.md). Daarna kunt kunt u aanmelden bij de portals beheerder en gebruiker aan de slag met Azure-Stack.

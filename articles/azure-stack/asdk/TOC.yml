@@ -9,27 +9,11 @@
       href: asdk-release-notes.md
 - name: Zelfstudies
   items:
-    - name: 1. De ASDK implementeren
-      items:
-        - name: Implementeer de ASDK - installatieprogramma
-          href: asdk-deploy.md
-        - name: De ASDK - PowerShell implementeren
-          href: asdk-deploy-powershell.md
-        - name: De ASDK implementeren
-          href: asdk-redeploy.md
-    - name: 2. Een marketplace-item toevoegen
-      items:
-        - name: Downloaden van Azure
-          href: asdk-marketplace-item.md
-        - name: Toevoegen van een lokale bron
-          href: asdk-marketplace-item-offline.md
-    - name: 3. IaaS-services bieden
-      href: asdk-offer-services.md
-    - name: 4. Abonneren op een aanbieding
+    - name: Abonneren op een aanbieding
       href: asdk-subscribe-services.md
-    - name: 5. Update aanbiedingen en plannen
+    - name: Update aanbiedingen en plannen
       href: asdk-update-offers.md
-    - name: 6. Een virtuele machine uit een sjabloon maken
+    - name: Een virtuele machine uit een sjabloon maken
       href: asdk-create-vm-template.md
 - name: Concepten
   items:
@@ -49,10 +33,14 @@
           href: asdk-download.md
         - name: De computer van de host ASDK voorbereiden
           href: asdk-prepare-host.md
-        - name: De ASDK installeren
+        - name: Implementeer de ASDK - installatieprogramma
           href: asdk-install.md
+        - name: De ASDK - PowerShell implementeren
+          href: asdk-deploy-powershell.md
         - name: Na de implementatie-configuratie
           href: asdk-post-deploy.md
+        - name: De ASDK implementeren
+          href: asdk-redeploy.md
     - name: De ASDK registreren
       href: asdk-register.md
     - name: Azure-Stack telemetrie-instellingen configureren

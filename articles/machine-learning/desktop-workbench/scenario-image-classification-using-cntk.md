@@ -8,15 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31607859"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850168"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificatie van de installatiekopie met behulp van Azure Machine Learning Workbench
 
@@ -243,15 +244,20 @@ In de eerste schermafbeelding leidt DNN verfijning tot betere accuratesse dan SV
 
 
 ### <a name="parameter-tuning"></a>Parameter afstemmen
+
 Zoals geldt voor de meeste machine learning-projecten, vereist goede resultaten ophalen voor een nieuwe gegevensset zorgvuldige parameter afstemmen, evenals een evaluatie van verschillende ontwerpbeslissingen. Om te helpen met deze taken, alle belangrijke parameters zijn opgegeven en een korte uitleg hebt opgegeven, op één plaats: de `PARAMETERS.py` bestand.
 
 Enkele van de meestbelovende mogelijkheden voor verbeteringen zijn:
 
 - Gegevenskwaliteit: Zorg ervoor dat de trainings- en testset sets van hoge kwaliteit hebben. Dat wil zeggen, de afbeeldingen zijn correct aantekeningen, niet-eenduidige afbeeldingen verwijderd (bijvoorbeeld kleding items met zowel streepjes en punten), en de kenmerken sluiten elkaar wederzijds uit (dat wil zeggen, zodat elke installatiekopie tot exact één kenmerk behoort gekozen).
+
 - Als het object van belang klein is in de installatiekopie vervolgens installatiekopie classificatie benaderingen niet te werken goed bekend. In dergelijke gevallen kunt u overwegen een benadering van de detectie object zoals beschreven in dit [zelfstudie](https://github.com/Azure/ObjectDetectionUsingCntk).
 - DNN verfijning: de weliswaar belangrijkste parameter direct is het leertempo `rf_lrPerMb`. Als de nauwkeurigheid van de training ingesteld (eerste afbeelding in deel 2) is niet dicht bij 0-5%, waarschijnlijk is vanwege een onjuiste het leertempo. De andere parameters te beginnen met `rf_` minder belangrijk zijn. De fout training moet normaal gesproken exponentieel verlagen en worden dicht bij 0% na de training.
+
 - Resolutie invoer: de standaardresolutie installatiekopie is 224 x 224 pixels. Met behulp van hogere afbeeldingsresolutie (parameter: `rf_inputResoluton`), bijvoorbeeld 448 x 448 of 896 x 896 pixels vaak aanzienlijke verbetert de nauwkeurigheid maar vertraagt de DNN verfijnen. **Met behulp van hogere afbeeldingsresolutie is bijna eenvoudig en bevordert de bijna altijd nauwkeurig**.
+
 - Te veel aanpassen DNN: voorkomen dat een grote hiaat tussen de trainings- en test nauwkeurigheid tijdens DNN verfijning (eerste afbeelding in deel 2). Door dit gat kan worden teruggebracht met Drop-out tarieven `rf_dropoutRate` van 0,5 of meer en door te verhogen van het gewicht regularizer `rf_l2RegWeight`. Met behulp van de frequentie waarmee een hoge Drop-out kan vooral nuttig als de invoer afbeeldingsresolutie DNN hoog zijn.
+
 - Probeer diepere DNNs door te wijzigen met `rf_pretrainedModelFilename` van `ResNet_18.model` naar elk `ResNet_34.model` of `ResNet_50.model`. Het model Resnet 50 is niet alleen beter, maar de uitvoer van de voorlaatste laag is van de grootte van 2048 tekst (vs. 512 tekst van de modellen ResNet 18 en ResNet 34). Deze verhoogde dimensie kunt vooral nuttig zijn bij het trainen van een classificatie SVM.
 
 ## <a name="part-3---custom-dataset"></a>Deel 3: aangepaste gegevensset

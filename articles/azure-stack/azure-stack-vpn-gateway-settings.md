@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
-ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 94cabb73406619b95147595127e97a27aed762f9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849746"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>VPN-gateway configuratie-instellingen voor Azure-Stack
 
@@ -157,7 +158,10 @@ In tegenstelling tot Azure, die ondersteuning biedt voor meerdere aanbiedingen a
 |IKE-versie |IKEv2 |
 |Versleuteling en hash-algoritmen (versleuteling)     | GCMAES256|
 |Versleuteling en hash-algoritmen (verificatie) | GCMAES256|
-|SA-levensduur (tijd)  | 27.000 seconden |
-|SA-levensduur (bytes) | 819,200       |
+|SA-levensduur (tijd)  | 27.000 seconden<sup>Zie Opmerking 1</sup> |
+|SA-levensduur (bytes) | 33,553,408<sup>Zie Opmerking 2</sup>     |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Dead Peer Detection | Ondersteund|  
+
+*Opmerking 1:* voorafgaand aan versie 1803, Azure Stack 14.400 waarde gebruikt voor het SA-levensduur (tijd). 
+*Opmerking 2:* voorafgaand aan versie 1803, gebruikt Azure Stack een waarde van 819,200 voor het SA-levensduur (Bytes).
