@@ -10,18 +10,18 @@
   items:
     - name: DevTest Labs
       items:
-        - name: 1. Een aangepast lab instellen
+        - name: 1. Een lab instellen
           href: tutorial-create-custom-lab.md
-        - name: 2. Een aangepast lab openen
+        - name: 2. Toegang tot een lab
           href: tutorial-use-custom-lab.md
     - name: Leslokaallabs
       items:
         - name: 1. Een lab-account maken
-          href: tutorial-setup-lab-account.md
+          href: classroom-labs/tutorial-setup-lab-account.md
         - name: 2. Een leslokaallab instellen
-          href: tutorial-setup-classroom-lab.md
+          href: classroom-labs/tutorial-setup-classroom-lab.md
         - name: 3. Een leslokaallab openen
-          href: tutorial-connect-virtual-machine-classroom-lab.md
+          href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
 - name: Voorbeelden
   items:
     - name: DevTest Labs
@@ -50,20 +50,20 @@
     - name: Leslokaallabs
       items:
         - name: Lab-accounts beheren
-          href: how-to-manage-lab-accounts.md
+          href: classroom-labs/how-to-manage-lab-accounts.md
         - name: Leslokaallabs beheren
-          href: how-to-manage-classroom-labs.md
+          href: classroom-labs/how-to-manage-classroom-labs.md
         - name: Leslokaallabs openen
-          href: how-to-use-classroom-lab.md
+          href: classroom-labs/how-to-use-classroom-lab.md
     - name: DevTest-labs
       items:
-        - name: Een aangepast lab maken
+        - name: Een lab maken
           href: devtest-lab-create-lab.md
-        - name: Een virtuele machine in het aangepaste lab maken
+        - name: Een virtuele machine maken in het lab
           href: devtest-lab-create-first-vm.md
-        - name: Beleid voor het aangepaste lab instellen
+        - name: Beleid instellen voor het lab
           href: devtest-lab-get-started-with-lab-policies.md
-        - name: Virtuele machines in een aangepast lab gebruiken
+        - name: Virtuele machines gebruiken in een lab
           items:
             - name: Virtuele machines maken
               href: devtest-lab-add-vm.md
@@ -75,7 +75,7 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Een VM opnieuw opstarten
               href: devtest-lab-restart-vm.md
-        - name: Omgevingen gebruiken in een aangepast lab
+        - name: Omgevingen gebruiken in een lab
           items:
             - name: Een omgeving maken
               href: devtest-lab-create-environment-from-arm.md
@@ -85,7 +85,7 @@
               href: devtest-lab-add-devtest-user.md
             - name: Machtigingen aanpassen met behulp van aangepaste rollen
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
-        - name: Een aangepast lab configureren
+        - name: Een lab configureren
           items:
             - name: Beleid en planningen instellen
               href: devtest-lab-set-lab-policy.md
@@ -95,11 +95,11 @@
               href: devtest-lab-configure-marketplace-images.md
             - name: Een gelicentieerde installatiekopie inschakelen
               href: devtest-lab-enable-licensed-images.md
-            - name: Labels toevoegen aan een aangepast lab
+            - name: Tags toevoegen aan een lab
               href: devtest-lab-add-tag.md
-            - name: Post-aankondiging in een aangepast lab
+            - name: Aankondiging plaatsen in een lab
               href: devtest-lab-announcements.md
-            - name: Ondersteuningsinformatie toevoegen aan een aangepast lab
+            - name: Ondersteuningsinformatie toevoegen aan een lab
               href: devtest-lab-internal-support-message.md
         - name: Een aangepaste installatiekopie of formule selecteren
           href: devtest-lab-comparing-vm-base-image-types.md

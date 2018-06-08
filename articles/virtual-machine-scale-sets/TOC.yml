@@ -5,6 +5,7 @@
     - name: Wat zijn schaalsets voor virtuele machines?
       href: overview.md
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: Maken in Azure Portal
       href: quick-create-portal.md
@@ -64,6 +65,102 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+- name: Concepten
+  items:
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+      maintainContext: true
+    - name: Regio’s en beschikbaarheid
+      href: ../virtual-machines/windows/regions-and-availability.md
+      maintainContext: true
+    - name: VM-typen en -groottes
+      href: ../virtual-machines/windows/sizes.md
+      maintainContext: true
+      items:
+        - name: Algemeen doel
+          href: ../virtual-machines/windows/sizes-general.md
+          maintainContext: true
+          items:
+            - name: B-serie 'burstable'
+              href: ../virtual-machines/windows/b-series-burstable.md
+              maintainContext: true
+        - name: Geoptimaliseerde rekenkracht
+          href: ../virtual-machines/windows/sizes-compute.md
+          maintainContext: true
+        - name: Geoptimaliseerd geheugen
+          href: ../virtual-machines/windows/sizes-memory.md
+          maintainContext: true
+          items:
+            - name: Beperkte vCPU's
+              href: ../virtual-machines/windows/constrained-vcpu.md
+              maintainContext: true
+        - name: Geoptimaliseerde opslag
+          href: ../virtual-machines/windows/sizes-storage.md
+          maintainContext: true
+        - name: Geoptimaliseerde GPU
+          href: ../virtual-machines/windows/sizes-gpu.md
+          maintainContext: true
+          items:
+            - name: GPU-stuurprogramma's instellen
+              href: ../virtual-machines/windows/n-series-driver-setup.md
+              maintainContext: true
+        - name: Krachtig rekenvermogen
+          href: ../virtual-machines/windows/sizes-hpc.md
+          maintainContext: true
+        - name: Azure Compute Units (ACU)
+          href: ../virtual-machines/windows/acu.md
+          maintainContext: true
+        - name: Benchmarkscores
+          href: ../virtual-machines/windows/compute-benchmark-scores.md
+          maintainContext: true
+    - name: Goedgekeurde Linux-versies
+      href: ../virtual-machines/linux/endorsed-distros.md
+      maintainContext: true
+    - name: Onderhoud en updates
+      href: ../virtual-machines/windows/maintenance-and-updates.md
+      maintainContext: true
+    - name: File Storage
+      href: ../virtual-machines/windows/about-disks-and-vhds.md
+      maintainContext: true
+      items:
+        - name: Beheerde schijven
+          href: ../virtual-machines/windows/managed-disks-overview.md
+          maintainContext: true
+        - name: Premium Storage
+          href: ../virtual-machines/windows/premium-storage.md
+          maintainContext: true
+        - name: Prestaties van Premium Storage
+          href: ../virtual-machines/windows/premium-storage-performance.md
+          maintainContext: true
+        - name: Standard Storage
+          href: ../virtual-machines/windows/standard-storage.md
+          maintainContext: true
+        - name: Schaalbaarheidsdoelen voor schijven
+          href: ../virtual-machines/windows/disk-scalability-targets.md
+          maintainContext: true
+        - name: Back-up en herstel na noodgeval voor schijven
+          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          maintainContext: true
+    - name: Netwerken
+      href: ../virtual-machines/windows/network-overview.md
+      maintainContext: true
+    - name: Automatisering van infrastructuur
+      href: ../virtual-machines/windows/infrastructure-automation.md
+      maintainContext: true
+    - name: Beveiliging en beleid
+      href: ../virtual-machines/windows/security-policy.md
+      maintainContext: true
+    - name: Bewaking
+      href: ../virtual-machines/windows/monitor.md
+      maintainContext: true
+    - name: High Performance Computing
+      href: ../virtual-machines/windows/high-performance-computing.md
+      maintainContext: true
+    - name: Overwegingen bij de implementatie
+      items:
+        - name: vCPU-quota
+          href: ../virtual-machines/windows/quotas.md
+          maintainContext: true
 - name: Procedures
   items:
     - name: Plannen en ontwerpen

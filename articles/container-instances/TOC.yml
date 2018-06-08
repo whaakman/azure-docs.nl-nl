@@ -39,7 +39,9 @@
   items:
     - name: Implementeren
       items:
-        - name: Groepen met meerdere containers implementeren
+        - name: Groep met meerdere containers - YAML
+          href: container-instances-multi-container-yaml.md
+        - name: Groep met meerdere containers - Resource Manager
           href: container-instances-multi-container-group.md
         - name: Implementeren vanuit Azure Container Registry
           href: container-instances-using-azure-container-registry.md

@@ -63,6 +63,8 @@
           href: internal-lb.md
         - name: Inkomend verkeer en TLS
           href: ingress.md
+        - name: Uitgaand verkeer
+          href: egress.md
         - name: Routering van HTTP-toepassing
           href: http-application-routing.md
     - name: Verificatie en beveiliging

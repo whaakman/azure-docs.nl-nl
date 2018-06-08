@@ -10,19 +10,20 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: f1e997b9e7f948f29cce940574fe7db34a503dc6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.openlocfilehash: 5aee9a96270b4bcafb4ee696c0cbf6a424515cb1
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825510"
 ---
-## <a name="well-done"></a>Goed gedaan!
+## <a name="well-done"></a>Dat is dus gelukt.
 U hebt de introductiehandleiding voltooid! U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Een omgeving met Kubernetes maken in Azure die is geoptimaliseerd voor ontwikkeling.
-> * Ontwikkel iteratief code in containers met tegenover Code als de opdrachtregel.
-> * Ontwikkel onafhankelijk twee afzonderlijke services en gebruikte Kubernetes DNS-service discovery bellen naar een andere service.
-> * Productief ontwikkelen en testen van uw code in een teamomgeving.
+> * Een Kubernetes-omgeving maakt in Azure die is geoptimaliseerd voor ontwikkeling - een _dev-ruimte_.
+> * Iteratief code ontwikkelt in containers met behulp van VS Code en de opdrachtregel.
+> * Twee afzonderlijke services ontwikkelen en de DNS-servicedetectie van Kubernetes gebruiken om een andere service aan te roepen.
+> * Uw code op een productieve manier ontwikkelen en testen in een teamomgeving.
 
-Nu dat u hebt Azure Dev spaties, verkend [uw omgeving dev delen met een teamlid](../how-to/share-dev-spaces.md) en te zien hoe eenvoudig het is om samen te werken samen.
+Nu u Azure Dev Spaces hebt verkend, kunt u [uw dev-ruimte delen met teamleden](../how-to/share-dev-spaces.md) en hen laten zien hoe eenvoudig het is om samen te werken.

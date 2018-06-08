@@ -109,6 +109,8 @@
           href: security-center-just-in-time.md
         - name: Adaptieve toepassingsbesturingselementen
           href: security-center-adaptive-application.md
+        - name: Bestandsintegriteit controleren
+          href: security-center-file-integrity-monitoring.md
     - name: Beveiligingsoplossingen beheren
       href: security-center-partner-integration.md
       items:
@@ -145,6 +147,8 @@
           href: security-center-threat-intel.md
         - name: Onderzoek
           href: security-center-investigation.md
+        - name: Onderzoek gebruikersgegevens beheren
+          href: security-center-investigation-user-data.md
     - name: Beveiligingswerkstromen automatiseren
       items:
         - name: Logic Apps-playbooks
@@ -169,6 +173,8 @@
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
 - name: Resources
   items:
+    - name: Gebruikersgegevens beheren
+      href: security-center-privacy.md
     - name: Veelgestelde vragen
       href: security-center-faq.md
     - name: Ondersteunde platforms

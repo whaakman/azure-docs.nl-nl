@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: Bereiken
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: Variabelen maken om waarden op te slaan
+          href: logic-apps-create-variables-store-values.md
         - name: Aangepaste code toevoegen met Azure Functions
           href: logic-apps-azure-functions.md
         - name: Logische apps aanroepen met Azure Functions

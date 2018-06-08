@@ -63,6 +63,8 @@
               href: deploy-with-resource-manager-template.md
             - name: Maken in een andere regio
               href: multi-geo.md
+            - name: Studio-accountgegevens weergeven en verwijderen
+              href: export-delete-personal-data-dsr.md
     - name: Gegevens ophalen en begrijpen
       items:
         - name: Trainingsgegevens importeren
@@ -215,6 +217,8 @@
           href: gallery-collections.md
         - name: Aangepaste modules
           href: gallery-custom-modules.md
+        - name: Accountgegevens weergeven en verwijderen
+          href: ai-gallery-control-personal-data-dsr.md
 - name: Resources
   items:
     - name: Azure-roadmap

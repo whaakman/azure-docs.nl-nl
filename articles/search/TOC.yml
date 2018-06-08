@@ -61,17 +61,25 @@
       href: cognitive-search-concept-intro.md
     - name: Zoeken in volledige tekst
       href: search-lucene-query-architecture.md
-    - name: Taalkundige analyse
-      href: search-analyzers.md
-    - name: Indexeren
-      href: search-what-is-data-import.md
-    - name: Indexdefinitie
-      href: search-what-is-an-index.md
-    - name: Indexeerfuncties
-      href: search-indexer-overview.md
 - name: Handleidingen
   items:
-    - name: Plannen en ontwerpen
+    - name: Cognitief zoeken (preview)
+      items:
+        - name: Een set vaardigheden definiëren
+          href: cognitive-search-defining-skillset.md
+        - name: Naar een aantekening verwijzen
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: Toewijzen aan indexvelden
+          href: cognitive-search-output-field-mapping.md
+        - name: Informatie uit installatiekopieën verwerken en extraheren
+          href: cognitive-search-concept-image-scenarios.md
+        - name: Aangepaste vaardigheden integreren
+          href: cognitive-search-custom-skill-interface.md
+        - name: Voorbeeld - aangepaste vaardigheden
+          href: cognitive-search-create-custom-skill-example.md
+        - name: Tips voor probleemoplossing
+          href: cognitive-search-concept-troubleshooting.md
+    - name: Planning
       items:
         - name: Een laag kiezen
           href: search-sku-tier.md
@@ -81,8 +89,6 @@
           href: search-capacity-planning.md
         - name: Patronen voor multitenancy ontwerpen
           href: search-modeling-multitenant-saas-applications.md
-        - name: Prestaties en optimalisatie
-          href: search-performance-optimization.md
     - name: Beveiliging
       items:
         - name: Beveiligingsoverzicht
@@ -117,55 +123,59 @@
               href: search-dotnet-mgmt-sdk-migration.md
         - name: Upgrade uitvoeren voor de REST-API
           href: search-api-migration.md
+    - name: Indexontwerp
+      items:
+        - name: Indexdefinitie
+          href: search-what-is-an-index.md
+        - name: Analyses
+          items:
+            - name: Tekstanalyses
+              href: search-analyzers.md
+            - name: Taalanalyse-API
+              href: 'https://docs.microsoft.com/rest/api/searchservice/language-support'
+            - name: Aangepaste analyse-API
+              href: 'https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search'
+        - name: Automatische suggesties
+          href: 'https://docs.microsoft.com/rest/api/searchservice/suggesters'
         - name: Complexe gegevenstypen modelleren
           href: search-howto-complex-data-types.md
-        - name: Gelijktijdige updates verwerken
-          href: search-howto-concurrency.md
-        - name: Resultaten pagineren
-          href: search-pagination-page-layout.md
-    - name: Tekstanalyse
-      items:
-        - name: Taalanalyse
-          href: 'https://docs.microsoft.com/rest/api/searchservice/language-support'
-        - name: Analysevoorzieningen aanpassen
-          href: 'https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search'
+        - name: Facetnavigatie
+          href: search-faceted-navigation.md
+        - name: Relevantie afstemmen
+          href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
+        - name: Synoniemen (preview)
+          href: search-synonyms.md
     - name: Gegevens indexeren
       items:
-        - name: Indexeerfunctie voor Azure Blob Storage
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Indexeerfunctie voor Azure Table Storage
-          href: search-howto-indexing-azure-tables.md
-        - name: Indexeerfunctie voor Azure SQL
-          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Indexeerfunctie voor Azure Cosmos DB
-          href: search-howto-index-cosmosdb.md
-        - name: CSV-blobs indexeren
-          href: search-howto-index-csv-blobs.md
-        - name: JSON-blobs indexeren
-          href: search-howto-index-json-blobs.md
-        - name: Indexeerverbindingen met SQL Server configureren op een virtuele Azure-machine
-          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Veldtoewijzingen in indexeerfuncties
-          href: search-indexer-field-mappings.md
+        - name: Push- vs. pull-indexering
+          href: search-what-is-data-import.md
         - name: Een index opnieuw maken
           href: search-howto-reindex.md
-    - name: Cognitief zoeken (preview)
-      items:
-        - name: Een set vaardigheden definiëren
-          href: cognitive-search-defining-skillset.md
-        - name: Naar een aantekening verwijzen
-          href: cognitive-search-concept-annotations-syntax.md
-        - name: Toewijzen aan indexvelden
-          href: cognitive-search-output-field-mapping.md
-        - name: Informatie uit installatiekopieën verwerken en extraheren
-          href: cognitive-search-concept-image-scenarios.md
-        - name: Aangepaste vaardigheden integreren
-          href: cognitive-search-custom-skill-interface.md
-        - name: Voorbeeld - aangepaste vaardigheden
-          href: cognitive-search-create-custom-skill-example.md
-        - name: Tips voor probleemoplossing
-          href: cognitive-search-concept-troubleshooting.md
-    - name: Zoeken in volledige tekst
+        - name: Grote gegevenssets indexeren
+          href: search-howto-large-index.md
+        - name: Gelijktijdige updates verwerken
+          href: search-howto-concurrency.md
+        - name: Indexeerfuncties
+          items:
+            - name: Overzicht van indexeerfuncties
+              href: search-indexer-overview.md
+            - name: Indexeerfunctie voor Blob-opslag
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Indexeerfunctie voor Table-opslag
+              href: search-howto-indexing-azure-tables.md
+            - name: Indexeerfunctie voor SQL DB
+              href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+            - name: Indexeerfunctie voor Cosmos DB
+              href: search-howto-index-cosmosdb.md
+            - name: Blob-indexering met CSV
+              href: search-howto-index-csv-blobs.md
+            - name: Blob-indexering met JSON
+              href: search-howto-index-json-blobs.md
+            - name: Verbinding maken met SQL Server-VM's
+              href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+            - name: Veldtoewijzingen
+              href: search-indexer-field-mappings.md
+    - name: Zoekgegevens
       items:
         - name: Basisquery's bouwen
           href: search-query-overview.md
@@ -173,24 +183,22 @@
           href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
         - name: Lucene-querysyntaxis
           href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Voorbeelden van Lucene-querysyntaxis
+        - name: Lucene-queryvoorbeelden
           href: search-query-lucene-examples.md
-        - name: Facetnavigatie
-          href: search-faceted-navigation.md
-        - name: Scoreprofielen
+        - name: Resultaten pagineren
+          href: search-pagination-page-layout.md
+        - name: Relevantie afstemmen
           href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
-        - name: Suggesties
-          href: 'https://docs.microsoft.com/rest/api/searchservice/suggesters'
-        - name: Synoniemen (preview)
-          href: search-synonyms.md
-    - name: Filters
-      items:
-        - name: Filteroverzicht
-          href: search-filters.md
-        - name: Facetfilters
-          href: search-filters-facets.md
-        - name: Filterexpressiesyntaxis
-          href: 'https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search'
+        - name: Filters
+          items:
+            - name: Filteroverzicht
+              href: search-filters.md
+            - name: Facetfilters
+              href: search-filters-facets.md
+            - name: Filterexpressiesyntaxis
+              href: 'https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search'
+        - name: Prestaties en optimalisatie
+          href: search-performance-optimization.md
     - name: Beheer en analyse
       items:
         - name: Beheer (portal)
@@ -211,41 +219,31 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html'
     - name: REST
       href: /rest/api/searchservice
-      items:
-        - name: 11-11-2017-preview
-          href: search-api-2017-11-11-preview.md
     - name: REST (beheer)
       href: /rest/api/searchmanagement
-    - name: Cognitief zoeken (preview)
+    - name: REST (preview)
+      href: search-api-preview.md
+    - name: Vooraf gedefinieerde vaardigheden (preview)
+      href: cognitive-search-predefined-skills.md
       items:
-        - name: 11-11-2017-preview (REST)
-          href: search-api-2017-11-11-preview.md
-          items:
-            - name: Vaardighedenset maken (preview)
-              href: ref-create-skillset.md
-            - name: Indexeerfunctie maken (preview)
-              href: ref-create-indexer.md
-        - name: Vooraf gedefinieerde vaardigheden
-          href: cognitive-search-predefined-skills.md
-          items:
-            - name: Sleuteltermextractie
-              href: cognitive-search-skill-keyphrases.md
-            - name: Taaldetectie
-              href: cognitive-search-skill-language-detection.md
-            - name: Herkenning van benoemde entiteiten
-              href: cognitive-search-skill-named-entity-recognition.md
-            - name: Tekst samenvoegen
-              href: cognitive-search-skill-textmerger.md
-            - name: Tekst splitsen
-              href: cognitive-search-skill-textsplit.md
-            - name: Stemming
-              href: cognitive-search-skill-sentiment.md
-            - name: Analyse van de afbeelding
-              href: cognitive-search-skill-image-analysis.md
-            - name: OCR
-              href: cognitive-search-skill-ocr.md
-            - name: Shaper
-              href: cognitive-search-skill-shaper.md
+        - name: Sleuteltermextractie
+          href: cognitive-search-skill-keyphrases.md
+        - name: Taaldetectie
+          href: cognitive-search-skill-language-detection.md
+        - name: Herkenning van benoemde entiteiten
+          href: cognitive-search-skill-named-entity-recognition.md
+        - name: Tekst samenvoegen
+          href: cognitive-search-skill-textmerger.md
+        - name: Tekst splitsen
+          href: cognitive-search-skill-textsplit.md
+        - name: Stemming
+          href: cognitive-search-skill-sentiment.md
+        - name: Analyse van de afbeelding
+          href: cognitive-search-skill-image-analysis.md
+        - name: OCR
+          href: cognitive-search-skill-ocr.md
+        - name: Shaper
+          href: cognitive-search-skill-shaper.md
 - name: Resources
   items:
     - name: Veelgestelde vragen

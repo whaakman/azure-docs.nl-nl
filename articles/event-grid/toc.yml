@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: Gebeurtenissen verzenden naar Queue Storage
       href: custom-event-to-queue-storage.md
+    - name: Gebeurtenissen verzenden naar Event Hubs
+      href: custom-event-to-eventhub.md
 - name: Zelfstudies
   items:
     - name: E-mailbericht wanneer VM wordt gewijzigd

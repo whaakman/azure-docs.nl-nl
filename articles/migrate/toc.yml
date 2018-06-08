@@ -25,9 +25,11 @@
         - name: 2. Contoso - Een Azure-infrastructuur instellen
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso - On-premises resources beoordelen voor een migratie naar Azure
-          href: migrate-scenarios-assessment.md
-        - name: 4. Contoso - Opnieuw hosten op virtuele Azure-machines en een met Azure SQL beheerd exemplaar
-          href: migrate-scenarios-lift-and-shift.md
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso - Een app opnieuw hosten op virtuele Azure-machines en een met Azure SQL beheerd exemplaar
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso - Een app opnieuw hosten in virtuele Azure-machines
+          href: contoso-migration-rehost-vm.md
     - name: Een grote omgeving verkennen en beoordelen
       href: how-to-scale-assessment.md
     - name: Machines groeperen
@@ -48,3 +50,5 @@
       href: 'https://azure.microsoft.com/migrate'
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Veelgestelde vragen
+      href: resources-faq.md

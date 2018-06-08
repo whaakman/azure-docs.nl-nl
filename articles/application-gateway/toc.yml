@@ -48,24 +48,39 @@
     - name: Ondersteuning voor omleiding
       href: redirect-overview.md
     - name: Ondersteuning voor meerdere tenants
+      href: application-gateway-web-app-overview.md
     - name: Statuscontrole
       href: application-gateway-probe-overview.md
     - name: Ondersteuning voor WebSocket
       href: application-gateway-websocket.md
 - name: Handleidingen
   items:
-    - name: Een toepassingsgateway maken
+    - name: Webverkeer beheren
       items:
+        - name: Azure PowerShell
+          href: tutorial-manage-web-traffic-powershell.md
         - name: Template
           href: create-vmss-template.md
-        - name: Web-apps - PowerShell
-          href: create-web-app.md
-        - name: Een interne load balancer configureren
-          href: application-gateway-ilb.md
-    - name: SSL-beëindiging configureren - Portal
-      href: create-ssl-portal.md
-    - name: Meerdere sites hosten - Portal
-      href: create-multiple-sites-portal.md
+    - name: Een interne load balancer configureren
+      items:
+        - name: Azure PowerShell
+          href: application-gateway-ilb-arm.md
+    - name: SSL-beëindiging configureren
+      items:
+        - name: SSL-beëindiging met Azure Portal
+          href: create-ssl-portal.md
+        - name: SSL-beëindiging met Azure PowerShell
+          href: tutorial-ssl-powershell.md
+        - name: Certificaten vernieuwen
+          href: renew-certificates.md
+        - name: SSL-beleid configureren
+          href: application-gateway-configure-ssl-policy-powershell.md
+    - name: Web Application Firewall configureren
+      items:
+        - name: Azure Portal
+          href: application-gateway-web-application-firewall-portal.md
+        - name: Azure PowerShell
+          href: tutorial-restrict-web-traffic-powershell.md
     - name: WAF-regels aanpassen
       items:
         - name: Azure Portal
@@ -74,40 +89,36 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Azure-CLI
           href: application-gateway-customize-waf-rules-cli.md
-    - name: Extern verkeer omleiden
+    - name: Routeren met URL
       items:
+        - name: Azure Portal
+          href: create-url-route-portal.md
         - name: Azure PowerShell
-          href: redirect-external-site-powershell.md
-        - name: Azure-CLI
-          href: redirect-external-site-cli.md
-    - name: HTTP omleiden naar HTTPS
+          href: tutorial-url-route-powershell.md
+    - name: Meerdere sites hosten
       items:
+        - name: Azure Portal
+          href: create-multiple-sites-portal.md
         - name: Azure PowerShell
-          href: redirect-http-to-https-powershell.md
-        - name: Azure-CLI
-          href: redirect-http-to-https-cli.md
-    - name: Intern verkeer omleiden
+          href: tutorial-multiple-sites-powershell.md
+    - name: Verkeer omleiden
       items:
-        - name: Azure PowerShell
-          href: redirect-internal-site-powershell.md
-        - name: Azure-CLI
-          href: redirect-internal-site-cli.md
-    - name: Webverkeer beperken - Portal
-      href: create-waf-portal.md
-    - name: Route op basis van URL - Portal
-      href: create-url-route-portal.md
-    - name: Webverkeer beheren met Azure PowerShell
-      href: tutorial-manage-web-traffic-powershell.md
-    - name: Webverkeer beperken met Azure PowerShell
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: SSL-beëindiging met Azure PowerShell
-      href: tutorial-ssl-powershell.md
-    - name: Certificaten vernieuwen
-      href: renew-certificates.md
-    - name: Meerdere sites hosten met Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md
-    - name: Webverkeer routeren met Azure PowerShell
-      href: tutorial-url-route-powershell.md
+        - name: HTTP naar HTTPS
+          items:
+            - name: Azure PowerShell
+              href: redirect-http-to-https-powershell.md
+            - name: Azure-CLI
+              href: redirect-http-to-https-cli.md
+        - name: Intern verkeer omleiden
+          items:
+            - name: Azure PowerShell
+              href: redirect-internal-site-powershell.md
+            - name: Azure-CLI
+              href: redirect-internal-site-cli.md
+    - name: Ondersteuning voor meerdere tenants
+      items:
+        - name: Ondersteuning voor meerdere tenants configureren
+          href: create-web-app.md
     - name: Webverkeer omleiden met Azure PowerShell
       href: tutorial-url-redirect-powershell.md
     - name: Een zoneredundante toepassingsgateway maken

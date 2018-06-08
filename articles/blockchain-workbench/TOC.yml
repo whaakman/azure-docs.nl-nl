@@ -50,3 +50,9 @@
       href: blockchain-workbench-messages-overview.md
     - name: REST-API
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+    - name: Oplossingssjablonen
+      items:
+        - name: Ethereum Proof-Of-Work-consortium
+          href: ethereum-deployment-guide.md
+        - name: Hyperledger Fabric-consortium
+          href: hyperledger-fabric-single-member-blockchain.md

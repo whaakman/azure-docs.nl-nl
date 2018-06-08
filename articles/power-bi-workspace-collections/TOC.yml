@@ -1,0 +1,74 @@
+- name: Overzicht
+  items:
+    - name: Wat zijn Power BI-werkruimteverzamelingen?
+      href: what-are-power-bi-workspace-collections.md
+    - name: Nieuwe functies in Power BI-werkruimteverzamelingen
+      href: whats-new.md
+- name: Aan de slag
+  items:
+    - name: Aan de slag met Power BI-werkruimteverzamelingen
+      href: get-started.md
+    - name: Aan de slag met een voorbeeld
+      href: get-started-sample.md
+    - name: Veelgestelde vragen
+      href: faq.md
+- name: Procedures
+  items:
+    - name: Plannen en ontwerpen
+      items:
+        - name: Algemene scenario's
+          href: scenarios.md
+    - name: Beheren
+      items:
+        - name: Verbinding maken met een gegevensbron
+          href: connect-datasource.md
+        - name: Een Power BI-rapport insluiten
+          href: embed-report.md
+        - name: Werken met rapporten
+          href: interact-with-reports.md
+        - name: Een nieuw rapport maken op basis van een gegevensset
+          href: create-report-from-dataset.md
+        - name: Rapporten opslaan
+          href: save-reports.md
+        - name: Schakelen tussen weergeven en bewerken
+          href: toggle-mode.md
+    - name: Beveiligen
+      items:
+        - name: Verifiëren en autoriseren
+          href: app-token-flow.md
+        - name: Beveiliging op rijniveau met Power BI-werkruimteverzamelingen
+          href: row-level-security.md
+- name: Naslaginformatie
+  items:
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=power-bi-embedded'
+    - name: PowerShell
+      href: /powershell/module/azurerm.powerbiembedded
+    - name: .NET Azure Resource Manager
+      href: /dotnet/api/microsoft.azure.management.powerbiembedded
+    - name: .NET SDK downloaden
+      href: 'https://www.nuget.org/profiles/powerbi'
+    - name: Javascript
+      href: 'https://github.com/Microsoft/PowerBI-JavaScript/wiki'
+    - name: REST API's voor beheer
+      href: /rest/api/powerbiembedded/
+    - name: REST-API’s
+      href: 'https://msdn.microsoft.com/library/azure/mt711507.aspx'
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: Voorbeeld van ingesloten JavaScript
+      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+    - name: Git-opslagplaats voor JavaScript
+      href: 'https://github.com/Microsoft/PowerBI-JavaScript'
+    - name: 'Git-opslagplaats voor Power BI C#'
+      href: 'https://github.com/Microsoft/PowerBI-CSharp'
+    - name: Power BI-community
+      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Voorbeeldtoepassing
+      href: 'https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/powerbi'

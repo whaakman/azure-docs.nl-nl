@@ -10,32 +10,33 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: f77a036d41ce551d9eab0250eaf4dc16444b24da
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: 484567dd9d9c3d050e7be25bd685a5b8d3de0687
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825504"
 ---
-## <a name="build-and-run-code-in-kubernetes"></a>Ontwikkel en voer de code in Kubernetes
-Laten we onze code uitgevoerd! Voer deze opdracht uit in het terminalvenster de **code hoofdmap**, webfrontend:
+## <a name="build-and-run-code-in-kubernetes"></a>Code schrijven en uitvoeren in Kubernetes
+We gaan onze code uitvoeren! In het terminalvenster voert u deze opdracht uit vanuit de **hoofdcodemap**, webfrontend:
 
 ```cmd
 azds up
 ```
 
-Let op de uitvoer van de opdracht, ziet u verschillende dingen zoals die:
-- Broncode is gesynchroniseerd met de ontwikkelomgeving in Azure.
-- Een installatiekopie van een container is ingebouwd in Azure, zoals opgegeven door de Docker-elementen in de map van uw code.
-- Kubernetes objecten worden gemaakt die gebruikmaken van de installatiekopie van het container zoals opgegeven door de grafiek Helm in de map van uw code.
-- Informatie over de eindpunten van de container wordt weergegeven. In ons geval verwacht we een openbare URL voor HTTP.
-- Ervan uitgaande dat de bovenstaande stadia worden uitgevoerd, moet u beginnen om te zien `stdout` (en `stderr`) uitvoeren als de container opgestart wordt.
+Houd de uitvoer van de opdracht in de gaten. Er zijn meerdere zaken die u zullen opvallen tijdens de uitvoering:
+- De broncode is gesynchroniseerd met de dev-ruimte in Azure.
+- Er wordt een containerinstallatiekopie gemaakt in Azure, zoals is aangegeven door de Docker-assets in uw codemap.
+- Er worden Kubernetes-objecten gemaakt die de containerinstallatiekopie gebruiken zoals wordt aangegeven in de Helm-grafiek in uw codemap.
+- Er wordt informatie over het eindpunt of de eindpunten van de container weergegeven. In ons geval verwachten we een openbare HTTP-URL.
+- Ervan uitgaande dat de fases hierboven goed worden afgerond, moet u nu `stdout`-uitvoer (en `stderr`) gaan zien terwijl de container wordt opgestart.
 
 > [!Note]
-> Deze stappen langer duurt de eerste keer dat de `up` opdracht wordt uitgevoerd, maar latere uitvoeringen zijn sneller.
+> Deze stappen nemen de eerste keer dat de opdracht `up` wordt uitgevoerd, meer tijd in beslag, maar latere uitvoeringen zullen sneller verlopen.
 
-## <a name="test-the-web-app"></a>De web-app testen
-Scannen van de uitvoer van de console voor meer informatie over de openbare URL die is gemaakt door de `up` opdracht. Het formulier zal zijn: 
+### <a name="test-the-web-app"></a>De web-app testen
+Scan de console-uitvoer voor informatie over de openbare URL die door de opdracht `up` is gemaakt. Het zal in deze vorm te zien zijn: 
 
-`Running at public URL: http://<servicename>-<environmentname>.<guid>.<region>.aksapp.io` 
+`Running at public URL: http://<servicename>-<cluster-name>.<guid>.<region>.aksapp.io` 
 
-Deze URL in een browservenster geopend en ziet u het laden van de web-app. Als de container wordt uitgevoerd, `stdout` en `stderr` uitvoer naar het terminalvenster gestreamd.
+Open deze URL in een browservenster. Dan ziet u dat de web-app wordt geladen. Terwijl de container wordt uitgevoerd, wordt `stdout`- en `stderr`-uitvoer naar het terminalvenster gestreamd.
