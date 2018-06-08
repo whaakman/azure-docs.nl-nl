@@ -2,7 +2,7 @@
 title: Besturingssysteem-functionaliteit op Azure App Service
 description: Meer informatie over de OS-functionaliteit beschikbaar voor web-apps, back-ends voor mobiele Apps en API apps in Azure App Service
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850151"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Besturingssysteem-functionaliteit op Azure App Service
 In dit artikel wordt de algemene basislijn besturingssysteem functionaliteit beschreven die beschikbaar is voor alle apps die worden uitgevoerd op [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Deze functionaliteit omvat bestand, netwerk, en toegang tot het register en logboeken met diagnostische gegevens en gebeurtenissen. 
@@ -49,16 +50,22 @@ Er bestaan verschillende schijven in App Service, waaronder lokale stations- en 
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Lokale stations
-De kern is App Service een service die wordt uitgevoerd op de infrastructuur van Azure PaaS (platform als een service). Als gevolg hiervan zijn de lokale stations die zijn 'gekoppeld' aan een virtuele machine dezelfde stationstypen beschikbaar zijn voor alle worker-rol in Azure wordt uitgevoerd. Dit omvat een systeemstation (het station D:\), een toepassing station waarop Azure cspkg pakketbestanden gebruikt uitsluitend door App Service (en niet toegankelijk is voor klanten) en een 'gebruiker' station (het station C:\), waarvan de grootte afhankelijk van de grootte van de virtuele machine varieert. Het is belangrijk voor het bewaken van uw gebruik van de schijf wanneer uw toepassing groeit. Als het schijfquotum is bereikt, kan dit negatieve gevolgen hebben voor uw toepassing hebben.
+De kern is App Service een service die wordt uitgevoerd op de infrastructuur van Azure PaaS (platform als een service). Als gevolg hiervan zijn de lokale stations die zijn 'gekoppeld' aan een virtuele machine dezelfde stationstypen beschikbaar zijn voor alle worker-rol in Azure wordt uitgevoerd. Dit omvat:
+
+- Een systeemstation (het station D:\)
+- Een toepassing station waarop Azure cspkg pakketbestanden die uitsluitend door App Service (en niet toegankelijk is voor klanten)
+- Een station 'gebruiker' (het station C:\), waarvan de grootte afhankelijk van de grootte van de virtuele machine varieert. 
+
+Het is belangrijk voor het bewaken van uw gebruik van de schijf wanneer uw toepassing groeit. Als het schijfquotum is bereikt, kan dit negatieve gevolgen hebben voor uw toepassing hebben.
 
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-aka-unc-shares"></a>Netwerkstations (aka UNC shares)
-Een van de unieke aspecten van App-Service waarmee app-implementatie en het onderhoud duidelijk is dat alle gebruikersinhoud is opgeslagen op een reeks UNC-shares. Dit model wordt zeer mooi toegewezen aan het algemene patroon van inhoudopslag die wordt gebruikt door lokale webhosting-omgevingen met meerdere servers met gelijke taakverdeling. 
+Een van de unieke aspecten van App-Service waarmee app-implementatie en het onderhoud duidelijk is dat alle gebruikersinhoud is opgeslagen op een reeks UNC-shares. Dit model toegewezen ook aan het algemene patroon van inhoudopslag die wordt gebruikt door lokale webhosting-omgevingen met meerdere servers met gelijke taakverdeling. 
 
-In App Service, er zijn van een UNC-shares in elke Datacenter wordt gemaakt. Een percentage van de gebruikersinhoud voor alle klanten in elk datacenter is toegewezen aan elke UNC-share. Bovendien delen alle van het bestand dat de inhoud van het abonnement van één klant altijd op de dezelfde UNC geplaatst wordt. 
+Er is een aantal UNC-shares in elke Datacenter gemaakt in App Service. Een percentage van de gebruikersinhoud voor alle klanten in elk datacenter is toegewezen aan elke UNC-share. Bovendien delen alle van het bestand dat de inhoud van het abonnement van één klant altijd op de dezelfde UNC geplaatst wordt. 
 
-Houd er rekening mee dat als gevolg van hoe cloud services-werk, wordt de specifieke virtuele machine die verantwoordelijk is voor het hosten van een UNC-share gewijzigd gedurende een bepaalde periode. Het kan worden gegarandeerd dat UNC-shares gekoppeld door andere virtuele machines als omhoog en omlaag worden gebracht in de normale loop van de bewerkingen van de cloud. Apps moet daarom nooit vastgelegde veronderstellingen dat de gegevens in een UNC-pad van de machine stabiel gedurende een bepaalde periode blijft. In plaats daarvan ze moeten gebruiken de handige *faux* absoluut pad **D:\home\site** die voorziet in App Service. Deze faux absoluut pad biedt een draagbare, app en gebruiker-networkdirect-methode voor het verwijzen naar de eigen app. Met behulp van **D:\home\site**, een bestanden kan overdragen gedeelde app app zonder een nieuwe absoluut pad configureren voor elke overdracht.
+Als gevolg van hoe Azure services werk verandert het specifieke virtuele machine die verantwoordelijk is voor het hosten van een UNC-share gedurende een bepaalde periode. Er wordt gegarandeerd dat UNC-shares gekoppeld door andere virtuele machines als omhoog en omlaag worden gebracht in de normale loop van de Azure-bewerkingen. Apps moet daarom nooit vastgelegde veronderstellingen dat de gegevens in een UNC-pad van de machine stabiel gedurende een bepaalde periode blijft. In plaats daarvan ze moeten gebruiken de handige *faux* absoluut pad **D:\home\site** die voorziet in App Service. Deze faux absoluut pad biedt een draagbare, app en gebruiker-networkdirect-methode voor het verwijzen naar de eigen app. Met behulp van **D:\home\site**, een bestanden kan overdragen gedeelde app app zonder een nieuwe absoluut pad configureren voor elke overdracht.
 
 <a id="TypesOfFileAccess"></a>
 
@@ -69,7 +76,7 @@ App Service gereserveerd op de lokale stations die zijn gekoppeld aan de virtuel
 
 Twee voorbeelden van hoe App Service gebruikt voor lokale tijdelijke zijn de map voor tijdelijke bestanden voor ASP.NET en gecomprimeerde bestanden van de map voor IIS. De ASP.NET-compilatie-systeem wordt de map 'Temporary ASP.NET Files' als een tijdelijke compilatie cachelocatie. IIS maakt gebruik van de ' IIS gecomprimeerde ' map met tijdelijke bestanden voor het opslaan van gecomprimeerde antwoorduitvoer. Beide typen van bestand gebruik (evenals anderen) worden toegewezen in App Service aan de lokale tijdelijke per-app. Deze opnieuw toe te wijzen, zorgt u ervoor dat de functionaliteit blijft zoals verwacht.
 
-Elke app in App Service wordt uitgevoerd als de identiteit van een willekeurig uniek beperkte bevoegdheden werkproces aangeroepen 'id van de toepassingsgroep', verder hier beschreven: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Toepassingscode gebruikt deze identiteit voor basic alleen-lezen toegang tot het besturingssysteemstation (het station D:\). Dit betekent dat toepassingscode kan algemene mapstructuren weergeven en lezen algemene bestanden op het systeemstation. Hoewel dit een enigszins algemeen niveau van toegang, hetzelfde mappen en bestanden zijn toegankelijk lijken wanneer u inrichten wordt een werkrol in een Azure gehoste service en de inhoud van het station lezen. 
+Elke app in App Service wordt uitgevoerd als de identiteit van een willekeurig uniek beperkte bevoegdheden werkproces aangeroepen 'id van de toepassingsgroep', verder hier beschreven: [ http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Toepassingscode gebruikt deze identiteit voor basic alleen-lezen toegang tot het besturingssysteemstation (het station D:\). Dit betekent dat toepassingscode kan algemene mapstructuren weergeven en lezen algemene bestanden op het systeemstation. Hoewel dit een enigszins algemeen niveau van toegang, hetzelfde mappen en bestanden zijn toegankelijk lijken wanneer u inrichten wordt een werkrol in een Azure gehoste service en de inhoud van het station lezen. 
 
 <a name="multipleinstances"></a>
 
@@ -79,9 +86,9 @@ De basismap bevat een app-inhoud en toepassingscode kan schrijven. Als een app w
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Netwerktoegang
-Toepassingscode kan TCP/IP gebruiken en op basis van UDP-protocollen maken uitgaande netwerkverbindingen naar Internet toegankelijk eindpunten die externe services. Apps kunt deze dezelfde protocollen verbinding maken met services in Azure&#151;bijvoorbeeld door het opstellen van HTTPS-verbindingen met SQL-Database.
+Toepassingscode kunt TCP/IP- en UDP-protocollen gebruiken om uitgaande netwerkverbindingen naar Internet toegankelijk eindpunten die externe services beschikbaar te maken. Apps kunt deze dezelfde protocollen verbinding maken met services in Azure&#151;bijvoorbeeld door het opstellen van HTTPS-verbindingen met SQL-Database.
 
-Er is ook een beperkte capaciteit voor apps voor een lokale loopback-verbinding tot stand brengen en een app luisteren op die lokale loopback-socket hebben. Deze functie bestaat voornamelijk om apps te schakelen die op de lokale loopback-sockets als onderdeel van hun functionaliteit luisteren. Houd er rekening mee dat elke app een 'persoonlijke' loopback-verbinding ziet. App "A" kan niet luisteren naar een lokale loopback-socket tot stand gebracht door app "B".
+Er is ook een beperkte capaciteit voor apps voor een lokale loopback-verbinding tot stand brengen en een app luisteren op die lokale loopback-socket hebben. Deze functie bestaat voornamelijk om apps te schakelen die op de lokale loopback-sockets als onderdeel van hun functionaliteit luisteren. Elke app ziet een 'persoonlijke' loopback-verbinding. App "A" kan niet luisteren naar een lokale loopback-socket tot stand gebracht door app "B".
 
 Named pipes worden ook ondersteund als een mechanisme voor communicatie tussen processen (IPC) tussen verschillende processen die gezamenlijk een app worden uitgevoerd. Bijvoorbeeld: de IIS FastCGI-module is gebaseerd op named pipes voor het coördineren van de afzonderlijke processen die PHP-pagina's worden uitgevoerd.
 
@@ -103,7 +110,7 @@ W3C-HTTP-logboeken die worden gegenereerd door een actieve app zijn bijvoorbeeld
 
 In een vergelijkbare vein realtime diagnostische gegevens van .NET-toepassingen kan ook worden vastgelegd met behulp van de .NET-tracering en diagnostische gegevens infrastructuur, met opties voor het schrijven van de trace-informatie naar de netwerkshare van de app, of u kunt ook naar een blob-opslaglocatie.
 
-Gebieden van diagnostische logboekregistratie en tracering die niet beschikbaar voor apps zijn Windows ETW-gebeurtenissen en algemene Windows-gebeurtenislogboeken (bijvoorbeeld systeem, toepassing en beveiliging gebeurtenislogboeken). Omdat informatie voor ETW-tracering worden bekeken alle computers (met de juiste ACL's) mogelijk zijn kan, zijn de lees- en schrijftoegang tot ETW-gebeurtenissen worden geblokkeerd. Ontwikkelaars wellicht opgevallen dat API-aanroepen te lezen en schrijven ETW-gebeurtenissen en algemene Windows-gebeurtenislogboeken weergegeven om te werken, maar dat is omdat App Service is 'faking' aanroepen van de zodat deze worden weergegeven om u te laten slagen. In werkelijkheid heeft de toepassingscode geen toegang tot de gegevens van deze gebeurtenissen.
+Gebieden van diagnostische logboekregistratie en tracering die niet beschikbaar voor apps zijn Windows ETW-gebeurtenissen en algemene Windows-gebeurtenislogboeken (bijvoorbeeld, systeem, toepassing en beveiliging gebeurtenislogboeken). Omdat informatie voor ETW-tracering worden bekeken alle computers (met de juiste ACL's) mogelijk zijn kan, zijn de lees- en schrijftoegang tot ETW-gebeurtenissen worden geblokkeerd. Ontwikkelaars wellicht opgevallen dat API-aanroepen te lezen en schrijven ETW-gebeurtenissen en algemene Windows-gebeurtenislogboeken weergegeven om te werken, maar dat is omdat App Service is 'faking' aanroepen van de zodat deze worden weergegeven om u te laten slagen. In werkelijkheid heeft de toepassingscode geen toegang tot de gegevens van deze gebeurtenissen.
 
 <a id="RegistryAccess"></a>
 

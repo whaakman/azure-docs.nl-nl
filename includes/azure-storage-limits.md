@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 04/03/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6381f8f0e68853183fc3e17e76b4ab93b152b48b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6572adb0d8d629910492603a17988b89acce2f17
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34852055"
 ---
 | Resource | Standaardlimiet |
 | --- | --- |
-| Aantal storage-accounts per regio | 200<sup>1</sup> |
+| Aantal storage-accounts per regio per abonnement | 200<sup>1</sup> |
 | Maximum aantal opslagaccountcapaciteit | 500 TiB<sup>2</sup> |
 | Maximumaantal blob-containers, blobs, bestandsshares, tabellen, wachtrijen, entiteiten of berichten per storage-account | Geen limiet |
 | Percentage maximum aantal aanvragen per storage-account | aanvragen per seconde voor 20.000<sup>2</sup> |
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/05/2018
 | Maximale inkomende<sup>3</sup> per storage-account (buiten de Verenigde Staten regio's) | 5 Gbps als RA-GRS/GRS is ingeschakeld, 10 Gbps voor LRS/ZRS<sup>4</sup> |
 | Maximum aantal uitgaande<sup>3</sup> per storage-account (buiten de Verenigde Staten regio's) | 10 Gbps als RA-GRS/GRS is ingeschakeld, 15 Gbps voor LRS/ZRS<sup>4</sup> |
 
-<sup>1</sup>bevat standaard- en Premium storage-accounts. Als u meer dan 200 opslagaccounts nodig hebt, dient u een aanvraag in te dienen via de [ondersteuning van Azure](https://azure.microsoft.com/support/faq/). Het Azure Storage-team bekijkt dan uw bedrijfsscenario en kan tot 250 opslagaccounts goedkeuren. 
+<sup>1</sup>bevat standaard- en Premium storage-accounts. Als u meer dan 200 storage-accounts in een bepaald gebied nodig hebt, moet u een aanvraag via [ondersteuning van Azure](https://azure.microsoft.com/support/faq/). Het Azure Storage-team uw bedrijfsscenario controleert en maximaal 250 storage-accounts voor een bepaald gebied kan goedkeuren. 
 
 <sup>2</sup> als u uitgebreide limieten voor uw opslagaccount, contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/faq/). Het Azure Storage-team worden de aanvragen controleren en hogere limieten op basis van geval tot geval kan goedkeuren. Zowel algemeen Blob storage-accounts op aanvraag van de grotere capaciteit, inkomend en uitgaand en snelheid van aanvragen voor ondersteunen. Zie voor de nieuwe maximumwaarden voor Blob storage-accounts [storage-accounts voor grotere, hogere schaal aangekondigd](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 

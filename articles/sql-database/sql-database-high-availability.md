@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c7c2b72b3a164e35c464a92f82cddb3329250283
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650057"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839806"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 Microsoft heeft de belofte aangebracht in de klanten die hoge beschikbaarheid (HA) is ingebouwd in de service en de klanten hoeven niet te werken, speciale logica voor het toevoegen of beslissingen rond HA vanaf het begin van de Azure SQL Database PaaS-aanbieding. Microsoft onderhoudt volledige controle over de HA-systeemconfiguratie en bewerking, biedt klanten een SLA. De HA-SLA van toepassing op een SQL-database in een regio en biedt geen bescherming in geval van een mislukking van de totale regio die wordt veroorzaakt door factoren buiten het beheer van Microsoft redelijkerwijs (bijvoorbeeld een natuurramp, war, besluiten van terrorisme, riots, overheids-actie of een netwerk- of apparaatstoring buiten de datacenters van Microsoft, waaronder op klant sites of tussen sites van de klant en Datacenter van Microsoft).
@@ -79,7 +79,7 @@ Standaard worden de quorum-set replica's voor de lokale opslagconfiguraties gema
 Omdat de redundante zone quorum-set replica's in verschillende datacenters met sommige afstand tussen deze twee heeft, mag de toegenomen netwerklatentie vergroot de toegewezen tijd en dus invloed op de prestaties van sommige OLTP-werkbelastingen. Altijd kunt u terugkeren naar de configuratie met één zone door het uitschakelen van de instelling van de redundantie van de zone. Dit proces heeft een grootte van gegevens en is vergelijkbaar met de reguliere service level objective (SLO)-update. De database of de groep van toepassingen aan het einde van het proces is gemigreerd uit een zone redundant-ring naar een enkele zone ring of vice versa.
 
 > [!IMPORTANT]
-> Zone-redundante databases en elastische pools worden alleen ondersteund in Premium en Business-kritische (preview) Servicelagen. Tijdens de openbare preview, back-ups en audit records worden opgeslagen in de opslag van de RA-GRS en daarom mogelijk niet automatisch beschikbaar in het geval van een onderbreking van de hele zone. 
+> Zone-redundante databases en elastische pools zijn momenteel alleen ondersteund in de Premium servicecategorie. Tijdens de openbare preview, back-ups en audit records worden opgeslagen in de opslag van de RA-GRS en daarom mogelijk niet automatisch beschikbaar in het geval van een onderbreking van de hele zone. 
 
 De zone redundant versie van de architectuur van hoge beschikbaarheid wordt door het volgende diagram geïllustreerd:
  

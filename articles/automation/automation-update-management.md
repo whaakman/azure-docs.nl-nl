@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43cfb16e9471736c0f112ef879faaf01badebc4f
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d336b0a4c1de069fccce21a370ca64dc9e9359c9
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824945"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831690"
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -166,6 +166,8 @@ Deze weergave bevat informatie over uw machines ontbrekende updates, update-impl
 
 U kunt een zoekopdracht met logboekbestanden die informatie over de machine, update of implementatie geeft door het selecteren van het item in de lijst uitvoeren. Hiermee opent u de **logboek zoeken** pagina met een query voor het geselecteerde item.
 
+![De standaardweergave management bijwerken](media/automation-update-management/update-management-view.png)
+
 ## <a name="installing-updates"></a>Updates installeren
 
 Wanneer de updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door een *update-implementatie* te maken. Een Update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd op voor de implementatie, samen met een computer of een groep computers die moet worden opgenomen in het implementatiebereik. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over computergroepen. Wanneer u computergroepen in de installatie van updates opneemt, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Toekomstige wijzigingen aan een groep worden niet weergegeven. U kunt dit probleem omzeilen door de geplande update-implementatie te verwijderen en deze opnieuw te maken.
@@ -197,9 +199,8 @@ Maak een nieuwe Update-implementatie door te klikken op de **schema-update-imple
 |Besturingssysteem| Linux- of Windows|
 | Machines bijwerken |Selecteer een opgeslagen zoekopdracht of Machine kiest uit de vervolgkeuzelijst en selecteert u afzonderlijke machines |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
-|Updates die moeten worden uitgesloten|Voer alle KB om uit te sluiten zonder het voorvoegsel 'KB'|
-|Planningsinstellingen|Selecteer de tijd om te starten en selecteer hetzij eenmaal of terugkerende voor het terugkeerpatroon|
-| Onderhoudsvenster |Aantal minuten instellen voor updates. De waarde kan niet worden worden minder dan 30 minuten en niet meer dan 6 uur |
+|Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voer de KB zonder het voorvoegsel 'KB' voor Windows. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
+|Planningsinstellingen|Selecteer de tijd om te starten en selecteer hetzij eenmaal of terugkerende voor het terugkeerpatroon|| Onderhoudsvenster |Aantal minuten instellen voor updates. De waarde kan niet worden worden minder dan 30 minuten en niet meer dan 6 uur |
 
 ## <a name="update-classifications"></a>Updateclassificaties
 

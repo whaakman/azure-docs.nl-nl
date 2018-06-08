@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: 7d105e8e8cf67cd28c0be8a02b26913a25eed023
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 99e54400b070a03744c4d4504fa4c89ad6dc097d
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837443"
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Met Panda functies maken voor Azure Blok-opslaggegevens
 Dit document wordt beschreven hoe maakt functies voor gegevens die zijn opgeslagen in Azure blob-container gebruiken de [Pandas](http://pandas.pydata.org/) Python-pakket. Na het waarin wordt beschreven hoe u de gegevens in een frame Panda-gegevens laden, er wordt weergegeven hoe categorische functies met indicatorwaarden Python-scripts en functies met binning genereren.

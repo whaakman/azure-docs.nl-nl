@@ -6,14 +6,16 @@ author: hning86
 ms.author: haining
 manager: mwinkle
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6085762f9f3874df8dd90866e387a581915dbbaf
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831598"
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Wat is nieuw in Azure Machine Learning?
 
@@ -26,7 +28,7 @@ Met deze versie van Azure Machine Learning, kunt u het volgende doen:
 + Featurize afbeeldingen met een quantized versie van ResNet 50, een classificatie op basis van deze functies, trainen en [model implementeren op een FPGA op Azure](../service/how-to-deploy-fpga-web-service.md) voor inferencing zeer lage latentie.
 
 + Snel bouwen en implementeren van maximaal nauwkeurige machine learning en grondige learning-modellen met [aangepaste Azure Machine Learning-pakketten](../service/reference-python-package-overview.md) voor de volgende gebieden:
-  + [Computer vision](../service/how-to-build-deploy-image-classification-models.md)
+  + [Computer Vision](../service/how-to-build-deploy-image-classification-models.md)
   + [Tekstanalyse](../service/how-to-build-deploy-text-classification-models.md)
   + [Prognose](../service/how-to-build-deploy-forecast-models.md)
 
@@ -222,7 +224,7 @@ Zie voor meer informatie over het maken van de compute-doelen [configureren van 
 ### <a name="sample-projects"></a>Voorbeeldprojecten
 - [IRIS](https://github.com/Azure/MachineLearningSamples-Iris) en [MMLSpark](https://github.com/Azure/mmlspark) voorbeelden bijgewerkt met de nieuwe versie van Azure ML-SDK
 
-### <a name="breaking-changes"></a>Wijzigingen op te splitsen
+### <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
 - Gepromoveerd de `--type` in switch `az ml computetarget attach` naar een subopdracht. 
 
     - `az ml computetarget attach --type remotedocker` is nu `az ml computetarget attach remotedocker`

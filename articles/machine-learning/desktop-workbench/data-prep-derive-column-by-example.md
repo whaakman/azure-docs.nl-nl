@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 201492f033ad3e2508bc75c0865036e7c83a652a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833760"
 ---
 # <a name="derive-column-by-example-transformation"></a>Kolom afgeleid door voorbeeld transformatie
 
@@ -152,7 +154,7 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 |Anne Marie|W|Jones|Anne-Marie·W·Jones|
 |Rico||Ropp|Rico··Ropp|
 |Lauren mei||Fullmer|Lauren May·· Fullmer|
-|Tony|D|Maine|Marc· T· Maine|
+|Tony|T|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie··Adelman|
 |Jeroen Paul||Smith|John Paul·· Smith|
 |Nummer|W|Staller|Song· W· Staller|
@@ -307,7 +309,7 @@ Deze onderdelen van een datum zijn geëxtraheerd met behulp van verschillende do
 |28-Nov-2006 14:19:15|di|28|nov|2006|14|19|15|
 |29-Apr-2031 04:59:45|di|29|apr|2031|4|59|45|
 |29-Jan-2032 02:38:36|do|29|jan|2032|2|38|36|
-|11-mei-2028 15:31:52|do|11|mei|2028|15|31|52|
+|11-mei-2028 15:31:52|do|11|Mei|2028|15|31|52|
 |15-Jul-1977 12:45:39|vr|15|jul|1977|12|45|39|
 |27-Jan-2029 05:55:41|za|27|jan|2029|5|55|41|
 |Mrt-03-2024 10:17:49|zo|3|mrt|2024|10|17|49|

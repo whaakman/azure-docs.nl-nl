@@ -1,6 +1,6 @@
 ---
 title: Implementeren van de Azure-Stack Development Kit (ASDK) | Microsoft Docs
-description: In deze zelfstudie leert u hoe de ASDK opnieuw installeren.
+description: In dit artikel leert u hoe de ASDK opnieuw installeren.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,28 +11,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fcf1abfe574dd3067f00df7c5ff2632b9cc2ec4f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850317"
 ---
-# <a name="tutorial-redeploy-the-asdk"></a>Zelfstudie: de ASDK opnieuw implementeren
-In deze zelfstudie leert u hoe de Azure Stack Development Kit (ASDK) in een niet-productieomgeving implementeren. Omdat de ASDK bijwerken wordt niet ondersteund, moet u volledig opnieuw te implementeren om te verplaatsen naar een nieuwere versie. U kunt ook de ASDK implementeren op elk gewenst moment die u wilt beginnen vanaf het begin.
+# <a name="redeploy-the-asdk"></a>De ASDK implementeren
+In dit artikel leert u hoe de Azure Stack Development Kit (ASDK) in een niet-productieomgeving implementeren. Omdat de ASDK bijwerken wordt niet ondersteund, moet u volledig opnieuw te implementeren om te verplaatsen naar een nieuwere versie. U kunt ook de ASDK implementeren op elk gewenst moment die u wilt beginnen vanaf het begin.
 
 > [!IMPORTANT]
 > De ASDK upgraden naar een nieuwe versie wordt niet ondersteund. U moet de ASDK op de hostcomputer van development kit elke keer dat u wilt evalueren van een nieuwere versie van Azure-Stack implementeren.
-
-In deze zelfstudie leert u het volgende:
-
-> [!div class="checklist"]
-> * Azure registratie verwijderen 
-> * De ASDK implementeren
 
 ## <a name="remove-azure-registration"></a>Azure registratie verwijderen 
 Als u uw installatie ASDK eerder bij Azure hebt geregistreerd, moet u de registratie-bron verwijderen voordat de ASDK opnieuw distribueren. Registreer opnieuw de ASDK zodat marketplace syndication wanneer u de ASDK opnieuw implementeert. Als u eerder hebt niet de ASDK hebt geregistreerd bij uw Azure-abonnement, kunt u deze sectie overslaan.
@@ -55,7 +50,7 @@ Gebruiken om de registratie-resource verwijdert, de **verwijderen AzsRegistratio
 
   # Unregister Azure Stack
   Remove-AzsRegistration `
-      -CloudAdminCredential $YourCloudAdminCredential `
+      -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
   # Remove the Azure Stack resource group
@@ -71,7 +66,7 @@ Gebruiken om de registratie-resource verwijdert, de **verwijderen AzsRegistratio
 
 Azure-Stack moet nu met succes worden verwijderd van uw Azure-abonnement. Bovendien moet de resourcegroep azurestack gemaakt wanneer u de ASDK geregistreerd bij Azure, ook worden verwijderd.
 
-## <a name="redeploy-the-asdk"></a>De ASDK implementeren
+## <a name="deploy-the-asdk"></a>De ASDK implementeren
 Als u wilt implementeren in Azure-Stack, moet u starten via helemaal zoals hieronder wordt beschreven. De stappen zijn verschillend, afhankelijk van of u het installatiescript voor Azure-Stack (asdk installer.ps1) gebruikt voor het installeren van de ASDK.
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>De ASDK met het installatiescript implementeren
@@ -85,7 +80,7 @@ Als u wilt implementeren in Azure-Stack, moet u starten via helemaal zoals hiero
 
 3. Nadat de development kit host opnieuw is opgestart in het basisbesturingssysteem, meld u aan als een lokale beheerder. Zoek en verwijder de **C:\CloudBuilder.vhdx** -bestand dat is gebruikt als onderdeel van de vorige implementatie. 
 
-4. Herhaal de stappen die u hebt uitgevoerd naar eerste [implementeert de ASDK](asdk-deploy.md).
+4. Herhaal de stappen die u hebt uitgevoerd naar eerste [implementeert de ASDK](asdk-install.md).
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>De ASDK implementeren zonder gebruik van het installatieprogramma
 Als u het script asdk installer.ps1 niet gebruikt voor het installeren van de ASDK, moet u de hostcomputer development kit handmatig configureren voordat de ASDK opnieuw distribueren.
@@ -100,16 +95,7 @@ Als u het script asdk installer.ps1 niet gebruikt voor het installeren van de AS
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Azure registratie verwijderen 
-> * De ASDK implementeren
-
-Ga naar de volgende zelfstudie voor informatie over het toevoegen van een Azure-Stack marketplace-item.
-
-> [!div class="nextstepaction"]
-> [Een Azure-Stack marketplace-item toevoegen](asdk-marketplace-item.md)
+[Na de installatie van de ASDK configuratietaken](asdk-post-deploy.md)
 
 
 

@@ -1,39 +1,30 @@
 ---
 title: Azure Stack - PowerShell implementeren | Microsoft Docs
-description: In deze zelfstudie kunt u de ASDK installeren vanaf de opdrachtregel.
+description: In dit artikel kunt u de ASDK installeren vanaf de opdrachtregel met behulp van PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 48ccccaba6b7f5780f1d42dfbe5d9747c5e30292
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849954"
 ---
-# <a name="tutorial-deploy-the-asdk-from-the-command-line"></a>Zelfstudie: de ASDK vanaf de opdrachtregel implementeren
-In deze zelfstudie maakt implementeren u de Azure Stack Development Kit (ASDK) vanaf de opdrachtregel in een niet-productieomgeving. 
-
+# <a name="deploy-the-asdk-from-the-command-line"></a>De ASDK vanaf de opdrachtregel implementeren
 De ASDK is een test- en omgeving die u implementeren kunt om te evalueren en de Azure-Stack-functies en services demonstreren. Als u deze moet actief is, u de hardware van de omgeving voorbereiden en uitvoeren van sommige scripts (dit duurt enkele uren). Daarna kunt kunt u aanmelden bij de portals beheerder en gebruiker aan de slag met Azure-Stack.
-
-In deze zelfstudie leert u het volgende:
-
-> [!div class="checklist"]
-> * Downloaden en uitpakken van het implementatiepakket
-> * Voorbereiden van de hostcomputer development kit 
-> * Configuraties na de implementatie uitvoeren
-> * Registreren bij Azure
 
 ## <a name="prerequisites"></a>Vereisten 
 Bereid de hostcomputer development kit. Plan uw hardware, software en netwerk. De computer die als host fungeert voor de development kit (de host development kit) moet voldoen aan de eisen aan hardware, software en netwerk. U moet er ook voor kiezen tussen het gebruik van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS). Zorg ervoor dat deze vereisten voldoen voordat u uw implementatie start, zodat het installatieproces soepel wordt uitgevoerd. 
@@ -61,7 +52,7 @@ De computer opstarten vanaf CloudBuilder.vhdx ASDK configureren:
 
   1. Start een opdrachtprompt als beheerder.
   2. Voer `bcdedit /copy {current} /d "Azure Stack"` uit.
-  3. Kopiëren (CTRL + C) de CLSID-waarde geretourneerd, inclusief de vereiste {} ' s. Deze waarde wordt aangeduid als {CLSID} en moet worden geplakt in (CTRL + V of klik met de rechtermuisknop) in de resterende stappen.
+  3. Kopiëren (CTRL + C) de CLSID-waarde geretourneerd, met inbegrip van de vereiste {}' s. Deze waarde wordt aangeduid als {CLSID} en moet worden geplakt in (CTRL + V of klik met de rechtermuisknop) in de resterende stappen.
   4. Voer `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` uit. 
   5. Voer `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` uit. 
   6. Voer `bcdedit /set {CLSID} detecthal on` uit. 
@@ -176,16 +167,5 @@ U moet Azure Stack registreren met Azure zodat u kunt [Azure marketplace-items d
 ## <a name="next-steps"></a>Volgende stappen
 Gefeliciteerd! Nadat u deze stappen uitvoert, hebt u een development kit omgeving met zowel [beheerder](https://adminportal.local.azurestack.external) en [gebruiker](https://portal.local.azurestack.external) portals. 
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Downloaden en uitpakken van het implementatiepakket
-> * Voorbereiden van de hostcomputer development kit 
-> * Configuraties na de implementatie uitvoeren
-> * Registreren bij Azure
-
-Ga naar de volgende zelfstudie voor informatie over het toevoegen van een Azure-Stack marketplace-item.
-
-> [!div class="nextstepaction"]
-> [Een Azure-Stack marketplace-item toevoegen](asdk-marketplace-item.md)
+[Na de installatie van de ASDK configuratietaken](asdk-post-deploy.md)
 

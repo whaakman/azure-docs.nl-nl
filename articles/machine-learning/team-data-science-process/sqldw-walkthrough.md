@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: b6b78c5ae4506c1405428b60887567f272d6e268
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 12eb182c859617139fce6553496c6aa6e9bcdc98
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839058"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>De procedure van wetenschappelijke gegevens Team in actie: met behulp van SQL Data Warehouse
 In deze zelfstudie wordt beschreven hoe u maken en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar dataset--de [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset. Het binaire classificatie model samengesteld voorspelt al dan niet een tip voor een zakenreis is betaald, en modellen voor multiklassen classificatie en regressie worden ook besproken die het distributiepunt voor de tip bedragen betaald voorspellen.

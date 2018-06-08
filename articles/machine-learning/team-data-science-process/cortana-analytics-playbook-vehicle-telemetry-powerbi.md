@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 2689e87dd41aa4494cf63c9ead1d1ca011b0b720
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 462f5d15e7a39d282bca59f96166cc809447ee14
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837120"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle telemetrie Analytics-oplossing sjabloon Power BI-dashboard installatie-instructies
 Dit menu is gekoppeld aan de hoofdstukken in deze playbook: 
@@ -393,7 +395,7 @@ U hebt nu alle rapporten die overeenkomen met het pad in de oplossing voor batch
 ## <a name="upload-to-powerbicom"></a>Uploaden naar powerbi.com
 1. Ga naar de [Power BI-webportal](http://powerbi.com), en meld u aan.
 
-2. Selecteer **gegevens ophalen**.
+2. Selecteer **Gegevens ophalen**.
 
 3. Upload het Power BI Desktop-bestand. Selecteer **gegevens ophalen** > **bestanden ophalen** > **lokaal bestand**.
 

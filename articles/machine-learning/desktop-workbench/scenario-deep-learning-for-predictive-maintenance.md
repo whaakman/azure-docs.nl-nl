@@ -7,16 +7,18 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 005470298a115a822350f345cdab6e9cafb15eda
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 26b061c6bd6ff3ec9d1edbb7d99053d17db9b773
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832598"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Grondige learning voor voorspeld onderhoud praktijkscenario 's
 
@@ -27,7 +29,7 @@ Grondige learning is een van de meest populaire trends in machine learning en to
 
 Ook wel bekend als diep neural networks (DNN), zijn deze methoden geïnspireerd door de afzonderlijke neurons die binnen de brain (biologische neural networks).
 
-De impact van apparatuur ongeplande uitvaltijd kan schadelijk zijn voor elk bedrijf zijn. Het is essentieel dat veld apparatuur-gebruik en prestaties te maximaliseren en kostbaar, niet-geplande uitvaltijd te minimaliseren die worden uitgevoerd. Vroege identificatie van problemen kunt u beperkte onderhoud bronnen toewijzen op een rendabele manier en verbeteren van de kwaliteit en processen van de keten. 
+De invloed van ongeplande downtime van apparatuur kan schadelijk zijn voor elk bedrijf. Het is essentieel dat veld apparatuur-gebruik en prestaties te maximaliseren en kostbaar, niet-geplande uitvaltijd te minimaliseren die worden uitgevoerd. Vroege identificatie van problemen kunt u beperkte onderhoud bronnen toewijzen op een rendabele manier en verbeteren van de kwaliteit en processen van de keten. 
 
 Een strategie voor voorspeld onderhoud (PM) maakt gebruik van machine learning methoden om te bepalen van de voorwaarde van apparatuur optie preventief uitvoeren van onderhoud om te voorkomen dat schadelijke machine prestaties. In PM, worden gegevens verzameld na verloop van tijd voor het bewaken van de status van de machine en vervolgens geanalyseerd om te zoeken naar patronen te voorspellen, fouten. [Lange korte termijn geheugen (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) netwerken aantrekkelijk voor deze instelling omdat ze zijn ontworpen om te leren van gegevens reeksen zijn.
 

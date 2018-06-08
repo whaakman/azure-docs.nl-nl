@@ -5,19 +5,20 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0174e2a3c0b14c52b5750e343932a5df39d18976
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833357"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Ingebouwde updatebeheer, bijhouden en voorraad oplossingen
 
-Azure Automation biedt oplossingen voor het besturingssysteem beveiligingsupdates beheren, het bijhouden van wijzigingen en wat wordt geïnstalleerd op computers in uw inventaris. Er zijn meerdere manieren om vrijgeven machines, kunt u vrijgeven de oplossing [van een virtuele machine](automation-onboard-solutions-from-vm.md)van uw Automation-account of door [runbook](automation-onboard-solutions.md). In dit artikel bevat informatie over de voorbereiding deze oplossingen van uw Automation-account.
+Azure Automation biedt oplossingen voor het besturingssysteem beveiligingsupdates beheren, het bijhouden van wijzigingen en wat wordt geïnstalleerd op computers in uw inventaris. Er zijn meerdere manieren om vrijgeven machines, kunt u vrijgeven de oplossing [van een virtuele machine](automation-onboard-solutions-from-vm.md), [van meerdere machines Bladeren](automation-onboard-solutions-from-browse.md)van uw Automation-account of door [runbook](automation-onboard-solutions.md). In dit artikel bevat informatie over de voorbereiding deze oplossingen van uw Automation-account.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -68,29 +69,27 @@ Selecteer een opgeslagen zoekopdracht om de query die wordt gebruikt voor het vu
 
 ![Opgeslagen zoekopdrachten](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
-## <a name="onboard-an-azure-machine"></a>Ingebouwde een machine van Azure
+## <a name="onboard-azure-vms"></a>Ingebouwde virtuele machines in Azure
 
 Van uw Automation-account selecteren **inventaris** of **bijhouden** onder **CONFIGURATIEBEHEER**, of **updatebeheer** onder **UPDATEBEHEER**.
 
-Klik op **+ Azure VM toevoegen**, selecteert u een virtuele machine uit de lijst. Op de **updatebeheer** pagina, klikt u op **inschakelen**. Hiermee wordt de huidige virtuele machine toegevoegd aan de computergroep opgeslagen zoekactie voor de oplossing.
+Klik op **+ Azure Virtual machines toevoegen**, selecteer een of meer virtuele machines in de lijst. Virtuele machines die kan niet worden ingeschakeld worden grijs weergegeven en kan niet worden geselecteerd. Op de **updatebeheer inschakelen** pagina, klikt u op **inschakelen**. Hiermee wordt de geselecteerde virtuele machines toegevoegd aan de computergroep opgeslagen zoekactie voor de oplossing.
+
+![Virtuele machines in Azure inschakelen](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
 ## <a name="onboard-a-non-azure-machine"></a>Onboarding van een niet-Azure-machine
 
-Van uw Automation-account selecteren **inventaris** of **bijhouden** onder **CONFIGURATIEBEHEER**, of **updatebeheer** onder **UPDATEBEHEER**.
+Computers niet in Azure moeten handmatig worden toegevoegd. Van uw Automation-account selecteren **inventaris** of **bijhouden** onder **CONFIGURATIEBEHEER**, of **updatebeheer** onder **UPDATEBEHEER**.
 
-Klik op **toevoegen dan de Azure-machine**. Hiermee opent u een nieuw browservenster met de instructies voor het installeren en configureren van Microsoft Monitoring Agent op de machine, zodat de machine kunt beginnen met rapporteren aan de oplossing. Als u zich voorbereiden op een machine die momenteel wordt beheerd door System Center Operations Manager, een nieuwe agent is niet vereist, de werkruimtegegevens is ingevoerd in de bestaande agent.
+Klik op **toevoegen dan de Azure-machine**. Hiermee opent u een nieuw browservenster met de [instructies over het installeren en configureren van Microsoft Monitoring Agent op de machine](../log-analytics/log-analytics-concept-hybrid.md) zodat de machine kunt beginnen met rapporteren aan de oplossing. Als u zich voorbereiden op een machine die momenteel wordt beheerd door System Center Operations Manager, een nieuwe agent is niet vereist, de werkruimtegegevens is ingevoerd in de bestaande agent.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Ingebouwde machines in de werkruimte
 
-Van uw Automation-account selecteren **inventaris** of **bijhouden** onder **CONFIGURATIEBEHEER**, of **updatebeheer** onder **UPDATEBEHEER**.
+Handmatig worden geïnstalleerd machines of machines al rapporteren aan uw werkruimte moeten worden toegevoegd aan Azure Automation voor de oplossing moet worden ingeschakeld. Van uw Automation-account selecteren **inventaris** of **bijhouden** onder **CONFIGURATIEBEHEER**, of **updatebeheer** onder **UPDATEBEHEER**.
 
 Selecteer **machines beheren**. Hiermee opent u de **Machines beheren** pagina. Deze pagina kunt u de oplossing op een bepaalde set van alle beschikbare machines machines inschakelen of inschakelen van de oplossing voor alle huidige machines en inschakelen op alle toekomstige machines.
 
 ![Opgeslagen zoekopdrachten](media/automation-onboard-solutions-from-automation-account/managemachines.png)
-
-### <a name="selected-machines"></a>Geselecteerde machines
-
-Als u de oplossing voor een of meer machines selecteert **inschakelen op de geselecteerde computers** en klik op **toevoegen** naast elke machine die u wilt toevoegen aan de oplossing. Deze taak worden de namen van de geselecteerde machine toegevoegd aan de computergroep opgeslagen zoekquery's voor de oplossing.
 
 ### <a name="all-available-machines"></a>Alle beschikbare machines
 
@@ -99,6 +98,10 @@ Als u de oplossing voor alle beschikbare machines selecteert **inschakelen op al
 ### <a name="all-available-and-future-machines"></a>Alle beschikbare en toekomstige machines
 
 Als u de oplossing voor alle beschikbare machines en alle toekomstige machines selecteert **inschakelen op alle beschikbare en toekomstige machines**. Deze optie worden de opgeslagen zoekopdrachten en Scope-configuraties verwijderd uit de werkruimte. Hiermee opent u de oplossing voor alle Azure en niet-Azure-machines die aan de werkruimte rapporteren.
+
+### <a name="selected-machines"></a>Geselecteerde machines
+
+Als u de oplossing voor een of meer machines selecteert **inschakelen op de geselecteerde computers** en klik op **toevoegen** naast elke machine die u wilt toevoegen aan de oplossing. Deze taak worden de namen van de geselecteerde machine toegevoegd aan de computergroep opgeslagen zoekquery's voor de oplossing.
 
 ## <a name="next-steps"></a>Volgende stappen
 

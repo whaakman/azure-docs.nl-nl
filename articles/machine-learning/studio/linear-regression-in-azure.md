@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 162fc96c44db3c92103e12922de14b543daec9bf
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836222"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Lineaire regressie gebruiken in Azure Machine Learning
 > *Kate Baroni* en *Ben Boatman* enterprise oplossingsarchitecten in Microsoft gegevens Insights Center uitmuntende zijn. In dit artikel beschrijft ze hun ervaring een bestaande regressie analysis suite migreren naar een cloud-gebaseerde oplossing met behulp van Azure Machine Learning. 

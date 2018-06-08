@@ -12,19 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 06/06/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: 1609942269a0c737239cf4198289fdc44ade2b32
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d7e237e1e9daae3830f9a9943d54bc6bfa90a34c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830823"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory
 Als u wilt een gebruiker of groep toewijzen aan een enterprise-app, moet u de juiste machtigingen voor het beheren van de enterprise-app hebt en u moet een globale beheerder voor de map.
+
+> [!NOTE]
+> De functies die in dit artikel wordt besproken vereisen een Azure Active Directory Premium P1- of Premium P2-licentie. Zie voor meer informatie de [Azure Active Directory pagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory).
+
 > [!NOTE]
 > Voor Microsoft Applications (zoals Office 365-apps), PowerShell gebruikers toewijzen aan een enterprise-app te gebruiken.
+
 
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Hoe wijs ik toegang voor gebruikers in een enterprise-app in de Azure-portal
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
@@ -76,7 +82,7 @@ Als u een groep toewijst aan een onderneming app, moet u vervangen `Get-AzureADU
 
 ### <a name="example"></a>Voorbeeld
 
-In dit voorbeeld wordt de gebruiker Britta Simon toegewezen aan de [Microsoft werkplek Analytics](https://products.office.com/en-us/business/workplace-analytics) toepassing met behulp van PowerShell.
+In dit voorbeeld wordt de gebruiker Britta Simon toegewezen aan de [Microsoft werkplek Analytics](https://products.office.com/business/workplace-analytics) toepassing met behulp van PowerShell.
 
 1. Toewijzen in PowerShell de bijbehorende waarden voor de variabelen $username, $app_naam en $app_role_name. 
 

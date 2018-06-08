@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: fe916df286b0e50430464b3f2f8837b898abb827
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ca551ed07447e41ec94b0334eac0d235e0a5b6f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835080"
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Informatie over het beheren van AzureML-webservices met API Management
 ## <a name="overview"></a>Overzicht
@@ -43,7 +45,7 @@ Voor het voltooien van deze handleiding hebt u het volgende nodig:
 U kunt uw Azure Machine Learning-webservice met een exemplaar van API Management beheren.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **+ maken van een resource**.
+2. Selecteer **+ Een resource maken**.
 3. In het zoekvak typt u 'API management' en selecteer vervolgens de resource 'API management'.
 4. Klik op **Create**.
 5. De **naam** waarde wordt gebruikt voor het maken van een unieke URL (in dit voorbeeld wordt 'demoazureml').
@@ -169,7 +171,7 @@ Bewerkingen kunnen rechtstreeks vanuit de portal voor ontwikkelaars die biedt ee
 
 Nadat een bewerking is aangeroepen, de ontwikkelaarsportal de **aangevraagde URL** van de back-end-service de **antwoordstatus**, wordt de **antwoordheaders**, en eventuele  **Antwoordinhoud**.
 
-![response-status](./media/manage-web-service-endpoints-using-api-management/response-status.png)
+![status van het antwoord](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Bijlage A - maken en testen van een eenvoudige AzureML-webservice
 ### <a name="creating-the-experiment"></a>Het experiment maken
@@ -197,7 +199,7 @@ Klik op **Select Columns in Dataset** en klik vervolgens op **Launch column sele
 
 Vouw **Tekstanalyse** en sleep **hash-functie** naar het experiment. Verbinding maken met **kolommen in gegevensset selecteren** naar **hash-functie**.
 
-![connect-project-columns](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
+![verbinding maken met project kolommen](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
 Type **3** voor de **bitsize Hashing**. Hiermee maakt u 8 (23) kolommen.
 
@@ -210,11 +212,11 @@ U wilt op dit moment klikken **uitvoeren** voor het testen van het experiment.
 ### <a name="create-a-web-service"></a>Een webservice maken
 Maak nu een webservice. Vouw **webservice** en sleep **invoer** naar uw experiment. Verbinding maken met **invoer** naar **hash-functie**. Ook slepen **uitvoer** naar uw experiment. Verbinding maken met **uitvoer** naar **hash-functie**.
 
-![output-to-feature-hashing](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
+![output-naar--hash-functies](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
 Klik op **publiceren webservice**.
 
-![publish-web-service](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
+![publiceren-web-service](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
 Klik op **Ja** voor het publiceren van het experiment.
 
@@ -225,7 +227,7 @@ Een webservice AzureML bestaat uit RSS (aanvraag/antwoord-service) en eindpunten
 
 U moet ook de **werkruimte**, **service**, en **api_key** van uw experiment voor het onderstaande voorbeeld de gegevensbron. U kunt de werkruimte en de service vinden door te klikken op **aanvragen/reacties** of **Batchuitvoering** voor uw experiment in het dashboard van web service.
 
-![find-workspace-and-service](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
+![Zoek-werkruimte-en-service](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
 U vindt de **api_key** door te klikken op uw experiment in het dashboard van web service.
 
@@ -243,7 +245,7 @@ Type **dit is een goede dag** voor **col2**. Klik op het vinkje.
 
 U ziet ongeveer
 
-![sample-output](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
+![Voorbeeld van uitvoer](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
 
 ##### <a name="sample-code"></a>Voorbeeldcode
 Een andere manier voor het testen van uw RRS is vanuit uw clientcode. Als u op **aanvragen/reacties** op het dashboard en Ga naar de onderkant verschijnt voorbeeldcode voor C#, Python en R. U ziet ook de syntaxis van de aanvraag RRS, met inbegrip van de aanvraag-URI, kopteksten en hoofdtekst.

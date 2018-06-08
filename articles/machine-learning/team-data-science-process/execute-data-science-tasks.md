@@ -7,17 +7,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: 5c617c60ff51d0b1e7717b28b0372efe63c1ee18
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ed402f9730136fdb8a4d07dd291599c567637600
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838378"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Gegevens wetenschappelijke taken uitvoeren: exploratie modelleren en implementatie
 
@@ -92,14 +94,17 @@ Er zijn verschillende benaderingen en platforms modellen in productie te plaatse
 - [Implementatie van een model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
+> [!NOTE]
+> Vóór de implementatie van een is om ervoor te zorgen dat de latentie van het model score berekenen is laag genoeg is voor gebruik in productie.
 >
->
->Opmerking: Vóór de implementatie een heeft om ervoor te zorgen dat de latentie van het model score berekenen is laag genoeg is voor gebruik in productie.
 >
 
 Meer voorbeelden zijn beschikbaar in scenario's die de stappen in het proces voor het demonstreren **specifieke scenario's**. Ze worden weergegeven en gekoppeld aan de miniatuur beschrijvingen in de [voorbeeld-scenario's](walkthroughs.md) artikel. Ze te laten zien hoe cloud, 's voor on-premises en -services combineren in een werkstroom of pijplijn een intelligente toepassing maken.
 
-Opmerking: Voor de implementatie met behulp van Azure Machine Learning Studio, Zie [Azure Machine Learning-webservice implementeren](../studio/publish-a-machine-learning-web-service.md).
+> [!NOTE]
+> Zie voor een implementatie met behulp van Azure Machine Learning Studio, [Azure Machine Learning-webservice implementeren](../studio/publish-a-machine-learning-web-service.md).
+>
+>
 
 ### <a name="ab-testing"></a>A / B-tests
 Wanneer meerdere modellen in productie, dit kan nuttig zijn om uit te voeren [A / B-tests](https://en.wikipedia.org/wiki/A/B_testing) vergelijken de prestaties van de modellen. 
@@ -108,6 +113,7 @@ Wanneer meerdere modellen in productie, dit kan nuttig zijn om uit te voeren [A 
 ## <a name="next-steps"></a>Volgende stappen
 
 [Voortgang van de gegevens wetenschappelijke projecten volgen](track-progress.md) ziet u hoe een wetenschappelijk gegevens de voortgang van een wetenschappelijke gegevensproject kunt bijhouden.
- 
+
+[Model bewerking en CI/CD](ci-cd-flask.md) ziet u hoe CI/CD kan worden uitgevoerd met ontwikkelde modellen.
 
 

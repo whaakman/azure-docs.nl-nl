@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa2ee4df9a0a28c08237f30fcf6a4bac50c21100
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849505"
 ---
 # <a name="asdk-administration-basics"></a>Basisprincipes van beheer ASDK 
 Er zijn verschillende dingen die u weten moet als u geen ervaring met beheer van Azure Stack Development Kit (ASDK). In deze richtlijnen biedt een overzicht van uw rol als een Azure-Stack-operator in de evaluatieomgeving en het waarborgen van uw testgebruikers snel productief kunt worden.
@@ -64,5 +65,5 @@ Voor de development kit is het de enige ondersteuningsoptie te vragen met betrek
 > Omdat de ASDK een evaluatieomgeving is, is geen officiële ondersteuning wordt aangeboden via Microsoft Customer ondersteunen Services (CSS).
 
 ## <a name="next-steps"></a>Volgende stappen
-[De ASDK implementeren](asdk-deploy.md)
+[De ASDK implementeren](asdk-install.md)
 

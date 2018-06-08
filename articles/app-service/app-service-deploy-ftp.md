@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2016
+ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 561f317cd7afd740b83709efc8a75ed515626192
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7e05e06a5abd02dd67f58a8e01bb246e318f51de
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850233"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uw app implementeren in Azure App Service met behulp van FTP/S
 
@@ -26,29 +27,23 @@ Dit artikel laat zien hoe u FTP- of FTPS voor het implementeren van uw web-app, 
 
 Het eindpunt van de FTP-/ S voor uw app is al actief. Er is geen configuratie nodig zijn voor de FTP-/ S-implementatie in te schakelen.
 
-<a name="step1"></a>
-## <a name="step-1-set-deployment-credentials"></a>Stap 1: Stel de referenties voor implementatie
+## <a name="open-ftp-dashboard"></a>Open FTP-dashboard
 
-Voor toegang tot de FTP-server voor uw app, moet u eerst referenties voor implementatie. 
+In de [Azure-portal](https://portal.azure.com), opent u uw app [bronpagina](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-Als u wilt instellen of opnieuw instellen van uw referenties voor implementatie, Zie [referenties voor de Azure App Service-implementatie](app-service-deployment-credentials.md). Deze zelfstudie laat zien dat het gebruik van beveiliging op gebruikersniveau referenties.
+De FTP-dashboard, klikt u op **continue levering (Preview)** > **FTP** > **Dashboard**.
 
-## <a name="step-2-get-ftp-connection-information"></a>Stap 2: Gegevens van de FTP-verbinding ophalen
+![Open FTP-dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
 
-1. In de [Azure-portal](https://portal.azure.com), opent u uw app [bronpagina](../azure-resource-manager/resource-group-portal.md#manage-resources).
-2. Selecteer **overzicht** Noteer de waarden voor in de navigatiebalk links **FTP-/ Implementatiegebruiker gebruiker**, **FTP-hostnaam**, en **FTPS hostnaam**. 
+## <a name="get-ftp-connection-information"></a>Gegevens van de FTP-verbinding ophalen
 
-    ![FTP-verbindingsgegevens](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
+Klik in het dashboard FTP- **kopie** kopiëren van de FTPS-eindpunt en app-referenties.
 
-    > [!NOTE]
-    > Leveren de juiste context voor de FTP-server, de **FTP-/ Implementatiegebruiker gebruiker** waarde die wordt weergegeven door de Azure-portal bevat de appnaam van de.
-    > U vindt de dezelfde informatie wanneer u selecteert **eigenschappen** in de linkernavigatiebalk. 
-    >
-    > Het wachtwoord voor de implementatie wordt nooit weergegeven. Als u uw implementatie wachtwoord bent vergeten, gaat u terug naar [stap 1](#step1) en uw implementatie-wachtwoord opnieuw instellen.
-    >
-    >
+![FTP-gegevens kopiëren](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-## <a name="step-3-deploy-files-to-azure"></a>Stap 3: Bestanden implementeren in Azure
+Het verdient aanbeveling dat u **App referenties** om te implementeren voor uw app omdat deze uniek voor elke app is. Echter, als u op **gebruikersreferenties**, kunt u beveiliging op gebruikersniveau referenties die u voor FTP-/ S aanmelden bij alle App Service-apps in uw abonnement gebruiken kunt instellen.
+
+## <a name="deploy-files-to-azure"></a>Bestanden implementeren in Azure
 
 1. Van uw FTP-client (bijvoorbeeld [Visual Studio](https://www.visualstudio.com/vs/community/) of [FileZilla](https://filezilla-project.org/download.php?type=client)), de verbindingsgegevens die u hebt verzameld om verbinding met uw app te gebruiken.
 3. Kopieer uw bestanden en hun respectieve mapstructuur op de [ **/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (of de **/site/wwwroot/App_Data/taken/** map voor WebJobs).
@@ -75,6 +70,12 @@ Als u niet-versleutelde FTP uitschakelen, inschakelen **FTPS alleen**. Als u wil
 
 ![FTP/S uitschakelen](./media/app-service-deploy-ftp/disable-ftp.png)
 
+## <a name="automate-with-scripts"></a>Automatiseren met scripts
+
+Voor het gebruik van de FTP-implementatie [Azure CLI](/cli/azure), Zie [een web-app maken en implementeren van bestanden met FTP (Azure CLI)](./scripts/app-service-cli-deploy-ftp.md).
+
+Voor het gebruik van de FTP-implementatie [Azure PowerShell](/cli/azure), Zie [bestanden uploaden naar een web-app met FTP (PowerShell)](./scripts/app-service-powershell-deploy-ftp.md).
+
 ## <a name="troubleshoot-ftp-deployment"></a>FTP-implementatie oplossen
 
 - [Hoe kan ik de FTP-implementatie oplossen?](#how-can-i-troubleshoot-ftp-deployment)
@@ -85,13 +86,12 @@ Als u niet-versleutelde FTP uitschakelen, inschakelen **FTPS alleen**. Als u wil
 
 De eerste stap voor het oplossen van FTP-implementatie is een probleem met de implementatie van een toepassingsprobleem runtime isoleren.
 
-Een probleem met de implementatie resulteert gewoonlijk in geen bestanden of verkeerde bestanden op uw app is geïmplementeerd. Het kan worden verholpen door het onderzoeken van uw FTP-implementatie of een alternatieve implementatie pad (zoals bronbeheer) selecteren.
+Een probleem met de implementatie resulteert gewoonlijk in geen bestanden of verkeerde bestanden op uw app is geïmplementeerd. Als u problemen met het onderzoeken van uw FTP-implementatie of een alternatieve implementatie pad (zoals bronbeheer) selecteren.
 
-Een runtime-toepassingsprobleem resulteert gewoonlijk in de juiste set met bestanden die zijn geïmplementeerd voor uw app maar onjuist app-gedrag. Het kan worden verholpen door te focussen op code gedrag tijdens runtime en paden van de specifieke fout onderzoeken.
+Een runtime-toepassingsprobleem resulteert gewoonlijk in de juiste set met bestanden die zijn geïmplementeerd voor uw app maar onjuist app-gedrag. U kunt oplossen door te focussen op code gedrag tijdens runtime en paden van de specifieke fout onderzoeken.
 
 Om te bepalen een probleem met de implementatie of runtime, Zie [implementatie versus runtime problemen](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
- 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Ik kan geen FTP en publiceren van mijn code. Hoe worden het probleem kunt oplossen?
 Controleer of u de juiste hostnaam hebt ingevoerd en [referenties](#step-1--set-deployment-credentials). Controleer ook de volgende FTP-poorten op uw computer worden niet geblokkeerd door een firewall:
 

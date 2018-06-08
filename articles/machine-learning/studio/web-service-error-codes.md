@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836086"
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Machine Learning-REST API-foutcodes
  
@@ -53,15 +55,15 @@ Deze klasse van fouten betekent een ergens opgegeven argument is ongeldig. Dit k
 | InvalidBlobExtension | De blobverwijzing: {0} heeft een ongeldige of ontbrekende bestandsextensie. Bestandsextensies ondersteund voor dit uitvoertype zijn: '{1}'. |
 | InvalidInputNames | Ongeldige service invoer namen die zijn opgegeven in de aanvraag: {0}. De ingevoerde gegevens toewijzen aan de juiste service-invoer en probeer het opnieuw. |
 | InvalidOutputOverrideName | Ongeldige uitvoer naam overschrijven: {0}. De service heeft geen een knooppunt uitvoer met deze naam. Geef een juiste uitvoer knooppuntnaam voor het onderdrukken van (hoofdlettergevoeligheid van toepassing). |
-| InvalidQueryParameter | Ongeldige queryparameter {0}. {1} |
+| InvalidQueryParameter | Ongeldige queryparameter '{0}'. {1} |
 | MissingInputBlobInformation | Ontbrekende informatie voor Azure storage-blob. Geef een geldige verbindingsreeks en de relatief pad of de URI en probeer het opnieuw. |
 | MissingJobId | Er is geen taak-Id opgegeven. Een taak Id wordt geretourneerd wanneer een taak voor de eerste keer is verzonden. Controleer of dat de taak-Id juist is en probeer het opnieuw. |
 | MissingKeys | Er zijn geen sleutels opgegeven of een van de primaire of secundaire sleutel is niet opgegeven. |
 | MissingModelPackage | Geen pakket-Id van model of model pakket die zijn opgegeven. Geef de pakket-Id van een geldig model of model pakket en probeer het opnieuw. |
-| MissingOutputOverrideSpecification | De blob-specificatie voor onderdrukking van de uitvoer {0} ontbreekt in de aanvraag. Geef een geldige blob-locatie met de aanvraag, of verwijder de uitvoerspecificatie geen overschrijving locatie desgewenst. |
+| MissingOutputOverrideSpecification | De aanvraag ontbreekt de blob-specificatie voor uitvoer onderdrukking {0}. Geef een geldige blob-locatie met de aanvraag, of verwijder de uitvoerspecificatie geen overschrijving locatie desgewenst. |
 | MissingRequestInput | De webservice invoer verwacht, maar er is niets is opgegeven. Zorg ervoor dat geldige invoer worden geleverd op basis van de gepubliceerde ingangspoorten in het model en probeer het opnieuw. |
 | MissingRequiredGlobalParameters | Niet alle vereiste web service parameters opgegeven. Controleer of de parameters verwacht voor de modules die juist zijn en probeer het opnieuw. |
-| MissingRequiredOutputOverrides | Bij het aanroepen van een versleutelde service-eindpunt is verplicht om op te geven onderdrukt de uitvoer voor de uitvoer van de service. Onderdrukkingen op dit moment voor deze uitvoer ontbreekt: {0} |
+| MissingRequiredOutputOverrides | Bij het aanroepen van een versleutelde service-eindpunt is verplicht om op te geven onderdrukt de uitvoer voor de uitvoer van de service. Ontbrekende onderdrukkingen op dit moment voor deze uitvoer: {0} |
 | MissingWebServiceGroupId | Er is geen groep web service-Id opgegeven. Geef een geldige webservice-servicegroep Id en probeer het opnieuw. |
 | MissingWebServiceId | Geen webservice-Id opgegeven. Geef een geldige webservice Id en probeer het opnieuw. |
 | MissingWebServicePackage | Er is geen web Service-pakket opgegeven. Geef een geldige web service-pakket op en probeer het opnieuw. |
@@ -73,7 +75,7 @@ Deze klasse van fouten betekent een ergens opgegeven argument is ongeldig. Dit k
 | UnexpectedParameter | Onverwachte parameters die worden geleverd. Controleer of alle parameternamen correct zijn gespeld, alleen verwachte parameters worden doorgegeven en probeer het opnieuw. |
 | UnknownError | Onbekende fout. |
 | UserParameterInvalid | {0} |
-| WebServiceConcurrentRequestRequirementInvalid | Kan de vereisten voor gelijktijdige aanvragen voor de webservice {0} niet wijzigen. |
+| WebServiceConcurrentRequestRequirementInvalid | Vereisten voor gelijktijdige aanvragen niet wijzigen {0} webservice. |
 | WebServiceIdInvalid | Ongeldige webservice-id opgegeven. Webservice-id moet een geldige guid zijn. |
 | WebServiceTooManyConcurrentRequestRequirement | Vereiste gelijktijdige aanvraag kan niet worden ingesteld op meer dan {0}. |
 | WebServiceTypeInvalid | Ongeldige web service type dat is opgegeven. Controleer of dat het type van de geldige web-service juist is en probeer het opnieuw. Geldige webservice servicetypen: {0}. |
@@ -85,7 +87,7 @@ Ongeldige gebruiker groepsargument opgegeven.
 | Foutcode | Bericht van gebruiker |
 | ---------- |--------------|
 | InputMismatchError | Invoergegevens komt niet overeen voor invoerpoort schema. |
-| InputParseError | Het parseren van de invoer-vector is mislukt.  Controleer of dat de invoer-vector heeft het juiste aantal kolommen en gegevenstypen.  Aanvullende informatie: {0}. |
+| InputParseError | Het parseren van de invoer-vector is mislukt.  Controleer of dat de invoer-vector heeft het juiste aantal kolommen en gegevenstypen.  Aanvullende details: {0}. |
 | MissingRequiredGlobalParameters | Er ontbreken parameters verwacht door de webservice. Controleer of de vereiste parameters verwacht door de webservice juist zijn en probeer het opnieuw. |
 | UnexpectedParameter | Controleer of u alleen de vereiste parameters verwacht door de webservice worden doorgegeven en probeer het opnieuw. |
 | UserParameterInvalid | {0} |
@@ -96,7 +98,7 @@ De aanvraag is ongeldig in de huidige context.
  
 | Foutcode | Bericht van gebruiker |
 | ---------- |--------------|
-| CannotStartJob | De taak kan niet worden gestart omdat het {0} status heeft. |
+| CannotStartJob | De taak kan niet worden gestart omdat deze zich in {0} staat. |
 | IncompatibleModel | Het model is incompatibel met de versie van de aanvraag. De aanvraag-versie ondersteunt alleen één datatable uitvoer modellen. |
 | MultipleInputsNotAllowed | Het model kunnen niet meerdere invoer. |
  
@@ -193,7 +195,7 @@ Uitvoering van een interne fout opgetreden.
 | ModuleLoadFailed |  |
 | ModuleObjectCloneFailed |  |
 | OutputConversionFailed |  |
-| PortDataTypeNotSupported | Poort-id = {0} heeft een niet-ondersteund gegevenstype: {1}. |
+| PortDataTypeNotSupported | Poort-id ={0} heeft een niet-ondersteund gegevenstype: {1}. |
 | ResourceDownload |  |
 | ResourceLoadFailed |  |
 | ServiceUrisNotFound |  |
@@ -239,7 +241,7 @@ Service is tijdelijk niet beschikbaar.
 | Foutcode | Bericht van gebruiker |
 | ---------- |--------------|
 | NoMoreResources | Er zijn geen bronnen beschikbaar zijn voor aanvraag. |
-| RequestThrottled | Aanvraag is voor het eindpunt {0} beperkt. De maximale gelijktijdigheid van taken voor het eindpunt is {1}. |
+| RequestThrottled | Aanvraag is beperkt voor {0} eindpunt. De maximale gelijktijdigheid van taken voor het eindpunt is {1}. |
 | TooManyConcurrentRequests | Te veel gelijktijdige aanvragen verzonden. |
 | TooManyHostsBeingInitialized | Te veel hosts op hetzelfde moment wordt geïnitialiseerd. U kunt beperking / opnieuw uit te voeren. |
 | TooManyHostsBeingInitializedPerModel | Te veel hosts op hetzelfde moment wordt geïnitialiseerd. U kunt beperking / opnieuw uit te voeren. |

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 4c9e7ec65db80e0af91645d70cea39bb1a396791
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ff658fd14700e9fdf66b9d929da133f7a3b3f3a0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831782"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Overzicht van de rapportage-API's voor Enterprise-klanten
 De rapportage-API's kunnen klanten Azure Enterprise programmatisch gebruiks- en factureringsgegevens ophalen in de gewenste hulpprogramma's voor gegevensanalyse. 
@@ -30,7 +31,7 @@ De rapportage-API's kunnen klanten Azure Enterprise programmatisch gebruiks- en 
 
 |Aanvraag-Header-sleutel | Waarde|
 |-|-|
-|Autorisatie| Geef de waarde in deze indeling: **bearer {API_KEY}** <br/> Voorbeeld: bearer eyr... 09|
+|Autorisatie| Geef de waarde in deze indeling: **bearer {API_KEY}** <br/> Voorbeeld: bearer eyr... 09| 
 
 ## <a name="consumption-apis"></a>Verbruik API 's
 Een Swagger-eindpunt is beschikbaar [hier](https://consumption.azure.com/swagger/ui/index) voor de API's die zijn beschreven hieronder moet inschakelen eenvoudig introspection van de API en de mogelijkheid voor het genereren van client-SDK's met behulp van [AutoRest](https://github.com/Azure/AutoRest) of [Swagger Codegen gebruikt](http://swagger.io/swagger-codegen/). Gegevens vanaf 1 mei 2014 is beschikbaar via deze API. 
@@ -50,7 +51,7 @@ Etags geretourneerd in het antwoord van de bovenstaande API. Een wijziging in de
  **Lijst van facturering perioden** : de [facturering perioden API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) retourneert een lijst met facturering perioden met gegevens over het verbruik voor de opgegeven registratie in omgekeerde volgorde. Elke categorie bevat een eigenschap die verwijst naar de API-route voor de vier gegevenssets - BalanceSummary, UsageDetails Marketplace-kosten en prijslijst.
 
 
-## <a name="api-response-codes"></a>API-reactiecodes  
+## <a name="api-response-codes"></a>API-reactiecodes   
 |Statuscode van antwoord|Bericht|Beschrijving|
 |-|-|-|
 |200| OK|Geen fout|

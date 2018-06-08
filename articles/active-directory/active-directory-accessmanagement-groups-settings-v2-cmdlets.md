@@ -11,14 +11,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 312efd6233546ae32e498907e04fbf8aea73f7b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b53c2b717d41cc202b20805e6513cac0ce0c2758
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850039"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory-cmdlets van versie 2 voor groepsbeheer
 > [!div class="op_single_selector"]
@@ -33,8 +34,9 @@ Dit artikel bevat voorbeelden van hoe u PowerShell gebruikt voor het beheren van
 Gebruik de volgende opdrachten voor het installeren van de Azure AD PowerShell-module:
 
     PS C:\Windows\system32> install-module azuread
+    PS C:\Windows\system32> import-module azuread
 
-Controleer of de module is geïnstalleerd, moet u de volgende opdracht gebruiken:
+Gebruik de volgende opdracht om te controleren of de module kan worden gebruikt:
 
     PS C:\Windows\system32> get-module azuread
 
@@ -250,7 +252,7 @@ Als u een eigenaar verwijderen uit een groep wilt, gebruikt u de cmdlet Remove-A
 Wanneer een groep is gemaakt, bepaalde eindpunten toestaan dat de eindgebruiker een mailNickname of alias moet worden gebruikt als onderdeel van het e-mailadres van de groep opgeven. Groepen met de volgende bijzondere rechten e-aliassen kunnen alleen worden gemaakt door een globale beheerder van Azure AD. 
   
 * misbruik 
-* beheerder 
+* Beheerder 
 * Beheerder 
 * hostmaster 
 * majordomo 

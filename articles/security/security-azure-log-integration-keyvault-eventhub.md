@@ -8,21 +8,25 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 06/06/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9065d237057bf47d469b6f6fbf5b588c7e348232
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839354"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Zelfstudie voor Azure Log-integratie: proces Azure Key Vault gebeurtenissen met behulp van Event Hubs
 
-Integratie van Azure Log kunt u geregistreerde gebeurtenissen ophalen en deze beschikbaar aan uw informatie en event management (SIEM) beveiligingssysteem. Deze zelfstudie toont een voorbeeld van hoe Azure Log-integratie kunnen worden gebruikt voor het verwerken van logboeken die zijn verkregen via Azure Event Hubs.
 
 >[!IMPORTANT]
->De voorkeursmethode voor het integreren van Azure Logboeken is met behulp van de leverancier van uw SIEM Azure Monitor connector en volgende [instructies](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Echter, als de leverancier van uw SIEM geen een connector Azure bewaken biedt, u mogelijk gebruikmaken van integratie van Azure-logboek als tijdelijke oplossing (als uw SIEM wordt ondersteund door Azure Log-integratie) totdat deze connector beschikbaar is.
+> De functie van de integratie met Azure-logboekanalyse door 01-06/2019 afgeschaft.  Door 27 Jun 2018 AzLog downloads uitgeschakeld. Voor hulp bij het wat te doen zwevend forward revisie van het bericht [gebruik Azure-monitor voor de integratie met SIEM's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+
+Integratie van Azure Log kunt u geregistreerde gebeurtenissen ophalen en deze beschikbaar aan uw informatie en event management (SIEM) beveiligingssysteem. Deze zelfstudie toont een voorbeeld van hoe Azure Log-integratie kunnen worden gebruikt voor het verwerken van logboeken die zijn verkregen via Azure Event Hubs.
+
+De voorkeursmethode voor het integreren van Azure Logboeken is met behulp van de leverancier van uw SIEM Azure Monitor connector en volgende [instructies](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Echter, als de leverancier van uw SIEM geen een connector Azure bewaken biedt, u mogelijk gebruikmaken van integratie van Azure-logboek als tijdelijke oplossing (als uw SIEM wordt ondersteund door Azure Log-integratie) totdat deze connector beschikbaar is.
 
  
 Gebruik deze zelfstudie om bekend te raken met hoe Azure Log-integratie en Event Hubs samen werken met de voorbeeld-stappen te volgen en kennis van hoe de oplossing biedt ondersteuning voor elke stap. U kunt vervolgens nemen wat u hebt geleerd hier uw eigen stappen ter ondersteuning van de unieke vereisten van uw bedrijf maken.

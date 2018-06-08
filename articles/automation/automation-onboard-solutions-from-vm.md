@@ -4,20 +4,21 @@ description: Meer informatie over hoe om vrij te geven een Azure-virtuele machin
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2fbfd733a57d0e2f91d119b614917abf172b8379
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 675aebf35a6bee6e4cc4fd884204edb5bae4b848
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830558"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Ingebouwde updatebeheer, bijhouden en voorraad oplossingen van een virtuele Machine van Azure
 
-Azure Automation biedt oplossingen voor het besturingssysteem beveiligingsupdates beheren, het bijhouden van wijzigingen en wat wordt geïnstalleerd op computers in uw inventaris. Er zijn meerdere manieren om vrijgeven machines, kunt u vrijgeven de oplossing van een virtuele machine, [van uw Automation-account](automation-onboard-solutions-from-automation-account.md), of door [runbook](automation-onboard-solutions.md). In dit artikel bevat informatie over de voorbereiding deze oplossingen van een virtuele Machine van Azure.
+Azure Automation biedt oplossingen voor het besturingssysteem beveiligingsupdates beheren, het bijhouden van wijzigingen en wat wordt geïnstalleerd op computers in uw inventaris. Er zijn meerdere manieren om vrijgeven machines, kunt u vrijgeven de oplossing van een virtuele machine, [van uw Automation-account](automation-onboard-solutions-from-automation-account.md), [van meerdere machines Bladeren](automation-onboard-solutions-from-browse.md), of door [runbook](automation-onboard-solutions.md). In dit artikel bevat informatie over de voorbereiding deze oplossingen van een virtuele Machine van Azure.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -27,13 +28,13 @@ Aanmelden bij Azure op https://portal.azure.com
 
 Navigeer naar een bestaande virtuele machine en selecteer **updatebeheer**, **inventaris**, of **bijhouden** onder **OPERATIONS**.
 
+Om in te schakelen de oplossing voor de virtuele machine alleen Zorg ervoor dat de **inschakelen voor deze virtuele machine** keuzerondje is ingeschakeld, vrijgeven meerdere machines aan de oplossing selecteren **inschakelen voor virtuele machines in dit abonnement** en klik op **Machines inschakelen Schakel**. Zie, [vrijgeven updatebeheer, bijhouden en voorraad oplossingen](automation-onboard-solutions-from-automation-account.md) om weer te geven van de stappen voor het vrijgeven meerdere machines tegelijk.
+
 Kies de Log Analytics-werkruimte en het Automation-account en klik op **Inschakelen** om de oplossing in te schakelen. Het duurt maximaal 15 minuten om de oplossing in te schakelen.
 
 ![Onboarding van update-oplossing uitvoeren](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Navigeer naar de andere oplossingen en klikt u op **inschakelen**, wordt de logboekanalyse en vervolgkeuzelijsten zijn uitgeschakeld, omdat ze dezelfde werkruimte en de automation-account als de eerder ingeschakelde oplossing gebruiken Automation-account.
-
-![Onboarding van update-oplossing uitvoeren](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Bijhouden van wijzigingen** en **inventaris** dezelfde oplossing gebruiken wanneer een is ingeschakeld de andere ook is ingeschakeld.

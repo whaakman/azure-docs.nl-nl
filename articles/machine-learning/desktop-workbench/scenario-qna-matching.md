@@ -8,6 +8,7 @@ editor: mezmicrosoft
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
-ms.openlocfilehash: 081ca444aee5cd3d426ee569a98bf54c7923af79
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3695657d819f52ef04468a0f1a44828403c65373
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835097"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Met Q & een overeenkomend met behulp van Azure Machine Learning-workbench
 Open beëindigd vragen te beantwoorden, is moeilijk en vaak vereist handmatige inspanning van deskundigen (bestemd). Om te beperken van de vereisten op interne bestemd, maken bedrijven vaak een lijst met veelgestelde vragen (FAQ's) als een manier om gebruikers te helpen. In dit voorbeeld gepresenteerd verschillende effectieve machine learning-methoden zodat deze overeenkomen met open beëindigd query's naar het reeds bestaande Veelgestelde vragen over antwoorden/waardeparen. Dit voorbeeld wordt een eenvoudige manier kunt ontwikkelen-proces voor het bouwen van een dergelijke oplossing met behulp van de Azure Machine Learning-Workbench. 
@@ -82,16 +84,16 @@ Het gegevensschema en de directe downloadkoppelingen van de drie gegevenssets vi
 
 | Gegevensset | Veld | Type | Beschrijving
 | ----------|------------|------------|--------
-| [Vragen](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Tekenreeks | De unieke vraag-ID (primaire sleutel)
-|  | AnswerId | Tekenreeks | De ID uniek antwoord per vraag
-|  | text0 | Tekenreeks | De onbewerkte gegevens zoals de titel en de hoofdtekst van de vraag
+| [Vragen](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Reeks | De unieke vraag-ID (primaire sleutel)
+|  | AnswerId | Reeks | De ID uniek antwoord per vraag
+|  | text0 | Reeks | De onbewerkte gegevens zoals de titel en de hoofdtekst van de vraag
 |  | CreationDate | Timestamp | De tijdstempel van wanneer de vraag is gevraagd
-| [duplicaten](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Id | Tekenreeks | De duplicatie van de unieke ID (primaire sleutel)
-|  | AnswerId | Tekenreeks | De antwoord-ID die is gekoppeld aan de duplicatie
-|  | text0 | Tekenreeks | De onbewerkte gegevens met inbegrip van de duplicatie titel en tekst
+| [duplicaten](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Id | Reeks | De duplicatie van de unieke ID (primaire sleutel)
+|  | AnswerId | Reeks | De antwoord-ID die is gekoppeld aan de duplicatie
+|  | text0 | Reeks | De onbewerkte gegevens met inbegrip van de duplicatie titel en tekst
 |  | CreationDate | Timestamp | De tijdstempel van wanneer de duplicatie is gevraagd
-| [antwoorden](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | Tekenreeks | De unieke antwoord-ID (primaire sleutel)
-|  | text0 | Tekenreeks | De onbewerkte gegevens van het antwoord
+| [antwoorden](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | Reeks | De unieke antwoord-ID (primaire sleutel)
+|  | text0 | Reeks | De onbewerkte gegevens van het antwoord
 
 
 ## <a name="scenario-structure"></a>Scenario-structuur

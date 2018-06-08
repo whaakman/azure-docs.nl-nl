@@ -2,23 +2,20 @@
 title: Limieten en -configuratie - Azure Logic Apps | Microsoft Docs
 description: Service-limieten en configuratiewaarden voor Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
 author: ecfan
 manager: cfowler
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/14/2018
 ms.author: estfan
-ms.openlocfilehash: 8c2ac4b8f55d25d5d3fcfdd6a9bcb6f6c8cfc201
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.topic: article
+ms.date: 05/30/2018
+ms.service: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 713312725c92c6c78241e1cdcaa06280282c7777
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831843"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -65,7 +62,7 @@ Hier volgen de limieten voor een enkele logische-app uitvoeren:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Voer duur en opslag bewaarperiode wijzigen
 
-U kunt deze limiet wijzigen in een waarde tussen zeven dagen en 90 dagen. Echter, de maximale limiet overschrijden [Neem contact op met het team van Logic Apps](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
+U kunt deze limiet wijzigen in een waarde tussen 7 dagen en 90 dagen. Naar een hoger dan de maximumlimiet [Neem contact op met het team van Logic Apps](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
 
 1. Kies in de Azure-portal op uw logische app-menu **Werkstroominstellingen**. 
 
@@ -83,7 +80,7 @@ Hier volgen de limieten voor een enkele logische-app uitvoeren:
 | ---- | ----- | ----- | 
 | Pas iteraties | 5.000 | | 
 | ForEach-items | 100,000 | U kunt de [query actie](../connectors/connectors-native-query.md) voor het filteren van grotere matrices indien nodig. | 
-| ForEach parallelle uitvoering | 50 | De standaardwaarde is 20. <p>Om in te stellen van een specifiek niveau van parallelle uitvoering in een lus ForEach de `runtimeConfiguration` eigenschap in de `foreach` in te grijpen. <p>Als u wilt een lus ForEach sequentieel worden uitgevoerd, stelt de `operationOptions` eigenschap in op 'Sequentiële' in de `foreach` actie. | 
+| ForEach parallelle uitvoering | 50 | De standaardwaarde is 20. <p>Wilt deze standaardniveau in een lus ForEach wijzigen, stelt de `runtimeConfiguration` eigenschap in de `foreach` in te grijpen. <p>Als u wilt een lus ForEach sequentieel worden uitgevoerd, stelt de `operationOptions` eigenschap in op 'Sequentiële' in de `foreach` actie. | 
 | SplitOn items | 100,000 | | 
 |||| 
 
@@ -95,14 +92,14 @@ Hier volgen de limieten voor een enkele logische-app uitvoeren:
 
 | Naam | Limiet | Opmerkingen | 
 | ----- | ----- | ----- | 
-| Acties uitvoeringen per 5 minuten | 100,000 | Als u wilt de limiet voor 300.000 verhogen, kunt u een logische app uitvoeren in `High Throughput` modus. Voor het configureren van de modus hoge doorvoer, onder de `runtimeConfiguration` ingesteld van de resource werkstroom de `operationOptions` eigenschap `OptimizedForHighThroughput`. <p>**Opmerking**: hoge doorvoersnelheid modus bevindt zich in preview. U kunt ook een werkbelasting distribueren voor meerdere apps indien nodig. | 
+| Acties uitvoeringen per 5 minuten | 100,000 | Als u wilt de limiet voor 300.000 verhogen, kunt u een logische app uitvoeren in `High Throughput` modus. Voor het configureren van de modus hoge doorvoer, onder de `runtimeConfiguration` ingesteld van de resource werkstroom de `operationOptions` eigenschap `OptimizedForHighThroughput`. <p>**Opmerking**: hoge doorvoersnelheid modus bevindt zich in preview. U kunt ook een werklast verdelen over meer dan één app indien nodig. | 
 | Acties gelijktijdige uitgaande oproepen | ~2,500 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
 | Runtime-eindpunt: gelijktijdige binnenkomende oproepen | ~1,000 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
-| Runtime-eindpunt: aanroepen per 5 minuten lezen  | 60,000 | Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
-| Runtime-eindpunt: aanroepen aanroepen per 5 minuten| 45,000 |Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
+| Runtime-eindpunt: aanroepen per 5 minuten lezen  | 60,000 | Werkbelasting kan worden verdelen over meer dan één app, indien nodig. | 
+| Runtime-eindpunt: aanroepen aanroepen per 5 minuten| 45,000 | Werkbelasting kan worden verdelen over meer dan één app, indien nodig. | 
 |||| 
 
-Aan deze beperkingen in de normale verwerking of voer load testen die mogelijk groter is dan deze limiet overschrijden [Neem contact op met het team van Logic Apps](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
+Hoger dan deze limieten in normale verwerking of uitvoeren met het laden testen die mogelijk boven deze limieten [Neem contact op met het team van Logic Apps](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
 
 <a name="request-limits"></a>
 
@@ -125,7 +122,7 @@ Bepaalde bewerkingen connector asynchrone aanroepen of luisteren naar webhook-aa
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
 | Berichtgrootte | 100 MB | U kunt deze beperking omzeilen, Zie [verwerken van grote berichten met de verdeling in segmenten](../logic-apps/logic-apps-handle-large-messages.md). Echter bepaalde connectors en API's mogelijk geen ondersteuning voor verdeling in segmenten of zelfs de standaardlimiet. | 
-| Grootte van het bericht met de verdeling in segmenten | 1 GB | Deze beperking geldt voor acties die systeemeigen ondersteuning voor verdeling in segmenten of verdeling in segmenten-ondersteuning is ingeschakeld in de runtime-configuratie kunnen hebben. Zie voor meer informatie [verwerken van grote berichten met de verdeling in segmenten](../logic-apps/logic-apps-handle-large-messages.md). | 
+| Grootte van het bericht met de verdeling in segmenten | 1 GB | Deze beperking geldt voor acties die systeemeigen ondersteuning voor verdeling in segmenten of kunnen u inschakelen opdelen in de runtime-configuratie. Zie voor meer informatie [verwerken van grote berichten met de verdeling in segmenten](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Expressie evaluatie limiet | 131.072 tekens | De `@concat()`, `@base64()`, `@string()` expressies mag niet langer zijn dan deze limiet. | 
 |||| 
 
@@ -158,9 +155,11 @@ Hier volgen de limieten voor het aangepaste connectors die u van web-API's maken
 
 ### <a name="artifact-limits-per-integration-account"></a>Artefacten limieten per integratie-account
 
-Hier volgen de grenzen van het aantal artefacten voor elk account integratie. Zie voor meer informatie [Logic Apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/).
+Hier volgen de grenzen van het aantal artefacten voor elk account integratie. Zie voor meer informatie [Logic Apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 *Gratis laag*
+
+De laag gratis alleen gebruiken voor experimentele scenario's niet productiescenario's. Deze laag de doorvoer en het gebruik beperkt, en heeft geen service level agreement (SLA).
 
 | Artefacten | Limiet | Opmerkingen | 
 |----------|-------|-------| 
@@ -207,9 +206,9 @@ Hier volgen de grenzen van het aantal artefacten voor elk account integratie. Zi
 | ---- | ----- | ----- | 
 | Schema | 8 MB | Uploaden van bestanden die groter is dan 2 MB gebruiken de [blob-URI](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Kaart (XSLT-bestand) | 2 MB | | 
-| Runtime-eindpunt: aanroepen per 5 minuten lezen | 60,000 | U kunt de werklast verdelen over meerdere accounts zo nodig. | 
-| Runtime-eindpunt: aanroepen aanroepen per 5 minuten | 45,000 | U kunt de werklast verdelen over meerdere accounts zo nodig. | 
-| Runtime-eindpunt: bijhouden aanroepen per 5 minuten | 45,000 | U kunt de werklast verdelen over meerdere accounts zo nodig. | 
+| Runtime-eindpunt: aanroepen per 5 minuten lezen | 60,000 | U kunt de werklast verdelen over meer dan één account indien nodig. | 
+| Runtime-eindpunt: aanroepen aanroepen per 5 minuten | 45,000 | U kunt de werklast verdelen over meer dan één account indien nodig. | 
+| Runtime-eindpunt: bijhouden aanroepen per 5 minuten | 45,000 | U kunt de werklast verdelen over meer dan één account indien nodig. | 
 | Runtime-eindpunt: blokkeren gelijktijdige aanroepen | ~1,000 | U kunt Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
 ||||  
 
@@ -232,8 +231,7 @@ Hier volgen de grenzen die betrekking hebben op B2B-protocollen:
 
 ### <a name="azure-logic-apps-service"></a>Azure Logic Apps-service
 
-Alle logische apps in een regio gebruiken dezelfde bereik van IP-adressen.
-Het aanroepen van logic apps rechtstreeks met kunt [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) of andere HTTP-aanvragen afkomstig zijn van IP-adressen in deze lijst. 
+Alle logische apps in een regio gebruiken dezelfde bereiken van IP-adressen. Ter ondersteuning van de oproepen die met logic apps rechtstreeks met kunt [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), en andere HTTP-aanvragen, instellen van uw firewallconfiguraties zodat ze deze binnenkomend en uitgaand IP-adressen, op basis van bevatten op waar uw logische apps bestaan:
 
 | Logic Apps regio | Uitgaande IP |
 |-------------------|-------------|
@@ -264,7 +262,7 @@ Het aanroepen van logic apps rechtstreeks met kunt [HTTP](../connectors/connecto
 | | |
 
 | Logic Apps regio | Inkomende IP |
-|-------------------|-------------|
+|-------------------|------------|
 | Australië - oost | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
 | Australië - zuidoost | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
 | Brazilië - zuid | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
@@ -293,37 +291,41 @@ Het aanroepen van logic apps rechtstreeks met kunt [HTTP](../connectors/connecto
 
 ### <a name="connectors"></a>Connectors
 
-De oproepen die [connectors](../connectors/apis-list.md) moet afkomstig zijn van de IP-adressen in deze lijst.
+Ter ondersteuning van de oproepen die [connectors](../connectors/apis-list.md) maken, instellen van uw firewallconfiguraties, zodat ze deze uitgaande IP-adressen bevatten op basis van de regio's waar uw logische apps bestaan.
 
-| Logic Apps regio | Uitgaande IP |
-|-------------------|-------------|
-| Australië - oost | 40.126.251.213 |
-| Australië - zuidoost | 40.127.80.34 |
-| Brazilië - zuid | 191.232.38.129 |
-| Canada - midden | 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 |
-| Canada - oost | 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 |
-| Centraal-India | 104.211.98.164 |
-| VS - midden | 40.122.49.51 |
-| Oost-Azië | 23.99.116.181 |
-| VS - oost | 191.237.41.52 |
-| VS - oost 2 | 104.208.233.100 |
-| Japan - oost | 40.115.186.96 |
-| Japan - west | 40.74.130.77 |
-| Noord-centraal VS | 65.52.218.230 |
-| Noord-Europa | 104.45.93.9 |
-| Zuid-centraal VS | 104.214.70.191 |
-| Zuid-India | 104.211.227.225 |
-| Zuidoost-Azië | 13.76.231.68 |
-| West-Europa | 40.115.50.13 |
-| West-India | 104.211.161.203 |
-| VS - west | 104.40.51.248 |
-| Verenigd Koninkrijk Zuid | 51.140.80.51 |
-| Verenigd Koninkrijk West | 51.141.47.105 |
+> [!IMPORTANT]
+>
+> Als u bestaande configuraties hebt, werk ze **zo snel mogelijk vóór 1 September 2018** zodat ze zijn en overeenkomen met de IP-adressen in deze lijst voor de regio's waar uw logische apps bestaan. 
+
+| Logic Apps regio | Uitgaande IP | 
+|-------------------|-------------|  
+| Australië - oost | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
+| Australië - zuidoost | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
+| Brazilië - zuid | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
+| Canada - midden | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
+| Canada - oost | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Centraal-India | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
+| VS - midden | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
+| Oost-Azië | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
+| VS - oost | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 | 
+| VS - oost 2 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 | 
+| Japan - oost | 13.78.108.0 - 13.78.108.15, 13.71.153.19, 40.115.186.96 | 
+| Japan - west | 40.74.100.224 - 40.74.100.239, 104.215.61.248, 40.74.130.77 | 
+| Noord-centraal VS | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230 | 
+| Noord-Europa | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 | 
+| Zuid-centraal VS | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
+| Zuid-India | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
+| Zuidoost-Azië | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
+| West-centraal VS | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| West-Europa | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
+| West-India | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
+| VS - west | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
+| VS - west 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
+| Verenigd Koninkrijk Zuid | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
+| Verenigd Koninkrijk West | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-* [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
-* [Algemene voorbeelden en scenario 's](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Video: Automatiseren van bedrijfsprocessen met Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Video: Uw systemen integreren met Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+* Meer informatie over hoe [uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Meer informatie over [algemene voorbeelden en scenario's](../logic-apps/logic-apps-examples-and-scenarios.md)

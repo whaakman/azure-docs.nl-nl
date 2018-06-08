@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 5bf065d8e91bd4ebb4cc3932c0525cb091b26b38
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bb49fd2fe7f72e211fbbda7cffdd2308c2c36fba
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834230"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Modelprestaties evalueren in Azure Machine Learning
 Dit artikel laat zien hoe u de prestaties van een model in Azure Machine Learning Studio evalueren en bevat een korte uitleg van de beschikbare metrische gegevens voor deze taak. Drie gangbare scenario's met leren met supervisie worden weergegeven: 
@@ -51,7 +53,7 @@ De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio
 * Auto price data (Raw)
 * [Lineaire regressie][linear-regression]
 * [Train Model][train-model]
-* [Score Model][score-model]
+* [Score-Model][score-model]
 * [Model evalueren][evaluate-model]
 
 Verbinding maken met de poorten, zoals hieronder wordt weergegeven in afbeelding 1 en stelt de Label-kolom van de [Train Model] [ train-model] module *prijs*.
@@ -93,7 +95,7 @@ De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio
 * Volwassenen inventarisering Income binaire classificatie gegevensset
 * [Two-Class Logistic Regression][two-class-logistic-regression]
 * [Train Model][train-model]
-* [Score Model][score-model]
+* [Score-Model][score-model]
 * [Model evalueren][evaluate-model]
 
 Verbinding maken met de poorten, zoals hieronder wordt weergegeven in afbeelding 5 en stelt de Label-kolom van de [Train Model] [ train-model] module *inkomsten*.
@@ -144,7 +146,7 @@ De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio
 * [Multiklasse besluit Forest][multiclass-decision-forest]
 * [Gegevens splitsen][split]
 * [Train Model][train-model]
-* [Score Model][score-model]
+* [Score-Model][score-model]
 * [Model evalueren][evaluate-model]
 
 Verbinding maken met de poorten zoals hieronder wordt weergegeven in afbeelding 10.

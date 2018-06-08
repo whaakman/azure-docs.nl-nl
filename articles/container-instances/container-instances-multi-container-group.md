@@ -6,31 +6,39 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
+ms.date: 06/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: db3f616d85c21f01c751fd82532289593a6e7e45
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850566"
 ---
 # <a name="deploy-a-container-group"></a>Een containergroep implementeren
 
 Azure Containerexemplaren ondersteunt de implementatie van meerdere containers naar één host met behulp van een [containergroep](container-instances-container-groups.md). Dit is handig bij het bouwen van een toepassing ter voor logboekregistratie, bewaken of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft.
 
-Dit document begeleidt u bij de configuratie van een eenvoudige meerdere container ter uitgevoerd door het implementeren van een Azure Resource Manager-sjabloon.
+Er zijn twee methoden voor het implementeren van meerdere containergroepen met de Azure CLI:
+
+* Sjabloonimplementatie van Resource Manager-(in dit artikel)
+* [Implementatie van YAML-bestand](container-instances-multi-container-yaml.md)
+
+Implementatie met Resource Manager-sjabloon wordt aanbevolen als u nodig hebt voor het implementeren van extra Azure-service-resources (bijvoorbeeld een share Azure-bestanden) op het moment van implementatie van de container-exemplaar. Vanwege de YAML-indeling meer beknopte aard, implementatie met een YAML-bestand wordt aanbevolen wanneer uw implementatie bevat *alleen* containerexemplaren.
 
 > [!NOTE]
 > Meerdere container groepen zijn momenteel beperkt tot Linux containers. Hoewel we ons best doen om alle functies beschikbaar te maken voor Windows-containers, kunnen de [quota en beschikbaarheid in regio´s voor Azure Container Instances](container-instances-quotas.md) variëren op de verschillende platforms.
 
 ## <a name="configure-the-template"></a>De sjabloon configureren
 
-Maak een bestand met de naam `azuredeploy.json` en kopieer de volgende JSON naar deze.
+De secties in dit artikel helpt u stapsgewijs door de configuratie van een eenvoudige meerdere container ter uitgevoerd door het implementeren van een Azure Resource Manager-sjabloon.
 
-In dit voorbeeld wordt een containergroep met twee containers is een openbaar IP-adres en twee blootgestelde poorten gedefinieerd. De eerste container in de groep een internetgerichte-toepassing wordt uitgevoerd. De tweede container, de ter maakt een HTTP-aanvraag naar de belangrijkste webtoepassing via een van de groep lokale netwerk.
+Beginnen met het maken van een bestand met de naam `azuredeploy.json`, kopieert u de volgende JSON in de App.
 
-```json
+Deze Resource Manager-sjabloon definieert een containergroep met twee containers, een openbare IP-adres en twee blootgestelde poorten. De eerste container in de groep een internetgerichte-toepassing wordt uitgevoerd. De tweede container, de ter maakt een HTTP-aanvraag naar de belangrijkste webtoepassing via een van de groep lokale netwerk.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -118,7 +126,7 @@ In dit voorbeeld wordt een containergroep met twee containers is een openbaar IP
 
 Voor het gebruik van een installatiekopie van privé-container register, moet u een object toevoegen aan het JSON-document met de volgende indeling. Zie voor een voorbeeld van de implementatie van deze configuratie de [ACI Resource Manager sjabloonverwijzing] [ template-reference] documentatie.
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -146,13 +154,13 @@ U ontvangt binnen enkele seconden een eerste reactie van Azure.
 
 ## <a name="view-deployment-state"></a>Implementatiestatus weergeven
 
-U kunt de status van de implementatie weergeven, met de [az container weergeven] [ az-container-show] opdracht. Hiermee wordt de ingerichte openbaar IP-adres waarmee de toepassing toegankelijk zijn.
+Als u wilt de status van de implementatie weergeven, gebruikt u de volgende [az container weergeven] [ az-container-show] opdracht:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Uitvoer:
+Als u de actieve toepassing weergeven wilt, gaat u naar het IP-adres in uw browser. Het IP-adres is bijvoorbeeld `52.168.26.124` in dit voorbeeld van uitvoer:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

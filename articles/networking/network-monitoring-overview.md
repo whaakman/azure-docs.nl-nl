@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850134"
 ---
 # <a name="network-monitoring-solutions"></a>Oplossingen voor netwerkbeheer 
 
@@ -40,11 +41,11 @@ Prestatiemeter, ExpressRoute-Monitor en Service-eindpunt Monitor bewakingsmogeli
 
 Prestatiemeter maakt deel uit van de NPM en netwerkbewaking is voor de cloud en hybride on-premises omgevingen. U kunt de netwerkverbinding tussen externe vertakking en veld kantoren, store locaties, datacenters en clouds bewaken. Voordat u uw gebruikers klagen, kunt u netwerkproblemen detecteren. De belangrijkste voordelen zijn:
 
-* Bewaken en netwerklatentie over verschillende subnetten en waarschuwingen instellen
+* Verlies en latentie bewaken in verschillende subnetten en waarschuwingen instellen
 * Bewaken alle paden (inclusief redundante paden) op het netwerk
 * Problemen met tijdelijke en punt in tijd netwerken, die moeilijk te repliceren
 * Het specifieke segment in het netwerk, die verantwoordelijk is voor de prestaties verslechteren bepalen
-* De status van het netwerk, zonder de noodzaak van SNMP
+* De status van het netwerk bewaken, zonder dat een SNMP nodig is
 
 ![NPM topologiekaart](./media/network-monitoring-overview/npm-topology-map.png) 
 
@@ -54,14 +55,15 @@ Voor meer informatie raadpleegt u de volgende artikelen:
 * [Gebruiksvoorbeelden](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Productupdates: [februari 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [augustus 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## <a name="expressroute-monitor"></a>ExpressRoute-Monitor
+## <a name="expressroute-monitor"></a>ExpressRoute-bewaking
 
-NPM voor ExpressRoute biedt uitgebreide ExpressRoute bewakingsmogelijkheden voor persoonlijke peering verbindingen. U kunt E2E connectiviteit en prestaties tussen uw filialen en Azure bewaken via ExpressRoute. De belangrijkste mogelijkheden zijn:
+NPM voor ExpressRoute biedt uitgebreide ExpressRoute bewaking voor persoonlijke Azure-peering en Microsoft-peering verbindingen. U kunt E2E connectiviteit en prestaties tussen uw filialen en Azure bewaken via ExpressRoute. De belangrijkste mogelijkheden zijn:
 
 * Automatische detectie van ER circuits die zijn gekoppeld aan uw abonnement
 * Detectie van de netwerktopologie van on-premises voor uw cloudtoepassingen
-* Capaciteitsplanning, analyse van gebruik, bandbreedtegebruik per virtueel netwerk
+* Capaciteitsplanning, analyse van bandbreedte-gebruik
 * Bewaking en waarschuwingen op de primaire en secundaire paden
+* Bewaking van de verbinding met Azure services zoals Office 365, Dynamics 365,... via ExpressRoute
 * Vermindering van de verbinding met de VNets detecteren
 
 ![Geo-kaart weer verkeer tussen regio 's](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -71,7 +73,7 @@ Raadpleeg voor meer informatie de volgende artikelen:
 * [Netwerkprestatiemeter configureren voor ExpressRoute](../expressroute/how-to-npm.md)
 * [blogbericht](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Monitor voor service-eindpunt
+## <a name="service-endpoint-monitor"></a>Service-eindpuntbewaking
 
 U kunt nu bereikbaarheid van toepassingen testen en knelpunten in on-premises, carrier netwerken en datacenters voor cloud/persoonlijk detecteren, met het bewaken van de Service-eindpunt.
 
@@ -113,7 +115,7 @@ Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert 
 * Inzicht in de werklast op DNS-servers
 * Bewaking van dynamische DNS-registratiefouten
 
-![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
+![DNS-Dashboard met analytische](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Verwante koppelingen:
 * [Blogbericht](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [documentatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)

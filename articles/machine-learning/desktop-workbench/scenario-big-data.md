@@ -9,17 +9,19 @@ editor: daden
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 424af2ffd1b7931701036aeb819cbb8879cb7a41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 450c033fbce3544cdc17ddc6d47ff726b01a4d3e
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832659"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognose voor serverworkload per terabytes aan gegevens
 
@@ -104,19 +106,19 @@ Kolomnummer | Veldnaam| Type | Beschrijving |
 1  | `SessionStart` | Datum en tijd |    Begintijd sessie
 2  |`SessionEnd`    | Datum en tijd | Eindtijd van sessie
 3 |`ConcurrentConnectionCounts` | Geheel getal | Aantal gelijktijdige verbindingen
-4 | `MbytesTransferred` | Double | Genormaliseerde gegevens overgebracht in MB
+4 | `MbytesTransferred` | dubbele | Genormaliseerde gegevens overgebracht in MB
 5 | `ServiceGrade` | Geheel getal |  Klasse van de service voor de sessie
 6 | `HTTP1` | Geheel getal|  Sessie gebruikt HTTP1 of HTTP2
 7 |`ServerType` | Geheel getal   |Servertype
-8 |`SubService_1_Load` | Double |   Subservice 1 laden
-9 | `SubService_2_Load` | Double |  Subservice 2 laden
-10 | `SubService_3_Load` | Double |     Subservice 3 laden
-11 |`SubService_4_Load` | Double |  Subservice 4 laden
-12 | `SubService_5_Load`| Double |      Subservice 5 laden
-13 |`SecureBytes_Load`  | Double | Beveiligde bytes laden
-14 |`TotalLoad` | Double | Totale belasting van server
-15 |`ClientIP` | Tekenreeks|    IP-adres van client
-16 |`ServerIP` | Tekenreeks|    Het IP-adres
+8 |`SubService_1_Load` | dubbele |   Subservice 1 laden
+9 | `SubService_2_Load` | dubbele |  Subservice 2 laden
+10 | `SubService_3_Load` | dubbele |     Subservice 3 laden
+11 |`SubService_4_Load` | dubbele |  Subservice 4 laden
+12 | `SubService_5_Load`| dubbele |      Subservice 5 laden
+13 |`SecureBytes_Load`  | dubbele | Beveiligde bytes laden
+14 |`TotalLoad` | dubbele | Totale belasting van server
+15 |`ClientIP` | Reeks|    IP-adres van client
+16 |`ServerIP` | Reeks|    Het IP-adres
 
 
 
@@ -164,7 +166,7 @@ U moet een container voor experimenteren op de gegevensset één maand en een an
 | stringIndexModel | Parketvloeren | Model van de indexeerfunctie voor niet-numerieke onderdelen een tekenreeks.|
 | oneHotEncoderModel|Parketvloeren | Een hot encoder model voor categorische functies. |
 | mlModel | Parketvloeren | Getrainde machine learning-model. |
-| Info| Python pickle-bestand | Informatie over de getransformeerde gegevens, inclusief training start, einde van de training, duur, het tijdstempel voor train-test splitsen en kolommen voor indexering en één hot codering.
+| informatie| Python pickle-bestand | Informatie over de getransformeerde gegevens, inclusief training start, einde van de training, duur, het tijdstempel voor train-test splitsen en kolommen voor indexering en één hot codering.
 
 Alle bestanden en blobs in de voorgaande tabel worden gebruikt voor uitoefening.
 
@@ -186,11 +188,11 @@ Het eerste argument `configFilename`, is een lokale configuratiebestand waar u d
 
 | Veld | Type | Beschrijving |
 |-----------|------|-------------|
-| StorageAccount | Tekenreeks | Naam van een Azure Storage-account |
-| storageContainer | Tekenreeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
-| storageKey | Tekenreeks |Azure toegangssleutel voor Opslagaccount |
-| DataFile|Tekenreeks | Gegevensbronbestanden  |
-| Duur| Tekenreeks | duur van de gegevens in de bronbestanden van de gegevens|
+| StorageAccount | Reeks | Naam van een Azure Storage-account |
+| storageContainer | Reeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
+| storageKey | Reeks |Azure toegangssleutel voor Opslagaccount |
+| DataFile|Reeks | Gegevensbronbestanden  |
+| duur| Reeks | duur van de gegevens in de bronbestanden van de gegevens|
 
 Wijzigen van beide `Config/storageconfig.json` en `Config/fulldata_storageconfig.json` voor het configureren van het opslagaccount, opslagsleutel en de blob-container voor het opslaan van de tussenliggende resultaten. De blob-container voor de één maand gegevens uitvoert is standaard `onemonthmodel`, en de blob-container voor een volledige gegevensset uitgevoerd is `fullmodel`. Zorg ervoor dat u deze twee containers maken in uw opslagaccount. De `dataFile` veld [ `Config/fulldata_storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configureert welke gegevens worden geladen [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). De `duration` veld configureert u het bereik dat de gegevens bevatten. Als de duur is ingesteld op ONE_MONTH, moet de geladen gegevens slechts één CSV-bestand tussen de zeven bestanden van de gegevens voor juni 2016. Als de duur van de volledige is, wordt de volledige gegevensset (1 TB) is geladen. U hoeft niet te wijzigen `dataFile` en `duration` in deze configuratie met twee bestanden.
 

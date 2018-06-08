@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831632"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -72,7 +73,7 @@ Blockchain Workbench implementeren, moet de registratie van een Azure AD-toepass
 Vervolgens moet u het toepassingsmanifest voor het gebruik van toepassingsrollen binnen Azure AD kunt u opgeven Blockchain Workbench beheerders wijzigen.  Zie voor meer informatie over Toepassingsmanifesten [Azure Active Directory-toepassingsmanifest](../active-directory/develop/active-directory-application-manifest.md).
 
 1. Selecteer voor de toepassing die u hebt geregistreerd, **Manifest** in het detailvenster van de geregistreerde toepassing.
-2. Genereer een GUID. U kunt de PowerShell-opdracht `[guid]::NewGuid()` of online-hulpprogramma's voor het genereren van een GUID. 
+2. Genereer een GUID. U kunt een GUID die met de PowerShell-opdracht [guid] genereren:: NewGuid () of de cmdlet New-GUID. Een andere optie is het gebruik van een GUID generator-website.
 3. U gaat bijwerken de **appRoles** sectie van het manifest. Selecteer in het manifest deelvenster bewerken **bewerken** en vervang `"appRoles": []` met de opgegeven JSON. Zorg ervoor dat u de waarde voor de **id** veld met de GUID die u hebt gegenereerd. 
 
     ``` json

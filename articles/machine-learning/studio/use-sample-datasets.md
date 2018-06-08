@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 63f079f6c8e584ff3a89503104060daf056763ed
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836297"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>De voorbeeldgegevenssets in Azure Machine Learning Studio gebruiken
 [top]: #machine-learning-sample-datasets
@@ -344,7 +346,7 @@ De weergegevens worden uitgevoerd vanaf een luchthaven weer stations, die betrek
 </tr>
 
 <tr>
-  <td>Wikipedia SP 500 Dataset</td>
+  <td>Wikipedia SP 500 gegevensset</td>
   <td>
 Gegevens is afgeleid van Wikipedia (Engelstalig) (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) op basis van de artikelen van elk bedrijf S & P 500 opgeslagen als XML-gegevens.
 <p></p>
@@ -401,7 +403,7 @@ Onderwerp-toewijzingen voor nieuwsartikelen in de RCV1 V2 Reuters nieuws gegeven
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Deze gegevens zijn afkomstig van de uitdaging KDD kop 2010 studenten prestaties evaluatie (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">studenten prestatieanalyse</a>). De gegevens die gebruikt is de trainingset Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., drempel, G.J. & Koedinger, K.R. (2010). Algebra I 2008-2009. Uitdaging gegevensset van KDD kop 2010 educatieve Data Mining uitdaging. Zoeken op het <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> of <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+Deze gegevens zijn afkomstig van de uitdaging KDD kop 2010 studenten prestaties evaluatie (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">studenten prestatieanalyse</a>). De gegevens die gebruikt is de trainingset Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., drempel, G.J. & Koedinger, K.R. (2010). Wiskundige ik 2008-2009. Uitdaging gegevensset van KDD kop 2010 educatieve Data Mining uitdaging. Zoeken op het <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> of <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
 <p></p>
 De gegevensset is gedownload en opgeslagen in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) en logboekbestanden van een student Bijles system bevat. De opgegeven functies behoren probleem-ID en de korte beschrijving, student-ID, tijdstempel en het aantal pogingen de student vóór het oplossen van het probleem op de juiste manier. De oorspronkelijke gegevensset bevat records 8,9 M; Deze gegevensset is gezet dat op de eerste 100K rijen. De gegevensset heeft 23 door tabs gescheiden kolommen van verschillende typen: numerieke categorische, en een tijdstempel.
   </td>

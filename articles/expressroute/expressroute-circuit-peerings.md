@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be04a1cd723cf27e764daa468607d6495baf0291
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849927"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute-circuits en Routeringsdomeinen
  U moet bestellen een *ExpressRoute-circuit* uw on-premises infrastructuur verbinding te maken met Microsoft via een connectiviteitsprovider. De volgende afbeelding ziet een logische representatie van de verbinding tussen uw WAN en Microsoft.
@@ -72,7 +73,7 @@ Zie de [pagina met veelgestelde vragen](expressroute-faqs.md) voor meer informat
 ## <a name="routing-domain-comparison"></a>Vergelijking van routering domein
 De volgende tabel vergelijkt de drie Routeringsdomeinen:
 
-|  | **Persoonlijke Peering** | **Openbare Peering** (afgeschaft voor nieuw aangemaakte) | **Microsoft Peering** |
+|  | **Persoonlijke Peering** | **Openbare Peering** (afgeschaft voor nieuw aangemaakte) | **Microsoft-Peering** |
 | --- | --- | --- | --- |
 | **Max. # voorvoegsels per peering ondersteund** |4000 standaard 10.000 met ExpressRoute Premium |200 |200 |
 | **IP-adresbereiken ondersteund** |Een geldig IP-adres binnen uw WAN. |Openbare IP-adressen die eigendom zijn van door u of uw connectiviteitsprovider. |Openbare IP-adressen die eigendom zijn van door u of uw connectiviteitsprovider. |
@@ -86,6 +87,11 @@ De volgende tabel vergelijkt de drie Routeringsdomeinen:
 U kunt een of meer van de Routeringsdomeinen inschakelen als onderdeel van uw ExpressRoute-circuit. U kunt alle Routeringsdomeinen plaatsen op de dezelfde VPN-verbinding als u wilt samenvoegen tot één routeringsdomein. U kunt ze ook op andere Routeringsdomeinen, vergelijkbaar met het diagram plaatsen. De aanbevolen configuratie is dat privépeering rechtstreeks is verbonden met het Basisnetwerk en de openbare en Microsoft-peering koppelingen zijn verbonden met uw Perimeternetwerk.
 
 Als u ervoor kiest om alle drie peeringsessies, moet u drie paren van BGP-sessies (één paar voor elk type peering) hebben. De BGP-sessie paren geeft u een maximaal beschikbare koppeling. Als u verbinding via layer 2-connectiviteitsproviders maakt, bent u verantwoordelijk voor het configureren en beheren van routering. U kunt meer informatie aan de hand van de [werkstromen](expressroute-workflows.md) voor het instellen van ExpressRoute.
+
+## <a name="expressroute-health"></a>ExpressRoute-status
+ExpressRoute-circuits mogen worden bewaakt voor beschikbaarheid, de verbinding met vnet's en het gebruik van bandbreedte gebruik [netwerk Prestatiemeter](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview) (NPM).
+
+NPM, controleert de status van persoonlijke Azure-peering en Microsoft-peering.  Bekijk onze [boeken](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zoek een serviceprovider Zie [ExpressRoute-providers en -locaties service](expressroute-locations.md).

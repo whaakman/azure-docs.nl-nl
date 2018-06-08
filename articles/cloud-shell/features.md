@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 3e71f2307ab68b2bc4694c7782f7a0f0d43b159b
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: b61dda5b56ca3cc8ef827a06aaedac701ca79f8f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757039"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850199"
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Functies en hulpprogramma's voor Bash in de Azure-Cloud-Shell
 
@@ -58,7 +58,7 @@ Bash in de Cloud-Shell bevat vooraf geconfigureerde verificatie voor open-source
 |Category   |Naam   |
 |---|---|
 |Linux-hulpprogramma 's            |Bash<br> servicel<br> tmux<br> dig<br>               |
-|Azure-hulpprogramma 's            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) en [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
+|Azure-hulpprogramma 's            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) en [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Teksteditors           |VIM<br> nano<br> emacs       |
 |Resourcebeheer         |GIT                    |
 |Hulpprogramma's van build            |Maken<br> maven<br> npm<br> PIP         |

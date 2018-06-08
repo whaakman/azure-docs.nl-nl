@@ -9,21 +9,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: 7bde1c834038bdc2a010987b4e32fa49222101ee
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8064940e0d0f035010a2521752d6f32f3f9ccd9f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715272"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849823"
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 
 Domein-clusters bieden de toegang door meerdere gebruikers op HDInsight-clusters. HDInsight-clusters domein zijn verbonden met een domein, zodat gebruikers van een domein hun domeinreferenties gebruiken kunnen voor verificatie met de clusters en big data-taken uitvoeren. 
 
 In dit artikel leert u hoe een domein HDInsight-cluster met behulp van Azure Active Directory Domain Services configureren.
-
-> [!NOTE]
-> Maken van een domein HDInsight-cluster, moet Azure Active Directory Domain Services. Maken van een domein HDInsight cluster gebruikmaakt van Active Directory die worden gehost in Azure IaaS virtuele machines niet meer wordt ondersteund.
 
 ## <a name="create-azure-adds"></a>Azure ADDS maken
 

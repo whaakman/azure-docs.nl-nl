@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 540f97d1383b8a992a12426b03249ef82af0e7a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0494963f59e885cf2e7fe42704f1314e66ea28a5
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834784"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Delen en het detecteren van bronnen in de galerie van Azure AI
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -84,7 +86,7 @@ U kunt de volgende items bijdragen aan de galerie - Volg deze koppelingen voor m
 
 * **[Verzamelingen](gallery-collections.md#contribute)**
 * **[Experimenten](gallery-experiments.md#contribute)**
-* **[Tutorials](gallery-tutorials.md#contribute)**
+* **[Zelfstudies](gallery-tutorials.md#contribute)**
 
 ## <a name="we-want-to-hear-from-you"></a>We willen graag van u!
 We willen dat de galerie wordt aangestuurd door onze gebruikers en voor onze gebruikers. Gebruik de gezichtje aan de rechterkant om te laat ons weten wat u graag of hekel over de galerie.  

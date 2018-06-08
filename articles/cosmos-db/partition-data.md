@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe2dbab876d1ef55ff05315cf7c823d0444663a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: bd1b52dd32976ce65458e1dfe1b50d228fbd6d0e
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808669"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850522"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitie en schalen in Azure Cosmos-DB
 
@@ -64,15 +64,16 @@ Azure Cosmos DB gebruikt op basis van de hash partitionering. Bij het schrijven 
 
 De keuze van de partitiesleutel is een belangrijke beslissing die u moet aanbrengen in de ontwerpfase. Kies een eigenschapsnaam die een breed scala aan waarden en zelfs toegangspatronen is. Het is een best practice om een partitiesleutel met een groot aantal afzonderlijke waarden (bijvoorbeeld honderden of duizenden). Hiermee kunt u uw werkbelasting gelijkmatig verdelen over deze waarden. Een ideaal partitiesleutel is een die vaak verschijnt als een filter in uw query's en heeft voldoende kardinaliteit om te controleren of dat uw oplossing schaalbaar is.
 
-Als een fysieke partitie heeft de opslaglimiet bereikt en de gegevens in de partitie dezelfde partitiesleutel heeft, Azure Cosmos DB retourneert de *"partitiesleutel bereikt maximale grootte van 10 GB"* bericht en de partitie niet gesplitst. Het kiezen van een goede partitiesleutel is een zeer belangrijke beslissing. Partities zijn van een interne concept van Azure DB die Cosmos en tijdelijke zijn. De veronderstelling van het aantal partities zijn toegewezen op een bepaalde doorvoer is niet erg correct. Azure Cosmos-DB worden automatisch op basis van uw werkbelasting partities geschaald. Zodat u het ontwerp van de database op basis van het aantal partities mag niet corelate moet in plaats daarvan u ervoor dat u de juiste partitiesleutel kiest. 
+Als een fysieke partitie heeft de opslaglimiet bereikt en de gegevens in de partitie dezelfde partitiesleutel heeft, Azure Cosmos DB retourneert de *"partitiesleutel bereikt maximale grootte van 10 GB"* bericht en de partitie niet gesplitst. Het kiezen van een goede partitiesleutel is een zeer belangrijke beslissing. Fysieke partities zijn van een interne concept van Azure DB die Cosmos en tijdelijke zijn. Het aantal fysieke partities op basis van uw werkbelasting wordt automatisch schalen door Azure Cosmos-DB. Zodat u het ontwerp van de database op basis van het aantal fysieke partities mag niet corelate moet in plaats daarvan u ervoor kiezen de juiste partitiesleutel (logische partities). 
 
 Kies een partitiesleutel zodat:
 
-* De verdeling van gegevens is zelfs voor alle sleutels.
-* De werkbelasting is zelfs voor alle sleutels.
-* Deze heeft de voorkeur aan een set sleutels als partitiesleutels dan één sleutel hebben.  Meer aantal sleutels leiden tot een distributiepunt zelfs werkbelasting.
+* De opslag-distributie is zelfs in alle sleutels.
+* De distributie van het volume van aanvragen op een bepaald tijdstip is zelfs voor alle sleutels.
+* Query's die worden aangeroepen met hoge gelijktijdigheid kunnen efficiënt worden gerouteerd door te nemen van de partitiesleutel in het filterpredicaat.  
+* Het kiezen van een partitiesleutel met een hogere kardinaliteit is doorgaans voorkeur – becaue deze doorgaans resulteert in betere distributie en schaalbaarheid. Een samengestelde sleutel kan bijvoorbeeld worden gevormd door waarden van meerdere eigenschappen voor het verhogen van de kardinaliteit samen te voegen. 
 
-Als u een partitiesleutel met bovenstaande overwegingen kiest, er geen zorgen te hoeven maken over het aantal partities of hoeveel doorvoer per fysieke partitie is toegewezen geschaald elke partitie afzonderlijk en lineair indien nodig.
+Als u ervoor kiest een partitiesleutel met bovenstaande overwegingen, u hoeft te hoeven maken over het aantal partities of hoeveel doorvoer per fysieke partitie is toegewezen tijdens Azure Cosmos DB het aantal fysieke partities schalen kunnen ook worden geschaald de afzonderlijke partities waar nodig.
 
 Azure DB Cosmos-containers kunnen worden gemaakt als *vaste* of *onbeperkte* in de Azure portal. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. U moet een partitiesleutel en een minimale doorvoer van 1000 RU/s opgeven voor het maken van een container als onbeperkt. Azure DB Cosmos-containers kunnen ook worden geconfigureerd als u wilt delen doorvoercapaciteit tussen een set van containers, waarbij elke container nader moet een partitie van belangrijke en onbeperkt kan groeien.
 

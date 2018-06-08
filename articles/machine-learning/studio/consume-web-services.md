@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: efb23500d8c718ff1dc7b59c4cfb2b2d5cdfaccb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b89fb0fbb499fa06c9e56f02937b1c586efde9b6
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833356"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Een Azure Machine Learning-webservice gebruiken
 
@@ -97,7 +99,7 @@ Gebruiken voor verbinding met een Machine Learning-webservice, een **HttpClient*
 
 Verbinding maken met een Machine Learning-webservice, de **Microsoft.AspNet.WebApi.Client** NuGet-pakket moet worden geïnstalleerd.
 
-**Install Microsoft.AspNet.WebApi.Client NuGet in Visual Studio**
+**Microsoft.AspNet.WebApi.Client NuGet in Visual Studio installeren**
 
 1. De gegevensset downloaden van UCI publiceren: volwassenen 2 klasse gegevensset Web Service.
 2. Klik op **Hulpprogramma's** > **NuGet Package Manager** > **Package Manager-console**.

@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2018
+ms.date: 06/06/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 04aa713a33ec871821e281ba3b1ea47777fb8b24
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c7ea4f3c081734a77f5ebe44c9fba167ddc6d67
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641251"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839387"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Inleiding tot Azure-logboekanalyse-integratie
+
+
+>[!IMPORTANT]
+> De functie van de integratie met Azure-logboekanalyse door 01-06/2019 afgeschaft. Door 27 Jun 2018 AzLog downloads uitgeschakeld. Voor hulp bij het wat te doen zwevend forward revisie van het bericht [gebruik Azure-monitor voor de integratie met SIEM's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
 
 Integratie van Azure Log is beschikbaar voor het vereenvoudigen van de taak van de integratie van Azure gesteld logboeken met uw on-premises Security Information en Event Management SIEM ()-systeem.
 

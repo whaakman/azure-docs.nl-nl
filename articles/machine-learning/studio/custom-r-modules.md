@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 555672df5b0b86858d460ff7606bc6ca23f4f103
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834352"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Aangepaste R-modules maken in Azure Machine Learning
 In dit onderwerp wordt beschreven hoe ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Het maken van de bestanden die een module te definiëren en het registreren van de module voor implementatie in een Machine Learning-werkruimte worden geïllustreerd. De elementen en kenmerken die worden gebruikt in de definitie van de aangepaste module worden vervolgens in meer detail beschreven. Het gebruik van aanvullende functionaliteit, bestanden en meerdere uitgangen wordt ook beschreven. 
@@ -288,14 +290,14 @@ Een module-parameter is gedefinieerd met behulp van de **Arg** onderliggend elem
     * Numeriek
     * Boole-waarde
     * Categorische gegevens
-    * Tekenreeks
+    * Reeks
     * Label
     * Functie
     * Score
     * Alle
   * **standaard** -geldige standaardselecties voor de kolomkiezer omvatten: 
     
-    * None
+    * Geen
     * NumericFeature
     * NumericLabel
     * NumericScore

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6dd9e8a3bdd497b6bdc4a0a096bfddbd29d25069
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: e4ba0bd639be96830a75c195c3f998157070121c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34804759"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839041"
 ---
 # <a name="contoso-migration-overview"></a>Migratie van Contoso: overzicht
 
@@ -52,12 +52,13 @@ De artikelen die gezamenlijk de migratie van de reeks Contoso worden samengevat 
 **Artikel** | **Details** | **Status**
 --- | --- | ---
 Artikel 1: Overzicht (in dit artikel) | Biedt een overzicht van de strategie voor de migratie van Contoso, de serie artikelen en de voorbeeld-apps gebruikt. | Beschikbaar
-Artikel 2: Een Azure-infrastructuur implementeren | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. De infrastructuur wordt gebruikt voor alle Contoso migratiescenario's. | Beschikbaar
-Artikel 3: Beoordelen lokale bronnen | Toont hoe een beoordeling van de lokale twee lagen SmartHotel app uitgevoerd in VMware in Contoso wordt uitgevoerd. Evalueren van de virtuele machines van een app met de [Azure migreren](migrate-overview.md) -service en de app SQL Server-database met de [Azure Database migratie-assistent](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
-Artikel 4: Verander (lift-en-shift) naar Azure VM's en een SQL-exemplaar beheerd | Demonstreert hoe Contoso de app SmartHotel migreert naar Azure. Migreren van de app frontend virtuele machine met behulp [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database met de [Azure databasemigratie](https://docs.microsoft.com/azure/dms/dms-overview) service om te migreren naar een SQL-exemplaar worden beheerd. | Beschikbaar
-Artikel 5: Verander (lift-en-shift) virtuele Azure-machines | Toont hoe Contoso hun app SmartHotel met Site Recovery alleen virtuele machines migreert.
-Artikel 6: Verander (lift-en-shift) naar Azure VM's en SQL Server-beschikbaarheidsgroepen | Toont hoe de app SmartHotel in Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van virtuele machines van de app en de migratie van de Database-service om te migreren van de app-database naar een SQL Server-beschikbaarheidsgroep. | Beschikbaar
-Artikel 7: Verander (lift-en-shift) naar Azure VM's en Azure MySQL-Server | Demonstreert hoe Contoso de SmartHotel app virtuele machines migreren met behulp van Site Recovery en MySQL Workbench (back-up en herstel) migreert naar een Azure MySQL Server-exemplaar. | Beschikbaar
+[Artikel 2: Een Azure-infrastructuur implementeren](contoso-migration-overview.md) | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. De infrastructuur wordt gebruikt voor alle Contoso migratiescenario's. | Beschikbaar
+[Artikel 3: Beoordelen lokale bronnen](contoso-migration-assessment.md) | Toont hoe een beoordeling van de lokale twee lagen SmartHotel app uitgevoerd in VMware in Contoso wordt uitgevoerd. Evalueren van de virtuele machines van een app met de [Azure migreren](migrate-overview.md) -service en de app SQL Server-database met de [Azure Database migratie-assistent](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
+[Artikel 4: Verander (lift-en-shift) naar Azure VM's en een SQL-exemplaar beheerd](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstreert hoe Contoso de app SmartHotel migreert naar Azure. Migreren van de app frontend virtuele machine met behulp [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database met de [Azure databasemigratie](https://docs.microsoft.com/azure/dms/dms-overview) service om te migreren naar een SQL-exemplaar worden beheerd. | Beschikbaar
+[Artikel 5: Verander (lift-en-shift) virtuele Azure-machines](contoso-migration-rehost-vm.md) | Toont hoe Contoso hun app SmartHotel met Site Recovery alleen virtuele machines migreert.
+[Artikel 6: Verander (lift-en-shift) naar Azure VM's en SQL Server-beschikbaarheidsgroepen](contoso-migration-rehost-vm-sql-ag.md) | Toont hoe de app SmartHotel in Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van virtuele machines van de app en de migratie van de Database-service om te migreren van de app-database naar een SQL Server AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
+Artikel 7: Verander (lift-en-shift) naar Azure VM's en Azure MySQL-Server | Laat zien hoe de app in osTicket Linux VM's met Site Recovery worden gemigreerd in Contoso. | Gepland
+Artikel 8: Verander (lift-en-shift) naar Azure VM's en Azure MySQL-Server | Laat zien hoe Contoso worden gemigreerd met de osTicket Linux virtuele machines van app met behulp van Site Recovery en MySQL-Workbench om te migreren (back-up en herstel) naar een Azure MySQL-Server-exemplaar. | Gepland
 
 
 

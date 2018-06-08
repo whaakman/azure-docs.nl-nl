@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6384f63139eb64522409c5922e187afd878ebb09
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714133"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850005"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Inleiding tot beheer van apparaten in Azure Active Directory
 
@@ -70,12 +70,16 @@ Het doel van Azure AD die lid zijn van apparaten is voor het vereenvoudigen van:
 
 - Windows-implementaties van apparaten die eigendom zijn van werkitems 
 - Toegang tot de organisatie-apps en resources van een Windows-apparaat
+- Cloud-gebaseerde beheer van apparaten die eigendom zijn van werkitems
 
 ![Azure AD ingeschreven apparaten](./media/device-management-introduction/02.png)
 
+Azure AD Join kan worden geïmplementeerd met behulp van de volgende methoden: 
+ - [Windows Automatische piloot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Bulk-implementatie](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Selfservice-ervaring](device-management-azuread-joined-devices-frx.md) 
 
-Deze doelstellingen worden bereikt door het verstrekken van uw gebruikers met een selfservice-ervaring voor het ophalen van apparaten die eigendom zijn van werk onder het beheer van Azure AD.  
-**Azure AD Join** is bedoeld voor organisaties die willen worden cloud of eerst alleen in de cloud. Er is geen beperking voor de grootte of het type van organisaties die Azure AD Join kunt implementeren. Azure AD Join werkt goed zelfs in een hybride omgeving en toegang tot on-premises apps en resources kunt inschakelen.
+**Azure AD Join** is bedoeld voor organisaties die willen worden cloud eerst (dat wil zeggen, voornamelijk cloudservices gebruikt, met een doel voor het gebruik van een on-premises infrastructuur beperken) of alleen in de cloud (geen on-premises infrastructuur). Er zijn geen beperkingen op de grootte of het type van organisaties die Azure AD Join kunt implementeren. Azure AD Join werkt ook goed in een hybride omgeving, zodat toegang tot zowel cloud als on-premises apps en resources.
 
 Implementatie van Azure AD die lid zijn van apparaten biedt de volgende voordelen:
 
@@ -89,10 +93,12 @@ Implementatie van Azure AD die lid zijn van apparaten biedt de volgende voordele
 
 - **Beperking van toegang** tot apps van alleen de apparaten die voldoen aan nalevingsbeleid.
 
-- **Naadloze toegang tot on-premises resources** wanneer het apparaat heeft regel zicht naar de lokale domeincontroller.
+- **Naadloze toegang tot on-premises resources** wanneer het apparaat heeft regel zicht naar de lokale domeincontroller. 
 
 
-Terwijl Azure AD join is voornamelijk bedoeld voor organisaties waarvoor geen een on-premises Windows Server Active Directory-infrastructuur, kunt u gewoon ook worden gebruikt in scenario's waarbij:
+Terwijl Azure AD join is voornamelijk bedoeld voor organisaties waarvoor geen een on-premises Windows Server Active Directory-infrastructuur, u kunt gewoon worden gebruikt in scenario's waarbij:
+
+- U wilt overstappen naar een cloudinfrastructuur met behulp van Azure AD en MDM zoals Intune.
 
 - U kunt een domein lokale bijvoorbeeld niet gebruiken als moet u mobiele apparaten, zoals tablets en telefoons onder controle.
 
@@ -122,7 +128,7 @@ Als uw omgeving een on-premises AD-footprint en ook voordeel van de mogelijkhede
 
 Gebruik Azure AD hybride die lid zijn van apparaten als:
 
-- U hebt geïmplementeerd op deze apparaten die gebruikmaken van NTLM Win32-apps / Kerberos.
+- U hebt geïmplementeerd op deze apparaten die afhankelijk van de verificatie van Active Directory-machine zijn Win32-apps.
 
 - Gewenste GP om apparaten te beheren.
 

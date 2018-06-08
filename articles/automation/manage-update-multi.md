@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833716"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -34,31 +35,16 @@ Voor het gebruik van Updatebeheer hebt u het volgende nodig:
 
 ## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 
-Updatebeheer wordt in de volgende besturingssystemen ondersteund.
+Updatebeheer wordt ondersteund door de volgende besturingssystemen:
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 en hoger, en de update-implementaties op basis van Windows Server 2008 R2 SP1 en hoger. Nano Server wordt niet ondersteund.
-
-  Ondersteuning voor het implementeren van updates voor Windows Server 2008 R2 SP1 vereist .NET Framework 4.5 en Windows Management Framework 5.0 of hoger.
-
-- Windows-clientbesturingssystemen worden niet ondersteund.
-
-Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-server (Windows Server Update Services of toegang hebben tot Microsoft Update.
-
-> [!NOTE]
-> De Windows-agent kan niet tegelijkertijd door System Center Configuration Manager worden beheerd.
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6 (x86/x64) en 7 (x64)
-
-- Red Hat Enterprise 6 (x86/x64) en 7 (x64)
-
-- SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)
-
-- Ubuntu 12.04 LTS en nieuwer (x86/x64)
+|Besturingssysteem  |Opmerkingen  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken beoordelingen         |
+|Windows Server 2008 R2 SP1 en hoger     |Windows PowerShell 4.0 of hoger is vereist ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([downloaden WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) wordt aanbevolen voor een hogere mate van betrouwbaarheid.         |
+|CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
+|Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
+|SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
+|Ubuntu 12.04 TNS, 14.04 TNS, 16.04 LTS (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
 
 > [!NOTE]
 > Om te voorkomen dat updates buiten een onderhoudsperiode in Ubuntu worden toegepast, moet u het pakket Unattended-Upgrade opnieuw configureren en automatische updates uitschakelen. Zie het onderwerp [Automatic Updates](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) (Automatische updates) in de Ubuntu Server Guide voor meer informatie.
@@ -142,7 +128,7 @@ Geef het volgende op in het deelvenster **Nieuwe update-implementatie**:
 
   ![Deelvenster Nieuwe update-implementatie](./media/manage-update-multi/update-select-computers.png)
 
-- **Updateclassificatie**: Selecteer de typen software die u in de update-implementatie wilt opnemen. Zie voor een beschrijving van de typen classificatie [updateclassificaties](automation-update-management.md#update-classifications). De classificatietypen zijn:
+- **Updateclassificatie**: Selecteer de typen software die u in de update-implementatie wilt opnemen. Raadpleeg [Updateclassificaties](automation-update-management.md#update-classifications) voor een beschrijving van de classificatietypen. De classificatietypen zijn:
   - Essentiële updates
   - Beveiligingsupdates
   - Updatepakketten
@@ -151,6 +137,9 @@ Geef het volgende op in het deelvenster **Nieuwe update-implementatie**:
   - Definitie-updates
   - Hulpprogramma's
   - Updates
+
+- **Updates moeten worden uitgesloten** -Hiermee opent u de **uitsluiten** pagina. Voer in de kB of pakketnamen om te sluiten.
+
 - **Schema-instellingen**: U kunt de standaarddatum en -tijd accepteren (30 minuten na de huidige tijd). U kunt ook een andere tijd opgeven.
    U kunt bovendien opgeven of de implementatie eenmaal moet worden uitgevoerd of volgens een terugkerend schema. Klik op de optie **Terugkerend** onder **Terugkeerpatroon** als u een terugkerend schema wilt instellen.
 

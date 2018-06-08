@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cea2fb3069ff69130720049c002e19fa14266b9f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831969"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -61,7 +62,7 @@ public static class SimpleExample
 } 
 ```
 
-De `FunctionName` kenmerk markeert de methode als een functie-ingangspunt. De naam moet uniek zijn binnen een project. Projectsjablonen maken vaak een methode met de naam `Run`, maar de methodenaam kan geldige C#-methodenaam.
+De `FunctionName` kenmerk markeert de methode als een functie-ingangspunt. De naam moet uniek zijn binnen een project, met een letter beginnen en alleen bestaan uit letters, cijfers, `_` en `-`, maximaal 127 tekens lang zijn. Projectsjablonen maken vaak een methode met de naam `Run`, maar de methodenaam kan geldige C#-methodenaam.
 
 Het kenmerk trigger geeft het triggertype en invoergegevens koppelt aan een methodeparameter. De voorbeeldfunctie wordt geactiveerd door een wachtrijbericht en bericht uit de wachtrij wordt doorgegeven aan de methode in de `myQueueItem` parameter.
 
@@ -384,23 +385,7 @@ public static class IBinderExampleMultipleAttributes
 
 ## <a name="triggers-and-bindings"></a>Triggers en bindingen 
 
-De volgende tabel bevat de trigger en binding-kenmerken die beschikbaar in een Azure Functions class library-project zijn. Alle kenmerken zijn in de naamruimte `Microsoft.Azure.WebJobs`.
-
-| Trigger | Invoer | Uitvoer|
-|------   | ------    | ------  |
-| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input---attributes)| [Blob](functions-bindings-storage-blob.md#output---attributes)|
-| [CosmosDBTrigger](functions-bindings-cosmosdb.md#trigger---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#input---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#output---attributes) |
-| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
-| [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
-| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [Wachtrij](functions-bindings-storage-queue.md#output---attributes) |
-| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [ServiceBus](functions-bindings-service-bus.md#output---attributes) |
-| [TimerTrigger](functions-bindings-timer.md#attributes) | ||
-| |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
-| |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
-| |[Tabel](functions-bindings-storage-table.md#input---attributes)| [Tabel](functions-bindings-storage-table.md#output---attributes)  | 
-| ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
-| ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
-| ||[Twilio](functions-bindings-twilio.md#attributes)| 
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

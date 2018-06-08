@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 44777946fdc829da222ffdd67dfecfa3bf240be7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850443"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Gids voor probleemoplossing voor Azure Stream Analytics
 
@@ -41,6 +42,7 @@ Gebruik de volgende richtlijnen voor de beste resultaten bij het oplossen van uw
 
 5.  Elimineren verrassingen, zoals:
     - Een [ **waar** ](https://msdn.microsoft.com/library/azure/dn835048.aspx) component in de query alle gebeurtenissen, zo wordt voorkomen dat geen uitvoer gegenereerd uitgefilterd.
+    - Een [ **CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) functie mislukt, waardoor de taak is mislukt. Type cast om fouten te voorkomen, gebruikt u [ **TRY_CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) in plaats daarvan.
     - Wanneer u vensterfuncties gebruikt, wacht u totdat de hele vensterduur om te zien van de uitvoer van de query.
     - De tijdstempel voor gebeurtenissen lager is dan de begintijd van taak en daarom gebeurtenissen worden verwijderd.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: cb37c94d3ec819823083041708cfc28ead0ed5cf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606134"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831448"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiency die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Eerste volledige back-ups brengen grote hoeveelheden gegevens doorgaans en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / incrementele worden overgedragen. Door het proces van het offline seeding kunt Azure Backup schijven gebruiken voor het uploaden van de offline back-upgegevens naar Azure.
@@ -51,7 +51,7 @@ De volgende functies van Azure Backup of werkbelastingen ondersteuning voor het 
 Voordat u de werkstroom voor Offline back-up begint, moet u de volgende vereisten voldoen: 
 * Maak een [Recovery Services-kluis](backup-azure-recovery-services-vault-overview.md). Voor het maken van een kluis, raadpleegt u de stappen in [in dit artikel](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Zorg ervoor dat alleen de [meest recente versie van de Azure Backup agent](https://aka.ms/azurebackup_agent) op de Windows Server/Windows-client, indien van toepassing is geïnstalleerd en de computer is geregistreerd bij de Recovery Services-kluis.
-* Azure PowerShell 3.7.0 of hoger is vereist op de computer met Azure backup-agent. Het is raadzaam dat u [Installeer de nieuwste versie van Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+* Azure PowerShell 3.7.0 is vereist op de computer met Azure backup-agent. Het is raadzaam dat u downloadt en [versie van Azure PowerShell installeren de 3.7.0](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * Controleer of Microsoft Edge of Internet Explorer 11 is geïnstalleerd en JavaScript is ingeschakeld op de computer waarop Azure Backup agent wordt uitgevoerd. 
 * Een Azure Storage-account maken in hetzelfde abonnement als de Recovery Services-kluis. 
 * Zorg ervoor dat u hebt de [noodzakelijke machtigingen](../azure-resource-manager/resource-group-create-service-principal-portal.md) om de Azure Active Directory-toepassing te maken. De werkstroom voor Offline back-up wordt gemaakt van een Azure Active Directory-toepassing in het abonnement is gekoppeld aan de Azure Storage-account. Het doel van de toepassing is Azure Backup veilige en bereik om toegang te bieden met de Azure Import-Service vereist voor de werkstroom voor Offline back-up. 
@@ -108,7 +108,7 @@ De *AzureOfflineBackupDiskPrep* hulpprogramma bereidt de SATA-schijven die worde
 
     * De computer kopiëren de faseringslocatie voor de werkstroom offline seeding toegang met behulp van hetzelfde netwerkpad dat is opgegeven in de **offline back-up starten** werkstroom.
     * BitLocker is ingeschakeld op de computer kopiëren.
-    * Azure PowerShell 3.7.0, of hoger is geïnstalleerd.
+    * Azure PowerShell 3.7.0 is geïnstalleerd.
     * De meest recente compatibel browsers (Edge of Internet Explorer 11) zijn geïnstalleerd en JavaScript is ingeschakeld. 
     * De computer kopiëren, hebben toegang tot de Azure-portal. Indien nodig, kan de computer kopiëren niet hetzelfde als de broncomputer.
     

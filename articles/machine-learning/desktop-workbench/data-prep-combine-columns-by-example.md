@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ecd2232dcf77715fdccd4e5518674500231f67ca
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830259"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Kolommen combineren door voorbeeld transformatie
 Deze transformatie kan de gebruiker een nieuwe kolom toevoegen door een combinatie van waarden uit meerdere kolommen. Gebruiker kan een waarde opgeven of vindt u voorbeelden van de combinatie van waarden voor het uitvoeren van deze transformatie. Wanneer de gebruiker ziet u voorbeelden van combinatie, de transformatie wordt verwerkt door dezelfde **door voorbeeld** engine die wordt gebruikt in de **kolom afgeleid door voorbeeld** transformeren.
@@ -50,7 +52,7 @@ Gebruikers kunnen bewerken in een bestaande **kolom combineren door voorbeeld** 
 
 Een komma gevolgd door een spatie als scheidingsteken in dit voorbeeld wordt gebruikt om te combineren de *straat*, *stad*, *status*, en *ZIP* kolommen.
 
-|Straat|Plaats|Status|POSTCODE|Kolom|
+|Straatnaam|Plaats|Status|POSTCODE|Kolom|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th manier|REDMOND|WA|98052|16011 N.E. 36th way, REDMOND, WA, 98052|
 |16021 N.E. 36th manier|REDMOND|WA|98052|16021 N.E. 36th way, REDMOND, WA, 98052|

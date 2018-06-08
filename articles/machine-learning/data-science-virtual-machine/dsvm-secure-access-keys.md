@@ -8,21 +8,23 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 4eb1d657adc37ef0d1e4055573b174d58baf2e0e
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ec734cf456050250396b00aa09b61bace7e9aa0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830262"
 ---
 # <a name="store-access-credentials-on-the-data-science-virtual-machine-securely"></a>Opslaan van toegang op de gegevens wetenschappelijke virtuele Machine veilig referenties
 
-Een algemene uitdaging bij het bouwen van cloud-toepassingen is het beheren van de referenties die moeten worden in uw code voor verificatie bij de cloud-services. Deze referenties veilig te houden, is een belangrijke taak. In het ideale geval ze nooit worden weergegeven op ontwikkelaars werkstations of ophalen ingecheckt in broncodebeheer. 
+Een veelvoorkomende uitdaging bij het bouwen van cloud-apps is het beheren van de referenties die in uw code moeten worden opgenomen voor verificatie bij cloudservices. Het is belangrijk dat deze referenties veilig worden verwerkt. In het ideale geval worden ze nooit weergegeven op werkstations van ontwikkelaars of ingecheckt in broncodebeheer. 
 
 [Service-identiteit (MSI) beheerd](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) zorgt ervoor dat het oplossen van dit probleem eenvoudiger door middel van een Azure-services een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken om alle services die Azure AD-verificatie ondersteunt, zonder dat u geen referenties hoeft in uw code te verifiëren. Een algemene patroon voor het beveiligen van referenties is MSI gebruiken in combinatie met de [Azure Keyvault](https://docs.microsoft.com/azure/key-vault/), een Azure-service voor het opslaan van geheimen en cryptografische sleutels veilig worden beheerd. U kunt toegang tot de sleutelkluis met behulp van de beheerde service-identiteit en ophalen van de gemachtigde geheimen en de cryptografische sleutels uit de Sleutelkluis. 
 

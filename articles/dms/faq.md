@@ -10,12 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/08/2018
+ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850069"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Veelgestelde vragen over het gebruik van de Service Azure Database migreren
 Dit artikel worden enkele veelgestelde vragen over het gebruik van de Service Azure Database migratie samen met verwante antwoorden.
@@ -34,6 +35,9 @@ De Azure-Service voor het migreren van Database is de voorkeursmethode voor data
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-the-azure-migrate-offering"></a>Q. Hoe Azure Database migratie Service vergelijken met het migreren van de Azure-aanbod?
 De Service voor het migreren van Azure helpt bij de migratie van on-premises virtuele machines naar Azure IaaS. De service beoordeelt de geschiktheid van de migratie en het formaat op basis van prestaties en kosten schattingen voor het uitvoeren van uw on-premises virtuele machines in Azure biedt. Azure migreren is nuttig voor lift en shift migraties van on-premises werkbelastingen op basis van VM virtuele Azure IaaS-machines. Echter, in tegenstelling tot de Azure-Database migratie-Service Azure migreren is niet een gespecialiseerde migratie databaseservice aanbieding voor Azure PaaS relationele database-platforms zoals Azure SQL Database of SQL Azure of Azure SQL Database-beheerd instantie.
+
+### <a name="q-what-versions-of-sql-server-does-the-azure-database-migration-service-support-as-a-source"></a>Q. Welke versies van SQL Server ondersteunt de migratie van Azure databaseservice als bron?
+Wanneer u migreert van SQL Server, ondersteunt de migratie van Azure databaseservice SQL Server 2005 via SQL Server 2017.
 
 ### <a name="q-what-is-a-summary-of-the-steps-required-to-use-the-azure-database-migration-service-to-perform-a-database-migration"></a>Q. Wat is een overzicht van de vereiste stappen voor het gebruik van de Service van Azure Database migratie uitvoeren van de databasemigratie van een?
 Tijdens een migratie typische, eenvoudige database u:

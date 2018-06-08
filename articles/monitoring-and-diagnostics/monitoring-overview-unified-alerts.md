@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/07/2018
 ms.author: mamit,bwren
 ms.custom: ''
-ms.openlocfilehash: dac8052a96c98130891a9ea31994198e331e314d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 699dff42846ee1f9d42980feca55d8a79e2514e3
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726462"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839840"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Unified waarschuwingen in de Azure-Monitor
 
@@ -104,6 +104,8 @@ Waarschuwingen zijn beschikbaar in verschillende Azure-services controleren. Zie
 | Application Insights | Webtests voor beschikbaarheid | Niet ondersteund in unified waarschuwingen.  Zie [Web test waarschuwingen](../application-insights/app-insights-monitor-web-app-availability.md). Beschikbaar voor een website geïnstrumenteerd om gegevens te verzenden naar Application Insights. U ontvangt een melding wanneer de beschikbaarheid of reactiesnelheid van een website lager dan de verwachtingen is. |
 
 ## <a name="enhanced-unified-alerts-public-preview"></a>Verbeterde unified waarschuwingen (openbare Preview)
+> [!NOTE]
+>  De functionaliteit in deze sectie is binnenkort beschikbaar. Deze mogelijk niet weergegeven in uw versie van de portal nog. 
 
 Een uitgebreide waarschuwingen van geïntegreerde ervaring werd uitgebracht in public preview voor Azure Monitor op 1 juni 2018. Deze ervaring die is gebaseerd op de voordelen van [unified waarschuwingen](#overview) maart 2018 uitgebracht en biedt de mogelijkheid te beheren en samenvoegen van afzonderlijke waarschuwingen naast Waarschuwingsstatus wijzigen. Deze sectie beschrijft de nieuwe functies en navigeren in de nieuwe waarschuwing pagina's in de Azure portal.
 

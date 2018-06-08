@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4cef685d71a64f8a6681a3449e4fe0b67899c67c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 2e5a7cab5c9db0c13ca0c0986c18c86adf675562
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808601"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850283"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -121,7 +121,11 @@ Het upgradeproces automatisch wordt altijd eerst tot stand brengen of een instal
 Het proces kan enkele uren duren, afhankelijk van de grootte van de omgeving en tijdens de upgrade gebeurt, gebeurt er is geen synchronisatie tussen Windows Server AD en Azure AD.
 
 **V: ik heb ontvangen een e-mailbericht gemeld dat mijn automatische upgrade werkt niet meer en moet ik nieuwe versie installeren. Waarom heb ik nodig om dit te doen?**</br>
-Afgelopen jaar weer, een versie van Azure AD Connect die onder bepaalde omstandigheden mogelijk uitgeschakeld met de functie voor automatisch bijwerken op uw server is uitgegeven. Dit probleem is verholpen in Azure AD Connect versie 1.1.750.0. Klanten die zijn beïnvloed door dit probleem moeten handmatig te upgraden naar de nieuwste versie van Azure AD Connect te verhelpen van het probleem. Als u handmatig upgraden, moet u downloaden en uitvoeren van de meest recente versie van het bestand AADConnect.msi.
+Afgelopen jaar weer, een versie van Azure AD Connect die onder bepaalde omstandigheden mogelijk uitgeschakeld met de functie voor automatisch bijwerken op uw server is uitgegeven. Dit probleem is verholpen in Azure AD Connect versie 1.1.750.0. Klanten die zijn beïnvloed door dit probleem moeten het uitvoeren van een PowerShell-script voor het herstellen van dit of upgrade handmatig naar de meest recente versie van Azure AD Connect te verhelpen van het probleem. 
+
+Het PowerShell-script wordt uitgevoerd, downloadt u het script uit [hier](https://aka.ms/repairaadconnect) en voer het script op uw server AADConnect in een administratieve PowerShell-venster. [Dit is een korte video](https://aka.ms/repairaadcau) die wordt gedetailleerd uitgelegd hoe u dit doet.
+
+Als u handmatig upgraden, moet u downloaden en uitvoeren van de meest recente versie van het bestand AADConnect.msi.
  
 -  Als uw huidige versie ouder dan 1.1.750.0 is, moet u upgraden naar de nieuwste versie [die hier kan worden gedownload](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
 - Als uw Azure AD Connect-versie 1.1.750.0 is of hoger, u hoeft niet te doen om te beperken van het probleem dat Automatische upgrade, zoals u al op de versie met een oplossing voor dit. 
@@ -165,7 +169,7 @@ Automatische clientupdate is de eerste stap bij de release van een nieuwere vers
 **V: automatische clientupdate upgrade AAD Connect Health?**</br>   Ja, Automatische upgrade ook upgrades AAD Connect Health
 
 **V: wilt u ook automatische clientupdate AAD Connect servers in de Faseringsmodus?**</br>   
-Nee, u kunt geen automatische clientupdate een Azure AD Connect-server die zich in de faseringsmodus.
+Ja, u kunt automatische clientupdate een Azure AD Connect-server die zich in de faseringsmodus.
 
 **V: als Auto-Upgrade is mislukt en Mijn server AAD Connect niet wordt gestart, wat moet ik doen?**</br>   
 In zeldzame gevallen, de Azure AD Connect-service niet wordt gestart na het uitvoeren van de upgrade. In dergelijke gevallen start opnieuw op de server, die meestal wordt het probleem opgelost. Als de service Azure AD Connect nog steeds niet start, moet u een ondersteuningsticket opent. Hier volgt een [koppeling](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) waarin wordt uitgelegd hoe u dat doet. 

@@ -10,16 +10,18 @@ editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 79b2cc3951fa8a48282f42f7180ec831050508f8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834379"
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Algoritmen kiezen voor Microsoft Azure Machine Learning
 Het antwoord op de vraag 'Welke machine learning-algoritme moet ik gebruiken?' is altijd "Deze afhankelijk is." Dit is afhankelijk van de grootte, kwaliteit en aard van de gegevens. Dit is afhankelijk van wat u wilt doen met het antwoord. Dit is afhankelijk van hoe de berekening van het algoritme is vertaald naar instructies voor de computer die u gebruikt. En dit is afhankelijk van hoeveel tijd die u hebt. Zelfs de meest ervaren gegevenswetenschappers kunnen niet zien welk algoritme best zal uitvoeren voordat u ze.

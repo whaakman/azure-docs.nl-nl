@@ -2,29 +2,31 @@
 title: Azure-galerie AI branchespecifieke oplossingen | Microsoft Docs
 description: Detecteren in de galerie van Azure AI-oplossingen.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: 0113742cd0b51470559f4e7b03edbfddf2d7e0de
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b2b55c550a75be977b040070926953308c387639
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834563"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Branchespecifieke oplossingen in de galerie van Azure AI detecteren
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Branchespecifieke Cortana Intelligence oplossingen
-De  **[branches](https://gallery.cortanaintelligence.com/industries)**  sectie van de galerie samenbrengt verschillende bronnen die specifiek voor sectoren, zoals zijn
+De **[branches](https://gallery.cortanaintelligence.com/industries)** sectie van de galerie samenbrengt verschillende bronnen die specifiek voor sectoren, zoals zijn
 
 * [Detailhandel](https://gallery.cortanaintelligence-int.com/industries/retail) -retail-oplossingen zoals verkopen prognose, voorspellen van de klant verloop en ontwikkelen prijsmodellen zoeken.
 * [Productie](https://gallery.cortanaintelligence-int.com/industries/manufacturing) - zoeken naar productie-oplossingen zoals anticiperen op apparatuur onderhoud en prognose energieprijzen.
@@ -46,7 +48,7 @@ Op deze pagina kunt u alle resources in de galerie bladeren. U kunt ook zoeken d
 
  Klik op een galerij-item om details-pagina van het artikel voor meer informatie te openen.
 
-**[BRENG ME NAAR DE GALERIE >>](http://gallery.cortanaintelligence.com)**
+**[BRENG ME NAAR DE GALERIE &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

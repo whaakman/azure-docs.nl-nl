@@ -7,19 +7,21 @@ ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 791c34785fa817fd68d0bec8111bf23e606c9b64
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832693"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Voorspeld onderhoud voor real-world scenario 's
 
-De impact van apparatuur ongeplande uitvaltijd kan schadelijk zijn voor elk bedrijf zijn. Het is essentieel dat veld apparatuur met om-gebruik en prestaties te optimaliseren en kostbaar, niet-geplande uitvaltijd te minimaliseren. Vroege identificatie van problemen kunt u beperkte onderhoud bronnen toewijzen op een rendabele manier en verbeteren van de kwaliteit en processen van de keten. 
+De invloed van ongeplande downtime van apparatuur kan schadelijk zijn voor elk bedrijf. Het is essentieel dat veld apparatuur met om-gebruik en prestaties te optimaliseren en kostbaar, niet-geplande uitvaltijd te minimaliseren. Vroege identificatie van problemen kunt u beperkte onderhoud bronnen toewijzen op een rendabele manier en verbeteren van de kwaliteit en processen van de keten. 
 
 Dit scenario wordt verkend een relatief [grootschalige gesimuleerde gegevensset](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) om een project voorspeld onderhoud gegevens wetenschappelijke doorlopen van gegevensopname, functie-engineering, modelopbouw en model uitoefening en de implementatie. De code voor het hele proces is geschreven in de Jupyter-Notebook met behulp van de PySpark in Azure Machine Learning-Workbench. Het laatste model wordt geïmplementeerd met behulp van Azure Machine Learning-Model Management voor voorspellingen realtime apparatuur is mislukt.   
 

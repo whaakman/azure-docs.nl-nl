@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 06/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24cecdc65c45d5d1ee5443740d9874ccfd74e387
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7c012bdf025a352788aec2d2d70bab33d7914577
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627712"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849539"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gebeurtenis-handlers in Azure gebeurtenis raster
 
@@ -42,6 +42,14 @@ Wanneer u Azure Functions als de handler gebruikt, gebruikt u de Event Grid-trig
 | [Big data streamen naar een datawarehouse](event-grid-event-hubs-integration.md) | Wanneer Event Hubs een bestand opnemen maakt, verzendt raster gebeurtenis een gebeurtenis voor een functie-app. De app haalt de Capture-bestand en gegevens migreert naar een datawarehouse. |
 | [Azure Service Bus Azure gebeurtenis raster integratie-voorbeelden](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Gebeurtenis raster verzendt berichten van Service Bus-onderwerp functioneren app en logische app. |
 
+## <a name="event-hubs"></a>Event Hubs
+
+Gebruik Event Hubs bij uw oplossing voor het ophalen van gebeurtenissen sneller dan de gebeurtenissen kunnen worden verwerkt. Uw toepassing verwerkt de gebeurtenissen van Event Hubs op het eigen planning. U kunt schalen uw gebeurtenisverwerking om de binnenkomende gebeurtenissen te verwerken.
+
+|Titel  |Beschrijving  |
+|---------|---------|
+| [Aangepaste gebeurtenissen van de route naar Azure Event Hubs met Azure CLI en gebeurtenis raster](custom-event-to-eventhub.md) | Een aangepaste gebeurtenis verzendt naar een event hub voor verwerking door een toepassing. |
+
 ## <a name="hybrid-connections"></a>Hybride verbindingen
 
 Azure Relay hybride verbindingen gebruiken voor het verzenden van gebeurtenissen naar toepassingen die binnen een bedrijfsnetwerk en een eindpunt dat openbaar toegankelijk niet hebben.
@@ -62,7 +70,7 @@ Logische Apps gebruiken om bedrijfsprocessen als reactie op gebeurtenissen te au
 
 ## <a name="queue-storage"></a>Queue Storage
 
-Queue storage gebruiken voor het ontvangen van gebeurtenissen die moeten worden opgehaald.
+Queue storage gebruiken voor het ontvangen van gebeurtenissen die moeten worden opgehaald. U kunt Queue storage gebruiken wanneer er een langdurige proces duurt te lang om te reageren. Verzendt gebeurtenissen naar Queue storage, de app kunt ophalen en verwerken van gebeurtenissen op basis van een eigen planning.
 
 |Titel  |Beschrijving  |
 |---------|---------|

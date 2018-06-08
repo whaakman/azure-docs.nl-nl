@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f1f3c2c808558124548008927219191469a412b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836463"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning eigen Afwijkingsdetectie API
 ## <a name="overview"></a>Overzicht
@@ -122,8 +124,8 @@ Meer gedetailleerde informatie over deze invoerparameters wordt in de onderstaan
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Geschiedenis (in het aantal gegevenspunten) gebruikt voor afwijkingsdetectie score berekeningen |500 |geheel getal |10-2000 |Afhankelijk van de tijdreeks |
 | detectors.spikesdips | Of moet worden gedetecteerd alleen bereikt, alleen dips of beide |Beide |opgesomd |Beide, Bronblokkades, Dips |Beide |
-| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
-| trenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |double |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| trenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |double |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
 | tspikedetector.sensitivity |Gevoeligheid voor TSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | zspikedetector.sensitivity |Gevoeligheid voor ZSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten in resultaten |N/A |
@@ -161,9 +163,9 @@ Meer gedetailleerde informatie over deze invoerparameters wordt in de onderstaan
 | preprocess.replaceMissing |Waarden voor de ontbrekende gegevens rekenen |lkv (laatst bekende waarde) |opgesomd |nul, lkv, gemiddelde |N/A |
 | detectors.historyWindow |Geschiedenis (in het aantal gegevenspunten) gebruikt voor afwijkingsdetectie score berekeningen |500 |geheel getal |10-2000 |Afhankelijk van de tijdreeks |
 | detectors.spikesdips | Of moet worden gedetecteerd alleen bereikt, alleen dips of beide |Beide |opgesomd |Beide, Bronblokkades, Dips |Beide |
-| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
-| postrenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
-| negtrenddetector.Sensitivity |Gevoeligheid voor negatieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |double |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| postrenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |double |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| negtrenddetector.Sensitivity |Gevoeligheid voor negatieve trend detectie. |3.25 |double |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
 | tspikedetector.sensitivity |Gevoeligheid voor TSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | zspikedetector.sensitivity |Gevoeligheid voor ZSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | seasonality.Enable |Hiermee wordt aangegeven of seizoensgebonden analyse wordt uitgevoerd |true |booleaans |True, false |Afhankelijk van de tijdreeks |

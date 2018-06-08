@@ -7,14 +7,16 @@ ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: cbb077796d9f14a7f9d1d00268c7b6889ade8375
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 60d65b17d4cbe8a45ff3fb62b06852d7b945e8f1
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832856"
 ---
 # <a name="document-collection-analysis"></a>Document verzameling analyse
 
@@ -85,15 +87,15 @@ Er zijn negen velden in het gegevensbestand. De veldnamen en de beschrijvingen w
 
 | Veldnaam | Type | Beschrijving | Ontbrekende waarde bevatten |
 |------------|------|-------------|---------------|
-| `ID` | Tekenreeks | De ID van de factuur/resolutie. De indeling van dit veld is [bill_type] [aantal]-[congress]. Bijvoorbeeld 'hconres1-93' betekent dat het factuurtype 'hconres' (staat House gelijktijdige resolutie verwijzen naar [dit document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), het aantal factuur is ' 1 'en het aantal congress is 93'. | Nee |
-| `Text` | Tekenreeks | De inhoud van de factuur/resolutie. | Nee |
-| `Date` | Tekenreeks | De datum van de factuur/resolutie in eerste instantie voorgesteld. In de indeling van 'jjjj-mm-dd'. | Nee |
-| `SponsorName` | Tekenreeks | De naam van de primaire sponsor die de factuur/oplossing wordt voorgesteld. | Ja |
-| `Type` | Tekenreeks | Het type van de titel van de primaire sponsor 'rep' (medewerker) of 'afzen' (senator). | Ja |
-| `State` | Tekenreeks | De status van de primaire sponsor. | Ja |
+| `ID` | Reeks | De ID van de factuur/resolutie. De indeling van dit veld is [bill_type] [aantal]-[congress]. Bijvoorbeeld 'hconres1-93' betekent dat het factuurtype 'hconres' (staat House gelijktijdige resolutie verwijzen naar [dit document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), het aantal factuur is ' 1 'en het aantal congress is 93'. | Nee |
+| `Text` | Reeks | De inhoud van de factuur/resolutie. | Nee |
+| `Date` | Reeks | De datum van de factuur/resolutie in eerste instantie voorgesteld. In de indeling van 'jjjj-mm-dd'. | Nee |
+| `SponsorName` | Reeks | De naam van de primaire sponsor die de factuur/oplossing wordt voorgesteld. | Ja |
+| `Type` | Reeks | Het type van de titel van de primaire sponsor 'rep' (medewerker) of 'afzen' (senator). | Ja |
+| `State` | Reeks | De status van de primaire sponsor. | Ja |
 | `District` | Geheel getal | Het aantal regionale van de primaire sponsor als de titel van de sponsor een representatief is. | Ja |
-| `Party` | Tekenreeks | De partij van de primaire sponsor. | Ja |
-| `Subjects` | Tekenreeks | De certificaathouder voorwaarden cumulatief door de Library of Congress aan de factuur toegevoegd. De voorwaarden worden samengevoegd door komma's. Deze voorwaarden zijn geschreven door een persoon in de bibliotheek of Congress en zijn niet meestal aanwezig wanneer informatie over de factuur voor het eerst wordt gepubliceerd. Ze kunnen op elk gewenst moment worden toegevoegd. Dus aan het einde van de levensduur van een factuur sommige onderwerp mogelijk niet relevant zijn meer. | Ja |
+| `Party` | Reeks | De partij van de primaire sponsor. | Ja |
+| `Subjects` | Reeks | De certificaathouder voorwaarden cumulatief door de Library of Congress aan de factuur toegevoegd. De voorwaarden worden samengevoegd door komma's. Deze voorwaarden zijn geschreven door een persoon in de bibliotheek of Congress en zijn niet meestal aanwezig wanneer informatie over de factuur voor het eerst wordt gepubliceerd. Ze kunnen op elk gewenst moment worden toegevoegd. Dus aan het einde van de levensduur van een factuur sommige onderwerp mogelijk niet relevant zijn meer. | Ja |
 
 ## <a name="scenario-structure"></a>Scenario-structuur
 

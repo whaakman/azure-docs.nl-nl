@@ -1,24 +1,26 @@
 ---
 title: Een webservice implementeren op meerdere gebieden | Microsoft Docs
-description: "Stappen voor het implementeren van (kopiëren) een nieuwe Web-Service naar andere regio's."
+description: Stappen voor het implementeren van (kopiëren) een nieuwe Web-Service naar andere regio's.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: aashishb
 manager: hjerez
 editor: cgronlun
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: aashishb
-ms.openlocfilehash: 68ebd388b46199710cbe8f314b705e4733e2440e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 78b37f0e7ac554c1823a0607e43718e5a0ac0067
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835131"
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Een webservice implementeren in meerdere regio’s
 De nieuwe Azure-Web-Services kunt u eenvoudig een webservice implementeren in meerdere regio's zonder meerdere abonnementen of werkruimten. 

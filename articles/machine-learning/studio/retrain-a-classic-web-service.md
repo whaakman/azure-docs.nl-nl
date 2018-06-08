@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: d0c40d952008f58f9b99c1c44d06e971a1e60c3b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836871"
 ---
 # <a name="retrain-a-classic-web-service"></a>Een klassieke webservice opnieuw trainen
 De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling score-eindpunt. Standaardeindpunten worden gesynchroniseerd met de oorspronkelijke training en experimenten score berekenen en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt opnieuw trainen van de webservice, moet u een nieuw eindpunt toevoegen aan de webservice. 
