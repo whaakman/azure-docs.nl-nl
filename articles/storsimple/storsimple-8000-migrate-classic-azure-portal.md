@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2018
+ms.date: 06/08/2018
 ms.author: alkohli
-ms.openlocfilehash: bbcb598d075868a6c6aab27d108e91afa90b62b1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 299029e10ac8f0235bb11876aa00c98a21183c0f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651080"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248789"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>Migreren van abonnementen en opslagaccounts die zijn gekoppeld aan de StorSimple-apparaat Manager-service
 
@@ -29,8 +29,8 @@ Mogelijk moet u uw StorSimple-service verplaatsen naar een nieuwe registratie of
 
 | U kunt verplaatsen...| Ondersteund| Downtime| Azure Support-proces| Benadering|
 |-----|-----|-----|-----|-----|
-| Een volledige abonnement (inclusief StorSimple-service en storage-accounts) op een andere registratie? | Ja       | Nee       | **Overdracht van de inschrijving**<br>Gebruik:<li>Wanneer u een nieuwe Azure toezegging aanschaffen onder een nieuwe overeenkomst.</li><li>U wilt migreren van accounts en -abonnementen van de inschrijving van het oude naar het nieuwe. Dit omvat alle Azure-services onder het oude abonnement.</li> | **Stap 1: Open een Azure-ondersteuningsticket Enterprise bewerking.**<li>Ga naar [http://aka.ms/AzureEnt](http://aka.ms/AzureEnt).</li><li> Selecteer **inschrijving beheer** en selecteer vervolgens **van één inschrijving te zetten naar een nieuwe registratie**.<br>**Stap 2: Voer de vereiste gegevens**<br>Zijn onder andere:<li>bron inschrijvingsnummer</li><li> bestemming inschrijvingsnummer</li><li>de ingangsdatum overdracht|
-| StorSimple-service van een bestaand account naar een nieuwe registratie?    | Ja       | Nee       | **Account overdracht**<br>Gebruik:<li>Wanneer u niet wilt dat de overdracht van een volledige inschrijving.</li><li>U wilt dat alleen bepaalde accounts verplaatsen naar een nieuwe registratie.</li>| **Stap 1: Open een Azure-ondersteuningsticket Enterprise bewerking.**<li>Ga naar [http://aka.ms/AzureEnt](http://aka.ms/AzureEnt).</li><li>Selecteer **inschrijving beheer** en selecteer vervolgens **een EA Account overdragen naar een nieuwe registratie**.<br>**Stap 2: Voer de vereiste gegevens**<br>Zijn onder andere:<li>bron inschrijvingsnummer</li><li> bestemming inschrijvingsnummer</li><li>de ingangsdatum overdracht|
+| Een volledige abonnement (inclusief StorSimple-service en storage-accounts) op een andere registratie? | Ja       | Nee       | **Overdracht van de inschrijving**<br>Gebruik:<li>Wanneer u een nieuwe Azure toezegging aanschaffen onder een nieuwe overeenkomst.</li><li>U wilt migreren van accounts en -abonnementen van de inschrijving van het oude naar het nieuwe. Dit omvat alle Azure-services onder het oude abonnement.</li> | **Stap 1: Open een Azure-ondersteuningsticket Enterprise bewerking.**<li>Ga naar [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).</li><li> Selecteer **inschrijving beheer** en selecteer vervolgens **van één inschrijving te zetten naar een nieuwe registratie**.<br>**Stap 2: Voer de vereiste gegevens**<br>Zijn onder andere:<li>bron inschrijvingsnummer</li><li> bestemming inschrijvingsnummer</li><li>de ingangsdatum overdracht|
+| StorSimple-service van een bestaand account naar een nieuwe registratie?    | Ja       | Nee       | **Account overdracht**<br>Gebruik:<li>Wanneer u niet wilt dat de overdracht van een volledige inschrijving.</li><li>U wilt dat alleen bepaalde accounts verplaatsen naar een nieuwe registratie.</li>| **Stap 1: Open een Azure-ondersteuningsticket Enterprise bewerking.**<li>Ga naar [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).</li><li>Selecteer **inschrijving beheer** en selecteer vervolgens **een EA Account overdragen naar een nieuwe registratie**.<br>**Stap 2: Voer de vereiste gegevens**<br>Zijn onder andere:<li>bron inschrijvingsnummer</li><li> bestemming inschrijvingsnummer</li><li>de ingangsdatum overdracht|
 | StorSimple-service van een abonnement aan een ander abonnement?      | Nee        |    Ja         | None, handmatig proces|<li>Migreren van gegevens uit het StorSimple-apparaat.</li><li>Uitvoeren van de fabrieksinstellingen van het apparaat, hierdoor alle lokale gegevens op het apparaat wordt verwijderd.</li><li>Registreer het apparaat met het nieuwe abonnement op een StorSimple-apparaat Manager-service.</li><li>Migreren van de gegevens terug naar het apparaat.|
   |Kan ik eigendom van een Azure-abonnement overbrengen naar een andere directory? | Ja       | Nee       | Een abonnement op Azure AD-directory koppelen | Raadpleeg [om te koppelen van een abonnement op Azure AD-directory](../active-directory/active-directory-how-subscriptions-associated-directory.md). Het kan maximaal 10 minuten duren voordat alles goed wordt weergegeven.|
 | StorSimple-apparaat van de ene Apparaatbeheer StorSimple-service op een andere service in een andere regio?      | Nee        | Ja            | None, handmatig proces |Hetzelfde als hierboven.|

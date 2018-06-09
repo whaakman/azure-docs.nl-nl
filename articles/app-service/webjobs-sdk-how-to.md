@@ -1,5 +1,5 @@
 ---
-title: Het gebruik van de WebJobs SDK voor gebeurtenisafhankelijke achtergrondverwerking - Azure
+title: Het gebruik van de Azure WebJobs SDK
 description: Meer informatie over het schrijven van code voor de WebJobs SDK. Maak gebeurtenisafhankelijke achtergrond taken voor de verwerking die toegang gegevens in Azure-services en services van derden tot.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,16 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 18b47014e6fe3e489f783f675a3498c58981b99f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725527"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234647"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Het gebruik van de WebJobs SDK voor gebeurtenisafhankelijke achtergrondverwerking
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Het gebruik van de Azure WebJobs SDK voor gebeurtenisafhankelijke achtergrondverwerking
 
-In dit artikel biedt richtlijnen voor het schrijven van code voor [de WebJobs SDK](webjobs-sdk-get-started.md). De documentatie van toepassing op versies 2.x en 3.x tenzij anders anders wordt vermeld. De belangrijkste wijziging geïntroduceerd door 3.x is het gebruik van .NET Core in plaats van .NET Framework.
+In dit artikel biedt richtlijnen voor het schrijven van code voor [de Azure WebJobs SDK](webjobs-sdk-get-started.md). De documentatie van toepassing op versies 2.x en 3.x tenzij anders anders wordt vermeld. De belangrijkste wijziging geïntroduceerd door 3.x is het gebruik van .NET Core in plaats van .NET Framework.
 
 >[!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) is gebaseerd op de WebJobs SDK en dit bevat artikelkoppelingen naar documentatie van Azure Functions voor sommige onderwerpen. Houd rekening met de volgende verschillen tussen de functies en de WebJobs SDK:

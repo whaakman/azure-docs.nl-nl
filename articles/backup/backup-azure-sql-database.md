@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 6/1/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: f48cbdb41f8ad7a3bad4546fa5cb77cf66780bed
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808499"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235410"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Back-up van SQL Server-database in Azure
 
@@ -103,6 +103,10 @@ Voordat u kunt back-up van uw SQL Server-database, controleert u de volgende voo
 - Bepalen of [een Recovery Services-kluis maken](backup-azure-sql-database.md#create-a-recovery-services-vault) in dezelfde regio, of landinstellingen, als de virtuele machine hosten van SQL Server.
 - [Controleer de machtigingen voor de virtuele machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) die nodig zijn voor de back-up van SQL-databases.
 - [Virtuele machine van SQL netwerkverbinding heeft](backup-azure-sql-database.md#establish-network-connectivity).
+
+> [!NOTE]
+> U kunt slechts één back-upoplossing hebben op een tijdstip aan back-up van SQL Server-databases. Schakel alle andere SQL-back-voordat u deze functie, anders back-ups wordt beïnvloeden en mislukken. U kunt inschakelen Azure Backup voor IaaS VM samen met de SQL-back-up zonder een conflict 
+>
 
 Als deze voorwaarden aanwezig zijn in uw omgeving, gaat u verder naar de sectie [uw kluis ter bescherming van een SQL-database configureren](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). Als een van de vereisten nog niet bestaan, blijven lezen van deze sectie.
 
@@ -253,7 +257,13 @@ Wanneer u gebruikt de **detecteren databases** hulpprogramma voor Azure Backup w
 
 ## <a name="configure-backup-for-sql-server-database"></a>Back-up voor SQL Server-database configureren
 
-Azure Backup biedt beheerservices voor SQL Server-databases beveiligen en beheren van back-uptaken. Het beheer en de mogelijkheden voor bewaking, is afhankelijk van de Recovery Services-kluis. Beveiliging voor de SQL-database configureren:
+Azure Backup biedt beheerservices voor SQL Server-databases beveiligen en beheren van back-uptaken. Het beheer en de mogelijkheden voor bewaking, is afhankelijk van de Recovery Services-kluis. 
+
+> [!NOTE]
+> U kunt slechts één back-upoplossing hebben op een tijdstip aan back-up van SQL Server-databases. Schakel alle andere SQL-back-voordat u deze functie, anders back-ups wordt beïnvloeden en mislukken. U kunt inschakelen Azure Backup voor IaaS VM samen met de SQL-back-up zonder een conflict 
+>
+
+Beveiliging voor de SQL-database configureren:
 
 1. Open de Recovery Services-kluis geregistreerd bij de virtuele machine van SQL.
 

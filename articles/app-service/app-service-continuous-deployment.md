@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: e587edeef1cfa080a81f523f63678a645b514c57
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849488"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233841"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Continue implementatie naar Azure App Service
 Dit artikel ziet u het configureren van continue implementatie voor [Azure App Service](app-service-web-overview.md). App Service kunt continue implementatie van BitBucket, GitHub en [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) door binnen te halen in de meest recente updates van uw bestaande opslagplaats in een van deze services.
@@ -134,6 +134,8 @@ Als u wilt uitschakelen continue implementatie, gaat u naar uw App Service-app-p
 Klik in het menu links op **Implementatiecentrum** > **GitHub** of **VSTS** of **BitBucket**  >  **Verbreken**.
 
 ![](media/app-service-continuous-deployment/disable.png)
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

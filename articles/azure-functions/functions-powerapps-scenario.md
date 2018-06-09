@@ -3,24 +3,26 @@ title: Aanroepen van een functie van PowerApps | Microsoft Docs
 description: Een aangepaste connector maken en vervolgens een functie met die connector aanroept.
 services: functions
 keywords: cloud-apps, cloud services, PowerApps, bedrijfsprocessen, business-toepassing
-documentationcenter: 
-author: mgblythe
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234951"
 ---
 # <a name="call-a-function-from-powerapps"></a>Een functie van PowerApps aanroepen
 De [PowerApps](https://powerapps.microsoft.com) platform is ontworpen voor zakelijke deskundigen voor het bouwen van apps zonder traditionele toepassingscode. Professionele ontwikkelaars kunnen Azure Functions gebruiken om de mogelijkheden van PowerApps, terwijl afscherming PowerApps app opbouwfuncties van technische informatie.
@@ -71,7 +73,7 @@ De aangepaste API (ook wel bekend als een aangepaste connector) is beschikbaar i
 ## <a name="create-an-app-and-add-data-sources"></a>Een app maken en gegevensbronnen toevoegen
 U kunt nu klaar om te maken van de app in PowerApps en voeg de Excel-gegevens en de aangepaste API gebruiken als gegevensbronnen voor de app.
 
-1. In [web.powerapps.com](https://web.powerapps.com), kies **begin vanaf leeg** > ![pictogram telefoon-app](media/functions-powerapps-scenario/icon-phone-app.png) (telefoonnummer) > **maken van deze app**.
+1. Kies op [web.powerapps.com](https://web.powerapps.com) achtereenvolgens **Beginnen met een lege app** > ![Phone-app-pictogram](media/functions-powerapps-scenario/icon-phone-app.png) (telefoon) > **Deze app maken**.
 
     ![Starten van leeg - telefoon-app](media/functions-powerapps-scenario/create-phone-app.png)
 
@@ -97,7 +99,7 @@ U kunt nu klaar om te maken van de app in PowerApps en voeg de Excel-gegevens en
 
     ![Excel-gegevens te importeren](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Kies op het canvas app **verbinding maken met gegevens**.
+    1. Kies **verbinding maken met gegevens** op het app-canvas.
 
     1. Op de **gegevens** -scherm, klikt u op **statische gegevens toevoegen aan uw app**.
 
@@ -137,7 +139,7 @@ Nu de gegevensbronnen in de app beschikbaar zijn, u toevoegen een scherm naar uw
 
 1. In de **gegevens** Configuratiescherm, selecteer **Turbines** uit de lijst.
 
-    ![Selecteer gegevensbron](media/functions-powerapps-scenario/select-data-source.png)
+    ![Gegevensbron selecteren](media/functions-powerapps-scenario/select-data-source.png)
 
     De gegevensset bevat een afbeelding, dus vervolgens wijzigt u de indeling aanpassen aan de gegevens. 
 

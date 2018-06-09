@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: faf85c34c527dd72889f0fcb5021925b79481163
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823846"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234838"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack PKI-certificaatvereisten
 
@@ -30,7 +30,7 @@ Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern to
 - Het proces voor het verkrijgen van certificaten die overeenkomt met deze specificaties
 - Het voorbereiden, valideren en gebruiken van die certificaten tijdens de implementatie
 
-> [!NOTE]
+> [!Note]  
 > Tijdens de implementatie moet u certificaten kopiëren naar de implementatiemap die overeenkomt met de id-provider die u tegen (Azure AD of AD FS implementeert). Als u één certificaat voor alle eindpunten gebruikt, kopieert u dit certificaatbestand in de implementatiemap van elke zoals wordt beschreven in de onderstaande tabellen. Structuur van de vooraf is ingebouwd in de implementatie van virtuele machine en kan worden gevonden op: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Certificaatvereisten
@@ -47,12 +47,12 @@ De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor 
 - Het certificaat ' verleend aan: "veld moet niet hetzelfde zijn als de ' uitgegeven door: ' veld.
 - De wachtwoorden op alle certificate pfx-bestanden moeten hetzelfde zijn op het moment van implementatie
 - Wachtwoord voor het certificaat pfx is een complex wachtwoord.
-- Zorg ervoor dat de namen van certificaathouders en alternatieve onderwerpnamen met alle certificaten overeenkomen met de specificaties die worden beschreven in dit artikel om te voorkomen dat mislukte implementatie.
+- Zorg ervoor dat de namen van certificaathouders en alternatieve namen in overeenkomst met de extensie (x509v3_config) van de certificaathouder alternatieve naam voor onderwerp. Het veld van de alternatieve naam voor onderwerp kunt u aanvullende hostnamen (websites, IP-adressen, algemene namen) moet worden beveiligd door één SSL-certificaat opgeven.
 
-> [!NOTE]
+> [!NOTE]  
 > Zelf-ondertekend certificaten worden niet ondersteund.
 
-> [!NOTE]
+> [!NOTE]  
 > De aanwezigheid van tussenkomst certificeringsinstanties in de keten van vertrouwensrelaties IS van een certificaat wordt ondersteund. 
 
 ## <a name="mandatory-certificates"></a>Verplichte certificaten

@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met de WebJobs SDK - Azure
+title: Aan de slag met de Azure WebJobs SDK
 description: Inleiding tot de WebJobs SDK voor gebeurtenisafhankelijke achtergrondverwerking. Ontdek hoe u toegang tot gegevens in Azure-services en services van derden.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234513"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>Aan de slag met de WebJobs SDK
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs SDK voor gebeurtenisafhankelijke achtergrondverwerking
 
-In dit artikel laat zien hoe een WebJobs SDK-project maken, lokaal uitvoeren en deze implementeren in Azure.
+In dit artikel laat zien hoe een Azure WebJobs SDK-project maken en deze implementeren in Azure App Service lokaal uitvoeren.
 
 De instructies zijn voor [Visual Studio 2017](https://www.visualstudio.com/vs/), maar dezelfde taken kunnen worden bewerkstelligd met andere hulpprogramma's, zoals [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="what-is-the-webjobs-sdk"></a>Wat is de WebJobs SDK
+## <a name="what-is-the-azure-webjobs-sdk"></a>Wat is de Azure WebJobs SDK?
 
 De Azure WebJobs SDK is een raamwerk dat de taak vereenvoudigt van het schrijven van achtergrond verwerkingscode die toegang heeft tot gegevens in Azure-services. De SDK biedt een declaratieve syntaxis voor het opgeven van gebeurtenissen die moeten worden geactiveerd door een functie, zoals een nieuw bericht is toegevoegd aan een wachtrij. Hiermee bepaalt u vergelijkbare declaratieve syntaxis lezen en schrijven van gegevens als een functie is geactiveerd. Dit systeem van triggers en bindingen zorgt voor de meeste op laag niveau codering taken die zijn gekoppeld aan het openen van Azure en services van derden.
 
@@ -68,7 +69,7 @@ In dit artikel wordt ervan uitgegaan dat u hebt [een Azure-account](https://azur
 
 3. Noem het project *WebJobsSDKSample*, en selecteer vervolgens **OK**.
 
-   ![Het dialoogvenster New Project](./media/webjobs-sdk-get-started/new-project.png)
+   ![Het dialoogvenster Nieuw project](./media/webjobs-sdk-get-started/new-project.png)
 
 ## <a name="add-webjobs-nuget-package"></a>WebJobs NuGet-pakket toevoegen
 

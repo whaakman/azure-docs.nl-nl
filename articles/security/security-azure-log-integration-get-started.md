@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: b8888823b1445dc084ae4c0323d90110c9d384a4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839442"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235743"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log-integratie met Azure Diagnostics logboekregistratie en Windows event forwarding
 
+
 >[!IMPORTANT]
-> De functie van de integratie met Azure-logboekanalyse door 01-06/2019 afgeschaft.  Door 27 Jun 2018 AzLog downloads uitgeschakeld. Voor hulp bij het wat te doen zwevend forward revisie van het bericht [gebruik Azure-monitor voor de integratie met SIEM's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> De functie van de integratie met Azure-logboekanalyse door 01-06/2019 afgeschaft. Door 27 Jun 2018 AzLog downloads uitgeschakeld. Voor hulp bij het wat te doen zwevend forward revisie van het bericht [gebruik Azure-monitor voor de integratie met SIEM's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 U moet Azure-logboekanalyse integratie alleen gebruiken als een [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector is niet beschikbaar vanuit de leverancier van uw Security Incident en Event Management (SIEM).
 

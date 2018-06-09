@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 02/27/2017
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 9df4e011ef5544f7074f4ac6338dd86bbb305a04
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cb08e5143814db29a7bec8c46226f07a26e51d25
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698210"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233017"
 ---
 # <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Gebruik de beveiligingswizard in Azure AD Privileged Identity Management 
 Als u de eerste persoon Azure Privileged Identity Management (PIM) uitvoeren voor uw organisatie, u krijgt een wizard. De wizard helpt u het beveiligingsrisico van bevoegde identiteiten en hoe u PIM gebruikt om te beperken die risico's begrijpen. U hoeft niet te Breng wijzigingen in bestaande roltoewijzingen in de wizard als u liever dit later doen.

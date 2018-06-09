@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 94062c69a1de32d061b97bbaae0d7028b0424feb
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 4dddc4c4e4bd34f5e9d7054f1311e13113fce52d
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757669"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234610"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -42,15 +42,15 @@ De volgende beheerdersrollen zijn beschikbaar:
   > [!NOTE]
   > Voor Exchange ActiveSync-beleid voor voorwaardelijke toegang in Azure implementeert, moet de gebruiker ook globale beheerder zijn.
   
-* **Dynamics 365 beheerder**: gebruikers aan deze rol globale machtigingen in Microsoft Dynamics 365, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en controleren van de status van de service hebben. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
-
-* **Apparaatbeheerders**: gebruikers met deze rol worden beheerders van de lokale computer op alle Windows 10-apparaten die zijn gekoppeld aan Azure Active Directory. Ze hebben niet de mogelijkheid voor het beheren van apparaten-objecten in Azure Active Directory.
+* **Apparaatbeheerders**: deze functie is beschikbaar voor toewijzing alleen als een lokale beheerder zijn aanvullende in [apparaatinstellingen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gebruikers met deze rol worden lokale computerbeheerders op alle Windows 10-apparaten die zijn toegevoegd aan Azure Active Directory. Ze hebben niet de mogelijkheid voor het beheren van apparaten-objecten in Azure Active Directory.
 
 * **Directory lezers**: dit is een verouderde rol die is toegewezen aan toepassingen die geen ondersteuning voor de [Framework toestemming](active-directory-integrating-applications.md). Deze moet niet worden toegewezen aan alle gebruikers.
 
 * **Directory-synchronisatie Accounts**: niet gebruiken. Deze rol is wordt automatisch toegewezen aan de service Azure AD Connect en niet bedoeld of ondersteund voor ander gebruik.
 
 * **Directory schrijvers**: dit is een verouderde rol die is toegewezen aan toepassingen die geen ondersteuning voor de [Framework toestemming](active-directory-integrating-applications.md). Deze moet niet worden toegewezen aan alle gebruikers.
+
+* **Dynamics 365 beheerder**: gebruikers aan deze rol globale machtigingen in Microsoft Dynamics 365, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en controleren van de status van de service hebben. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Exchange-servicebeheerder**: gebruikers met deze rol globale machtigingen in Microsoft Exchange Online zijn wanneer de service aanwezig is. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2018
+ms.date: 6/08/2018
 ms.author: johnkem
-ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 20f148988191c130d8e10f1776f3bbe1612a8c17
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248173"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor Azure diagnostische logboeken
 
@@ -29,30 +30,34 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 
 | Service | Schema & Docs |
 | --- | --- |
-| Analysis Services | Het schema is niet beschikbaar. |
+| Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [Diagnostische logboeken van API Management](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Toepassingsgateways |[Logboekregistratie van diagnostische gegevens voor de toepassingsgateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics voor Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Diagnostische logboekregistratie van Azure Batch](../batch/batch-diagnostics.md) |
-| Customer Insights | Het schema is niet beschikbaar. |
-| CDN (Content Delivery Network) | Het schema is niet beschikbaar. |
+| CDN (Content Delivery Network) | [Azure diagnostische logboeken voor CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Logboekregistratie van Azure Cosmos DB](../cosmos-db/logging.md) |
+| Data Factory | [Data Factory met Azure Prestatiemeter bewaken](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Diagnostische logboeken openen voor Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Toegang tot diagnoselogboeken voor Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| DB voor PostgreSQL |  Het schema is niet beschikbaar. |
 | Event Hubs |[Diagnostische logboeken van Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
+| ExpressRoute | Het schema is niet beschikbaar. |
 | IoT Hub | [Bewerkingen van de IoT-Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Logboekregistratie van Azure Key Vault](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Logboekanalyse voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Aangepast Logic Apps B2B-volgschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Netwerkbeveiligingsgroepen |[Logboekanalyses voor netwerkbeveiligingsgroepen (NSG's)](../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS-beveiliging | Het schema is niet beschikbaar. |
+| DDoS Protection | [Standaard voor Azure DDoS-beveiliging beheren](../virtual-network/manage-ddos-protection.md) |
+| Power BI Dedicated | Het schema is niet beschikbaar. |
 | Recovery Services | [Het gegevensmodel voor Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Inschakelen en gebruiken van Search Traffic Analytics](../search/search-traffic-analytics.md) |
-| Server Management | Het schema is niet beschikbaar. |
 | Service Bus |[Diagnostische logboeken van Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Diagnostische logboekregistratie van Azure SQL Database](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Diagnostische logboeken van taak](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Traffic Manager | Het schema is niet beschikbaar. |
 | Virtuele netwerken | Het schema is niet beschikbaar. |
+| Virtuele netwerkgateways | Het schema is niet beschikbaar. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Logboek categorieën per resourcetype ondersteund
 |Resourcetype|Category|Weergavenaam van de categorie|
@@ -74,6 +79,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.DataLakeStore/accounts|Controleren|Controlelogboeken|
 |Microsoft.DataLakeStore/accounts|Aanvragen|Logboeken aanvragen|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL Server-logboeken|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|Back-up PostgreSQL-gebeurtenissen|
 |Microsoft.Devices/IotHubs|Verbindingen|Verbindingen|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|De Apparaattelemetrie|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D-opdrachten|
@@ -90,6 +96,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.Devices/provisioningServices|ServiceOperations|Servicebewerkingen|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
+|Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Archief Logboeken|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operationele Logboeken|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Logboeken voor automatisch schalen|
@@ -112,6 +119,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Diagnostische logboeken voor P2S|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager-test statusgebeurtenis resultaten|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabel met GWM prestatiemeteritems|
+|Microsoft.PowerBIDedicated/capacities|Engine|Engine|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup rapportgegevens|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery-taken|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery-gebeurtenissen|

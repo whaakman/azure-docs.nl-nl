@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e6b9bf194da17ebd03389829ba594bf3fbf1e64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 01ac558ec032d2da8026ce48923d839bd05e85c1
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622098"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235461"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Verplaatsen van gegevens uit een on-premises Cassandra-database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ In dit artikel wordt uitgelegd hoe de Kopieeractiviteit in Azure Data Factory om
 U kunt gegevens uit een on-premises Cassandra-gegevensopslag kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst met gegevensarchieven als PUT wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data factory ondersteunt momenteel alleen zwevend gegevens uit een gegevensopslag Cassandra tot andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven met Cassandra gegevensopslag. 
 
 ## <a name="supported-versions"></a>Ondersteunde versies
-De connector Cassandra ondersteunt de volgende versies van Cassandra: 2.X.
+De connector Cassandra ondersteunt de volgende versies van Cassandra: 2.x en 3.x. Voor de activiteit is uitgevoerd op Self-hosted integratie Runtime, Cassandra 3.x wordt ondersteund sinds IR versie 3.7 en hoger.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor de Azure Data Factory-service kunnen verbinding maken met uw lokale Cassandra-database, moet u een Data Management Gateway installeren op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer om te voorkomen dat concurrentie voor resources met de database. Data Management Gateway is een onderdeel dat on-premises gegevensbronnen met cloud-services op een manier veilig en beheerd verbindt. Zie [Data Management Gateway](data-factory-data-management-gateway.md) voor meer informatie over Data Management Gateway. Zie [gegevens verplaatsen van on-premises naar cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor stapsgewijze instructies over het instellen van de gateway een gegevens-pijplijn om gegevens te verplaatsen.
@@ -75,6 +75,9 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 | wachtwoord |Wachtwoord voor het gebruikersaccount opgeven. |Ja, als authenticationType is ingesteld op Basic. |
 | gatewayName |De naam van de gateway die wordt gebruikt voor verbinding met de lokale Cassandra-database. |Ja |
 | encryptedCredential |De referentie is versleuteld met de gateway. |Nee |
+
+>[!NOTE]
+>Verbinding met het gebruik van SSL Cassandra wordt momenteel niet ondersteund.
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets van de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties zoals structuur, beschikbaarheid en beleid van een gegevensset JSON zijn identiek voor alle gegevensset typen (Azure SQL, Azure blob-, Azure-tabel, enz.).

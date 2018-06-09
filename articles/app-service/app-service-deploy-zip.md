@@ -2,10 +2,10 @@
 title: Uw app implementeren in Azure App Service met een ZIP- of WAR-bestand | Microsoft Docs
 description: Informatie over het implementeren van uw app in Azure App Service met een ZIP-bestand (of een WAR-bestand voor Java-ontwikkelaars).
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 6ecbf111bad96bce310109ac1a3e8f3bb846be6c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3178d5cb09087a243a51e20567895d03ce1f7fb
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234131"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Uw app implementeren in Azure App Service met een ZIP- of WAR-bestand
 
@@ -82,7 +83,7 @@ Met deze opdracht worden de bestanden en mappen uit het ZIP-bestand geïmplement
 
 ## <a name="deploy-war-file"></a>Implementeer WAR-bestand
 
-Als u wilt implementeren een WAR-bestand in App Service, een POST-aanvraag naar https://<app_name>.scm.azurewebsites.net/api/wardeploy te verzenden. De POST-aanvraag moet het bestand .war in de hoofdtekst van bericht bevatten. De referenties voor de implementatie voor uw app zijn opgegeven in de aanvraag via HTTP basisverificatie. 
+Als u wilt implementeren een WAR-bestand in App Service, een POST-aanvraag naar https://<app_name>.scm.azurewebsites.net/api/wardeploy te verzenden. Het WAR-bestand moet zijn opgenomen in de hoofdtekst van de POST-aanvraag. De implementatiereferenties voor uw app moet u opgegeven in de aanvraag met behulp van HTTP-basisverificatie. 
 
 Voor de verificatie van de HTTP-BASISVERIFICATIE moet u de referenties voor uw App Service-implementatie. Zie voor het instellen van referenties voor uw implementatie [instellen en opnieuw instellen op gebruikersniveau referenties](app-service-deployment-credentials.md#userscope).
 
@@ -106,6 +107,8 @@ $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
 ```
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

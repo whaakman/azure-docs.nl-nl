@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/07/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 4c3b88d9f522e28189bcb746905d35dced9d31cc
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 61ff91709b52f7378bbc320524781dca7faf2204
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248874"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD-toepassingsproxy publiceren
 
@@ -49,6 +50,8 @@ In een implementatie RDS uitvoeren de extern bureaublad-Webrol en de rol extern 
 - U hebt al [geïmplementeerd RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), en [toepassingsproxy hebt ingeschakeld](application-proxy-enable.md).
 
 - Dit scenario veronderstelt dat uw eindgebruikers gaan via Internet Explorer op Windows 7 of Windows 10-desktops die verbinding via de extern bureaublad-webpagina maken. Als u nodig hebt voor de ondersteuning van andere besturingssystemen, Zie [ondersteuning voor andere clientconfiguraties](#support-for-other-client-configurations).
+
+- Wanneer u publiceert met RD Web, is het raadzaam te gebruiken dezelfde interne en externe FQDN-naam. Als de interne en externe FQDN-namen verschillen moet u Header vertaling aanvragen om te voorkomen dat de ontvangst van ongeldige koppelingen uitschakelen. 
 
 - Schakel de RDS ActiveX-invoegtoepassing voor op Internet Explorer.
 

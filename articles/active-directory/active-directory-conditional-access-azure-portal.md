@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2018
+ms.date: 06/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ddfa3d70e2ce901a59476c5c0784d35999731ed6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0730fbd2df6c2a0a8b8d0930c86709c0e3012002
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724357"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248717"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Voorwaardelijke toegang in Azure Active Directory
 
@@ -32,6 +32,7 @@ Beveiliging is een belangrijkste aandachtspunt voor organisaties met behulp van 
 ![Besturingselement](./media/active-directory-conditional-access-azure-portal/81.png)
 
 Dit artikel vindt u een conceptueel overzicht van voorwaardelijke toegang in Azure AD.
+
 
 
 ## <a name="common-scenarios"></a>Algemene scenario's
@@ -60,7 +61,7 @@ Deze vragen en de bijbehorende antwoorden vertegenwoordigen gangbare scenario's 
 
 ## <a name="conditional-access-policies"></a>Voorwaardelijk toegangsbeleid
 
-Beleid voor voorwaardelijke toegang is de definitie van een access-scenario met het volgende patroon volgen:
+Beleid voor voorwaardelijke toegang is een definitie van een access-scenario met het volgende patroon volgen:
 
 ![Besturingselement](./media/active-directory-conditional-access-azure-portal/10.png)
 

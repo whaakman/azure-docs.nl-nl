@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8e9781f97c7d605a5249fcc1684dc2f72cb1e3ac
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f9793156b3728f617b92624651ff89ab2665c061
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824428"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235804"
 ---
 # <a name="determine-the-listing-type-for-your-solution"></a>Het Type aanbieding voor uw oplossing bepalen  
 De winkelobjecten ondersteunen veel publicatieopties: typen aanbieding en typen aan te bieden. Selecteer een aanbiedingtype die het best de details van uw oplossing en de service vertegenwoordigt. Alle publicatieopties geven toegang om te leiden delen.   
@@ -209,10 +209,11 @@ Microsoft ondersteunt momenteel gratis en bring-your-eigenaar-license (BYOL) lic
 
 | Vereiste | Details |  
 |:--- |:--- |  
-| Facturerings- en softwarelicentiecontrole | Ondersteuning voor beide de gratis of facturering BYOL-model. |  
-|Afbeelding is gemaakt van Dockerfile    |   Installatiekopieën van de container moeten worden gebaseerd op de Docker-installatiekopie-specificatie en moeten worden gebouwd op basis van een Dockerfile. Meer informatie over het maken van docker-installatiekopieën [hier]. (https://docs.docker.com/engine/reference/builder/#usage) |
-|Host in ACR    |   Installatiekopieën van de container moeten worden gehost in een Azure Container register (ACR)-opslagplaats. Meer informatie over het werken met ACR [hier]. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)   |
-|Afbeelding tagging    |   Installatiekopieën van de container moeten ten minste 1 tag bevatten (maximum aantal tags: 16). Meer informatie over labels van een installatiekopie van [hier]. (https://docs.docker.com/engine/reference/commandline/tag/)    |
+|Facturerings- en softwarelicentiecontrole  |  De container moet ondersteuning bieden voor een gratis of Bring Your Own License modellen facturering.       |  
+|Afbeelding is gemaakt van Dockerfile   |   Installatiekopieën van de container moeten worden gebaseerd op de Docker-installatiekopie-specificatie en moeten worden gebouwd op basis van een Dockerfile. Meer informatie over het maken van docker-installatiekopieën [hier]. (https://docs.docker.com/engine/reference/builder/#usage)
+|Host in ACR   |   Installatiekopieën van de container moeten worden gehost in een Azure Container register (ACR)-opslagplaats. Meer informatie over het werken met ACR [hier]. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     
+|Afbeelding tagging   |   Installatiekopieën van de container moeten ten minste 1 tag bevatten (maximum aantal tags: 16). Meer informatie over labels van een installatiekopie van [hier]. (https://docs.docker.com/engine/reference/commandline/tag/)     | 
+
 
 
 #### <a name="requirements-azure-marketplace-transact-saas-app"></a>Vereisten: Azure Marketplace: Transact: SaaS-app  
@@ -224,10 +225,11 @@ Microsoft als host fungeert voor de handel-transactie. Microsoft stuklijsten uw 
 
 | Vereiste | Details |  
 |:--- |:--- |  
-| Facturerings- en softwarelicentiecontrole | Uw aanbieding is een maandelijkse vast tarief prijs. Gebruik gebaseerde prijscategorie en gebruik gebaseerde *true-up* opties worden niet ondersteund op dit moment. |  
-| Annulering | Uw aanbieding is op elk gewenst moment Annuleerbare door de klant. |  
-|Startpagina van de transactie     |   Voor het hosten van de startpagina van een Azure gezamenlijke transactie waar gebruikers kunnen maken en beheren van de SaaS-serviceaccount.      |    Transactie     |
-|API-abonnement    |   Stelt u een service die met de SaaS-abonnement maken communiceren kan, bijwerken en verwijderen van een gebruiker-account en service-plan bloot. Kritieke API wijzigingen moeten binnen 24 uur worden ondersteund. Niet-kritieke API wijzigingen worden regelmatig uitgebracht.      |     Transactie    |
+|Facturerings- en softwarelicentiecontrole   |   Uw aanbieding is een maandelijkse vast tarief prijs. Gebruik gebaseerde-prijzen en -mogelijkheden voor op gebruik gebaseerde 'true '-up worden niet ondersteund op dit moment.      |  
+|Annulering  |   Uw aanbieding is op elk gewenst moment Annuleerbare door de klant.      |  
+|Startpagina van de transactie   |   Voor het hosten van de startpagina van een Azure gezamenlijke transactie waar gebruikers kunnen maken en beheren van de SaaS-serviceaccount.      |   
+|API-abonnement    |   Stelt u een service die met de SaaS-abonnement maken communiceren kan, bijwerken en verwijderen van een gebruiker-account en service-plan bloot. Kritieke API wijzigingen moeten binnen 24 uur worden ondersteund. Niet-kritieke API wijzigingen worden regelmatig uitgebracht.      | 
+
 
 
 #### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Vereisten: Azure Marketplace: Transact: virtuele machine  

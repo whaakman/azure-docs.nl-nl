@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 6189038a338a9151b23dbdad11d86e43709a96a0
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247941"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker inrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
 Azure Active Directory (Azure AD) kunt u het maken, het onderhoud en het verwijderen van gebruikers-id's in de cloud automatiseren ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) toepassingen zoals Dropbox, Salesforce en ServiceNow.
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
 **Hieronder volgen enkele voorbeelden van wat deze functie u kunt doen:**
 
@@ -44,7 +47,7 @@ Sommige algemene motivaties voor het gebruik van deze functie zijn onder andere:
 * De kosten, inefficiënte en menselijke fouten die zijn gekoppeld aan de handmatige inrichting processen voorkomen.
 * De kosten in verband met de host en onderhouden van ontwikkelde aangepaste oplossingen voor inrichting en scripts te vermijden
 * Beveiligen van uw organisatie met de identiteit van gebruikers direct verwijderen uit sleutel SaaS-apps wanneer ze de organisatie verlaat.
-* Eenvoudig importeren een groot aantal gebruikers in een bepaalde SaaS-toepassing of het systeem.
+* Eenvoudig een groot aantal gebruikers in een bepaalde SaaS-toepassing of het systeem importeren.
 * Om te profiteren van een enkele set beleidsregels om te bepalen die is ingericht en die zich aanmelden bij een app hebben.
 
 
@@ -77,6 +80,8 @@ Neem contact op met de Azure AD technisch team om aan te vragen van de inrichtin
     
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Hoe stel ik automatische inrichting tot een toepassing?
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 Configuratie van de Azure AD-service inricht voor een geselecteerde toepassing wordt gestart in de  **[Azure-portal](https://portal.azure.com)**. In de **Azure Active Directory > bedrijfstoepassingen** sectie **toevoegen**, klikt u vervolgens **alle**, en voeg vervolgens een van de volgende, afhankelijk van uw scenario:
 
@@ -170,31 +175,50 @@ Wanneer het in quarantaine, is de frequentie van incrementele synchronisaties ge
 Inrichtingstaak van de wordt verwijderd uit quarantaine nadat u alle van de strijdige fouten worden opgelost en de volgende synchronisatiecyclus wordt gestart. Als de taak in quarantaine gedurende meer dan vier weken blijft, wordt de taak is uitgeschakeld.
 
 
+## <a name="how-long-will-it-take-to-provision-users"></a>Hoe lang duurt het inrichten van gebruikers?
+
+Prestaties afhankelijk van of uw inrichtingstaak is uitvoert voor een eerste synchronisatie of een incrementele synchronisatie, zoals beschreven in de vorige sectie.
+
+Voor **initiële synchronisatie**, de tijd voor de taak is afhankelijk van diverse factoren, waaronder het aantal gebruikers en groepen binnen het bereik van de inrichting en het totale aantal gebruikers en groepen in het bronsysteem. Een uitgebreide lijst met factoren die van invloed op prestaties van de initiële synchronisatie worden later in deze sectie worden samengevat.
+
+Voor **incrementele synchronisaties**, de taaktijd is afhankelijk van het aantal wijzigingen in synchronisatiecyclus gedetecteerd. Als er minder dan 5000 gebruikers- of wijzigingen voor een groepslidmaatschap, kan de taak voltooid binnen een synchronisatiecyclus één incrementele. 
+
+De volgende tabel geeft een overzicht van synchronisatietijden voor algemene inrichting scenario's. In deze scenario's, het bronsysteem is Azure AD en het doelsysteem een SaaS-toepassing is. De synchronisatie-tijden zijn afgeleid van een statistische analyse van synchronisatietaken voor de SaaS-toepassingen ServiceNow, werkplek, Salesforce en Google Apps.
+
+
+| Configuratie van de scope | Gebruikers, groepen en leden in het bereik | Tijd van eerste synchronisatie | Tijd van incrementele synchronisatie |
+| -------- | -------- | -------- | -------- |
+| Toegewezen gebruikers en groepen alleen synchroniseren |  < 1000 |  < 30 minuten | < 30 minuten |
+| Toegewezen gebruikers en groepen alleen synchroniseren |  1.000 - 10.000 | 142 - 708 minuten | < 30 minuten |
+| Toegewezen gebruikers en groepen alleen synchroniseren |   10.000 - 100.000 | 1,170 - 2,340 minuten | < 30 minuten |
+| Alle gebruikers en groepen in Azure AD synchroniseren |  < 1000 | < 30 minuten  | < 30 minuten |
+| Alle gebruikers en groepen in Azure AD synchroniseren |  1.000 - 10.000 | < 30 tot 120 minuten | < 30 minuten |
+| Alle gebruikers en groepen in Azure AD synchroniseren |  10.000 - 100.000  | 713 - 1,425 minuten | < 30 minuten |
+| Alle gebruikers in Azure AD synchroniseren|  < 1000  | < 30 minuten | < 30 minuten |
+| Alle gebruikers in Azure AD synchroniseren | 1.000 - 10.000  | 43 - 86 minuten | < 30 minuten |
+
+
+Voor de configuratie **Sync toegewezen gebruikers en groepen alleen**, kunt u de volgende formules om te bepalen van de geschatte minimum en maximum verwacht **initiële synchronisatie** tijden:
+
+    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
+    
+Samenvatting van de factoren die van invloed op de tijd die nodig is om een **initiële synchronisatie**:
+
+* Het totale aantal gebruikers en groepen binnen het bereik van de inrichting
+
+* Het totale aantal gebruikers, groepen en de leden van de beveiligingsgroep is aanwezig in het bronsysteem (Azure AD)
+
+* Of gebruikers binnen het bereik van de inrichting worden vergeleken met bestaande gebruikers in de doeltoepassing of moeten worden gemaakt voor de eerste keer. Synchronisatietaken voor dat alle gebruikers worden gemaakt voor de eerste keer duurt circa *tweemaal zo lang* als taken voor die alle gebruikers zijn vergeleken met bestaande gebruikers synchroniseren.
+
+* Aantal fouten in de [controlelogboeken](active-directory-saas-provisioning-reporting.md). Is trager als er veel fouten en de inrichting-service is overgegaan op een quarantaine-status   
+
+* Aanvraag frequentielimieten en beperking geïmplementeerd door het doelsysteem. Sommige doelsystemen aanvraag frequentielimieten en de beperking die kunnen invloed hebben op prestaties bij grote synchronisatiebewerkingen geïmplementeerd. In deze omstandigheden kan een app die te veel aanvragen te snel ontvangt de respons vertragen of de verbinding niet sluiten. Om prestaties te verbeteren, moet de connector aanpassen door te sturen de app-aanvragen niet sneller dan de app kan verwerken. Gebouwd door Microsoft met inrichting connectors kunt deze aanpassing. 
+
+* Het aantal en grootte van de toegewezen groepen. Toegewezen groepen synchroniseren duurt langer dan het synchroniseren van gebruikers. Het nummer en de grootte van de prestaties van de impact toegewezen groepen. Als een toepassing [toewijzingen ingeschakeld voor groep object sync](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings)en eigenschappen van de groep, zoals namen groeperen lidmaatschappen naast gebruikers worden gesynchroniseerd. Deze extra synchronisaties duurt langer dan alleen gebruikersobjecten worden gesynchroniseerd.
+ 
+
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-
-**Hoe lang duurt het inrichten van mijn gebruikers?**
-
-Prestaties zijn afwijken, afhankelijk van of uw inrichtingstaak van een initiële synchronisatie of een incrementele synchronisatie wordt uitgevoerd.
-
-Voor de eerste wordt gesynchroniseerd worden de tijd die nodig zijn om te voltooien rechtstreeks afhankelijk van hoeveel gebruikers, groepen en groepsleden aanwezig in het bronsysteem zijn. Initiële synchronisatie binnen een paar minuten kunnen uitvoeren die zeer kleine bronsystemen honderden objecten. Bronsystemen met honderden of duizenden of miljoenen gecombineerde objecten duurt langer.
-
-Voor incrementele synchronisaties is de tijd die nodig is afhankelijk van de wijzigingen in synchronisatiecyclus gedetecteerd. Als er minder dan 5000 gebruikers- of wijzigingen in groepslidmaatschappen gedetecteerd, kunnen deze vaak in een cyclus 40 minuten worden gesynchroniseerd. 
-
-Houd er rekening mee dat algehele prestaties afhankelijk van de bron-en doelsystemen is. Sommige doelsystemen implementeren aanvraag frequentielimieten en beperking dat kunt impact prestaties bij grote synchronisatiebewerkingen en de vooraf gemaakte Azure AD-connectors voor deze systemen inrichting rekening.
-
-Is ook trager als er veel fouten (opgenomen in de [controlelogboeken](active-directory-saas-provisioning-reporting.md)) en de inrichting-service is geworden in een status 'quarantaine'.
-
-**Hoe kan ik de prestaties van synchronisatie verbeteren?**
-
-De meeste prestatieproblemen optreden tijdens de initiële synchronisatie van systemen die een groot aantal groepen en leden van de beveiligingsgroep hebt.
-
-Als de synchronisatie van groepen of groepslidmaatschappen is niet vereist, kan de synchronisatie-prestaties aanzienlijk worden verbeterd door:
-
-1. Instellen van de **inrichten > Instellingen > bereik** menu **Alles synchroniseren**, in plaats van toegewezen gebruikers en groepen worden gesynchroniseerd.
-2. Gebruik [bereikfilters](active-directory-saas-scoping-filters.md) in plaats van de toewijzingen voor het filteren van de lijst met gebruikers die zijn ingericht.
-
-> [!NOTE]
-> Voor toepassingen die ondersteuning bieden voor inrichting van namen en eigenschappen van de groep (zoals ServiceNow en Google Apps), minder uitschakelen van dit ook tijd die nodig is voor een initiële synchronisatie te voltooien. Als u niet inrichten namen van groepen en groepslidmaatschappen voor uw toepassing wilt, kunt u uitschakelen in de [kenmerktoewijzingen](active-directory-saas-customizing-attribute-mappings.md) van de inrichting van de configuratie.
 
 **Hoe kan ik de voortgang van de inrichtingstaak van de huidige bijhouden**
 

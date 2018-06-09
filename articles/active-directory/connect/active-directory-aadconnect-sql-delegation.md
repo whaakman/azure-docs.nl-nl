@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d0cfce1dfe6482397e421d85d59494e6d75cc441
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 198ecdbf81c2b8efeec23da2c5d5d087128b20e9
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591154"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233560"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installeren Azure AD Connect met SQL delegated administrator-machtigingen
 Vóór de laatste build van de Azure AD Connect beheerdersrechten delegering bij het implementeren van configuraties die SQL vereist, niet wordt ondersteund.  Gebruikers die wilden Azure AD Connect installeert die nodig zijn om machtigingen voor server-beheerder (SA) op de SQL server.
@@ -48,7 +48,7 @@ Gebruik de volgende stappen voor het inrichten van de buiten-band-database en Az
 2.  Verleen de beheerder van de Azure AD Connect en het domeinaccount van de service de volgende machtigingen:
     - SQL-aanmelding 
     - **database-owner(dbo)** rechten.  </br>
-![Machtigingen](media/active-directory-aadconnect-sql-delegation/sql3.png)
+![Machtigingen](media/active-directory-aadconnect-sql-delegation/sql3a.png)
 3.  Een e-mail sturen naar de Azure AD Connect-beheerder die aangeeft dat de SQL server en het exemplaar dat moet worden gebruikt bij het installeren van Azure AD Connect.
 
 ## <a name="additional-information"></a>Aanvullende informatie

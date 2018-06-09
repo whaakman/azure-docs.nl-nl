@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: d7ec3a3fe26600e69a7e4f511c01006a97cbe12c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 07299b960747528dde8dcefc70055442c2150486
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839478"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235988"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integratie van Azure Active Directory-auditlogboeken
 
@@ -28,7 +28,7 @@ Controlegebeurtenissen van Azure Active Directory (Azure AD) kunnen u bepalen be
 
 
 >[!IMPORTANT]
-> De functie van de integratie met Azure-logboekanalyse door 01-06/2019 afgeschaft. Door 27 Jun 2018 AzLog downloads uitgeschakeld. Voor hulp bij het wat te doen zwevend forward revisie van het bericht [gebruik Azure-monitor voor de integratie met SIEM's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> De functie van de integratie met Azure-logboekanalyse door 01-06/2019 afgeschaft. Door 27 Jun 2018 AzLog downloads uitgeschakeld. Voor hulp bij het wat te doen zwevend forward revisie van het bericht [gebruik Azure-monitor voor de integratie met SIEM's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stappen voor het integreren van Azure Active Directory-auditlogboeken
 

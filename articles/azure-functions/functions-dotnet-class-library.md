@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: cea2fb3069ff69130720049c002e19fa14266b9f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 53eaef775647795acf3e8e6fcd127181414b1c0e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831969"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234492"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -311,6 +311,8 @@ public static class EnvironmentVariablesExample
     }
 }
 ```
+
+De [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) eigenschap is een alternatieve API voor het ophalen van app-instellingswaarden, maar het is raadzaam dat u `GetEnvironmentVariable` zoals hier wordt weergegeven.
 
 ## <a name="binding-at-runtime"></a>Binding tijdens runtime
 

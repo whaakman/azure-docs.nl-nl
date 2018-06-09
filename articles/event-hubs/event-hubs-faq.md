@@ -5,20 +5,16 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/07/2018
 ms.author: sethm
-ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4c28f1ae5517e54fab259e680128d6c666c82fbe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235308"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Veelgestelde vragen over Event Hubs
 
@@ -30,7 +26,7 @@ De prijscategorie Standard van Azure Event Hubs biedt functies afgezien van wat 
 * Langere bewaartermijn van gebeurtenis
 * Extra brokered verbindingen met een overschrijding kosten voor meer dan het aantal opgenomen
 * Meer dan één groep Consumer
-* [vastleggen](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [vastleggen](event-hubs-capture-overview.md)
 
 Zie voor meer informatie over prijzen voor lagen, waaronder Event Hubs is toegewezen, de [Event Hubs prijsinformatie](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -58,9 +54,10 @@ Met behulp van de [automatisch vergroten](event-hubs-auto-inflate.md) functie, k
 Ja, zolang alle event hubs in dezelfde naamruimte zijn.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Wat is de maximale bewaarperiode voor gebeurtenissen?
-Event Hubs standaardcategorie ondersteunt momenteel een maximale bewaarperiode van 7 dagen. Event Hubs zijn echter niet bedoeld als permanente gegevensopslag. De bewaarperiode is langer dan 24 uur zijn bedoeld voor scenario's waarin het is handig voor de replay van een stroom gebeurtenissen in de dezelfde systemen; Als u bijvoorbeeld wilt trainen of een nieuwe machine learning-model op bestaande gegevens te verifiëren. Als u bewaren dan 7 dagen-bericht moet, waardoor [Event Hubs vastleggen](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) op uw event hub de gegevens ophaalt uit uw event hub aan de Storage-account of een Azure Data Lake-Service-account van uw keuze. Een kosten op basis van uw aangeschafte doorvoereenheid leidt ertoe dat vastleggen inschakelen.
+Event Hubs standaardcategorie ondersteunt momenteel een maximale bewaarperiode van 7 dagen. Event Hubs zijn echter niet bedoeld als permanente gegevensopslag. De bewaarperiode is langer dan 24 uur zijn bedoeld voor scenario's waarin het is handig voor de replay van een stroom gebeurtenissen in de dezelfde systemen; Als u bijvoorbeeld wilt trainen of een nieuwe machine learning-model op bestaande gegevens te verifiëren. Als u bewaren dan 7 dagen-bericht moet, waardoor [Event Hubs vastleggen](event-hubs-capture-overview.md) op uw event hub de gegevens ophaalt uit uw event hub aan de Storage-account of een Azure Data Lake-Service-account van uw keuze. Vastleggen inschakelen leidt ertoe dat een kosten op basis van uw aangeschafte doorvoereenheden.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Waar Azure Event Hubs beschikbaar is?
+
 Azure Event Hubs is beschikbaar in alle ondersteunde Azure-regio's. Voor een lijst, gaat u naar de [Azure-regio's](https://azure.microsoft.com/regions/) pagina.  
 
 ## <a name="best-practices"></a>Aanbevolen procedures
@@ -101,22 +98,27 @@ Vastleggen maakt gebruik van een opslagaccount dat u opgeeft wanneer ingeschakel
 ## <a name="quotas"></a>Quota
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Zijn er geen quota's die zijn gekoppeld aan de Event Hubs?
+
 Zie voor een lijst van alle Event Hubs quota [quota](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Wat zijn enkele van de uitzonderingen die worden gegenereerd door de Event Hubs en hun voorgestelde acties?
+
 Zie voor een lijst van mogelijke Event Hubs uitzonderingen [uitzonderingen overzicht](event-hubs-messaging-exceptions.md).
 
 ### <a name="diagnostic-logs"></a>Diagnostische logboeken
+
 Event Hubs ondersteunt twee typen [diagnostische logboeken](event-hubs-diagnostic-logs.md) -foutenlogboeken en operationele logboeken - die beide worden weergegeven in json en kunnen worden ingeschakeld via de Azure portal vastleggen.
 
 ### <a name="support-and-sla"></a>Ondersteuning en SLA
+
 Technische ondersteuning voor Event Hubs is beschikbaar via de [communityforums](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Ondersteuning bij facturering en abonnementsbeheer is gratis.
 
 Zie voor meer informatie over onze SLA, de [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 
 * [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)

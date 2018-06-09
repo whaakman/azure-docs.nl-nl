@@ -5,27 +5,32 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1d57537428f5ac1085b6cbae93be6f77c71b12e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 19b1090a37ae1f97537fcabe128e7958fc26a96a
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235886"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Maken en configuratiebestanden van de VPN-clients voor P2S RADIUS-verificatie installeren
 
 Als u wilt verbinden met een virtueel netwerk via de punt-naar-site (P2S), moet u het clientapparaat waarvan maakt u verbinding met configureren. U kunt P2S-VPN-verbindingen maken in Windows, Mac OS X- en Linux-clientapparaten. 
 
 Wanneer u van RADIUS-verificatie gebruikmaakt, er zijn meerdere opties voor verificatie: verificatie van de gebruikersnaam en wachtwoord, verificatie via certificaat en andere verificatietypen. De configuratie van de VPN-client verschilt voor elk type verificatie. Voor het configureren van de VPN-client u configuratiebestanden voor clients die de vereiste instellingen bevatten. In dit artikel helpt u bij het maken en installeren van de configuratie van de VPN-client voor het RADIUS-verificatie-type dat u wilt gebruiken.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 De configuratiewerkstroom voor P2S RADIUS-verificatie is als volgt:
 
@@ -153,6 +158,10 @@ De volgende instructies zijn gemaakt via strongSwan 5.5.1 op Ubuntu 17.0.4. Werk
  
 Configuratiebestanden voor RADIUS-verificatie via certificaat die het EAP-TLS-protocol gebruikt, kunt u VPN-client maken. Een onderneming uitgegeven certificaat wordt normaal gesproken een gebruiker te verifiëren voor VPN-verbinding gebruikt. Zorg ervoor dat alle gebruikers van de verbinding is een certificaat geïnstalleerd op hun apparaten en dat de RADIUS-server kan worden gebruikt voor het valideren van het certificaat.
 
+>[!NOTE]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
+
 In de opdrachten `-AuthenticationMethod` is `EapTls`. Tijdens de certificaatverificatie controleert de client de RADIUS-server door het certificaat te valideren. `-RadiusRootCert` is het .cer-bestand dat het basiscertificaat dat wordt gebruikt voor het valideren van de RADIUS-server bevat.
 
 Elke client VPN-apparaat vereist een certificaat van de geïnstalleerde client. Soms heeft een Windows-apparaat meerdere clientcertificaten. Tijdens verificatie wordt kan dit resulteren in een pop-dialoogvenster met een lijst met alle certificaten. De gebruiker moet vervolgens kiezen voor het certificaat te gebruiken. Het juiste certificaat kan worden gefilterd uit door op te geven van het basiscertificaat waaraan het clientcertificaat moet aan zijn gekoppeld. 
@@ -210,7 +219,7 @@ Gebruik de volgende stappen voor het configureren van de systeemeigen VPN-client
 
    ![Het certificaat RadiusServerRoot toevoegen](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
 2. Elke client vereist een clientcertificaat voor verificatie. Installeer het certificaat op het clientapparaat.
-3. Open de **netwerk** dialoogvenster onder **Netwerkvoorkeuren**. Selecteer  **+**  voor het maken van een nieuwe VPN-client verbindingsprofiel voor P2S verbinding met het Azure-netwerk.
+3. Open de **netwerk** dialoogvenster onder **Netwerkvoorkeuren**. Selecteer **+** voor het maken van een nieuwe VPN-client verbindingsprofiel voor P2S verbinding met het Azure-netwerk.
 
    De **Interface** waarde is **VPN**, en de **VPN-Type** waarde is **IKEv2**. Geef een naam voor het profiel in de **servicenaam** vak en selecteer vervolgens **maken** het profiel voor VPN-client verbinding maken.
 

@@ -5,21 +5,22 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236430"
 ---
 # <a name="about-point-to-site-vpn"></a>Over punt-naar-Site VPN-
 
@@ -47,19 +48,23 @@ Voordat u Azure accepteert een P2S-VPN-verbinding, heeft de gebruiker moet eerst
 
 Wanneer u de systeemeigen Azure certificaatverificatie gebruikt, wordt een clientcertificaat dat aanwezig is op het apparaat wordt gebruikt voor verificatie van de gebruiker verbinding maakt. Clientcertificaten worden gegenereerd op basis van een vertrouwd basiscertificaat en vervolgens worden geïnstalleerd op elke clientcomputer. U kunt een basiscertificaat dat is gegenereerd met een bedrijfsoplossing of kunt u een zelfondertekend certificaat genereren.
 
-De validatie van het clientcertificaat door de VPN-gateway wordt uitgevoerd en er gebeurt tijdens het tot stand brengen van de P2S-VPN-verbinding. Het basiscertificaat voor de validatie is vereist en moet worden geüpload naar Azure. 
+De validatie van het clientcertificaat door de VPN-gateway wordt uitgevoerd en er gebeurt tijdens het tot stand brengen van de P2S-VPN-verbinding. Het basiscertificaat voor de validatie is vereist en moet worden geüpload naar Azure.
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Verifiëren met behulp van Active Directory (AD) domeinserver
 
 AD-domein verificatie kunnen gebruikers verbinding maken met Azure met de domeinreferenties van hun organisatie. Vereist een RADIUS-server die in combinatie met de server van AD. Organisaties kunnen gebruikmaken van hun bestaande RADIUS-implementatie.   
- De RADIUS-server kan nu geïmplementeerde on-premises of in uw Azure VNET. Tijdens de verificatie, wordt de Azure VPN-Gateway fungeert als een pass through- en verificatieberichten forwards heen en weer tussen de RADIUS-server en het verbindende apparaat. Gateway bereikbaarheid RADIUS-server is dus belangrijk. Als de RADIUS-server aanwezig op locatie, is wordt een S2S VPN-verbinding van Azure naar de lokale site vereist voor bereikbaarheid is.  
- De RADIUS-server kan ook worden geïntegreerd met AD-certificaat-services. Hiermee kunt u de RADIUS-server en de implementatie van uw enterprise-certificaat voor verificatie via certificaat P2S gebruiken als alternatief voor de verificatie van Azure. Het voordeel is dat u hoeft niet te basiscertificaten en ingetrokken certificaten uploaden naar Azure.
+  De RADIUS-server kan nu geïmplementeerde on-premises of in uw Azure VNET. Tijdens de verificatie, wordt de Azure VPN-Gateway fungeert als een pass through- en verificatieberichten forwards heen en weer tussen de RADIUS-server en het verbindende apparaat. Gateway bereikbaarheid RADIUS-server is dus belangrijk. Als de RADIUS-server aanwezig op locatie, is wordt een S2S VPN-verbinding van Azure naar de lokale site vereist voor bereikbaarheid is.  
+  De RADIUS-server kan ook worden geïntegreerd met AD-certificaat-services. Hiermee kunt u de RADIUS-server en de implementatie van uw enterprise-certificaat voor verificatie via certificaat P2S gebruiken als alternatief voor de verificatie van Azure. Het voordeel is dat u hoeft niet te basiscertificaten en ingetrokken certificaten uploaden naar Azure.
 
 Een RADIUS-server kan ook worden geïntegreerd met andere systemen externe identiteit. Hiermee opent u tal van opties voor P2S-VPN, inclusief opties voor multi-factor authentication.
 
 ! [punt-naar-site]] (./media/point-to-site-about/p2s.png "Punt-naar-Site")
 
-### <a name="configuration-requirements-for-client-devices"></a>Configuratievereisten voor clientapparaten
+## <a name="what-are-the-client-configuration-requirements"></a>Wat zijn de vereisten van de configuratie van client?
+
+>[!NOTE]
+>Voor Windows-clients, moet u beheerdersrechten hebben op het clientapparaat om te kunnen starten van de VPN-verbinding van het clientapparaat naar Azure.
+>
 
 Gebruikers gebruiken de systeemeigen VPN-clients op Windows en Mac-apparaten voor P2S. Azure biedt een VPN-client configuration zip-bestand met instellingen die vereist zijn door deze systeemeigen clients verbinding maken met Azure.
 
@@ -69,10 +74,10 @@ Gebruikers gebruiken de systeemeigen VPN-clients op Windows en Mac-apparaten voo
 Het zip-bestand bevat ook de waarden van een aantal belangrijke instellingen op de Azure-zijde die u gebruiken kunt om uw eigen profiel voor deze apparaten te maken. De waarden onder andere het VPN-gateway-adres, geconfigureerde tunneltypen, routes en het basiscertificaat voor de validatie van de gateway.
 
 >[!NOTE]
->Voor Windows-clients, moet u beheerdersrechten hebben op het clientapparaat om te kunnen starten van de VPN-verbinding van het clientapparaat naar Azure.
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>Welke Gateway-SKU's ondersteuning P2S VPN?
+## <a name="gwsku"></a>Welke Gateway-SKU's ondersteuning P2S VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
@@ -81,7 +86,7 @@ Het zip-bestand bevat ook de waarden van een aantal belangrijke instellingen op 
 * Gegevens SLA (Service Level Agreement) vindt u op de pagina SLA.
 
 >[!NOTE]
->De basis-SKU biedt geen ondersteuning voor IKEv2 of RADIUS-verificatie.
+>De basis-SKU biedt geen ondersteuning voor IKEv2- of RADIUS-verificatie.
 >
 
 ## <a name="configure"></a>Hoe kan ik een P2S-verbinding configureren?

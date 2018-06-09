@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: 32360a1af25b92fe232e3e504cb6587dcb364f48
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9bd197ff03ec0c1f9a320a721f69f2efc6a73b4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638762"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235971"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure logboeken met diagnostische gegevens archiveren
 
@@ -28,6 +28,9 @@ In dit artikel, laten we zien hoe u de Azure-portal, PowerShell-Cmdlets, CLI of 
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u begint, moet u [een opslagaccount maken](../storage/storage-create-storage-account.md) waarnaar uw logboeken met diagnostische gegevens kunnen worden gearchiveerd. Het is raadzaam dat u niet een bestaand opslagaccount met andere, niet-bewaking gegevens die zijn opgeslagen in het gebruikt zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook uw activiteitenlogboek en diagnostische metrische gegevens naar een opslagaccount archiveert, kan zinvol zijn voor dit opslagaccount voor uw logboeken met diagnostische gegevens ook gebruiken om alle bewakingsgegevens in een centrale locatie. Het opslagaccount dat u moet een algemeen opslagaccount, niet een blob storage-account.
+
+> [!NOTE]
+>  U kan momenteel niet archiveren gegevens naar een opslag-account die achter een beveiligde virtuele netwerk.
 
 ## <a name="diagnostic-settings"></a>Diagnostische instellingen
 

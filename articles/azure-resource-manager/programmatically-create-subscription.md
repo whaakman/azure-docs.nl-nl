@@ -11,46 +11,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/30/2018
+ms.date: 06/05/2018
 ms.author: jlian
-ms.openlocfilehash: 308202addbca447ee0dab7a55a1ad2b3b6600a10
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df66ba1ec2c855a24731387210b0127892f5796f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603318"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234781"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmatisch maken abonnementen Azure Enterprise (preview)
 
-Als een Azure-klant op [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), u kunt EA (MS-AZR - 0017 P) en abonnementen EA ontwikkelen en testen (MS-AZR - 0148 P) via een programma maken. Als u een andere gebruiker of service-principal de machtiging voor het maken van abonnementen in rekening gebracht bij uw account geven, ze geven [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md) toegang tot je account inschrijving. 
+Als een Azure-klant op [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), u kunt EA (MS-AZR - 0017 P) en abonnementen EA ontwikkelen en testen (MS-AZR - 0148 P) via een programma maken. In dit artikel leert u het maken van abonnementen programmatisch met behulp van Azure Resource Manager.
 
-> [!IMPORTANT]
-> De Azure-abonnementen gemaakt via deze API is afhankelijk van de overeenkomst waaronder u Microsoft Azure-services van Microsoft of een geautoriseerde reseller hebt verkregen. Zie voor meer informatie, [juridische informatie van Microsoft Azure](https://azure.microsoft.com/support/legal/).
+Wanneer u een Azure-abonnement van deze API maakt, wordt dat abonnement beheerst door de overeenkomst waaronder u Microsoft Azure-services van Microsoft of een geautoriseerde wederverkoper hebt aangeschaft. Zie voor meer informatie, [juridische informatie van Microsoft Azure](https://azure.microsoft.com/support/legal/).
 
-U wordt in dit artikel:
+## <a name="prerequisites"></a>Vereisten
 
-> [!div class="checklist"]
-> * Informatie over het maken van abonnementen programmatisch met behulp van Azure Resource Manager
-> * Begrijpen hoe gebruikmaken van RBAC voor het delen van de mogelijkheid te maken van abonnementen in rekening gebracht bij uw account EA
+* Uw account moet de eigenaar van een Account in een Azure-EA-inschrijving. Als dit niet het geval is, de systeembeheerder inschrijving [u toevoegen als de eigenaar van een Account met de EA portal](https://ea.azure.com/helpdocs/addNewAccount) (aanmelden vereist). Volg de instructies in de e-mail uitnodiging dat u ontvangt een eerste abonnement handmatig maken. Eigendom van accounts bevestigen en maak handmatig een initiële EA abonnement voordat u doorgaat met de volgende stap. Het account voor de inschrijving is zojuist toe te voegen niet voldoende.
 
-Zie ook de [.NET voorbeeldcode op GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-
-## <a name="ask-your-ea-enrollment-admin-to-add-you-as-account-owner"></a>Vraag uw beheerder van de inschrijving EA u als eigenaar van Account toevoegen
-
-Om te beginnen, vraag uw beheerder inschrijving [u toevoegen als de eigenaar van een Account in de portal EA](https://ea.azure.com/helpdocs/addNewAccount) (aanmelden vereist). Volg de instructies in de e-mail uitnodiging dat u ontvangt een eerste abonnement handmatig maken.
-
-> [!IMPORTANT]
-> U moet bevestigen eigendom van accounts en maak handmatig een initiële EA abonnement voordat u doorgaat met de volgende stap. Alleen het account toe te voegen aan de inschrijving is niet voldoende.
+* Als u gebruiken van een service-principal wilt voor het maken van het abonnement EA, moet u [de mogelijkheid om abonnementen te maken voor deze service-principal verlenen](grant-access-to-create-subscription.md).
 
 ## <a name="find-accounts-you-have-access-to"></a>U toegang tot hebt accounts vinden
 
-Nadat u hebt toegevoegd aan een Azure-EA inschrijving als de eigenaar van een Account, Azure maakt gebruik van de relatie Accountregistratie om te bepalen waar de abonnement-kosten in rekening. Voor het maken van abonnementen eerst weten welke accounts inschrijving u toegang tot hebt. Als u momenteel een EA Account de eigenaar bent en u probeert te gebruiken van deze API, controleert de Azure voor de volgende omstandigheden:
+Nadat u hebt toegevoegd aan een Azure-EA inschrijving als de eigenaar van een Account, Azure maakt gebruik van de relatie Accountregistratie om te bepalen waar de abonnement-kosten in rekening. Alle abonnementen die zijn gemaakt onder het account worden gefactureerd op met de EA-inschrijving die het account is. U moet doorgeven voor het maken van abonnementen in waarden over de inschrijving-account en de principals gebruiker eigenaar van het abonnement. 
 
-- Uw account is toegevoegd aan een EA-inschrijving
-- U hebt een of meer EA of EA Dev/Test-abonnementen, wat betekent dat u hebt doorlopen handmatig registreren ten minste eenmaal
-- U bent aangemeld bij de accounteigenaar *basismap*, dit is de map die abonnementen zijn gemaakt in standaard
-
-Als de bovenstaande drie voorwaarden wordt voldaan, een `enrollmentAccount` resource wordt geretourneerd en u kunt beginnen met het maken van abonnementen onder dat account. Alle abonnementen die zijn gemaakt onder het account worden gefactureerd op met de EA-inschrijving die het account is.
+Als u wilt de volgende opdrachten uitvoeren, moet u zijn aangemeld tot de accounteigenaar *basismap*, dit is de map die abonnementen zijn gemaakt in standaard.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -87,8 +73,6 @@ Azure reageert met een lijst met alle inschrijving-accounts die u toegang tot he
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
 Gebruik de [opdracht Get-AzureRmEnrollmentAccount](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) voor een lijst met alle inschrijving accounts die u hebt toegang tot.
 
 ```azurepowershell-interactive
@@ -105,13 +89,12 @@ ObjectId                               | PrincipalName
 
 # <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Gebruik de [az facturering inschrijving account lijst](https://aka.ms/EASubCreationPublicPreviewCLI) opdracht om een lijst van alle inschrijving accounts u toegang tot hebt.
 
 ```azurecli-interactive 
 az billing enrollment-account list
 ```
+
 Azure reageert met een lijst met de Object-id's en e-mailadressen van accounts.
 
 ```json
@@ -143,7 +126,7 @@ Gebruik de `principalName` eigenschap om het account dat u wilt dat de abonnemen
 
 ## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Abonnementen met een specifieke inschrijving-account maken 
 
-Het volgende voorbeeld wordt een aanvraag voor het maken van abonnement met de naam *Dev Team abonnement* en abonnement aanbieding is *MS-AZR - 0017P* (reguliere EA). Het account van de inschrijving is `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (aanduidingswaarde, dit is een GUID), is het account van de inschrijving voor SignUpEngineering@contoso.com. Deze voegt eventueel ook twee gebruikers als eigenaars van RBAC voor het abonnement.
+Het volgende voorbeeld wordt een aanvraag voor het maken van abonnement met de naam *Dev Team abonnement* en abonnement aanbieding is *MS-AZR - 0017P* (reguliere EA). Het account van de inschrijving is `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (aanduidingswaarde, deze waarde is een GUID zijn), dit is het account van de inschrijving voor SignUpEngineering@contoso.com. Deze voegt eventueel ook twee gebruikers als eigenaars van RBAC voor het abonnement.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -188,7 +171,7 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Nee      | Reeks | De weergavenaam van het abonnement. Als niet wordt opgegeven, wordt deze ingesteld op de naam van de aanbieding, zoals 'Microsoft Azure Enterprise'.                                 |
 | `OfferType`   | Ja      | Reeks | De aanbieding van het abonnement. De twee opties voor EA zijn [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (gebruik voor productie) en [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (ontwikkelen en testen, moet [ingeschakeld via de portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Ja       | Reeks | De Object-ID van het account van de inschrijving of het abonnement wordt gemaakt onder en gefactureerd op. Dit is een GUID-waarde die u via `Get-AzureRmEnrollmentAccount`. |
+| `EnrollmentAccountObjectId`      | Ja       | Reeks | De Object-ID van het account van de inschrijving of het abonnement wordt gemaakt onder en gefactureerd op. Deze waarde is een GUID die u via `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Nee       | Reeks | De Object-ID van elke gebruiker die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt.  |
 | `OwnerSignInName`    | Nee       | Reeks | Het e-mailadres van elke gebruiker die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `OwnerObjectId`.|
 | `OwnerApplicationId` | Nee       | Reeks | De toepassings-ID van een service-principal die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `OwnerObjectId`.| 
@@ -209,7 +192,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Nee      | Reeks | De weergavenaam van het abonnement. Als niet wordt opgegeven, wordt deze ingesteld op de naam van de aanbieding, zoals 'Microsoft Azure Enterprise'.                                 |
 | `offer-type`   | Ja      | Reeks | De aanbieding van het abonnement. De twee opties voor EA zijn [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (gebruik voor productie) en [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (ontwikkelen en testen, moet [ingeschakeld via de portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | Ja       | Reeks | De Object-ID van het account van de inschrijving of het abonnement wordt gemaakt onder en gefactureerd op. Dit is een GUID-waarde die u via `az billing enrollment-account list`. |
+| `enrollment-account-object-id`      | Ja       | Reeks | De Object-ID van het account van de inschrijving of het abonnement wordt gemaakt onder en gefactureerd op. Deze waarde is een GUID die u via `az billing enrollment-account list`. |
 | `owner-object-id`      | Nee       | Reeks | De Object-ID van elke gebruiker die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt.  |
 | `owner-upn`    | Nee       | Reeks | Het e-mailadres van elke gebruiker die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `owner-object-id`.|
 | `owner-spn` | Nee       | Reeks | De toepassings-ID van een service-principal die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `owner-object-id`.| 
@@ -217,75 +200,6 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 Zie voor een volledige lijst met alle parameters [az-account maken](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
 ----
-
-## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Toegang tot een registratie-account met RBAC delegeren
-
-Naar een andere gebruiker of service-principal bieden de mogelijkheid voor het maken van abonnementen op basis van een specifiek account [Geef ze een eigenaar RBAC-rol op het bereik van de account van de inschrijving](../active-directory/role-based-access-control-manage-access-rest.md). Het volgende voorbeeld krijgt een gebruiker in de tenant met `principalId` van `<userObjectId>` (voor SignUpEngineering@contoso.com) een rol van eigenaar van de registratie-account. 
-
-# <a name="resttabrest"></a>[REST](#tab/rest)
-
-```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
-
-{
-  "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-    "principalId": "<userObjectId>"
-  }
-}
-```
-Wanneer de rol van eigenaar is toegewezen aan het bereik van de account inschrijving Azure reageert met informatie van de roltoewijzing:
-
-```json
-{
-  "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-    "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "createdOn": "2018-03-05T08:36:26.4014813Z",
-    "updatedOn": "2018-03-05T08:36:26.4014813Z",
-    "createdBy": "<assignerObjectId>",
-    "updatedBy": "<assignerObjectId>"
-  },
-  "id": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "<roleAssignmentGuid>"
-}
-```
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-
-Gebruik de [New AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) naar een andere gebruiker eigenaar toegang geven tot uw account voor de inschrijving.
-
-```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
-
-# <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
-
-Gebruik de [az roltoewijzing maken](../active-directory/role-based-access-control-manage-access-azure-cli.md) naar een andere gebruiker eigenaar toegang geven tot uw account voor de inschrijving.
-
-```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
-
-----
-
-Zodra een gebruiker een eigenaar RBAC voor uw registratie-account wordt, kunnen ze abonnementen onder deze via een programma maken. Een abonnement dat is gemaakt door een gemachtigde gebruiker heeft nog steeds de eigenaar van het oorspronkelijke Account als beheerder van de Service, maar heeft ook een gebruiker de gedelegeerde als eigenaar van een standaard. 
-
-## <a name="audit-who-created-subscriptions-using-activity-logs"></a>Audit die heeft gemaakt met behulp van activiteitenlogboeken abonnementen
-
-Als u wilt bijhouden van de abonnementen die zijn gemaakt via deze API, gebruik de [Tenant activiteit Log-API](/rest/api/monitor/tenantactivitylogs). Het is momenteel niet mogelijk gebruik van PowerShell, CLI of Azure-portal voor het bijhouden van abonnement maken.
-
-1. Als de tenantbeheerder van een van Azure AD-tenant [toegangsrechten uitbreiden](../active-directory/role-based-access-control-tenant-admin-access.md) vervolgens een lezersrol toewijzen aan de gebruiker controle over het bereik `/providers/microsoft.insights/eventtypes/management`.
-1. Aanroepen als de controle gebruiker, de [Tenant activiteit Log-API](/rest/api/monitor/tenantactivitylogs) voor een overzicht van activiteiten voor abonnement maken. Voorbeeld:
-
-```
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
-```
-
-> [!NOTE]
-> Eenvoudig deze API aanroepen vanaf de opdrachtregel, probeer [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Beperkingen van Azure Enterprise-abonnement maken API
 
@@ -298,6 +212,5 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor een voorbeeld over het maken van abonnementen met .NET [voorbeeldcode op GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-* Zie voor meer informatie over Azure Resource Manager en de API's, [overzicht van Azure Resource Manager](resource-group-overview.md).
+* Nu dat u een abonnement hebt gemaakt, kunt u de mogelijkheid verlenen aan andere gebruikers en de service-principals. Zie voor meer informatie [toegang verlenen tot het maken van abonnementen Azure Enterprise (preview)](grant-access-to-create-subscription.md).
 * Zie voor meer informatie over het beheren van grote aantallen abonnementen op basis van beheergroepen, [ordenen van uw resources met Azure-beheergroepen](management-groups-overview.md)
-* Zie voor een uitgebreide aanbevolen procedurerichtlijn voor grote organisaties op abonnement governance [Azure enterprise scaffold - prescriptieve abonnement governance](/azure/architecture/cloud-adoption-guide/subscription-governance)

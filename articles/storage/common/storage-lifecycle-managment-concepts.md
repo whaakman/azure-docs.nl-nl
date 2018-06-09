@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: b141adc9025f2f40acdfbd1f2d7f378173463956
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34804910"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248466"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Het beheren van de levenscyclus van de Azure Blob Storage (Preview)
 
@@ -70,7 +70,7 @@ Als de functie is goedgekeurd en juist is geregistreerd, kunt u de status 'Gereg
 
 ## <a name="add-or-remove-policies"></a>Beleidsregels toevoegen of verwijderen 
 
-U kunt toevoegen, bewerken of verwijderen van een beleid met behulp van Azure portal, PowerShell, REST-API's of client-hulpprogramma's in de volgende talen: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+U kunt toevoegen, bewerken of verwijderen van een beleid met Azure portal [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), REST-API's of clienthulpprogramma's in de volgende talen: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [ Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -121,7 +121,7 @@ Twee parameters zijn vereist in een beleid:
 | Parameternaam | Parametertype | Opmerkingen |
 |----------------|----------------|-------|
 | versie        | Een tekenreeks die is uitgedrukt als `x.x` | Het nummer van de preview-versie is 0,5 |
-| regels          | Een matrix met regelobjecten | Ten minste één regel is in elke beleidsregel vereist. Tijdens de preview, kunt u maximaal 10 regels per beleid. |
+| regels          | Een matrix met regelobjecten | Ten minste één regel is in elke beleidsregel vereist. Tijdens de preview, kunt u maximaal 4 regels per beleid. |
 
 Binnen een regel vereiste parameters zijn:
 
@@ -169,7 +169,7 @@ De definitie van elke regel bevat een filterset en een set actie. Het volgende v
 
 ```
 
-## <a name="rule-filters"></a>Regel-filters
+### <a name="rule-filters"></a>Regel-filters
 
 Filters regelacties op een subset van de blobs in de storage-account worden beperkt. Als meerdere filters zijn gedefinieerd, een logische `AND` wordt uitgevoerd op alle filters.
 
@@ -191,6 +191,9 @@ In de preview ondersteunt levenscyclusbeheer in lagen en verwijderen van blob en
 | tierToCool    | Ondersteuning voor blobs dat zich momenteel in de Hot-laag         | Niet ondersteund |
 | tierToArchive | Ondersteuning voor blobs dat zich momenteel in de Hot of Cool laag | Niet ondersteund |
 | verwijderen        | Ondersteund                                   | Ondersteund     |
+
+>[!NOTE] 
+Als meer dan één actie op de dezelfde blob is gedefinieerd, geldt levenscyclusbeheer van de minst dure actie naar de blob. (bijvoorbeeld actie `delete` is goedkoper dan actie `tierToArchive`. Actie `tierToArchive` is goedkoper dan actie `tierToCool`.)
 
 Preview-versie, zijn de actie uitvoeren voorwaarden gebaseerd op leeftijd. Maakt gebruik van Base blob tijd voor het bijhouden van de leeftijd en momentopnamen gebruikt momentopname Aanmaaktijd bijhouden leeftijd blob laatst is gewijzigd.
 

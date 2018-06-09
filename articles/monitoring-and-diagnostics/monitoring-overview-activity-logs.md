@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 128a16f0fbde87136ca01812b0217523fdbeeeeb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 060f91e4bdd1dd2690a3e1f148f7c5e5e13d13ef
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638983"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235661"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitor abonnement activiteit met de Azure Activity Log
 
@@ -107,6 +107,9 @@ Een **logboek profiel** bepaalt hoe uw activiteitenlogboek wordt geëxporteerd. 
     - Bewaarbeleid zijn toegepaste per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode beleid worden verwijderd. Bijvoorbeeld, als u had een bewaarbeleid van één dag, zou aan het begin van vandaag de dag de logboeken van de dag voordat gisteren worden verwijderd. De verwijderbewerking begint bij middernacht UTC, maar let op: duurt maximaal 24 uur voor de logboeken worden verwijderd uit uw storage-account.
 
 U kunt een opslag-account of gebeurtenis hub naamruimte die zich niet in hetzelfde abonnement als een tekensetcodering Logboeken kunt gebruiken. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
+
+> [!NOTE]
+>  U kan momenteel niet archiveren gegevens naar een opslag-account die achter een beveiligde virtuele netwerk.
 
 Deze instellingen kunnen worden geconfigureerd via de optie "Export" in de blade activiteitenlogboek in de portal. Ze kunnen ook programmatisch te worden geconfigureerd [met de REST-API van Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdlets of CLI. Een abonnement kan slechts één logboek profiel hebben.
 

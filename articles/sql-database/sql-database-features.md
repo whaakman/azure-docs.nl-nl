@@ -1,35 +1,35 @@
 ---
 title: Vergelijking van de functie Azure SQL Database | Microsoft Docs
-description: In dit artikel worden de functies van Azure SQL Database en exemplaren beheerd met SQL Server met elkaar vergeleken.
+description: In dit artikel worden de functies van SQL Server die beschikbaar in verschillende versies van Azure SQL Database zijn vergeleken.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: eaaadd48c92ef79964f712dae9bffb24dac271cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646718"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248806"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking: Azure SQL Database en SQL Server 
 
-Azure SQL Database deelt een algemene codebasis met SQL Server. De functies van SQL Server wordt ondersteund door Azure SQL Database, is afhankelijk van het type Azure SQL-database die u maakt. Met Azure SQL Database, kunt u ofwel een database maken als onderdeel van een [beheerde exemplaar](sql-database-managed-instance.md) (momenteel in de openbare preview) of u kunt een database die een individuele database of een database die deel uitmaakt van een elastische pool maken. 
+Azure SQL Database deelt een algemene codebasis met SQL Server. De functies van SQL Server wordt ondersteund door Azure SQL Database, is afhankelijk van het type Azure SQL-database die u maakt. Met Azure SQL Database, kunt u ofwel een database maken als onderdeel van een [beheerde exemplaar](sql-database-managed-instance.md) (momenteel in de openbare preview) of u kunt een database die deel uitmaken van de logische server en eventueel geplaatst in een elastische pool maken. 
 
 Microsoft blijft functies toevoegen aan Azure SQL Database. Ga naar de webpagina van de Service-Updates voor Azure voor de nieuwste updates met behulp van deze filters:
 
 * Gefilterd op de [SQL Database-service](https://azure.microsoft.com/updates/?service=sql-database).
 * Gefilterd op [aankondigingen](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) over de algemene beschikbaarheid (GA) van SQL Database-functies.
 
-## <a name="sql-server-and-sql-database-feature-support"></a>Ondersteuning voor de functie SQL Server en SQL-Database
+## <a name="sql-server-feature-support-in-azure-sql-database"></a>Ondersteuning voor SQL Server-functies in Azure SQL Database
 
 De volgende tabel bevat de belangrijkste functies van SQL Server en bevat informatie over of de functie wordt volledig of gedeeltelijk ondersteund en een koppeling naar meer informatie over de functie. 
 
-| **SQL-functie** | **Ondersteund in Azure SQL Database** | **Beheerde exemplaar (preview)** |
+| **SQL-functie** | **Ondersteund in Azure SQL Database/logische Server** | **Ondersteund in Azure SQL Database beheerde /-exemplaar (preview)** |
 | --- | --- | --- |
 | [Altijd versleuteld.](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Ja - Zie [certificaatarchief](sql-database-always-encrypted.md) en [sleutelkluis](sql-database-always-encrypted-azure-key-vault.md) | Ja - Zie [certificaatarchief](sql-database-always-encrypted.md) en [sleutelkluis](sql-database-always-encrypted-azure-key-vault.md) |
 | [AlwaysOn-beschikbaarheidsgroepen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van zakelijke continuïteit met Azure SQL Database](sql-database-business-continuity.md) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van zakelijke continuïteit met Azure SQL Database](sql-database-business-continuity.md) |
@@ -40,7 +40,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [Automatische afstemming (forcering)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| [Ja](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Automatische afstemming (indexen)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| Nee |
 | [Bacpac-bestand (exporteren)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja - Zie [SQL-Database wordt geëxporteerd](sql-database-export.md) | Ja |
-| [Bacpac-bestand (importeren)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja - Zie [SQL-Database importeren](sql-database-import.md) | Ja |
+| [Bacpac-bestand (importeren)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja - Zie [SQL-Database importeren](sql-database-import.md) | Nee |
 | [Back-opdracht](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Nee, alleen system geïnitieerde automatische back-ups - Zie [geautomatiseerde back-ups](sql-database-automated-backups.md) | Systeem geïnitieerde automatische back-ups en de gebruiker gestarte kopie-alleen back-ups - Zie [back-up van verschillen](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Ingebouwde functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja - Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Gegevensregistratie wijzigen](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nee | Ja |
@@ -137,7 +137,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 |Detectie van bedreigingen|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
 | [Traceervlaggen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nee | Nee |
 | [Variabelen](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |
-| [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja | Nee, niet in de openbare Preview |
+| [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja | Gedeeltelijk met de encryption service beheerd |
 [VNet](../virtual-network/virtual-networks-overview.md) | Gedeeltelijke - Zie [VNET-eindpunten](sql-database-vnet-service-endpoint-rule-overview.md) | Ja, Resource Manager-model |
 | [Windows Serverfailover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van zakelijke continuïteit met Azure SQL Database](sql-database-business-continuity.md) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van zakelijke continuïteit met Azure SQL Database](sql-database-business-continuity.md) |
 | [XML-indexen](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Ja | Ja |

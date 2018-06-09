@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6d0109b9043b48fbbbeeaccea6c798eaa547a056
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0a624d850b8c3260acb24cb17566090e8ad0043e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839859"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233934"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Updatebeheer, bijhouden en oplossingen voor inventarisatie op meerdere virtuele machines inschakelen
 
@@ -63,7 +63,7 @@ Als voorbereiding op meerdere machines mogelijk zijn er machines die worden weer
 
 **Oorzaak**: deze fout ziet u dat de virtuele machine die u vrijgeven rapporten naar een andere werkruimte wilt.
 
-**Oplossing**: Wijzig de werkruimte die u ontwikkelt voor door te klikken in de inline-koppeling of klik op **wijzigen**. U kunt ook de volgende scripts gebruiken om te wijzigen van de werkruimte in de bedoeld is voor elke computer.
+**Oplossing**: klik op **gebruikt als configuratie** wijzigen van de betreffende Automation-Account en Log Analytics-werkruimte.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Rapporten van de virtuele machine naar een werkruimte die niet beschikbaar in dit abonnement
 

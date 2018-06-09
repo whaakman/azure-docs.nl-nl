@@ -5,24 +5,23 @@ services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2018
+ms.date: 06/08/2018
 ms.author: sethm
-ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248738"
 ---
 # <a name="event-hubs-features-overview"></a>Overzicht van Event Hubs-functies
 
-Azure Event Hubs is een schaalbare verwerkingsservice die opgenomen en grote hoeveelheden gebeurtenissen en de gegevens, verwerkt met een lage latentie en hoge betrouwbaarheid. Zie [wat is er Event Hubs?](event-hubs-what-is-event-hubs.md) voor een overzicht van de service.
+Azure Event Hubs is een schaalbare verwerkingsservice die opgenomen en grote hoeveelheden gebeurtenissen en de gegevens, verwerkt met een lage latentie en hoge betrouwbaarheid. Zie [wat is er Event Hubs?](event-hubs-what-is-event-hubs.md) voor een overzicht op hoog niveau.
 
 In dit artikel is gebaseerd op de informatie in de [overzichtsartikel](event-hubs-what-is-event-hubs.md), en biedt technische en implementatie-informatie over Event Hubs-onderdelen en functies.
 
@@ -44,7 +43,7 @@ Event Hubs zorgt ervoor dat alle gebeurtenissen met een partitiesleutelwaarde op
 
 In Event Hubs kunt u gebeurtenisuitgevers nauwkeurig beheren met behulp van *uitgeversbeleid*. Uitgeversbeleid bestaat uit runtimefuncties die zijn ontworpen om grote aantallen onafhankelijke gebeurtenisuitgevers mogelijk te maken. Als u uitgeversbeleid implementeert, gebruikt elke uitgever zijn eigen unieke id bij het publiceren van gebeurtenissen naar een Event Hub. Hierbij wordt het volgende mechanisme gebruikt:
 
-```
+```http
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
 ```
 
@@ -123,7 +122,7 @@ Alle Event Hubs-consumers maken verbinding via een AMQP 1.0-sessie, een statusbe
 
 #### <a name="connect-to-a-partition"></a>Verbinding maken met een partitie
 
-Het is gebruikelijk om een leasemechanisme te gebruiken wanneer u verbinding maakt met partities, zodat u het verbinden van lezers aan specifieke partities kunt coördineren. Op deze manier maakt u het mogelijk dat elke partitie in een consumergroep slechts één actieve lezer heeft. Het plaatsen van controlepunten voor en het leasen en beheren van lezers wordt vereenvoudigd door toepassing van de [EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)-klasse voor .NET-clients. De Event Processor Host is een intelligente consumeragent.
+Het is gebruikelijk om een leasemechanisme te gebruiken wanneer u verbinding maakt met partities, zodat u het verbinden van lezers aan specifieke partities kunt coördineren. Op deze manier maakt u het mogelijk dat elke partitie in een consumergroep slechts één actieve lezer heeft. Het plaatsen van controlepunten voor en het leasen en beheren van lezers wordt vereenvoudigd door toepassing van de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)-klasse voor .NET-clients. De Event Processor Host is een intelligente consumeragent.
 
 #### <a name="read-events"></a>Gebeurtenissen lezen
 
@@ -149,11 +148,11 @@ De doorvoercapaciteit van Event Hubs wordt bepaald door het aantal beschikbare *
 * Binnenkomende gegevens: maximaal 1 MB per seconde of 1000 gebeurtenissen per seconde (afhankelijk van wat het eerst wordt bereikt)
 * Uitgaande gegevens: maximaal 2 MB per seconde
 
-Wanneer de capaciteit van de aangekochte doorvoereenheden wordt overschreven, wordt de invoer vertraagd en een [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) afgegeven. De uitvoer geeft geen vertragingsuitzonderingen af, maar is nog steeds beperkt tot de capaciteit van de aangekochte doorvoereenheden. Als zich uitzonderingen met betrekking tot de publicatiesnelheid voordoen of als u meer uitgaande gegevens verwacht, controleert u hoeveel doorvoereenheden u hebt aangeschaft voor de naamruimte. U kunt doorvoereenheden beheren op de **Scale** blade van de naamruimten in de [Azure-portal](https://portal.azure.com). U kunt ook beheren doorvoereenheden programmatisch met behulp van de [Event Hubs-API's](event-hubs-api-overview.md).
+Wanneer de capaciteit van de aangekochte doorvoereenheden wordt overschreven, wordt de invoer vertraagd en een [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) afgegeven. De uitvoer geeft geen vertragingsuitzonderingen af, maar is nog steeds beperkt tot de capaciteit van de aangekochte doorvoereenheden. Als zich uitzonderingen met betrekking tot de publicatiesnelheid voordoen of als u meer uitgaande gegevens verwacht, controleert u hoeveel doorvoereenheden u hebt aangeschaft voor de naamruimte. U kunt doorvoereenheden beheren op de **Scale** blade van de naamruimten in de [Azure-portal](https://portal.azure.com). U kunt ook beheren doorvoereenheden programmatisch met behulp van de [Event Hubs-API's](event-hubs-api-overview.md).
 
-Doorvoereenheden worden per uur in rekening gebracht en zijn vooraf aangeschaft. Nadat u doorvoereenheden hebt aangeschaft, worden deze voor minimaal één uur in rekening gebracht. Er kunnen maximaal 20 doorvoereenheden worden aangeschaft voor een naamruimte in Event Hubs. Deze worden gedeeld door alle Event Hubs in de naamruimte.
+Doorvoereenheden zijn vooraf aangeschafte en per uur worden gefactureerd. Nadat u doorvoereenheden hebt aangeschaft, worden deze voor minimaal één uur in rekening gebracht. Maximaal 20 doorvoereenheden eenheden kunnen worden aangeschaft voor een Event Hubs-naamruimte en worden gedeeld door alle event hubs in waarmee de naamruimte.
 
-U kunt meer doorvoereenheden aanschaffen in blokken van 20, met een maximum van 100 doorvoereenheden, door contact op te nemen met de ondersteuning van Azure. Daarna kunt u ook blokken van 100 doorvoereenheden aanschaffen.
+U kunt meer doorvoereenheden aanschaffen in blokken van 20, met een maximum van 100 doorvoereenheden, door contact op te nemen met de ondersteuning van Azure. U kunt daarna blokken van 100 doorvoereenheden aanschaffen.
 
 Het is raadzaam dat u doorvoereenheden en partities om te zorgen voor optimale schaal worden verdeeld. Per partitie is maximaal één doorvoereenheid mogelijk. Het aantal doorvoereenheden moet daarom kleiner zijn dan of gelijk zijn aan het aantal partities in een Event Hub.
 

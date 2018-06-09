@@ -3,24 +3,26 @@ title: Een Azure-functie aanroepen vanuit Microsoft Flow | Microsoft Docs
 description: Een aangepaste connector maken en vervolgens een functie met die connector aanroept.
 services: functions
 keywords: cloud-apps, cloud services, Microsoft Flow, bedrijfsprocessen, business-toepassing
-documentationcenter: 
-author: mgblythe
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234798"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Een functie van Microsoft Flow aanroepen
 
@@ -58,11 +60,11 @@ U beginnen met het maken van een lijst die u als gegevensbron voor de stroom geb
 
 1. Tik of klik in de SharePoint-site **nieuw**, klikt u vervolgens **lijst**.
 
-    ![Maken van nieuwe SharePoint-lijst](./media/functions-flow-scenario/new-list.png)
+    ![Maak een nieuwe SharePoint-lijst](./media/functions-flow-scenario/new-list.png)
 
 2. Voer de naam `Turbines`, klik of tik **maken**.
 
-    ![Geef de naam van een nieuwe lijst](./media/functions-flow-scenario/create-list.png)
+    ![Geef een naam op voor de nieuwe lijst](./media/functions-flow-scenario/create-list.png)
 
     De **Turbines** lijst wordt gemaakt met het standaard **titel** veld.
 
@@ -70,7 +72,7 @@ U beginnen met het maken van een lijst die u als gegevensbron voor de stroom geb
 
 3. Klik of tik ![itempictogram nieuw](./media/functions-flow-scenario/icon-new.png) vervolgens **datum**.
 
-    ![Voeg één regel tekstveld](./media/functions-flow-scenario/add-column.png)
+    ![Voeg één regel tekst toe](./media/functions-flow-scenario/add-column.png)
 
 4. Voer de naam `LastServiceDate`, klik of tik **maken**.
 
@@ -237,7 +239,7 @@ Nu dat de stroom is voltooid, kunt u een rij toevoegen aan de SharePoint-lijst e
 
 3. Klik op **Gereed**.
 
-    ![Snelle bewerken voltooid](media/functions-flow-scenario/quick-edit-done.png)
+    ![Snel bewerken gereed](media/functions-flow-scenario/quick-edit-done.png)
 
     Wanneer u het item toevoegt, wordt de stroom, waarmee u rekening houden met een overzicht van de volgende geactiveerd.
 
@@ -247,7 +249,7 @@ Nu dat de stroom is voltooid, kunt u een rij toevoegen aan de SharePoint-lijst e
 
 5. Onder **geschiedenis uitvoeren**, klikt u op de stroom die wordt uitgevoerd.
 
-    ![geschiedenis uitvoeren](media/functions-flow-scenario/run-history.png)
+    ![Uitvoer.gesch](media/functions-flow-scenario/run-history.png)
 
     Als de uitvoering voltooid is, kunt u de stroom-bewerkingen op de volgende pagina te bekijken. Als de uitvoering is mislukt voor een bepaalde reden, biedt de volgende pagina informatie over probleemoplossing.
 

@@ -6,14 +6,14 @@ author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/24/2017
+ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: f7b69e2558234159075161be7d58cc3695dfbbaf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dff27d8ef7357e5af3635cc39fb52963689e7bb
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606049"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247962"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Een back-up maken in Azure van een SharePoint-farm
 U back-up van een SharePoint-farm naar Microsoft Azure met behulp van Microsoft Azure Backup-Server (MABS) in ongeveer dezelfde manier als dat u back-up van andere gegevensbronnen. Azure Backup biedt flexibiliteit in het back-upschema maken het dagelijkse, wekelijkse, maandelijkse of jaarlijkse back-up verwijst en biedt u de bewaarperiode beleidsopties voor verschillende back-uppunten. Het biedt ook de mogelijkheid voor het opslaan van kopieën van de lokale schijf voor snelle doelstellingen voor hersteltijd (RTO) en voor het opslaan van kopieën naar Azure voor het bewaren van voordelige, op lange termijn.
@@ -32,13 +32,13 @@ Er zijn enkele dingen die u nodig om te bevestigen voordat u een SharePoint-farm
 Voordat u doorgaat, zorg ervoor dat u hebt [geïnstalleerd en de Azure Backup-Server voorbereid](backup-azure-microsoft-azure-backup.md) om workloads te beschermen.
 
 ### <a name="protection-agent"></a>Beveiligingsagent
-De beveiligingsagent moet worden geïnstalleerd op de server waarop SharePoint, de servers waarop SQL Server en alle andere servers die deel van de SharePoint-farm uitmaken. Zie voor meer informatie over het instellen van de beveiligingsagent [Setup beveiligingsagent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  De enige uitzondering hierop is dat u de agent op een enkel web-front-end (WFE)-server installeren. DPM moet de agent op één WFE-server alleen om te fungeren als het toegangspunt voor beveiliging.
+De Azure Backup agent moet worden geïnstalleerd op de server waarop SharePoint, de servers waarop SQL Server en alle andere servers die deel van de SharePoint-farm uitmaken. Zie voor meer informatie over het instellen van de beveiligingsagent [Setup beveiligingsagent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  De enige uitzondering hierop is dat u de agent op een enkel web-front-end (WFE)-server installeren. Azure Backup-Server moet de agent op één WFE-server alleen om te fungeren als het toegangspunt voor beveiliging.
 
 ### <a name="sharepoint-farm"></a>SharePoint-farm
 Voor elke 10 miljoen items in de farm, moet er minstens 2 GB aan ruimte op het volume waar de map MABS zich bevindt. Deze ruimte is vereist voor het genereren van de catalogus. Genereren van de catalogus maakt voor MABS om specifieke items (siteverzamelingen, sites, lijsten, documentbibliotheken, mappen, individuele documenten en lijstitems) te herstellen, een lijst van de URL's die zijn opgenomen in elke inhoudsdatabase. U kunt de lijst met URL's bekijken in het deelvenster herstelbaar item in de **herstel** taakgebied van MABS Administrator-Console.
 
 ### <a name="sql-server"></a>SQL Server
-MABS wordt uitgevoerd als lokale systeemaccount. Als u wilt back-up van SQL Server-databases, moet MABS sysadmin-machtigingen op dat account voor de server die SQL Server wordt uitgevoerd. NT AUTHORITY\SYSTEM ingesteld op *sysadmin* op de server waarop SQL Server wordt uitgevoerd voordat u een back-up.
+Azure Backup-Server wordt uitgevoerd als lokale systeemaccount. Als u wilt back-up van SQL Server-databases, moet MABS sysadmin-machtigingen op dat account voor de server die SQL Server wordt uitgevoerd. NT AUTHORITY\SYSTEM ingesteld op *sysadmin* op de server waarop SQL Server wordt uitgevoerd voordat u een back-up.
 
 Als de SharePoint-farm SQL Server-databases die zijn geconfigureerd met SQL Server-aliassen, installeert u de SQL Server-clientonderdelen op de front-endwebserver die MABS beveiligt.
 
@@ -232,4 +232,6 @@ V: kan ik een SharePoint-database naar de oorspronkelijke locatie herstellen als
 A: omdat SharePoint-databases zijn geconfigureerd in de SQL AlwaysOn, kan deze niet worden gewijzigd als de beschikbaarheidsgroep wordt verwijderd. Als gevolg hiervan terugzetten MABS een database niet naar de oorspronkelijke locatie. U kunt een SQL Server-database naar een ander exemplaar van SQL Server herstellen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over MABS beveiliging van SharePoint - Zie [Video Series - DPM-beveiliging van SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
+
+Zie de [Back-up van Exchange server](backup-azure-exchange-mabs.md) artikel.
+Zie de [Back-up van SQL Server](backup-azure-sql-mabs.md) artikel.

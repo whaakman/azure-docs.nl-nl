@@ -10,15 +10,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 1dd5eb4a2a0a4edd15e5299754028570806db09b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2e6556d3bac386bff26f9a5ce8f599e099fdb6c4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699451"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233798"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Voltooi een revisie toegang voor Azure-resources met behulp van Privileged Identity Management
 Bevoorrechte rol beheerders kunnen bekijken voor bevoorrechte toegang na een [beveiligingsbeoordeling is gestart](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) voor Azure-resources verzendt automatisch een e-mailbericht dat gebruikers om te controleren van de toegang wordt gevraagd. Als een gebruiker een e-mailbericht ontvangen heeft, kunt u ze verzenden de instructies voor [het uitvoeren van een beveiligingsbeoordeling](pim-resource-roles-perform-access-review.md).

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: 7d1ab75146c9899bf2699309cd5dd4ed523096ef
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6017052db3e6c3f0cfc22b18263727e997944483
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638803"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236413"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van de logboekgegevens van uw Azure-resources
 
@@ -45,6 +45,9 @@ Hier volgen enkele dingen die u met resource diagnostische logboeken doen kunt:
 * Analyseer ze met [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 U kunt een opslagaccount of de Event Hubs-naamruimte die zich niet in hetzelfde abonnement als de tekensetcodering Logboeken gebruiken. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
+
+> [!NOTE]
+>  U kan momenteel niet archiveren gegevens naar een opslag-account die achter een beveiligde virtuele netwerk.
 
 ## <a name="resource-diagnostic-settings"></a>Diagnostische instellingen voor bronnen
 

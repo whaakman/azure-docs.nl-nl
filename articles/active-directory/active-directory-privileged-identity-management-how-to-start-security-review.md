@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 05/04/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 569084f70946523a697a821c973e2b5c0f65babd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 699076a8e651dd8dbbab08b518d7be7e60a0ac47
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698064"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233669"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Het starten van een onderzoek toegang in Azure AD Privileged Identity Management
 Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang dat ze niet meer nodig hebt. Om te reduceren het risico dat samenhangt met deze verouderde roltoewijzingen, bevoorrechte rol beheerders regelmatig wordt aangeraden de functies die gebruikers hebben gekregen. Dit document worden de stappen voor het starten van een onderzoek toegang in Azure AD Privileged Identity Management (PIM).

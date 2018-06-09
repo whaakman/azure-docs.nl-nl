@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: f7e456c76dcf67a40777e32b100b900b859e210e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736793"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236396"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Verkeer analytics Veelgestelde vragen
 
@@ -30,14 +30,14 @@ ms.locfileid: "34736793"
     - NSG-stroom logboeken ingeschakeld voor het nsg's die u wilt bewaken
     - Een Azure Storage-account voor het opslaan van onbewerkte flog Logboeken
     - Een werkruimte voor logboekanalyse (OMS), met lees- en schrijftoegang
-    - Uw account moet worden toegewezen met een van de volgende machtigingen op abonnementsniveau:
+    - Gebruiker moet worden toegewezen met een van de volgende rollen op abonnementsniveau:
     
             All permissions *
             All Read permissions */read
             All network permissions Microsoft.Network/*
             All network read permissions Microsoft.Network/*/read
 
-    Of uw account moet worden toegewezen met alle acties op abonnementsniveau te volgen: 
+    Of gebruiker moet worden toegewezen met alle functies op abonnementsniveau te volgen: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -49,6 +49,19 @@ ms.locfileid: "34736793"
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+Volg onderstaande stappen om te controleren op functies die zijn toegewezen aan een gebruiker voor een abonnement:
+
+Meld u aan bij Azure Login-AzureRmAccount met 
+
+Selecteer het vereiste abonnement met behulp van de Select-AzureRmSubscription 
+
+Nu u de rollen die zijn toegewezen aan een opgegeven gebruiker gebruiken Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators 
+
+Als u geen uitvoer ziet na het uitvoeren van commends vervolgens kunt contact met respectieve abonnement admin, als u wilt toegang krijgen tot de opdrachten uit te voeren.  
+
+Voor meer informatie Zie [rollen gebaseerd toegangsbeheer met Azure PowerShell beheren](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+
 
 2.  Welke Azure-regio's traffic analytics beschikbaar zijn in?
 
@@ -114,11 +127,11 @@ ms.locfileid: "34736793"
 
 14. Kan ik traffic analytics met PowerShell of een Azure Resource Manager-sjabloon configureren?
 
-    Nee, traffic analytics kan alleen worden geconfigureerd met de Azure portal.
+Ja, traffic analytics configuratie met behulp van windows powershell wordt ondersteund vanaf versie 6.2.1 en hoger, maar Azure Resource Manager-sjabloonondersteuning is niet beschikbaar op presenteren. Voor meer informatie, hoe PowerShell kan worden gebruikt voor het configureren van traffic analytics Raadpleeg volgende [documentatie](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  Hoe wordt verkeer analytics prijs?
 
-        Verkeer analytics datalimiet geldt voor het verbeteren van verminderde logboeken en de uitgebreide logboeken op te slaan in een werkruimte voor logboekanalyse. In de preview, traffic analytics wordt niet in rekening gebracht voor het verbeteren van de verminderde logboeken maar bewaren van gegevens in een werkruimte onderworpen aan facturering volgens de tarieven voor gepubliceerde is. Dit antwoord wordt bijgewerkt zodra de prijzen voor traffic analytics is beschikbaar.
+Verkeer analytics datalimiet geldt voor stroom logboekgegevens verwerkt door de service en de heeft geresulteerd verbeterde logboeken op te slaan in een werkruimte voor logboekanalyse. Meer informatie over prijzen plan neemt weten [Klik hier](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  Hoe kan ik navigeren met behulp van toetsenbord in Geo overzichtsweergave?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: ad2faabbab74ba343328b6fe30e09c87520e7019
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809791"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236117"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Periodieke back-up en herstel in Azure Service Fabric (Preview)
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Laten we helpt u stapsgewijs door de stappen voor het inschakelen van periodieke
 
 Eerste stap is het maken van back-upbeleid met een beschrijving van back-upschema, doelopslag voor back-upgegevens, de naam van beleid en maximale incrementele back-ups moet worden toegestaan voordat volledige back-up. 
 
-Gebruik de Azure Storage-account hierboven gemaakt voor back-up. In dit voorbeeld wordt ervan uitgegaan dat de Azure Storage-account met de naam `sfbackupstore`. Container `backup-container` is geconfigureerd voor het opslaan van back-ups van de container met deze naam is gemaakt, als deze niet al aanwezig, tijdens het uploaden van back-up. Vullen `ConnectionString` met geldige verbindingsreeks voor de Azure Storage-account.
+Gebruik de Azure Storage-account hierboven gemaakt voor back-up. Container `backup-container` is geconfigureerd voor het opslaan van back-ups. Een container met deze naam wordt gemaakt, als deze niet al, tijdens het uploaden van back-up bestaat. Vullen `ConnectionString` met een geldige verbindingsreeks voor de Azure Storage-account, vervangen `account-name` met de naam van uw opslagaccount, en `account-key` door de sleutel van uw opslagaccount.
 
 Uitvoeren van volgende PowerShell-script om vereiste REST-API voor het maken van nieuw beleid aan te roepen. Vervang `account-name` met de naam van uw opslagaccount, en `account-key` door de sleutel van uw opslagaccount.
 

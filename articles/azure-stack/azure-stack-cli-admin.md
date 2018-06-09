@@ -2,23 +2,24 @@
 title: Azure CLI inschakelen voor gebruikers van de Azure-Stack | Microsoft Docs
 description: Informatie over het gebruik van de platformoverschrijdende opdrachtregelinterface (CLI) kunt beheren en implementeren van resources op Azure-Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 06/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: e2483bda5a0c6a6b270759946f146c37c5dad5b1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d0103d211608514848da7d789d32d37d8385f33f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247853"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Azure CLI inschakelen voor Azure-Stack-gebruikers
 
@@ -58,19 +59,17 @@ certutil -encode root.cer root.pem
 Azure Stack-operators moeten een openbaar toegankelijk eindpunt dat als host fungeert voor een virtuele machine alias-bestand instellen. De virtuele machine alias-bestand is een JSON-bestand waarmee u een algemene naam voor een afbeelding. Die naam is vervolgens opgegeven als een virtuele machine wordt geïmplementeerd als een parameter van de Azure CLI.  
 
 Voordat u een vermelding aan een aliasbestand toevoegen, zorg ervoor dat u [afbeeldingen downloaden vanuit Azure Marketplace](azure-stack-download-azure-marketplace-item.md), of [gepubliceerd van uw eigen aangepaste installatiekopie](azure-stack-add-vm-image.md). Als u een aangepaste installatiekopie publiceert, noteer de uitgever, aanbieding, SKU en versie-informatie die u hebt opgegeven tijdens de publicatie. Als u een installatiekopie van de marketplace is, kunt u de informatie weergeven met behulp van de ```Get-AzureVMImage``` cmdlet.  
-   
+
 Een [alias voorbeeldbestand](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) met veel voorkomende installatiekopie aliassen beschikbaar is. U kunt die gebruiken als uitgangspunt. Dit bestand in een ruimte waarop uw CLI-clients deze bereiken kunnen host. Een manier is het hosten van het bestand in een blob storage-account en de URL deelt met uw gebruikers:
 
 1. Download de [voorbeeldbestand](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) vanuit GitHub.
-2. Maak een nieuw opslagaccount in Azure-Stack. Wanneer die is voltooid, maakt u een nieuwe blob-container. Stel het toegangsbeleid worden 'openbare'.  
-3. Het JSON-bestand uploaden naar de nieuwe container. Wanneer die is voltooid, kunt u de URL van de blob weergeven door te klikken op de blob-naam en vervolgens de URL in de blob-eigenschappen te selecteren.
-
+2. Maak een nieuw opslagaccount in Azure-Stack. Wanneer u dat hebt gedaan, maakt u een nieuwe blob-container. Stel het toegangsbeleid worden 'openbare'.  
+3. Het JSON-bestand uploaden naar de nieuwe container. Wanneer u dat hebt gedaan, kunt u de URL van de blob weergeven door te selecteren van de blob-naam en vervolgens de URL in de blob-eigenschappen te selecteren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Sjablonen met Azure CLI implementeren](azure-stack-deploy-template-command-line.md)
+- [Sjablonen met Azure CLI implementeren](azure-stack-deploy-template-command-line.md)
 
-[Verbinding maken met PowerShell](azure-stack-connect-powershell.md)
+- [Verbinding maken met PowerShell](azure-stack-connect-powershell.md)
 
-[Gebruikersmachtigingen beheren](azure-stack-manage-permissions.md)
-
+- [Gebruikersmachtigingen beheren](azure-stack-manage-permissions.md)
