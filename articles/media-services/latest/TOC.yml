@@ -17,6 +17,10 @@
           href: stream-files-tutorial-with-api.md
         - name: Met REST
           href: stream-files-tutorial-with-rest.md
+    - name: Live streamen
+      items:
+        - name: Met .NET Core
+          href: stream-live-tutorial-with-api.md
     - name: Uw video analyseren
       items:
         - name: Met .NET
@@ -37,6 +41,8 @@
           href: encoding-concept.md
         - name: Automatisch gegenereerde adaptieve bitrateladder
           href: autogen-bitrate-ladder.md
+    - name: Live streamen
+      href: live-streaming-overview.md
     - name: Mediagegevens
       href: intelligence-concept.md
     - name: Reageren op gebeurtenissen
