@@ -19,7 +19,7 @@
       href: azure-stack-quick-create-vm-linux-powershell.md
     - name: Linux-VM maken - CLI
       href: azure-stack-quick-create-vm-linux-cli.md
-- name: Zelfstudies
+- name: Zelfstudie
   items:
     - name: Apps implementeren in Azure en Azure Stack
       href: azure-stack-solution-pipeline.md
@@ -27,6 +27,10 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: Hybride cloud-verbindingen configureren
       href: azure-stack-solution-hybrid-connectivity.md
+    - name: Abonneren op een aanbieding
+      href: azure-stack-subscribe-services.md
+    - name: Een virtuele machine uit een sjabloon maken
+      href: azure-stack-create-vm-template.md
 - name: Handleidingen
   items:
     - name: Azure Stack-portal gebruiken
@@ -43,13 +47,13 @@
       items:
         - name: Belangrijkste overwegingen
           href: azure-stack-considerations.md
-        - name: Compute
+        - name: Computing
           items:
             - name: Overzicht
               href: azure-stack-compute-overview.md
             - name: Overwegingen omtrent virtuele machines
               href: azure-stack-vm-considerations.md
-            - name: Formaten van virtuele machines
+            - name: VM-grootten
               href: azure-stack-vm-sizes.md
             - name: VM-schijven beheren
               href: azure-stack-manage-vm-disks.md
@@ -158,7 +162,7 @@
       href: /azure/azure-stack/
     - name: ASDK documentatie
       href: /azure/azure-stack/asdk/
-- name: Resources
+- name: Bronnen
   items:
     - name: Azure Stack roadmap
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
@@ -168,7 +172,7 @@
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Prijsinformatie
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
+    - name: Stackoverloop
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Training en certificering
       href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

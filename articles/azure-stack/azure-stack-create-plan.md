@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2018
+ms.date: 06/07/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: b1bfff16c4f51a9fa53204930df78cbd2cf19b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1fa01d23108ce92fbd7c854442c0474b19395d25
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248700"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Een plan maken in Azure Stack
 
@@ -29,34 +30,46 @@ ms.lasthandoff: 04/28/2018
 
 1. Aanmelden bij de Azure-Stack-beheerdersportal (https://adminportal.local.azurestack.external).
 
-2. Voor het maken van een plan en een aanbieding die gebruikers kunnen zich abonneren op, selecteer **nieuw** > **biedt + plannen** > **Plan**.  
+2. Voor het maken van een plan en een aanbieding die gebruikers kunnen zich abonneren op, selecteer **nieuw** > **biedt + plannen** > **Plan**.
+  
    ![Selecteer een plan](media/azure-stack-create-plan/select-plan.png)
 
-3. In de **nieuw plan** vullen in deelvenster **weergavenaam** en **resourcenaam**. De weergegeven naam is van het plan beschrijvende naam die gebruikers te zien. Alleen de beheerder kan zien de resourcenaam, is de naam die beheerders gebruiken om te werken met het plan als een Azure Resource Manager-resource.  
+3. Onder **nieuw plan**, voer een **weergavenaam** en een **resourcenaam**. De weergegeven naam is van het plan beschrijvende naam die gebruikers kunnen zien. Alleen de beheerder kan de naam van de Resource die beheerders gebruiken om te werken met het plan als een Azure Resource Manager-resource zien.
+
    ![Geef details](media/azure-stack-create-plan/plan-name.png)
 
-4. Maak een nieuwe **resourcegroep**, of Selecteer een bestaande, als een container voor het plan.  
+4. Maak een nieuwe **resourcegroep**, of Selecteer een bestaande, als een container voor het plan.
+
    ![Geef de resourcegroep](media/azure-stack-create-plan/resource-group.png)
 
-5. Selecteer **Services** en selecteer vervolgens het selectievakje voor **Microsoft.Compute**, **Microsoft.Network**, en **Microsoft.Storage**. Kies vervolgens **Selecteer** aan de configuratie op te slaan. Selectievakjes worden weergegeven wanneer de muis boven elke optie.  
+5. Selecteer **Services** en selecteer vervolgens het selectievakje voor **Microsoft.Compute**, **Microsoft.Network**, en **Microsoft.Storage**. Kies vervolgens **Selecteer** aan de configuratie op te slaan. Selectievakjes worden weergegeven wanneer de muis boven elke optie.
+  
    ![Services selecteren](media/azure-stack-create-plan/services.png)
 
-6. Selecteer **quota**, **Microsoft.Storage (lokaal)**, en kies vervolgens het standaardquotum- of selecteer **maken nieuwe quota** voor het aanpassen van het quotum.  
+6. Selecteer **quota**, **Microsoft.Storage (lokaal)**, en kies vervolgens het standaardquotum- of selecteer **maken nieuwe quota** een aangepaste quota maken.
+  
    ![Quota](media/azure-stack-create-plan/quotas.png)
 
-7. Als u een nieuwe quota maakt, voert u een **naam** voor het quotum > Geef de quotawaarden > Selecteer **OK**. De **maken quotum** deelvenster wordt gesloten.
-   ![Nieuwe quota](media/azure-stack-create-plan/new-quota.png)
+7. Als u een nieuwe quota maakt, voert u een **naam** voor het quotum > Geef de quotawaarden > Selecteer **OK**. De **maken quotum** dialoogvenster wordt gesloten.
 
-   U wordt vervolgens de nieuwe quota die u hebt gemaakt. Selecteren van de quota toegewezen en sluit het deelvenster selecteren.  
+   ![Nieuw quotum](media/azure-stack-create-plan/new-quota.png)
+
+   U wordt vervolgens de nieuwe quota die u hebt gemaakt. Selecteren van de quota toegewezen en wordt het dialoogvenster wordt gesloten.
+  
    ![Het quotum toewijzen](media/azure-stack-create-plan/assign-quota.png)
 
-8. Herhaal stap 6 en 7 maken en toewijzen van de quota voor **Microsoft.Network (lokaal)** en **Microsoft.Compute (lokaal)**.  Wanneer alle drie de services quota toegewezen zijn, worden deze weergegeven vergelijkbaar met de volgende afbeelding.  
+8. Herhaal stap 6 en 7 maken en toewijzen van de quota voor **Microsoft.Network (lokaal)** en **Microsoft.Compute (lokaal)**. Wanneer alle drie de services toegewezen quota hebt, eruitzien ze zoals in het volgende voorbeeld.
+
    ![Volledige quotum toewijzingen](media/azure-stack-create-plan/all-quotas-assigned.png)
 
-9. In de **quota** deelvenster kiezen **OK**, en klik vervolgens in de **nieuw plan** deelvenster kiezen **maken** om het plan te maken.  
+9. Onder **quota**, kies **OK**, en klik vervolgens onder **nieuw plan**, kies **maken** om het plan te maken.
+
     ![Het plan maken](media/azure-stack-create-plan/create.png)
-10. Overzicht van uw nieuwe schema, selecteer **alle resources**, zoekt u naar het plan en selecteert u de naam. Als uw lijst met resources te lang is, gebruikt u **Search** uw plan op naam vinden.  
+
+10. Overzicht van uw nieuwe schema, selecteer **alle resources**, zoekt u naar het plan en selecteert u de naam. Als uw lijst met resources te lang is, gebruikt u **Search** uw plan op naam vinden.
+
    ![De planning bekijken](media/azure-stack-create-plan/plan-overview.png)
 
-### <a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
+
 [Een aanbieding maken](azure-stack-create-offer.md)

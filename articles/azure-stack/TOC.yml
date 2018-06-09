@@ -6,20 +6,20 @@
       href: azure-stack-poc.md
     - name: Releaseopmerkingen
       items:
+        - name: 1805 update
+          href: azure-stack-update-1805.md
         - name: 1804 update
           href: azure-stack-update-1804.md
         - name: 1803 update
           href: azure-stack-update-1803.md
         - name: 1802 update
           href: azure-stack-update-1802.md
-        - name: 1712 update
-          href: azure-stack-update-1712.md
 - name: Snelstartgidsen
   expanded: true
   items:
     - name: Azure Stack evalueren
       href: azure-stack-deploy-overview.md
-- name: Zelfstudies
+- name: Zelfstudie
   items:
     - name: Aanbieding virtuele machines
       href: azure-stack-tutorial-tenant-vm.md
@@ -52,6 +52,12 @@
               items:
                 - name: Eindpunten publiceren
                   href: azure-stack-integrate-endpoints.md
+        - name: Identiteitintegratie
+          items:
+            - name: Kies een id-provider
+              href: azure-stack-integrate-identity.md
+            - name: Azure identiteit valideren
+              href: azure-stack-validate-identity.md
         - name: Azure Stack PKI implementatievereisten
           href: azure-stack-pki-certs.md
           items:
@@ -63,20 +69,17 @@
               href: azure-stack-validate-pki-certs.md
             - name: Herstellen van PKI-certificaten
               href: azure-stack-remediate-certs.md
-            - name: Resources voor implementatie
-              items:
-                - name: Start AzsReadiness cmdlet-verwijzing
-                  href: azure-stack-azsreadiness-cmdlet.md
-                - name: Het rapport gereedheid weergeven
-                  href: azure-stack-validation-report.md
-            - name: Identiteitintegratie
-              items:
-                - name: Kies een id-provider
-                  href: azure-stack-integrate-identity.md
-                - name: Azure identiteit valideren
-                  href: azure-stack-validate-identity.md
+        - name: Resources voor implementatie
+          items:
+            - name: Over netwerken voor implementatie
+              href: deployment-networking.md
         - name: Azure registratie valideert
           href: azure-stack-validate-registration.md
+          items:
+            - name: Start AzsReadiness cmdlet-verwijzing
+              href: azure-stack-azsreadiness-cmdlet.md
+            - name: Het rapport gereedheid weergeven
+              href: azure-stack-validation-report.md
         - name: Externe controle
           href: azure-stack-integrate-monitor.md
         - name: Beveiligingsintegratie
@@ -186,7 +189,7 @@
               href: azure-stack-enable-multitenancy.md
         - name: Geheimen draaien
           href: azure-stack-rotate-secrets.md
-    - name: Services aanbieden
+    - name: Services van de aanbieding
       items:
         - name: Overzicht van het service-aanbod
           href: azure-stack-offer-services-overview.md
@@ -194,8 +197,10 @@
           items:
             - name: 'Overzicht van plannen, aanbiedingen, quota en abonnementen'
               href: azure-stack-plan-offer-quota-overview.md
-            - name: Een plan maken
+            - name: Een abonnement maken
               href: azure-stack-create-plan.md
+            - name: Een invoegtoepassing maken
+              href: create-add-on-plan.md
             - name: Een aanbieding maken
               href: azure-stack-create-offer.md
             - name: Abonneren op een aanbieding
@@ -323,7 +328,7 @@
       href: /azure/azure-stack/user/
     - name: ASDK documentatie
       href: /azure/azure-stack/asdk/
-- name: Resources
+- name: Bronnen
   items:
     - name: Azure Stack roadmap
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
@@ -333,7 +338,7 @@
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Prijsinformatie
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
+    - name: Stackoverloop
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Training en certificering
       href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

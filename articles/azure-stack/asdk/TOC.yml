@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: ASDK release-opmerkingen
       href: asdk-release-notes.md
-- name: Zelfstudies
-  items:
-    - name: Abonneren op een aanbieding
-      href: asdk-subscribe-services.md
-    - name: Update aanbiedingen en plannen
-      href: asdk-update-offers.md
-    - name: Een virtuele machine uit een sjabloon maken
-      href: asdk-create-vm-template.md
 - name: Concepten
   items:
     - name: Overwegingen bij de planning van de implementatie
@@ -25,7 +17,7 @@
       href: asdk-admin-basics.md
     - name: Geavanceerde evaluatietaken
       href: asdk-advanced-eval.md
-- name: Procedures
+- name: Uitleg
   items:
     - name: De ASDK instellen
       items:
@@ -61,7 +53,7 @@
       href: /azure/azure-stack/
     - name: Documentatie voor Azure Stack-gebruiker
       href: /azure/azure-stack/user/
-- name: Resources
+- name: Bronnen
   items:
     - name: Azure Stack roadmap
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
@@ -71,7 +63,7 @@
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Prijsinformatie
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
+    - name: Stackoverloop
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Training en certificering
       href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
