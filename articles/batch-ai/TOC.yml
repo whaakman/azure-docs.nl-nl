@@ -11,6 +11,10 @@
       href: quickstart-cli.md
     - name: Trainingstaak uitvoeren - Python
       href: quickstart-python.md
+- name: Handleidingen
+  items:
+    - name: Migreren naar bijgewerkte API
+      href: migrate-to-new-api.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

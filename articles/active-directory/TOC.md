@@ -125,7 +125,7 @@
 #### [Meldingen](active-directory-reporting-notifications.md)
 #### [Activiteitsverwijzing controleren](active-directory-reporting-activity-audit-reference.md)
 #### [Foutcodes voor aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md
+#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
 
@@ -326,6 +326,7 @@
 #### [Voorwaarden](active-directory-conditional-access-conditions.md)
 #### [Locatievoorwaarden](active-directory-conditional-access-locations.md)
 #### [Besturingselementen](active-directory-conditional-access-controls.md)
+#### [Basisbescherming](active-directory-conditional-access-baseline-protection.md)
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)

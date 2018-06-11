@@ -29,6 +29,8 @@
   items:
     - name: Onboarding
       items:
+        - name: Onboarding van meerdere virtuele machines vanuit de portal
+          href: automation-onboard-solutions-from-browse.md
         - name: Onboarding vanuit een Azure-VM
           href: automation-onboard-solutions-from-vm.md
         - name: Onboarding vanuit een Automation-account

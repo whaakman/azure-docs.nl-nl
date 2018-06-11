@@ -41,6 +41,8 @@
       href: traffic-manager-rum-overview.md
     - name: Verkeersweergave
       href: traffic-manager-traffic-view-overview.md
+    - name: Herstel na noodgevallen met Azure DNS en Traffic Manager
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
     - name: Veelgestelde vragen
       href: traffic-manager-FAQs.md
 - name: Procedures

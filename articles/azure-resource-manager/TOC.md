@@ -47,7 +47,8 @@
 ### [Azure Portal](resource-group-portal.md)
 ### [Tags gebruiken om resources te organiseren](resource-group-using-tags.md)
 ### [Resources verplaatsen naar nieuwe groep of abonnement](resource-group-move-resources.md)
-### [Programmatisch EA-abonnementen maken](programmatically-create-subscription.md)
+### [EA-abonnementen maken](programmatically-create-subscription.md)
+### [Toegang verlenen om EA-abonnementen te maken](grant-access-to-create-subscription.md)
 ### [Beheergroepen maken](management-groups-create.md)
 ### [Uw beheergroepen beheren](management-groups-manage.md)
 

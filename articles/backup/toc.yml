@@ -63,8 +63,6 @@
           items:
             - name: Azure Backup Server-workloads voorbereiden in Azure Portal
               href: backup-azure-microsoft-azure-backup.md
-            - name: Azure Backup Server installeren op Azure Stack
-              href: backup-mabs-install-azure-stack.md
             - name: Opslag toevoegen aan Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: Azure Backup Server upgraden naar v.2
@@ -83,10 +81,18 @@
               href: backup-azure-sql-mabs.md
             - name: Systeemstatus beveiligen en bare metal recovery
               href: backup-mabs-system-state-and-bmr.md
-            - name: Bestanden en toepassingen in Azure Stack
-              href: backup-mabs-files-applications-azure-stack.md
         - name: Gegevens herstellen vanaf Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure Backup Server in Azure Stack
+      items:
+        - name: Azure Backup Server installeren
+          href: backup-mabs-install-azure-stack.md
+        - name: Bestanden en toepassingen beveiligen
+          href: backup-mabs-files-applications-azure-stack.md
+        - name: SharePoint-farm beveiligen
+          href: backup-mabs-sharepoint-azure-stack.md
+        - name: SQL Server-database beveiligen
+          href: backup-mabs-sql-azure-stack.md
     - name: Azure-bestandsshares
       items:
         - name: Een backup maken van Azure-bestandsshares
