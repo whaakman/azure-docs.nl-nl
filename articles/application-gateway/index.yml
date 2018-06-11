@@ -16,6 +16,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32160253"
 abstract:
   description: Meer informatie over de implementatie van de Azure Application Gateway-ADC (application delivery controller) als een service. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u routering op toepassingsniveau en taakverdelingsservices kunt instellen om een schaalbaar en maximaal beschikbaar webfront-end te bouwen.
 sections:

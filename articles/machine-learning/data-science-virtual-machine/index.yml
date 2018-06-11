@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 04/19/2018
+  ms.locfileid: "31590782"
 abstract:
   description: De Data Science en Deep Learning Virtual Machines zijn aangepaste VM-installatiekopieën in Azure, vol met hulpprogramma’s voor data science, die worden gebruikt om intelligente toepassingen voor geavanceerde analyse te bouwen.
 sections:

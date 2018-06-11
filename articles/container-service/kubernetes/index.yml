@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 04/16/2018
+  ms.locfileid: "31394574"
 abstract:
   description: Met Azure Container Service kunt u snel een productieklaar Kubernetes-cluster implementeren. Ontdek met deze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Container Service gebruikt in combinatie met Kubernetes.
 sections:

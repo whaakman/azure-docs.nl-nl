@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30834398"
 ---
 ---
 # <a name="service-bus-relay-documentation"></a>Documentatie voor Service Bus Relay

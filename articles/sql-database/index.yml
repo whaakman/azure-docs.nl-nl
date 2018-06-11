@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 04/06/2018
+  ms.locfileid: "30922379"
 abstract:
   description: Azure SQL Database is een op de Microsoft SQL Server Engine gebaseerde relationele database-als-een-service in de cloud. SQL Database is een krachtige, betrouwbare en veilige database die u kunt gebruiken om gegevensgestuurde toepassingen en websites te bouwen in de programmeertaal van uw keuze, zonder dat u hiervoor infrastructuur hoeft te beheren. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u SQL Database gebruikt.
   aside:

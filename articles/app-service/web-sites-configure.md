@@ -2,10 +2,10 @@
 title: Web-apps configureren in Azure App Service
 description: Het configureren van een web-app in Azure App Services
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234514"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Web-apps configureren in Azure App Service
 
@@ -49,7 +50,7 @@ Omwille van de technische Java inschakelen voor uw app .NET, PHP en Python worde
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web-Sockets**. Ingesteld **ON** zodat het WebSocket-protocol; bijvoorbeeld, als uw web-app gebruikt [ASP.NET SignalR] of [socket.io](https://socket.io/).
+**Web-Sockets**. Ingesteld **ON** zodat het WebSocket-protocol; bijvoorbeeld, als uw web-app gebruikt [ASP.NET-SignalR] of [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
 **AlwaysOn**. Standaard worden web-apps uit het geheugen verwijderd als ze een bepaalde tijd inactief zijn. Hiermee wordt het systeem te besparen. In de modus voor Basic- of Standard, schakelt u **altijd op** te houden van de app geladen voortdurend. Als uw app doorlopende webtaken wordt uitgevoerd of wordt uitgevoerd WebJobs geactiveerd met behulp van een expressie CRON, moet u inschakelen **altijd op**, of de webtaken niet betrouwbaar worden uitgevoerd.
@@ -67,6 +68,8 @@ Deze sectie bevat de naam/waarde-paren die uw web-app wordt geladen op start.
 * Voor .NET-toepassingen, deze instellingen zijn opgenomen in de configuratie van uw .NET `AppSettings` tijdens runtime, overschrijven bestaande instellingen. 
 * PHP, Python, Java en knooppunt toepassingen hebben toegang tot deze instellingen als omgevingsvariabelen tijdens runtime. Twee omgevingsvariabelen zijn gemaakt voor elke app-instelling. een met de naam die is opgegeven door de vermelding van de instelling app en andere met het voorvoegsel APPSETTING_. Beide bevatten dezelfde waarde.
 
+App-instellingen worden altijd versleuteld wanneer opgeslagen (versleuteld in rust).
+
 ### <a name="connection-strings"></a>Verbindingsreeksen
 Tekenreeksen voor databaseverbindingen voor de gekoppelde resources. 
 
@@ -80,6 +83,8 @@ Deze instellingen zijn beschikbaar als omgevingsvariabelen tijdens runtime, voor
 * Aangepaste: `CUSTOMCONNSTR_`
 
 Bijvoorbeeld, als u een MySql-verbindingsreeks zijn met de naam `connectionstring1`, deze zou worden geopend via de omgevingsvariabele `MYSQLCONNSTR_connectionString1`.
+
+Verbindingsreeksen worden altijd versleuteld wanneer opgeslagen (versleuteld in rust).
 
 ### <a name="default-documents"></a>Standaarddocumenten
 Het standaarddocument is de webpagina die in de basis-URL voor een website wordt weergegeven.  Het eerste gevonden bestand in de lijst wordt gebruikt. 
@@ -106,7 +111,7 @@ Opties voor het schrijven van diagnostische logboeken vanuit een webtoepassing d
 
 * **Toepassingslogboeken**. Toepassingslogboeken schrijft naar het bestandssysteem. Logboekregistratie duurt gedurende een periode van 12 uur. 
 
-**Level**. Wanneer de toepassing-logboekregistratie is ingeschakeld, wordt deze optie geeft u de hoeveelheid gegevens die worden geregistreerd (fout, waarschuwing, informatie of uitgebreid).
+**Niveau**. Wanneer de toepassing-logboekregistratie is ingeschakeld, wordt deze optie geeft u de hoeveelheid gegevens die worden geregistreerd (fout, waarschuwing, informatie of uitgebreid).
 
 **Logboekregistratie van webserver**. Logboeken worden opgeslagen in de indeling van het W3C-uitgebreide logboekbestand. 
 
@@ -140,14 +145,14 @@ U kunt uw domeinnamen op **alle instellingen** > **aangepaste domeinen en SSL**.
 
 ### <a name="deployments"></a>Implementaties
 * Doorlopende implementatie instellen. Zie [Git Web-Apps in Azure App Service implementeren met behulp van](app-service-deploy-local-git.md).
-* Implementatiesites. Zie [implementeren op Faseringsomgevingen voor Web-Apps in Azure App Service].
+* Implementatiesites. Zie [Implementeren naar Faseringsomgevingen voor Web-Apps in Azure App Service].
 
 Als u wilt weergeven van uw implementatiesites **alle instellingen** > **implementatiesites**.
 
 ### <a name="monitoring"></a>Bewaking
 In de Basic- of Standard-modus, kunt u de beschikbaarheid van HTTP of HTTPS-eindpunten, van maximaal drie locaties geografisch verspreide testen. Een bewakingstest mislukt als de HTTP-antwoordcode een fout (4xx of 5xx is) of het antwoord langer dan 30 seconden duurt. Een eindpunt wordt aangemerkt als beschikbaar als de bewakingstests van de opgegeven locaties slagen. 
 
-Zie voor meer informatie [hoe: website-eindpunt Monitorstatus].
+Zie voor meer informatie [Hoe: web Eindpuntstatus controleren].
 
 > [!NOTE]
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen]. Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
@@ -162,12 +167,12 @@ Zie voor meer informatie [hoe: website-eindpunt Monitorstatus].
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET-SignalR]: http://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Een aangepaste domeinnaam configureren in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[implementeren op Faseringsomgevingen voor Web-Apps in Azure App Service]: ./web-sites-staged-publishing.md
+[Implementeren naar Faseringsomgevingen voor Web-Apps in Azure App Service]: ./web-sites-staged-publishing.md
 [HTTPS inschakelen voor een app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[hoe: website-eindpunt Monitorstatus]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Hoe: web Eindpuntstatus controleren]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Bewaking van de basisprincipes voor Web-Apps in Azure App Service]: ./web-sites-monitor.md
 [pipeline-modus]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Een web-app schalen in Azure App Service]: ./web-sites-scale.md
