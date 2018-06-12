@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c88b27edab71527b4b3eca71c00af2930c22f8cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629232"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261981"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
@@ -161,6 +161,59 @@ Nadat u hebt gekozen **opslaan**, locatie van het apparaat wordt weergegeven als
 > [!NOTE]
 > Na het maken van een nieuwe tegel, kunt u de waarde van eigenschap. Eerst uitschakelen ontwerpmodus aan de bovenkant van het scherm.
 
+### <a name="create-a-location-property-powered-by-azure-maps"></a>Maak een locatie-eigenschap aangedreven door Azure Maps
+U kunt geografische context geven tot uw locatiegegevens in Azure IoT centrale en eventuele breedtegraad en lengtegraad coördinaten van een Straatadres, of gewoon breedtegraad en lengtegraad coördinaten worden toegewezen. Deze mogelijkheid In Azure IoT Central wordt aangedreven door Azure Maps.
+
+Er zijn twee soorten locatie-eigenschappen die u kunt toevoegen:
+- **Locatie als de eigenschap van een toepassing** die alleen in de toepassing worden opgeslagen. Het apparaat heeft geen informatie over de eigenschappen van toepassing.
+- **Locatie als een apparaateigenschap** die worden gerapporteerd door het apparaat.
+
+####<a name="adding-location-as-an-application-property"></a>Locatie als de eigenschap van een toepassing toe te voegen. 
+Kunt u een locatie-eigenschap bevat als de eigenschap van een toepassing met behulp van Azure in uw Azure IoT centrale toepassing wordt toegewezen. U kunt bijvoorbeeld de installatie-adres van het apparaat toevoegen. 
+
+1. Navigeer naar het tabblad Apparaateigenschap. Zorg ervoor dat de dat ontwerpmodus is ingeschakeld.
+
+![Locatie-eigenschap](./media/howto-set-up-template/locationcloudproperty1.png)
+
+2. Klik op de locatie op het tabblad eigenschap.
+3. Weergavenaam, veldnaam en de oorspronkelijke waarde van de locatie eventueel configureren. 
+
+![Formulier voor locatie-eigenschap](./media/howto-set-up-template/locationcloudproperty2.png)
+
+Er zijn twee ondersteunde indelingen voor het toevoegen van een locatie:
+- **Locatie als een adres**
+- **Locatie als coördinaten** 
+
+4. Klik op opslaan. 
+
+![Het locatieveld-eigenschap](./media/howto-set-up-template/locationcloudproperty3.png)
+
+Een operator kan nu de locatiewaarde in het veld locatie formulier bijwerken. 
+
+####<a name="adding-location-as-a-device-property"></a>Locatie toe te voegen als een apparaateigenschap 
+
+U kunt een locatie-eigenschap maken als een apparaateigenschap die is gerapporteerd door het apparaat.
+Bijvoorbeeld, wilt u bijhouden van de locatie van het apparaat.
+
+1.  Navigeer naar het tabblad Apparaateigenschap. Zorg ervoor dat de dat ontwerpmodus is ingeschakeld.
+2.  Klik op de Apparaateigenschap uit de bibliotheek.
+
+![Het locatieveld-eigenschap](./media/howto-set-up-template/locationdeviceproperty1.png)
+
+3.  Weergavenaam, veldnaam, configureren, en kies 'locatie' als een gegevenstype. 
+
+> [!NOTE]
+De veldnaam moet exact overeenkomen op de naam van de eigenschap van het apparaat rapporten. 
+
+![Het locatieveld-eigenschap](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+![Locatie-eigenschap operator weergeven](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+Nu dat u de eigenschap location hebt geconfigureerd, kunt u zich kunt toevoegen van een kaart om de locatie in het Dashboard van het apparaat. Zie hoe [locatie toevoegen Azure kaart in Dashboard](howto-set-up-template.md).
+
+
+
+
 ## <a name="rules"></a>Regels
 
 Regels inschakelen operators voor het bewaken van apparaten in bijna realtime. Regels automatisch aanroepen **acties** zoals een e-mailbericht verzenden wanneer de regel wordt geactiveerd. Er is een type regel beschikbaar vandaag:
@@ -178,6 +231,31 @@ U kunt bijvoorbeeld toevoegen een **instellingen en eigenschappen** tegel om een
 Als een operator bekijkt het dashboard, kunnen ze nu deze tegel waarin de eigenschappen en instellingen van het apparaat zien:
 
 ![Dashboardtegel](./media/howto-set-up-template/dashboardtile.png)
+
+### <a name="add-location-azure-map-in-dashboard"></a>Locatie toevoegen Azure kaart in het Dashboard
+
+Als u een locatie-eigenschap, zoals in de stappen hebt geconfigureerd [maken van een locatie-eigenschap aangedreven door Azure Maps]((howto-set-up-template.md), is het mogelijk voor het visualiseren van de locatie met een kaart rechts in het dashboard van uw apparaat.
+
+1.  Navigeer naar het tabblad Dashboard apparaat. Zorg ervoor dat de dat ontwerpmodus is ingeschakeld.
+2.  Selecteer de kaart in de bibliotheek op apparaat-Dashboard. 
+
+![Dashboard Azure locatiekaart selecteren](./media/howto-set-up-template/locationcloudproperty4map.png)
+
+3.  Geef een titel en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
+
+![Dashboardlocatie Azure kaart configureren](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+4.  Opslaan en u ziet de kaart tegel weergeven van de locatie die u hebt geselecteerd. 
+
+![Dashboardlocatie Azure kaart visualiseren](./media/howto-set-up-template/locationcloudproperty6map.png) 
+
+U kunt zich vergroten of verkleinen van de kaart aan de gewenste grootte.
+
+Als een operator bekijkt het dashboard, zien ze nu deze alle Dashboard tegels die u hebt geconfigureerd met inbegrip van een locatie kaart!
+
+![Dashboard locatie Azure kaart Dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
