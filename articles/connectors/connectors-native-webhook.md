@@ -3,9 +3,9 @@ title: Webhook-connector voor Azure Logic Apps | Microsoft Docs
 description: Het gebruik van webhookacties en triggers voor het uitvoeren van acties zoals matrix van Filter vanuit logic apps
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 647dcebdd8d66ca49e14b51633e6a4a3ce6cb32b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296557"
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Aan de slag met de webhook-connector
 
@@ -43,7 +44,7 @@ Hier volgt een voorbeeld waarin het instellen van een HTTP-trigger in de ontwerp
 
    Deze stap volgt hetzelfde patroon als de [HTTP-actie](connectors-native-http.md) indeling.
 
-     ![HTTP Trigger](./media/connectors-native-webhook/using-trigger.png)
+     ![HTTP-Trigger](./media/connectors-native-webhook/using-trigger.png)
 
 3. Voeg ten minste één actie.
 4. Klik op **opslaan** voor het publiceren van de logische app. Deze stap wordt het eindpunt abonneren met de callback-URL die nodig zijn voor het activeren van deze logische app.
@@ -92,9 +93,9 @@ Een * betekent verplicht veld.
 
 | Weergavenaam | De naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Abonneren methode * |methode |HTTP-methode moet worden gebruikt voor het abonneren op aanvraag |
+| Abonneren methode * |method |HTTP-methode moet worden gebruikt voor het abonneren op aanvraag |
 | Abonneren URI * |uri |HTTP-URI moet worden gebruikt voor het abonneren op aanvraag |
-| Afmelden methode * |methode |HTTP-methode moet worden gebruikt voor afmelding |
+| Afmelden methode * |method |HTTP-methode moet worden gebruikt voor afmelding |
 | Afmelden URI * |uri |HTTP-URI moet worden gebruikt voor afmelding |
 | Hoofdtekst abonneren |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor het abonneren |
 | Headers abonneren |headers |HTTP-aanvraagheaders voor abonneren |
@@ -109,7 +110,7 @@ Webhook-aanvraag
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Kopteksten |object |Webhook-aanvraagheaders |
+| Headers |object |Webhook-aanvraagheaders |
 | Hoofdtekst |object |Webhook request-object |
 | Statuscode |int |Statuscode van aanvraag Webhook |
 
@@ -128,9 +129,9 @@ Een * betekent verplicht veld.
 
 | Weergavenaam | De naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Abonneren methode * |methode |HTTP-methode moet worden gebruikt voor het abonneren op aanvraag |
+| Abonneren methode * |method |HTTP-methode moet worden gebruikt voor het abonneren op aanvraag |
 | Abonneren URI * |uri |HTTP-URI moet worden gebruikt voor het abonneren op aanvraag |
-| Afmelden methode * |methode |HTTP-methode moet worden gebruikt voor afmelding |
+| Afmelden methode * |method |HTTP-methode moet worden gebruikt voor afmelding |
 | Afmelden URI * |uri |HTTP-URI moet worden gebruikt voor afmelding |
 | Hoofdtekst abonneren |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor het abonneren |
 | Headers abonneren |headers |HTTP-aanvraagheaders voor abonneren |
@@ -145,7 +146,7 @@ Webhook-aanvraag
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Kopteksten |object |Webhook-aanvraagheaders |
+| Headers |object |Webhook-aanvraagheaders |
 | Hoofdtekst |object |Webhook request-object |
 | Statuscode |int |Statuscode van aanvraag Webhook |
 

@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a2067228629b04f1ef2cc407a28f379acc75f60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297512"
 ---
 # <a name="use-cost-management-reports"></a>Kostenbeheerrapporten gebruiken
 
@@ -23,6 +24,8 @@ In dit artikel wordt beschreven hoe verschillende kostenbeheer rapporten gebruik
 ## <a name="cost-analysis-reports"></a>Kosten verbonden aan rapporten
 
 Rapporten van kosten weergegeven facturering gegevens van uw Cloud-providers. Met behulp van de rapporten, kunt u groeperen en inzoomen op verschillende gegevenssegmenten gespecificeerd in het bestand facturering. De rapporten inschakelen gedetailleerde kosten navigatie tussen de cloud leveranciers onbewerkte factureringsgegevens.
+
+Als het weergegeven als een grafiek, analyserapporten een y-as hebben *kosten* en een x-as voor een *categorie of tag* die u kiest. Hoewel er een bereik in de grafiek, wordt de afgelopen 30 dagen bijvoorbeeld het bereik gebruikt als een filter. Analyserapporten zijn ideaal om te vergelijken categorieën. De kosten van elk abonnement in de afgelopen 30 dagen. Of de kosten van services zoals opslag- of compute gedurende een bepaalde periode.
 
 Kosten analyserapporten niet kosten gegroepeerd door tags. Tag-rapporten is alleen beschikbaar in de toewijzing van de kosten-rapporten instellen nadat u een kostprijsmodel met kosten toewijzing 360 maakt.
 
@@ -50,6 +53,8 @@ Met de rechtermuisknop op resultaten rapporteren als u wilt inzoomen ze en meer 
 ### <a name="actual-cost-over-time"></a>Werkelijke kosten gedurende een periode
 
 Het rapport werkelijke kosten gedurende een periode is een standaardkosten analyserapport kosten distribueren over een vastgesteld tijdvenster resolutie. Het rapport bevat uitgaven na verloop van tijd kunt u trends zien en bestedingslimiet onregelmatigheden worden gedetecteerd. Dit rapport geeft de medewerkers van uw belangrijkste kosten inclusief lopende kosten en eenmalige gereserveerde exemplaar kosten die worden besteed gedurende een geselecteerde periode.
+
+Als het weergegeven als een grafiek, kosten via time rapporten hebben een y-as *kosten* en x-as *periode*. Deze rapporten tonen de ontwikkeling van kosten gedurende een periode.
 
 Het rapport werkelijke kosten gedurende een periode om te gebruiken:
 
@@ -162,4 +167,4 @@ Hier volgt een voorbeeld van het rapport.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u nog niet de eerste zelfstudie hebt voltooid voor het beheer van kosten, leest u op het [gebruik en kosten bekijken](tutorial-review-usage.md).
+- Als u de eerste zelfstudie voor het Cost Management nog niet hebt voltooid, leest u die op [Gebruik en kosten bekijken](tutorial-review-usage.md).

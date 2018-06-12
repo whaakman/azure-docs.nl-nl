@@ -3,7 +3,7 @@ title: Communicatie met een willekeurig eindpunt via HTTP - Azure Logic Apps | M
 description: Logische apps die kunnen communiceren met een willekeurig eindpunt te maken via HTTP
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 tags: connectors
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 452af4facd03ce2b4f010a29acc0122241df63c1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296421"
 ---
 # <a name="get-started-with-the-http-action"></a>Aan de slag met de HTTP-actie
 
@@ -111,7 +112,7 @@ De volgende tabellen beschrijven de vereiste en optionele invoervelden voor de a
 Hier volgen de invoervelden voor de actie, waardoor een uitgaande HTTP-aanvraag.
 A * houdt in dat een vereist veld.
 
-| Weergavenaam | De naam van eigenschap | Beschrijving |
+| Weergavenaam | Naam van eigenschap | Beschrijving |
 | --- | --- | --- |
 | Methode * |method |De HTTP-term moet worden gebruikt |
 | URI * |uri |De URI voor de HTTP-aanvraag |
@@ -124,7 +125,7 @@ A * houdt in dat een vereist veld.
 #### <a name="output-details"></a>Uitvoergegevens
 Hier volgen de uitvoerdetails voor het HTTP-antwoord.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
 | Headers |object |Antwoordheaders |
 | Hoofdtekst |object |Response-object |
@@ -142,7 +143,7 @@ De functie Logic Apps kunt u verschillende soorten verificatie op basis van HTTP
 De volgende verificatieobject is nodig voor basisverificatie.
 A * houdt in dat een vereist veld.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
 | Type* |type |Type verificatie (moet `Basic` voor basisverificatie) |
 | Gebruikersnaam * |gebruikersnaam |Gebruikersnaam voor verificatie |
@@ -166,7 +167,7 @@ Bijvoorbeeld:
 
 De volgende verificatieobject is nodig voor verificatie van clientcertificaten. A * houdt in dat een vereist veld.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
 | Type* |type |Het type verificatie (moet `ClientCertificate` voor SSL-certificaten voor client) |
 | PFX* |PFX |De Base64-gecodeerde inhoud van het bestand (Personal Information Exchange (PFX) |
@@ -189,11 +190,11 @@ Bijvoorbeeld:
 #### <a name="azure-ad-oauth-authentication"></a>Azure AD-OAuth-verificatie
 De volgende verificatieobject is nodig voor Azure AD OAuth-verificatie. A * houdt in dat een vereist veld.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
 | Type* |type |Het type verificatie (moet `ActiveDirectoryOAuth` voor Azure AD OAuth) |
 | Tenant* |tenant |De tenant-id voor de Azure AD-tenant |
-| Doelgroep * |doelgroep |De bron die u aanvraagt autorisatie moet worden gebruikt. Bijvoorbeeld: `https://management.core.windows.net/` |
+| Doelgroep * |doelgroep |De resource waarvoor u autorisatie voor gebruik vraagt. Bijvoorbeeld: `https://management.core.windows.net/` |
 | Client -ID * |clientId |De client-id voor de Azure AD-toepassing |
 | Geheim * |geheim |Het geheim van de client die het token is aangevraagd |
 

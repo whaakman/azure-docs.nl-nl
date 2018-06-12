@@ -1,6 +1,6 @@
 ---
 title: Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk | Microsoft Docs
-description: Informatie over hoe Azure-SSIS-integratie runtime koppelen aan een virtuele Azure-netwerk.
+description: Informatie over hoe de Azure-SSIS-integratie runtime koppelen aan een virtuele Azure-netwerk.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: douglasl
-ms.openlocfilehash: b998b47cdc65be91f62543369f5c3f18e4f270c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 344bd9beff03f423d3dc3431dec56334e721d811
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619640"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298063"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk
 Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk in de volgende scenario's: 
 
-- Als u beheert de catalogusdatabase van de SQL Server Integration Services (SSIS)-op Azure SQL Database beheerd-instantie (Preview) in een virtueel netwerk.
 - U wilt verbinding maken met on-premises gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd in een Azure SSIS Integration Runtime.
+
+- Als u beheert de catalogusdatabase van de SQL Server Integration Services (SSIS)-op Azure SQL Database beheerd-instantie (Preview) in een virtueel netwerk.
 
  Azure Data Factory versie 2 (Preview) kunt u uw Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk gemaakt met behulp van het klassieke implementatiemodel of het Azure Resource Manager-implementatiemodel. 
 
@@ -52,7 +53,7 @@ De volgende secties vindt u meer informatie.
 
 ## <a name="requirements-for-virtual-network-configuration"></a>Vereisten voor de configuratie van virtueel netwerk
 
--   Zorg ervoor dat `Microsoft.Batch` is een geregistreerde provider onder het abonnement van uw VNet subnet die als host fungeert voor de Azure-SSIS-IR Als u van klassieke VNet gebruikmaakt, ook koppelen `MicrosoftAzureBatch` aan de rol Inzender van klassieke virtuele Machine voor het virtuele netwerk.
+-   Zorg ervoor dat `Microsoft.Batch` is een geregistreerde provider onder het abonnement van het subnet van uw virtuele netwerk die als host fungeert voor de Azure-SSIS-IR Als u een klassiek virtueel netwerk gebruikt, ook koppelen `MicrosoftAzureBatch` aan de rol Inzender van klassieke virtuele Machine voor het virtuele netwerk.
 
 -   Selecteer het juiste subnet voor het hosten van de Azure-SSIS-IR Zie [het subnet selecteert](#subnet).
 
@@ -78,7 +79,7 @@ De volgende stappen worden aanbevolen:
 
 -   Configureer aangepaste DNS voor het doorsturen van aanvragen naar Azure DNS. U kunt niet-omgezette DNS-records in de IP-adres van de Azure recursieve resolvers (168.63.129.16) doorsturen op uw eigen DNS-server.
 
--   Instellen van de aangepaste DNS als primaire en de Azure DNS als secundaire voor het VNet. Het IP-adres van de Azure recursieve resolvers (168.63.129.16) als een secundaire DNS-server registreren als uw eigen DNS-server niet beschikbaar is.
+-   De aangepaste DNS als primaire en de Azure DNS als secundaire voor het virtuele netwerk instellen. Het IP-adres van de Azure recursieve resolvers (168.63.129.16) als een secundaire DNS-server registreren als uw eigen DNS-server niet beschikbaar is.
 
 Zie voor meer informatie [naamomzetting die gebruikmaakt van uw eigen DNS-server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
@@ -96,7 +97,7 @@ Als u nodig hebt voor het implementeren van een netwerkbeveiligingsgroep (NSG) i
 
 U kunt verbinding maken met een [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit met de infrastructuur van uw virtuele netwerk naar uw on-premises netwerk uitbreiden naar Azure. 
 
-Een algemene configuratie-instellingen is het gebruik van geforceerde tunneling (adverteren een BGP-route 0.0.0.0/0 naar het VNet) waardoor uitgaand internetverkeer van de VNet-overdracht naar lokale netwerkapparaat voor controle en logboekregistratie. Dit netwerkverkeer verbreekt de connectiviteit tussen de Azure-SSIS-IR in het VNet met afhankelijke Azure Data Factory-services. De oplossing is voor het definiëren van een (of meer) [gebruiker gedefinieerde routes (udr's)](../virtual-network/virtual-networks-udr-overview.md) op het subnet waarin de Azure-SSIS-IR Een UDR definieert subnet-specifieke routes die worden gehonoreerd in plaats van de BGP-route.
+Een algemene configuratie-instellingen is het gebruik van geforceerde tunneling (adverteren een BGP-route 0.0.0.0/0 aan het virtuele netwerk) waardoor uitgaand internetverkeer van de overdracht van het virtuele netwerk naar lokale netwerkapparaat voor controle en logboekregistratie. Dit netwerkverkeer verbreekt de connectiviteit tussen de Azure-SSIS-IR in het virtuele netwerk met afhankelijke Azure Data Factory-services. De oplossing is voor het definiëren van een (of meer) [gebruiker gedefinieerde routes (udr's)](../virtual-network/virtual-networks-udr-overview.md) op het subnet waarin de Azure-SSIS-IR Een UDR definieert subnet-specifieke routes die worden gehonoreerd in plaats van de BGP-route.
 
 Of u kunt de gebruiker gedefinieerde routes (udr's) om af te dwingen uitgaand internetverkeer vanuit het subnet die als host fungeert voor de Azure-SSIS-IR naar een ander subnet, die als host fungeert voor een virtueel netwerkapparaat als een firewall of een DMZ host definiëren voor controle en logboekregistratie.
 
@@ -109,11 +110,11 @@ Als u zich zorgen maakt over de mogelijkheid te verliezen uitgaand internetverke
 Zie [dit PowerShell-script](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) voor een voorbeeld. U moet uitvoeren van het script wekelijks up-to-date te houden de lijst met Azure data center IP-adres.
 
 ### <a name="resource-group"></a> Vereisten voor resourcegroep
-De Azure-SSIS-IR moet maken van bepaalde netwerkbronnen onder dezelfde resourcegroep bevinden als het VNet, waaronder een Azure load balancer, een Azure openbare IP-adres en een netwerkbeveiligingsgroep voor werk.
+De Azure-SSIS-IR moet maken van bepaalde netwerkbronnen onder dezelfde resourcegroep bevinden als het virtuele netwerk, met inbegrip van een Azure load balancer, een Azure openbare IP-adres en een netwerkbeveiligingsgroep voor werk.
 
--   Zorg ervoor dat er vergrendeling resource van de resourcegroep of abonnement waartoe het VNet behoort niet. Als u een vergrendeling van alleen-lezen of een vergrendeling verwijderen configureert, kunnen starten en stoppen van de IR mislukken of vastlopen.
+-   Zorg ervoor dat er geen vergrendeling resource van de resourcegroep of abonnement waartoe het virtuele netwerk behoort. Als u een vergrendeling van alleen-lezen of een vergrendeling verwijderen configureert, kunnen starten en stoppen van de IR mislukken of vastlopen.
 
--   Zorg ervoor dat u een Azure-beleid waarmee wordt voorkomen dat de volgende bronnen worden gemaakt onder de resourcegroep of abonnement waartoe het VNet behoort niet hebt:
+-   Zorg ervoor dat er een Azure-beleid waarmee wordt voorkomen dat de volgende bronnen worden gemaakt onder de resourcegroep of abonnement waartoe het virtuele netwerk behoort geen:
     -   Microsoft.Network/LoadBalancers
     -   Microsoft.Network/NetworkSecurityGroups
     -   Microsoft.Network/PublicIPAddresses
@@ -228,7 +229,7 @@ U moet een virtueel netwerk configureren voordat u kunt een Azure-SSIS-IR deelne
 
 ```powershell
 # Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
@@ -282,7 +283,7 @@ Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNam
 
 ```powershell
 # Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id

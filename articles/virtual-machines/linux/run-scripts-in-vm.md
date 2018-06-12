@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 209b476e21a3a9ba08eb907a279c7c5f8faa1c17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb811e3dba7be87c83b9893db682475351ada1c1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660843"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266996"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Scripts uitvoeren in uw Linux-VM
 
@@ -31,14 +31,14 @@ De [aangepaste Scriptextensie](../extensions/custom-script-linux.md) wordt voorn
 
 ## <a name="run-command"></a>Opdracht uitvoeren
 
-De [-opdracht uitvoeren](run-command.md) onderdeel kunt u virtuele machine en Toepassingsbeheer en het oplossen van problemen met behulp van scripts en is beschikbaar, zelfs wanneer de computer is alleen vanaf het netwerk verbonden.
+De [-opdracht uitvoeren](run-command.md) functie kunt u virtuele machine en Toepassingsbeheer en het oplossen van problemen met behulp van scripts en is beschikbaar zelfs wanneer de computer is niet bereikbaar is, bijvoorbeeld als de Gast-firewall beschikt niet over de RDP of SSH-poort Open.
 
 * Scripts uitvoeren in virtuele machines in Azure.
 * Kan worden uitgevoerd met [Azure-portal](run-command.md), [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)
 * Snel uitvoeren van een script en bekijk de uitvoer en Herhaal zo nodig in de Azure portal.
 * Script kan rechtstreeks worden getypt of u een van de ingebouwde scripts kunt uitvoeren.
 * PowerShell-script uitgevoerd op Windows-machines en Bash-scripts in Linux-machines.
-* Dit is handig voor virtuele machine en Toepassingsbeheer en voor het uitvoeren van scripts in virtuele machines die geen netwerk dat is verbonden.
+* Dit is handig voor virtuele machine en Toepassingsbeheer en voor het uitvoeren van scripts in virtuele machines die niet bereikbaar zijn.
 
 ## <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 

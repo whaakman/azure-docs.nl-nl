@@ -4,9 +4,9 @@ description: Verbinding maken met on-premises bestandssystemen vanuit logic app 
 keywords: bestandssystemen on-premises
 services: logic-apps
 author: derek1ee
-manager: anneta
-documentationcenter: 
-ms.assetid: 
+manager: jeconnoc
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 019b5fcd218ddd471c5f02d0332b8f5b5bf0edb3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300817"
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Verbinding maken met on-premises bestandssystemen vanuit logic apps met de File System-connector
 
@@ -73,7 +74,7 @@ Uw logische apps kunt voor het beheren van gegevens en veilig toegang krijgen to
 
    ![Verzenden van e-actie](media/logic-apps-using-file-connector/send-email.png)
 
-9. Sla uw logische app. Uw app testen door een bestand uploadt naar Dropbox. Het bestand ophalen gekopieerd naar de bestandsshare voor lokale en u ontvangt een e-mail over de werking.
+9. Sla uw logische app op. Uw app testen door een bestand uploadt naar Dropbox. Het bestand ophalen gekopieerd naar de bestandsshare voor lokale en u ontvangt een e-mail over de werking.
 
 Gefeliciteerd, u hebt nu een werkende logische app die verbinding met uw on-premises bestandssysteem maken kan. 
 

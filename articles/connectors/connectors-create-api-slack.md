@@ -2,10 +2,10 @@
 title: Gebruik van de Connector Slack in Azure logic apps | Microsoft Docs
 description: Verbinding maken met Slack in logic apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 88b134a90ac385ad957d76f420fe85dc2dbbf751
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296220"
 ---
 # <a name="get-started-with-the-slack-connector"></a>Aan de slag met de toegestane connector
-Vertraging is een hulpprogramma team communicatie, die samenbrengt alle van uw team communicatie in een plaatst, onmiddellijk doorzoekbare en beschikbaar waar u ook bent. 
+Slack is een communicatieprogramma voor teams waarbij alle communicatie van uw team op één plaats wordt samengebracht waar deze direct doorzoekbaar en beschikbaar is vanaf elke locatie. 
 
 Aan de slag door het maken van een logische app nu; Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

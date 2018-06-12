@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 065eb708a1d80b0eac618bd9039a859db6ef1340
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265581"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Maken en beheren van Azure-Database voor de MySQL-server met Azure portal
 Dit onderwerp wordt beschreven hoe u snel een nieuwe Azure-Database voor de MySQL-server kunt maken. Het bevat ook informatie over het beheren van de server met behulp van de Azure-portal. Serverbeheer omvat server-gegevens en het wachtwoord opnieuw instellen, resources schalen en verwijderen van de server-databases weer te geven.
@@ -64,7 +65,7 @@ Nadat de nieuwe server is ingericht, beschikt de gebruiker over verschillende op
 
 2. Een nieuw wachtwoord invoeren en Bevestig het wachtwoord in het venster zoals wordt weergegeven:
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Wachtwoord opnieuw instellen](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Klik op **OK** om op te slaan van het nieuwe wachtwoord.
 
@@ -74,7 +75,7 @@ Nadat de nieuwe server is ingericht, beschikt de gebruiker over verschillende op
 
 2. Wijzig de **vCore** instellen met de schuifregelaar op de gewenste waarde.
 
-    ![scale-compute](./media/howto-create-manage-server-portal/scale-compute.png)
+    ![Scale compute](./media/howto-create-manage-server-portal/scale-compute.png)
 
 3. Klik op **OK** om de wijzigingen op te slaan.
 
@@ -96,7 +97,7 @@ Nadat de nieuwe server is ingericht, beschikt de gebruiker over verschillende op
 
 2. Typ de naam van de server in het invoervak voor dubbele bevestiging.
 
-    ![confirm-delete](./media/howto-create-manage-server-portal/confirm.png)
+    ![Bevestig verwijderen](./media/howto-create-manage-server-portal/confirm.png)
 
 3. Klik op de **verwijderen** knop om te bevestigen verwijderen van de server. Wachten op de pop 'is verwijderd MySQL server' tot in de meldingsbalk weergegeven.
 

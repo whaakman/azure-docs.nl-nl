@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 06151b211a03a971e549e88817770ef096f3f603
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839423"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301368"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele betaling verwerken
 
@@ -169,8 +169,6 @@ Elk van de netwerk-lagen is een speciale netwerkbeveiligingsgroep (NSG):
 - Een DMZ netwerkbeveiligingsgroep voor de firewall en Application Gateway WAF
 - Een NSG voor beheer jumpbox (bastion host)
 - Een NSG voor de app-serviceomgeving
-
-Elk van de nsg's een bepaalde poorten en protocollen die zijn geopend voor de veilige en de juiste werking van de oplossing. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](#network-security-groups).
 
 Elk van de nsg's een bepaalde poorten en protocollen die zijn geopend voor de veilige en de juiste werking van de oplossing. Bovendien zijn de volgende configuraties voor elke NSG ingeschakeld:
 - Ingeschakeld [logboeken met diagnostische gegevens en gebeurtenissen](/azure/virtual-network/virtual-network-nsg-manage-log) worden opgeslagen in de storage-account 

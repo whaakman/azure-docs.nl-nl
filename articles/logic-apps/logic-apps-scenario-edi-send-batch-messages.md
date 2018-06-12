@@ -3,11 +3,11 @@ title: Batch-EDI-berichten verwerken als een groep of een verzameling - Azure Lo
 description: EDI-berichten voor batchverwerking in logic apps verzenden
 keywords: batch, batch verwerkt, batch coderen
 author: divswa
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6340d1fc409b64c5e681f9f69e4e2d0895ede61f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299287"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>Verzenden X12 berichten in een batch handelspartners
 
@@ -159,7 +160,7 @@ Afzender logische apps moeten weten waar u het verzenden van items, terwijl een 
    
    ![Eigenschappen van batch instellen](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-properties.png)
 
-6. Sla uw logische app. Uw afzender logische app nu er ongeveer als volgt in dit voorbeeld:
+6. Sla uw logische app op. Uw afzender logische app nu er ongeveer als volgt in dit voorbeeld:
 
    ![Sla uw logische app van afzender](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-finished.png)
 

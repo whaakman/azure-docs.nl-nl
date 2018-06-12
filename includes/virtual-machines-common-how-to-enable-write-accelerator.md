@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 5/9/2018
+ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: c6fdd51bd522b08b33e6cac852ef313475682550
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 21681a1af64754ef569f2ad4ff92f85a598007ac
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723140"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323779"
 ---
 # <a name="write-accelerator"></a>Schrijven van de Accelerator
 Geschreven dat Accelerator is een schijf-functionaliteit voor M-serie virtuele Machines (VM's) op Premium-opslag met Azure beheerd schijven uitsluitend. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van de i/o-latentie van schrijfbewerkingen op basis van Azure Premium-opslag. Schrijven dat Accelerator is ideaal wanneer log-bestandsupdates nodig zijn voor het persistent maken op schijf op een maximaal zodat manier voor moderne databases.
@@ -49,17 +49,13 @@ Er zijn limieten van Azure Premium Storage VHD's per virtuele machine die kan wo
 
 | VM-SKU | Aantal schijven Accelerator schrijven | Schrijven van Accelerator schijf IOP's per VM |
 | --- | --- | --- |
-| M128ms | 16 | 8000 |
-| M128s | 16 | 8000 |
-| M64ms | 8 | 4000 |
-| M64s | 8 | 4000 | 
-| M32ms | 4 | 2000 | 
-| M32s | 4 | 2000 | 
-| M16ms | 2 | 1000 | 
-| M16s | 2 | 1000 | 
-| M8ms | 1 | 500 | 
-| M8s | 1 | 500 | 
+| M128ms, 128s | 16 | 8000 |
+| M64ms, M64ls, M64s | 8 | 4000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 2000 | 
+| M16ms, M16s | 2 | 1000 | 
+| M8ms, M8s | 1 | 500 | 
 
+De IOPS gelden de documentlimieten per VM en *niet* per schijf. Alle schijven van de Accelerator schrijven delen de dezelfde limiet is IOPS per VM.
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Schrijven Accelerator inschakelen op een specifieke schijf
 De volgende secties wordt beschreven hoe Accelerator schrijven op Azure Premium Storage VHD's kunnen worden ingeschakeld.
 

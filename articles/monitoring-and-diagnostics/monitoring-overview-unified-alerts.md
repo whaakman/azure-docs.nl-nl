@@ -1,26 +1,19 @@
 ---
-title: Waarschuwingen in de Azure-Monitor Unified | Microsoft Docs
+title: Unified waarschuwingen in de Azure-Monitor
 description: Beschrijving van unified waarschuwingen in Azure, waarmee u voor het beheren van waarschuwingen en regels waarschuwingen alle Azure-services.
 author: manishsm-msft
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: mamit,bwren
-ms.custom: ''
-ms.openlocfilehash: 699dff42846ee1f9d42980feca55d8a79e2514e3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: mamit
+ms.component: alerts
+ms.openlocfilehash: ff2650ec7d4c2c1fffd57176327b56199335fa9d
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839840"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264813"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Unified waarschuwingen in de Azure-Monitor
 
@@ -62,7 +55,7 @@ De ervaring voor de geïntegreerde waarschuwingen maakt gebruik van de volgende 
 | Criteria | Combinatie van _signaal_ en _logica_ toegepast op een doelbron.<br>Voorbeelden: Percentage CPU > 70%, serverreactietijd > 4 ms, aantal resultaten van een logboek query > 100 enzovoort. |
 | Logica | Gebruiker gedefinieerde logica wilt controleren of het signaal binnen bereik en-waarden verwacht. |
 | Bewerking | De bewerking uit te voeren wanneer de waarschuwing wordt geactiveerd. Meerdere acties kunnen optreden wanneer een waarschuwing wordt geactiveerd. Deze waarschuwingen ondersteuning voor groepen in te grijpen.<br>Voorbeelden: e-mailen van een e-mailadres voor het aanroepen van een webhook-URL. |
-| Monitorconditie | Hiermee wordt aangegeven of de voorwaarde die een waarschuwing voor metrische gemaakt vervolgens is opgelost. Metrische waarschuwingsregels voorbeeld van een bepaalde metriek met regelmatige tussenpozen. Als u de criteria in de waarschuwingsregel wordt voldaan, wordt een nieuwe waarschuwing gemaakt met een voorwaarde van Fired.  Wanneer de metriek is door actieve opnieuw als de criteria wordt nog steeds voldaan, wordt er niets gebeurt.  Als u de criteria echter niet wordt voldaan, wordt de voorwaarde van de waarschuwing gewijzigd naar opgelost. De volgende keer dat de criteria wordt voldaan, wordt een waarschuwing voor een andere gemaakt met een voorwaarde van Fired. |
+| Bewakingsvoorwaarde | Hiermee wordt aangegeven of de voorwaarde die een waarschuwing voor metrische gemaakt vervolgens is opgelost. Metrische waarschuwingsregels voorbeeld van een bepaalde metriek met regelmatige tussenpozen. Als u de criteria in de waarschuwingsregel wordt voldaan, wordt een nieuwe waarschuwing gemaakt met een voorwaarde van Fired.  Wanneer de metriek is door actieve opnieuw als de criteria wordt nog steeds voldaan, wordt er niets gebeurt.  Als u de criteria echter niet wordt voldaan, wordt de voorwaarde van de waarschuwing gewijzigd naar opgelost. De volgende keer dat de criteria wordt voldaan, wordt een waarschuwing voor een andere gemaakt met een voorwaarde van Fired. |
 
 
 ## <a name="alert-pages"></a>Waarschuwing pagina 's
@@ -176,7 +169,7 @@ Klik op de volgende waarden boven aan de pagina waarschuwingen om een andere pag
 |:---|:---|
 | Totaal aantal waarschuwingen | Totaal aantal waarschuwingen die overeenkomen met de geselecteerde criteria. Klik op deze waarde om te openen van de weergave alle waarschuwingen met geen filter. |
 | Smart groepen | Totaal aantal smart groepen die zijn gemaakt op basis van de waarschuwingen die overeenkomen met de geselecteerde criteria. Klik op deze waarde om de lijst slimme groepen in de weergave alle waarschuwingen.
-| Totaal aantal waarschuwingsregels | Totale aantal regels voor waarschuwingen in de geselecteerde abonnement en de resource-groep. Klik op deze waarde om de weergave van de regels op de geselecteerde abonnementen en de resourcegroep is gefilterd te openen.
+| Totale aantal regels voor waarschuwingen | Totale aantal regels voor waarschuwingen in de geselecteerde abonnement en de resource-groep. Klik op deze waarde om de weergave van de regels op de geselecteerde abonnementen en de resourcegroep is gefilterd te openen.
 
 
 ### <a name="all-alerts-page"></a>Pagina met alle waarschuwingen 
@@ -193,9 +186,9 @@ U kunt de weergave filteren op de volgende waarden selecteren in de vervolgkeuze
 | Resourcetype | Selecteer een of meer resourcetypen. Alleen waarschuwingen met doelen van het geselecteerde type worden opgenomen in de weergave. In deze kolom is alleen beschikbaar wanneer u een resourcegroep is opgegeven. |
 | Resource | Selecteer een resource. Alleen waarschuwingen met resources als doel, zijn opgenomen in de weergave. In deze kolom is alleen beschikbaar wanneer een resourcetype is opgegeven. |
 | Severity | Selecteer de ernst van een waarschuwing of *alle* waarschuwingen van alles opnemen. |
-| Monitorconditie | Selecteer een voorwaarde voor de monitor of *alle* om op te nemen van waarschuwingen van de voorwaarden. |
-| Waarschuwingsstatus | Selecteer een waarschuwing staat of selecteer *alle* om op te nemen van waarschuwingen van statussen. |
-| Service bewaken | Selecteer een service of selecteer *alle* om op te nemen van alle services. Alleen de waarschuwingen die zijn gemaakt door regels die gebruikmaken van die service als doel, zijn opgenomen. |
+| Bewakingsvoorwaarde | Selecteer een voorwaarde voor de monitor of *alle* om op te nemen van waarschuwingen van de voorwaarden. |
+| Status bij waarschuwing bij | Selecteer een waarschuwing staat of selecteer *alle* om op te nemen van waarschuwingen van statussen. |
+| Monitor-Service | Selecteer een service of selecteer *alle* om op te nemen van alle services. Alleen de waarschuwingen die zijn gemaakt door regels die gebruikmaken van die service als doel, zijn opgenomen. |
 | Tijdsbereik | Alleen de waarschuwingen die zijn gestart binnen de geselecteerde periode worden opgenomen in de weergave. Ondersteunde waarden zijn uit het verleden uur, afgelopen 24 uur, afgelopen 7 dagen en afgelopen 30 dagen. |
 
 Klik op **kolommen** boven aan de pagina om te selecteren welke kolommen om weer te geven. U kunt een van de kolommen met uitzondering van verwijderen 

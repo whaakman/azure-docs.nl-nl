@@ -3,11 +3,11 @@ title: Batch-berichten verwerken als een groep of een verzameling - Azure Logic 
 description: Verzenden en ontvangen van berichten voor batchverwerking in logic apps
 keywords: batch, batchproces
 author: jonfancey
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2815ce7fe0e10aadb60eaa77b58e5395fb5c98d8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298012"
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Verzenden, ontvangen en verwerken van berichten in logic apps batch
 
@@ -77,7 +78,7 @@ Afzender logische apps moeten weten waar items, terwijl de ontvanger logische ap
 
    1. Kies onder de trigger batch **+ een nieuwe stap** > **een actie toevoegen**.
 
-   2. Voer in het zoekvak 'e' als filter.
+   2. Typ 'e-mail' als filter in het zoekvak.
    Op basis van uw e-mailprovider, selecteert u een e-connector.
    
       Als u een account voor werk of school hebt, Selecteer bijvoorbeeld de Outlook van Office 365-connector. 
@@ -131,7 +132,7 @@ Afzender logische apps moeten weten waar items, terwijl de ontvanger logische ap
 1. Een andere logische app maken met deze naam: 'BatchSender'
 
    1. Voer in het zoekvak "recurrence" als filter. 
-   Selecteer deze trigger: **schema - terugkeerpatroon**
+   Selecteer deze trigger: **Planning - Terugkeerpatroon**
 
       ![Toevoegen van de trigger "Terugkeerpatroon plannen"](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-receiver.png)
 
@@ -187,7 +188,7 @@ Afzender logische apps moeten weten waar items, terwijl de ontvanger logische ap
    * **Bericht-Id**: een optionele bericht-id en een gegenereerde GUID wanneer leeg is. 
    In dit voorbeeld laat u dit vak leeg.
 
-5. Sla uw logische app. Uw afzender logische app nu er ongeveer als volgt in dit voorbeeld:
+5. Sla uw logische app op. Uw afzender logische app nu er ongeveer als volgt in dit voorbeeld:
 
    ![Sla uw logische app van afzender](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details-finished.png)
 

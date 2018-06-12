@@ -1,12 +1,12 @@
 ---
 title: Een zonder server-App in Visual Studio | Microsoft Docs
 description: Aan de slag met uw eerste zonder server-app met deze handleiding over het maken, implementeren en beheren van de app in Visual Studio.
-keywords: 
+keywords: ''
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: d3cd509a0073e45bf910e9a74a279d678ff03b63
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 75f2be44aa8cc239257d6d2a7dad448e9dbab4b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300453"
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Een zonder server-App in Visual Studio met Logic Apps en functies
 
@@ -29,7 +30,7 @@ Zonder server en -mogelijkheden in Azure kunnen voor snelle ontwikkeling en impl
 
 Hier volgen de vereisten die nodig zijn voor het bouwen van een toepassing zonder server vanuit Visual Studio:
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) or Visual Studio 2015 - Community, Professional, or Enterprise
+* [Visual Studio 2017](https://www.visualstudio.com/vs/) of Visual Studio 2015 - Community, Professional of Enterprise
 * [Logic Apps-Tools voor Visual Studio](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551)
 * [Nieuwste Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 of hoger)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)

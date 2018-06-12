@@ -1,6 +1,6 @@
 ---
-title: Aangepaste instellingen voor de integratie van Azure SSIS runtime | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u de interface voor aangepaste installatie voor de integratie van Azure SSIS runtime
+title: Setup voor de integratie van Azure SSIS runtime aanpassen | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u met de interface met aangepaste installatie voor de integratie van Azure SSIS runtime extra onderdelen installeren of instellingen wijzigen
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: cce41a7529367d2e26b89a40593f9564d7e539b6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7b6cae9eaa4674e60edfae13c571d89153c9b498
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619582"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298389"
 ---
-# <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Aangepaste instellingen voor de integratie van Azure SSIS runtime
+# <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de integratie van Azure SSIS runtime aanpassen
 
-De interface met aangepaste installatie voor de Runtime Azure SSIS-integratie kunt u het standaardbesturingssysteem configuratie of omgeving (bijvoorbeeld aanvullende Windows-services starten) alter of extra onderdelen te installeren (bijvoorbeeld assembly's, stuurprogramma's, of extensies) op elk knooppunt van uw Azure-SSIS-IR In het algemeen biedt een interface voor het toevoegen van uw eigen instellingsstappen tijdens het inrichten of herconfiguratie van uw Azure-SSIS-IR
+De interface met aangepaste installatie voor de integratie van Azure SSIS Runtime biedt een interface voor het toevoegen van uw eigen instellingsstappen tijdens het inrichten of herconfiguratie van uw Azure-SSIS-IR Aangepaste installatie kunt u het standaardbesturingssysteem configuratie of omgeving (bijvoorbeeld aanvullende Windows-services starten) alter of extra onderdelen (bijvoorbeeld assembly's, stuurprogramma's of extensies) installeren op elk knooppunt van uw Azure-SSIS-IR
 
 U configureren uw aangepaste instellingen door het voorbereiden van een script en de bijbehorende bestanden en uploadt naar een blobcontainer in uw Azure Storage-account. U kunt een Shared Access Signature (SAS) Uniform Resource Identifier (URI) voor de container opgeven wanneer u inrichten of opnieuw configureren van uw Azure-SSIS-IR Elk knooppunt van uw Azure-SSIS-IR vervolgens het script en de bijbehorende bestanden downloadt van de container en uw aangepaste installatie wordt uitgevoerd met verhoogde bevoegdheden. Wanneer met aangepaste installatie is voltooid, uploadt elk knooppunt de standaarduitvoer van de uitvoering en worden andere logboeken naar de container.
 
@@ -32,7 +32,7 @@ U kunt gratis of niet-gelicentieerde onderdelen en betaalde of gelicentieerde on
 
 -   Als u wilt gebruiken `gacutil.exe` voor het installeren van assembly's in de Global Assembly Cache (GAC), moet u opgeven als onderdeel van uw aangepaste installatie of het exemplaar dat is opgegeven in de openbare Preview-container gebruiken.
 
--   Als u moet uw Azure-SSIS-IR met aangepaste installatie toevoegen aan een VNet, wordt alleen Azure Resource Manager VNet ondersteund. Klassieke VNet wordt niet ondersteund.
+-   Als u moet uw Azure-SSIS-IR met aangepaste installatie toevoegen aan een virtueel netwerk, worden alleen virtueel netwerk met Azure Resource Manager wordt ondersteund. Klassiek virtueel netwerk wordt niet ondersteund.
 
 -   Administratorshare is momenteel niet ondersteund in de Azure-SSIS-IR
 

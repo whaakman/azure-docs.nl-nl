@@ -6,15 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 05/18/2018
-ms.openlocfilehash: 4929c770bf21ddf660ccff4720f17f9bb3136ead
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f9517cb552130e340310abc4affdad8bdadc26fe
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655186"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265748"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Het configureren van Azure-Database voor replicatie van MySQL-gegevens in
 
@@ -203,7 +203,7 @@ In dit artikel wordt ervan uitgegaan dat er ten minste enige ervaring met MySQL-
 
 ## <a name="other-stored-procedures"></a>Andere opgeslagen procedures
 
-### <a name="stop-replication"></a>Replicatie stoppen
+### <a name="stop-replication"></a>Stop replicatie
 
 Als u wilt stoppen van replicatie tussen de primaire en replica-server, gebruikt u de volgende opgeslagen procedure:
 

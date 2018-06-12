@@ -1,12 +1,12 @@
 ---
 title: 'Zonder server scenario: een klant insights dashboard maken met Azure | Microsoft Docs'
 description: Meer informatie over hoe u feedback van klanten, sociale mediagegevens en meer door het bouwen van een klant-dashboard met Azure Logic Apps en Azure Functions kunt beheren
-keywords: 
+keywords: ''
 services: logic-apps
 author: jeffhollan
-manager: SyntaxC4
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 0a31a71305a4729575c5266b3a6138004d2dbdc6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3ee3ec3107cf8aad834e8201405c9aa833d838af
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299957"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Een streaming klant insights dashboard maken met Azure Logic Apps en Azure Functions
 

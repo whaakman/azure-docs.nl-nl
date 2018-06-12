@@ -1,12 +1,12 @@
 ---
 title: 'Afhandeling van uitzonderingen & fout logboekregistratie scenario: Azure Logic Apps | Microsoft Docs'
 description: Beschrijft een echte gebruiksvoorbeeld over geavanceerde uitzonderingsverwerking en foutregistratie voor Azure Logic Apps
-keywords: 
+keywords: ''
 services: logic-apps
 author: hedidin
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: cb80423266d3e9c0b3cac31821965ad92c0420d9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299355"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Afhandeling van uitzonderingen en foutenregistratie voor logic apps
 
@@ -412,7 +413,7 @@ Als u wilt de fouten weergeven, kunt u een MVC-web-app om de foutrecords van de 
 Hier volgen enkele voorbeelden van de gegevens van onze MVC-app gemaakt met de eerder beschreven methode.
 
 #### <a name="error-management-list"></a>Fout bij het beheer van lijst
-![Fout bij de lijst](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
+![Foutenlijst](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
 #### <a name="error-management-detail-view"></a>Fout management detailweergave
 ![Foutdetails](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)

@@ -6,16 +6,16 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/02/2018
 ms.custom: mvc
-ms.openlocfilehash: 0ae9c0168d8f4ff7dbea4c21c91fc70a3d355a5f
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b7af709c4175ecd6100de6d638ac9862488a7190
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736470"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266343"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Wat is Azure voor MySQL-Database?
 Azure MySQL-Database is een relationele database-service in de Microsoft-cloud op basis van de [MySQL Community Edition](https://www.mysql.com/products/community/) database-engine. Azure MySQL-Database biedt:

@@ -2,7 +2,7 @@
 title: Monitor en get inzicht in uw logische app wordt uitgevoerd met Log Analytics - Azure Logic Apps | Microsoft Docs
 description: Bewaken van uw logische app wordt uitgevoerd met logboekanalyse insights en uitgebreidere foutopsporing details voor probleemoplossing en diagnostische gegevens ophalen
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: d484aaf7d7582bd474d7437a7a62f41880690dbc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 493d82f59600d83a083bb13cdd0a21b872d77a43
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299940"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Controleren en verkrijgen van inzicht in logic app wordt uitgevoerd met Log Analytics
 

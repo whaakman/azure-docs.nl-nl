@@ -2,7 +2,7 @@
 title: AS2 bijhouden schema's voor het bewaken van B2B - Azure Logic Apps | Microsoft Docs
 description: AS2 bijhouden schema's gebruiken voor het bewaken van B2B-berichten van transacties in uw Azure-Account voor integratie.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 48e39fd20716e962c4a3e367fdff18e0b4fba32d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300878"
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Starten of het bijhouden van AS2 berichten en MDNs monitor geslaagd, fouten en berichteigenschappen inschakelen
 U kunt deze AS2 bijhouden schema's in uw integratie van Azure-account gebruiken om u te helpen bij het bewaken van transacties voor business-to-business (B2B):
@@ -61,20 +62,20 @@ U kunt deze AS2 bijhouden schema's in uw integratie van Azure-account gebruiken 
 
 | Eigenschap | Type | Beschrijving |
 | --- | --- | --- |
-| senderPartnerName | Tekenreeks | Naam van de partner van afzender AS2-bericht. (Optioneel) |
-| receiverPartnerName | Tekenreeks | Naam van de partner AS2 bericht ontvanger. (Optioneel) |
-| as2To | Tekenreeks | AS2-bericht ontvanger-naam van de headers van het bericht AS2. (Verplicht) |
-| as2From | Tekenreeks | AS2-bericht van de afzender-naam van de headers van het bericht AS2. (Verplicht) |
-| agreementName | Tekenreeks | Naam van de AS2-overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
-| richting | Tekenreeks | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
-| messageId | Tekenreeks | AS2-bericht-ID van de headers van het bericht AS2 (optioneel) |
-| dispositionType |Tekenreeks | Bericht Disposition melding (MDN) disposition typewaarde. (Optioneel) |
-| fileName | Tekenreeks | Bestandsnaam uit de kop van het bericht AS2. (Optioneel) |
+| senderPartnerName | Reeks | Naam van de partner van afzender AS2-bericht. (Optioneel) |
+| receiverPartnerName | Reeks | Naam van de partner AS2 bericht ontvanger. (Optioneel) |
+| as2To | Reeks | AS2-bericht ontvanger-naam van de headers van het bericht AS2. (Verplicht) |
+| as2From | Reeks | AS2-bericht van de afzender-naam van de headers van het bericht AS2. (Verplicht) |
+| agreementName | Reeks | Naam van de AS2-overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| richting | Reeks | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| MessageId | Reeks | AS2-bericht-ID van de headers van het bericht AS2 (optioneel) |
+| dispositionType |Reeks | Bericht Disposition melding (MDN) disposition typewaarde. (Optioneel) |
+| fileName | Reeks | Bestandsnaam uit de kop van het bericht AS2. (Optioneel) |
 | isMessageFailed |Boole-waarde | Hiermee wordt aangegeven of het AS2-bericht is mislukt. (Verplicht) |
 | isMessageSigned | Boole-waarde | Hiermee wordt aangegeven of de AS2-bericht is ondertekend. (Verplicht) |
 | isMessageEncrypted | Boole-waarde | Hiermee wordt aangegeven of het bericht AS2 is versleuteld. (Verplicht) |
 | isMessageCompressed |Boole-waarde | Hiermee wordt aangegeven of het bericht AS2 is gecomprimeerd. (Verplicht) |
-| correlationMessageId | Tekenreeks | AS2 bericht-ID, met elkaar correleren berichten met MDNs. (Optioneel) |
+| correlationMessageId | Reeks | AS2 bericht-ID, met elkaar correleren berichten met MDNs. (Optioneel) |
 | incomingHeaders |Woordenlijst van JToken | Binnenkomende AS2-header details van bericht. (Optioneel) |
 | outgoingHeaders |Woordenlijst van JToken | Uitgaande header details van bericht van AS2. (Optioneel) |
 | isNrrEnabled | Boole-waarde | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
@@ -113,21 +114,21 @@ U kunt deze AS2 bijhouden schema's in uw integratie van Azure-account gebruiken 
 
 | Eigenschap | Type | Beschrijving |
 | --- | --- | --- |
-| senderPartnerName | Tekenreeks | Naam van de partner van afzender AS2-bericht. (Optioneel) |
-| receiverPartnerName | Tekenreeks | Naam van de partner AS2 bericht ontvanger. (Optioneel) |
-| as2To | Tekenreeks | Partnernaam die het AS2-bericht ontvangt. (Verplicht) |
-| as2From | Tekenreeks | Partnernaam die u het bericht AS2 verzendt. (Verplicht) |
-| agreementName | Tekenreeks | Naam van de AS2-overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
-| richting |Tekenreeks | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
-| messageId | Tekenreeks | AS2-bericht-ID. (Optioneel) |
-| originalMessageId |Tekenreeks | AS2 oorspronkelijke bericht-ID. (Optioneel) |
-| dispositionType | Tekenreeks | MDN toestand typewaarde. (Optioneel) |
+| senderPartnerName | Reeks | Naam van de partner van afzender AS2-bericht. (Optioneel) |
+| receiverPartnerName | Reeks | Naam van de partner AS2 bericht ontvanger. (Optioneel) |
+| as2To | Reeks | Partnernaam die het AS2-bericht ontvangt. (Verplicht) |
+| as2From | Reeks | Partnernaam die u het bericht AS2 verzendt. (Verplicht) |
+| agreementName | Reeks | Naam van de AS2-overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| richting |Reeks | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| MessageId | Reeks | AS2-bericht-ID. (Optioneel) |
+| OriginalMessageId |Reeks | AS2 oorspronkelijke bericht-ID. (Optioneel) |
+| dispositionType | Reeks | MDN toestand typewaarde. (Optioneel) |
 | isMessageFailed |Boole-waarde | Hiermee wordt aangegeven of het AS2-bericht is mislukt. (Verplicht) |
 | isMessageSigned |Boole-waarde | Hiermee wordt aangegeven of de AS2-bericht is ondertekend. (Verplicht) |
 | isNrrEnabled | Boole-waarde | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
 | statusCode | Enum | Toegestane waarden zijn **geaccepteerde**, **geweigerd**, en **AcceptedWithErrors**. (Verplicht) |
 | micVerificationStatus | Enum | Toegestane waarden zijn **niet van toepassing**, **geslaagd**, en **mislukt**. (Verplicht) |
-| correlationMessageId | Tekenreeks | Correlatie-ID. De oorspronkelijke ID mailberichten (de bericht-ID van het bericht waarvoor MDN is geconfigureerd). (Optioneel) |
+| correlationMessageId | Reeks | Correlatie-ID. De oorspronkelijke ID mailberichten (de bericht-ID van het bericht waarvoor MDN is geconfigureerd). (Optioneel) |
 | incomingHeaders | Woordenlijst van JToken | Geeft de details van inkomende bericht-header. (Optioneel) |
 | outgoingHeaders |Woordenlijst van JToken | Geeft de details van uitgaande bericht-header. (Optioneel) |
 

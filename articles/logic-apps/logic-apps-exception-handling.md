@@ -4,7 +4,7 @@ description: Patronen voor fout- en afhandeling van uitzonderingen in Logic Apps
 services: logic-apps
 documentationcenter: ''
 author: dereklee
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300059"
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Voor het afhandelen van fouten en uitzonderingen in Logic Apps
 
@@ -64,13 +65,13 @@ Als u een beleid voor opnieuw proberen in niet definieert de **retryPolicy** sec
 }
 ```
 
-### <a name="none"></a>None
+### <a name="none"></a>Geen
 
 Als u instelt **retryPolicy** naar **geen**, dit beleid geen nieuwe poging gedaan mislukte aanvragen.
 
 | Elementnaam | Vereist | Type | Beschrijving | 
 | ------------ | -------- | ---- | ----------- | 
-| type | Ja | Tekenreeks | **none** | 
+| type | Ja | Reeks | **Geen** | 
 ||||| 
 
 ### <a name="fixed-interval"></a>Vast interval
@@ -79,9 +80,9 @@ Als u instelt **retryPolicy** naar **vaste**, dit beleid opnieuw probeert een mi
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | ------------ | -------- | ---- | ----------- |
-| type | Ja | Tekenreeks | **Vaste** |
+| type | Ja | Reeks | **Vaste** |
 | aantal | Ja | Geheel getal | Het aantal pogingen moet tussen 1 en 90 | 
-| interval | Ja | Tekenreeks | Het interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen PT5S en PT1D | 
+| interval | Ja | Reeks | Het interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen PT5S en PT1D | 
 ||||| 
 
 <a name="exponential-interval"></a>
@@ -92,11 +93,11 @@ Als u instelt **retryPolicy** naar **exponentiële**, dit beleid opnieuw probeer
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | ------------ | -------- | ---- | ----------- |
-| type | Ja | Tekenreeks | **exponential** |
+| type | Ja | Reeks | **exponential** |
 | aantal | Ja | Geheel getal | Het aantal pogingen moet tussen 1 en 90  |
-| interval | Ja | Tekenreeks | Het interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen PT5S en PT1D. |
-| minimumInterval | Nee | Tekenreeks | De minimale interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen PT5S en **interval** |
-| maximumInterval | Nee | Tekenreeks | De minimale interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen **interval** en PT1D | 
+| interval | Ja | Reeks | Het interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen PT5S en PT1D. |
+| minimumInterval | Nee | Reeks | De minimale interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen PT5S en **interval** |
+| maximumInterval | Nee | Reeks | De minimale interval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), die moet liggen tussen **interval** en PT1D | 
 ||||| 
 
 Deze tabel ziet u hoe een uniform willekeurige variabele in het opgegeven bereik wordt gegenereerd voor elke nieuwe poging tot en met **aantal**:
@@ -106,9 +107,9 @@ Deze tabel ziet u hoe een uniform willekeurige variabele in het opgegeven bereik
 | Probeer getal | Minimuminterval | Maximuminterval |
 | ------------ | ---------------- | ---------------- |
 | 1 | Max (0, **minimumInterval**) | Min(interval, **maximumInterval**) |
-| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
-| 3 | Maximum aantal (2 * interval **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
-| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| 2 | Max (interval **minimumInterval**) | Min (2 * interval **maximumInterval**) |
+| 3 | Maximum aantal (2 * interval **minimumInterval**) | Min (4 * interval **maximumInterval**) |
+| 4 | Max (4 * interval **minimumInterval**) | Min (8 * interval **maximumInterval**) |
 | .... | | | 
 |||| 
 

@@ -1,5 +1,5 @@
 ---
-title: Configureren van een Azure-SSIS-integratie runtime | Microsoft Docs
+title: Configureren van de runtime Azure SSIS-integratie | Microsoft Docs
 description: Informatie over het configureren van een Azure-SSIS-integratie runtime in Azure Data Factory nadat u al hebt ingericht.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: f6722ed3bdaf8ed2312a371690e3e9b4b61883f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bb33f2f5062749510906957fda5c8b0eeecdee60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619504"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297767"
 ---
-# <a name="manage-an-azure-ssis-integration-runtime"></a>Een Azure-SSIS-integratie runtime beheren
-De [maken van een Azure-SSIS-integratie runtime](create-azure-ssis-integration-runtime.md) artikel ziet u hoe een Azure-SSIS-integratie runtime (IR) maken met behulp van Azure Data Factory. In dit artikel bevat informatie over het opnieuw configureren van een bestaande Azure SSIS-integratie-runtime.  
+# <a name="reconfigure-the-azure-ssis-integration-runtime"></a>De runtime Azure SSIS-integratie configureren
+Dit artikel wordt beschreven hoe u een bestaande Azure SSIS-integratie runtime opnieuw configureren. Zie voor informatie over het maken van een Azure-SSIS-integratie runtime (IR) in Azure Data Factory [maken van een Azure-SSIS-integratie runtime](create-azure-ssis-integration-runtime.md).  
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md).
@@ -97,7 +97,7 @@ Zie voor meer informatie over Azure-SSIS-runtime, in de volgende onderwerpen:
 
 - [Azure-SSIS-integratie Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat conceptuele informatie over de integratie runtimes in het algemeen met inbegrip van de Azure-SSIS-IR 
 - [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
-- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (preview) en het toevoegen van de IR aan een VNet. 
-- [Een Azure-SSIS IR toevoegen aan een VNet](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat algemene informatie over het toevoegen van een Azure-SSIS IR aan een virtueel netwerk (VNet) van Azure. Er wordt ook beschreven hoe u Azure Portal gebruikt om VNet te configureren voor het deelnemen van een Azure-SSIS IR aan het VNet. 
+- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel wordt op de zelfstudie wordt uitgebreid en bevat instructies over het gebruik van Azure SQL beheerd-exemplaar (Preview) en de IR toevoegen aan een virtueel netwerk. 
+- [Een Azure-SSIS-IR toevoegen aan een virtueel netwerk](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat conceptuele informatie over het toevoegen van een Azure-SSIS-IR aan een virtuele Azure-netwerk. Het bevat ook stappen voor het gebruik van Azure-portal voor het virtuele netwerk configureren zodat Azure SSIS-IR kunt deelnemen aan het virtuele netwerk. 
 - [Een Azure-SSIS IR controleren](monitor-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel leest u hoe u informatie over een Azure-SSIS IR ophaalt. Daarnaast bevat het artikel beschrijvingen van statuswaarden die worden gebruikt in de geretourneerde informatie. 
  

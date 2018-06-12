@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 5db7d57045acea3ded82e880169ebf02f4151ec5
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d78980b69e6598dff349c75527fc27d8a04dfa18
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824724"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301181"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -40,7 +40,7 @@ De configuratieserver is een lokale machine met Site Recovery-onderdelen, met in
 **Onderdeel** | **Vereisten**
 --- |---
 CPU-kernen | 8
-RAM | 12 GB
+RAM | 16 GB
 Aantal schijven | 3-schijven<br/><br/> Schijven bevatten de OS-schijf, proces server cache schijf en bewaarstation voor failback.
 Vrije schijfruimte | 600 GB ruimte nodig voor servercache proces.
 Vrije schijfruimte | Vereiste ruimte voor bewaarstation 600 GB.
@@ -205,7 +205,7 @@ Lokale virtuele machines die u naar Azure repliceert moeten voldoen aan de virtu
 
 **Onderdeel** | **Vereisten** | **Details**
 --- | --- | ---
-Gastbesturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated-machines). | Controle mislukt als een niet-ondersteund.
+Gastbesturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated-machines) voor gerepliceerde machines. | Controle mislukt als een niet-ondersteund.
 Architectuur van de Gast-besturingssysteem | 64-bits. | Controle mislukt als een niet-ondersteund.
 Grootte van de besturingssysteemschijf | Maximaal 2048 GB. | Controle mislukt als een niet-ondersteund.
 Het aantal schijven voor besturingssysteem | 1 | Controle mislukt als een niet-ondersteund.  

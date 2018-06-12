@@ -1,6 +1,6 @@
 ---
-title: Uitvoeren van SSIS-pakket met behulp van de activiteit van SSIS-pakket niet uitvoeren in Azure Data Factory | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u een pakket met SQL Server Integration Services (SSIS) uitvoert van een Azure Data Factory-pijplijn met behulp van de activiteit SSIS-pakket niet uitvoeren.
+title: Uitvoeren van SSIS-pakket met het uitvoeren van SSIS-pakket activiteit - Azure | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u een pakket met SQL Server Integration Services (SSIS) uitvoert in een Azure Data Factory-pijplijn met behulp van de activiteit SSIS-pakket niet uitvoeren.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,15 +12,15 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: douglasl
-ms.openlocfilehash: fed4e10fcaaa5282c37b175f355b94522c3b2b46
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ce041813d52e645c336869ef04c9522962c80cf5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700482"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297152"
 ---
-# <a name="run-an-ssis-package-using-the-execute-ssis-package-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de activiteit SSIS-pakket niet uitvoeren in Azure Data Factory
-In dit artikel wordt beschreven hoe een SSIS-pakket met een Azure Data Factory-pijplijn uitvoeren door een activiteit SSIS-pakket niet uitvoeren. 
+# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de activiteit SSIS-pakket niet uitvoeren in Azure Data Factory
+Dit artikel wordt beschreven hoe u een SSIS-pakket uitvoert in een Azure Data Factory-pijplijn met behulp van een activiteit SSIS-pakket niet uitvoeren. 
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. De activiteit uitvoeren van SSIS-pakket is niet beschikbaar in versie 1 van de Data Factory-service (GA) is algemeen beschikbaar is. Zie voor een alternatieve methode voor het uitvoeren van SSIS-pakket met versie 1 van de Data Factory-service, [uitvoeren SSIS-pakketten met behulp van de activiteit opgeslagen procedure in versie 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).

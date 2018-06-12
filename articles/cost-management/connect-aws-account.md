@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0c18fc065ae4d9a9401a8d603f051e9d6236c538
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2c7ea043d2da41442829321ac663325f30ff066
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297325"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Verbinding maken met een Amazon Web Services-account
 
@@ -33,7 +34,7 @@ De volgende secties helpt u bij het maken van een alleen-lezen IAM-rol om toegan
 
 De eerste stap is de unieke verbinding wachtwoordzin ophalen van de beheerportal van Azure kosten. Het wordt gebruikt in AWS als de **externe ID**.
 
-1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar [ https://azure.cloudyn.com ](https://azure.cloudyn.com) en zich aanmelden.
+1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar [ https://azure.cloudyn.com ](https://azure.cloudyn.com) en meld u aan.
 2. Klik op het symbool tandwiel en selecteer vervolgens **Accounts in de Cloud**.
 3. Selecteer in het beheer van Accounts de **AWS Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +**.
 4. In de **AWS-Account toevoegen** dialoogvenster, Kopieer de **externe ID** en de waarde voor het maken van de stappen in de volgende sectie AWS-rol op te slaan. De externe ID is uniek voor uw account. In de volgende afbeelding in het voorbeeld externe ID is _Contoso_ gevolgd door een getal. Uw ID verschilt.  
@@ -54,7 +55,7 @@ De eerste stap is de unieke verbinding wachtwoordzin ophalen van de beheerportal
 
 ### <a name="configure-aws-iam-role-access-in-cost-management"></a>Configureer de AWS IAM roltoegang in kostenbeheer
 
-1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar https://azure.cloudyn.com/ en zich aanmelden.
+1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar https://azure.cloudyn.com/ en meld u aan.
 2. Klik op het symbool tandwiel en selecteer vervolgens **Accounts in de Cloud**.
 3. Selecteer in het beheer van Accounts de **AWS Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +**.
 4. In **accountnaam**, typ een naam voor het account.
@@ -91,7 +92,7 @@ De volgende secties helpt u bij het maken van een gebruiker alleen-lezen toegang
 
 ### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>Configureer de AWS IAM op basis van een gebruiker toegang in kostenbeheer
 
-1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar https://azure.cloudyn.com/ en zich aanmelden.
+1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar https://azure.cloudyn.com/ en meld u aan.
 2. Klik op het symbool tandwiel en selecteer vervolgens **Accounts in de Cloud**.
 3. Selecteer in het beheer van Accounts de **AWS Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +**.
 4. Voor **accountnaam**, typ de naam van een account.

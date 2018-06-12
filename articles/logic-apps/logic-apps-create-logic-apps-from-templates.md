@@ -2,7 +2,7 @@
 title: Werkstromen maken van sjablonen - Azure Logic Apps | Microsoft Docs
 description: Werkstromen sneller met behulp van sjablonen voor logic app bouwen
 author: kevinlam1
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2e939143d7181722df17ea7837658d96272e3a3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 72aca1420d76a34f8f43f05b25d146eb743b3233
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298685"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Logic app werkstromen van vooraf gedefinieerde sjablonen maken
 

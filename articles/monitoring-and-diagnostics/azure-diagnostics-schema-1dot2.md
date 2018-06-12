@@ -1,24 +1,20 @@
 ---
-title: Azure Diagnostics 1.2 configuratieschema | Microsoft Docs
+title: Azure Diagnostics-extensie 1.2 configuratieschema
 description: ALLEEN relevant als u van Azure SDK 2.5 met Azure Virtual Machines, virtuele-Machineschaalsets, Service Fabric of Cloud Services gebruikmaakt.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: diagnostic-extension
+ms.openlocfilehash: 32fcd3171f1adcfd565c38ca1191342e7afaf5a9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267693"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure Diagnostics 1.2 configuratieschema
 > [!NOTE]
@@ -114,7 +110,7 @@ Hiermee definieert u configuratie-instellingen voor de telemetriegegevens te ver
 |**DiagnosticMonitorConfiguration**|Vereist. Optionele kenmerken zijn:<br /><br /> -                     **overallQuotaInMB** -de maximale hoeveelheid ruimte op lokale schijf die kan worden gebruikt door de verschillende typen diagnostische gegevens verzameld door Azure Diagnostics. De standaardinstelling is 5120MB.<br /><br /> -                     **useProxyServer** -om de proxyserverinstellingen gebruikt zoals in de instellingen van Internet Explorer configureren Azure Diagnostics.|  
 |**CrashDumps**|Verzameling van crashdumps inschakelen. Optionele kenmerken zijn:<br /><br /> -                     **containerName** -de naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van crashdumps.<br /><br /> -                     **crashDumpType** -dumpbestanden voor Azure Diagnostics configureert voor het verzamelen van Mini of volledige vastlopen.<br /><br /> -                     **directoryQuotaPercentage**-Hiermee configureert u het percentage **overallQuotaInMB** moet worden gereserveerd voor crashdumps op de virtuele machine.|  
 |**DiagnosticInfrastructureLogs**|Inschakelen van verzamelen van logboeken die worden gegenereerd door Azure Diagnostics. De infrastructuur voor diagnostische logboeken zijn nuttig voor het oplossen van het systeem diagnostische gegevens zelf. Optionele kenmerken zijn:<br /><br /> -                     **scheduledTransferLogLevelFilter** -configureert u de minimale ernst van de logboeken die worden verzameld.<br /><br /> -                     **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**Directories**|Kan de verzameling van de inhoud van een map, logboeken van IIS is mislukt toegang aanvragen en/of IIS-logboeken. Het optionele kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**Mappen**|Kan de verzameling van de inhoud van een map, logboeken van IIS is mislukt toegang aanvragen en/of IIS-logboeken. Het optionele kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**EtwProviders**|Hiermee configureert u de verzameling van ETW-gebeurtenissen van EventSource en/of ETW Manifest op basis van providers.|  
 |**Metrische gegevens**|Dit element kunt u voor het genereren van een tabel van prestaties teller die is geoptimaliseerd voor snelle query's. Elk prestatiemeteritem dat is gedefinieerd in de **PerformanceCounters** element is opgeslagen in de tabel metrische gegevens naast het prestatiemeteritem-tabel. Vereist kenmerk:<br /><br /> **resourceId** -dit is de resource-ID van de virtuele Machine die u om Azure Diagnostics implementeert. Ophalen van de **resourceID** van de [Azure-portal](https://portal.azure.com). Selecteer **Bladeren** -> **resourcegroepen** -> **< naam\>**. Klik op de **eigenschappen** tegel en kopieer de waarde van de **ID** veld.|  
 |**performanceCounters**|Hiermee kunt het verzamelen van prestatiemeteritems. Het optionele kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML 'Duur gegevenstype'.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
@@ -196,11 +192,11 @@ Hiermee definieert u configuratie-instellingen voor de telemetriegegevens te ver
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**annotation**|Vereist kenmerk:<br /><br /> **displayName** -de weergavenaam voor de teller<br /><br /> Het optionele kenmerk:<br /><br /> **landinstelling** -de landinstellingen te gebruiken bij het weergeven van de naam van het meteritem|  
+|**Aantekening**|Vereist kenmerk:<br /><br /> **displayName** -de weergavenaam voor de teller<br /><br /> Het optionele kenmerk:<br /><br /> **landinstelling** -de landinstellingen te gebruiken bij het weergeven van de naam van het meteritem|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  De volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**DataSource**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '.|
+|**Gegevensbron**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '.|

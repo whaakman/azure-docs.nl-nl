@@ -5,25 +5,25 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/02/2018
+ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0bc23c033e868f3cf72256318f0fb129c853e19d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a2a1c916543da07f25b2b9727e309709632afe00
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660851"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267268"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell-scripts uitvoeren in uw Windows-VM met de opdracht uitvoeren
 
-Opdracht uitvoeren, kunt u PowerShell-scripts in een Windows Azure VM ongeacht de verbinding met het netwerk uitvoeren. Deze scripts kunnen worden gebruikt voor algemene machine of Toepassingsbeheer en kunnen worden gebruikt om snel te onderzoeken en VM-netwerk- en problemen oplossen en ophalen van de virtuele machine terug naar een goede status.
+Opdracht maakt gebruik van de VM-agent om uit te voeren PowerShell-scripts in een Windows Azure VM shell uitvoeren. Deze scripts kunnen worden gebruikt voor algemene machine of Toepassingsbeheer en kunnen worden gebruikt om snel te onderzoeken en VM-netwerk- en problemen oplossen en ophalen van de virtuele machine terug naar een goede status.
 
 ## <a name="benefits"></a>Voordelen
 
-Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Opdracht uitvoeren scripts kunt uitvoeren op uw virtuele machines, ongeacht de verbinding met het netwerk en is standaard (geen installatie vereist). Opdracht kan worden gebruikt via de Azure-portal [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Opdracht kunt u scripts uitvoeren op uw virtuele machines op afstand met behulp van de VM-agent. Opdracht kan worden gebruikt via de Azure-portal [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Deze functie is nuttig in alle scenario's waarbij u wilt uitvoeren van een script interactietypen een virtuele machines en een van de enige manieren oplossen en het herstellen van een virtuele machine die niet is verbonden met het netwerk als gevolg van onjuiste netwerk of een gebruiker met beheerdersrechten de configuratie.
+Deze functie is nuttig in alle scenario's waarbij u wilt uitvoeren van een script interactietypen een virtuele machines en is een van de enige manieren oplossen en het herstellen van een virtuele machine die niet het RDP of SSH-poort openen als gevolg van onjuiste netwerk of een gebruiker met beheerdersrechten de configuratie.
 
 ## <a name="restrictions"></a>Beperkingen
 

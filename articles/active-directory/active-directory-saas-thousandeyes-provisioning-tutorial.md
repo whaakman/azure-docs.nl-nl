@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 055355be0de1c3f589bde468da3558963e8e1383
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7f4fe3750e7532f72e51f54d80f0ce6b601adbe7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292582"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Zelfstudie: ThousandEyes configureren voor het automatisch gebruikers inrichten
 
@@ -42,7 +43,7 @@ Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen
 
 Voordat u configureren en inschakelen van de inrichting service, moet u om te bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang tot uw app ThousandEyes nodig hebben. Als besloten, kunt u deze gebruikers toewijzen aan uw app ThousandEyes door de volgende instructies te volgen:
 
-[Een gebruiker of groep toewijzen aan een enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
+[Een gebruiker of groep toewijzen aan een enterprise-app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-thousandeyes"></a>Belangrijke tips voor het toewijzen van gebruikers aan ThousandEyes
 
@@ -97,7 +98,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-enterprise-apps-manage-provisioning.md)
+* [Het beheren van gebruikers account inrichten voor zakelijke Apps](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Volgende stappen

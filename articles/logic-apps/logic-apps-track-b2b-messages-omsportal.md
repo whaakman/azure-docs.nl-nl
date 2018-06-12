@@ -2,7 +2,7 @@
 title: B2B-berichten met Azure Log Analytics - Azure Logic Apps bijhouden | Microsoft Docs
 description: Bijhouden van de B2B-communicatie voor uw integratie-account en logic apps met Azure Log Analytics
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299974"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>B2B-communicatie met Azure-logboekanalyse bijhouden
 
@@ -156,7 +157,7 @@ Hier volgen beschrijvingen van de eigenschap voor elk bericht AS2.
 | ACK | De status van het bericht MDN <br>Geaccepteerd = ontvangen of verzonden, een positieve MDN. <br>= Wachten op ontvangen of verzenden van een MDN in behandeling. <br>Afgewezen = ontvangen of een negatieve MDN verzonden. <br>Niet vereist = MDN is niet ingesteld in de overeenkomst. |
 | Richting | De richting van de AS2-bericht |
 | Correlatie-id | De ID die alle triggers en acties in een logische app correleert |
-| Bericht-ID | De AS2-bericht-ID van de berichtkoppen AS2 |
+| Bericht-id | De AS2-bericht-ID van de berichtkoppen AS2 |
 | Timestamp | De tijd waarop de actie AS2 het bericht verwerkt |
 |          |             |
 

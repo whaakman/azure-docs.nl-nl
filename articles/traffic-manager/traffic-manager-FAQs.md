@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301062"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -85,10 +86,18 @@ Als u een DNS-query belandt op Traffic Manager, wordt een waarde in het antwoord
 
 U kunt instellen, op een per profiel niveau, de TTL DNS moet zo laag 0 seconden en zo hoog 2.147.483.647 seconden (compatibel zijn met het maximumbereik [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt )). Een TTL-waarde 0 betekent dat reacties op query's niet in cache opslaan downstream DNS-resolvers en alle query's wordt verwacht dat het Traffic Manager-DNS-servers voor de omzetting van bereiken.
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Hoe kan ik begrijp dat het volume van query's die afkomstig is van mijn profiel? 
+Een van de metrische gegevens door Traffic Manager is het aantal query beantwoord door een profiel hebt opgegeven. U kunt deze informatie kunt vinden op het niveau aggregatie van een profiel of u kunt opsplitsen het verder Zie het volume van query's waarin specifieke eindpunten zijn geretourneerd. Bovendien kunt u instellen dat waarschuwingen om u te waarschuwen als de query-antwoord volume overschrijdt de voorwaarden die u hebt ingesteld. Voor meer informatie [Traffic Manager metrische gegevens en waarschuwingen](traffic-manager-metrics-alerts.md).
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Traffic Manager geografisch verkeersrouteringsmethode
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Wat zijn enkele gebruiksvoorbeelden waar geografische routering nuttig is? 
 Geografische routeringstype kan worden gebruikt in een scenario waarin een Azure-klant moet te onderscheiden van hun gebruikers op basis van geografische regio's. Bijvoorbeeld, kunt de geografische verkeersrouteringsmethode gebruikt, u gebruikers geven van specifieke regio's een andere gebruiker-ervaring dan die van andere regio's. Een ander voorbeeld is die voldoet aan de lokale gegevens onafhankelijkheid vereist die vereisen dat gebruikers van een specifieke regio alleen door de eindpunten in deze regio worden geleverd.
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Hoe Bepaal als ik routeringsmethode voor prestaties of geografische routeringsmethode kunt gebruiken? 
+Het belangrijkste verschil tussen deze twee methoden voor het populaire doorsturen is dat in de prestaties van die het primaire doel is om verkeer te verzenden naar het eindpunt dat de laagste latentie aan de aanroeper bieden kan, terwijl in geografisch routering het voornaamste doel is om af te dwingen een geografisch routeringsmethode omheining voor uw aanroepfuncties zodat u opzettelijk naar een specifieke eindpunt versturen kunt. De overlapping gebeurt omdat er een correlatie tussen geografische mate en lagere latentie, hoewel dit niet altijd de waarde true. Mogelijk zijn er een eindpunt in een andere Geografie bevinden die een betere ervaring voor de latentie voor de aanroeper kan bieden en in dat geval prestaties routering ontvangt de gebruiker naar dat eindpunt maar geografische routering wordt altijd ze verzenden naar het eindpunt dat u hebt toegewezen voor hun geografische regio. U routering zorg ongewoon toewijzingen zoals alle verkeer verzenden vanuit Azië naar eindpunten in de Verenigde Staten en alle verkeer van de VS aan eindpunten in Azië om verdere deze wissen, overweeg dan het volgende voorbeeld - met geografisch. In dat geval geografische routering opzettelijk doet precies wat u hebt geconfigureerd te doen en optimalisatie van de prestaties is geen overweging. 
+>[!NOTE]
+>Mogelijk zijn er scenario's waarbij mogelijk moet u beide prestaties en mogelijkheden voor geografische routering, voor deze scenario's geneste profielen uitstekende keuze kunnen worden. U kunt bijvoorbeeld een profiel van de bovenliggende met geografische routering waarbij u alle verkeer verzenden van Noord-Amerika in een geneste profiel dat eindpunten in de Verenigde Staten heeft instellen en prestaties voor het verzenden van die verkeer naar het beste eindpunt in die set routering gebruikt. 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Wat zijn de regio's die door Traffic Manager voor het doorsturen van geografische worden ondersteund? 
 De land/regio-hiërarchie die wordt gebruikt door Traffic Manager vindt [hier](traffic-manager-geographic-regions.md). Terwijl deze pagina wordt bijgewerkt met de wijzigingen, kunt u dezelfde gegevens ook programmatisch ophalen met behulp van de [REST-API van Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -330,6 +339,9 @@ Klik op [hier](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azur
 Het aantal Traffic Manager-health controleert uw eindpunt te bereiken is afhankelijk van het volgende:
 - de waarde die u hebt ingesteld voor de controle-interval (kleinere interval betekent meer aanvragen aanvoer op uw eindpunt in een bepaalde periode).
 - het aantal locaties van waar de statuscontroles afkomstig (het IP-adressen zijn van waar u kunt verwachten deze controles wordt vermeld in de voorgaande Veelgestelde vragen).
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Hoe kan ik blijf op de hoogte als een van mijn eindpunten uitgeschakeld wordt? 
+Een van de metrische gegevens die door Traffic Manager is de status van de eindpunten in een profiel. U kunt dit zien als een totaal van alle eindpunten binnen een profiel (bijvoorbeeld: 75% van uw eindpunten zijn in orde), of op een per eindpunt niveau. Traffic Manager metrische gegevens worden weergegeven via Azure Monitor en u kunt de [mogelijkheden waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) meldingen wilt ontvangen wanneer er een wijziging in de status van uw eindpunt. Zie voor meer informatie [Traffic Manager metrische gegevens en waarschuwingen](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Traffic Manager geneste profielen
 

@@ -14,11 +14,12 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: b97ec4ffacead7630c267284f79f954ef03eff61
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1bdc7a4d50b81c615d9aca651c897796d9f60c00
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292273"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Accounts delen met Azure AD
 ## <a name="overview"></a>Overzicht
@@ -46,7 +47,7 @@ Gebruikers melden zich in één keer aan hun organisatieaccount is gekoppeld. Di
 
 Gedeelde accounts niet alleen toezicht verhogen en de bruikbaarheid verbeteren, ze ook de beveiliging verbeteren. Gebruikers met machtigingen voor de referenties gebruiken het gedeelde wachtwoord niet ziet, maar in plaats daarvan machtigingen het wachtwoord gebruiken als onderdeel van een geregiseerde authenticatiestroom ophalen. Bovendien bieden sommige toepassingen van de SSO-wachtwoord u Azure AD om periodiek rollover (update) wachtwoorden te gebruiken. Het systeem gebruikt grote, complexe wachtwoorden, die accountbeveiliging wordt verbeterd. De beheerder kan eenvoudig toegang verlenen of intrekken voor een toepassing weet wie toegang heeft tot het account en wie het heeft in het verleden heeft geopend.
 
-Azure AD ondersteunt gedeelde accounts voor Enterprise Mobility Suite (EMS), Premium of Basic gelicentieerde gebruikers, alle typen van één wachtwoord aanmelding toepassingen. U kunt accounts voor een van de duizenden vooraf geïntegreerde toepassingen in de galerie met toepassingen delen en uw eigen toepassing wachtwoord verifiëren met toevoegen [aangepaste SSO apps](active-directory-enterprise-apps-manage-sso.md).
+Azure AD ondersteunt gedeelde accounts voor Enterprise Mobility Suite (EMS), Premium of Basic gelicentieerde gebruikers, alle typen van één wachtwoord aanmelding toepassingen. U kunt accounts voor een van de duizenden vooraf geïntegreerde toepassingen in de galerie met toepassingen delen en uw eigen toepassing wachtwoord verifiëren met toevoegen [aangepaste SSO apps](manage-apps/configure-single-sign-on-portal.md).
 
 Azure AD-functies die delen van het account inschakelen:
 

@@ -5,9 +5,9 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: anzaman
-ms.openlocfilehash: 3b7315aaa57d1387e3cea31e8b306131a59a7006
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: df7afe9324831ffb8e79d7320f2c716ed18a7b4f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267346"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Een punt-naar-Site-verbinding met een VNet met behulp van RADIUS-verificatie configureren: PowerShell
 
@@ -134,7 +135,7 @@ Voordat u maken en configureren van de virtuele netwerkgateway, moet uw RADIUS-s
 
 1. Als er geen RADIUS-server geïmplementeerd, implementeert u een. Raadpleeg de installatiehandleiding aanbieder van de RADIUS-voor de implementatiestappen.  
 2. Configureer de VPN-gateway als een RADIUS-client op de RADIUS. Geef het virtuele netwerk GatewaySubnet dat u hebt gemaakt bij het toevoegen van deze RADIUS-client. 
-3. Zodra de RADIUS-dienst is ingesteld, krijgen de RADIUS-server IP-adres en het gedeelde geheim dat RADIUS-clients gebruiken moeten voor communicatie met de RADIUS-server. Als de RADIUS-server in het Azure VNet, gebruikt u de CA-IP van de virtuele machine van de RADIUS-server.
+3. Zodra de RADIUS-server is ingesteld, krijgen de RADIUS-server IP-adres en het gedeelde geheim dat RADIUS-clients gebruiken moeten voor communicatie met de RADIUS-server. Als de RADIUS-server in het Azure VNet, gebruikt u de CA-IP van de virtuele machine van de RADIUS-server.
 
 De [Network Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) artikel vindt u richtlijnen over het configureren van een Windows-RADIUS-server (NPS) voor de verificatie van AD-domeinen.
 

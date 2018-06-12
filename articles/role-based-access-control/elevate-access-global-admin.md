@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: rqureshi
+editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
@@ -14,11 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2018
 ms.author: rolyon
-ms.openlocfilehash: b671ff6b473093e59bce18c7bf98b32e9849bbb0
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: bagovind
+ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266497"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Toegangsrechten voor een globale beheerder in Azure Active Directory uitbreiden
 
@@ -32,6 +34,8 @@ Als u een [hoofdbeheerder](../active-directory/active-directory-assign-admin-rol
 Beheren (RBAC) functies komen niet span Azure AD en Azure standaard Azure AD-beheerdersrollen en -toegang tot Azure op basis van rollen. Als u een globale beheerder in Azure AD, kunt u uw toegang tot het beheer van Azure-abonnementen en beheergroepen uitbreiden. Wanneer u de toegang tot de bevoegdheden, u krijgt de [beheerder voor gebruikerstoegang](built-in-roles.md#user-access-administrator) rol (een RBAC-rol) voor alle abonnementen voor een bepaalde tenant. De beheerder voor gebruikerstoegang-functie kunt u andere gebruikers toegang verlenen tot Azure-resources voor het root-bereik (`/`).
 
 Deze uitbreiding van bevoegdheden moet tijdelijk en alleen uitgevoerd wanneer deze nodig is.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Toegangsrechten uitbreiden voor een globale beheerder met behulp van de Azure-portal
 
@@ -75,7 +79,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="delete-a-role-assignment-at-the-root-scope--using-powershell"></a>Een roltoewijzing bij het root-bereik (/) met behulp van PowerShell verwijderen
+## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>Een roltoewijzing bij het root-bereik (/) met behulp van PowerShell verwijderen
 
 Verwijderen van een beheerder voor gebruikerstoegang roltoewijzing voor een gebruiker bij het root-bereik (`/`), gebruikt u de [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) opdracht.
 
@@ -109,14 +113,23 @@ Gebruik de volgende basisstappen wilt uitbreiden toegang tot een globale beheerd
    }
    ```
 
-1. Tijdens een beheerder voor gebruikerstoegang, kunt u ook functietoewijzingen voor de scope hoofdmap verwijderen (`/`).
+1. Tijdens een beheerder voor gebruikerstoegang, u kunt ook functietoewijzingen voor de scope hoofdmap verwijderen (`/`).
 
-1. Uw beheerder voor gebruikerstoegang-machtigingen intrekken totdat ze weer nodig zijn.
+1. Verwijder uw beheerder voor gebruikerstoegang bevoegdheden totdat ze weer nodig zijn.
 
+## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>Lijst van roltoewijzingen bij het root-bereik (/) met de REST API
 
-## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Ongedaan maken van de actie elevateAccess met de REST-API
+U kunt lijst weer met alle van de roltoewijzing voor een gebruiker bij het root-bereik (`/`).
 
-Als u aanroept `elevateAccess`, u een roltoewijzing voor uzelf maken, dus in te trekken van de bevoegdheden moet u de toewijzing te verwijderen.
+- Roep [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) waar `{objectIdOfUser}` is de object-ID van de gebruiker waarvan u wilt ophalen roltoewijzingen.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   ```
+
+## <a name="remove-elevated-access-using-the-rest-api"></a>Verhoogde toegang met de REST API verwijderen
+
+Als u aanroept `elevateAccess`, u een roltoewijzing voor uzelf maken, zodat deze bevoegdheden intrekken moet u verwijdert de toewijzing.
 
 1. Roep [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) waar `roleName` gelijk is aan de beheerder voor gebruikerstoegang om te bepalen van de naam-ID van de rol beheerder voor gebruikerstoegang.
 
@@ -170,7 +183,7 @@ Als u aanroept `elevateAccess`, u een roltoewijzing voor uzelf maken, dus in te 
     >[!NOTE] 
     >Een tenantbeheerder mag geen veel toewijzingen hebben als de vorige query te veel toewijzingen, u kunt ook een query retourneert voor alle toewijzingen van op scopeniveau tenant Just en vervolgens de resultaten filteren: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Het aanroepen van de vorige retourneren een lijst met roltoewijzingen. De roltoewijzing vinden waar de scope is '/' en de `roleDefinitionId` eindigt op de rol naam-ID die u in stap 1 hebt gevonden en `principalId` overeenkomt met de object-id van de tenantbeheerder. 
+    2. Het aanroepen van de vorige retourneren een lijst met roltoewijzingen. De roltoewijzing vinden waar de scope is `"/"` en de `roleDefinitionId` eindigt op de rol naam-ID die u in stap 1 hebt gevonden en `principalId` overeenkomt met de object-id van de tenantbeheerder. 
     
     Voorbeeld van roltoewijzing:
 

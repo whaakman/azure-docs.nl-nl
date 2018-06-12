@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298406"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Veelgestelde vragen over Azure kosten Management
 
@@ -28,23 +29,23 @@ Wanneer u de portal Cloudyn voor het eerst gebruikt, ziet u mogelijk de volgende
 - 'Directe inschrijving – niet' weergegeven in de Enterprise Agreement-portal.
 - 'Geen gebruiksgegevens gevonden voor de afgelopen 30 dagen. Neem contact op met uw leverancier om te controleren of de opmaak is ingeschakeld voor uw Azure-account' weergegeven in de portal Cloudyn.
 
-De voorgaande berichten geven aan dat u een Enterprise Agreement voor Azure via een wederverkoper of CSP hebt aangeschaft. Uw wederverkoper of CSP moet inschakelen _markup_ voor uw Azure-account zodat u uw gegevens kunt bekijken in Cloudyn.
+De voorgaande berichten geven aan dat u een Azure Enterprise Agreement via een wederverkoper of CSP hebt aangeschaft. Uw wederverkoper of CSP moet inschakelen _markup_ voor uw Azure-account zodat u uw gegevens kunt bekijken in Cloudyn.
 
-Ga als volgt de problemen op te lossen:
+Los de problemen als volgt op:
 
-1. Uw reseller nodig heeft om in te schakelen _markup_ voor uw account. Voor instructies raadpleegt u de [indirecte Onboarding-handleiding voor klant](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
+1. Uw wederverkoper moet _markeren_ voor uw account inschakelen. Raadpleeg de [Onboarding-handleiding voor indirecte klanten](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) voor meer instructies.
 
 2. U de Enterprise Agreement voor Azure-sleutel voor gebruik met Cloudyn genereren. Zie voor instructies [uw Azure-EA toe te voegen](https://support.cloudyn.com/hc/en-us/articles/210429585-Adding-Your-AZURE-EA) of [vinden uw EA inschrijving-ID en API-sleutel](https://youtu.be/u_phLs_udig).
 
-Alleen een beheerder van de Azure-service kunt kostenbeheer inschakelen. U hebt onvoldoende beheerdersmachtigingen voor CO.
+Alleen een Azure-servicebeheerder kan Cost Management inschakelen. U hebt onvoldoende co-beheerdersmachtigingen.
 
 Voordat u de Azure Enterprise Agreement API-sleutel voor het instellen van Cloudyn genereren kunt, moet u de Azure-facturering API inschakelen door de instructies op:
 
-- [Overzicht van de rapportage-API's voor Enterprise-klanten](../billing/billing-enterprise-api.md)
-- [Microsoft Azure enterprise portal rapportage-API](https://ea.azure.com/helpdocs/reportingAPI) onder **gegevenstoegang tot de API inschakelen**
+- [Overzicht van Rapportage-API's voor Enterprise-klanten](../billing/billing-enterprise-api.md)
+- [Microsoft Azure enterprise portal rapportage-API](https://ea.azure.com/helpdocs/reportingAPI) onder **Gegevenstoegang tot de API inschakelen**
 
 
-U moet wellicht ook geven afdeling beheerders, account eigenaars en enterprise-administrators machtigingen voor _kosten weergeven_ met de API voor facturering.
+U moet wellicht ook afdelingsbeheerders, accounteigenaars en enterprise-administrators machtigingen geven voor _Kosten weergeven_ met de facturerings-API.
 
 ## <a name="why-dont-i-see-optimizer-recommendations"></a>Waarom zie ik niet optimaliseren aanbevelingen?
 
@@ -71,16 +72,20 @@ Nadat u de voorgaande stappen hebt voltooid, kunt u optimaliseren aanbevelingen 
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Hoe kan ik onderbroken of vergrendelde gebruikers inschakelen?
 
+Eerst laten we de meest voorkomende scenario zorgt ervoor dat de accounts van gebruikers om op te halen *initiallySuspended*.
+
+> Admin1 mogelijk Microsoft Cloud Solution Provider- of Enterprise Agreement gebruiker. De organisatie is klaar om te beginnen met beheer van kosten.  Hij wordt geregistreerd via de Azure portal en zich aanmeldt bij de portal Cloudyn. Als de persoon die de kosten-Management-service en meldt zich bij de portal Cloudyn registreert, wordt hij de *primaire beheerder*. Admin1 maakt niet alle gebruikersaccounts. Echter met de portal Cloudyn hij Azure-accounts maken en een entiteitenhiërarchie ingesteld. Admin1 informeert Admin2, tenantbeheerder die hij nodig heeft om te registreren kostenbeheer en meld u aan bij de portal Cloudyn.
+
+> Admin2 wordt geregistreerd via de Azure portal. Maar wanneer hij probeert aan te melden bij de portal Cloudyn, hij krijgt een foutmelding wordt hun account verschijnt **onderbroken**. De primaire beheerder, Admin1, ontvangt een melding van de opschorting account. Admin1 moet Admin2 van account activeren en verleen *entiteit beheerderstoegang* voor de juiste entiteiten en beheer gebruikerstoegang en actief kan het gebruikersaccount.
+
+
 Als u een waarschuwing met een verzoek om toegang te verlenen voor een gebruiker ontvangt, moet u het gebruikersaccount activeren.
 
 Het gebruikersaccount activeren:
 
 1. Aanmelden bij Cloudyn met behulp van de gebruiker met beheerdersrechten Azure-account dat u gebruikt voor het instellen van Cloudyn. Of meld u aan met een gebruikersaccount met administrator-toegang is verleend.
-
 2. Selecteer het symbool tandwielpictogram in de rechterbovenhoek en selecteer **Gebruikersbeheer**.
-
 3. De gebruiker niet vinden, selecteer het symbool pen en bewerk vervolgens de gebruiker.
-
 4. Onder **gebruikersstatus**, wijzig de status van **onderbroken** naar **Active**.
 
 Gebruikersaccounts Cloudyn verbinding maken met behulp van eenmalige aanmelding van Azure. Als een gebruiker mistypes hun wachtwoord, ze mogelijk ophalen vergrendeld Cloudyn, zelfs als ze steeds toegang Azure tot nog.

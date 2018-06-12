@@ -1,22 +1,19 @@
 ---
-title: Schema voor Azure activiteit logboek met gebeurtenis | Microsoft Docs
+title: Azure Activity Log gebeurtenis schema
 description: Het schema van de gebeurtenis voor gegevens die in het activiteitenlogboek begrijpen
 author: johnkemnetz
-manager: robb
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: activitylog
+ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264548"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Activity Log gebeurtenis schema
 De **Azure Activity Log** is een logboek die biedt inzicht in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel wordt het schema van de gebeurtenis per categorie van gegevens.
@@ -116,7 +113,7 @@ Deze rubriek bevat de record van alle maken, update, delete en actie bewerkingen
 | Elementnaam | Beschrijving |
 | --- | --- |
 | Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk het eigenschappen "action", 'rol' en 'bereik'. |
-| oproepende functie |E-mailadres van de gebruiker die is uitgevoerd. de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid. |
+| aanroeper |E-mailadres van de gebruiker die is uitgevoerd. de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid. |
 | kanalen |Een van de volgende waarden: 'Admin', 'Operation' |
 | Claims |De JWT-token gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing naar deze bewerking niet uitvoeren in het resourcemanager. |
 | correlationId |Meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen die een correlationId share deel uitmaken van dezelfde uber actie. |
@@ -263,7 +260,7 @@ Deze rubriek bevat de record van alle activeringen van waarschuwingen van Azure.
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | Elementnaam | Beschrijving |
 | --- | --- |
-| oproepende functie | Altijd Microsoft.Insights/alertRules |
+| aanroeper | Altijd Microsoft.Insights/alertRules |
 | kanalen | Altijd 'Admin, bewerking' |
 | Claims | JSON-blob met het type SPN (service principal name) of de bron van de waarschuwings-engine. |
 | correlationId | Een GUID in de indeling van de tekenreeks. |
@@ -372,7 +369,7 @@ Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werki
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | Elementnaam | Beschrijving |
 | --- | --- |
-| oproepende functie | Altijd Microsoft.Insights/autoscaleSettings |
+| aanroeper | Altijd Microsoft.Insights/autoscaleSettings |
 | kanalen | Altijd 'Admin, bewerking' |
 | Claims | JSON-blob met het type SPN (service principal name) of de bron van de engine voor automatisch schalen. |
 | correlationId | Een GUID in de indeling van de tekenreeks. |
@@ -482,6 +479,88 @@ Deze rubriek bevat de record geen waarschuwingen gegenereerd door Azure Security
 | eventTimestamp |Tijdstempel wanneer de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag de gebeurtenis overeenkomt. |
 | submissionTimestamp |Tijdstempel wanneer de gebeurtenis beschikbaar voor het uitvoeren van query's zijn geworden. |
 | subscriptionId |Azure-abonnement-id. |
+
+## <a name="recommendation"></a>Aanbeveling
+Deze rubriek bevat de record van alle nieuwe aanbevelingen die worden gegenereerd voor de services. Een voorbeeld van een aanbeveling is "Gebruik beschikbaarheidssets voor verbeterde fouttolerantie." Er zijn 4 typen aanbeveling gebeurtenissen die kunnen worden gegenereerd: hoge beschikbaarheid, prestaties, beveiliging en Kostenoptimalisatie. 
+
+### <a name="sample-event"></a>Voorbeeld van de gebeurtenis
+```json
+{
+    "channels": "Operation",
+    "correlationId": "92481dfd-c5bf-4752-b0d6-0ecddaa64776",
+    "description": "The action was successful.",
+    "eventDataId": "06cb0e44-111b-47c7-a4f2-aa3ee320c9c5",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Recommendation",
+        "localizedValue": "Recommendation"
+    },
+    "eventTimestamp": "2018-06-07T21:30:42.976919Z",
+    "id": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM/events/06cb0e44-111b-47c7-a4f2-aa3ee320c9c5/ticks/636640038429769190",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Advisor/generateRecommendations/action",
+        "localizedValue": "Microsoft.Advisor/generateRecommendations/action"
+    },
+    "resourceGroupName": "MYRESOURCEGROUP",
+    "resourceProviderName": {
+        "value": "MICROSOFT.COMPUTE",
+        "localizedValue": "MICROSOFT.COMPUTE"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.COMPUTE/virtualmachines",
+        "localizedValue": "MICROSOFT.COMPUTE/virtualmachines"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-06-07T21:30:42.976919Z",
+    "subscriptionId": "<Subscription ID>",
+    "properties": {
+        "recommendationSchemaVersion": "1.0",
+        "recommendationCategory": "Security",
+        "recommendationImpact": "High",
+        "recommendationRisk": "None"
+    },
+    "relatedEvents": []
+}
+
+```
+### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
+| Elementnaam | Beschrijving |
+| --- | --- |
+| kanalen | Altijd 'bewerking' |
+| correlationId | Een GUID in de indeling van de tekenreeks. |
+| description |Beschrijving van de gebeurtenis aanbeveling statische tekst |
+| eventDataId | De unieke id van de gebeurtenis aanbeveling. |
+| category | Altijd "Recommendation' |
+| id |Unieke resource-id van de gebeurtenis aanbeveling. |
+| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' of 'Uitgebreid' |
+| operationName |De naam van de bewerking.  Altijd 'Microsoft.Advisor/generateRecommendations/action'|
+| resourceGroupName |De naam van de resourcegroep voor de resource. |
+| resourceProviderName |Naam van de resourceprovider voor de resource die deze aanbeveling van toepassing, zoals 'MICROSOFT.COMPUTE' |
+| resourceType |Naam van het resourcetype voor de resource die deze aanbeveling van toepassing, zoals 'MICROSOFT.COMPUTE/virtualmachines' |
+| resourceId |Bron-id van de resource die de aanbeveling is van toepassing op |
+| status | Altijd 'Active' |
+| submissionTimestamp |Tijdstempel wanneer de gebeurtenis beschikbaar voor het uitvoeren van query's zijn geworden. |
+| subscriptionId |Azure-abonnement-id. |
+| properties |Een set `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de aanbeveling.|
+| properties.recommendationSchemaVersion| Schemaversie van de aanbeveling-eigenschappen gepubliceerd in de activiteit logboekvermelding |
+| properties.recommendationCategory | De categorie van de aanbeveling. Mogelijke waarden zijn 'Hoge beschikbaarheid', 'Prestaties', 'Beveiliging' en 'Kosten' |
+| properties.recommendationImpact| Gevolgen van de aanbeveling. Mogelijke waarden zijn 'Hoog', 'Gemiddeld', 'Laag' |
+| properties.recommendationRisk| Risico's van de aanbeveling. Mogelijke waarden zijn 'Fout', 'Waarschuwing', 'None' |
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over het activiteitenlogboek (voorheen controlelogboeken)](monitoring-overview-activity-logs.md)

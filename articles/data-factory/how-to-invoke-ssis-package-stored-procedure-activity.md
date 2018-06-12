@@ -1,6 +1,6 @@
 ---
-title: Uitvoeren van SSIS-pakket met behulp van de activiteit opgeslagen Procedure in Azure Data Factory | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u een pakket met SQL Server Integration Services (SSIS) van een Azure Data Factory-pijplijn met behulp van de activiteit opgeslagen Procedure uitvoert.
+title: Uitvoeren van SSIS-pakket met de opgeslagen Procedure activiteit - Azure | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u een pakket met SQL Server Integration Services (SSIS) in een Azure Data Factory-pijplijn met behulp van de activiteit opgeslagen Procedure uitvoert.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,15 +13,15 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 44c157334306f81a8c9850cfa53e139139ff1db6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df4e5002d637c4d280686642156309c85bd89773
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618885"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297682"
 ---
-# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de activiteit opgeslagen procedure in Azure Data Factory
-In dit artikel wordt beschreven hoe een SSIS-pakket met een Azure Data Factory-pijplijn uitvoeren door een activiteit opgeslagen procedure. 
+# <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de activiteit opgeslagen Procedure in Azure Data Factory
+Dit artikel wordt beschreven hoe u een SSIS-pakket in een Azure Data Factory-pijplijn met behulp van een activiteit opgeslagen Procedure uitvoert. 
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [aanroepen SSIS-pakketten met behulp van de activiteit opgeslagen procedure in versie 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).

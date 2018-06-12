@@ -1,24 +1,19 @@
 ---
-title: Wat zijn Azure servicestatusmeldingen? | Microsoft Docs
+title: Wat zijn Azure servicestatusmeldingen?
 description: Servicestatusmeldingen zodat u kunt bekijken van berichten van health-service gepubliceerd door Microsoft Azure.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 4/12/2017
 ms.author: dukek
-ms.openlocfilehash: 6821828d3e39a87b8c93f74e7e0583bf9fe1fe4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: activitylog
+ms.openlocfilehash: d6a87b17041c4ce6cf41da863354ef5a2a37141c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264439"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Servicestatusmeldingen weergeven met behulp van de Azure-portal
 
@@ -35,7 +30,7 @@ Er zijn verschillende soorten servicestatusmeldingen:
 
 Elke melding van de health service bevat de details van het bereik en de gevolgen voor uw resources. Details opnemen:
 
-De naam van eigenschap | Beschrijving
+Naam van eigenschap | Beschrijving
 -------- | -----------
 kanalen | Een van de volgende waarden: **Admin** of **bewerking**.
 correlationId | Meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen die deel uitmaken van dezelfde actie meestal delen de dezelfde correlationId.

@@ -7,16 +7,18 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 06/11/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1c069e8b09f71ac46017974dfd94945c404b16ba
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 80c479aa23da2a8471af3fd83879a2dbfc5d6195
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300568"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Een Site Recovery-kluis verwijderen
-Afhankelijkheden kunnen voorkomen dat u een Azure Site Recovery-kluis verwijderen. De acties die u moet nemen afhankelijk van het scenario met Site Recovery: VMware naar Azure, Hyper-V (met en zonder System Center Virtual Machine Manager) voor Azure en Azure Backup. Zie het verwijderen van een gebruikt in Azure Backup-kluis [verwijderen van een back-upkluis in Azure](../backup/backup-azure-delete-vault.md).
+
+Afhankelijkheden kunnen voorkomen dat u een Azure Site Recovery-kluis verwijderen. De acties die u moet nemen afhankelijk van het scenario met Site Recovery. Zie het verwijderen van een gebruikt in Azure Backup-kluis [verwijderen van een back-upkluis in Azure](../backup/backup-azure-delete-vault.md).
 
 
 
@@ -36,12 +38,12 @@ Volg de aanbevolen stappen voor uw scenario voor het verwijderen van de kluis.
 5. Verwijder de kluis.
 
 
-### <a name="hyper-v-vms-with-virtual-machine-manager-to-azure"></a>Hyper-V-machines (met Virtual Machine Manager) naar Azure
-1. Verwijder alle virtuele machines beveiligd door de stappen in[Schakel de beveiliging voor een Hyper-V virtuele machines repliceren naar Azure met behulp van de System Center VMM voor Azure scenario](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+### <a name="hyper-v-vms-with-vmm-to-azure"></a>Virtuele Hyper-V-machines (met VMM) naar Azure
+1. Verwijder alle virtuele machines beveiligd door de stappen in[Schakel de beveiliging voor een virtuele Hyper-V-machine (met VMM)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
 
 2. Koppeling & verwijderen van alle beleidsregels voor replicatie door naar uw kluis te bladeren -> **Site Recovery-infrastructuur** -> **voor System Center VMM** -> **replicatie Beleid**
 
-3.  Verwijzingen naar Virtual Machine Manager-servers verwijderen door de stappen in [Hef de registratie van een VMM-server verbonden](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+3.  Verwijzingen naar VMM-servers verwijderen door de stappen in [Hef de registratie van een VMM-server verbonden](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
 
 4.  Verwijder de kluis.
 
@@ -50,7 +52,7 @@ Volg de aanbevolen stappen voor uw scenario voor het verwijderen van de kluis.
 
 2. Koppeling & verwijderen van alle beleidsregels voor replicatie door naar uw kluis te bladeren -> **Site Recovery-infrastructuur** -> **voor Hyper-V-Sites** -> **beleidsregels voor replicatie**
 
-3. Verwijzingen naar Hyper-V-servers verwijderen door de stappen in [Hef de registratie van een Hyper-V-host](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Verwijzingen naar Hyper-V-servers verwijderen door de stappen in [Hef de registratie van een Hyper-V-host](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. De Hyper-V-site verwijderen.
 

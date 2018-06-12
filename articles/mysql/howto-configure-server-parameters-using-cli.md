@@ -6,15 +6,16 @@ author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 9caf6b164f2433ab3c1b701554f562211cc2de80
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4c04cb77513ec070edce739aa0a49447dc915a1b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265211"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>De parameters van de server-configuratie aanpassen met behulp van Azure CLI
 U kunt weergeven, weergeven en configuratieparameters voor een Azure-Database voor de MySQL-server bijwerken met behulp van Azure CLI, het Azure-opdrachtregelprogramma. Een subset van engine-configuraties wordt weergegeven op het niveau van de server en kan worden gewijzigd. 

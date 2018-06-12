@@ -1,24 +1,20 @@
 ---
-title: Streaming van Azure Diagnostics-gegevens in de hot pad met Event Hubs | Microsoft Docs
+title: Stream Azure Diagnostics-gegevens naar Event Hubs
 description: Azure Diagnostics configureren met Event Hubs end-to-end, met inbegrip van de richtlijnen voor veelvoorkomende scenario's.
-services: event-hubs
-documentationcenter: na
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: diagnostic-extension
+ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267710"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming van Azure Diagnostics-gegevens in de hot pad met behulp van Event Hubs
 Azure Diagnostics biedt flexibele manieren voor het verzamelen van Logboeken en metrische gegevens van virtuele machines (VM's) voor cloud services en resultaten overdragen naar Azure Storage. Vanaf het tijdsbestek maart 2016 (SDK 2.9), kunt u diagnostische gegevens verzenden naar aangepaste gegevensbronnen en gegevensoverdracht hot pad (in seconden) met behulp van [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).

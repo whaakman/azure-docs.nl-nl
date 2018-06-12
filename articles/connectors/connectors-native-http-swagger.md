@@ -3,9 +3,9 @@ title: Aanroepen van REST-eindpunten met HTTP- en Swagger-connector voor Azure L
 description: Verbinding maken met de REST-eindpunten vanuit logic apps via Swagger met de HTTP- + Swagger connector
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4e4421b0dfe0f29c3d50764b9ca04471c73a1450
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296516"
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Aan de slag met de HTTP- + Swagger actie
 
@@ -79,27 +80,27 @@ Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die gede
 
 | Trigger | Beschrijving |
 | --- | --- |
-| HTTP en Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
+| HTTP + Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
 
 ## <a name="http--swagger-actions"></a>HTTP- + Swagger-acties
 Een actie is een bewerking die wordt uitgevoerd door de werkstroom die gedefinieerd in een logische app. [Meer informatie over acties.](connectors-overview.md) De HTTP- + Swagger connector heeft een mogelijke actie.
 
 | Bewerking | Beschrijving |
 | --- | --- |
-| HTTP en Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
+| HTTP + Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
 
 ### <a name="action-details"></a>Actiedetails
 De HTTP- + Swagger connector wordt geleverd met een mogelijke actie. Hieronder vindt u informatie over elk van de acties, hun vereiste en optionele invoervelden en de bijbehorende uitvoerdetails die gekoppeld aan hun gebruik zijn.
 
-#### <a name="http--swagger"></a>HTTP en Swagger
+#### <a name="http--swagger"></a>HTTP + Swagger
 Controleer een uitgaande HTTP-aanvraag met hulp van Swagger-metagegevens.
 Een sterretje (*) betekent een verplicht veld.
 
 | Weergavenaam | Naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Methode * |methode |HTTP-term moet worden gebruikt. |
+| Methode * |method |HTTP-term moet worden gebruikt. |
 | URI * |uri |De URI voor de HTTP-aanvraag. |
-| Kopteksten |headers |Een JSON-object van het HTTP-headers te nemen. |
+| Headers |headers |Een JSON-object van het HTTP-headers te nemen. |
 | Hoofdtekst |hoofdtekst |De hoofdtekst van de HTTP-aanvraag. |
 | Verificatie |verificatie |De verificatie moet worden gebruikt voor de aanvraag. Zie voor meer informatie de [HTTP connector](connectors-native-http.md#authentication). |
 
@@ -109,7 +110,7 @@ HTTP-antwoord
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Kopteksten |object |Antwoordheaders |
+| Headers |object |Antwoordheaders |
 | Hoofdtekst |object |Response-object |
 | Statuscode |int |HTTP-statuscode |
 

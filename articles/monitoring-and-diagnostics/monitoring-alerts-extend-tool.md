@@ -1,62 +1,64 @@
 ---
-title: Waarschuwingen van logboek Analytcs uitbreiden naar Azure | Microsoft Docs
+title: Waarschuwingen van logboek Analytcs uitbreiden naar Azure
 description: Dit artikel worden de hulpprogramma's en API waarmee u waarschuwingen van logboekanalyse op Azure-waarschuwingen kunt uitbreiden.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
-ms.openlocfilehash: 0dce6e6772b4efea90df2e095ac0041641d99061
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.component: alerts
+ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763524"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301028"
 ---
-# <a name="how-to-extend-alerts-from-log-analytics-into-azure-alerts"></a>Het uitbreiden van waarschuwingen van logboekanalyse in Azure-waarschuwingen
-Waarschuwingen in Log Analytics met Azure-waarschuwingen en als onderdeel van deze overgang wordt vervangen, waarschuwingen die u hebt geconfigureerd in logboekanalyse zal worden uitgebreid in Azure.  Als u niet wilt wachten tot ze automatisch worden verplaatst naar Azure, kunt u het volgende op een van de opties proces starten:
+# <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Waarschuwingen van logboekanalyse uitbreiden naar Azure-waarschuwingen
+De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuwingen. Waarschuwingen die u oorspronkelijk hebt geconfigureerd in Log Analytics wordt als onderdeel van deze overgang wordt uitgebreid in Azure. Als u niet wilt wachten tot ze automatisch worden verplaatst naar Azure, kunt u het proces starten:
 
-1. Handmatig van de OMS-portal 
-2. Programmatisch met behulp van de API AlertsVersion  
+- Handmatig van de Operations Management Suite-portal. 
+- Programmatisch met behulp van de API AlertsVersion.  
 
 > [!NOTE]
-> Waarschuwingen die zijn gemaakt in logboekanalyse te starten op waarschuwingen van Azure wordt automatisch uitbreiden door Microsoft **14 mei 2018** in een gefaseerde benadering totdat voltooid. Vanaf deze dag Microsoft begint de waarschuwingen te migreren naar Azure plannen en tijdens deze overgang waarschuwingen kunnen worden beheerd vanaf de OMS-portal en de Azure-portal. Dit proces is een niet-destructieve en niet interruptive.  
+> Microsoft wordt automatisch gemaakt in logboekanalyse tot Azure-waarschuwingen, waarschuwingen uitbreiden van 14 mei 2018, gestart in een reeks terugkerende totdat voltooid. Microsoft-planningen de waarschuwingen te migreren naar Azure en tijdens deze overgang, kunnen waarschuwingen worden beheerd vanaf de Operations Management Suite-portal en de Azure-portal. Dit proces is geen destructieve of interruptive.  
 
-## <a name="option-1---initiate-from-the-oms-portal"></a>Optie 1 - initiëren vanuit de OMS-Portal
-De volgende stappen beschrijven het uitbreiden van waarschuwingen voor de werkruimte in de OMS-portal.  
+## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Optie 1: Initiëren vanuit de Operations Management Suite-portal
+De volgende stappen beschrijven het uitbreiden van waarschuwingen voor de werkruimte vanuit de Operations Management Suite-portal.  
 
-1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
-2. Selecteer een werkruimte in het deelvenster Log Analytics-abonnementen en selecteer vervolgens de **OMS-Portal** tegel.<br><br> ![De knop Zoeken in logboeken](./media/monitor-alerts-extend/azure-portal-01.png)<br><br> 
-3. Nadat u wordt omgeleid naar de OMS-portal, klikt u op de tegel instellingen in de rechterbovenhoek van de pagina.<br><br> ![OMS-portal instellingenoptie](./media/monitor-alerts-extend/oms-portal-settings-option.png)<br><br> 
+1. Selecteer in de Azure-portal **alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+2. Selecteer een werkruimte in het deelvenster Log Analytics-abonnementen en selecteer vervolgens de **OMS-Portal** tegel.
+![Schermopname van logboekanalyse abonnement deelvenster met OMS-Portal tegel gemarkeerd](./media/monitor-alerts-extend/azure-portal-01.png) 
+3. Nadat u wordt omgeleid naar de Operations Management Suite-portal, selecteert u de **instellingen** pictogram.
+![Schermopname van Operations Management Suite-portal met Instellingenpictogram gemarkeerd](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
 4. Van de **instellingen** pagina **waarschuwingen**.  
-5. Klik op de knop **uitbreiden naar Azure**.<br><br> ![OMS waarschuwingsinstellingen portalpagina met de optie uitbreiden](./media/monitor-alerts-extend/ExtendInto.png)
-6. Een wizard is opgenomen in het deelvenster met de eerste drie stappen geven een overzicht van het proces.  Klik op **volgende** om door te gaan.<br><br> ![Waarschuwingen van logboekanalyse uitbreiden naar Azure - stap 1](./media/monitor-alerts-extend/ExtendStep1.png)  
-7. In de tweede stap van een overzicht van voorgestelde wijzigingen wordt weergegeven met het juiste aanbieding [actiegroepen](monitoring-action-groups.md) voor de waarschuwingen. Als soortgelijke acties zijn waargenomen in meer dan één waarschuwing, stelt de service om te koppelen aan deze een groep met één actie.  Actiegroep voorgestelde volgt u de naamconventie: *WorkspaceName_AG_ #Number*. Als u wilt doorgaan, klikt u op **volgende**.<br><br> ![waarschuwingen van logboekanalyse uitbreiden naar Azure - stap 2](./media/monitor-alerts-extend/ExtendStep2.png)  
-8. Klik in de laatste stap van de wizard, op **voltooien** en bevestigt u wanneer u wordt gevraagd het proces te starten.  U kunt eventueel een e-mailadressen opgeven zodat u wordt gewaarschuwd wanneer het proces is voltooid en alle waarschuwingen zijn verplaatst naar de Azure-waarschuwingen.<br><br> ![Waarschuwingen van logboekanalyse uitbreiden naar Azure - stap 3](./media/monitor-alerts-extend/ExtendStep3.png)
+5. Selecteer **uitbreiden naar Azure**.
+![Schermopname van Operations Management Suite waarschuwingsinstellingen portalpagina met uitbreiden naar Azure gemarkeerd](./media/monitor-alerts-extend/ExtendInto.png)
+6. Een wizard drie stappen wordt weergegeven de **waarschuwingen** deelvenster. Lees het overzicht en selecteer **volgende**.
+![Schermopname van stap 1 van de wizard](./media/monitor-alerts-extend/ExtendStep1.png)  
+7. In de tweede stap u ziet een overzicht van voorgestelde wijzigingen aanbieding juiste [actiegroepen](monitoring-action-groups.md) voor de waarschuwingen. Als soortgelijke acties zijn waargenomen in meer dan één waarschuwing, wordt de wizard een groep met één actie koppelen aan deze voorstelt.  De naamconventie is als volgt: *WorkspaceName_AG_ #Number*. Selecteer het volgende om door te gaan **volgende**.
+![Schermopname van stap 2 van de wizard](./media/monitor-alerts-extend/ExtendStep2.png)  
+8. Selecteer in de laatste stap van de wizard **voltooien**, en bevestigt u wanneer u wordt gevraagd het proces te starten. U kunt eventueel een e-mailadres opgeven zodat u wordt gewaarschuwd wanneer het proces is voltooid en alle waarschuwingen zijn verplaatst naar de Azure-waarschuwingen.
+![Schermopname van stap 3 van de wizard](./media/monitor-alerts-extend/ExtendStep3.png)
 
-Zodra de wizard voltooid is, ziet u op de **waarschuwingsinstellingen** pagina waarop de optie uit te breiden naar Azure waarschuwingen is verwijderd.  Op de achtergrond uw waarschuwingen worden verplaatst naar Azure en dit kan enige tijd duren.  Tijdens de bewerking zich u niet aanbrengen op waarschuwingen van de OMS-portal.  De huidige status van de banner aan de bovenkant van de portal worden weergegeven, en als u eerder een e-mailadres opgegeven ontvangt u een e-mailbericht wanneer het proces is voltooid.  
+Wanneer de wizard is voltooid, op de **waarschuwingsinstellingen** pagina, de optie voor het uitbreiden van waarschuwingen naar Azure is verwijderd. Op de achtergrond uw waarschuwingen worden verplaatst naar Azure en dit kan enige tijd duren. Tijdens de bewerking kan niet u wijzigingen aanbrengen op waarschuwingen van de Operations Management Suite-portal. Hier ziet u de huidige status van de banner aan de bovenkant van de portal. Als u een e-mailadres eerder hebt opgegeven, ontvangt u een e-mailbericht wanneer het proces is voltooid.  
 
 
-Waarschuwingen blijven worden vermeld in de OMS-portal, zelfs nadat ze in Azure zijn verplaatst.<br><br> ![Nadat u waarschuwingen in logboekanalyse naar Azure](./media/monitor-alerts-extend/PostExtendList.png)
+Waarschuwingen blijven worden vermeld in de Operations Management Suite-portal, zelfs nadat ze in Azure zijn verplaatst.
+![Schermopname van Operations Management Suite portalpagina instellingen voor waarschuwingen](./media/monitor-alerts-extend/PostExtendList.png)
 
 
-## <a name="option-2---using-the-alertsversion-api"></a>Optie 2 - met behulp van de AlertsVersion API
-De Log Analytics AlertsVersion API kunt u waarschuwingen van logboekanalyse in Azure waarschuwingen uitbreiden van een client die een REST-API kan aanroepen. U kunt openen vanaf het met behulp van PowerShell [ARMClient](https://github.com/projectkudu/ARMClient), een open source-opdrachtregelprogramma dat vereenvoudigt de Azure Resource Manager-API wordt aangeroepen. Het gebruik van ARMClient en PowerShell is een van de verschillende opties om toegang te krijgen tot de API.  Met de API wordt de resultaten in JSON.  
+## <a name="option-2-use-the-alertsversion-api"></a>Optie 2: De AlertsVersion API gebruiken
+De Log Analytics AlertsVersion API kunt u waarschuwingen van logboekanalyse in Azure waarschuwingen uitbreiden van een client die een REST-API kan aanroepen. U kunt de API openen vanuit PowerShell met behulp van [ARMClient](https://github.com/projectkudu/ARMClient), een opdrachtregelprogramma voor open-source. U kunt de resultaten in JSON.  
 
-Als u wilt de API gebruiken, moet u eerst een GET-aanvraag die wordt geëvalueerd en retourneren een samenvatting van de voorgestelde wijzigingen voordat u daadwerkelijk uitbreiden naar Azure met behulp van een POST-aanvraag maken. De lijst met resultaten uw waarschuwingen en de voorgestelde lijst met [actiegroepen](monitoring-action-groups.md) in JSON-indeling.  Soortgelijke acties zijn waargenomen in meer dan één waarschuwing, worden de service voorgesteld als deze koppelen aan een groep met één actie.  Voorgestelde actiegroepen volgt u de naamconventie: *WorkspaceName_AG_ #Number*.
+Als u wilt de API gebruiken, moet u eerst een GET-aanvraag maken. Dit wordt geëvalueerd en retourneert een samenvatting van de voorgestelde wijzigingen voordat u daadwerkelijk uitbreiden naar Azure met behulp van een POST-aanvraag. De lijst met resultaten uw waarschuwingen en een voorgestelde lijst van [actiegroepen](monitoring-action-groups.md), in JSON-indeling. Als soortgelijke acties zijn waargenomen in meer dan één waarschuwing, wordt de service wordt voorgesteld al deze koppelen aan een groep met één actie. De naamconventie is als volgt: *WorkspaceName_AG_ #Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-Als de GET-aanvraag gelukt is, wordt er een HTTP-statuscode 200 samen met een lijst met waarschuwingen en voorgestelde actiegroepen in de JSON-gegevens geretourneerd. Hier volgt een voorbeeld van antwoord:
+Als de GET-aanvraag geslaagd is, een HTTP-statuscode 200 wordt geretourneerd, samen met een lijst met waarschuwingen en voorgestelde actiegroepen in de JSON-gegevens. Hier volgt een voorbeeld van antwoord:
 
 ```json
 {
@@ -113,7 +115,7 @@ Als de GET-aanvraag gelukt is, wordt er een HTTP-statuscode 200 samen met een li
 }
 
 ```
-Als de opgegeven werkruimte geen geen waarschuwingsregels gedefinieerd, inclusief de status HTTP 200 OK code voor de GET-bewerking de JSON-gegevens als resultaat:
+Als de opgegeven werkruimte geen geen waarschuwingsregels gedefinieerd, kan de JSON-gegevens retourneert het volgende:
 
 ```json
 {
@@ -122,7 +124,7 @@ Als de opgegeven werkruimte geen geen waarschuwingsregels gedefinieerd, inclusie
 }
 ```
 
-Als u alle regels voor waarschuwingen in de opgegeven werkruimte al zijn uitgebreid naar Azure - wordt het antwoord op de GET-aanvraag is:
+Als u alle regels voor waarschuwingen in de opgegeven werkruimte al zijn uitgebreid naar Azure, wordt het antwoord op de GET-aanvraag is:
 
 ```json
 {
@@ -130,7 +132,7 @@ Als u alle regels voor waarschuwingen in de opgegeven werkruimte al zijn uitgebr
 }
 ```
 
-Start een POST-antwoord voor het initiëren van de waarschuwingen te migreren naar Azure. De POST-antwoord wordt bevestigd dat uw bedoeling evenals acceptatie om waarschuwingen van logboekanalyse uitgebreid naar Auzre waarschuwingen.  De activiteit is gepland en de waarschuwingen worden verwerkt, zoals wordt aangegeven op basis van de resultaten wanneer u de GET-antwoord eerder hebt uitgevoerd.  U kunt eventueel opgeven dat een lijst met e-mailadressen waarop Log Analytics wordt een rapport te verzenden wanneer de geplande achtergrondproces van de migratie van de waarschuwingen voltooid is.  Dit wordt uitgevoerd met behulp van het volgende voorbeeld van de aanvraag:
+Start een POST-antwoord voor het initiëren van de waarschuwingen te migreren naar Azure. De POST-antwoord wordt bevestigd dat uw doel, evenals acceptatie, als u wilt dat waarschuwingen van logboekanalyse uitgebreid naar Azure-waarschuwingen. De activiteit is gepland en de waarschuwingen worden verwerkt, zoals wordt aangegeven, op basis van de resultaten wanneer u de GET-antwoord eerder hebt uitgevoerd. U kunt eventueel opgeven dat een lijst met e-mailadressen waarop Log Analytics een rapport verzonden wanneer de geplande achtergrondproces van de migratie van de waarschuwingen voltooid is. U kunt het volgende voorbeeld van de aanvraag:
 
 ```
 $emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
@@ -138,9 +140,9 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 > [!NOTE]
-> Resultaat van migreren waarschuwingen in de Azure-waarschuwingen kunnen variëren, afhankelijk van de samenvatting geleverd door GET-antwoord.  Als gepland, is waarschuwingen in logboekanalyse worden tijdelijk niet beschikbaar voor bewerken/wijziging in de OMS-portal.  Nieuwe waarschuwingen kunnen echter worden gemaakt. 
+> Het resultaat van de migratie waarschuwingen in de Azure-waarschuwingen kunnen variëren, afhankelijk van de samenvatting geleverd door GET-antwoord. Bij het plannen, zijn waarschuwingen in logboekanalyse tijdelijk niet beschikbaar voor bewerken in de Operations Management Suite-portal. U kunt echter nieuwe waarschuwingen maken. 
 
-Als de POST-aanvraag gelukt is, wordt de status van een HTTP 200 OK samen met het volgende antwoord:
+Als de POST-aanvraag gelukt is, wordt de status van een HTTP 200 OK, samen met het volgende antwoord:
 
 ```json
 {
@@ -148,7 +150,7 @@ Als de POST-aanvraag gelukt is, wordt de status van een HTTP 200 OK samen met he
 }
 ```
 
-Dit antwoord geeft aan de waarschuwingen hebt uitgebreid naar Azure-waarschuwingen. De versie-eigenschap is alleen voor de controle of waarschuwingen zijn uitgebreid naar Azure en zijn niet gerelateerd aan de [Log Analytics-API van zoekservice](../log-analytics/log-analytics-api-alerts.md). Zodra de waarschuwingen worden uitgebreid naar Azure, wordt een e-mailbericht adressen opgegeven met het bericht aanvraag een rapport met details van de wijzigingen die zijn uitgevoerd worden verzonden.  Als alle van de waarschuwingen in de opgegeven werkruimte al zijn gepland worden uitgebreid, is het antwoord op uw POST-aanvraag een 403 status code betekenis die de poging is verboden. Eventuele foutberichten weergeven of als het proces is vastgelopen, kunt u een GET-aanvraag en een foutbericht, indien aanwezig, indienen begrijpen worden samen met de overzichtsgegevens geretourneerd.
+Dit antwoord geeft aan de waarschuwingen hebt uitgebreid naar Azure-waarschuwingen. De versie-eigenschap is alleen voor de controle of waarschuwingen zijn uitgebreid naar Azure en zijn niet gerelateerd aan de [Log Analytics-API van zoekservice](../log-analytics/log-analytics-api-alerts.md). Wanneer de waarschuwingen worden uitgebreid naar Azure, een e-mailadressen opgegeven met het bericht aanvraag een rapport worden verzonden. Als de waarschuwingen in de opgegeven werkruimte zijn al gepland worden uitgebreid, wordt het antwoord op uw POST-aanvraag is dat de poging (een 403-statuscode) is verboden. Als u een foutbericht te bekijken of begrijpen als het proces is vastgelopen, kunt u een GET-aanvraag indienen. Als er een foutbericht weergegeven, wordt deze geretourneerd, samen met de samenvattende informatie.
 
 ```json
 {
@@ -212,12 +214,12 @@ Dit antwoord geeft aan de waarschuwingen hebt uitgebreid naar Azure-waarschuwing
 ```
 
 
-## <a name="option-3---using-custom-powershell-script"></a>Optie 3 - met behulp van aangepaste PowerShell-script
- Na mei 14, 2018 - als Microsoft niet is uitgebreid uw waarschuwingen van OMS-portal naar Azure. vervolgens tot **5 juli 2018** -gebruiker kan handmatig doen via hetzelfde [optie 1 - GUI Via](#option-1---initiate-from-the-oms-portal) of [optie 2 - Via API](#option-2---using-the-alertsversion-api).
+## <a name="option-3-use-a-custom-powershell-script"></a>Optie 3: Een aangepaste PowerShell-script gebruiken
+ Als Microsoft niet is uitgebreid uw waarschuwingen van de Operations Management Suite-portal naar Azure, kunt u dit handmatig doen tot en met 5 juli 2018. De twee opties voor handmatige extensie worden in de vorige twee secties besproken.
 
-Na **5 juli 2018** -alle waarschuwingen van OMS-portal zal worden uitgebreid in Azure. Gebruikers die niet worden de [nodig herstelstappen voorgestelde](#troubleshooting), hun waarschuwingen uitgevoerd zonder het activeren van acties of meldingen vanwege het gebrek aan zal worden gekoppeld [actiegroepen](monitoring-action-groups.md). 
+Na 5 juli 2018, worden alle waarschuwingen van de Operations Management Suite-portal uitgebreid naar Azure. Gebruikers die niet worden de [nodig herstelstappen voorgestelde](#troubleshooting) hun waarschuwingen uitgevoerd zonder het activeren van acties of meldingen, vanwege het gebrek aan zal worden gekoppeld [actiegroepen](monitoring-action-groups.md). 
 
-Handmatig maken [actiegroepen](monitoring-action-groups.md) voor waarschuwingen in logboekanalyse gebruikers het volgende voorbeeldscript kunnen gebruiken.
+Maken van [actiegroepen](monitoring-action-groups.md) voor waarschuwingen handmatig in Log Analytics, het volgende voorbeeldscript gebruiken:
 ```PowerShell
 ########## Input Parameters Begin ###########
 
@@ -345,7 +347,7 @@ try
         $armPayload = @{"properties" = $properties; "location" = "Global"} | ConvertTo-Json -Compress -Depth 4
 
     
-        # ARM call to create action group
+        # Azure Resource Manager call to create action group
         $response = $armPayload | armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroupName/?api-version=2017-04-01
 
         "Created Action Group with name $actionGroupName" 
@@ -435,45 +437,47 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 ```
 
 
-**Met behulp van het aangepaste PowerShell-script** 
-- Vereiste wordt de installatie van [ARMclient](https://github.com/projectkudu/ARMClient), een open source-opdrachtregelprogramma dat vereenvoudigt de Azure Resource Manager-API aanroepen
-- Gebruiker uitvoeren van het genoemde script zijn rol van inzender of de eigenaar van het Azure-abonnement
-- Hier volgen de parameters worden opgegeven voor het script:
-    - $subscriptionId: de Azure-abonnements-ID die is gekoppeld aan de werkruimte OMS/LA
-    - $resourceGroup: de Azure-resourcegroep waar zich de OMS/LA-werkruimte
-    - $workspaceName: de naam van de werkruimte OMS/LA
+### <a name="about-the-custom-powershell-script"></a>Over het aangepaste PowerShell-script 
+De volgende is belangrijke informatie over het gebruik van het script:
+- Een vereiste is de installatie van [ARMclient](https://github.com/projectkudu/ARMClient), een open source-opdrachtregelprogramma dat vereenvoudigt de Azure Resource Manager-API wordt aangeroepen.
+- Het script wordt uitgevoerd, moet u de rol Inzender of eigenaar in de Azure-abonnement hebt.
+- U moet de volgende parameters opgeven:
+    - $subscriptionId: de Azure-abonnements-ID die is gekoppeld aan de werkruimte voor logboekanalyse voor Operations Management Suite.
+    - $resourceGroup: de Azure-resourcegroep voor de werkruimte voor logboekanalyse voor Operations Management Suite.
+    - $workspaceName: de naam van de werkruimte voor logboekanalyse voor Operations Management Suite.
 
-**Uitvoer van het aangepaste PowerShell-script** het script is uitgebreid en de stappen wordt de uitvoer zoals deze wordt uitgevoerd. 
-- De samenvatting, bevat de informatie over de bestaande OMS/LA waarschuwingen in de werkruimte en de actiegroepen Azure moet worden gemaakt voor de acties die zijn gekoppeld aan deze wordt weergegeven. 
-- Gebruiker wordt gevraagd gaat u verder gaan met de extensie of sluiten nadat de samenvatting weer te geven.
-- Als de gebruiker wordt gevraagd om te gaan verder met de extensie, nieuwe Azure actiegroepen wordt gemaakt en de bestaande waarschuwingen worden gekoppeld aan deze. 
-- Uiteindelijk het script wordt afgesloten door het bericht weer te geven ' uitbreiding voltooid!. " In geval van een tussenliggende fouten, wordt de volgende fouten weergegeven.
+### <a name="output-of-the-custom-powershell-script"></a>Uitvoer van het aangepaste PowerShell-script
+Het script is uitgebreid en levert de stappen uit als dit wordt uitgevoerd: 
+- De samenvatting, bevat de informatie over de bestaande Operations Management Suite Log Analytics-waarschuwingen in de werkruimte wordt weergegeven. De samenvatting bevat ook informatie over de Azure actiegroepen worden gemaakt voor de acties die zijn gekoppeld. 
+- U wordt gevraagd te gaat u verder gaan met de extensie of sluiten nadat de samenvatting weer te geven.
+- Als u verder met de extensie gaat, nieuwe Azure actiegroepen zijn gemaakt en de bestaande waarschuwingen zijn gekoppeld aan deze. 
+- Het script wordt afgesloten door het bericht "Extensie is voltooid!" weer te geven Het script worden in het geval van alle tussenliggende mislukte verdere fouten weergegeven.
 
 ## <a name="troubleshooting"></a>Problemen oplossen 
-Tijdens het proces van waarschuwingen van OMS uit te breiden naar Azure, kunnen er incidentele probleem dat verhindert dat het systeem maken nodig [actiegroepen](monitoring-action-groups.md). In dergelijke gevallen wordt een foutbericht wordt weergegeven in OMS-portal via banner in waarschuwing sectie en GET-aanroep gedaan API.
+Tijdens het proces voor het uitbreiden van waarschuwingen, problemen kunnen voorkomen dat het systeem maakt de benodigde [actiegroepen](monitoring-action-groups.md). In dergelijke gevallen wordt er een foutbericht weergegeven in een banner in de **waarschuwing** sectie van de Operations Management Suite-portal of in de GET gereed is voor de API aanroepen.
 
-> [!WARNING]
-> Als gebruiker de precribed herstelstappen hieronder vindt u, voordat niet uitvoeren **5 juli 2018** - en waarschuwingen wordt uitgevoerd in Azure, maar zonder een actie of een melding geactiveerd. Als u meldingen voor waarschuwingen, gebruikers moeten handmatig bewerken en voeg [actiegroepen](monitoring-action-groups.md) of gebruik de [aangepaste PowerShell-script](#option-3---using-custom-powershell-script) hierboven beschreven.
+> [!IMPORTANT]
+> Als u niet de volgende herstelstappen uit voordat u 5 juli 2018 uitvoeren, waarschuwingen in Azure wordt uitgevoerd, maar wordt niet gestart een actie of een melding. Als u meldingen voor waarschuwingen, moet u handmatig bewerken en toevoegen [actiegroepen](monitoring-action-groups.md), of gebruik de voorgaande [aangepaste PowerShell-script](#option-3---using-custom-powershell-script).
 
-Hieronder vindt u de herstelstappen uit voor elke fout:
-1. **Fout: Bereik vergrendeling is aanwezig op abonnement/resourcegroep voor schrijfbewerkingen**: ![OMS waarschuwingsinstellingen portalpagina met ScopeLock foutbericht](./media/monitor-alerts-extend/ErrorScopeLock.png)
+Hier volgen de herstelstappen voor elke fout:
+- **Fout: Bereik vergrendeling is aanwezig op abonnement/resourcegroep voor schrijfbewerkingen**: ![schermafbeelding van de Operations Management Suite waarschuwingsinstellingen portalpagina met bereik vergrendelen foutbericht gemarkeerd](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
-    a. Wanneer bereik vergrendelen is ingeschakeld, beperken van de nieuwe wijzigingen van abonnement of resourcegroep met de werkruimte voor logboekanalyse (OMS); het systeem is niet waarschuwingen (kopiëren) in Azure uitbreiden en benodigde Actiegroepen maken.
+    Als bereik vergrendeling is ingeschakeld, wordt de functie beperkt nieuwe wijzigingen in de groep abonnement of resourcegroep met de werkruimte voor logboekanalyse (Operations Management Suite). Het systeem is niet waarschuwingen in Azure uitbreiden en benodigde Actiegroepen maken.
     
-    b. Om op te lossen, verwijdert u de *ReadOnly* vergrendeling op uw abonnement of de resource-groep die de werkruimte bevat; met Azure-portal, Powershell, Azure CLI of API. Bekijk voor meer informatie het artikel op [vergrendeling Resourcegebruik](../azure-resource-manager/resource-group-lock-resources.md). 
+    Om op te lossen, verwijdert u de *ReadOnly* vergrendeling op uw abonnement of de resource-groep die de werkruimte bevat. U kunt dit doen met behulp van de Azure-portal, PowerShell, Azure CLI of de API. Zie voor meer informatie, [vergrendeling Resourcegebruik](../azure-resource-manager/resource-group-lock-resources.md). 
     
-    c. Als opgelost volgens de stappen die worden weergegeven in het artikel, wordt OMS uw waarschuwingen in Azure uitbreiden in de volgende dag geplande run; zonder de noodzaak van een actie of een inleiding.
+    Wanneer u de fout oplossen met behulp van de stappen die worden weergegeven in het artikel, breidt Operations Management Suite uw waarschuwingen in Azure binnen de geplande run van de volgende dag. U hoeft niet te verdere actie ondernemen of het initiëren van alles.
 
-2. **Fout: Beleid is aanwezig op het niveau van de abonnement/resourcegroep**: ![OMS waarschuwingsinstellingen portalpagina met beleid foutbericht](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Fout: Beleid is aanwezig op het niveau van de abonnement/resourcegroep**: ![schermafbeelding van de Operations Management Suite waarschuwingsinstellingen portalpagina met beleid foutbericht gemarkeerd](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    a. Wanneer [Azure beleid](../azure-policy/azure-policy-introduction.md) wordt toegepast, beperken van alle nieuwe bronnen in het abonnement of resourcegroep met de werkruimte voor logboekanalyse (OMS); wordt door het systeem geen waarschuwingen (kopiëren) in Azure uitbreiden en benodigde Actiegroepen maken.
+    Wanneer [Azure beleid](../azure-policy/azure-policy-introduction.md) is toegepast, beperkt alle nieuwe bronnen in een abonnement of resourcegroep groep met de werkruimte voor logboekanalyse (Operations Management Suite). Het systeem is niet waarschuwingen in Azure uitbreiden en benodigde Actiegroepen maken.
     
-    b. Bewerken om op te lossen, het beleid waardoor *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* fout, die voorkomt het maken van nieuwe resources voor uw abonnement of de resource-groep met de werkruimte. Met behulp van Azure-portal, Powershell, Azure CLI of API; u kunt mislukte acties uit om te zoeken naar het juiste beleid ontstaan. Bekijk voor meer informatie het artikel op [activiteitenlogboeken om te controleren van acties weer te geven](../azure-resource-manager/resource-group-audit.md). 
+    Om op te lossen, bewerkt u het beleid dat wordt veroorzaakt door de *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* fout, die voorkomt het maken van nieuwe resources van uw abonnement of de resource-groep die de werkruimte bevat. U kunt dit doen met behulp van de Azure-portal, PowerShell, Azure CLI of de API. U kunt controleren acties uit om te zoeken naar het juiste beleid fout veroorzaakt. Zie voor meer informatie, [activiteitenlogboeken om te controleren van acties weer te geven](../azure-resource-manager/resource-group-audit.md). 
     
-    c. Als opgelost volgens de stappen die worden weergegeven in het artikel, wordt OMS uw waarschuwingen in Azure uitbreiden in de volgende dag geplande run; zonder de noodzaak van een actie of een inleiding.
+    Wanneer u de fout oplossen met behulp van de stappen die worden weergegeven in het artikel, breidt Operations Management Suite uw waarschuwingen in Azure binnen de geplande run van de volgende dag. U hoeft niet te verdere actie ondernemen of het initiëren van alles.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over de nieuwe [waarschuwingen van Azure-ervaring](monitoring-overview-unified-alerts.md).
+* Meer informatie over de nieuwe [Azure waarschuwingen optreden](monitoring-overview-unified-alerts.md).
 * Meer informatie over [waarschuwingen melden in Azure waarschuwingen](monitor-alerts-unified-log.md).

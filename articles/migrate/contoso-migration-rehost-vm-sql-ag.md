@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 97c8430ab5d4e08e52790b898051d5985c3df03c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 03e3aaad810f6ccd5fb376765ddbada072dedb06
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839880"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301300"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms-and-sql-server-alwayson-availability-group"></a>Migratie van Contoso: Rehost van een lokale app aan de Azure VM's en SQL Server AlwaysOn-beschikbaarheidsgroep
 
@@ -29,8 +29,9 @@ Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedri
 [Artikel 4: Een app voor virtuele machines in Azure en een SQL-exemplaar voor beheerde Rehost](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstreert hoe Contoso wordt uitgevoerd een lift en shift migratie naar Azure voor de app SmartHotel. Contoso migreert u de app frontend virtuele machine met behulp [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database naar een exemplaar SQL beheerd met behulp van de [Azure migratie databaseservice](https://docs.microsoft.com/azure/dms/dms-overview). | Beschikbaar
 [Artikel 5: Een app naar virtuele machines in Azure Rehost](contoso-migration-rehost-vm.md) | Toont hoe Contoso de SmartHotel-app met Site Recovery alleen virtuele machines migreert.
 Artikel 6: Rehost een app in Azure VM's en SQL Server AlwaysOn-beschikbaarheidsgroep (in dit artikel) | Toont hoe de app SmartHotel in Contoso worden gemigreerd. Contoso maakt gebruik van Site Recovery voor het migreren van virtuele machines van de app en de migratie van de Database-service voor het migreren van de database van de app naar een SQL Server-cluster beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
-Artikel 7: Een Linux-app voor virtuele machines in Azure en Azure MySQL Server Rehost | Laat zien hoe de osTicket Linux-app in Contoso worden gemigreerd. Ze migreren van de frontend-VM met Site Recovery en migreren (back-up en terugzetten van) de database naar een exemplaar van Azure MySQL-Server, MySQL Workbench gebruiken | Gepland
-Artikel 8: Rehost een Linux-app voor virtuele machines in Azure | Toont hoe Contoso heeft een migratie lift en shift van VERIGE osTicket virtuele machines van app naar Azure met Site Recovery | Gepland
+[Artikel 7: Een app Linux virtuele machines in Azure Rehost](contoso-migration-rehost-linux-vm.md) | Toont hoe Contoso heeft een lift en shift migratie van de Linux osTicket app virtuele Azure-machines, met Site Recovery | Gepland
+[Artikel 8: Rehost een Linux-app voor virtuele machines in Azure en Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Laat zien hoe Contoso de osTicket Linux app migreert naar Azure VM's met Site Recovery en de app-database migreert naar een Azure MySQL-Server-exemplaar met behulp van MySQL-Workbench. | Beschikbaar
+
 
 
 In dit artikel migreren Contoso de twee lagen Windows. NET SmartHotel app uitgevoerd op virtuele VMware-machines naar Azure. Als u wilt deze app wilt gebruiken, als open-source opgegeven en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -52,7 +53,7 @@ Het team van de cloud Contoso is vastgemaakt omlaag doelstellingen voor deze mig
 - Contoso wil niet investeren in deze app.  Het is belangrijk voor het bedrijf zijn, maar in de huidige vorm ze gewoon wilt veilig te verplaatsen naar de cloud.
 - De lokale database voor de app heeft problemen met de beschikbaarheid. Ze graag dat deze geïmplementeerd in Azure als een cluster met hoge beschikbaarheid, met mogelijkheden voor failover.
 - Contoso wil upgrade uitvoeren van hun huidige platform van de SQL Server 2008 R2 naar SQL Server 2017.
-- Contoso wil niet opnieuw gebruiken van een Azure SQL Database voor deze app en en alternatieven zoekt.
+- Contoso wil niet opnieuw gebruiken van een Azure SQL Database voor deze app en is op zoek naar alternatieven.
 
 ## <a name="proposed-architecture"></a>Voorgestelde architectuur
 
@@ -277,7 +278,7 @@ Nu Contoso moet die een load balancer-regel defins hoe verkeer wordt gedistribue
 Ze maken als volgt de regel:
 
 1. In de load balancer-instellingen in de portal, ze een nieuw taakverdelingsregels toevoegen: **SQLAlwaysOnEndPointListener**.
-2. Contoso stelt een front-end-listener ontvangen van binnenkomende SQL-client-verkeer op TCP 1433.
+2. Contoso stelt een front-listener ontvangen van binnenkomende SQL-client-verkeer op TCP 1433.
 3. Deze opgeven met de back-endpool welk verkeer wordt doorgestuurd, en de poort waarop virtuele machines voor verkeer luistert.
 4. Contoso kunt zwevend IP (direct server return). Dit is altijd vereist voor de SQL AlwaysOn.
 
@@ -305,7 +306,7 @@ Ze stelt deze als volgt:
     - De SmartHotel een productie-app is en WEBVM worden gemigreerd naar de Azure productienetwerk (VNET-PROD-EUS2) in de primaire Oost-US2 regio.
     - WEBVM worden geplaatst in de resourcegroep ContosoRG, die wordt gebruikt voor productiebronnen, en in het subnet productie (PROD FE EUS2).
 
-2. Contoso maakt een Azure-opslag-acount (contosovmsacc20180528) in de primaire regio.
+2. Contoso maakt een Azure storage-account (contosovmsacc20180528) in de primaire regio.
 
     - Ze een algemene account gebruiken met de standard-opslag en LRS-replicatie.
     - De account moet zich in dezelfde regio bevinden als de kluis.
@@ -401,7 +402,7 @@ Als u wilt doorgaan, ze nodig hebben om te bevestigen dat ze hebben voltooid imp
 
 ### <a name="set-up-the-source-environment"></a>De bronomgeving instellen
 
-Contoso moet configureren hun bronomgeving. U doet dit door ze een OVF-sjabloon downloaden en gebruiken voor het implementeren van de Site Recovery-configuratieserver als een maximaal beschikbare, lokale VMware VM. Nadat de configuratieserver actief en werkend is, registreren ze in deze kluis.
+Contoso moet configureren hun bronomgeving. U doet dit door ze een OVF-sjabloon downloaden en gebruiken voor het implementeren van de Site Recovery-configuratieserver als een maximaal beschikbare, lokale VMware VM. Nadat de configuratieserver actief en werkend is, registreren ze in de kluis.
 
 De configuratieserver wordt uitgevoerd voor een aantal onderdelen:
 
@@ -435,7 +436,7 @@ Contoso uitvoeren als volgt te werk:
 
 10. Ze vervolgens download en installeer MySQL-Server en VMWare PowerCLI. 
 11. Na de validatie Geef ze de FQDN-naam of IP-adres van de vCenter-server of vSphere-host. Ze laat de standaardpoort en geef een beschrijvende naam voor de vCenter-server.
-12. Deze opgeven dat het account dat ze voor automatische detectie hebt gemaakt en de referenties die worden gebruikt voor de Mobility-Service automatisch te installeren. Voor Windows-machines moet het account dat lokale administrator-bevoegdheden op de virtuele machines.
+12. Deze opgeven dat het account dat ze voor automatische detectie hebt gemaakt en de referenties die worden gebruikt voor de Mobility-Service automatisch worden geïnstalleerd. Voor Windows-machines moet het account dat lokale administrator-bevoegdheden op de virtuele machines.
 
     ![vCenter](./media/contoso-migration-rehost-vm-sql-ag/cswiz2.png)
 
@@ -532,11 +533,11 @@ DMS verbindt met het lokale SQL Server VM via een site-naar-site VPN-verbinding 
 
 ## <a name="step-7-protect-the-database"></a>Stap 7: De database beveiligen
 
-Met de app-database op **SQLAOG1**, Contoso kan nu beveiligen met behulp van AlwaysOn-beschikbaarheidsgroepen. Deze Alwayson met SQL Management Studio configureren en vervolgens een listener met behulp van Windows-clustering toewijzen. 
+Met de app-database op **SQLAOG1**, Contoso kan nu beveiligen met behulp van AlwaysOn-beschikbaarheidsgroepen. Deze AlwaysOn met SQL Management Studio configureren en vervolgens een listener met behulp van Windows-clustering toewijzen. 
 
 ### <a name="create-an-alwayson-availability-group"></a>Maken van een AlwaysOn-beschikbaarheidsgroep
 
-1. In SQL Management Studio ze Klik met de rechtermuisknop op **altijd op hoge beschikbaarheid** starten de **nieuwe Wizard beschikbaarheidsgroep**.
+1. In SQL Management Studio ze met de rechtermuisknop op **altijd op hoge beschikbaarheid** starten de **nieuwe Wizard beschikbaarheidsgroep**.
 2. In **opties opgeven**, ze naam van de beschikbaarheidsgroep **SHAOG**. In **Databases selecteren**, ze de SmartHotel-database selecteren.
 
     ![AlwaysOn-beschikbaarheidsgroep](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)
@@ -624,7 +625,7 @@ Als de laatste stap in het migratieproces bijwerken Contoso de verbindingsreeks 
     ![Failover](./media/contoso-migration-rehost-vm-sql-ag/failover4.png)  
 
 2. Na het bijwerken van het bestand en opgeslagen, ze IIS opnieuw starten op WEBVM. Ze doen dit met de IISRESET /RESTART vanaf een opdrachtprompt.
-2. Nadat IIS opnieuw is opgestart, de toepassing is nu gebruikmaken van de database die wordt uitgevoerd op de SQL-MI.
+2. Nadat IIS opnieuw is opgestart, wordt de database die wordt uitgevoerd op de SQL-MI nu gebruik van de toepassing.
 
 
 **Meer hulp nodig?**

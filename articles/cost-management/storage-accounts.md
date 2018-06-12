@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 76a9fc586a1932b8b5e664b6c964f0c7d3eac4d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297832"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Storage-accounts configureren voor het beheer van kosten
 
@@ -39,7 +40,7 @@ Configureert u is Azure-opslag voor gebruik door kostenbeheer eenvoudig. Meer in
 3. Op de pagina opslag account onder **instellingen**, klikt u op **toegangstoetsen**.
 4. Kopieer uw **opslagaccountnaam** en **verbindingsreeks** onder key1.  
 ![Toegangssleutels voor Azure-opslag](./media/storage-accounts/azure-storage-access-keys.png)  
-5. De portal Cloudyn openen vanuit de Azure-portal of Ga naar https://azure.cloudyn.com en zich aanmelden.
+5. De portal Cloudyn openen vanuit de Azure-portal of Ga naar https://azure.cloudyn.com en meld u aan.
 6. Klik op het symbool tandwiel en selecteer vervolgens **rapporten opslagbeheer**.
 7. Klik op **nieuwe toevoegen +** en controleer of de Microsoft Azure is geselecteerd. Plak de naam van uw Azure-opslag in de **naam** gebied. Plak uw **verbindingsreeks** in het desbetreffende gebied. Voer een containernaam en klik vervolgens op **opslaan**.  
 ![Cloudyn opslag geconfigureerd voor Azure](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -147,7 +148,7 @@ U kunt ook de machtiging om rapporten te maken op uw S3-bucket met behulp van ee
 
 ### <a name="add-aws-report-storage-to-cloudyn"></a>AWS rapportopslag toevoegen aan Cloudyn
 
-1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar https://azure.cloudyn.com en zich aanmelden.
+1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar https://azure.cloudyn.com en meld u aan.
 2. Klik op het symbool tandwiel en selecteer vervolgens **rapporten opslagbeheer**.
 3. Klik op **nieuwe toevoegen +** en controleer of de AWS is geselecteerd.
 4. Selecteer een bucket-account en opslag. De naam van de bucket AWS-opslag is automatisch ingevuld.  

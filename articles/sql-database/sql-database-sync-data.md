@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: aa8f5e3b78a65c42840bbe831f5a4f2984a4a357
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 18177e0671ddf36d0e02e6b943467d703f78ffd0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650397"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301045"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL synchroniseren van gegevens (Preview)
 
@@ -82,6 +82,8 @@ Omdat synchroniseren van gegevens op basis van een trigger, transactionele consi
 
 #### <a name="performance-impact"></a>Prestatie-invloed
 Gegevens synchroniseren gebruikt invoegen, bijwerken en verwijderen van triggers voor het bijhouden van wijzigingen. Tabellen wordt gemaakt in de database voor het bijhouden. Deze wijziging bijhouden activiteiten heeft dit gevolgen voor de werkbelasting van uw database. De servicelaag beoordelen en indien nodig te upgraden.
+
+Inrichting en opheffen van inrichting tijdens synchronisatie groep maken, kunnen bijwerken en verwijderen ook invloed op de prestaties van de database. 
 
 ### <a name="general-requirements"></a>Algemene vereisten
 

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: cynthn
-ms.openlocfilehash: 26a213d490ee3f661735ff5b893b0a5f5f9906da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b61b7501c94e9682a3b324488caf119ce4aad3df
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267200"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Het opnieuw instellen van de extern bureaublad-service of het aanmeldingswachtwoord in een Windows-VM
 Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u het lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de configuratie van de extern bureaublad-service (wordt niet ondersteund op Windows-domeincontrollers). U kunt de Azure portal of de toegang van de VM-extensie in Azure PowerShell om het wachtwoord opnieuw in te gebruiken. Zodra u zich bij de virtuele machine hebt aangemeld, moet u het wachtwoord voor die gebruiker opnieuw instellen.  
@@ -57,7 +58,7 @@ Selecteer **alleen opnieuw instellen van configuratie** uit de vervolgkeuzelijst
 Zorg ervoor dat u hebt de [nieuwste PowerShell-module geïnstalleerd en geconfigureerd](/powershell/azure/overview) en u bent aangemeld bij uw Azure-abonnement met de `Connect-AzureRmAccount` cmdlet.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Het lokale beheerderswachtwoord opnieuw instellen**
-Opnieuw instellen van de naam van beheerder wachtwoord of gebruikersnaam met de [Set AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell-cmdlet. 
+Opnieuw instellen van de naam van beheerder wachtwoord of gebruikersnaam met de [Set AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell-cmdlet. De typeHandlerVersion moet 2.0 of hoger, zoals versie 1 is afgeschaft. 
 
 ```powershell
 $SubID = "<SUBSCRIPTION ID>" 

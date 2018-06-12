@@ -1,24 +1,20 @@
 ---
-title: Overzicht van Azure Diagnostics uitbreiding | Microsoft Docs
+title: Overzicht van de extensie Azure Diagnostics
 description: Gebruik van Azure diagnostics voor foutopsporing, meten van de prestaties, bewaking, analyse van het netwerkverkeer in cloudservices, virtuele machines en het service fabric
-services: multiple
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: ''
-editor: ''
-ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: robb
-ms.openlocfilehash: daeaddefa461e71fcc62af4efc4fb7084b237cf9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267676"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
 De extensie Azure Diagnostics is een agent in Azure waarmee het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens van een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure Cloud Service (klassiek) Web- en werkrollen, virtuele Machines, virtuele-Machineschaalset sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van bewaken in Azure](monitoring-overview.md). 

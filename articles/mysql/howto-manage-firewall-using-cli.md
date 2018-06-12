@@ -6,15 +6,16 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1bb60a1d6f14f0dc81047a2ffdd514724954fb14
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266054"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Maken en beheren van Azure-Database voor firewallregels MySQL met behulp van de Azure CLI
 Firewallregels op serverniveau kunnen beheerders toegang tot een Azure-Database voor de MySQL-Server beheren vanaf een specifiek IP-adres of een bereik met IP-adressen. U handige Azure CLI-opdrachten gebruikt, kunt u maken, bijwerken, verwijderen, de lijst en firewallregels voor het beheren van uw server weergegeven. Zie voor een overzicht van Azure-Database voor MySQL firewalls [Azure Database voor de MySQL-firewallregels voor server](./concepts-firewall-rules.md)
@@ -42,7 +43,7 @@ az login
 ```
 Met deze opdracht wordt de uitvoer een code te gebruiken in de volgende stap.
 
-2. Een webbrowser gebruiken om de pagina te openen [https://aka.ms/devicelogin](https://aka.ms/devicelogin), en voer de code.
+2. Een webbrowser gebruiken om de pagina te openen [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin), en voer de code.
 
 3. Meld u via het venster aan met uw Azure-referenties.
 

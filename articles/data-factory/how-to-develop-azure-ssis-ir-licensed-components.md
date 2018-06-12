@@ -1,5 +1,5 @@
 ---
-title: Installatie betaald of onderdelen voor de integratie van Azure SSIS runtime in licentie gegeven | Microsoft Docs
+title: Licentie voor de integratie van Azure SSIS runtime-onderdelen installeren | Microsoft Docs
 description: Meer informatie over hoe een ISV kunt ontwikkelen en installatie betaald of aangepaste onderdelen voor de integratie van Azure SSIS runtime licentie
 services: data-factory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: e2e000df2933b8fa08bf98ef55b12f90de6a5e51
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6351381e525d256ef5e9693ea1fb5e3a6f4e5ea3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830840"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298573"
 ---
-# <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Betaalde of gelicentieerde aangepaste onderdelen voor de integratie van Azure SSIS runtime ontwikkelen
+# <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Betaalde of gelicentieerde aangepaste onderdelen voor de integratie van Azure SSIS runtime installeren
 
 Dit artikel wordt beschreven hoe een ISV kunt ontwikkelen en betaalde of gelicentieerde aangepaste onderdelen voor SQL Server Integration Services (SSIS)-pakketten die in Azure worden uitgevoerd in de runtime Azure SSIS-integratie installeren.
 

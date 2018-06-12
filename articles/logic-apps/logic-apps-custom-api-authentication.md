@@ -2,11 +2,11 @@
 title: Verificatie toevoegen aan aangepaste API's - Azure Logic Apps | Microsoft Docs
 description: Verificatie voor het aanroepen van uw aangepaste API's vanuit logic apps instellen
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298546"
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Aanroepen van uw aangepaste API's vanuit logic apps beveiligen
 
-Als u wilt beveiligen aanroepen naar uw API's, kunt u verificatie van de Azure Active Directory (Azure AD) via de Azure portal instellen zodat u niet hoeft te werk uw code. Of u kunt vereisen en afdwingen van verificatie via de API-code.
+Als u wilt beveiligen aanroepen naar uw API's, kunt u verificatie van de Azure Active Directory (Azure AD) via de Azure portal instellen zodat u niet hoeft te werk uw code. Of u kunt verificatie vereisen en afdwingen via de code van uw API.
 
 ## <a name="authentication-options-for-your-api"></a>Opties voor verificatie voor uw API
 
@@ -33,7 +34,7 @@ U kunt aanroepen om uw aangepaste API gebruiken op de volgende manieren te bevei
   > [!NOTE]
   > Standaard biedt de Azure AD-verificatie in de Azure portal inschakelen niet fijnmazig autorisatie. Deze verificatie vergrendelt bijvoorbeeld uw API op slechts een specifieke tenant, niet op een specifieke gebruiker of de app. 
 
-* [Werk uw API-code](#update-code): uw API beveiligen door af te dwingen [certificaatverificatie](#certificate), [basisverificatie](#basic), of [Azure AD authentication](#azure-ad-code) via code.
+* [Werk uw API-code](#update-code): uw API beveiligen door af te dwingen [certificaatverificatie](#certificate), [basisverificatie](#basic), of [Azure AD authentication](#azure-ad-code) via de code.
 
 <a name="no-code"></a>
 
@@ -126,7 +127,7 @@ Als uw web-app of API-app al is geïmplementeerd, kunt u verificatie inschakelen
 
    ![Toepassings-id voor uw web-app of API-app maken](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
-4. Op de **verificatie / autorisatie** pagina **opslaan**.
+4. Kies **Opslaan** op de pagina **Verificatie/autorisatie**.
 
 U moet nu de client-ID en tenant-ID vinden voor de identiteit die is gekoppeld aan uw web-app of API-app. U gebruikt deze id in deel 3. Zo kunt u doorgaan met deze stappen voor de Azure-portal.
 
@@ -134,7 +135,7 @@ U moet nu de client-ID en tenant-ID vinden voor de identiteit die is gekoppeld a
 
 1. Onder **verificatieproviders**, kies **Azure Active Directory**. 
 
-   !['Azure Active Directory' kiezen](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
+   ![Azure Active Directory kiezen](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
 
 2. Op de **Azure Active Directory-instellingen** pagina **beheermodus** naar **Geavanceerd**.
 
@@ -145,7 +146,7 @@ U moet nu de client-ID en tenant-ID vinden voor de identiteit die is gekoppeld a
 
 4. Onder **Url-verlener**, kopiëren en opslaan van alleen de GUID voor deel 3. U kunt ook deze GUID gebruiken in uw web-app of sjabloon API-app-implementatie, indien nodig.
 
-   Deze GUID is van de tenant van uw specifieke GUID ('tenant-ID') en moet worden weergegeven in deze URL:`https://sts.windows.net/{GUID}`
+   Deze GUID is van de tenant van uw specifieke GUID ('tenant-ID') en moet worden weergegeven in deze URL: `https://sts.windows.net/{GUID}`
 
 5. Zonder uw wijzigingen worden opgeslagen, sluit u de **Azure Active Directory-instellingen** pagina.
 
@@ -192,10 +193,10 @@ Open de definitie van de logische app in de codeweergave, gaat u naar de **HTTP*
 
 | Element | Vereist | Beschrijving | 
 | ------- | -------- | ----------- | 
-| Tenant | Ja | De GUID voor de Azure AD-tenant | 
+| tenant | Ja | De GUID voor de Azure AD-tenant | 
 | doelgroep | Ja | De GUID voor de doelresource die u openen wilt, die de client-id van de toepassings-id voor uw web-app of API-app | 
 | clientId | Ja | De GUID voor de client aanvragen van toegang tot de client-id van de identiteit voor uw logische app | 
-| Geheim | Ja | De sleutel of het wachtwoord van de toepassings-id voor de client die het toegangstoken aanvraagt | 
+| geheim | Ja | De sleutel of het wachtwoord van de toepassings-id voor de client die het toegangstoken aanvraagt | 
 | type | Ja | Het verificatietype. De waarde voor ActiveDirectoryOAuth verificatie, heeft `ActiveDirectoryOAuth`. | 
 |||| 
 

@@ -1,25 +1,19 @@
 ---
-title: Maken, weergeven en beheren met behulp van Azure Monitor waarschuwingen | Microsoft Docs
+title: Maken, weergeven en beheren met behulp van Azure-Monitor van waarschuwingen
 description: Gebruik de nieuwe waarschuwingen van geïntegreerde Azure-ervaring aan auteur, weergeven en beheren van metrische gegevens en meld u waarschuwingsregels op één plek.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: bb532f5e249947534ba44a41edfadac22ef9e217
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.component: alerts
+ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824911"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264337"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen aan met een Azure-Monitor  
 
@@ -70,7 +64,7 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van waarsch
 
 5. * Metrische waarschuwingen: Zorg ervoor dat **brontype** is geselecteerd als signaaltype als **metriek**, klikt u vervolgens één keer juiste **resource** gekozen Klik *gedaan*terug te keren naar waarschuwing maken. Vervolgens gebruikt de **criteria toevoegen** knop kiezen die het signaal specifieke lijst met opties signaal, hun monitoring-service en het type vermeld - die beschikbaar zijn voor de resource die eerder hebt geselecteerd.
 
-    ![Een resource selecteren](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
+    ![Selecteer een resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 

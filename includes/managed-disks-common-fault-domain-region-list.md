@@ -10,7 +10,7 @@
 | Noord-centraal VS    | 3                       |
 | Zuid-centraal VS    | 3                       |
 | West-centraal VS     | 2                       |
-| Canada - midden      | 2                       |
+| Canada - midden      | 3                      |
 | Canada - oost         | 2                       |
 |                     |                         |
 | Noord-Europa        | 3                       |

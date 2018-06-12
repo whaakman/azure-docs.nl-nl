@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 763b13849470079e24aac6aff45584bac33403f0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 956bd89a993a019d7a5a4dd28efec4116b174334
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620534"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297254"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor een runtime integratie in Azure Data Factory  
 **Integratie runtime** is de beheerinfrastructuur gebruikt door Azure Data Factory voor verschillende mogelijkheden voor de integratie van gegevens in verschillende netwerkomgevingen. Er zijn drie soorten integratie runtimes die worden aangeboden door de Data Factory:
@@ -167,7 +167,7 @@ Azure-SSIS-integratie runtime is een volledig beheerde cluster van Azure virtuel
 | CatalogAdminUserName | De beheerdersgebruikersnaam van uw bestaande Azure SQL Database beheerde /-exemplaar (Preview)-server. Data Factory-service gebruikt deze informatie voor het voorbereiden en SSISDB beheren namens jou. |
 | CatalogAdminPassword | Het beheerderswachtwoord van uw bestaande Azure SQL Database beheerde /-exemplaar (Preview)-server. |
 | CatalogPricingTier | De prijscategorie voor SSISDB gehost door uw bestaande Azure SQL Database-server.  Niet van toepassing op Azure SQL beheerd-exemplaar (Preview) die als host fungeert voor SSISDB. |
-| VNetId | Het virtueel netwerk (VNet) resource-ID voor uw Azure-SSIS-integratie runtime om toe te voegen. |
+| VNetId | Het virtueel netwerk resource-ID voor uw Azure-SSIS-integratie runtime om toe te voegen. |
 | Subnet | De subnetnaam voor uw Azure-SSIS-integratie runtime om toe te voegen. |
 | Id | De resource-ID van de runtime van uw Azure-SSIS-integratie. |
 | Type | Het type (beheerde/zelfstandige-Hosted) van de runtime van uw Azure-SSIS-integratie. |
@@ -200,9 +200,9 @@ Zie de volgende artikelen voor meer informatie over Azure-SSIS-integratie runtim
 
 - [Azure-SSIS-integratie Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat conceptuele informatie over de integratie runtimes in het algemeen met inbegrip van de Azure-SSIS-IR 
 - [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
-- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (preview) en het toevoegen van de IR aan een VNet. 
+- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel wordt op de zelfstudie wordt uitgebreid en bevat instructies over het gebruik van Azure SQL beheerd-exemplaar (Preview) en de IR toevoegen aan een virtueel netwerk. 
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Er wordt ook uitgelegd hoe u een Azure-SSIS IR kunt uitschalen door meer knooppunten toe te voegen aan de IR. 
-- [Een Azure-SSIS IR toevoegen aan een VNet](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat algemene informatie over het toevoegen van een Azure-SSIS IR aan een virtueel netwerk (VNet) van Azure. Er wordt ook beschreven hoe u Azure Portal gebruikt om VNet te configureren voor het deelnemen van een Azure-SSIS IR aan het VNet. 
+- [Een Azure-SSIS-IR toevoegen aan een virtueel netwerk](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat conceptuele informatie over het toevoegen van een Azure-SSIS-IR aan een virtuele Azure-netwerk. Het bevat ook stappen voor het gebruik van Azure-portal voor het configureren van het virtuele netwerk, zodat de Azure-SSIS-IR kunt deelnemen aan het virtuele netwerk. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor het bewaken van pijplijnen op verschillende manieren: 

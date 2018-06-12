@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 38586763c8bf80ac4ebf2e26b4db935289b88cbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac3ea6d696eaf5ba4b2554f416118718271526a8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589046"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292463"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD-toepassingsproxy op een beheerd domein van Azure AD Domain Services implementeren
 Toepassingsproxy van Azure Active Directory (AD) kunt u ondersteuning voor externe werknemers door het publiceren van on-premises toepassingen via internet worden geopend. U kunt nu lift-en-shift oudere toepassingen met lokale naar Azure Infrastructure Services met Azure AD Domain Services. Vervolgens kunt u deze toepassingen de Azure AD-toepassingsproxy gebruiken voor veilige externe toegang tot gebruikers in uw organisatie publiceren.
@@ -77,7 +77,7 @@ Eerder ingerichte van een virtuele machine van Windows Server en deze toegevoegd
     * Geef uw **Azure AD-referenties globale beheerder**. De referenties van uw globale beheerderstenant kunnen afwijken van uw Microsoft Azure-referenties.
     * Het administrator-account gebruikt voor het registreren van de connector moet behoren tot dezelfde map waarin u de service-toepassingsproxy hebt ingeschakeld. Bijvoorbeeld, als de tenant-domein contoso.com is, de beheerder moet admin@contoso.com of andere geldige alias in dat domein.
     * Als Verbeterde beveiliging van Internet Explorer is ingeschakeld voor de server waarop u de connector installeert, is het registratiescherm mogelijk geblokkeerd. Volg de instructies in het foutbericht voor toegang. Zorg ervoor dat de verbeterde beveiliging van Internet Explorer is uitgeschakeld.
-    * Zie [Troubleshoot Application Proxy](../active-directory/active-directory-application-proxy-troubleshoot.md) (Engelstalig) als de registratie van de connector niet lukt.
+    * Zie [Troubleshoot Application Proxy](../active-directory/manage-apps/application-proxy-troubleshoot.md) (Engelstalig) als de registratie van de connector niet lukt.
 
     ![Connector is geïnstalleerd](./media/app-proxy/app-proxy-connector-installed.png)
 4. Om te controleren of de connector worden werkt de Azure AD Application Proxy Connector probleemoplosser naar behoren uitgevoerd. U ziet een geslaagde rapport na het uitvoeren van de probleemoplosser.

@@ -1,25 +1,19 @@
 ---
-title: Webhookacties voor logboek-waarschuwingen in de Azure-waarschuwingen | Microsoft Docs
+title: Webhookacties voor logboek-waarschuwingen in de Azure-waarschuwingen
 description: Dit artikel wordt beschreven hoe naar een waarschuwingsregel logboek met behulp van log analytics of application insights, zendt de gegevens als HTTP-webhook en details van de andere aanpassingen mogelijk.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 981b6b65675550fd1403064ad3113c2dca0c3f6e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: alerts
+ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638667"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264252"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels logboek
 Wanneer een [waarschuwing is gemaakt in Azure ](monitor-alerts-unified-usage.md), hebt u de optie [configureren met de actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en de details over het configureren van de aangepaste JSON-indeling webhook.

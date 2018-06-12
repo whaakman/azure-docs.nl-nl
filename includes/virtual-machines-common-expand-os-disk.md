@@ -1,3 +1,20 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: sdwheeler
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/18/2018
+ms.author: kirpas;iainfou;sewhee
+ms.custom: include file
+ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323796"
+---
 ## <a name="overview"></a>Overzicht
 Wanneer u een nieuwe virtuele machine (VM) maakt in een resourcegroep met de implementatie van een installatiekopie van [Azure Marketplace](https://azure.microsoft.com/marketplace/), de standaard OS-station is vaak 127 GB (enkele afbeeldingen hebben kleinere voor OS-schijf standaard). Hoewel het mogelijk is om gegevensschijven toe te voegen aan de VM (het aantal is afhankelijk van de SKU die u hebt gekozen) en het bovendien wordt aangeraden om toepassingen en CPU-intensieve werkbelastingen te installeren op deze aanvullende schijven, moeten klanten vaak ook de besturingssysteemschijf uitbreiden om bepaalde scenario's te ondersteunen, zoals de volgende:
 
@@ -13,7 +30,7 @@ Wanneer u een nieuwe virtuele machine (VM) maakt in een resourcegroep met de imp
 >
 
 ## <a name="resize-the-os-drive"></a>Besturingssysteemschijf uitbreiden
-In dit artikel gaan we de grootte van de besturingssysteemschijf aanpassen met behulp van Resource Manager-modules van [Azure Powershell](/powershell/azureps-cmdlets-docs). We tonen grootte wijzigen van het station OS voor zowel beheerde als Unamanged schijven omdat de aanpak voor het vergroten of verkleinen schijven verschilt voor beide schijftypen.
+In dit artikel gaan we de grootte van de besturingssysteemschijf aanpassen met behulp van Resource Manager-modules van [Azure Powershell](/powershell/azureps-cmdlets-docs). We tonen grootte wijzigen van het station OS voor zowel niet-beheerd als beheerde schijven omdat de aanpak voor het vergroten of verkleinen schijven verschilt voor beide schijftypen.
 
 ### <a name="for-resizing-unmanaged-disks"></a>Grootte van niet-beheerde schijven:
 
@@ -106,7 +123,7 @@ Dat is alles. Ga nu met RDP naar de VM, open Computerbeheer (of Schijfbeheer) en
 ## <a name="summary"></a>Samenvatting
 In dit artikel hebben we Azure Resource Manager-modules van Powershell gebruikt om de besturingssysteemschijf van een virtuele IaaS-machine uit te breiden. Hieronder wordt het volledige script voor de referentie voor zowel niet-beheerd als beheerde schijven:
 
-Unamanged schijven:
+Niet-beheerde schijven:
 
 ```Powershell
 Connect-AzureRmAccount
@@ -134,10 +151,10 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Volgende stappen
-Hoewel in dit artikel wordt primair gericht op het uitbreiden van de Unamanged/beheerde OS-schijf van de virtuele machine, kan het script ontwikkelde ook worden gebruikt voor het uitbreiden van de gegevensschijven gekoppeld aan de virtuele machine. Als u bijvoorbeeld de eerste gegevensschijf die is gekoppeld aan de VM wilt uitbreiden, vervangt u het object ```OSDisk``` van ```StorageProfile``` door de matrix ```DataDisks``` en gebruikt u een numerieke index om een verwijzing naar de eerste gekoppelde schijf te verkrijgen, zoals hieronder wordt weergegeven:
+## <a name="for-resizing-data-disks"></a>Voor gegevensschijven vergroten of verkleinen
+Hoewel in dit artikel wordt primair gericht op het uitbreiden van de niet-beheerd beheerd/OS-schijf van de virtuele machine, kan het script ontwikkelde ook worden gebruikt voor het uitbreiden van de gegevensschijven gekoppeld aan de virtuele machine. Als u bijvoorbeeld de eerste gegevensschijf die is gekoppeld aan de VM wilt uitbreiden, vervangt u het object ```OSDisk``` van ```StorageProfile``` door de matrix ```DataDisks``` en gebruikt u een numerieke index om een verwijzing naar de eerste gekoppelde schijf te verkrijgen, zoals hieronder wordt weergegeven:
 
-Unamanged schijf:
+Niet-beheerde schijf:
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
@@ -149,11 +166,11 @@ $disk.DiskSizeGB = 1023
 
 Op dezelfde manier kunt u verwijzen naar andere gegevensschijven die aan de VM zijn gekoppeld. Dit kan met behulp van een index, zoals hierboven, of met de eigenschap ```Name``` van de schijf, zoals hieronder wordt weergegeven:
 
-Unamanged schijf:
+Niet-beheerde schijf:
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
 ```
-Beheerd schijf:
+Beheerde schijf:
 ```Powershell
 (Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```

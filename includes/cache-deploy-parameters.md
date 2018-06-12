@@ -53,5 +53,5 @@ De grootte van het nieuwe exemplaar van Azure Redis-Cache.
     }
 
 
-De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (0, 1, 2, 3, 4, 5 of 6), en wijst een standaardwaarde (1) als er geen waarde is opgegeven. Deze getallen die overeenkomen met de volgende cachegrootte: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (0, 1, 2, 3, 4, 5 of 6) en een standaardwaarde (0) wordt toegewezen als er geen waarde is opgegeven. Deze getallen die overeenkomen met de volgende cachegrootte: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

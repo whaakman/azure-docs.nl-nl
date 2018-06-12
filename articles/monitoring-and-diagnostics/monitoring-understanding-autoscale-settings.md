@@ -1,24 +1,19 @@
 ---
-title: Informatie over instellingen voor automatisch schalen in Azure | Microsoft Docs
-description: Detail van instellingen voor automatisch schalen en hoe ze werken.
+title: Instellingen voor automatisch schalen in Azure-Monitor
+description: Detail van instellingen voor automatisch schalen en hoe ze werken. Van toepassing op virtuele Machines, Cloudservices-Web-Apps
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: 73c79ec4ee1beb5220e088421c78ffffd932eef1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.component: autoscale
+ms.openlocfilehash: 982bc43fd86a808da07833d77bde17e17789b2d6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264993"
 ---
 # <a name="understand-autoscale-settings"></a>Inzicht in instellingen voor automatisch schalen
 Instellingen voor automatisch schalen zorgen ervoor dat u de juiste hoeveelheid resources hebt voor het afhandelen van de fluctuerende belasting van uw toepassing wordt uitgevoerd. U kunt de instellingen voor automatisch schalen op basis van metrische gegevens die aangeven welke gegevens worden geladen of prestaties of geactiveerde worden geactiveerd op een geplande datum en tijd kunt configureren. In dit artikel wordt een gedetailleerd overzicht van de anatomie van een instelling voor automatisch schalen. Het artikel begint met het schema en de eigenschappen van een instelling, en vervolgens doorloopt de verschillende profieltypen die kunnen worden geconfigureerd. Ten slotte het artikel wordt beschreven hoe de functie voor automatisch schalen in Azure evalueert welk profiel moet worden uitgevoerd op een bepaald moment.
@@ -104,7 +99,7 @@ Ter illustratie van het schema van de instelling voor automatisch schalen, is de
 | profiel | naam | De naam van het profiel. U kunt elke willekeurige naam waarmee u het profiel te identificeren. |
 | profiel | Capacity.maximum | De maximale capaciteit toegestaan. Hiermee zorgt u ervoor dat automatisch schalen, bij het uitvoeren van dit profiel niet kan worden uitgebreid uw resource boven dit nummer. |
 | profiel | Capacity.minimum | De minimale capaciteit toegestaan. Hiermee zorgt u ervoor dat automatisch schalen, bij het uitvoeren van dit profiel niet kan worden uitgebreid uw resource onder dit nummer. |
-| profiel | Capacity.default | Als er een probleem bij het lezen van de metriek resource (in dit geval de CPU van 'vmss1'), en de huidige capaciteit lager dan de standaardwaarde is, schaalt automatisch schalen uit op de standaardwaarde. Dit is om te controleren of de beschikbaarheid van de resource. Als de huidige capaciteit al hoger dan de standaardcapaciteit is, automatisch schalen niet kan worden uitgebreid. |
+| profiel | Capacity.Default | Als er een probleem bij het lezen van de metriek resource (in dit geval de CPU van 'vmss1'), en de huidige capaciteit lager dan de standaardwaarde is, schaalt automatisch schalen uit op de standaardwaarde. Dit is om te controleren of de beschikbaarheid van de resource. Als de huidige capaciteit al hoger dan de standaardcapaciteit is, automatisch schalen niet kan worden uitgebreid. |
 | profiel | regels | Automatisch schalen schaalt automatisch tussen de maximale en minimale capaciteit, met behulp van de regels in het profiel. U kunt meerdere regels in een profiel hebben. Er zijn doorgaans twee regels: een om te bepalen wanneer moet worden uitgebreid, en de andere om te bepalen wanneer om in te schalen. |
 | regel | metricTrigger | De metrische voorwaarde van de regel wordt gedefinieerd. |
 | metricTrigger | metricName | De naam van de metrische gegevens. |
@@ -112,7 +107,7 @@ Ter illustratie van het schema van de instelling voor automatisch schalen, is de
 | metricTrigger | TimeGrain | De duur van de metrische steekproeven. Bijvoorbeeld: **TimeGrain = 'PT1M'** betekent dat de metrische gegevens moeten worden samengevoegd elke 1 minuut, met behulp van de opgegeven in het element statistiek aggregatiemethode. |
 | metricTrigger | statistiek | De aggregatiemethode binnen de periode timeGrain. Bijvoorbeeld: **statistiek = 'Gemiddelde'** en **timeGrain = 'PT1M'** betekent dat de metrische gegevens moeten worden samengevoegd elke 1 minuut, door het gemiddelde te nemen. Deze eigenschap bepaalt hoe de metriek is actieve. |
 | metricTrigger | Waarde voor TimeWindow | De hoeveelheid tijd zoekt metrische gegevens. Bijvoorbeeld: **waarde voor timeWindow = 'PT10M'** betekent dat elke keer automatisch schalen die wordt uitgevoerd, wordt opgevraagd metrische gegevens voor de afgelopen 10 minuten. Het tijdvenster kunt metrische gegevens over uw genormaliseerd, en reageren op tijdelijke pieken voorkomt. |
-| metricTrigger | timeAggregation | De aggregatiemethode die wordt gebruikt voor het cumuleren van de steekproef metrische gegevens. Bijvoorbeeld: **TimeAggregation van = 'Gemiddelde'** moet de steekproef metrische gegevens samenvoegen door het gemiddelde te nemen. In het voorgaande geval tien voorbeelden 1 minuut duren en gemiddelde ze. |
+| metricTrigger | TimeAggregation van | De aggregatiemethode die wordt gebruikt voor het cumuleren van de steekproef metrische gegevens. Bijvoorbeeld: **TimeAggregation van = 'Gemiddelde'** moet de steekproef metrische gegevens samenvoegen door het gemiddelde te nemen. In het voorgaande geval tien voorbeelden 1 minuut duren en gemiddelde ze. |
 | regel | scaleAction | De actie die moet worden uitgevoerd wanneer de metricTrigger van de regel wordt geactiveerd. |
 | scaleAction | richting | 'Verhogen' als u wilt uitbreiden of 'Verkleinen' schaal in.|
 | scaleAction | waarde | Hoeveel vergroten of verkleinen van de capaciteit van de resource. |

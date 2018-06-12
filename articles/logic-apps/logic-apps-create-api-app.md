@@ -4,9 +4,9 @@ description: Web-API's & REST-API's voor het aanroepen van uw API's, services of
 keywords: Web-API's, REST-API's, werkstromen, systeemintegraties
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3ca55bb0a9f4719bd2229aca626d20c53af9fd1e
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299525"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Aangepaste API's die u vanuit logic app werkstromen aanroepen kunt maken
 
@@ -79,7 +80,7 @@ U kunt een HTTP-aanvraagmethode schrijven in uw API en beschrijven die methode i
 
 ![Standaard actie-patroon](./media/logic-apps-create-api-app/standard-action.png)
 
-<a name="pattern-overview"></a>Als u een logische app geduld terwijl uw API langer actief taken zijn voltooid, uw API kan volgen de [asynchrone polling patroon](#async-pattern) of de [asynchrone webhook patroon](#webhook-actions) in dit onderwerp beschreven. Denk aan het proces voor het ordenen van een aangepaste taart van een bakkerij voor een vergelijking waarmee u verschillende gedrag van deze patronen visualiseren. Het polling-patroon komt overeen met het gedrag waar u de bakkerij elke 20 minuten aanroepen om te controleren of de cake gereed is. Het patroon webhook komt overeen met het gedrag waar de bakkerij u om uw telefoonnummer vraagt zodat deze u aanroepen kunnen wanneer de cake gereed is.
+<a name="pattern-overview"></a> Als u een logische app geduld terwijl uw API langer actief taken zijn voltooid, uw API kan volgen de [asynchrone polling patroon](#async-pattern) of de [asynchrone webhook patroon](#webhook-actions) in dit onderwerp beschreven. Denk aan het proces voor het ordenen van een aangepaste taart van een bakkerij voor een vergelijking waarmee u verschillende gedrag van deze patronen visualiseren. Het polling-patroon komt overeen met het gedrag waar u de bakkerij elke 20 minuten aanroepen om te controleren of de cake gereed is. Het patroon webhook komt overeen met het gedrag waar de bakkerij u om uw telefoonnummer vraagt zodat deze u aanroepen kunnen wanneer de cake gereed is.
 
 Voor voorbeelden, gaat u naar de [Logic Apps GitHub-opslagplaats](https://github.com/logicappsio). Ook meer informatie over [gebruiksmeting voor acties](logic-apps-pricing.md).
 
@@ -95,7 +96,7 @@ Hier volgt het algemene patroon:
 2. Wanneer de engine voor het volgende aanvragen voor de taakstatus van de maakt, kunt u de engine weten wanneer uw API de taak is voltooid.
 3. Terug naar de engine voor het relevante gegevens zodat de logic app-werkstroom kan worden voortgezet.
 
-<a name="bakery-polling-action"></a>Nu toepassen van de vorige bakkerij vergelijking met het patroon polling en stel dat u een bakkerij en volgorde een aangepaste taart voor levering aanroepen. Het proces voor het maken van de cake kost tijd en u niet wilt wachten op de telefoon, terwijl de bakkerij op de taart werkt. De bakkerij wordt bevestigd dat uw bestelling en moet u elke 20 minuten voor de status van de cake aanroepen. Na 20 minuten doorgeven, aanroepen van de bakkerij, maar ze laat u weten dat uw taart wordt niet uitgevoerd en dat u in een andere 20 minuten aanroepen moet. Dit proces en weer schakelen wordt vervolgd totdat u aanroept en de bakkerij kunt u zien dat uw bestelling klaar is, en de taart levert. 
+<a name="bakery-polling-action"></a> Nu toepassen van de vorige bakkerij vergelijking met het patroon polling en stel dat u een bakkerij en volgorde een aangepaste taart voor levering aanroepen. Het proces voor het maken van de cake kost tijd en u niet wilt wachten op de telefoon, terwijl de bakkerij op de taart werkt. De bakkerij wordt bevestigd dat uw bestelling en moet u elke 20 minuten voor de status van de cake aanroepen. Na 20 minuten doorgeven, aanroepen van de bakkerij, maar ze laat u weten dat uw taart wordt niet uitgevoerd en dat u in een andere 20 minuten aanroepen moet. Dit proces en weer schakelen wordt vervolgd totdat u aanroept en de bakkerij kunt u zien dat uw bestelling klaar is, en de taart levert. 
 
 Dus laten we dit patroon polling weer worden toegewezen. De bakkerij geeft uw aangepaste API gebruiken, terwijl u de klant taart de engine voor Logic Apps vertegenwoordigen. Als de engine voor uw API met een aanvraag wordt aangeroepen, wordt uw API wordt bevestigd dat de aanvraag en reageert met het tijdsinterval wanneer de engine taakstatus kunt controleren. De engine blijft taakstatus controleren totdat uw API reageert dat de taak wordt uitgevoerd en retourneert gegevens naar uw logische app, die vervolgens werkstroom doorgaat. 
 
@@ -130,16 +131,16 @@ Als uw API na dit patroon, er geen iets doet in de definitie van logic Apps werk
 
 Als alternatief kunt u de webhook-patroon voor langlopende taken en asynchrone verwerking. Dit patroon is de logische app wacht totdat een 'callback"van uw API verwerkt alvorens de werkstroom. Deze retouraanroep is een HTTP POST dat een bericht naar een URL verzendt wanneer een gebeurtenis plaatsvindt. 
 
-<a name="bakery-webhook-action"></a>Nu de vorige bakkerij vergelijking met het patroon van de webhook van toepassing en stel dat u een bakkerij en volgorde een aangepaste taart voor levering aanroepen. Het proces voor het maken van de cake kost tijd en u niet wilt wachten op de telefoon, terwijl de bakkerij op de taart werkt. De bakkerij wordt bevestigd dat uw bestelling, maar dit moment kunt u ze geven uw telefoonnummer zodat deze u aanroepen kunnen wanneer de cake wordt uitgevoerd. Deze tijd ziet de bakkerij u wanneer uw bestelling gereed is en de taart te bezorgen.
+<a name="bakery-webhook-action"></a> Nu de vorige bakkerij vergelijking met het patroon van de webhook van toepassing en stel dat u een bakkerij en volgorde een aangepaste taart voor levering aanroepen. Het proces voor het maken van de cake kost tijd en u niet wilt wachten op de telefoon, terwijl de bakkerij op de taart werkt. De bakkerij wordt bevestigd dat uw bestelling, maar dit moment kunt u ze geven uw telefoonnummer zodat deze u aanroepen kunnen wanneer de cake wordt uitgevoerd. Deze tijd ziet de bakkerij u wanneer uw bestelling gereed is en de taart te bezorgen.
 
 Wanneer we dit patroon webhook opnieuw toewijst, vertegenwoordigt de bakkerij uw aangepaste API gebruiken, terwijl u de klant taart de engine voor Logic Apps vertegenwoordigen. De engine voor het aanroepen van uw API met een aanvraag en een URL "callback" bevat.
 Wanneer de taak is voltooid, uw API maakt gebruikt van de URL de engine voor het melden en gegevens terugsturen naar uw logische app, die vervolgens werkstroom doorgaat. 
 
-Instellen voor dit patroon worden twee eindpunten op uw domeincontroller: `subscribe` en`unsubscribe`
+Instellen voor dit patroon worden twee eindpunten op uw domeincontroller: `subscribe` en `unsubscribe`
 
-*  `subscribe`eindpunt: wanneer uitvoering van uw API-bewerking in de werkstroom bereikt, de Logic Apps aanroepen engine de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app maken van een retouraanroep-URL die uw API worden opgeslagen en wacht u totdat de callback van uw API wanneer werk voltooid is. Uw API en vervolgens teruggebeld met een HTTP POST naar de URL en wordt elke geretourneerde inhoud en -koppen worden doorgegeven als invoer voor de logische app.
+*  `subscribe` eindpunt: wanneer uitvoering van uw API-bewerking in de werkstroom bereikt, de Logic Apps aanroepen engine de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app maken van een retouraanroep-URL die uw API worden opgeslagen en wacht u totdat de callback van uw API wanneer werk voltooid is. Uw API en vervolgens teruggebeld met een HTTP POST naar de URL en wordt elke geretourneerde inhoud en -koppen worden doorgegeven als invoer voor de logische app.
 
-* `unsubscribe`eindpunt: als de logische app uitgevoerd wordt geannuleerd, de Logic Apps aanroepen engine de `unsubscribe` eindpunt. Uw API kan vervolgens Hef de registratie van de callback-URL en stop alle processen indien nodig.
+* `unsubscribe` eindpunt: als de logische app uitgevoerd wordt geannuleerd, de Logic Apps aanroepen engine de `unsubscribe` eindpunt. Uw API kan vervolgens Hef de registratie van de callback-URL en stop alle processen indien nodig.
 
 ![Webhook actie patroon](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -199,9 +200,9 @@ U kunt bijvoorbeeld geregeld wordt gecontroleerd of uw service voor nieuwe besta
 Een trigger webhook is een *push-signaal* die wordt gewacht en luistert naar nieuwe gegevens of gebeurtenissen op uw service-eindpunt. Als u nieuwe gegevens of een gebeurtenis voldoet aan de opgegeven voorwaarde, wordt de trigger wordt geactiveerd en maakt u een logic app-exemplaar, die vervolgens de gegevens als invoer verwerkt.
 Webhook-triggers fungeren vergelijkbaar met de [webhookacties](#webhook-actions) eerder in dit onderwerp beschreven en worden ingesteld met `subscribe` en `unsubscribe` eindpunten. 
 
-* `subscribe`eindpunt: wanneer u toevoegen en de trigger van een webhook niet opslaan in uw logische app, de Logic Apps aanroepen engine de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app maken van een retouraanroep-URL die uw API worden opgeslagen. Wanneer er nieuwe gegevens of een gebeurtenis die aan de opgegeven voorwaarde voldoet, wordt uw API teruggebeld met een HTTP POST naar de URL. De nettolading van de inhoud en -koppen doorgeven als invoer voor de logische app.
+* `subscribe` eindpunt: wanneer u toevoegen en de trigger van een webhook niet opslaan in uw logische app, de Logic Apps aanroepen engine de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app maken van een retouraanroep-URL die uw API worden opgeslagen. Wanneer er nieuwe gegevens of een gebeurtenis die aan de opgegeven voorwaarde voldoet, wordt uw API teruggebeld met een HTTP POST naar de URL. De nettolading van de inhoud en -koppen doorgeven als invoer voor de logische app.
 
-* `unsubscribe`eindpunt: als de webhook trigger of volledige logische app wordt verwijderd, de Logic Apps aanroepen engine de `unsubscribe` eindpunt. Uw API kan vervolgens Hef de registratie van de callback-URL en stop alle processen indien nodig.
+* `unsubscribe` eindpunt: als de webhook trigger of volledige logische app wordt verwijderd, de Logic Apps aanroepen engine de `unsubscribe` eindpunt. Uw API kan vervolgens Hef de registratie van de callback-URL en stop alle processen indien nodig.
 
 ![Webhook triggerpatroon](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

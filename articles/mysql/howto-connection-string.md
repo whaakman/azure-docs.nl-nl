@@ -6,20 +6,21 @@ author: mswutao
 ms.author: wuta
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 083c6850151340ba8cb307a237f489e5923761a5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265680"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Verbinding maken tussen toepassingen met Azure-Database voor MySQL
 Dit onderwerp worden de verbindingstypen tekenreeks die worden ondersteund door Azure Database voor MySQL, samen met sjablonen en voorbeelden. Mogelijk hebt u verschillende parameters en instellingen in de verbindingsreeks.
 
 - Als u het certificaat, Zie [SSL configureren](./howto-configure-ssl.md).
-- {your_host} = <servername>.mysql.database.azure.com
+- {your_host} = <servername>. mysql.database.azure.com
 - {your_user}@{servername} = userID indeling voor verificatie correct.  Als u alleen de gebruikers-id gebruikt, mislukt de verificatie.
 
 ## <a name="adonet"></a>ADO.NET

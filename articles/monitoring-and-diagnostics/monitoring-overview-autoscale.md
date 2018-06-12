@@ -1,24 +1,19 @@
 ---
-title: Overzicht van automatisch schalen in Microsoft Azure Virtual Machines en Cloud Services-Web-Apps | Microsoft Docs
-description: Overzicht van automatisch schalen in Microsoft Azure. Van toepassing op virtuele Machines, Cloudservices en Web-Apps.
+title: Overzicht van automatisch schalen in virtuele Machines en Cloud Services-Web-Apps
+description: Automatisch schalen in Microsoft Azure. Van toepassing op virtuele Machines, virtuele machine schaal wordt ingesteld, Cloud Services en Web-Apps.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.component: autoscale
+ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264667"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Overzicht van automatisch schalen in Microsoft Azure Virtual Machines en Cloud Services-Web-Apps
 Dit artikel wordt beschreven welke Microsoft Azure-automatisch schalen is, de voordelen en hoe u aan de slag met behulp van deze.  
@@ -33,7 +28,7 @@ Monitor voor automatisch schalen die Azure is alleen bedoeld voor [virtuele-Mach
 ## <a name="what-is-autoscale"></a>Wat is automatisch schalen?
 Automatisch schalen kunt u de juiste hoeveelheid resources voor het afhandelen van de belasting van uw toepassing wordt uitgevoerd. Hiermee kunt u resources voor het verwerken van de toename in laden en ook geld besparen door het verwijderen van de resources die zijn gestaan toevoegen inactief. U opgeven een minimum en maximum aantal exemplaren uitvoeren en toevoegen of verwijderen van virtuele machines automatisch op basis van een reeks regels. Met een minimale zorgt ervoor dat uw toepassing wordt altijd uitgevoerd zelfs geen load. Met een beperkt mogelijk van uw totale per uur kosten. U wordt automatisch schalen tussen deze twee uiterste met regels die u maakt.
 
- ![Automatisch schalen, worden beschreven. Toevoegen en verwijderen van virtuele machines](./media/monitoring-overview-autoscale/AutoscaleConcept.png)
+ ![Automatisch schalen, worden beschreven. VM's toevoegen en verwijderen](./media/monitoring-overview-autoscale/AutoscaleConcept.png)
 
 Wanneer de regelvoorwaarden wordt voldaan, worden een of meer acties voor automatisch schalen geactiveerd. U kunt toevoegen en verwijderen van virtuele machines of andere acties worden uitgevoerd. De volgende conceptuele diagram ziet u dit proces.  
 

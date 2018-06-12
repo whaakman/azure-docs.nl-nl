@@ -4,7 +4,7 @@ description: Verplaatsen of Azure BizTalk Services (MABS) migreert naar Azure Lo
 services: logic-apps
 documentationcenter: ''
 author: jonfancey
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 846386172c0221c217430e62c8560484f799fa7f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299542"
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>Verplaatsen van BizTalk Services naar Azure Logic Apps
 
@@ -120,11 +121,11 @@ BizTalk Services en Logic Apps zijn onder andere EDI- en B2B verwerking met onde
 In Logic Apps u deze functionaliteit kunt ophalen via de [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md). De EIP biedt [integratie Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) en B2B-acties voor EDI- en B2B-verwerking. U ook een integratie-Account gebruiken voor het maken en beheren [handelspartners](../logic-apps/logic-apps-enterprise-integration-partners.md) en [overeenkomsten](../logic-apps/logic-apps-enterprise-integration-agreements.md). Nadat u een Account integratie maakt, kunt u een of meer logische apps koppelen aan het account. U kunt vervolgens B2B acties gebruiken voor toegang tot trading Partnerinformatie van uw logische app. De volgende acties zijn beschikbaar:
 
 * AS2 coderen
-* AS2 Decode
-* X12 Encode
-* X12 Decode
+* AS2 decoderen
+* X12 coderen
+* X12 decoderen
 * EDIFACT coderen
-* EDIFACT Decode
+* EDIFACT decoderen
 
 In tegenstelling tot BizTalk Services, worden deze acties losgekoppeld van de transportprotocollen. Dus als u uw logische apps maakt, hebt u meer flexibiliteit in welke connectors waarmee u kunt gegevens verzenden en ontvangen. U kunt bijvoorbeeld ontvangen X12 bestanden als bijlagen van e-mail en vervolgens proces deze bestanden in een logische app. 
 

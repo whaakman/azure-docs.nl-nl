@@ -1,6 +1,6 @@
 ---
-title: Enterprise-editie van de Runtime Azure SSIS-integratie | Microsoft Docs
-description: In dit artikel beschrijft de functies en de configuratie van de Enterprise Edition voor de integratie van Azure SSIS Runtime
+title: Enterprise-editie inrichten voor de integratie van Azure SSIS Runtime | Microsoft Docs
+description: In dit artikel beschrijft de functies van de Enterprise Edition voor op de Azure-SSIS-integratie-Runtime en het inrichten
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: 5ce6b46a49e3fba8f60311ad82d3e1b77ad6d993
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 55f4fd18dbebe8a4c666c5512b9cad46ddf9f7d7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619300"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296853"
 ---
 # <a name="enterprise-edition-of-the-azure-ssis-integration-runtime"></a>Enterprise-editie van de Runtime Azure SSIS-integratie
 

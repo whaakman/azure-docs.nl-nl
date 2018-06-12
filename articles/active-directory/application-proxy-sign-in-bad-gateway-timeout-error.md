@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: c2571a7ca9e92c5088aec600f1865f84736c5bfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c6c6f56f8e4d8d1d7a10bd07679732d64b86e23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592507"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292300"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>"Geen toegang tot deze zakelijke toepassing" Fout bij het gebruik van een toepassing toepassingsproxy
 
@@ -110,7 +110,7 @@ Nu open een browser en probeert te krijgen tot de toepassing opnieuw. U moet wor
 
 Als u doorgaat naar de fout te zien, gaat u naar de machine waarop de Connector is geïnstalleerd, open een browser en probeert te krijgen tot de interne URL voor de toepassing gebruikt. De Connector fungeert als een andere client door dezelfde machine. Als u de toepassing niet kan bereiken, moet u onderzoeken waarom dat de machine is niet bereiken van de toepassing of gebruiken van een connector op een server die toegang tot de toepassing is.
 
-Als u de toepassing van deze machine op zoek naar problemen of fouten met de Connector zelf bereiken kunt. Ziet u een aantal veelvoorkomende fouten in de [oplossen document](active-directory-application-proxy-troubleshoot.md#connector-errors). U kunt ook zoeken rechtstreeks op de logboeken van de Connector eventuele fouten te identificeren. Veel van onze foutberichten mogelijk meer specifieke aanbevelingen voor oplossingen delen. Zie voor meer informatie over het weergeven van de logboeken, [onze documentatie connectors](manage-apps/application-proxy-connectors.md#under-the-hood).
+Als u de toepassing van deze machine op zoek naar problemen of fouten met de Connector zelf bereiken kunt. Ziet u een aantal veelvoorkomende fouten in de [oplossen document](manage-apps/application-proxy-troubleshoot.md#connector-errors). U kunt ook zoeken rechtstreeks op de logboeken van de Connector eventuele fouten te identificeren. Veel van onze foutberichten mogelijk meer specifieke aanbevelingen voor oplossingen delen. Zie voor meer informatie over het weergeven van de logboeken, [onze documentatie connectors](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Volgende stappen
 [Azure AD-toepassingsproxy connectors begrijpen](manage-apps/application-proxy-connectors.md)

@@ -1,26 +1,19 @@
 ---
-title: Bronnen voor nieuwere Azure Monitor metrische waarschuwingen ondersteund | Microsoft Docs
+title: Ondersteunde bronnen voor nieuwere Azure metrische-waarschuwingen
 description: De verwijzing op ondersteuning metrische gegevens en logboeken voor nieuwere Azure bijna realtime metrische waarschuwingen.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: ''
-ms.openlocfilehash: e09cc1a91daf2e6a043d73ef1f41aa265334dec2
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: snmuvva
+ms.component: alerts
+ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809825"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264507"
 ---
 # <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Ondersteunde metrische gegevens en de aanmaak van methoden voor het nieuwe metrische waarschuwingen
 Azure ondersteunt van de Monitor nu een [nieuwe metrische Waarschuwingstype](monitoring-overview-unified-alerts.md) die aanzienlijke voordelen heeft via de oudere [klassieke metrische waarschuwingen](insights-alerts-portal.md). De oudere waarschuwingen ondersteunen een [grote lijst met metrische gegevens](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteuning voor een (groeiende) subset van die grotere lijst. Dit artikel worden deze subset. 

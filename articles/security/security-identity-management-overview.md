@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 22b233e23c5c4609990bb6ba6148fe24d3d82c4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8763f1dca110a43586619c09f5d25c340c177b09
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641346"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300654"
 ---
 # <a name="azure-identity-management-security-overview"></a>Overzicht van Azure identity management-beveiliging
 Microsoft identiteits- en toegangsbeheer management oplossingen zorgen ervoor dat IT beveiligen van toegang tot toepassingen en bronnen in het zakelijke datacenter en in de cloud. Deze beveiliging kan extra niveaus validatie, zoals multi-factor Authentication en beleidsregels voor voorwaardelijke toegang. Bewaking verdachte activiteiten via geavanceerde beveiliging rapportage, controle en waarschuwingen helpt bij het verminderen mogelijke beveiligingsproblemen. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) biedt eenmalige aanmelding (SSO) tot duizenden cloudsoftware als een service (SaaS)-apps en toegang tot web-apps die u on-premises uitgevoerd.
@@ -58,7 +58,7 @@ Meer informatie:
 
 * [Overzicht van eenmalige aanmelding](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Eenmalige aanmelding Azure Active Directory integreren met SaaS-apps](../active-directory/active-directory-enterprise-apps-manage-sso.md)
+* [Eenmalige aanmelding Azure Active Directory integreren met SaaS-apps](../active-directory/manage-apps/configure-single-sign-on-portal.md)
 
 ## <a name="reverse-proxy"></a>Omgekeerde proxy
 Azure AD-toepassingsproxy kunt u on-premises toepassingen, zoals publiceren [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), en [IIS](http://www.iis.net/)-gebaseerde apps binnen uw particuliere netwerk en veilig toegang verleent aan gebruikers buiten uw netwerk. Toepassingsproxy biedt externe toegang en web-SSO voor veel soorten lokale toepassingen met de duizenden SaaS-toepassingen die ondersteuning biedt voor Azure AD. Werknemers kunnen aanmelden bij uw apps op hun eigen apparaten home en verifiëren via deze cloud-gebaseerde proxy.

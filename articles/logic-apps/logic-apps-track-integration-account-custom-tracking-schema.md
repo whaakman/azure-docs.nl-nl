@@ -2,7 +2,7 @@
 title: Bijhouden van aangepaste schema's voor het bewaken van B2B - Azure Logic Apps | Microsoft Docs
 description: Bijhouden van aangepaste schema's voor het bewaken van B2B-berichten van transacties in uw Azure-integratie-Account maken.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94de6afcf3f9f95a3cb45207ef43e1d33b728d99
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 431235370c52be4c6e1ad6cd1af6a412e9eac230
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299831"
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Bijhouden voor het bewaken van de volledige werkstroom, end-to-end inschakelen
 Er is ingebouwde bijhouden dat u voor de verschillende onderdelen van uw business-to-business-werkstroom, zoals bijhouden AS2 of X12 berichten inschakelen kunt. Wanneer u werkstromen maakt die bevat een logische app, BizTalk Server, SQL Server of een andere laag en vervolgens kunt u aangepaste bijhouden die legt gebeurtenissen vanaf het begin tot het einde van de werkstroom vast inschakelen. 
@@ -65,14 +66,14 @@ Dit onderwerp bevat aangepaste code die u in de lagen buiten uw logische app kun
 | --- | --- | --- |
 | SourceType |   | Type van de bron-uitvoeren. Toegestane waarden zijn **Microsoft.Logic/workflows** en **aangepaste**. (Verplicht) |
 | Bron |   | Als het type bron **Microsoft.Logic/workflows**, moet de broninformatie Volg dit schema. Als het type bron **aangepaste**, het schema is een JToken. (Verplicht) |
-| systeem-id | Tekenreeks | Logic app systeem-ID. (Verplicht) |
-| runId | Tekenreeks | Logische app uitgevoerd ID. (Verplicht) |
-| operationName | Tekenreeks | De naam van de bewerking (bijvoorbeeld actie of trigger). (Verplicht) |
-| repeatItemScopeName | Tekenreeks | Herhaal itemnaam als de actie is opgenomen in een `foreach` / `until` lus. (Verplicht) |
+| systeem-id | Reeks | Logic app systeem-ID. (Verplicht) |
+| runId | Reeks | Logische app uitgevoerd ID. (Verplicht) |
+| operationName | Reeks | De naam van de bewerking (bijvoorbeeld actie of trigger). (Verplicht) |
+| repeatItemScopeName | Reeks | Herhaal itemnaam als de actie is opgenomen in een `foreach` / `until` lus. (Verplicht) |
 | repeatItemIndex | Geheel getal | Of de actie is binnen een `foreach` / `until` lus. Geeft de itemindex herhaalde. (Verplicht) |
-| trackingId | Tekenreeks | Tracerings-ID die de berichten correleren. (Optioneel) |
-| correlationId | Tekenreeks | Correlatie-ID die de berichten correleren. (Optioneel) |
-| clientRequestId | Tekenreeks | Client kunt vullen om te correleren van berichten. (Optioneel) |
+| trackingId | Reeks | Tracerings-ID die de berichten correleren. (Optioneel) |
+| correlationId | Reeks | Correlatie-ID die de berichten correleren. (Optioneel) |
+| clientRequestId | Reeks | Client kunt vullen om te correleren van berichten. (Optioneel) |
 | eventLevel |   | Niveau van de gebeurtenis. (Verplicht) |
 | eventTime |   | Tijd van de gebeurtenis, in UTC-notatie jjjj-MM-DDTHH:MM:SS.00000Z. (Verplicht) |
 | recordType |   | Type van de record bijhouden. De waarde is toegestaan **aangepaste**. (Verplicht) |

@@ -2,17 +2,18 @@
 title: De configuratieserver voor noodherstel van VMware met Azure Site Recovery implementeren | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u een configuratieserver voor noodherstel van VMware met Azure Site Recovery implementeert
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/06/2018
+ms.author: raynew
+ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267506"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -20,11 +21,19 @@ U implementeert een on-premises configuratieserver wanneer u [Azure Site Recover
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het is raadzaam dat u de configuratieserver als een maximaal beschikbare VMware VM implementeren. Minimale hardwarevereisten worden samengevat in de volgende tabel.
+Het is raadzaam dat u de configuratieserver als een maximaal beschikbare VMware VM implementeren. Configuratievereisten voor de server worden samengevat in de volgende tabel.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+### <a name="prepare-for-mysql-installation"></a>MySQL-installatie voorbereiden
+
+MySQL moet worden geïnstalleerd op de configuratieserver. U kunt dit doen met behulp van een van de volgende methoden:
+
+- Site Recovery download en installeer deze laten wanneer wanneer de configuratiewizard voor Server Management wordt uitgevoerd. U hoeft niet geen specifieke actie te ondernemen.
+- Handmatig downloaden van MySQL en plaats deze in de map C:\Temp\ASRSetup. Voer de installatie. Site Recovery herkent geïnstalleerd wanneer de wizard wordt uitgevoerd.
+- Handmatig downloaden van MySQL en plaats deze in de map C:\Temp\ASRSetup. Wanneer de wizard wordt uitgevoerd wordt deze het bestand niet vinden en installeren vanaf deze locatie. 
 
 
 ## <a name="capacity-planning"></a>Capaciteitsplanning
@@ -100,7 +109,7 @@ Als u een extra NIC en de configuratieserver toevoegen wilt, moet u deze toevoeg
 
 1. Selecteer in de wizard Configuratie server **Setup-connectiviteit**. Selecteer de NIC moet binnenkomend replicatieverkeer en selecteer vervolgens **opslaan**. U kunt deze instelling niet wijzigen nadat deze geconfigureerd.
 2. Selecteer in **Selecteer Recovery Services-kluis** uw Azure-abonnement en de relevante resourcegroep en kluis.
-3. Accepteer de gebruiksrechtovereenkomst in **Software van derden installeren**. Selecteer **Downloaden en installeren** om MySQL Server te installeren.
+3. Accepteer de gebruiksrechtovereenkomst in **Software van derden installeren**. Installeren van MySQL in overeenstemming met de [methode die u gebruikt voor het installeren van MySQL](#prepare-for-mysql-installation).
 4. Selecteer **installeren VMware PowerLCI**. Zorg ervoor dat alle browservensters zijn gesloten voordat u deze stap. Selecteer vervolgens **Doorgaan**.
 5. In **De configuratie van het apparaat valideren** worden de vereisten gecontroleerd voordat u doorgaat.
 6. In **vCenter Server vSphere/ESXi-server configureren** voert u de FQDN of het IP-adres van de vCenter-server, of vSphere-host, in waar de VM's die u wilt repliceren zich bevinden. Geef de poort op die de server luistert en een beschrijvende naam voor de VMware-server in de kluis.

@@ -1,24 +1,20 @@
 ---
-title: Bewaking van gebruik en de geschatte kosten in Azure Monitor | Microsoft Docs
+title: Bewaking van gebruik en de geschatte kosten in de Azure-Monitor
 description: Overzicht van het proces van het gebruik van Azure Monitor gebruiks- en de geschatte kosten van pagina
 author: dalekoetke
-manager: carmonmills
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/31/2018
-ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 4e6b3a2e8769c6e7e93071aed27b81c87ae336ca
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: mbullwin
+ms.reviewer: Dale.Koetke
+ms.component: ''
+ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715554"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264279"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Bewaking en de geschatte kosten
 
