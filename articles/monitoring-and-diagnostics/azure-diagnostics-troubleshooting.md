@@ -1,24 +1,20 @@
 ---
-title: Het oplossen van Azure Diagnostics | Microsoft Docs
+title: Extensie voor diagnostische gegevens van Azure oplossen
 description: Problemen oplossen bij het gebruik van Azure diagnostics in Azure Virtual Machines, Service Fabric of Cloud Services.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: e194c2898616d5a19782039d38592c59f6b0c576
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.component: diagnostic-extension
+ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263843"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics probleemoplossing
 Dit artikel wordt beschreven informatie over probleemoplossing die relevant is voor het gebruik van Azure Diagnostics. Zie voor meer informatie over Azure diagnostics [overzicht van Azure Diagnostics](azure-diagnostics.md).
@@ -66,19 +62,19 @@ Als de resource-ID onjuist is, controleert u **Diagnostics** **configuratie** > 
 Als er geen gegevens voor de specifieke metrische gegevens zijn, controleert u **configuratie van diagnostische** > **PerformanceCounter** om te zien als de metriek (prestatiemeteritem) opgenomen is. We standaard ingeschakeld in de volgende prestatiemeteritems:
 - \Processor(_Total)\% Processor Time
 - \Memory\Available Bytes
-- \ASP.NET Applications(__Total__)\Requests/Sec
-- \ASP.NET Applications(__Total__)\Errors Total/Sec
+- \ASP.NET toepassingen (__totale__) \Requests/Sec
+- \ASP.NET toepassingen (__totale__) \Errors aantal bytes per seconde
 - \ASP.NET\Requests in de wachtrij
 - \ASP.NET\Requests geweigerd
 - \Processor(W3wp)\% processortijd
 - \Process(w3wp)\Private Bytes
-- \Process(WaIISHost)\% Processor Time
+- \Process(WaIISHost)\% processortijd
 - \Process(WaIISHost)\Private Bytes
 - \Process(WaWorkerHost)\% processortijd
 - \Process(WaWorkerHost)\Private Bytes
 - \Memory\Page fouten per seconde
 - \.NET CLR-geheugen (_globale_)\% tijd in %
-- \LogicalDisk(C:)\Disk Write Bytes/sec
+- \LogicalDisk (C:) \Disk geschreven Bytes per seconde
 - \LogicalDisk(C:)\Disk Read Bytes/sec
 - \LogicalDisk(D:)\Disk Write Bytes/sec
 - \LogicalDisk(D:)\Disk Read Bytes/sec
@@ -207,7 +203,7 @@ Deze code genereert vier tabellen:
 
 | Gebeurtenis | Tabelnaam |
 | --- | --- |
-| provider = 'prov1' &lt;gebeurtenis-id = "1" /&gt; |WADEvent+MD5(“prov1”)+”1” |
+| provider = 'prov1' &lt;gebeurtenis-id = "1" /&gt; |WADEvent + MD5("prov1") + '1' |
 | provider = 'prov1' &lt;gebeurtenis-id = "2" eventDestination = "dest1" /&gt; |WADdest1 |
 | provider = 'prov1' &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
 | provider = 'prov2' &lt;DefaultEvents eventDestination = "dest2" /&gt; |WADdest2 |

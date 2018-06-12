@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4009a35226473cd3ecc68929e53d70f7fb749156
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 973b11cd7bcb46bfb113998ff4a4e0b9c6317042
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593432"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261760"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: kenmerken gesynchroniseerd naar Azure Active Directory
 Dit onderwerp worden de kenmerken die worden gesynchroniseerd door Azure AD Connect-synchronisatie.  
@@ -419,6 +419,7 @@ Deze kenmerken voor **gebruiker** worden naast de andere apps die u hebt geselec
 | --- |:---:| --- |
 | domainFQDN |X |Ook wel een DNS-domeinnaam genoemd. Bijvoorbeeld contoso.com. |
 | domainNetBios |X |Ook wel netBiosName genoemd. Bijvoorbeeld CONTOSO. |
+| msDS-KeyCredentialLink |X |Zodra de gebruiker is ingeschreven bij Windows Hello voor bedrijven. | 
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange hybride Write-back
 Deze kenmerken worden teruggeschreven van Azure AD naar lokale Active Directory wanneer u selecteert om in te schakelen **Exchange hybride**. Afhankelijk van uw versie van Exchange mogelijk minder kenmerken worden gesynchroniseerd.

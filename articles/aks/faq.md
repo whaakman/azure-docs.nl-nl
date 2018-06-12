@@ -6,14 +6,14 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 6/08/2018
 ms.author: nepeters
-ms.openlocfilehash: ca8d883add04d623c17390a0b5031aaf08be0429
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79236ae7134a27b9a5b89ee8151803befa7b51e1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596494"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260789"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
@@ -49,7 +49,7 @@ Terwijl AKS in preview blijft, wordt aangeraden maken met behulp van de ACS-Kube
 
 ## <a name="when-will-acs-be-deprecated"></a>Als ACS afgeschaft?
 
-ACS wordt afgeschaft rond de tijd die AKS algemene beschikbaarheid wordt. Hebt u 12 maanden na die datum clusters migreren naar AKS. U kunt alle ACS-bewerkingen uitvoeren tijdens de periode van 12 maanden.
+ACS wordt afgeschaft rond de tijd AKS die algemene beschikbaarheid. Hebt u 12 maanden na die datum clusters migreren naar AKS. U kunt alle ACS-bewerkingen uitvoeren tijdens de periode van 12 maanden.
 
 ## <a name="does-aks-support-node-autoscaling"></a>Ondersteunt AKS knooppunt automatisch schalen?
 
@@ -76,6 +76,10 @@ Windows Server-containers, hebt u nodig om uit te voeren op basis van Windows Se
 Elke implementatie AKS omvat twee resourcegroepen. De eerste door u is gemaakt en alleen de bron AKS bevat. De tweede overgebracht tijdens de implementatie van de resourceprovider AKS automatisch maakt met een naam zoals *MC_myResourceGroup_myAKSCluster_eastus*. De tweede resourcegroep bevat alle van de infrastructuurresources die zijn gekoppeld aan het cluster, zoals virtuele machines, netwerken en opslag. Het is gemaakt voor het opruimen van de resource te vereenvoudigen.
 
 Als u bij het maken van resources die worden gebruikt met uw cluster AKS zoals storage-accounts of gereserveerde openbare IP-adres, moet u in de automatisch gegenereerde resourcegroep plaatst.
+
+## <a name="does-aks-offer-a-service-level-agreement"></a>Biedt AKS een service level agreement?
+
+In een serviceovereenkomst (SLA) stemt de provider in met het betalen van de klant voor de kosten van de service moet het gepubliceerde serviceniveau niet worden opgehaald. Aangezien AKS zelf gratis is, is er gratis beschikbaar voor het betalen en dus geen formele SLA. Echter, zoeken we beschikbaarheid van minimaal 99.5% voor de Kubernetes API-server onderhouden.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

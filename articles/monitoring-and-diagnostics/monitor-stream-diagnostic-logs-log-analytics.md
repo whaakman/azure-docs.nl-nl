@@ -1,24 +1,19 @@
 ---
-title: Stream Azure diagnostische logboeken met Log Analytics | Microsoft Docs
+title: Stream Azure diagnostische logboeken met Log Analytics
 description: Informatie over het Azure logboeken met diagnostische gegevens naar een werkruimte voor logboekanalyse stream.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 82011126375a3c5016e110aac9ce6bc1b2d59cdf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: logs
+ms.openlocfilehash: 634cecb247686afd8c5c749d6e28b301d7e07c4f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263504"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostische logboeken met Log Analytics
 
@@ -40,9 +35,9 @@ U kunt inschakelen, streamen van diagnostische logboeken programmatisch via de p
 De werkruimte voor logboekanalyse heeft geen zich in hetzelfde abonnement als de bron logboeken verzenden zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
 
 > [!NOTE]
-> Verzenden van multidimensionale metrische gegevens via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte één dimensionale metrische gegevens, getotaliseerd over dimensiewaarden.
+> Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
-> *Bijvoorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een niveau van de wachtrij. Echter, wanneer geëxporteerd via diagnostische instellingen voor die de metrische gegevens worden weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
+> *Een voorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Maar wanneer de metriek wordt geëxporteerd via diagnostische instellingen, geeft de metriek alle binnenkomende berichten in alle wachtrijen in de Event Hub aan.
 >
 >
 

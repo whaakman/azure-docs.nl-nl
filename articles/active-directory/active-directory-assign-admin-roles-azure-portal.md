@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 4dddc4c4e4bd34f5e9d7054f1311e13113fce52d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234610"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260410"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -54,7 +54,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **Exchange-servicebeheerder**: gebruikers met deze rol globale machtigingen in Microsoft Exchange Online zijn wanneer de service aanwezig is. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Globale beheerder / Company Administrator**: gebruikers aan deze rol hebben toegang tot alle beheerfuncties in Azure Active Directory, evenals de services die worden gefedereerd met Azure Active Directory zoals Exchange Online, SharePoint Online en Skype voor bedrijven Online. De persoon die zich voor de Azure Active Directory-tenant aanmeldt wordt een globale beheerder. Alleen globale beheerders kunnen andere beheerdersrollen toewijzen. Er zijn meer dan één globale beheerder in uw bedrijf. Globale beheerders kunt opnieuw instellen van het wachtwoord voor elke gebruiker en alle andere beheerders.
+* **Globale beheerder / Company Administrator / Tenantbeheerder**: gebruikers aan deze rol hebben toegang tot alle beheerfuncties in Azure Active Directory, evenals de services die worden gefedereerd met Azure Active Directory zoals Exchange Online SharePoint Online en Skype voor bedrijven Online. De persoon die zich voor de Azure Active Directory-tenant aanmeldt wordt een globale beheerder. Alleen globale beheerders kunnen andere beheerdersrollen toewijzen. Er zijn meer dan één globale beheerder in uw bedrijf. Globale beheerders kunt opnieuw instellen van het wachtwoord voor elke gebruiker en alle andere beheerders.
 
   > [!NOTE]
   > Deze rol wordt in Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell geïdentificeerd als "Company Administrator". Het 'Globale beheerder' zich in de [Azure-portal](https://portal.azure.com).

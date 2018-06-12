@@ -1,38 +1,33 @@
 ---
-title: Azure Monitor partner integraties | Microsoft Docs
+title: Partners die met Azure-Monitor intergrate
 description: Meer informatie over Azure Monitor van partners en hoe u de documentatie voor de integratie met hen kunt openen.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 01ee13ac-66fc-4edc-8b0c-32f69b986a26
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
-ms.openlocfilehash: 44315b88d55d370c8200952dc2ff9d64d64cf524
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: ''
+ms.openlocfilehash: c8f8dbc4aa32b550849ff14f3ad653311b9fab93
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265280"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integraties
 | Partners |  |  |
 | --- | --- | --- |
-| [![Logo partner][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Logo partner][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![Logo partner][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Logo partner][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Logo partner][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
 | [**Botmetric**][botmetric-anchor] | [![Logo partner][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Logo partner][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] |
 | [![Logo partner][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Logo partner][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Logo partner][datadog-logo]<br/>**Datadog**][datadog-anchor] |
-| [![Logo partner][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][grafana-logo]<br/>**Grafana**][grafana-anchor] | [![Logo partner][logicmonitor-logo]<br/>**logica Monitor**][logicmonitor-anchor] |
-| [![Partner Logo][moogsoft-logo]<br/>**Moogsoft**][moogsoft-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Logo partner][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![Partner Logo][qradar-logo]<br/>**QRadar**][qradar-anchor] | [![Logo partner][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Partner Logo][signalfx-logo]<br/>**SignalFx**][signalfx-anchor] |
+| [![Logo partner][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Logo partner][grafana-logo]<br/>**Grafana**][grafana-anchor] | [![Logo partner][logicmonitor-logo]<br/>**logica Monitor**][logicmonitor-anchor] |
+| [![Logo partner][moogsoft-logo]<br/>**Moogsoft**][moogsoft-anchor] | [![Logo partner][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Logo partner][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![Logo partner][qradar-logo]<br/>**QRadar**][qradar-anchor] | [![Logo partner][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Logo partner][signalfx-logo]<br/>**SignalFx**][signalfx-anchor] |
 | [![Logo partner][signl4-logo]<br/>**SIGNL4**][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [![Logo partner][splunk-logo]<br/>**Splunk**][splunk-anchor] |
 | [![Logo partner][sumologic-logo]<br/>**Sumo logica**][sumologic-anchor] | [![Logo partner][turbonomic-logo]<br/>**Turbonomic**][turbonomic-anchor] | |
 
-## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
+## <a name="alertlogic-log-manager"></a>Logboekbeheer AlertLogic
 Waarschuwing logica logboekbeheer verzamelt VM-, toepassings- en logboeken van de Azure-platform om beveiligingsanalyse en te bewaren. Deze verzamelt ook het activiteitenlogboek Azure via de API voor het bewaken van Azure. Deze informatie wordt gebruikt om te detecteren door een misdrijf en voldoen aan nalevingsvereisten.
 
 [Ga naar de documentatie.][alertlogic-doc]
@@ -146,7 +141,7 @@ Sumo logica is een beveiligde, cloud-systeemeigen machine analytics gegevensserv
 [Meer informatie.][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
-Automatisering van de werkbelasting voor hybride clouds biedt Turbonomic door tegelijkertijd optimaliseren van prestaties, kosten en naleving in realtime. Reken-Turbonomic helpt organisaties worden elastische in hun Azure goed door het goed om ervoor te zorgen toepassingen ophalen voortdurend de resources die ze nodig hebben om te leveren voor de SLA en niets meer over continu optimaliseren, opslag en netwerk voor IaaS en PaaS laag. Organisaties kunnen simuleren migraties, goed te schalen werkbelastingen en datacenterbronnen voor het voorzichtig te migreren naar Azure in-time, binnen het budget, zodat de prestatie- en nalevingsopties zeker tijdens het buiten gebruik stellen. Turbonomic API aangestuurd en wordt uitgevoerd als een zonder agent virtuele machine in Azure en on-premises.
+Automatisering van de werkbelasting voor hybride clouds biedt Turbonomic door tegelijkertijd optimaliseren van prestaties, kosten en naleving in realtime. Reken-Turbonomic helpt organisaties worden elastische in hun Azure goed door het goed om ervoor te zorgen toepassingen ophalen voortdurend de resources die ze nodig hebben om te leveren voor de SLA en niets meer over continu optimaliseren, opslag en netwerk voor IaaS en PaaS laag. Organisaties kunnen simuleren migraties, goed te schalen werkbelastingen en datacenterbronnen voor het voorzichtig te migreren naar Azure in-time, binnen het budget, zodat de prestatie- en nalevingsopties zeker tijdens het buiten gebruik stellen. Turbonomic is API-gestuurd en wordt uitgevoerd als een agentloze VM in Azure en on-premises.
 
 [Meer informatie.][turbonomic-doc]
 
@@ -169,7 +164,7 @@ Automatisering van de werkbelasting voor hybride clouds biedt Turbonomic door te
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [grafana-anchor]: #grafana "Grafana"
-[logicmonitor-anchor]: #logic-monitor "Logic Monitor"
+[logicmonitor-anchor]: #logic-monitor "Monitor voor logica"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"

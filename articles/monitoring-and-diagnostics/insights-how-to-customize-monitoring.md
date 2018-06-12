@@ -1,24 +1,19 @@
 ---
-title: Overzicht van metrische gegevens in Microsoft Azure | Microsoft Docs
+title: Overzicht van metrische gegevens in Azure Monitor
 description: Informatie over het aanpassen van bewaking grafieken in Azure.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c36031eb-4df5-4cd5-9479-311d493a40d2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: robb
-ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: metrics
+ms.openlocfilehash: 878ba004e7572ad78f574c15fd76c8868b281117
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262253"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Overzicht van metrische gegevens in Microsoft Azure
 Alle Azure-services volgen de belangrijkste metrische gegevens waarmee u de status, prestaties, beschikbaarheid en informatie over het gebruik van uw services bewaken. U kunt deze metrische gegevens weergeven in de Azure-portal en u kunt ook de [REST-API](https://msdn.microsoft.com/library/azure/dn931930.aspx) of [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) programmatisch toegang krijgen tot de volledige set van metrische gegevens.

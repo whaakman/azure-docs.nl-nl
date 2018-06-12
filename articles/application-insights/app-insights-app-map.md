@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: a02d345c0f624f2d1694b4b9622bf3c82c009429
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: Soubhagya.Dash
+ms.author: mbullwin
+ms.openlocfilehash: 539becf272194a116355c6a0491042d40e1e7494
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293959"
 ---
 # <a name="application-map-triage-distributed-applications"></a>De toepassingstoewijzing: Sorteren gedistribueerde toepassingen
 De toepassingstoewijzing helpt u ter plaatse prestatieknelpunten of fout hotspots voor alle onderdelen van de gedistribueerde toepassing. Elk knooppunt op de kaart vertegenwoordigt een toepassingsonderdeel van de of de afhankelijkheden ervan; health KPI en heeft de status van waarschuwingen. U kunt via van elk onderdeel klikken om meer gedetailleerde diagnostische gegevens, zoals Application Insights-gebeurtenissen te. Als uw app gebruikmaakt van Azure-services, kunt u ook doorklikken naar Azure diagnostics, zoals SQL Database Advisor aanbevelingen.

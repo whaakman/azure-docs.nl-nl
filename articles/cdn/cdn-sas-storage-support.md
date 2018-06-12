@@ -4,7 +4,7 @@ description: Azure CDN ondersteunt het gebruik van Shared Access Signature (SAS)
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261165"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN gebruiken met SAS
 
@@ -70,7 +71,7 @@ Deze optie is de eenvoudigste en maakt gebruik van een enkele SAS-token, dat van
  
 Deze optie is alleen beschikbaar voor **Azure CDN Premium van Verizon** profielen. Met deze optie kunt u de blob-opslag op de oorspronkelijke server beveiligen. U wilt Gebruik deze optie als u specifieke toegangsbeperkingen voor het bestand niet nodig, maar u wilt voorkomen dat gebruikers toegang krijgen tot de oorsprong opslag rechtstreeks ter verbetering van Azure CDN offload tijden. De SAS-token onbekend bij de gebruiker is, is vereist voor iedereen toegang krijgen tot bestanden in de opgegeven container van de bronserver. Echter, vanwege de regel herschrijven van URL's het SAS-token is niet vereist op het CDN-eindpunt.
  
-1. Gebruik de [regelengine](cdn-rules-engine.md) om een regel voor het herschrijven van URL's te maken. Nieuwe regels duren ongeveer 90 minuten worden doorgegeven.
+1. Gebruik de [regelengine](cdn-rules-engine.md) om een regel voor het herschrijven van URL's te maken. Nieuwe regels duren over 10 minuten worden doorgegeven.
 
    ![Knop CDN beheren](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -112,7 +113,7 @@ Azure CDN security token om verificatie te gebruiken, hebt u een **Azure CDN Pre
        
    De parameteropties voor een tokenverificatie voor beveiliging zijn anders dan de parameteropties voor een SAS-token. Als u een verlooptijd bij het maken van een beveiligingstoken gebruiken kiest, moet u deze instellen op dezelfde waarde als de verlooptijd van de SAS-token. Hiermee zorgt u ervoor dat de verlooptijd voorspelbaar is. 
  
-2. Gebruik de [regelengine](cdn-rules-engine.md) om een regel herschrijven van URL's voor SAS-token toegang tot alle blobs in de container te maken. Nieuwe regels duren ongeveer 90 minuten worden doorgegeven.
+2. Gebruik de [regelengine](cdn-rules-engine.md) om een regel herschrijven van URL's voor SAS-token toegang tot alle blobs in de container te maken. Nieuwe regels duren over 10 minuten worden doorgegeven.
 
    Het volgende voorbeeld herschrijven van URL's regel maakt gebruik van een reguliere-expressiepatroon met een vastgelegde groep en een eindpunt met de naam *storagedemo*:
    

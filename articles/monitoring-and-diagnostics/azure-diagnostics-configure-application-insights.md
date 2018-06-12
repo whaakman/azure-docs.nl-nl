@@ -1,24 +1,19 @@
 ---
-title: Configureren van Azure Diagnostics om gegevens te verzenden naar Application Insights | Microsoft Docs
+title: Azure Diagnostics om gegevens te verzenden naar Application Insights configureren
 description: De openbare configuratie van Azure Diagnostics om gegevens te verzenden naar Application Insights bijwerken.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: f9e12c3e-c307-435e-a149-ef0fef20513a
-ms.service: monitoring-and-diagnostics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: b4f1f8900637f23220f9a89adbb321707c49e2d3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: diagnostic-extension
+ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262134"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Cloud-Service, virtuele Machine of Service Fabric diagnostische gegevens verzenden naar Application Insights
 De extensie Azure Diagnostics-cloudservices, virtuele Machines, virtuele-Machineschaalsets en Service Fabric alle gebruiken om gegevens te verzamelen.  Azure diagnostics verzendt gegevens naar Azure Storage-tabellen.  U kunt echter ook alle pipe of een subset van de gegevens naar andere locaties met de extensie Azure Diagnostics 1.5 of hoger.

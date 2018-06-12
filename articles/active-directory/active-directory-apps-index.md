@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ed1179663823bc5a16f3ef348a649731814cdd5a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293089"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -32,7 +33,7 @@ De onderstaande artikelen zijn goede beginpunt voor gebruikers die alleen een ko
 |:---:| --- |
 | Een inleiding tot het beheer van toepassingsproblemen Azure AD is opgelost |[Toepassingen beheren met Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
 | Een overzicht van de verschillende functies in Azure AD betrekking hebben op het inschakelen van eenmalige aanmelding definiëren wie toegang heeft tot apps en hoe gebruikers apps openen |[Toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md) |
-| Bekijk de verschillende stappen die betrokken zijn bij het integreren van apps in uw Azure AD |[Integratie van Azure Active Directory met toepassingen](manage-apps/plan-an-application-integration.md)<br /><br />[Inschakelen van eenmalige aanmelding voor SaaS-Apps](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Toegang tot Apps beheren](active-directory-managing-access-to-apps.md) |
+| Bekijk de verschillende stappen die betrokken zijn bij het integreren van apps in uw Azure AD |[Integratie van Azure Active Directory met toepassingen](manage-apps/plan-an-application-integration.md)<br /><br />[Inschakelen van eenmalige aanmelding voor SaaS-Apps](manage-apps/configure-single-sign-on-portal.md)<br /><br />[Toegang tot Apps beheren](manage-apps/what-is-access-management.md) |
 | Een technische uitleg van hoe apps worden weergegeven in Azure AD |[Hoe en waarom toepassingen worden toegevoegd aan Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Het oplossen van artikelen
@@ -42,7 +43,7 @@ Deze sectie biedt snel toegang tot de relevante gidsen voor het oplossen van pro
 |:---:| --- |
 | Federatieve eenmalige aanmelding |[Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md) |
 | Op basis van wachtwoorden eenmalige aanmelding |[De uitbreiding van het deelvenster toegang tot het oplossen van problemen voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
-| Toepassingsproxy |[Toepassingsproxy-handleiding voor probleemoplossing](active-directory-application-proxy-troubleshoot.md) |
+| Toepassingsproxy |[Toepassingsproxy-handleiding voor probleemoplossing](manage-apps/application-proxy-troubleshoot.md) |
 | Eenmalige aanmelding tussen on-premises AD en Azure AD |[Synchronisatie van wachtwoordhash probleemoplossing](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Wachtwoord terugschrijven probleemoplossing](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Lidmaatschap van dynamische groepen |[Het lidmaatschap van dynamische groepen oplossen](active-directory-accessmanagement-troubleshooting.md) |
 
@@ -57,7 +58,7 @@ Eenmalige aanmelding kunt gebruikers toegang krijgen tot een aantal apps en serv
 | Meer dan 150 app-zelfstudies over het configureren van eenmalige aanmelding voor apps zoals [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), en nog veel meer |[Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Het handmatig instellen en aanpassen van uw configuratie voor eenmalige aanmelding |[Hoe om te configureren voor federatieve eenmalige aanmelding voor Apps die niet zijn opgenomen in de Azure Active Directory-Toepassingsgalerie](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Het aanpassen van uitgegeven Claims in het SAML-Token voor vooraf geïntegreerde Apps](active-directory-saml-claims-customization.md) |
 | Gids voor probleemoplossing voor federatieve apps die gebruikmaken van het SAML-protocol |[Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md) |
-| Het configureren van de vervaldatum van het certificaat van uw app en uw certificaten vernieuwen |[Het beheer van certificaten voor federatieve eenmalige aanmelding bij Azure Active Directory](active-directory-sso-certs.md) |
+| Het configureren van de vervaldatum van het certificaat van uw app en uw certificaten vernieuwen |[Het beheer van certificaten voor federatieve eenmalige aanmelding bij Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Federatieve eenmalige aanmelding is beschikbaar voor alle edities van Azure AD voor maximaal tien apps per gebruiker. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) onbeperkte toepassingen worden ondersteund. Als uw organisatie heeft [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) of [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), kunt u [groepen gebruiken voor het toewijzen van toegang tot federatieve toepassingen](#managing-access-to-applications).
 
@@ -82,7 +83,7 @@ Als u toepassingen in uw particuliere netwerk die moeten worden geopend door geb
 | Zelfstudies over het configureren van Application Proxy en hoe u uw eerste app publiceert |[Het instellen van Azure AD-toepassingsproxy](manage-apps/application-proxy-enable.md)<br /><br />[Het installeren van de Connector voor toepassingsproxy van achtergrond](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[Het publiceren van toepassingen via App-Proxy](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Het gebruik van uw eigen domeinnaam](manage-apps/application-proxy-configure-custom-domain.md) |
 | Het inschakelen van eenmalige aanmelding en voorwaardelijke toegang voor apps die zijn gepubliceerd met toepassingsproxy |[Single-sign-on met toepassingsproxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Voorwaardelijke toegang en toepassingsproxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Hulp bij het gebruik van Application Proxy voor de volgende scenario 's |[Hoe ter ondersteuning van Native Client-toepassingen](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[Het ondersteunen van Claims-compatibele toepassingen](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[Hoe om toepassingen te ondersteunen die is gepubliceerd op afzonderlijke netwerken en locaties](manage-apps/application-proxy-connector-groups.md) |
-| Gids voor probleemoplossing voor toepassingsproxy |[Toepassingsproxy-handleiding voor probleemoplossing](active-directory-application-proxy-troubleshoot.md) |
+| Gids voor probleemoplossing voor toepassingsproxy |[Toepassingsproxy-handleiding voor probleemoplossing](manage-apps/application-proxy-troubleshoot.md) |
 
 Toepassingsproxy is beschikbaar voor alle edities van Azure AD voor maximaal tien apps per gebruiker. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) onbeperkte toepassingen worden ondersteund. Als uw organisatie heeft [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) of [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), kunt u [groepen gebruiken voor toegang tot toepassingen toewijzen](#managing-access-to-applications).
 
@@ -136,7 +137,7 @@ Het maken, het onderhoud en het verwijderen van gebruikers-id's in de SaaS-toepa
 |:---:| --- |
 | Meer informatie over hoe het werkt en vindt u antwoorden op veelgestelde vragen |[Gebruiker inrichting & opheffen van inrichting tot SaaS-Apps te automatiseren](active-directory-saas-app-provisioning.md) |
 | Configureren hoe de gegevens tussen Azure AD is toegewezen en uw SaaS-Apps |[Kenmerktoewijzingen aanpassen](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Expressies voor kenmerktoewijzingen schrijven](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
-| Het inschakelen van geautomatiseerde inrichting naar alle Apps die ondersteuning biedt voor het protocol SCIM |[Geautomatiseerde Gebruikersinrichting naar alle Apps SCIM-Enabled instellen](active-directory-scim-provisioning.md) |
+| Het inschakelen van geautomatiseerde inrichting naar alle Apps die ondersteuning biedt voor het protocol SCIM |[Geautomatiseerde Gebruikersinrichting naar alle Apps SCIM-Enabled instellen](manage-apps/use-scim-to-provision-users-and-groups.md) |
 | Het rapport op en gebruikersaanvragen oplossen |[Rapportage over automatisch gebruikers inrichten](active-directory-saas-provisioning-reporting.md)<br><br>[Het oplossen van gebruikers inrichten](active-directory-application-provisioning-content-map.md) |
 | Limiet die voor een toepassing op basis van de kenmerkwaarden opgehaald ingericht |[Bereikfilters](active-directory-saas-scoping-filters.md) |
 
@@ -159,7 +160,7 @@ Om te beheren die toegang moeten hebben tot welke bronnen, kunt Azure Active Dir
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Een overzicht van Azure AD access management-functies |[Inleiding tot het beheren van toegang tot Apps](active-directory-managing-access-to-apps.md)<br /><br />[De werking van toegangsbeheer in Azure AD](active-directory-manage-groups.md)<br /><br />[Groepen gebruiken voor het beheren van toegang tot SaaS-toepassingen](active-directory-accessmanagement-group-saasapps.md) |
+| Een overzicht van Azure AD access management-functies |[Inleiding tot het beheren van toegang tot Apps](manage-apps/what-is-access-management.md)<br /><br />[De werking van toegangsbeheer in Azure AD](active-directory-manage-groups.md)<br /><br />[Groepen gebruiken voor het beheren van toegang tot SaaS-toepassingen](active-directory-accessmanagement-group-saasapps.md) |
 | Beheer van apps en groepen selfservice inschakelen |[Selfservice Toepassingsbeheer](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
 | Instructies voor het instellen van de groepen in Azure AD |[Het maken van beveiligingsgroepen](active-directory-groups-create-azure-portal.md)<br /><br />[Het opgeven van de eigenaars van een groep](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Het gebruik van de groep 'Alle gebruikers'](active-directory-accessmanagement-dedicated-groups.md) |
 | Dynamische groepen gebruiken voor het automatisch vullen van groepslidmaatschappen met lidmaatschapsregels op basis van kenmerken |[Lidmaatschap van dynamische groep: Geavanceerde regels](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Het lidmaatschap van dynamische groepen oplossen](active-directory-accessmanagement-troubleshooting.md) |

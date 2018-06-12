@@ -2,7 +2,7 @@
 title: Verbinding maken met Office 365-gebruikers - Azure Logic Apps | Microsoft Docs
 description: Gebruikersprofielen met REST API's voor gebruikers van de Office 365 en Azure Logic Apps beheren
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 08/18/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 92eaa2f323da9a96b0be4379d2dbcea8d90733e4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f030ac07dc1615c435c1a110836d7a03ab8a8546
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609425"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295605"
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Aan de slag met de connector voor Office 365-gebruikers
 Verbinding maken met Office 365-gebruikers om op te halen van profielen en gebruikers van de zoekfunctie. Met Office 365-gebruikers, kunt u het volgende doen:

@@ -1,24 +1,20 @@
 ---
-title: En geschiedenis van Azure Diagnostics extensie schema configuratieversies | Microsoft Docs
+title: Azure Diagnostics extensie configuratie schema versiegeschiedenis
 description: Relevant zijn voor het verzamelen van prestatiemeteritems in Azure Virtual Machines, VM-Schaalsets, Service Fabric en Cloud-Services.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.component: diagnostic-extension
+ms.openlocfilehash: 47fb598e9a0e722d51493fda1ff5180d4b022524
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262195"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics extensie schema configuratieversies en geschiedenis
 Deze pagina indexen Azure Diagnostics extensie schema versies geleverd als onderdeel van de Microsoft Azure SDK.  
@@ -26,7 +22,7 @@ Deze pagina indexen Azure Diagnostics extensie schema versies geleverd als onder
 > [!NOTE]
 > De extensie Azure Diagnostics is het onderdeel dat wordt gebruikt voor het verzamelen van prestatiemeteritems en andere statistieken van:
 > - Azure Virtual Machines 
-> - Schaalsets voor virtuele machines
+> - Virtual Machine Scale Sets
 > - Service Fabric 
 > - Cloud Services 
 > - Netwerkbeveiligingsgroepen

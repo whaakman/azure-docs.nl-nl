@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261930"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer standaard
 
@@ -32,7 +33,7 @@ Standaard Load Balancer is een nieuwe Load Balancer-product voor alle TCP en UDP
 
 U kunt standaard Load Balancer gebruiken als een openbare of interne Load Balancer. En een virtuele machine kunnen worden verbonden met één openbare en één interne Load Balancer-resource.
 
-Functies van de bron van de Load Balancer worden altijd uitgedrukt als een frontend, een regel, een health test en de definitie van een back-end-adresgroep.  Een resource kan meerdere regels bevatten. U kunt virtuele machines in de back-endpool plaatsen door op te geven van de back-endpool van de virtuele machine NIC-resource.  Deze parameter is doorgegeven aan het netwerkprofiel en uitgevouwen in het geval van een virtuele-machineschaalset.
+Functies van de bron van de Load Balancer worden altijd uitgedrukt als een frontend, een regel, een health test en de definitie van een back-end-adresgroep.  Een resource kan meerdere regels bevatten. U kunt virtuele machines in de back-endpool plaatsen door op te geven van de back-endpool van de virtuele machine NIC-resource.  Deze parameter is doorgegeven aan het netwerkprofiel en uitgevouwen wanneer ze met behulp van de virtuele-machineschaalsets.
 
 Een belangrijk aspect is de omvang van het virtuele netwerk voor de resource.  Hoewel Basic Load Balancer binnen het bereik van een beschikbaarheidsset bestaat, een standaard Load Balancer is volledig geïntegreerd met het bereik van een virtueel netwerk en alle virtuele netwerkconcepten van toepassing.
 
@@ -43,7 +44,7 @@ Load Balancer resources zijn waarbinnen u hoe de multitenant-infrastructuur voor
 
 ## <a name="why-use-standard-load-balancer"></a>Waarom standaard Load Balancer gebruiken?
 
-Standaard Load Balancer kunt u hoge beschikbaarheid voor kleinschalige implementaties voor grotere, complexe meerdere zone architecturen maken en schalen van uw toepassingen.
+Met behulp van Standard Load Balancer kunt u de schaal van uw toepassingen aanpassen en hoge beschikbaarheid realiseren voor kleinschalige implementaties tot grote en complexe architecturen met meerdere zones.
 
 Controleer de onderstaande tabel voor een overzicht van de verschillen tussen standaard Load Balancer en Basic Load Balancer:
 
@@ -71,7 +72,7 @@ Bekijk [Servicelimieten voor de Load Balancer](https://aka.ms/lblimits), evenals
 
 Standaard Load Balancer back-endpools uitgebreid tot alle bronnen van de virtuele machine in een virtueel netwerk.  Naam mag maximaal 1000 back-end-exemplaren.  Een back-end-exemplaar is een IP-configuratie, een eigenschap van een NIC-resource is.
 
-De back-endpool kan zelfstandige virtuele machines, beschikbaarheidssets of virtuele-machineschaalsets bevatten.  Kunt u resources in de back-endpool overlopen en een combinatie van deze resources tot maximaal 150 totale kan bevatten.
+De back-endpool kan zelfstandige virtuele machines, beschikbaarheidssets of virtuele-machineschaalsets bevatten.  U kunt ook de bronnen in de back-endpool overlopen. U kunt maximaal 150 bronnen in de back-endpool per resource van de Load Balancer combineren.
 
 Wanneer u overweegt het ontwerp van uw back endpool, u kunt ontwerpen voor het laagste aantal resources in de afzonderlijke back-end voor de duur van beheerbewerkingen verder te optimaliseren.  Er is geen verschil in prestaties vlak of schaal.
 
@@ -89,7 +90,7 @@ Bekijk [gedetailleerde discussie over beschikbaarheid Zones gerelateerde mogelij
 
 ### <a name="diagnostics"></a> Diagnostische gegevens
 
-Standaard Load Balancer biedt multidimensionale metrische gegevens via de Azure-Monitor.  Deze metrische gegevens kunnen worden gefilterd, gegroepeerd en huidige en historische inzicht in prestaties en status van uw service.  Resourcestatus wordt ook ondersteund.  Hier volgt een kort overzicht van ondersteunde diagnostische gegevens:
+Standaard Load Balancer biedt multidimensionale metrische gegevens via de Azure-Monitor.  Deze metrische gegevens kunnen worden gefilterd, gegroepeerd en uitgelicht voor een opgegeven dimensie.  Ze bieden de huidige en historische inzicht in prestaties en status van uw service.  Resourcestatus wordt ook ondersteund.  Hier volgt een kort overzicht van ondersteunde diagnostische gegevens:
 
 | Gegevens | Beschrijving |
 | --- | --- |
@@ -108,7 +109,7 @@ Standaard Load Balancer biedt ondersteuning voor een nieuw type regel.
 
 U kunt de load-balancingregels om de schaal van uw toepassing en maximaal betrouwbaar configureren. Bij het gebruik van een HA-poorten voor de load balancer regel standaard Load Balancer biedt per stroom voor de load balancer op elke tijdelijke poort van een interne standaard Load Balancer frontend-IP-adres.  De functie is handig voor andere scenario's waarin het niet handig of ongewenste als afzonderlijke poorten wilt opgeven.
 
-Een taakverdelingsregel voor HA-poorten kunt u actief-passief of actief / actief n + 1 scenario's maken voor virtuele netwerkapparaten en elke toepassing waarvoor grote gegevensreeksen van poorten voor inkomend verkeer.  Een health test kan worden gebruikt om te bepalen welke back-ends moet worden ontvangen van nieuwe stromen.  Een Netwerkbeveiligingsgroep kunt u een scenario voor het bereik van poort worden geëmuleerd.
+Een taakverdelingsregel voor HA-poorten kunt u actief-passief of actief / actief n + 1 scenario's maken voor virtuele netwerkapparaten en elke toepassing, die grote gegevensreeksen van poorten voor inkomend verkeer vereist.  Een health test kan worden gebruikt om te bepalen welke back-ends moet worden ontvangen van nieuwe stromen.  Een Netwerkbeveiligingsgroep kunt u een scenario voor het bereik van poort worden geëmuleerd.
 
 >[!IMPORTANT]
 > Als u van plan bent te gebruiken van een virtueel netwerkapparaat, neem contact op met uw leverancier voor hulp bij het of hun product is getest met HA poorten en volg hun specifieke richtlijnen voor implementatie. 
@@ -117,7 +118,7 @@ Bekijk [gedetailleerde bespreking van de HA-poorten](load-balancer-ha-ports-over
 
 ### <a name="securebydefault"></a>Standaard beveiligen
 
-Standaard Load Balancer is volledig vrijgegeven aan het virtuele netwerk.  Het virtuele netwerk is een particulier netwerk gesloten.  Omdat standaard Load Balancers en de standaard openbare IP-adressen zo dat dit virtuele netwerk ontworpen zijn toegankelijk van buiten het virtuele netwerk, standaard deze resources nu gesloten, tenzij u ze opent. Dit betekent Netwerkbeveiligingsgroepen (nsg's) worden nu gebruikt om expliciet toestaan en geaccepteerde verkeer toegestaan.  U kunt uw gehele virtuele Datacenter maken en via het NSG bepalen wat en wanneer deze beschikbaar moet zijn.  Als u een NSG op een subnet of NIC van de bron van de virtuele machine niet hebt, wordt er verkeer naar het bereiken van deze bron niet is toegestaan.
+Standaard Load Balancer is volledig vrijgegeven aan het virtuele netwerk.  Het virtuele netwerk is een particulier netwerk gesloten.  Omdat standaard Load Balancers en de standaard openbare IP-adressen zo dat dit virtuele netwerk ontworpen zijn toegankelijk van buiten het virtuele netwerk, standaard deze resources nu gesloten, tenzij u ze opent. Dit betekent Netwerkbeveiligingsgroepen (nsg's) worden nu gebruikt om expliciet toestaan en geaccepteerde verkeer toegestaan.  U kunt uw gehele virtuele Datacenter maken en via het NSG bepalen wat en wanneer deze beschikbaar moet zijn.  Als u niet beschikt over een NSG op een subnet of NIC van de bron van de virtuele machine kan verkeer niet tot deze bron wordt toegestaan.
 
 Zie voor meer informatie over nsg's en hoe u deze wilt toepassen voor uw scenario, [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
 
@@ -202,7 +203,7 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie voor het verpla
 >
 >Zowel basis en standaard SKU hebben een aantal verschillen zoals wordt beschreven in dit artikel.  Zorg ervoor dat u begrijpt en bereid ze.
 >
->Overeenkomende SKU's moet worden gebruikt voor Load Balancer en openbare IP-bronnen. Een combinatie van basis-SKU-bronnen en bronnen van de standaard SKU is niet mogelijk. U kunt geen zelfstandige virtuele machines, virtuele machines in een resource van de set beschikbaarheid koppelen of een virtuele-machineschaalset resources ingesteld op beide SKU's tegelijk.
+>Overeenkomende SKU's moet worden gebruikt voor Load Balancer en openbare IP-bronnen. Een combinatie van basis-SKU-bronnen en bronnen van de standaard SKU is niet mogelijk. Het is evenmin mogelijk om zelfstandige virtuele machines, virtuele machines in een resource van een beschikbaarheidsset of resources uit schaalset met virtuele machines op beide SKU's tegelijk in te stellen.
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
 

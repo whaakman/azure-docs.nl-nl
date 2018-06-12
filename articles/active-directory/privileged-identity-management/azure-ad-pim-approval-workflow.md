@@ -2,25 +2,26 @@
 title: Azure Privileged Identity Management goedkeuring werkstromen | Microsoft Docs
 description: Meer informatie over werkstromen voor goedkeuring in Privileged Identity Management (PIM)
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f30dd06417d9ce4d71c88ba170a4f3169b5fccd7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e14d91eae367ef62d1ff2e4cb6ddeb47c9fbbea
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261012"
 ---
-# <a name="approvals"></a>Goedkeuringen
+# <a name="approvals"></a>Approvals
 
 ## <a name="overview"></a>Overzicht
 
@@ -39,7 +40,7 @@ De private preview ondersteunt de volgende scenario's:
 
 **Als een bevoorrechte rol beheerder (PRA) kunt u:**
 
--   [goedkeuring voor specifieke rollen inschakelen](#enable-approval-for-specific-roles)
+-   [Goedkeuring voor specifieke rollen inschakelen](#enable-approval-for-specific-roles)
 
 -   [Geef goedkeurder gebruikers en/of groepen voor het goedkeuren van aanvragen](#specify-approver-users-and/or-groups-to-approve-requests)
 
@@ -47,19 +48,19 @@ De private preview ondersteunt de volgende scenario's:
 
 **Als een specifieke goedkeurder kunt u:**
 
--   [in afwachting van goedkeuring (aanvragen) weergeven](#view-pending-approvals-requests)
+-   [In afwachting van goedkeuring (aanvragen) weergeven](#view-pending-approvals-requests)
 
--   [goedkeuren of afwijzen aanvragen voor uitbreiding van de rol (één en/of bulk)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
+-   [Goedkeuren of afwijzen aanvragen voor uitbreiding van de rol (één en/of bulk)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
 -   [Geef de reden voor Mijn goedkeuring/afwijzing](#provide-justification-for-my-approval/rejection) 
 
 **Als een in aanmerking komende gebruiker voor de rol kunt u:**
 
--   [activering van de aanvraag van een rol die goedkeuring vereist](#request-activation-of-a-role-that-requires-approval)
+-   [Activering van de aanvraag van een rol die goedkeuring vereist](#request-activation-of-a-role-that-requires-approval)
 
--   [de status van uw aanvraag voor het activeren van weergeven](#view-the-status-of-your-request-to-activate)
+-   [De status van uw aanvraag voor het activeren van weergeven](#view-the-status-of-your-request-to-activate)
 
--   [uw taak te voltooien in Azure AD als activering is goedgekeurd](#complete-your-task-in-azure-ad-if-activation-was-approved)
+-   [Uw taak te voltooien in Azure AD als activering is goedgekeurd](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
 ### <a name="navigation"></a>Navigatie
 

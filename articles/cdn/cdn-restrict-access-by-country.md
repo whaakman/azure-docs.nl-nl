@@ -3,8 +3,8 @@ title: Azure CDN-inhoud per land beperken | Microsoft Docs
 description: Informatie over het beperken van toegang tot uw Azure CDN-inhoud met de functie voor het filteren van geo.
 services: cdn
 documentationcenter: ''
-author: lichard
-manager: akucer
+author: dksimpson
+manager: cfowler
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
-ms.openlocfilehash: bb757ab115d03ab04dac4468d23f446696a971a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 93321c4c8a7f8d79835d702ca07132eed94f6493
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260749"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Azure CDN-inhoud per land beperken
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/07/2018
 Wanneer een gebruiker wordt uw inhoud standaard aanvraagt, wordt de inhoud aangeboden ongeacht waar de gebruiker gemaakt voor deze aanvraag uit. In sommige gevallen wilt u mogelijk beperken van toegang tot uw inhoud door land. In dit artikel wordt uitgelegd hoe u de *geo filteren* functie om de service configureren voor het toestaan of blokkeren van toegang per land.
 
 > [!IMPORTANT]
-> De Azure CDN-producten bieden dezelfde functionaliteit geo filteren, maar hebben een klein verschil in landcodes te ondersteunen. Zie stap 3 voor een koppeling naar de verschillen.
+> De Azure CDN-producten bieden dezelfde functionaliteit geo filteren, maar hebben een klein verschil in landcodes te ondersteunen. Zie voor meer informatie [Azure CDN landcodes](https://msdn.microsoft.com/library/mt761717.aspx).
 
 
 Zie voor meer informatie over overwegingen die van toepassing zijn op de configuratie van dit type beperking [overwegingen](cdn-restrict-access-by-country.md#considerations).  
@@ -65,14 +66,17 @@ De regel van het blokkeren van /Photos/Straatsburg/wordt bijvoorbeeld bestanden 
 
 
 ### <a name="country-codes"></a>Landcodes
-De functie geo filteren gebruikt landcodes voor het definiëren van de landen waarin een aanvraag wordt toegestaan of geblokkeerd voor een beveiligde map. Hoewel de alle Azure CDN-producten dezelfde functionaliteit geo filteren bieden, is er een klein verschil in de landcodes ondersteunen. Zie voor informatie [Azure CDN landcodes](https://msdn.microsoft.com/library/mt761717.aspx). 
+De functie geo filteren gebruikt landcodes voor het definiëren van de landen waarin een aanvraag wordt toegestaan of geblokkeerd voor een beveiligde map. Hoewel de alle Azure CDN-producten dezelfde functionaliteit geo filteren bieden, is er een klein verschil in de landcodes ondersteunen. Zie voor meer informatie [Azure CDN landcodes](https://msdn.microsoft.com/library/mt761717.aspx). 
 
 ## <a name="considerations"></a>Overwegingen
 * Wijzigingen in uw land filteren configuratie komen niet onmiddellijk van kracht:
-   * Voor **Azure CDN Standard van Microsoft** profielen, doorgeven voltooid gewoonlijk in tien minuten. 
-   * Voor **Azure CDN Standard van Akamai** profielen, doorgeven voltooit meestal binnen één minuut. 
-   * Voor **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen, doorgeven voltooit meestal binnen 90 minuten.  
+   * Voor profielen van **Azure CDN Standard van Microsoft** is het doorgeven gewoonlijk binnen 10 minuten voltooid. 
+   * Profielen van **Azure CDN Standard van Akamai** worden doorgaans binnen één minuut doorgegeven. 
+   * Voor **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen, doorgeven voltooid gewoonlijk in 10 minuten. 
+ 
 * Deze functie biedt geen ondersteuning voor jokertekens (bijvoorbeeld ' *').
+
 * De configuratie van de geo-filteren die zijn gekoppeld aan het relatieve pad wordt recursief toegepast naar het opgegeven pad.
-* Slechts één regel kan worden toegepast op hetzelfde relatieve pad (u kunt meerdere land filters die naar hetzelfde relatieve pad verwijzen niet maken. Een map hebben echter meerdere land filters. Dit komt door de recursieve aard van de filters land. Een submap van een eerder geconfigureerde map kan met andere woorden, een ander land filter toegewezen.
+
+* Slechts één regel kan worden toegepast op hetzelfde relatieve pad. Dat wil zeggen, kan niet meerdere land filters die naar hetzelfde relatieve pad verwijzen te maken. Een map hebben echter meerdere filters land, vanwege de aard recursieve van land filters. Een submap van een eerder geconfigureerde map kan met andere woorden, een ander land filter toegewezen.
 

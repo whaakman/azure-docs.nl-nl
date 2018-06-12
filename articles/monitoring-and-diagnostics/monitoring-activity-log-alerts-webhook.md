@@ -1,22 +1,19 @@
 ---
-title: Inzicht in het schema webhook in activiteit logboek waarschuwingen | Microsoft Docs
+title: De webhook-schema gebruikt in een logboek activiteitswaarschuwingen begrijpen
 description: Meer informatie over het schema van de JSON die wordt gepost naar een webhook-URL wanneer een activiteit logboek waarschuwing wordt geactiveerd.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 3935da72cb747a642ee1f360dc5318fc2d34e763
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263228"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor Azure activiteit logboek waarschuwingen
 Als onderdeel van de definitie van een actiegroep, kunt u de webhook-eindpunten voor het ontvangen van meldingen van waarschuwingen activiteit logboek configureren. Met webhooks, kunt u deze meldingen met andere systemen voor na verwerking of aangepaste acties te routeren. Dit artikel laat zien hoe de nettolading voor de HTTP POST naar een webhook eruit ziet.
@@ -152,11 +149,11 @@ Zie voor meer informatie voor een specifiek schema bij alle waarschuwingen van a
 | correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde groter actie en meestal delen een correlationId. |
 | eventDescription |De beschrijving van de statische tekst van de gebeurtenis. |
 | eventDataId |De unieke id voor de gebeurtenis. |
-| eventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
+| EventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
 | httpRequest |De aanvraag bevat meestal de clientRequestId, clientIpAddress en HTTP-methode (bijvoorbeeld plaatsen). |
 | niveau |Een van de volgende waarden: kritiek, fout, waarschuwing en ter informatie. |
 | operationId |Meestal een GUID gedeeld door de gebeurtenissen die overeenkomt met één bewerking. |
-| operationName |De naam van de bewerking. |
+| operationName |Naam van de bewerking. |
 | properties |Eigenschappen van de gebeurtenis. |
 | status |De tekenreeks. De status van de bewerking. Algemene waarden zijn gestart, wordt uitgevoerd, geslaagd, mislukt, actief en opgelost. |
 | subStatus |Omvat gewoonlijk het HTTP-statuscode van de bijbehorende REST-aanroep. Het kan ook andere tekenreeksen die een substatus beschrijven omvatten. Algemene substatus waarden zijn OK (HTTP-statuscode: 200), gemaakt (HTTP-statuscode: 201), geaccepteerde (HTTP-statuscode: 202), geen inhoud (HTTP-statuscode: 204), ongeldige aanvraag (HTTP-statuscode: 400), niet vinden (HTTP-statuscode: 404), Conflict (HTTP-statuscode: 409), interne serverfout (HTTP-statuscode: 500), Service niet beschikbaar (HTTP-statuscode: 503), en de time-out van Gateway (HTTP-statuscode : 504). |

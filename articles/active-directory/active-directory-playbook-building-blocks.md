@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293106"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -140,7 +141,7 @@ Geschatte tijd om te voltooien: 60 minuten
 | --- | --- |
 | De testomgeving van de SaaS-toepassingen beschikbaar. In deze handleiding gebruiken we ServiceNow als voorbeeld.<br/>Wij raden een test-exemplaar gebruiken om u te minimaliseren wrijving op de kwaliteit van de bestaande gegevens en toewijzingen te navigeren. | Ga naar https://developer.servicenow.com/app.do#! / home het proces van het ophalen van een exemplaar van de test te starten |
 | Beheerderstoegang tot de beheerconsole ServiceNow | [Zelfstudie: Azure Active Directory-integratie met ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Het doel ingesteld van de gebruikers de toepassing toewijzen aan. Een beveiligingsgroep met de PoC-gebruikers wordt aanbevolen. <br/>Als het maken van de groep is niet haalbaar, klikt u vervolgens de gebruikers toewijzen aan rechtstreeks naar de toepassing voor de POC-fase | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Het doel ingesteld van de gebruikers de toepassing toewijzen aan. Een beveiligingsgroep met de PoC-gebruikers wordt aanbevolen. <br/>Als het maken van de groep is niet haalbaar, klikt u vervolgens de gebruikers toewijzen aan rechtstreeks naar de toepassing voor de POC-fase | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Stappen
 
@@ -148,13 +149,13 @@ Geschatte tijd om te voltooien: 60 minuten
 | --- | --- |
 | De zelfstudie voor alle actoren van Microsoft Documentation delen  | [Zelfstudie: Azure Active Directory-integratie met ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Stelt een vergadering werken en de zelfstudie stappen met elke acteur. | [Zelfstudie: Azure Active Directory-integratie met ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| De app toewijzen aan de groep die in de vereisten zijn geïdentificeerd. Als de POC-fase voorwaardelijke toegang in het bereik heeft, kunt u dat later terugkeren naar en toevoegen van MFA en vergelijkbare. <br/>Houd er rekening mee dat wordt dit in het inrichtingsproces starten (indien geconfigureerd) |  [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Een groep maken en leden toevoegen in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| De app toewijzen aan de groep die in de vereisten zijn geïdentificeerd. Als de POC-fase voorwaardelijke toegang in het bereik heeft, kunt u dat later terugkeren naar en toevoegen van MFA en vergelijkbare. <br/>Houd er rekening mee dat wordt dit in het inrichtingsproces starten (indien geconfigureerd) |  [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Een groep maken en leden toevoegen in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Gebruik van Azure AD management Portal ServiceNow-toepassing toevoegen vanuit galerie| [Azure AD management Portal: bedrijfstoepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Wat is er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | "Eenmalige aanmelding' Blade van ServiceNow-App ' op basis van SAML-aanmelding inschakelen" |  |
 | Vul 'Aanmelding op URL' en 'Id' velden aan uw ServiceNow-URL<br/>Schakel het selectievakje in om ' nieuwe certificaat activeren '<br/>en instellingen op te slaan |  |
 | Open 'ServiceNow configureren' blade aan de onderkant van het paneel aangepaste instructies voor het configureren van ServiceNow weergeven |  |
 | Volg de instructies voor het configureren van ServiceNow |  |
-| Op de blade 'Inrichten' van ServiceNow App 'Automatisch' inrichting inschakelen | [Het beheer van gebruikersaccount inrichten voor zakelijke apps in de nieuwe Azure portal](active-directory-enterprise-apps-manage-provisioning.md) |
+| Op de blade 'Inrichten' van ServiceNow App 'Automatisch' inrichting inschakelen | [Het beheer van gebruikersaccount inrichten voor zakelijke apps in de nieuwe Azure portal](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Wacht een paar minuten tijdens het inrichten is voltooid.  In de tussentijd kunt u controleren in de inrichting rapporten |  |
 | Meld u aan bij https://myapps.microsoft.com/ als een testgebruiker die toegang heeft | [Wat is het toegangsvenster?](active-directory-saas-access-panel-introduction.md) |
 | Klik op de tegel voor de toepassing die is gemaakt. Toegang bevestigen |  |
@@ -175,7 +176,7 @@ Geschatte tijd om te voltooien: 15 minuten
 | --- | --- |
 | De testomgeving voor SaaS-toepassingen. Een voorbeeld van een wachtwoord SSO is HipChat en Twitter. Voor een andere toepassing moet u de exacte URL van de pagina met HTML-aanmeldingspagina formulier. | [Twitter op Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat op Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Accounts voor de toepassingen testen. | [Aanmelden voor Twitter](https://twitter.com/signup?lang=en)<br/>[Aanmelden voor gratis: HipChat](https://www.hipchat.com/sign_up) |
-| Het doel ingesteld van de gebruikers de toepassing toewijzen aan. Een beveiligingsgroep bevat de gebruikers wordt aanbevolen. | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Het doel ingesteld van de gebruikers de toepassing toewijzen aan. Een beveiligingsgroep bevat de gebruikers wordt aanbevolen. | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Lokale beheerderstoegang tot een computer voor het implementeren van de uitbreiding van het Configuratiescherm toegang voor Internet Explorer, Chrome of Firefox | [Configuratiescherm-extensie voor IE toegang](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Uitbreiding van het Configuratiescherm toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Uitbreiding van het Configuratiescherm toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Stappen
@@ -184,8 +185,8 @@ Geschatte tijd om te voltooien: 15 minuten
 | --- | --- |
 | De Browseruitbreiding voor de installeren | [Configuratiescherm-extensie voor IE toegang](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Uitbreiding van het Configuratiescherm toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Uitbreiding van het Configuratiescherm toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Toepassing vanuit galerie configureren | [Wat is er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory: de nieuwe en verbeterde-toepassingsgalerie](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Wachtwoord eenmalige aanmelding configureren | [Het beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: Meld u op wachtwoord gebaseerde](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Toewijzen van de app aan de groep die in de vereisten zijn geïdentificeerd | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Wachtwoord eenmalige aanmelding configureren | [Het beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: Meld u op wachtwoord gebaseerde](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Toewijzen van de app aan de groep die in de vereisten zijn geïdentificeerd | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Meld u aan bij https://myapps.microsoft.com/ als een testgebruiker die toegang heeft |  |
 | Klik op de tegel voor de toepassing die is gemaakt. | [Wat is het toegangsvenster?: SSO zonder identiteit inrichten op basis van wachtwoorden](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | De referentie van de toepassing opgeven | [Wat is het toegangsvenster?: SSO zonder identiteit inrichten op basis van wachtwoorden](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -210,7 +211,7 @@ Geschatte tijd om te voltooien: 30 minuten
 | --- | --- |
 | De lijst met doeltoepassingen en de exacte aanmelden URL's tevoren. U kunt bijvoorbeeld Twitter. | [Twitter op Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Aanmelden voor Twitter](https://twitter.com/signup?lang=en) |
 | Gedeelde referenties voor deze SaaS-toepassing. | [Delen van accounts met behulp van Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD geautomatiseerde wachtwoord roll gedurende Facebook, Twitter en LinkedIn nu in preview! -Enterprise Mobility and Security-Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| De referenties voor ten minste twee teamleden die toegang hebben tot hetzelfde account zijn. Ze moet deel uitmaken van een beveiligingsgroep. | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| De referenties voor ten minste twee teamleden die toegang hebben tot hetzelfde account zijn. Ze moet deel uitmaken van een beveiligingsgroep. | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Lokale beheerderstoegang tot een computer voor het implementeren van de uitbreiding van het Configuratiescherm toegang voor Internet Explorer, Chrome of Firefox | [Configuratiescherm-extensie voor IE toegang](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Uitbreiding van het Configuratiescherm toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Uitbreiding van het Configuratiescherm toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Stappen
@@ -219,8 +220,8 @@ Geschatte tijd om te voltooien: 30 minuten
 | --- | --- |
 | De Browseruitbreiding voor de installeren | [Configuratiescherm-extensie voor IE toegang](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Uitbreiding van het Configuratiescherm toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Uitbreiding van het Configuratiescherm toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Toepassing vanuit galerie configureren | [Wat is er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory: de nieuwe en verbeterde-toepassingsgalerie](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Wachtwoord eenmalige aanmelding configureren | [Het beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: Meld u op wachtwoord gebaseerde](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Toewijzen van de app aan de groep die in de vereisten zijn geïdentificeerd tijdens het toewijzen van referenties | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Wachtwoord eenmalige aanmelding configureren | [Het beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: Meld u op wachtwoord gebaseerde](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Toewijzen van de app aan de groep die in de vereisten zijn geïdentificeerd tijdens het toewijzen van referenties | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Meld u aan als verschillende gebruikers die app toegang als de **dezelfde gedeelde account.**  |  |
 | U kunt eventueel de gebruiksrapporten van de toepassing controleren. Opmerking: Er is enige vertraging worden bijgewerkt, dus u wacht enige tijd moet en het verkeer in de rapporten. | [Aanmeldingsactiviteiten rapporten in de Azure Active Directory-portal: informatie over het gebruik van beheerde toepassingen](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |
 

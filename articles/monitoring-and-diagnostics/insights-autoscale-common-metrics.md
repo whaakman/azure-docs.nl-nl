@@ -1,24 +1,19 @@
 ---
-title: Azure Monitor voor automatisch schalen die de algemene metrische gegevens | Microsoft Docs
+title: Algemene metrische gegevens voor automatisch schalen
 description: Meer informatie over welke metrische gegevens vaak worden gebruikt voor automatisch schalen uw Cloudservices, virtuele Machines en Web-Apps.
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 7b6f454a8d4c8794b8c56494fd9ed573f8b79852
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262236"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor automatisch schalen de algemene metrische gegevens
 Azure Monitor-automatisch schalen kunt u het aantal actieve exemplaren omhoog of omlaag, schalen op basis van telemetriegegevens (metrische gegevens). Dit document beschrijft algemene metrische gegevens die u wilt gebruiken. U kunt in de Azure-portal voor Cloudservices en serverfarms de metrische gegevens van de resource te schalen. Echter, u kunt ook alle metrische gegevens van een andere resource te schalen.
@@ -53,7 +48,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 U kunt een waarschuwing voor de volgende metrische gegevens maken:
 
-| Metrische naam | Eenheid |
+| Naam van meetwaarde | Eenheid |
 | --- | --- |
 | \Processor(_Total)\% Processor Time |Procent |
 | \Processor(_Total)\% tijd in beschermde modus |Procent |
@@ -61,7 +56,7 @@ U kunt een waarschuwing voor de volgende metrische gegevens maken:
 | \Processor informatie (_Totaal) \Processor frequentie |Count |
 | \System\Processes |Count |
 | Het aantal \Thread \Process (_Total) |Count |
-| Het aantal \Handle \Process (_Total) |Aantal |
+| Het aantal \Handle \Process (_Total) |Count |
 | \Memory\% toegewezen Bytes In gebruik |Procent |
 | \Memory\Available Bytes |Bytes |
 | \Memory\Committed bytes |Bytes |
@@ -71,17 +66,17 @@ U kunt een waarschuwing voor de volgende metrische gegevens maken:
 | \PhysicalDisk(_Total)\% schijftijd |Procent |
 | \PhysicalDisk(_Total)\% leestijd schijf |Procent |
 | \PhysicalDisk(_Total)\% schrijftijd schijf |Procent |
-| \PhysicalDisk (_Totaal) \Disk Schijfoverdrachten per seconde |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Transfers/sec |CountPerSecond |
 | \PhysicalDisk (_Totaal) \Disk leesbewerkingen per seconde |CountPerSecond |
 | \PhysicalDisk (_Totaal) \Disk per seconde |CountPerSecond |
 | \PhysicalDisk (_Totaal) \Disk bytes per seconde |BytesPerSecond |
 | \PhysicalDisk (_Totaal) \Disk gelezen Bytes per seconde |BytesPerSecond |
 | \PhysicalDisk (_Totaal) \Disk geschreven Bytes per seconde |BytesPerSecond |
-| \Avg \PhysicalDisk (_Totaal). Wachtrijlengte voor schijf |Count |
-| \Avg \PhysicalDisk (_Totaal). Wachtrijlengte voor schijf lezen |Aantal |
+| \Avg \PhysicalDisk (_Totaal). Lengte van de wachtrij voor de schijf |Count |
+| \Avg \PhysicalDisk (_Totaal). Wachtrijlengte voor schijf lezen |Count |
 | \Avg \PhysicalDisk (_Totaal). Wachtrijlengte voor schijf schrijven |Count |
 | \LogicalDisk(_Total)\% vrije ruimte |Procent |
-| \LogicalDisk (_Totaal) \Free megabytes |Aantal |
+| \LogicalDisk (_Totaal) \Free megabytes |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Gastbesturingssysteem metrische gegevens Linux VM 's
 Wanneer u een virtuele machine in Azure maakt, wordt er met behulp van de extensie voor diagnostische gegevens diagnostics standaard ingeschakeld.
@@ -94,7 +89,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
  U kunt een waarschuwing voor de volgende metrische gegevens maken:
 
-| Metrische naam | Eenheid |
+| Naam van meetwaarde | Eenheid |
 | --- | --- |
 | \Memory\AvailableMemory |Bytes |
 | \Memory\PercentAvailableMemory |Procent |
@@ -133,7 +128,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \NetworkInterface\BytesTotal |Bytes |
 | \NetworkInterface\TotalRxErrors |Count |
 | \NetworkInterface\TotalTxErrors |Count |
-| \NetworkInterface\TotalCollisions |Aantal |
+| \NetworkInterface\TotalCollisions |Count |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Gangbare metrische gegevens van Web (serverfarm)
 U kunt ook automatisch schalen op basis van algemene web server-gegevens zoals de lengte van de Http-wachtrij uitvoeren. De naam van de meetwaarde is **HttpQueueLength**.  De volgende sectie geeft een lijst van beschikbare serverfarm (Web-Apps) metrische gegevens.
@@ -147,7 +142,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 U kunt op een waarschuwing of schalen door deze metrische gegevens.
 
-| Metrische naam | Eenheid |
+| Naam van meetwaarde | Eenheid |
 | --- | --- |
 | CpuPercentage |Procent |
 | MemoryPercentage |Procent |

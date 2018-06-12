@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53eaef775647795acf3e8e6fcd127181414b1c0e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e521ef29a338d0c7d80493f92acff4758a091359
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234492"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261284"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -311,6 +311,8 @@ public static class EnvironmentVariablesExample
     }
 }
 ```
+
+App-instellingen kunnen worden gelezen vanaf de omgevingsvariabelen bij het ontwikkelen van lokaal en bij uitvoering in Azure. Bij het ontwikkelen van lokaal, appinstellingen zijn afkomstig van de `Values` verzameling in de *local.settings.json* bestand. In beide omgevingen lokale en Azure, `GetEnvironmentVariable("<app setting name>")` haalt de waarde van de benoemde app-instelling. Bijvoorbeeld, wanneer u lokaal uitvoert, 'Mijn sitenaam' zouden worden geretourneerd als uw *local.settings.json* bestand bevat `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
 De [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) eigenschap is een alternatieve API voor het ophalen van app-instellingswaarden, maar het is raadzaam dat u `GetEnvironmentVariable` zoals hier wordt weergegeven.
 

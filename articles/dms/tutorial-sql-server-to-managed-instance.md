@@ -11,11 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 05/07/2018
-ms.openlocfilehash: bb7cc17c36809975e26c8da8beda004a0b0cfd9e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 86af0101d84fe9cd44211a931567a85d7b5166e0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261607"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>SQL-Server migreren naar Azure SQL Database beheerd exemplaar met gebruikmaking van DMS
 U kunt de Azure-Service voor het migreren van Database voor het migreren van de databases van een lokale SQL Server-exemplaar naar een [Azure SQL Database-beheerd instantie](../sql-database/sql-database-managed-instance.md). Voor extra methoden waarvoor handmatige moeite, Zie het artikel [SQL Server-exemplaar migratie naar Azure SQL Database-beheerd instantie](../sql-database/sql-database-managed-instance-migrate.md).
@@ -118,7 +119,7 @@ Nadat de service is gemaakt, zoeken binnen de Azure-portal, opent u het en maak 
     Wanneer een vertrouwd certificaat niet is geïnstalleerd, wordt door SQL Server een zelfondertekend certificaat gegenereerd wanneer het exemplaar wordt gestart. Dit certificaat wordt gebruikt voor het versleutelen van de referenties voor clientverbindingen.
 
     > [!CAUTION]
-    > SSL-verbindingen die met behulp van een zelfondertekend certificaat encyopted beschikbaar sterke beveiliging niet. Ze zijn vatbaar voor man-in-the-middle-aanvallen. Vertrouw niet op SSL zelfondertekende certificaten in een productieomgeving of op servers die zijn verbonden met internet.
+    > SSL-verbindingen die zijn versleuteld met behulp van een zelfondertekend certificaat heeft geen sterke beveiliging bieden. Ze zijn vatbaar voor man-in-the-middle-aanvallen. Vertrouw niet op SSL zelfondertekende certificaten in een productieomgeving of op servers die zijn verbonden met internet.
 
    ![Details van gegevensbron](media\tutorial-sql-server-to-managed-instance\dms-source-details1.png)
 

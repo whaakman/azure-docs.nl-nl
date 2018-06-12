@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd1b52dd32976ce65458e1dfe1b50d228fbd6d0e
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d083181b379301ae80e6577ccc3ac8f142767db3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850522"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261076"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitie en schalen in Azure Cosmos-DB
 
@@ -47,7 +47,7 @@ Kort samengevat: dit is hoe partitioneren werkt in Azure Cosmos DB:
 
 * Inrichten van een set van Azure DB die Cosmos-containers met **T** doorvoer RU/s (aantal aanvragen per seconde).
 * Achter de schermen, richt Azure Cosmos DB fysieke partities nodig om te fungeren **T** aanvragen per seconde. Als **T** hoger is dan de maximale doorvoer per fysieke partitie **t**, vervolgens Azure Cosmos DB bepalingen **N = T/t** fysieke partities. De waarde van maximale doorvoer per partition(t) wordt geconfigureerd via de Azure DB die Cosmos, wordt deze waarde toegewezen op basis van de totale ingerichte doorvoer en de hardwareconfiguratie gebruikt. 
-* Azure Cosmos DB wordt de sleutel ruimte van de partitie sleutel hashes gelijkmatig meerdere de **N** fysieke partities. Zo is, elke fysieke partitie hosts **1/N** partitie sleutelwaarden (logische partities).
+* Azure Cosmos DB wordt de sleutel ruimte van de partitie sleutel hashes gelijkmatig meerdere de **N** fysieke partities. Dus als het aantal logische partities elke fysieke partitie als host fungeert **1/N** * aantal sleutelwaarden partitie.
 * Wanneer een fysieke partitie **p** bereikt de opslaglimiet bereikt, Azure Cosmos DB naadloos splitst **p** in twee nieuwe fysieke partities **p1** en **p2**. Deze distribueert waarden die overeenkomen met ongeveer de helft van de sleutels aan elk van de nieuwe fysieke partities. Deze bewerking gesplitste is volledig onzichtbaar voor uw toepassing. De splitsbewerking wordt niet uitgevoerd als een fysieke partitie de opslaglimiet bereikt en alle gegevens in de fysieke partitie hoort bij dezelfde logische partitiesleutel. Dit komt doordat de gegevens voor een sleutel die één logische partitie zich op dezelfde fysieke partitie bevinden moet. In dit geval moet de strategie voor een andere partitie worden gebruikt.
 * Wanneer u de doorvoer die hoger is dan inrichten **t * N**, Azure Cosmos DB splitst een of meer van uw fysieke partities ter ondersteuning van de hogere doorvoer.
 
@@ -61,6 +61,8 @@ De semantiek voor partitiesleutels zijn enigszins verschillen overeenkomen met d
 | Tabel | Probleem met `PartitionKey` opgelost | Probleem met `RowKey` opgelost | 
 
 Azure Cosmos DB gebruikt op basis van de hash partitionering. Bij het schrijven van een item wordt Azure Cosmos DB de waarde voor de partitiesleutel-hashes en gebruikt het hash-resultaat om te bepalen welke partitie voor het opslaan van het item in. Azure Cosmos DB slaat alle items met dezelfde partitiesleutel op dezelfde fysieke partitie. 
+
+## <a name="best-practices-when-choosing-a-partition-key"></a>Aanbevolen procedures bij het kiezen van een partitiesleutel
 
 De keuze van de partitiesleutel is een belangrijke beslissing die u moet aanbrengen in de ontwerpfase. Kies een eigenschapsnaam die een breed scala aan waarden en zelfs toegangspatronen is. Het is een best practice om een partitiesleutel met een groot aantal afzonderlijke waarden (bijvoorbeeld honderden of duizenden). Hiermee kunt u uw werkbelasting gelijkmatig verdelen over deze waarden. Een ideaal partitiesleutel is een die vaak verschijnt als een filter in uw query's en heeft voldoende kardinaliteit om te controleren of dat uw oplossing schaalbaar is.
 

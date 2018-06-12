@@ -1,24 +1,19 @@
 ---
-title: Het activeren van complexe acties met waarschuwingen van Azure controleren en acties groepen | Microsoft Docs
+title: Het activeren van complexe bewerkingen met Azure-waarschuwingen en acties groepen
 description: Informatie over het maken van een logische App actie verwerken waarschuwingen van Azure controleren.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
-ms.openlocfilehash: 0020f1475d52d01897320062edbd3a66c8acf751
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: alerts
+ms.openlocfilehash: eafb2bcf0175190748c9dd020051cbebfcaee1fd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263881"
 ---
 # <a name="create-a-logic-app-action"></a>De actie van een logische App maken
 ## <a name="overview"></a>Overzicht ##
@@ -58,7 +53,7 @@ Het proces is vergelijkbaar zijn als u wilt dat de logische App in een andere ac
 
     ![HTTP-aanvraag trigger vorm](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP-aanvraag trigger vorm")
 
-7.  Selecteer **gebruik voorbeeld nettolading voor het genereren van schema**.
+7.  Selecteer **Voorbeeldnettolading om een schema te genereren**.
 
     ![Gebruik voorbeeld nettolading knop](media/monitoring-action-groups/use-sample-payload-button.png "gebruik voorbeeld nettolading knop")
 

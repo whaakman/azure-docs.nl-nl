@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: 35b4343bac033708a0912f1e129cdfef146e0603
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 933a5c8a9cde9134071a12dd0aed684358cc8696
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698778"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292851"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Kerberos-beperkte overdracht configuraties voor toepassingsproxy oplossen
 
@@ -70,9 +70,9 @@ Beide van deze installatiekopieën de dezelfde symptoom weergeven: fout van eenm
 
 Hoe u oplossen, is afhankelijk van het probleem en de problemen die u wilt zien. Voordat u een verder gaat, gebruik de volgende artikelen. Ze bieden nuttige probleemoplossingsinformatie:
 
--   [Oplossen van problemen met toepassingsproxy en foutberichten](active-directory-application-proxy-troubleshoot.md)
+-   [Oplossen van problemen met toepassingsproxy en foutberichten](manage-apps/application-proxy-troubleshoot.md)
 
--   [Kerberos-fouten en problemen](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
+-   [Kerberos-fouten en problemen](manage-apps/application-proxy-troubleshoot.md#kerberos-errors)
 
 -   [Werken met eenmalige aanmelding bij het on-premises en cloud identiteiten niet identiek zijn](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 

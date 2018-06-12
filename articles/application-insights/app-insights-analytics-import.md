@@ -3,21 +3,22 @@ title: Uw gegevens importeren in analyses in Azure Application Insights | Micros
 description: Statische gegevens samen te voegen met de app telemetrie importeren of een afzonderlijke gegevensstroom query met Analytics importeren.
 services: application-insights
 keywords: Open-schema, gegevens importeren
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293618"
 ---
 # <a name="import-data-into-analytics"></a>Gegevens importeren in Analytics
 
@@ -144,7 +145,7 @@ U kunt het volgende proces handmatig uitvoeren of een geautomatiseerde systeem i
 2. [Maak een Shared Access Signature-sleutel voor de blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). De sleutel moet een vervalperiode van één dag hebben en leestoegang te bieden.
 3. Een REST-aanroep op de hoogte van Application Insights die wacht op de gegevens wilt maken.
 
- * Eindpunt:`https://dc.services.visualstudio.com/v2/track`
+ * Eindpunt: `https://dc.services.visualstudio.com/v2/track`
  * HTTP-methode: POST
  * De nettolading van:
 
@@ -172,7 +173,7 @@ De tijdelijke aanduidingen zijn:
 * `Blob URI with Shared Access Key`: U krijgt deze van de procedure voor het maken van een sleutel. Het is specifiek voor de blob.
 * `Schema ID`: De schema-ID gegenereerd voor uw gedefinieerd schema. De gegevens in deze blob moeten voldoen aan het schema.
 * `DateTime`: De UTC-tijd waarop de aanvraag is verzonden. We accepteren van deze indelingen: ISO8601 (zoals ' 01-01-2016 13:45:01 '); RFC822 (' Wed, 14 december 16 14:57:01 + 0000 '); RFC850 ("woensdag, 14-december-16 14:57:00 UTC"); RFC1123 (' Wed 14 december 2016 14:57:00 + 0000 ').
-* `Instrumentation key`van uw Application Insights-resource.
+* `Instrumentation key` van uw Application Insights-resource.
 
 De gegevens zijn beschikbaar in Analytics na een paar minuten.
 

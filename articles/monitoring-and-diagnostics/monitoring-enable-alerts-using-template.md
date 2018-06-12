@@ -1,24 +1,19 @@
 ---
-title: Een klassieke metrische waarschuwing in Azure maken met Resource Manager-sjabloon | Microsoft Docs
+title: Een klassieke metrische waarschuwing in Azure maken met Resource Manager-sjabloon
 description: Informatie over het gebruik van een Resource Manager-sjabloon een klassieke metrische waarschuwing voor het ontvangen van meldingen per e-mail of webhook wilt maken.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.openlocfilehash: c83eeaf6c26aca3acdd43a767aa11357fa502544
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: metric
+ms.openlocfilehash: 67dac4f8d9b66f4b5f2654ffb16d9829387fc060
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263293"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Een klassieke waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
 Dit artikel laat zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) Azure metrische waarschuwingen configureren. Hiermee kunt u waarschuwingen op uw resources automatisch ingesteld als ze zijn gemaakt om ervoor te zorgen dat alle bronnen correct worden bewaakt.

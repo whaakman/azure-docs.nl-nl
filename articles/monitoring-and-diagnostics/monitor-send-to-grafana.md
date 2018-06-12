@@ -1,18 +1,20 @@
 ---
-title: Azure-services en toepassingen die gebruikmaken van Grafana bewaken | Microsoft Docs
+title: Azure-services en -toepassingen bewaken met Grafana
 description: Route Azure Monitor en Application Insights gegevens zodat u deze in Grafana bekijken kunt.
-services: monitoring-and-diagnostics
+services: azure-monitor
 keywords: ''
 author: rboucher
 ms.author: robb
 ms.date: 11/06/2017
-ms.topic: article
-ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 537760554baa542d4cd967d2e1e885f936303175
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.topic: conceptual
+ms.service: azure-monitor
+ms.component: ''
+ms.openlocfilehash: de2c57949cb2087e41b79a225963225d340f12af
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263079"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Uw Azure-services in Grafana bewaken
 U kunt nu ook bewaken Azure-services en toepassingen van [Grafana](https://grafana.com/) met behulp van de [Azure Monitor gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing verzamelt prestatiegegevens van toepassingen die door de Application Insights-SDK worden verzameld, evenals infrastructuur gegevens die zijn verstrekt door Azure bewaken. U kunt vervolgens deze gegevens op uw dashboard Grafana weergeven.
@@ -81,7 +83,7 @@ Grafana maakt gebruik van een Azure Active Directory-service-principal verbindin
 
 2. Selecteer in het nieuwe dashboard de **grafiek**. U kunt andere opties voor grafieken, maar in dit artikel gebruikt *grafiek* als voorbeeld.
 
-    ![Grafana New Dashboard](.\media\monitor-how-to-grafana\grafana5.png)
+    ![Nieuwe Dashboard Grafana](.\media\monitor-how-to-grafana\grafana5.png)
 
 3. Een lege grafiek wordt weergegeven op uw dashboard.
 

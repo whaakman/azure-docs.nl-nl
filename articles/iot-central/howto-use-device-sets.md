@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d27e687acf62e4a1e96f1bb49607618dff45512b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628501"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261675"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Apparaatsets te gebruiken in uw Azure IoT centrale toepassing
 
@@ -86,10 +86,40 @@ Nadat u uw apparaatset hebt gemaakt, kunt u de **Dashboard**. De **Dashboard** i
 
     > [!NOTE]
     > U kunt meerdere installatiekopieën, koppelingen en rasters toevoegen.
-
-1. Schakel **ontwerpmodus**.
+  
+    1. Schakel **ontwerpmodus**.
 
     ![Ontwerpmodus uitschakelen](media/howto-use-device-sets/image10.png)
+
+
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Dashboard instellen locatiekaart configureren in uw apparaat 
+U kunt toevoegen om een locatiekaart voor het visualiseren van locatie van uw apparaten worden ingesteld in een Map. 
+
+Om te kunnen toevoegen aan een locatiekaart naar apparaat u stelt dashboard hebt u geconfigureerde locatie-eigenschap in de sjabloon voor het apparaat, Zie [maakt u een locatie-eigenschap aangedreven door Azure Maps](howto-set-up-template.md).
+
+
+1. Selecteer op het apparaat Sets Dashboard kaart in de bibliotheek. 
+
+    ![Dashboard Maps wordt ingesteld voor apparaat](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. Geef een titel en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
+
+    ![Dashboard Maps configureren](media/howto-use-device-sets/LocationMaps2.png)
+
+3. Opslaan en u ziet de kaart tegel om de locatie van uw apparaten weer te geven in het apparaat ingesteld.
+
+    ![Dashboard Maps opslaan](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. U hebt geconfigureerd met inbegrip van de locatie zijn toegewezen aan de apparaten locatie in een oogopslag visualiseren nu als een operator bekijkt het apparaat sets dashboard, ze alle tegels zien kan.
+
+    ![Maps-Operator dashboardweergave](media/howto-use-device-sets/LocationMaps4.png)
+
+    U kunt zich vergroten of verkleinen van de kaart aan de gewenste grootte.
+
+
+
 
 ## <a name="configure-the-list-for-your-device-set"></a>De lijst voor het instellen van uw apparaat configureren
 

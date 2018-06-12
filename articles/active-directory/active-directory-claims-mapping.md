@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261200"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Claims toewijzen in Azure Active Directory (openbare preview)
 
@@ -59,7 +60,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |acr|
 |Actor|
 |actortoken|
-|aio|
+|AIO|
 |altsecid|
 |AMR|
 |app_chain|
@@ -95,7 +96,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|e-mail|
+|e-mailen|
 |endpoint|
 |enfpolids|
 |EXP|
@@ -116,10 +117,10 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
 |IAT|
 |identityprovider|
-|idp|
+|IDP|
 |in_corp|
-|instantie|
-|ipaddr|
+|exemplaar|
+|IpAddr|
 |isbrowserhostedapp|
 |ISS|
 |jwk|
@@ -157,14 +158,14 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |Bron|
 |rol|
 |rolls|
-|Bereik|
+|scope|
 |SCP|
 |beveiligings-id|
 |Handtekening|
 |signin_state|
 |src1|
 |src2|
-|sub|
+|Sub|
 |tbid|
 |tenant_display_name|
 |tenant_region_scope|
@@ -238,7 +239,7 @@ Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claim
 
 ### <a name="include-basic-claim-set"></a>Basic claimset opnemen
 
-**String:** IncludeBasicClaimSet
+**Tekenreeks:** IncludeBasicClaimSet
 
 **Gegevenstype:** Booleaans (True of False)
 
@@ -252,7 +253,7 @@ Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claim
 
 ### <a name="claims-schema"></a>Claims schema
 
-**String:** ClaimsSchema
+**Tekenreeks:** ClaimsSchema
 
 **Gegevenstype:** JSON-blob met een of meer claim schema vermeldingen
 
@@ -286,11 +287,11 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |Gebruiker|Voornaam|Voornaam|
 |Gebruiker|weergavenaam|Weergavenaam|
 |Gebruiker|object-id|ObjectID|
-|Gebruiker|E-mail|E-mailadres|
+|Gebruiker|mail|E-mailadres|
 |Gebruiker|userPrincipalName|User principal name|
-|Gebruiker|Afdeling|Afdeling|
+|Gebruiker|afdeling|Afdeling|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
-|Gebruiker|netbiosname|NetBios Name|
+|Gebruiker|NetBIOS-naam|NetBios-naam|
 |Gebruiker|DNS-domeinnaam|DNS-domeinnaam|
 |Gebruiker|onpremisesecurityidentifier|on-premises beveiligings-id|
 |Gebruiker|bedrijfsnaam|Naam van organisatie|
@@ -298,7 +299,7 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |Gebruiker|Postcode|Postcode|
 |Gebruiker|preferredlanguange|Voorkeurstaal|
 |Gebruiker|onpremisesuserprincipalname|lokale UPN|
-|Gebruiker|mailnickname|E-mail bijnaam|
+|Gebruiker|mailnickname|E-mailbijnaam|
 |Gebruiker|extensionattribute1|Kenmerk toestelnummer 1|
 |Gebruiker|extensionattribute2|Kenmerk toestelnummer 2|
 |Gebruiker|extensionattribute3|Kenmerk toestelnummer 3|
@@ -356,7 +357,7 @@ Op basis van de gekozen methode, wordt een reeks invoer en uitvoer verwacht. Dez
 |TransformationMethod|Verwachte invoer|Verwachte uitvoer|Beschrijving|
 |-----|-----|-----|-----|
 |Koppelen|tekenreeks1, tekenreeks2, scheidingselement|outputClaim|Joins invoer tekenreeksen met behulp van een scheidingsteken ertussen. Bijvoorbeeld: tekenreeks1: 'foo@bar.com', tekenreeks2: sandbox '-', scheidingsteken: '. ' resulteert in outputClaim: 'foo@bar.com.sandbox'|
-|ExtractMailPrefix|E-mail|outputClaim|Haalt het lokale gedeelte van een e-mailadres. Bijvoorbeeld: e-mail: 'foo@bar.com' resulteert in outputClaim: "foo". Wanneer dit niet het @ is aanmelding aanwezig is, wordt de bestaande invoerreeks is geretourneerd.|
+|ExtractMailPrefix|mail|outputClaim|Haalt het lokale gedeelte van een e-mailadres. Bijvoorbeeld: e-mail: 'foo@bar.com' resulteert in outputClaim: "foo". Wanneer dit niet het @ is aanmelding aanwezig is, wordt de bestaande invoerreeks is geretourneerd.|
 
 **InputClaims:** met een element InputClaims kunt u de gegevens van een claim schema vermelding doorgeven aan een transformatie. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
 
@@ -380,7 +381,7 @@ Op basis van de gekozen methode, wordt een reeks invoer en uitvoer verwacht. Dez
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabel 5: Kenmerken die zijn toegestaan als een gegevensbron voor SAML-NameID
 |Bron|Id|Beschrijving|
 |-----|-----|-----|
-|Gebruiker|E-mail|E-mailadres|
+|Gebruiker|mail|E-mailadres|
 |Gebruiker|userPrincipalName|User principal name|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
 |Gebruiker|Werknemer-id|Werknemer-id|
@@ -467,7 +468,7 @@ In dit voorbeeld maakt u een beleid dat de werknemer-id en TenantCountry toegevo
     1. Voor het maken van het beleid, moet u deze opdracht uitvoeren:  
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
     ```
     
     2. Voer de volgende opdracht om te zien van het nieuwe beleid en het beleid voor object-id ophalen:

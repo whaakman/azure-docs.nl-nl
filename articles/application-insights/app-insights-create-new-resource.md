@@ -2,7 +2,7 @@
 title: Maak een nieuwe Azure Application Insights-resource | Microsoft Docs
 description: Stel handmatig bewaking van de Application Insights voor een nieuwe live-toepassing.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 9023f3d9ae3ddd4d75b5853a08177cba7718cec1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294714"
 ---
 # <a name="create-an-application-insights-resource"></a>Een Application Insights-resource maken
 Azure Application Insights gegevens over uw toepassing worden weergegeven in een Microsoft Azure *resource*. Een nieuwe resource daarom deel uitmaakt van [Application Insights instellen voor het bewaken van een nieuwe toepassing][start]. In veel gevallen kan maken van een resource automatisch worden gedaan door de IDE. Maar in sommige gevallen u Maak handmatig een resource - bijvoorbeeld, als u wilt dat afzonderlijke resources voor ontwikkeling en productie builds van uw toepassing.
@@ -29,7 +30,7 @@ Als u dit nog niet hebt verkregen een [Microsoft-account, nu](http://live.com). 
 
 U moet ook een abonnement op [Microsoft Azure](http://azure.com). Als uw team of organisatie een Azure-abonnement heeft, de eigenaar kunt u toevoegen, met behulp van uw Windows Live ID. U bent alleen kosten in rekening gebracht voor wat u gebruikt. Het basic standaardplan kunt u een bepaalde hoeveelheid experimenteel gebruik gratis.
 
-Wanneer u toegang tot een abonnement hebt, meld u aan bij Application Insights op [http://portal.azure.com](https://portal.azure.com), en gebruik van uw Live-ID om aan te melden.
+Wanneer u toegang tot een abonnement hebt, meld u aan bij Application Insights op [ http://portal.azure.com ](https://portal.azure.com), en gebruik van uw Live-ID om aan te melden.
 
 ## <a name="create-an-application-insights-resource"></a>Een Application Insights-resource maken
 In de [portal.azure.com](https://portal.azure.com), een Application Insights-resource toevoegen:

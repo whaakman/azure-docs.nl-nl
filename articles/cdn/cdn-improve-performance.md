@@ -4,7 +4,7 @@ description: Informatie over het verbeteren van bestand overdrachtssnelheid en l
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,27 +12,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: mazha
-ms.openlocfilehash: 41e40c7e740e06654e7660c208db52fc2617d4b5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260393"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>De prestaties verbeteren door het comprimeren van bestanden in Azure CDN
 Bestandscompressie is een eenvoudige en effectieve methode voor het bestand overdrachtssnelheid verbeteren en laden van de pagina prestaties verbeteren doordat de bestandsgrootte voordat deze wordt verzonden van de server. Bestandscompressie kunt bandbreedtekosten te verlagen en een responsievere gebruikerservaring te bieden voor uw gebruikers.
 
 Er zijn twee manieren bestandscompressie inschakelen:
 
-- Compressie inschakelen op de bronserver. In dit geval de CDN langs de gecomprimeerde bestanden is geslaagd en zorgt ervoor dat deze aan clients die deze aanvragen.
-- Compressie rechtstreeks op de servers CDN pop-locatie ('compressie op elk gewenst moment') inschakelen. In dit geval de CDN comprimeert van de bestanden en voor de eindgebruikers fungeert, zelfs als ze niet zijn gecomprimeerd door de bronserver.
+- Compressie inschakelen op de bronserver. In dit geval Azure CDN langs de gecomprimeerde bestanden is geslaagd en zorgt ervoor dat deze aan clients die deze aanvragen.
+- Compressie inschakelen rechtstreeks op de servers CDN pop-locatie (*compressie op elk gewenst moment*). In dit geval de CDN comprimeert van de bestanden en voor de eindgebruikers fungeert, zelfs als ze niet zijn gecomprimeerd door de bronserver.
 
 > [!IMPORTANT]
-> CDN-configuratiewijzigingen kunnen even duren worden doorgegeven via het netwerk: 
-- Voor **Azure CDN Standard van Microsoft** profielen, doorgeven voltooid gewoonlijk in tien minuten. 
-- Voor **Azure CDN Standard van Akamai** profielen, doorgeven voltooit meestal binnen één minuut. 
-- Voor **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen, doorgeven voltooit meestal binnen 90 minuten. 
+> Azure CDN configuratiewijzigingen kunnen even duren worden doorgegeven via het netwerk: 
+- Voor profielen van **Azure CDN Standard van Microsoft** is het doorgeven gewoonlijk binnen 10 minuten voltooid. 
+- Profielen van **Azure CDN Standard van Akamai** worden doorgaans binnen één minuut doorgegeven. 
+- Voor **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen, doorgeven voltooid gewoonlijk in 10 minuten. 
 >
 > Als u compressie voor het eerst uitvoert voor uw CDN-eindpunt instelt, kunt u overwegen wachten op van 1 tot 2 uur voordat u om te controleren of dat de compressie-instellingen zijn doorgegeven aan de POP's oplossen.
 > 
@@ -75,7 +76,7 @@ De CDN-lagen standard en premium bieden dezelfde functionaliteit compressie, maa
 
 1. Selecteer in de pagina CDN-profiel **beheren**.
    
-    ![CDN selectie beheren](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![Selecteer CDN beheren](./media/cdn-file-compression/cdn-manage-btn.png)
    
     Hiermee opent u de CDN-beheerportal.
 2. Beweeg de muisaanwijzer over de **HTTP grote** tabblad en klik vervolgens Beweeg de muisaanwijzer over de **Cache-instellingen** doel. Selecteer **compressie**.

@@ -1,32 +1,27 @@
 ---
-title: Gebruikt automatisch schalen acties voor het verzenden van e-mail en webhook waarschuwingsmeldingen. | Microsoft Docs
-description: 'Informatie over het gebruiken van automatisch schalen acties kunnen worden gebeld web-URL''s of verzenden van e-mailmeldingen in de Azure-Monitor. '
+title: Automatisch schalen gebruiken voor het verzenden van e-mail en webhook waarschuwingsmeldingen
+description: "Informatie over het gebruiken van automatisch schalen acties kunnen worden gebeld web-URL's of verzenden van e-mailmeldingen in de Azure-Monitor. "
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: eb9a4c98-0894-488c-8ee8-5df0065d094f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 65405a6d7f1d49911da1e2a5d26b02098a261c01
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262219"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en -webhook-waarschuwingsmeldingen in de Azure-Monitor
 Dit artikel ziet u hoe u triggers hebt instelt, zodat u kunt specifieke web-URL's aanroepen of verzenden van e-mailberichten op basis van de acties voor automatisch schalen in Azure.  
 
-## <a name="webhooks"></a>Webhooks.
+## <a name="webhooks"></a>Webhooks
 Webhooks kunt u voor het routeren van de Azure waarschuwingsmeldingen met andere systemen voor na verwerking of aangepaste meldingen. Bijvoorbeeld: de waarschuwing routering naar services die een binnenkomende webaanvragen naar verzenden dat SMS, meld bugs melden dat een team chat gebruiken of messaging-services kunnen verwerken, enzovoort. De webhook URI moet een geldige HTTP of HTTPS-eindpunt.
 
-## <a name="email"></a>E-mail
+## <a name="email"></a>Email
 E-mail kan worden verzonden naar een geldig e-mailadres. Beheerders en medebeheerders van het abonnement waarop de regel wordt uitgevoerd, wordt ook gewaarschuwd.
 
 ## <a name="cloud-services-and-web-apps"></a>Cloudservices en Web-Apps
@@ -72,7 +67,7 @@ Wanneer u de REST-API of Resource Manager-sjabloon, neemt u de meldingen element
 | customEmails |ja |mogelijke waarden zijn null [] of string-matrix van e-mailberichten |
 | Webhooks. |ja |mogelijke waarden zijn null of geldig Uri |
 | serviceUri |ja |een geldige https Uri |
-| properties |ja |waarde moet leeg {} opzoeken of sleutel-waardeparen kan bevatten |
+| properties |ja |waarde moet leeg {} of sleutel-waardeparen kan bevatten |
 
 ## <a name="authentication-in-webhooks"></a>Verificatie in webhooks.
 De webhook kunt verifiëren met behulp van verificatie op basis van tokens, waar u de webhook URI opslaan met een token ID als een queryparameter. Bijvoorbeeld: https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
@@ -115,7 +110,7 @@ Wanneer de melding voor automatisch schalen die wordt gegenereerd, worden de vol
 | tijdstempel |ja |Tijdstempel wanneer de actie voor automatisch schalen is geactiveerd |
 | id |Ja |Bronnenbeheerder-ID van de instelling voor automatisch schalen |
 | naam |Ja |De naam van de instelling voor automatisch schalen |
-| Meer informatie |Ja |Uitleg van de actie die de service automatisch schalen duurde en de wijziging in het aantal exemplaren |
+| details |Ja |Uitleg van de actie die de service automatisch schalen duurde en de wijziging in het aantal exemplaren |
 | subscriptionId |Ja |Abonnement-ID van de doelresource die wordt geschaald |
 | resourceGroupName |Ja |Naam van de resourcegroep van de doelresource die wordt geschaald |
 | resourceName |Ja |Naam van de doelresource die wordt geschaald |

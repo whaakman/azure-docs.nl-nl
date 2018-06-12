@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f864cf45b255ac26ccf0efac9a89683d1ae650b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601255"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260478"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -192,7 +192,7 @@ Een voorwaarde wordt geëvalueerd of een **veld** aan bepaalde criteria voldoet.
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Wanneer u de **zoals** en **notLike** voorwaarden, kunt u een jokerteken (*) in de waarde opgeven.
+Wanneer u de **zoals** en **notLike** voorwaarden, kunt u een jokerteken opgeven (*) in de waarde. De waarde mag niet meer dan 1 het jokerteken (*).
 
 Wanneer u de **overeen met** en **notMatch** voorwaarden bieden `#` vertegenwoordigt een cijfer `?` voor een letter en een ander teken dat werkelijke teken vertegenwoordigt. Zie voor voorbeelden [toestaan meerdere bestandsnaampatronen](scripts/allow-multiple-name-patterns.md).
 

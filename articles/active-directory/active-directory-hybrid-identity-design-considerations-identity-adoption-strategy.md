@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 4b1fefafb34dcbfdced5c978aa235e56cb7fa513
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 9107464acefe75141950c0d07298c8ad946e0ddc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801793"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260359"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Een strategie voor hybride identiteit acceptatie definiëren
 In deze taak definieert u de hybride identiteit acceptatie strategie voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die zijn beschreven in:
@@ -67,7 +67,7 @@ Meld u in de gebruikerservaring worden bepaald door de strategie die u gebruikt.
 | Webbrowsers |Verificatie op basis van formulieren |eenmalige aanmelding, soms moeten organisatie-ID opgeven |
 | Outlook |Prompt voor referenties |Prompt voor referenties |
 | Skype voor bedrijven (Lync) |Prompt voor referenties |eenmalige aanmelding voor Lync, wordt gevraagd referenties voor Exchange |
-| SkyDrive Pro |Prompt voor referenties |Eenmalige aanmelding |
+| OneDrive voor Bedrijven |Prompt voor referenties |Eenmalige aanmelding |
 | Office Professional Plus abonnement |Prompt voor referenties |Eenmalige aanmelding |
 
 **Externe of niet-vertrouwde bronnen**:
@@ -75,7 +75,7 @@ Meld u in de gebruikerservaring worden bepaald door de strategie die u gebruikt.
 |  | Gesynchroniseerde identiteiten | Federatieve identiteit |
 | --- | --- | --- |
 | Webbrowsers |Verificatie op basis van formulieren |Verificatie op basis van formulieren |
-| Outlook, Skype voor bedrijven (Lync) Skydrive Pro, Office-abonnement |Prompt voor referenties |Prompt voor referenties |
+| Outlook, Skype voor bedrijven (Lync) OneDrive voor bedrijven, Office-abonnement |Prompt voor referenties |Prompt voor referenties |
 | Exchange ActiveSync |Prompt voor referenties |eenmalige aanmelding voor Lync, wordt gevraagd referenties voor Exchange |
 | Mobiele apps |Prompt voor referenties |Prompt voor referenties |
 

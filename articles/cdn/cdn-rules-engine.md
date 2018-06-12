@@ -1,24 +1,25 @@
 ---
 title: HTTP-instelling met de engine van Azure CDN regels wijzigen | Microsoft Docs
-description: "De regelengine voor kunt u aanpassen hoe HTTP-aanvragen worden verwerkt door Azure CDN, zoals de levering van bepaalde typen inhoud blokkeren, een cachebeleid definiëren en aanpassen van HTTP-headers."
+description: De regelengine voor kunt u aanpassen hoe HTTP-aanvragen worden verwerkt door Azure CDN, zoals de levering van bepaalde typen inhoud blokkeren, een cachebeleid definiëren en aanpassen van HTTP-headers.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: akucer
-editor: 
+manager: cfowler
+editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: mazha
-ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: df8114aaf5b4672ea51482978abde6f0ce724528
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261046"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>HTTP-instelling met de engine van Azure CDN regels wijzigen
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -46,9 +47,10 @@ Voor toegang tot de regelengine voor, moet u eerst selecteren **beheren** vanaf 
 ## <a name="tutorial"></a>Zelfstudie
 1. Van de **CDN-profiel** pagina **beheren**.
    
-    ![Knop CDN-profiel beheren](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Knop voor CDN-profiel beheren](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     Hiermee opent u de CDN-beheerportal.
+
 2. Selecteer de **HTTP grote** tabblad en selecteer vervolgens **regelengine**.
    
     De opties voor een nieuwe regel worden weergegeven.
@@ -58,7 +60,9 @@ Voor toegang tot de regelengine voor, moet u eerst selecteren **beheren** vanaf 
    > [!IMPORTANT]
    > De volgorde waarin u meerdere regels staan is van invloed op hoe ze worden verwerkt. Een volgende regel mogen de handelingen die zijn opgegeven door een vorige regel overschrijven.
    > 
+
 3. Voer een naam in de **naam / beschrijving** textbox.
+
 4. Identificeer het type van de regel geldt voor aanvragen. De voorwaarde van de overeenkomst standaard gebruiken **altijd**. 
    
    ![CDN-regelvoorwaarde overeen](./media/cdn-rules-engine/cdn-request-type.png)
@@ -71,7 +75,8 @@ Voor toegang tot de regelengine voor, moet u eerst selecteren **beheren** vanaf 
    > Zie voor een gedetailleerde lijst met voorwaarden van de overeenkomst, [regels overeen motor](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-1. Selecteer om een nieuwe functie toe de  **+**  naast **functies**.  Selecteer in de vervolgkeuzelijst aan de linkerkant **Force interne-maximumleeftijd**.  Voer in het tekstvak dat wordt weergegeven, **300**. De overige standaardwaarden niet gewijzigd.
+
+5. Selecteer om een nieuwe functie toe de **+** naast **functies**.  Selecteer in de vervolgkeuzelijst aan de linkerkant **Force interne-maximumleeftijd**.  Voer in het tekstvak dat wordt weergegeven, **300**. De overige standaardwaarden niet gewijzigd.
    
    ![CDN regel functie](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -83,17 +88,18 @@ Voor toegang tot de regelengine voor, moet u eerst selecteren **beheren** vanaf 
    > Zie voor een gedetailleerde lijst met functies [regels engine functies](cdn-rules-engine-reference-features.md).
    > 
    > 
-1. Klik op de **toevoegen** om op te slaan van de nieuwe regel.  De nieuwe regel wordt nu in afwachting van goedkeuring. Nadat deze is goedgekeurd, wordt de status verandert van **in behandeling XML** naar **Active XML**.
+
+6. Selecteer **toevoegen** om op te slaan van de nieuwe regel.  De nieuwe regel wordt nu in afwachting van goedkeuring. Nadat deze is goedgekeurd, wordt de status verandert van **in behandeling XML** naar **Active XML**.
    
    > [!IMPORTANT]
-   > Regels kan worden doorgegeven via de CDN tot 90 minuten duren.
+   > Regels kan worden doorgegeven via Azure CDN maximaal 10 minuten duren.
    > 
    > 
 
 ## <a name="see-also"></a>Zie ook
 * [Overzicht van Azure CDN](cdn-overview.md)
-* [Regels engine verwijzing](cdn-rules-engine-reference.md)
-* [De overeenkomst motor regels](cdn-rules-engine-reference-match-conditions.md)
-* [Regels engine voorwaardelijke expressies](cdn-rules-engine-reference-conditional-expressions.md)
-* [Regels engine functies](cdn-rules-engine-reference-features.md)
+* [Verwijzing regelengine](cdn-rules-engine-reference.md)
+* [Criteria voor overeenkomst regelengine](cdn-rules-engine-reference-match-conditions.md)
+* [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
+* [Functies regelengine](cdn-rules-engine-reference-features.md)
 * [Azure vrijdag: Azure CDN krachtige nieuwe Premiumfuncties](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)

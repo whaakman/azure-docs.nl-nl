@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: msangapu
-ms.openlocfilehash: c1dbcf83927da23ceab652f8bc4dbe8d6343c1a8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598399"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294008"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Op Linux FAQ-Azure App Service
 
@@ -36,7 +36,7 @@ U vindt alle Docker-bestanden op [GitHub](https://github.com/azure-app-service).
 
 **Wat zijn de verwachte waarden voor het starten van de sectie voor het configureren van de runtime-stack?**
 
-Voor Node.js geeft u het configuratiebestand PM2 of het scriptbestand. Geef de naam van uw gecompileerde DLL voor .NET Core. Voor Ruby, kunt u het Ruby script dat u wilt uw app met initialiseren.
+Voor Node.js geeft u het configuratiebestand PM2 of het scriptbestand. Geef de naam van de gecompileerde dll-bestand als voor .NET Core `dotnet <myapp>.dll`. Voor Ruby, kunt u het Ruby script dat u wilt uw app met initialiseren.
 
 ## <a name="management"></a>Beheer
 

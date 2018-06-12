@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2aeaacbc48c8b49b967241522daf90e8fb228073
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713609"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260926"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Instellen van de Azure Active Directory die lid zijn van apparaten
 
@@ -48,6 +48,10 @@ Als u wilt deelnemen aan een Windows 10-apparaat, moet de device registratieserv
 - Als u een beheerde gebruiker bent, gaat Windows u naar het bureaublad via het automatisch aanmelden.
 
 - Als u een federatieve gebruiker bent, hebt u zich aanmeldt met uw referenties.
+
+- Als u worden gefedereerd, moet de id-provider WS Fed en WS-Trust gebruikersnaam en wachtwoord eindpunt ondersteunen. Dit is versie 1.3 of 2005. Ondersteuning voor dit protocol is vereist voor zowel het apparaat toevoegen aan Azure AD en meld u aan op het apparaat met een wachtwoord. 
+
+
 
 
 ## <a name="joining-a-device"></a>Lid worden van een apparaat

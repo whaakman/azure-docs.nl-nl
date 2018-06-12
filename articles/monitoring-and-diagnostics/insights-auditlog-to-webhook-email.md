@@ -1,24 +1,19 @@
 ---
-title: Een webhook niet aanroepen voor een Azure-activiteit logboek waarschuwing | Microsoft Docs
+title: Een webhook aanroepen in een waarschuwing voor een Azure-activiteit logboek (klassiek)
 description: Informatie over het logboek activiteitsgebeurtenissen doorsturen naar andere services voor aangepaste acties. U kunt bijvoorbeeld SMS-berichten verzenden, meld bugs of hoogte van een team via een chat of messaging-service.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: e825d0f2487c20c8c7f3d210d7180b07742d7173
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262457"
 ---
 # <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Een webhook niet aanroepen voor een Azure-activiteit logboek-waarschuwing
 U kunt webhooks gebruiken voor het routeren van een Azure waarschuwingsmeldingen met andere systemen voor naverwerking of voor aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar de services die de SMS-berichten aan te melden bugs, om de hoogte van een team via chat of messaging-services, of voor verschillende andere acties te verzenden. U kunt ook een logboek activiteit waarschuwing instellen om e-mail te verzenden wanneer een waarschuwing is geactiveerd.
@@ -111,13 +106,13 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle act
 | activityLog | De logboekeigenschappen van de gebeurtenis.|
 | Autorisatie |De eigenschappen van de op rollen gebaseerde toegangsbeheer (RBAC) van de gebeurtenis. Deze eigenschappen zijn meestal **actie**, **rol**, en **bereik**. |
 | actie | De actie die wordt vastgelegd door de waarschuwing. |
-| Bereik | Het bereik van de waarschuwing (dat wil zeggen, de bron).|
+| scope | Het bereik van de waarschuwing (dat wil zeggen, de bron).|
 | kanalen | De bewerking. |
-| claims | Er is een verzameling van gegevens die zij gekoppeld aan de claims. |
+| Claims | Er is een verzameling van gegevens die zij gekoppeld aan de claims. |
 | oproepende functie |De GUID of de gebruikersnaam van de gebruiker die heeft de bewerking, de UPN-claim of de SPN-claim op basis van beschikbaarheid uitgevoerd. Een null-waarde voor bepaalde systeemaanroepen kan zijn. |
 | correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met de **correlationId** deel uitmaken van dezelfde groter actie. Ze hebben meestal hetzelfde **correlationId** waarde. |
 | description |De beschrijving van waarschuwing die is ingesteld wanneer de waarschuwing is gemaakt. |
-| eventSource |De naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
+| EventSource |De naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
 | eventTimestamp |Het tijdstip waarop dat de gebeurtenis heeft plaatsgevonden. |
 | eventDataId |De unieke id van de gebeurtenis. |
 | niveau |Een van de volgende waarden: kritiek, fout, waarschuwing, informatief of uitgebreid. |

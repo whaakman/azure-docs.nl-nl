@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 203bc0934b8db15478e78cbc64e463eafdf83fa9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8ad2baef4534c3457fc30bb9589c6fdd99fde8d9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292817"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Zelfstudie: Basis OnDemand configureren voor het automatisch gebruikers inrichten
 
@@ -74,7 +75,7 @@ Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen
 
 Voordat u configureren en inschakelen van automatisch gebruikers inrichten, moet u bepalen welke gebruikers en/of groepen in Azure AD toegang hebben tot basis OnDemand moeten. Als besloten, kunt u deze gebruikers en/of groepen toewijzen aan de basis OnDemand door de volgende instructies te volgen:
 
-*   [Een gebruiker of groep toewijzen aan een enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Een gebruiker of groep toewijzen aan een enterprise-app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cornerstone-ondemand"></a>Belangrijke tips voor het toewijzen van gebruikers aan de basis OnDemand
 
@@ -155,7 +156,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
     
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-enterprise-apps-manage-provisioning.md)
+* [Het beheren van gebruikers account inrichten voor zakelijke Apps](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 

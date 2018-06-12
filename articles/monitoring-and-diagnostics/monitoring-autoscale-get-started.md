@@ -1,24 +1,19 @@
 ---
-title: Aan de slag met automatisch schalen in Azure | Microsoft Docs
-description: Informatie over het schalen van uw resources in Azure.
+title: Aan de slag met automatisch schalen in Azure
+description: Meer informatie over het schalen van uw Web-App-resource, Cloudservice, virtuele Machine of virtuele-Machineschaalset ingesteld in Azure.
 author: rajram
-manager: rboucher
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
-ms.openlocfilehash: 84ce3af2bef1e3204ad91567d155d7cbf90e9c7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263643"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Aan de slag met automatisch schalen in Azure
 Dit artikel wordt beschreven hoe u uw instellingen voor automatisch schalen voor uw resource in de Microsoft Azure-portal.
@@ -65,7 +60,7 @@ Laten we nu verloopt via een eenvoudige stapsgewijze voor het maken van uw eerst
    ![Schalen op basis van CPU][8]
 5. Klik op **Opslaan**.
 
-Gefeliciteerd. U hebt nu uw eerste scale-instelling voor automatisch schalen die uw web-app op basis van CPU-gebruik gemaakt.
+Gefeliciteerd! U hebt nu uw eerste scale-instelling voor automatisch schalen die uw web-app op basis van CPU-gebruik gemaakt.
 
 > [!NOTE] 
 > Dezelfde stappen van toepassing zijn op aan de slag met een virtuele-machineschaalset of cloud service-rol.
@@ -93,7 +88,7 @@ Naast de schaal aan op basis van CPU, kunt u uw scale anders instellen voor spec
 ### <a name="view-the-scale-history-of-your-resource"></a>De geschiedenis van de schaal van uw resource weergeven
 Wanneer de bron wordt geschaald omhoog of omlaag, wordt een gebeurtenis vastgelegd in het gebeurtenissenlogboek. U kunt de geschiedenis van de schaal van uw resource weergeven voor de afgelopen 24 uur door het overschakelen naar de **Uitvoeringsgeschiedenis** tabblad.
 
-![geschiedenis uitvoeren][11]
+![Uitvoer.gesch][11]
 
 Als u wilt weergeven van de geschiedenis van de volledige schaal (voor maximaal 90 dagen), selecteert u **Klik hier voor meer informatie**. Het activiteitenlogboek wordt geopend met automatisch schalen die vooraf zijn geselecteerd voor uw resource en categorie.
 

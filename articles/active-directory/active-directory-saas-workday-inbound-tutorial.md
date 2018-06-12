@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: daeb41d9094077950223820f8580ae057d039ef0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261233"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -372,7 +373,7 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 | **PreferredNameData**  |  displayName |     |   Maken en bijwerken |
 | **Bedrijf**         | Bedrijf   |     |  Maken en bijwerken |
 | **SupervisoryOrganization**  | afdeling  |     |  Maken en bijwerken |
-| **ManagerReference**   | Manager  |     |  Maken en bijwerken |
+| **ManagerReference**   | beheerder  |     |  Maken en bijwerken |
 | **BusinessTitle**   |  titel     |     |  Maken en bijwerken | 
 | **AddressLineData**    |  StreetAddress  |     |   Maken en bijwerken |
 | **Gemeente**   |   l   |     | Maken en bijwerken |
@@ -397,7 +398,7 @@ Na de installatie van agent, voer de onderstaande Powershell-opdrachten voor het
 
 **Opdracht #1**
 
-> cd "C:\Program Files\Microsoft Azure AD Connect Agent\Modules\AADSyncAgent inrichting" Agent\\Modules\\AADSyncAgent
+> cd "C:\Program Files\Microsoft Azure AD Connect inrichting Agent\Modules\AADSyncAgent"
 
 > Import-Module "C:\Program Files\Microsoft Azure AD Connect inrichting Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 

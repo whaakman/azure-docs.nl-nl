@@ -17,11 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 25660eef50a0a18d4f404944daeb443133424897
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261148"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Enterprise State Roaming instellingen voor probleemoplossing in Azure Active Directory
 
@@ -79,7 +80,7 @@ Onder bepaalde omstandigheden kan Enterprise State Roaming niet worden het synch
 **Potentiële probleem**: synchronisatie kan mislukken als de beheerder het voorwaardelijke toegangsbeleid van Active Directory Federation Services multi-factor Authentication configureert en het toegangstoken op het apparaat is verlopen. Zorg ervoor dat u aanmelden en afmelden met behulp van de Microsoft Passport voor Work PINCODE of multi-factor Authentication voltooid tijdens het openen van andere Azure-services zoals Office 365.
 
 ### <a name="event-viewer"></a>Logboeken
-Voor geavanceerde probleemoplossing kan Logboeken worden gebruikt voor fouten gevonden. Deze worden beschreven in de onderstaande tabel. De gebeurtenissen kunnen worden gevonden in Logboeken > Logboeken toepassingen en Services > **Microsoft** > **Windows** > **SettingSync** en voor problemen met het synchroniseren van identiteitsgerelateerde **Microsoft** > **Windows** > **Azure AD**.
+Voor geavanceerde probleemoplossing kan Logboeken worden gebruikt voor fouten gevonden. Deze worden beschreven in de onderstaande tabel. De gebeurtenissen kunnen worden gevonden in Logboeken > Logboeken toepassingen en Services > **Microsoft** > **Windows** > **SettingSync** en voor problemen met het synchroniseren van identiteitsgerelateerde **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Bekende problemen

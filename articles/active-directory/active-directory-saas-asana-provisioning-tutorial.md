@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c7e33a46940c9bf0cda5e48c07d42db9f0c7cd96
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 84fa3c5bd57e1f9f5b3eddf872307829f6c9c509
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292963"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Zelfstudie: Asana configureren voor het automatisch gebruikers inrichten
 
@@ -42,7 +43,7 @@ Azure AD gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruik
 
 Voordat u configureert en de inrichting-service inschakelen, moet u bepalen welke gebruikers in Azure AD moeten toegang hebben tot uw app Asana. Vervolgens kunt u deze gebruikers toewijzen aan uw app Asana door de volgende instructies te volgen:
 
-[Een gebruiker toewijzen aan een enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
+[Een gebruiker toewijzen aan een enterprise-app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-asana"></a>Belangrijke tips voor het toewijzen van gebruikers aan Asana
 
@@ -99,6 +100,6 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Account gebruikersinrichting voor zakelijke Apps beheren](active-directory-enterprise-apps-manage-provisioning.md)
+* [Account gebruikersinrichting voor zakelijke Apps beheren](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Eenmalige aanmelding configureren](active-directory-saas-asana-tutorial.md)

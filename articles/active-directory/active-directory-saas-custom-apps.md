@@ -15,12 +15,12 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96f6e2cc9b137de48a1d186739a8c76e2f1d18c1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c115414fc6ae599342192196e256597c28e5aa6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590117"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293191"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Eenmalige aanmelding tot toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie configureren
 
@@ -32,7 +32,7 @@ Klanten met [Azure Active Directory Premium](active-directory-whatis.md) licenti
 
 * Selfservice integratie van alle toepassingen die ondersteuning biedt voor SAML 2.0 id-providers (Serviceprovider geïnitieerde of IdP gestart)
 * Integratie van een webtoepassing met een op basis van een HTML-aanmeldingspagina met selfservice [eenmalige aanmelding op basis van wachtwoorden](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
-* Verbinding van toepassingen die gebruikmaken van het protocol SCIM voor gebruikers inrichten selfservice ([hier beschreven](active-directory-scim-provisioning.md))
+* Verbinding van toepassingen die gebruikmaken van het protocol SCIM voor gebruikers inrichten selfservice ([hier beschreven](manage-apps/use-scim-to-provision-users-and-groups.md))
 * Koppelingen toevoegen aan elke toepassing in de [Office 365 app linksboven](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [deelvenster Azure AD access](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 Dit kunnen bijvoorbeeld niet alleen SaaS-toepassingen die u gebruikt, maar hebben niet nog is geïntegreerde naar de galerie van Azure AD-toepassing, maar van derden webtoepassingen die uw organisatie is geïmplementeerd op servers die u, in de cloud of on-premises beheert.
@@ -123,7 +123,7 @@ Controleer of dat het certificaat heeft:
 - De status van actieve. Als de status niet actief is, moet u de status wijzigen in actief. U wijzigt de status, Controleer **Active** en sla de configuratie. 
 - De juiste meldingse-mail. Wanneer het actieve certificaat in de buurt van de vervaldatum is, stuurt Azure AD een melding naar het e-mailadres dat is geconfigureerd in dit veld.  
 
-Zie voor meer informatie [beheren van certificaten voor federatieve eenmalige aanmelding bij Azure Active Directory](active-directory-sso-certs.md).
+Zie voor meer informatie [beheren van certificaten voor federatieve eenmalige aanmelding bij Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="set-up-target-application"></a>Doeltoepassing instellen
 

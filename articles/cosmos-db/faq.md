@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34735161"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261556"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -159,8 +159,9 @@ Optimistische gelijktijdigheid in .NET, gebruikt de [AccessCondition](https://ms
 De SQL-API biedt ondersteuning voor taalgeïntegreerde transacties via in JavaScript opgeslagen procedures en triggers. Alle databasebewerkingen in scripts worden uitgevoerd onder snapshot-isolatie. Als dit een verzameling van één partitie is, wordt de uitvoering is afgestemd op de verzameling. Als de verzameling is gepartitioneerd, wordt de uitvoering is afgestemd op documenten met dezelfde partitiesleutel waarde binnen de verzameling. Er wordt aan het begin van de transactie een schermopname van de documentversies (ETags) gemaakt en de transactie wordt alleen uitgevoerd als het script kan worden uitgevoerd. Als JavaScript een fout genereert, wordt de transactie teruggedraaid. Zie voor meer informatie [serverzijde JavaScript programmeren voor Azure Cosmos DB](programming.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Hoe kan ik bulksgewijs invoegen documenten naar Cosmos DB?
-U kunt bulksgewijs invoegen documenten naar Azure Cosmos DB op twee manieren:
+U kunt bulksgewijs invoegen documenten naar Azure Cosmos DB in een van de volgende manieren:
 
+* Het executor-hulpprogramma voor bulkuitgifte, zoals beschreven in [Using bulksgewijs executor .NET-bibliotheek](bulk-executor-dot-net.md) en [Using bulksgewijs executor Java-bibliotheek](bulk-executor-java.md)
 * Het hulpprogramma voor migratie, zoals beschreven in [hulpprogramma voor migratie van Database voor Azure Cosmos DB](import-data.md).
 * Opgeslagen procedures, zoals beschreven in [serverzijde JavaScript programmeren voor Azure Cosmos DB](programming.md).
 

@@ -2,7 +2,7 @@
 title: Apps met bereikfilters inrichten | Microsoft Docs
 description: Informatie over het bereik filters gebruiken om te voorkomen dat de objecten in apps die ondersteuning bieden voor geautomatiseerde gebruikersinrichting van ingericht als een object niet voldoet aan uw zakelijke vereisten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293072"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Inrichten van toepassing op basis van kenmerken met bereikfilters
 Het doel van dit artikel is legt uit hoe bereik filters gebruiken om te bepalen op kenmerken gebaseerde regels die bepalen welke gebruikers zijn ingericht voor een toepassing.
@@ -29,7 +30,7 @@ Een scope filter kunt de Azure Active Directory (Azure AD)-service inricht wilt 
 
 Bereikfilters kan anders worden gebruikt, afhankelijk van het type inrichting connector:
 
-* **Uitgaande inrichten van Azure AD SaaS-toepassingen**. Wanneer u Azure AD is het bronsysteem [toewijzingen van gebruikers en groepen](active-directory-coreapps-assign-user-azure-portal.md) zijn de meest voorkomende methode om te bepalen welke gebruikers in het bereik voor het inrichten. Deze toewijzingen worden ook worden gebruikt voor het inschakelen van eenmalige aanmelding en bieden een één methode voor het beheren van toegang en de inrichting. Bereikfilters kan worden gebruikt eventueel naast toewijzingen of in plaats van ze, voor het filteren van gebruikers op basis van kenmerkwaarden.
+* **Uitgaande inrichten van Azure AD SaaS-toepassingen**. Wanneer u Azure AD is het bronsysteem [toewijzingen van gebruikers en groepen](manage-apps/assign-user-or-group-access-portal.md) zijn de meest voorkomende methode om te bepalen welke gebruikers in het bereik voor het inrichten. Deze toewijzingen worden ook worden gebruikt voor het inschakelen van eenmalige aanmelding en bieden een één methode voor het beheren van toegang en de inrichting. Bereikfilters kan worden gebruikt eventueel naast toewijzingen of in plaats van ze, voor het filteren van gebruikers op basis van kenmerkwaarden.
 
     >[!TIP]
     > U kunt uitschakelen inrichten op basis van de toewijzingen voor een zakelijke toepassing door het wijzigen van instellingen in de [bereik](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu onder de inrichting instellingen **synchroniseren van alle gebruikers en groepen**. Met deze optie plus bereik filters op basis van kenmerken, biedt betere prestaties dan wanneer u toewijzingen op basis van een groep.  
@@ -113,8 +114,8 @@ Bereik filters zijn geconfigureerd als onderdeel van de kenmerktoewijzingen voor
 * [Artikel index voor Toepassingsbeheer in Azure Active Directory](active-directory-apps-index.md)
 * [Automatisch gebruikers inrichten en opheffen van inrichting tot SaaS-toepassingen](active-directory-saas-app-provisioning.md)
 * [Kenmerktoewijzingen voor gebruikers inrichten aanpassen](active-directory-saas-customizing-attribute-mappings.md)
-* [Expressies voor kenmerktoewijzingen schrijven](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+* [Expressies schrijven voor kenmerktoewijzingen](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Meldingen inrichten van een account](active-directory-saas-account-provisioning-notifications.md)
-* [SCIM gebruiken om in te schakelen automatische inrichting van gebruikers en groepen van Azure Active Directory voor toepassingen](active-directory-scim-provisioning.md)
+* [SCIM gebruiken om in te schakelen automatische inrichting van gebruikers en groepen van Azure Active Directory voor toepassingen](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lijst met zelfstudies over het integreren van SaaS-apps](active-directory-saas-tutorial-list.md)
 

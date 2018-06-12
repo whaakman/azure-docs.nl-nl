@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 6189038a338a9151b23dbdad11d86e43709a96a0
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247941"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293293"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker inrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
@@ -71,7 +71,7 @@ Azure AD-functies geïntegreerde vooraf ondersteuning voor een groot aantal popu
 
 Zie voor een lijst van alle toepassingen waarvoor Azure AD een vooraf geïntegreerde inrichting connector ondersteunt, de [lijst met zelfstudies bij de toepassing voor gebruikers inrichten](active-directory-saas-tutorial-list.md).
 
-Zie voor meer informatie over het toevoegen van ondersteuning voor Azure AD-gebruikers inrichten tot een toepassing [SCIM gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory naar toepassingen](active-directory-scim-provisioning.md).
+Zie voor meer informatie over het toevoegen van ondersteuning voor Azure AD-gebruikers inrichten tot een toepassing [SCIM gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory naar toepassingen](manage-apps/use-scim-to-provision-users-and-groups.md).
 
 Neem contact op met de Azure AD technisch team om aan te vragen van de inrichting ondersteuning voor aanvullende toepassingen indienen om een bericht via de [forum met feedback van Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
 
@@ -106,7 +106,7 @@ Klik in het scherm application management-inrichting is geconfigureerd in de **i
 
     * **Filteren op kenmerkwaarden** -het menu 'Objectbereik bron' in de kenmerktoewijzingen Hiermee kunt u filteren op specifieke kenmerkwaarden. U kunt bijvoorbeeld opgeven dat alleen gebruikers met een kenmerk 'Afdeling' van 'Verkoop' binnen het bereik van de inrichting moet. Zie voor meer informatie [met bereik filters](active-directory-saas-scoping-filters.md).
 
-    * **Filter op toewijzingen** -het menu 'Bereik' in de inrichting > sectie van de instellingen van de portal kunt u opgeven of alleen 'toegewezen' gebruikers en groepen moeten zich binnen het bereik van de inrichting, of als alle gebruikers in de Azure AD-directory moet ingericht. Zie voor informatie over ' ' gebruikers en groepen toewijzen, [een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+    * **Filter op toewijzingen** -het menu 'Bereik' in de inrichting > sectie van de instellingen van de portal kunt u opgeven of alleen 'toegewezen' gebruikers en groepen moeten zich binnen het bereik van de inrichting, of als alle gebruikers in de Azure AD-directory moet ingericht. Zie voor informatie over ' ' gebruikers en groepen toewijzen, [een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md).
     
 * **Instellingen** bepalen de werking van de inrichting-service voor een toepassing, met inbegrip van of deze nu wordt uitgevoerd of niet.
 
@@ -126,7 +126,7 @@ Wanneer u Azure AD is het bronsysteem, de inrichting service gebruikt de [differ
 Wanneer de inrichting-service wordt gestart, wordt de eerste synchronisatie ooit uitgevoerd:
 
 1. Query uitvoeren op alle gebruikers en groepen uit het bronsysteem bij het ophalen van alle kenmerken zijn gedefinieerd in de [kenmerktoewijzingen](active-directory-saas-customizing-attribute-mappings.md).
-2. Filteren van de gebruikers en groepen die zijn geretourneerd, met behulp van een geconfigureerd [toewijzingen](active-directory-coreapps-assign-user-azure-portal.md) of [op kenmerken gebaseerde bereikfilters](active-directory-saas-scoping-filters.md).
+2. Filteren van de gebruikers en groepen die zijn geretourneerd, met behulp van een geconfigureerd [toewijzingen](manage-apps/assign-user-or-group-access-portal.md) of [op kenmerken gebaseerde bereikfilters](active-directory-saas-scoping-filters.md).
 3. Wanneer een gebruiker wordt gevonden, worden toegewezen of in het bereik voor het inrichten van de service vraagt het doelsysteem voor een overeenkomende gebruiker met behulp van de aangewezen [overeenkomende kenmerken](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties). Voorbeeld: Als de naam van de userPrincipal in het bronsysteem het overeenkomende kenmerk is en toegewezen aan gebruikersnaam in het doelsysteem en vervolgens de inrichting service query uitgevoerd op het doelsysteem voor gebruikersnamen die overeenkomen met de naam userPrincipal waarden in het bronsysteem.
 4. Als een overeenkomende gebruiker niet in het doelsysteem gevonden is, wordt deze gemaakt met behulp van de kenmerken van het bronsysteem geretourneerd.
 5. Als een overeenkomende gebruiker wordt gevonden, wordt deze bijgewerkt met behulp van de kenmerken die wordt geleverd door het bronsysteem.
@@ -139,7 +139,7 @@ Sommige servertoepassingen, zoals ondersteuning voor ServiceNow, Google Apps en 
 Na de eerste synchronisatie worden alle volgende synchronisaties:
 
 1. Query uitvoeren op het bronsysteem voor alle gebruikers en groepen die zijn bijgewerkt sinds de laatste watermerk is opgeslagen.
-2. Filteren van de gebruikers en groepen die zijn geretourneerd, met behulp van een geconfigureerd [toewijzingen](active-directory-coreapps-assign-user-azure-portal.md) of [op kenmerken gebaseerde bereikfilters](active-directory-saas-scoping-filters.md).
+2. Filteren van de gebruikers en groepen die zijn geretourneerd, met behulp van een geconfigureerd [toewijzingen](manage-apps/assign-user-or-group-access-portal.md) of [op kenmerken gebaseerde bereikfilters](active-directory-saas-scoping-filters.md).
 3. Wanneer een gebruiker wordt gevonden, worden toegewezen of in het bereik voor het inrichten van de service vraagt het doelsysteem voor een overeenkomende gebruiker met behulp van de aangewezen [overeenkomende kenmerken](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties).
 4. Als een overeenkomende gebruiker niet in het doelsysteem gevonden is, wordt deze gemaakt met behulp van de kenmerken van het bronsysteem geretourneerd.
 5. Als een overeenkomende gebruiker wordt gevonden, wordt deze bijgewerkt met behulp van de kenmerken die wordt geleverd door het bronsysteem.
@@ -242,7 +242,7 @@ Contact met ons opnemen via de [forum met feedback van Azure Active Directory](h
 * [Kenmerktoewijzingen voor gebruikers inrichten aanpassen](active-directory-saas-customizing-attribute-mappings.md)
 * [Expressies voor kenmerktoewijzingen schrijven](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Bereikfilters voor gebruikers inrichten](active-directory-saas-scoping-filters.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
 * [Overzicht van Azure AD-synchronisatie API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 * [Plan voor uitgaande gebruikers inrichten van een toepassing de stapsgewijze implementatie](https://aka.ms/userprovisioningdeploymentplan)
 

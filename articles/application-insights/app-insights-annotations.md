@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: a479fa553d64f3820ae8513353484e72b57d30e4
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: fb4bcd57062017c0d7ee802ba1f46660476f6af2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807795"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293432"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Aantekeningen voor metrische grafieken in Application Insights
 Aantekeningen op [Metrics Explorer](app-insights-metrics-explorer.md) grafieken weergegeven waarin u een nieuwe build, of een andere belangrijke gebeurtenis geïmplementeerd. Ze maakt het eenvoudig om te zien of uw wijzigingen invloed zijn op de prestaties van de toepassing hadden. Ze kunnen automatisch gemaakt door de [Visual Studio Team Services bouwen system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). U kunt ook aantekeningen voor een gebeurtenis die u met wilt vlag maken [ze worden gemaakt vanuit PowerShell](#create-annotations-from-powershell).

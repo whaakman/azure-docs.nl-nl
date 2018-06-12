@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 728eb81d360af0d62d22cd6168b9e16edceefd56
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714388"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261182"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
 
@@ -57,7 +57,8 @@ In dit artikel gebruikt ter verbetering van de leesbaarheid van de beschrijvinge
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- De registratie van apparaten met Windows downlevel- **is** in niet-gefedereerde omgevingen via naadloze eenmalige aanmelding ondersteund [Azure Active Directory naadloze eenmalige aanmelding](https://aka.ms/hybrid/sso).
+- De registratie van apparaten met Windows downlevel- **is** in niet-gefedereerde omgevingen via naadloze eenmalige aanmelding ondersteund [Azure Active Directory naadloze eenmalige aanmelding](https://aka.ms/hybrid/sso). 
+- De registratie van apparaten met Windows downlevel- **is niet** ondersteund bij het gebruik van Azure AD Pass-through-verificatie.
 - De registratie van apparaten met Windows downlevel- **is niet** ondersteund voor apparaten met behulp van zwervende profielen. Als u gebruik van zwervende profielen of instellingen, gebruikt u Windows 10.
 
 
@@ -81,8 +82,7 @@ Zorg ervoor dat de volgende URL's toegankelijk vanaf computers in het netwerk va
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com Toestaan
 - https://device.login.microsoftonline.com
 
 - Uw organisatie STS (federatieve domeinen)
@@ -95,7 +95,7 @@ Als uw organisatie is wilt naadloze eenmalige aanmelding gebruiken, zijn de volg
 
 - https://aadg.windows.net.nsatc.net
 
-- Ook de volgende instelling in de intranetzone van de gebruiker moet worden ingeschakeld: 'Updates voor de statusbalk via script toestaan'.
+- Ook de volgende instelling in de intranetzone van de gebruiker moet worden ingeschakeld: 'Balk statusupdates via script toestaan'.
 
 Als uw organisatie gebruikmaakt van de beheerde (niet-gefedereerde)-installatie met on-premises AD en maakt geen gebruik van AD FS wilt federeren met Azure AD en hybride Azure AD join op Windows 10 is afhankelijk van de computerobjecten in AD worden sync'ed naar Azure AD. Zorg ervoor dat een organisatie-eenheden (OE) die de computerobjecten bevatten die moeten worden hybride die lid zijn van Azure AD zijn ingeschakeld voor synchronisatie in de configuratie van de Azure AD Connect-synchronisatie.
 

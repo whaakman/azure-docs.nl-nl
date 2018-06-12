@@ -17,11 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0f535e8a74822319d472c62fe1b65e5145e58a74
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261641"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Verificatie-scenario's voor Azure AD
 
@@ -137,7 +138,7 @@ Deze sectie beschrijft een toepassing die een gebruiker in een webbrowser naar e
 1. Wanneer een gebruiker bezoekt de toepassing en behoeften aan te melden, worden ze omgeleid via een aanvraag-in voor het eindpunt voor authenticatie in Azure AD.
 1. De gebruiker zich aanmeldt op de aanmeldingspagina.
 1. Als verificatie geslaagd is, wordt Azure AD maakt geen verificatietoken en retourneert een antwoord aanmelden aan antwoord-URL voor de toepassing die is geconfigureerd in de Azure portal. Voor een productietoepassing moet dit antwoord-URL HTTPS. Het resulterende token bevat claims over de gebruiker en de Azure AD die nodig zijn voor de toepassing voor het valideren van het token.
-1. De toepassing valideert het token met behulp van een openbare ondertekeningssleutel en informatie over de uitgever beschikbaar bij het document met federatieve metagegevens voor Azure AD. Azure AD gestart nadat de toepassing het token valideert, een nieuwe sessie met de gebruiker. Deze sessie kan de gebruiker toegang tot de toepassing totdat deze verloopt.
+1. De toepassing valideert het token met behulp van een openbare ondertekeningssleutel en informatie over de uitgever beschikbaar bij het document met federatieve metagegevens voor Azure AD. Nadat de toepassing het token valideert, wordt er een nieuwe sessie gestart met de gebruiker. Deze sessie kan de gebruiker toegang tot de toepassing totdat deze verloopt.
 
 #### <a name="code-samples"></a>Codevoorbeelden
 

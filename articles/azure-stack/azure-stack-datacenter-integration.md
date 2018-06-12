@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261213"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Aandachtspunten voor Datacenter-integratie voor Azure-Stack geïntegreerd systemen
 Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u enkele van de belangrijke planningsoverwegingen rond de implementatie en hoe het systeem in uw datacenter past begrijpen. Dit artikel bevat een overzicht van deze overwegingen bij de infrastructuur van belangrijke beslissingen voor uw Azure-Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met uw hardwareleverancier OEM als ze Azure Stack op uw datacenter implementeren.  
@@ -134,9 +135,9 @@ De volgende tabel geeft een overzicht van de hybride verbinding scenario's met p
 
 | Scenario | Connectiviteit methode | Professionals | Nadelen | Goede voor |
 | -- | -- | --| -- | --|
-| Eén tenant Azure Stack, implementatie op een intranet | Uitgaande NAT | Grotere bandbreedte voor snellere overdrachten. Eenvoudig te implementeren; Er zijn geen gateways dat nodig is. | Verkeer dat niet is versleuteld. Er is geen isolatie- of -versleuteling buiten de TOR. | In bedrijfsimplementaties waar alle huurders evenveel vertrouwd zijn.<br><br>Ondernemingen die u een Azure ExpressRoute-circuit naar Azure hebt. |
+| Eén tenant Azure Stack, implementatie op een intranet | Uitgaande NAT | Grotere bandbreedte voor snellere overdrachten. Eenvoudig te implementeren; Er zijn geen gateways dat nodig is. | Verkeer dat niet is versleuteld. Er is geen isolatie- of -versleuteling buiten de stack. | In bedrijfsimplementaties waar alle huurders evenveel vertrouwd zijn.<br><br>Ondernemingen die u een Azure ExpressRoute-circuit naar Azure hebt. |
 | Multitenant Azure Stack, implementatie op een intranet | Site-naar-site VPN | Verkeer van de tenant VNet naar de bestemming is beveiligd. | Bandbreedte wordt beperkt door de site-naar-site VPN-tunnel.<br><br>Vereist een gateway in het virtuele netwerk en een VPN-apparaat op het doelnetwerk. | In bedrijfsimplementaties waar sommige tenantverkeer moeten van andere tenants worden beveiligd. |
-| Eén tenant Stack in Azure, internet-implementatie | Uitgaande NAT | Grotere bandbreedte voor snellere overdrachten. | Verkeer dat niet is versleuteld. Er is geen isolatie- of -versleuteling buiten de TOR. | Hostingscenario's waarin de tenant opgehaald hun eigen Azure Stack-implementatie en een speciaal circuit aan de Stack van Azure-omgeving. ExpressRoute en Multiprotocol Label overschakelen (MPLS).
+| Eén tenant Stack in Azure, internet-implementatie | Uitgaande NAT | Grotere bandbreedte voor snellere overdrachten. | Verkeer dat niet is versleuteld. Er is geen isolatie- of -versleuteling buiten de stack. | Hostingscenario's waarin de tenant opgehaald hun eigen Azure Stack-implementatie en een speciaal circuit aan de Stack van Azure-omgeving. ExpressRoute en Multiprotocol Label overschakelen (MPLS).
 | Multitenant-Stack voor Azure, internet-implementatie | Site-naar-site VPN | Verkeer van de tenant VNet naar de bestemming is beveiligd. | Bandbreedte wordt beperkt door de site-naar-site VPN-tunnel.<br><br>Vereist een gateway in het virtuele netwerk en een VPN-apparaat op het doelnetwerk. | Hostingscenario's waarin de provider wil bieden een multitenant-cloud, waar de tenants niet vertrouwt elkaar en verkeer moeten worden versleuteld.
 |  |  |  |  |  |
 

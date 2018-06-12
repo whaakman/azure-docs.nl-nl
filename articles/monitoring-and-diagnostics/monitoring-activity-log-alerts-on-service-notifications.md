@@ -1,22 +1,19 @@
 ---
-title: Activiteit logboek meldingen ontvangen op Azure servicemeldingen | Microsoft Docs
+title: Activiteit logboek meldingen ontvangen over Azure-service-meldingen
 description: Blijf op de hoogte via SMS of e-mail webhook wanneer Azure service optreedt.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/09/2018
 ms.author: johnkem
-ms.openlocfilehash: b4c4fdeb825bbcab54f074c5224140282a24d196
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: alerts
+ms.openlocfilehash: 01dc3a3c6489b694af26c78ae3b4756f3e8f00b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263113"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Het maken van de activiteit logboek waarschuwingen op servicemeldingen
 ## <a name="overview"></a>Overzicht
@@ -51,17 +48,22 @@ Zie voor meer informatie over de service health meldingen om waarschuwingen te c
 
     ![De opdracht 'Service-statuswaarschuwing maken'](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. Voer een naam in de **waarschuwing logboeknaam activiteit** vak en geef een **beschrijving**.
+4. Selecteer de **abonnement**, **Services**, en **regio's** u wilt worden gewaarschuwd voor.
 
-    ![Het dialoogvenster 'Activiteit logboek waarschuwing toevoegen' in](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group-sh.png)
+    ![Het dialoogvenster 'Activiteit logboek waarschuwing toevoegen' in](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
-5. De **abonnement** vak autofills met uw huidige abonnement. Dit abonnement wordt gebruikt voor het opslaan van de activiteit logboek-waarschuwing. De waarschuwing resource wordt geïmplementeerd voor dit abonnement en gebeurtenissen in het gebeurtenissenlogboek voor bewaakt.
+> [!NOTE]
+> Dit abonnement wordt gebruikt voor het opslaan van de activiteit logboek-waarschuwing. De waarschuwing resource wordt geïmplementeerd voor dit abonnement en gebeurtenissen in het gebeurtenissenlogboek voor bewaakt.
 
-6. Selecteer de **resourcegroep** waarin de waarschuwing resource is gemaakt. Dit is de resourcegroep die wordt bewaakt door de waarschuwing niet. Het is in plaats daarvan de resourcegroep waar de waarschuwing bron zich bevindt.
+5. Kies de **gebeurtenistypen** u wilt worden gewaarschuwd voor: *Service probleem*, *gepland onderhoud*, en *Health aanbevelingen* 
 
-7. De **gebeurteniscategorie** vak automatisch ingesteld op **servicestatus**. Selecteer desgewenst de **Service**, **regio**, en **Type** van servicestatusmeldingen die u wilt ontvangen.
+6. Definieer de details van de waarschuwing door te geven een **waarschuwingsregel naam** en **beschrijving**.
 
-8. Onder **waarschuwing via**, selecteer de **nieuw** actieknop groep. Voer een naam in de **actie groepsnaam** vak en voer een naam in de **afkorting** vak. De korte naam wordt verwezen in de meldingen die worden verzonden wanneer deze waarschuwing wordt geactiveerd.
+7. Selecteer de **resourcegroep** waar u de waarschuwing op te slaan.
+
+8. Een nieuwe actiegroep maken door te selecteren **nieuwe actiegroep**. Voer een naam in de **actie groepsnaam** vak en voer een naam in de **afkorting** vak. De korte naam wordt verwezen in de meldingen die worden verzonden wanneer deze waarschuwing wordt geactiveerd.
+
+    ![Maak een nieuwe actiegroep](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
 9. Een lijst met ontvangers door te geven van de ontvanger definiëren:
 
@@ -71,7 +73,7 @@ Zie voor meer informatie over de service health meldingen om waarschuwingen te c
 
     c. **Details**: op basis van het actietype is gekozen, voer een telefoonnummer, e-mailadres, webhook URI, enzovoort.
 
-10. Selecteer **OK** de waarschuwing wilt maken.
+10. Selecteer **OK** om het actiegroep te maken en vervolgens **waarschuwingsregel maken** voltooien van de waarschuwing.
 
 Binnen een paar minuten de waarschuwing actief is en begint te activeren op basis van de voorwaarden die u hebt opgegeven tijdens het maken van.
 
@@ -86,9 +88,9 @@ Meer informatie over hoe [webhook meldingen configureren voor bestaande beheersy
 
 1. Volg de stappen 1 tot en met 7 in de vorige sectie voor het maken van de melding van de health service. 
 
-2. Onder **waarschuwing via**, selecteer de **bestaande** actieknop groep. Selecteer de juiste actie-groep.
+2. Onder **definiëren actiegroep**, klikt u op de **Selecteer actiegroep** knop. Selecteer de juiste actie-groep.
 
-3. Selecteer **OK** de waarschuwing wilt maken.
+3. Selecteer **toevoegen** de actiegroep toe te voegen en vervolgens **waarschuwingsregel maken** voltooien van de waarschuwing.
 
 Binnen een paar minuten de waarschuwing actief is en begint te activeren op basis van de voorwaarden die u hebt opgegeven tijdens het maken van.
 

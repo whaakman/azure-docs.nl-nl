@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ac3438f0c706988323318146965a87461dcce1e8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292834"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory integreren met toepassingen aan de slag
 ## <a name="overview"></a>Overzicht
@@ -64,7 +65,7 @@ Misschien niet hebt u al deze vragen worden beantwoord vooraf, maar dat is geen 
 Zoals eerder vermeld, worden toepassingen die nog niet is beheerd door uw organisatie tot op heden.  Als onderdeel van de procedure inventarisatie is het mogelijk om te zoeken naar niet-toegestane cloud-toepassingen. Zie [zoeken naar niet-toegestane cloud-toepassingen met Cloud App Discovery](cloud-app-discovery.md).
 
 ### <a name="authentication-types"></a>Verificatietypen
-Elk van uw toepassingen mogelijk andere verificatievereisten. Met Azure AD kan ondertekenen van certificaten worden gebruikt met toepassingen die gebruikmaken van SAML 2.0, WS-Federation, of OpenID Connect protocollen, evenals wachtwoord eenmalige aanmelding. Zie voor meer informatie over toepassing verificatietypen voor gebruik met Azure AD [certificaten beheren voor federatieve eenmalige aanmelding bij Azure Active Directory](../active-directory-sso-certs.md) en [eenmalige aanmelding op op basis van wachtwoorden](what-is-single-sign-on.md).
+Elk van uw toepassingen mogelijk andere verificatievereisten. Met Azure AD kan ondertekenen van certificaten worden gebruikt met toepassingen die gebruikmaken van SAML 2.0, WS-Federation, of OpenID Connect protocollen, evenals wachtwoord eenmalige aanmelding. Zie voor meer informatie over toepassing verificatietypen voor gebruik met Azure AD [certificaten beheren voor federatieve eenmalige aanmelding bij Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) en [eenmalige aanmelding op op basis van wachtwoorden](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Eenmalige aanmelding met Azure AD-toepassingsproxy inschakelen
 Met Microsoft Azure AD-toepassingsproxy, kunt u toegang tot toepassingen die zich bevinden binnen uw particuliere netwerk veilig, overal en op elk apparaat voorzien. Nadat u een connector voor toepassingsproxy hebt geïnstalleerd in uw omgeving, kan het eenvoudig met Azure AD geconfigureerd.
@@ -79,7 +80,7 @@ De volgende artikelen worden de verschillende manieren toepassingen integreren m
 ## <a name="managing-access-to-applications"></a>Het beheren van toegang tot toepassingen
 De volgende artikelen beschrijven manieren kunt u toegang tot toepassingen beheren wanneer ze zijn geïntegreerd met Azure AD dat gebruikmaakt van Azure AD-Connectors en Azure AD.
 
-* [Het beheren van toegang tot apps die gebruikmaken van Azure AD](../active-directory-managing-access-to-apps.md)
+* [Het beheren van toegang tot apps die gebruikmaken van Azure AD](what-is-access-management.md)
 * [Automatiseren met Azure AD-Connectors](../active-directory-saas-app-provisioning.md)
 * [Gebruikers toewijzen aan een toepassing](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Groepen toewijzen aan een toepassing](../active-directory-applications-guiding-developers-assigning-groups.md)

@@ -4,20 +4,21 @@ description: CDN caching regels kunt u instellen of wijzigen van standaardgedrag
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: 09705893c50e56cce5d888db097d7b810624b5d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4095ed763de378a673908d033d87b2aa6d72f13c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260003"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Besturingselement Azure CDN cachegedrag met caching van regels
 
@@ -26,11 +27,11 @@ ms.lasthandoff: 05/07/2018
  
 Azure Content Delivery Network (CDN) biedt twee manieren om te bepalen hoe uw bestanden in de cache opgeslagen: 
 
-- Regels opslaan in cache: dit artikel wordt beschreven hoe u content delivery network (CDN) opslaan in cache regels instellen of wijzigen van standaardgedrag cache verloopt zowel globaal en met aangepaste voorwaarden, zoals een URL-pad en de bestandsnaam uitbreiding kunt gebruiken. Azure CDN biedt twee typen regels opslaan in cache:
+- Regels opslaan in cache: dit artikel wordt beschreven hoe u content delivery network (CDN) opslaan in cache regels instellen of wijzigen van standaardgedrag cache verloopt zowel globaal en met aangepaste voorwaarden, zoals een URL-pad en de bestandsnaam uitbreiding kunt gebruiken. Azure CDN biedt twee typen regels voor opslaan in cache:
 
-   - Global regels opslaan in cache: U kunt een globale cacheregel voor elk eindpunt instellen in uw profiel dat gevolgen heeft voor alle aanvragen voor het eindpunt. De globale cacheregel overschrijft instructie cache HTTP-headers als ingesteld.
+   - Globale regels voor opslaan in cache: u kunt voor elk eindpunt in uw profiel één globale regel voor opslaan in cache instellen, die geldt voor alle aanvragen op het eindpunt. De globale regel voor opslaan in cache overschrijft alle HTTP-headers met cache-instructies, indien aanwezig.
 
-   - Aangepaste regels voor opslaan in cache: U kunt een of meer aangepaste caching regels voor elk eindpunt dat in uw profiel. Aangepaste regels overeen specifieke paden bestandsextensies, in volgorde worden verwerkt en overschrijven van de globale cacheregel caching als is ingesteld. 
+   - Aangepaste regels voor opslaan in cache: u kunt een of meer aangepaste regels voor opslaan in cache instellen voor elk eindpunt in uw profiel. Aangepaste regels voor opslaan in cache komen overeen met specifieke paden en bestandsextensies, worden in volgorde verwerkt en overschrijven de globale regel voor opslaan in cache, indien ingesteld. 
 
 - Query opslaan in cache: kunt u aanpassen hoe Azure CDN omgaat met aanvragen met querytekenreeksen in cache opslaan. Zie voor informatie [besturingselement Azure CDN cachegedrag met queryreeksen](cdn-query-string.md). Als het bestand geen caching geschikte is, heeft de queryreeks cache-instelling geen effect, op basis van regels en het standaardgedrag CDN caching.
 
@@ -41,13 +42,13 @@ Zie voor meer informatie over standaard cachegedrag en caching richtlijn headers
 
 1. De Azure portal openen, selecteer een CDN-profiel en selecteer vervolgens een eindpunt.
 
-2. Selecteer in het linkerdeelvenster onder instellingen **regels opslaan in cache**.
+2. Selecteer in het linkerdeelvenster onder Instellingen de optie **Regels voor opslaan in cache**.
 
-   ![Knop regels CDN opslaan in cache](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+   ![Knop Regels voor CDN-caching](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-   De **regels opslaan in cache** pagina wordt weergegeven.
+   De pagina **Regels voor opslaan in cache** wordt weergegeven.
 
-   ![Pagina regels CDN opslaan in cache](./media/cdn-caching-rules/cdn-caching-rules-page.png)
+   ![Pagina Regels voor CDN-caching](./media/cdn-caching-rules/cdn-caching-rules-page.png)
 
 
 ## <a name="caching-behavior-settings"></a>Van caching-gedraginstellingen
@@ -59,7 +60,7 @@ Voor globale en aangepaste regels in het cachegeheugen, kunt u de volgende **cac
 
 - **Indien deze ontbreken ingesteld**: EER oorsprong opgegeven instructie cache kopteksten, indien ze bestaan; anders gebruikt u de opgegeven Cacheduur.
 
-![Algemene regels voor opslaan in cache](./media/cdn-caching-rules/cdn-global-caching-rules.png)
+![Globale regels voor opslaan in cache](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 ![Aangepaste regels voor opslaan in cache](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
@@ -105,9 +106,14 @@ Globale en aangepaste cachebewerkingen regels worden verwerkt in de volgende vol
 Wanneer deze regels zijn ingesteld, een aanvraag voor  _&lt;hostnaam van het eindpunt&gt;_.azureedge.net/home/index.html triggers aangepaste caching #2, die is ingesteld op regel: **ingesteld indien deze ontbreken** en 3 aantal dagen. Daarom als de *index.html* bestand heeft `Cache-Control` of `Expires` HTTP-headers zijn gebruikt; anders, als deze headers zijn niet ingesteld, het bestand is opgeslagen in de cache voor 3 dagen.
 
 > [!NOTE] 
-> Bestanden die in de cache voordat de wijziging van een regel opgeslagen behouden hun duur van de oorsprong cache-instelling. Als u de duur van de cache herstellen, moet u [opschonen van het bestand](cdn-purge-endpoint.md). Voor **Azure CDN van Verizon** eindpunten, het kan tot 90 minuten duren voordat voor nieuwe regels over cache in te voeren.
+> Bestanden die in de cache voordat de wijziging van een regel opgeslagen behouden hun duur van de oorsprong cache-instelling. Als u de duur van de cache herstellen, moet u [opschonen van het bestand](cdn-purge-endpoint.md). 
+>
+> Azure CDN configuratiewijzigingen kunnen even duren worden doorgegeven via het netwerk: 
+> - Profielen van **Azure CDN Standard van Akamai** worden doorgaans binnen één minuut doorgegeven. 
+> - Voor **Azure CDN Standard van Verizon** profielen, doorgeven voltooid gewoonlijk in 10 minuten.  
+>
 
 ## <a name="see-also"></a>Zie ook
 
 - [Hoe caching werkt](cdn-how-caching-works.md)
-- [Zelfstudie: Set Azure CDN regels opslaan in cache](cdn-caching-rules-tutorial.md)
+- [Zelfstudie: Azure CDN-regels voor opslaan in cache instellen](cdn-caching-rules-tutorial.md)

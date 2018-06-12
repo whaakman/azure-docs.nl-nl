@@ -1,24 +1,19 @@
 ---
-title: Aan de slag met Azure Monitor | Microsoft Docs
+title: Aan de slag met Azure Monitor
 description: Ga aan de slag met Azure Monitor om inzicht te krijgen in de werking van uw resources en maatregelen te nemen op basis van gegevens.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: 05e9430dd8b7a14bc94869071cd145696f34567f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 70807db256f72b77bb29db3f6f59474a892f2939
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263358"
 ---
 # <a name="get-started-with-azure-monitor"></a>Aan de slag met Azure Monitor
 Azure Monitor is de platformservice die één bron biedt voor het bewaken van Azure-resources. Met Azure-Monitor kunt u visualiseren, query, routeren, archiveren en anders maatregelen nemen op de metrische gegevens en de logboeken die afkomstig zijn van bronnen in Azure. U kunt werken met het gebruik van deze gegevens met behulp van de Azure-portal [Monitor PowerShell-Cmdlets](insights-powershell-samples.md), [platformoverschrijdende CLI](insights-cli-samples.md), of [Monitor REST-API's van Azure](https://msdn.microsoft.com/library/dn931943.aspx). In dit artikel gebruiken we de demonstratieportal om enkele belangrijke onderdelen van Azure Monitor te belichten.
@@ -73,9 +68,9 @@ Azure Monitor is de platformservice die één bron biedt voor het bewaken van Az
 
     In de portal kunt u een lijst met alle resources binnen uw abonnement weergeven en filteren om te bepalen of diagnostische logboeken zijn ingeschakeld voor die resources.
     > [!NOTE]
-    > Verzenden van multidimensionale metrische gegevens via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte één dimensionale metrische gegevens, getotaliseerd over dimensiewaarden.
+    > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
     >
-    > *Bijvoorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een niveau van de wachtrij. Echter, wanneer geëxporteerd via diagnostische instellingen voor die de metrische gegevens worden weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
+    > *Een voorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Maar wanneer de metriek wordt geëxporteerd via diagnostische instellingen, geeft de metriek alle binnenkomende berichten in alle wachtrijen in de Event Hub aan.
     >
     >
 

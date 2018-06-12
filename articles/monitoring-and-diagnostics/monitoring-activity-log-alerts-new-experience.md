@@ -1,25 +1,19 @@
 ---
-title: Activiteit logboek waarschuwingen maken en beheren van deze nieuwe ervaring voor de waarschuwingen in de Azure-Monitor met | Microsoft Docs
-description: In dit artikel bevat informatie over het maken van de activiteit logboek waarschuwingen in het tabblad waarschuwingen onder Azure-Monitor
-author: JYOTHIRMAISURI
-manager: vvithal
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Gebruik van de activiteit logboek waarschuwingen in de nieuwe ervaring van de Monitor voor Azure-waarschuwingen
+description: Het maken van de activiteit logboek waarschuwingen van het tabblad waarschuwingen (Preview) onder Azure Monitor. In dit artikel wordt de nieuwe gebruikerservaring voor deze functie.
+author: jyothirmaisuri
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: ''
-ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 10cd4e2ea14ab66a44ba2123e025b3d1b91f385c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263557"
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Waarschuwingen met behulp van de nieuwe waarschuwingen optreden activiteitenlogboek maken
 
