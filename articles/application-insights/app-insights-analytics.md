@@ -2,7 +2,7 @@
 title: Analytics - krachtige zoeken en queryprogramma van Azure Application Insights | Microsoft Docs
 description: 'Overzicht van Analytics, het hulpprogramma krachtige diagnostische gegevens doorzoeken van de Application Insights. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294197"
 ---
 # <a name="analytics-in-application-insights"></a>Analytics in Application Insights
 Analytics is de krachtig hulpprogramma voor de zoekopdracht en van [Application Insights](app-insights-overview.md). Analytics is een hulpprogramma web zodat er zijn geen instellingen vereist. Als u Application Insights al hebt geconfigureerd voor een van uw apps, dan u uw app-gegevens analyseren kunt door het openen van Analytics van uw app [overzichtsblade](app-insights-dashboards.md).

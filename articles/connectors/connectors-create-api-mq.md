@@ -2,7 +2,7 @@
 title: Verbinding maken met server MQ - Azure Logic Apps | Microsoft Docs
 description: Verzenden en berichten met een Azure of on-premises MQ-server en Azure Logic Apps ophalen
 author: valthom
-manager: cfowler
+manager: jeconnoc
 ms.author: valthom
 ms.date: 06/01/2017
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 0877d0e9394d1a54eae5482001bd53da0e1a83b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6b34bd7b286ca3b206c611343217c90e0d57fbfb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609445"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295907"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Verbinding maken met een IBM MQ server vanuit logic apps met behulp van de connector MQ 
 

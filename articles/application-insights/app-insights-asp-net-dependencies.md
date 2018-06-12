@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: ee628f137761445be8871cf4df44e48231342f50
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234593"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293636"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: afhankelijkheid bijhouden
 Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Dit is doorgaans een service die is aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](app-insights-overview.md) maatregelen hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.

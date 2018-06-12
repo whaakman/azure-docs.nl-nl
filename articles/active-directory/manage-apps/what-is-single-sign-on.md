@@ -14,11 +14,12 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b185f53f8f13ebbe1efc57a99b7d65269f5559c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292888"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?
 Eenmalige aanmelding betekent wordt toegang tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, wanneer u zich aanmeldt slechts één keer met behulp van één gebruikersaccount. Wanneer u bent aangemeld, kunt u alle toepassingen zonder verificatie openen (bijvoorbeeld: Typ een wachtwoord) een tweede keer.
@@ -58,7 +59,7 @@ In dit scenario wanneer u al hebt geregistreerd in Azure AD en u wilt toegang kr
 
 Azure AD kan ondersteuning voor federatieve eenmalige aanmelding met toepassingen die ondersteuning bieden voor het SAML 2.0, WS-Federation, of OpenID connect protocollen.
 
-Zie ook: [beheren van certificaten voor federatieve eenmalige aanmelding](../active-directory-sso-certs.md)
+Zie ook: [beheren van certificaten voor federatieve eenmalige aanmelding](manage-certificates-for-federated-single-sign-on.md)
 
 ### <a name="password-based-single-sign-on"></a>Eenmalige aanmelding op basis van wachtwoord
 Configureren op basis van wachtwoorden eenmalige aanmelding kan de gebruikers in uw organisatie automatisch worden aangemeld bij een SaaS-toepassing van derden door Azure AD met behulp van de gegevens van de gebruikersaccount van de SaaS-toepassing van derden. Wanneer u deze functie inschakelt, wordt Azure AD verzameld en veilig opgeslagen gegevens van de gebruikersaccount en het bijbehorende wachtwoord.
@@ -193,7 +194,7 @@ Deze koppelingen de dezelfde mechanismen toegang gebruiken als het toegangspanee
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](../active-directory-saas-tutorial-list.md)
 * [Zoeken naar niet-toegestane cloud-toepassingen met Cloud App Discovery](cloud-app-discovery.md)
-* [Inleiding tot het beheren van toegang tot Apps](../active-directory-managing-access-to-apps.md)
+* [Inleiding tot het beheren van toegang tot Apps](what-is-access-management.md)
 * [Vergelijking van mogelijkheden voor het beheren van externe identiteiten in Azure AD](../active-directory-b2b-compare-b2c.md)
 
 

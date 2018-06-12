@@ -2,7 +2,7 @@
 title: Verbinding maken met de DB2 - Azure Logic Apps | Microsoft Docs
 description: Resources beheren met de DB2 REST-API's en Azure Logic Apps
 author: gplarsen
-manager: cfowler
+manager: jeconnoc
 ms.author: plarsen
 ms.date: 09/26/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, estfan
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 9e86273a8b614098aa77608386ab050c20926d23
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 507bc48b6b775d6a6fb5f855210d33520e187a74
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609746"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295088"
 ---
 # <a name="get-started-with-the-db2-connector"></a>Aan de slag met de DB2-connector
 Microsoft-connector voor DB2 verbindt Logic Apps met resources die zijn opgeslagen in een IBM DB2-database. Deze connector omvat een Microsoft-client om te communiceren met externe computers voor DB2-server via een TCP/IP-netwerk. Dit omvat cloud databases, zoals IBM Bluemix dashDB of IBM DB2 voor Windows wordt uitgevoerd in Azure virtualisatie en het on-premises databases die gebruikmaken van de lokale data gateway. Zie de [ondersteund lijst](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2-platformen en-versies (in dit onderwerp).

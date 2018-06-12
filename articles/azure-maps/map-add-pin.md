@@ -1,7 +1,7 @@
 ---
 title: Toevoegen van een pincode met Azure Maps | Microsoft Docs
 description: Het toevoegen van een pincode naar een Javascript-kaart
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: dc9649e94f5d1757e5ec65098ccc7e4ffa927bf0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 094abe08c0c88c7561185675ceb8529be2c87a0a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599854"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294645"
 ---
 # <a name="add-pins-to-the-map"></a>Pincodes toevoegen aan de kaart
 
@@ -34,3 +34,8 @@ In het tweede blok van code is een pincode gemaakt en toegevoegd aan de kaart. E
 Meer informatie over de klassen en methoden die worden gebruikt in dit artikel: 
 * [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+    
+Zie de volgende artikelen voor meer voorbeelden van programmacode toevoegen aan uw maps: 
+* [Een pop-up toevoegen](./map-add-popup.md)
+* [Een vorm toevoegen](./map-add-shape.md)
+

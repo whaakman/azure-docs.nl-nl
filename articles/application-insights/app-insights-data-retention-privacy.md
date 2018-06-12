@@ -2,7 +2,7 @@
 title: Bewaren van gegevens en opslag in Azure Application Insights | Microsoft Docs
 description: Beleidsverklaring bewaren en privacy
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294063"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -158,13 +159,13 @@ De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u ku
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Klassen van gegevens die worden verzonden in verschillende scenario 's
 | De actie | Gegevensklassen verzameld (Zie de volgende tabel) |
 | --- | --- |
-| [Application Insights-SDK toevoegen aan een .NET-webproject][greenbrown] |ServerContext<br/>Afgeleid<br/>-Prestatiemeteritems<br/>Aanvragen<br/>**Uitzonderingen**<br/>Sessie<br/>gebruikers |
-| [Statusmonitor installeren op IIS][redfield] |Afhankelijkheden<br/>ServerContext<br/>Afgeleid<br/>-Prestatiemeteritems |
+| [Application Insights-SDK toevoegen aan een .NET-webproject][greenbrown] |ServerContext<br/>Afgeleid<br/>Prestatiemeteritems<br/>Aanvragen<br/>**Uitzonderingen**<br/>Sessie<br/>gebruikers |
+| [Statusmonitor installeren op IIS][redfield] |Afhankelijkheden<br/>ServerContext<br/>Afgeleid<br/>Prestatiemeteritems |
 | [Application Insights-SDK toevoegen aan een Java-web-app][java] |ServerContext<br/>Afgeleid<br/>Aanvraag<br/>Sessie<br/>gebruikers |
 | [JavaScript-SDK toevoegen aan webpagina 's][client] |ClientContext <br/>Afgeleid<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Standaard-eigenschappen definiëren][apiproperties] |**Eigenschappen** op alle standaard- en aangepaste gebeurtenissen |
 | [Aanroep TrackMetric][api] |Numerieke waarden<br/>**Eigenschappen** |
-| [Aanroep bijhouden *][api] |De naam van gebeurtenis<br/>**Eigenschappen** |
+| [Aanroep bijhouden *][api] |Gebeurtenisnaam<br/>**Eigenschappen** |
 | [Aanroep TrackException][api] |**Uitzonderingen**<br/>Stackdump<br/>**Eigenschappen** |
 | SDK kan geen gegevens verzamelen. Bijvoorbeeld: <br/> -heeft geen toegang tot prestatiemeteritems<br/> -uitzondering in telemetrie initialisatiefunctie |SDK diagnostische gegevens |
 
@@ -189,14 +190,14 @@ Voor [SDK's voor andere platforms][platforms], Zie hun documenten.
 | **Uitzonderingen** |Type **bericht**, stacks aanroepen, bron- en regelnummer number, thread-id |
 | Crashes |Proces-id, proces-id van bovenliggende, crashes thread-id; toepassingspatch, -id, build;  uitzonderingstype, adres, reden; verborgen symbolen en registers binaire begin- en -adressen, binaire naam en pad, cpu-type |
 | Tracering |**Bericht** en ernst |
-| -Prestatiemeteritems |Processortijd, beschikbaar geheugen, frequentie van aanvragen, uitzondering snelheid, proces eigen bytes, i/o-snelheid, duur van de aanvraag, lengte van aanvraagwachtrij |
+| Prestatiemeteritems |Processortijd, beschikbaar geheugen, frequentie van aanvragen, uitzondering snelheid, proces eigen bytes, i/o-snelheid, duur van de aanvraag, lengte van aanvraagwachtrij |
 | Beschikbaarheid |Web-test antwoord-code, de duur van elke stap, naam van test, timestamp, geslaagd, reactietijden, testlocatie |
 | SDK diagnostische gegevens |Trace-bericht of uitzondering |
 
 U kunt [enkele van de gegevens door te bewerken ApplicationInsights.config uitschakelen][config]
 
 ## <a name="credits"></a>Tegoed
-Dit product bevat GeoLite2 gegevens die zijn gemaakt door MaxMind beschikbaar is via [http://www.maxmind.com](http://www.maxmind.com).
+Dit product bevat GeoLite2 gegevens die zijn gemaakt door MaxMind beschikbaar is via [ http://www.maxmind.com ](http://www.maxmind.com).
 
 
 

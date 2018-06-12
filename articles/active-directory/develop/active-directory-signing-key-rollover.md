@@ -16,11 +16,12 @@ ms.date: 07/18/2016
 ms.author: celested
 ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 02d7cb28411e0baec20d334994b385dcd3b06451
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293378"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Ondertekening sleutelrollover in Azure Active Directory
 Dit artikel wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) voor het ondertekenen van beveiligingstokens. Het is belangrijk te weten dat deze rollover voor sleutels op periodieke basis en, in een noodsituatie onmiddellijk kan worden overgeschakeld. Alle toepassingen die gebruikmaken van Azure AD moeten kunnen programmatisch verwerken van het proces sleutelrollover of een overschakeling van de periodieke handmatige proces tot stand brengen. Blijven lezen om te begrijpen hoe de sleutels werken, het beoordelen van de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of tot stand brengen van een overschakeling van de periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig.
@@ -50,7 +51,7 @@ Hoe uw toepassing sleutelrollover verwerkt, is afhankelijk van variabelen zoals 
 
 Dit advies is **niet** van toepassing op:
 
-* Toepassingen die zijn toegevoegd vanuit Azure AD-Toepassingsgalerie (met inbegrip van aangepaste) hebben afzonderlijke richtlijnen met betrekking tot het ondertekenen van sleutels. [Meer informatie.](../active-directory-sso-certs.md)
+* Toepassingen die zijn toegevoegd vanuit Azure AD-Toepassingsgalerie (met inbegrip van aangepaste) hebben afzonderlijke richtlijnen met betrekking tot het ondertekenen van sleutels. [Meer informatie.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * Een on-premises toepassingen die zijn gepubliceerd via toepassingsproxy hoeft over het ondertekenen van sleutels.
 
 ### <a name="nativeclient"></a>Systeemeigen clienttoepassingen toegang krijgen tot bronnen

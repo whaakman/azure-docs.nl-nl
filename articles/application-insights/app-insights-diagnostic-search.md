@@ -2,7 +2,7 @@
 title: Met de zoekfunctie in Azure Application Insights | Microsoft Docs
 description: Zoeken en filteren onbewerkte telemetrie verzonden door uw web-app.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294381"
 ---
 # <a name="using-search-in-application-insights"></a>Met behulp van zoeken in Application Insights
 Search is een functie van [Application Insights](app-insights-overview.md) waarmee u kunt vinden en verkennen afzonderlijke telemetrie-items, zoals uitzonderingen, paginaweergaven of web-aanvragen. En u kunt bekijken logboektraceringen en gebeurtenissen die u hebt gecodeerd.
@@ -113,9 +114,9 @@ Het is raadzaam een bereik, zoekopdrachten over een kortere bereik zijn sneller 
 
 Zoeken naar volledige woorden, niet subtekenreeksen. Aanhalingstekens moet u speciale tekens.
 
-| Tekenreeks | is *niet* gevonden door | maar deze worden gevonden |
+| tekenreeks | is *niet* gevonden door | maar deze worden gevonden |
 | --- | --- | --- |
-| HomeController.About |thuis<br/>Domeincontroller<br/>out | homecontroller<br/>over<br/>'homecontroller.about'|
+| HomeController.About |start<br/>Domeincontroller<br/>out | homecontroller<br/>info<br/>'homecontroller.about'|
 |Verenigde Staten|UNI<br/>Ted|Verenigd<br/>statussen<br/>Verenigde Staten en<br/>'Verenigde Staten'
 
 Hier volgen de search-expressies die u kunt gebruiken:
@@ -166,7 +167,7 @@ Naast de out-of-the-box-telemetrie verzonden door de Application Insights-SDK, k
 
 [Ontdek hoe logboeken en aangepaste telemetrie verzendt naar Application Insights](app-insights-asp-net-trace-logs.md).
 
-## <a name="questions"></a>MET Q & A
+## <a name="questions"></a>MET Q &AMP; A
 ### <a name="limits"></a>Hoeveel gegevens behouden blijven?
 
 Zie de [limieten samenvatting](app-insights-pricing.md#limits-summary).

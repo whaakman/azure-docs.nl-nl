@@ -4,7 +4,7 @@ description: Azure CDN-queryreeks opslaan in cache bepaalt hoe bestanden worden 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: fcb4676325066dd6960070d996b1779fb3471dd9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: aa553dfc04a755be1169fa117ec66dd10ea75b54
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260427"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Besturingselement Azure CDN cachegedrag met queryreeksen - standard-laag
 > [!div class="op_single_selector"]
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 > 
 
 ## <a name="overview"></a>Overzicht
-Met Azure Content Delivery Network (CDN), kunt u bepalen hoe bestanden in cache zijn opgeslagen voor een webaanvraag die een queryreeks bevat. In een webaanvraag met een queryreeks bevat is de query-tekenreeks het gedeelte van de aanvraag die wordt uitgevoerd na een vraagteken (?). Een queryreeks bevat, kan een of meer sleutel-waardeparen, waarbij de veldnaam en de waarde ervan worden gescheiden door een gelijkteken (=) bevatten. Elke sleutel / waarde-paar wordt gescheiden door een en-teken (&). Bijvoorbeeld http:\//www.contoso.com/content.mov?field1=value1 & field2 = value2. Als er meer dan één sleutel / waarde-paar in een queryreeks van een aanvraag, is de volgorde niet van belang. 
+Met Azure Content Delivery Network (CDN), kunt u bepalen hoe bestanden in cache zijn opgeslagen voor een webaanvraag die een queryreeks bevat. In een webaanvraag met een queryreeks bevat is de query-tekenreeks het gedeelte van de aanvraag die wordt uitgevoerd na een vraagteken (?). Een queryreeks bevat, kan een of meer sleutel-waardeparen, waarbij de veldnaam en de waarde ervan worden gescheiden door een gelijkteken (=) bevatten. Elke sleutel / waarde-paar wordt gescheiden door een en-teken (&). Bijvoorbeeld: http:\//www.contoso.com/content.mov?field1=value1 & field2 = value2. Als er meer dan één sleutel / waarde-paar in een queryreeks van een aanvraag, is de volgorde niet van belang. 
 
 > [!IMPORTANT]
 > De Azure CDN standard en premium producten dezelfde querytekenreeks cache-functionaliteit bieden, maar de gebruikersinterface is. In dit artikel beschrijft de interface voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai** en **Azure CDN Standard van Verizon**. Voor deze query opslaan in cache met **Azure CDN Premium van Verizon**, Zie [besturingselement Azure CDN cachegedrag met queryreeksen - premium-laag](cdn-query-string-premium.md).
@@ -50,17 +51,17 @@ Drie beschikbare modi voor query-tekenreeks zijn beschikbaar:
    
 2. Klik in het linkerdeelvenster onder instellingen op **regels opslaan in cache**.
    
-    ![Knop regels CDN opslaan in cache](./media/cdn-query-string/cdn-caching-rules-btn.png)
+    ![Knop Regels voor CDN-caching](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. In de **queryreeks cachegedrag** lijst, selecteert u een query-tekenreeks-modus en klik op **opslaan**.
    
    ![CDN-queryreeks cacheopties](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> Omdat het duurt om de registratie te geven in CDN, wijzigingen in de cache tekenreeks mogelijk niet direct zichtbaar zijn:
-> - Voor **Azure CDN Standard van Microsoft** profielen, doorgeven voltooid gewoonlijk in tien minuten. 
-> - Voor **Azure CDN Standard van Akamai** profielen, doorgeven voltooit meestal binnen één minuut. 
-> - Voor **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen, doorgeven voltooit meestal binnen 90 minuten. 
+> Omdat het duurt om de registratie te verspreiden via Azure CDN, wijzigingen in de cache tekenreeks mogelijk niet onmiddellijk zichtbaar zijn:
+> - Voor profielen van **Azure CDN Standard van Microsoft** is het doorgeven gewoonlijk binnen 10 minuten voltooid. 
+> - Profielen van **Azure CDN Standard van Akamai** worden doorgaans binnen één minuut doorgegeven. 
+> - Voor **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen, doorgeven voltooid gewoonlijk in 10 minuten. 
 
 
 

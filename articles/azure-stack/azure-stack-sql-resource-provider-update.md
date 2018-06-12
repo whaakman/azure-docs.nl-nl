@@ -1,6 +1,6 @@
 ---
-title: Met behulp van SQL-databases op Azure-Stack | Microsoft Docs
-description: Meer informatie over hoe u SQL-databases kan implementeren als een service op Azure-Stack en de snelle stappen voor het implementeren van de SQL Server resource provider-adapter.
+title: Bijwerken van de Azure-Stack SQL-resourceprovider | Microsoft Docs
+description: Meer informatie over hoe u de Azure-Stack SQL-resourceprovider kunt bijwerken.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fd1c2241fe22dc35ceb09e0ba3650fa0000a77b1
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 3a7656e54181c8e8e7b6b1bd39f80ce8ed01c807
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603613"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294857"
 ---
-# <a name="update-the-sql-resource-provider-adapter"></a>Bijwerken van de SQL resource provider-adapter
-Een nieuwe SQL resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Terwijl de bestaande adapter werken blijft, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken. Updates moeten worden geïnstalleerd in volgorde: u kunt de versies niet overslaan (overzicht van de versies in [implementeert de vereisten van de provider resource](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
+# <a name="update-the-sql-resource-provider"></a>Bijwerken van de SQL-resourceprovider
+Een nieuwe resourceprovider voor SQL kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Terwijl de bestaande adapter werken blijft, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken. Updates moeten worden geïnstalleerd in volgorde: u kunt de versies niet overslaan (overzicht van de versies in [implementeert de vereisten van de provider resource](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
 
 Bijwerken van de resourceprovider die u gebruikt de *UpdateSQLProvider.ps1* script. Het proces is vergelijkbaar met het proces dat wordt gebruikt voor het installeren van een resourceprovider, zoals beschreven in de [implementeert de bronprovider](.\azure-stack-sql-resource-provider-deploy.md) artikel. Het script is opgenomen in het downloaden van de resourceprovider.
 
