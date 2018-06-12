@@ -28,7 +28,11 @@
 - name: Concepten
   items:
     - name: Overgang OMS-portal
-      href: log-analytics-oms-portal-faq.md
+      items:
+        - name: Overzicht
+          href: log-analytics-oms-portal-transition.md
+        - name: Veelgestelde vragen
+          href: log-analytics-oms-portal-faq.md
     - name: Upgrade van werkruimte
       items:
         - name: Overzicht van de upgrade

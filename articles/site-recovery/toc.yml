@@ -235,6 +235,8 @@
               href: vmware-azure-manage-configuration-server.md
             - name: De configuratieserver voor replicatie van fysieke server beheren
               href: physical-manage-configuration-server.md
+            - name: Processervers beheren
+              href: vmware-azure-manage-process-server.md
             - name: vCenter-servers beheren
               href: vmware-azure-manage-vcenter.md
             - name: Servers verwijderen en beveiliging uitschakelen
