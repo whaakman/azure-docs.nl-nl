@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/03/2018
 ms.author: glenga
-ms.openlocfilehash: 1dd5d0f11a063d013142948c7c87a98aefe02749
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725221"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294480"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
@@ -64,9 +64,9 @@ De volgende stappen gebruikt npm Core hulpprogramma's installeren op Windows. U 
 
 3. Installeer het pakket Core's:
 
-  ```bash
-  npm install -g azure-functions-core-tools@core
-  ```
+    ```bash
+    npm install -g azure-functions-core-tools@core
+    ```
 
 #### <a name="brew"></a>Mac OS met Homebrew
 
@@ -74,9 +74,9 @@ De volgende stappen gebruikt Homebrew de Core-hulpprogramma's installeren op Mac
 
 1. Installeer [.NET Core 2.0 voor Mac OS](https://www.microsoft.com/net/download/macos).
 
-1. Installeer [Homebrew](https://brew.sh/), als deze nog niet is geïnstalleerd.
+2. Installeer [Homebrew](https://brew.sh/), als deze nog niet is geïnstalleerd.
 
-2. Installeer het pakket Core's:
+3. Installeer het pakket Core's:
 
     ```bash
     brew tap azure/functions
@@ -89,42 +89,43 @@ De volgende stappen uitvoeren om [APT](https://wiki.debian.org/Apt) Core hulppro
 
 1. Installeer [.NET Core 2.0 voor Linux](https://www.microsoft.com/net/download/linux).
 
-1. De productcode van Microsoft als vertrouwd registreren:
+2. De productcode van Microsoft als vertrouwd registreren:
 
-  ```bash
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  ```
+    ```bash
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    ```
 
-2.  Controleer of dat uw Ubuntu server wordt uitgevoerd een van de juiste versies van de onderstaande tabel. De apt als bron wilt toevoegen, voert u het:
+3. Controleer of dat uw Ubuntu server wordt uitgevoerd een van de juiste versies van de onderstaande tabel. De apt als bron wilt toevoegen, voert u het:
 
-  ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-  sudo apt-get update
-  ```
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo apt-get update
+    ```
 
-  | Linux-distributie | Versie |
-  | --------------- | ----------- |
-  | Ubuntu 17.10    | `artful`    |
-  | Ubuntu 17.04    | `zesty`     |
-  | Ubuntu 16.04/Linux 18 voorkomt    | `xenial`  |
+    | Linux-distributie | Versie |
+    | --------------- | ----------- |
+    | Ubuntu 17.10    | `artful`    |
+    | Ubuntu 17.04    | `zesty`     |
+    | Ubuntu 16.04/Linux 18 voorkomt    | `xenial`  |
 
-3. Installeer het pakket Core's:
+4. Installeer het pakket Core's:
 
-  ```bash
-  sudo apt-get install azure-functions-core-tools
-  ```
+    ```bash
+    sudo apt-get install azure-functions-core-tools
+    ```
 
 ## <a name="run-azure-functions-core-tools"></a>Azure Functions Core hulpprogramma's uitvoeren
- 
+
 Azure Functions Core-hulpprogramma's worden de volgende opdracht aliassen toegevoegd:
-* **func**
-* **azfun**
-* **azurefunctions**
+
++ **func**
++ **azfun**
++ **azurefunctions**
 
 Elk van deze aliassen kan worden gebruikt waar `func` wordt weergegeven in de voorbeelden.
 
-```
+```bash
 func init MyFunctionProj
 ```
 
@@ -134,13 +135,13 @@ Wanneer lokaal wordt uitgevoerd, een project functies is een map die de bestande
 
 Voer de volgende opdracht om het project en lokale Git-opslagplaats te maken in het terminalvenster of vanaf een opdrachtprompt:
 
-```
+```bash
 func init MyFunctionProj
 ```
 
 De uitvoer lijkt op het volgende voorbeeld:
 
-```
+```output
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -166,8 +167,9 @@ Het bestand local.settings.json slaat app-instellingen, verbindingsreeksen en in
 {
   "IsEncrypted": false,   
   "Values": {
-    "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>" 
+    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsDashboard": "<connection-string>",
+    "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
     "LocalHttpPort": 7071, 
@@ -178,16 +180,17 @@ Het bestand local.settings.json slaat app-instellingen, verbindingsreeksen en in
   }
 }
 ```
+
 | Instelling      | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **isEncrypted** | Als de waarde **true**, alle waarden zijn versleuteld met een sleutel van de lokale computer. Gebruikt met `func settings` opdrachten. Standaardwaarde is **false**. |
-| **Waarden** | Verzameling toepassingsinstellingen gebruikt bij lokale uitvoering. **AzureWebJobsStorage** en **AzureWebJobsDashboard** zijn voorbeelden; Zie voor een volledige lijst [app naslaginformatie](functions-app-settings.md). Veel triggers en bindingen hebben een eigenschap die naar een app-instelling, zoals verwijst **verbinding** voor de Blob-opslag-trigger. Voor dergelijke eigenschappen, moet u een toepassingsinstelling gedefinieerd in de **waarden** matrix. Dit geldt ook voor elke bindingseigenschap die u op de naam van de instelling van een app instelt door de waarde in procenttekens, bijvoorbeeld `%AppSettingName%`. |
-| **Host** | Instellingen in deze sectie aanpassen het hostproces van de functies bij lokale uitvoering. | 
+| **Waarden** | Verzameling instellingen van toepassingen en verbindingsreeksen gebruikt bij lokale uitvoering. Deze komen overeen met app-instellingen in de functie-app in Azure, zoals **AzureWebJobsStorage** en **AzureWebJobsDashboard**. Veel triggers en bindingen hebben een eigenschap die naar een verbinding tekenreeks app-instelling, zoals verwijst **verbinding** voor de [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor dergelijke eigenschappen, moet u een toepassingsinstelling gedefinieerd in de **waarden** matrix. <br/>**AzureWebJobsStorage** is een vereiste app-instelling voor triggers dan HTTP. Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen **AzureWebJobsStorage** naar `UseDevelopmentStorage=true` en kernonderdelen maakt gebruik van de emulator. Dit is nuttig tijdens de ontwikkeling, maar u moet testen met een werkelijke opslagverbinding vóór de implementatie. |
+| **Host** | Instellingen in deze sectie aanpassen het hostproces van de functies bij lokale uitvoering. |
 | **LocalHttpPort** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie heeft voorrang op deze waarde. |
 | **CORS** | Definieert de oorsprongen toegestaan voor [cross-origin-resource delen (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
-| **ConnectionStrings** | De tekenreeksen voor databaseverbindingen voor uw functies bevat. Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype **System.Data.SqlClient**.  | 
+| **ConnectionStrings** | Gebruik voor de verbindingsreeksen die wordt gebruikt door uw functiebindingen geen deze verzameling. Deze verzameling wordt alleen gebruikt door frameworks die u verbindingsreeksen van ophalen moeten de **ConnectionStrings** sectie van een configuratie-bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling worden niet gepubliceerd naar Azure met andere appinstellingen. U moet deze waarden te expliciet toevoegen de **verbindingsreeksen** sectie van de **toepassingsinstellingen** voor functie-app. |
 
-Deze instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie voor meer informatie het gedeelte van de omgeving variabelen van de volgende onderwerpen taalspecifieke verwijzing:
+In uw code kunnen worden gelezen met de functie app-instellingen waarden als omgevingsvariabelen. Zie voor meer informatie het gedeelte van de omgeving variabelen van de volgende onderwerpen taalspecifieke verwijzing:
 
 + [Vooraf gecompileerd voor C#](functions-dotnet-class-library.md#environment-variables)
 + [C# script (.csx)](functions-reference-csharp.md#environment-variables)
@@ -195,26 +198,37 @@ Deze instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. 
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-Instellingen in het bestand local.settings.json worden alleen gebruikt door extra functies bij lokale uitvoering. Standaard worden deze instellingen niet gemigreerd automatisch wanneer het project wordt gepubliceerd naar Azure. Gebruik de `--publish-local-settings` overschakelen [bij het publiceren van](#publish) om ervoor te zorgen dat deze instellingen zijn toegevoegd aan de functie-app in Azure.
+Instellingen in het bestand local.settings.json worden alleen gebruikt door extra functies bij lokale uitvoering. Standaard worden deze instellingen niet gemigreerd automatisch wanneer het project wordt gepubliceerd naar Azure. Gebruik de `--publish-local-settings` overschakelen [bij het publiceren van](#publish) om ervoor te zorgen dat deze instellingen zijn toegevoegd aan de functie-app in Azure. De waarden in **ConnectionStrings** nooit worden gepubliceerd.
 
-Als er geen geldige opslagverbindingsreeks is ingesteld voor **AzureWebJobsStorage**, wordt het volgende foutbericht weergegeven:  
+Als er geen geldige opslagverbindingsreeks is ingesteld voor **AzureWebJobsStorage** en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:  
 
 >Ontbrekende waarde voor AzureWebJobsStorage in local.settings.json. Dit is vereist voor alle triggers dan HTTP. U kunt uitvoeren ' azure functionapp ophalen-app-instellingen van de func <functionAppName>' of een verbindingsreeks in local.settings.json opgeven.
-  
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-### <a name="configure-app-settings"></a>App-instellingen configureren
+### <a name="get-your-storage-connection-strings"></a>Uw storage-verbindingsreeksen ophalen
 
-Als u wilt een waarde voor verbindingsreeksen instelt, kunt u een van de volgende opties doen:
-* Geef de verbindingsreeks van [Azure Opslagverkenner](http://storageexplorer.com/).
-* Gebruik een van de volgende opdrachten:
+Zelfs wanneer u de opslagemulator gebruikt voor ontwikkeling, is het raadzaam om te testen met een werkelijke opslagverbinding. Ervan uitgaande dat u al hebt [gemaakt van een opslagaccount](../storage/common/storage-create-storage-account.md), krijgt u een geldige opslagverbindingsreeks in een van de volgende manieren:
 
-    ```
++ Van de [Azure Portal]. Navigeer naar uw opslagaccount, selecteer **toegangssleutels** in **instellingen**, kopieert u een van de **verbindingsreeks** waarden.
+
+  ![Kopieer de verbindingsreeks vanuit Azure-portal](./media/functions-run-local/copy-storage-connection-portal.png)
+
++ Gebruik [Azure Opslagverkenner](http://storageexplorer.com/) verbinding maken met uw Azure-account. In de **Explorer**, vouw uw abonnement, selecteer uw storage-account en kopieer de primaire of secundaire verbindingsreeks. 
+
+  ![Kopieer de verbindingsreeks vanuit Opslagverkenner](./media/functions-run-local/storage-explorer.png)
+
++ Core-hulpprogramma's gebruiken voor het downloaden van de verbindingsreeks van Azure met een van de volgende opdrachten:
+
+    + Alle instellingen voor downloaden van een bestaande functie-app:
+
+    ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    ```
+    + De verbindingsreeks ophalen voor een specifieke opslagaccount:
+
+    ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
+    
     Beide opdrachten moeten u de eerste aanmelding bij Azure.
 
 <a name="create-func"></a>
@@ -222,7 +236,7 @@ Als u wilt een waarde voor verbindingsreeksen instelt, kunt u een van de volgend
 
 Voer de volgende opdracht voor het maken van een functie:
 
-```
+```bash
 func new
 ``` 
 `func new` ondersteunt de volgende optionele argumenten:
@@ -235,21 +249,21 @@ func new
 
 Bijvoorbeeld: voor het maken van een JavaScript-HTTP-trigger uitvoeren:
 
-```
+```bash
 func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 Voer voor het maken van een functie wachtrij geactiveerd:
 
-```
+```bash
 func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```
+```bash
 <a name="start"></a>
-## <a name="run-functions-locally"></a>Functies lokaal uitvoeren
+## Run functions locally
 
-Uit de functies host een project functies uit te voeren. De host wordt ingeschakeld voor alle functies in het project triggers:
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```
+```bash
 func host start
 ```
 
@@ -268,7 +282,7 @@ func host start
 
 Wanneer de host functies wordt gestart, levert dit de URL van de HTTP-geactiveerde functies:
 
-```
+```bash
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -284,7 +298,7 @@ Gebruiken om fouten opsporen in C#-functies, `--debug vs`. U kunt ook [Azure Fun
 
 Voor het starten van de host en JavaScript foutopsporing ingesteld, worden uitgevoerd:
 
-```
+```bash
 func host start --debug vscode
 ```
 
@@ -314,12 +328,12 @@ Controleer of u de naam van dezelfde server en de poort die de functies host lui
 
 De volgende cURL-opdracht triggers de `MyHttpTrigger` Quick Start-functie van een aanvraag voor ophalen met de _naam_ parameter doorgegeven in de queryreeks. 
 
-```
+```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 Het volgende voorbeeld wordt dezelfde functie aangeroepen vanuit een POST-aanvraag doorgeven _naam_ in de aanvraagtekst:
 
-```
+```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
@@ -341,7 +355,7 @@ Testgegevens doorgeven aan het eindpunt van de beheerder van een functie, moet u
 ```` 
 De `<trigger_input>` waarde bevat gegevens in een indeling die werd verwacht door de functie. De volgende cURL-voorbeeld is een POST opgegeven naar een `QueueTriggerJS` functie. In dit geval wordt is de invoer een tekenreeks die gelijk is aan het bericht dat naar verwachting worden gevonden in de wachtrij.      
 
-```
+```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
 ```
 
@@ -364,7 +378,7 @@ U kunt ook een functie aanroepen via `func run <FunctionName>` en invoergegevens
 
 Voer bijvoorbeeld de volgende opdracht om een HTTP-geactiveerde functie aanroepen en hoofdinhoud doorgeven:
 
-```
+```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -376,7 +390,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Voor het publiceren van een project functies in een functie-app in Azure, gebruiken de `publish` opdracht:
 
-```
+```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -384,7 +398,7 @@ U kunt de volgende opties gebruiken:
 
 | Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, waarin wordt gevraagd om te overschrijven als de instelling bestaat al.|
+| **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, waarin wordt gevraagd om te overschrijven als de instelling bestaat al. Als u de opslagemulator gebruikt, wijzigt u de app-instelling op een [werkelijke opslagverbinding](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Moet worden gebruikt met `-i`. Overschrijft AppSettings in Azure met lokale waarde als deze verschilt. De standaardwaarde is vragen.|
 
 Met deze opdracht publiceert naar een bestaande functie-app in Azure. Een fout optreedt wanneer de `<FunctionAppName>` bestaat niet in uw abonnement. Zie voor informatie over het maken van een functie-app vanuit de opdrachtprompt of terminalvenster met de Azure CLI, [maken van een functie-App voor uitvoering zonder server](./scripts/functions-cli-create-serverless.md).

@@ -6,47 +6,51 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 9256f7af5b4d5aa8e523dd1b5b1d8d3eaebfd626
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8b7f0675c1bbf378d02eb52843caf27a1dce2fb8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34804767"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301198"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implementeren van een migratie-infrastructuur
 
-In dit artikel biedt gedetailleerde kijken hoe Contoso stelt hun on-premises en Azure-infrastructuur ter voorbereiding voor de migratie naar Azure, en voor het uitvoeren van hun bedrijf in een hybride omgeving. Het is een voorbeeldarchitectuur die specifiek is voor Contoso. Of u alle deze elementen moet is afhankelijk van uw strategie voor migratie. Bijvoorbeeld, als u alleen cloud-systeemeigen apps in Azure maakt, moet u mogelijk een minder complexe netwerken structuur.
+In dit artikel wordt gecontroleerd hoe Contoso stelt u een on-premises en Azure-infrastructuur ter voorbereiding voor migratie naar Azure, en voor het uitvoeren van het bedrijf in een hybride omgeving.
 
-Dit document is de tweede reeks artikelen waarin hoe hun lokale bronnen in het fictieve bedrijf Contoso worden gemigreerd naar de Microsoft Azure-cloud. De reeks bevat achtergrondinformatie en een reeks implementatiescenario's die aangeven hoe u een migratie-infrastructuur, beoordelen de geschiktheid van lokale bronnen voor migratie en verschillende soorten migraties worden uitgevoerd. Scenario's toenemen in complexiteit en worden er nog meer artikelen gedurende een bepaalde periode.
+- Het is een voorbeeldarchitectuur die specifiek is voor Contoso.
+- Of u alle elementen die worden beschreven in het artikel moet is afhankelijk van uw strategie voor migratie. Bijvoorbeeld, als u alleen cloud-systeemeigen apps in Azure maakt, moet u mogelijk een minder complexe netwerken structuur.
+
+Dit document is de tweede reeks artikelen die hoe het fictieve bedrijf dat Contoso migreert lokale bronnen in de Microsoft Azure-cloud-document. De reeks bevat achtergrondinformatie en een set van implementatiescenario's die laat zien hoe u een migratie-infrastructuur, beoordelen de geschiktheid van lokale bronnen voor migratie en verschillende soorten migraties worden uitgevoerd. Scenario's toenemen in complexiteit en worden er nog meer artikelen gedurende een bepaalde periode.
 
 **Artikel** | **Details** | **Status**
 --- | --- | ---
-Artikel 1: overzicht | Biedt een overzicht van de strategie voor de migratie van Contoso, de serie artikelen en de voorbeeld-apps we gebruiken. | Beschikbaar
+[Artikel 1: overzicht](contoso-migration-overview.md) | Biedt een overzicht van de strategie voor de migratie van Contoso, de serie artikelen en de voorbeeld-apps we gebruiken. | Beschikbaar
 Artikel 2: Een Azure-infrastructuur (in dit artikel) implementeren | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. De infrastructuur wordt gebruikt voor alle Contoso migratiescenario's. | Beschikbaar
-Artikel 3: Beoordelen lokale bronnen | Toont hoe een beoordeling van de lokale twee lagen SmartHotel app uitgevoerd in VMware in Contoso wordt uitgevoerd. Evalueren van de virtuele machines van een app met de [Azure migreren](migrate-overview.md) -service en de app SQL Server-database met de [Azure Database migratie-assistent](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
-Artikel 4: Verander (lift-en-shift) naar Azure VM's en een SQL-exemplaar beheerd | Demonstreert hoe Contoso de app SmartHotel migreert naar Azure. Migreren van de app frontend virtuele machine met behulp [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database met de [Azure databasemigratie](https://docs.microsoft.com/azure/dms/dms-overview) service om te migreren naar een SQL-exemplaar worden beheerd. | Beschikbaar
-Artikel 5: Verander (lift-en-shift) virtuele Azure-machines | Toont hoe Contoso hun app SmartHotel met Site Recovery alleen virtuele machines migreert.
-Artikel 6: Verander (lift-en-shift) naar Azure VM's en SQL Server-beschikbaarheidsgroepen | Toont hoe de app SmartHotel in Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van virtuele machines van de app en de migratie van de Database-service om te migreren van de app-database naar een SQL Server-beschikbaarheidsgroep. | Beschikbaar
-Artikel 7: Verander (lift-en-shift) naar Azure VM's en Azure MySQL-Server | Demonstreert hoe Contoso de SmartHotel app virtuele machines migreren met behulp van Site Recovery en MySQL Workbench (back-up en herstel) migreert naar een Azure MySQL Server-exemplaar. | Beschikbaar
+[Artikel 3: Beoordelen lokale bronnen](contoso-migration-assessment.md) | Toont hoe een beoordeling van de lokale twee lagen SmartHotel app uitgevoerd in VMware in Contoso wordt uitgevoerd. Evalueren van de virtuele machines van een app met de [Azure migreren](migrate-overview.md) -service en de app SQL Server-database met de [Azure Database migratie-assistent](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
+[Artikel 4: Rehost virtuele machines in Azure en een beheerde SQL-exemplaar](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstreert hoe Contoso de app SmartHotel migreert naar Azure. Migreren van de app frontend virtuele machine met behulp [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database met de [Azure databasemigratie](https://docs.microsoft.com/azure/dms/dms-overview) service om te migreren naar een SQL-exemplaar worden beheerd. | Beschikbaar
+[Artikel 5: Rehost voor virtuele machines in Azure](contoso-migration-rehost-vm.md) | Toont hoe Contoso hun app SmartHotel met Site Recovery alleen virtuele machines migreert.
+[Artikel 6: Rehost virtuele machines in Azure en SQL Server-beschikbaarheidsgroepen](contoso-migration-rehost-vm-sql-ag.md) | Toont hoe de app SmartHotel in Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van virtuele machines van de app en de migratie van de Database-service om te migreren van de app-database naar een SQL Server-beschikbaarheidsgroep. | Beschikbaar
+[Artikel 7: Een app Linux virtuele machines in Azure Rehost](contoso-migration-rehost-linux-vm.md) | Demonstreert hoe Contoso de osTicket Linux app migreert naar Azure VM's. | Beschikbaar
+[Artikel 8: Rehost een Linux-app voor virtuele machines in Azure en Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstreert hoe Contoso de Linux osTicket-app met Site Recovery en MySQL-Workbench om te migreren (back-up en herstel) migreert naar een Azure MySQL Server-exemplaar. | Beschikbaar
 
-Als u wilt gebruiken van de voorbeeld-app in dit artikel gebruikt, opgegeven als open source en kunt u het downloaden van [github](https://github.com/Microsoft/SmartHotel360).
+In dit artikel die Contoso alle Infrastructuurelementen instellen, moeten ze de migratiescenario's worden voltooid. 
 
 
 ## <a name="overview"></a>Overzicht
 
 Voordat u ze kunnen migreren naar Azure, is het essentieel dat Contoso hun infrastructuur voorbereiden.  Er zijn in het algemeen vijf brede gebieden die ze nodig hebben bij het nadenken over:
 
-1. **Azure-abonnementen**: hoe worden ze kopen en communiceren met de Azure-platform en -services?
+1. **Azure-abonnementen**: hoe worden ze kopen van Azure en communiceren met de Azure-platform en -services?
 2. **Hybride identiteit**: hoe worden ze beheren en toegang tot on-premises en Azure-resources na de migratie controleren? Hoe ze uitbreiden of identiteitsbeheer verplaatsen naar de cloud?
 3. **Herstel na noodgevallen en herstelmogelijkheden**: hoe zorgt ze ervoor dat de apps en de infrastructuur robuuste zijn als stroomstoringen en noodsituaties optreedt?
-4. **Networking**: hoe moeten ze het ontwerpen van uw netwerkinfrastructuur en tot stand brengen van verbinding met lokale en in Azure?
-5. **Beveiliging en beheeracties**: hoe worden hun uw hybride/Azure-implementatie wilt beveiligen, en in overeenstemming met de vereisten voor beveiliging en beheeracties?
+4. **Networking**: hoe moeten ze het ontwerpen van uw netwerkinfrastructuur en stel de verbinding tussen hun on-premises datacentrum en Azure?
+5. **Beveiliging en beheeracties**: hoe ze beveiligt hun hybride/Azure-implementatie, en houd het afgestemd op beveiliging en beheeracties vereisten?
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Voordat we kijken naar de infrastructuur, kunt u sommige achtergrondinformatie over de mogelijkheden van Azure die we in dit artikel bespreken lezen:
+Voordat we kijken naar de infrastructuur, kunt u sommige achtergrondinformatie over de mogelijkheden van Azure in dit artikel besproken lezen:
 
 - Er zijn een aantal opties beschikbaar op de aanschaf van Azure toegang, met inbegrip van betalen naar gebruik, Enterprise overeenkomsten (EA), of Open licenties van Microsoft resellers of van Microsoft-Partners weten als Cloud Solution Providers (CSP's). Meer informatie over [aanschafopties](https://azure.microsoft.com/pricing/purchase-options/), en meer informatie over het [Azure-abonnementen zijn ingedeeld](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).
 - Een overzicht van Azure [identiteits-en](https://www.microsoft.com/en-us/trustcenter/security/identity). Met name informatie over [Azure AD en uitbreiden van on-premises AD naar de cloud](https://docs.microsoft.com/azure/active-directory/identity-fundamentals). Er is een nuttig downloadbare e-book over [identiteits- en toegangsbeheer management (IAM) in een hybride omgeving](https://azure.microsoft.com/resources/hybrid-cloud-identity/).
@@ -62,7 +66,7 @@ Hier volgt een diagram die de huidige on-premises infrastructuur voor Contoso.
 
 - Contoso heeft één belangrijkste datacenter zich bevinden in de plaats van New York in het oostelijk deel van de Verenigde Staten.
 - Drie extra lokale takken hebben ze in de Verenigde Staten.
-- Het belangrijkste datacenter is verbonden met internet via een fibre metro ethernet-verbinding (500 mbps).
+- Het belangrijkste datacenter is verbonden met internet via een fiber metro ethernet-verbinding (500 mbps).
 - Elke vertakking is lokaal verbonden met internet met behulp van zakelijke klasse-verbindingen met IPSec VPN-tunnels terug naar het belangrijkste datacenter. Hierdoor hun gehele netwerk permanent zijn verbonden en optimaliseert de verbinding met internet.
 - Het belangrijkste datacenter wordt volledig gevirtualiseerd met VMware. Ze hebben twee ESXi 6.5 virtualisatie-hosts worden beheerd door de vCenter-Server 6.5.
 - Contoso maakt gebruik van Active Directory voor identiteitsbeheer en DNS-servers in het interne netwerk.
@@ -87,8 +91,8 @@ Contoso gaat met een [Enterprise Agreement (EA)](https://azure.microsoft.com/pri
 Nadat u betaalt voor Azure, moet Contoso bepalen hoe hun abonnementen wilt beheren. Hebben ze een EA, en dus geen limiet voor het aantal Azure-abonnementen in te stellen.
 
 - Een Azure Enterprise-inschrijving wordt gedefinieerd hoe de vorm van een bedrijf maakt gebruik van Azure-services en definieert een bestuursstructuur core.
-- Als een eerste stap hebt Contoso een structuur (bekend als een enterprise-scaffold) van de Enterprise-inschrijving vastgesteld. Ze gebruikt [in dit artikel](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance) om te begrijpen en ontwerpen van een scaffold.
-- Contoso heeft nu besluiten om te gebruiken van een functionele benadering voor het beheren van hun abonnementen.
+- Als een eerste stap hebt Contoso een structuur (ook wel een enterprise-scaffold voor hun Enterprise-inschrijving vastgesteld. Ze gebruikt [in dit artikel](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance) om te begrijpen en ontwerpen van een scaffold.
+- Contoso heeft nu besloten om een functionele benadering gebruiken voor het beheren van hun abonnementen.
     - Binnen hun onderneming hebben ze een enkele IT-afdeling die de Azure budget bepaalt. Dit is de enige groep met abonnementen.
     - Ze je dit model in de toekomst uitbreiden zodat andere zakelijke groepen als afdelingen in de Enterprise-inschrijving nemen kunnen.
     - Contoso heeft twee abonnementen, productie- en gestructureerde binnen de IT-afdeling.
@@ -102,7 +106,7 @@ Met abonnementen die zijn geconfigureerd, kan Contoso bekijken hun Microsoft-vol
 
 #### <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-Bij het implementeren van virtuele machines in Azure omvatten standaard installatiekopieën van een licentie die brengt Contoso per minuut voor de software die wordt gebruikt. Echter Contoso is een langdurige klant van Microsoft en onderhoudt EAs en licenties toe aan en open software assurance (SA). 
+Bij het implementeren van virtuele machines in Azure omvatten standaard installatiekopieën van een licentie die brengt Contoso per minuut voor de software die wordt gebruikt. Echter Contoso is een Microsoft-klant op lange termijn, en onderhoudt EAs en licenties openen met software assurance (SA). 
 
 Azure hybride Benefit biedt een rendabele methode voor migratie van Contoso, doordat ze op te slaan op Azure VM's en SQL Server werkbelastingen door converteren of Windows Server Datacenter en Standard edition-licenties volstaan met Software Assurance hergebruiken. Hiermee schakelt u Contoso een lagere gebaseerde compute-snelheid betalen voor virtuele machines en SQL Server. [Meer informatie](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -127,7 +131,7 @@ Geeft en beheren van gebruikerstoegang tot Azure-resources met identiteits- en t
 - Contoso besluiten in hun lokale Active Directory in de cloud uitbreiden in plaats van een nieuwe afzonderlijk systeem in Azure bouwen.
 - Het maken van een op basis van Azure Active Directory om dit te doen.
 - Contoso niet beschikken over Office 365, zodat ze nodig hebben voor het inrichten van een nieuwe Azure AD.
-- Office 365 maakt gebruik van Azure AD voor gebruikersbeheer. Als het al Contoso ze al een Azure AD-basisprincipe zou hebben en moeten u ervoor dat ze primaire AD zijn.
+- Office 365 maakt gebruik van Azure AD voor gebruikersbeheer. Als Contoso Office 365, zou ze al een Azure AD-basisprincipe hebben en gebruiken als hun primaire AD.
 - [Meer informatie](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) over Azure AD voor Office 365, en meer informatie over [het toevoegen van een abonnement](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) naar een bestaande Azure AD.
 
 ### <a name="create-an-azure-ad"></a>Maken van een Azure AD
@@ -163,7 +167,7 @@ Nu dat hun Azure AD actief en werkend is, Contoso moeten toevoegen werknemers va
 
 #### <a name="create-resource-groups-in-azure"></a>Maken van resourcegroepen in Azure
 
-Azure-resourcegroepen groeperen Azure-resources. Met behulp van een resource-ID kan Azure bewerkingen uitvoeren op de bronnen in de groep.
+Azure-resourcegroepen verzamelen Azure-resources. Met behulp van een resource-ID kan Azure bewerkingen uitvoeren op de bronnen in de groep.
 
 - Een Azure-abonnement kan meerdere resourcegroepen hebben, maar een resourcegroep kan alleen binnen een abonnement van één bestaan.
 - Bovendien één resourcegroep kan meerdere resources hebben, maar een resource kan slechts aan één groep.
@@ -230,7 +234,7 @@ Gebruik van de Contoso-integratie mogelijk te maken de [Azure AD Connect-hulppro
 
     ![On-premises AD in Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png) 
 
-- Binnen elke groep worden werknemers in het Contoso-IT-team weergegeven, wordt op basis van hun rol.
+- Contoso IT-team worden weergegeven in elke groep, op basis van hun rol.
 
     ![Lokale AD leden in Azure](./media/contoso-migration-infrastructure/on-prem-ad-group-members.png) 
 
@@ -305,7 +309,7 @@ Hier ziet u hoe Contoso besloten voor het implementeren van hybride verbindingen
 
 ### <a name="design-the-azure-network-infrastructure"></a>Het netwerk van Azure-infrastructuur ontwerpen
 
-Het is essentieel dat Azure get er in plaats op een manier waardoor hun hybride implementatie veilige en schaalbare netwerken. U doet dit door Contoso duurt een lange termijn benadering en virtuele netwerken (vnet's) worden herstelmogelijkheden en enterprise-ready ontwerpt. [Meer informatie](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) over het plannen van VNets.
+Het is essentieel dat Contoso netwerken in de plaats op een manier waardoor hun hybride implementatie veilige en schaalbare plaatst. U doet dit door Contoso duurt een lange termijn benadering en virtuele netwerken (vnet's) worden herstelmogelijkheden en enterprise-ready ontwerpt. [Meer informatie](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) over het plannen van VNets.
 
 Contoso heeft om verbinding maken met hun twee regio's, besloten voor het implementeren van een model hub-naar-hub netwerk:
 
@@ -324,7 +328,7 @@ Azure biedt netwerk peer verbinding VNets en hubs. Globale peering, kunt verbind
 
 #### <a name="hub-to-hub-across-regions"></a>Hub-naar-hub tussen regio 's
 
-Contoso implementeert een een-hub in elke regio. Er is een virtueel netwerk (VNet) in Azure die als een centraal punt voor de verbinding met uw on-premises netwerk fungeert hub. De hub VNets maakt verbinding met elkaar met behulp van globale VNet-peering. Globale VNet-peering verbindt VNets via Azure-regio's.
+Contoso implementeert een hub in elke regio. Er is een virtueel netwerk (VNet) in Azure die als een centraal punt voor de verbinding met uw on-premises netwerk fungeert hub. De hub VNets maakt verbinding met elkaar met behulp van globale VNet-peering. Globale VNet-peering verbindt VNets via Azure-regio's.
 
 - De hub in elke regio is ingesteld als peer met de partner-hub in andere regio.
 - De hub is ingesteld als peer voor elk netwerk in de regio en verbinding kan maken met alle netwerkbronnen.
@@ -526,9 +530,9 @@ Wanneer u resources in virtuele netwerken implementeert, hebt u een aantal optie
 Contoso hebt besloten dat de Azure DNS-service een goede keuze in hun omgeving hybride niet. In plaats daarvan, gaan ze gebruikmaken van hun lokale DNS-servers.
 
 - Omdat dit een hybride netwerk alle de virtuele machines on-premises is en in Azure moeten kunnen omzetten van namen te laten functioneren. Dit betekent dat de aangepaste DNS-instellingen moeten worden toegepast op alle VNets.
-- Contoso hebt momenteel DC's die zijn geïmplementeerd in het datacenter Contoso en in de filialen. De primaire DNS-servers zijn CONTOSODC1(172.16.0.10) en CONTOSODC2(172.16.0.11)
+- Contoso hebt momenteel DC's die zijn geïmplementeerd in het datacenter Contoso en in de filialen. De primaire DNS-servers zijn CONTOSODC1(172.16.0.10) en CONTOSODC2(172.16.0.1)
 - Wanneer de VNets die zijn geïmplementeerd, wordt de lokale domeincontrollers worden ingesteld als DNS-server in de netwerken moet worden gebruikt. 
-- Als u wilt configureren, wanneer u bij het gebruik van aangepaste DNS op het VNet, moet Azure recursieve resolvers IP-adres (zoals 168.63.129.16) worden toegevoegd aan de lijst met DNS.  U doet dit door Contoso DNS-serverinstellingen configureren op elke VNet. De aangepaste DNS-instellingen voor het VNET-HUB-EUS2 netwerk zou bijvoorbeeld als volgt zijn:
+- Als u wilt configureren, wanneer u aangepaste DNS op het VNet, moet Azure recursieve resolvers IP-adres (zoals 168.63.129.16) worden toegevoegd aan de lijst met DNS.  U doet dit door configureert Contoso DNS-serverinstellingen voor elk VNet. De aangepaste DNS-instellingen voor het VNET-HUB-EUS2 netwerk zou bijvoorbeeld als volgt zijn:
     
     ![Aangepaste DNS](./media/contoso-migration-infrastructure/custom-dns.png)
 
@@ -559,7 +563,7 @@ Na het bijwerken van de netwerkinstellingen zijn Contoso gereed voor het bouwen 
 
     ![VM-NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
-4. Ze nu koppelen een nieuwe gegevensschijf aan de virtuele machine. Deze schijf bevat het Active Directory-database en de SYSVOL-share. 
+4. Ze nu koppelen een nieuwe gegevensschijf aan de virtuele machine. Deze schijf bevat het Active Directory-database en de sysvol-share. 
     - De grootte van de schijf, bepalen het aantal IOPS dat het ondersteunt.
     - De schijfgrootte mogelijk verhogen wanneer de omgeving groeit gedurende een bepaalde periode.
     - Het station mag niet worden ingesteld op lezen/schrijven voor hostcaching. Active Directory-databases kan deze niet ondersteunen.
@@ -608,13 +612,13 @@ Azure biedt een reeks beheeracties besturingselementen voor services en de Azure
 
 Configureer de identiteit en toegangsbeheer, Contoso al begonnen met het voor het opzetten van bepaalde aspecten van bestuur en beveiliging. Algemeen, zijn er drie gebieden die ze moeten rekening houden met:
 
-- **Beleid**: beleid in Azure is van toepassing en worden afgedwongen van regels en effecten via uw reosurces zodat bronnen voldoen aan de vereisten van uw bedrijf en sla's blijven.
+- **Beleid**: beleid in Azure is van toepassing en regels en effecten zodat bronnen voldoen aan de vereisten van uw bedrijf en sla's blijven wordt afgedwongen via uw resources.
 - **Hiermee vergrendelt u**: Azure kunt u vergrendelen abonnementen, resourcegroepen en andere resources, zodat ze kunnen alleen worden gewijzigd door die met autoriteit om dit te doen.
 - **Labels**: Resources kunnen worden beheerd, gecontroleerd en beheerd met labels. Labels toevoegen metagegevens tot bronnen, bieden informatie over de resources of eigenaars.
 
 ### <a name="set-up-policies"></a>Instellen van het beleid
 
-De service Azure beleid evalueert uw resources, scannen op die niet compatibel zijn met de beleidsdefinities aanwezig is. Wellicht is bijvoorbeeld een beleid dat alleen kunt alleen bepaalde typen virtuele machines of vereist bronnen voor een specifiek label hebben. 
+De service Azure beleid evalueert uw resources, scannen op die niet compatibel zijn met de beleidsdefinities aanwezig is. Wellicht is bijvoorbeeld een beleid dat alleen bepaalde typen virtuele machines kunt of vereist bronnen voor een specifiek label hebben. 
 
 Azure beleidsregels Geef een beleidsdefinitie van een en toewijzing van beleid voor het bereik opgeven waarop een beleid moet worden toegepast. Het bereik kan variëren van een beheergroep aan een resourcegroep. [Meer informatie over](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) over het maken en beheren van beleid.
 
@@ -625,9 +629,9 @@ Contoso wil aan de slag met een aantal beleid:
 
 #### <a name="limit-resources-to-regions"></a>Limiet voor bronnen met regio 's
 
-Contoso gebruik de ingebouwde beleidsdefinitie **toegestaan locaties** resource regio's te beperken.
+Contoso gebruiken de ingebouwde beleidsdefinitie **toegestaan locaties** resource regio's te beperken.
 
-1. Klik in de Azure-portal op **alle Services**, en searh voor **beleid**.
+1. Klik in de Azure-portal op **alle Services**, en zoek naar **beleid**.
 2. Selecteer **toewijzingen** > **beleid toewijzen**.
 3. Selecteer in de lijst met **toegestaan locaties**.
 4. Stel **bereik** op de naam van de Azure-abonnement en selecteert u de twee gebieden in de lijst met toegestane.
@@ -650,7 +654,7 @@ Contoso gebruikt de ingebouwde beleidsdefinitie **zodat virtuele machines SKU's*
 
 Beleid van kracht onmiddellijk en Contoso-resources voor naleving kunt controleren. 
 
-1. Klik in de Azure-Portal op de **naleving** koppeling.
+1. Klik in de Azure-portal op de **naleving** koppeling.
 2. Het dashboard naleving wordt weergegeven. U kunt inzoomen voor meer informatie.
 
     ![Beleidsnaleving](./media/contoso-migration-infrastructure/policy-compliance.png)
@@ -722,7 +726,7 @@ Contoso zal gebruikmaken van de beoordeling van continue beveiliging die wordt b
 
 - Security Center analyseert de beveiligingsstatus van de Contoso compute, infrastructuur en gegevens resources en Azure apps en services.
 - Continue assessment kunt het operationele team van Contoso voor het detecteren van mogelijke beveiligingsproblemen, zoals systemen met ontbrekende beveiligingsupdates of netwerkpoorten weergegeven. 
-- In het bijzonder wilt Contoso Zorg ervoor dat alle bijbehorende virtuele machines worden beveiligd. Security Center helpt met dit VM-status controleren en prioriteit en bruikbare aanbevelingen beveiligingsproblemen oplossen voordat ze bent misbruikt te.
+- Contoso wil met name om ervoor te zorgen dat alle bijbehorende virtuele machines worden beveiligd. Security Center helpt met dit VM-status controleren en prioriteit en bruikbare aanbevelingen beveiligingsproblemen oplossen voordat ze bent misbruikt te.
 
 ![Bewaking](./media/contoso-migration-infrastructure/monitoring.png)
 
@@ -772,7 +776,7 @@ In dit artikel Contoso Azure-infrastructuur of instellen en instellen van geplan
 
 Niet alle de stappen beschreven die Contoso voltooid hier zijn vereist voor een migratie naar de cloud. In het geval ze wilden het plannen van een netwerkinfrastructuur die kan worden gebruikt voor alle typen migraties en veilige, schaalbare en robuuste is. 
 
-Met deze infrastructuur voor het plaatsen, nu ze verplaatsen op en probeer uit migratie.
+Met deze infrastructuur aanwezig nu ze verplaatsen op en probeer uit migratie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
