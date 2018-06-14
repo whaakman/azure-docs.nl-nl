@@ -2,10 +2,10 @@
 title: SKU-serie is niet beschikbaar | Microsoft Docs
 description: Sommige SKU-serie zijn niet beschikbaar voor het geselecteerde abonnement voor deze regio.
 services: Azure Supportability
-documentationcenter: 
+documentationcenter: ''
 author: stevendotwang
 manager: rajatk
-editor: 
+editor: ''
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24870575"
 ---
 # <a name="region-or-sku-unavailable"></a>Regio of SKU is niet beschikbaar
 In dit artikel wordt beschreven hoe los het probleem van een Azure-abonnement geen toegang hebben tot een regio of een VM-SKU.

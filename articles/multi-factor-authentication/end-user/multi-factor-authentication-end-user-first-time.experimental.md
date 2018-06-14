@@ -3,7 +3,7 @@ title: Verificatie in twee stappen voor mijn werk of school-account instellen | 
 description: 'Wanneer uw bedrijf Azure multi-factor Authentication configureert, wordt u gevraagd om aan te melden voor verificatie in twee stappen. Informatie over hoe u instelt. '
 services: multi-factor-authentication
 keywords: het gebruik van azure-directory, active directory in de cloud, active directory-zelfstudie
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201252"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Mijn account voor verificatie in twee stappen instellen
 Verificatie in twee stappen is een extra beveiligingsstap die voorkomen dat uw account door waardoor het moeilijker voor andere mensen om in te verbreken. Als u dit artikel leest ontvangen u waarschijnlijk een e-mailbericht van uw werk of school-beheerder over meervoudige verificatie. Of misschien probeert aan te melden en krijg een bericht waarin u wordt gevraagd voor het instellen van aanvullende beveiligingsverificatie. Als dat het geval is, **je niet aanmelden totdat u het proces voor automatische inschrijving hebt voltooid**.

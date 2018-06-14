@@ -1,11 +1,11 @@
 ---
 title: Overzicht van Logic Apps Connectors | Microsoft Docs
 description: Overzicht van connectors die kunnen worden gebruikt in een logische app
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: ca8dab2e-9b69-4b1e-865d-1facd9f0cdac
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27961649"
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Met behulp van connectors in een logische app
 Connectors bieden snel toegang tot de gebeurtenissen, gegevens en acties services, protocollen en-platforms.  De volledige lijst van connectors die ondersteuning biedt voor logische Apps kunt [hier vinden](apis-list.md).  Connectors kunnen worden gebruikt als een trigger of een actie in een logische app, en mogelijk een geconfigureerde *verbinding* te gebruiken (bijvoorbeeld: een Twitter-account voor toegang tot of post een bericht namens jou te autoriseren).

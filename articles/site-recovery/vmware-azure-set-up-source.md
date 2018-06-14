@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812654"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Instellen van de bronomgeving voor VMware naar Azure replicatie
 

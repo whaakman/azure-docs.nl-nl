@@ -5,7 +5,7 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28930147"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus-berichtuitzonderingen
 Dit artikel worden enkele uitzonderingen die worden gegenereerd door de Microsoft Azure Service Bus-berichtenservice-API's. Deze verwijzing kan worden gewijzigd, Controleer dus regelmatig op updates.

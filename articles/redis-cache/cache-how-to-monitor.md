@@ -2,10 +2,10 @@
 title: Azure Redis-Cache controleren | Microsoft Docs
 description: Informatie over het bewaken van de status en prestaties van uw Azure Redis-Cache-exemplaren
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910646"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Azure Redis-cache bewaken
 Maakt gebruik van Azure Redis-Cache [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) om verschillende opties voor het bewaken van uw cache-exemplaren te bieden. U kunt metrische gegevens weergeven, vastmaken grafieken van de metrische gegevens aan het Startboard, aanpassen van het bereik datum en tijd van de bewaking van grafieken, toevoegen en metrische gegevens verwijderen uit de grafieken en waarschuwingen instellen wanneer aan bepaalde voorwaarden wordt voldaan. Deze hulpprogramma's kunnen u de status van uw Azure Redis-Cache-exemplaren en uw cache in toepassingen te beheren.

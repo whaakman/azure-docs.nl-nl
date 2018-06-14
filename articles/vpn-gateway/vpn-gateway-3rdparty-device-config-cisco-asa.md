@@ -5,8 +5,8 @@ services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910755"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Voorbeeldconfiguratie: Cisco ASA apparaat (BGP IKEv2/Nee)
 Dit artikel vindt voorbeelden van configuraties voor netwerkapparaten Cisco adaptieve beveiliging toestel (ASA) naar Azure VPN-gateways. In het voorbeeld geldt voor Cisco ASA-apparaten die worden uitgevoerd zonder het Border Gateway Protocol (BGP) IKEv2. 
