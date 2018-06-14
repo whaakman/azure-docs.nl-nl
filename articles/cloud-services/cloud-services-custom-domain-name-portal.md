@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "25946771"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Een aangepaste domeinnaam voor een Azure-cloud-service configureren
 Wanneer u een Cloudservice maakt, Azure toegewezen aan een subdomein van **cloudapp.net**. Bijvoorbeeld, als uw Cloudservice met de naam 'contoso', uw gebruikers zich toegang tot uw toepassing op een URL als http://contoso.cloudapp.net. Azure wordt ook een virtueel IP-adres toegewezen.

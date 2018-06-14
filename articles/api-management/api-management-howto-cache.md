@@ -2,10 +2,10 @@
 title: Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren | Microsoft Docs
 description: Informatie over het verbeteren van de latentie, het bandbreedteverbruik en de webservicewerklast voor API Management-serviceaanroepen.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26127774"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren
 Bewerkingen in API Management kunnen worden geconfigureerd voor het opslaan van antwoorden in de cache. Door het opslaan van antwoorden in de cache kan de API-latentie, het bandbreedteverbruik en de webservicewerklast aanzienlijk worden verminderd voor gegevens die niet vaak wijzigen.

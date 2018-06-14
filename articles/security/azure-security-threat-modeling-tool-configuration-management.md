@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019820"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Beveiliging Frame: Configuratiebeheer | Oplossingen 
 | Product/Service | Artikel |

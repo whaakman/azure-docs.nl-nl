@@ -2,10 +2,10 @@
 title: Azure API Management beleid voor meerdere domeinen | Microsoft Docs
 description: Meer informatie over het beleid tussen domeinen beschikbaar voor gebruik in Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129031"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management-beleid voor meerdere domeinen
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  

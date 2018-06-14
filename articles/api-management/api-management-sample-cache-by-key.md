@@ -2,10 +2,10 @@
 title: Aangepaste opslaan in cache in Azure API Management
 description: Meer informatie over het items in de cache per sleutel in Azure API Management
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29376028"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Aangepaste opslaan in cache in Azure API Management
 Azure API Management-service biedt ingebouwde ondersteuning voor [HTTP-antwoord in cache opslaan](api-management-howto-cache.md) met behulp van de bron-URL als de sleutel. De sleutel kan worden gewijzigd door aanvraagheaders met behulp van de `vary-by` eigenschappen. Dit is handig voor het opslaan van de hele HTTP-antwoorden (aka verklaringen), maar soms is het nuttig om alleen cache een deel van een weergave. De nieuwe [cache zoekwaarde](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) en [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) -beleid biedt de mogelijkheid op te slaan en willekeurige soorten gegevens vanuit beleidsdefinities ophalen. Deze mogelijkheid wordt ook waarde toegevoegd aan de eerder geïntroduceerd [aanvragen verzenden](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) beleid omdat u kunt nu antwoorden van externe services cache.

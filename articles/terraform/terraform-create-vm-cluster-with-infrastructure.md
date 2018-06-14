@@ -14,6 +14,7 @@ ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/13/2017
+ms.locfileid: "24518797"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Maken van een VM-cluster met Terraform en de lijst met compatibele hardware
 

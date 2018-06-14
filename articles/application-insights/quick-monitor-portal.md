@@ -2,7 +2,7 @@
 title: Een ASP.NET-web-app bewaken met Azure Application Insights | Microsoft Docs
 description: Biedt instructies om snel een ASP.NET-web-app in te stellen voor controle met Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/14/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23947674"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Begin uw ASP.NET-webtoepassing te controleren
 

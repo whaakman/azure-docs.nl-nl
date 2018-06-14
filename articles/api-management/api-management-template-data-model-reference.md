@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29378153"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management data model verwijzing naar de sjabloon
 Dit onderwerp beschrijft de entiteit en type representaties voor algemene items in de gegevensmodellen gebruikt voor de developer portal sjablonen in Azure API Management.  
