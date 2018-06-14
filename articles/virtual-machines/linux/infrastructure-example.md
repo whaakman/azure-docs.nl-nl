@@ -1,11 +1,11 @@
 ---
 title: Voorbeeld van de Azure-infrastructuur overzicht | Microsoft Docs
 description: Meer informatie over de sleutel ontwerpen en implementeren van de richtlijnen voor het implementeren van een voorbeeld van de infrastructuur in Azure.
-documentationcenter: 
+documentationcenter: ''
 services: virtual-machines-linux
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745772"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Voorbeeld van de Azure-infrastructuur overzicht voor virtuele Linux-machines
 In dit artikel wordt uitgelegd opzetten van een voorbeeld van de toepassing-infrastructuur. We beschreven ontwerpen van een infrastructuur voor een eenvoudige online winkel die de richtlijnen en beslissingen rond naamconventies, beschikbaarheidssets, virtuele netwerken en taakverdelers verenigt en distribueren van uw virtuele machines (VM's).
@@ -53,7 +54,7 @@ Alle bovenstaande voldoen aan deze naamgeving:
 
 * Adventure Works Cycles gebruikt **[IT werkbelasting]-[locatie]-[Azure resource]** als voorvoegsel
   * Bijvoorbeeld, "**azos**' (Azure Online Store) is de naam van de werkbelasting IT en '**gebruiken**' (VS-Oost 2) is de locatie
-* Virtuele netwerken maken gebruik van AZOS-gebruik-VN**[aantal]**
+* Virtuele netwerken maken gebruik van AZOS-gebruik-VN **[aantal]**
 * Beschikbaarheidssets gebruiken azos-gebruiken-als-**[rol]**
 * Namen van de virtuele machine gebruiken azos-gebruiken-vm -**[vmname]**
 

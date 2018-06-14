@@ -2,10 +2,10 @@
 title: Migreren van Azure Active Directory Access Control Service naar de Shared Access Signature-verificatie | Microsoft Docs
 description: Toepassingen migreren vanaf de Access Control-Service naar SAS
 services: service-bus-relay
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855379"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migreren van Azure Active Directory Access Control Service naar de Shared Access Signature-autorisatie
 

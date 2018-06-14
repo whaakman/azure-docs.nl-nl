@@ -2,10 +2,10 @@
 title: Beheren van Azure Redis-Cache met behulp van Azure CLI | Microsoft Docs
 description: Informatie over hoe Azure CLI installeren op elk platform, het gebruik van deze verbinding maken met uw Azure-account en het maken en beheren van een Redis-cache van de Azure CLI.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911275"
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Het maken en beheren van Azure Redis-Cache met behulp van de Azure-opdrachtregelinterface (Azure CLI)
 > [!div class="op_single_selector"]

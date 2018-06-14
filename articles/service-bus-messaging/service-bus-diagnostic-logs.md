@@ -1,13 +1,13 @@
 ---
 title: Diagnostische logboeken van Azure Service Bus | Microsoft Docs
 description: Informatie over het instellen van diagnostische logboeken voor Service Bus in Azure.
-keywords: 
+keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29122172"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Diagnostische logboeken van Service Bus
 

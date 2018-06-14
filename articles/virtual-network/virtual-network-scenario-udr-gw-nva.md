@@ -19,6 +19,7 @@ ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23943222"
 ---
 # <a name="virtual-appliance-scenario"></a>Virtueel apparaat scenario
 Een veelvoorkomend scenario tussen groter Azure klant is de noodzaak om een toepassing twee lagen blootgesteld aan Internet, terwijl toegang tot de back-laag van een on-premises datacenter. Dit document helpt u bij een scenario waarbij de gebruiker gedefinieerde Routes (UDR), een VPN-Gateway en virtuele netwerkapparaten voor het implementeren van een omgeving met twee lagen die voldoet aan de volgende vereisten:

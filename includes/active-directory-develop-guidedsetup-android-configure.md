@@ -20,7 +20,7 @@ Uw toepassing registreren en de registratiegegevens van uw toepassing toevoegen 
 
 4. Selecteer **toevoegen Platform**, selecteer **systeemeigen toepassing**, en selecteer vervolgens **opslaan**.
 
-5. Onder **app** > **java** > **{host}. { naamruimte}**Open `MainActivity`. 
+5. Onder **app** > **java** > **{host}. { naamruimte}** Open `MainActivity`. 
 
 6.  Vervang *[Voer de toepassing Id hier]* in de volgende regel met de toepassings-ID die u zojuist hebt geregistreerd:
 

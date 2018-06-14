@@ -5,8 +5,8 @@ services: expressroute
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27319050"
 ---
 # <a name="troubleshooting-network-performance"></a>Het oplossen van de prestaties van het netwerk
 ## <a name="overview"></a>Overzicht

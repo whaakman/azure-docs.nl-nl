@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23931917"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Een upgrade uitvoert naar standaardcategorie voor verbeterde beveiliging van Security Center
 Azure Security Center biedt geïntegreerde beveiligingsbewaking en geavanceerde threat protection voor workloads die worden uitgevoerd in Azure, on-premises en in andere clouds. Levert zichtbaarheid en controle over de hybride cloudwerkbelastingen, actieve beveiliging die de blootstelling aan bedreigingen en intelligente detectie om te blijven met voortdurend veranderende cyberbeveiliging aanvallen te verminderen.

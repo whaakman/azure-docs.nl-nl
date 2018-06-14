@@ -1,11 +1,11 @@
 ---
 title: Aan de slag met verificatie voor mobiele Apps in Xamarin Android
-description: "Informatie over het verifiëren van gebruikers van uw Xamarin.android-app via een groot aantal identiteitsproviders, waaronder AAD, Google, Facebook, Twitter en Microsoft met Mobile Apps."
+description: Informatie over het verifiëren van gebruikers van uw Xamarin.android-app via een groot aantal identiteitsproviders, waaronder AAD, Google, Facebook, Twitter en Microsoft met Mobile Apps.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: panarasi
-editor: 
+editor: ''
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595292"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Verificatie toevoegen aan uw Xamarin.Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
