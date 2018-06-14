@@ -1,11 +1,11 @@
 ---
-title: "Voorbeeld van de DMZ – bouwen een DMZ om netwerken met een Firewall, UDR en NSG te beveiligen | Microsoft Docs"
+title: Voorbeeld van de DMZ – bouwen een DMZ om netwerken met een Firewall, UDR en NSG te beveiligen | Microsoft Docs
 description: Maken van een DMZ met een Firewall, de gebruiker gedefinieerde Routering en Netwerkbeveiligingsgroepen (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23885243"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Voorbeeld 3: een DMZ netwerken met een Firewall, UDR en NSG beschermen bouwen
 [Ga terug naar de grens van Best Practices beveiligingspagina][HOME]
