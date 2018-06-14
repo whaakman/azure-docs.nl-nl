@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29557059"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Anonieme leestoegang tot containers en blobs beheren
 U kunt anonieme, openbare leestoegang tot een container en de blobs in Azure Blob storage inschakelen. Op deze manier kunt u alleen-lezen toegang tot deze bronnen verlenen zonder het delen van de accountsleutel en zonder een shared access signature (SAS).

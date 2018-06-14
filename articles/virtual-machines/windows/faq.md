@@ -20,6 +20,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058060"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Veelgestelde vragen over virtuele Windows-Machines
 In dit artikel komen enkele veelgestelde vragen over Windows virtuele machines die in Azure met behulp van het Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Linux-versie van dit onderwerp [Veelgestelde vragen over virtuele Linux-Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
