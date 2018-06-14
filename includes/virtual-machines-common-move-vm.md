@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958704"
 ---
 ## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>De portal voor het verplaatsen van een virtuele machine naar een ander abonnement gebruiken
 U kunt een virtuele machine verplaatsen en de bijbehorende bronnen naar een ander abonnement via de portal.

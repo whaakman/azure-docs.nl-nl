@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30261718"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>De Load Balancer op meerdere IP-configuraties met behulp van PowerShell
 
