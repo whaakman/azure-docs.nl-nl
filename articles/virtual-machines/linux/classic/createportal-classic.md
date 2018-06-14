@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842435"
 ---
 # <a name="create-a-custom-virtual-machine-running-linux"></a>Een aangepaste virtuele machine met Linux maken
 > [!IMPORTANT] 

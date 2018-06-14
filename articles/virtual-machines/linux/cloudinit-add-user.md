@@ -2,10 +2,10 @@
 title: Cloud-init gebruiken een gebruiker toevoegen aan een Linux-VM op Azure | Microsoft Docs
 description: Het gebruik van cloud-init voor een gebruiker toevoegen aan een Linux-VM tijdens het maken van met de Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29123460"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Cloud-init gebruiken een gebruiker toevoegen aan een Linux VM in Azure
 Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) schaal wordt een gebruiker op een virtuele machine (VM) of de virtuele machine toevoegen (VMSS) ingesteld op de inrichting van de tijd in Azure. Dit script cloud init wordt uitgevoerd op de eerste keer wordt opgestart nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud init overzicht](using-cloud-init.md).

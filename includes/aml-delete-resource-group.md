@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574975"
 ---
 Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door de onderstaande stappen te volgen, zodat u geen kosten in rekening worden gebracht:
 

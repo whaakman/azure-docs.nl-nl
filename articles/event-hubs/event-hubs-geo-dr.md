@@ -2,10 +2,10 @@
 title: Azure Event Hubs geo-disaster recovery | Microsoft Docs
 description: Het gebruik van de geografische regio's voor failover en herstel na noodgevallen uitvoeren in Azure Event Hubs
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745891"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs Geo-noodherstel
 

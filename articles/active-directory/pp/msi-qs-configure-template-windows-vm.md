@@ -2,10 +2,10 @@
 title: Het configureren van een gebruiker toegewezen MSI voor een Azure-VM met een Azure-sjabloon
 description: Stap door stapsgewijze instructies voor het configureren van een gebruiker toegewezen beheerde Service identiteit (MSI) voor een virtuele machine van Azure, met een Azure Resource Manager-sjabloon.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984036"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Een gebruiker toegewezen beheerde Service identiteit (MSI) configureren voor een virtuele machine met een Azure-sjabloon
 
