@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523472"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Uw oplossing voor het migreren naar Azure SQL Data Warehouse
 Zie wat betrokken bij het migreren van een bestaande databaseoplossing naar Azure SQL Data Warehouse. 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915307"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Uploaden en een Linux-VM uit aangepaste installatiekopie maken met behulp van de Azure CLI 1.0
 In dit artikel laat zien hoe een virtuele harde schijf (VHD) uploaden naar Azure met behulp van het Resource Manager-implementatiemodel en virtuele Linux-machines van deze aangepaste installatiekopie maken. Deze functie kunt u installeren en configureren van een Linux-distro aan uw vereisten en gebruik vervolgens deze VHD snel virtuele Azure-machines (VM's) maken.

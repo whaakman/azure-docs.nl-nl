@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788723"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Artefacten mislukte diagnoses in het lab 
 Nadat u een artefact hebt gemaakt, kunt u controleren om te zien of deze is geslaagd of mislukt. Artefacten Logboeken in Azure DevTest Labs bevatten informatie die u gebruiken kunt voor het vaststellen van een artefact-fout. U hebt een aantal opties voor het weergeven van de artefacten logboekgegevens voor een virtuele machine van Windows:

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528491"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Compute in Azure SQL Data Warehouse beheren
 Meer informatie over het beheren van rekenresources in Azure SQL Data Warehouse. Lagere kosten door het datawarehouse onderbreken of schalen van het datawarehouse om te voldoen aan de prestatie-eisen. 

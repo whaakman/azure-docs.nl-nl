@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787995"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Azure DevTest Labs gebruiken voor training
 Azure DevTest Labs kan worden gebruikt voor het implementeren van veel van belangrijke scenario's naast ontwikkelen en testen. Een van de scenario's is voor het instellen van een testomgeving voor training. Azure DevTest Labs kunt u voor het maken van een testomgeving waarin u aangepaste sjablonen die elke leerling gebruiken kunt voor het maken van identieke en geïsoleerde omgevingen voor training kunt opgeven. U kunt beleid om ervoor te zorgen dat training omgevingen beschikbaar voor elke leerling zijn alleen wanneer ze deze nodig en voldoende resources - zoals virtuele machines - vereist voor de training bevatten toepassen. Ten slotte kunt u de testomgeving eenvoudig delen met stagiairs die ze in één klik kunnen openen.

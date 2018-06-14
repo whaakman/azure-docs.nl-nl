@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30917340"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migratie van IaaS-middelen van klassiek naar Azure Resource Manager plannen
 Hoewel Azure Resource Manager veel mogelijkheden biedt, is het essentieel dat u van plan bent om uw migratie reis naar zeker dat u besturingssysteemupgrades soepel verlopen. Tijd besteedt over het plannen, zorgt u ervoor dat u geen problemen ondervindt tijdens het uitvoeren van de migratieactiviteiten worden bewaakt.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31517434"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>X-EC-Debug HTTP-headers voor regels-engine van Azure CDN
 De aanvraagheader foutopsporing cache `X-EC-Debug`, biedt aanvullende informatie over het cachebeleid dat wordt toegepast op de aangevraagde asset. Deze headers zijn specifiek voor **Azure CDN Premium van Verizon** producten.
