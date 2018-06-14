@@ -13,6 +13,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28986072"
 ---
 ## <a name="deploy-zip-file"></a>Het ZIP-bestand implementeren
 

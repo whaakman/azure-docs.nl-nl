@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: mattchenderson
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure-functies, functies, gebeurtenisverwerking, webhooks, dynamisch berekenen, architectuur zonder server
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.service: functions
@@ -22,6 +22,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24877898"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Een inleiding tot Azure Functions  
 Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Met Functions kan het ontwikkeltraject nog efficiënter worden, en kunt u de door u gewenste programmeertaal gebruiken, zoals C#, F#, Node.js, Java of PHP. U betaalt alleen voor de tijd dat uw code wordt uitgevoerd en Azure zorgt het eventuele schalen. Met Azure Functions kunt u [serverloze](https://azure.microsoft.com/overview/serverless-computing/) toepassingen ontwikkelen in Microsoft Azure.

@@ -2,10 +2,10 @@
 title: 'Azure AD en toepassingen: gebruikers toewijzen aan een toepassing | Microsoft Docs'
 description: Klik hier voor meer informatie over het implementeren van de Gebruikerstoewijzing van de voor de Azure-toepassingen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 97ce69c1-4034-4e38-bd82-8caf984f6b98
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598621"
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD en toepassingen: gebruikers toewijzen aan een toepassing
 Voordat u gebruikers en groepen aan een toepassing toewijzen kunt, moet u de toewijzing van gebruiker vereisen.  Voor informatie over het vereisen Gebruikerstoewijzing raadpleegt u de [Gebruikerstoewijzing vereisen](active-directory-applications-guiding-developers-requiring-user-assignment.md) artikel.

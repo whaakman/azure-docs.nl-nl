@@ -2,11 +2,11 @@
 title: Runtime-installatie van Azure Functions | Microsoft Docs
 description: Het installeren van de Azure Functions-Runtime-preview 2
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290654"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installeer de Azure Functions-Runtime-preview 2
 
