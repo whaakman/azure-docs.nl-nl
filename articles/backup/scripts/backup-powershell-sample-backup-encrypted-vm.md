@@ -2,12 +2,12 @@
 title: Azure PowerShell-Script voorbeeld - Maak een Back-up van een virtuele machine in Azure | Microsoft Docs
 description: Azure PowerShell-Script voorbeeld - Maak een Back-up van een virtuele machine van Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: backup
 ms.devlang: na
 ms.topic: sample
@@ -18,9 +18,10 @@ ms.author: markgal
 ms.custom: mvc
 ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842648"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Back-up van een versleutelde Azure virtuele machine met PowerShell
 

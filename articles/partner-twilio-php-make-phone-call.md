@@ -2,7 +2,7 @@
 title: Het maken van een telefonische oproep van Twilio (PHP) | Microsoft Docs
 description: Informatie over het maken van een telefonische oproep en verzenden van een SMS-bericht met de Twilio-API-service op Azure. Voorbeelden zijn bedoeld voor PHP-toepassing.
 documentationcenter: php
-services: 
+services: ''
 author: devinrader
 manager: twilio
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865755"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Het maken van een telefoongesprek met Twilio in een PHP-toepassing in Azure
 Het volgende voorbeeld ziet u hoe u Twilio kunt gebruiken voor het maken van een aanroep van een PHP-webpagina gehost in Azure. De resulterende toepassing wordt de gebruiker gevraagd om telefoongesprek waarden, zoals wordt weergegeven in de volgende schermopname.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23875898"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Opmerkingen bij de release van de StorSimple virtuele matrix Update 0.2 en 0,1
 ## <a name="overview"></a>Overzicht

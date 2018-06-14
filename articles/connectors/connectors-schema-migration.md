@@ -2,10 +2,10 @@
 title: Logische apps migreren naar preview-schemaversie 2015-08-01 | Microsoft Azure Docs
 description: U kunt uw logische apps eenvoudig migreren naar de nieuwste schemaversie. Volg deze stappen.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: MSFTMAN
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22707121"
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Logische apps migreren naar preview-schemaversie 2015-08-01
 U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:  

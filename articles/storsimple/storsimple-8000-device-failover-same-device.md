@@ -2,11 +2,11 @@
 title: StorSimple-failover, herstel na noodgevallen voor apparaten 8000 serie | Microsoft Docs
 description: Ontdek hoe u uw StorSimple-apparaat op hetzelfde apparaat een failover.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874820"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Failover van uw fysieke StorSimple-apparaat op hetzelfde apparaat
 

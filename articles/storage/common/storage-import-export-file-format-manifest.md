@@ -5,7 +5,7 @@ author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873903"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export-service manifest bestandsindeling
 Het manifestbestand station beschrijft de toewijzing tussen blobs in Azure Blob storage en bestanden op schijf, bestaande uit een taak worden geïmporteerd of geëxporteerd. Het manifestbestand is gemaakt als onderdeel van het voorbereidingsproces station en wordt opgeslagen op de schijf voordat het station wordt verzonden naar de Azure-Datacenter voor een bewerking importeren. Tijdens een exportbewerking, het manifest gemaakt en opgeslagen op het station door de Azure Import/Export-service.  
