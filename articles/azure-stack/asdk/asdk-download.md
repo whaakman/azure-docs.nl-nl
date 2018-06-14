@@ -2,11 +2,11 @@
 title: Downloaden en uitpakken van de Azure Stack Development Kit (ASDK) | Microsoft Docs
 description: Beschrijft hoe downloaden en uitpakken van de Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975879"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Downloaden en uitpakken van de Azure Stack Development Kit (ASDK)
 Nadat u hebt gecontroleerd of uw development kit host-computer voldoet aan de basisvereisten voor het installeren van de ASDK, wordt de volgende stap is het downloaden en uitpakken van het implementatiepakket ASDK om op te halen van de Cloudbuilder.vhdx.

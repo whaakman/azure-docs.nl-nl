@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157041"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uw bestaande .NET Azure Mobile Service bijwerken naar App Service
 App Service Mobile is een nieuwe manier om mobiele toepassingen bouwen met Microsoft Azure. Zie voor meer informatie, [wat zijn Mobile Apps?].

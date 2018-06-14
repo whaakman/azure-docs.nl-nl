@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914932"
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Het aantal en de beschikbaarheid van rekenknooppunten in een HPC Pack-cluster in Azure beheren
 Als u een HPC Pack 2012 R2-cluster in Azure VM's hebt gemaakt, kunt u manieren eenvoudig toevoegen, verwijderen, (ingericht) starten of stoppen (deprovision) sommige compute knooppunt VM's in het cluster. Hiertoe deze taken, Azure PowerShell-scripts die zijn geïnstalleerd op het hoofdknooppunt VM worden uitgevoerd. Deze scripts kunnen u bepalen het aantal en de beschikbaarheid van uw clusterbronnen HPC Pack zodat u de kosten kunt bepalen.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30844060"
 ---
 Opslag wordt begrensd door schijfruimte of een vaste limiet op de *maximumaantal* van indexen, document of andere bronnen op hoog niveau, afhankelijk van wat zich het eerste voordoet. De volgende tabel worden de opslaglimieten. Zie voor bovengrenzen voor indexen, documenten en andere objecten, [limieten door resource](../articles/search/search-limits-quotas-capacity.md#index-limits).
 

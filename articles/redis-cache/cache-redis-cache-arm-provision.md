@@ -2,10 +2,10 @@
 title: Inrichten van een Redis-Cache met Azure Resource Manager | Microsoft Docs
 description: Gebruik Azure Resource Manager-sjabloon voor het implementeren van een Azure Redis-Cache.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910738"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Een Redis Cache maken op basis van een sjabloon
 In dit onderwerp leert u het maken van een Azure Resource Manager-sjabloon die u een Azure Redis-Cache implementeert. De cache kan worden gebruikt met een bestaand opslagaccount om diagnostische gegevens te behouden. U leert ook hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
