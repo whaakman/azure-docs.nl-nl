@@ -17,6 +17,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30315589"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Taak gegevens naar Azure Storage met de API van Batch-service
 

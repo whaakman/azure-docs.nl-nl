@@ -2,10 +2,10 @@
 title: Een Naslaggids voor de tegels Designer bekijken in de Azure Log Analytics | Microsoft Docs
 description: Ontwerp weergeven in Log Analytics gebruikt, kunt u aangepaste weergaven maken in de Azure portal die tal van gegevensvisualisaties weergeven in de werkruimte voor logboekanalyse. Dit artikel is een handleiding met de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947313"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor de ontwerper tegels in Log Analytics
 Ontwerp weergeven in Azure Log Analytics gebruikt, kunt u aangepaste weergaven maken in de Azure portal die tal van gegevensvisualisaties in uw werkruimte voor logboekanalyse. Dit artikel is een handleiding met de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.

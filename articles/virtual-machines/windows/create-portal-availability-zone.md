@@ -21,6 +21,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30321985"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Maken van een virtuele Windows-machine in een zone beschikbaarheid met de Azure-portal
 

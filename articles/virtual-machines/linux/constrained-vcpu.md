@@ -2,12 +2,12 @@
 title: Azure beperkte vCPU grootten - Linux | Microsoft Docs
 description: Geeft een lijst van de Vm-grootten die kunnen met een beperkte vCPU telling.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874086"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Beperkte vCPU geschikt VM-grootten
 

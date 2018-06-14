@@ -2,10 +2,10 @@
 title: MongoDB installeren op een Linux-VM met de Azure CLI | Microsoft Docs
 description: Meer informatie over het installeren en configureren van MongoDB op een Linux-virtuele machine iusing de Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852231"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Het installeren en configureren van MongoDB op een Linux-VM
 [MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel leest u hoe installeren en configureren van MongoDB op een Linux-VM met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](install-mongodb-nodejs.md). Voorbeelden worden weergegeven dat detail hoe naar:

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30264231"
 ---
 # <a name="azure-resource-health-faq"></a>Azure resourcestatus Veelgestelde vragen
 Meer informatie over de antwoorden op veelgestelde vragen over Azure-resourcestatus.

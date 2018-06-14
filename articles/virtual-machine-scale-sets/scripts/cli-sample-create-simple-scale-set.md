@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246454"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Een virtuele-machineschaalset maken met Azure CLI 2.0
 Met dit script maakt u in Azure een virtuele-machineschaalset met het besturingssysteem Ubuntu en bijbehorende netwerkresources, inclusief een load balancer. Nadat het script is uitgevoerd, hebt u via SSH toegang tot de virtuele machine.
