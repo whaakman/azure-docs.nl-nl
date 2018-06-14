@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 7843410043b726526380b2a916d96f414a2decda
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29532322"
 ---
 Na het toepassen van tags aan resources, kunt u de kosten voor bronnen met deze labels weergeven. Het duurt even voor kostenanalyse om weer te geven van de meest recente informatie over het gebruik, zodat u wel de kosten niet nog eens. Wanneer de kosten beschikbaar zijn, kunt u de kosten voor resources weergeven over resourcegroepen in uw abonnement. Gebruikers moeten beschikken over [abonnement niveau toegang tot factureringsgegevens](../articles/billing/billing-manage-access.md) om te zien van de kosten.
 

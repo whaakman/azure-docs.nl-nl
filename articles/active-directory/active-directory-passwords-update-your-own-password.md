@@ -2,8 +2,8 @@
 title: 'Azure AD: Uw wachtwoord opnieuw instellen | Microsoft Docs'
 description: Selfservice voor wachtwoordherstel weer toegang tot uw werk of school gebruikersaccount gebruiken
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29463775"
 ---
 # <a name="reset-your-work-or-school-password"></a>Uw werk of school-wachtwoord opnieuw instellen
 

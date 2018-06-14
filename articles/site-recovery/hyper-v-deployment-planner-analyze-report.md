@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29467210"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Het Azure Site Recovery implementatie Planner rapport analyseren
 Dit artikel worden de werkbladen in het Excel-rapport gegenereerd door Azure Site Recovery-implementatie plannen voor een Hyper-V op Azure scenario.

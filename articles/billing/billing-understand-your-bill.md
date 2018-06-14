@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204887"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Meer informatie over uw factuur voor Microsoft Azure
 Voor inzicht in uw Azure-factuur, Vergelijk uw factuur met de gedetailleerde dagelijks gebruik-bestand en de kosten-rapporten in de Azure portal.

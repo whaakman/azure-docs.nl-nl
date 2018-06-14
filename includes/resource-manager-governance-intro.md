@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 2c16e82ccf259a4cc5ae8fcf35b2dd6b5d50ee2d
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29528341"
 ---
 Bij het implementeren van resources in Azure, hebben grote flexibiliteit bij het bepalen van welke typen resources te implementeren en waar ze zich bevinden en hoe deze moeten worden ingesteld. Deze flexibiliteit kan echter meer opties dan u wilt toestaan dat in uw organisatie te openen. Als u rekening houden met het implementeren van resources in Azure, wellicht u:
 

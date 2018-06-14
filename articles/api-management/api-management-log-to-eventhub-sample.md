@@ -2,10 +2,10 @@
 title: API's met Azure API Management, Event Hubs en Runscope bewaken | Microsoft Docs
 description: Voorbeeld van een toepassing demonstreren van het logboek voor eventhub-beleid door het verbindende Azure API Management, Azure Event Hubs en Runscope voor HTTP-logboekregistratie en controle
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: darrelmiller
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117065"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Uw API's met Azure API Management, Event Hubs en Runscope bewaken
 De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen verzonden naar uw HTTP-API. Er is echter het bestaan van de aanvragen en antwoorden tijdelijke. De aanvraag wordt gedaan en wordt via de API Management-service naar uw back-end API gebruikt. De aanvraag wordt verwerkt door uw API en een antwoord doorloopt aan de verbruiker API. API Management-service houdt een aantal belangrijke statistieken over de API voor weergave in de Azure portal-dashboard, maar ook buiten dat de gegevens verwijderd zijn.
