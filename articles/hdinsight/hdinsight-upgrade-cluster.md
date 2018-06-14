@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406827"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>HDInsight-cluster naar een nieuwere versie upgraden
 Om te profiteren van de nieuwste functies van HDInsight, is het raadzaam dat HDInsight-clusters worden bijgewerkt naar de nieuwste versie. Volg de onderstaande richtlijnen voor het upgraden van uw HDInsight-cluster versies.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433327"
 ---
 Wanneer u klaar bent, kunt u de resourcegroep verwijderen. Als u de resourcegroep verwijdert, verwijdert u ook het opslagaccount, de Azure-bestandsshare en alle andere resources die u in de resourcegroep hebt geïmplementeerd.
 

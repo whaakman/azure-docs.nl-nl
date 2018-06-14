@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527909"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Gevoel analyse uitvoeren met behulp van Azure Stream Analytics en Azure Machine Learning
 In dit artikel wordt beschreven hoe snel een eenvoudige Azure Stream Analytics-taak die Azure Machine Learning integreert instellen. U kunt een Machine Learning gevoel analytics-model van de Cortana Intelligence Gallery streaming tekstgegevens analyseren en te bepalen van de score gevoel in realtime. Met de Cortana Intelligence Suite kunt u deze taak uitvoeren zonder dat u de beschrijving van het bouwen van een gevoel analytics-model.

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409066"
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>COMPUTE context opties voor R Server op HDInsight
 

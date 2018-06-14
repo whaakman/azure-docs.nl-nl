@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31524421"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>Herstellen van een Azure SQL datawarehouse met REST-API 's
 Herstellen van een Azure SQL Data Warehouse met REST API's.
