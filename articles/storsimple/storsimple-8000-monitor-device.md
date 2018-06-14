@@ -5,8 +5,8 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23933142"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>De service Manager voor StorSimple-apparaat gebruiken voor het bewaken van uw StorSimple-apparaat
 

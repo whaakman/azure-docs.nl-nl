@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23928886"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Voorbeeld 1: een eenvoudige DMZ met nsg's met klassieke PowerShell bouwen
 [Ga terug naar de grens van Best Practices beveiligingspagina][HOME]

@@ -5,7 +5,7 @@ services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926506"
 ---
 # <a name="scheduler-outbound-authentication"></a>Scheduler uitgaande verificatie
 Scheduler-taken moet mogelijk aan te roepen voor services die verificatie vereist. Op deze manier een opgeroepen service kunt bepalen als de Scheduler-taak toegang de bronnen tot. Sommige van deze services bevatten andere Azure-services, Salesforce.com, Facebook en beveiligde aangepaste websites.

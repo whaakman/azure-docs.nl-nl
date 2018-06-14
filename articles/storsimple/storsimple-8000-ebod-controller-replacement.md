@@ -2,11 +2,11 @@
 title: Vervangen van een domeincontroller StorSimple 8600 EBOD | Microsoft Docs
 description: Legt uit hoe verwijdert en vervangt u een of beide EBOD domeincontrollers op een StorSimple 8600-apparaat.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927577"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Vervangen van een domeincontroller EBOD op uw StorSimple-apparaat
 

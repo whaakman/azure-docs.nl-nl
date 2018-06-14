@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25541567"
 ---
 # <a name="microsoft-trust-center"></a>Vertrouwenscentrum van Microsoft
 De beveiligingsgegevens voor Azure-site op Azure.com biedt u de informatie die u nodig hebt om te plannen, ontwerpen, implementeren, configureren en beheren uw cloudoplossingen veilig. Met de Microsoft Trust center hebt u ook de informatie moet u er zeker van te zijn dat de Azure-platform waarop u uw services uitvoert beveiligd is.

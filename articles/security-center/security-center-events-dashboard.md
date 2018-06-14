@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926527"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Bewaking en het verwerken van beveiligingsgebeurtenissen in Azure Security Center
 Het dashboard gebeurtenissen biedt een overzicht van het aantal beveiligingsgebeurtenissen gedurende een bepaalde tijd een lijst met belangrijke gebeurtenissen die uw aandacht nodig hebben verzameld.  

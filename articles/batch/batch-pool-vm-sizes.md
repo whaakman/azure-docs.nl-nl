@@ -2,13 +2,13 @@
 title: VM-grootten voor Azure Batch-pools kiezen | Microsoft Docs
 description: Het kiezen van de VM-grootten voor rekenknooppunten in Azure Batch pools beschikbaar
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29765607"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Kies een VM-grootte voor rekenknooppunten in een Azure Batch-toepassingen
 
