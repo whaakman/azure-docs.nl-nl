@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895500"
 ---
 # <a name="policy-requirements-for-pci-dss-compliant-environments"></a>Vereisten voor PCI DSS-compatibele omgevingen  
 ## <a name="pci-dss-requirement-12"></a>PCI-DSS vereiste 12
