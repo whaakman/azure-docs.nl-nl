@@ -2,10 +2,10 @@
 title: Het gebruik van de invoegtoepassing Azure slave met Hudson continue integratie | Microsoft Docs
 description: Beschrijft hoe u de invoegtoepassing Azure slave met Hudson continue integratie.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27704802"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Het gebruik van de invoegtoepassing Azure slave met Hudson continue integratie
 De invoegtoepassing voor Hudson Azure slave kunt u knooppunten van de slave op Azure inrichten bij het uitvoeren van gedistribueerde bouwt.

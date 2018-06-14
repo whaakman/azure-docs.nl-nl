@@ -1,11 +1,11 @@
 ---
 title: Verificatie toevoegen voor Android met Mobile Apps | Microsoft Docs
-description: "Informatie over het verifiëren van gebruikers van uw Android-app via een groot aantal identiteitsproviders, waaronder Google, Facebook, Twitter en Microsoft met de functie Mobile Apps van Azure App Service."
+description: Informatie over het verifiëren van gebruikers van uw Android-app via een groot aantal identiteitsproviders, waaronder Google, Facebook, Twitter en Microsoft met de functie Mobile Apps van Azure App Service.
 services: app-service\mobile
 documentationcenter: android
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595224"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Verificatie toevoegen aan uw Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

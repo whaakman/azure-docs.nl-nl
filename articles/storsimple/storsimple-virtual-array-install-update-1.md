@@ -5,8 +5,8 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24012076"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Update 1.0 installeren op uw virtuele StorSimple-matrix
 

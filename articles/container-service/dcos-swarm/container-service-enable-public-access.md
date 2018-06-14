@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26332276"
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Openbare toegang tot een Azure Container Service-toepassing
 

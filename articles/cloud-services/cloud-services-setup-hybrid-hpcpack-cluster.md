@@ -2,12 +2,12 @@
 title: Een hybride HPC Pack cluster in Azure instellen | Microsoft Docs
 description: Informatie over het gebruik van Microsoft HPC Pack en Azure voor het instellen van een klein, hybride high performance computing-cluster (HPC)
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: hpc-pack
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23985303"
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Een hybride high performance computing-cluster (HPC) met Microsoft HPC Pack en Azure rekenknooppunten op aanvraag instellen
 Gebruik Microsoft HPC Pack 2012 R2 en Azure voor het instellen van een klein, hybride high performance computing-cluster (HPC). Het cluster weergegeven in dit artikel bestaat uit een lokale HPC Pack-hoofdknooppunt en sommige compute knooppunten die u implementeert op aanvraag in een Azure-cloudservice. Vervolgens kunt u op het cluster hybrid compute-taken uitvoeren.

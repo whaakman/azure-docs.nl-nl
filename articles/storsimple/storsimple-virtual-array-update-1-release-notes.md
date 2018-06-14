@@ -2,11 +2,11 @@
 title: StorSimple virtuele matrix Update 1.0 release-opmerkingen | Microsoft Docs
 description: Hierin wordt beschreven kritieke open problemen en oplossingen voor de virtuele StorSimple-matrix met Update 1.0.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24012104"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>StorSimple virtuele matrix Update 1.0 release-opmerkingen
 

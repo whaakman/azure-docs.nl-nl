@@ -2,10 +2,10 @@
 title: Communicatie voor rollen in Cloudservices | Microsoft Docs
 description: Rolinstanties in de Cloud Services kunnen eindpunten (http, https, tcp, udp) gedefinieerd die met de buitenkant of tussen andere rolinstanties communiceren hebben.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27701887"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Communicatie inschakelen voor rolinstanties in azure
 Cloud service-rollen communiceren via de interne en externe verbindingen. Externe verbindingen worden genoemd **invoer eindpunten** terwijl interne verbindingen heten **interne eindpunten**. Dit onderwerp wordt beschreven hoe u wijzigt de [definitie](cloud-services-model-and-package.md#csdef) om eindpunten te maken.
