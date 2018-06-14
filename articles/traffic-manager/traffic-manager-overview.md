@@ -2,10 +2,10 @@
 title: Wat is er Traffic Manager | Microsoft Docs
 description: Dit artikel helpt u begrijpen wat Traffic Manager is en of deze de juiste traffic routing keuze voor uw toepassing
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23877053"
 ---
 # <a name="overview-of-traffic-manager"></a>Overzicht van Traffic Manager
 

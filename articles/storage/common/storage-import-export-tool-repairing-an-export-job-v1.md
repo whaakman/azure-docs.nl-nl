@@ -5,7 +5,7 @@ author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873875"
 ---
 # <a name="repairing-an-export-job"></a>Een exporttaak herstellen
 Nadat een taak voor het exporteren is voltooid, kunt u de Microsoft Azure-hulpprogramma voor importeren/exporteren on-premises naar uitvoeren:  

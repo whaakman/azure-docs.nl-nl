@@ -2,7 +2,7 @@
 title: Verzamelen van aangepaste JSON-gegevens in OMS Log Analytics | Microsoft Docs
 description: Aangepaste JSON-gegevensbronnen kunnen worden verzameld in de OMS-Agent voor Linux met logboekanalyse.  Deze aangepaste gegevensbronnen mag eenvoudige scripts JSON zoals curl of een van de FluentD 300 + plugins retourneren. In dit artikel beschrijft de vereiste configuratie voor deze gegevensverzameling.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855220"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Verzamelen van aangepaste JSON-gegevensbronnen met de OMS-Agent voor Linux in Log Analytics
 Aangepaste JSON-gegevensbronnen kunnen worden verzameld in de OMS-Agent voor Linux met logboekanalyse.  Deze aangepaste gegevensbronnen kunnen worden eenvoudige scripts JSON zoals retourneren [curl](https://curl.haxx.se/) of een van [FluentD van 300 + plugins](http://www.fluentd.org/plugins/all). In dit artikel beschrijft de vereiste configuratie voor deze gegevensverzameling.
