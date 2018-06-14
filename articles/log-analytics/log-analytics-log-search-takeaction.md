@@ -2,11 +2,11 @@
 title: Actie van Azure Automation-Runbook in logboekanalyse gebruiker gestart | Microsoft Docs
 description: In dit artikel wordt beschreven hoe een Automation-runbook uitvoeren vanaf een Log Analytics zoeken resultaat op aanvraag.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394612"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Onderneem actie met een Automation-Runbook uit een zoekresultaat Log Analytics-logboek
 

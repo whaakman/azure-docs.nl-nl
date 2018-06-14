@@ -2,7 +2,7 @@
 title: Met Terraform van Bash in de Azure-Cloud-Shell implementeren | Microsoft Docs
 description: Met Terraform van Bash in de Azure-Cloud-Shell implementeren
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: tomarcher
 manager: routlaw
 tags: azure-cloud-shell
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386517"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Met Terraform van Bash in de Azure-Cloud-Shell implementeren
 Dit artikel begeleidt u bij het maken van een resourcegroep met de [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 

@@ -1,11 +1,11 @@
 ---
 title: Nog in te dienen | Microsoft Azure
 description: Nog in te dienen.
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: czeumault
 manager: carolz
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 0ff41bee-1606-4adc-94e6-92fd80dc286b
 ms.service: value
@@ -20,5 +20,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071259"
 ---
 # <a name="to-be-submitted"></a>Nog in te dienen.
