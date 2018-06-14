@@ -5,7 +5,7 @@ documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "22710130"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren (klassiek)
 > [!div class="op_single_selector"]

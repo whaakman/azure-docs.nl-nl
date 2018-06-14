@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540972"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Een praktische handleiding voor het ontwerpen van veilige gezondheidszorg oplossingen in Azure
 Health bedrijfstak startups, systeemintegrators (SIs), onafhankelijke softwareleveranciers (ISV's) en ziekenhuizen overwegen van een verplaatsing naar Azure zoekt richtlijnen waarmee ze gebruikmaken van beveiligingsmechanismen om te voldoen aan hun verplichtingen.

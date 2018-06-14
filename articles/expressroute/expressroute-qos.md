@@ -5,7 +5,7 @@ documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: db1c1447-0283-4a09-907b-ae481adc40c7
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22709909"
 ---
 # <a name="expressroute-qos-requirements"></a>QoS-vereisten voor ExpressRoute
 Skype voor Bedrijven heeft verschillende workloads die allemaal een andere QoS-behandeling vereisen. Als u via ExpressRoute voice-services wilt gaan gebruiken, moet u voldoen aan de vereisten die hieronder worden beschreven.
