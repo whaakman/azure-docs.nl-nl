@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949800"
 ---
 #  <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Zelfstudie: Fouten opsporen in een Java-toepassing die is geïmplementeerd op een lokale Service Fabric-cluster 
 Deze zelfstudie is deel twee van een serie. U leert hoe u een extern foutopsporingsprogramma koppelt met gebruik van Eclipse voor de Service Fabric-toepassing. Bovendien leert u hoe u logboeken moet omleiden van de actieve toepassingen naar een locatie die praktisch is voor de ontwikkelaar.

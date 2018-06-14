@@ -1,8 +1,8 @@
 ---
-title: "Een functie in Azure maken die wordt geïmplementeerd vanuit Visual Studio Team Services | Microsoft Docs"
+title: Een functie in Azure maken die wordt geïmplementeerd vanuit Visual Studio Team Services | Microsoft Docs
 description: Een functie-app maken en functiecode implementeren vanuit Visual Studio Team Services
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 01/09/2018
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842344"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Een functie-app maken en functiecode implementeren vanuit Visual Studio Team Services
 

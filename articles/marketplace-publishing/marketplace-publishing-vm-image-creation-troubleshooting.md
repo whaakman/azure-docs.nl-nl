@@ -2,10 +2,10 @@
 title: Het oplossen van veelvoorkomende problemen tijdens het maken van de VHD | Microsoft Docs
 description: Antwoorden op veelgestelde vragen voor het oplossen van problemen en problemen tijdens het maken van de VHD.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941598"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Het oplossen van veelvoorkomende problemen aangetroffen tijdens het maken van de VHD
 In dit artikel is bedoeld om een Azure Marketplace-uitgever en/of medebeheerder die mogelijk problemen ervaren of Veelgestelde vragen hebben bij het publiceren en beheren van hun oplossing(en) virtuele machine te geven.

@@ -2,11 +2,11 @@
 title: Failover naar Azure fouten oplossen | Microsoft Docs
 description: In dit artikel wordt beschreven hoe het oplossen van veelvoorkomende fouten in Azure worden niet via
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874356"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Fouten bij failover van een virtuele machine in Azure oplossen
 U wordt een van de volgende fouten tijdens de failover van een virtuele machine in Azure. Voor het oplossen, kunt u de stappen beschreven voor elke fout.

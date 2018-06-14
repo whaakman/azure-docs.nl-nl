@@ -2,10 +2,10 @@
 title: Maken van een installatiekopie van een lokale virtuele machine voor Azure Marketplace | Microsoft Docs
 description: Inzicht en voer de stappen voor de installatiekopie van een lokale virtuele machine maken en implementeren in Azure Marketplace voor anderen om aan te schaffen.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29944428"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Een installatiekopie van een lokale virtuele machine ontwikkelen voor Azure Marketplace
 Wij raden u aan Azure virtuele harde schijven (VHD's) rechtstreeks in de cloud te ontwikkelen met behulp van Remote Desktop Protocol. Als u moet is het echter mogelijk te downloaden van een VHD en het ontwikkelen met behulp van on-premises infrastructuur.  

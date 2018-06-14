@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841261"
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Sets met gelijke taakverdeling kunt clusterize MySQL op Linux
 > [!IMPORTANT]

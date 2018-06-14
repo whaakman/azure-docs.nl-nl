@@ -2,10 +2,10 @@
 title: Wat is er een Service in de Cloud-model en het pakket | Microsoft Docs
 description: Hierin worden de cloud-servicemodel (csdef, cscfg-bestand) en het pakket (.cspkg) in Azure
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876556"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Wat is het Cloudservice-model en hoe ik dit pakket?
 Een cloudservice is gemaakt op basis van drie onderdelen, de servicedefinitie *(.csdef)*, de serviceconfiguratie *(.cscfg)*, en een servicepakket *(.cspkg)*. Zowel de **ServiceDefinition.csdef** en **ServiceConfig.cscfg** bestanden zijn XML- en beschrijven de structuur van de cloudservice en de manier waarop deze geconfigureerd; genoemd op het model. De **ServicePackage.cspkg** is een zipbestand dat is gegenereerd op basis van de **ServiceDefinition.csdef** en onder andere bevat alle vereiste binaire gebaseerde afhankelijkheden. Azure maakt een cloudservice van zowel de **ServicePackage.cspkg** en de **ServiceConfig.cscfg**.

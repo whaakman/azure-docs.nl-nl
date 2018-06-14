@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29949018"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Na productie-handleiding voor aanbiedingen van de virtuele machine in Azure Marketplace
 Dit artikel wordt uitgelegd hoe u een aanbieding live virtuele machine in Azure Marketplace kunt bijwerken. Dit leidt u door het proces van een of meer nieuwe SKU's toevoegen aan een bestaande aanbieding. Ook leidt u door het proces van het verwijderen van een aanbieding van live virtuele machine of de SKU van de Marketplace.

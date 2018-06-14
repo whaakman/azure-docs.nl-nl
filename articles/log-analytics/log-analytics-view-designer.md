@@ -2,10 +2,10 @@
 title: Maken van weergaven voor het analyseren van gegevens in Azure Log Analytics | Microsoft Docs
 description: Ontwerp weergeven in Log Analytics gebruikt, kunt u aangepaste weergaven die worden weergegeven in de Azure portal en tal van gegevensvisualisaties in de werkruimte voor logboekanalyse bevatten. Dit artikel bevat een overzicht van Designer bekijken en geeft de procedures voor het maken en bewerken van aangepaste weergaven.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29939866"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Aangepaste weergaven maken met behulp van de ontwerpfunctie voor weergaven in Log Analytics
 Met behulp van de ontwerpfunctie voor weergaven in [Azure Log Analytics](log-analytics-overview.md), kunt u tal van aangepaste weergaven maken in de Azure-portal kunt u gegevens in de werkruimte voor logboekanalyse visualiseren. Dit artikel biedt een overzicht van Designer bekijken en procedures voor het maken en bewerken van aangepaste weergaven.

@@ -2,10 +2,10 @@
 title: Een Dynamics AX-implementatie met meerdere lagen repliceren met behulp van Azure Site Recovery | Microsoft Docs
 description: Dit artikel wordt beschreven hoe repliceren en Dynamics AX beveiligen met behulp van Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: asgang
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876953"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Een met meerdere lagen Dynamics AX-toepassing repliceren met behulp van Azure Site Recovery
 

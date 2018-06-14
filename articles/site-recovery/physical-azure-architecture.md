@@ -11,6 +11,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874889"
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Fysieke server naar Azure replicatie-architectuur
 

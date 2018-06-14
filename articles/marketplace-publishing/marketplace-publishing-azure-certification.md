@@ -5,8 +5,8 @@ services: marketplace-publishing
 documentationcenter: na
 author: msmbaldwin
 manager: mbaldwin
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 7e9ebf17-07a1-4796-921f-d1d62046892d
 ms.service: marketplace
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29939005"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Vooraf goedgekeurd via het programma gecertificeerd voor Microsoft Azure
 In dit artikel vindt u instructies voor hoe u Microsoft Azure-gecertificeerd zodat u kunt uw oplossing in Azure Marketplace publiceert en in aanmerking voor marketing voordelen komen. Voor een gedetailleerd overzicht van het programma Microsoft Azure-gecertificeerd en de voordelen, gaat u naar [ http://azure.com/certified ](http://azure.com/certified).

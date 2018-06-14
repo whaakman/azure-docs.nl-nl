@@ -2,7 +2,7 @@
 title: Een functie-app maken en functiecode implementeren vanuit GitHub | Microsoft Docs
 description: Azure CLI-voorbeeldscript - Een functie-app maken en functiecode implementeren vanuit GitHub
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842657"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Een functie-app maken en functiecode implementeren vanuit GitHub
 

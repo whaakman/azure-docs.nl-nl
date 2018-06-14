@@ -2,7 +2,7 @@
 title: Problemen oplossen tijdens de failback van virtuele machines van Azure naar lokale VMware met Azure Site Recovery | Microsoft Docs
 description: In dit artikel wordt beschreven hoe algemene failback en beveiligingspoging fouten oplossen tijdens de failback naar VMware van Azure met behulp van Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941021"
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Failback vanuit Azure naar VMware oplossen
 
