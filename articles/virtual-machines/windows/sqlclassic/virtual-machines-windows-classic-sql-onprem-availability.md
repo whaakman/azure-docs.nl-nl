@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400474"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>On-premises altijd op beschikbaarheidsgroepen uitbreiden naar Azure
 Altijd op beschikbaarheidsgroepen bieden hoge beschikbaarheid voor groepen van database door secundaire replica's toe te voegen. Deze replica's staan failover wordt uitgevoerd de databases bij een fout. Ze kunnen ook worden gebruikt voor het offloaden van lezen werkbelastingen of back-uptaken.
