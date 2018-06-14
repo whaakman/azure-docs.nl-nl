@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentatie voor Azure Migrate
 metadata:
-  title: 'Documentatie voor Azure Migrate - zelfstudies, API-verwijzing | Microsoft Docs'
+  title: Documentatie voor Azure Migrate - zelfstudies, API-verwijzing | Microsoft Docs
   description: Leer hoe u on-premises computers beoordeelt voor migratie naar Azure
   services: migration-planner
   author: rayne-wiselman
@@ -13,14 +13,20 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: raynew
+  ms.openlocfilehash: 64e5293473dd9b5d4b55088e447a5ec3a289372d
+  ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 11/27/2017
+  ms.locfileid: "25927115"
 abstract:
-  description: 'Azure Migrate helpt u om de geschiktheid van on-premises computers voor migratie naar Azure te verkennen en te beoordelen, en biedt u schattingen voor de dimensionering en de kosten voor het uitvoeren van virtuele Azure-machines.'
+  description: Azure Migrate helpt u om de geschiktheid van on-premises computers voor migratie naar Azure te verkennen en te beoordelen, en biedt u schattingen voor de dimensionering en de kosten voor het uitvoeren van virtuele Azure-machines.
 sections:
-  - title: Zelfstudies met stapsgewijze instructies
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Leer hoe u virtuele VMware-machines beoordeelt voor migratie naar Azure
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: Leer hoe u virtuele VMware-machines beoordeelt voor migratie naar Azure
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-assessment-vmware">On-premises virtuele VMware-machines verkennen en beoordelen</a>
+    - html: <a href="tutorial-assessment-vmware">On-premises virtuele VMware-machines verkennen en beoordelen</a>

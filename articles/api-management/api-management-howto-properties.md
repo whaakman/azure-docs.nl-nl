@@ -2,10 +2,10 @@
 title: Het gebruik van eigenschappen in Azure API Management-beleidsregels
 description: Informatie over het gebruik van eigenschappen in Azure API Management-beleidsregels.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197109"
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Het gebruik van eigenschappen in Azure API Management-beleidsregels
 API Management-beleidsregels zijn een krachtige mogelijkheid van het systeem waarmee de Azure-portal om het gedrag van de API via configuratie te wijzigen. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op de aanvraag of het antwoord van een API. Beleidsverklaringen kunnen worden samengesteld met behulp van letterlijke tekstwaarden, beleidsexpressies en eigenschappen. 

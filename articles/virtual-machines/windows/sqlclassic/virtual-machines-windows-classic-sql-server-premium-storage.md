@@ -2,7 +2,7 @@
 title: Gebruik Azure Premium-opslag met SQL Server | Microsoft Docs
 description: Dit artikel maakt gebruik van resources die zijn gemaakt met het klassieke implementatiemodel en biedt richtlijnen over het gebruik van Azure Premium-opslag met SQL Server wordt uitgevoerd op Azure Virtual Machines.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: craigg
 editor: monicar
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400610"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
 ## <a name="overview"></a>Overzicht
