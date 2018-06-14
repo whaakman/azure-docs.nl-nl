@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31403931"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Toegang toepassingslogboeken YARN op HDInsight op basis van Windows
 Dit document wordt uitgelegd hoe u toegang tot de logboeken voor YARN-toepassingen die u opgegeven op een Windows gebaseerde Hadoop-cluster in Azure HDInsight hebt

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31393868"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Het gebruik van toegangsbeheer op basis van rollen in Azure API Management
 Azure API Management is gebaseerd op gebaseerd toegangsbeheer (RBAC) om in te schakelen Geavanceerd toegangsbeheer voor API Management-services en entiteiten (bijvoorbeeld, API's en beleidsregels). In dit artikel biedt een overzicht van de ingebouwde en aangepaste rollen in API Management. Zie voor meer informatie over toegangsbeheer in Azure portal [aan de slag met toegangsbeheer in Azure portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).

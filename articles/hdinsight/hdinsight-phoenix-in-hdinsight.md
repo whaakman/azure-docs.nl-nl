@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31407728"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix in HDInsight
 

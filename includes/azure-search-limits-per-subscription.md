@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30844080"
 ---
 U kunt meerdere services binnen een abonnement, elk criterium ingericht op een specifieke laag, alleen beperkt door het aantal services dat is toegestaan op elke laag maken. U kunt bijvoorbeeld maximaal 12 services op de basisstaffel en een andere 12 services op de laag S1 binnen hetzelfde abonnement maken. Zie voor meer informatie over categorieën [een SKU of laag kiezen voor Azure Search](../articles/search/search-sku-tier.md).
 

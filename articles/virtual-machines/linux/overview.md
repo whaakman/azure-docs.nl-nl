@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911315"
 ---
 # <a name="azure-and-linux"></a>Azure en Linux
 Microsoft Azure is een groeiende verzameling geïntegreerde, openbare cloudservices, waaronder analyses, VM's, databases, mobiele toepassingen, netwerken, opslag en het web&mdash;ideaal voor het hosten van uw oplossingen.  Microsoft Azure biedt een schaalbaar platform waarvoor u alleen betaalt voor wat u gebruikt, wanneer u dat gebruikt - zonder dat u hoeft te investeren in on-premises hardware.  Azure is klaar om uw oplossingen op te schalen wanneer u daar ook klaar, welke schaal u ook nodig hebt om te voorzien in de behoeften van uw klanten.

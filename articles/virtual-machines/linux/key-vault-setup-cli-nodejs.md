@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911499"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Sleutelkluis instellen voor virtuele machines in Azure Resource Manager met de Azure CLI 1.0
 In de Azure Resource Manager-stack zijn geheimen/certificaten gemodelleerd als resources die worden geleverd door de bronprovider van de Sleutelkluis. Zie voor meer informatie over Azure Sleutelkluis, [wat is Azure Sleutelkluis?](../../key-vault/key-vault-whatis.md) In de volgorde voor Sleutelkluis moet worden gebruikt met virtuele machines van Azure Resource Manager, de *EnabledForDeployment* eigenschap voor Sleutelkluis moet zijn ingesteld op true. U kunt dit doen in verschillende clients. In dit artikel leest u hoe Sleutelkluis instellen voor gebruik met Azure Virtual Machines.

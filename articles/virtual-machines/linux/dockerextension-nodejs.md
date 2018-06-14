@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30906607"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>Maakt een Docker-omgeving in Azure met behulp van de Docker-VM-extensie met de Azure CLI 1.0
 Docker is een populair containerbeheer en installatiekopieën platform waarmee u snel werken met containers op Linux (en ook Windows). In Azure zijn er verschillende manieren waarop u kunt Docker implementeren volgens uw behoeften. Dit artikel is gericht op het gebruik van de Docker-VM-extensie en Azure Resource Manager-sjablonen. 

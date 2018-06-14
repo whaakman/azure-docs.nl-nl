@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911978"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Uploaden en Linux-VM te maken van aangepaste schijf met de Azure CLI 2.0
 In dit artikel laat zien hoe een virtuele harde schijf (VHD) uploaden naar Azure storage-account met de Azure CLI 2.0 en virtuele Linux-machines te maken van deze aangepaste schijf. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Deze functie kunt u installeren en configureren van een Linux-distro aan uw vereisten en gebruik vervolgens deze VHD snel virtuele Azure-machines (VM's) maken.
