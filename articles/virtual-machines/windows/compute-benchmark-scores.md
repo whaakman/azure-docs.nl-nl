@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31424690"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>COMPUTE benchmark scores voor VM's van Windows
 De volgende SPECInt benchmark scores weergeven computerprestaties voor Azure krachtige VM selectie met Windows Server. COMPUTE benchmark scores zijn ook beschikbaar voor [virtuele Linux-machines](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 

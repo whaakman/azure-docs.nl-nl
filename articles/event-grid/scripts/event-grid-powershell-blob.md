@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425883"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>Abonneren op gebeurtenissen voor een Blob Storage-account met PowerShell
 

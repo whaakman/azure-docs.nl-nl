@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31420719"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Het configureren van Azure Redis-Cache
 Dit onderwerp beschrijft de configuraties die beschikbaar zijn voor uw Azure Redis-Cache-exemplaren. Dit onderwerp worden ook de configuratie standaard Redis-server voor Azure Redis-Cache-exemplaren.
