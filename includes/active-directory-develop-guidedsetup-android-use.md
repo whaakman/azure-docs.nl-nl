@@ -1,7 +1,7 @@
 
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Gebruik MSAL voor een token voor de Microsoft Graph-API
 
-1.  Onder **app** > **java** > **{domein}. { AppName}**Open `MainActivity`. 
+1.  Onder **app** > **java** > **{domein}. { AppName}** Open `MainActivity`. 
 2.  Voeg de volgende import toe:
 
     ```java

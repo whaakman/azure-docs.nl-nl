@@ -3,7 +3,7 @@ title: Instellingen voor beleid en MDM groep | Microsoft Docs
 description: Bevat informatie over Groepsbeleid en het mobiele apparaat management (MDM)-instellingen die moeten worden gebruikt op apparaten in Bedrijfseigendom. Deze beleidsregels worden toegepast op het hele apparaat van de gebruiker.
 services: active-directory
 keywords: Wat zijn groep beleid en de MDM-instellingen voor Enterprise State Roaming, Enterprise State Roaming, windows cloud
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614905"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Instellingen voor Groepsbeleid en MDM
 Gebruik deze instellingen voor Groepsbeleid en het management (MDM)-instellingen voor mobiele apparaten alleen op apparaten in Bedrijfseigendom omdat deze beleidsregels worden toegepast op het hele apparaat van de gebruiker. Toepassen van een MDM-beleid voor het uitschakelen van synchronisatie van instellingen voor een persoonlijke invloed apparaat is eigendom van gebruiker negatieve op het gebruik van het apparaat. Bovendien worden de accounts van andere gebruikers op het apparaat ook beïnvloed door het beleid.

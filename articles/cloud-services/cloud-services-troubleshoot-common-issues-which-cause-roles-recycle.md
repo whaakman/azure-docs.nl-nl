@@ -2,10 +2,10 @@
 title: Veelvoorkomende oorzaken van Cloud Service-rollen recyclen | Microsoft Docs
 description: De functie van een cloud-service die plotseling wordt gerecycled kan leiden tot aanzienlijke downtime. Hier volgen enkele veelvoorkomende problemen die ertoe leiden rollen dat worden gerecycled, waarmee u de uitvaltijd beperken.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984283"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Algemene problemen waardoor rollen worden herhaald
 Dit artikel worden enkele van de algemene oorzaken van problemen met implementatie beschreven en biedt tips voor probleemoplossing waarmee u deze problemen oplossen. Geeft aan dat er een probleem met een toepassing is is wanneer de rolinstantie niet kan worden gestart, of deze replicatiecycli tussen de statussen initialiseren bezet en stoppen.

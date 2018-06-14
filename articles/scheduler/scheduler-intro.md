@@ -5,7 +5,7 @@ services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22715111"
 ---
 # <a name="what-is-azure-scheduler"></a>Wat is Azure Scheduler?
 Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten worden uitgevoerd. En vervolgens worden deze acties automatisch gepland en uitgevoerd.  In Scheduler wordt dit gedaan met behulp van [de Azure Portal](scheduler-get-started-portal.md), programmacode, de [REST-API](https://msdn.microsoft.com/library/mt629143.aspx) of Azure PowerShell.

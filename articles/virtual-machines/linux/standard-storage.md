@@ -2,7 +2,7 @@
 title: Standard-opslag voor Linux-VM-schijven in Azure | Microsoft Docs
 description: Bespreek rendabele standaardopslag en niet-beheerde en beheerde Linux VM-schijven.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: jeconnoc
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23949137"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

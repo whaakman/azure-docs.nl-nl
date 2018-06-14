@@ -3,10 +3,10 @@ title: Azure Automation integreren met gebeurtenis raster | Microsoft Docs
 description: Informatie over het automatisch toevoegen van een label wanneer een nieuwe virtuele machine wordt gemaakt en een melding verzenden naar Microsoft-Teams.
 keywords: Automation, runbook, teams, gebeurtenis raster, virtuele machine, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -16,9 +16,10 @@ ms.date: 12/06/2017
 ms.author: eamono
 ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349066"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Automation integreren met gebeurtenis raster en Microsoft-Teams
 

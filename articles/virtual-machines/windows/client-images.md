@@ -1,11 +1,11 @@
 ---
-title: "Windows client-installatiekopieën gebruiken in Azure | Microsoft Docs"
+title: Windows client-installatiekopieën gebruiken in Azure | Microsoft Docs
 description: Het gebruik van de voordelen als Visual Studio-abonnement voor het implementeren van Windows 7, Windows 8 of Windows 10 in Azure voor ontwikkel-/ Testscenario 's
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103673"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows-client in Azure gebruiken voor scenario's ontwikkelen en testen
 U kunt Windows 7, Windows 8 of Windows 10 Enterprise (x64) in Azure voor ontwikkel-/ Testscenario's geleverde dat een juiste Visual Studio (voorheen MSDN)-abonnement hebt. In dit artikel bevat een overzicht van de vereisten in aanmerking komt voor het uitvoeren van Windows 7, Windows 8.1, Windows 10 Enterprise in Azure en het gebruik van de volgende afbeeldingen in de galerie van Azure.

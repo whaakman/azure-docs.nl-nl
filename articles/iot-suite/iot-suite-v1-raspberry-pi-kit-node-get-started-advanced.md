@@ -1,12 +1,12 @@
 ---
 title: Verbinding maken met een Pi frambozen Azure IoT Suite-ondersteuning voor firmware-updates met behulp van Node.js | Microsoft Docs
 description: Gebruik de Microsoft Azure IoT Starter Kit voor de Raspberry Pi 3 en Azure IoT Suite. Gebruik Node.js verbinding maken met uw frambozen-Pi de oplossing voor externe controle verzenden van telemetrie van sensoren naar de cloud en uitvoeren van een externe firmware-update.
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: nodejs
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24012111"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Verbinding maken met uw frambozen Pi 3 van de oplossing voor externe controle en het inschakelen van externe firmware-updates met behulp van Node.js
 

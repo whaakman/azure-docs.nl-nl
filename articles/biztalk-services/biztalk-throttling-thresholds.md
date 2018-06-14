@@ -2,10 +2,10 @@
 title: Meer informatie over het beperken van in BizTalk Services | Microsoft Docs
 description: Meer informatie over bandbreedtebeperking drempelwaarden en de resulterende gedrag van de runtime voor BizTalk Services. Bandbreedtebeperking is gebaseerd op het gebruik van geheugen en het aantal berichten. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: f6663cf2-cda4-4bac-855e-27d2ad5c4fa4
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102083"
 ---
 # <a name="biztalk-services-throttling"></a>BizTalk Services: beperking
 

@@ -2,10 +2,10 @@
 title: Gebruik Azure automatisch schalen met gast metrische gegevens in een sjabloon van Linux scale set | Microsoft Docs
 description: Meer informatie over hoe u met behulp van de Gast metrische gegevens in een sjabloon van Linux virtuele-Machineschaalset voor automatisch schalen
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: na
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781425"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Met behulp van de Gast metrische gegevens in een sjabloon van Linux scale set voor automatisch schalen
 

@@ -1,11 +1,11 @@
 ---
 title: De queryactie in logic apps toevoegen | Microsoft Docs
 description: Overzicht van de queryactie voor het uitvoeren van acties zoals matrix van filter.
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27962642"
 ---
 # <a name="get-started-with-the-query-action"></a>Aan de slag met de queryactie
 Met behulp van de queryactie, kunt u met de batches en matrices voor het uitvoeren van werkstromen te werken:
