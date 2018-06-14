@@ -5,8 +5,8 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200007"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>OS-beveiligingsconfiguraties in Azure Security Center (Preview) aanpassen
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28212104"
 ---
 # <a name="ansible-with-azure"></a>Ansible met Azure
 

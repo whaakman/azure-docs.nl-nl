@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797832"
 ---
 # <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>Maak een virtueel netwerk (klassiek) met een netwerk configuratiebestand met PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

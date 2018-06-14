@@ -2,7 +2,7 @@
 title: Aangepaste velden in de Azure Log Analytics | Microsoft Docs
 description: De functie voor de aangepaste velden van Log Analytics kunt u uw eigen doorzoekbare velden maken van logboekanalyse records die aan de eigenschappen van een record die worden verzameld toevoegen.  In dit artikel beschrijft het proces voor het maken van een aangepast veld en een gedetailleerde uitleg biedt een voorbeeld van de gebeurtenis.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030691"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Aangepaste velden in Log Analytics
 De **aangepaste velden** functie van Log Analytics kunt u bestaande records in logboekanalyse uitbreiden door uw eigen doorzoekbare velden toe te voegen.  Aangepaste velden worden automatisch ingevuld van gegevens van andere eigenschappen in dezelfde record hebt uitgepakt.

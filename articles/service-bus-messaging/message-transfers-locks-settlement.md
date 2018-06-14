@@ -2,10 +2,10 @@
 title: Azure Service Bus bericht overdrachten vergrendelingen en vereffening | Microsoft Docs
 description: Overzicht van Service Bus bericht overdrachten en vereffening bewerkingen
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28199029"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Bericht overdrachten, vergrendelingen en vereffening
 

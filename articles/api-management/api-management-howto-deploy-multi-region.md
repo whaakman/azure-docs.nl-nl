@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31586803"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Een Azure API Management-service-exemplaar implementeren op meerdere Azure-regio 's
 API Management biedt ondersteuning voor meerdere landen/regio-implementatie waarmee de API-uitgevers voor een enkele API management-service verdelen over een willekeurig aantal gewenste Azure-regio's. Dit vermindert de latentie waargenomen door geografisch verspreid API consumenten en verbetert tevens de servicebeschikbaarheid als één regio offline gaat. 

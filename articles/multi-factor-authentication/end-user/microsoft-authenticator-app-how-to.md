@@ -2,7 +2,7 @@
 title: Microsoft Authenticator-app voor mobiele telefoons | Microsoft Docs
 description: Informatie over het upgraden naar de nieuwste versie van Azure Authenticator.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200994"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Aan de slag met de Microsoft Authenticator-app
 De Microsoft Authenticator-app biedt een extra beveiligingsniveau in uw werk of school-account (bijvoorbeeld bsimon@contoso.com) of uw Microsoft-account (bijvoorbeeld bsimon@outlook.com).

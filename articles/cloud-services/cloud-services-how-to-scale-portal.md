@@ -2,10 +2,10 @@
 title: Een cloudservice automatisch schalen in de portal | Microsoft Docs
 description: Informatie over het gebruik van de portal voor het configureren van regels voor automatisch schalen voor een cloud service-web-rol of functie worker in Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27992269"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Het automatisch schalen voor een Cloudservice in de portal configureren
 

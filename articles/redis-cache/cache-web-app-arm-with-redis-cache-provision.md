@@ -2,10 +2,10 @@
 title: Inrichten van Web-App met Redis-Cache
 description: Gebruik Azure Resource Manager-sjabloon voor het implementeren van web-app met Redis-Cache.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909887"
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Een Web-App plus Redis-Cache met behulp van een sjabloon maken
 In dit onderwerp leert u het maken van een Azure Resource Manager-sjabloon die u een Azure-Web-App met Redis-cache implementeert. U leert hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
