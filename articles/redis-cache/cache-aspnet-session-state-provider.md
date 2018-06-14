@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31518753"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>ASP.NET-sessiestatusprovider voor Azure Redis-Cache
 Azure Redis-Cache biedt een sessiestatus-provider die u gebruiken kunt voor het opslaan van uw sessie staat in het geheugen met Redis-Cache in plaats van een SQL Server-database. Voor het gebruik van de cache in sessiestatus-provider voor uw cache eerst configureren en configureer vervolgens uw ASP.NET-toepassing voor de cache met behulp van het Redis-Cache sessie status NuGet-pakket.

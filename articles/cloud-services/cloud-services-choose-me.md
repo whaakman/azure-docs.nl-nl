@@ -2,7 +2,7 @@
 title: Opties voor Azure compute - Azure-Cloudservices | Microsoft Docs
 description: 'Meer informatie over Azure compute hosting-opties en hoe deze werken: App Service, Azure Cloud Services en virtuele Machines'
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120281"
 ---
 # <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Moet ik kiezen Azure Cloud Services of iets anders?
 Is Azure Cloud Services de keuze voor u? Azure biedt verschillende hosting modellen voor het uitvoeren van toepassingen. Elke voorziet in een andere set van services. Welke regel die u kiest, is afhankelijk van de exact wat u probeert te doen.
