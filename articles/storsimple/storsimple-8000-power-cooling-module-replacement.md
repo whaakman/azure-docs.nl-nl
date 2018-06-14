@@ -2,11 +2,11 @@
 title: Vervang een PCM op uw StorSimple 8000 series apparaat | Microsoft Docs
 description: Legt uit hoe verwijdert en vervangt u de stroom en koeling Module (PCM) op uw StorSimple-apparaat
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875058"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Vervangen van een stroom en koeling Module op uw StorSimple-apparaat
 ## <a name="overview"></a>Overzicht

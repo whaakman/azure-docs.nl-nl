@@ -2,10 +2,10 @@
 title: Azure CDN regels engine voorwaardelijke expressies | Microsoft Docs
 description: Documentatie bij Azure CDN regels overeen motor en onderdelen.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842928"
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Voorwaardelijke expressies in de engine Azure CDN-regels
 Dit onderwerp vindt u gedetailleerde beschrijvingen van de voorwaardelijke expressies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).

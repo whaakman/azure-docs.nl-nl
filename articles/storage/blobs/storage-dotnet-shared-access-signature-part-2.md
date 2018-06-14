@@ -2,7 +2,7 @@
 title: Maken en een shared access signature (SAS) gebruiken met Azure Blob storage | Microsoft Docs
 description: Deze zelfstudie ziet u het maken van handtekeningen voor gedeelde toegang voor gebruik met Blob storage en ze gebruiken in uw clienttoepassingen.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -16,9 +16,10 @@ ms.date: 05/15/2017
 ms.author: tamram
 ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873210"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Shared Access Signatures, deel 2: Maken en gebruiken van een SAS met Blob-opslag
 
@@ -478,7 +479,7 @@ static void Main(string[] args)
 ```
 
 ### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>Een methode om te proberen de blob-bewerkingen met behulp van een shared access signature toevoegen
-Ten slotte toevoegen we een methode waarmee bepaalde blob-bewerkingen met behulp van een shared access signature op de blob wordt getest. In dit geval we gebruiken de constructor **CloudBlockBlob(String)**doorgegeven in de shared access signature, als resultaat een verwijzing naar de blob. Er is geen andere verificatie vereist. deze gebaseerd op de alleen-handtekening.
+Ten slotte toevoegen we een methode waarmee bepaalde blob-bewerkingen met behulp van een shared access signature op de blob wordt getest. In dit geval we gebruiken de constructor **CloudBlockBlob(String)** doorgegeven in de shared access signature, als resultaat een verwijzing naar de blob. Er is geen andere verificatie vereist. deze gebaseerd op de alleen-handtekening.
 
 Voeg de volgende methode toe aan Program.cs:
 

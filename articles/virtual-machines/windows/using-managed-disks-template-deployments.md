@@ -2,9 +2,9 @@
 title: Met behulp van beheerde schijven voor Windows virtuele machines in Azure Resource Manager-sjablonen | Microsoft Docs
 description: Details van het gebruik van beheerde misks in Azure Resource Manager-sjablonen voor virtuele machines van Windows
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jboeshart
-manager: 
+manager: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -17,5 +17,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23882702"
 ---
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]
