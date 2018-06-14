@@ -1,15 +1,15 @@
 ---
 title: Bestandsopslag op Azure koppelen vanuit een Windows Azure VM | Microsoft Docs
 description: Bestand opslaan in de cloud met Azure file storage en uw cloud-bestandsshare koppelen vanuit Azure een virtuele machine (VM).
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577548"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Azure-bestandsshares gebruiken met Windows VM 's 
 
