@@ -2,14 +2,14 @@
 title: Informatie over het gebruik van de virtuele machine van Azure | Microsoft Docs
 description: Details van de virtuele machine gebruik begrijpen
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-virtual-machine
-ms.assetid: 
-ms.service: 
-ms.devlang: 
+ms.assetid: ''
+ms.service: ''
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345451"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informatie over het gebruik van de virtuele machine van Azure
 Krachtige verbruik insights kunnen worden verkregen door het analyseren van uw Azure gebruiksgegevens – inzichten die in staat kunnen stellen kosten beter beheer en de toewijzing binnen uw organisatie. Dit document bevat een diepgaand in de details van uw Azure Compute-verbruik. Voor meer informatie over het algemeen gebruik van Azure, gaat u naar [inzicht in uw factuur](/billing/billing-understand-your-bill.md).

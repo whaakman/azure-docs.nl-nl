@@ -2,7 +2,7 @@
 title: Instellen van de bronomgeving (fysieke servers naar Azure) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u uw on-premises omgeving instelt om te repliceren van fysieke servers waarop Windows of Linux wordt uitgevoerd in Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812689"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Instellen van de bronomgeving (fysieke server naar Azure)
 

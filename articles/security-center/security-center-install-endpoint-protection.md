@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/24/2017
+ms.locfileid: "23936292"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Endpoint protection-problemen met Azure Security Center beheren
 Azure Security Center bewaakt de status van de antimalware-bescherming en rapporteert deze onder de blade Endpoint protection-problemen. Security Center licht kwesties, zoals gedetecteerde bedreigingen en onvoldoende beveiliging, waardoor uw virtuele machines (VM's) en computers kwetsbaar voor antimalware bedreigingen. Met behulp van de gegevens in onder **Endpoint protection-problemen**, kunt u een plan voor het oplossen van alle vastgestelde problemen identificeren.

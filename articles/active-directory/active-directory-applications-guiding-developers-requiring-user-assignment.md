@@ -2,10 +2,10 @@
 title: Gebruikerstoewijzing - Azure AD vereisen | Microsoft-Docs
 description: Klik hier voor meer informatie over het vereisen van de gebruiker is toegewezen voor Azure-toepassingen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 30b78cba-1e0f-472f-8314-f2250a9b91c3
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598826"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD en toepassingen: Gebruikerstoewijzing vereisen
 ## <a name="requiring-user-assignment"></a>Toewijzing van gebruiker vereisen

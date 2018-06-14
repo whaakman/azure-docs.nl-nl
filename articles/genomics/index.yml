@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 12/13/2017
+  ms.locfileid: "26684582"
 abstract:
   description: Ontdek hoe u met Microsoft Genomics genome sequencing uitvoert op basis van een cloudimplementatie van de Burrows-Wheeler Aligner (BWA) en de Genome Analysis Toolkit (GATK) voor secundaire analyse.
 sections:
