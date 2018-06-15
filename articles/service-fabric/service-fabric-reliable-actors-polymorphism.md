@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209335"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfisme in het kader Reliable Actors
 Het framework Reliable Actors kunt u met behulp van veel van dezelfde technieken die u in objectgeoriënteerde ontwerp gebruiken wilt actoren bouwen. Een van deze methoden polymorfisme die kunt typen en interfaces voor het overnemen van meer is gegeneraliseerd ouders. Overname in het kader Reliable Actors volgt doorgaans het .NET-model met een paar extra beperkingen. In geval van een Java-/ Linux volgt het Java-model.

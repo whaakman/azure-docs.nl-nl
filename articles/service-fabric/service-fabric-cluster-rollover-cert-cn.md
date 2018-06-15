@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205141"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Overschakelen handmatig een certificaat voor Service Fabric-cluster
 Als een Service Fabric-cluster certificaat bijna verloopt, moet u het certificaat bijwerken.  Overschakeling van certificaat is eenvoudig als het cluster is [tot gebruikmaken van certificaten op basis van de algemene naam](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (in plaats van de vingerafdruk).  Een nieuw certificaat ophalen bij een certificeringsinstantie met een nieuwe vervaldatum.  Zelfondertekende certificaten, inclusief de gegenereerd bij het implementeren van een Service Fabric-cluster in de Azure portal, worden niet ondersteund.  Het nieuwe certificaat moet dezelfde algemene naam als een ouder certificaat hebben. 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905548"
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Het maken van een Azure Resource Manager-sjabloon voor een Linux-VM met behulp van de Azure CLI 1.0
 In dit artikel laat zien hoe snel een virtuele Linux-Machine met behulp van de Azure CLI 1.0 en een Azure Resource Manager-sjabloon te implementeren. Het artikel schrijft het volgende als vereiste voor:

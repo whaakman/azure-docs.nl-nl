@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 871098642f586a123d056e2da22d2fceae9bdfe5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638072"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Walkthrough over vooraf geconfigureerde oplossing voor externe controle
 
@@ -35,7 +36,7 @@ In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe co
 
 Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
 
-![Logische architectuur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+![Logische architectuur](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
 ## <a name="microservices--docker-containers"></a>Microservices en Docker-containers
 Externe controle is de eerste van onze vooraf geconfigureerde oplossingen die is gebaseerd op een architectuur voor microservices. De oplossing is beschikbaar voor zowel [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) als [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).

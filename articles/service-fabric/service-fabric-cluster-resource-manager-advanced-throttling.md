@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205124"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Beperking van de Service Fabric Cluster Resource Manager
 Zelfs als u de Cluster Resource Manager correct hebt geconfigureerd, kan het cluster ophalen verstoord. Bijvoorbeeld, kan er gelijktijdige knooppunt en fouttolerantie domein fouten - wat er zou gebeuren als die is opgetreden tijdens een upgrade? De Cluster Resource Manager probeert altijd om op te lossen alles, de clusterbronnen opnieuw indelen en los van het cluster wilt gebruiken. Vertragingen zorgt voor een backstop zodat het cluster resources gebruiken kan stabiel - knooppunten terugkeren, de netwerkpartities retoucheren, gecorrigeerde bits geïmplementeerd.

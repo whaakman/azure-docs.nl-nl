@@ -1,0 +1,248 @@
+# [Documentatie voor Media Services](index.md)
+
+# [Overzicht](media-services-overview.md)
+## [Scenario's en beschikbaarheid](scenarios-and-availability.md)
+## [Concepten](media-services-concepts.md)
+
+# Aan de slag
+## [Account maken en beheren](media-services-portal-create-account.md)
+## [Uw ontwikkelaarsomgeving instellen](media-services-set-up-computer.md)
+### [.NET](media-services-dotnet-how-to-use.md)
+### [REST](media-services-rest-how-to-use.md)  
+## [AAD-verificatie gebruiken voor toegang tot API](media-services-use-aad-auth-to-access-ams-api.md)
+### [Portal gebruiken voor het beheren van AAD-verificatie](media-services-portal-get-started-with-aad.md)
+### [Toegang tot API met .NET](media-services-dotnet-get-started-with-aad.md)
+### [Toegang tot API met REST](media-services-rest-connect-with-aad.md)
+### [Azure CLI gebruiken om een AAD-app te maken en configureren](media-services-cli-create-and-configure-aad-app.md)
+### [Azure PowerShell gebruiken om een AAD-app te maken en configureren](media-services-powershell-create-and-configure-aad-app.md)
+
+## Video op aanvraag leveren
+### [Azure Portal](media-services-portal-vod-get-started.md)
+### [.NET SDK](media-services-dotnet-get-started.md)
+### [Java](media-services-java-how-to-use.md)
+### [REST](media-services-rest-get-started.md)
+## Live streamen
+### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+
+# Procedures
+## Beheren
+### Entiteiten
+#### [.NET](media-services-dotnet-manage-entities.md)
+#### [REST](media-services-rest-manage-entities.md)
+### [Streaming-eindpunten](media-services-streaming-endpoints-overview.md)
+#### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
+### Storage
+#### [Media Services bijwerken na gebruik toegangssleutels voor opslag](media-services-roll-storage-access-keys.md)
+#### [Assets beheren voor meerdere opslagaccounts](meda-services-managing-multiple-storage-accounts.md)
+### [Quota en beperkingen](media-services-quotas-and-limitations.md)
+## [Postman configureren](media-rest-apis-with-postman.md)
+### [Verzameling voor streaming on demand](postman-collection.md)
+### [Verzameling voor live streamen](postman-live-streaming-collection.md)
+### [Omgeving](postman-environment.md)
+## Inhoud uploaden
+### Bestanden uploaden in een account
+#### [Azure Portal](media-services-portal-upload-files.md)
+#### [.NET](media-services-dotnet-upload-files.md)
+#### [REST](media-services-rest-upload-files.md)
+### [Grote bestanden uploaden met Aspera](media-services-upload-files-with-aspera.md)
+### [Bestanden uploaden met StorSimple](media-services-upload-files-from-storsimple.md)
+### [Bestaande blobs kopiëren](media-services-copying-existing-blob.md)
+
+## [Inhoud coderen](media-services-encode-asset.md)
+### [Encoders vergelijken](media-services-compare-encoders.md)
+### [De snelheid en gelijktijdigheid van uw codering beheren](media-services-manage-encoding-speed.md)
+### Media Encoder Standard (MES)
+#### [Indelingen en codecs voor Media Encoder Standard](media-services-media-encoder-standard-formats.md)
+#### [MES gebruiken om automatisch een bitrate ladder te genereren](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Coderen met Media Encoder Standard
+##### [Azure Portal](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Geavanceerde codering met MES](media-services-advanced-encoding-with-mes.md)
+##### [Voorinstellingen van Media Encoder Standard aanpassen](media-services-custom-mes-presets-with-dotnet.md)
+##### [Miniatuurweergaven genereren met Media Encoder Standard met .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Video's bijsnijden met Media Encoder Standard](media-services-crop-video.md)
+#### MES-schema's
+##### [Media Encoder Standard-schema](media-services-mes-schema.md)
+##### [Invoermetagegevens](media-services-input-metadata-schema.md)
+##### [Uitvoermetagegevens](media-services-output-metadata-schema.md)
+#### [MES-standaardinstellingen](media-services-mes-presets-overview.md) 
+##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
+##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
+##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
+##### [H264 Multiple Bitrate 16x9 SD](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md)
+##### [H264 Multiple Bitrate 16x9 for iOS](media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md)
+##### [H264 Multiple Bitrate 4K Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md)
+##### [H264 Multiple Bitrate 4K](media-services-mes-preset-H264-Multiple-Bitrate-4K.md)
+##### [H264 Multiple Bitrate 4x3 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md)
+##### [H264 Multiple Bitrate 4x3 SD](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md)
+##### [H264 Multiple Bitrate 4x3 for iOS](media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md)
+##### [H264 Multiple Bitrate 720p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md)
+##### [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md)
+##### [H264 Single Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md)
+##### [H264 Single Bitrate 1080p](media-services-mes-preset-H264-Single-Bitrate-1080p.md)
+##### [H264 Single Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md)
+##### [H264 Single Bitrate 16x9 SD](media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md)
+##### [H264 Single Bitrate 4K Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md)
+##### [H264 Single Bitrate 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md)
+##### [H264 Single Bitrate 4x3 SD Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md)
+##### [H264 Single Bitrate 4x3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md)
+##### [H264 Single Bitrate 720p Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md)
+##### [H264 Single Bitrate 720p](media-services-mes-preset-H264-Single-Bitrate-720p.md)
+##### [H264 Single Bitrate 720p for Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
+##### [H264 Single Bitrate High Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
+##### [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
+### Media Encoder Premium Workflow
+#### [Indelingen en codecs voor Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
+#### Coderen met Media Encoder Premium Workflow
+##### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
+##### [Zelfstudies voor Media Encoder Premium Workflow](media-services-media-encoder-premium-workflow-tutorials.md)
+##### [Geavanceerde coderingswerkstromen maken met Workflow Designer](media-services-workflow-designer.md)
+##### [Premium Workflow met verschillende invoer](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Een taak maken waarmee fMP4-chunks worden gegenereerd](media-services-generate-fmp4-chunks.md)
+### Media-processors
+#### [.NET](media-services-get-media-processor.md)
+#### [REST](media-services-rest-get-media-processor.md)
+### [Foutcodes](media-services-encoding-error-codes.md)
+### Afgeschaft
+#### [Statische pakketten en versleuteling](media-services-static-packaging.md)
+
+## [Live streamen](media-services-manage-channels-overview.md)
+### [On-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md)
+#### [Aanbevolen on-premises coderingsprogramma's](media-services-recommended-encoders.md)
+#### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+### [Live streamen met cloudcoderingsprogramma's](media-services-manage-live-encoder-enabled-channels.md)
+#### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+### [On-premises coderingsprogramma's configureren voor gebruik met cloudcoderingsprogramma's](media-services-live-encoders-overview.md)
+#### [Elemental Live-coderingsprogramma](media-services-configure-elemental-live-encoder.md)
+#### [FMLE-coderingsprogramma](media-services-configure-fmle-live-encoder.md)
+#### [Haivision KB-coderingsprogramma](media-services-configure-kb-live-encoder.md)
+#### [NewTek TriCaster-coderingsprogramma](media-services-configure-tricaster-live-encoder.md)
+#### [Wirecast-coderingsprogramma](media-services-configure-wirecast-live-encoder.md)
+### [Langdurige bewerkingen afhandelen](media-services-dotnet-long-operations.md)
+### [Specificatie gefragmenteerde MP4-liveopname](media-services-fmp4-live-ingest-overview.md)
+
+## [Inhoud knippen](media-services-azure-media-clipper-overview.md)
+### [Aan de slag](media-services-azure-media-clipper-getting-started.md)
+### [Video's laden](media-services-azure-media-clipper-load-assets.md)
+### [Sneltoetsen configureren](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Lokalisatie configureren](media-services-azure-media-clipper-localization.md)
+### [Kniptaken verzenden](media-services-azure-media-clipper-submit-job.md)
+### [Azure Portal](media-services-azure-media-clipper-portal.md)
+
+## [Inhoud beveiligen](media-services-content-protection-overview.md)
+### [Storage-versleuteling](media-services-rest-storage-encryption.md)
+### [AES-128-versleuteling](media-services-protect-with-aes128.md)
+### [PlayReady/Widevine voor Streaming](media-services-protect-with-playready-widevine.md)
+### [FairPlay voor Streaming](media-services-protect-hls-with-fairplay.md)
+### [Offline PlayReady voor Windows 10](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [Offline FairPlay voor iOS](media-services-protect-hls-with-offline-fairplay.md)
+### [Offline Widevine voor Android](offline-widevine-for-android.md)
+### [Configureren in Azure Portal](media-services-portal-protect-content.md)
+### [DRM-licenties leveren](media-services-deliver-keys-and-licenses.md)
+### Inhoudssleutels maken
+#### [.NET](media-services-dotnet-create-contentkey.md)
+#### [REST](media-services-rest-create-contentkey.md)
+### Overzichten van licentiesjablonen
+#### [PlayReady-licentiesjabloon](media-services-playready-license-template-overview.md)
+#### [Widevine-licentiesjabloon](media-services-widevine-license-template-overview.md)
+### Leveringsbeleid voor assets configureren
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### Autorisatiebeleid voor inhoudssleutels configureren
+#### [Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
+#### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
+#### [REST](media-services-rest-configure-content-key-auth-policy.md)
+### [Verificatietokens doorgeven aan AMS](media-services-pass-authentication-tokens.md)
+### Voorbeeldontwerpen
+#### [Hybride DRM-systeemontwerp](hybrid-design-drm-sybsystem.md)
+#### [Voorbeeld van multi-DRM-ontwerp](media-services-cenc-with-multidrm-access-control.md)
+
+## [Analyseren](media-services-analytics-overview.md)
+### [Media analyseren met behulp van Azure Portal](media-services-portal-analyze.md)
+### [Verwerken met Indexer 2](media-services-process-content-with-indexer2.md)
+### [Verwerken met Indexer](media-services-index-content.md)
+#### [Taken vooraf instellen](indexer-task-preset.md)
+### [Verwerken met Hyperlapse](media-services-hyperlapse-content.md)
+### [Verwerken met Face Detector](media-services-face-and-emotion-detection.md)
+### [Verwerken met Motion Detector](media-services-motion-detection.md)
+### [Verwerken met Face Redactor](media-services-face-redaction.md)
+#### [Walkthrough Face Redactor](media-services-redactor-walkthrough.md)
+### [Verwerken met videominiaturen](media-services-video-summarization.md)
+### [Verwerken met OCR](media-services-video-optical-character-recognition.md)
+### [Verwerken met Content Moderator](media-services-content-moderation.md)
+
+## [Telemetrie configureren](media-services-telemetry-overview.md)
+###[.NET](media-services-dotnet-telemetry.md)
+###[REST](media-services-rest-telemetry.md)
+
+## Schalen
+### [Mediaverwerking](media-services-scale-media-processing-overview.md)
+#### [Azure Portal](media-services-portal-scale-media-processing.md)
+#### [.NET](media-services-dotnet-encoding-units.md)
+### Streaming-eindpunten
+#### [Azure Portal](media-services-portal-scale-streaming-endpoints.md)
+
+## [Inhoud leveren](media-services-deliver-content-overview.md)
+### [Dynamische pakketten](media-services-dynamic-packaging-overview.md)
+### [Overzicht filters en dynamische manifesten](media-services-dynamic-manifest-overview.md)
+#### [Filters maken met .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Filters maken met REST](media-services-rest-dynamic-manifest.md)
+### [CDN-beleid voor caching in Media Services-extensie](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
+### Inhoud publiceren
+#### [Azure Portal](media-services-portal-publish.md)
+#### [.NET](media-services-deliver-streaming-content.md)
+#### [REST](media-services-rest-deliver-streaming-content.md)
+### [Leveren via download](media-services-deliver-asset-download.md)
+### [Failoverscenario voor streamen](media-services-implement-failover.md)
+
+## Gebruiken
+### [Media afspelen met bestaande spelers](media-services-playback-content-with-existing-players.md)
+### [Media afspelen met Media Player](media-services-develop-video-players.md)
+### Overige afspeelopties
+#### [Windows Store-toepassing met smooth streaming](media-services-build-smooth-streaming-apps.md)
+#### [HTML5-toepassing met DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+#### [Adobe Open Source Media Framework-spelers](media-services-use-osmf-smooth-streaming-client-plugin.md)
+### [Advertenties invoeren op de client](media-services-inserting-ads-on-client-side.md)
+### [Licentieverlening Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
+
+## Integreren
+### [Azure Functions gebruiken met Media Services](media-services-dotnet-how-to-use-azure-functions.md)
+### [Voorbeelden van Azure Functions met Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+
+## Controleren
+### Taakvoortgang controleren
+#### [REST](media-services-rest-check-job-progress.md)
+#### [Azure Portal](media-services-portal-check-job-progress.md)
+#### [.NET](media-services-check-job-progress.md)
+### [Taakmeldingen bewaken met behulp van Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)
+### [Taakmeldingen bewaken met behulp van webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
+
+## Problemen oplossen
+### [Veelgestelde vragen](media-services-frequently-asked-questions.md)
+### [Handleiding voor het oplossen van problemen met live streamen](media-services-troubleshooting-live-streaming.md)
+### [Foutcodes](media-services-error-codes.md)
+### [Logica voor opnieuw proberen](media-services-retry-logic-in-dotnet-sdk.md)
+
+# Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=media-services)
+## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media/mediaservice)
+## Specificaties
+### [Live Ingest - Specificatie gefragmenteerde MP4-liveopname](media-services-fmp4-live-ingest-overview.md)
+### [Live Ingest - Getimede metagegevens signaleren in Live Streaming](media-services-specifications-live-timed-metadata.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
+
+# Resources
+## [Azure Media Services-community](media-services-community.md)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Prijzen](https://azure.microsoft.com/pricing/details/media-services/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
+## [Releaseopmerkingen](media-services-release-notes.md)
+## [Video's](https://azure.microsoft.com/resources/videos/index/?services=media-services)

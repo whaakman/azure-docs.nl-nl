@@ -21,6 +21,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164718"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Wat zijn de beschikbaarheid van Zones in Azure?
 Beschikbaarheid van Zones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen van datacenter hoge beschikbaarheid. Beschikbaarheid Zones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters uitgerust met onafhankelijke stroom, koeling en netwerken. Tolerantie, zodat is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding van beschikbaarheid Zones binnen een regio beschermt toepassingen en gegevens tegen storingen datacenter. Zone-redundante services repliceren uw toepassingen en gegevens over beschikbaarheid Zones beschermen tegen één punten van storingen. Met Zones, beschikbaarheid biedt Azure bedrijfstak best 99,99% VM bedrijfstijd SLA. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.

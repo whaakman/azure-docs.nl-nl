@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207220"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric netwerken patronen
 U kunt uw Azure Service Fabric-cluster integreren met andere Azure-netwerkfuncties. In dit artikel wordt beschreven hoe u voor het maken van clusters die gebruikmaken van de volgende functies:

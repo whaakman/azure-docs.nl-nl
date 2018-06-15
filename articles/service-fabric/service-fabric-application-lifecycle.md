@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212558"
 ---
 # <a name="service-fabric-application-lifecycle"></a>De levenscyclus van de service Fabric-toepassing
 Zoals met andere platforms wordt een toepassing op Azure Service Fabric meestal de volgende fasen doorloopt: ontwerpen, ontwikkelen, testen, implementatie, upgraden, onderhoud en verwijderen. Service Fabric biedt uitstekende ondersteuning voor de levenscyclus van de volledige toepassing van cloud-toepassingen, van ontwikkeling tot implementatie, dagelijkse beheer en onderhoud voor uiteindelijke buiten gebruik stellen. Het service-model kan verschillende verschillende rollen onafhankelijk deelnemen aan de levenscyclus van de toepassing. Dit artikel bevat een overzicht van de API's en hoe ze worden gebruikt door de verschillende rollen in de fasen van de levenscyclus van de Service Fabric-toepassing.

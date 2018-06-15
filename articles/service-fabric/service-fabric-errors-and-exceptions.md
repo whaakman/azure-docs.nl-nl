@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212497"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Algemene uitzonderingen en fouten bij het werken met de FabricClient APIs
 De [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) -API's kunnen beheerders cluster en de toepassing administratieve taken uitvoeren op een Service Fabric-toepassing, een service of een cluster. Bijvoorbeeld: implementatie van de toepassing, upgrade en verwijderen van een service te testen of controleren van de status van een cluster. Ontwikkelaars en clusterbeheerders kunnen u de FabricClient APIs gebruiken voor het ontwikkelen van hulpprogramma's voor het beheren van de Service Fabric-cluster en toepassingen.

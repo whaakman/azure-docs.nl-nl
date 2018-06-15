@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208468"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-toepassing en service manifesten
 Dit artikel wordt beschreven hoe Service Fabric-toepassingen en services worden gedefinieerd en samengestelde met behulp van de bestanden ApplicationManifest.xml en ServiceManifest.xml.  Het XML-schema voor deze manifestbestanden wordt beschreven in [ServiceFabricServiceModel.xsd schemadocumentatie](service-fabric-service-model-schema.md).

@@ -1,14 +1,14 @@
 ---
-title: "Containerinstallatiekopieën maken voor Azure Service Fabric | Microsoft Docs"
-description: "In deze zelfstudie leert u hoe u containerinstallatiekopieën maakt voor een Service Fabric-toepassing met meerdere containers."
+title: Containerinstallatiekopieën maken voor Azure Service Fabric | Microsoft Docs
+description: In deze zelfstudie leert u hoe u containerinstallatiekopieën maakt voor een Service Fabric-toepassing met meerdere containers.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, containers, Microservices, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558182"
 ---
 # <a name="tutorial-create-container-images-for-service-fabric"></a>Zelfstudie: containerinstallatiekopieën maken voor Service Fabric
 

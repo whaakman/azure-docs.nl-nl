@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156803"
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>Wat is het v2.0-eindpunt anders?
 Als u bekend met Azure Active Directory bent of apps hebt geïntegreerd met Azure AD in het verleden, kan er een paar verschillen in het v2.0-eindpunt dat u niet verwacht. Dit document, illustreert die verschillen voor uw begrip.

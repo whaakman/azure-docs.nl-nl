@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212065"
 ---
 # <a name="service-fabric-terminology-overview"></a>Overzicht van service Fabric-terminologie
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices. In dit artikel wordt de terminologie die wordt gebruikt door de Service Fabric om te begrijpen van de termen die worden gebruikt in de documentatie.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206679"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Hulp bij het converteren van Web- en werkrollen naar Service Fabric stateless services
 Dit artikel wordt beschreven hoe u uw Cloud Services-Web- en werkrollen migreren naar Service Fabric stateless services. Dit is het eenvoudigste migratiepad van Cloud-Services naar Service Fabric voor toepassingen waarvan de algehele architectuur gaat ongeveer hetzelfde blijft.

@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267438"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>On-premises gegevens migreren naar cloudopslag met behulp van AzCopy
 
@@ -22,8 +23,8 @@ AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar of van
 
 U kunt twee versies van AzCopy downloaden:
 
-* [AzCopy voor Linux](storage-use-azcopy.md) is gebouwd met .NET Core Framework. Het is bedoeld voor Linux-platformen door opdrachtregelopties in POSIX-stijl aan te bieden. 
-* [AzCopy voor Windows](../storage-use-azcopy.md) is gebouwd met .NET Framework. Dit biedt opdrachtregelopties in Windows-stijl. 
+* [AzCopy voor Linux](storage-use-azcopy-linux.md) is gebouwd met .NET Core Framework. Het is bedoeld voor Linux-platformen door opdrachtregelopties in POSIX-stijl aan te bieden. 
+* [AzCopy voor Windows](storage-use-azcopy.md) is gebouwd met .NET Framework. Dit biedt opdrachtregelopties in Windows-stijl. 
  
 In deze zelfstudie leert u het volgende:
 

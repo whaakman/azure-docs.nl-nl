@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212820"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Daarom wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote oppervlak echter en is er veel voor meer informatie.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeren van de levenscyclus van de toepassing, testen, clusters en statuscontrole-modellen. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kunnen worden gebruikt voor het maken van microservices. In dit artikel bevat een uitgebreide lijst van de inhoud niet, maar koppelen aan het overzicht en ophalen van gestarte artikelen voor elk gebied van Service Fabric. 

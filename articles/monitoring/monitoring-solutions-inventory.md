@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010248"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Verzameling Gegevensdetails voor oplossingen in Azure
 In dit artikel bevat een lijst met [beheeroplossingen](monitoring-solutions.md) van Microsoft beschikbaar met koppelingen naar hun gedetailleerde documentatie.  Het bevat ook informatie van de methode en de frequentie van verzamelen van gegevens in logboekanalyse.  Gebruik de informatie in dit artikel voor het identificeren van de verschillende beschikbare oplossingen en de gegevens stroom en de verbinding met de vereisten voor andere beheeroplossingen te begrijpen. 

@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c04514218c7ed8dfd72b94345d2deb88e663fda1
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29529976"
 ---
 [Azure beleid](/azure/azure-policy/) kunt u ervoor dat alle bronnen in het abonnement voldoen aan bedrijfsnormen. Beleid gebruiken om uw kosten te verlagen door de implementatie-opties beperken tot alleen de resourcetypen en SKU's die zijn goedgekeurd. Definieert u regels en acties voor uw resources en deze regels automatisch worden afgedwongen tijdens de implementatie. U kunt bijvoorbeeld bepalen welke typen resources die zijn geïmplementeerd. Of u kunt de goedgekeurde locaties voor bronnen beperken. Een actie voor weigeren van sommige beleidsregels en sommige beleidsregels instellen van de controle van een actie.
 

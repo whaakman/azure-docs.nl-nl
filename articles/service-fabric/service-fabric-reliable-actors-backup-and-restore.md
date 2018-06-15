@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206863"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementeer Reliable Actors back-up en herstel
 In het volgende voorbeeld wordt een aangepaste actor-service beschrijft een methode voor het back-ups actor door gebruik te maken van de listener voor externe toegang die al aanwezig in `ActorService`:

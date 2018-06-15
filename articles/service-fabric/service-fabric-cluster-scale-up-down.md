@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204811"
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Schalen van een Service Fabric-cluster in- of met regels voor automatisch schalen of handmatig
 Virtuele-machineschaalsets zijn een Azure compute resource die u gebruiken kunt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype dat is gedefinieerd in een Service Fabric-cluster is ingesteld als een afzonderlijke virtuele-machineschaalset. Elk knooppunttype kan vervolgens worden uitgebreid of uit onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken kan hebben. Lees meer over in de [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Omdat de typen van de Service Fabric-knooppunt in het cluster zijn gemaakt van de virtuele-machineschaalsets op de back-end, moet u regels voor elk knooppunt type/virtuele-machineschaalset automatisch schalen instellen.

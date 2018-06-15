@@ -13,6 +13,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012813"
 ---
 1. Klik op de **Connect** knop op de eigenschappenpagina van de virtuele machine. 
 2. In de **verbinding maken met virtuele machine** pagina, houden selecteert de gewenste opties en klik op **downloaden RDP-bestand**.

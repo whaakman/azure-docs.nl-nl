@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204172"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Netwerk beveiliging groep overgebracht logboeken configureren met PowerShell
 

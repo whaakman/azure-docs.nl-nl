@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207091"
 ---
 # <a name="reliable-actors-reentrancy"></a>Betrouwbare actoren herintreding
 De runtime Reliable Actors kunt standaard u logische aanroep context gebaseerde herintreding. Hierdoor actoren worden inspringende als ze in dezelfde aanroep context keten. Bijvoorbeeld, verzendt Actor A een bericht naar Actor-B, die een bericht naar Actor C. verzendt Als onderdeel van de berichtverwerking als Actor C Actor A, roept is het bericht inspringende, dus wordt toegestaan. Alle berichten die deel van de aanroepcontext van een andere uitmaken wordt geblokkeerd op Actor A totdat het verwerken is voltooid.

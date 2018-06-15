@@ -12,9 +12,10 @@ manager: mtillman
 ms.reviewer: sasubram
 ms.openlocfilehash: 562076e9529ffeac4cb0f99c1ffd4d4866d0bd1a
 ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260025"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Beperkingen van Azure AD B2B-samenwerking
 Azure Active Directory (Azure AD) B2B-samenwerking is momenteel onderworpen aan de beperkingen die in dit artikel wordt beschreven.

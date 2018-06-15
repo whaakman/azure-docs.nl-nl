@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165125"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Azure dashboards delen met toegangsbeheer op basis van rollen
 U kunt na het configureren van een dashboard, publiceren en delen met andere gebruikers in uw organisatie. Anderen uw dashboard weergeven met behulp van Azure [toegangsbeheer op basis van rollen](../role-based-access-control/role-assignments-portal.md). U een gebruiker of groep gebruikers toewijzen aan een rol en die rol definieert die gebruikers kunnen weergeven of wijzigen van het gepubliceerde-dashboard. 

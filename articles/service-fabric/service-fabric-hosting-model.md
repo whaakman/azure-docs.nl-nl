@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206317"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric-hostingmodel
 In dit artikel biedt een overzicht van modellen die worden geleverd door de Azure Service Fabric-toepassing en beschrijft de verschillen tussen de **gedeeld proces** en **exclusieve proces** modellen. Hierin wordt beschreven hoe een geïmplementeerde toepassing van een Service Fabric-knooppunt en de relatie tussen de replica's (of exemplaren) van de service en het proces van het ServiceHost eruit ziet.

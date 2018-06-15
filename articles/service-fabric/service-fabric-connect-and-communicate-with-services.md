@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205583"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Verbinding maken en te communiceren met Service Fabric-services
 In Service Fabric, een service wordt uitgevoerd ergens in een Service Fabric-cluster, doorgaans verdeeld over meerdere virtuele machines. Deze kan worden verplaatst vanaf één locatie naar een andere, door de eigenaar van de service of automatisch door de Service Fabric. Services zijn niet statisch gekoppeld aan een bepaalde machine of een adres.

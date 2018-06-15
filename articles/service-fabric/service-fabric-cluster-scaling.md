@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208026"
 ---
 # <a name="scaling-service-fabric-clusters"></a>Schalen Service Fabric-clusters
 Een Service Fabric-cluster is een set netwerk verbonden virtuele of fysieke machines waarin uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster wordt een knooppunt genoemd. Clusters kunnen mogelijk duizenden knooppunten bevatten. Na het maken van een Service Fabric-cluster, kunt u het cluster horizontaal schalen (het aantal knooppunten wijzigen) of verticaal (de bronnen van de knooppunten wijzigen).  U kunt het cluster schalen op elk gewenst moment, zelfs wanneer werkbelastingen worden uitgevoerd op het cluster.  Tijdens het cluster schalen, wordt uw toepassingen automatisch ook schalen.

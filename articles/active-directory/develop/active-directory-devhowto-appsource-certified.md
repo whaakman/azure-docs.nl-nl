@@ -17,11 +17,12 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257528"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Het ophalen van AppSource gecertificeerd voor Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) een doel voor zakelijke gebruikers om te detecteren, probeer en beheren van LOB-SaaS-toepassingen (zelfstandige SaaS en add-on voor bestaande Microsoft SaaS-producten).
@@ -43,7 +44,7 @@ Om in te schakelen multi-tenancymodus op uw toepassing:
 Zie voor meer informatie over multi-tenancymodus: [aanmelden met een Azure Active Directory (AD) gebruiker met behulp van het patroon toepassing met meerdere tenants](./active-directory-devhowto-multi-tenant-overview.md).
 
 ### <a name="single-tenant-applications"></a>Toepassingen voor één tenant
-Toepassingen die alleen aanmeldingen van gebruikers van een gedefinieerde Azure Active Directory-exemplaar accepteren worden aangeduid als *toepassing voor één tenant*. Externe gebruikers (inclusief werk of School accounts van andere organisaties of persoonlijk account) kunnen aanmelden bij een toepassing voor één tenant na het toevoegen van elke gebruiker als *gastaccount* met Azure Active Directory-instantie die de toepassing is geregistreerd. U kunt gebruikers als gastaccounts toevoegen aan een Azure Active Directory via de [ *Azure AD B2B-samenwerking* ](../active-directory-b2b-what-is-azure-ad-b2b.md) - en kan worden gedaan [via programmacode](../active-directory-b2b-code-samples.md). Wanneer u een gebruiker als Gast-account aan een Azure Active Directory toevoegt, wordt een uitnodiging voor een e-mailbericht verzonden naar de gebruiker die de uitnodiging te accepteren door te klikken op de koppeling in de uitnodiging via e-mail. Uitnodigingen die worden verzonden naar een extra gebruiker in een uitnodiging organisatie die deel uitmaakt van de partnerorganisatie zijn niet vereist voor het accepteren van een uitnodiging aan te melden.
+Toepassingen die alleen aanmeldingen van gebruikers van een gedefinieerde Azure Active Directory-exemplaar accepteren worden aangeduid als *toepassing voor één tenant*. Externe gebruikers (inclusief werk of School accounts van andere organisaties of persoonlijk account) kunnen aanmelden bij een toepassing voor één tenant na het toevoegen van elke gebruiker als *gastaccount* met Azure Active Directory-instantie die de toepassing is geregistreerd. U kunt gebruikers als gastaccounts toevoegen aan een Azure Active Directory via de [ *Azure AD B2B-samenwerking* ](../b2b/what-is-b2b.md) - en kan worden gedaan [via programmacode](../b2b/code-samples.md). Wanneer u een gebruiker als Gast-account aan een Azure Active Directory toevoegt, wordt een uitnodiging voor een e-mailbericht verzonden naar de gebruiker die de uitnodiging te accepteren door te klikken op de koppeling in de uitnodiging via e-mail. Uitnodigingen die worden verzonden naar een extra gebruiker in een uitnodiging organisatie die deel uitmaakt van de partnerorganisatie zijn niet vereist voor het accepteren van een uitnodiging aan te melden.
 
 Toepassingen voor één tenant kunnen inschakelen de *Contact met mij opnemen* ervaring, maar als u de éénkliks- / gratis proefabonnement ervaring die AppSource aanbeveelt inschakelen wilt, schakelt u multi-tenancymodus op uw toepassing in plaats daarvan.
 

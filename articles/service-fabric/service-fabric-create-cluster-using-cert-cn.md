@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211062"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Een Service Fabric-cluster dat gebruik maakt van de algemene certificaatnaam in plaats van de vingerafdruk implementeren
 Er zijn geen twee certificaten kunnen dezelfde vingerafdruk, waardoor de overschakeling van de cluster-certificaat of management moeilijk hebben. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Een cluster met de algemene naam van het certificaat kunt u veel eenvoudiger beheer van certificaten. In dit artikel wordt beschreven hoe een Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat te implementeren.

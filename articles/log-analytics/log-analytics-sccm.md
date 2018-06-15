@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30283993"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Maak verbinding met Configuration Manager met Log Analytics
 U kunt uw System Center Configuration Manager-omgeving met Azure Log Analytics sync verzameling apparaatgegevens verbinding en verwijzen naar deze verzamelingen in Log Analytics en Azure Automation.  

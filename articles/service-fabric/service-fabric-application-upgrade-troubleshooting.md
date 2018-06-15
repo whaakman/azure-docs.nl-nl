@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212735"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Problemen met toepassingsupgrades oplossen
 In dit artikel bevat informatie over enkele van de algemene problemen rond een upgrade van een Azure Service Fabric-toepassing en hoe u deze kunt oplossen.
