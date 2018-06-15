@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192969"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation-gegevens beheren
 In dit artikel bevat meerdere onderwerpen voor het beheren van een Azure Automation-omgeving.

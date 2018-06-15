@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164836"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Zelfstudie: Activeren met de Azure-portal
 Het Azure-platform bevat tal van flexibele DevOps-werkstromen. In deze zelfstudie leert u hoe u de mogelijkheden van de Azure portal om te ontwikkelen, testen, implementeren, oplossen, bewaken en beheren van actieve toepassingen. Deze zelfstudie is gericht op het volgende:

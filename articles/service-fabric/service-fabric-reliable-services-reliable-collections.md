@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212922"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Inleiding op verzamelingen van betrouwbare in Azure Service Fabric stateful services
 Betrouwbare verzamelingen kunnen u maximaal beschikbare, schaalbare en lage latentie cloud-toepassingen schrijven, alsof u schreef toepassingen voor één computer. De klassen in de **Microsoft.ServiceFabric.Data.Collections** naamruimte leveren een verzameling van verzamelingen die uw status automatisch maximaal beschikbaar maken. Ontwikkelaars moeten programma alleen voor de betrouwbare verzameling API's en laat betrouwbare verzamelingen die de status van de gerepliceerde en lokaal beheren.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153106"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible gebruiken voor het beheren van uw Azure dynamische voorraden
 Ansible kan worden gebruikt voor het pull-inventarisatie-informatie uit diverse bronnen (met inbegrip van cloud-bronnen zoals Azure) in een *dynamische inventaris*. In dit artikel, gebruikt u de [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) tag een van deze virtuele machines voor het configureren van een Ansible Azure dynamische inventarisatie waarin u twee virtuele machines maken en Nginx installeren op de gemarkeerde virtuele machine.

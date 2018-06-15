@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209090"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Instellen van gMSA voor Windows-containers die zijn uitgevoerd op de Service Fabric
 

@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156888"
 ---
 # <a name="permissions-in-azure-ad"></a>Machtigingen in Azure AD
 Azure Active Directory (Azure AD) maakt uitgebreid gebruik van machtigingen voor zowel OAuth- als OpenID Connect (OIDC)-stromen. Als uw app een toegangstoken van Azure AD ontvangt, zal deze claims bevatten die de machtigingen (ook wel scopes genoemd) beschrijven die uw app heeft met betrekking tot een specifieke resource. Dit vergemakkelijkt autorisatie voor de resource omdat deze alleen moet controleren of uw token de benodigde machtiging bevat voor de API die u aanroept. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206479"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Meer informatie over de verschillen tussen Cloudservices en Service Fabric voordat het migreren van toepassingen.
 Microsoft Azure Service Fabric is de volgende generatie toepassing cloudplatform voor een zeer schaalbaar, maximaal betrouwbare gedistribueerde toepassingen. Het geeft veel nieuwe functies voor verpakking, implementeren, bijwerken en beheren van gedistribueerde cloud-toepassingen. 

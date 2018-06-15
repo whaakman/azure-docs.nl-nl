@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156701"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML-protocol
 In dit artikel bevat informatie over het SAML 2.0-verificatieaanvragen en -antwoorden die ondersteuning biedt voor eenmalige aanmelding voor Azure Active Directory (Azure AD).

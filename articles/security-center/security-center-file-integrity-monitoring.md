@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34162174"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Bestand integriteit bewaken in Azure Security Center (Preview)
 Informatie over het configureren van bestand integriteit Monitoring (FIM) in Azure Security Center gebruikt deze stapsgewijze kennismaking.

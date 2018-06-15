@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358707"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Asynchrone bewerkingen voor Azure bijhouden
 Sommige Azure REST-bewerkingen asynchroon uitgevoerd omdat de bewerking kan niet snel worden voltooid. In dit onderwerp wordt beschreven hoe de status van asynchrone bewerkingen via waarden in het antwoord geretourneerd.  

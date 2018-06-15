@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072246"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows-VHD of VHDX uploaden naar Azure voorbereiden
 Voordat u een virtuele Windows-machines (VM) on-premises met Microsoft Azure uploaden, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt alleen generatie 1 virtuele machines die in de VHD-indeling en een schijf met vaste grootte hebben. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM van de VHDX-bestandssysteem VHD en naar een vaste grootte en dynamisch uitbreidbare schijf converteren. Maar als u de generatie van een virtuele machine niet wijzigen. Zie voor meer informatie [maak ik een generatie 1 of 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

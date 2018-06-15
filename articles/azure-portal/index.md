@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163843"
 ---
 # <a name="azure-portal-documentation"></a>Documentatie voor Azure Portal
 Informatie over de functies die u kunt gebruiken om resources te implementeren in Azure Portal. Aan de hand van zelfstudies, API-verwijzingen en andere documentatie ontdekt u hoe u Azure-resources kunt implementeren, beheren en bewaken.

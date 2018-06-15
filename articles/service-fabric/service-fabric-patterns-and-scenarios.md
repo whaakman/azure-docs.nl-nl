@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206137"
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric-patronen en scenario 's
 Als u op zoek bent bij het bouwen van grootschalige microservices met behulp van Azure Service Fabric informatie uit de deskundigen die ontwikkeld en gebouwd dit platform als een service (PaaS). Aan de slag met de juiste architectuur en vervolgens informatie over het optimaliseren van resources voor uw toepassing. De [Service Fabric Patterns and practice](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) loop antwoorden op de vragen die vaak door de werkelijke klanten gevraagd over Service Fabric-scenario's en modules.

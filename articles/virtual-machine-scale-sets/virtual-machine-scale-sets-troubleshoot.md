@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161019"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Het oplossen van problemen met virtuele-Machineschaalsets voor automatisch schalen
 **Probleem** : u hebt gemaakt een infrastructuur voor automatisch schalen in Azure Resource Manager met behulp van de virtuele-machineschaalsets – bijvoorbeeld door het implementeren van een sjabloon zoals deze: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale : u hebt uw scale-regels gedefinieerd en deze prima oplossing, met uitzondering van Nee hoeveel belasting van de virtuele machines uit, dat niet het geval automatisch schalen.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205362"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Configuratie-instellingen voor een zelfstandige Windows-cluster
 Dit artikel wordt beschreven hoe u een zelfstandige Azure Service Fabric-cluster configureren met behulp van het bestand ClusterConfig.json. U kunt dit bestand informatie opgeven over de knooppunten van het cluster, beveiligingsconfiguraties, evenals de netwerktopologie in termen van fouttolerantie en upgrade-domeinen.

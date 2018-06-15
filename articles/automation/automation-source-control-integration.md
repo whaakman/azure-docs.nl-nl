@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194482"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 Integratie van broncodebeheer kunt u runbooks in uw Automation-account aan een GitHub-resourcebeheerbibliotheek koppelen. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en terugkeren naar eerdere versies van uw runbooks. Broncodebeheer kunt u verschillende filialen in besturingselement voor de ontwikkeling, testen of productie Automation-accounts, zodat u eenvoudig ter bevordering van de code die in uw ontwikkelomgeving, zodat uw productie Automation-account is getest synchroniseren.

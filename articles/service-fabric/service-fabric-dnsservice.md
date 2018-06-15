@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204991"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-Service in Azure Service Fabric
 De DNS-Service is een optionele systeemservice die u in uw cluster inschakelen kunt voor het detecteren van andere services met behulp van het DNS-protocol. 

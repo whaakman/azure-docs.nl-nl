@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158234"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocollen v2.0 - OAuth 2.0-Autorisatiecodestroom
 Het verlenen van OAuth 2.0 autorisatie code kan worden gebruikt in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's. Met de app model v2.0-implementatie van OAuth 2.0, kunt u aanmelden en API toegang tot uw mobiele en bureaublad-apps toevoegen. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van de [Azure open source-verificatiebibliotheken](active-directory-authentication-libraries.md).

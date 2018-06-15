@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058276"
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Toepassingen beheren met Azure Active Directory
 Afgezien van de werkstroom of inhoud hebben bedrijven twee basisvereisten voor alle toepassingen:

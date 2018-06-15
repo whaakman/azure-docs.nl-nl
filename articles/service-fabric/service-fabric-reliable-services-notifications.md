@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207007"
 ---
 # <a name="reliable-services-notifications"></a>Betrouwbare Services meldingen
 Kennisgevingen kunnen clients de wijzigingen die worden uitgevoerd op een object dat ze geïnteresseerd bent in bijhouden. Twee soorten objecten ondersteunen meldingen: *betrouwbare statusbeheer* en *betrouwbare woordenlijst*.

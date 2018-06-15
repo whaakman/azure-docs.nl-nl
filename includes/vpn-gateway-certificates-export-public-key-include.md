@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7e19837c1d16ddeea185f340305a0c9c52ce23ff
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4ae4cfb91fb3a746c73d6b098a1adc9e4dee8698
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414702"
 ---
 Exporteer de openbare sleutel .cer bestand voor het basiscertificaat (niet de persoonlijke sleutel) na het maken van een zelfondertekend basiscertificaat. U zult dit bestand later uploaden naar Azure. De volgende stappen kunt u het cer-bestand voor uw zelfondertekende basiscertificaat exporteren:
 
-1. Als u een CER-bestand wilt genereren van het certificaat, opent u **Gebruikerscertificaten beheren**. Zoek het zelfondertekende basiscertificaat, meestal in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten', en klik er met de rechtermuisknop op. Klik op **Alle taken** en vervolgens op **Exporteren**. Hiermee opent u de **Wizard Certificaat exporteren**.
+1. Als u een CER-bestand wilt genereren van het certificaat, opent u **Gebruikerscertificaten beheren**. Zoek het zelfondertekende basiscertificaat, meestal in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten', en klik er met de rechtermuisknop op. Klik op **Alle taken** en vervolgens op **Exporteren**. Hiermee opent u de **Wizard Certificaat exporteren**. Als u het huidige gebruiker\Persoonlijk\Certificaten-certificaat niet vinden kan het zijn dat u certificaten Manager geopend voor de lokale computer-certificaten (titel zijn 'Certificaten – lokale Computer' als 'Certificaten – huidige gebruiker' geboden). Certificaten Manager openen in huidige gebruiker bereik starten vanaf de dezelfde PowerShell waar de certificaten zijn gemaakt door te typen ```certmgr```.
 
   ![Exporteren](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. Klik in de wizard op **Volgende**.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212990"
 ---
 # <a name="introduction-to-application-groups"></a>Inleiding tot toepassingsgroepen
 Service-Fabric Cluster Resource Manager beheert doorgaans clusterbronnen door te spreiden van de belasting (vertegenwoordigd [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md)) gelijkmatig in het cluster. Service Fabric beheert de capaciteit van de knooppunten in het cluster en het cluster als geheel via [capaciteit](service-fabric-cluster-resource-manager-cluster-description.md). Metrische gegevens en capaciteit werken geweldig voor veel werkbelastingen, maar de patronen die maken intensief gebruik van verschillende exemplaren van Service Fabric-toepassing soms Breng in aanvullende vereisten. U kunt bijvoorbeeld naar:

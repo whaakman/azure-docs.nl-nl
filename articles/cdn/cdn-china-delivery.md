@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260107"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>China leveren van inhoud met Azure CDN
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212272"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric-omgekeerde proxy
 Omgekeerde proxy is ingebouwd in Azure Service Fabric helpt microservices uitgevoerd in een Service Fabric-cluster detecteren en te communiceren met andere services die HTTP-eindpunten hebben.

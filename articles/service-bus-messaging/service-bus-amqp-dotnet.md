@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188494"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Servicebus in .NET gebruiken met AMQP 1.0
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209681"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Inleiding tot de fout Analysis Services
 De fout Analysis Services is ontworpen voor het testen van de services die zijn gebouwd op Microsoft Azure Service Fabric. U kunt met de fout Analysis Service zinvolle fouten veroorzaken en volledige Testscenario's uitvoeren op basis van uw toepassingen. Deze fouten en scenario's uitoefenen en valideren van de talloze statussen en overgangen die een service tijdens de levensduur, allemaal in een gecontroleerde, veilige en consistente manier optreden zal.

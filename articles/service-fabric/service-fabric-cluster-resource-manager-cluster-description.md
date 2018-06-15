@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208808"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Met een beschrijving van een service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt verschillende mechanismen voor het beschrijven van een cluster. De Cluster Resource Manager gebruikt tijdens runtime, deze informatie om te controleren of de hoge beschikbaarheid van de services die in het cluster wordt uitgevoerd. Bij het afdwingen van deze belangrijke regels ook probeert te optimaliseren het brongebruik binnen het cluster.

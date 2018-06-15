@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207975"
 ---
 # <a name="service-fabric-application-upgrade"></a>Upgrade van Service Fabric-toepassing uitvoeren
 Een Azure Service Fabric-toepassing is een verzameling van services. Tijdens een upgrade Service Fabric vergelijkt de nieuwe [toepassingsmanifest](service-fabric-application-and-service-manifests.md) met de vorige versie en bepaalt welke services in de toepassing-updates vereisen. Service Fabric vergelijkt de getallen in de service zich voordoet wanneer het versienummer in de vorige versie versie. Als een service niet is gewijzigd, wordt deze service is niet bijgewerkt.

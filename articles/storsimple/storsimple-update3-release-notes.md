@@ -20,6 +20,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057822"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>3 release-opmerkingen voor uw StorSimple 8000 serie-apparaat bijwerken
 
