@@ -2,10 +2,10 @@
 title: Dashboard, bewaken, schaal, configureren, en hybride verbindingen in BizTalk Services | Microsoft Docs
 description: Meer informatie over de besturingselementen en prestaties voor BizTalk Services controleren
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 7a1815db-0de2-4274-8be0-198c1b077324
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24103358"
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>De tabbladen Dashboard, Controleren, Schaal, Configureren en Hybride verbinding controleren
 

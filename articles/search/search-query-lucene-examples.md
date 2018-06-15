@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190087"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene query syntaxisvoorbeelden voor het bouwen van query's in Azure Search
 Bij het maken van query's voor Azure Search, kunt u ofwel de standaard [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) of de alternatieve [Lucene Queryparser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). De Queryparser Lucene ondersteunt een complexere query-constructs, zoals veldgerelateerde query's, fuzzy zoeken, zoeken bij benadering, term versterking en zoeken op reguliere expressies.

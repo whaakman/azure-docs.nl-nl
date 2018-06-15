@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185957"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en rekencapaciteit Data Warehouse Units (cDWUs)
 Aanbevelingen over het kiezen van het aantal ideaal datawarehouse Units (dwu's, cDWUs) om te optimaliseren prijs en de prestaties en het wijzigen van het aantal eenheden. 

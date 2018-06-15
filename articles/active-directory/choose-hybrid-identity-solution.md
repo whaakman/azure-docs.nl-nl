@@ -1,23 +1,24 @@
 ---
 title: Een Azure hybride identiteit-oplossing kiezen | Microsoft Docs
 description: Basiskennis van de beschikbare hybride identiteitsoplossingen en aanbevelingen voor u de beste beslissing identiteit beheeracties voor uw organisatie kunt ophalen.
-keywords: 
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
 ms.date: 03/02/2018
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
 ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
 ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800734"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft-oplossingen voor hybride identiteit
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybride identiteitsoplossingen kunnen u on-premises mapobjecten synchroniseren met Azure AD tijdens nog steeds het beheren van uw gebruikers on-premises. De eerste beslissing die te maken bij het plannen van uw lokale Windows Server Active Directory synchroniseren met Azure AD is of u wilt gebruiken identiteit gesynchroniseerd of federatieve identiteit. Gesynchroniseerde identiteiten en, optioneel wachtwoord-hashes, kunnen uw gebruikers op hetzelfde wachtwoord voor toegang tot zowel on-premises en organisatie-cloudresources. Voor meer geavanceerde scenariovereisten op, zoals het eenmalige aanmelding (SSO) of lokale MFA, moet u Active Directory Federation Services (AD FS) voor het federeren van identiteiten implementeren. 
