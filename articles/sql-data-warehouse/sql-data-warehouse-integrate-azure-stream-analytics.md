@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31600305"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Azure Stream Analytics gebruiken met SQL datawarehouse
 Azure Stream Analytics is een volledig beheerde service lage latentie, maximaal beschikbare, schaalbare complexe verwerking van gebeurtenissen geven via het streamen van gegevens in de cloud. U kunt de basisbegrippen door te lezen [Inleiding tot Azure Stream Analytics][Introduction to Azure Stream Analytics]. U kunt vervolgens informatie over het maken van een end-to-end-oplossing met Stream Analytics volgens de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787491"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Maken en beheren van claimable virtuele machines in Azure DevTest Labs
 U een claimable virtuele machine toevoegen aan een lab op een vergelijkbare manier met de manier waarop u [toevoegen van een standaard virtuele machine](devtest-lab-add-vm.md) – Selecteer in een *base* dat ofwel een [aangepaste installatiekopie](devtest-lab-create-template.md), [formule](devtest-lab-manage-formulas.md), of [Marketplace-installatiekopie](devtest-lab-configure-marketplace-images.md). Deze zelfstudie wordt u begeleid bij met de Azure portal een claimable virtuele machine toevoegen aan een lab in DevTest Labs en geeft de processen die een gebruiker volgt claim en unclaim van de virtuele machine.

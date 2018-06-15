@@ -2,10 +2,10 @@
 title: Wat er gewijzigd in Azure Log Analytics? | Microsoft Docs
 description: Dit artikel bevat veelgestelde vragen met betrekking tot de upgrade van logboekanalyse op de nieuwe querytaal.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26039856"
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Wat er gewijzigd in Azure Log Analytics?
 Naast de querytaal zelf, zijn er verschillende verbeteringen en wijzigingen die u rekening moet houden wanneer uw werkruimte voor logboekanalyse is [bijgewerkt naar de nieuwe querytaal](log-analytics-log-search-new.md).  In dit artikel worden de wijzigingen tussen een verouderde en bijgewerkte werkruimte met koppelingen naar gedetailleerde informatie voor elke kort beschreven. 

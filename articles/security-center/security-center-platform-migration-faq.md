@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527022"
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center-platform migratie Veelgestelde vragen
 In eerdere juni 2017 begonnen Azure Security Center met behulp van Microsoft Monitoring Agent voor het verzamelen en opslaan van gegevens. Zie voor meer informatie, [Azure Security Center-Platform migratie](security-center-platform-migration.md). Deze Veelgestelde vragen over de antwoorden op vragen over de migratie van het platform.

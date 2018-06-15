@@ -11,6 +11,7 @@
 ### [Configureren met ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Configureren met PagerDuty](service-health-alert-webhook-pagerduty.md)
 ### [Configureren met OpsGenie](service-health-alert-webhook-opsgenie.md)
+### [Statusgebeurtenissen ophalen met REST](service-health-rest.md)
 # Resources
 ## [Veelgestelde vragen](resource-health-faq.md)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

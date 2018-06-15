@@ -2,10 +2,10 @@
 title: Fout tijdens verwerken van in Azure API Management-beleid | Microsoft Docs
 description: Informatie over het reageren op fouten die tijdens de verwerking van aanvragen in Azure API Management optreden.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128223"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Fout tijdens verwerken van in API Management-beleidsregels
 Azure API Management kunnen publishers te reageren op fouten die optreden tijdens de verwerking van aanvragen naar de proxy door een `ProxyError` object. De `ProxyError` object kan worden geopend via de [context. LastError](api-management-policy-expressions.md#ContextVariables) eigenschap en kan worden gebruikt door het beleid in de `on-error` beleidssectie. Dit onderwerp bevat een verwijzing voor de fout verwerking mogelijkheden in Azure API Management.  

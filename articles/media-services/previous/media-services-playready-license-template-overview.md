@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788828"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady licentie sjabloon overzicht
 Azure Media Services biedt nu een service voor het leveren van PlayReady-licenties. Wanneer de speler (bijvoorbeeld Silverlight), probeert uw PlayReady beveiligde inhoud af te spelen, wordt een aanvraag verzonden naar de service voor het leveren van licenties voor het verkrijgen van een licentie. Als de licentieservice de aanvraag goedkeurt, moet deze de licentie die is verzonden naar de client en wordt gebruikt om te ontsleutelen en de inhoud van de opgegeven spelen uitgeeft.

@@ -469,6 +469,9 @@
     - name: Flexibiliteit
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: Op rollen gebaseerd toegangsbeheer
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: Service Health
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/

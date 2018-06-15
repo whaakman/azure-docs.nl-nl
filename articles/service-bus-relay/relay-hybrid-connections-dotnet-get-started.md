@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896452"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Aan de slag met websockets voor hybride verbindingen in Azure Relay in .NET |
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]

@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788450"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Meer informatie over hoe clients tokens doorgeven aan de service Azure Media Services-sleutellevering
 Klanten wordt vaak vragen hoe een speler kan doorgeven tokens met de service Azure Media Services sleutellevering voor verificatie zodat Windows media player kan de sleutel verkrijgen. Media Services ondersteunt de eenvoudige web token (SWT) en JSON Web Token (JWT) geformatteerd. Tokenverificatie wordt toegepast op elk type sleutel, ongeacht of u common encryption of Advanced Encryption Standard (AES) envelop versleuteling in het systeem.

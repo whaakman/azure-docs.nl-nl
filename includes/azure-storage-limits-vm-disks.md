@@ -3,9 +3,17 @@ Een virtuele Azure-machine biedt ondersteuning voor het koppelen van meerdere ge
 > [!IMPORTANT]
 > Voor optimale prestaties, het aantal maximaal gebruikte schijven zijn gekoppeld aan de virtuele machine om te voorkomen dat mogelijk bandbreedtebeperking te beperken. Als u alle gekoppelde schijven maximaal niet tegelijkertijd worden gebruikt, kan een groter aantal schijven ondersteunen op de virtuele machine.
 
-* **Voor Azure Managed schijven:** de limiet van de schijf voor beheerde schijven per regio en per schijftype is. Het maximum aantal en de standaardlimiet is 10.000 beheerde schijven per regio en per type van de schijf voor een abonnement. Bijvoorbeeld, kunt u maximaal 10.000 standaard beheerd schijven en ook 10.000 premium schijven in een regio per abonnement die worden beheerd.
+* **Voor Azure schijven die worden beheerd:** 
 
-    Beheerde momentopnamen en afbeeldingen in mindering gebracht op de beheerde schijven limiet.
+> | Resource | Standaardlimiet | Maximumaantal |
+> | --- | --- | --- |
+> | Standard Managed Disks | 10.000 | 50,000 |
+> | Standard SSD Managed Disks | 10.000 | 50,000 |
+> | Premium Managed Disks | 10.000 | 50,000 |
+> | Standard_LRS momentopnamen | 10.000 | 50,000 |
+> | Standard_ZRS momentopnamen | 10.000 | 50,000 |
+> | Premium_LRS momentopnamen | 10.000 | 50,000 |
+> | Begeleide afbeelding | 10.000 | 50,000 |
 
 * **Voor standaardopslagaccounts:** een standaardopslagaccount heeft een maximale totale aanvraagsnelheid van 20.000 IOP's. Het totale aantal IOP's van alle schijven van een virtuele machine in een standaardopslagaccount mag niet groter zijn dan deze limiet.
   

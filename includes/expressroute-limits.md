@@ -5,14 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 03/22/2018
+ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 36f48e4cc321b534c0fd2e896bf3f43623c540bb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6e0d2b881e00acc6b1fccd3196187309fc36cba2
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568140"
 ---
 #### <a name="expressroute-limits"></a>Limieten voor ExpressRoute
 De volgende beperkingen gelden voor de ExpressRoute-resources per abonnement.
@@ -27,6 +28,7 @@ De volgende beperkingen gelden voor de ExpressRoute-resources per abonnement.
 | Maximum aantal routes voor openbare Azure-peering met premium-invoegtoepassing voor ExpressRoute |200 |
 | Maximum aantal routes voor Microsoft Azure-peering met ExpressRoute-standaard |200 |
 | Maximum aantal routes voor Azure Microsoft-peering met premium-invoegtoepassing voor ExpressRoute |200 |
+| Maximum aantal ExpressRoute-circuits die zijn gekoppeld aan hetzelfde virtuele netwerk in verschillende peeringlocaties |4 |
 | Aantal virtuele netwerkkoppelingen per ExpressRoute-circuit toegestaan |Zie de onderstaande tabel |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Aantal virtuele netwerken per ExpressRoute-circuit

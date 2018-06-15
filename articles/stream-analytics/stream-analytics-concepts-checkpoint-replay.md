@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31529483"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Controlepunt- en replayaanvallen concepten in Azure Stream Analytics-taken
 In dit artikel beschrijft de interne controlepunt- en replayaanvallen concepten in Azure Stream Analytics en de impact die hebben op het herstel van de taak. Telkens wanneer wordt een Stream Analytics-taak wordt uitgevoerd, informatie over de status bijgehouden intern. Deze informatie over de status wordt opgeslagen in een controlepunt regelmatig. De informatie van het controlepunt wordt gebruikt voor herstel van de taak in bepaalde situaties, als een taak is mislukt of upgrade optreedt. In andere gevallen kan het controlepunt kan niet worden gebruikt voor herstel en een replay nodig is.

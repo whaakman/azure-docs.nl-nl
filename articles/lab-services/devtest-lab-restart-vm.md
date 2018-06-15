@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787365"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Opnieuw opstarten van een virtuele machine in een testomgeving in Azure DevTest Labs
 U kunt snel en eenvoudig een virtuele machine opnieuw in DevTest Labs volgens de stappen in dit artikel. Overweeg het volgende voordat u een virtuele machine opnieuw opstart:

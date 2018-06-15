@@ -1,6 +1,6 @@
 ---
 title: Het registreren van een Ondersteuningsticket beveiliging voor gebeurtenis - Azure | Microsoft Docs
-description: "Als een verkoper op Azure Marketplace, die een mogelijke security-gebeurtenis geïdentificeerd die ik wil weten hoe u zich aanmeldt een juiste ticket."
+description: Als een verkoper op Azure Marketplace, die een mogelijke security-gebeurtenis geïdentificeerd die ik wil weten hoe u zich aanmeldt een juiste ticket.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129937"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Hoe u zich aanmeldt een Ondersteuningsticket Security-gebeurtenis
 

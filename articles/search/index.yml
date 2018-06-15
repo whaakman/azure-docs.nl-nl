@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33943175"
 abstract:
   description: Leer hoe u een bedrijfsoplossing voor zoekopdrachten in persoonlijke, heterogene inhoud maakt met behulp van Azure Search. In zelfstudies, API-referentiemateriaal en andere documenten kunt u zien hoe u doorzoekbare inhoud samenvoegt in één snelle index, waarin u kunt zoeken met behulp van eenvoudige-tot-geavanceerde syntaxis voor een grote verscheidenheid aan scenario’s. <p/><b>Nieuwe Cognitief zoeken-preview.</b> Een voorlopige versie van een REST-API gebruiken om AI-algoritmen aan de pijplijn voor indexering te binden. Gegevens ophalen en natuurlijke taal en afbeeldingsverwerking activeren voor het transformeren van onbewerkte ongestructureerde inhoud naar doorzoekbare inhoud in een Index van Azure Search. <p/>Aan de slag met <a href="/azure/search/cognitive-search-quickstart-blob">resources en de voorbeeldgegevens</a> of meer informatie in <a href="/azure/search/cognitive-search-concept-intro">Concepten</a>.
   aside:

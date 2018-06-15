@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788905"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Mediabestanden met Azure Media Indexer indexeren
 Azure Media Indexer kunt u de inhoud van uw mediabestanden doorzoekbaar maken en voor het genereren van de tekst van een volledige-tekstindex voor gesloten ondertiteling en sleutelwoorden. U kunt één mediabestand verwerken of meerdere mediabestanden als batch verwerken.  

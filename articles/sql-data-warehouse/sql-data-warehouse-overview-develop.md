@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31601801"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Ontwerpbeslissingen en codering technieken voor SQL Data Warehouse
 Bekijk via deze artikelen ontwikkeling voor een beter begrip van belangrijke ontwerpbeslissingen, aanbevelingen en codering technieken voor SQL Data Warehouse.

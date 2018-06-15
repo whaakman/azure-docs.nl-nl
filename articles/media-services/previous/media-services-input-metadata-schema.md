@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788940"
 ---
 # <a name="input-metadata"></a>Invoer metagegevens
 Een codeertaak is gekoppeld aan een invoer asset (of activa) op waarop u wilt uitvoeren van sommige taken codering.  Na voltooiing van een taak wordt een uitvoerasset geproduceerd.  De uitvoerasset bevat video, audio, miniaturen, het manifest, enzovoort. De uitvoerasset bevat ook een bestand met metagegevens over de invoer asset. De naam van de metagegevens-XML-bestand heeft de volgende indeling: &lt;asset_id&gt;_metadata.xml (bijvoorbeeld 41114ad3-eb5e - 4c 57 8d 92-5354e2b7d4a4_metadata.xml), waarbij &lt;asset_id&gt; is de waarde van het item-id hebt van de invoer asset.  

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942772"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Gebruik Azure aangepast Script extensie versie 1 met de virtuele Linux-machines
 Aangepast Script extensie versie 1 downloads en scripts uitvoeren op virtuele machines in Azure. Deze uitbreiding is nuttig voor na de implementatie-configuratie, software-installatie of een andere Configuratiebeheer /-taak. U kunt scripts downloaden van Azure Storage of een andere internetlocatie voor toegankelijk of u kunt ze met de extensie runtime opgeven. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597085"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Maven gebruiken voor het ontwikkelen van Java-toepassingen die gebruikmaken van HBase met HDInsight (Hadoop) op basis van Windows
 Meer informatie over het maken en bouwen van een [Apache HBase](http://hbase.apache.org/) toepassing in Java met behulp van Apache Maven. Gebruik vervolgens de toepassing met Azure HDInsight (Hadoop).

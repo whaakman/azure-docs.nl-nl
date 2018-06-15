@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927777"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management"></a>Problemen met Azure Active Directory Application Management
 Via de volgende koppelingen vindt u oplossingen voor enkele van de meest voorkomende problemen met het beheer van **bedrijfstoepassingen** in Azure Active Directory.

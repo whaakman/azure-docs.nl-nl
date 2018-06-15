@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540132"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Azure-beveiliging video's op Channel 9
 [Channel 9](https://channel9.msdn.com/) is een community die verschijnt de personen die achter onze producten en verbindt deze met klanten.

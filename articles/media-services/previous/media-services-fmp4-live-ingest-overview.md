@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788975"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services tot gefragmenteerde MP4 live opnemen specificatie
 Deze specificatie beschrijft het protocol en de indeling voor gefragmenteerde MP4 gebaseerde live streaming opname voor Azure Media Services. Media Services biedt een service voor live streamen waarmee klanten kunnen stream live gebeurtenissen en de inhoud in realtime uitzenden met behulp van Azure als het cloudplatform. Dit document wordt ook beschreven best practices voor het bouwen van maximaal redundante en robuuste live mechanismen opnemen.

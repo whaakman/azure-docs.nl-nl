@@ -5,5 +5,7 @@
 ``dc.services.visualstudio.com`` : Wordt gebruikt voor telemetrie. <br>
 ``time.nist.gov`` en ``time.windows.com``. Wordt gebruikt om de tijdsynchronisatie tussen de systeemtijd en de algemene tijd te controleren.
 <br/><br/>
-URL's voor Azure Government cloud:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>- https://login-us.microsoftonline.com<br/>- https://login.microsoftonline.us<br/>- https://login.microsoftonline.com<br/>
+URL's voor Azure Government cloud:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>-
+https://login.microsoftonline.us<br/>-
+https://login.microsoftonline.com<br/>
 

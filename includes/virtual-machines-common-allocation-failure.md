@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33901326"
 ---
 Wanneer u een virtuele machine (VM) maken, gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten of het formaat van een virtuele machine, wijst Microsoft Azure compute-bronnen aan uw abonnement. We zijn voortdurend investeren in extra infrastructuur en functies om ervoor te zorgen dat er altijd alle VM-typen die beschikbaar zijn voor de ondersteuning van de vraag van klanten hebben. Echter kan van tijd tot tijd toewijzingsfouten resource optreden vanwege een ongekende groei van de vraag voor Azure-services in specifieke gebieden. Dit probleem kan optreden wanneer u probeert te maken of virtuele machines in een regio terwijl de virtuele machines worden de volgende foutcode en het bericht weergegeven:
 

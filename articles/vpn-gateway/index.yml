@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32779485"
 abstract:
   description: Leer hoe u een Azure VPN-gateway maakt, configureert en beheert. Maak vanaf on-premises locaties versleutelde cross-premises verbindingen naar uw virtuele netwerk of maak versleutelde verbindingen tussen VNets.
 sections:

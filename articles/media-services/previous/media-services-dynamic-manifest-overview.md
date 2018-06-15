@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788870"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
 Media Services kunt vanaf 2,17 versie, u filters definiëren voor de activa. Deze filters zijn server side regels die zorgen uw klanten dat ervoor te kiezen voor handelingen zoals: afspelen alleen een gedeelte van een video (in plaats van de hele video afspelen), of geef alleen een subset van audio en video vertoningen dat uw klant apparaat (in plaats daarvan kan verwerken met de vertoningen die zijn gekoppeld aan de asset). Via dit filteren van uw assets wordt gearchiveerd **dynamische Manifest**s die zijn gemaakt op verzoek om te streamen van een video van uw klant op basis van opgegeven filter.

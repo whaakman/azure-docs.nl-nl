@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 06/12/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: bbeceb868466de42cfdffa3991983ac906cb98aa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323728"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568123"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over hoe [weergeven van het actuele Resourcegebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -68,7 +68,6 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
 | Load Balancers | 100 | 1000 |
-| Back-endresources per Load Balancer * | 50 | 150 |
 | Regels per resource, Basic | 150 | 250 |
 | Regels per resource, standaard | 1250 | 1500 |
 | Regels per IP-configuratie | 299 |299 |
@@ -76,9 +75,10 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Frontend-IP-adresconfiguraties, standaard | 10 | 600 |
 | Back-endpool Basic | 100, één Beschikbaarheidsset | 100, één Beschikbaarheidsset |
 | Back-endpool Standard | 1000, enkel VNet | 1000, enkel VNet |
+| Back-endresources per Load Balancer, standaard &ast; | 50 | 150 |
 | HA poorten, Standard | 1 per interne frontend | 1 per interne frontend |
 
-* Maximaal 150 bronnen, een combinatie van zelfstandige virtuele machines, beschikbaarheidssets en virtuele-machineschaalsets.
+&ast; Maximaal 150 bronnen, een combinatie van zelfstandige virtuele machines, beschikbaarheidssets en virtuele-machineschaalsets.
 
 [Neem contact op met de ondersteuning](../articles/azure-supportability/resource-manager-core-quotas-request.md ) als u de standaardlimieten wilt verhogen.
 

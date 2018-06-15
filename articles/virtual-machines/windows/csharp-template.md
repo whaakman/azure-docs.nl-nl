@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527821"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Een Azure-virtuele Machine met C# en Resource Manager-sjabloon implementeren
 In dit artikel laat zien hoe een Azure Resource Manager-sjabloon met C# implementeren. De sjabloon die u maakt implementeert een enkele virtuele machine met Windows Server in een nieuw virtueel netwerk met één subnet.
