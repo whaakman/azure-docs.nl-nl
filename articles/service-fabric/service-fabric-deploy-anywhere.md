@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213126"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Service Fabric-clusters op Windows Server of Linux maken
 Een Azure Service Fabric-cluster is een set netwerk verbonden virtuele of fysieke machines waarin uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster wordt een clusterknooppunt genoemd. Clusters kunnen worden geschaald naar duizenden knooppunten. Als u nieuwe knooppunten aan het cluster toevoegt, rebalances Service Fabric de service partitie replica's en exemplaren op tussen het toegenomen aantal knooppunten. De algemene verbetert de prestaties van toepassingen en verkleint u conflicten over toegang tot het geheugen. Als de knooppunten in het cluster niet efficiënt worden gebruikt, kunt u het aantal knooppunten in het cluster verminderen. Service Fabric rebalances opnieuw de replica's en exemplaren op tussen het kleinere aantal knooppunten beter te benutten van de hardware op elk knooppunt.

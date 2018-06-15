@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067944"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Een aanvraag indient bij de Azure-abonnement betalen met factuur
 

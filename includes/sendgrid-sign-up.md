@@ -61,9 +61,9 @@ Azure-klanten kunnen iedere maand 25.000 gratis e-mails ontgrendelen. Deze 25.00
 
 Als u uw instellingen voor de bezorging van e-mail wilt beheren, klikt u op de knop **Beheren**. Hiermee wordt een omleiding naar uw SendGrid-dashboard.
 
-    ![manage][manage]
+![beheren][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+Voor meer informatie over het verzenden van e-mail via SendGrid, gaat u naar de [e-API-overzicht][Email API Overview].
 
 <!--images-->
 

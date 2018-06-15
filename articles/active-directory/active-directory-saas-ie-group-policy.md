@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341003"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>De extensie van het Configuratiescherm toegang voor Internet Explorer met behulp van Groepsbeleid implementeren
 Deze zelfstudie laat zien hoe het gebruik van Groepsbeleid op afstand installeren van de extensie Toegangspaneel voor Internet Explorer op uw gebruikers-machines. Deze uitbreiding is vereist voor Internet Explorer-gebruikers hoeven zich aanmeldt bij apps die zijn geconfigureerd met [op basis van wachtwoorden eenmalige aanmelding](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).

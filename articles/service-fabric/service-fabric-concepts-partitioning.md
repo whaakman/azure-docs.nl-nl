@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206530"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Betrouwbare partitie Service Fabric-services
 Dit artikel bevat een inleiding tot de basisconcepten van Azure Service Fabric betrouwbare services partitioneren. De broncode gebruikt in het artikel is ook beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).

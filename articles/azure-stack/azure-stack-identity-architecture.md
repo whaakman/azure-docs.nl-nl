@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257485"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architectuur van de identiteit voor Azure-Stack
 Voordat u een id-provider te gebruiken met Azure-Stack kiest, moet u de belangrijke verschillen tussen de opties van Azure Active Directory (Azure AD) en Active Directory Federation Services (AD FS) begrijpen. 

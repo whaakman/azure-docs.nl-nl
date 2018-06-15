@@ -22,6 +22,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31400511"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Python streaming MapReduce-programma's voor HDInsight ontwikkelen
 

@@ -6,7 +6,7 @@ documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -17,9 +17,10 @@ ms.date: 06/13/2017
 ms.author: tamram
 ms.openlocfilehash: 629189b9dbe2327763d364abc95f49539a312c53
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25983895"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Verwijderen van containers op basis van het voorvoegsel van container
 

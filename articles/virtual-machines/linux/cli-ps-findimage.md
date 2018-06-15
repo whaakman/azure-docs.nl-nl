@@ -1,11 +1,11 @@
 ---
-title: "Selecteer de installatiekopieën van het Linux-VM met de Azure CLI | Microsoft Docs"
-description: "Informatie over het gebruik van de Azure CLI om te bepalen van de uitgever, aanbieding, SKU en versie voor installatiekopieën van Marketplace VM."
+title: Selecteer de installatiekopieën van het Linux-VM met de Azure CLI | Microsoft Docs
+description: Informatie over het gebruik van de Azure CLI om te bepalen van de uitgever, aanbieding, SKU en versie voor installatiekopieën van Marketplace VM.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29740880"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Linux-VM-installatiekopieën zoeken in Azure Marketplace met de Azure CLI
 Dit onderwerp wordt beschreven hoe u met de Azure CLI 2.0 VM-installatiekopieën vinden in Azure Marketplace. Gebruik deze informatie om een Marketplace-installatiekopie opgeven wanneer u een virtuele machine via een programma met de CLI maken Resource Manager-sjablonen of andere hulpprogramma's.

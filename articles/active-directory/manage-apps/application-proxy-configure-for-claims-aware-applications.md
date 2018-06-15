@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161992"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Werken met claimbewuste toepassingen in de toepassingsproxy
 [Claims-compatibele apps](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) een omleiding naar de Security Token Service (STS) uitvoeren. De STS vraagt om de referenties van de gebruiker voor een token en stuurt vervolgens door de gebruiker naar de toepassing. Er zijn een aantal manieren Application Proxy voor gebruik met deze omleidingen in te schakelen. Gebruik dit artikel voor het configureren van uw implementatie van claims-compatibele apps. 

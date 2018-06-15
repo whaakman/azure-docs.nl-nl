@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157663"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>App-typen voor de Azure Active Directory v2.0-eindpunt
 Het Azure Active Directory (Azure AD) v2.0-eindpunt ondersteunt verificatie voor diverse moderne app-architecturen allemaal op basis van industriestandaard-protocollen [OAuth 2.0- of OpenID Connect](active-directory-v2-protocols.md). Dit artikel wordt beschreven welke typen apps die u maken kunt met behulp van Azure AD v2.0, ongeacht uw voorkeurstaal of platform. De informatie in dit artikel is bedoeld om te begrijpen geavanceerde scenario's voordat u [beginnen met werken met de code](active-directory-appmodel-v2-overview.md#getting-started).

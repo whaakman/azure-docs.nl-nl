@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213109"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors--ReliableDictionaryActorStateProvider configureren
 U kunt de standaardconfiguratie van ReliableDictionaryActorStateProvider wijzigen door het settings.xml-bestand voor de opgegeven actor gegenereerd in de hoofdmap van het Visual Studio-pakket onder de map Config wordt gewijzigd.

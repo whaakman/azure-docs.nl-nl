@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155776"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Wat is de OAuth2 impliciete grant stroom in Azure Active Directory (AD)?
 De impliciete grant OAuth2 is algemeen wordt de grant met de langste lijst met beveiligingsproblemen in de OAuth2-specificatie. En nog, dat de aanpak door ADAL JS en we raden u aan bij de SPA-toepassingen schrijven die geïmplementeerd is. Wat te bieden? Het is een kwestie van de voor-en nadelen: en als het blijkt de impliciete verlenen is de aanbevolen aanpak u voor toepassingen die een Web-API via JavaScript via een browser gebruiken kunt voortzetten.

@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687863"
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>Parameters van de server configureren in Azure-portal
 U kunt lijst, weergeven en bijwerken van configuratieparameters voor een Azure-Database voor PostgreSQL-server via de Azure-portal.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208750"
 ---
 # <a name="testability-scenarios"></a>Testbaarheid scenario 's
 Grote gedistribueerde systemen zoals cloudinfrastructuren inherent onbetrouwbaar worden. Azure Service Fabric biedt ontwikkelaars de mogelijkheid om services voor uitvoering op onbetrouwbare infrastructuren. Ontwikkelaars moeten kunnen veroorzaken dergelijke onbetrouwbaar infrastructuur voor het testen van de stabiliteit van hun services om te schrijven van hoge kwaliteit services.
