@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850796"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Het ophalen van de ARP tabellen in het klassieke implementatiemodel
 > [!div class="op_single_selector"]

@@ -2,11 +2,11 @@
 title: Azure-Cloud-Shell insluiten | Microsoft Docs
 description: Informatie voor het insluiten van Azure Cloud-Shell.
 services: cloud-shell
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27864881"
 ---
 # <a name="embed-azure-cloud-shell"></a>Azure-Cloud-Shell insluiten
 

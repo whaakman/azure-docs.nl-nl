@@ -14,6 +14,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32767943"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processen kunnen worden geconfigureerd op basis van drempelwaarden regels in Azure Stream Analytics
 In dit artikel wordt beschreven hoe een meldingsoplossing die gebruikmaakt van de configureerbare regels op basis van drempelwaarden in Azure Stream Analytics kunt gebruiken voor referentiegegevens.

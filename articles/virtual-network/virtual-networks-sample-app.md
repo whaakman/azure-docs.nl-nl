@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23883794"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Voorbeeld van een toepassing voor gebruik met DMZ 's
 [Ga terug naar de grens van Best Practices beveiligingspagina][HOME]

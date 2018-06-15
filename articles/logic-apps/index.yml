@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentatie voor Azure Logic Apps
 metadata:
   title: Documentatie voor Azure Logic Apps - zelfstudies, API-verwijzing | Microsoft Docs
-  description: "Azure Logic Apps vereenvoudigt de manier waarop u geautomatiseerde, schaalbare werkstromen bouwt die apps en gegevens in cloudservices en on-premises systemen integreren. Leer hoe u met onze snelstartgidsen, zelfstudies, sjablonen en API’s logische apps die zakelijke processen automatiseren, maakt, ontwerpt en implementeert."
+  description: Azure Logic Apps vereenvoudigt de manier waarop u geautomatiseerde, schaalbare werkstromen bouwt die apps en gegevens in cloudservices en on-premises systemen integreren. Leer hoe u met onze snelstartgidsen, zelfstudies, sjablonen en API’s logische apps die zakelijke processen automatiseren, maakt, ontwerpt en implementeert.
   services: logic-apps
   author: czeumault
   manager: estfan
@@ -18,8 +18,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 01/19/2018
+  ms.locfileid: "27967837"
 abstract:
-  description: "Azure Logic Apps vereenvoudigt de manier waarop u geautomatiseerde, schaalbare werkstromen bouwt die apps en gegevens in cloudservices en on-premises systemen integreren. Leer hoe u met onze snelstartgidsen, zelfstudies, sjablonen en API’s logische apps die zakelijke processen automatiseren, maakt, ontwerpt en implementeert."
+  description: Azure Logic Apps vereenvoudigt de manier waarop u geautomatiseerde, schaalbare werkstromen bouwt die apps en gegevens in cloudservices en on-premises systemen integreren. Leer hoe u met onze snelstartgidsen, zelfstudies, sjablonen en API’s logische apps die zakelijke processen automatiseren, maakt, ontwerpt en implementeert.
 sections:
 - title: QuickStarts van vijf minuten
   items:

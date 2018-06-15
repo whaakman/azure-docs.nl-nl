@@ -2,11 +2,11 @@
 title: Instellen van een webproxy voor StorSimple 8000 series apparaat | Microsoft Docs
 description: Informatie over het gebruik van Windows PowerShell voor StorSimple web proxy-instellingen voor uw StorSimple-apparaat configureren.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874995"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Webproxy voor uw StorSimple-apparaat configureren
 

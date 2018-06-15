@@ -4,8 +4,8 @@ description: Meer informatie over hoe Azure Application Gateway kunt u SSL-belei
 services: application gateway
 documentationcenter: na
 author: amsriva
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure resource manager
 ms.service: application gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836950"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Overzicht van Application Gateway SSL-beleid
 

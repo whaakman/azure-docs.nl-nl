@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866399"
 ---
 # <a name="azure-security-center-search"></a>Azure Security Center zoeken
 Maakt gebruik van Azure Security Center [logboekanalyse zoeken](../log-analytics/log-analytics-log-searches.md) ophalen en analyseren van uw beveiligingsgegevens. Log Analytics bevat een querytaal om snel te ophalen en samenvoegen van gegevens. Vanuit Security Center kunt u gebruikmaken van logboekanalyse zoeken om query's maken en analyseren van de verzamelde gegevens.

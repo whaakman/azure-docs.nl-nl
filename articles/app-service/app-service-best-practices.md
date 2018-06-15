@@ -2,7 +2,7 @@
 title: Aanbevolen procedures voor Azure App Service
 description: Informatie over aanbevolen procedures en probleemoplossing voor Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27868315"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Aanbevolen procedures voor Azure App Service
 In dit artikel bevat een overzicht van aanbevolen procedures voor het gebruik van [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 

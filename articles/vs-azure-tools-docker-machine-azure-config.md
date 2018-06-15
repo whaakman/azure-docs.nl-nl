@@ -5,7 +5,7 @@ services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 7a3ff6e1-fa93-4a62-b524-ab182d2fea08
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23883878"
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Docker-hosts in Azure maken met Docker-Machine
 Met [Docker](https://www.docker.com/) containers vereist een host met de docker-daemon VM.

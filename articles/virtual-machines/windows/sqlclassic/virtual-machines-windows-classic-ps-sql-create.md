@@ -1,6 +1,6 @@
 ---
 title: Maken van een SQL Server-Machine in Azure PowerShell (klassiek) | Microsoft Docs
-description: "Bevat de stappen en PowerShell-scripts voor het maken van een virtuele machine in Azure met SQL Server-installatiekopieën voor virtuele machine-galerie. In dit onderwerp maakt gebruik van de klassieke implementatiemodus."
+description: Bevat de stappen en PowerShell-scripts voor het maken van een virtuele machine in Azure met SQL Server-installatiekopieën voor virtuele machine-galerie. In dit onderwerp maakt gebruik van de klassieke implementatiemodus.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399658"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Een SQL Server-machine met Azure PowerShell (klassiek) inrichten
 

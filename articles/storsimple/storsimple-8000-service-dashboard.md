@@ -2,11 +2,11 @@
 title: Gebruik StorSimple 8000 series apparaatoverzicht | Microsoft Docs
 description: Beschrijving van de samenvatting blade voor StorSimple-service en wordt uitgelegd hoe u hiermee de status van uw StorSimple-oplossing.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874827"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>De service samenvatting blade voor StorSimple 8000 series apparaat gebruiken
 

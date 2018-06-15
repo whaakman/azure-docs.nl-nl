@@ -5,7 +5,7 @@ services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843131"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>U ziet het buiten gebruik stellen van Gast OS-familie 1
 Het buiten gebruik stellen van OS-familie 1 werd eerst aangekondigd op 1 juni 2013.

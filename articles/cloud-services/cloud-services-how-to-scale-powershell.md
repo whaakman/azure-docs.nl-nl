@@ -2,10 +2,10 @@
 title: Een Azure-cloud-service schalen in Windows PowerShell | Microsoft Docs
 description: (klassiek) Informatie over het gebruiken van PowerShell een Webrol of worker-rol in of uit te schalen in Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842949"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Schalen van een cloudservice in PowerShell
 

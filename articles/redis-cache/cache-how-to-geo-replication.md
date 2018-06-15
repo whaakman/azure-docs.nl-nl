@@ -2,10 +2,10 @@
 title: Geo-replicatie configureren voor Azure Redis-Cache | Microsoft Docs
 description: Informatie over het repliceren van uw Azure Redis-Cache-exemplaren in geografische regio's.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911367"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Geo-replicatie configureren voor Azure Redis-Cache
 

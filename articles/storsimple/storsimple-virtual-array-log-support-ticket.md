@@ -2,10 +2,10 @@
 title: Meld u ondersteuningsticket via StorSimple Apparaatbeheer | Microsoft Docs
 description: Beschrijft de StorSimple-Apparaatbeheer mogelijkheid diagnosticeren en wordt uitgelegd hoe u het oplossen van problemen met uw virtuele StorSimple-matrix.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a0c394df-957b-49b3-a283-38824f8847fd
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875912"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>De service Apparaatbeheer StorSimple gebruiken voor het melden van een verzoek om ondersteuning voor het virtuele StorSimple-matrix
 

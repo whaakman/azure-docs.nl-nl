@@ -16,9 +16,10 @@ ms.date: 10/13/2017
 ms.author: yurid
 ms.openlocfilehash: f552164edc22b450c4ace57cce5c051d1c93e780
 ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776122"
 ---
 # <a name="security-policies-overview"></a>Overzicht van de beleidsregels voor beveiliging
 Dit artikel bevat een overzicht van beveiligingsbeleid in Security Center.

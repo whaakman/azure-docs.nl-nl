@@ -5,7 +5,7 @@ author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874099"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export-service indeling van logboekbestand
 Wanneer een actie in de Microsoft Azure Import/Export-service op een station dat als onderdeel van een import-taak of een taak voor het exporteren wordt uitgevoerd, worden logboeken geschreven naar blok-blobs in de storage-account dat is gekoppeld met deze taak.  

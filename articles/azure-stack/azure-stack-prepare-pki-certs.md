@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203473"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure-Stack PKI-certificaten voor de implementatie voorbereiden
 De certificaatbestanden [verkregen van uw Certificeringsinstantie van keuze](azure-stack-get-pki-certs.md) moet worden geïmporteerd en geëxporteerd met eigenschappen die overeenkomt met de Azure-Stack-certificaatvereisten.

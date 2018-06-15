@@ -5,7 +5,7 @@ author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f2e619be-1bbd-4a54-9472-9e2f70a83b64
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873700"
 ---
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Het inventariseren van taken in de Azure Import/Export-service
 Aanroepen voor het inventariseren van alle taken in een abonnement, het [lijst taken](/rest/api/storageimportexport/jobs#Jobs_List) bewerking. `List Jobs`retourneert een lijst met taken, evenals de volgende kenmerken:

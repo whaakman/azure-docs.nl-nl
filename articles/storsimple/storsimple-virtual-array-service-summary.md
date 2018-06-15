@@ -2,10 +2,10 @@
 title: Virtuele StorSimple-matrix service samenvatting blade | Microsoft Docs
 description: Beschrijft de samenvatting blade service voor StorSimple Apparaatbeheer en wordt uitgelegd hoe u hiermee de status van uw virtuele StorSimple-matrix.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 8a2b9a84-b0e6-48b9-b366-d16f004241a5
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875737"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Gebruik de service samenvatting blade voor StorSimple Apparaatbeheer verbonden met virtuele StorSimple-matrix
 ## <a name="overview"></a>Overzicht

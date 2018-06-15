@@ -16,9 +16,10 @@ ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
 ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23873973"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin-Resource delen (CORS) ondersteuning voor de Azure Storage-Services
 Vanaf versie 2013-08-15, ondersteuning de Azure storage-services Cross-Origin-Resource delen (CORS) voor de services Blob, Table, wachtrijen en -bestand. CORS is een HTTP-functie waarmee een webtoepassing in een domein met toegang tot bronnen in een ander domein. Webbrowsers implementeren een beveiligingsbeperkingen bekend als [dezelfde oorsprong beleid](http://www.w3.org/Security/wiki/Same_Origin_Policy) dat voorkomt dat een webpagina van aanroepen API's in een ander domein; CORS biedt een veilige manier om toe te staan van een domein (het domein van de oorsprong) om aan te roepen API's in een ander domein. Zie de [CORS-specificatie](http://www.w3.org/TR/cors/) voor meer informatie over CORS.

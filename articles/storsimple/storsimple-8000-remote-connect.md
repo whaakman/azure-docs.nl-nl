@@ -2,11 +2,11 @@
 title: Extern verbinding maken met uw StorSimple-apparaat | Microsoft Docs
 description: Legt uit hoe u uw apparaat voor extern beheer configureren en verbinding maken met Windows PowerShell voor StorSimple via HTTP of HTTPS.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103952"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Extern verbinding maken met uw StorSimple 8000 series apparaat
 

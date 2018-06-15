@@ -1,7 +1,7 @@
 ---
 title: Het maken van een telefonische oproep van Twilio (Java) | Microsoft Docs
 description: Informatie over het maken van een telefonische oproep van een webpagina met Twilio in een Java-toepassing in Azure.
-services: 
+services: ''
 documentationcenter: java
 author: devinrader
 manager: twilio
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865937"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Het maken van een telefoongesprek met Twilio in een Java-toepassing in Azure
 Het volgende voorbeeld ziet u hoe u Twilio kunt gebruiken voor het maken van een aanroep van een webpagina die wordt gehost in Azure. De resulterende toepassing wordt de gebruiker gevraagd om telefoongesprek waarden, zoals wordt weergegeven in de volgende schermopname.

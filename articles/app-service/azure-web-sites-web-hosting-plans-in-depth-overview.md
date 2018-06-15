@@ -3,10 +3,10 @@ title: Overzicht van Azure App Service-plan | Microsoft Docs
 description: Lees hoe App Service-plannen voor Azure App Service werk, en hoe ze uw beheerervaring profiteren.
 keywords: App service, azure app service, schaal, schaalbaar, schaalbaarheid, app service-abonnement, Servicekosten app
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862356"
 ---
 # <a name="azure-app-service-plan-overview"></a>Overzicht van Azure App Service-plan
 

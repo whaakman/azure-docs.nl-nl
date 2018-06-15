@@ -2,7 +2,7 @@
 title: Waarschuwing management in Microsoft monitoring producten | Microsoft Docs
 description: Een waarschuwing geeft een probleem aan dat de aandacht van een beheerder vereist.  Dit artikel worden de verschillen in hoe waarschuwingen worden gemaakt en beheerd in System Center Operations Manager (SCOM) en Log Analytics beschreven en vindt u aanbevolen procedures in het gebruik van de twee producten voor een strategie voor een hybride beheer van waarschuwingen.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865769"
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Het beheren van waarschuwingen met het bewaken van Microsoft
 Een waarschuwing geeft een probleem aan dat de aandacht van een beheerder vereist.  Er toch duidelijke verschillen tussen System Center Operations Manager (SCOM) en Log Analytics in Operations Management Suite (OMS) in termen van hoe waarschuwingen worden gemaakt, hoe ze worden beheerd en geanalyseerd, en hoe u wordt gewaarschuwd dat een kritiek probleem is gedetecteerd.

@@ -2,11 +2,11 @@
 title: Vervangen van een apparaat-controller van StorSimple 8000 serie | Microsoft Docs
 description: Legt uit hoe verwijderen en een of beide controller modules op het apparaat van de serie StorSimple 8000 vervangen.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875387"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Vervangen van een module van de domeincontroller op uw StorSimple-apparaat
 ## <a name="overview"></a>Overzicht

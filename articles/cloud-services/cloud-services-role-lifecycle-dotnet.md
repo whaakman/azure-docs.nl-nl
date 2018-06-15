@@ -5,7 +5,7 @@ services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843446"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>De levenscyclus van een web- of werkrol in .NET aanpassen
 Wanneer u een werkrol maakt, breid u de [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klasse biedt methoden voor u overschrijven waarmee u kunnen reageren op de levenscyclus van gebeurtenissen. Deze klasse is voor webrollen optioneel, zodat u deze gebruiken moet om te reageren op de levenscyclus van gebeurtenissen.

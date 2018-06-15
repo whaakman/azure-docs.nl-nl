@@ -1,6 +1,6 @@
 ---
 title: -Microsoft Threat Modeling hulpprogramma - Azure bedreigingen | Microsoft Docs
-description: "Threat categoriepagina voor het hulpprogramma Microsoft Threat Modeling met categorieën voor alle blootgesteld bedreigingen gegenereerd."
+description: Threat categoriepagina voor het hulpprogramma Microsoft Threat Modeling met categorieën voor alle blootgesteld bedreigingen gegenereerd.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23867897"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft Threat Modeling Tool bedreigingen
 

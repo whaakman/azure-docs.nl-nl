@@ -2,10 +2,10 @@
 title: Traffic Manager-Eindpunttypen | Microsoft Docs
 description: Dit artikel wordt uitgelegd voor verschillende soorten eindpunten die kunnen worden gebruikt met Azure Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23877515"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-eindpunten
 Microsoft Azure Traffic Manager kunt u bepalen hoe netwerkverkeer wordt gedistribueerd naar de implementaties van toepassingen uitgevoerd in verschillende datacenters. U configureren elke implementatie van toepassing als een 'eindpunt' in Traffic Manager. Wanneer het Traffic Manager een DNS-aanvraag ontvangt, kiest deze een eindpunt beschikbaar in het DNS-antwoord retourneren. Het Traffic manager wordt de keuze gebaseerd op de huidige Eindpuntstatus van het en de methode verkeer routering. Zie voor meer informatie [hoe Traffic Manager werkt](traffic-manager-how-traffic-manager-works.md).

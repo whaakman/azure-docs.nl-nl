@@ -5,7 +5,7 @@ services: visual-studio-online
 documentationcenter: na
 author: mlhoop
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 75c3cb93-88e1-476d-a416-f34caa3608e3
 ms.service: visual-studio-online
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23884214"
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Mobile Services toevoegen met behulp van Visual Studio verbonden Services
 Met Visual Studio 2015, kunt u verbinden met Azure Mobile Services via de **verbonden Service toevoegen** dialoogvenster. U kunt verbinding maken vanaf elke clienttoepassing C#, een JavaScript-app of platformoverschrijdende Cordova-app. Als u verbinding hebt gemaakt, kunt u maken en toegang tot gegevens, aangepaste API's en geplande taken maken of toevoegen van ondersteuning voor pushmeldingen.  De bewerking verbonden services voegt alle juiste verwijzingen en code van de verbinding. U kunt ook te profiteren van ingebouwde ondersteuning voor verificatie met tal van populaire identity-schema's, zoals Azure AD, Facebook, Twitter en Microsoft-Accounts.
