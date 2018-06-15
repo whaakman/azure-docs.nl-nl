@@ -2,11 +2,11 @@
 title: Geavanceerde Azure Stack-evaluatietaken | Microsoft Docs
 description: Geavanceerde Azure Stack-evaluatietaken beschreven.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975823"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Geavanceerde Azure Stack Development Kit evaluatietaken
 Nadat u hebt bekend bent met de basisfuncties voor Azure Stack Development Kit (ASDK)-service en de mogelijkheden heeft gekregen, kunt u uw kennis van de Azure-Stack verder verdiepen door het testen van meer geavanceerde scenario's. Deze evaluatietaken meer geavanceerde worden volledig gedocumenteerd in de documentatie van Azure Stack Operator.

@@ -2,10 +2,10 @@
 title: Een Naslaggids voor de onderdelen Designer bekijken in de Azure Log Analytics | Microsoft Docs
 description: Ontwerp weergeven in Log Analytics gebruikt, kunt u aangepaste weergaven maken in de Azure portal die tal van gegevensvisualisaties weergeven in de werkruimte voor logboekanalyse. Dit artikel is een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949528"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Naslaggids voor de ontwerper visualisatie delen in Log Analytics
 Ontwerp weergeven in Azure Log Analytics gebruikt, kunt u aangepaste weergaven maken in de Azure portal die een aantal gegevensvisualisaties van uw werkruimte voor logboekanalyse. Dit artikel is een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.

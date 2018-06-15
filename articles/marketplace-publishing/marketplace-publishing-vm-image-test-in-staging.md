@@ -2,10 +2,10 @@
 title: Testen van uw VM-aanbieding voor de Marketplace | Microsoft Docs
 description: Begrijpen hoe u voor het testen van uw VM-installatiekopie voor Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936936"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testen van uw VM-aanbieding voor Azure Marketplace in fasering
 Fasering betekent dat uw SKU in een particulier 'sandbox"waar u kunt testen en valideren van de functionaliteit ervan voordat u deze implementeert in de Marketplace te implementeren. De SKU wordt weergegeven in de faseringsmodus net zoals voor een klant die is geïmplementeerd. Uw VM-installatiekopie moet worden doorgegeven voor fasering worden gecertificeerd.

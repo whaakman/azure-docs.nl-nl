@@ -1,12 +1,12 @@
 ---
-title: "Beslissingen voor de gekoppelde Azure-implementatie voor Azure-Stack geïntegreerd systemen | Microsoft Docs"
+title: Beslissingen voor de gekoppelde Azure-implementatie voor Azure-Stack geïntegreerd systemen | Microsoft Docs
 description: Implementatie planningsbeslissingen voor implementaties met meerdere knooppunten verbonden met een Azure-Stack Azure bepalen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120383"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure verbonden implementatie planningsbeslissingen voor Azure-Stack geïntegreerd systemen
 Nadat u hebt besloten [hoe u Azure-Stack wordt integreren in uw cloudomgeving hybride](azure-stack-connection-models.md), kunt u uw Azure-Stack implementatie beslissingen voltooien.

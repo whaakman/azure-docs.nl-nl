@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949817"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Zelfstudie: Uw Service Fabric-toepassingen bewaken met behulp van ELK 
 Deze zelfstudie is deel vier een serie. Er wordt weergegeven hoe ELK (Elasticsearch, Logstash en Kibana) moet worden gebruikt voor het bewaken van Service Fabric-toepassingen die worden uitgevoerd in Azure. 

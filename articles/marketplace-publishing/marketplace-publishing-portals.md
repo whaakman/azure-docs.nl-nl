@@ -2,10 +2,10 @@
 title: Overzicht van de verschillende portals die nodig zijn voor het maken van een aanbieding voor de Marketplace | Microsoft Docs
 description: Overzicht van de verschillende portals die nodig zijn voor het maken van een aanbieding voor de Marketplace
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29938641"
 ---
 # <a name="portals-you-will-need"></a>U moet portals
 Voordat u het proces van een aanbieding publiceren, je krijgt toegevoegd aan de verschillende portals die u nodig hebt. Hieronder vindt u de korte samenvatting van de portals--Developer Center Azure Publishing Portal en Azure-Portal in de volgorde die u met hen communiceren.                                                                            

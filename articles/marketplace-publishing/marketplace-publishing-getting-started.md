@@ -2,10 +2,10 @@
 title: Overzicht van het maken en implementeren van een aanbieding voor de Marketplace | Microsoft Docs
 description: Ken de stappen vereist om te worden van een goedgekeurde Microsoft developer en maken en implementeren van een installatiekopie van virtuele machine, sjabloon, data-service of developer-service in Azure Marketplace
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943170"
 ---
 > [!NOTE]
 > Deze documentatie is niet meer actueel en is niet nauwkeurig. In plaats daarvan gaat u naar de Azure Marketplace [verkoper handleiding](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) voor hulp bij het publiceren van een aanbieding voor Azure Marketplace.

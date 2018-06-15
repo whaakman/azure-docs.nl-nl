@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack geïntegreerd systemen verbinding modellen | Microsoft Docs"
+title: Azure Stack geïntegreerd systemen verbinding modellen | Microsoft Docs
 description: Implementatie planningsbeslissingen voor meerdere knooppunten Azure Stack bepalen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118785"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack geïntegreerd systemen verbinding modellen
 Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u begrijpen [verschillende datacenter Integratieoverwegingen](azure-stack-datacenter-integration.md) voor de implementatie van de Azure-Stack om te bepalen hoe u het systeem wordt inpassen in uw datacenter. Bovendien moet u beslissen precies hoe u wordt integreren met Azure-Stack uw hybride cloud-omgeving. Dit artikel bevat een overzicht van deze belangrijke beslissingen, waaronder Azure verbinding, identity-store en facturering model beslissingen te nemen.

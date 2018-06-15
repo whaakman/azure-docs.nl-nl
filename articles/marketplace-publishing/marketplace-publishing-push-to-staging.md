@@ -2,10 +2,10 @@
 title: Voorbereiden en testen van uw aanbieding voor implementatie naar Azure Marketplace | Microsoft Docs
 description: Gedetailleerde instructies voor het verstrekken inhoud marketing, prijscategorie plannen te configureren en testen van uw aanbieding voordat u implementeert naar Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947267"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Het maken van de aanbieding met marketing inhoud voltooien
 In deze stap van het publicatieproces moet u bepaalde marketing inhoud en gegevens over uw aanbieding en/of in Azure Marketplace-SKU's bieden. Bijvoorbeeld, krijgt u een beschrijving van het product, bedrijfslogo prijs plannen, details van plannen en andere gegevens die nodig zijn voor de push-aanbieding en/of SKU voor fasering. Deze informatie wordt gebruikt als marketing inhoud in de Azure portal. Nu begint u dit proces in de [publishing portal][link-pubportal].

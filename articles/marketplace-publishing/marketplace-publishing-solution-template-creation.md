@@ -2,10 +2,10 @@
 title: Handleiding voor het maken van een oplossingssjabloon voor de Marketplace | Microsoft Docs
 description: Gedetailleerde instructies voor het maken, certificeren en implementeren van een oplossingssjabloon Multi-VM-installatiekopie voor aanschaffen op Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937305"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Handleiding voor het maken van een oplossingssjabloon voor Azure Marketplace
 Na het voltooien van stap 1, [accountaanmaking en registratie][link-acct-creation], wij u op het maken van een Azure-compatibele oplossingssjabloon op begeleide [technische vereisten voor het maken van een oplossingssjabloon](marketplace-publishing-solution-template-creation-prerequisites.md). Nu we u stapsgewijs door de stappen begeleidt voor het maken van een oplossingssjabloon voor meerdere virtuele machines op de [Publishing Portal] [ link-pubportal] voor Azure Marketplace.

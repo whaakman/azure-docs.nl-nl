@@ -2,10 +2,10 @@
 title: Technische vereisten voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace | Microsoft Docs
 description: Begrip van de vereisten voor het maken en implementeren van de installatiekopie van een virtuele machine naar de Azure Marketplace voor anderen om aan te schaffen.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936652"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Technische vereisten voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 Het proces zorgvuldig door voordat u begint lees en begrijp waar en waarom elke stap wordt uitgevoerd. Zo veel mogelijk, u moet voorbereiden van uw bedrijfsgegevens en andere gegevens, vereiste hulpprogramma's downloaden en/of technische onderdelen maken voordat u begint met een proces voor het maken van de aanbieding. Deze items moeten worden van de hand van dit artikel.  

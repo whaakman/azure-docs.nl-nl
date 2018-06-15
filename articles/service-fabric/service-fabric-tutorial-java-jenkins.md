@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949834"
 ---
 # <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>Zelfstudie: Een Jenkins-omgeving met Service Fabric instellen
 Deze zelfstudie is deel vijf van een serie. De zelfstudie laat zien hoe u Jenkins moet gebruiken voor het implementeren van upgrades voor uw toepassing. In deze zelfstudie wordt de Service Fabric Jenkins-invoegtoepassing gebruikt in combinatie met een Github-opslagplaats die als host fungeert voor de stemtoepassing, voor het implementeren van de toepassing naar een cluster. 

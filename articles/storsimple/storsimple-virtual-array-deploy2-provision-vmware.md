@@ -5,7 +5,7 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29972337"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple virtuele matrix - inrichten in VMware implementeren
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)

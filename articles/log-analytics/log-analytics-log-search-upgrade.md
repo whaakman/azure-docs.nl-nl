@@ -2,10 +2,10 @@
 title: Azure-logboekanalyse bijwerken naar nieuwe logboek zoekopdracht | Microsoft Docs
 description: De nieuwe Log Analytics query language bijna hier is en u kunt deelnemen aan de openbare preview.  In dit artikel beschrijft de voordelen van de nieuwe taal en het converteren van de werkruimte.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983985"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure Log Analytics upgraden naar de nieuwe logboek zoekopdracht
 

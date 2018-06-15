@@ -4,9 +4,9 @@ description: Het gebruik van singletons in de uitbreiding duurzame Functons voor
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29972548"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-orchestrators in duurzame functies (Azure-functies)
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "31601019"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Het gebruik van SSH-sleutels met Windows in Azure
 

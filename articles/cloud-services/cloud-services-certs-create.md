@@ -5,7 +5,7 @@ services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29969199"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificaten voor Azure Cloud Services-overzicht
 Certificaten worden gebruikt in Azure voor cloudservices ([service certificaten](#what-are-service-certificates)) en voor het verifiëren van de beheer-API ([beheercertificaten](#what-are-management-certificates)). In dit onderwerp biedt een algemeen overzicht van beide typen certificaten hoe naar [maken](#create) en [implementeren](#deploy) ze naar Azure.

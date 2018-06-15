@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31592902"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>ExpressRoute-circuits verplaatsen van het klassieke naar het Resource Manager-implementatiemodel met behulp van PowerShell
 

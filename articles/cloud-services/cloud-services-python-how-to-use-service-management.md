@@ -5,7 +5,7 @@ services: cloud-services
 documentationcenter: python
 author: lmazuel
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29124796"
 ---
 # <a name="use-service-management-from-python"></a>Servicebeheer gebruiken met Python
 Deze handleiding wordt beschreven hoe u programmatisch algemene service-beheertaken uitvoeren met Python. De **ServiceManagementService** -klasse in de [Azure SDK voor Python](https://github.com/Azure/azure-sdk-for-python) ondersteunt programmatische toegang tot veel van de service management-gerelateerde functionaliteit die beschikbaar is in de [Azure Portal][management-portal]. U kunt deze functionaliteit gebruiken om te maken, bijwerken en verwijderen van cloud-services, implementaties, data management-services en virtuele machines. Deze functie kan nuttig zijn bij het bouwen van toepassingen die programmatische toegang tot het servicebeheer van de moeten worden gemaakt.

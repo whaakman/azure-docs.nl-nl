@@ -2,7 +2,7 @@
 title: Gebruik van een Windows-VM-MSI voor toegang tot Azure Storage
 description: Een zelfstudie die u bij het proces helpt van het gebruik van een Windows VM beheerde Service identiteit (MSI) voor toegang tot Azure Storage.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984830"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Een Windows VM beheerde Service-identiteit gebruiken voor toegang tot Azure Storage via toegangssleutel
 

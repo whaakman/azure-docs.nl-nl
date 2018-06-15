@@ -1,7 +1,7 @@
 ---
 title: Aangepaste dashboards maken in Azure Application Insights | Microsoft Docs
 description: Zelfstudie over het maken van aangepaste KPI-dashboards met behulp van Azure Application Insights.
-keywords: 
+keywords: ''
 services: application-insights
 author: mrbullwinkle
 ms.author: mbullwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29178189"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Aangepaste KPI-dashboards maken met behulp van Azure Application Insights
 

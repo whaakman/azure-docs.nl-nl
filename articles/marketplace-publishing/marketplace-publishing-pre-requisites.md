@@ -2,10 +2,10 @@
 title: Niet-technische vereisten voor het maken van een aanbieding voor Azure Marketplace | Microsoft Docs
 description: Begrip van de vereisten voor het maken en implementeren van een aanbieding voor Azure Marketplace voor anderen om aan te schaffen.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29940038"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Algemene vereisten voor het maken van een aanbieding voor Azure Marketplace
 Inzicht in het algemeen, zakelijke proces gericht vereisten die nodig zijn om te gaan met een proces voor het maken van de aanbieding.

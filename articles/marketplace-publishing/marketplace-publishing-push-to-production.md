@@ -2,10 +2,10 @@
 title: Implementeren van uw aanbieding voor Azure Marketplace | Microsoft Docs
 description: Informatie over en helpt u stapsgewijs door de instructies voor het implementeren van uw aanbieding--installatiekopie van virtuele machine, developer-service, data-service, enzovoort--naar Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943238"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Implementeren van uw aanbieding voor Azure Marketplace
 Wanneer u tevreden bent met uw aanbieding (dat wil zeggen, u hebt getest scenario's van klanten, marketing inhoud, enz.) en u bent klaar om te starten en aanvragen **Push naar productie** op de **publiceren** tabblad.  

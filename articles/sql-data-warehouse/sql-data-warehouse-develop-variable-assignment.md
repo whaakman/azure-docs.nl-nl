@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31598741"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Variabelen in Azure SQL Data Warehouse toewijzen
 Tips voor het toewijzen van T-SQL-variabelen in Azure SQL Data Warehouse om oplossingen te ontwikkelen.

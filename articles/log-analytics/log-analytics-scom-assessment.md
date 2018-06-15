@@ -2,7 +2,7 @@
 title: Uw System Center Operations Manager-omgeving met een Azure-logboekanalyse optimaliseren | Microsoft Docs
 description: De System Center Operations Manager Health Check-oplossing kunt u de risico's en de status van uw omgevingen te beoordelen op een vast interval.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29180033"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing voor System Center Operations Manager Health controleren (Preview)
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29958823"
 ---
 Het concept van het Azure Compute Unit (ACU) biedt een manier om computerprestaties (CPU) via de Azure-SKU's vergelijken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
 

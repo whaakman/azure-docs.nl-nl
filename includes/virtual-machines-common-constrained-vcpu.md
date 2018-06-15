@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958738"
 ---
 Sommige werkbelastingen database zoals SQL Server- of Oracle vereisen veel geheugen, opslag, en i/o-bandbreedte, maar niet op een hoog core-telling. Veel werkbelastingen van de database zijn geen CPU-intensief. Azure biedt bepaalde VM-grootten waar u het aantal VM vCPU's te verlagen de kosten van de software licensing behoud van hetzelfde geheugen-, opslag- en i/o-bandbreedte kunt beperken.
 
