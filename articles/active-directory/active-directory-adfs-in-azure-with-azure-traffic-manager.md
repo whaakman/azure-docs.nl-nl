@@ -1,12 +1,12 @@
 ---
-title: "AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager | Microsoft Docs"
+title: AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager | Microsoft Docs
 description: In dit document leert u hoe u AD FS implementeert in Azure voor hoge beschikbaarheid.
 keywords: Ad fs met Azure traffic manager, adfs met Azure Traffic Manager, geografisch, multi-datacenter, geografische datacenters, multi-geografische datacenters, AD FS implementeren in azure, azure adfs implementeren, azure adfs, azure ad fs, adfs implementeren, ad fs implementeren, adfs in azure, adfs implementeren in azure, AD FS implementeren in azure, adfs azure, introductie tot AD FS, Azure, AD FS in Azure, iaas, ADFS, adfs verplaatsen naar azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26604776"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager
 [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md) biedt stapsgewijze richtlijnen over het implementeren van een eenvoudige AD FS-infrastructuur voor uw organisatie in Azure. In dit artikel vindt u de volgende stappen voor het maken van een implementatie van AD FS in Azure in meerdere regio’s met [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Met Azure Traffic Manager kunt u geografisch verspreide AD FS-infrastructuur met een hoge beschikbaarheid en uitstekende prestaties maken voor uw organisatie. Hiervoor maakt u gebruikt van de verschillende routeringsmethoden die beschikbaar zijn om aan verschillende eisen te voldoen voor de infrastructuur.

@@ -3,7 +3,7 @@ title: Azure MFA aanmelden met verificatie in twee stappen | Microsoft Docs
 description: Deze pagina vindt u u richtlijnen voor het bekijken van de verschillende aanmelden methoden beschikbaar met Azure MFA.
 keywords: verificatie van gebruikers, -aanmeldingservaring aanpast, aanmelden met een mobiele telefoon, aanmelden met een telefoon (werk)
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26628411"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>De ervaring aanmelden met Azure multi-factor Authentication
 > [!NOTE]

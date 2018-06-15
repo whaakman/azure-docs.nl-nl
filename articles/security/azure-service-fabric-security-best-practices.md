@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894126"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric best practices voor beveiliging
 Een toepassing in Azure implementeren is snel, eenvoudig en rendabele. Voordat u uw cloudtoepassing in productie implementeert, controleert u onze lijst met essentiële en aanbevolen procedures voor het implementeren van beveiligde clusters in uw toepassing.

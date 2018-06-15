@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070376"
 ---
 # <a name="secure-your-key-vault"></a>Uw Key Vault beveiligen
 Azure Key Vault is een cloudservice die versleutelingssleutels en geheimen (zoals certificaten, verbindingsreeksen en wachtwoorden) voor uw cloudtoepassingen beveiligt. Omdat deze gegevens vertrouwelijk en essentieel voor uw bedrijf zijn, is het belangrijk om de toegang tot uw Key Vaults te beveiligen, zodat alleen gemachtigde toepassingen en gebruikers toegang hebben tot Key Vault. In dit artikel wordt een overzicht gegeven van het toegangsmodel van Key Vault, verificatie en autorisatie worden uitgelegd en met een voorbeeld wordt veilige toegang tot Key Vault voor uw cloud-toepassingen geïllustreerd.

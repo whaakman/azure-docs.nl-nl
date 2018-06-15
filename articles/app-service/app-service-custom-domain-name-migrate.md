@@ -2,7 +2,7 @@
 title: Een actieve DNS-naam migreren naar Azure App Service | Microsoft Docs
 description: Informatie over het migreren van een aangepaste DNS-domeinnaam al aan een actieve site naar Azure App Service zonder uitvaltijd toegewezen is.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27566488"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Een actieve DNS-naam migreren naar Azure App Service
 

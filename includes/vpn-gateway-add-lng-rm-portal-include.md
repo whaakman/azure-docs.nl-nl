@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196879"
 ---
 1. In de portal klikt u via **Alle resources** op **+Toevoegen**.
 2. In de **Alles** pagina zoekvak, type **lokale netwerkgateway**, klikt u om te retourneren van een lijst met bronnen. Klik op **Lokale netwerkgateway** om de pagina te openen en klik op **Maken** om de pagina **Lokale netwerkgateway maken** te openen.

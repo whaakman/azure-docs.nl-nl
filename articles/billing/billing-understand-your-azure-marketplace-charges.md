@@ -21,6 +21,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203966"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Inzicht in uw Azure-facturering voor de externe service kosten
 Externe services zijn gepubliceerd door derden softwareleveranciers in de Azure marketplace. ClearDB en SendGrid zijn bijvoorbeeld externe services die u in Azure kunt aanschaffen, maar niet zijn gepubliceerd door Microsoft.

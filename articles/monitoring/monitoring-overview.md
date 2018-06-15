@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30267211"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Bewaking van de Azure-toepassingen en bronnen
 

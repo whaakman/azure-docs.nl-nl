@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788842"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Het beheer van bedrijfsmiddelen en gerelateerde entiteiten met mediaservices .NET SDK
 > [!div class="op_single_selector"]

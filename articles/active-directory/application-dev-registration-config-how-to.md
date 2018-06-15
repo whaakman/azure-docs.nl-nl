@@ -2,10 +2,10 @@
 title: Het selecteren van machtigingen voor een bepaalde API | Microsoft Docs
 description: Het vinden van de verificatie-eindpunten voor een aangepaste toepassing die u ontwikkelt of registreren bij Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26612926"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Machtigingen voor een bepaalde API selecteren
 

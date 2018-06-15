@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790480"
 ---
 # <a name="widevine-license-template-overview"></a>Overzicht van de sjabloon voor Widevine-licentie
 U kunt Azure Media Services gebruiken om te configureren en Google Widevine-licenties aanvragen. Wanneer dit wordt geprobeerd uw Widevine beveiligde inhoud af te spelen, wordt een aanvraag verzonden naar de service voor het leveren van licenties voor het verkrijgen van een licentie. Als de licentieservice de aanvraag goedkeurt, wordt in de service de licentie verstrekt. Het wordt verzonden naar de client en wordt gebruikt om te ontsleutelen en de inhoud van de opgegeven spelen.

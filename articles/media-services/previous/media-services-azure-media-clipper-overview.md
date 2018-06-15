@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788121"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Illustraties maken met Azure Media openen
 Azure Media openen is een gratis JavaScript-bibliotheek waarmee webontwikkelaars kunnen hun gebruikers met een interface bieden voor het maken van media illustraties. Dit hulpprogramma kan worden geïntegreerd in een webpagina en biedt API's voor het laden van assets en paginaknipsel taken verzenden.

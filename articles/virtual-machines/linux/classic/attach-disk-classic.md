@@ -21,6 +21,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942214"
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Hoe een gegevensschijf koppelen aan een virtuele Linux-Machine
 > [!IMPORTANT] 

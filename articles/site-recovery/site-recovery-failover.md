@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894635"
 ---
 # <a name="failover-in-site-recovery"></a>Failover in Site Recovery
 Dit artikel wordt beschreven hoe met failover-virtuele machines en fysieke servers beveiligd door Site Recovery.

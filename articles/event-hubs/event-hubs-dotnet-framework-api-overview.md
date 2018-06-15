@@ -5,7 +5,7 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
@@ -16,9 +16,10 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781891"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Overzicht van Event Hubs .NET Framework-API
 

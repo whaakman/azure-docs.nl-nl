@@ -2,7 +2,7 @@
 title: Aan de slag met verificatie in twee stappen | Microsoft Docs
 description: Dit is de Azure multi-factor authentication-pagina die u uw eindgebruikers helpt met het ophalen van de slag met Azure multi-factor Authentication.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198102"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Wat houdt Azure multi-factor Authentication voor mij?
 Ja, u eenmaal een e-mailbericht van iemand in IT of uw chef waarin staat dat ze aanvullende beveiligingsverificatie hebt toegevoegd aan uw account.  Dus wat betekent dit?

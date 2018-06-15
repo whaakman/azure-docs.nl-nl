@@ -1,11 +1,11 @@
 ---
 title: Het maken van een telefonische oproep van Twilio (.NET) | Microsoft Docs
 description: Informatie over het maken van een telefonische oproep en verzenden van een SMS-bericht met de Twilio-API-service op Azure. Codevoorbeelden geschreven in .NET.
-services: 
+services: ''
 documentationcenter: .net
 author: devinrader
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 789185ad-69dc-4e9e-a936-42e0a25315c8
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26366001"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Het maken van een telefoongesprek met Twilio in een Webrol in Azure
 Deze handleiding wordt uitgelegd hoe Twilio gebruiken om te maken van een aanroep van een webpagina die wordt gehost in Azure. De resulterende toepassing vraagt de gebruikers om te bellen met de gegeven getal en het bericht, zoals wordt weergegeven in de volgende schermafbeelding.

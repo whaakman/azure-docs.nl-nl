@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774485"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli-10"></a>Netwerk beveiliging groep overgebracht logboeken configureren met Azure CLI 1.0
 

@@ -16,9 +16,10 @@ ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887907"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Het gebruik van een Serviceoverzicht oplossing in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met het Serviceoverzicht, kunt u uw servers weergeven in de manier waarop u denkt ze dat: als onderling verbonden systemen die essentiële services leveren. Serviceoverzicht ziet u de verbindingen tussen servers, processen en poorten voor elke architectuur TCP-verbinding waarvoor geen configuratie nodig andere dan de installatie van een agent.

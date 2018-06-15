@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33884912"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Wat is de Service Azure Database migreren?
 De Azure-Service voor het migreren van Database is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime.

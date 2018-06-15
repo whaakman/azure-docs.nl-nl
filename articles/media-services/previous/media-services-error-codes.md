@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788765"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services-foutcodes
 Wanneer u Microsoft Azure Media Services gebruikt, krijgt u HTTP-foutcodes van de service, afhankelijk van de problemen zoals verificatietokens verloopt naar acties die worden niet ondersteund in Media Services. Hieronder volgt een lijst met **HTTP-foutcodes** die door Media Services en de mogelijke oorzaken voor hen kunnen worden geretourneerd.  

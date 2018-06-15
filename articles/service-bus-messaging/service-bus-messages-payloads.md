@@ -2,10 +2,10 @@
 title: Azure Service Bus-berichten, nettoladingen en serialisatie | Microsoft Docs
 description: Overzicht van Service Bus bericht nettoladingen
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200060"
 ---
 # <a name="messages-payloads-and-serialization"></a>Berichten, nettoladingen en serialisatie
 

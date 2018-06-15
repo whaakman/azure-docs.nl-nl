@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 05/08/2018
+  ms.locfileid: "33868072"
 abstract:
   description: Azure Functions is een <a href="https://azure.microsoft.com/overview/serverless-computing/">serverloze</a> compute-service waarmee u code op aanvraag kunt uitvoeren zonder expliciet een infrastructuur in te richten of te beheren. Met Azure Functions kunt u een script of een stukje code uitvoeren in reactie op diverse gebeurtenissen. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Functions gebruikt.
   aside:

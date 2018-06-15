@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 05/08/2018
+  ms.locfileid: "33867280"
 abstract:
   description: Azure SignalR-Service is een Azure-service waarmee ontwikkelaars eenvoudig webtoepassingen met realtime-functies kunnen bouwen. Deze service is gebaseerd op ASP.NET Core, een open-source-bibliotheek die het proces van het toevoegen van realtime webfunctionaliteit aan toepassingen vereenvoudigt.
 sections:

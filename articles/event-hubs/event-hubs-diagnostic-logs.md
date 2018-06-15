@@ -1,13 +1,13 @@
 ---
 title: Diagnostische logboeken van Azure Event Hubs | Microsoft Docs
 description: Informatie over het instellen van diagnostische logboeken voor event hubs in Azure.
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 services: event-hubs
 author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932712"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Diagnostische logboeken van Event Hubs
 

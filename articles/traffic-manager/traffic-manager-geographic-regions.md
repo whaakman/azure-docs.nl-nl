@@ -1,12 +1,12 @@
 ---
-title: "Land/regio-hiërarchie die wordt gebruikt door Azure Traffic Manager geografische routeringstype | Microsoft Docs"
-description: "In dit artikel worden gebruikt door Azure Traffic Manager geografische routeringstype land/regio-hiërarchie"
+title: Land/regio-hiërarchie die wordt gebruikt door Azure Traffic Manager geografische routeringstype | Microsoft Docs
+description: In dit artikel worden gebruikt door Azure Traffic Manager geografische routeringstype land/regio-hiërarchie
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201493"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Land/regio hiërarchie door Azure Traffic Manager gebruikt voor geografische verkeersrouteringsmethode
 

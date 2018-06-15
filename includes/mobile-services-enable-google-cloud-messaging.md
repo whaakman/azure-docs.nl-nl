@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33836462"
 ---
 1. Navigeer naar [Google Cloud Console](https://console.developers.google.com/cloud-resource-manager) en meld u aan met de referenties voor uw Google-account. 
 2. Selecteer **Project maken** op de werkbalk. 

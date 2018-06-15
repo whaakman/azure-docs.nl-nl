@@ -2,10 +2,10 @@
 title: Er zijn geen gebruikers zijn ingericht op een galerie van Azure AD-toepassing | Microsoft Docs
 description: Het oplossen van veelvoorkomende problemen geconfronteerd wanneer er geen gebruikers die voorkomen een an Azure AD-galerie-toepassing die u hebt geconfigureerd voor gebruikers inrichten met Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26616290"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Er zijn geen gebruikers zijn ingericht op een galerie van Azure AD-toepassing
 

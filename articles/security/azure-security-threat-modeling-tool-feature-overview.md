@@ -19,6 +19,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26754742"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Overzicht van Threat Modeling hulpprogramma-functies
 
