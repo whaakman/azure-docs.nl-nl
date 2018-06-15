@@ -163,6 +163,13 @@
           href: service-fabric-application-model.md
         - name: Toepassings- en servicemanifesten
           href: service-fabric-application-and-service-manifests.md
+        - name: Voorbeelden van toepassings- en servicemanifesten
+          href: service-fabric-manifest-examples.md
+          items:
+            - name: Voorbeelden van toepassings- en servicemanifesten voor betrouwbare services
+              href: service-fabric-manifest-example-reliable-services-app.md
+            - name: Voorbeelden van toepassings- en servicemanifesten voor toepassingen met meerdere containers
+              href: service-fabric-manifest-example-container-app.md
         - name: Hostingmodel
           href: service-fabric-hosting-model.md
         - name: Toepassingsbeveiliging
@@ -399,6 +406,8 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: Een ASP.NET Core-service bouwen
           href: service-fabric-add-a-web-frontend.md
+        - name: Een Apache Tomcat-servercontainer maken in Linux
+          href: service-fabric-get-started-tomcat.md
         - name: Beveiliging configureren
           items:
             - name: Toepassingsgeheimen beheren

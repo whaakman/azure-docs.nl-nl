@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156184"
 ---
 # <a name="app-registration-reference"></a>Verwijzing van App-registratie
 Dit document bevat context en beschrijvingen van de verschillende functies die zijn gevonden in de Microsoft App-Registratieportal [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).

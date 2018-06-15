@@ -1,26 +1,21 @@
 ---
-title: Wat is Azure Backup? | Microsoft Docs
+title: Wat is Azure Backup?
 description: Met Azure Backup kunt u back-ups van gegevens en workloads maken en deze herstellen vanaf Windows-servers en -werkstations, System Center DPM-servers en virtuele Azure-machines.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: back-up en herstel; Recovery Services; back-upoplossingen
-ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;anuragm
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: b6701cdc4dd25c0a46193a73d1edd022388bc5ab
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607096"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
@@ -230,7 +225,7 @@ Azure Backup beschermt gegevens zowel on-premises als in de cloud. Azure Site Re
 
 De volgende concepten helpen u belangrijke beslissingen te nemen met betrekking tot het herstellen van back-ups en herstel na een noodgeval.
 
-| Concept | Details | Back-up maken | Herstel na noodgeval (DR; disaster recovery) |
+| Concept | Details | Backup | Herstel na noodgeval (DR; disaster recovery) |
 | --- | --- | --- | --- |
 | Recovery Point Objective (RPO) |Acceptabele hoeveelheid gegevens die verloren gaat wanneer een herstelbewerking moet worden uitgevoerd. |Back-oplossingen hebben grote variabiliteit met betrekking tot hun acceptabele RPO. Back-ups van virtuele machines hebben doorgaans een RPO van één dag, terwijl de RPO bij databaseback-up soms maar vijftien minuten is. |Oplossingen voor herstel na noodgevallen hebben lage RPO's. De DR-kopie ligt maar een paar seconden of paar minuten achter. |
 | Beoogde hersteltijd (RTO) |De hoeveelheid tijd die nodig is om een terugzet- of herstelbewerking te voltooien. |Vanwege de grotere RPO is de hoeveelheid gegevens die een back-upoplossing moet verwerken doorgaans veel grote, wat resulteert in langere RTO's. Het kan bijvoorbeeld dagen duren om gegevens te herstellen vanaf tapes, afhankelijk van de tijd die nodig is voor het transport van de tape vanaf een externe locatie. |Noodhersteloplossingen hebben kleinere RTO's omdat ze beter zijn gesynchroniseerd met de bron. Er hoeven minder wijzigingen te worden verwerkt. |

@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29689884"
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Azure voor firewallregels voor PostgreSQL Server-Database
 Azure-Database voor de firewall PostgreSQL-Server voorkomt alle toegang tot uw database-server, totdat u opgeven welke computers over machtigingen beschikken. De firewall verleent toegang tot de server op basis van het oorspronkelijke IP-adres van elke aanvraag.

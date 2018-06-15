@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687605"
 ---
 # <a name="monitoring-in-azure-database-for-postgresql"></a>Bewaken in Azure-Database voor PostgreSQL
 Het bewaken van gegevens over uw servers, kunt u problemen op te optimaliseren voor uw workload. Azure PostgreSQL-Database biedt verschillende metrische gegevens die geven inzicht in het gedrag van de resources die de server PostgreSQL ondersteunen. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068877"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Snelstart: een sleutelkluis maken met behulp van Azure Portal
 

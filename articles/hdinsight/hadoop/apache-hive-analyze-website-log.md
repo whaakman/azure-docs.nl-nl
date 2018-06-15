@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31398154"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Hive gebruiken met HDInsight op basis van Windows logboeken van websites te analyseren
 Informatie over het HiveQL gebruiken met HDInsight voor het analyseren van Logboeken vanaf een website. Websitelogboekanalyse kan worden gebruikt om segmenteren van uw doelgroep op basis van soortgelijke activiteiten, demografische gegevens van bezoekers categoriseren en wilt weten de inhoud ze weergeven, de websites die ze afkomstig zijn van, enzovoort.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070348"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Aan de slag met Azure Sleutelkluis
 Dit artikel helpt u aan de slag te gaan met Azure Key Vault met behulp van PowerShell en leidt u stapsgewijs door de volgende activiteiten:
