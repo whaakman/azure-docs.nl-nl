@@ -2,10 +2,10 @@
 title: Problemen met virtuele StorSimple-matrix | Microsoft Docs
 description: Beschrijft de StorSimple-Apparaatbeheer mogelijkheid diagnosticeren en wordt uitgelegd hoe u het oplossen van problemen met uw virtuele StorSimple-matrix.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 53f57d17-07af-457f-a0e8-741e52fbbc2a
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875254"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>De service Apparaatbeheer StorSimple gebruiken voor het oplossen van het virtuele StorSimple-matrix
 ## <a name="overview"></a>Overzicht

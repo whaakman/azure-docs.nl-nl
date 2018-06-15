@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363244"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Een exporttaak voor de Azure Import/Export-service maken
 Maken van een taak voor het exporteren van de Microsoft Azure Import/Export-service met de REST API omvat de volgende stappen:

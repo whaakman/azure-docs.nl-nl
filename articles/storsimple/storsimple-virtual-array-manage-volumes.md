@@ -2,10 +2,10 @@
 title: Beheren van volumes op de virtuele StorSimple-matrix | Microsoft Docs
 description: Worden Apparaatbeheer StorSimple beschreven en wordt uitgelegd hoe u deze voor het beheren van volumes op uw virtuele StorSimple-matrix.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: caa6a26b-b7ba-4a05-b092-1a79450225cf
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876052"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>De service Manager gebruiken StorSimple-apparaat voor het beheren van volumes op de virtuele StorSimple-matrix
 

@@ -1,8 +1,8 @@
 ---
 title: Voorbeeld van de Webhook meldingsactie in OMS Log Analytics | Microsoft Docs
-description: "Een van de acties die u in reactie op een waarschuwing voor logboekanalyse uitvoeren kunt is een * webhook *, zodat u kunt het aanroepen van een extern proces via één HTTP-aanvraag. In dit artikel wordt een voorbeeld van het maken van een webhook actie in een waarschuwing voor logboekanalyse met Slack uitgelegd."
+description: Een van de acties die u in reactie op een waarschuwing voor logboekanalyse uitvoeren kunt is een * webhook *, zodat u kunt het aanroepen van een extern proces via één HTTP-aanvraag. In dit artikel wordt een voorbeeld van het maken van een webhook actie in een waarschuwing voor logboekanalyse met Slack uitgelegd.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855171"
 ---
 # <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>Maken van een actie waarschuwing webhook in OMS Log Analytics bericht te verzenden naar Slack
 Een van de acties die u kunt uitvoeren in reactie op een [logboekanalyse waarschuwing](log-analytics-alerts.md) is een *webhook*, waarmee u een extern proces via één HTTP-aanvraag aanroepen.  U kunt meer informatie over de details van waarschuwingen en webhooks in [waarschuwingen in Log Analytics](log-analytics-alerts.md)

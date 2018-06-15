@@ -19,6 +19,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34302253"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Back-up voor Azure-Stack inschakelen via de beheerportal
 De infrastructuur Backup-Service via de beheerportal ingeschakeld zodat Azure Stack back-ups kunnen genereren. U kunt deze back-ups herstellen van uw omgeving met behulp van cloud-herstel in geval van [een onherstelbare fout](.\azure-stack-backup-recover-data.md). Het doel van herstel van de cloud is om ervoor te zorgen dat uw operators en gebruikers zich in de portal aanmelden kunnen nadat het herstel is voltooid. Gebruikers hebben hun abonnementen met inbegrip van machtigingen voor toegang op basis van rollen en functies, oorspronkelijke plannen, aanbiedingen, en vooraf gedefinieerde compute, storage en netwerkquota worden hersteld.

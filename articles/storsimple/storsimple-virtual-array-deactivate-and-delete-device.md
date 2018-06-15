@@ -2,10 +2,10 @@
 title: Deactiveren en verwijderen van een Microsoft Azure StorSimple virtuele matrix | Microsoft Docs
 description: Beschrijving van het StorSimple-apparaat verwijderen uit de service met deze eerst te deactiveren en vervolgens te verwijderen.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a929f5bc-03e2-4b01-b925-973db236f19f
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875828"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Deactiveren en verwijderen van een virtueel StorSimple-matrix
 

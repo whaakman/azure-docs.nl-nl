@@ -2,7 +2,7 @@
 title: Schalen van een App in App Service-omgeving
 description: Schalen van een app in App Service-omgeving
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836551"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Apps schalen in een App Service-omgeving
 In de Azure App Service zijn er normaal gesproken drie dingen die kunt schalen:

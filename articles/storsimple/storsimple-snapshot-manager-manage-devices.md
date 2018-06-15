@@ -2,10 +2,10 @@
 title: Beheer van apparaten met StorSimple Snapshot Manager | Microsoft Docs
 description: Beschrijft hoe u het StorSimple Snapshot Manager MMC-module voor het verbinding maken en beheren van StorSimple-apparaten.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876808"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>StorSimple Snapshot Manager gebruiken voor het verbinding maken en beheren van StorSimple-apparaten
 ## <a name="overview"></a>Overzicht

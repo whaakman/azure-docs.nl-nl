@@ -1,4 +1,20 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: app-service\mobile
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 05/25/2018
+ms.author: crdun
+ms.custom: include file
+ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34664001"
+---
 1. Klik op de knop **App Services**, selecteer uw Mobile Apps-back-end, selecteer **Quickstart** en selecteer ten slotte uw clientplatform (iOS, Android, Xamarin, Cordova).
 
     ![Azure Portal met Mobile Apps Quickstart gemarkeerd][quickstart]
@@ -19,10 +35,10 @@
 
     ![Melding 'U hebt al een gegevensverbinding' in Azure Portal][already-connection]
 
-3. Selecteer bij **2. Een tabel-API maken** de optie Node.js voor **Back-endtaal**. 
- 
-4. Accepteer de bevestiging en selecteer vervolgens **Takentabel maken**.  
-    Met deze actie wordt er een nieuwe takentabel in uw database gemaakt. 
+3. Selecteer bij **2. Een tabel-API maken** de optie Node.js voor **Back-endtaal**.
+
+4. Accepteer de bevestiging en selecteer vervolgens **Takentabel maken**.
+    Met deze actie wordt er een nieuwe takentabel in uw database gemaakt.
 
     >[!IMPORTANT]
     > Als u een bestaande back-end overschakelt naar Node.js, wordt alle inhoud overschreven. Als u in plaats daarvan een .NET-back-end wilt maken, raadpleegt u [Work with the .NET back-end server SDK for Mobile Apps][instructions] (Werken met de .NET-back-end-server-SDK voor Mobile Apps).

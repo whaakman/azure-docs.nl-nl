@@ -2,10 +2,10 @@
 title: Realtime statistieken in Azure CDN | Microsoft Docs
 description: Realtime statistieken biedt realtime-gegevens over de prestaties van Azure CDN wanneer het leveren van inhoud aan uw clients.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842879"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Realtime statistieken in Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]

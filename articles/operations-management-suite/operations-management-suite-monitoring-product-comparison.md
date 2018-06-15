@@ -2,7 +2,7 @@
 title: Microsoft monitoring-vergelijking | Microsoft Docs
 description: Microsoft Operations Management Suite (OMS) is van Microsoft-cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloud-infrastructuur.  In dit artikel worden de verschillende services van OMS beschreven en vindt u koppelingen naar gedetailleerde inhoud.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866315"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Microsoft monitoring-vergelijking
 Dit artikel bevat een vergelijking tussen System Center Operations Manager (SCOM) en Log Analytics in Operations Management Suite (OMS) in termen van hun architectuur, de logica van hoe ze resources bewaken en hoe ze analyse van de gegevens die zij verzamelen uitvoeren.  Dit is om u te bieden een fundamenteel begrip van hun verschillen en relatieve sterke.  

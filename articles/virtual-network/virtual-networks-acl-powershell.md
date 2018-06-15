@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23928851"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Eindpunt toegangsbeheerlijsten met PowerShell in het klassieke implementatiemodel beheren
 U kunt maken en beheren van netwerk-toegangsbeheerlijsten (ACL's) voor eindpunten met behulp van Azure PowerShell of in de beheerportal. In dit onderwerp vindt u procedures voor ACL algemene taken die u kunt uitvoeren met behulp van PowerShell. Zie voor een overzicht van Azure PowerShell cmdlets [Azure Management-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=317721). Zie voor meer informatie over ACL's, [wat is er een netwerk lijst ACL (Access Control)?](virtual-networks-acl.md). Als u wilt uw ACL's beheren met behulp van de beheerportal, Zie [ingesteld van eindpunten aan een virtuele Machine](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

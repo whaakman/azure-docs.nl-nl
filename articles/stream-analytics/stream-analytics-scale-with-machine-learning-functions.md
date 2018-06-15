@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909272"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Schalen van uw Stream Analytics-taak met Azure Machine Learning-functies
 Het is recht doorsturen een Stream Analytics-taak instellen en voorbeeldgegevens doorlopen. Wat moeten we doen als we moet dezelfde taak uitvoeren met hogere gegevensvolume? Is vereist om te begrijpen hoe de Stream Analytics-taak zo configureren dat het schalen. In dit document richten we op de speciale aspecten van de Stream Analytics-taken met Machine Learning functions schalen. Zie het artikel voor meer informatie over het schalen van Stream Analytics-taken in het algemeen [taken schalen](stream-analytics-scale-jobs.md).

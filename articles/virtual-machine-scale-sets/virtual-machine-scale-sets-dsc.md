@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909000"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Virtuele-Machineschaalset wordt ingesteld met de Azure DSC-extensie
 [Virtuele-Machineschaalsets](virtual-machine-scale-sets-overview.md) kan worden gebruikt met de [Azure Desired State Configuration (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) extensie-handler. Virtuele-machineschaalsets bieden een manier om te implementeren en beheren van grote aantallen virtuele machines en in en uit in het antwoord laden kunnen schalen. DSC wordt gebruikt voor het configureren van de virtuele machines als ze on line zodat ze de productie-software worden uitgevoerd.

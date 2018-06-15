@@ -12,9 +12,10 @@ manager: mtillman
 ms.reviewer: sasubram
 ms.openlocfilehash: 64f15095bd260cd5f83e0e834607cd64bb3a47ee
 ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267402"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Controle en rapportage van een gebruiker B2B-samenwerking
 Met gastgebruikers hebt u controlemogelijkheden net als bij met de gebruikers lid. Hier volgt een voorbeeld van de uitnodiging en inwisseling historie van genodigde Sam Oogle:

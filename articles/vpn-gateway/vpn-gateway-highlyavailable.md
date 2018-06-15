@@ -5,8 +5,8 @@ services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23928942"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Maximaal beschikbare cross-premises en VNet-naar-VNet-connectiviteit
 Dit artikel bevat een overzicht van maximaal beschikbare configuratieopties voor uw cross-premises en VNet-naar-VNet-connectiviteit met Azure VPN-gateways.

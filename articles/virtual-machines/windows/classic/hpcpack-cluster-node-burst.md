@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915103"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>On-demand 'burst' knooppunten toevoegen aan een HPC Pack cluster in Azure
 Als u een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure, kunt u een manier om snel de capaciteit van het cluster omhoog of omlaag schalen, zonder het onderhouden van een reeks vooraf geconfigureerde rekenknooppunt virtuele machines. In dit artikel leest u hoe on demand 'burst' knooppunten (worker rolinstanties uitgevoerd in een cloudservice) toevoegen als de rekenresources voor een hoofdknooppunt in Azure. 

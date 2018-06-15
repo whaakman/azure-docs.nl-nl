@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267407"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Habitat gebruiken voor het implementeren van uw toepassing in Azure
 [Habitat](https://www.habitat.sh/) een eerste dag van het kind open source-project die een geheel nieuwe benadering van Toepassingsbeheer biedt is. Habitat maakt de toepassing en haar automation de implementatie-eenheid. Wanneer toepassingen zijn ingepakt in een lichtgewicht 'habitat', de runtime-omgeving of dit een container, bare-metal of PaaS is, is niet meer de focus en geen beperkingen van de toepassing. 

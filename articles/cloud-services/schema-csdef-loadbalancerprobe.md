@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360050"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services-definitie LoadBalancerProbe Schema
 De load balancer-test is een klant gedefinieerde health test van UDP-eindpunten en eindpunten in rolinstanties. De `LoadBalancerProbe` is geen zelfstandige element; deze wordt gecombineerd met de Webrol of functie in een servicedefinitiebestand worker. Een `LoadBalancerProbe` kunnen worden gebruikt door meer dan één rol.

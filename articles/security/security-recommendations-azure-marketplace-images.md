@@ -1,11 +1,11 @@
 ---
-title: "Aanbevelingen voor beveiliging voor Azure Marketplace-installatiekopieën | Microsoft Docs"
-description: "In dit artikel bevat aanbevelingen voor de installatiekopieën die zijn opgenomen op de markt"
+title: Aanbevelingen voor beveiliging voor Azure Marketplace-installatiekopieën | Microsoft Docs
+description: In dit artikel bevat aanbevelingen voor de installatiekopieën die zijn opgenomen op de markt
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/19/2017
+ms.locfileid: "23931133"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Aanbevelingen voor beveiliging voor Azure Marketplace-installatiekopieën
 

@@ -5,7 +5,7 @@ services: visual-studio-online
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23890836"
 ---
 # <a name="optimizing-your-azure-code"></a>Optimaliseren van uw Azure-Code
 Wanneer u apps die gebruikmaken van Microsoft Azure programmeren, zijn er enkele codering procedures die u volgen moet om te voorkomen dat u problemen met app-schaalbaarheid, werking en prestaties in een cloudomgeving. Microsoft biedt een analyseprogramma Azure Code die wordt herkend en identificeert diverse van deze problemen meestal aangetroffen en kunt u deze kunt oplossen. U kunt het hulpprogramma in Visual Studio via NuGet downloaden.

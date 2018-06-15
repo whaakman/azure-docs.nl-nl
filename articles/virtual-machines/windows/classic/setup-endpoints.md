@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913787"
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Het instellen van de eindpunten van een klassieke Windows-virtuele machine in Azure
 Alle Windows kan de virtuele machines die u maakt in Azure met behulp van het klassieke implementatiemodel automatisch communiceren via een particulier netwerkkanaal met andere virtuele machines in dezelfde cloudservice- of virtuele netwerk. Computers op Internet of een andere virtuele netwerken vereisen echter eindpunten het binnenkomend netwerkverkeer naar een virtuele machine wordt omgeleid. In dit artikel is ook beschikbaar voor [virtuele Linux-machines](../../linux/classic/setup-endpoints.md).

@@ -2,11 +2,11 @@
 title: Beheren van sjablonen voor StorSimple 8000 serie bandbreedte | Microsoft Docs
 description: Beschrijft hoe voor het beheren van StorSimple bandbreedte sjablonen waarmee u kunt het gebruik van netwerkbandbreedte te beheren.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875072"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>De service Manager voor StorSimple-apparaat gebruiken voor het beheren van sjablonen voor StorSimple-bandbreedte
 

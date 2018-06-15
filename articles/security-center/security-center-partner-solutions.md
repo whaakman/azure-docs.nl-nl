@@ -1,11 +1,11 @@
 ---
 title: Het beheren van verbonden partneroplossingen in Azure Security Center | Microsoft Docs
-description: "In dit document wordt Azure Security Center geïntroduceerd. U kunt in Azure Security Center in één oogopslag zien wat de integriteitsstatus is van de partneroplossingen die zijn geïntegreerd met uw Azure-abonnement."
+description: In dit document wordt Azure Security Center geïntroduceerd. U kunt in Azure Security Center in één oogopslag zien wat de integriteitsstatus is van de partneroplossingen die zijn geïntegreerd met uw Azure-abonnement.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/18/2017
+ms.locfileid: "23891025"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Verbonden partneroplossingen met Azure Security Center beheren
 Dit artikel begeleidt u bij het beheren en controleren van verbonden beveiligingsoplossingen in Azure Security Center.

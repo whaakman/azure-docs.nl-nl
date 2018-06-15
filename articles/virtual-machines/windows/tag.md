@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917496"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Het label van een virtuele Windows-machine in Azure
 In dit artikel beschrijft de verschillende manieren voor het taggen van een virtuele Windows-machine in Azure via het Resource Manager-implementatiemodel. Labels zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of een resourcegroep kunnen worden geplaatst. Azure ondersteunt momenteel maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een bron op het moment van maken of toegevoegd aan een bestaande resource. Houd er rekening mee dat de labels voor resources die zijn gemaakt via het Resource Manager-implementatiemodel alleen worden ondersteund. Als u wilt voor het taggen van een virtuele Linux-machine, Zie [hoe het labelen van een virtuele Linux-machine in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

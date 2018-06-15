@@ -19,7 +19,7 @@
   items:
     - name: Azure Stack evalueren
       href: azure-stack-deploy-overview.md
-- name: Zelfstudie
+- name: Zelfstudies
   items:
     - name: Aanbieding virtuele machines
       href: azure-stack-tutorial-tenant-vm.md
@@ -128,6 +128,8 @@
           href: azure-stack-monitor-health.md
         - name: Netwerkresources beheren
           href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Nieuwe gebruiker abonnement eigenaar
+          href: azure-stack-change-subscription-owner.md
         - name: Virtuele Windows Azure Pack-machines beheren
           href: azure-stack-manage-windows-azure-pack.md
         - name: Starten en stoppen van de Azure-Stack
@@ -189,7 +191,9 @@
               href: azure-stack-enable-multitenancy.md
         - name: Geheimen draaien
           href: azure-stack-rotate-secrets.md
-    - name: Services van de aanbieding
+        - name: Bijwerken van antivirussoftware
+          href: azure-stack-security-av.md
+    - name: Services aanbieden
       items:
         - name: Overzicht van het service-aanbod
           href: azure-stack-offer-services-overview.md
@@ -197,7 +201,7 @@
           items:
             - name: 'Overzicht van plannen, aanbiedingen, quota en abonnementen'
               href: azure-stack-plan-offer-quota-overview.md
-            - name: Een abonnement maken
+            - name: Een plan maken
               href: azure-stack-create-plan.md
             - name: Een invoegtoepassing maken
               href: create-add-on-plan.md
@@ -216,7 +220,7 @@
           items:
             - name: De resource-provider voor SQL Server implementeren
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Hosting-servers toevoegen
+            - name: Toevoegen van de SQL-servers die als host fungeert
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: SQL-databases maken
               href: azure-stack-sql-resource-provider-databases.md
@@ -227,7 +231,20 @@
             - name: Verwijderen van de SQL Server-resourceprovider
               href: azure-stack-sql-resource-provider-remove.md
         - name: Aanbieding MySQL als PaaS
-          href: azure-stack-mysql-resource-provider-deploy.md
+          href: azure-stack-mysql-resource-provider.md
+          items:
+            - name: De resourceprovider MySQL-Server implementeren
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: Toevoegen van MySQL-servers die als host fungeert
+              href: azure-stack-mysql-resource-provider-hosting-servers.md
+            - name: MySQL-Databases maken
+              href: azure-stack-mysql-resource-provider-databases.md
+            - name: De resourceprovider MySQL-Server bijwerken
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: MySQL-Server-resourceprovider onderhouden
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: De resourceprovider MySQL-Server verwijderen
+              href: azure-stack-mysql-resource-provider-remove.md
         - name: App Service als PaaS aanbieden
           items:
             - name: Overzicht App Service op Azure Stack
@@ -328,7 +345,7 @@
       href: /azure/azure-stack/user/
     - name: ASDK documentatie
       href: /azure/azure-stack/asdk/
-- name: Bronnen
+- name: Resources
   items:
     - name: Azure Stack roadmap
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
@@ -338,7 +355,7 @@
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Prijsinformatie
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stackoverloop
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Training en certificering
       href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

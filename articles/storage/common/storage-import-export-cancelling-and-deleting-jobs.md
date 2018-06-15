@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367011"
 ---
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>Annuleren en het verwijderen van de Azure Import/Export-taken
 

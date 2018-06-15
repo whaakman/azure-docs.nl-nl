@@ -2,10 +2,10 @@
 title: De veiligheid van uw StorSimple-apparaat | Microsoft Docs
 description: Beschrijft veiligheid verdragen, richtlijnen en overwegingen en wordt uitgelegd hoe u veilig installeren en gebruiken van uw StorSimple-apparaat.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dae6d535-1ca2-4d2b-b221-6819043aa068
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875863"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Veilig installeren en gebruiken van uw StorSimple-apparaat
 ![Waarschuwingspictogram](./media/storsimple-safety/IC740879.png)
