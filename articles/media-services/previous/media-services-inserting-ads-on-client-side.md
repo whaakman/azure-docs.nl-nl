@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788968"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Invoegen van advertenties aan de clientzijde
 In dit artikel bevat informatie over het invoegen van verschillende typen advertenties aan de clientzijde.

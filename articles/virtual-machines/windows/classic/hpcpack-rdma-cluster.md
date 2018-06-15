@@ -2,10 +2,10 @@
 title: Instellen van een cluster met Windows RDMA MPI-toepassingen uitvoeren | Microsoft Docs
 description: Informatie over het maken van een cluster met Windows HPC Pack met een grootte H16r, H16mr, A8 of A9-VM's met het netwerk van Azure RDMA MPI-apps uitvoeren.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852537"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Instellen van een cluster met Windows RDMA met HPC Pack MPI-toepassingen uitvoeren
 Instellen van een Windows-RDMA-cluster in Azure met [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en [RDMA-compatibele HPC VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) parallelle Message Passing Interface (MPI)-toepassingen uit te voeren. Wanneer u RDMA-functionaliteit, Windows Server gebaseerde knooppunten in een cluster HPC Pack instelt, wordt MPI-toepassingen efficiënt communiceren via een lage latentie en hoge doorvoersnelheid netwerk in Azure die is gebaseerd op remote direct memory access (RDMA)-technologie.
