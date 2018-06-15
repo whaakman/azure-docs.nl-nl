@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193478"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario: een AWS-virtuele machine inrichten
 In dit artikel leert u hoe u kunt gebruikmaken van Azure Automation om een virtuele machine inrichten in uw abonnement Amazon Web Service (AWS) en geef die VM een specifieke naam – AWS wordt naar verwezen als 'tagging' van de virtuele machine.

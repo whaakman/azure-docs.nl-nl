@@ -2,7 +2,7 @@
 title: Geautomatiseerde werkstromen maken op basis van een planning - Azure Logic Apps | Microsoft Docs
 description: Deze zelfstudie laat zien hoe u een terugkerende, geautomatiseerde werkstroom op basis van een planning kunt maken met Azure Logic Apps
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300766"
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Verkeer controleren met een logische app op basis van een planning
 
@@ -96,8 +97,8 @@ Voeg vervolgens u het terugkeerpatroon [trigger](../logic-apps/logic-apps-overvi
    | ------- | ----- | ----------- | 
    | **Interval** | 1 | Het aantal intervallen dat tussen controles moet worden gewacht | 
    | **Frequentie** | Wekelijks | Tijdseenheid die voor het terugkeerpatroon wordt gebruikt | 
-   | **Tijdzone** | None | Is alleen van toepassing als u een begintijd opgeeft. Dit is handig als u een niet-lokale tijdzone opgeeft. | 
-   | **Begintijd** | None | Het terugkeerpatroon uitstellen tot een bepaalde datum en tijd. Zie [Taken en werkstromen plannen die regelmatig worden uitgevoerd](../connectors/connectors-native-recurrence.md) voor meer informatie. | 
+   | **Tijdzone** | Geen | Is alleen van toepassing als u een begintijd opgeeft. Dit is handig als u een niet-lokale tijdzone opgeeft. | 
+   | **Begintijd** | Geen | Het terugkeerpatroon uitstellen tot een bepaalde datum en tijd. Zie [Taken en werkstromen plannen die regelmatig worden uitgevoerd](../connectors/connectors-native-recurrence.md) voor meer informatie. | 
    | **Deze dagen** | Maandag, dinsdag, woensdag, donderdag, vrijdag | Alleen beschikbaar wanneer **Frequentie** is ingesteld op "Wekelijks" | 
    | **Deze uren** | 7, 8, 9 | Alleen beschikbaar wanneer **Frequentie** is ingesteld op 'Wekelijks' of 'Dagelijks'. Selecteer de uren van de dag waarop dit terugkeerpatroon wordt uitgevoerd. Dit voorbeeld wordt uitgevoerd om 7, 8 en 9 uur. | 
    | **Deze minuten** | 0, 15, 30, 45 | Alleen beschikbaar wanneer **Frequentie** is ingesteld op 'Wekelijks' of 'Dagelijks'. Selecteer de minuten van de dag waarop dit terugkeerpatroon wordt uitgevoerd. Dit voorbeeld wordt iedere 15 minuten na het hele uur uitgevoerd. | 
@@ -143,12 +144,12 @@ Nu u een trigger hebt, voegt u een [actie](../logic-apps/logic-apps-overview.md#
    | ------- | ----- | ----------- |
    | **Routepunt 1** | <*start-location*> | Het beginpunt van uw route | 
    | **Routepunt 2** | <*end-location*> | De bestemming van uw route | 
-   | **Vermijden** | None | Items die u wilt vermijden op uw route, zoals snelwegen, tolwegen, enzovoort | 
+   | **Vermijden** | Geen | Items die u wilt vermijden op uw route, zoals snelwegen, tolwegen, enzovoort | 
    | **Optimaliseren** | timeWithTraffic | Een parameter voor het optimaliseren van uw route, zoals afstand, reistijd in actuele verkeerssituatie, enzovoort. Selecteer deze parameter: "timeWithTraffic" | 
    | **Afstandseenheid** | <*your-preference*> | De afstandseenheid die voor de route wordt gebruikt. In dit artikel wordt gebruikgemaakt van de eenheid: "Mijl"  | 
    | **Vervoermiddel** | Auto | Het vervoermiddel voor uw route. Selecteer dit vervoermiddel: "Auto" | 
    | **Datum/tijd openbaar vervoer** | Geen | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
-   | **Notering datum/tijd** | None | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
+   | **Notering datum/tijd** | Geen | Alleen van toepassing op het vervoermiddel openbaar vervoer | 
    |||| 
 
    Zie [Een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx) voor meer informatie over deze parameters.

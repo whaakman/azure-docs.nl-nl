@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371334"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migratie van IaaS resources van klassieke in Azure Resource Manager-platform ondersteund
 In dit artikel wordt beschreven hoe we de migratie van infrastructuur als een dienst (IaaS) resources van het klassieke naar het Resource Manager-implementatiemodel bent inschakelen. U kunt meer lezen over [Azure Resource Manager-functies en voordelen](../articles/azure-resource-manager/resource-group-overview.md). We beschreven hoe u resources van de twee implementatiemodellen die naast elkaar worden gebruikt in uw abonnement met behulp van de virtuele netwerkgateways voor site-naar-site verbindt.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364366"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure-beveiligingsbeheer en controle-overzicht
 Azure biedt beveiligingsmethoden om u te helpen bij het beheren en controleren van de Azure-cloudservices en virtuele machines (VM's). Dit artikel bevat een overzicht van deze core beveiligingsfuncties en -services. Vindt u koppelingen naar artikelen met meer informatie over elk doorgegeven, zodat u meer informatie.

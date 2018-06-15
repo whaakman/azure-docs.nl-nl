@@ -12,14 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 05/15/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1c8c981c0b1c3b599d2dd737b680390a52888eb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 83d97d9ed9c51d59500115c4ee3896d471024999
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359754"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Een Batch-account maken met behulp van Azure Portal
 
@@ -33,17 +34,17 @@ Lees hoe u een Azure Batch-account maakt in de [Azure Portal][azure_portal] en k
 
 Zie [Overzicht van de functies](batch-api-basics.md) voor achtergrondinformatie over Batch-accounts en scenario's.
 
-
-
 ## <a name="create-a-batch-account"></a>Batch-account maken
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
 1. Meld u aan bij [Azure Portal][azure_portal].
-2. Klik op **Een resource maken** en zoek op de Marketplace naar **Batch-service**.
+
+2. Klik op **Nieuw** > **Berekenen** > **Batch-service**.
 
     ![Batch in de Marketplace][marketplace_portal]
-3. Selecteer **Batch-service**, klik op **Maken** en voer instellingen bij **Nieuw Batch-account** in. Zie de volgende details.
+
+3. Voer instellingen in voor **Nieuw Batch-account**. Zie de volgende details.
 
     ![Batch-account maken][account_portal]
 
@@ -51,13 +52,15 @@ Zie [Overzicht van de functies](batch-api-basics.md) voor achtergrondinformatie 
 
     b. **Abonnement**: het abonnement waarin het Batch-account moet worden gemaakt. Als u slechts één abonnement hebt, is het standaard geselecteerd.
 
-    c. **Groeptoewijzingsmodus**: als deze instelling wordt weergegeven, accepteert u de standaardinstelling **Batch-service**.
-
     c. **Resourcegroep**: Selecteer een bestaande resourcegroep voor het nieuwe Batch-account. U kunt er ook voor kiezen om een nieuwe resourcegroep te maken.
 
     d. **Locatie**: de Azure-regio om het Batch-account in te maken. Alleen de regio's die door uw abonnement en resourcegroep worden ondersteund, worden als opties weergegeven.
 
-    e. **Opslagaccount** (optioneel): een Azure Storage-account voor algemeen gebruik dat u koppelt aan het Batch-account. Dit wordt aanbevolen voor de meeste Batch-accounts. Zie [Gekoppeld Azure Storage-account](#linked-azure-storage-account) verderop in dit artikel voor informatie.
+    e. **Opslagaccount** (optioneel): een Azure Storage-account voor algemeen gebruik dat u koppelt aan het Batch-account. Dit wordt aanbevolen voor de meeste Batch-accounts. Zie voor opslagaccountopties in Batch het [Overzicht van Batch-functies](batch-api-basics.md#azure-storage-account). Selecteer in de portal een bestaand opslagaccount of maak desgewenst een nieuw opslagaccount.
+
+      ![Create a storage account][storage_account]
+
+    f. **Groeptoewijzingsmodus**: voor de meeste scenario's kunt u de standaardinstelling **Batch-service** accepteren.
 
 4. Klik op **Maken** om het account te maken.
 
@@ -68,34 +71,16 @@ Zodra het account is gemaakt, klikt u op het account om naar de instellingen en 
 
 ![Pagina Batch-account in Azure Portal][account_blade]
 
-* **Batch-account-URL**: wanneer u een toepassing ontwikkelt met de [Batch-API‘s](batch-apis-tools.md#azure-accounts-for-batch-development), hebt u een account-URL nodig voor toegang tot de Batch-resources. Een Batch-account-URL heeft de volgende indeling:
+* **Batch-account, URL en sleutels**: wanneer u een toepassing ontwikkelt met de [Batch-API‘s](batch-apis-tools.md#azure-accounts-for-batch-development), hebt u een account-URL en sleutel nodig voor toegang tot de Batch-resources. (Batch ondersteunt ook Azure Active Directory-verificatie.)
 
-    `https://<account_name>.<region>.batch.azure.com`
-
-![Batch-account-URL in de portal][account_url]
-
-* **Toegangssleutels**: u kunt een toegangssleutel voor het account gebruiken om de toegang tot het Batch-account te verifiëren vanuit de toepassing. (Batch ondersteunt ook Azure Active Directory-verificatie.)
-
-    Selecteer **Sleutels** als u de toegangssleutels wilt bekijken of opnieuw wilt genereren.
+    Klik op **Sleutels** om de toegangsgegevens voor het Batch-account te bekijken.
 
     ![Batch-accountsleutels in Azure Portal][account_keys]
 
-[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
+* Als u de naam en sleutels van het opslagaccount wilt zien dat is gekoppeld aan uw Batch-account, klikt u op **Opslagaccount**.
 
-## <a name="linked-azure-storage-account"></a>Gekoppeld Azure Storage-account
+* Als u wilt zien welke resourcequota van toepassing zijn op het Batch-account, klikt u op **Quota**. Zie [Quota en limieten voor Batch-service](batch-quota-limit.md) voor meer informatie.
 
-U kunt een Azure Storage-account koppelen aan uw Batch-account. Dit kan in veel scenario's handig zijn. De functie voor [toepassingspakketten](batch-application-packages.md) van Batch maakt gebruik van Azure Blob-opslag. Dit geldt ook voor de [Batch File Conventions .NET](batch-task-output.md)-bibliotheek. Deze optionele functies helpen u bij het implementeren van de toepassingen die met uw Batch-taken worden uitgevoerd, en het behouden van de geproduceerde gegevens.
-
-Zie voor opslagaccountopties in Batch het [Overzicht van Batch-functies](batch-api-basics.md#azure-storage-account).
-
-![Een opslagaccount maken][storage_account]
-
-> [!NOTE]
-> Wees voorzichtig bij het opnieuw genereren van de toegangssleutels van een gekoppeld opslagaccount. Genereer slechts één opslagaccountsleutel opnieuw en klik op **Sleutels synchroniseren** op de pagina voor het gekoppelde opslagaccount. Wacht vijf minuten tot de sleutels aan de rekenknooppunten in uw groepen zijn doorgegeven en genereer en synchroniseer de andere sleutel opnieuw, indien nodig. Als u beide sleutels tegelijk opnieuw genereert, kunnen uw rekenknooppunten geen van beide sleutels synchroniseren en zullen zij toegang verliezen tot het opslagaccount.
->
->
-
-![Sleutels van opslagaccounts opnieuw genereren][4]
 
 ## <a name="additional-configuration-for-user-subscription-mode"></a>Aanvullende configuratie voor de modus Gebruikersabonnement
 
@@ -124,24 +109,14 @@ Wanneer u uw eerste Batch-account maakt in de modus Gebruikersabonnement, moet u
 ### <a name="create-a-key-vault"></a>Een sleutelkluis maken
 In de modus Gebruikersabonnement is een Azure-sleutelkluis vereist die behoort tot dezelfde resourcegroep als het Batch-account dat moet worden gemaakt. Zorg ervoor dat de resourcegroep zich bevindt in een regio waarin Batch [beschikbaar](https://azure.microsoft.com/regions/services/) is en die uw abonnement ondersteunt.
 
-1. Klik in de [Azure Portal][azure_portal] op **Nieuw** > **Beveiliging en identiteit** > **Sleutelkluis**.
+1. Klik in [Azure Portal][azure_portal] op **Nieuw** > **Beveiliging** > **Sleutelkluis**.
 
 2. Typ op de pagina **Sleutelkluis maken** een naam voor de sleutelkluis en maak een resourcegroep in de gewenste regio voor uw Batch-account. Laat de overige instellingen op de standaardwaarden staan en klik op **Maken**.
 
-
-
-
-## <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
-Er zijn bepaalde [quota en limieten](batch-quota-limit.md) van toepassing op Batch-account, net als bij uw Azure-abonnement en andere Azure-services. De huidige quota voor een Batch-account worden weergegeven in **Quota**.
-
-![Batch-accountquota in Azure Portal][quotas]
-
-
-
-Daarnaast kunnen veel van deze quota worden verhoogd met een aanvraag voor gratis productondersteuning. Deze aanvraag kunt u indienen in Azure Portal. Zie [Quota en limieten voor de Azure Batch-service](batch-quota-limit.md) voor meer informatie over aanvragen voor het verhogen van uw quotum.
+Als u het Batch-account maakt in de modus Gebruikersabonnement, geeft u de resourcegroep op voor de sleutelkluis, geeft u **Gebruikersabonnement** op als de groepstoewijzingsmodus en selecteert u de sleutelkluis.
 
 ## <a name="other-batch-account-management-options"></a>Andere beheeropties voor uw Batch-account
-Naast het gebruik van Azure Portal kunt u op de volgende manieren Batch-accounts maken en beheren:
+Naast het gebruik van Azure Portal kunt u met de volgende hulpprogramma's Batch-accounts maken en beheren:
 
 * [Batch-PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md)
 * [Azure-CLI](batch-cli-get-started.md)
@@ -151,20 +126,15 @@ Naast het gebruik van Azure Portal kunt u op de volgende manieren Batch-accounts
 * Zie [Overzicht van Batch-functies](batch-api-basics.md) voor meer informatie over de concepten en functies van de Batch-service. In het artikel worden de primaire Batch-resources zoals pools, rekenknooppunten, jobs en taken besproken en vindt u een overzicht van de servicefuncties voor grootschalige rekenworkloads.
 * Lees de basisbeginselen van het ontwikkelen van een voor Batch geschikte toepassing met behulp van de [clientbibliotheek Batch .NET](batch-dotnet-get-started.md) of [Python](batch-python-tutorial.md). Het inleidende artikel leidt u door een werkende toepassing die gebruikmaakt van de Batch-service voor het uitvoeren van een workload op meerdere rekenknooppunten. U vindt er ook informatie over het gebruik van Azure Storage voor het faseren en ophalen van een workloadbestand.
 
-[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
-[api_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
-[4]: ./media/batch-account-create-portal/batch_acct_04.png "Sleutels van opslagaccounts opnieuw genereren"
-[marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
+[marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
-[account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
-[account_keys]: ./media/batch-account-create-portal/account_keys.PNG
+[account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
 [account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
-[quotas]: ./media/batch-account-create-portal/quotas.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30318889"
 ---
 # <a name="create-a-snapshot"></a>Een momentopname maken 
 

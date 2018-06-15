@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367321"
 ---
 # <a name="azure-network-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-netwerk
 Microsoft Azure kunt u virtuele machines en apparaten verbinding maken met andere apparaten in het netwerk door ze te plaatsen op Azure Virtual Networks. Een Azure-netwerk is een constructie waarmee u virtuele netwerkinterfacekaarten verbinden met een virtueel netwerk om een TCP/IP-basis communicatie tussen netwerkapparaten. Azure virtuele Machines die zijn verbonden met een Azure-netwerk kan verbinding maken met apparaten op de dezelfde Azure Virtual Network, verschillende virtuele netwerken van Azure, op het Internet of zelfs op uw eigen on-premises netwerken.

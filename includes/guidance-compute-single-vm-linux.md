@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367134"
 ---
 Dit artikel geeft een overzicht van een verzameling bewezen procedures voor het uitvoeren van een virtuele Linux-machine in Azure, waarbij aandacht wordt besteed aan schaalbaarheid, beschikbaarheid, beheerbaarheid en beveiliging. Azure ondersteunt verschillende populaire Linux-distributies, met inbegrip van CentOS, Debian, Red Hat Enterprise, Ubuntu en FreeBSD. Zie [Azure en Linux][azure-linux] voor meer informatie.
 

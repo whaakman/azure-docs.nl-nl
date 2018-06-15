@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364230"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Overzicht van de beveiliging Azure virtuele Machines
 Virtuele Machines van Azure kunt u een breed scala aan computing oplossingen implementeren in een flexibele manier. De service ondersteunt Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP en Azure BizTalk Services. U kunt dus elke werkbelasting en een andere taal op bijna elk besturingssysteem implementeren.

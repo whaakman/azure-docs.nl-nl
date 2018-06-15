@@ -2,10 +2,10 @@
 title: Geavanceerde aanvraagbeperking met Azure API Management
 description: Informatie over het maken en toepassen van flexibele quota's en snelheidsbeperking beleid met Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800020"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Geavanceerde aanvraagbeperking met Azure API Management
 Om te beperken van binnenkomende aanvragen kunnen is een belangrijke functie van Azure API Management. Een door de snelheid van aanvragen of de totale aanvragen/gegevensoverdracht te beheren, kunt API Management API-providers voor hun-API's beveiligen tegen misbruik en waarde maken voor de verschillende lagen voor API-product.

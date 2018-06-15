@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359421"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers toevoegen voor de SQL-resourceprovider
 U kunt SQL-exemplaren op virtuele machines in uw [Azure Stack](azure-stack-poc.md), of een exemplaar buiten uw Azure-Stack-omgeving, opgegeven van de resourceprovider verbinding mee kan maken. De algemene vereisten zijn:

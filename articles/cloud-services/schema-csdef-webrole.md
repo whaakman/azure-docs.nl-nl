@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360339"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services-definitie WebRole Schema
 De Azure-web-rol is een functie die is aangepast voor het programmeren van web application ondersteund door IIS 7, zoals ASP.NET, PHP, Windows Communication Foundation en FastCGI.

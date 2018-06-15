@@ -16,6 +16,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356151"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Maken van een toepassingsgateway met SSL-beëindiging met Azure PowerShell
 

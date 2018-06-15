@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812892"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Oplossen van problemen met de installatie van de Mobility-Service push
 

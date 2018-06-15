@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812668"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>Configureren en beheren van beleidsregels voor replicatie voor VMware-replicatie
 In dit artikel wordt beschreven hoe u een beleid voor wachtwoordreplicatie wanneer u bent virtuele VMware-machines repliceren naar Azure met behulp van [Azure Site Recovery](site-recovery-overview.md).

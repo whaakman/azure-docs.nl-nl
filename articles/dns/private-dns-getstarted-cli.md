@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30191446"
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-azure-cli-20"></a>Aan de slag met Azure DNS Private Zones met behulp van Azure CLI 2.0
 

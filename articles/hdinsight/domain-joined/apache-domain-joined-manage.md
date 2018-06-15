@@ -16,6 +16,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160237"
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Domein-HDInsight-clusters beheren
 Informatie over de gebruikers en de rollen in HDInsight domein en het domein van de HDInsight-clusters beheren.

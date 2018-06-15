@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371266"
 ---
 Er zijn diverse redenen wanneer u mag niet beginnen of verbinding maken met een toepassing die wordt uitgevoerd op Azure een virtuele machine (VM). Oorzaken zijn onder meer de toepassing niet actief of luistert op de verwachte poorten, de luisterpoort geblokkeerd of netwerken regels niet goed doorgeven verkeer naar de toepassing. Dit artikel wordt beschreven methodische wijze om te zoeken en los het probleem.
 

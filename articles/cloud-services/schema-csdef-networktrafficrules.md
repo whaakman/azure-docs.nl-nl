@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360033"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services-definitie NetworkTrafficRules Schema
 De `NetworkTrafficRules` knooppunt is een optioneel element in het servicedefinitiebestand waarmee wordt aangegeven hoe de functies met elkaar communiceren. Deze wordt beperkt welke rollen u toegang tot de interne eindpunten van de specifieke rol. De `NetworkTrafficRules` is geen zelfstandige element; deze wordt gecombineerd met twee of meer rollen in een servicedefinitiebestand.

@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360254"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services-definitie WorkerRole Schema
 De functie Azure worker is een rol die is nuttig voor algemene ontwikkeling en achtergrondverwerking voor een Webrol kan uitvoeren.
