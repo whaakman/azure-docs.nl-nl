@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33766101"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Het oplossen van Azure CDN-eindpunten die 404 statuscode retourneren
 In dit artikel kunt u problemen oplossen met Azure Content Delivery Network (CDN)-eindpunten die 404 HTTP-statuscodes voor antwoorden retourneren.

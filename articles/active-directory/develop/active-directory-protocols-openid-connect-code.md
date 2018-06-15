@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157314"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Toegang tot webtoepassingen die gebruikmaken van OpenID Connect en Azure Active Directory autoriseren
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is een eenvoudige identiteitlaag gebouwd op het OAuth 2.0-protocol. OAuth 2.0 definieert mechanismen voor het verkrijgen en gebruiken van **toegang tot tokens** voor toegang tot beveiligde bronnen, maar ze niet bepalen standaardmethoden om identiteit informatie te geven. OpenID Connect implementeert verificatie als een uitbreiding van het autorisatieproces OAuth 2.0. Biedt informatie over de gebruiker in de vorm van een `id_token` die de identiteit van de gebruiker wordt geverifieerd en basisprofiel informatie over de gebruiker.

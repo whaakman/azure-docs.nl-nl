@@ -1,7 +1,7 @@
 ---
 title: Terraform gebruik maken van een virtuele machine van Azure schaal van een aangepaste installatiekopie verpakker instellen
 description: Terraform configureren en een virtuele machine van Azure-schaalset van een aangepaste installatiekopie gegenereerd door verpakker (voltooid met een virtueel netwerk en beheerde gekoppelde schijven) versie gebruiken.
-keywords: "terraform, devops, ingesteld, virtuele machine, netwerk, opslag, modules, aangepaste installatiekopieën, verpakker schalen"
+keywords: terraform, devops, ingesteld, virtuele machine, netwerk, opslag, modules, aangepaste installatiekopieën, verpakker schalen
 author: VaijanathB
 ms.author: tarcher
 ms.date: 10/29/2017
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23945854"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform gebruik maken van een virtuele machine van Azure schaal van een aangepaste installatiekopie verpakker instellen
 

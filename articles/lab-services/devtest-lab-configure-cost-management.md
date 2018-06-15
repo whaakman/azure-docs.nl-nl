@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787631"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>De maandelijkse trend in de testomgeving geschatte kosten weergeven in Azure DevTest Labs
 De beheerfunctie van kosten van DevTest Labs helpt u bij de kosten van uw testomgeving bijhouden. In dit artikel laat zien hoe u de **maandelijkse geschatte kosten Trend** grafiek voor de huidige kalendermaand geschatte kosten-to-date en de geschatte kosten van de laatste van de maand van de huidige kalendermaand weergeven. In dit artikel ziet u ook hoe beter lab kosten te beheren door in te stellen bestedingslimiet doelen en drempelwaarden die, wanneer bereikt, trigger DevTest Labs voor het rapporteren van de resultaten voor u.

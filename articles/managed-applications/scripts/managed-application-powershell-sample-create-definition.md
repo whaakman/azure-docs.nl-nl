@@ -14,9 +14,10 @@ ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: ee721b7c68924f5e05fbdc4bc4b919837d4cc05b
 ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23940954"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>De definitie van een beheerde toepassing maken met PowerShell
 

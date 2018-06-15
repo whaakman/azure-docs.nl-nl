@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937229"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Het autoriseren van ontwikkelaarsaccounts met behulp van OAuth 2.0 in Azure API Management
 Ondersteuning voor veel API's [OAuth 2.0](http://oauth.net/2/) de API beveiligen en ervoor te zorgen dat alleen geldige gebruikers toegang hebben en ze alleen toegang tot resources waarnaar ze bevoegd bent. Om interactieve Azure API Management-Ontwikkelaarsconsole met deze API's gebruiken, kunt de service u voor het configureren van uw service-exemplaar om te werken met uw OAuth 2.0 ingeschakelde API.

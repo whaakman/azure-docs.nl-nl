@@ -1,5 +1,5 @@
 ---
-title: 'Azure Premium-opslag: Ontwerpen voor prestaties op VM''s van Windows | Microsoft Docs'
+title: "Azure Premium-opslag: Ontwerpen voor prestaties op VM's van Windows | Microsoft Docs"
 description: Ontwerp hoogwaardige toepassingen met behulp van Azure Premium-opslag. Premium-opslag biedt ondersteuning voor schijven voor hoge prestaties, lage latentie voor I/O-intensieve werkbelastingen die worden uitgevoerd op Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
@@ -19,5 +19,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23949480"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

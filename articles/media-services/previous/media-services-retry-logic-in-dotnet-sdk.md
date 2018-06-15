@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790424"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Pogingslogica in de Media Services SDK voor .NET
 Als u werkt met Microsoft Azure-services, kunnen tijdelijke fouten optreden. Als een tijdelijke fout in de meeste gevallen optreedt na een paar pogingen de bewerking is geslaagd. De Media Services SDK voor .NET implementeert de Pogingslogica voor het afhandelen van tijdelijke fouten die zijn gekoppeld aan de uitzonderingen en fouten die worden veroorzaakt door webaanvragen, uitvoeren van query's, het opslaan van wijzigingen en opslagbewerkingen.  Standaard wordt de Media Services SDK voor .NET vier pogingen uitgevoerd voordat de uitzondering voor uw toepassing opnieuw te genereren. Deze uitzondering moet vervolgens goed omgaan met de code in uw toepassing.  

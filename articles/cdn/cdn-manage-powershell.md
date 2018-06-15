@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31592421"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Azure CDN met PowerShell beheren
 PowerShell biedt een van de meest flexibele methoden voor het beheren van uw Azure CDN-profielen en -eindpunten.  U kunt PowerShell interactief of door het schrijven van scripts gebruiken om beheertaken te automatiseren.  Deze zelfstudie ziet u enkele van de meest algemene taken die u kunt uitvoeren met PowerShell voor het beheren van uw Azure CDN-profielen en -eindpunten.

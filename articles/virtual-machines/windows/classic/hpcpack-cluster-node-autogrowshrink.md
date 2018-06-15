@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603841"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Automatisch vergroten of verkleinen van de clusterbronnen HPC Pack in Azure volgens de clusterwerkbelasting worden opgeslagen
 Als u Azure 'burst' knooppunten in het cluster HPC Pack implementeert, of u een cluster HPC Pack in Azure VM's maakt, kunt u een manier om automatisch vergroten of verkleinen van de clusterresources zoals knooppunten of kernen volgens de werkbelasting op het cluster. Schalen van de clusterresources op deze manier kunt u efficiënter gebruik van uw Azure-resources en hun kosten te verifiëren.

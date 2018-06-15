@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894157"
 ---
 # <a name="password-requirements-for-pci-dss-compliant-environments"></a>Vereisten voor wachtwoorden voor PCI DSS-compatibele omgevingen 
 ## <a name="pci-dss-requirement-2"></a>PCI-DSS vereiste 2

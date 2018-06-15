@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942231"
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Vastleggen van een virtuele Linux-machine uitgevoerd op Azure
 Volg de stappen in dit artikel generaliseren en vastleggen van uw Azure Linux virtuele machine (VM) in het Resource Manager-implementatiemodel. Wanneer u de virtuele machine generalize, kunt u persoonlijke gegevens te verwijderen en voorbereiden van de virtuele machine moet worden gebruikt als een afbeelding. U vervolgens een installatiekopie van een gegeneraliseerde virtuele harde schijf (VHD) voor het besturingssysteem, virtuele harde schijven voor bijgesloten gegevensschijven, vastleggen en een [Resource Manager-sjabloon](../../azure-resource-manager/resource-group-overview.md) voor nieuwe VM-implementaties. Dit artikel wordt uitgelegd hoe u een VM-installatiekopie met de Azure CLI 1.0 vastleggen voor een virtuele machine met niet-beheerde schijven. U kunt ook [vastleggen van een VM die gebruikmaakt van Azure beheerd schijven met de Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Beheerde schijven worden verwerkt door de Azure-platform en hoeven niet de voorbereidings- of locatie om op te slaan. Zie [Azure Managed Disks overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Overzicht van Azure Managed Disks) voor meer informatie. 

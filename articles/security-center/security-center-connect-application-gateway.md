@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854491"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Verbinding maken met Microsoft Azure-toepassingsgateway met Azure Security Center
 Dit document helpt u de integratie met Application Gateway web application firewall (WAF) en Security Center configureren.

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788219"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Illustraties maken met Azure Media openen in de portal
 U kunt Azure Media openen in de portal voor illustraties van de activa in uw media services-accounts maken. Navigeer naar uw media services-account in de portal om te beginnen. Selecteer vervolgens de **Subclip** tabblad.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599608"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Overzicht van de partner VPN-apparaatconfiguraties
 Dit artikel bevat een overzicht van de configuratie van on-premises VPN-apparaten voor het verbinden met Azure VPN-gateways. Een voorbeeld van de virtuele Azure-netwerk en VPN-gateway-installatie wordt gebruikt voor hoe u verbinding maken met verschillende on-premises VPN-apparaatconfiguraties met dezelfde parameters.

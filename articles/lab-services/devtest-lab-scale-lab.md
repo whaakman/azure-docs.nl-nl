@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787477"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Schaal quota en limieten in DevTest Labs
 Als u in DevTest Labs werkt, kunt u wellicht opgevallen dat er zijn bepaalde standaardlimieten voor sommige Azure-resources die de service DevTest Labs kunnen beïnvloeden. Deze limieten worden aangeduid als **quota**.

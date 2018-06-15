@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787561"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Gebruik Azure DevTest Labs voor ontwikkelaars
 Azure DevTest Labs kunnen worden gebruikt voor het implementeren van veel van belangrijke scenario's, maar een van de primaire scenario's wordt DevTest Labs voor ontwikkeling hostmachines voor ontwikkelaars. In dit scenario biedt DevTest Labs de volgende voordelen:
