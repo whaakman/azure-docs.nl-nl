@@ -5,7 +5,7 @@ services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: 
+editor: ''
 tags: top-support-issue
 ms.service: required
 ms.devlang: may be required
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "23886251"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Titel (maximaal 120 tekens, doel het primaire sleutelwoord)
 *Gebruik secundaire 2-3-trefwoorden in de beschrijving.*

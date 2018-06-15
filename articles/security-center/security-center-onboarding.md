@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416486"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Voorbereiding voor Azure Security Center Standard voor een betere beveiliging
 Upgrade uitvoeren naar Security Center Standard om te profiteren van betere beveiligingsbeheer en de bedreiging beveiliging voor de werkbelasting van uw hybride cloud.  U kunt standaard 60 dagen gratis uitproberen. Zie het Beveiligingscentrum [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.

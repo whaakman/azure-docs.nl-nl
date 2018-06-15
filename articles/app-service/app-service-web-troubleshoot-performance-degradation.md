@@ -2,10 +2,10 @@
 title: Langzame prestaties van de web-app in App Service | Microsoft Docs
 description: In dit artikel helpt u problemen met trage web app prestaties in Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
 keywords: Web-appprestaties, trage app de app is langzaam
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461839"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Oplossen van prestatieproblemen van trage web-app in Azure App Service
 Dit artikel helpt u problemen met trage web app prestaties in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).

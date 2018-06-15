@@ -5,8 +5,8 @@ services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: cordova,javascript,mobiel,client
 ms.assetid: 0b08fc12-0a80-42d3-9cc1-9b3f8d3e3a3f
 ms.service: app-service-mobile
@@ -21,6 +21,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595173"
 ---
 # <a name="create-an-apache-cordova-app"></a>Een Apache Cordova-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

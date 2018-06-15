@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31411179"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interactie met Power BI-rapporten met behulp van de JavaScript-API
 

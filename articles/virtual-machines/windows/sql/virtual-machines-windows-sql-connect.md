@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400236"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Verbinding maken met een virtuele Machine van SQL Server op Azure
 

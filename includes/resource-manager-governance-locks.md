@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402494"
 ---
 Resource vergrendelingen te voorkomen dat gebruikers in uw organisatie per ongeluk worden kritieke bronnen wijzigen of verwijderen. In tegenstelling tot toegangsbeheer op basis van functie toepassen resource vergrendelingen een beperking voor alle gebruikers en rollen. 
 

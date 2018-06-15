@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31417572"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Verificatie van de service-naar-service voor Azure Sleutelkluis met .NET
 

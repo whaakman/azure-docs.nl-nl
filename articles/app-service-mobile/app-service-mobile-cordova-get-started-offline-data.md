@@ -4,7 +4,7 @@ description: Informatie over het gebruik van App Service-mobiele App aan cache e
 documentationcenter: cordova
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593711"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Offlinesynchronisatie voor uw Cordova mobile app inschakelen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

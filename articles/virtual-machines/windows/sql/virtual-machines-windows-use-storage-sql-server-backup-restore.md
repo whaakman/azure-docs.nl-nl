@@ -2,7 +2,7 @@
 title: Het gebruik van Azure-opslag voor SQL Server-back-up en herstellen | Microsoft Docs
 description: Informatie over het back-up van SQL Server naar Azure Storage. Verklaart de voordelen van het back-ups van SQL-databases naar Azure Storage.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MikeRayMSFT
 manager: craigg
 tags: azure-service-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399046"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Azure Storage gebruiken voor SQL Server-back-up en herstel
 ## <a name="overview"></a>Overzicht

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31421552"
 ---
 # <a name="scp-programming-guide"></a>Programmeerhandleiding voor SCP
 SCP is een platform voor het bouwen van realtime, betrouwbare en consistente en hoge prestaties gegevensverwerking toepassing. Het is gebouwd boven [Apache Storm](http://storm.incubator.apache.org/) --een stroom verwerking door de community's van de OSS-systeem. Storm door Nathan Marz is ontworpen en is open source door Twitter. Hierbij wordt gebruikgemaakt van [Apache ZooKeeper](http://zookeeper.apache.org/), een ander Apache project om in te schakelen uiterst betrouwbare gedistribueerd beheer coördinatie en status. 

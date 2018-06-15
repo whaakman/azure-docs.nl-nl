@@ -2,11 +2,11 @@
 title: Gebruik de Marketplace-toolkit maken en publiceren van marketplace-items | Microsoft Docs
 description: Meer informatie over het snel marketplace-items maken met de publicatie Toolkit
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386874"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Het hulpprogramma voor publishing marketplace-items toevoegen
 Toevoegen van de inhoud op de [Azure Stack Marketplace](azure-stack-marketplace.md) uw oplossingen beschikbaar stelt aan u en uw tenants voor implementatie.  De Toolkit Marketplace maakt Azure Marketplace-pakketten (.azpkg)-bestanden op basis van uw IaaS Azure Resource Manager-sjablonen of VM-extensies.  U kunt ook de Marketplace-werkset gebruiken voor het publiceren van .azpkg bestanden, gemaakt met het hulpprogramma of met behulp van [handmatige](azure-stack-create-and-publish-marketplace-item.md) stappen.  In dit onderwerp leidt u door het programma is gedownload, het maken van een marketplace-item op basis van een VM-sjabloon en dat het item te publiceren naar de Stack Azure Marketplace.     

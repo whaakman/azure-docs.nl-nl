@@ -2,11 +2,11 @@
 title: Maak een pakket StorSimple 8000 series ondersteuning | Microsoft Docs
 description: Informatie over het maken en bewerken van een ondersteuningspakket voor uw StorSimple 8000 series apparaat ontsleutelen.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743575"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Maken en beheren van een ondersteuningspakket voor StorSimple 8000-serie
 

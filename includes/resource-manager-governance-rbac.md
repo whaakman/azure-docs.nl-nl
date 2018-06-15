@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433246"
 ---
 U wilt controleren of gebruikers in uw organisatie hebben het juiste niveau van toegang tot deze bronnen. U niet wilt onbeperkte toegang verlenen aan gebruikers, maar moet u ook om ervoor te zorgen dat ze hun werk te kunnen doen. Op rollen gebaseerde toegangsbeheer (RBAC) kunt u beheren welke gebruikers hebben een machtiging voor het voltooien van specifieke acties op een scope. Een rol definieert een set toegestane acties. U de rol toewijzen aan een scope en opgeven welke gebruikers deel uitmaken van die rol voor het bereik.
 

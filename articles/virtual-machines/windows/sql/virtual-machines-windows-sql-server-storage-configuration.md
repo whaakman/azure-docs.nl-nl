@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399080"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuratie van de opslag voor virtuele machines van SQL Server
 Wanneer u de installatiekopie van een SQL Server-virtuele machine in Azure configureert, kunt u de Portal de opslagconfiguratie automatiseren. Dit omvat het toevoegen van opslag aan de virtuele machine, zodat de opslag die toegankelijk is voor SQL Server en te configureren om te optimaliseren voor uw specifieke vereisten.

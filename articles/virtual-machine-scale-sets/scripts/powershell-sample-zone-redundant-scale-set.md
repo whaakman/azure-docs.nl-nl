@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31413632"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Een zone-redundante virtuele-machineschaalset maken met PowerShell
 Met dit script maakt u een virtuele-machineschaalset met Windows Server 2016 in meerdere beschikbaarheidszones. Nadat het script is uitgevoerd, hebt u via RDP toegang tot de virtuele machine.

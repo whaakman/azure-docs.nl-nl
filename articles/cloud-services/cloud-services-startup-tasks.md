@@ -2,10 +2,10 @@
 title: Starten van de taken uitvoeren in Azure-Cloudservices | Microsoft Docs
 description: Starten van de taken helpen bij het voorbereiden van uw cloud service-omgeving voor uw app. Dit leert u hoe starten van de taken werken en hoe u ze
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843677"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Het configureren en starten van de taken voor een cloudservice uitvoeren
 Starten van de taken kunt u bewerkingen uitvoeren voordat een rol wordt gestart. Bewerkingen die u wilt uitvoeren bevatten voor het installeren van een onderdeel, registreren van COM-onderdelen, registersleutels instellen of starten van een langdurige proces.

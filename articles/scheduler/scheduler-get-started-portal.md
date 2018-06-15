@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31413427"
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Aan de slag met Azure Scheduler in Azure-portal
 Het is eenvoudig om geplande taken te maken in Azure Scheduler. In deze zelfstudie leert u een taak te maken: U komt ook te weten hoe de controle- en beheerfuncties van Scheduler werken.

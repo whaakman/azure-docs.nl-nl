@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32777176"
 abstract:
   description: Leer hoe u Azure Network Watcher gebruikt. Via snelstarts, zelfstudies en meer krijgt u inzicht in uw virtuele Azure-netwerk met hulpprogramma's als pakketvastlegging en logboeken van NSG-stromen, zodat u problemen met verkeersfilters en -routering kunt vaststellen en verbindingen kunt bewaken.
 sections:

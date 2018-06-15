@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31405361"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop op basis van Windows-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -82,7 +83,7 @@ Installatie van de aangepaste software op het cluster met behulp van de verbindi
 
    * Voor het aanpassen van het menu met de rechtermuisknop op het menu en klik vervolgens op **aanpassen**.
    * **Instellingen** en **alle instellingen**: geeft de **instellingen** blade voor het cluster, zodat u kunt de gedetailleerde configuratie-informatie voor het cluster.
-   * **Dashboard**, **Cluster-Dashboard** en **URL: dit zijn alle manieren toegang krijgen tot het cluster-dashboard Ambari Web voor clusters op basis van Linux is. -**Secure Shell **: Bevat de instructies voor het verbinden met het cluster via Secure Shell (SSH) verbinding.
+   * **Dashboard**, **Cluster-Dashboard** en **URL: dit zijn alle manieren toegang krijgen tot het cluster-dashboard Ambari Web voor clusters op basis van Linux is. -** Secure Shell **: Bevat de instructies voor het verbinden met het cluster via Secure Shell (SSH) verbinding.
    * **Cluster schalen**: Hiermee kunt u het aantal worker-knooppunten voor dit cluster wijzigen.
    * **Verwijderen**: Hiermee verwijdert u het cluster.
    * **Quick Start**: geeft informatie weer waarmee u kunt aan de slag met HDInsight.

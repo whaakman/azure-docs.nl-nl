@@ -2,12 +2,12 @@
 title: Registreren voor selfservice voor wachtwoordherstel - Azure Active Directory
 description: Registreren verificatiegegevens voor self-service Azure AD-wachtwoord opnieuw instellen
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460472"
 ---
 # <a name="register-for-self-service-password-reset"></a>Registreren voor de selfservice voor het opnieuw instellen van een wachtwoord
 

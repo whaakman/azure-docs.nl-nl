@@ -2,11 +2,11 @@
 title: Vervang accu op Microsoft Azure StorSimple 8000 series apparaat | Microsoft Docs
 description: Beschrijft hoe verwijderen, vervangen en onderhouden van de module voor back-up batterij op uw StorSimple-apparaat.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27742810"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Vervang de module voor back-up batterij op uw StorSimple-apparaat
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31514540"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snelstartgids: Uw eerste Batch-taak uitvoeren in Azure Portal
 

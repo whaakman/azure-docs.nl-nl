@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31424301"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Maken en een schijfkopie OpenBSD uploaden naar Azure
 In dit artikel leest u hoe maken en uploaden van een virtuele harde schijf (VHD) die het besturingssysteem OpenBSD bevat. Nadat u deze uploaden, kunt u deze als uw eigen installatiekopie maken van een virtuele machine (VM) in Azure via Azure CLI.

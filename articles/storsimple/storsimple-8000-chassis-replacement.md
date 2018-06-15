@@ -2,11 +2,11 @@
 title: Vervang chassis op StorSimple 8000 series apparaat | Microsoft Docs
 description: Beschrijft hoe verwijderen en het chassis voor uw StorSimple-primaire behuizing of EBOD behuizing vervangen.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874799"
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Vervang het chassis op uw StorSimple-apparaat
 ## <a name="overview"></a>Overzicht

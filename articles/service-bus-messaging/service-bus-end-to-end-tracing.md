@@ -2,10 +2,10 @@
 title: Azure Service Bus-end-to-end-tracering en diagnostische gegevens | Microsoft Docs
 description: Overzicht van Service Bus-clientdiagnose en end-to-end-tracering
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: lmolkova
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27741333"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Gedistribueerde tracering en correlatie via Service Bus-berichtenservice
 

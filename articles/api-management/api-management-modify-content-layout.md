@@ -2,10 +2,10 @@
 title: Pagina-inhoud bewerken in de ontwikkelaarsportal in Azure API Management | Microsoft Docs
 description: Informatie over het bewerken van pagina-inhoud in de ontwikkelaarsportal in Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29377796"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>De inhoud en opmaak van pagina’s bewerken in de ontwikkelaarsportal in Azure API Management
 Er zijn die manieren waarop u de ontwikkelaarsportal in Azure API Management kunt aanpassen:

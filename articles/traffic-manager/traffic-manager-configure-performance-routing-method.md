@@ -2,10 +2,10 @@
 title: Configureer prestaties verkeersrouteringsmethode met behulp van Azure Traffic Manager | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe u Traffic Manager configureren om verkeer te leiden naar het eindpunt met de laagste latentie
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876311"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>De verkeersrouteringsmethode voor prestaties configureren
 

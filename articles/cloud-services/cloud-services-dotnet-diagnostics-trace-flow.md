@@ -5,7 +5,7 @@ services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 09934772-cc07-4fd2-ba88-b224ca192f8e
 ms.service: cloud-services
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461233"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>De stroom van een Cloud Services-toepassing met Azure Diagnostics traceren
 Tracering is een manier om de uitvoering van uw toepassing bewaken terwijl deze wordt uitgevoerd. U kunt de [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx), en [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) klassen voor informatie over de fouten en uitvoeren van toepassingen in Logboeken, tekstbestanden of andere apparaten voor latere analyse vastleggen. Zie voor meer informatie over tracering [tracering en toepassingen Instrumenteren](https://msdn.microsoft.com/library/zs6s4h68.aspx).

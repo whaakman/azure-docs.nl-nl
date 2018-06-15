@@ -1,11 +1,11 @@
 ---
 title: Het gebruik van de SendGrid-e-mailservice (.NET) | Microsoft Docs
 description: Meer informatie over hoe verzenden van e-mailbericht met de SendGrid-e-mailservice op Azure. Codevoorbeelden geschreven in C# en gebruiken de .NET API.
-services: 
+services: ''
 documentationcenter: .net
 author: thinkingserious
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/23/2017
+ms.locfileid: "27534852"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Het verzenden van E-mail via SendGrid met Azure
 ## <a name="overview"></a>Overzicht

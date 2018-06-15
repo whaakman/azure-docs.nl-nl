@@ -1,11 +1,11 @@
 ---
 title: Multitenant Web Application patroon | Microsoft Docs
 description: Architectuur overzichten en ontwerppatronen die wordt beschreven hoe u een multitenant-webtoepassing implementeren op Azure vinden.
-services: 
+services: ''
 documentationcenter: .net
 author: wadepickett
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23850712"
 ---
 # <a name="multitenant-applications-in-azure"></a>Multitenant-toepassingen in Azure
 Een multitenant-toepassing is een gedeelde bron waarmee afzonderlijke gebruikers of 'tenants' om weer te geven van de toepassing, alsof het was hun eigen. Een typisch scenario die gepaard met een multitenant-toepassing is een waarin alle gebruikers van de toepassing wilt aanpassen van de gebruikerservaring maar anders hebben dezelfde elementaire zakelijke vereisten. Voorbeelden van grote multitenant toepassingen zijn Office 365, Outlook.com en visualstudio.com.

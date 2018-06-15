@@ -2,11 +2,11 @@
 title: Routeringsmethode voor geografische verkeer met behulp van Azure Traffic Manager configureren | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe u de geografische verkeersrouteringsmethode met behulp van Azure Traffic Manager configureren
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397800"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>De geografische verkeersrouteringsmethode met Traffic Manager configureren
 

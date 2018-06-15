@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 4f5dbbd1da8a221fb5f8b9641e016829987db538
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29529959"
 ---
 Lees voordat u items maakt, laten we het concept van het bereik. Azure biedt vier niveaus van beheer: beheergroepen, abonnement, resourcegroep en resource. [Beheergroepen](../articles/billing/billing-enterprise-mgmt-group-overview.md) zich in een preview-versie. De volgende afbeelding toont een voorbeeld van deze lagen.
 
