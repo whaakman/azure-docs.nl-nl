@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181967"
 ---
 # <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>Upgraden naar de meest recente versie van Azure Search Service REST API
 Als u een eerdere versie van de [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/), dit artikel helpt u bij het bijwerken van uw toepassing gebruik van de meest recente algemeen beschikbaar API-versie, 2017-11-11.

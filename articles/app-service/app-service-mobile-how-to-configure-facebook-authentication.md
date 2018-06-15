@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152088"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Uw App Service-toepassing configureren voor het gebruik van Facebook-aanmelding
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

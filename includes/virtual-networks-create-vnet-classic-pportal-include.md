@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805298"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Het maken van een klassiek VNet en in de Azure portal
 Volg deze stappen voor het maken van een klassiek die vnet op basis van het voorgaande scenario.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32775799"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regels voor aangepaste waarschuwingen in Azure Security Center (Preview)
 In dit document leest u hoe u regels voor aangepaste waarschuwingen maakt in Azure Security Center.

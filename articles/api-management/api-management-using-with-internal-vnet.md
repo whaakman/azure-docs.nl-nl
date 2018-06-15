@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151226"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Gebruik van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk op het internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:

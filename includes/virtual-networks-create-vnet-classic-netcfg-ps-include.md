@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805048"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Het maken van een virtueel netwerk met een configuratiebestand netwerk vanuit PowerShell
 Azure maakt gebruik van een xml-bestand voor het definiëren van alle virtuele netwerken die beschikbaar zijn in een abonnement. U kunt dit bestand downloaden, bewerkt om te wijzigen of verwijderen van de bestaande virtuele netwerken en nieuwe virtuele netwerken maken. In deze zelfstudie u meer informatie over het downloaden van dit bestand, netwerk-configuratie (of netcfg) bestand genoemd en bewerken om te maken van een nieuw virtueel netwerk. Zie voor meer informatie over het configuratiebestand van het netwerk, de [Azure virtual network-configuratieschema](https://msdn.microsoft.com/library/azure/jj157100.aspx).

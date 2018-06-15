@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24872314"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Schaalbaarheids- en prestatiedoelen voor VM-schijven in Windows
 

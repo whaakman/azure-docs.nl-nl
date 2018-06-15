@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33207524"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Overzicht van de bewaking van Containers in Azure
 Met Azure, kunt u effectief bewaken en beheren van uw werkbelastingen op Azure containers met Kubernetes of Docker geïmplementeerd. Het is belangrijk om te begrijpen hoe containers met meerdere microservice-toepassingen om te kunnen leveren een betrouwbare service op grote schaal en uw plan bewaking uitvoert. Dit artikel bevat een kort overzicht van het beheer en bewakingsmogelijkheden in Azure om u te helpen u elke begrijpen en die van toepassing zijn op basis van uw vereisten.

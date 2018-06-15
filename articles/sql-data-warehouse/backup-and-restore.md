@@ -12,9 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187596"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Gebruik datawarehouse back-ups naar uw datawarehouse herstellen naar een herstelpunt in de primaire regio. Geografisch redundante back-ups gebruiken om te zetten naar een ander geografische regio. 

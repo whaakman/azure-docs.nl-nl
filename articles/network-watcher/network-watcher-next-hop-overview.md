@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32180382"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Gebruik de volgende hop voor het vaststellen van problemen met de virtuele machine routering
 
