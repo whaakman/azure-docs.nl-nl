@@ -4,8 +4,8 @@ description: Leer hoe u Azure-bestandsshares beheert met Azure Storage Explorer.
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: ''
+manager: aungoo
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: 1953ee18fe878c33a1a0965937f64056278875cf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f628f393f1ff5922d9d2c82b30d4fdbf4b5caf23
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738170"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Azure-bestandsshares beheren met Azure Storage Explorer 
 [Azure Files ](storage-files-introduction.md) is het gebruiksvriendelijke cloudbestandssysteem van Microsoft. In dit artikel doorloopt u basisbeginselen van het werken met Azure-bestandsshares met behulp van [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer is een populair clienthulpprogramma dat beschikbaar is voor Windows, macOS en Linux. Met Azure Storage Explorer kunt u Azure-bestandsshares en andere opslagresources beheren.
@@ -68,7 +69,7 @@ Ga als volgt te werk om uw eerste Azure-bestandsshare te maken in het opslagacco
 Nadat de bestandsshare is gemaakt, wordt er in het rechterdeelvenster een tabblad voor de bestandsshare geopend. 
 
 ## <a name="work-with-the-contents-of-an-azure-file-share"></a>Werken met de inhoud van een Azure-bestandsshare
-U beschikt nu over een Azure-bestandsshare. De volgende stap is het koppelen van de bestandsshare met SMB op [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) of [macOS](storage-how-to-use-files-mac.md). U kunt ook Azure-CLI gebruiken om met uw Azure-bestandsshare te werken. Het voordeel van het gebruik van Azure CLI ten opzichte van het koppelen van de bestandsshare met behulp van SMB is dat alle aanvragen die zijn ingediend via Azure CLI worden gedaan met behulp van de REST API van het bestand. U kunt de REST API van het bestand gebruiken om bestanden en mappen te maken, te wijzigen en te verwijderen op clients die niet over SMB beschikken.
+U beschikt nu over een Azure-bestandsshare. De volgende stap is het koppelen van de bestandsshare met SMB op [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) of [macOS](storage-how-to-use-files-mac.md). U kunt ook Azure CLI gebruiken om met uw Azure-bestandsshare te werken. Het voordeel van het gebruik van Azure CLI ten opzichte van het koppelen van de bestandsshare met behulp van SMB is dat alle aanvragen die zijn ingediend via Azure CLI worden gedaan met behulp van de REST API van het bestand. U kunt de REST API van het bestand gebruiken om bestanden en mappen te maken, te wijzigen en te verwijderen op clients die niet over SMB beschikken.
 
 ### <a name="create-a-directory"></a>Een map maken
 Het toevoegen van een map biedt een hiërarchische structuur voor het beheren van de bestandsshare. U kunt meerdere niveaus maken in uw map. U moet er echter voor zorgen dat de bovenliggende mappen bestaan voordat u submappen maakt. Voor het pad myDirectory/mySubDirectory moet u bijvoorbeeld eerst de map *myDirectory* maken. Daarna kunt u *mySubDirectory* maken. 

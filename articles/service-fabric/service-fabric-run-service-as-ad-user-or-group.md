@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206989"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Een service worden uitgevoerd als een Active Directory-gebruiker of groep
 Op een zelfstandige cluster van Windows Server, kunt u een service uitvoeren als een Active Directory-gebruiker of groep met behulp van een RunAs-beleid.  Service Fabric-toepassingen worden standaard uitgevoerd onder het account waaronder het Fabric.exe-proces wordt uitgevoerd onder. Uitvoeren van toepassingen onder verschillende accounts, zelfs in een gedeelde gehoste omgeving zorgt ervoor dat ze van elkaar veiliger. Houd er rekening mee dat dit maakt gebruik van Active Directory on-premises binnen uw domein en niet Azure Active Directory (Azure AD).  U kunt ook uitvoeren met een service als een [groep beheerde serviceaccounts (gMSA)](service-fabric-run-service-as-gmsa.md).

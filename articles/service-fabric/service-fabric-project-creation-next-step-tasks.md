@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206462"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Uw Service Fabric-toepassing en de volgende stappen
 Uw Azure Service Fabric-toepassing is gemaakt. Dit artikel worden enkele zelfstudies om uit te proberen, de samenstelling van uw project en sommige informatie die u mogelijk geïnteresseerd in mogelijke volgende stappen.

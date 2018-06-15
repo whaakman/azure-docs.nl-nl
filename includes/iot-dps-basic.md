@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30325324"
 ---
 >[!NOTE]
 >De eerste statusconfiguratie van een apparaatdubbel is alleen beschikbaar in de prijscategorie Standard van IoT Hub. Raadpleeg [How to choose the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md) (De juiste IoT Hub-prijscategorie kiezen) voor meer informatie over de Basic- en Standard-prijscategorieën van IoT Hub.

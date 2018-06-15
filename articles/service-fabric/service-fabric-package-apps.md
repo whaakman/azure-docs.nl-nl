@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205807"
 ---
 # <a name="package-an-application"></a>Toepassingspakket maken
 In dit artikel wordt beschreven hoe een Service Fabric-toepassing van het pakket en gereed is voor implementatie te maken.

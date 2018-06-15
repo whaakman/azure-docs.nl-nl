@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316467"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Taken onder gebruikersaccounts in Batch uitvoeren
 

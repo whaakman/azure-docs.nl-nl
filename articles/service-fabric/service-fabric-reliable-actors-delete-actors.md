@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208332"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Reliable Actors en hun status verwijderen
 Het object actor garbagecollection van gedeactiveerde actoren alleen ruimt, maar gegevens die zijn opgeslagen in een actor status Manager wordt niet verwijderd. Wanneer een actor opnieuw wordt geactiveerd, is de gegevens opnieuw beschikbaar gesteld aan via de status Manager. In gevallen waarbij actoren gegevens opslaan in de status Manager en zijn gedeactiveerd maar nooit geactiveerd, is het mogelijk nodig om hun gegevens op te schonen.

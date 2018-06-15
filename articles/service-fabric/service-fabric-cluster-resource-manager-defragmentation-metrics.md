@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205073"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentatie van metrische gegevens en de belasting in Service Fabric
 Service Fabric Cluster Resource Manager standaard strategie voor het beheren van metrische gegevens laden in het cluster is de verdelen. Ervoor te zorgen dat de knooppunten gelijkmatig worden gebruikt, voorkomt warme en koude plaatsen die tot conflicten zowel verspilde resources leiden. Distributie van werkbelastingen in het cluster is ook de veiligste in termen van functionerende fouten omdat Hiermee zorgt u ervoor dat een fout wordt pas uit een groot percentage van een bepaalde werkbelasting. 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260035"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Gebruik InSpec voor automatisering van de compatibiliteit van uw Azure-infrastructuur
 [Inspectie mogelijk](https://www.chef.io/inspec/) is een gratis en open-source framework voor het testen en controleren van uw toepassingen en infrastructuur. Inspectie mogelijk werkt door te vergelijken met de huidige status van uw systeem met de gewenste status die u in gemakkelijk te lezen en gemakkelijk te schrijven inspectie mogelijk code express. Inspectie mogelijk schendingen detecteert en bevindingen in de vorm van een rapport weergegeven, maar kunt u op beheer van herstel. U kunt InSpec gebruiken voor het valideren van de status van uw virtuele machines in Azure wordt uitgevoerd. U kunt ook InSpec gebruiken om te scannen en valideren van de status van resources en resourcegroepen binnen een abonnement.

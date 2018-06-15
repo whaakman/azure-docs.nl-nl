@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360469"
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft cloud services en netwerk-beveiliging
 Microsoft cloud-services leveren hyperschaal services en -infrastructuur, bedrijfsniveau mogelijkheden en veel keuzes voor hybride verbindingen. Klanten kunnen kiezen voor toegang tot deze services via Internet of met Azure ExpressRoute, waarmee u verbinding met het particuliere netwerk. Het Microsoft Azure-platform kan klanten probleemloos hun infrastructuur in de cloud uitbreiden en bouwen van meerdere lagen architecturen. Bovendien kunt derden uitgebreide mogelijkheden inschakelen door het aanbieden van beveiligingsservices en virtuele apparaten. In dit artikel biedt een overzicht van beveiliging en architectuur problemen die klanten rekening houden moeten bij het gebruik van Microsoft-cloudservices is toegankelijk via ExpressRoute. Het omvat tevens veiliger services in Azure virtuele netwerken maken.
