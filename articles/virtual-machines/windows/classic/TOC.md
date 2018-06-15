@@ -33,7 +33,6 @@
 ### [Uw VM’s beheren met Azure PowerShell](manage-psh-classic.md)
 ### [Informatie over de VM-agent en -extensies](agents-and-extensions-classic.md)
 ### [VM-extensies beheren](manage-extensions-classic.md)
-### [Aangepaste scriptextensie voor VM’s](extensions-customscript-classic.md)
 
 ## Workloads beheren
 ### [HPC (High Performance Computing)](../../virtual-machines-windows-hpcpack-cluster-options.md)
@@ -53,7 +52,7 @@
 ### [RDP-wachtwoord opnieuw instellen](reset-rdp.md)
 ### [Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele machine](troubleshoot-recovery-disks-portal.md)
 
-# Verwijzing
+# Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure-CLI](/cli/azure/vm)
 ## [Java](/java/api)

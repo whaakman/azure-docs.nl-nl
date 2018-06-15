@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311485"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Java-toepassingen voor Apache HBase bouwen
 

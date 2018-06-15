@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31789245"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Zelfstudie: Een ASP.NET-app bouwen in Azure met SQL Database
 

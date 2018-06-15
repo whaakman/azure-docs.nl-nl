@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793124"
 ---
 # <a name="this-is-the-h1-and-the-article-title-that-shows-on-the-web"></a>Dit is de H1 en de titel van het artikel die wordt weergegeven op het web
 

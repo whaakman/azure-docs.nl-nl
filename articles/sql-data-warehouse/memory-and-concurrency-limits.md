@@ -15,6 +15,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942250"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Geheugen en gelijktijdigheid limieten voor Azure SQL Data Warehouse
 Het geheugen weergeven en gelijktijdigheid van limieten die zijn toegewezen aan de verschillende prestatieniveaus en resource klassen in Azure SQL Data Warehouse. Zie voor meer informatie en deze mogelijkheden toepassen op uw plan voor werkbelasting [Resource klassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). 

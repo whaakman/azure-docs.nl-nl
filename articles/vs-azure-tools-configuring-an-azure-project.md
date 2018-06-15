@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792168"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Een Azure-cloud service-project met Visual Studio configureren
 U kunt een Azure-cloud service-project, afhankelijk van uw vereisten voor dat project configureren. U kunt eigenschappen instellen voor het project voor de volgende categorieën:

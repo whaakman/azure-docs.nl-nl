@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793967"
 ---
 # <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Het beheren van rollen in Azure cloudservices met Visual Studio
 Nadat u uw Azure-cloud-service hebt gemaakt, kunt u nieuwe rollen aan toe te voegen of bestaande rollen verwijderen. U kunt ook een bestaand project importeren en converteer deze naar een rol. U kunt bijvoorbeeld een ASP.NET-webtoepassing importeren en opgeven dat het een Webrol.

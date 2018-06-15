@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31791423"
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Het bouwen van Azure projecten vanaf de opdrachtregel
 Met de Engine van Microsoft bouwen (MSBuild), kunt u producten in de build-omgevingen waarin Visual Studio niet is geïnstalleerd. MSBuild maakt gebruik van een XML-indeling voor bestanden in dat de uitbreidbare en volledig wordt ondersteund door Microsoft. Met de MSBuild-bestandsindeling, kunt u aangeven welke items moeten worden gebouwd voor een of meer platforms en configuraties.

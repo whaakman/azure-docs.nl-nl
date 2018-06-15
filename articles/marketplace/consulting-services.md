@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312080"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Ondersteuningsdiensten van Azure Marketplace
 Adviesdiensten in Azure Marketplace biedt Microsoft-partners de doelstelling van het verbinden van klanten met services om te ondersteunen en uitbreiden van het gebruik van Azure. De vermelding van de offerings advies-service van de partners van Microsoft System Integrator (SI) biedt ondersteuning voor Azure Marketplace. 

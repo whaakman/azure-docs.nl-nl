@@ -14,6 +14,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893641"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Inleiding tot Stream Analytics windowing functies
 In scenario's tijd streaming is bewerkingen uitvoert op de gegevens in de tijdelijke windows een algemene patroon. Stream Analytics biedt systeemeigen ondersteuning voor windowing functies, waarmee ontwikkelaars op taken voor de verwerking van de auteur van complexe stream met een minimale inspanning.

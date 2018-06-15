@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192873"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u voor het beveiligen van uw storage-accounts op een specifieke set toegestane netwerken.  Wanneer het netwerk regels zijn geconfigureerd, kan alleen toepassingen van toegestane netwerken toegang krijgen tot een opslagaccount.  Bij het aanroepen van een toegestane netwerk, blijven de toepassingen vereisen juiste autorisatie (een geldig toegangssleutel of SAS-token) voor toegang tot het opslagaccount.

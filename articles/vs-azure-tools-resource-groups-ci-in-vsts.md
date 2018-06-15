@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192941"
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Doorlopende integratie in Visual Studio Team Services met behulp van Azure Resource Group implementatieprojecten
 Voor het implementeren van een Azure-sjabloon u taken uitvoeren in verschillende fasen: bouw, Test, kopiëren naar Azure (ook wel 'Fasering'), en de sjabloon implementeert. Er zijn twee verschillende manieren om sjablonen te implementeren voor Visual Studio Team Services (VS Team Services). Beide methoden bieden dezelfde resultaten, dus kiest die het beste past bij uw werkstroom.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31613616"
 ---
 De stappen voor deze taak wordt een VNet op basis van de waarden in de volgende configuratielijst gebruikt. Extra instellingen en namen worden ook beschreven in deze lijst. We niet deze lijst gebruiken in een van de stappen, hoewel er variabelen op basis van de waarden in deze lijst toevoegen. U kunt de lijst om te worden gebruikt als referentie, waarbij de waarden vervangt door uw eigen kopiëren.
 

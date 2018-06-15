@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799070"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Het model complexe gegevenstypen in Azure Search
 Externe gegevenssets die worden gebruikt voor het vullen van een Azure Search-index soms bevatten hiërarchische of geneste substructuren die niet netjes in een rijenset in tabelvorm doen uitgesplitst. Voorbeelden van dergelijke structuren mogelijk meerdere locaties en telefoonnummers omvatten voor één klant, meerdere kleuren en grootten voor een enkele SKU, meerdere auteurs van één boek, enzovoort. Voorwaarden modelleren, ziet u mogelijk deze aangeduid als structuren *complexe gegevenstypen*, *samengestelde gegevenstypen*, *samengestelde gegevenstypen*, of *gegevenstypen cumulatieve*, enz.

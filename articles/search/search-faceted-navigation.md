@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195291"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Meervoudige navigatie is een filtermechanisme waarmee zelf gerichte analyse navigatie in toepassingen. De term 'facetnavigatie' niet bekend zijn, maar u hebt waarschijnlijk het eerder gebruikt. Zoals in het volgende voorbeeld toont, wordt er meervoudige navigatie is niets meer dan de categorieën die wordt gebruikt voor het filteren van resultaten.
