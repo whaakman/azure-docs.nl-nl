@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155337"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Meld u aan Microsoft-Account en Azure Active Directory gebruikers in één toepassing
 In het verleden moest toepassingsontwikkelaars die ondersteuning bieden voor beide persoonlijke Microsoft-accounts en -werkaccounts van Azure Active Directory wilt integreren met twee afzonderlijke systemen. Het Azure Active Directory (Azure AD) v2.0-eindpunt introduceert een nieuwe authenticatie-API-versie waarmee dit proces wordt vereenvoudigd. Het Azure AD v2.0-eindpunt kunt aanmelden van beide typen accounts met behulp van een enkele integratie. Toepassingen die gebruikmaken van het Azure AD v2.0-eindpunt kunnen ook gebruiken voor de REST-API's van de [Microsoft Graph API](https://graph.microsoft.io) met behulp van een type account.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071661"
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>IP-adres bewaren voor failover van de virtuele machine van Azure
 

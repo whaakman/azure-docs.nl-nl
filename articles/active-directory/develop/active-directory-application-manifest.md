@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157072"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory-toepassingsmanifest
 Apps die zijn geïntegreerd met Azure AD moeten worden geregistreerd bij Azure AD-tenant. Deze app kan worden geconfigureerd met het app-manifest (onder de blade van Azure AD) in de [Azure-portal](https://portal.azure.com).

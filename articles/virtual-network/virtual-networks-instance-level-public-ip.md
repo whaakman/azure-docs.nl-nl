@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796017"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Exemplaar niveau openbare IP (klassiek)-overzicht
 Een instantie niveau openbare IP (ILPIP) is een openbaar IP-adres die u rechtstreeks naar een exemplaar van de rol virtuele machine of Cloud Services, in plaats van met de cloudservice die uw exemplaar van de virtuele machine of rol zich bevinden in kunt toewijzen. Een ILPIP ter niet vervanging van het virtuele IP (VIP) dat is toegewezen aan de cloudservice. Het is in plaats daarvan een extra IP-adres waarmee u kunt rechtstreeks verbinding maken met uw exemplaar van de virtuele machine of de rol.

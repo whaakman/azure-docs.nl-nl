@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157840"
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Het registreren van een app met het v2.0-eindpunt
 Maken van een app die zowel persoonlijke Microsoft-account (MSA) & werk accepteert of school aanmeldingspagina account (Azure AD), moet u eerst een app registreren bij Microsoft. Op dit moment niet mogelijk om eventuele bestaande apps u met Azure AD hebt wellicht te gebruiken of MSA - u moet een geheel nieuwe maken.

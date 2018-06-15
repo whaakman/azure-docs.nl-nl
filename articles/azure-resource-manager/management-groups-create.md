@@ -17,6 +17,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069063"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor bronorganisatie en -beheer maken
 Beheergroepen zijn containers waarmee u toegang, beleid en naleving in meerdere abonnementen beheren. Maken van deze containers voor het bouwen van een effectiever en efficiënter-hiërarchie die kan worden gebruikt met [Azure beleid](../azure-policy/azure-policy-introduction.md) en [toegangsbeheer voor op basis van Azure-functie](../role-based-access-control/overview.md). Zie voor meer informatie over beheergroepen [ordenen van uw resources met Azure-beheergroepen ](management-groups-overview.md). 

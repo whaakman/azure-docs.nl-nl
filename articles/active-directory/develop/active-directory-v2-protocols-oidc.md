@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157714"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory-v2.0 en het protocol OpenID Connect
 OpenID Connect is een authenticatieprotocol dat is gebaseerd op OAuth 2.0 die u gebruiken kunt voor het veilig Meld u aan een gebruiker aan een webtoepassing. Wanneer u het v2.0-eindpunt implementatie van OpenID Connect gebruikt, kunt u aanmelden en toegang tot API toevoegen aan uw web gebaseerde apps. In dit artikel wordt beschreven hoe u te doen dit onafhankelijk van de taal. We beschrijven hoe verzenden en ontvangen van HTTP-berichten zonder een Microsoft open source-bibliotheken.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937816"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack validatierapport
 Het hulpprogramma Azure Stack gereedheid Checker uitgevoerd validaties die ondersteuning bieden voor implementatie en het onderhoud van een Azure-Stack-omgeving. Het hulpprogramma schrijft validatieresultaten naar een .json-bestand van rapport. Het rapport bevat gedetailleerde en samengevatte gegevens op de status van de vereisten voor de implementatie van Azure-Stack en geheimen rotatie voor bestaande Azure-Stack-implementaties.  

@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156871"
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Snelstartgids voor Azure AD Graph API
 De Azure Active Directory (AD) Graph API biedt programmatische toegang tot Azure AD via REST-API voor OData-eindpunten. Toepassingen kunnen Azure AD Graph API gebruiken om uit te voeren maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op Active directory-gegevens en objecten. Bijvoorbeeld, kunt u Azure AD Graph API om een nieuwe gebruiker maken, weergeven of bijwerken van de eigenschappen van de gebruiker, het wachtwoord van gebruiker wijzigen, Controleer het lidmaatschap voor op rollen gebaseerde toegang uitschakelen of verwijderen van de gebruiker. Zie voor meer informatie over Azure AD Graph API-functies en toepassingsscenario's [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) en [vereisten voor Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx). 

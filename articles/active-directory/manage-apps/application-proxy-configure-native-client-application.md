@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161971"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Het inschakelen van native client-apps om te communiceren met de proxy-toepassingen
 

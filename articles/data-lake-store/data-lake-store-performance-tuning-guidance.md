@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196981"
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Azure Data Lake Store voor prestaties afstemmen
 

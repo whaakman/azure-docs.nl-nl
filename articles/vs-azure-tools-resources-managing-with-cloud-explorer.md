@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794069"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>De bronnen die zijn gekoppeld aan uw Azure-accounts in Visual Studio Cloud Explorer beheren
 Cloud Explorer kunt u uw Azure-resources en resourcegroepen bekijken, controleren van de eigenschappen en belangrijke ontwikkelaar diagnostics acties uitvoeren vanuit in Visual Studio. 

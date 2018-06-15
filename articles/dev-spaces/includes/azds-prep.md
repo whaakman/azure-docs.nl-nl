@@ -15,6 +15,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198823"
 ---
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Code voorbereiden voor het ontwikkelen van Docker en Kubernetes
 Tot nu toe hebt u een eenvoudige web-app die u lokaal kunt uitvoeren. U hebt nu het containerize door het maken van de activa die de app-container en hoe deze implementeert naar Kubernetes definiëren. Dit is eenvoudig doen met Azure Dev spaties: 
