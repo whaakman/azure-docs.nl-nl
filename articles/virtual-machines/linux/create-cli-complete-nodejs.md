@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30910761"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Een volledige Linux-omgeving maken met de Azure CLI 1.0
 In dit artikel verder gaan we met een eenvoudig netwerk met een combinatie van virtuele machines die gebruikt voor ontwikkeling en eenvoudige computing worden en een load balancer. We doorlopen het proces door opdracht totdat u twee werkt, beveiligde virtuele Linux-machines waarmee u verbinding hebt van een willekeurige plaats op het Internet maken kunt. Vervolgens kunt u op verplaatsen naar complexe netwerken en omgevingen.

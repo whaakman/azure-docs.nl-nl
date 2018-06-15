@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30912226"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>LVM configureren op een virtuele Linux-machine in Azure
 Dit document wordt uitgelegd hoe het configureren van logische Volume Manager (LVM) in uw virtuele machine van Azure. Het is mogelijk LVM configureren op elke schijf die is gekoppeld aan de virtuele machine, standaard de meeste cloud afbeeldingen geen LVM geconfigureerd op de schijf met het besturingssysteem. Dit is om problemen te voorkomen met groepen dubbele volume als de besturingssysteemschijf is ooit gekoppeld aan een andere virtuele machine van de dezelfde distributie en het type, dat wil zeggen tijdens een scenario voor herstel. Daarom is het aanbevolen alleen voor LVM gebruiken op de gegevensschijven.

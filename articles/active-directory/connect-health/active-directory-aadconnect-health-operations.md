@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31389709"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health-bewerkingen
 Dit onderwerp beschrijft de verschillende bewerkingen die u uitvoeren kunt met behulp van Azure Active Directory (Azure AD) Connect Health.

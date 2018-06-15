@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911196"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Machine Learning-integratie in Stream Analytics
 Stream Analytics ondersteunt de gebruiker gedefinieerde functies met Azure Machine Learning-eindpunten roepen. REST-API-ondersteuning voor deze functie wordt beschreven in de [REST-API voor Stream Analytics-bibliotheek](https://msdn.microsoft.com/library/azure/dn835031.aspx). In dit artikel biedt extra informatie die nodig zijn voor een succesvolle implementatie van deze mogelijkheid in Stream Analytics. Een zelfstudie is ook geplaatst en is beschikbaar [hier](stream-analytics-machine-learning-integration-tutorial.md).

@@ -2,10 +2,10 @@
 title: Het bijwerken van een service in de cloud | Microsoft Docs
 description: Informatie over het bijwerken van cloudservices in Azure. Meer informatie over hoe een update op een cloudservice wordt uitgevoerd om beschikbaarheid te garanderen.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24860668"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Het bijwerken van een service in de cloud
 

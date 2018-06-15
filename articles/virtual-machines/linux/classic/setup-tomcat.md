@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841612"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Tomcat7 instellen op een virtuele Linux-machine met Azure
 Apache Tomcat (of gewoon Tomcat, ook voorheen ondersteuning Tomcat) is een open-source-webserver en de servlet-container die is ontwikkeld door de Apache Software Foundation (AVP). Tomcat implementeert de Servlet Java en de specificaties Java Server Pages (JSP) van Sun Microsystems. Tomcat biedt een pure Java HTTP web server-omgeving waarin u Java-code uit te voeren. In de eenvoudigste configuratie, Tomcat uitgevoerd in een proces één besturingssysteem. Dit proces wordt uitgevoerd voor een virtuele Java-machine (JVM). Elke HTTP-aanvraag via een browser Tomcat wordt als een afzonderlijke thread in het proces Tomcat verwerkt.  

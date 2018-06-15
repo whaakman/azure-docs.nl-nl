@@ -2,10 +2,10 @@
 title: Azure CDN regels engine verwijzing | Microsoft Docs
 description: Documentatie bij Azure CDN regels overeen motor en onderdelen.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733676"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Azure CDN regels engine verwijzing
 Dit artikel vindt u gedetailleerde beschrijvingen van de voorwaarden van de beschikbare overeenkomst en de functies voor het Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).

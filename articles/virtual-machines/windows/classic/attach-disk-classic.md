@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918588"
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Een gegevensschijf koppelen aan een virtuele Windows-machine die is gemaakt volgens het klassieke implementatiemodel
 

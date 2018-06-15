@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31398960"
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Met behulp van de Console Hive-Query met Hadoop in HDInsight-sensorgegevens analyseren
 

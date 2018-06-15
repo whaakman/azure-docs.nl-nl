@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905330"
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>OS-schijf op een Linux-VM met de Azure CLI met Azure CLI 1.0 uitbreiden
 Grootte van de virtuele harde schijf voor het besturingssysteem (OS) is doorgaans 30 GB op een Linux virtuele machine (VM) in Azure. U kunt [gegevensschijven toevoegen](add-disk.md) te voorzien in extra opslagruimte, maar u kunnen ook desgewenst de OS-schijf wilt uitbreiden. Dit artikel wordt uitgelegd hoe het uitbreiden van de besturingssysteemschijf voor een Linux-VM met niet-beheerde schijven met de Azure CLI 1.0.

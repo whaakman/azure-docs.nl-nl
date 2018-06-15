@@ -1,11 +1,11 @@
 ---
 title: Azure Service Bus-verificatie en autorisatie | Microsoft Docs
-description: "Verifiëren met Service Bus-apps met Shared Access Signature (SAS)-verificatie."
+description: Verifiëren met Service Bus-apps met Shared Access Signature (SAS)-verificatie.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24813926"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Vereenvoudigde Service Bus-verificatie en -autorisatie
 

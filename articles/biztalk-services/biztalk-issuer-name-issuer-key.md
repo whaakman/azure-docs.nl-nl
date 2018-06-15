@@ -2,10 +2,10 @@
 title: Naam van verlener en sleutel van verlener in BizTalk Services | Microsoft Docs
 description: Informatie over het ophalen van de naam van de verlener en sleutel van verlener voor Service Bus of Access Control (ACS) in BizTalk Services. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 067fe356-d1aa-420f-b2f2-1a418686470a
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24103426"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: naam en sleutel van verlener
 

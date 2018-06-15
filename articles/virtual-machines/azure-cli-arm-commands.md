@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30839141"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-opdrachten in de modus Resource Manager
 Dit artikel bevat syntaxis en opties voor Azure-opdrachtregelinterface (CLI)-opdrachten die u meestal gebruikt maken en beheren van Azure-resources in het Azure Resource Manager-implementatiemodel. U toegang tot deze opdrachten door de CLI in de modus Resource Manager (arm). Dit is niet een volledig overzicht en uw versie van de CLI kan enigszins verschillen opdrachten of parameters weergeven. Zie voor een algemeen overzicht van Azure-resources en resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  

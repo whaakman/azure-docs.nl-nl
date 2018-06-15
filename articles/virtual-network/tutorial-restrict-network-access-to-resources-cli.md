@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841976"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Toegang tot het netwerk beperken tot PaaS-resources met de service-eindpunten van een virtueel netwerk met de Azure CLI
 

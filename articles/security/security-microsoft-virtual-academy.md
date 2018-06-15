@@ -1,6 +1,6 @@
 ---
 title: Azure-beveiliging cursussen van Microsoft Virtual Academy | Microsoft Docs
-description: "In dit artikel biedt een samengestelde verzameling Azure-beveiliging Verwante cursussen van Microsoft Virtual Academy.  Microsoft Virtual Academy biedt gratis, online training waarmee ontwikkelaars, IT-Professionals gegevens en studenten meer informatie over de nieuwste technologie, bouwt van hun vaardigheden en hun carrière."
+description: In dit artikel biedt een samengestelde verzameling Azure-beveiliging Verwante cursussen van Microsoft Virtual Academy.  Microsoft Virtual Academy biedt gratis, online training waarmee ontwikkelaars, IT-Professionals gegevens en studenten meer informatie over de nieuwste technologie, bouwt van hun vaardigheden en hun carrière.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540045"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Azure-beveiliging cursussen van Microsoft Virtual Academy
 Microsoft Virtual Academy biedt gratis, online training waarmee ontwikkelaars, IT-Professionals gegevens en studenten meer informatie over de nieuwste technologie, bouwt van hun vaardigheden en hun carrière.

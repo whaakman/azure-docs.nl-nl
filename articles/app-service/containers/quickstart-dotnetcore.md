@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31391624"
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Een .NET Core-web-app maken in App Service on Linux
 

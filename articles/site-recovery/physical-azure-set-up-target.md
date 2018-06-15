@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812626"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Doel (VMware naar Azure) voorbereiden
 

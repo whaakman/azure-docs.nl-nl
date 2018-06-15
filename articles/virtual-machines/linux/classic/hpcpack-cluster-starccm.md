@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841484"
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Uitvoeren van de STER-CCM + met Microsoft HPC Pack op een Linux RDMA-cluster in Azure
 Dit artikel ziet u het implementeren van een cluster Microsoft HPC Pack op Azure en voer een [CD adapco STER-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) taak op meerdere Linux-rekenknooppunten die met elkaar door middel van InfiniBand verbonden zijn.

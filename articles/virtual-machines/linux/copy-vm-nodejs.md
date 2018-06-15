@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30906936"
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Maak een kopie van een virtuele Linux-machine uitgevoerd op Azure met Azure CLI 1.0
 In dit artikel leest u hoe een kopie van uw Azure-machine (VM) met het Resource Manager-implementatiemodel met Linux maken. Eerst u via het besturingssysteem en gegevensschijven kopiëren naar een nieuwe container klikt en vervolgens de netwerkbronnen instellen en de nieuwe virtuele machine maken.

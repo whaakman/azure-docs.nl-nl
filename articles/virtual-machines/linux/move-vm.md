@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30907489"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Linux-VM verplaatsen naar een ander abonnement of de resource-groep
 In dit artikel leert u hoe u een Linux-VM verplaatsen tussen resourcegroepen of abonnementen. Een virtuele machine verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine in een persoonlijke abonnement hebt gemaakt en wilt verplaatsen naar een abonnement van uw bedrijf.

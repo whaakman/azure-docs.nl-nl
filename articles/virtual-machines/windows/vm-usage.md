@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425177"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informatie over het gebruik van de virtuele machine van Azure
 Krachtige verbruik insights kunnen worden verkregen door het analyseren van uw Azure gebruiksgegevens – inzichten die in staat kunnen stellen kosten beter beheer en de toewijzing binnen uw organisatie. Dit document bevat een diepgaand in de details van uw Azure Compute-verbruik. Voor meer informatie over het algemeen gebruik van Azure, gaat u naar [inzicht in uw factuur](../../billing/billing-understand-your-bill.md).

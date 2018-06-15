@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406504"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>De UI Tez gebruiken om op te sporen Tez-taken in HDInsight op basis van Windows
 De UI Tez kan worden gebruikt om op te sporen Hive-taken die Tez als de engine voor het uitvoeren gebruiken. De UI Tez visualiseren de taak, zoals een grafiek van verbonden items kunt inzoomen op elk item en statistieken en logboekregistratie informatie ophalen.

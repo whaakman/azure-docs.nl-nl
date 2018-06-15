@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915215"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opties voor back-up en herstel voor virtuele machines in Azure
 U kunt uw gegevens beschermen door regelmatig back-ups te maken. Er zijn verschillende back-upopties beschikbaar voor virtuele machines, afhankelijk van uw gebruiksvoorbeeld.

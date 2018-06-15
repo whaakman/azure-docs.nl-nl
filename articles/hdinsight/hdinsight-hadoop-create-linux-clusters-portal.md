@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401958"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de Azure-portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915256"
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Het hoofdknooppunt van een HPC Pack-cluster maken in een Azure VM met een Marketplace-installatiekopie
 Gebruik een [installatiekopie van de virtuele machine Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) vanuit Azure Marketplace en de Azure-portal te maken van het hoofdknooppunt van een HPC-cluster. Deze HPC Pack VM-installatiekopie is gebaseerd op Windows Server 2012 R2 Datacenter met HPC Pack 2012 R2 Update 3 vooraf zijn geïnstalleerd. Gebruik deze hoofdknooppunt voor een bewijs van de implementatie van het concept van HPC Pack in Azure. U kunt vervolgens rekenknooppunten toevoegen aan het cluster HPC-workloads uitvoeren.

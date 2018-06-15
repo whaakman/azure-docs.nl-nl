@@ -2,10 +2,10 @@
 title: Cloud Services-rol config XPath-referentieoverzicht | Microsoft Docs
 description: De verschillende XPath-instellingen kunt u in de cloud van de rol serviceconfiguratie instellingen weergeven als een omgevingsvariabele.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24860365"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Configuratie-rolinstellingen weergeven als een omgevingsvariabele met XPath
 In de cloud service worker of web rol servicedefinitiebestand kan configuratiewaarden runtime worden blootgesteld als omgevingsvariabelen. De volgende waarden voor XPath worden ondersteund (die overeenkomen met de API-waarden).

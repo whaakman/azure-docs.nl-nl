@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911754"
 ---
 # <a name="configure-software-raid-on-linux"></a>Software-RAID configureren onder Linux
 Het is een veelvoorkomend scenario gebruik van software-RAID op Linux virtuele machines in Azure aan meerdere gegevensschijven van de gekoppelde worden weergegeven als een enkel RAID-apparaat. Dit kan doorgaans worden gebruikt voor betere prestaties en toestaan voor een verbeterde doorvoer vergeleken met het gebruik van één schijf.

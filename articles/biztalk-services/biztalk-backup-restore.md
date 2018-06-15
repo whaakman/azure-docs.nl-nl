@@ -2,10 +2,10 @@
 title: Maken en herstellen van een back-up in BizTalk Services | Microsoft Docs
 description: BizTalk Services omvat back-up en herstel. Meer informatie over het maken en herstellen van een back-up om te bepalen wat opgehaald back-up gemaakt. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 59f91173-4683-48df-abd5-41262bfce6df
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102338"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: back-ups maken en herstellen
 

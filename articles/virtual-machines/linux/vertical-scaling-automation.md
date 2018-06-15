@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913481"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Azure Linux virtuele machine met Azure Automation verticaal te schalen
 Verticaal schalen, is het proces van het vergroten of verkleinen van de resources van een machine in reactie op de workload. In Azure kunt dit doen door de grootte van de virtuele Machine. Dit kan helpen bij de volgende scenario 's

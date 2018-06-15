@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057668"
 ---
 # <a name="virtual-machines-documentation"></a>Documentatie voor virtuele machines
 Virtuele Azure-machines bieden een beveiligde, gevirtualiseerde infrastructuur met een hoge schaalbaarheid op aanvraag. U kunt virtuele Windows-machines of virtuele Linux-machines maken waarop Red Hat, Ubuntu of de Linux-distributie van uw keuze wordt uitgevoerd. Zie voor meer informatie:

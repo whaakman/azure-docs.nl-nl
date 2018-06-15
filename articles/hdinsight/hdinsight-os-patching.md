@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409752"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS patches voor HDInsight 
 Als een beheerde Hadoop-service zorgt HDInsight voor het herstellen van het besturingssysteem van de onderliggende virtuele machines die worden gebruikt door HDInsight-clusters. Vanaf 1 augustus 2016, hebben we de toepassing van patches Gast OS-beleid voor Linux gebaseerde HDInsight-clusters (versie 3.4 of hoger) gewijzigd. Het doel van het nieuwe beleid is aanzienlijk minder opnieuw te worden opgestart vanwege patchen. Patch voor virtuele machines (VM's) blijven het nieuwe beleid op Linux-clusters elke maandag of donderdag begint bij 12: 00 A.M. UTC op een wijze gespreid over de knooppunten in een opgegeven cluster. Een bepaalde virtuele machine wordt echter alleen opnieuw opgestart als gevolg van Gast OS patches maximaal één keer elke 30 dagen. Bovendien de eerste herstart voor een nieuw cluster gebeurt niet eerder zijn dan 30 dagen na het maken van het cluster. Patches worden van kracht nadat de virtuele machines opnieuw worden opgestart.

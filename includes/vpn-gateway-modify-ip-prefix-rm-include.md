@@ -10,9 +10,10 @@ ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8803aada61ae58f1e221767aeb382f7d74c63eb4
 ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30326497"
 ---
 ### <a name="noconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - geen gatewayverbinding
 

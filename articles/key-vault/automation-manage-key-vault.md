@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406871"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Het beheren van Azure Sleutelkluis met behulp van Azure Automation
 Deze handleiding vindt u de Azure Automation-service en hoe deze kan worden gebruikt voor het vereenvoudigen van beheer van uw sleutels en geheimen in Azure Sleutelkluis.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918112"
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>MySQL installeren op een virtuele machine gemaakt met het klassieke implementatiemodel met Windows Server 2016
 [MySQL](https://www.mysql.com) is een populaire open-source, SQL-database. Deze zelfstudie ziet u het installeren en voer de **community-versie van MySQL 5.7.18** als een MySQL-Server op een virtuele machine met **Windows Server 2016**. Uw ervaring mogelijk enigszins verschillen voor andere versies van MySQL of Windows Server.

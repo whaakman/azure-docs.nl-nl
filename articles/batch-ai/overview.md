@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30903472"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Wat is Batch AI in Azure?
 Batch AI is een beheerde service waarmee gegevenswetenschappers en AI-onderzoekers AI en andere Machine Learning-modellen kunnen trainen op clusters met virtuele Azure-machines, inclusief VM's met GPU-ondersteuning. U beschrijft de vereisten van uw taak, waar de invoer kan worden gevonden en de uitvoer moet worden opgeslagen, en Batch AI doet de rest.  

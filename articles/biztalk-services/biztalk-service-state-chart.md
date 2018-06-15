@@ -2,10 +2,10 @@
 title: Taken die zijn toegestaan in verschillende statussen of statussen in BizTalk Services | Microsoft Docs
 description: 'De acties/operations toegestaan in andere MABS status: stoppen, starten, opnieuw starten, onderbreken, hervatten, verwijderen, schalen, configuratie en back-ups maken van bijwerken'
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: aea738f3-ec76-4099-a41b-e17fea9e252f
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102739"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Wat u wel en niet met behulp van de BizTalk Service-status
 

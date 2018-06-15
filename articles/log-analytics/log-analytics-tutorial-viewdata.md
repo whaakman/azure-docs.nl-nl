@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30834415"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Gegevens weergeven of analyseren die zijn verzameld met Zoeken in logboeken van Log Analytics
 

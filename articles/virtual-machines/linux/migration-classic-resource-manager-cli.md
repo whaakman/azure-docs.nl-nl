@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909748"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migreren IaaS-middelen van klassiek naar Azure Resource Manager met behulp van Azure CLI
 Deze stappen ziet u het gebruik van Azure-opdrachtregelinterface (CLI)-opdrachten voor het migreren van infrastructuur als een dienst (IaaS) resources van het klassieke implementatiemodel naar het Azure Resource Manager-implementatiemodel. In het artikel moet de [Azure CLI 1.0](../../cli-install-nodejs.md). Omdat Azure CLI 2.0 alleen van toepassing op Azure Resource Manager-resources is, kan deze niet worden gebruikt voor de migratie.

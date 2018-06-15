@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30833129"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Een Log Analytics-werkruimte maken in de Azure portal
 Dit is een unieke Log Analytics-omgeving met een eigen data-opslagplaats, gegevensbronnen en oplossingen in de Azure-Portal die kunt u een werkruimte voor logboekanalyse instellen.  De stappen in dit artikel zijn vereist als u van plan bent op het verzamelen van gegevens van de volgende bronnen:

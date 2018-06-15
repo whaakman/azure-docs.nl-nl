@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30921439"
 ---
 1. Klik links op de portalpagina op **+** en typ 'Virtuele netwerkgateway' in het zoekvak. Zoek in **Resultaten** naar **Virtuele netwerkgateway** en klik hierop.
 2. Klik onder aan de pagina Virtuele netwerkgateway op **Maken**. Hiermee opent u de pagina **Gateway van het virtuele netwerk maken**.

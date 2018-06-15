@@ -16,6 +16,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30901912"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Eén PostgreSQL-server bewaken en de schaal ervan aanpassen met Azure CLI
 Met dit CLI-voorbeeldscript wordt de schaal van één Azure Database for PostgreSQL-server aangepast naar een ander prestatieniveau na het uitvoeren van query's op de metrische gegevens. 

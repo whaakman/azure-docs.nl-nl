@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918146"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Een Windows VM verplaatsen naar een andere Azure-abonnement of resourcegroep groep
 Dit artikel begeleidt u bij het verplaatsen van een virtuele machine van Windows tussen resourcegroepen of abonnementen. Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en wilt verplaatsen naar een abonnement van uw bedrijf om na te gaan met uw werk.

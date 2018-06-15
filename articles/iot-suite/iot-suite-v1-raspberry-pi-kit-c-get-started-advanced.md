@@ -1,12 +1,12 @@
 ---
 title: Verbinding maken met een frambozen Pi met C ter ondersteuning van de firmware-updates van Azure IoT Suite | Microsoft Docs
 description: Gebruik de Microsoft Azure IoT Starter Kit voor de Raspberry Pi 3 en Azure IoT Suite. Gebruik C verbinding maken met uw frambozen-Pi de oplossing voor externe controle verzenden van telemetrie van sensoren naar de cloud en uitvoeren van een externe firmware-update.
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: c
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24012062"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Uw frambozen Pi 3 verbinding met de oplossing voor externe controle en externe firmware-updates met C inschakelen
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31412107"
 ---
 # <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>Zelfstudie: Waarschuwingen instellen voor Azure Stream Analytics-taken
 U kunt waarschuwingen instellen voor het activeren van een waarschuwing wanneer een metriek bereikt een voorwaarde die u opgeeft. U kunt bijvoorbeeld een waarschuwing voor een voorwaarde die u als volgt instellen:

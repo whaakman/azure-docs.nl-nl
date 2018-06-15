@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913618"
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Een Windows-VM gemaakt in het klassieke implementatiemodel vergroten of verkleinen
 In dit artikel leest u hoe het formaat van een virtuele machine van Windows, in het klassieke implementatiemodel met Azure Powershell hebt gemaakt.

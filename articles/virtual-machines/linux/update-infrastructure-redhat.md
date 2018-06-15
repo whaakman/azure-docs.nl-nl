@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915461"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update-infrastructuur voor on-demand Red Hat Enterprise Linux virtuele machines in Azure
  [Red Hat Update-infrastructuur](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kunt u cloudproviders, zoals Azure, voor het spiegelen van de inhoud van Red Hat gehost opslagplaats, aangepaste opslagplaatsen met Azure-specifieke inhoud maken en beschikbaar maken voor virtuele machines door eindgebruikers.
