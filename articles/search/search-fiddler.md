@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190182"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>REST API's voor Azure Search verkennen met Fiddler of Postman
 

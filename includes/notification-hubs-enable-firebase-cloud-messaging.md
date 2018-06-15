@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814693"
 ---
 1. Meld u aan bij de [Firebase-console](https://firebase.google.com/console/). Maak een nieuw Firebase-project als u er nog geen hebt.
 2. Nadat u uw project hebt gemaakt, selecteert u **Firebase toevoegen aan uw Android-app**. Volg de instructies. Download het bestand **google services.json**. 

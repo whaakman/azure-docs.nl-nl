@@ -16,6 +16,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168204"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Overzicht van vereisten voor het gebruik van de Service Azure Database migreren
 Er zijn verschillende vereisten die zijn vereist om ervoor te zorgen dat de Service Azure Database migratie probleemloos bij het uitvoeren van de database-migraties. Sommige van de vereisten van toepassing in alle scenario's (bron-doel paren) die door de service, worden ondersteund, terwijl andere vereisten uniek voor een specifiek scenario zijn.

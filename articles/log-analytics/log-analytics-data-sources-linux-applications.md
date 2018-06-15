@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168279"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
 Dit artikel bevat informatie voor het configureren van de [OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen.  De toepassingen die zijn opgenomen in dit artikel zijn:  

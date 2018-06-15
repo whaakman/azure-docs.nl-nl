@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192778"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Beheer van de werkbelasting met resource klassen in Azure SQL Data Warehouse
 Richtlijnen voor het gebruik van resource-klassen voor het beheren van geheugen en een gelijktijdigheid van taken voor query's in uw Azure SQL Data Warehouse.  

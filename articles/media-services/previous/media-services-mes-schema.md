@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788989"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard schema
 In dit artikel worden enkele van de elementen en typen van het XML-schema beschreven waarop [Media Encoder Standard voorinstellingen](media-services-mes-presets-overview.md) zijn gebaseerd. Het artikel geeft uitleg van de elementen en hun geldige waarden.  

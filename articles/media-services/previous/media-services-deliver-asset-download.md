@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788226"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Procedure: een Asset door Download leveren
 Dit artikel worden de opties voor het leveren van media-elementen met Media Services wordt geüpload. U kunt inhoud in Media Services leveren in talloze scenario's van toepassing. Nadat de codering, downloaden van de gegenereerde media-elementen of toegang tot deze met behulp van een streaming-locator. U kunt ook inhoud met behulp van een inhoud Delivery Network (CDN) voor betere prestaties en schaalbaarheid leveren.

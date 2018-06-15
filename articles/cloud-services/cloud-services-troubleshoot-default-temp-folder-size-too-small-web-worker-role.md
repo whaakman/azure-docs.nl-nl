@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154525"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Standaard is tijdelijke map te klein voor een cloud service web/worker-rol
 De standaard tijdelijke map van een cloud service worker- of webserver-rol heeft een maximale grootte van 100 MB, die volledig op een bepaald moment kan worden. Dit artikel wordt beschreven hoe u voorkomt dat met de beschikbare ruimte voor de tijdelijke map.

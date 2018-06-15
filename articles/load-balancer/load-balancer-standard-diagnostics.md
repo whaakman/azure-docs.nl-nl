@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179791"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metrische gegevens en de gezondheid van diagnostische gegevens voor de standaard Load Balancer
 
