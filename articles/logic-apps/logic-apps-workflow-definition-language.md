@@ -3,7 +3,7 @@ title: Werkstroom Definition Language schema - Azure Logic Apps | Microsoft Docs
 description: Schrijven van aangepaste werkstroomdefinities voor Azure Logic Apps met de werkstroom Definition Language
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: MT
+ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886802"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300178"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Logic Apps werkstroomdefinities met het schema van de werkstroom Definition Language
 
@@ -106,7 +106,7 @@ Hier volgt de algemene structuur voor de definitie van een uitvoer:
 
 | Element | Vereist | Type | Beschrijving | 
 |---------|----------|------|-------------| 
-| <*naam van de sleutel*> | Ja | Tekenreeks | De naam van de sleutel voor de uitvoer waarde retourneren |  
+| <*naam van de sleutel*> | Ja | Reeks | De naam van de sleutel voor de uitvoer waarde retourneren |  
 | type | Ja | int, float, string, securestring, bool, array, JSON-object | Het type voor de retourwaarde van uitvoer | 
 | waarde | Ja | Zelfde als `type` | De retourwaarde van uitvoer |  
 ||||| 
@@ -266,7 +266,7 @@ Of gaan leren over functies die op basis van hun algemene doeleinden.
 
 <a name="string-functions"></a>
 
-### <a name="string-functions"></a>Tekenreeks-functies
+### <a name="string-functions"></a>Tekenreeksfuncties
 
 Om te werken met tekenreeksen, kunt u deze tekenreeksfuncties en ook enkele [verzameling functies](#collection-functions). Tekenreeks-functies werken alleen op tekenreeksen. 
 
@@ -327,7 +327,7 @@ Als u wilt werken met voorwaarden, waarden en expressieresultaten te vergelijken
 
 <a name="conversion-functions"></a>
 
-### <a name="conversion-functions"></a>Van conversiefuncties
+### <a name="conversion-functions"></a>Conversiefuncties
 
 Het type of de indeling van een waarde wilt wijzigen, kunt u deze conversiefuncties. U kunt bijvoorbeeld een waarde van een Booleaanse waarde wijzigen in een geheel getal. Zie voor meer informatie over hoe Logic Apps typen inhoud verwerkt tijdens de conversie, [typen inhoud verwerken](../logic-apps/logic-apps-content-type.md). Zie voor de volledige naslaginformatie over elke functie de [alfabetische verwijzingsartikel](../logic-apps/workflow-definition-language-functions-reference.md).
 
@@ -359,7 +359,7 @@ Het type of de indeling van een waarde wilt wijzigen, kunt u deze conversiefunct
 
 <a name="math-functions"></a>
 
-### <a name="math-functions"></a>Rekenkundige functies
+### <a name="math-functions"></a>Wiskundige functies
 
 Om te werken met gehele getallen en tekst, kunt u deze functies math. Zie voor de volledige naslaginformatie over elke functie de [alfabetische verwijzingsartikel](../logic-apps/workflow-definition-language-functions-reference.md).
 
@@ -409,7 +409,7 @@ Zie voor de volledige naslaginformatie over elke functie de [alfabetische verwij
 
 <a name="workflow-functions"></a>
 
-### <a name="workflow-functions"></a>Werkstroom-functies
+### <a name="workflow-functions"></a>Werkstroomfuncties
 
 Deze werkstroom-functies kunnen u helpen:
 
@@ -445,7 +445,7 @@ U kunt bijvoorbeeld verwijzen naar de uitvoer van een actie en die gegevens gebr
 
 <a name="uri-parsing-functions"></a>
 
-### <a name="uri-parsing-functions"></a>URI bij het parseren van functies
+### <a name="uri-parsing-functions"></a>Functies voor URI parseren
 
 Als u wilt werken met uniform resource-id's (URI) en verschillende eigenschapswaarden ophalen voor deze URI's, kunt u deze URI bij het parseren van functies. Zie voor de volledige naslaginformatie over elke functie de [alfabetische verwijzingsartikel](../logic-apps/workflow-definition-language-functions-reference.md).
 

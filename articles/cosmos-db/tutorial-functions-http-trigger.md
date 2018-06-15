@@ -2,29 +2,26 @@
 title: Een HTTP-trigger maken met een Azure Cosmos DB-invoerbinding | Microsoft Docs
 description: Informatie over het gebruik van Azure Functions met HTTP-triggers voor het uitvoeren van query’s op Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818896"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Een Azure Functions HTTP-trigger maken met een Azure Cosmos DB-invoerbinding
 
 Azure Cosmos DB is een globaal gedistribueerde, multi-model database die zowel schemaloos als serverloos is. Azure Function is een serverloze rekenservice waarmee u code op aanvraag uit kunt voeren. Koppel deze twee Azure-services en u hebt de basis voor een serverloze architectuur waarmee u zich kunt richten op het bouwen van geweldige apps en u geen zorgen hoeft te maken over het inrichten en onderhouden van servers voor uw reken- en databasebehoeften.
 
-Deze zelfstudie bouwt voort op de code die is gemaakt in de [Graph-API-snelstart voor .NET](create-graph-dotnet.md). In deze zelfstudie wordt een Azure Function toegevoegd die een [HTTP-trigger](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger) bevat. De HTTP-trigger gebruikt een Cosmos Azure DB- [invoerbinding](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) om gegevens op te halen uit de graafdatabase die u in de snelstartgids hebt gemaakt. Deze specifieke HTTP-trigger vraagt gegevens op uit Azure Cosmos DB, maar invoerbindingen van Azure Cosmos DB kunnen worden gebruikt voor het ophalen van gegevensinvoerwaarden voor wat uw functie maar nodig heeft.
+Deze zelfstudie bouwt voort op de code die is gemaakt in de [Graph-API-snelstart voor .NET](create-graph-dotnet.md). In deze zelfstudie wordt een Azure Function toegevoegd die een [HTTP-trigger](../azure-functions/functions-bindings-http-webhook.md) bevat. De HTTP-trigger gebruikt een Cosmos Azure DB- [invoerbinding](../azure-functions/functions-triggers-bindings.md) om gegevens op te halen uit de graafdatabase die u in de snelstartgids hebt gemaakt. Deze specifieke HTTP-trigger vraagt gegevens op uit Azure Cosmos DB, maar invoerbindingen van Azure Cosmos DB kunnen worden gebruikt voor het ophalen van gegevensinvoerwaarden voor wat uw functie maar nodig heeft.
 
 Deze zelfstudie bestaat uit de volgende taken:
 

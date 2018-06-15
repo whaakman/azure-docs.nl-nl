@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 80ff76f98e563df14feacafab2420a48611d5828
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7531ddce37b2f6d140cb277727d6168d8d98ba1e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802381"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Zelfstudie - Een schaalset met virtuele Azure-machines maken met Azure PowerShell
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. Gedurende de levenscyclus van een schaalset voor virtuele machines moet u mogelijk een of meer beheertaken uitvoeren. In deze zelfstudie leert u het volgende:
@@ -36,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 5.6.0 of hoger van de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 6.0.0 of hoger van de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
@@ -145,7 +146,7 @@ Zodra u bent aangemeld bij het VM-exemplaar, kunt u indien nodig de configuratie
 
 
 ## <a name="understand-vm-instance-images"></a>Installatiekopieën van VM-exemplaren begrijpen
-Toen u in een vorige stap een schaalsetconfiguratie hebt gedefinieerd met [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile), hebt u hiervoor een installatiekopie van Windows Server 2016 Datacenter gebruikt. Azure Marketplace bevat allerlei installatiekopieën die kunnen worden gebruikt voor het maken van VM-exemplaren. Gebruik de opdracht [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) om een lijst met beschikbare uitgevers te zien.
+Azure Marketplace bevat allerlei installatiekopieën die kunnen worden gebruikt voor het maken van VM-exemplaren. Gebruik de opdracht [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) om een lijst met beschikbare uitgevers te zien.
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"
@@ -188,7 +189,7 @@ New-AzureRmVmss `
   -SubnetName "mySubnet2" `
   -PublicIpAddressName "myPublicIPAddress2" `
   -LoadBalancerName "myLoadBalancer2" `
-  -UpgradePolicy "Automatic" `
+  -UpgradePolicyMode "Automatic" `
   -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest" `
   -Credential $cred
 ```
@@ -245,7 +246,7 @@ New-AzureRmVmss `
   -SubnetName "mySubnet3" `
   -PublicIpAddressName "myPublicIPAddress3" `
   -LoadBalancerName "myLoadBalancer3" `
-  -UpgradePolicy "Automatic" `
+  -UpgradePolicyMode "Automatic" `
   -VmSize "Standard_F1" `
   -Credential $cred
 ```

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30832497"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>De portal gebruiken voor een gegevensschijf koppelen aan een Linux-VM 
 In dit artikel leest u hoe nieuwe en bestaande schijven koppelen aan een virtuele Linux-machine via de Azure portal. U kunt ook [een gegevensschijf koppelen aan een virtuele machine van Windows in de Azure portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
