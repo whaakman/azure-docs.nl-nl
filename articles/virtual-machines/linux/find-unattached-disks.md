@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323250"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Zoeken en verwijderen van niet-gekoppelde Azure beheerde en onbeheerde-schijven
 Wanneer u een virtuele machine (VM) in Azure, standaard verwijdert worden niet alle schijven die zijn gekoppeld aan de virtuele machine verwijderd. Deze functie helpt voorkomen dat gegevens verloren gaan als gevolg van het onbedoeld verwijderen van virtuele machines. Nadat een virtuele machine wordt verwijderd, blijft u betaalt voor niet-gekoppelde schijven. In dit artikel laat zien hoe vinden en verwijderen van eventuele niet-gekoppelde schijven en onnodige kosten te verlagen. 

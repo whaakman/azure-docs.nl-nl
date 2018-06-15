@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425914"
 ---
 # <a name="azure-powershell-samples-for-event-grid"></a>Voorbeelden van Azure PowerShell voor Event Grid
 

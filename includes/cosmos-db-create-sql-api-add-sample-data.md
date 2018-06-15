@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31429328"
 ---
 U kunt nu gegevens aan uw nieuwe verzameling toevoegen met behulp van Data Explorer.
 
