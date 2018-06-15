@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855199"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Meerdere VIP's voor een cloudservice configureren
 

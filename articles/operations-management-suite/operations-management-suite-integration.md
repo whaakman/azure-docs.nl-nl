@@ -2,7 +2,7 @@
 title: Integratie met Operations Management Suite (OMS) | Microsoft Docs
 description: Naast de standaard functies van OMS gebruikt, kunt u deze integreren met andere toepassingen en services voor het leveren van een hybride beheeromgeving om aangepaste beheerscenario uniek is voor uw omgeving of voor een aangepaste management ervaring voor uw klanten.  Dit artikel bevat een overzicht van de verschillende opties voor het integreren met OMS en koppelingen naar artikelen gedetailleerde technische informatie verstrekt.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865860"
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>Integratie met Operations Management Suite (OMS)
 Operations Management Suite is een oplossing van Microsoft cloud-gebaseerde IT management waarmee u beheren kunt en beveiligen van uw on-premises en cloud-infrastructuur.  Naast de standaard functies van OMS gebruikt, kunt u deze integreren met andere toepassingen en services voor het leveren van een hybride beheeromgeving om aangepaste beheerscenario uniek is voor uw omgeving of voor een aangepaste management ervaring voor uw klanten.  Dit artikel bevat een overzicht van de verschillende opties voor het integreren met OMS-services en koppelingen naar artikelen gedetailleerde technische informatie verstrekt. 

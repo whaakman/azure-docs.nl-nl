@@ -1,8 +1,8 @@
 ---
 title: Inrichten en microservices zoals verwacht in Azure implementeren
-description: "Informatie over het implementeren van een toepassing die bestaat uit microservices in Azure App Service als één eenheid en in een voorspelbare wijze met JSON resource group-sjablonen en PowerShell-scripts."
+description: Informatie over het implementeren van een toepassing die bestaat uit microservices in Azure App Service als één eenheid en in een voorspelbare wijze met JSON resource group-sjablonen en PowerShell-scripts.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23837097"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Inrichten en microservices zoals verwacht in Azure implementeren
 Deze zelfstudie laat zien hoe inrichten en implementeren van een toepassing die bestaat uit [microservices](https://en.wikipedia.org/wiki/Microservices) in [Azure App Service](/services/app-service/) als één eenheid en in een voorspelbare wijze JSON resource group-sjablonen en PowerShell-scripts. 

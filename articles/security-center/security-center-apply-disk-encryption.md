@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866259"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Schijfversleuteling in Azure Security Center toepassen
 Azure Security Center adviseert schijfversleuteling toe te passen als u Windows of Linux-VM-schijven die niet zijn versleuteld met behulp van Azure Disk Encryption hebt. Schijfversleuteling kunt u de schijven voor Windows en Linux IaaS VM versleutelen.  Versleuteling wordt aanbevolen voor het besturingssysteem en voor de gegevensvolumes op de VM.

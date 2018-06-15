@@ -2,10 +2,10 @@
 title: Problemen met aanmelden bij een niet-galerie-toepassing is geconfigureerd voor federatieve eenmalige aanmelding | Microsoft Docs
 description: Richtlijnen voor de specifieke problemen die u mee te maken mogelijk tijdens het aanmelden bij een toepassing die is geconfigureerd voor op basis van SAML federatieve eenmalige aanmelding met Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/14/2018
+ms.locfileid: "29383460"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een niet-galerie-toepassing die is geconfigureerd voor federatieve eenmalige aanmelding
 

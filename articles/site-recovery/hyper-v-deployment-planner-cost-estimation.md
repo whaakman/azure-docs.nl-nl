@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29467175"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Kosten schatting rapport door Azure Site Recovery-implementatie plannen 
 

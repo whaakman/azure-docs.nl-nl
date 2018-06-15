@@ -2,10 +2,10 @@
 title: Het inkomende verkeer naar een App Service-omgeving beheren
 description: Meer informatie over het configureren van netwerk-beveiligingsregels voor binnenkomend verkeer naar een App Service-omgeving beheren.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836922"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Het inkomende verkeer naar een App Service-omgeving beheren
 ## <a name="overview"></a>Overzicht

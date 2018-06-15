@@ -2,7 +2,7 @@
 title: Alle onderwerpen voor SQL Server Stretch Database-service | Microsoft Docs
 description: Tabel met alle onderwerpen voor de Azure-service de naam van SQL Server Stretch Database, die bestaan op http://azure.microsoft.com/documentation/articles/, titel en beschrijving.
 services: sql-server-stretch-database
-documentationcenter: 
+documentationcenter: ''
 author: DouglasL
 manager: jhubbard
 editor: MightyPen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23872944"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Alle onderwerpen voor Azure SQL Server Stretch Database-service
 Dit onderwerp vindt u elk onderwerp die van toepassing rechtstreeks naar is de **SQL Server Stretch Database** service van Azure. U kunt deze webpagina voor trefwoorden zoeken met behulp van **Ctrl + F**, om te zoeken naar onderwerpen die van belang huidige.

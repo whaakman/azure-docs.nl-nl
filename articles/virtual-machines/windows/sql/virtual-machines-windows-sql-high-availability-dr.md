@@ -1,11 +1,11 @@
 ---
 title: Hoge beschikbaarheid en herstel na noodgevallen voor SQL Server | Microsoft Docs
-description: "Een bespreking van de verschillende typen HADR strategieën voor het SQL Server wordt uitgevoerd in Azure Virtual Machines."
+description: Een bespreking van de verschillende typen HADR strategieën voor het SQL Server wordt uitgevoerd in Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401256"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Maximale beschikbaarheid en herstel na noodgeval voor SQL Server in SQL Server Virtual Machine
 
