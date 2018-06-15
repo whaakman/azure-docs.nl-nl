@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31600898"
 ---
 # <a name="app-service-documentation"></a>Documentatie over App Service
 Met Azure App Service kunt u webtoepassingen maken en hosten in een programmeertaal naar keuze zonder dat u de infrastructuur, taal of runtime van het webframework hoeft te beheren. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Visual Studio Team Services of een willekeurige Git-repo. Ontdek met onze snelstarts, zelfstudies en voorbeelden hoe u Azure App Service gebruikt.

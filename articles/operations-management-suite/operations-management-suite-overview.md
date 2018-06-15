@@ -2,7 +2,7 @@
 title: Overzicht van Operations Management Suite (OMS) | Microsoft Docs
 description: Microsoft Operations Management Suite (OMS) is een cloudoplossing voor IT-beheer van Microsoft waarmee u uw on-premises en cloudinfrastructuur kunt beheren en beveiligen.  In dit artikel worden de waarde van OMS en de verschillende services en functies van OMS beschreven. Ook vindt u hier koppelingen naar de gedetailleerde inhoud ervan.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684011"
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Wat is Operations Management Suite (OMS)?
 Dit artikel is een inleiding tot Operations Management Suite (OMS) met inbegrip van een kort overzicht van de bedrijfswaarde die het biedt, de services en beheeroplossingen die het bevat, en de aanbiedingen waarin verschillende services en oplossingen worden gecombineerd.  Bovendien vindt u hier koppelingen naar gedetailleerde documentatie over de implementatie en het gebruik van de diverse services en oplossingen.

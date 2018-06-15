@@ -3,11 +3,11 @@ title: Productnamen en service-id's voor licentieverlening in Azure Active Direc
 description: ID-toewijzing voor het beheren van Azure AD-licentieverlening in Azure portal, de Office 365-portal, PowerShell of Microsoft Graph
 services: active-directory
 keywords: Azure Active Directory service-abonnementen-licentieverlening
-documentationcenter: 
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26609325"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Productnamen en service-abonnement-id's voor licentieverlening
 

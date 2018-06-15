@@ -2,7 +2,7 @@
 title: Verzamelen en analyseren van de prestatiemeteritems in Azure Log Analytics | Microsoft Docs
 description: Prestatiemeteritems worden verzameld door logboekanalyse voor het analyseren van de prestaties van Windows en Linux-agents.  In dit artikel wordt beschreven hoe u verzamelen van prestatiemeteritems voor zowel Windows en Linux-agents, details van deze worden opgeslagen in de werkruimte en hoe ze in de Azure portal te analyseren.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783159"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows- en Linux prestaties gegevensbronnen in Log Analytics
 Prestatiemeters in Windows en Linux bieden inzicht in de prestaties van hardwareonderdelen, besturingssystemen en toepassingen.  Log Analytics kunt verzamelen van prestatiemeteritems met regelmatige tussenpozen voor analyse van de bijna realtime (NRT) naast het aggregeren van prestatiegegevens voor langere termijn analyse en rapportage.

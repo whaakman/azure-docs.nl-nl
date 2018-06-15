@@ -3,7 +3,7 @@ title: Overzicht van Enterprise State Roaming | Microsoft Docs
 description: Bevat informatie over Enterprise State Roaming instellingen in Windows-apparaten. Enterprise State Roaming biedt gebruikers een uniforme ervaring via hun Windows-apparaten en minder tijd nodig voor het configureren van een nieuw apparaat.
 services: active-directory
 keywords: Wat is er Enterprise State Roaming, synchronisatie, enterprise, windows-cloud
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -17,9 +17,10 @@ ms.date: 03/08/2017
 ms.author: markvi
 ms.openlocfilehash: 2e1ebf5a9bfc4a1f0f92ff85f9406ecc7d538819
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614947"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Overzicht van enterprise state roaming
 Met Windows 10 [Azure Active Directory (Azure AD)](active-directory-whatis.md) gebruikers krijgen de mogelijkheid om te synchroniseren veilig hun gebruikersinstellingen en de instellingen van toepassingsgegevens naar de cloud. Enterprise State Roaming biedt gebruikers een uniforme ervaring via hun Windows-apparaten en minder tijd nodig voor het configureren van een nieuw apparaat. Enterprise State Roaming werkt vergelijkbaar met de standaard [consumer instellingen sync](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) die is geïntroduceerd in Windows 8. Daarnaast biedt Enterprise State Roaming:

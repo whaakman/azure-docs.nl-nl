@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "31600339"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Gedetailleerde stappen: maken en beheren van de SSH-sleutels voor verificatie van een Linux VM in Azure 
 Met de combinatie van een secure shell (SSH), kunt u een virtuele Linux-machine maken in Azure die standaard SSH-sleutels gebruiken voor verificatie, hoeft u de wachtwoorden aan te melden. Virtuele machines gemaakt met de Azure portal, Azure CLI Resource Manager-sjablonen of andere hulpprogramma's voor uw openbare SSH-sleutel kunnen opnemen als onderdeel van de implementatie, u de verificatie van SSH-sleutel voor SSH-verbindingen stelt. 

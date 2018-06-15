@@ -2,7 +2,7 @@
 title: Genereren en overdragen van met HSM beveiligde sleutels voor Azure Sleutelkluis | Microsoft Docs
 description: Gebruik dit artikel voor hulp bij het plannen en brengt u uw eigen HSM beveiligde sleutels voor gebruik met Azure Sleutelkluis genereren. Ook wel BYOK of breng uw eigen sleutel.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345108"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Genereren en overdragen HSM beveiligde sleutels voor Azure Sleutelkluis
 ## <a name="introduction"></a>Inleiding

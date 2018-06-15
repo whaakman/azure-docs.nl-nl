@@ -1,7 +1,7 @@
 ---
 title: 'Snelstartgids: een werkstroom verzenden met behulp van FASTQ-bestandsinvoeren | Microsoft Docs'
 titleSuffix: Azure
-description: "In deze snelstartgids wordt ervan uitgegaan dat u de msgen-client hebt geïnstalleerd en de voorbeeldgegevens via de service hebt uitgevoerd."
+description: In deze snelstartgids wordt ervan uitgegaan dat u de msgen-client hebt geïnstalleerd en de voorbeeldgegevens via de service hebt uitgevoerd.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684480"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs"></a>Een werkstroom verzenden met behulp van FASTQ-bestandsinvoeren
 

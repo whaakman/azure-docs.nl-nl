@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26374199"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnose van lokale connectiviteit via VPN-gateways
 

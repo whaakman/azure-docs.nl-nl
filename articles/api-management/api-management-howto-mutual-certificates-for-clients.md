@@ -2,10 +2,10 @@
 title: Met behulp van client API's beveiligd tegen certificaatverificatie in API Management - Azure API Management | Microsoft Docs
 description: Meer informatie over het beveiligen van toegang tot API's met behulp van clientcertificaten
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26406740"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Het beveiligen van API's met behulp van client certificaatverificatie in API Management
 

@@ -3,7 +3,7 @@ title: De verificatie in twee stappen instellingen beheren | Microsoft Docs
 description: Beheren hoe u Azure multi-factor Authentication, inclusief het aanpassen van uw contactgegevens of configureren van uw apparaten gebruiken.
 services: multi-factor-authentication
 keywords: multifactor-verificatie-client, verificatieprobleem, correlatie-ID
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26626655"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>De instellingen voor verificatie in twee stappen beheren
 In dit artikel antwoorden op vragen over het bijwerken van de instellingen voor de verificatie of meervoudige verificatie in twee stappen. Als u problemen die zijn aangemeld bij uw account hebt, raadpleegt u [problemen hebt met verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md) voor hulp bij probleemoplossing.

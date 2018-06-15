@@ -2,11 +2,11 @@
 title: Aangepaste rapporten van Verizon | Microsoft Docs
 description: 'U kunt gebruikspatronen voor uw CDN bekijken met behulp van de volgende rapporten: bandbreedte, de hoeveelheid overgedragen gegevens, treffers, Cache statussen, Cache Hit Ratio, IPV4/IPV6-gegevens overgebracht.'
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26343885"
 ---
 # <a name="custom-reports-from-verizon"></a>Aangepaste rapporten van Verizon
 

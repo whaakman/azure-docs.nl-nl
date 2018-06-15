@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29575637"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Gebruikers maken in Azure-Database voor PostgreSQL-server 
 Dit artikel wordt beschreven hoe u gebruikers in een Azure-Database voor PostgreSQL-server kunt maken.
