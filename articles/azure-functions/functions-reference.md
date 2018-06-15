@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Developer guide, azure-functies, functies, gebeurtenisverwerking webhooks, dynamische compute, zonder server-architectuur
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121743"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-handleiding voor ontwikkelaars
 Specifieke functies delen in Azure Functions enkele core technische concepten en -onderdelen, ongeacht de taal of een binding die u gebruikt. Voordat u in het leren van gegevens die specifiek zijn voor een bepaalde taal of binding gaan, moet Lees dit overzicht die van toepassing op alle mappen.

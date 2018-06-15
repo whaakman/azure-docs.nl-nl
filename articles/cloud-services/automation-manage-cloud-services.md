@@ -2,10 +2,10 @@
 title: Azure Cloud Services beheren met Azure Automation | Microsoft Docs
 description: Meer informatie over hoe Azure Automation-service kan worden gebruikt voor het beheren van Azure-cloud-services op grote schaal.
 services: cloud-services, automation
-documentationcenter: 
+documentationcenter: ''
 author: jodoglevy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842935"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure Cloud Services met behulp van Azure Automation beheren
 Deze handleiding vindt u de Azure Automation-service en hoe deze kan worden gebruikt voor het vereenvoudigen van beheer van uw Azure-cloud-services.

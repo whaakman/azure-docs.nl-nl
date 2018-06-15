@@ -5,8 +5,8 @@ services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875590"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple lokaal vastgemaakte volumes: veelgestelde vragen (FAQ)
 ## <a name="overview"></a>Overzicht
@@ -161,7 +162,7 @@ Meer informatie over het [een gelaagd volume converteren naar een lokaal vastgem
 
 **V:** Kan ik tijdens het terugzetten van het type van een volume wijzigen?
 
-**A.**Nee, u het volumetype niet wijzigen tijdens het terugzetten.
+**A.** Nee, u het volumetype niet wijzigen tijdens het terugzetten.
 
 * Volumes die zijn verwijderd zijn als het type dat is opgeslagen in de momentopname hersteld.
 * Bestaande volumes zijn hersteld op basis van hun huidige type, ongeacht het type dat is opgeslagen in de momentopname (Zie de vorige twee vragen).

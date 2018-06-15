@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32178517"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van waarschuwingsregels in logboekanalyse met REST-API
 De waarschuwing REST-API van Log Analytics kunt u waarschuwingen in Operations Management Suite (OMS) maken en beheren.  Dit artikel bevat de details van de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.

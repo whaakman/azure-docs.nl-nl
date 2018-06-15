@@ -2,7 +2,7 @@
 title: Grote hoeveelheden gegevens te verplaatsen naar/van de cloudopslag in Azure | Microsoft Docs
 description: Een overzicht van de verschillende methoden voor het verplaatsen van gegevens naar en van Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: JarrettRenshaw
 manager: msmets
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984592"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Gegevens verplaatsen naar en uit Azure Storage
 Als u wilt verplaatsen van on-premises gegevens naar Azure Storage (of andersom), zijn er verschillende manieren om dit te doen. De benadering die voor u het meest geschikt is afhankelijk van uw scenario. In dit artikel biedt een snel overzicht van verschillende scenario's en de juiste aanbiedingen voor elk criterium.

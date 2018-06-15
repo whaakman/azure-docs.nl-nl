@@ -2,10 +2,10 @@
 title: Algemene starten van de taken voor Cloudservices | Microsoft Docs
 description: Enkele voorbeelden van algemene starten van de taken die u wilt uitvoeren in uw cloud services-web-rol of functie worker biedt.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843698"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Algemene taken voor Cloud-Service starten
 Dit artikel vindt enkele voorbeelden van algemene starten van de taken die u wilt uitvoeren in uw cloudservice. Starten van de taken kunt u bewerkingen uitvoeren voordat een rol wordt gestart. Bewerkingen die u wilt uitvoeren bevatten voor het installeren van een onderdeel, registreren van COM-onderdelen, registersleutels instellen of starten van een langdurige proces. 

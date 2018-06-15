@@ -2,10 +2,10 @@
 title: Azure Storage met Azure Automation beheren
 description: Meer informatie over hoe Azure Automation-service kan worden gebruikt voor het beheren van Azure Storage op grote schaal.
 services: storage, automation
-documentationcenter: 
+documentationcenter: ''
 author: jodoglevy
 manager: eamono
-editor: 
+editor: ''
 ms.assetid: bac41c39-1d95-46aa-a481-ec17bbb21b40
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873798"
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Azure Storage met Azure Automation beheren
 Deze handleiding vindt u de Azure Automation-service en hoe deze kan worden gebruikt voor het vereenvoudigen van beheer van uw Azure Storage-blobs, tabellen en wachtrijen.
