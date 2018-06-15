@@ -1,26 +1,21 @@
 ---
-title: Een back-up van een Windows-server naar Azure maken | Microsoft Docs
+title: Een back-up maken van een Windows-server naar Azure
 description: In deze zelfstudie wordt beschreven hoe u een back-up maakt van een on-premises Windows-server naar een Recovery Services-kluis.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
 keywords: windows-server back-up; back-up windows-server; back-up en herstel na noodgevallen
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurabhsensharma;markgal;
+ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609015"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Een back-up maken van een Windows-server naar Azure
 
@@ -36,7 +31,7 @@ U kunt Azure Backup gebruiken om uw Windows-server te beschermen tegen beschadig
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u via http://portal.azure.com aan bij Azure Portal.
+Meld u aan bij Azure Portal op http://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
@@ -58,7 +53,7 @@ Voordat u een back-up kunt maken van uw Windows-server, moet u een locatie maken
     - Kies in de vervolgkeuzelijst **Locatie** de optie *West-Europa*.
     - Klik op **Maken** om de Recovery Services-kluis te maken.
  
-Nadat de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen.
+Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen.
 
 ## <a name="download-recovery-services-agent"></a>De Recovery Services-agent downloaden
 
@@ -144,7 +139,7 @@ U hebt een planning ingesteld voor het uitvoeren van de back-uptaken. U hebt ech
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u Azure Portal voor het volgende gebruikt: 
+In deze zelfstudie hebt u Azure Portal gebruikt voor het volgende: 
  
 > [!div class="checklist"] 
 > * Een Recovery Services-kluis maken 

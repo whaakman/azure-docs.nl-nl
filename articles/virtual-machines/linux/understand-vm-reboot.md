@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072416"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Systeem opnieuw is opgestart voor de virtuele machine van Azure kennen
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359591"
 ---
 # <a name="configure-deployment-sources"></a>Implementatiebronnen configureren
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*

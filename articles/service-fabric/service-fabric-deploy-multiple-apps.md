@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206076"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd
 In dit artikel laat zien hoe verpakken en distribueren van meerdere Gast uitvoerbare bestanden naar de Azure Service Fabric. Voor het maken en implementeren van één Service Fabric-pakket leest u hoe aan [uitvoerbare Gast implementeren op Service Fabric](service-fabric-deploy-existing-app.md).

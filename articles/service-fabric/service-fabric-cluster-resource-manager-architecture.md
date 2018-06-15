@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211426"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Overzicht van de cluster resource manager-architectuur
 De Service Fabric Cluster Resource Manager is een centrale service die wordt uitgevoerd in het cluster. Hiermee beheert u de gewenste status van de services in het cluster, met name met betrekking tot brongebruik en regels voor de plaatsing. 

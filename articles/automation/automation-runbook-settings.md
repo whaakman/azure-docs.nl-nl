@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194193"
 ---
 # <a name="runbook-settings"></a>Runbook-instellingen
 Elk runbook in Azure Automation heeft meerdere instellingen waarmee het kan worden geïdentificeerd en de logboekregistratie kan wijzigen. Elk van deze instellingen wordt hieronder beschreven en gevolgd door procedures voor het wijzigen van deze.

@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158384"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 Met het v2.0-eindpunt kunt u gebruikers zich bij uw apps op één pagina met persoonlijke en zakelijke/school accounts van Microsoft. Één pagina en andere JavaScript-apps die worden uitgevoerd voornamelijk in een browser gezicht interessante enkele uitdagingen bij de verificatie:

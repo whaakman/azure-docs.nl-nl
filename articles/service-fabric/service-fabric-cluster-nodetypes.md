@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212361"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric-knooppunttypen en de virtuele machine sets schalen
 [Virtuele-machineschaalsets](/azure/virtual-machine-scale-sets) zijn van een Azure compute resource. U kunt schaalsets gebruiken om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype dat u in een Azure Service Fabric-cluster opgeeft, stelt u een afzonderlijke schaal.  De Service Fabric-runtime geïnstalleerd op elke virtuele machine in de schaal is ingesteld. U kunt onafhankelijk elk knooppunttype omhoog of omlaag schalen, wijzigen van de OS-SKU uitgevoerd op elk clusterknooppunt, hebben verschillende sets van poorten openen en gebruiken van andere capaciteitsmetrieken.

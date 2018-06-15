@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205981"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Het pakket en implementeren van een bestaand uitvoerbaar bestand voor Service Fabric
 Wanneer het verpakken van een bestaand uitvoerbaar bestand als een [Gast uitvoerbaar bestand](service-fabric-guest-executables-introduction.md), kunt u ofwel een Visual Studio-projectsjabloon gebruiken of [handmatig maken van het toepassingspakket](#manually). Met Visual Studio, worden de toepassing pakketstructuur en manifest-bestanden door het nieuwe projectsjabloon voor u gemaakt.

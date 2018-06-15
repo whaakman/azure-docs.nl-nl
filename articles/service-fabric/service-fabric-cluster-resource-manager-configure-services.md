@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210576"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Cluster resource manager-instellingen voor Service Fabric-services configureren
 De Service Fabric Cluster Resource Manager kunt fijnmazig controle over de regels die bepalen van elke afzonderlijke service met de naam. Elke benoemde service kunt regels opgeven voor hoe moet worden toegewezen in het cluster. Elke benoemde service kunt ook de set met metrische gegevens die deze wil definiëren om te rapporteren, met inbegrip van hoe belangrijk dat ze zijn aan die service. Configureren van services uitvalt in drie verschillende taken:

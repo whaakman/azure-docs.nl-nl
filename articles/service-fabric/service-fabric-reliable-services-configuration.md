@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209998"
 ---
 # <a name="configure-stateful-reliable-services"></a>Stateful betrouwbare services configureren
 Er zijn twee sets van configuratie-instellingen voor betrouwbare services. Er is één set globale voor alle betrouwbare services in het cluster terwijl de andere set specifiek voor een bepaalde betrouwbare service is.

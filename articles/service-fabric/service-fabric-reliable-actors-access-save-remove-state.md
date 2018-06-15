@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206744"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Toegang tot, opslaan en Reliable Actors status verwijderen
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) single thread-objecten kunnen inkapselen zowel de logica en de status en onderhouden van de status betrouwbaar zijn. Elke instantie actor heeft zijn eigen [statusbeheer](service-fabric-reliable-actors-state-management.md): een dictionary-achtige gegevensstructuur slaat veilig sleutel/waarde-paren. De status manager is een wrapper rond een state-provider. U kunt deze gebruiken voor het opslaan van gegevens, ongeacht welke [persistentie instelling](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) wordt gebruikt.

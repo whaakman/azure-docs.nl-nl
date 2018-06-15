@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204920"
 ---
 # <a name="service-movement-cost"></a>Service verplaatsingskosten
 Een factor die de Service Fabric Cluster Resource Manager overweegt wanneer u probeert om te bepalen welke wijzigingen aanbrengen in een cluster is de kosten van deze wijzigingen. Het begrip 'kosten' wordt verhandeld uitschakelen op basis van hoeveel van het cluster kan worden verbeterd. Kosten zijn meeberekend bij het verplaatsen van services voor taakverdeling, defragmentatie en andere vereisten. Het doel is om te voldoen aan de vereisten in de minste verstoren of dure manier. 
