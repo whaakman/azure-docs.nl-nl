@@ -1,11 +1,11 @@
 ---
-title: "Vervangen van een knooppunt scale unit op een Azure-Stack geïntegreerd systeem | Microsoft Docs"
-description: "Informatie over het vervangen van een knooppunt van de fysieke scale unit op het systeem van een Azure-Stack geïntegreerd."
+title: Vervangen van een knooppunt scale unit op een Azure-Stack geïntegreerd systeem | Microsoft Docs
+description: Informatie over het vervangen van een knooppunt van de fysieke scale unit op het systeem van een Azure-Stack geïntegreerd.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27598770"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Een knooppunt scale unit op een Azure-Stack geïntegreerd systeem vervangen
 

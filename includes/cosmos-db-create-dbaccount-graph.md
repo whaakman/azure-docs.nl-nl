@@ -10,9 +10,10 @@ ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 88751efdd5aaceddeed490c95d15d82a263fa81e
 ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31429171"
 ---
 1. Meld u in een nieuw browservenster aan bij [Azure Portal](https://portal.azure.com/).
 

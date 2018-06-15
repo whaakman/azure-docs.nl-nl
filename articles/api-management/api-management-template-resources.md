@@ -2,10 +2,10 @@
 title: Azure API Management-sjabloonresources | Microsoft Docs
 description: Meer informatie over de typen resources beschikbaar voor gebruik in developer portal sjablonen in Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23835396"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management-sjabloonresources
 Azure API Management biedt de volgende typen resources voor gebruik in het developer portal sjablonen.  

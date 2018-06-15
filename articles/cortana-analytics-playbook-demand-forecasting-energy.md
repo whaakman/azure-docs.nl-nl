@@ -2,7 +2,7 @@
 title: Cortana Intelligence oplossing sjabloon Playbook voor het voorspellen van de vraag van energie | Microsoft Docs
 description: Een oplossingssjabloon met Microsoft Cortana Intelligence waarmee forecast aanvraag voor een bedrijf, energie-hulpprogramma.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: ilanr9
 manager: ilanr9
 editor: yijichen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23846428"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cortana Intelligence oplossing sjabloon Playbook voor het voorspellen van de vraag van energie
 ## <a name="executive-summary"></a>Managementsamenvatting

@@ -2,11 +2,11 @@
 title: Maak ondersteuningsticket of de aanvraag voor StorSimple 8000 serie | Microsoft Docs
 description: Informatie over het aan te melden ondersteuning aan te vragen en ondersteuningssessie starten op uw StorSimple 8000 serie-apparaat.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743042"
 ---
 # <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft-ondersteuning
 

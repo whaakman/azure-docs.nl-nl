@@ -4,7 +4,7 @@ description: Informatie over het gebruik van App Service-mobiele App aan cache e
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593093"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Offlinesynchronisatie voor uw mobiele app voor Xamarin.Android inschakelen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

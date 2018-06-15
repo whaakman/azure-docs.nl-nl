@@ -2,11 +2,11 @@
 title: Diagnostische hulpprogramma om op te lossen StorSimple 8000 apparaat | Microsoft Docs
 description: Beschrijft de modus voor de StorSimple-apparaat en wordt uitgelegd hoe u Windows PowerShell voor StorSimple om de apparatuurmodus te wijzigen.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27744109"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Gebruik het diagnostisch hulpprogramma van StorSimple 8000 series apparaat problemen kunt oplossen
 

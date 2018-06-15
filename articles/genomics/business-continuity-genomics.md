@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31426968"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Overzicht van zakelijke continuïteit met Microsoft Genomics
 Dit overzicht beschrijft de mogelijkheden die Microsoft Genomics voor bedrijfscontinuïteit en noodherstel biedt. Meer informatie over opties voor het herstellen van verstoren gebeurtenissen, zoals een storing Azure-regio die leiden gegevensverlies tot kan. 

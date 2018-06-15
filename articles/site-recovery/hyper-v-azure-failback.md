@@ -1,6 +1,6 @@
 ---
 title: Een failback uitvoeren naar een on-premises site voor Hyper-v virtuele machines | Microsoft Docs
-description: "Azure Site Recovery coördineert de replicatie, failovers en herstel van virtuele machines en fysieke servers. Meer informatie over failback vanuit Azure naar on-premises datacentrum."
+description: Azure Site Recovery coördineert de replicatie, failovers en herstel van virtuele machines en fysieke servers. Meer informatie over failback vanuit Azure naar on-premises datacentrum.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29467119"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Een failback uitvoeren voor Hyper-V-machines
 
