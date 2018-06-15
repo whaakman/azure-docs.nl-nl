@@ -2,9 +2,9 @@
 title: Gebruik van beheerde schijven in Azure Resource Manager-sjablonen voor virtuele Linux-machines | Microsoft Docs
 description: Details van het gebruik van beheerde misks in Azure Resource Manager-sjablonen voor virtuele Linux-machines
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jboeshart
-manager: 
+manager: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -17,5 +17,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23879139"
 ---
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

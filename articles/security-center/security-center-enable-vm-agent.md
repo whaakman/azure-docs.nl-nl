@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5b431c25-4241-45b7-9556-cf2a1956f3da
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866308"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>VM-Agent in Azure Security Center inschakelen
 De VM-Agent moet worden geïnstalleerd op virtuele machines (VM's) om [gegevensverzameling inschakelen](security-center-enable-data-collection.md).  Azure Security Center kunt u zien welke VM's vereisen de VM-Agent en beveelt aan dat u de VM-Agent op deze virtuele machines inschakelt.

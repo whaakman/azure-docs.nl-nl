@@ -17,6 +17,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762367"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>LinkedIn account verbindingen voor Microsoft-apps en services
 In dit artikel kunt u informatie over het beheren van LinkedIn account verbindingen voor uw tenant in de Azure Active Directory (Azure AD)-beheercentrum. 

@@ -5,7 +5,7 @@ services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23868380"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Het gebruik van Java bericht Service (JMS) API met Service Bus en AMQP 1.0
 De geavanceerde Message Queuing-Protocol (AMQP) 1.0 is een efficiënte, betrouwbare, wire-niveau messaging protocol die u gebruiken kunt om robuuste, platformoverschrijdende messaging toepassingen te bouwen.

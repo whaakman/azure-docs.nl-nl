@@ -19,6 +19,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779088"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>MPIO configureren op een StorSimple-host waarop van CentOS
 Dit artikel wordt uitgelegd hoe u Multipath I/O (MPIO) configureren op de hostserver Centos 6.6. De host-server is verbonden met uw Microsoft Azure StorSimple-apparaat voor hoge beschikbaarheid via iSCSI-initiators. Deze beschrijving gedetailleerde van de automatische detectie van multipath-apparaten en de specifieke instellingen alleen van StorSimple-volumes.

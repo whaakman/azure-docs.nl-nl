@@ -16,9 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.openlocfilehash: 67fd5ba9be2de1f79511c806ffaa0ae3001bfdcf
 ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33760286"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Wat is een toepassing met selfserviceregistratie voor Azure Active Directory?
 Dit artikel wordt uitgelegd toepassing met selfserviceregistratie en hoe u voor de ondersteuning in Azure Active Directory (Azure AD). Als u wilt een domeinnaam overnemen van een niet-beheerde Azure AD-tenant, Zie [overnemen van een niet-beheerde directory als administrator](domains-admin-takeover.md).

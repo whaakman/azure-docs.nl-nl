@@ -2,11 +2,11 @@
 title: Externe bestand bindingen voor Azure Functions (experimentele)
 description: Met behulp van extern bestand bindingen in de Azure-functies
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27607918"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions-bestand met externe Bindingen (experimentele)
 Dit artikel laat zien hoe u kunt bestanden van verschillende aanbieders van SaaS (zoals Dropbox of Google Drive) in Azure Functions bewerken. Azure Functions ondersteunt activeren, invoer en uitvoer van de bindingen voor externe bestanden. Deze bindingen API-verbindingen met SaaS-providers maken of bestaande API-verbindingen van de resourcegroep van de functie-App gebruiken.

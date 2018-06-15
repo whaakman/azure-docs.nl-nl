@@ -2,7 +2,7 @@
 title: Operations Management Suite (OMS) SDK | Microsoft Docs
 description: Dit artikel vindt de documentatie en andere bronnen beschikbaar zijn voor toegang tot services OMS buiten de portals OMS en Azure.  Dit omvat REST-API voor toegang vanaf verschillende API's en scriptengines zoals PowerShell
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865622"
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Operations Management Suite (OMS) SDK
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) van Microsoft cloud-gebaseerde IT beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloud-infrastructuur.  Dit artikel vindt de documentatie en andere bronnen beschikbaar zijn voor toegang tot services OMS buiten de portals OMS en Azure.  Dit omvat REST-API voor toegang vanaf verschillende API's en scriptengines zoals PowerShell. 

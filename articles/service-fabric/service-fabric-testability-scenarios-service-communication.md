@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211222"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric-testbaarheid scenario's: Service-communicatie
 Microservices en architectuur stijlen service oriented vlak natuurlijk in Azure Service Fabric. In deze soorten architecturen voor gedistribueerde, samengestelde microservice toepassingen doorgaans bestaan uit meerdere services die nodig zijn om met elkaar te communiceren. In zelfs de meest eenvoudige gevallen over het algemeen hebt u ten minste een stateless webservice en een opslagservice stateful gegevens die nodig zijn om te communiceren.

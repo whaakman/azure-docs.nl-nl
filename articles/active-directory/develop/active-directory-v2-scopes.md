@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157313"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Scopes, machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 Apps die zijn geïntegreerd met Azure Active Directory (Azure AD) voert u een autorisatie-model waarmee gebruikers controle over hoe een app toegang krijgen hun gegevens tot. Het v2.0-implementatie van het model van de autorisatie is bijgewerkt en verandert hoe een app moet communiceren met Azure AD. In dit artikel bevat informatie over de basisconcepten van deze autorisatie-model, inclusief scopes, machtigingen en toestemming.

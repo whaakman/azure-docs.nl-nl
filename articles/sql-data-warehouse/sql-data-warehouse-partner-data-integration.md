@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188511"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse gegevens integratiepartners
 Voor het maken van uw datawarehouse-oplossing kiezen uit een groot aantal toonaangevende hulpprogramma's. In dit artikel worden Microsoft partnerbedrijven gemarkeerd met oplossingen voor integratie met de ondersteuning van Azure SQL Data Warehouse.

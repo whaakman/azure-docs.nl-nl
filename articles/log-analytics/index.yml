@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 01/12/2018
+  ms.locfileid: "27786115"
 abstract:
   description: Log Analytics is onderdeel van de hele bewakingsoplossing Microsoft Azure. Log Analytics bewaakt de on-premises omgeving en cloudomgeving om de beschikbaarheid en prestaties te behouden. Krijg inzicht in verschillende workloads en systemen om de beschikbaarheid en prestaties te behouden. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u gegevens verzamelt, analyseert en er acties op uitvoert.
 sections:

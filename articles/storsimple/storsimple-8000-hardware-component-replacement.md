@@ -2,11 +2,11 @@
 title: StorSimple 8000 series Hardwarevervanging onderdeel | Microsoft Docs
 description: Hierin wordt beschreven hoe u veilig vervangt de PCMs, accu, controller-modules, EBOD domeincontrollers, schijven en chassis van een StorSimple-apparaat.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: 6de50c5031db59176bdf17ecc69b934559220f6a
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927605"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Vervangen van een hardware-onderdeel op uw StorSimple 8000 series apparaat
 

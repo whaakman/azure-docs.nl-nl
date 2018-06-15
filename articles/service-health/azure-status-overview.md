@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181817"
 ---
 # <a name="azure-status"></a>Status van Azure
 [Azure status](https://azure.microsoft.com/status/) biedt u een globale weergave van de status van de Azure-services. Met Azure status, kunt u de nieuwste informatie over de beschikbaarheid van de service ophalen. Iedereen heeft toegang tot Azure status en kan rapporteren weergave alle services die de status van hun service. 

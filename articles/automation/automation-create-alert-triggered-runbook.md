@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194033"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Een waarschuwing voor het activeren van een Azure Automation-runbook gebruiken
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190407"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Tips voor Azure SQL Data Warehouse
 Dit overzicht biedt nuttige tips en best practices voor het maken van uw Azure SQL Data Warehouse-oplossingen. Voordat u begint, kunt u gedetailleerde informatie over elke stap lezen in [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patronen en anti-patronen voor workloads van Microsoft Azure SQL Data Warehouse), waarin wordt uitgelegd wat SQL Data Warehouse is.

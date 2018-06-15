@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "23945882"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filters in weergaven Log Analytics
 Een **filter** in een [logboekanalyse weergeven](log-analytics-view-designer.md) kunnen gebruikers de gegevens in de weergave filteren op de waarde van een bepaalde eigenschap zonder dat de weergave zelf worden gewijzigd.  U zou bijvoorbeeld kunnen gebruikers van uw weergave filteren op de weergave voor alleen de gegevens van een bepaalde computer of verzameling computers.  U kunt meerdere filters maken op een enkele weergave zodat gebruikers kunnen filteren op meerdere eigenschappen.  Dit artikel wordt beschreven hoe u een filter en toevoegen aan een aangepaste weergave.

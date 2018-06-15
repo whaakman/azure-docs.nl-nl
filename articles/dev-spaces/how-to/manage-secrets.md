@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198310"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Het beheren van geheimen bij het werken met een Azure-Dev-ruimte
 

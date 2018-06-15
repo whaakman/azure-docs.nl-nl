@@ -2,10 +2,10 @@
 title: Aan de slag met Azure Blob storage en Visual Studio verbonden services (ASP.NET Core) | Microsoft Docs
 description: Hoe u aan de slag verbonden met Azure Blob-opslag in een ASP.NET Core-project in Visual Studio na een verbinding te maken met een opslagaccount met behulp van Visual Studio services
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: camsoper
 manager: wpickett
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27621220"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (ASP.NET Core)
 

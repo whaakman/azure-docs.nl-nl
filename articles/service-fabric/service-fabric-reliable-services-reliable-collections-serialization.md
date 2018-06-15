@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207662"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Betrouwbare verzameling object serialisatie in Azure Service Fabric
 Betrouwbare verzamelingen repliceren en behouden hun objecten om te controleren of dat ze via machine fouten en stroomstoringen duurzaam zijn.

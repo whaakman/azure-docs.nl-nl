@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155616"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Toepassing en service-principal objecten in Azure Active Directory (Azure AD)
 Soms kan de betekenis van de term 'application' verkeerd worden begrepen wanneer gebruikt in de context van Azure AD. Het doel van dit artikel is om te verduidelijken conceptuele en concrete aspecten van de integratie van Azure AD-toepassingen, met een afbeelding van de registratie en toestemming voor op een [multitenant toepassing](active-directory-dev-glossary.md#multi-tenant-application).

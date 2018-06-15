@@ -5,7 +5,7 @@ author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874008"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Bij het ophalen van informatie over de status voor een taak van Import/Export
 U kunt aanroepen de [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking voor het ophalen van informatie over beide importeren en exporteren van taken. De geretourneerde informatie omvat:
