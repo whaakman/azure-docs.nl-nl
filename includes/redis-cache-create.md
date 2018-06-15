@@ -13,6 +13,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34173115"
 ---
 Als u een cache wilt maken, meldt u zich eerst aan bij [Azure Portal](https://portal.azure.com) en klikt u vervolgens op **Resource maken** > **Databases** > **Redis-cache**.
 

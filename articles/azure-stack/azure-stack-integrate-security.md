@@ -9,12 +9,13 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
+keywords: ''
 ms.openlocfilehash: 8ce9045a3e4fd12d61e9b1600ee98880762bc544
 ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29734424"
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Stack datacenter integratie van Azure - beveiliging
 Azure-Stack is ontwikkeld en gebouwd met beveiligd zijn. Azure-Stack is een systeem vergrendeld, zodat de installatie van de agent van software wordt niet ondersteund.

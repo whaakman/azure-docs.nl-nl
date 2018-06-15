@@ -61,16 +61,14 @@
       href: access-api-cli-how-to.md
     - name: Taakstatusgebeurtenissen - CLI
       href: job-state-events-cli-how-to.md
-    - name: Inhoud uploaden - .NET
+    - name: Inhoud uploaden
       items:
-        - name: Van HTTP(s)
+        - name: Van HTTP(s) - .NET
           href: job-input-from-http-how-to.md
-        - name: Uit een lokaal bestand
+        - name: Uit een lokaal bestand - .NET
           href: job-input-from-local-file-how-to.md
-    - name: Standaardinstellingen transformatie aanpassen
-      items:
-        - name: Met .NET Core
-          href: customize-encoder-presets-how-to.md
+    - name: Standaardinstellingen transformatie aanpassen - .NET Core
+      href: customize-encoder-presets-how-to.md
 - name: Naslaginformatie
   items:
     - name: OpenAPI-specificatie (Swagger)

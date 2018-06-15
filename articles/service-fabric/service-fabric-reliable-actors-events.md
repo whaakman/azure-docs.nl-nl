@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207074"
 ---
 # <a name="actor-events"></a>Actor-gebeurtenissen
 Acteur gebeurtenissen bieden een manier om het best-effort meldingen verzenden vanuit de actor aan de clients. Acteur gebeurtenissen zijn ontworpen voor communicatie actor-naar-client en mag niet worden gebruikt voor actor-actor-communicatie.

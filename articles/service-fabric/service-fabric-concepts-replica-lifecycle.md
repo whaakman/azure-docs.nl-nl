@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211385"
 ---
 # <a name="replicas-and-instances"></a>Replica's en -exemplaren 
 In dit artikel biedt een overzicht van de levenscyclus van replica's van stateful services en exemplaren van stateless services.

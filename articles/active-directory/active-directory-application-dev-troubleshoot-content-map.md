@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932384"
 ---
 # <a name="troubleshoot-azure-active-directory-application-development"></a>Azure Active Directory-toepassingsontwikkeling oplossen
 De volgende koppelingen ervoor zorgt dat u een toewijzing voor inhoud die u helpt bij het oplossen van enkele van de meest voorkomende problemen met het ontwikkelen van toepassingen met de **toepassingsregister** in Azure Active Directory.

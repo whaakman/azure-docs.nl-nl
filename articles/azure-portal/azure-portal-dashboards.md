@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165346"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Maken en delen van dashboards in de Azure portal
 U kunt meerdere dashboards maken en ze delen met anderen die toegang tot uw Azure-abonnementen hebben.  In dit artikel gaat met de grondbeginselen van het maken, bewerken, publiceren en beheren van toegang tot dashboards.

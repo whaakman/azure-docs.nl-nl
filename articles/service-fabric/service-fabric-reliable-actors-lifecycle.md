@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208434"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Actor levenscyclus, garbagecollection automatische en handmatige verwijderen
 Een actor is de eerste keer die wordt een aanroep naar een van de bijbehorende methoden geactiveerd. Een actor is gedeactiveerd (garbage collector zijn verzameld door de runtime actoren) als deze niet wordt gebruikt voor een configureerbare periode. Een actor en de status kunnen ook handmatig worden verwijderd op elk gewenst moment.

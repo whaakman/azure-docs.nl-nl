@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29714668"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Met behulp van externe services van de Azure API Management-service
 De beleidsregels die beschikbaar zijn in Azure API Management-service kan een breed scala aan goed functioneren op basis van uitsluitend op de inkomende aanvraag, het uitgaande antwoord en basisinformatie over de configuratie kunnen doen. Echter, kunnen communiceren met externe services van API Management beleid wordt geopend veel meer mogelijkheden.

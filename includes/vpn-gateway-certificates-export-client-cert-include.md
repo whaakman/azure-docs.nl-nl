@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30198125"
 ---
 Wanneer u een clientcertificaat genereert, wordt het automatisch geïnstalleerd op de computer die u hebt gebruikt voor het genereren ervan. Als u het clientcertificaat installeren op een andere clientcomputer wilt, moet u het exporteren van het clientcertificaat dat u hebt gegenereerd.
 

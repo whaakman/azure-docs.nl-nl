@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33865932"
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>De werking van Azure multi-factor Authentication
 De beveiliging van verificatie in twee stappen ligt de gelaagde benadering. Inbreuk op meerdere verificatiefactoren geeft een belangrijke uitdaging voor kwaadwillende personen. Zelfs als een aanvaller erin slaagt voor meer informatie over het wachtwoord van gebruikers, is deze onbruikbaar zonder dat ook bezit is van het vertrouwde apparaat. 

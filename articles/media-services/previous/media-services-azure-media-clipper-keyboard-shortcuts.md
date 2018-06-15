@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788072"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Azure Media openen sneltoetsen configureren
 Azure Media openen ondersteunt de standaardsneltoetsen aanpassen door op te geven, een optionele `keymap` JSON-parameter.

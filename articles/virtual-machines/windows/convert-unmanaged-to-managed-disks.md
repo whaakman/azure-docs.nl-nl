@@ -2,12 +2,12 @@
 title: Een virtuele Windows-machine van niet-beheerde schijven converteren naar beheerde schijven - beheerde Azure-schijven | Microsoft Docs
 description: Een virtuele Windows-machine converteren van niet-beheerde schijven op schijven die worden beheerd met behulp van PowerShell in het Resource Manager-implementatiemodel
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29804212"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Een virtuele Windows-machine van niet-beheerde schijven converteren naar beheerde schijven
 

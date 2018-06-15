@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30314296"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Verplaatsen van een openbare peering voor het Microsoft-peering
 

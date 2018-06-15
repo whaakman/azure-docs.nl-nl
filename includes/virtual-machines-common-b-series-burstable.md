@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34307434"
 ---
 De B-serie VM-familie kunt u kiezen welke VM-grootte biedt u de prestaties van de vereiste base-niveau voor uw workload met de mogelijkheid om het CPU-prestaties tot wel 100% van een Intel® Broadwell E5-2673 v4 burst 2.3 GHz of een Intel® Haswell 2,4 GHz E5-2673 v3-processor vCPU.
 

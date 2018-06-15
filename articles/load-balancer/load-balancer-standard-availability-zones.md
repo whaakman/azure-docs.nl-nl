@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30322791"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standaard Load Balancer en beschikbaarheid Zones
 

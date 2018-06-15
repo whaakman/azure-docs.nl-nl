@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204631"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Model van een toepassing in Service Fabric
 Dit artikel bevat een overzicht van het model van Azure Service Fabric-toepassing en het definiëren van een toepassing en service via de manifest-bestanden.

@@ -15,6 +15,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235521"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configureren en server-Logboeken openen met behulp van Azure CLI
 U kunt de foutenlogboeken voor PostgreSQL-server downloaden via de opdrachtregelinterface (Azure CLI). Echter, de toegang tot de transactielogboeken wordt niet ondersteund. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34304627"
 ---
 # <a name="get-started-with-storage-explorer"></a>Aan de slag met Opslagverkenner
 ## <a name="overview"></a>Overzicht

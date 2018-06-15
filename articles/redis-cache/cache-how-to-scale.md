@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30240221"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Schalen van Azure Redis-Cache
 Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van de cachegrootte en -functies bieden. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. In dit artikel leest u hoe de cache met behulp van de Azure-portal en hulpprogramma's zoals Azure PowerShell en Azure CLI schalen.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937827"
 ---
 # <a name="validate-azure-identity"></a>Azure identiteit valideren 
 Gebruik het hulpprogramma Azure Stack gereedheid Checker (AzsReadinessChecker) om te valideren dat uw Azure Active Directory (Azure AD) klaar is voor gebruik met Azure-Stack. Uw Azure identiteitsoplossing valideren voordat u begint met de implementatie van een Azure-Stack.  

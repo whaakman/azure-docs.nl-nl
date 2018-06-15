@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30231273"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions gebruiken voor verbinding met een Azure SQL Database
 Dit onderwerp leest u het gebruik van Azure Functions voor het maken van een geplande taak opruimen van rijen in een tabel in een Azure SQL Database. De nieuwe C# script-functie is gemaakt op basis van een vooraf gedefinieerde timer trigger-sjabloon in de Azure-portal. Ter ondersteuning van dit scenario, moet u ook een databaseverbindingsreeks instellen als een app-instelling in de functie-app. Dit scenario maakt gebruik van een bulksgewijze bewerking op de database. 

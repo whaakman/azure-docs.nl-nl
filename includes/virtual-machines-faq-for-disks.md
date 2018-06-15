@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bf0853b137e65ddd6ad40483c50fc8debb62f920
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826545"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414566"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -45,13 +45,9 @@ De prijzen van beheerde premium-schijven is hetzelfde als niet-beheerde premium-
 
 Ja. U kunt het opslagtype voor de account van uw beheerde schijven wijzigen met behulp van de Azure-portal, PowerShell of Azure CLI.
 
-**Is er een manier die ik kan kopiëren of een beheerde schijf exporteren naar een persoonlijke storage-account?**
-
-Ja. U kunt uw beheerde schijven exporteren met behulp van de Azure-portal, PowerShell of Azure CLI.
-
 **Kan ik een VHD-bestand in Azure storage-account gebruiken voor het maken van een beheerde schijf met een ander abonnement?**
 
-Nee.
+Ja.
 
 **Kan ik een VHD-bestand in Azure storage-account gebruiken voor het maken van een beheerde schijf in een andere regio?**
 
@@ -59,7 +55,7 @@ Nee.
 
 **Zijn er beperkingen scale voor klanten die gebruikmaken van beheerde schijven?**
 
-Beheerde schijven elimineert de grenzen die aan opslagaccounts is gekoppeld. Het maximum aantal en de standaardlimiet is echter 10.000 beheerde schijven per regio en per type van de schijf voor een abonnement.
+Beheerde schijven elimineert de grenzen die aan opslagaccounts is gekoppeld. De maximumlimiet is echter 50.000 beheerde schijven per regio en per type van de schijf voor een abonnement.
 
 **Kan ik een incrementele momentopname van een beheerde schijf volgen?**
 
@@ -95,7 +91,7 @@ Schijven ondersteunt drie belangrijkste standaardrollen beheerd:
 
 **Is er een manier die ik kan kopiëren of een beheerde schijf exporteren naar een persoonlijke storage-account?**
 
-U kunt een alleen-lezen shared access signature voor URI ophalen voor de beheerde schijf en de inhoud te kopiëren naar een persoonlijke opslag account of on-premises opslag gebruiken.
+U kunt een alleen-lezen shared access signature (SAS) URI voor voor de beheerde schijf genereren en gebruiken om te kopiëren van de inhoud naar een persoonlijke opslag account of on-premises-opslag. U kunt de SAS-URI met de Azure portal, Azure PowerShell, de Azure CLI of [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Kan ik een kopie van de beheerde computer maken?**
 

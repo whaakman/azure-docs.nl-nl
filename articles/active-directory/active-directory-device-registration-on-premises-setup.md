@@ -21,6 +21,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764203"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Lokale voorwaardelijke toegang instellen met behulp van Azure Active Directory-apparaatregistratie
 Als u werkplek koppelen gebruikers hun persoonlijke apparaten naar de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten kunnen worden gemarkeerd als bekend is bij uw organisatie. Hier volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.

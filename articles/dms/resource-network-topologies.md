@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235397"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Netwerktopologieën voor Azure SQL DB-beheerde exemplaar migraties met behulp van de Service Azure Database migreren
 In dit artikel leert u over verschillende netwerktopologieën maken waarin de Azure-Service voor het migreren van Database werken kunt met voor een naadloze migratie-ervaring bieden via on-premises SQL-Servers naar Azure SQL Database-beheerde exemplaar.

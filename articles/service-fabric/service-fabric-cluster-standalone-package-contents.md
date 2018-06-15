@@ -18,6 +18,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209352"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Inhoud van de zelfstandige versie van Service Fabric-pakket voor Windows Server
 In de [gedownload](http://go.microsoft.com/fwlink/?LinkId=730690) zelfstandige voor Service Fabric-pakket, vindt u de volgende bestanden:

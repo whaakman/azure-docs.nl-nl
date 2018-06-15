@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30312698"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch compute knooppunt-omgevingsvariabelen
 De [Azure Batch-service](https://azure.microsoft.com/services/batch/) stelt u de volgende omgevingsvariabelen op rekenknooppunten. U kunt verwijzen naar deze omgevingsvariabelen in taak opdrachtregels, en de programma's en scripts worden uitgevoerd door de opdracht-regels.
