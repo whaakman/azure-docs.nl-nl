@@ -18,6 +18,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260966"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI-element
 Een besturingselement dat groepen van een of meer elementen onder de kop.
