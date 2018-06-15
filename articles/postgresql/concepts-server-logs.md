@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691090"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Serverlogboekbestanden in Azure-Database voor PostgreSQL 
 Azure-Database voor PostgreSQL query en de fout genereert logboeken. Toegang tot de transactielogboeken wordt echter niet ondersteund. Query's en fout logboeken kunnen worden gebruikt om te bepalen, oplossen en herstellen van fouten in de configuratie en suboptimale prestaties. Zie voor meer informatie [foutrapportage en de logboekregistratie](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).

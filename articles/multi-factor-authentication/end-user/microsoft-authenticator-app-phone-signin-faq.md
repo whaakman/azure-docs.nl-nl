@@ -2,10 +2,10 @@
 title: Microsoft Authenticator phone aanmelden - Azure en Microsoft-accounts | Microsoft Docs
 description: Gebruik uw telefoon aan te melden bij je Microsoft-account in plaats van uw wachtwoord te typen. Dit artikel worden veelgestelde vragen beantwoord over deze functie.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/14/2018
+ms.locfileid: "26630389"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Meld u aan met uw telefoon niet uw wachtwoord
 

@@ -2,10 +2,10 @@
 title: De werking van de toepassing toestemming | Microsoft Docs
 description: Meer informatie over de werking van het kader van Azure AD toestemming om te zien hoe u kunt deze gebruiken bij het ontwikkelen van toepassingen op Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26612107"
 ---
 # <a name="how-application-consent-works"></a>Hoe werkt in toepassing toestemming geven
 

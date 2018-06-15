@@ -2,10 +2,10 @@
 title: 'Het station D: van een virtuele machine een gegevensschijf | Microsoft Docs'
 description: 'Beschrijft hoe stationsletters voor een virtuele machine van Windows te wijzigen zodat u het station D: als een gegevensstation gebruiken kunt.'
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577442"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Het station D: gebruiken als een gegevensstation op een virtuele machine van Windows
 Als uw toepassing het D-station gebruiken moet voor het opslaan van gegevens, volgt u deze instructies voor het gebruik van een andere stationsletter voor de tijdelijke schijf. Gebruik nooit de tijdelijke schijf voor het opslaan van gegevens die u wilt bewaren.

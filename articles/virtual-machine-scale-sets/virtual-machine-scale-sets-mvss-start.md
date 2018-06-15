@@ -2,10 +2,10 @@
 title: Meer informatie over de sjablonen voor virtuele machines scale set | Microsoft Docs
 description: Informatie over het maken van een minimale levensvatbaar scale set-sjabloon voor virtuele-machineschaalsets
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781252"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Meer informatie over de sjablonen voor virtuele machines scale set
 [Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) zijn bijzonder handig om groepen gerelateerde resources te implementeren. Deze zelfstudie reeks ziet u hoe u een minimale levensvatbaar scale set-sjabloon maken en het wijzigen van deze sjabloon aanpassen aan verschillende scenario's. Alle voorbeelden afkomstig zijn van dit [GitHub-opslagplaats](https://github.com/gatneil/mvss). 
