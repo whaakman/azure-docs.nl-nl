@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: f2dddb6e9a933c1dc1eb4ccbf7ace6757d546fc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367103"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267125"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -53,7 +53,7 @@ U kunt door gebruikers gedefinieerde routes configureren die naar virtuele machi
 
 U kunt ook hub en spoke-omgevingen implementeren waarin het virtuele hub-netwerk infrastructuuronderdelen kan hosten, zoals een virtueel netwerkapparaat of een VPN-gateway. Alle virtuele spoke-netwerken kunnen vervolgens worden gekoppeld aan het virtuele hub-netwerk. Door virtuele netwerkapparaten of VPN-gateways die worden uitgevoerd in het virtuele hub-netwerk kan verkeer stromen. 
 
-Met peering van virtuele netwerken kan de volgende hop op de door de gebruiker gedefinieerde route het IP-adres zijn van een virtuele machine in het gekoppelde virtuele netwerk of VPN-gateway. U kunt echter geen verkeer doorsturen tussen virtuele netwerken met een door de gebruiker gedefinieerde route waarin de ExpressRoute-gateway is opgegeven als het volgende hoptype. Zie [Door de gebruiker gedefinieerde routes](virtual-networks-udr-overview.md#user-defined) voor meer informatie over door de gebruiker gedefinieerde routes. Zie [Hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) voor meer informatie over het maken van een hub-en-spokenetwerktopologie.
+Met peering van virtuele netwerken kan de volgende hop op de door de gebruiker gedefinieerde route het IP-adres zijn van een virtuele machine in het gekoppelde virtuele netwerk of VPN-gateway. U kunt echter geen verkeer doorsturen tussen virtuele netwerken met een door de gebruiker gedefinieerde route waarin de ExpressRoute-gateway is opgegeven als het volgende hoptype. Zie [Door de gebruiker gedefinieerde routes](virtual-networks-udr-overview.md#user-defined) voor meer informatie over door de gebruiker gedefinieerde routes. Zie [Hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over het maken van een hub-en-spokenetwerktopologie.
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways en on-premises connectiviteit
 
@@ -71,7 +71,7 @@ Wanneer virtuele netwerken die één Azure ExpressRoute-verbinding delen, worden
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-Om de peering op een virtueel netwerk te bevestigen, kunt u de [effectieve routes controleren](virtual-network-routes-troubleshoot-portal.md) voor een netwerkinterface in een subnet van een virtueel netwerk. Als een peering op een virtueel netwerk bestaat, hebben alle subnets binnen het virtuele netwerk routes met het volgende hoptype *VNet-peering* voor elke adresruimte in elk gekoppeld virtueel netwerk.
+Om de peering op een virtueel netwerk te bevestigen, kunt u de [effectieve routes controleren](diagnose-network-routing-problem.md) voor een netwerkinterface in een subnet van een virtueel netwerk. Als een peering op een virtueel netwerk bestaat, hebben alle subnets binnen het virtuele netwerk routes met het volgende hoptype *VNet-peering* voor elke adresruimte in elk gekoppeld virtueel netwerk.
 
 U kunt problemen met de verbinding met een virtuele machine in een gekoppeld virtueel netwerk ook oplossen met behulp van de [connectiviteitscontrole](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) van Network Watcher. Met connectiviteitscontrole kunt u zien hoe verkeer wordt doorgestuurd van de netwerkinterface van een virtuele bronmachine naar de netwerkinterface van een virtuele doelmachine.
 
@@ -98,5 +98,5 @@ Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verk
     |Eén in Resource Manager, één klassiek  |[Hetzelfde](create-peering-different-deployment-models.md)|
     |                                   |[Verschillend](create-peering-different-deployment-models-subscriptions.md)|
 
-* Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Meer informatie over alle [instellingen van peering in virtuele netwerken en hoe u deze kunt aanpassen](virtual-network-manage-peering.md).

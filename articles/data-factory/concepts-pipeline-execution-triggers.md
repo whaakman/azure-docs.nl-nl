@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 05/29/2018
 ms.author: shlo
-ms.openlocfilehash: 08fcc2eec1914d9f7535ea66d33045240452e2a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715034"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -138,6 +139,7 @@ Zie [Snelstart: een data factory en pijplijn maken met behulp van .NET SDK](quic
 Triggers zijn een andere manier om een pijplijnuitvoering te starten. Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Data Factory ondersteunt momenteel twee soorten triggers:
 
 - Schematrigger: een trigger die een pijplijn volgens een wandklokschema aanroept.
+
 - Tumblingvenstertrigger: een trigger die volgens een periodiek interval werkt terwijl de status behouden blijft. Azure Data Factory ondersteunt momenteel geen triggers op basis van gebeurtenissen. Bijvoorbeeld de trigger voor een pijplijnuitvoering die reageert op een gebeurtenis waarbij een bestand arriveert, wordt niet ondersteunt.
 
 Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen één pijplijn starten en één trigger kan meerdere pijplijnen starten. In de volgende triggerdefinitie verwijst de eigenschap **pijplijnen** naar een lijst met pijplijnen die worden geactiveerd door de bijbehorende trigger. In de definitie van de eigenschap zijn waarden opgenomen voor de pijplijnparameters.
@@ -175,7 +177,9 @@ Schematriggers voeren pijplijnen uit volgens een wandklokschema. De trigger onde
 Zie [Schematriggers maken](how-to-create-schedule-trigger.md) voor meer informatie over schematriggers en voorbeelden.
 
 ## <a name="tumbling-window-trigger"></a>Tumblingvenstertrigger
-Tumblingvenstertriggers zijn triggers die vanaf een opgegeven begintijd worden geactiveerd met een periodiek tijdsinterval en die hun status behouden. Tumblingvensters bestaan uit een reeks niet-overlappende en aaneengesloten tijdsintervallen van vaste duur. Zie [Tumblingvenstertriggers maken](how-to-create-tumbling-window-trigger.md) voor meer informatie over tumblingvenstertriggers en voorbeelden.
+Tumblingvenstertriggers zijn triggers die vanaf een opgegeven begintijd worden geactiveerd met een periodiek tijdsinterval en die hun status behouden. Tumblingvensters bestaan uit een reeks niet-overlappende en aaneengesloten tijdsintervallen van vaste duur.
+
+Zie [Tumblingvenstertriggers maken](how-to-create-tumbling-window-trigger.md) voor meer informatie over tumblingvenstertriggers en voorbeelden.
 
 ## <a name="schedule-trigger-definition"></a>Schematrigger: definitie
 Wanneer u een schematrigger maakt, geeft u het schema en een terugkeerpatroon op met behulp van een JSON-definitie. 
@@ -281,9 +285,9 @@ De volgende tabel bevat een overzicht van de belangrijkste schema-elementen die 
 | JSON-eigenschap | Type | Vereist | Standaardwaarde | Geldige waarden | Voorbeeld |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | tekenreeks | Ja | Geen | Datums en tijden volgens ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | object | Ja | None | Een recurrence-object | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **recurrence** | object | Ja | Geen | Een recurrence-object | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | getal | Nee | 1 | 1 tot 1000 | `"interval":10` |
-| **endTime** | tekenreeks | Ja | None | Een datum/tijdwaarde die een toekomstig tijdstip aangeeft | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | tekenreeks | Ja | Geen | Een datum/tijdwaarde die een toekomstig tijdstip aangeeft | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | object | Nee | Geen | Een schedule-object | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Eigenschap startTime

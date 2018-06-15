@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33768223"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Verificatie met Azure Container register van exemplaren van de Azure-Container
 

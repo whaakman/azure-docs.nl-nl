@@ -18,6 +18,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34305222"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Azure portal-gebruikersinterface voor de beheerde toepassing maken
 Dit document worden de belangrijkste concepten van het bestand createUiDefinition.json. Dit bestand wordt gebruikt voor het genereren van de gebruikersinterface voor het maken van een beheerde toepassing van de Azure-portal.

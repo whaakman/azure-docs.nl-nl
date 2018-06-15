@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271646"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Verbinding maken met computers zonder toegang tot het Internet met behulp van de OMS-Gateway
 Dit document beschrijft hoe u communicatie met Azure Automation configureert en verbonden met de OMS-Gateway als directe logboekanalyse of Operations Manager bewaakt computers hebben geen toegang tot Internet.  De OMS-Gateway een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding is, kunnen gegevens verzamelen en naar Azure Automation en Log Analytics namens hen verzonden.  
@@ -131,20 +132,18 @@ U kunt de gateway voor hoge beschikbaarheid met netwerktaakverdeling (NLB) met b
 
 Zie voor informatie over het ontwerpen en implementeren van een Windows Server 2016 network load balancing-cluster, [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  De volgende stappen beschrijven het configureren van een Microsoft network load balancing-cluster.  
 
-1.  Meld u aan bij de Windows-server die lid is van het NLB-cluster met een Administrator-account.  
-2.  Beheer van netwerktaakverdeling in Serverbeheer te openen, klikt u op **extra**, en klik vervolgens op **beheer van netwerktaakverdeling**.
+1. Meld u aan bij de Windows-server die lid is van het NLB-cluster met een Administrator-account.  
+2. Beheer van netwerktaakverdeling in Serverbeheer te openen, klikt u op **extra**, en klik vervolgens op **beheer van netwerktaakverdeling**.
 3. Met de rechtermuisknop op het cluster-IP-adres voor een OMS-gatewayserver verbinding met de Microsoft Monitoring Agent is geïnstalleerd, en klik vervolgens op **Host aan Cluster toevoegen**.<br><br> ![Netwerk Load Balancing Manager – toevoegen Host aan Cluster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 4. Geef het IP-adres van de gatewayserver waarmee u verbinding wilt maken.<br><br> ![Network Load Balancing Manager – Host aan Cluster toevoegen: verbinding maken](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS-agent en Operations Manager-beheergroep configureren
 De volgende sectie bevat stapsgewijze instructies voor het rechtstreeks verbonden zijn met OMS-agents, een Operations Manager-beheergroep of Azure Automation Hybrid Runbook Workers configureren met de OMS-Gateway kan communiceren met Azure Automation of Log Analytics.  
 
-Zie voor informatie over vereisten en stappen voor het installeren van de OMS-agent op Windows-computers rechtstreeks verbinding te maken met Log Analytics, [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agents.md) of voor Linux-computers Zie [verbinding maken met Linux computers met logboekanalyse](log-analytics-quick-collect-linux-computer.md).  Zie voor informatie die betrekking hebben op de Automation Hybrid Runbook Worker [implementeren Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
-
-### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>De OMS-agent en de Operations Manager om de OMS-Gateway gebruiken als een proxyserver configureren
-
 ### <a name="configure-standalone-oms-agent"></a>Zelfstandige OMS-agent configureren
-Zie [proxy-en firewallinstellingen configureren met Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) voor informatie over het configureren van een agent voor het gebruik van een proxyserver die in dit geval is de gateway.  Als u meerdere gatewayservers achter een load balancer van netwerk hebt geïmplementeerd, is de configuratie van de OMS-agent-proxy het virtuele IP-adres van de NLB:<br><br> ![Microsoft Monitoring Agenteigenschappen: Proxy-instellingen](./media/log-analytics-oms-gateway/nlb04.png)
+Zie voor informatie over vereisten en stappen voor het installeren van de OMS-agent op Windows-computers rechtstreeks verbinding te maken met Log Analytics, [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agents.md) of voor Linux-computers Zie [verbinding maken met Linux computers met logboekanalyse](log-analytics-quick-collect-linux-computer.md). Plaats het opgeven van een proxyserver bij het configureren van de agent, vervangt u die waarde door het IP-adres van de OMS-Gateway-server en het poortnummer.  Als u meerdere gatewayservers achter een load balancer van netwerk hebt geïmplementeerd, is de configuratie van de OMS-agent-proxy het virtuele IP-adres van de NLB.  
+
+Zie voor informatie die betrekking hebben op de Automation Hybrid Runbook Worker [implementeren Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
 ### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Configureren van Operations Manager - alle agenten dezelfde proxyserver gebruiken
 U configureren Operations Manager om toe te voegen van de gateway-server.  De configuratie van de Operations Manager-proxy wordt automatisch toegepast op alle agents die rapporteren aan Operations Manager, zelfs als de instelling leeg is.  

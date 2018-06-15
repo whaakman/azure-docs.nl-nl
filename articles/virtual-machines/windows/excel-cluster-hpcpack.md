@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917401"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Excel- en SOA-belastingen uitgevoerd op een HPC Pack-cluster in Azure aan de slag
 In dit artikel laat zien hoe een Microsoft HPC Pack 2012 R2-cluster op Azure virtuele machines implementeren met behulp van een Azure quickstart-sjabloon of desgewenst een Azure PowerShell-script voor implementatie. Virtuele machine in Azure Marketplace-installatiekopieën die zijn ontworpen voor Microsoft Excel of een service oriented architecture (SOA) werkbelastingen HPC Pack maakt gebruik van het cluster. Het cluster kunt u vanuit een on-premises clientcomputer Excel HPC en SOA-services uitvoeren. De Excel-HPC-services bevatten Excel-werkmap offloading en de gebruiker gedefinieerde functies van Excel of de UDF's.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30903676"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Hoe u een gegevensschijf loskoppelen van een virtuele Linux-machine
 

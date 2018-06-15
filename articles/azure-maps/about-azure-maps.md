@@ -1,23 +1,20 @@
 ---
 title: Overzicht van Azure Maps | Microsoft Docs
 description: Een inleiding tot Azure Maps
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193948"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600058"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Een inleiding tot Azure Maps
 Azure Maps is een portfolio met georuimtelijke services die onder andere service-API's omvat voor kaarten, zoeken, routes, verkeer en tijdzones. Met behulp van de portfolio met services kunt u gebruikmaken van vertrouwde hulpprogramma's om snel oplossingen te ontwikkelen en schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Azure Maps biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, vol nieuwe kaartgegevens die onmisbaar zijn om mobiele applicaties en webapplicaties te voorzien van geografische context. Azure Maps bestaat uit een set REST API's en een webgebaseerd JavaScript-besturingselement die ontwikkeltaken voor meerdere mediums gemakkelijk, flexibel en mobiel maken. 

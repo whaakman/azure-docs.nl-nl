@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794606"
 ---
 # <a name="data-warehouse-workload"></a>Datawarehouse-workload
 De workload van een datawarehouse wordt gevormd door alle bewerkingen die op het desbetreffende datawarehouse worden uitgevoerd. De datawarehouse-workload omvat het hele proces van het laden van gegevens in het warehouse tot het uitvoeren van analyses en rapporten met betrekking tot het datawarehouse, het beheren van de gegevens in het datawarehouse en het exporteren van gegevens uit het datawarehouse. De omvang en complexiteit van dergelijke bewerkingen zijn vaak evenredig met de uitgebreidheid van het datawarehouse.

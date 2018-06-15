@@ -14,6 +14,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362999"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met Azure Search blob indexeerfunctie
 In dit artikel laat zien hoe een Azure Search blob indexeerfunctie om uit te pakken gestructureerde inhoud uit JSON-blobs in Azure Blob-opslag configureren.

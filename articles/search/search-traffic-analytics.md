@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777256"
 ---
 # <a name="what-is-search-traffic-analytics"></a>Wat is search traffic analytics
 Search traffic analytics is een patroon voor het implementeren van een Feedbacklus voor uw zoekservice. Dit patroon beschrijft de benodigde gegevens en om te verzamelen met behulp van Application Insights, een industrie-opvulteken voor het bewaken van services op meerdere platforms.

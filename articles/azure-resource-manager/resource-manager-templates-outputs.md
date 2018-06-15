@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358362"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Sectie van de uitvoer in Azure Resource Manager-sjablonen
 In de sectie uitvoer geeft u de waarden die worden geretourneerd van de implementatie. U kan bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource geretourneerd.

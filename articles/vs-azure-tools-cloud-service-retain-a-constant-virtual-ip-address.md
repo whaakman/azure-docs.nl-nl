@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795089"
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Een constante virtuele IP-adres voor een Azure cloudservice behouden
 Wanneer u een cloudservice die wordt gehost in Azure bijwerkt, moet u mogelijk om ervoor te zorgen dat het virtuele IP-adres (VIP) van de service niet wijzigen. Domain Name System (DNS) veel management domeinservices gebruiken voor het registreren van domeinnamen. DNS werkt alleen als het VIP hetzelfde is gebleven. U kunt de **Wizard publiceren** in hulpprogramma's van Azure om ervoor te zorgen dat het VIP van uw cloudservice niet wanneer wijzigen u deze bijwerken. Zie voor meer informatie over het gebruik van DNS-domein management voor cloudservices [configureren van een aangepaste domeinnaam voor een Azure cloudservice](cloud-services/cloud-services-custom-domain-name-portal.md).
