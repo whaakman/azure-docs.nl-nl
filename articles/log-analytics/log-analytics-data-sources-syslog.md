@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011091"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-gegevensbronnen in Log Analytics
 Syslog is een gebeurtenis logboekregistratie-protocol die geldt voor Linux.  Toepassingen worden verzonden berichten die kunnen worden opgeslagen op de lokale computer of naar een Syslog-collector geleverd.  Wanneer de OMS-Agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent.  De agent verzendt vervolgens het bericht met logboekanalyse waarop een record in de OMS-opslagplaats is gemaakt.  

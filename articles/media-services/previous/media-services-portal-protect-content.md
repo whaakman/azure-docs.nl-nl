@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790382"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Content protection-beleid configureren met behulp van de Azure-portal
  U kunt uw media vanaf het moment dat het verlaten van uw computer via de opslag, verwerking en levering beveiligen met Azure Media Services. Media Services kunt u de inhoud die is versleuteld met de Advanced Encryption Standard (AES) dynamisch met behulp van 128-bits versleutelingssleutels bezorgen. Ook kunt u deze met common encryption (CENC) met behulp van PlayReady en/of Widevine beheer van digitale rechten (DRM) en FairPlay van Apple. 

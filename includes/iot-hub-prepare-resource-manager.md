@@ -33,7 +33,8 @@ De volgende stappen laten zien hoe wachtwoordverificatie voor een AD-toepassing 
    * **{Wachtwoord}:** een wachtwoord dat u gebruikt om te verifiëren met uw app.
      
      ```powershell
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
+     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Noteer de **ApplicationId** van de toepassing die u hebt gemaakt. U nodig dit later.
 5. Maak een nieuwe service-principal met behulp van de volgende opdracht en vervangt **{MyApplicationId}** met de **ApplicationId** uit de vorige stap:
