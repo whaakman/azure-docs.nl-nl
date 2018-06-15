@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30196788"
 ---
 > [!NOTE]
 > De nieuwe VPN-gateway-SKU's (VpnGw1, VpnGw2 en VpnGw3) worden alleen ondersteund voor het Resource Manager-implementatiemodel. Klassieke virtuele netwerken moeten blijven gebruiken van de oude (verouderde) SKU's.
