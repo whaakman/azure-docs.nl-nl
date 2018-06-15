@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30320234"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Maak een openbare Load Balancer Standard met zone-redundante frontend met Azure CLI
 

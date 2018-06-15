@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30324108"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Open een ondersteuningsticket voor een taak van Import/Export
 
