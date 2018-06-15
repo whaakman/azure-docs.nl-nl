@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30164964"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure planningsoverwegingen Stack-implementatie
 Voordat u Azure Stack Development Kit (ASDK) implementeert, zorg er dan voor dat de hostcomputer van development kit voldoet aan de vereisten die in dit artikel wordt beschreven.

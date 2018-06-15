@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841449"
 ---
 # <a name="manage-virtual-machine-extensions"></a>Virtuele machine-uitbreidingen beheren
 Beschrijft hoe vinden, toevoegen, wijzigen of verwijderen van de VM-extensies met Windows of Linux virtuele Machines in Azure.

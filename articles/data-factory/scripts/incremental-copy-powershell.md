@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30169736"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>PowerShell-script - incrementeel gegevens laden met behulp van Azure Data Factory
 Deze PowerShell-voorbeeldscript laadt alleen nieuwe of bijgewerkte records uit een gegevensopslag van bron naar een gegevensarchief sink na de eerste volledige kopie van gegevens van de bron naar de sink.  

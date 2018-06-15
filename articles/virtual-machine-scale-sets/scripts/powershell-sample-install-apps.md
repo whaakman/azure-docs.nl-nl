@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246403"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Toepassing installeren in een virtuele-machineschaalset met PowerShell
 Met dit script maakt u een virtuele-machineschaalset met Windows Server 2016 die de Custom Script-extensie gebruikt voor het installeren van een eenvoudige webtoepassing. Nadat het script is uitgevoerd, kunt u de web-app via een webbrowser openen.

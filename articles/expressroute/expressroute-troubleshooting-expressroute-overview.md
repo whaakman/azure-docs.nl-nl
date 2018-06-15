@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30185977"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute-verbinding controleren
 ExpressRoute, die een uitbreiding is een on-premises netwerk via een persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider in de Microsoft cloud, omvat de volgende drie afzonderlijke netwerkzones:

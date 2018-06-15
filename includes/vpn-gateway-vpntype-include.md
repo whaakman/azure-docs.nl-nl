@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30196756"
 ---
 * **PolicyBased:** PolicyBased VPN-verbindingen werden voorheen statische routeringsgateways genoemd in het klassieke implementatiemodel. Op beleid gebaseerde VPN-verbindingen versleutelen pakketten en sturen via IPsec-tunnels op basis van het IPSec-beleid dat is geconfigureerd met de combinaties van adresvoorvoegsels tussen uw on-premises netwerk en het Azure VNet. Het beleid (of de verkeersselector) wordt gewoonlijk gedefinieerd als een toegangslijst in de configuratie van het VPN-apparaat. De waarde voor een PolicyBased VPN-type is *PolicyBased*. Wanneer u een PolicyBased VPN, houd er rekening mee houden de volgende beperkingen:
   

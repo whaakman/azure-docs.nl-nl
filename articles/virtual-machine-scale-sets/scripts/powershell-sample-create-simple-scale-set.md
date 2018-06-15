@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246284"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Een virtuele-machineschaalset maken met PowerShell
 Met dit script maakt u een virtuele-machineschaalset waarop Windows Server 2016 wordt uitgevoerd. Nadat het script is uitgevoerd, hebt u via RDP toegang tot de virtuele machine.

@@ -18,6 +18,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30243550"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>De Elastic Stack installeren op een virtuele machine in Azure
 

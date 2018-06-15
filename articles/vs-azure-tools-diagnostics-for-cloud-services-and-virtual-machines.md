@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292537"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Instellen van diagnostische gegevens voor Azure Cloud Services en virtuele machines
 Wanneer u problemen met een Azure-cloudservice of virtuele machine, kunt u Visual Studio kunt gebruiken voor het eenvoudig instellen van Azure Diagnostics. Diagnostische gegevens worden vastgelegd system en logboekregistratie-gegevens op de virtuele machines en de virtuele machine-exemplaren die worden uitgevoerd van de cloudservice. Diagnostische gegevens worden overgedragen naar een opslagaccount die u kiest. Zie voor meer informatie over diagnostische gegevens van logboekregistratie in Azure, [logboekregistratie van diagnostische gegevens van Web-Apps in Azure App Service](app-service/web-sites-enable-diagnostic-log.md).

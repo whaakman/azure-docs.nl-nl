@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30245444"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side-versleuteling en Azure Sleutelkluis voor Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -65,7 +66,7 @@ Tijdens het versleutelen, wordt de clientbibliotheek genereren van een willekeur
 > 
 > 
 
-Bij het ophalen van de inhoud van het gebruik van de hele blob downloaden van een versleutelde blob omvat de **DownloadTo *** /**BlobReadStream ** gemak methoden. De verpakte CEK is al en worden gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde gegevens retourneren aan de gebruikers.
+Bij het ophalen van de inhoud van het gebruik van de hele blob downloaden van een versleutelde blob omvat de **DownloadTo *** /** BlobReadStream ** gemak methoden. De verpakte CEK is al en worden gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde gegevens retourneren aan de gebruikers.
 
 Downloaden van een willekeurig bereik (**DownloadRange*** methoden) in de versleutelde blob omvat het aanpassen van het bereik dat is opgegeven door gebruikers om op te halen van een kleine hoeveelheid aanvullende gegevens die kunnen worden gebruikt voor het ontsleutelen van het aangevraagde bereik is.
 
