@@ -2,23 +2,21 @@
 title: 'Azure Cosmos DB: een taken-app ontwikkelen met Xamarin | Microsoft Docs'
 description: Biedt een Xamarin-voorbeeldcode die u kunt gebruiken om verbinding te maken met en query's uit te voeren op Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 05/30/2018
 ms.author: sngun
-ms.openlocfilehash: ca6780f9cec478cf9ed756aaefc7f6c059b6316a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b224a40f1ed5e778da6429d44a449d3f9ffdf16d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796118"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: een taken-app ontwikkelen met Xamarin
 
@@ -75,10 +73,10 @@ Nu gaat u de SQL API-app voor Xamarin klonen vanuit GitHub, de code controleren,
 3. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt een kopie van de voorbeeld-app op uw computer.
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-dotnet.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-3. Open vervolgens vanuit de map samples/xamarin/ToDoItems in Visual Studio het bestand ToDoItems.sln.
+4. Open vervolgens vanuit de map samples/xamarin/ToDoItems in Visual Studio het bestand ToDoItems.sln.
 
 ## <a name="obtain-your-api-keys"></a>Uw API-sleutels ophalen
 
@@ -97,6 +95,8 @@ Ga terug naar Azure Portal om de API-sleutelgegevens op te halen en deze in de a
 4. Kopieer vervolgens de waarde van uw PRIMAIRE SLEUTEL vanuit de portal en geef deze op als waarde van `Cosmos Auth Key` in APIKeys.cs.
 
     `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+
+[!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
 ## <a name="review-the-code"></a>De code bekijken
 

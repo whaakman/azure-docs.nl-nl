@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: b9dc2064a4d90b924730e2615378892b17340baf
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: b71d737f99a82508f9769f89d8172aa02bec817b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302529"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297179"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registreren met het CSP-partnerprogramma en kostengegevens weergeven
 
@@ -31,7 +31,7 @@ Zie [Verbinding maken met de Partner Center API](https://msdn.microsoft.com/libr
 >
 >Indirecte CSP-resellers kan toegang worden gegeven tot Cloudyn nadat hun indirecte CSP-provider zich bij Cloudyn heeft geregistreerd. Indirecte CSP-resellers kunnen vervolgens zorgen dat Azure-klanten en abonnementen toegang hebben tot Cloudyn.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 - Meld u aan bij Azure Portal op http://portal.azure.com.
 

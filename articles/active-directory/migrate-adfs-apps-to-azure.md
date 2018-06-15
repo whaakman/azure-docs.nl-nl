@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: 93282f3d4a7ca84e59fa8831d5eb650a643d1e83
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 6c82ba9f5864da96ae008974b758058fc6d63cb1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296708"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>On-premises AD FS-apps naar Azure migreren 
 
@@ -235,5 +236,5 @@ Als u wilt dat Azure AD de inrichting van gebruikers voor een SaaS-app direct af
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Toepassingen beheren met Azure Active Directory](manage-apps/what-is-application-management.md)
-- [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
+- [Toegang tot apps beheren](manage-apps/what-is-access-management.md)
 - [Azure AD Connect-federatie](active-directory-aadconnectfed-whatis.md)
