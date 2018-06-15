@@ -2,10 +2,10 @@
 title: Functies die niet worden gestart oplossen | Microsoft Docs
 description: Hier volgen enkele veelvoorkomende redenen waarom een Service in de Cloud-rol kan niet worden gestart. Oplossingen voor deze problemen worden ook gegeven.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875331"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Problemen met Cloud Service-functies die niet worden gestart
 Hier volgen enkele veelvoorkomende problemen en oplossingen die zijn gerelateerd aan Azure Cloud Services functies die niet worden gestart.

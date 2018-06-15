@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935705"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Linux-installatiekopieën toevoegen aan Azure-Stack
 

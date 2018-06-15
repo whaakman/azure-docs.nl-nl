@@ -2,10 +2,10 @@
 title: Provider Resourcegebruik API | Microsoft Docs
 description: Verwijzing voor het gebruik van bronnen API, die informatie over het gebruik van Azure-Stack opgehaald
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877276"
 ---
 # <a name="provider-resource-usage-api"></a>Resourcegebruik-API voor providers
 De term *provider* geldt voor de servicebeheerder en voor alle providers gedelegeerd. Azure Stack-operators en gedelegeerd providers kunnen u de provider gebruiks-API gebruiken om het gebruik van hun directe tenants weer te geven. Bijvoorbeeld, zoals in het diagram, P0 de serviceprovider-API voor van gebruiksinformatie over de P1 kunt aanroepen en rechtstreeks gebruik van P2 en P1 kunt bellen voor informatie over het gebruik van P3 en P4.

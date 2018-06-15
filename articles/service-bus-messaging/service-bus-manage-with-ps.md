@@ -5,8 +5,8 @@ services: service-bus-messaging
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159735"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell gebruiken om Service Bus-resources beheren
 

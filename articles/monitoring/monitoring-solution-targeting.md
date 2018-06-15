@@ -16,9 +16,10 @@ ms.date: 04/27/2017
 ms.author: bwren
 ms.openlocfilehash: 65585e6c09def23101d9735c8b9c719d213938ac
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887844"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Doelitems oplossingen in Azure (Preview)
 Wanneer u een oplossing voor uw abonnement toevoegt, wordt het automatisch naar alle Windows- en Linux-agents verbonden met uw werkruimte voor logboekanalyse standaard geïmplementeerd.  Mogelijk wilt de kosten beheren en beperken van de hoeveelheid gegevens die door het beperken van het aan een bepaalde set van agents naar een oplossing worden verzameld.  In dit artikel wordt beschreven hoe u **oplossing Targeting** dit is een functie waarmee u een bereik toepassen op uw oplossingen.

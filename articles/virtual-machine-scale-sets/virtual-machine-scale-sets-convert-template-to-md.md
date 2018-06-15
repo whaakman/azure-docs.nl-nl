@@ -3,7 +3,7 @@ title: Een Azure Resource Manager-sjabloon scale set voor het gebruik van beheer
 description: Een set scale sjabloon converteren naar een beheerde schijf scale set-sjabloon.
 keywords: Virtuele-machineschaalsets
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781068"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Een set scale sjabloon converteren naar een beheerde schijf scale set-sjabloon
 

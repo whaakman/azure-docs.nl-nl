@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942653"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Overzicht van Azure VM-Agent
 De Agent in Microsoft Azure virtuele Machine (VM-Agent) is een veilige, eenvoudige proces dat beheer van de virtuele machine (VM) interactie met de Azure-Infrastructuurcontroller. De VM-Agent heeft een primaire rol als inschakelen en het uitvoeren van de virtuele machine van Azure-extensies. VM-extensies na de implementatie-configuratie van de virtuele machine, zoals het installeren en configureren van software is ingeschakeld. VM-extensies ook inschakelen herstelfuncties zoals het opnieuw instellen van het beheerderswachtwoord van een virtuele machine. Zonder de Azure VM-Agent kunnen geen VM-extensies worden uitgevoerd.

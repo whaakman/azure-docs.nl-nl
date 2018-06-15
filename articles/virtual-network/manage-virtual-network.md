@@ -20,6 +20,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895358"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
 

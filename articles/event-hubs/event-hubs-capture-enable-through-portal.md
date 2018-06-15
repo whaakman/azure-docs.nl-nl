@@ -2,11 +2,11 @@
 title: Azure Event Hubs Capture inschakelen via de portal | Microsoft Docs
 description: Schakel de functie Event Hubs Capture in met behulp van de Azure-portal.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855008"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Event Hubs Capture inschakelen met behulp van de Azure-portal
 

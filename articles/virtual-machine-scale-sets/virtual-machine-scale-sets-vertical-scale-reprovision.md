@@ -2,10 +2,10 @@
 title: Virtuele machine van Azure-schaalsets verticaal te schalen | Microsoft Docs
 description: Een virtuele Machine verticaal te schalen in reactie op waarschuwingen met Azure Automation bewaken
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781816"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Hiermee stelt u verticale automatisch geschaald met virtuele-machineschaalset
 Dit artikel wordt beschreven hoe u Azure verticaal te schalen [virtuele-Machineschaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) met of zonder reprovisioning. Raadpleeg voor verticale schaling van virtuele machines die zich niet in-schaalsets [verticaal schalen Azure virtuele machine met Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

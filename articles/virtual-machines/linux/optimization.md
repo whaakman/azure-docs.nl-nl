@@ -21,6 +21,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33944533"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
 Maken van virtuele Linux-machine (VM) is eenvoudig doen vanaf de opdrachtregel of in de portal. Deze zelfstudie laat zien hoe u om te controleren of u dit hebt ingesteld om de prestaties van het Microsoft Azure-platform te optimaliseren. In dit onderwerp maakt gebruik van een virtuele Ubuntu Server-machine, maar u kunt ook maken Linux virtuele machine met [uw eigen installatiekopieën die u als sjabloon](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  

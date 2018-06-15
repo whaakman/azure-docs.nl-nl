@@ -2,7 +2,7 @@
 title: Verzamelen en analyseren van Windows-gebeurtenislogboeken in Azure Log Analytics | Microsoft Docs
 description: Windows-gebeurtenislogboeken zijn een van de meest voorkomende gegevensbronnen die worden gebruikt door logboekanalyse.  In dit artikel wordt beschreven hoe de verzameling van Windows-gebeurtenislogboeken en details van de records die ze in de werkruimte voor logboekanalyse maken configureren.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782027"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Gegevensbronnen van de Windows-gebeurtenislogboek in Log Analytics
 Windows-gebeurtenislogboeken zijn een van de meest voorkomende [gegevensbronnen](log-analytics-data-sources.md) voor het verzamelen van gegevens met behulp van Windows-agents omdat veel toepassingen naar het Windows-gebeurtenislogboek schrijven.  U kunt gebeurtenissen verzamelen uit standaard logboeken zoals systeem en toepassing naast het opgeven van een aangepaste logboeken gemaakt door toepassingen die u wilt bewaken.

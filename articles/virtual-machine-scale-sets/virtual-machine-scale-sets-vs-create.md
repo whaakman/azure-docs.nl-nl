@@ -2,10 +2,10 @@
 title: Virtuele-Machineschaalset met Visual Studio implementeren | Microsoft Docs
 description: Virtuele-Machineschaalsets met Visual Studio en het Resource Manager-sjabloon implementeren
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782143"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Het maken van een virtuele-Machineschaalset met Visual Studio
 In dit artikel leest u hoe een Azure VM-Schaalset met behulp van een Visual Studio Resource Group Deployment implementeren.

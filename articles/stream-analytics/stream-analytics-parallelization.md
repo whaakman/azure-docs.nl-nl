@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777624"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Gebruik de query garandeert in Azure Stream Analytics
 In dit artikel leest u hoe om te profiteren van garandeert in Azure Stream Analytics. U leert hoe Stream Analytics-taken schalen door invoer partities configureren en de definitie van de analytics query afstemmen.

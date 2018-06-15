@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894746"
 ---
 # <a name="azure-operational-security-checklist"></a>Controlelijst voor de Azure operationele beveiliging
 Een toepassing in Azure implementeren is snel, eenvoudig en rendabele. Voordat u implementeert cloudtoepassing in productie nuttig om te hebben van een controlelijst om te helpen bij het evalueren van uw toepassing op basis van een lijst van operationele beveiliging van essentiële en aanbevolen acties voor u te overwegen.

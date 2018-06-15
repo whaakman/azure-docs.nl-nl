@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787393"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configureren van instellingen voor Azure Marketplace-installatiekopie in Azure DevTest Labs
 DevTest Labs ondersteunt maken VMs op basis van Azure Marketplace-installatiekopieën, afhankelijk van hoe u Azure Marketplace-installatiekopieën hebt geconfigureerd in uw testomgeving. Dit artikel laat zien hoe u kunt opgeven die, indien aanwezig, Azure Marketplace-installatiekopieën kunnen worden gebruikt bij het maken van virtuele machines in een testomgeving. Dit zorgt ervoor dat uw team alleen toegang heeft tot de Marketplace-installatiekopieën die ze nodig hebben. 
