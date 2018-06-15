@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30836092"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opties voor Linux virtuele machines in Azure DNS-naamomzetting
 Azure biedt DNS-naamomzetting standaard voor alle virtuele machines die zich in één virtueel netwerk. U kunt uw eigen DNS-naam resolutie oplossing implementeren door uw eigen DNS-services op uw virtuele machines te configureren die Azure als host fungeert. De volgende scenario's kunt u kiezen die geschikt is voor uw situatie.

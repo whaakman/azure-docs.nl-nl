@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292554"
 ---
 # <a name="debugging-a-published-azure-cloud-service-with-visual-studio-and-intellitrace"></a>Een gepubliceerde Azure-cloudservice met Visual Studio en IntelliTrace-foutopsporing
 U kunt uitgebreide foutopsporingsinformatie voor een rolexemplaar van met IntelliTrace registreren wanneer deze wordt uitgevoerd in Azure. Als u nodig hebt om de oorzaak van een probleem te achterhalen, kunt u de IntelliTrace-logboeken doorlopen uw code vanuit Visual Studio als in Azure werd uitgevoerd. In feite key IntelliTrace records-uitvoering van code en omgevingsgegevens wanneer uw Azure-toepassing wordt uitgevoerd als een cloudservice in Azure en kunt u de vastgelegde gegevens vanuit Visual Studio opnieuw afspelen. 

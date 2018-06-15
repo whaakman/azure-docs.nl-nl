@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30262871"
 ---
 # <a name="service-health"></a>Service Health
 Status van de service biedt u een aangepast dashboard houdt de status van uw Azure-services in de regio's waar u ze gebruiken. In dit dashboard kunt u actieve gebeurtenissen, zoals problemen met de actieve service, toekomstige geplande maintence of relevante health aanbevelingen bijhouden. Wanneer gebeurtenissen inactief, krijgen ze maximaal 90 dagen in de geschiedenis van uw geplaatst. Ten slotte kunt u het Service Health dashboard maken en beheren van waarschuwingen van de health service die u proactief gewaarschuwd wanneer er problemen met de service zijn invloed op u.

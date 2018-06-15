@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30312674"
 ---
 # <a name="batch-analytics"></a>Batch-analyse
 De onderwerpen in Batch Analytics bevatten informatie over de gebeurtenissen en waarschuwingen die beschikbaar zijn voor Batch-service-resources.
