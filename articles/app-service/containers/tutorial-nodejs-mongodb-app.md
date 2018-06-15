@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29932742"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Een Node.js-app en een MongoDB-web-app maken in Azure App Service onder Linux
 

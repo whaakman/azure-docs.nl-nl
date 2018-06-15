@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895866"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Controlelijst van Azure Service Fabric-beveiliging
 Dit artikel bevat een controlelijst eenvoudig te gebruiken, waarmee u uw Azure Service Fabric-omgeving te beveiligen.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202028"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Maken van een aangepaste test voor Azure Application Gateway met behulp van PowerShell voor Azure Resource Manager
 

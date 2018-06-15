@@ -13,6 +13,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32773599"
 ---
 >[!NOTE]
 >Uw ExpressRoute-circuit moet de SKU-laag van Premium-invoegtoepassing gebruiken voor het configureren van Microsoft-peering. 

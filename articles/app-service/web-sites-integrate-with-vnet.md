@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31789204"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de integratiefunctie van Azure App Service virtueel netwerk en ziet u hoe u met apps in instelt [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Als u niet bekend bent met Azure Virtual Networks (vnet's), is dit een functie waarmee u veel van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met een aantal VPN-technologieën. Voor meer informatie over Azure Virtual Networks, beginnen met de informatie hier: [Azure Virtual Network-overzicht][VNETOverview]. 

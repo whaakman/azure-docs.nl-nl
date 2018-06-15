@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796845"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Veld-verwijzingen in Azure Search indexeerfuncties
 Wanneer u Azure Search indexeerfuncties, kunt u zelf zo nu en dan vinden in situaties waarin de invoergegevens behoorlijk het schema van de doelindex komt niet overeen. In deze gevallen kunt u **veld toewijzingen** voor het transformeren van uw gegevens in de gewenste vorm.

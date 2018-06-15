@@ -5,7 +5,7 @@ services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926594"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>AMQP 1.0-ondersteuning in Service Bus
 De Azure Service Bus cloud-service en de on-premises [Service Bus voor Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) ondersteuning van de geavanceerde Message Queueing Protocol (AMQP) 1.0. AMQP kunt u cross-platform, hybride toepassingen met behulp van een open standaard protocol bouwen. U kunt opstellen toepassingen met behulp van de onderdelen die zijn gemaakt met behulp van verschillende talen en frameworks en die worden uitgevoerd op verschillende besturingssystemen worden uitgevoerd. Al deze onderdelen verbinding met Service Bus en naadloos maken kunnen uitwisselen gestructureerde business berichten efficiënt en volledig betrouwbaar.

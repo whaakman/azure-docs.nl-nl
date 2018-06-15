@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33934281"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Meldingen en e-mailsjablonen configureren in Azure API Management
 API Management biedt de mogelijkheid voor het configureren van meldingen voor specifieke gebeurtenissen en de e-mailsjablonen die worden gebruikt om te communiceren met de beheerders en ontwikkelaars van exemplaar van API Management configureren. Dit artikel laat zien hoe u meldingen configureren voor de gebeurtenissen beschikbaar en biedt een overzicht van de configuratie van de e-mailsjablonen gebruikt deze gebeurtenissen.

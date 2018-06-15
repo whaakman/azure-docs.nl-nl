@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 03/23/2018
+  ms.locfileid: "30162200"
 abstract:
   description: Leer Azure Databricks te gebruiken met behulp van de QuickStart en via de andere links die hier te vinden zijn. Azure Databricks is een op Apache Spark gebaseerd analyseplatform, geoptimaliseerd voor het Microsoft Azure-platform voor cloudservices. Databricks is ontwikkeld in samenwerking met de grondleggers van Apache Spark en met Azure geïntegreerd. Hierdoor biedt het installatie met één klik, gestroomlijnde werkstromen en een interactieve werkruimte waarmee gegevenswetenschappers, gegevenstechnici en bedrijfsanalisten samen kunnen werken.
   aside:

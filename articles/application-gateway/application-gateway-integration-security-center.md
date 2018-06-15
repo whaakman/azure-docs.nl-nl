@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205040"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Overzicht van de integratie tussen Application Gateway en Azure Security Center
 

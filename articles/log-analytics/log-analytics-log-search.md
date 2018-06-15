@@ -2,10 +2,10 @@
 title: Meld u zoekopdrachten in Azure Log Analytics | Microsoft Docs
 description: U hebt een logboek zoekopdracht gegevens ophalen van logboekanalyse nodig.  Dit artikel wordt beschreven hoe nieuwe logboek zoekopdrachten worden gebruikt in Log Analytics en concepten die u begrijpen moet voordat deze is gemaakt.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29953313"
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Understanding logboek zoekt in Log Analytics
 

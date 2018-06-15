@@ -41,7 +41,7 @@
             - name: Een Azure AD-identiteit gebruiken met CLI of PowerShell
               href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autoriseren met gedeelde sleutel
-          href: /rest/api/storageservices/authenticate-with-shared-key
+          href: /rest/api/storageservices/authorize-with-shared-key
         - name: Autoriseren met SAS
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Procedures
@@ -107,7 +107,7 @@
         - name: Versleuteling van data-at-rest
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Gedeelde sleutelverificatie
-          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+          href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
         - name: Shared Access Signatures (SAS)
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Veilige overdracht vereisen

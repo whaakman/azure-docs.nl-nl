@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777950"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Cross-platform meldingen verzenden naar gebruikers met Notification Hubs
 In een vorige zelfstudie [meldingen verzenden naar gebruikers met Notification Hubs], hebt u geleerd hoe u pushmeldingen naar alle apparaten die zijn geregistreerd voor een specifieke geverifieerde gebruiker. In deze zelfstudie zijn meerdere aanvragen vereist een melding te verzenden naar elke ondersteund clientplatform. Azure Notification Hubs ondersteunt sjablonen, waarmee u kunt opgeven hoe een specifiek apparaat wil ontvangen van meldingen. Deze methode vereenvoudigt het verzenden van meldingen op meerdere platforms. 

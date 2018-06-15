@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787666"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs integreren in uw VSTS continue integratie en de pijplijn voor levering
 U kunt de *Azure DevTest Labs taken* -extensie die in Visual Studio Team Services (VSTS) op eenvoudige wijze geïnstalleerd uw build-en release CI/CD pijplijn integreren met Azure DevTest Labs. De uitbreiding is geïnstalleerd drie taken: 

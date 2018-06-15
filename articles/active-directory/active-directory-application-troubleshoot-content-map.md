@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927930"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Problemen oplossen met Azure Active Directory-toepassing-beheer en ontwikkeling
 In dit artikel helpt u bij het vinden van nuttige documenten in verband met het oplossen van enkele van de meest voorkomende problemen die betrekking hebben op het beheren van **bedrijfstoepassingen** en ontwikkelen van nieuwe toepassingen met de **toepassing Register**.

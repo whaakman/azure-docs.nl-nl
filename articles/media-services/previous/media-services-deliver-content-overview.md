@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788891"
 ---
 # <a name="deliver-content-to-customers"></a>Inhoud leveren aan klanten
 Wanneer u uw inhoud streamen of video-on-demand aan klanten bieden, wordt het doel is om te leveren van video van hoge kwaliteit aan verschillende apparaten met verschillende netwerkomstandigheden.

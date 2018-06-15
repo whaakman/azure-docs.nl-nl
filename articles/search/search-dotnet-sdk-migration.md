@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793474"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Een upgrade naar de Azure Search .NET SDK versie 3
 Als u versie 2.0 preview of oudere van de [Azure Search .NET SDK](https://aka.ms/search-sdk), dit artikel helpt u bij het bijwerken van uw toepassing versie 3 gebruiken.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794521"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>DNS-instellingen opgeven in een configuratiebestand voor het virtuele netwerk
 Een configuratiebestand netwerk bestaat uit twee elementen die u gebruiken kunt om Domain Name System (DNS)-instellingen te geven: **DnsServers** en **DnsServerRef**. U kunt een lijst met DNS-servers toevoegen door te geven van de IP-adressen en namen om te verwijzen naar de **DnsServers** element. U kunt een **DnsServerRef** element dat u wilt opgeven welke server DNS-vermeldingen van het element DnsServers worden gebruikt voor andere netwerksites binnen het virtuele netwerk.

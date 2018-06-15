@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777926"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Wat is Azure Notification Hubs?
 Azure Notification Hubs biedt een eenvoudig te gebruiken en uitgeschaalde push-engine waarmee u vanuit elke back-end (cloud of on-premises) meldingen kunt verzenden naar ieder platform (iOS, Android, Windows, Kindle, Baidu, enzovoort). Notification Hubs is zeer geschikt voor zowel bedrijfs- als consumentenscenario's. Enkele voorbeelden:

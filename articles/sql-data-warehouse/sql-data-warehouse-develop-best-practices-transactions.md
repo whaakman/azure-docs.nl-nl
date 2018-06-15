@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795531"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Transacties in Azure SQL Data Warehouse optimaliseren
 Informatie over het optimaliseren van de prestaties van uw transactionele code in Azure SQL Data Warehouse terwijl het risico voor lange Rollback minimaliseert.

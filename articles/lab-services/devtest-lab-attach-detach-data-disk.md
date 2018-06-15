@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787589"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Koppelen of ontkoppelen van een gegevensschijf aan een virtuele machine in Azure DevTest Labs
 [Azure-beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) beheert de storage-accounts die zijn gekoppeld aan de gegevensschijven van de virtuele machine. Een gebruiker wordt een nieuwe gegevens schijf aan een VM, geeft u het type en de grootte van de schijf die nodig is en Azure maakt en beheert de schijf automatisch. De gegevensschijf kan vervolgens worden losgekoppeld van de virtuele machine en een vervolgens opnieuw later dezelfde virtuele machine, of zijn gekoppeld aan een andere virtuele machine die tot dezelfde gebruiker behoort.

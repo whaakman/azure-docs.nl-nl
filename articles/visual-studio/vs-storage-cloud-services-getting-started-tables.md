@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795150"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Aan de slag met Azure-tabelopslag en Visual Studio verbonden services (cloud services-projecten)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]

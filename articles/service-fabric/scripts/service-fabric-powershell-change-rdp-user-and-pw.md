@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30177828"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Gebruikersnaam en wachtwoord van de beheerder van de VM's in een cluster bijwerken
 

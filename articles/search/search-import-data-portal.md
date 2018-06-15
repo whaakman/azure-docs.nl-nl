@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795881"
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Gegevens importeren in Azure Search via de portal
 In het Azure Search-dashboard van Azure Portal vindt u de wizard **Gegevens importeren** waarmee u gegevens in een index kunt laden. 

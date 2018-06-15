@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309909"
 ---
 # <a name="what-is-application-insights"></a>Wat is Application Insights?
 Application Insights is een uitbreidbare APM-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app.  De service is bedoeld om u te helpen de prestaties en bruikbaarheid van uw apps continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars. Gebruik de service voor het controleren en analyseren van telemetrie van mobiele apps door Application Insights te integreren met Visual Studio App Center en HockeyApp.

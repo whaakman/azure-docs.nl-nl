@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788555"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Het beheren van Media Services-activa tussen meerdere Opslagaccounts
 Beginnen met Microsoft Azure Media Services 2.2, kunt u meerdere opslagaccounts aan een enkel Media Services-account koppelen. De mogelijkheid meerdere opslagaccounts koppelen aan een Media Services-account biedt de volgende voordelen:

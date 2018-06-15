@@ -1,12 +1,12 @@
 ---
-title: "Aandachtspunten voor de integratie van connectiviteit netwerk voor Azure-Stack geïntegreerd systemen rand | Microsoft Docs"
+title: Aandachtspunten voor de integratie van connectiviteit netwerk voor Azure-Stack geïntegreerd systemen rand | Microsoft Docs
 description: Meer informatie over wat u kunt doen om te plannen voor datacenter rand netwerkverbinding met meerdere knooppunten Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919431"
 ---
 # <a name="border-connectivity"></a>Border-connectiviteit 
 Integratie met netwerkplanning is een belangrijk vereist voor een geslaagde implementatie van Azure-Stack geïntegreerd systemen, bewerking en beheer. Rand connectiviteit planning begint door te kiezen of u gebruik van dynamische routering met border gateway protocol (BGP) of niet. Hiervoor moet een 16-bits autonoom systeemnummer BGP (openbare of persoonlijke) toe te wijzen of met statische routering, waarbij een standaard statische route is toegewezen aan de rand-apparaten.

@@ -15,6 +15,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774655"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Gebruik van opgeslagen procedures in SQL Data Warehouse
 Tips voor het implementeren van opgeslagen procedures in Azure SQL Data Warehouse om oplossingen te ontwikkelen.

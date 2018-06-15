@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788898"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Gebruik van meerdere invoerbestanden en eigenschappen van onderdeel met Premium-codering
 ## <a name="overview"></a>Overzicht

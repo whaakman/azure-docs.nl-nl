@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798203"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adrestypen en toewijzingsmethoden Azure (klassiek)
 U kunt IP-adressen toewijzen aan Azure-resources om te communiceren met andere Azure-resources, uw on-premises netwerk en internet. Er zijn twee soorten IP-adressen kunt u in Azure: openbare en persoonlijke.

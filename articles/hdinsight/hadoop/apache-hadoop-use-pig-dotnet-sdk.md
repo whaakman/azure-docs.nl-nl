@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771749"
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Pig-taken met de .NET SDK voor Hadoop in HDInsight uitvoeren
 

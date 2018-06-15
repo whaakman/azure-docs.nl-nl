@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788681"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Een asset coderen met Media Encoder Standard met .NET
 Coderingstaken behoren tot de vaakst uitgevoerde bewerkingen in Media Services. U creëert coderingstaken om mediabestanden te converteren van de ene naar de andere indeling. Wanneer u codeert, kunt u de Media Services ingebouwde Media Encoder. U kunt ook een encoder geleverd door een partner Media Services; coderingsprogramma's van derden zijn beschikbaar via Azure Marketplace. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788170"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Het configureren van on-premises coderingsprogramma's bij gebruik van Azure Media Services om multi-bitrate streams te maken
 In dit onderwerp geeft een lijst met on-premises live coderingsprogramma's die u gebruiken kunt voor het vastleggen van uw live gebeurtenissen en het verzenden van een single-bitrate live stream AMS-kanalen (die zijn live codering is ingeschakeld) voor verdere verwerking. Het onderwerp bevat ook koppelingen naar zelfstudies die laten zien hoe vermelde coderingsprogramma's configureren.

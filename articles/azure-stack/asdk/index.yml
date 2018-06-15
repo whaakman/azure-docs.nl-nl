@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: nl-NL
   ms.lasthandoff: 04/23/2018
+  ms.locfileid: "31786720"
 abstract:
   description: Azure Stack Development Kit (ASDK) is een implementatie met één knooppunt van de Azure-Stack die u kunt downloaden en gratis gebruiken. De ASDK is bedoeld voor een omgeving waarin u kunt Azure-Stack evalueren en ontwikkelen van moderne toepassingen met behulp van API's en tooling consistent zijn met Azure in een niet-productieomgeving. <br/><br/>Als u een Azure-Stack-operator die de infrastructuur geïntegreerde systemen beheert en -services biedt, Zie onze <a href="/azure/azure-stack/">operator documentatie</a>.<br/><br/>Als u een Azure-Stack-gebruiker die gebruikmaakt van services of apps voor Azure-Stack is gebaseerd, Zie onze <a href="/azure/azure-stack/user">gebruikersdocumentatie</a>.
 sections:

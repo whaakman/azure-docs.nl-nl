@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798067"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Met een Linux gegevens wetenschappelijke virtuele Machine in Azure voor gegevenswetenschap
 In dit scenario laat zien hoe u verschillende algemene gegevens wetenschappelijke taken met de virtuele Linux-gegevens van wetenschappelijke machine uitvoeren. Linux gegevens wetenschappelijke virtuele Machine (DSVM) is beschikbaar in Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning op de installatiekopie van een virtuele machine. De belangrijke softwareonderdelen worden gespecificeerd in de [Linux gegevens wetenschap-Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie kunt eenvoudig aan de slag gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk doen. U kunt eenvoudig opschalen van de virtuele machine, indien nodig en stop de toepassing als deze niet in gebruik. Deze resource wordt dus elastische en betaalbare.

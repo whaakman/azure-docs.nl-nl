@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30178086"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
 > [!div class="op_single_selector"]

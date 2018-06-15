@@ -56,8 +56,6 @@
     - name: IaaS-beveiliging
       href: security-virtual-machines-overview.md
       items:
-        - name: Best practices voor virtuele Azure-machines
-          href: azure-security-best-practices-vms.md
         - name: Best practices voor IaaS-workloads
           href: azure-security-iaas.md
         - name: Azure Marketplace-installatiekopieën

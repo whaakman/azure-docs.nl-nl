@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942408"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen voor Azure Media Services geven een overzicht van wijzigingen van vorige versies en bekende problemen.

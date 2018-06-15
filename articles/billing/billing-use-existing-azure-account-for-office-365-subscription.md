@@ -17,9 +17,10 @@ ms.date: 11/03/2017
 ms.author: cjiang
 ms.openlocfilehash: bce4b58d4197eee34be43a4dc852c6f43e0e18b4
 ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203371"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Aanmelden voor een Office 365-abonnement met uw Azure-account
 Als u Azure-abonnee bent, kunt u uw Azure-account aan te melden voor een Office 365-abonnement. Als u deel uitmaakt van een organisatie met een Azure-abonnement bent, kunt u Office 365-abonnementen voor gebruikers in uw bestaande Azure Active Directory (Azure AD). Meld u aan bij Office 365 met een account met machtigingen voor facturerings-beheerder of de globale beheerder in uw Azure Active Directory-tenant. Zie voor meer informatie [Controleer de accountmachtigingen van mijn in Azure AD](#RoleInAzureAD) en [beheerdersrollen toewijzen in Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
