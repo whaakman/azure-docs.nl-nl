@@ -1,10 +1,10 @@
 ---
-title: Azure CLI-scriptvoorbeeld - Twee virtuele machines maken met een interne en externe NSG | Microsoft Docs
-description: Azure CLI-scriptvoorbeeld - Twee virtuele machines maken met interne en externe NSG
+title: Voorbeeld van Azure CLI-script - Twee virtuele machines maken met een interne en externe NSG | Microsoft Docs
+description: Voorbeeld van Azure CLI-script - Twee virtuele machines maken met interne en externe NSG
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: ''
 ms.assetid: ''
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: a74eead266451d15ea22538e19c5f12bf04c08b8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7a43bd6a7f64278553c3e1d83a7ef9d57831f998
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654314"
 ---
-# <a name="secure-network-traffic-between-virtual-machines"></a>Beveiligen van netwerkverkeer tussen virtuele machines
+# <a name="secure-network-traffic-between-virtual-machines"></a>Netwerkverkeer tussen virtuele machines beveiligen
 
 Met dit script worden twee virtuele machines gemaakt en wordt binnenkomend verkeer op beide beveiligd. Eén virtuele machine is toegankelijk is via internet en heeft een netwerkbeveiligingsgroep (NSG)die is geconfigureerd voor verkeer op poort 3389 en 80. De tweede virtuele machine is niet toegankelijk via internet en heeft een NSG die zo is geconfigureerd dat alleen verkeer van de eerste virtuele machine wordt toegelaten. 
 
@@ -50,10 +51,10 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | Hiermee maakt u een virtueel Azure-netwerk en -subnet. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Hiermee wordt een subnet gemaakt. |
+| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Hiermee maakt u een subnet. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Hiermee maakt u de virtuele machine en verbindt u deze met de netwerkkaart, het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep. Met deze opdracht geeft u ook de installatiekopie van de virtuele machine op die moet worden gebruikt, samen met beheerdersreferenties.  |
 | [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_update) | Hiermee wordt een NSG-regel bijgewerkt. In dit voorbeeld wordt de back-end-regel zo bijgewerkt dat alleen verkeer van het front-end-subnet wordt doorgelaten. |
-| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_list) | Hiermee wordt informatie over een netwerkbeveiligingsgroepregel geretourneerd. In dit voorbeeld wordt de naam van de regel opgeslagen in een variabele voor gebruik verderop in het script. |
+| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_list) | Hiermee wordt informatie over een regel voor een netwerkbeveiligingsgroep geretourneerd. In dit voorbeeld wordt de naam van de regel opgeslagen in een variabele voor gebruik verderop in het script. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
