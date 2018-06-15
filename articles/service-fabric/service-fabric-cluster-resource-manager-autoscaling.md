@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213194"
 ---
 # <a name="introduction-to-auto-scaling"></a>Inleiding tot automatische schaling
 Automatische schaling is een aanvullende functionaliteit van Service Fabric dynamisch schalen uw services op basis van de belasting die services wilt melden, of op basis van hun gebruik van bronnen. Automatische schaling biedt uitstekende elasticiteit en maakt het inrichten van extra exemplaren of partities van uw service op aanvraag. De volledige automatische schaling proces is automatisch en transparant en nadat het instellen van uw beleid voor een service is niet nodig voor handmatige vergroten/verkleinen bewerkingen op het serviceniveau van de. Automatische schaling kan worden ingeschakeld tijdens de aanmaak van de service of op elk gewenst moment door het bijwerken van de service.

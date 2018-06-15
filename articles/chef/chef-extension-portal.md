@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260033"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>De Chef-client installeren vanuit de Azure-portal
 Bij het maken of wijzigen van een Linux- of Windows virtuele machine van de Azure-portal, kunt u de extensie Chef kunt toevoegen aan de virtuele machine. Dit artikel begeleidt u bij dit proces met behulp van een nieuwe virtuele Linux-machine.

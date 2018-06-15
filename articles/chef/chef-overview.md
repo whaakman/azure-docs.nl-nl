@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260036"
 ---
 # <a name="using-chef-with-azure"></a>Met behulp van Chef met Azure
 [Chef](http://www.chef.io) is een krachtige automatiseringsplatform die infrastructuur van de virtuele machine in Azure worden omgezet in code. Chef automatiseert hoe infrastructuur is geconfigureerd, geïmplementeerd en beheerd via het netwerk, ongeacht de grootte.
