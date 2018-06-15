@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203904"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Een aangepaste test voor de toepassingsgateway maken met behulp van de portal
 

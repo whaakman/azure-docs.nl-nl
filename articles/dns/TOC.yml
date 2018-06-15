@@ -6,7 +6,7 @@
       href: dns-overview.md
 - name: Snelstartgidsen
   items:
-    - name: Een DNS-zone en -record maken - portal
+    - name: Naamomzetting - portal
       href: dns-getstarted-portal.md
     - name: Een DNS-zone en -record maken - PowerShell
       href: dns-getstarted-powershell.md
@@ -14,12 +14,12 @@
       href: dns-getstarted-cli.md
 - name: Zelfstudies
   items:
-    - name: Een persoonlijke DNS-zone en -record maken
-      href: private-dns-getstarted-powershell.md
-    - name: Uw domein delegeren naar Azure DNS
+    - name: Uw domein hosten in Azure DNS
       href: dns-delegate-domain-azure-dns.md
     - name: Aangepaste DNS-records voor een web-app maken
       href: dns-web-sites-custom-domain.md
+    - name: Een persoonlijke DNS-zone en -record maken
+      href: private-dns-getstarted-powershell.md
 - name: Voorbeelden
   items:
     - name: Azure-CLI

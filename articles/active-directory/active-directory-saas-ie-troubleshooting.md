@@ -21,6 +21,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337755"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>De uitbreiding van het deelvenster toegang tot het oplossen van problemen voor Internet Explorer
 In dit artikel helpt u de volgende problemen:

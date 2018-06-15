@@ -47,6 +47,8 @@
           href: cdn-dynamic-site-acceleration.md
     - name: Beheren
       items:
+        - name: Een eindpunt maken
+          href: cdn-create-endpoint-how-to.md
         - name: Beheren met Azure PowerShell
           href: cdn-manage-powershell.md
         - name: Toegang beperken per land

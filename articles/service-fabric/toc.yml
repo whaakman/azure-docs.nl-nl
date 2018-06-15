@@ -632,6 +632,10 @@
           href: service-fabric-troubleshoot-local-cluster-setup.md
         - name: Problemen vaststellen bij algemene scenario’s
           href: service-fabric-diagnostics-common-scenarios.md
+    - name: Aanbevolen procedures
+      items:
+        - name: Controlelijst voor productiegereedheid
+          href: service-fabric-production-readiness-checklist.md
 - name: Naslaginformatie
   items:
     - name: Azure PowerShell

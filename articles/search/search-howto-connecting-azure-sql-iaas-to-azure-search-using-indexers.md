@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366457"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Een verbinding van een Azure Search-indexeerfunctie naar SQL Server configureren op een virtuele machine in Azure
 Zoals vermeld in [verbinding maken met Azure SQL Database in Azure Search met indexeerfuncties](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), maken indexeerfuncties tegen **SQL Server op Azure Virtual machines** (of **SQL Azure Virtual machines** voor korte) wordt ondersteund door Azure Search, maar er zijn enkele beveiliging gerelateerde vereisten voor het eerst behandelen. 

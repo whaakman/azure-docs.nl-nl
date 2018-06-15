@@ -2,7 +2,7 @@
 title: Azure Active Directory Gebruiksrechtovereenkomst| Microsoft Docs
 description: Azure AD Gebruiksrechtovereenkomst biedt u en uw bedrijf de mogelijkheid gebruikers van Azure AD-services een gebruiksrechtovereenkomst aan te bieden.
 services: active-directory
-author: billmath
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/15/2018
-ms.author: billmath
-ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 8fea445a4cd02da3cf3c3239a119b491327abf54
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192952"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234114"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties gegevens kunnen presenteren aan eindgebruikers.  Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen.

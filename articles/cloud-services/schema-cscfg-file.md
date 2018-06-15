@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358214"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services-Config-Schema (.cscfg-bestand)
 Het configuratiebestand van de service wordt het aantal rolinstanties implementeren voor elke rol in de service, de waarden van een configuratie-instellingen en de vingerafdrukken instellen voor alle certificaten die zijn gekoppeld aan een rol. Als de service deel van een virtueel netwerk uitmaakt, kunnen configuratie-informatie voor het netwerk moet worden opgegeven in het configuratiebestand van de service, evenals in het configuratiebestand voor virtuele netwerken. De standaardextensie voor het configuratiebestand van de service is cscfg-bestand.

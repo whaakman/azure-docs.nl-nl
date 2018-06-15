@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentatie voor App Service op Linux
 metadata:
   document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
-  title: 'Documentatie voor Azure Web Apps voor Containers - zelfstudies, API-naslaginformatie'
+  title: Documentatie voor Azure Web Apps voor Containers - zelfstudies, API-naslaginformatie
   meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
   services: app-service
   author: syntaxc4
@@ -14,75 +14,81 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/05/2017
   ms.author: cfowler
+  ms.openlocfilehash: 561595cbed34fd105b9461ee34a9c270699450e3
+  ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 11/03/2017
+  ms.locfileid: "23956443"
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: list
+    style: icon48
     items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg'
-            text: .NET Core
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-dotnetcore'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg'
-            text: Node.js
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-nodejs'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg'
-            text: PHP
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-php'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg'
-            text: Java
-            href: 'https://docs.microsoft.com/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_ruby.svg'
-            text: Ruby
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-            text: Docker
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
-      - type: paragraph
-        text: 'Meer informatie over continue implementatie:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg'
-            text: VSTS
-            href: 'https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json'
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
+      text: .NET Core
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-dotnetcore
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-nodejs
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
+      text: PHP
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-php
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
+      text: Java
+      href: https://docs.microsoft.com/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_ruby.svg
+      text: Ruby
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_docker.svg
+      text: Docker
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image
+  - type: paragraph
+    text: 'Meer informatie over continue implementatie:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Ontdek hoe u in App Service op Linux beveiligde web-apps implementeert, beheert en bewaakt'
-      - type: list
-        style: ordered
-        items:
-          - html: Een toepassing maken met behulp van <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core met Azure SQL DB</a> of <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js met MongoDB</a>
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Een bestaand aangepast domein toewijzen aan uw toepassing</a>
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Een bestaand SSL-certificaat binden aan uw toepassing</a>
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Een CDN toevoegen aan uw toepassing</a>
-  - title: Voorbeelden
+    - image:
+        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
+      text: VSTS
+      href: https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Ontdek hoe u in App Service op Linux beveiligde web-apps implementeert, beheert en bewaakt
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Zoek scripts om algemene taken te beheren.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-          - html: <a href="/cli/azure/appservice">Azure-CLI</a>
-  - title: Naslaginformatie
+    - html: Een toepassing maken met behulp van <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core met Azure SQL DB</a> of <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js met MongoDB</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Een bestaand aangepast domein toewijzen aan uw toepassing</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Een bestaand SSL-certificaat binden aan uw toepassing</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Een CDN toevoegen aan uw toepassing</a>
+- title: Voorbeelden
+  items:
+  - type: paragraph
+    text: Zoek scripts om algemene taken te beheren.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Opdrachtregel
-            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
-          - title: Talen
-            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/appservice">Naslaginformatie over REST-API</a></p>
+    - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+    - html: <a href="/cli/azure/appservice">Azure-CLI</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Opdrachtregel
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+    - title: Talen
+      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/appservice">Naslaginformatie over REST-API</a></p>

@@ -1,30 +1,24 @@
 ---
 title: Technologieën en oplossingen voor Azure IoT (Internet of Things)
 description: Dit is de verzameling PaaS-/SaaS-technologieën en -oplossingen die beschikbaar zijn voor het bouwen van een Azure IoT-oplossing.
-services: iot-hub
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla; v-clay
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-ms.custom: ''
-ms.openlocfilehash: 56410b040ac14a2a46927cac8ed41218fc709888
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 05/18/2018
+ms.author: bryanla
+ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886192"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631408"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT-technologieën en -oplossingen: PaaS en SaaS
 
 Microsoft heeft een portfolio gebouwd die ondersteuning biedt voor de behoeften van alle klanten, waardoor iedereen toegang heeft tot de voordelen van digitale transformatie. De Azure IoT-productportofolio is een overzicht van de beschikbare PaaS-/SaaS-technologieën en -oplossingen. Het geeft twee beschikbare paden weer voor het bouwen van uw eigen oplossing:
-- PaaS (Platform as a Service): bouw de toepassing met behulp van de [Azure IoT-oplossingsversnellers](https://www.azureiotsuite.com/). Dit is een verzameling vooraf geconfigureerde oplossingen op bedrijfsniveau die u in staat stellen de ontwikkeling van aangepaste IoT-oplossingen te versnellen.
+- PaaS (Platform as a Service): bouw de toepassing met behulp van de [Azure IoT-oplossingsversnellers](https://www.azureiotsolutions.com/). Dit is een verzameling vooraf geconfigureerde oplossingen op bedrijfsniveau die u in staat stellen de ontwikkeling van aangepaste IoT-oplossingen te versnellen.
 - SaaS (Software as a Service): ga snel aan de slag met [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), de nieuwe SaaS-oplossing voor het ontwikkelen van IoT-toepassingen, zonder de complexiteit van de IoT-oplossing. Als uw organisatie niet beschikt over de resources voor het bouwen van uw eigen IoT-oplossing, is Azure IoT Central de beste keuze. Dit is een IoT-oplossing zonder code waarmee u in enkele minuten modellen, dashboards en regels kunt maken.
 
 ![Azure IoT-technologieën en -oplossingen][img-paas-saas-technologies-solutions]

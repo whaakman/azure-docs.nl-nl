@@ -2,7 +2,7 @@
 title: Wederzijdse TLS-verificatie voor web-app configureren
 description: Informatie over het configureren van uw web-app voor het gebruik van verificatie van clientcertificaten op TLS.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836306"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Wederzijdse TLS-verificatie voor web-app configureren
 ## <a name="overview"></a>Overzicht

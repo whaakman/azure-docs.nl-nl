@@ -79,6 +79,8 @@
               href: devtest-lab-resize-vm.md
             - name: Een virtuele machine opnieuw implementeren
               href: devtest-lab-redeploy-vm.md
+            - name: Een virtuele machine importeren
+              href: devtest-lab-import-vm.md
         - name: Omgevingen gebruiken in een lab
           items:
             - name: Een omgeving maken

@@ -5,7 +5,7 @@ author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927465"
 ---
 # <a name="repairing-an-import-job"></a>Een importtaak herstellen
 De Microsoft Azure Import/Export-service kan niet worden enkele van uw bestanden of onderdelen van een bestand kopiëren naar de Windows Azure Blob-service. Redenen voor fouten zijn onder andere:  
