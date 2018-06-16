@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: 7c7540a650d8726fb0a376788073968af6b48834
+ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568123"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35683029"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over hoe [weergeven van het actuele Resourcegebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -50,7 +50,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Netwerkbeveiligingsgroepen (NSG's) |100 |5000 |
 | NSG-regels per NSG |1000 ** |1000 |
 | IP-adressen en -bereiken die zijn opgegeven voor de bron- of doelserver in een beveiligingsgroep |2000 |4000 |
-| Toepassingsbeveiligingsgroepen |200 |500 |
+| Toepassingsbeveiligingsgroepen |500 |3000 |
 | Beveiligingsgroepen toepassing per IP-configuratie per NIC |10 |20 |
 | IP-configuraties per groep van toepassingen-beveiliging |1000 |4000 |
 | Toepassing beveiligingsgroepen die kunnen worden opgegeven in alle beveiligingsregels van een netwerkbeveiligingsgroep |50 |100 |

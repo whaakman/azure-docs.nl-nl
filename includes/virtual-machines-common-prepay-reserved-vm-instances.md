@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307563"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683046"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-exemplaren
 
@@ -16,7 +16,14 @@ U kunt Azure gereserveerde exemplaren kopen de [Azure-portal](https://portal.azu
 -   Voor Enterprise-abonnementen aankopen gereserveerde exemplaar moeten zijn ingeschakeld in de [EA portal](https://ea.azure.com).
 -   Voor het programma Cloud Solution Provider (CSP) aanschaffen alleen de beheerder of agenten verkopers de gereserveerde exemplaren.
 
-## <a name="buy-a-reserved-instance"></a>Een gereserveerde exemplaar kopen
+[!IMPORTANT]
+Moet u een van de methoden die hieronder worden beschreven om te identificeren de correct VM-grootte voor een aankoop reserveringen.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>Bepalen van de juiste VM-grootte voor aankoop
+1. Raadpleeg het veld aanvullende informatie in uw bestand voor gebruik of gebruik API om te bepalen van de juiste VM-grootte voor een aankoop reserveringen. Gebruik de waarden niet uit de subcategorie Meter of Product velden, aangezien deze velden geen onderscheid tussen S en niet-S-versies van een virtuele machine maken.
+2. U kunt ook nauwkeurige VM grootte informatie met behulp van Powershell, Azure Resource Manager opvragen of details van virtuele machine in de Azure portal.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>Een exemplaar van de gereserveerde virtuele Machine kopen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **alle services** > **reserveringen**.
 3. Selecteer **toevoegen** een nieuw exemplaar van de gereserveerde kopen.
