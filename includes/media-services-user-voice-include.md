@@ -2,8 +2,7 @@ Geef via het forum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&cl
 
 * [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [SDK-clientbibliotheken](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
-* 
-  [Coderen en verwerken](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
+* [Coderen en verwerken](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 * [Live streamen](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)
 * [Media Analytics](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 * [Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
