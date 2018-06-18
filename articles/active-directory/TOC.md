@@ -13,7 +13,7 @@
 
 # Aan de slag
 ## [Aan de slag met Azure AD](fundamentals/get-started-azure-ad.md)
-## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
+## [Meld u aan voor Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Een aangepaste domeinnaam toevoegen](fundamentals/add-custom-domain.md)
 ## [Een bedrijfshuisstijl toevoegen](fundamentals/customize-branding.md)
 ## [Gebruikers toevoegen aan Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -82,10 +82,10 @@
 
 ## [Groepen en leden beheren](fundamentals/active-directory-manage-groups.md)
 ### Groepen beheren
-#### [Azure Portal](active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell voor Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [Groepsleden beheren](active-directory-groups-members-azure-portal.md)
+### [Groepsleden beheren](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Eigenaren van groepen beheren](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Groepslidmaatschap beheren](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Licenties toewijzen met behulp van groepen](fundamentals/active-directory-licensing-whatis-azure-portal.md)

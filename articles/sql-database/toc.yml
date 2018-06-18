@@ -343,7 +343,7 @@
         - name: Gegevens laden met BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Gegevens laden met ADF
-          href: ../data-factory/connector-azure-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
         - name: Gegevens synchroniseren
           href: sql-database-get-started-sql-data-sync.md
     - name: Bewaken en afstemmen
