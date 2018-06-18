@@ -10,19 +10,53 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: a4fe62ba8c0732745326831b977e8975e1210436
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34806833"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API-versie profielen met behulp van Python in Azure-Stack gebruiken
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+
+## <a name="python-and-api-version-profiles"></a>Profielen van Python en API-versie
+
+De Python SDK biedt ondersteuning voor API-versie profielen voor verschillende cloudplatforms zoals Azure Stack en globale Azure als doel. U kunt profielen API bij het maken van oplossingen voor een hybride cloud. De SDK voor Python ondersteunt de volgende API-profielen:
+
+1. **meest recente**  
+    Het profiel is bedoeld voor de meest recente API-versies voor alle serviceproviders in de Azure-Platform.
+2.  **2017-03-09-profiel**  
+    **2017-03-09-profiel**  
+    Het profiel is bedoeld voor de API-versies van de resourceproviders ondersteund door Azure-Stack.
+
+    Zie voor meer informatie over API-profielen en Azure Stack [versie-profielen API beheren in Azure-Stack](azure-stack-version-profiles.md).
+
+## <a name="install-azure-python-sdk"></a>Azure Python-SDK installeren
+
+1.  Installeer Git van [de officiële site](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+2.  Zie voor instructies voor het installeren van de SDK voor Python [Azure voor Python-ontwikkelaars](https://docs.microsoft.com/python/azure/python-sdk-azure-install?view=azure-python).
+3.  Als niet beschikbaar is, een abonnement maken en opslaan van de abonnements-ID moet later worden gebruikt. Zie voor instructies voor het maken van een abonnement, [abonnementen op aanbiedingen maken in Azure-Stack](../azure-stack-subscribe-plan-provision-vm.md). 
+4.  Maak een service-principal en sla de ID en het geheim. Zie voor instructies voor het maken van een service-principal voor Azure-Stack [toepassingen toegang bieden tot Azure-Stack](../azure-stack-create-service-principals.md). 
+5.  Zorg ervoor dat uw service-principal heeft de rol van Inzender/eigenaar op uw abonnement. Zie voor instructies over het toewijzen van rollen aan de service-principal [toepassingen toegang bieden tot Azure-Stack](../azure-stack-create-service-principals.md).
+
+## <a name="prerequisites"></a>Vereisten
+
+Om te kunnen Python Azure SDK met de Azure-Stack gebruiken, moet u de volgende waarden opgeven en vervolgens waarden met omgevingsvariabelen instellen. Zie de instructies na de tabel voor uw besturingssysteem voor het instellen van de omgevingsvariabelen. 
+
+| Waarde | Omgevingsvariabelen | Beschrijving |
+|---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
+| Tenant-id | AZURE_TENANT_ID | De waarde van uw Azure-Stack [tenant-ID](../azure-stack-identity-overview.md). |
+| Client-id | AZURE_CLIENT_ID | De service principal toepassings-ID opgeslagen wanneer de service-principal is gemaakt op de vorige sectie van dit document. |
+| Abonnements-id | AZURE_SUBSCRIPTION_ID | De [abonnements-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure-Stack. |
+| Clientgeheim | AZURE_CLIENT_SECRET | De principal servicetoepassing geheim opgeslagen bij het service-principal is gemaakt. |
+| Resource Manager-eindpunt | ARM_ENDPOINT | Zie [de Stack van Azure resource manager-eindpunt](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+
 
 ## <a name="python-samples-for-azure-stack"></a>Python-voorbeelden voor Azure-Stack 
 
@@ -83,11 +117,9 @@ De voorbeelden zijn niet noodzakelijkerwijs in de volgorde van de bovenstaande l
     pip install -r requirements.txt
     ````
 
-5.  Maak een [service-principal](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) werken met Azure-Stack. Zorg ervoor dat uw service-principal [rol van Inzender/eigenaar](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal) op uw abonnement.
+5.  Maak een [service-principal](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) werken met Azure-Stack. Zorg ervoor dat uw service-principal [rol van Inzender/eigenaar](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal) op uw abonnement.
 
 6.  De volgende variabelen instellen en deze omgevingsvariabelen exporteren naar uw huidige shell. 
-
-`Note: provide an explanation of where these variables come from?`
 
     ````bash
     export AZURE_TENANT_ID={your tenant id}
@@ -97,30 +129,32 @@ De voorbeelden zijn niet noodzakelijkerwijs in de volgorde van de bovenstaande l
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  Houd er rekening mee dat om uit te voeren in dit voorbeeld, Ubuntu 16.04-LTS en installatiekopieën van Windows Server 2012-R2-Datacenter aanwezig in de Stack van het Azure-marktplaats zijn moeten. Dit kunnen zijn [gedownload van Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-download-azure-marketplace-item) of [toegevoegd aan de opslagplaats voor installatiekopieën Platform](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image).
+7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
-
-8. Voet het voorbeeld uit.
+8. Run the sample.
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## <a name="notes"></a>Opmerkingen
+## Notes
 
-Hebt u mogelijk geneigd om te proberen op te halen van de besturingssysteemschijf van een virtuele machine met behulp van `virtual_machine.storage_profile.os_disk`.
-In sommige gevallen kan dit doen wat u wilt dat, maar let erop dat dit u biedt een `OSDisk` object.
-Om bij te werken van de grootte van de Besturingssysteemschijf als `example.py` , u hoeft niet een `OSDisk` object maar er is een `Disk` object.
-`example.py` haalt de `Disk` object met het volgende:
+You may be tempted to try to retrieve a VM's OS disk by using
+`virtual_machine.storage_profile.os_disk`.
+In some cases, this may do what you want,
+but be aware that it gives you an `OSDisk` object.
+In order to update the OS Disk's size, as `example.py` does,
+you need not an `OSDisk` object but a `Disk` object.
+`example.py` gets the `Disk` object with the following:
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## <a name="next-steps"></a>Volgende stappen
+## Next steps
 
 - [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
-- [Documentatie bij Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
-- [Leertraject voor virtuele Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- Als u geen Microsoft Azure-abonnement hebt kunt u een gratis proefaccount [hier](http://go.microsoft.com/fwlink/?LinkId=330212).
+- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
+- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).

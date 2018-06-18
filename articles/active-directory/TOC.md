@@ -1,22 +1,22 @@
 # [Documentatie voor Azure Active Directory](index.md)
 
 # Overzicht
-## [Wat is Azure Active Directory?](active-directory-whatis.md)
+## [Wat is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [Over Azure-identiteitsbeheer](fundamentals/identity-fundamentals.md)
 ## [Inzicht krijgen in Azure-identiteitsoplossingen](fundamentals/understand-azure-identity-solutions.md)
 ## [Een hybride identiteitsoplossing kiezen](choose-hybrid-identity-solution.md)
-## [Azure-abonnementen koppelen](active-directory-how-subscriptions-associated-directory.md)
+## [Azure-abonnementen koppelen](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Overwegingen met betrekking tot vestigingsplaats en gegevens](fundamentals/active-directory-data-storage-eu.md)
 ## [Veelgestelde vragen](fundamentals/active-directory-faq.md)
 ## [Nieuwe functies](fundamentals/whats-new.md)
 
 
 # Aan de slag
-## [Aan de slag met Azure AD](get-started-azure-ad.md)
+## [Aan de slag met Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
-## [Een aangepaste domeinnaam toevoegen](add-custom-domain.md)
-## [Een bedrijfshuisstijl toevoegen](customize-branding.md)
-## [Gebruikers toevoegen aan Azure AD](add-users-azure-active-directory.md)
+## [Een aangepaste domeinnaam toevoegen](fundamentals/add-custom-domain.md)
+## [Een bedrijfshuisstijl toevoegen](fundamentals/customize-branding.md)
+## [Gebruikers toevoegen aan Azure AD](fundamentals/add-users-azure-active-directory.md)
 ## [Licenties toewijzen aan een gebruikers](fundamentals/license-users-groups.md)
 ## [Self-service voor wachtwoord opnieuw instellen configureren](authentication/quickstart-sspr.md)
 ## [Privacy-informatie van uw organisatie toevoegen in Azure AD](active-directory-properties-area.md)
@@ -44,11 +44,11 @@
 #### [Hulpprogramma's vergelijken](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Gebruikers beheren
-### [Nieuwe gebruikers toevoegen aan Azure AD](add-users-azure-active-directory.md)
-### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
+### [Nieuwe gebruikers toevoegen aan Azure AD](fundamentals/add-users-azure-active-directory.md)
+### [Gebruikersprofielen beheren](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Accounts delen](active-directory-sharing-accounts.md)
-### [Gebruikers aan beheerdersrollen toewijzen](active-directory-users-assign-role-azure-portal.md)
-### [Een verwijderde gebruiker herstellen](active-directory-users-restore.md)
+### [Gebruikers aan beheerdersrollen toewijzen](fundamentals/active-directory-users-assign-role-azure-portal.md)
+### [Een verwijderde gebruiker herstellen](fundamentals/active-directory-users-restore.md)
 ### [Gastgebruikers toevoegen van een andere directory (B2B)](b2b/what-is-b2b.md)
 #### [Beheerders die B2B-gebruikers toevoegen](b2b/add-users-administrator.md)
 #### [Informatiewerkers die B2B-gebruikers toevoegen](b2b/add-users-information-worker.md)
@@ -80,15 +80,15 @@
 #### [B2B-samenwerking vergelijken met B2C](b2b/compare-with-b2c.md)
 #### [Ondersteuning krijgen voor B2B](b2b/get-support.md)
 
-## [Groepen en leden beheren](active-directory-manage-groups.md)
+## [Groepen en leden beheren](fundamentals/active-directory-manage-groups.md)
 ### Groepen beheren
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell voor Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Groepsleden beheren](active-directory-groups-members-azure-portal.md)
-### [Eigenaren van groepen beheren](active-directory-accessmanagement-managing-group-owners.md)
+### [Eigenaren van groepen beheren](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Groepslidmaatschap beheren](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [Licenties toewijzen met behulp van groepen](active-directory-licensing-whatis-azure-portal.md)
+### [Licenties toewijzen met behulp van groepen](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 #### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
@@ -98,10 +98,10 @@
 #### [Naslaginformatie voor producten en serviceabonnementen in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Vervaldatum instellen voor Office 365-groepen](active-directory-groups-lifecycle-azure-portal.md)
 ### [Een naamgevingsbeleid voor groepen afdwingen](groups-naming-policy.md)
-### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
+### [Alle groepen weergeven](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
 ### [Herstellen van een verwijderde Office 365-groep](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Groepsinstellingen beheren](active-directory-groups-settings-azure-portal.md) 
+### [Groepsinstellingen beheren](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Geavanceerde regels maken
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Selfservicegroepen instellen](active-directory-accessmanagement-self-service-group-management.md)
@@ -153,7 +153,7 @@
 ### [Gegevensvereisten voor SSPR](authentication/howto-sspr-authenticationdata.md)
 ### [Rapportage voor SSPR](authentication/howto-sspr-reporting.md)
 ### IT-beheerders: wachtwoorden opnieuw instellen
-#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [SSPR licentiëren](authentication/concept-sspr-licensing.md)
 ### [Wachtwoord terugschrijven](authentication/howto-sspr-writeback.md)
 ### [Problemen oplossen](authentication/active-directory-passwords-troubleshoot.md)
@@ -277,7 +277,7 @@
 ## Uw directory beheren
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Aangepaste domeinnamen
-#### [Snelstartgids](add-custom-domain.md)
+#### [Snelstartgids](fundamentals/add-custom-domain.md)
 #### [Aangepaste domeinnamen toevoegen](active-directory-domains-manage-azure-portal.md)
 ### [Uw directory beheren](fundamentals/active-directory-administer.md)
 ### [Een directory verwijderen](directory-delete-howto.md)
@@ -294,11 +294,9 @@
 
 ### [On-premises identiteiten integreren met Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Toegang tot Azure beheren](../role-based-access-control/toc.yml)
-
 ## Toegang tot resources delegeren
 ### [Beheerdersrollen](active-directory-assign-admin-roles-azure-portal.md)
-#### [Een beheerdersrol toewijzen aan een gebruiker](active-directory-users-assign-role-azure-portal.md) 
+#### [Een beheerdersrol toewijzen aan een gebruiker](fundamentals/active-directory-users-assign-role-azure-portal.md) 
 #### [Gebruikersmachtigingen voor leden en voor gasten vergelijken](fundamentals/users-default-permissions.md) 
 ### [Uitgebreide toegang beveiligen](admin-roles-best-practices.md)  
 ### [Beheerdersaccounts voor noodtoegang maken](active-directory-admin-manage-emergency-access-accounts.md) 
@@ -325,6 +323,7 @@
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### Snelstartgidsen
 ##### [MFA per cloud-app configureren](active-directory-conditional-access-app-based-mfa.md)
+##### [Vereisen dat de gebruiksvoorwaarden worden geaccepteerd](active-directory-conditional-access-tou.md)
 #### Zelfstudies
 ##### [Klassiek MFA-beleid migreren](active-directory-conditional-access-migration-mfa.md)
 #### Concepten
@@ -371,7 +370,7 @@
 ### [Hoge beschikbaarheid](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Hash-algoritme van de handtekening wijzigen](active-directory-federation-sha256-guidance.md)
 
-## [Problemen oplossen](active-directory-troubleshooting-support-howto.md)
+## [Problemen oplossen](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Azure AD Proof of Concept (PoC) implementeren
 ### [PoC Playbook: inleiding](active-directory-playbook-intro.md)

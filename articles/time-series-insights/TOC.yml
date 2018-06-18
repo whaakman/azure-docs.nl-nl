@@ -16,6 +16,8 @@
       href: tutorial-explore-js-client-lib.md
     - name: Een TSI-omgeving maken
       href: tutorial-create-populate-tsi-environment.md
+    - name: Een TSI-web-app met één pagina maken
+      href: tutorial-create-tsi-sample-spa.md
 - name: Concepten
   items:
     - name: Uw omgeving plannen

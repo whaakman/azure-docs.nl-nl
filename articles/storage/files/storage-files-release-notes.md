@@ -3,16 +3,17 @@ title: Releaseopmerkingen voor de Azure File Sync-agent (preview) | Microsoft Do
 description: Release-opmerkingen voor de Azure-bestand Sync-agent (preview).
 services: storage
 author: wmgries
-manager: jeconnoc
+manager: aungoo
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 946311c42088d3a5840eb35387c8a552d3d5d70f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735641"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Releaseopmerkingen voor de Azure File Sync-agent (preview)
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -24,18 +25,70 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
 | Mijlpaal | Versienummer agent | Releasedatum | Status |
 |----|----------------------|--------------|------------------|
-| Updatepakket maart | 2.2.0.0 | 12 maart 2018 | Ondersteunde (aanbevolen versie) |
+| Vernieuwen van 2 | 3.0.12.0 | 22 mei 2018 | Ondersteunde (aanbevolen versie) |
+| Updatepakket van april | 2.3.0.0 | 8 mei 2018 | Ondersteund |
+| Updatepakket maart | 2.2.0.0 | 12 maart 2018 | Ondersteund |
 | Updatepakket februari | 2.1.0.0 | 28 februari 2018 | Ondersteund |
 | 1 vernieuwen | 2.0.11.0 | 8 februari 2018 | Ondersteund |
-| Updatepakket januari | 1.4.0.0 | 8 januari 2018 | Ondersteund totdat 8 mei 2018<sup>1</sup> |
-| Updatepakket van november | 1.3.0.0 | 30 november 2017 | Ondersteund totdat 8 mei 2018<sup>1</sup> |
-| Updatepakket oktober | 1.2.0.0 | 31 oktober 2017 | Ondersteund totdat 8 mei 2018<sup>1</sup> |
-| Eerste preview-release | 1.1.0.0 | 26 september 2017 | Ondersteund totdat 8 mei 2018<sup>1</sup> |
-
-\[1\]: versies van de Azure-bestand Sync-agent tijdens de preview opzettelijk komen niet overeen met het updatebeleid. Het updatebeleid worden afgedwongen nadat Azure bestand Sync is gedeclareerd in het algemeen beschikbaar met de eerste release van de agent wordt gestart.
+| Updatepakket januari | 1.4.0.0 | 8 januari 2018 | Ondersteund |
+| Updatepakket van november | 1.3.0.0 | 30 november 2017 | Ondersteund |
+| Updatepakket oktober | 1.2.0.0 | 31 oktober 2017 | Ondersteund |
+| Eerste preview-release | 1.1.0.0 | 26 september 2017 | Ondersteund |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-30120"></a>Agentversie 3.0.12.0
+De volgende releaseopmerkingen zijn voor versie 3.0.12.0 van de Azure-bestand Sync-agent (22 mei 2018 uitgebracht).
+
+### <a name="agent-installation-and-server-configuration"></a>Agentinstallatie en serverconfiguratie
+Zie [De implementatie van een Azure File Sync-agent (preview) plannen](storage-sync-files-planning.md) en [Azure File Sync implementeren (preview)](storage-sync-files-deployment-guide.md) voor meer informatie over het installeren en configureren van de Azure File Sync-agent met Windows Server.
+
+- Het installatiepakket voor de agent moet worden geïnstalleerd met de machtigingen van de opdrachtprompt met verhoogde bevoegdheid (admin).
+- De agent wordt niet ondersteund op Windows Server Core of Nano Server implementatie-opties.
+- De agent wordt alleen ondersteund in Windows Server 2016 en Windows Server 2012 R2.
+- De agent vereist ten minste 2 GB fysiek geheugen.
+- De opslag Sync-Agent (FileSyncSvc)-service biedt geen ondersteuning voor server-eindpunten zich bevinden op een volume dat de map system volume information (SVI is) gecomprimeerd. Deze configuratie zal leiden tot onverwachte resultaten.
+
+### <a name="interoperability"></a>Interoperabiliteit
+- Antivirusprogramma's, back-uptoepassingen en andere toepassingen die toegang hebben tot gelaagde bestanden, kunnen leiden tot ongewenste intrekking tenzij ze het kenmerk offline respecteren en het lezen van de inhoud van die bestanden overslaan. Zie [Problemen met Azure File Sync (preview) oplossen ](storage-sync-files-troubleshoot.md) voor meer informatie.
+- Gebruik geen FSRM-controles (File Server Resource Manager) of andere bestandscontroles. Bestandscontroles kunnen eindeloze synchronisatiefouten veroorzaken wanneer bestanden worden geblokkeerd vanwege de bestandscontrole.
+- Sysprep uitgevoerd op een server die de Azure-bestand Sync-agent geïnstalleerd is, wordt niet ondersteund en kan leiden tot onverwachte resultaten. Agentregistratie installatie en server moet worden uitgevoerd na de implementatie van de serverinstallatiekopie en sysprep mini-installatie te voltooien.
+- Gegevensontdubbeling en cloudopslaglagen worden niet ondersteund op hetzelfde volume.
+
+### <a name="sync-limitations"></a>Synchronisatiebeperkingen
+De volgende items worden niet gesynchroniseerd, maar de rest van het systeem blijft normaal functioneren:
+- Paden langer dan 2.048 tekens.
+- Het gedeelte met de discretionaire ACL (Access Control List) van een security descriptor als dit groter is dan 2 kB. (Dit probleem geldt alleen wanneer er meer dan ongeveer 40 vermeldingen voor toegangsbeheer (ACE's) bestaan voor één item.)
+- Het gedeelte met de SACL (System Access Control List) van een security descriptor die wordt gebruikt voor controle.
+- Uitgebreide kenmerken.
+- Alternatieve gegevensstromen.
+- Reparse-punten.
+- Vaste koppelingen.
+- Compressie (indien ingesteld op een serverbestand) blijft niet behouden wanneer wijzigingen vanuit andere eindpunten naar dat bestand worden gesynchroniseerd.
+- Elk bestand dat is gecodeerd met EFS (of een andere versleuteling in de gebruikersmodus) dat voorkomt dat de service de gegevens leest. 
+    
+    > [!Note]  
+    > Gegevens die onderweg zijn tussen eindpunten worden altijd versleuteld door Azure File Sync. Inactieve gegevens (data-at-rest) worden altijd versleuteld in Azure.
+ 
+### <a name="server-endpoints"></a>Servereindpunten
+- Een servereindpunt kan alleen worden gemaakt op een NTFS-volume. ReFS, FAT, FAT32 en andere bestandssystemen worden op dit moment niet ondersteund door Azure File Sync.
+- Cloud tiering wordt niet ondersteund op het systeemvolume. Een om servereindpunt te maken op het systeemvolume, cloud tiering bij het maken van de server het eindpunt niet uitschakelen.
+- Failoverclustering wordt alleen ondersteund met geclusterde schijven, maar niet met CSV's (Cluster Shared Volume).
+- Een servereindpunt kan niet worden genest. Een eindpunt van dit type kan zich samen met een ander eindpunt op hetzelfde volume bevinden.
+- Sla geen besturingssysteembestand of wisselbestand van de toepassing op dat zich binnen een servereindpunt bevindt.
+- Gelaagde bestanden wordt onbruikbaar als de bestanden niet zijn ingetrokken voordat u het servereindpunt verwijdert.
+ 
+### <a name="cloud-tiering"></a>Cloudopslaglagen
+- Als een gelaagd bestand met behulp van Robocopy naar een andere locatie wordt gekopieerd, wordt het resulterende bestand niet in een laag geplaatst. Het kenmerk 'offline' kan zijn ingesteld omdat Robocopy dat kenmerk onterecht opneemt in kopieerbewerkingen.
+- Wanneer u bestandseigenschappen bekijkt vanuit een SMB-client, lijkt het misschien of het kenmerk 'offline' niet goed is ingesteld als gevolg van SMB-caching van bestandsmetagegevens.
+
+## <a name="agent-version-2300"></a>Agentversie 2.3.0.0
+De volgende releaseopmerkingen zijn voor versie 2.3.0.0 van de Azure-bestand Sync-agent 8 mei 2018 uitgebracht. Deze opmerkingen worden zijn een aanvulling op de releaseopmerkingen voor versie 2.0.11.0.
+
+Deze versie bevat de volgende oplossingen:
+- Agent-updates kunnen vastlopen als het filterstuurprogramma van cloud lagen wordt niet verwijderd.
+- Synchronisatie-prestaties kan afnemen tijdens het synchroniseren van heel veel bestanden.
 
 ## <a name="agent-version-2200"></a>Agentversie 2.2.0.0
 De volgende releaseopmerkingen zijn voor versie 2.2.0.0 van de Azure-bestand Sync-agent 12 maart 2018 uitgebracht.  Deze opmerkingen vormen een aanvulling voor versie 2.1.0.0 en 2.0.11.0 release-opmerkingen

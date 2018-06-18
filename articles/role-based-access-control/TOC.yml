@@ -1,51 +1,57 @@
 - name: Overzicht van toegangsbeheer
   href: manage-access-to-azure-resources.md
-- name: Toegang tot resources in Azure
-  href: rbac-and-directory-admin-roles.md
-- name: Toegangsbeheer op basis van rollen (RBAC)
-  href: overview.md
+  items: null
+- name: Overzicht
   items:
-    - name: Snelstartgidsen
-      items:
-        - name: Een gebruiker toegang verlenen - Portal
-          href: quickstart-assign-role-user-portal.md
-    - name: Zelfstudies
-      items:
-        - name: Een gebruiker toegang verlenen - PowerShell
-          href: tutorial-role-assignments-user-powershell.md
-        - name: Een groep toegang verlenen - PowerShell
-          href: tutorial-role-assignments-group-powershell.md
-        - name: Een aangepaste rol maken - PowerShell
-          href: tutorial-custom-role-powershell.md
-        - name: Een aangepaste rol maken - CLI
-          href: tutorial-custom-role-cli.md
-    - name: Roltoewijzingen beheren
-      items:
-        - name: Portal
-          href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
-        - name: Azure-CLI
-          href: role-assignments-cli.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: REST
-          href: role-assignments-rest.md
+    - name: Wat is RBAC?
+      href: overview.md
+    - name: Inzicht in de verschillende rollen
+      href: rbac-and-directory-admin-roles.md
+- name: Snelstartgidsen
+  items:
+    - name: Een gebruiker toegang verlenen
+      href: quickstart-assign-role-user-portal.md
+- name: Zelfstudies
+  items:
+    - name: Een gebruiker toegang verlenen - PowerShell
+      href: tutorial-role-assignments-user-powershell.md
+    - name: Een groep toegang verlenen - PowerShell
+      href: tutorial-role-assignments-group-powershell.md
+    - name: Een aangepaste rol maken - PowerShell
+      href: tutorial-custom-role-powershell.md
+    - name: Een aangepaste rol maken - CLI
+      href: tutorial-custom-role-cli.md
+- name: Concepten
+  items:
     - name: Roldefinities begrijpen
       href: role-definitions.md
     - name: Ingebouwde rollen
       href: built-in-roles.md
     - name: Aangepaste rollen
       href: custom-roles.md
-    - name: Roltoewijzingen voor externe gebruikers beheren
-      href: role-assignments-external-users.md
+    - name: Resourceproviderbewerkingen
+      href: resource-provider-operations.md
+    - name: PIM (Privileged Identity Management) voor RBAC
+      href: pim-azure-resource.md
+    - name: Voorwaardelijke toegang voor Azure-beheer
+      href: conditional-access-azure-management.md
+- name: Handleidingen
+  items:
+    - name: Toegang beheren
+      items:
+        - name: Portal
+          href: role-assignments-portal.md
+        - name: Azure-CLI
+          href: role-assignments-cli.md
+        - name: PowerShell
+          href: role-assignments-powershell.md
+        - name: REST
+          href: role-assignments-rest.md
     - name: Activiteitenlogboeken
       href: change-history-report.md
     - name: Toegangsrechten voor de globale beheerder uitbreiden
       href: elevate-access-global-admin.md
+    - name: Toegang voor externe gebruikers beheren
+      href: role-assignments-external-users.md
     - name: Problemen oplossen
       href: troubleshooting.md
-    - name: Resourceproviderbewerkingen
-      href: resource-provider-operations.md
-- name: PIM (Privileged Identity Management) voor RBAC
-  href: pim-azure-resource.md
-- name: Voorwaardelijke toegang voor Azure-beheer
-  href: conditional-access-azure-management.md

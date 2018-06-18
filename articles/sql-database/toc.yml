@@ -202,6 +202,30 @@
           href: sql-database-xevent-db-diff-from-svr.md
         - name: In-memory bewaken
           href: sql-database-in-memory-oltp-monitoring.md
+    - name: Taken voor Elastic Database
+      items:
+        - name: Overzicht
+          href: elastic-jobs-overview.md
+        - name: Maken en beheren (PowerShell)
+          href: elastic-jobs-powershell.md
+        - name: Maken en beheren (T-SQL)
+          href: elastic-jobs-tsql.md
+        - name: Migreren (vanuit oude elastische taken)
+          href: elastic-jobs-migrate.md
+        - name: Elastische taken (afgeschaft)
+          items:
+            - name: Overzicht (afgeschaft)
+              href: sql-database-elastic-jobs-overview.md
+            - name: Elastische taak installeren (afgeschaft)
+              href: sql-database-elastic-jobs-service-installation.md
+            - name: Taak maken - Portal (afgeschaft)
+              href: sql-database-elastic-jobs-create-and-manage.md
+            - name: Taak maken - Azure PowerShell (afgeschaft)
+              href: sql-database-elastic-jobs-powershell.md
+            - name: Taak maken - voorbeeld-app (afgeschaft)
+              href: sql-database-elastic-jobs-getting-started.md
+            - name: Elastische taak verwijderen (afgeschaft)
+              href: sql-database-elastic-jobs-uninstall.md
     - name: Uitschalen
       items:
         - name: Overzicht
@@ -212,8 +236,6 @@
           href: sql-database-elastic-query-overview.md
         - name: Elastische transacties
           href: sql-database-elastic-transactions-overview.md
-        - name: Elastische taken
-          href: sql-database-elastic-jobs-overview.md
         - name: Shard-kaarten
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Query-routering
@@ -276,16 +298,6 @@
       items:
         - name: Clientbibliotheek voor Elastic Database upgraden
           href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Een elastische taak installeren
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Taak maken - Portal
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Taak maken - Azure PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Taak maken - voorbeeld-app
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Een elastische taak verwijderen
-          href: sql-database-elastic-jobs-uninstall.md
         - name: Een query uitvoeren op verticaal gepartitioneerde gegevens
           href: sql-database-elastic-query-getting-started-vertical.md
         - name: Rapportage voor uitgeschaalde gegevenslaag
@@ -454,8 +466,6 @@
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
-    - name: PowerShell (elastische database)
-      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: Azure CLI 2.0
       href: /cli/azure/sql
     - name: .NET

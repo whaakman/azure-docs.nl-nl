@@ -1,21 +1,20 @@
 ---
-title: 'Azure Active Directory B2C: Aangepast beleid | Microsoft Docs'
-description: Een onderwerp op Azure Active Directory B2C aangepast beleid
+title: Aangepast beleid voor Azure Active Directory B2C | Microsoft Docs
+description: Meer informatie over Azure Active Directory B2C aangepast beleid.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 0d507c2116aa9e420ddc0dec4999ea21d28e60fc
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709254"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Aangepast beleid
 
@@ -39,16 +38,16 @@ Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure 
 
 ## <a name="policy-files"></a>Beleidsbestanden
 
-Een aangepast beleid wordt weergegeven als een of meer XML-bestanden die in een hiërarchische keten naar elkaar verwijzen. De XML-elementen definiëren: Claims schema, claims transformaties, definities van inhoud, profielen van claims-providers en technische en Userjourney indelingsstappen, onder andere elementen.
+Een aangepast beleid wordt weergegeven als een of meer XML-bestanden die in een hiërarchische keten naar elkaar verwijzen. De XML-elementen definiëren: Claims schema, claims transformaties, definities van inhoud, profielen van claims-providers en technische en gebruiker reis indelingsstappen, onder andere elementen.
 
 U wordt aangeraden het gebruik van drie soorten beleidsbestanden:
 
 - **Een BASE bestand**, die de meeste van de definities en die Azure een compleet codevoorbeeld biedt bevat.  We raden dat u een minimum aantal wijzigingen aanbrengen in dit bestand om te helpen bij het oplossen van problemen en op lange termijn onderhoud van uw beleid
 - **een extensiebestand** die de unieke configuratiewijzigingen bevat voor uw tenant
-- **een Relying Party (RP)-bestand** is één taak gerichte bestand die wordt opgeroepen rechtstreeks door de toepassing of service (aka Relying Party).  Lees het artikel op beleid bestand definities voor meer informatie.  Elke unieke taak vereist een eigen RP en afhankelijk van de huisstijl van de vereisten voor het aantal mogelijk 'Totaal aantal toepassingen x totale aantal gevallen'.
+- **een Relying Party (RP)-bestand** dat het één taak gerichte-bestand dat wordt opgeroepen rechtstreeks door de toepassing of service (aka Relying Party).  Lees het artikel op beleid bestand definities voor meer informatie.  Elke unieke taak vereist een eigen RP en afhankelijk van de huisstijl van de vereisten voor het aantal mogelijk "totale van toepassingen x totale aantal gebruiksvoorbeelden."
 
 
-Ingebouwde beleid in Azure AD B2C Volg het 3-bestandspatroon afgebeeld hierboven, maar de ontwikkelaar ziet alleen het bestand Relying Party (RP), terwijl de portal wijzigingen aangebracht op de achtergrond in het bestand uitbreidingen worden.
+Ingebouwde beleid in Azure AD B2C volgen drie bestand patroon afgebeeld hierboven, maar de ontwikkelaar ziet alleen het bestand Relying Party (RP), terwijl de portal wijzigingen aangebracht op de achtergrond in het bestand uitbreidingen worden.
 
 ## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Belangrijkste concepten waarover die u weten moet wanneer u aangepaste beleidsregels
 
@@ -58,9 +57,9 @@ Azure klant identiteits- en toegangsbeheer (CIAM) service management. De service
 
 1. Een map van de gebruiker in de vorm van een speciale Azure Active Directory toegankelijk zijn via Microsoft Graph en dat de gebruikersgegevens voor zowel lokale accounts als federatieve accounts bevat 
 2. Toegang tot de **identiteit ervaring Framework** die vertrouwensrelatie tussen gebruikers en entiteiten ingedeeld en geeft u claims tussen deze twee om een identiteit/access management-taak te voltooien 
-3. Een beveiligingstokenservice (STS) verlenen id tokens, vernieuwen van tokens, en toegang tokens (en gelijkwaardige SAML asserties) en valideren ze om bronnen te beveiligen.
+3. Een beveiligingstokenservice (STS) verlenen ID tokens, vernieuwen van tokens, en toegang tokens (en gelijkwaardige SAML asserties) en valideren ze om bronnen te beveiligen.
 
-Azure AD B2C communiceert met identiteitsproviders, gebruikers, andere systemen, en de map van de lokale gebruiker in de reeks voor een taak identiteit (bijvoorbeeld aanmelden voor een gebruiker een nieuwe gebruiker registreren, een wachtwoord opnieuw instellen). Het onderliggende platform dat meerdere partijen vertrouwensrelatie te worden ingesteld en deze stappen uitvoert, heet het kader van de gebruikerservaring identiteit en een beleid (ook wel het traject van een gebruiker of een framework vertrouwensbeleid) definieert u expliciet de actoren, de acties, de protocollen, en de volgorde van stappen te voltooien.
+Azure AD B2C communiceert met identiteitsproviders, gebruikers, andere systemen, en de map van de lokale gebruiker in de reeks voor een taak identiteit (bijvoorbeeld aanmelden voor een gebruiker een nieuwe gebruiker registreren, een wachtwoord opnieuw instellen). Het onderliggende platform waarmee meerdere partijen vertrouwensrelatie te worden ingesteld en deze stappen uitgevoerd heet het Framework van de gebruikerservaring identiteit en een beleid (ook wel een reis gebruiker of een framework vertrouwensbeleid) definieert u expliciet de actoren, de acties, de protocollen en de de volgorde van de stappen te voltooien.
 
 ### <a name="identity-experience-framework"></a>Identity-ervaringsframework
 
@@ -68,14 +67,14 @@ Een volledig worden geconfigureerd, beleid gebaseerde, cloud-gebaseerde Azure-pl
 
 ### <a name="built-in-policies"></a>Ingebouwd beleid
 
-Vooraf gedefinieerde configuratiebestanden die het gedrag van Azure AD B2C om uit te voeren van de meest vaak gebruikte id taken (dat wil zeggen gebruikersregistratie, aanmelding in wachtwoordherstel) en communiceren met vertrouwde partijen waarvan relatie ook vooraf is gedefinieerd in Azure AD B2C (voor directe voorbeeld Facebook id-provider, LinkedIn, Microsoft-Account, Google-accounts).  In de toekomst daarenboven ingebouwde beleidsregels voor aanpassing van de id-providers die meestal in de enterprise-realm zoals Azure Active Directory Premium, Active Directory AD FS, Salesforce-ID-Provider, enzovoort.
+Vooraf gedefinieerde configuratie bestanden die het gedrag van Azure AD B2C vaak uitvoeren van de meest directe identity-taken (dat wil zeggen gebruikersregistratie, aanmelding in wachtwoordherstel) gebruikt en communiceren met vertrouwde partijen waarvan relatie ook vooraf is gedefinieerd in Azure AD B2C ( bijvoorbeeld Facebook id-provider, LinkedIn, Microsoft-Account, Google-accounts).  In de toekomst daarenboven ingebouwde beleidsregels voor aanpassing van de id-providers die meestal in de enterprise-realm zoals Azure Active Directory Premium, Active Directory AD FS, Salesforce-ID-Provider, enzovoort.
 
 
 ### <a name="custom-policies"></a>Aangepast beleid
 
-De configuratiebestanden die het gedrag van identiteit ervaring Framework in uw Azure AD B2C-tenant definiëren. Er is een aangepast beleid toegankelijk als een of meer XML-bestanden (Zie beleidsbestanden definities) die worden uitgevoerd door de identiteit ervaring Framework wordt aangeroepen door een relying party (bijvoorbeeld een toepassing). Aangepast beleid kunnen rechtstreeks worden bewerkt door een ontwikkelaar identiteit een onbeperkt aantal taken in bijna voltooid. Ontwikkelaars aangepaste beleidsregels configureren, moeten de vertrouwde relaties definiëren in zorgvuldige samenvattingsniveau metagegevens-eindpunten, exacte claims exchange-definities en geheimen, sleutels en certificaten die door elke id-provider configureren.
+De configuratiebestanden die het gedrag van identiteit ervaring Framework in uw Azure AD B2C-tenant definiëren. Er is een aangepast beleid toegankelijk als een of meer XML-bestanden (Zie beleidsbestanden definities) die worden uitgevoerd door de identiteit ervaring Framework wordt aangeroepen door een relying party (bijvoorbeeld een toepassing). Aangepast beleid kunnen rechtstreeks worden bewerkt door een ontwikkelaar identiteit een onbeperkt aantal taken in bijna voltooid. Ontwikkelaars aangepaste beleidsregels configureren, moeten de vertrouwde relaties definiëren in zorgvuldige samenvattingsniveau metagegevens-eindpunten, de exacte claims exchange-definities en geheimen, sleutels en certificaten configureren, indien nodig door elke identiteitsprovider.
 
-## <a name="policy-file-definitions-for-identity-experience-framework-trustframeworks"></a>Beleid bestand definities voor de identiteit ervaring Framework Trustframeworks
+## <a name="policy-file-definitions-for-identity-experience-framework-trust-frameworks"></a>Beleid bestand definities voor de identiteit ervaring Framework frameworks vertrouwen
 
 ### <a name="policy-files"></a>Beleidsbestanden
 

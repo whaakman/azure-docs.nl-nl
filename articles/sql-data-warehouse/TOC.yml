@@ -63,6 +63,8 @@
           href: sql-data-warehouse-overview-manage-security.md
         - name: Verificatie
           href: sql-data-warehouse-authentication.md
+        - name: Beveiliging op kolomniveau
+          href: column-level-security.md
     - name: Naar SQL Data Warehouse migreren
       items:
         - name: Overzicht

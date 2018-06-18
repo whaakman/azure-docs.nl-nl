@@ -4,12 +4,14 @@
   items:
     - name: Wat is Power BI Embedded?
       href: what-is-power-bi-embedded.md
-- name: Aan de slag
+- name: Zelfstudies
+  items:
+    - name: Inhoud insluiten voor klantenvoorbeeld
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: Concepten
   items:
     - name: Aan de slag met Power BI Embedded
       href: get-started.md
-    - name: Aan de slag met een voorbeeld
-      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
 - name: Procedures
   items:
     - name: Capaciteit beheren
