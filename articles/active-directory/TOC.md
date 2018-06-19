@@ -122,7 +122,6 @@
 ### Naslaginformatie
 #### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
-#### [Meldingen](active-directory-reporting-notifications.md)
 #### [Activiteitsverwijzing controleren](active-directory-reporting-activity-audit-reference.md)
 #### [Foutcodes voor aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [SSPR aanpassen](authentication/concept-sspr-customization.md)
 ### [Gegevensvereisten voor SSPR](authentication/howto-sspr-authenticationdata.md)
 ### [Rapportage voor SSPR](authentication/howto-sspr-reporting.md)
+### [Zwakke wachtwoorden elimineren](authentication/concept-password-ban-bad.md)
+### [De lijst met verboden wachtwoorden configureren](authentication/howto-password-ban-bad.md)
+### [On-premises integratie](authentication/concept-password-ban-bad-on-premises.md)
+### [Wachtwoordbeveiliging in Azure AD implementeren](authentication/howto-password-ban-bad-on-premises.md)
+### [Wachtwoordbeveiliging in Azure AD configureren](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Wachtwoordbeveiliging in Azure AD bewaken](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT-beheerders: wachtwoorden opnieuw instellen
 #### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [SSPR licentiëren](authentication/concept-sspr-licensing.md)
@@ -178,14 +183,14 @@
 ## Apps beheren
 ### [Overzicht](manage-apps/what-is-application-management.md)
 ### [Aan de slag](manage-apps/plan-an-application-integration.md)
-### [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
+### [Zelfstudies voor SaaS-app-integratie](saas-apps/tutorial-list.md)
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Momentopnamerapporten maken](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Continue rapportage configureren](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Een aangepaste logboekparser gebruiken](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [Gebruikers voor SaaS-apps inrichten en de inrichting ongedaan maken](active-directory-saas-app-provisioning.md) 
-#### [Zelfstudies voor app-integratie](active-directory-saas-tutorial-list.md) 
+#### [Zelfstudies voor app-integratie](saas-apps/tutorial-list.md) 
 #### [Inrichting automatiseren voor apps die SCIM ondersteunen](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Kenmerktoewijzingen aanpassen](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Expressies schrijven voor kenmerktoewijzingen](active-directory-saas-writing-expressions-for-attribute-mappings.md) 

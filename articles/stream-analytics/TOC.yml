@@ -54,11 +54,11 @@
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Waarschuwingen configureren
           href: stream-analytics-set-up-alerts.md
-        - name: Uw taak testen
+        - name: Een taak testen
           href: stream-analytics-test-query.md
         - name: De resultaten bekijken in een dashboard
           href: stream-analytics-power-bi-dashboard.md
-        - name: Uw taak opschonen
+        - name: Een taak opschonen
           href: stream-analytics-clean-up-your-job.md
         - name: Taken koppelen voor betrouwbaarheid
           href: stream-analytics-job-reliability.md

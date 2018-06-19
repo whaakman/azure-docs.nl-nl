@@ -1,5 +1,5 @@
-- name: Overzicht van toegangsbeheer
-  href: manage-access-to-azure-resources.md
+- name: Documentatie voor toegangsbeheer op basis van rollen
+  href: index.yml
   items: null
 - name: Overzicht
   items:
@@ -36,6 +36,7 @@
     - name: Voorwaardelijke toegang voor Azure-beheer
       href: conditional-access-azure-management.md
 - name: Handleidingen
+  expanded: true
   items:
     - name: Toegang beheren
       items:

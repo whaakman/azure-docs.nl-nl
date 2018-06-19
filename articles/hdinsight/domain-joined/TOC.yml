@@ -37,13 +37,10 @@
     - name: Replicatie van HBase-cluster in Azure VNet
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: Bewaking met OMS
+- name: Bewaken met behulp van Log Analytics
   items:
     - name: Azure Log Analytics gebruiken
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specifieke dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Queries gebruiken met Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

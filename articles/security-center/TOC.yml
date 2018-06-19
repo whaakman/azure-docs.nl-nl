@@ -53,7 +53,7 @@
     - name: Beveiligingsstatus controleren
       href: security-center-monitoring.md
       items:
-        - name: Computerbeveiliging
+        - name: Reken- en appbeveiliging
           href: security-center-virtual-machine-recommendations.md
           items:
             - name: Schijfversleuteling toepassen
@@ -74,6 +74,10 @@
               href: security-center-update-os-version.md
             - name: Beoordeling van beveiligingslekken is niet geïnstalleerd
               href: security-center-vulnerability-assessment-recommendations.md
+            - name: Een firewall voor webtoepassingen toevoegen
+              href: security-center-add-web-application-firewall.md
+            - name: Toepassingsbeveiliging voltooien
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Netwerkbeveiliging
           href: security-center-network-recommendations.md
           items:
@@ -94,13 +98,6 @@
               href: security-center-enable-auditing-on-sql-servers.md
             - name: Transparante gegevensversleuteling inschakelen
               href: security-center-enable-transparent-data-encryption.md
-        - name: Toepassingsbeveiliging
-          href: security-center-application-recommendations.md
-          items:
-            - name: Een firewall voor webtoepassingen toevoegen
-              href: security-center-add-web-application-firewall.md
-            - name: Toepassingsbeveiliging voltooien
-              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Identiteit en toegang
           href: security-center-identity-access.md
     - name: Cloudbeveiliging toepassen

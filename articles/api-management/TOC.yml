@@ -97,6 +97,8 @@
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: Gezamenlijke verificatie via certificaat
           href: api-management-howto-mutual-certificates.md
+        - name: Protocollen en coderingen beheren
+          href: api-management-howto-manage-protocols-ciphers.md
     - name: De ontwikkelaarservaring aanpassen
       items:
         - name: Pagina-inhoud en -indeling wijzigen

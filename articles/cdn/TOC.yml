@@ -16,6 +16,8 @@
   items:
     - name: Azure CDN toevoegen aan een web-app
       href: cdn-add-to-web-app.md
+    - name: Toegang tot blobs met een aangepast domein via HTTPS
+      href: cdn-storage-custom-domain-https.md
     - name: Een aangepast domein toevoegen
       href: cdn-map-content-to-custom-domain.md
     - name: HTTPS in een aangepast domein configureren

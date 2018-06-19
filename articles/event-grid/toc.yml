@@ -69,6 +69,8 @@
       href: post-to-custom-topic.md
     - name: Gebeurtenissen op HTTP-eindpunt ontvangen
       href: receive-events.md
+    - name: Gebeurtenisverzending beheren
+      href: manage-event-delivery.md
     - name: Gebeurtenisverzending bewaken
       href: monitor-event-delivery.md
     - name: Query's uitvoeren op gebeurtenisabonnementen
