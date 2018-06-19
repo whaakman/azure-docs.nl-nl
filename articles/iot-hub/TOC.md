@@ -1,4 +1,4 @@
-# [Basisprincipes van Azure IoT](../iot-fundamentals/index.yml)
+# [Basisprincipes van Azure IoT](/azure/iot-fundamentals)
 # [Documentatie voor IoT Hub](index.yml)
 
 # Overzicht
@@ -84,10 +84,10 @@
 ### [De IoTHubClient gebruiken](iot-hub-device-sdk-c-iothubclient.md)
 ### [De serialisatiefunctie gebruiken](iot-hub-device-sdk-c-serializer.md)
 
-## [Fundamentele beveiliging](iot-hub-security-ground-up.md)
-## [Best practices voor beveiliging](iot-hub-security-best-practices.md)
-## [Beveiligingsarchitectuur](iot-hub-security-architecture.md)
-## [Uw IoT-implementatie beveiligen](iot-hub-security-deployment.md)
+## [Fundamentele beveiliging](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+## [Aanbevolen procedures voor beveiliging](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+## [Beveiligingsarchitectuur](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+## [Uw IoT-implementatie beveiligen](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## Beveiligen met behulp van X.509-CA-certificaten
 ### [Overzicht van beveiliging op basis van X.509-CA-certificaten](iot-hub-x509ca-overview.md)
 #### [Concepten van beveiliging op basis van X.509-CA-certificaten](iot-hub-x509ca-concept.md)

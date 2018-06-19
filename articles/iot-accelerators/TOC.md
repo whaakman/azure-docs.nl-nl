@@ -1,4 +1,4 @@
-# [Basisprincipes van Azure IoT](../iot-fundamentals/index.yml)
+# [Basisprincipes van Azure IoT](/azure/iot-fundamentals)
 # [Documentatie voor IoT-oplossingsversnellers](index.md)
 
 # Overzicht
@@ -94,10 +94,10 @@
 # Naslaginformatie
 ## [Snelzoekgids voor ontwikkelaars](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Ontwikkelaarsgids voor het oplossen van problemen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Beveiligingsarchitectuur](iot-security-architecture.md)
-## [Best practices voor beveiliging](iot-security-best-practices.md)
-## [Uw IoT-implementatie beveiligen](iot-accelerators-security-deployment.md)
-## [Fundamentele beveiliging](securing-iot-ground-up.md)
+## [Fundamentele beveiliging](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc)
+## [Aanbevolen procedures voor beveiliging](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc)
+## [Beveiligingsarchitectuur](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc)
+## [Uw IoT-implementatie beveiligen](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc)
 
 # Verwant
 ## Oplossingen 

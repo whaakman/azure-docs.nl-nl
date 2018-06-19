@@ -33,14 +33,6 @@
           href: log-analytics-oms-portal-transition.md
         - name: Veelgestelde vragen
           href: log-analytics-oms-portal-faq.md
-    - name: Upgrade van werkruimte
-      items:
-        - name: Overzicht van de upgrade
-          href: log-analytics-log-search-upgrade.md
-        - name: Overzicht van wijzigingen
-          href: log-analytics-log-search-upgrade-changes.md
-        - name: Veelgestelde vragen over upgraden
-          href: log-analytics-log-search-faq.md
     - name: Veelgestelde vragen over Log Analytics
       href: log-analytics-faq.md
     - name: Gegevensbeveiliging

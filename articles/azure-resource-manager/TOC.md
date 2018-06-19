@@ -17,6 +17,7 @@
 ### [Sjabloonsecties](resource-group-authoring-templates.md)
 #### [Parameters](resource-manager-templates-parameters.md)
 #### [Variabelen](resource-manager-templates-variables.md)
+#### [Functies](resource-group-authoring-templates.md#functions)
 #### [Bronnen](resource-manager-templates-resources.md)
 #### [Uitvoer](resource-manager-templates-outputs.md)
 ### [Gekoppelde en geneste sjablonen](resource-group-linked-templates.md)
