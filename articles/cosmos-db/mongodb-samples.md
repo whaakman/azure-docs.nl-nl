@@ -1,27 +1,25 @@
 ---
-title: MongoDB APIs gebruiken voor het bouwen van een Azure DB die Cosmos-app | Microsoft Docs
-description: Een zelfstudie waarmee u maakt een online-database met behulp van de Azure Cosmos DB-API's voor MongoDB.
-keywords: Voorbeelden van mongodb
+title: MongoDB API’s gebruiken om een Azure Cosmos DB-app te bouwen | Microsoft Docs
+description: Een zelfstudie waarmee u een online database maakt met de Azure Cosmos DB-API’s voor MongoDB.
+keywords: mongodb-voorbeelden
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 editor: ''
-documentationcenter: ''
-ms.assetid: fb38bc53-3561-487d-9e03-20f232319a87
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-mongo
+ms.devlang: nodejs
+ms.topic: sample
 ms.date: 03/23/2018
-ms.author: anhoh
-ms.openlocfilehash: 81eff479c94af938918e6a221d45184ca1a84aef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.author: sngun
+ms.openlocfilehash: bd31656404f11c9676b321e2e40454c33f61e3f5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795190"
 ---
-# <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Een Cosmos Azure DB bouwen:-API voor MongoDB-app met behulp van Node.js
+# <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Een Cosmos Azure DB bouwen: API bouwen voor MongoDB-app met behulp van Node.js
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -32,16 +30,16 @@ ms.lasthandoff: 04/16/2018
 >  
 >
 
-Dit voorbeeld ziet u hoe u een Cosmos Azure DB:-API voor MongoDB-console-app met behulp van Node.js.
+In dit voorbeeld ziet u hoe u een Azure Cosmos DB: API bouwt voor MongoDB-console-app met Node.js.
 
-Voor het gebruik van dit voorbeeld moet u het volgende doen:
+Als u dit voorbeeld wilt gebruiken, moet u het volgende doen:
 
-* [Maak](create-mongodb-dotnet.md#create-account) een Cosmos Azure DB: API voor MongoDB-account.
-* Ophalen van uw MongoDB [verbindingsreeks](connect-mongodb-account.md) informatie.
+* [Maak](create-mongodb-dotnet.md#create-account) een Azure Cosmos DB: API voor MongoDB-account.
+* Haal uw MongoDB-informatie over de [verbindingsreeks](connect-mongodb-account.md) op.
 
 ## <a name="create-the-app"></a>De app maken
 
-1. Maak een *app.js* bestand en kopieer en plak de onderstaande code.
+1. Maak een *app.js*-bestand en kopieer en plak de onderstaande code.
 
     ```nodejs
     var MongoClient = require('mongodb').MongoClient;
@@ -123,9 +121,9 @@ Voor het gebruik van dit voorbeeld moet u het volgende doen:
     });
     ```
     
-    **Optionele**: als u de **MongoDB Node.js 2.2 stuurprogramma**, Vervang het volgende codefragment:
+    **Optioneel**: als u het **MongoDB Node.js 2.2-stuurprogramma** gebruikt, vervangt u het volgende codefragment:
 
-    Origineel:
+    Oorspronkelijk:
 
     ```nodejs
     MongoClient.connect(url, function(err, client) {
@@ -160,14 +158,14 @@ Voor het gebruik van dit voorbeeld moet u het volgende doen:
     });
     ```
     
-2. Wijzig de volgende variabelen in de *app.js* bestand per uw accountinstellingen (meer informatie over het zoeken naar uw [verbindingsreeks](connect-mongodb-account.md)):
+2. Wijzig de volgende variabelen in het bestand *app.js* volgens uw accountinstellingen (meer informatie over het zoeken naar uw [verbindingsreeks](connect-mongodb-account.md)):
 
     > [!IMPORTANT]
-    > De **MongoDB Node.js 3.0 stuurprogramma** vereist speciale tekens in het wachtwoord van de Cosmos-database te coderen. Zorg ervoor dat u de tekens '=' % coderen 3D
+    > Voor het **MongoDB Node.js 3.0-stuurprogramma** is codering vereist van speciale tekens in het Cosmos DB-wachtwoord. Zorg ervoor dat u de tekens '=' codeert als %3D
     >
-    > Voorbeeld: Het wachtwoord *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv ==* coderen naar *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv % 3D % 3D*
+    > Voorbeeld: het wachtwoord *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* wordt gecodeerd naar *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
     >
-    > De **MongoDB Node.js 2.2 stuurprogramma** vereist geen speciale tekens in het wachtwoord van de Cosmos-database te coderen.
+    > Voor het **MongoDB Node.js 2.2-stuurprogramma** is geen codering vereist van speciale tekens in het Cosmos DB-wachtwoord.
     >
     >
    
@@ -175,7 +173,7 @@ Voor het gebruik van dit voorbeeld moet u het volgende doen:
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      
-3. Open uw favoriete terminal, voert u **npm Installeer mongodb--opslaan**, Voer uw app met **knooppunt app.js**
+3. Open uw favoriete terminal, voer **npm install mongodb --save** uit en voer uw app uit met **node app.js**
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over hoe [MongoChef gebruiken](mongodb-mongochef.md) met uw Azure-Cosmos-DB: API voor MongoDB-account.
+* Meer informatie over hoe u [MongoChef gebruikt](mongodb-mongochef.md) met uw Azure-Cosmos-DB: API voor MongoDB-account.

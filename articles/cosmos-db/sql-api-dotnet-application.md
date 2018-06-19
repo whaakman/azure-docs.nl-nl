@@ -3,23 +3,21 @@ title: 'ASP.NET MVC-zelfstudie voor Azure Cosmos DB: webtoepassingsontwikkeling 
 description: Dit is een zelfstudie voor ASP.NET MVC om een MVC-webtoepassing met Azure Cosmos DB te maken. JSON opslaan en gegevens benaderen via een takenlijst-app die wordt gehost op Azure Websites - Stapsgewijze zelfstudie voor ASP NET MVC.
 keywords: asp.net mvc-zelfstudie, ontwikkelen van webtoepassingen, mvc-webtoepassing, asp net mvc zelfstudie stapsgewijs
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 1193ef84f8edf701f98e50d92a67426e36c40218
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 193f0f74d7a8ebaee72105698c646b55a8159a3b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796992"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -34,7 +32,7 @@ Dit artikel biedt een end-to-end-overzicht waarin wordt getoond hoe u met Azure 
 
 ![Schermopname van de takenlijst MVC-webtoepassing die is gemaakt met deze zelfstudie - Stapsgewijze zelfstudie voor ASP NET MVC.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
-Deze procedure ziet u hoe de Azure DB die Cosmos-service gebruiken voor het opslaan van en toegang tot gegevens uit een ASP.NET MVC-webtoepassing gehost op Azure. Zie [Een Azure Cosmos DB C#-consoletoepassing bouwen](sql-api-get-started.md) als u een zelfstudie zoekt die volledig is gericht op Azure Cosmos DB en niet op de ASP.NET MVC-onderdelen.
+In dit overzicht kunt u zien hoe u met de Azure Cosmos DB-service in een ASP.NET MVC-webtoepassing die wordt gehost op Azure toegang krijgt tot gegevens en deze kunt opslaan. Zie [Een Azure Cosmos DB C#-consoletoepassing bouwen](sql-api-get-started.md) als u een zelfstudie zoekt die volledig is gericht op Azure Cosmos DB en niet op de ASP.NET MVC-onderdelen.
 
 > [!TIP]
 > Voor deze zelfstudie wordt ervan uitgegaan dat u ervaring hebt met ASP.NET MVC en Azure Websites. Als u niet bekend met ASP.NET of de [vereiste hulpprogramma's](#_Toc395637760) bent, is het raadzaam het volledige voorbeeldproject via [GitHub][GitHub] te downloaden en de instructies in dit voorbeeld te volgen. Zodra u klaar bent, kunt u dit artikel lezen voor meer informatie over de code in de context van het project.
@@ -49,12 +47,12 @@ Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het vol
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
-* Microsoft Azure SDK voor .NET voor Visual Studio 2017 beschikbaar via de Visual Studio Installer.
+* Microsoft Azure SDK voor .NET voor Visual Studio 2017 is beschikbaar via het Visual Studio-installatieprogramma.
 
-Alle schermopnamen in dit artikel zijn gemaakt met behulp van Microsoft Visual Studio Community 2017. Als uw systeem is geconfigureerd met een andere versie is het mogelijk dat de schermen en opties niet volledig overeenkomen, maar als u voldoet aan de bovenstaande vereisten moet deze oplossing werken.
+Alle schermopnamen in dit artikel zijn gemaakt met Microsoft Visual Studio Community 2017. Als uw systeem is geconfigureerd met een andere versie, is het mogelijk dat de schermen en opties niet volledig overeenkomen. Als u echter aan de bovenstaande vereisten voldoet, moet deze oplossing werken.
 
 ## <a name="_Toc395637761"></a>Stap 1: een Azure Cosmos DB-databaseaccount maken
-Begin met het maken van een Azure Cosmos DB-account. Als u al een SQL-account voor Azure Cosmos DB of als u de Azure-Emulator Cosmos-database voor deze zelfstudie gebruikt, kunt u doorgaan met [Maak een nieuwe ASP.NET MVC-toepassing](#_Toc395637762).
+Begin met het maken van een Azure Cosmos DB-account. Als u al een SQL-account voor Azure Cosmos DB hebt of de Azure Cosmos DB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Een nieuwe ASP.NET MVS-toepassing maken](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -74,9 +72,9 @@ U kunt nu zien hoe u een compleet nieuwe ASP.NET MVC-toepassing maakt.
 3. Typ in het vak **Naam** de naam van het project. In deze zelfstudie wordt de naam 'todo' gebruikt. Als u een andere naam gebruikt, moet u waar in deze zelfstudie over de naamruimte todo wordt gesproken, de codevoorbeelden aanpassen met de naam die u voor uw toepassing gebruikt. 
 4. Klik op **Bladeren** om naar de map te navigeren waarin u het project wilt maken en klik vervolgens op **OK**.
    
-      De **nieuwe ASP.NET-webtoepassing** dialoogvenster wordt weergegeven.
+      Het dialoogvenster **Nieuwe ASP.NET-webtoepassing** wordt weergegeven.
    
-    ![Schermopname van het dialoogvenster Nieuw ASP.NET-webtoepassing met de MVC-toepassingssjabloon gemarkeerd](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![Schermopname van het dialoogvenster Nieuwe ASP.NET-webtoepassing met daarin het MVC-toepassingssjabloon gemarkeerd](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. Selecteer in het deelvenster met sjablonen **MVC**.
 
 6. Klik op **OK** om de scaffolding van de lege ASP.NET MVC-sjabloon aan Visual Studio over te laten. 
@@ -94,11 +92,11 @@ Nu de meeste ASP.NET MVC-werkzaamheden voor deze oplossing zijn voltooid, kunt u
     ![Schermopname van de opties voor klikken met de rechtermuisknop voor het webtoepassingsproject in Solution Explorer, met NuGet-pakketten beheren gemarkeerd.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     Het dialoogvenster **NuGet-pakketten beheren** wordt weergegeven.
-2. Typ in het NuGet-vak **Bladeren** ***Azure DocumentDB***. (Naam van het pakket niet is bijgewerkt naar Azure Cosmos DB.)
+2. Typ in het NuGet-vak **Bladeren** ***Azure DocumentDB***. (De pakketnaam is niet bijgewerkt naar Azure Cosmos DB.)
    
-    Installeren van de resultaten de **Microsoft.Azure.DocumentDB door Microsoft** pakket. Dit wordt download en installeer het pakket Azure Cosmos DB, evenals alle afhankelijkheden, zoals Newtonsoft.Json. Klik op **OK** in het venster **Voorbeeld** en op **I Accept** (Ik ga akkoord) in het venster **License Acceptance** (Licentie accepteren) om de installatie te voltooien.
+    Installeer met de resultaten het pakket **Microsoft.Azure.DocumentDB by Microsoft**. Hierbij worden het Azure Cosmos DB-pakket en alle afhankelijkheden, zoals Newtonsoft.Json, gedownload en geïnstalleerd. Klik op **OK** in het venster **Voorbeeld** en op **I Accept** (Ik ga akkoord) in het venster **License Acceptance** (Licentie accepteren) om de installatie te voltooien.
    
-    ![Schermopname van het venster NuGet-pakketten beheren met de Microsoft Azure Cosmos DB clientbibliotheek gemarkeerd](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Schermopname van het venster NuGet-pakketten beheren met daarin de Microsoft Azure Cosmos DB-clientbibliotheek gemarkeerd](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       U kunt eventueel ook de console voor Pakketbeheer gebruiken om het pakket te installeren. Hiervoor klikt u in het menu **Extra** op **NuGet Package Manager** (NuGet-pakketbeheer) en vervolgens op **Package Manager Console** (Pakketbeheer-console). Typ achter de prompt het volgende.
    
@@ -313,7 +311,7 @@ Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding me
         <add key="collection" value="Items"/>
 4. Werk nu de waarden voor *endpoint* en *authKey* bij door gebruik te maken van de blade Sleutels van Azure Portal. Gebruik de **URI** op de blade Sleutels als waarde voor de endpoint-instelling en gebruik de **PRIMAIRE SLEUTEL** of **SECUNDAIRE SLEUTEL** op de blade Sleutels als waarde voor authKey-instelling.
 
-    Dat zorgt voor de bekabeling van de opslagplaats Azure Cosmos DB nu gaan we toepassingslogica toevoegen.
+    Hiermee is de Azure Cosmos DB-opslagplaats gereed en kunnen we de toepassingslogica toevoegen.
 
 1. Op de eerste plaats willen we natuurlijk de onvolledige items kunnen weergeven met een takenlijsttoepassing.  Kopieer het volgende codefragment en plak dit ergens in de klasse **DocumentDBRepository**.
    
@@ -388,7 +386,7 @@ U kunt nu code toevoegen aan Azure Cosmos DBRepository en ItemController om de r
            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
        }
    
-   Deze methode wordt een object dat is doorgegeven aan deze gewoon en deze in Azure Cosmos DB zich blijft voordoen.
+   Met deze methode wordt een doorgegeven object gebruikt in Azure Cosmos DB.
 2. Open het bestand ItemController.cs en voeg het volgende codefragment toe binnen de klasse. Zodoende weet ASP.NET MVC wat er voor de actie **Create** moet worden gedaan. In dit geval geeft u de bijbehorende weergave Create.cshtml weer die eerder is gemaakt.
    
         [ActionName("Create")]
@@ -518,33 +516,33 @@ Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
     ![Schermopname van de weergave Index met het selectievakje Voltooid ingeschakeld](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Zodra u de app hebt getest, drukt u op Ctrl + F5 om de foutopsporing voor de app te stoppen. U kunt de app nu implementeren.
 
-## <a name="_Toc395637774"></a>Stap 7: De toepassing in Azure App Service implementeren 
-Nu dat u hebt de volledige toepassing correct werkt met Azure Cosmos DB gaan we deze web-app implementeren in Azure App Service.  
+## <a name="_Toc395637774"></a>Stap 7: de toepassing implementeren in Azure App Service 
+Nu de volledige toepassing correct werkt met Azure Cosmos DB, kunt u de web-app implementeren in Azure App Service.  
 
 1. Als u deze toepassing wilt publiceren, hoeft u alleen maar met de rechtermuisknop op het project in **Solution Explorer** te klikken en vervolgens op **Publiceren** te klikken.
    
     ![Schermopname van de optie Publiceren in Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
 
-2. In de **publiceren** in het dialoogvenster klikt u op **Microsoft Azure App Service**, selecteer daarna **nieuw** een App Service-profiel maken of klik op **bestaande selecteren**  een bestaand profiel gebruiken.
+2. Klik in het dialoogvenster **Publiceren** op **Microsoft Azure App Service** en selecteer daarna **Nieuw profiel maken** om een App Service-profiel te maken of klik op **Bestaand profiel selecteren**  om een bestaand profiel te gebruiken.
 
-    ![Het dialoogvenster Publish in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
+    ![Dialoogvenster Publiceren in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
 
-3. Als u een bestaand Azure App Service-profiel, voert u de abonnementsnaam van uw. Gebruik de **weergave** filteren om te sorteren op resourcegroep of brontype en selecteer vervolgens uw Azure App Service. 
+3. Als u een bestaand Azure App Service-profiel hebt, voert u de naam van uw abonnement in. Sorteer met de filter **Weergave** op resourcegroep of resourcetype en selecteer vervolgens uw Azure App Service. 
    
-    ![In het dialoogvenster App Service in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
+    ![Dialoogvenster App Service in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
 
-4. Klik op om een nieuw Azure App Service-profiel **nieuw** in de **publiceren** in het dialoogvenster. In de **Create App Service** dialoogvenster, Voer uw Web-App-naam en de juiste abonnement, de resourcegroep en de App Service-abonnement en klik vervolgens op **maken**.
+4. Klik op **Nieuw profiel maken** in het dialoogvenster **Publiceren** om een nieuw Azure App Service-profiel te maken. Voer in het dialoogvenster **App Service maken** de naam van uw web-app en het abonnement, de resourcegroep en het App Service-abonnement in die van toepassing zijn en klik vervolgens op **Maken**.
 
-    ![Het dialoogvenster App Service maken in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
+    ![Dialoogvenster App-service maken in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
-Binnen een paar seconden zal Visual Studio publicatie van uw webtoepassing voltooien en een browser starten waarin u kunt zien uw werk in Azure wordt uitgevoerd!
+Over een paar seconden zal Visual Studio de publicatie van uw webtoepassing voltooien en een browser starten waarin u kunt zien hoe uw werk in Azure wordt uitgevoerd.
 
 
 
 ## <a name="_Toc395637775"></a>Volgende stappen
-Gefeliciteerd! U zojuist hebt gemaakt van uw eerste ASP.NET MVC-webtoepassing met Azure Cosmos DB en gepubliceerd naar Azure. De broncode voor de volledige toepassing, met inbegrip van de functionaliteit voor details en verwijderen die niet is opgenomen in deze zelfstudie, kan worden gedownload of gekloond via [GitHub][GitHub]. Als dit wilt toevoegen aan uw app, kunt u de code ophalen en toevoegen aan deze app.
+Gefeliciteerd. U hebt zojuist uw eerste ASP.NET MVC-webtoepassing gemaakt met Azure Cosmos DB en deze gepubliceerd in Azure. De broncode voor de volledige toepassing, met inbegrip van de functionaliteit voor details en verwijderen die niet is opgenomen in deze zelfstudie, kan worden gedownload of gekloond via [GitHub][GitHub]. Als dit wilt toevoegen aan uw app, kunt u de code ophalen en toevoegen aan deze app.
 
-Om extra functionaliteit toe te voegen aan uw toepassing, bekijkt u de API's beschikbaar zijn in de [Azure Cosmos DB .NET-bibliotheek](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) harte welkom om bij te dragen naar de Azure Cosmos DB .NET-bibliotheek op [GitHub] [GitHub]. 
+Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschikbare API's in de [Azure Cosmos DB .NET-bibliotheek](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet). U bent tevens van harte welkom om een bijdrage te leveren aan de Azure Cosmos DB .NET-bibliotheek op [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

@@ -1,26 +1,24 @@
 ---
 title: 'NoSQL-zelfstudie: SQL-API voor Azure Cosmos DB Java SDK | Microsoft Docs'
-description: Een NoSQL-zelfstudie waarmee u maakt een online database en Java-consoletoepassing met behulp van de SQL-API voor Azure Cosmos DB. Azure SQL is een NoSQL-database voor JSON.
+description: Een NoSQL-zelfstudie waarmee u een online database en een Java-consoletoepassing maakt met de SQL-API voor Azure Cosmos DB. Azure SQL is een NoSQL-database voor JSON.
 keywords: nosql zelfstudie, onlinedatabase, java-consoletoepassing
 services: cosmos-db
-documentationcenter: Java
 author: SnehaGunda
 manager: kfile
-ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 8405894451c60f0661922584d9927960e3d0f611
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 36d65d7755b45f0da02776a90b09df3c6a3bcf02
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796975"
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL-zelfstudie: een SQL-API-Java-consoletoepassing bouwen
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL-zelfstudie: een SQL-API Java-consoletoepassing maken
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -31,7 +29,7 @@ ms.lasthandoff: 04/16/2018
 >  
 > 
 
-Welkom bij de NoSQL-zelfstudie voor de SQL-API voor Azure Cosmos DB Java SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u Azure Cosmos DB-resources kunt maken en er query's op kunt uitvoeren.
+Welkom bij de NoSQL-zelfstudie over de SQL-API voor Azure Cosmos DB Java SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u Azure Cosmos DB-resources kunt maken en er query's op kunt uitvoeren.
 
 We behandelen de volgende onderwerpen:
 
@@ -72,7 +70,7 @@ Kloon eerst de GitHub-opslagplaats voor [Get Started with Azure Cosmos DB and Ja
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-De map bevat een `pom.xml` voor het project en een `src` map met inbegrip van Java source code `Program.java` waaruit blijkt hoe eenvoudig bewerkingen uitvoeren met Azure Cosmos DB als het maken van documenten en gegevens binnen een verzameling opvragen . De `pom.xml` bevat een afhankelijkheid op de [Azure Cosmos DB Java SDK op Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+De map bevat een `pom.xml` voor het project en een `src`-map met Java-broncode, waaronder `Program.java`. Deze toont hoe u eenvoudige bewerkingen kunt uitvoeren met Azure Cosmos DB, zoals het maken van documenten en het uitvoeren van query's op gegevens binnen een verzameling. De `pom.xml` bevat een afhankelijkheid voor de [Azure Cosmos DB Java SDK in Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -120,7 +118,7 @@ U kunt een [verzameling](sql-api-resources.md#collections) maken met de methode 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Stap 6: JSON-documenten maken
-U kunt een [document](sql-api-resources.md#documents) maken met de methode [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) van de klasse **DocumentClient**. Documenten bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een of meer documenten invoegen. Als u gegevens die u wilt opslaan in de database al hebt, kunt u Azure Cosmos DB [hulpprogramma voor gegevensmigratie](import-data.md) importeren van de gegevens in een database.
+U kunt een [document](sql-api-resources.md#documents) maken met de methode [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) van de klasse **DocumentClient**. Documenten bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een of meer documenten invoegen. Als u al gegevens hebt die u in de database wilt opslaan, kunt u het [hulpprogramma voor gegevensmigratie](import-data.md) van Azure Cosmos DB gebruiken voor het importeren van gegevens in een database.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -177,7 +175,7 @@ Als u de gemaakte database verwijdert, worden de database en alle onderliggende 
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>Stap 11: uw Java-consoletoepassing volledig uitvoeren
-Voor de toepassing uitvoeren vanaf de console, gaat u naar de projectmap en gecompileerd met behulp van Maven:
+Als u de toepassing in de console wilt uitvoeren, gaat u naar de projectmap en compileert u de code met Maven:
     
     mvn package
 
@@ -185,7 +183,7 @@ Als u `mvn package` uitvoert, wordt de nieuwste Azure Cosmos DB-bibliotheek vanu
 
     mvn exec:java -D exec.mainClass=GetStarted.Program
 
-Gefeliciteerd! U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werkende Java-consoletoepassing.
+Gefeliciteerd. U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werkende Java-consoletoepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Wilt u een zelfstudie voor Java-web-apps volgen? Zie [Build a web application with Java using Azure Cosmos DB](sql-api-java-application.md) (Een Java-web-app maken met Azure Cosmos DB).
