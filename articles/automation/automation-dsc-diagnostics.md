@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 822d0e285e6f1cc9907625d7928dff3d9bf66921
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195961"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218952"
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Doorsturen van Azure Automation DSC rapportagegegevens met Log Analytics
 
@@ -86,14 +86,14 @@ U kunt ook de query beperken door de naam van de bewerking. Bijvoorbeeld: "Type 
 
 Een van onze belangrijkste klantaanvragen is voor de mogelijkheid voor het verzenden van een e-mailbericht of een tekst wanneer er iets mis met een DSC-configuratie gaat.   
 
-Als u wilt een waarschuwingsregel maakt, begint u met het maken van een zoekopdracht logboek voor de DSC-rapport-records die de waarschuwing moet worden aangeroepen.  Klik op de **waarschuwing** knop maken en configureren van de waarschuwingsregel.
+Als u wilt een waarschuwingsregel maakt, begint u met het maken van een zoekopdracht logboek voor de DSC-rapport-records die de waarschuwing moet worden aangeroepen.  Klik op de **+ nieuw waarschuwingsregel** knop maken en configureren van de waarschuwingsregel.
 
 1. Klik op de pagina overzicht van Log Analytics **logboek zoeken**.
 1. Maak een zoekquery logboek voor de waarschuwing door de volgende zoeken in het queryveld typen:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Als u naar de werkruimte logboeken van meer dan een Automation-account of -abonnement hebt ingesteld, kunt u uw waarschuwingen per abonnement en de Automation-account kunt groeperen.  
   Automation-accountnaam kan worden afgeleid van het veld Resource in het doorzoeken van DscNodeStatusData.  
-1. Openen van de **waarschuwingsregel toevoegen** scherm, klikt u op **waarschuwing** boven aan de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [waarschuwingen in logboekanalyse](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Openen van de **maken regel** scherm, klikt u op **+ nieuwe waarschuwingsregel** boven aan de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [maken van een waarschuwing rulelert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Mislukte DSC-resources te vinden op alle knooppunten
 

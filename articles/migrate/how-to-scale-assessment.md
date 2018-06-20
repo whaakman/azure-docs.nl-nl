@@ -3,15 +3,15 @@ title: De schaal van detectie en assessment met behulp van Azure migreren | Micr
 description: Beschrijft hoe vast te stellen van grote aantallen lokale machines met behulp van de service Azure migreren.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/04/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 89c9cfd4bdc1c483764983c886ba9f96cc75c69e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736827"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214688"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 

@@ -1,22 +1,20 @@
 ---
 title: 'Azure-procedure: Verschillende attestation-mechanismen gebruiken met de SDK van de Device Provisioning Service-client in Azure'
 description: 'Azure-procedure: Verschillende attestation-mechanismen gebruiken met de SDK van de Device Provisioning Service-client in Azure'
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 03/30/2018
-ms.topic: hero-article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: ''
-ms.devlang: na
+services: iot-dps
+manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 14c9bc0dd82575783a5af7293b48f56b36110f9a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34630422"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Verschillende attestation-mechanismen gebruiken met de SDK van de Device Provisioning Service-client voor C
 
