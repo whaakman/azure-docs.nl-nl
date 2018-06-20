@@ -7,14 +7,14 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/12/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266877"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36210921"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
@@ -39,7 +39,7 @@ Concepten waarover die u moet begrijpen voor het selecteren van een bevatten def
 Capaciteit is gestructureerd als *replica's* en *partities*. Replica's zijn exemplaren van de search-service, waarbij elke replica fungeert als host voor één taakverdeling exemplaar van een index. Zo heeft een service met 6 replica's 6 kopieën van elke index geladen in de service. Partities opslaan indexen en automatisch doorzoekbare gegevens splitsen: twee partities uw index in de helft, ziet u drie partities splitsen in derde, enzovoort. In termen van capaciteit, *partitie grootte* is voor de primaire functie van de verschillende alle lagen.
 
 > [!NOTE]
-> Alle **standaard** lagen ondersteuning [flexibele combinaties replica en partities](search-capacity-planning.md#chart) zodat u kunt [gewicht van uw systeem voor snelheid of opslag](search-performance-optimization.md) door het wijzigen van het saldo. **Basic** biedt tot drie replica's voor hoge beschikbaarheid maar alleen partitie heeft. **Gratis** lagen bieden geen toegewijde bronnen: computing resources worden gedeeld door meerdere gratis services.
+> Alle **standaard** lagen ondersteuning [flexibele combinaties replica en partities](search-capacity-planning.md#chart) zodat u kunt [gewicht van uw systeem voor snelheid of opslag](search-performance-optimization.md) door het wijzigen van het saldo. **Basic** biedt tot drie replica's voor hoge beschikbaarheid, maar het heeft slechts één partitie. **Gratis** lagen bieden geen toegewijde bronnen: computing resources worden gedeeld door meerdere gratis services.
 
 ### <a name="limits"></a>Limieten
 
