@@ -3,25 +3,25 @@ title: Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Por
 description: Naslaginformatie over foutcodes voor aanmeldactiviteitenrapporten.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb636db4e6e2097f494fcbc7a6584f0172514b95
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698506"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232356"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -65,13 +65,13 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |40008|Er is een probleem met uw federatieve id-provider. Neem contact op met uw IDP om dit probleem op te lossen.|
 |40009|Er is een probleem met uw federatieve id-provider. Neem contact op met uw IDP om dit probleem op te lossen.|
 |40014|Er is een probleem met uw federatieve id-provider. Neem contact op met uw IDP om dit probleem op te lossen.|
-|50000|Er is een probleem met onze aanmeldingsservice. [Open een ondersteuningsticket](active-directory-troubleshooting-support-howto.md) om dit probleem op te lossen.|
+|50000|Er is een probleem met onze aanmeldingsservice. [Open een ondersteuningsticket](fundamentals/active-directory-troubleshooting-support-howto.md) om dit probleem op te lossen.|
 |50001|De Service Principal Name is niet gevonden in deze tenant. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant. Of de resource-principal is niet gevonden in de map of is ongeldig.|
 |50002|Aanmelden is mislukt vanwege beperkte proxytoegang op de tenant. Als dit uw eigen tenantbeleid is, kunt u uw beperkingsinstellingen voor tenants wijzigen om dit probleem te verhelpen|
 |50003|Aanmelden is mislukt vanwege een ontbrekende handtekeningsleutel of ontbrekend handtekeningcertificaat. Dit kan komen doordat er geen handtekeningsleutel is geconfigureerd in de toepassing. Bekijk de oplossingen die worden beschreven in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Als u nog steeds problemen hebt, neemt u contact op met de eigenaar van de toepassing of de beheerder van de toepassing|
 |50005|Gebruiker heeft geprobeerd zich aan te melden bij een apparaat vanaf een platform dat momenteel niet wordt ondersteund wegens beleid voor voorwaardelijke toegang|
 |50006| Handtekeningverificatie is mislukt vanwege ongeldige handtekening. Bekijk de oplossing die wordt beschreven in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Als u nog steeds problemen hebt, neemt u contact op met de eigenaar van de toepassing of de beheerder van de app|
-|50007|Het partnerversleutelingscertificaat is niet gevonden voor deze toepassing. [Open een ondersteuningsticket](active-directory-troubleshooting-support-howto.md) bij Microsoft om dit te verhelpen|
+|50007|Het partnerversleutelingscertificaat is niet gevonden voor deze toepassing. [Open een ondersteuningsticket](fundamentals/active-directory-troubleshooting-support-howto.md) bij Microsoft om dit te verhelpen|
 |50008|SAML-verklaring ontbreekt of is niet juist geconfigureerd in het token. Neem contact op met uw federatieprovider.|
 |50010|Validatie van de doelgroep-URI voor de toepassing is mislukt, omdat er geen tokendoelgroepen zijn geconfigureerd. Neem contact op met de eigenaar van de toepassing|
 |50011|Het antwoordadres ontbreekt, is onjuist geconfigureerd of komt niet overeen met de antwoordadressen die voor de toepassing zijn geconfigureerd. Probeer de oplossing die wordt vermeld in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Als u nog steeds problemen hebt, neemt u contact op met de eigenaar van de toepassing of de beheerder van de app|
@@ -114,8 +114,8 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |50133|Sessie is ongeldig omdat het wachtwoord is verlopen of recent is gewijzigd.|
 |50135|Wijzigen van wachtwoord is vereist vanwege accountrisico|
 |50136|MSA-sessie omleiden naar app, enkele MSA-sessie gedetecteerd |
-|50140|Deze fout is opgetreden vanwege de interrupt 'Aangemeld blijven' toen de gebruiker bezig was met aanmelden. [Open een ondersteuningsticket](active-directory-troubleshooting-support-howto.md) met correlatie-id, aanvraag-id en een foutcode voor meer informatie. |
-|50143|Sessie komt niet overeen: sessie is ongeldig omdat de gebruikertenant niet overeenkomt met de domeinhint als gevolg van andere resource. [Open een ondersteuningsticket](active-directory-troubleshooting-support-howto.md) met correlatie-id, aanvraag-id en een foutcode voor meer informatie.|
+|50140|Deze fout is opgetreden vanwege de interrupt 'Aangemeld blijven' toen de gebruiker bezig was met aanmelden. [Open een ondersteuningsticket](fundamentals/active-directory-troubleshooting-support-howto.md) met correlatie-id, aanvraag-id en een foutcode voor meer informatie. |
+|50143|Sessie komt niet overeen: sessie is ongeldig omdat de gebruikertenant niet overeenkomt met de domeinhint als gevolg van andere resource. [Open een ondersteuningsticket](fundamentals/active-directory-troubleshooting-support-howto.md) met correlatie-id, aanvraag-id en een foutcode voor meer informatie.|
 |50144|Het Active Directory-wachtwoord van de gebruiker is verlopen. Genereer een nieuw wachtwoord voor de gebruiker of laat de eindgebruiker dit doen met de selfservice-resettool|
 |50146|Deze toepassing moet worden geconfigureerd met een ondertekeningssleutel specifiek voor de toepassing. De toepassing is niet met een dergelijke sleutel geconfigureerd, of de sleutel is verlopen of nog niet geldig. Neem contact op met de eigenaar van de toepassing|
 |50148|De codeverificatie komt niet overeen met de code-uitdaging opgegeven in de autorisatieaanvraag voor PKCE. Neem contact op met de ontwikkelaar van de toepassing. |
@@ -150,7 +150,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |70007|De toepassing heeft een niet-ondersteunde 'response_mode'-waarde geretourneerd bij het aanvragen van een token. Neem contact op met de eigenaar van de app|
 |70008|De opgegeven autorisatiecode of het vernieuwingstoken is verlopen - ingetrokken. Laat de gebruiker zich opnieuw aanmelden|
 |70011|Het bereik dat is aangevraagd door de toepassing is ongeldig. Neem contact op met de eigenaar van de toepassing|
-|70012|Er is een serverfout opgetreden tijdens het verifiëren van een MSA-gebruiker (consument). Probeer het opnieuw. Als dit probleem blijft bestaan, [opent u een ondersteuningsticket](active-directory-troubleshooting-support-howto.md) |
+|70012|Er is een serverfout opgetreden tijdens het verifiëren van een MSA-gebruiker (consument). Probeer het opnieuw. Als dit probleem blijft bestaan, [opent u een ondersteuningsticket](fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|Ongeldige verificatiecode doordat gebruiker verkeerde gebruikerscode typt voor apparaatcodestroom. Autorisatie niet is goedgekeurd|
 |70019|Verificatiecode verlopen. Laat de gebruiker zich opnieuw aanmelden|
 |70037|Onjuist antwoord op verificatievraag. Externe verificatiesessie is geweigerd.|
@@ -161,15 +161,15 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |75011|Verificatiemethode waarmee de gebruiker is geverifieerd met de service komt niet overeen met aangevraagd verificatiemethode. Neem contact op met de eigenaar van de app|
 |75016|SAML2-verificatieverzoek heeft ongeldige NameIdPolicy. Neem contact op met de eigenaar van de app|
 |80001|Verificatieagent kan geen verbinding maken met Active Directory. Zorg ervoor dat de verificatie-agent is geïnstalleerd op een apparaat met domeindeelname met zicht op een DC die de aanmelding van de gebruiker kan regelen.|
-|80002|Interne fout. Time-out bij wachtwoordvalidatie. We kunnen de verificatieaanvraag niet verzenden naar de interne hybride identiteitsservice. [Open een ondersteuningsticket](active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout|
-|80003|Ongeldig antwoord ontvangen door de verificatieagent. Er is een onbekende fout opgetreden tijdens een verificatiepoging op basis van on-premises Active Directory. [Open een ondersteuningsticket](active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout.|
-|80005|Verificatieagent: er is een onbekende fout opgetreden tijdens het verwerken van het antwoord van de verificatieagent. [Open een ondersteuningsticket](active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout.|
+|80002|Interne fout. Time-out bij wachtwoordvalidatie. We kunnen de verificatieaanvraag niet verzenden naar de interne hybride identiteitsservice. [Open een ondersteuningsticket](fundamentals/active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout|
+|80003|Ongeldig antwoord ontvangen door de verificatieagent. Er is een onbekende fout opgetreden tijdens een verificatiepoging op basis van on-premises Active Directory. [Open een ondersteuningsticket](fundamentals/active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout.|
+|80005|Verificatieagent: er is een onbekende fout opgetreden tijdens het verwerken van het antwoord van de verificatieagent. [Open een ondersteuningsticket](fundamentals/active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout.|
 |80007|Verificatieagent kan wachtwoord van gebruiker niet verifiëren.|
 |80010|Verificatieagent kan wachtwoord niet ontsleutelen. |
 |80011|Verificatieagent kan versleutelingssleutel niet ophalen.|
 |80012|De gebruikers hebben geprobeerd om zich aan te melden buiten de toegestane periode (dit is opgegeven in AD)|
 |80013|De verificatiepoging kan niet worden voltooid vanwege tijdverschil tussen de computer met de verificatieagent en AD. Los het probleem met tijdsynchronisatie op|
-|80014|Time-out van verificatieagent [Open een ondersteuningsticket](active-directory-troubleshooting-support-howto.md) met de foutcode, correlatie-id en Datetime voor meer informatie over deze fout|
+|80014|Time-out van verificatieagent [Open een ondersteuningsticket](fundamentals/active-directory-troubleshooting-support-howto.md) met de foutcode, correlatie-id en Datetime voor meer informatie over deze fout|
 |81001|Kerberos-ticket van de gebruiker is te groot. Dit kan gebeuren als de gebruiker te veel groepen heeft en het Kerberos-ticket dus te veel groepslidmaatschappen bevat. Reduceer het aantal groepslidmaatschappen van de gebruiker en probeer het opnieuw.|
 |81005|Verificatiepakket wordt niet ondersteund|
 |81007|Tenant is niet ingeschakeld voor naadloze eenmalige aanmelding|
