@@ -1,25 +1,25 @@
 ---
-title: Snelstartgids - Azure Time Series Insights-verkenner | Microsoft Docs
-description: In deze snelstartgids wordt beschreven hoe u de verkenner van Azure Time Series Insights kunt gebruiken in uw webbrowser om grote hoeveelheden IoT-gegevens te visualiseren. In dit artikel worden de belangrijkste functies van de verkenner van Azure Time Series Insights behandeld via een rondleiding in een demo-omgeving.
-services: time-series-insights
+title: Quickstart - Azure Time Series Insights-verkenner | Microsoft Docs
+description: In deze quickstart wordt beschreven hoe u de verkenner van Azure Time Series Insights kunt gebruiken in uw webbrowser om grote hoeveelheden IoT-gegevens te visualiseren. In dit artikel worden de belangrijkste functies van de verkenner van Azure Time Series Insights behandeld via een rondleiding in een demo-omgeving.
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: v-mamcge
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: a2f88ab65a8f9948b83f491896d53b34f162747c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbf0aef7a032c9b9808db14031555c7498874ac3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652114"
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Snelstartgids: Azure Time Series Insights verkennen
-In deze snelstartgids wordt in een gratis demo-omgeving uitgelegd hoe u aan de slag kunt met de verkenner van Azure Time Series Insights. U leert hoe u in uw webbrowser grote hoeveelheden IoT-gegevens kunt visualiseren en u maakt een rondleiding door de belangrijkste functies van de verkenner van Time Series Insights. 
+# <a name="quickstart-explore-azure-time-series-insights"></a>Quickstart: Azure Time Series Insights verkennen
+In deze quickstart wordt in een gratis demo-omgeving uitgelegd hoe u aan de slag kunt met de verkenner van Azure Time Series Insights. U leert hoe u in uw webbrowser grote hoeveelheden IoT-gegevens kunt visualiseren en u maakt een rondleiding door de belangrijkste functies van de verkenner van Time Series Insights. 
 
 Azure Time Series Insights is een volledig beheerde service voor analyse, opslag en visualisatie die het eenvoudig maakt om miljarden IoT-gebeurtenissen tegelijkertijd te verkennen en te analyseren. De service biedt u een globaal overzicht van uw gegevens, helpt u snel uw IoT-oplossing te valideren en kostbare stilstand van essentiële apparaten te vermijden door verborgen trends te ontdekken en afwijkingen te vinden, en laat u in bijna realtime oorzaak-gevolganalyses uitvoeren.  Als u een toepassing bouwt die gegevens van tijdreeksen moet opslaan of opvragen, kunt u hiervoor de REST-API's van Time Series Insights gebruiken.
 
@@ -27,7 +27,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](htt
 
 ## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Verkenner van Time Series Insights nader bekeken in een demo-omgeving
 
-1. Navigeer in uw browser naar [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
+1. Ga in de browser naar [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
 
 2. Meld u indien nodig aan bij Time Series Insights. Gebruik hiervoor de referenties van uw Azure-account. 
  
@@ -65,11 +65,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](htt
 
    ![Een term toevoegen](media/quickstart/quickstart8.png)
 
-9. Typ een filterterm in het vak **Filter series...** om de reeks ad hoc te filteren. Voor deze snelstartgids voeren we **Station5** in om de temperatuur- en drukwaarden voor dat station kruislings te correleren.
+9. Typ een filterterm in het vak **Filter series...** om de reeks ad hoc te filteren. Voor deze quickstart voeren we **Station5** in om de temperatuur- en drukwaarden voor dat station kruislings te correleren.
  
    ![Reeks filteren](media/quickstart/quickstart9.png)
 
-Als u klaar bent met de snelstartgids, kunt u experimenteren met de set voorbeeldgegevens om verschillende visualisaties te maken. 
+Als u klaar bent met de quickstart, kunt u experimenteren met de set voorbeeldgegevens om verschillende visualisaties te maken. 
 
 ### <a name="next-steps"></a>Volgende stappen
 U kunt nu uw eigen Time Series Insights-omgeving gaan maken:

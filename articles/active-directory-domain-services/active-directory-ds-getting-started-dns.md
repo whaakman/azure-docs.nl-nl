@@ -7,39 +7,39 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2017
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 972b995d3768e765b95c136b3cfbee91ab0a88ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4f76602d469766f75e7a3948ae1aed290bffb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588995"
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services inschakelen
 
 ## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
-In de voorgaande configuratietaken hebt u Azure Active Directory Domain Services ingeschakeld voor uw directory. De volgende taak is om ervoor te zorgen dat computers binnen het virtuele netwerk verbinding kunnen maken met deze services en ze kunnen gebruiken. In dit artikel werkt u de DNS-serverinstellingen voor het virtuele netwerk zo bij dat deze verwijzen naar de twee IP-adressen waarop Azure Active Directory Domain Services beschikbaar is op het virtuele netwerk.
+In de voorgaande configuratietaken hebt u Azure Active Directory Domain Services ingeschakeld voor uw directory. Zorg er nu voor dat computers binnen het virtuele netwerk verbinding kunnen maken met deze services en ze kunnen gebruiken. In dit artikel werkt u de DNS-serverinstellingen voor het virtuele netwerk zo bij dat deze verwijzen naar de twee IP-adressen waarop Azure Active Directory Domain Services beschikbaar is op het virtuele netwerk.
 
 Voer de volgende stappen uit om de DNS-serverinstellingen bij te werken voor het virtuele netwerk waarin u Azure Active Directory Domain Services hebt ingeschakeld:
 
+
 1. Het tabblad **Overzicht** bevat een reeks **vereiste configuratiestappen** die moeten worden uitgevoerd nadat uw beheerde domein volledig is ingericht. De eerste configuratiestap is **de DNS-serverinstellingen voor het virtuele netwerk bijwerken**.
 
-    ![Domain Services: tabblad Overzicht nadat het domein volledig is ingericht](./media/getting-started/domain-services-provisioned-overview.png)
+    ![Domain Services - tabblad Overzicht](./media/getting-started/domain-services-provisioned-overview.png)
 
-2. Wanneer uw domein volledig is ingericht, worden er twee IP-adressen weergegeven in deze tegel. Elk IP-adres vertegenwoordigt een domeincontroller voor uw beheerde domein.
+    > [!TIP]
+    > Ziet u deze configuratiestap niet? Als de DNS-serverinstellingen voor het virtuele netwerk up-to-date zijn, ziet u niet de tegel DNS-serverinstellingen voor het virtuele netwerk bijwerken op het tabblad Overzicht.
+    >
+    >
 
-3. Klik op de kopieerknop naast het eerste IP-adres om het naar het klembord te kopiëren. Klik vervolgens op de knop **DNS-servers configureren**.
-
-4. Plak het eerste IP-adres in het tekstvak **DNS-server toevoegen** in de blade **DNS-servers**. Schuif horizontaal naar links om het tweede IP-adres te kopiëren en plak het in het tekstvak **DNS-server toevoegen**.
-
-    ![Domain Services: DNS bijwerken](./media/getting-started/domain-services-update-dns.png)
-
-5. Klik wanneer u klaar bent op **Opslaan** om de DNS-servers voor het virtuele netwerk bij te werken.
+2. Klik op de knop **Configureren** om de DNS-serverinstellingen bij te werken voor het virtuele netwerk.
 
 > [!NOTE]
 > De nieuwe DNS-instellingen worden pas op de virtuele machines toegepast na het opnieuw opstarten. Als u de bijgewerkte DNS-instellingen meteen wilt toepassen, activeert u opnieuw opstarten via de portal, PowerShell of de CLI.

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: bde17a47e0e3e70daf52f4c460118c054b7c1152
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 29d843e2752046e8ab66a4f46fcbb212f6fb57c6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824394"
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Een virtuele machine van Azure versleutelen
 Het Azure Beveiligingscentrum stuurt u een waarschuwingsbericht wanneer u virtuele machines hebt die niet versleuteld zijn. Deze waarschuwingsberichten hebben een hoge prioriteit. Het wordt aangeraden om deze virtuele machines te versleutelen.
@@ -61,7 +62,7 @@ Het configuratiescript met vereisten voor Azure Disk Encryption installeert alle
 
 De inhoud van het script is nu opgeslagen. Open het script in de PowerShell ISE:
 
-1. Klik in het startmenu op **Cortana**. Vraag **Cortana** naar “PowerShell” door **PowerShell** te typen in het zoekvak.
+1. Windows PowerShell ISE starten
 2. Klik met de rechtermuisknop op **Windows PowerShell ISE** en klik op **Als administrator uitvoeren**.
 3. In het venster **Administrator: Windows PowerShell ISE** klikt u op **Weergeven** en vervolgens op **Scriptvenster weergeven**.
 4. Als u het venster **Opdrachten** ziet aan de rechterkant van het venster, klikt u op de **“x”** in de rechterbovenhoek om dit venster te sluiten. Als u de tekst niet goed kunt lezen omdat deze te klein is, gebruikt u **CTRL+ het plus-teken (+)**. Als de tekst te groot is, gebruikt u **CTRL + het min-teken (-)**.
@@ -74,8 +75,8 @@ Uw scherm ziet er nu als volgt uit.
 
 Het bovenste venster wordt het ‘scriptvenster' genoemd en het onderste venster de 'console'. Deze termen zullen we verderop in dit artikel gebruiken.
 
-## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Voer de PowerShell-opdracht met vereisten voor Azure Disk Encryption uit.
-Het script met vereisten voor Azure Disk Encryption vraagt u na het openen om de volgende informatie:
+## <a name="run-the-azure-disk-encryption-prerequisites-powershell-script"></a>Het PowerShell-script met vereisten voor Azure Disk Encryption uitvoeren
+Het script met vereisten voor Azure Disk Encryption accepteert de volgende parameters: 
 
 * **Naam resourcegroep**: naam van de resourcegroep waar u de Key Vault in wilt plaatsen.  Als er nog geen resourcegroep met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een resourcegroep hebt die u in dit abonnement wilt gebruiken, vul dan de naam van die resourcegroep in.
 * **Naam Key Vault**: naam van de sleutelkluis waar versleutelingssleutels in moeten worden geplaatst. Als u nog geen Key Vault hebt met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die Key Vault in.
@@ -92,18 +93,18 @@ Volg de volgende stappen om een virtuele machine van Azure te versleutelen:
 1. Als u de PowerShell ISE hebt gesloten, open PowerShell ISE dan met verhoogde bevoegdheid. Volg de bovenstaande instructies in dit artikel wanneer PowerShell ISE nog niet geopend is. Wanneer u het script hebt gesloten, open dan het bestand **ADEPrereqScript.ps1** door te klikken op **Bestand**, **Openen** en het script te selecteren in de map **c:\AzureADEScript**. Wanneer u dit artikel in zijn geheel hebt gevolgd, ga dan verder naar de volgende stap.
 2. In de console van de PowerShell ISE (het onderste venster van de  PowerShell ISE) verandert u de focus naar de locatie van het script door **cd c:\AzureADEScript** te typen en op **ENTER** te drukken.
 3. Stel het uitvoerbeleid op uw machine in zodat u het script kunt uitvoeren. Typ **Set-ExecutionPolicy Unrestricted** in de console en druk op ENTER. Wanneer u een dialoogvenster ziet over het effect van de wijzigingen in het uitvoerbeleid klikt u op **Ja op alles** of **Ja** Als u **Ja op alles** ziet, selecteert u die optie; als u **Ja op alles**niet ziet, klik dan op **Ja**).
-4. Meld u aan bij uw Azure-account. Typ **Connect-AzureRmAccount** in de console en druk op **ENTER**. Er wordt een dialoogvenster weergegeven waarin u uw gegevens kunt invoeren (zorg ervoor dat u bevoegd bent om de virtuele machines te wijzigen; als u die bevoegdheid niet hebt, kunt u de virtuele machines niet versleutelen. Als u niet weet of u bevoegd bent, neem dan contact op met de eigenaar van uw abonnement of uw beheerder). U ziet nu informatie over uw **omgeving**, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**. Kopieer uw **abonnements-ID** naar het Kladblok. Dit hebt u nodig in stap 6.
+4. Meld u aan bij uw Azure-account. Typ **Login-AzureRmAccount** in de console en druk op **ENTER**. Er wordt een dialoogvenster weergegeven waarin u uw gegevens kunt invoeren (zorg ervoor dat u bevoegd bent om de virtuele machines te wijzigen; als u die bevoegdheid niet hebt, kunt u de virtuele machines niet versleutelen. Als u niet weet of u bevoegd bent, neem dan contact op met de eigenaar van uw abonnement of uw beheerder). U ziet nu informatie over uw **omgeving**, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**. Kopieer uw **abonnements-ID** naar het Kladblok. Dit hebt u nodig in stap 6.
 5. Bepaal bij welk abonnement uw virtuele machine hoort en de locatie ervan. Ga naar [https://portal.azure.com](ttps://portal.azure.com) en meld u aan.  Klik op **Virtuele machines** in de linkerkant van het scherm. U ziet een lijst met uw virtuele machines en de abonnementen waar deze bij horen.
 
    ![Virtuele machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Ga terug naar de PowerShell ISE. Stel de context van het abonnement in waarin het script wordt uitgevoerd. Typ **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** in de console (vervang **< your_subscription_Id >** door uw abonnements-ID) en druk op **ENTER**. U ziet nu informatie over de omgeving, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**.
-7. U kunt nu het script uitvoeren. Klik op de knop **Script uitvoeren** of druk op **F5**.
+7. Voer vanuit het opdrachtvenster de scriptopdracht uit door het volgende als parameters door te geven: 
 
    ![Het PowerShell-script uitvoeren](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
-8. Het script vraagt om de **resourceGroupName:**. Voer de naam van de *Resourcegroep* in die u wilt gebruiken en druk vervolgens op **ENTER**. Als u geen resourcegroep hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe resourcegroep. Als u al een *Resourcegroep* hebt die u wilt gebruiken (zoals de groep waar uw virtuele machine zich bevindt), vul dan de naam van de bestaande resourcegroep in.
-9. Het script vraagt om de **keyVaultName:**. Voer de naam van de *Key Vault* in die u wilt gebruiken en druk vervolgens op ENTER. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die *Key Vault* in.
+8. **-resourceGroupName:** Voer de naam van de *Resourcegroep* in die u wilt gebruiken. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een *Resourcegroep* hebt die u wilt gebruiken (zoals de groep waar uw virtuele machine zich bevindt), vul dan de naam van de bestaande resourcegroep in.
+9. **-keyVaultName:** Voer de naam van de *Key Vault* in die u wilt gebruiken. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die *Key Vault* in.
 10. Het script vraagt om de **location:**. Voer de naam van de locatie in waar de VM die u wilt versleutelen zich bevindt en druk vervolgens op **ENTER**. Als u de locatie niet meer weet, gaat u terug naar stap 5.
-11. Het script vraagt om de **aadAppName:**. Voer de naam van de *Azure Active Directory*-toepassing in die u wilt gebruiken en druk vervolgens op **ENTER**. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een *Azure Active Directory-toepassing* hebt die u wilt gebruiken, vul dan de naam van de bestaande *Azure Active Directory-toepassing in*.
+11. **-aadAppName:** Voer de naam van de *Azure Active Directory*-toepassing in die u wilt gebruiken. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een *Azure Active Directory-toepassing* hebt die u wilt gebruiken, vul dan de naam van de bestaande *Azure Active Directory-toepassing in*.
 12. Een aanmeldvenster wordt weergegeven. Vul uw gegevens in (u dient zich inderdaad nog een keer aan te melden).
 13. Het script wordt uitgevoerd. Wanneer het is voltooid, wordt u gevraagt om de waarden van de velden **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl**, en **keyVaultResourceId** te kopiëren. Kopieer deze waarden naar het klembord en plak ze in het Kladblok.
 14. Ga terug naar de PowerShell ISE, plaats de cursor aan het einde van de laatste regel en druk op **ENTER**.

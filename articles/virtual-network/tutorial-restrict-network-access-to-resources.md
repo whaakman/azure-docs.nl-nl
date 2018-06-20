@@ -12,16 +12,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-networ
+ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2efbd6e0fc3f90909553bc839a8b61ff3ed681ad
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267387"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Zelfstudie: Netwerktoegang tot PaaS-resources beperken met service-eindpunten van een virtueel netwerk met behulp van Azure Portal
 
@@ -65,6 +65,8 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
 ## <a name="enable-a-service-endpoint"></a>Een service-eindpunt inschakelen
 
+Service-eindpunten worden ingeschakeld per service, per subnet. Maak een subnet en schakel een service-eindpunt voor het subnet in.
+
 1. Voer in het vak **Resources, services en documenten zoeken** bovenaan de portal *myVirtualNetwork* in. Wanneer **myVirtualNetwork** wordt weergegeven in de zoekresultaten, selecteert u dit.
 2. Voeg een subnet toe aan het virtuele netwerk. Selecteer **Subnetten** onder **INSTELLINGEN** en selecteer vervolgens **+ Subnet**, zoals in de volgende afbeelding:
 
@@ -78,11 +80,16 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
     |Adresbereik| 10.0.1.0/24|
     |Service-eindpunten| Selecteer **Microsoft.Storage** onder **Services**|
 
+> [!CAUTION]
+> Zie [Subnetinstellingen wijzigen](virtual-network-manage-subnet.md#change-subnet-settings) voordat u een servicepunt voor een bestaand subnet met resources inschakelt.
+
 ## <a name="restrict-network-access-for-a-subnet"></a>Netwerktoegang voor een subnet beperken
+
+Standaard kunnen alle VM's in een subnet met alle resources communiceren. U kunt de communicatie naar en van alle bronnen in een subnet beperken door een netwerkbeveiligingsgroep te maken en deze aan het subnet te koppelen.
 
 1. Selecteer **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
 2. Selecteer **Netwerken** en selecteer **Netwerkbeveiligingsgroep**.
-Voer onder **Een netwerkbeveiligingsgroep maken** de volgende informatie in of selecteer deze, en selecteer**Maken**:
+3. Voer onder **Een netwerkbeveiligingsgroep maken** de volgende informatie in of selecteer deze, en selecteer**Maken**:
 
     |Instelling|Waarde|
     |----|----|
@@ -94,7 +101,7 @@ Voer onder **Een netwerkbeveiligingsgroep maken** de volgende informatie in of s
 4. Nadat de netwerkbeveiligingsgroep is gemaakt, voert u *myNsgPrivate* in het vak **Resources, services en documenten zoeken** bovenaan de portal in. Wanneer **myNsgPrivate** wordt weergegeven in de zoekresultaten, selecteert u dit.
 5. Selecteer onder **INSTELLINGEN** **Uitgaande beveiligingsregels**.
 6. Selecteer **+ Toevoegen**.
-7. Maak een regel waarmee uitgaande toegang wordt toegestaan tot de openbare IP-adressen die zijn toegewezen aan de Azure Storage-service. Voer de volgende gegevens in of selecteer deze, en selecteer **OK**:
+7. Maak een regel die uitgaande communicatie naar de Azure Storage-service toestaat. Voer de volgende gegevens in of selecteer deze, en selecteer **OK**:
 
     |Instelling|Waarde|
     |----|----|
@@ -107,7 +114,8 @@ Voer onder **Een netwerkbeveiligingsgroep maken** de volgende informatie in of s
     |Bewerking|Toestaan|
     |Prioriteit|100|
     |Naam|Allow-Storage-All|
-8. Maak een regel die een standaardbeveiligingsregel overschrijft die uitgaande toegang tot alle openbare IP-adressen toestaat. Voer stap 6 en 7 nogmaals uit, met de volgende waarden:
+    
+8. Maak een regel die uitgaande communicatie naar internet weigert. Deze regel overschrijft een standaardregel in alle netwerkbeveiligingsgroepen waarmee uitgaande internetcommunicatie mogelijk is. Voer stap 6 en 7 nogmaals uit, met de volgende waarden:
 
     |Instelling|Waarde|
     |----|----|
@@ -171,9 +179,9 @@ De stappen die nodig zijn om netwerktoegang te beperken tot resources die zijn g
 4. Voer *mijn-bestandsshare* in onder **Naam** en selecteer **OK**.
 5. Sluit het vak **Bestandsservice**.
 
-### <a name="enable-network-access-from-a-subnet"></a>Netwerktoegang vanuit een subnet inschakelen
+### <a name="restrict-network-access-to-a-subnet"></a>Netwerktoegang tot een subnet beperken
 
-Standaard accepteren opslagaccounts netwerkverbindingen van clients in ieder netwerk. Als u toegang vanaf één specifiek subnet toe wilt staan en netwerktoegang vanaf alle andere netwerken weigeren, voert u de volgende stappen uit:
+Standaard accepteren opslagaccounts netwerkverbindingen van clients in ieder netwerk, inclusief internet. Weiger netwerktoegang van internet en alle andere subnetten in alle virtuele netwerken, behalve het *Privé*-subnet in het virtuele netwerk *myVirtualNetwork*.
 
 1. Selecteer onder **INSTELLINGEN** voor het opslagaccount **Firewalls en virtuele netwerken**.
 2. Selecteer **Geselecteerde netwerken** onder **Virtuele netwerken**.
@@ -256,13 +264,13 @@ Het implementeren van de VM duurt een paar minuten. Ga niet door met de volgende
 
     De Azure-bestandsshare is toegewezen aan station Z.
 
-7. Bevestig dat de virtuele machine geen uitgaande verbinding heeft naar andere openbare IP-adressen vanaf een opdrachtprompt:
+7. Bevestig dat de virtuele machine geen uitgaande verbinding heeft naar internet vanaf een opdrachtprompt:
 
     ```
     ping bing.com
     ```
     
-    U krijgt geen antwoorden, omdat de netwerkbeveiligingsgroep die is gekoppeld aan het *Privé*-subnet geen uitgaande toegang toestaat aan andere openbare IP-adressen dan de adressen die zijn toegewezen aan de Azure Storage-service.
+    U krijgt geen antwoorden, omdat de netwerkbeveiligingsgroep die is gekoppeld aan het *Privé*-subnet geen uitgaande toegang toestaat naar internet.
 
 8. Sluit de externe bureaubladsessie naar de VM *myVmPrivate*.
 
@@ -272,7 +280,7 @@ Het implementeren van de VM duurt een paar minuten. Ga niet door met de volgende
 2. Wanneer **myVmPublic** wordt weergegeven in de zoekresultaten, selecteert u deze.
 3. Voltooi de stappen 1-6 in [Toegang tot opslagaccount bevestigen](#confirm-access-to-storage-account) voor de VM *myVmPublic*.
 
-    De toegang wordt geweigerd en u krijgt de foutmelding `New-PSDrive : Access is denied`. De toegang wordt geweigerd omdat de VM *myVmPublic* is geïmplementeerd in het *Openbare* subnet. Het *Openbare* subnet heeft geen service-eindpunt ingeschakeld voor Azure Storage en het opslagaccount staat alleen netwerktoegang toe van het *Privé*-subnet, en niet van het *Openbare*subnet.
+    De toegang wordt geweigerd en u krijgt de foutmelding `New-PSDrive : Access is denied`. De toegang wordt geweigerd omdat de VM *myVmPublic* is geïmplementeerd in het *Openbare* subnet. Het *Openbare* subnet heeft geen service-eindpunt voor Azure Storage. Het opslagaccount staat alleen netwerktoegang toe vanuit het *Privé*-subnet, niet het *Openbare* subnet.
 
 4. Sluit de externe bureaubladsessie naar de VM *myVmPublic*.
 
@@ -295,7 +303,7 @@ Wanneer u deze niet langer nodig hebt, verwijdert u de resourcegroep en alle res
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een service-eindpunt voor een subnet van een virtueel netwerk ingeschakeld. U hebt geleerd dat service-eindpunten kunnen worden ingeschakeld voor met meerdere Azure-services geïmplementeerde resources. U hebt een Azure Storage-account gemaakt en netwerktoegang tot het opslagaccount beperkt tot alleen resources binnen een subnet van een virtueel netwerk. Zie voor meer informatie over service-eindpunten [Overzicht voor service-eindpunten](virtual-network-service-endpoints-overview.md) en [Subnetten beheren](virtual-network-manage-subnet.md).
+In deze zelfstudie hebt u een service-eindpunt voor een subnet van een virtueel netwerk ingeschakeld. U hebt geleerd dat u service-eindpunten kunt inschakelen voor vanaf meerdere Azure-services geïmplementeerde resources. U hebt een Azure Storage-account gemaakt en netwerktoegang tot het opslagaccount beperkt tot alleen resources binnen een subnet van een virtueel netwerk. Zie voor meer informatie over service-eindpunten [Overzicht voor service-eindpunten](virtual-network-service-endpoints-overview.md) en [Subnetten beheren](virtual-network-manage-subnet.md).
 
 Als u meerdere virtuele netwerken in uw account hebt, kunt u twee virtuele netwerken met elkaar verbinden zodat de resources in beide virtuele netwerken met elkaar kunnen communiceren. Ga verder met de volgende zelfstudie om te leren hoe u virtuele netwerken met elkaar kunt verbinden.
 

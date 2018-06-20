@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158146"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268134"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory-ontwikkelaar verklarende woordenlijst
 In dit artikel bevat definities voor enkele van de belangrijkste Azure Active Directory (AD) concepten voor ontwikkelaars, dit handig is bij leren over het ontwikkelen van toepassingen voor Azure AD.
@@ -45,7 +45,7 @@ Een functie die is geleverd door de [Azure-portal][AZURE-portal], dat resulteert
 ## <a name="application-object"></a>Object voor de toepassing
 Wanneer u registreren of bij te werken een toepassing in de [Azure-portal][AZURE-portal], de portal bijgewerkte een object voor de toepassing en een bijbehorende [-serviceprincipalobject](#service-principal-object) voor deze tenant. Het toepassingsobject *definieert* de toepassing de configuratie van de identiteit globaal (voor alle tenants waarop het toegang heeft), middel van een sjabloon van waaruit de bijbehorende objecten van de service-principal zijn  *afgeleide* voor gebruik tijdens runtime (in een specifieke tenant) lokaal.
 
-Zie [toepassing en Service-Principal objecten] [ AAD-App-SP-Objects] voor meer informatie.
+Zie voor meer informatie [toepassing en Service-Principal objecten][AAD-App-SP-Objects].
 
 ## <a name="application-registration"></a>Toepassing registreren
 Als u wilt toestaan dat een toepassing te integreren met Identity and Access Management taken naar Azure AD delegeren, moet deze worden geregistreerd met een Azure AD [tenant](#tenant). Wanneer u uw toepassing met Azure AD registreren, biedt u een configuratie van de identiteit voor uw toepassing, zodat het kan integreren met Azure AD en functies zoals gebruiken:
@@ -132,7 +132,7 @@ Zoals [scopes](#scopes), functies bieden de mogelijkheid om een [bronserver](#re
 
 Rollen zijn tekenreeksen resource gedefinieerd (bijvoorbeeld "onkosten goedkeurder", 'Alleen-lezen', 'Directory.ReadWrite.All'), beheerd in de [Azure-portal] [ AZURE-portal] via de resource [toepassing manifest](#application-manifest), en opgeslagen in de resource [appRoles eigenschap][AAD-Graph-Sp-Entity]. De Azure-portal wordt ook gebruikt voor de gebruikers toewijzen aan rollen 'gebruiker' en het configureren van client [Toepassingsmachtigingen](#permissions) voor toegang tot een rol 'application'.
 
-Zie voor een gedetailleerde bespreking van de toepassingsrollen die worden weergegeven door Azure AD Graph API [Graph API-Machtigingsbereiken][AAD-Graph-Perm-Scopes]. Zie voor een voorbeeld van stapsgewijze implementatie [op rollen gebaseerde toegangsbeheer in de cloud-toepassingen die gebruikmaken van Azure AD][Duyshant-Role-Blog].
+Zie voor een gedetailleerde bespreking van de toepassingsrollen die worden weergegeven door Azure AD Graph API [Graph API-Machtigingsbereiken][AAD-Graph-Perm-Scopes]. Zie voor een voorbeeld van stapsgewijze implementatie [beheren van toegang met RBAC en de Azure-portal][AAD-RBAC].
 
 ## <a name="scopes"></a>Scopes
 Zoals [rollen](#roles), scopes bieden de mogelijkheid om een [bronserver](#resource-server) voor de toegang tot de beveiligde bronnen. Scopes worden gebruikt voor het implementeren van [op basis van een scope] [ OAuth2-Access-Token-Scopes] toegangsbeheer voor een [clienttoepassing](#client-application) die toegang heeft gekregen gedelegeerd naar de bron van de eigenaar.
@@ -147,7 +147,7 @@ Een ondertekend document met claims, zoals een OAuth2-token of SAML 2.0-verklari
 ## <a name="service-principal-object"></a>Service-principal-object
 Wanneer u registreren of bij te werken een toepassing in de [Azure-portal][AZURE-portal], de portal bijgewerkte zowel een [toepassingsobject](#application-object) en een bijbehorende service principal-object voor deze tenant. Het toepassingsobject *definieert* configuratie van de identiteit van de toepassing globaal (voor alle tenants waar de bijbehorende toepassing toegang heeft gekregen), en is de sjabloon op basis waarvan de bijbehorende service-principal objecten zijn *afgeleid* voor gebruik tijdens runtime (in een specifieke tenant) lokaal.
 
-Zie [toepassing en Service-Principal objecten] [ AAD-App-SP-Objects] voor meer informatie.
+Zie voor meer informatie [toepassing en Service-Principal objecten][AAD-App-SP-Objects].
 
 ## <a name="sign-in"></a>aanmelding
 Het proces van een [clienttoepassing](#client-application) eindgebruiker verificatie gestart en vastleggen van gerelateerde status met het doel een [beveiligingstoken](#security-token) en bereik van de toepassingssessie op de bijbehorende status. State-artefacten, zoals gebruikersprofielgegevens kunnen bevatten en informatie die is afgeleid van token claims.
@@ -155,7 +155,7 @@ Het proces van een [clienttoepassing](#client-application) eindgebruiker verific
 De functie aanmelden van een toepassing wordt doorgaans gebruikt voor het implementeren van eenmalige aanmelding (SSO). Het kan ook worden voorafgegaan door een functie "registratie", als het toegangspunt voor een eindgebruiker toegang te krijgen tot een toepassing (bij de eerste aanmelden). De aanmelding functie wordt gebruikt om te verzamelen en persistent maken van aanvullende status die specifiek zijn voor de gebruiker en mogelijk [toestemming van de gebruiker](#consent).
 
 ## <a name="sign-out"></a>afmelden
-Het proces van het niet verifiërende een eindgebruiker loskoppelen van de status van de gebruiker die is gekoppeld aan de [clienttoepassing](#client-application) sessie tijdens [aanmelden](#sign-in)
+Het proces van een eindgebruiker loskoppelen van de gebruikersstatus unauthenticating die zijn gekoppeld aan de [clienttoepassing](#client-application) sessie tijdens [aanmelden](#sign-in)
 
 ## <a name="tenant"></a>tenant
 Een exemplaar van Azure AD-adreslijst wordt aangeduid als een Azure AD-tenant. Bevat verschillende functies, waaronder:
@@ -170,18 +170,18 @@ Azure AD-tenants, zijn gemaakt/gekoppeld aan Azure en Office 365-abonnementen ti
 Een van de eindpunten die zijn geïmplementeerd door de [autorisatie server](#authorization-server) voor ondersteuning van OAuth2 [toestemming verleent](#authorization-grant). Afhankelijk van de toekennen, kan worden gebruikt aan te schaffen een [toegangstoken](#access-token) (en verwante token 'vernieuwen') naar een [client](#client-application), of [token ID](#ID-token) gebruikt in combinatie met de [OpenID Verbinding maken met] [ OpenIDConnect] protocol.
 
 ## <a name="user-agent-based-client"></a>Client op basis van gebruikers-agent
-Een soort [clienttoepassing](#client-application) die code door een webserver gedownload en wordt uitgevoerd binnen een gebruikersagent (bijvoorbeeld een webbrowser), zoals een één pagina toepassing (SPA). Aangezien alle code wordt uitgevoerd op een apparaat, wordt een 'openbare' client vanwege het feit dat voor het opslaan van referenties privé/vertrouwelijk worden beschouwd. Zie [OAuth2-client van het type en -profielen] [ OAuth2-Client-Types] voor meer informatie.
+Een soort [clienttoepassing](#client-application) die code door een webserver gedownload en wordt uitgevoerd binnen een gebruikersagent (bijvoorbeeld een webbrowser), zoals een één pagina toepassing (SPA). Aangezien alle code wordt uitgevoerd op een apparaat, wordt een 'openbare' client vanwege het feit dat voor het opslaan van referenties privé/vertrouwelijk worden beschouwd. Zie voor meer informatie [OAuth2-client van het type en -profielen][OAuth2-Client-Types].
 
 ## <a name="user-principal"></a>UPN
 Net zoals die een service-principal-object wordt gebruikt voor de instantie van een toepassing, een user principal-object is een ander type beveiligings-principal die staat voor een gebruiker. De Azure AD Graph [entiteit gebruiker] [ AAD-Graph-User-Entity] definieert het schema voor een object, met inbegrip van gebruiker-gerelateerde eigenschappen zoals de voornaam en achternaam, UPN-naam, lidmaatschap van de rol directory, enzovoort. Dit biedt de Gebruikersconfiguratie identiteit voor Azure AD tot stand brengen van een UPN tijdens runtime. De user principal wordt gebruikt voor een geverifieerde gebruiker voor eenmalige aanmelding, opnemen [toestemming](#consent) overdracht, waardoor de toegang tot het toegangsbeheer, enzovoort.
 
 ## <a name="web-client"></a>WebClient
-Een soort [clienttoepassing](#client-application) die alle code op een webserver, en kunnen functioneren als een "Vertrouwelijk" client door de referenties veilig opslaan op de server wordt uitgevoerd. Zie [OAuth2-client van het type en -profielen] [ OAuth2-Client-Types] voor meer informatie.
+Een soort [clienttoepassing](#client-application) die alle code op een webserver, en kunnen functioneren als een "Vertrouwelijk" client door de referenties veilig opslaan op de server wordt uitgevoerd. Zie voor meer informatie [OAuth2-client van het type en -profielen][OAuth2-Client-Types].
 
 ## <a name="next-steps"></a>Volgende stappen
-De [Ontwikkelaarshandleiding voor Azure AD] [ AAD-Dev-Guide] is de startpagina kunt gebruiken voor alle Azure AD-ontwikkeling Verwante onderwerpen, waaronder een overzicht van [toepassingsintegratie] [ AAD-How-To-Integrate] en de basisprincipes van [Azure AD-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios]. U vindt ook codevoorbeelden en zelfstudies over het ophalen van snel gebruiksklaar op [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+De [Ontwikkelaarshandleiding voor Azure AD] [ AAD-Dev-Guide] is de landingspagina pagina moet worden gebruikt voor alle Azure AD-ontwikkeling-gerelateerde onderwerpen, waaronder een overzicht van [toepassingsintegratie] [ AAD-How-To-Integrate] en de basisprincipes van [Azure AD-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios]. U vindt ook codevoorbeelden en zelfstudies over het ophalen van snel gebruiksklaar op [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze inhoud, met inbegrip van aanvragen voor nieuwe definities of voor het bijwerken van bestaande vorm!
+Gebruik de volgende sectie met opmerkingen uw feedback en helpen te verfijnen en deze inhoud, met inbegrip van aanvragen voor nieuwe definities of voor het bijwerken van bestaande vorm!
 
 <!--Image references-->
 
@@ -194,7 +194,7 @@ Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en 
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -202,7 +202,7 @@ Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en 
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.com
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
+[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest

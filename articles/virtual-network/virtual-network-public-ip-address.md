@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 30b4a7ea0d3f68e48d02e5cb72e70de74dc2addf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3962b2e598f94767bd0fbbe990084875deec5e40
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658686"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266896"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Maken, wijzigen of verwijderen van een openbaar IP-adres
 
@@ -90,7 +90,7 @@ Hoewel de portal biedt de optie voor het maken van twee openbare IP-adresbronnen
 |Hulpprogramma|Opdracht|
 |---|---|
 |CLI|[lijst met openbare ip-AZ](/cli/azure/network/public-ip#az-network-public-ip-list) aan de lijst met openbare IP-adressen, [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az-network-public-ip-show) om weer te geven instellingen; [az netwerk openbare ip-update](/cli/azure/network/public-ip#az-network-public-ip-update) bijwerken; [az netwerk openbare ip-verwijderen](/cli/azure/network/public-ip#az-network-public-ip-delete) verwijderen|
-|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ophalen van een openbare IP-adres-object en de instellingen bekijken [Set AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) instellingen; bijwerken [Verwijderen AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) verwijderen|
+|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ophalen van een openbare IP-adres-object en de instellingen bekijken [Set AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress) instellingen; bijwerken [Verwijderen AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) verwijderen|
 
 ## <a name="permissions"></a>Machtigingen
 

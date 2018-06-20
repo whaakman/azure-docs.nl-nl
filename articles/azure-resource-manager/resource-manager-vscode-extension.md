@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/06/2017
+ms.date: 05/22/2018
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: f05b0baee3f11f498976377c69c38b3118f3c922
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 190d4713f5c84281bc2637fc0d8323a2dabf6f21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358656"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603760"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Visual Studio Code-extensie gebruiken om Azure Resource Manager-sjablonen te maken
 In dit artikel ziet u de voordelen van het installeren en gebruiken van de Azure Resource Manager-extensie voor hulpprogramma's in Visual Studio Code. U kunt Resource Manager-sjablonen maken in VS Code zonder de extensie, maar de extensie biedt opties voor automatisch aanvullen die het ontwikkelen van sjablonen eenvoudiger maken. Er worden sjabloonfuncties, parameters en variabelen aangeraden die beschikbaar in de sjabloon zijn.
@@ -171,7 +171,18 @@ Dit artikel is gebaseerd op de sjabloon die u hebt gemaakt in [Uw eerste Azure R
 
    ![Variabelen weergeven](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. Selecteer de variabele **storageName**. Voeg het rechterhaakje toe. In het volgende voorbeeld ziet u de uitvoersectie:
+10. Selecteer de variabele **storageName**. Uw code ziet er nu als volgt uit:
+
+   ```json
+   "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+   }
+   ```
+   
+11. De voorafgaande code werkt niet omdat met `reference` een object is geretourneerd, maar de uitvoerwaarde is ingesteld op *tekenreeks*. U moet een van de waarden voor dit object opgeven. De verwijzingsfunctie kan worden gebruikt met elk resourcetype, daarom worden in VS Code geen eigenschappen voorgesteld voor het object. In plaats hiervan ziet u mogelijk dat één waarde die is [geretourneerd voor een opslagaccount](/rest/api/storagerp/storageaccounts/getproperties), is: `.primaryEndpoints.blob`. 
+
+   Voeg deze eigenschap toe na de laatste haakjes. Voeg het rechterhaakje toe. In het volgende voorbeeld ziet u de uitvoersectie:
 
    ```json
    "outputs": { 
@@ -181,7 +192,7 @@ Dit artikel is gebaseerd op de sjabloon die u hebt gemaakt in [Uw eerste Azure R
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
    }
    ```
@@ -249,7 +260,7 @@ De definitieve sjabloon is:
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }

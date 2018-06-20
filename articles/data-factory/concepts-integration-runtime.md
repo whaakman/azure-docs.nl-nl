@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 97c2f68356a6a589f48224d297493509786ceff1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 91225136926427fb22c80bc2e198c153c60614eb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298131"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integratie Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
@@ -91,7 +92,7 @@ Voor hoge beschikbaarheid en schaalbaarheid kunt u de zelf-hostende IR uitbreide
 Als u de bestaande SSIS-werkbelasting wilt opheffen of verplaatsen, kunt u een Azure-SSIS IR maken voor het uitvoeren van systeemeigen SSIS-pakketten.
 
 ### <a name="network-environment"></a>Netwerkomgeving
-Azure-SSIS IR kan worden ingericht in een openbaar netwerk of privénetwerk.  Toegang tot on-premises gegevens wordt ondersteund door Azure SSIS IR te koppelen aan een virtueel netwerk (VNet) dat is verbonden met uw on-premises netwerk.  
+Azure-SSIS IR kan worden ingericht in een openbaar netwerk of privénetwerk.  Toegang tot on-premises gegevens wordt ondersteund door Azure SSIS IR te koppelen aan een virtueel netwerk dat is verbonden met uw on-premises netwerk.  
 
 ### <a name="compute-resource-and-scaling"></a>Rekenresource en schalen
 Azure-SSIS IR is een volledig beheerd cluster met virtuele Azure-machines die uw SSIS-pakketten uitvoeren. U kunt uw eigen Azure SQL Database-server of een beheerd exemplaar van uw server (preview) gebruiken voor het hosten van de catalogus van SSIS-projecten/-pakketten (SSISDB) die u eraan wilt koppelen. U kunt de rekenkracht opschalen door de grootte van het knooppunt op te geven en opschalen door het aantal knooppunten in het cluster aan te geven. U kunt de kosten van het uitvoeren van de uw Azure-SSIS Integration Runtime beheren door naar wens te stoppen en starten.
@@ -101,10 +102,10 @@ Zie voor meer informatie het artikel 'Azure-SSIS IR maken en configureren' bij d
 Zie de volgende artikelen voor meer informatie over Azure-SSIS Runtime: 
 
 - [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
-- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (preview) en het toevoegen van de IR aan een VNet. 
+- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (preview) en het toevoegen van de IR aan een virtueel netwerk. 
 - [Een Azure-SSIS IR controleren](monitor-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel leest u hoe u informatie over een Azure-SSIS IR ophaalt. Daarnaast bevat het artikel beschrijvingen van statuswaarden die worden gebruikt in de geretourneerde informatie. 
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Er wordt ook uitgelegd hoe u een Azure-SSIS IR kunt uitschalen door meer knooppunten toe te voegen aan de IR. 
-- [Een Azure-SSIS IR toevoegen aan een VNet](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat algemene informatie over het toevoegen van een Azure-SSIS IR aan een virtueel netwerk (VNet) van Azure. Er wordt ook beschreven hoe u Azure Portal gebruikt om VNet te configureren voor het deelnemen van een Azure-SSIS IR aan het VNet. 
+- [Een Azure-SSIS-integratieruntime toevoegen aan een virtueel netwerk](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat algemene informatie over het toevoegen van een Azure-SSIS IR aan een virtueel netwerk van Azure. Er wordt ook beschreven hoe u Azure Portal gebruikt om een virtueel netwerk te configureren voor het deelnemen van Azure-SSIS IR aan het virtueel netwerk. 
 
 ## <a name="determining-which-ir-to-use"></a>Bepalen welke IR u moet gebruiken
 Elke transformatieactiviteit heeft een gekoppelde doelrekenservice die naar een Integration Runtime verwijst. Vanuit dit exemplaar van de Integration Runtime wordt de transformatieactiviteit verzonden.
@@ -179,12 +180,12 @@ Wanneer de zelf-hostende IR wordt gebruikt voor het uitvoeren van de gegevensver
 Het selecteren van de juiste locatie voor uw Azure-SSIS IR is essentieel voor het bereiken van hoge prestaties in uw ETL-werkstromen (extract-transform-load).  Er zijn in eerste instantie zes locaties beschikbaar voor de preview (VS - oost, VS - oost 2, VS - midden, Australië - oost, Noord-Europa en West-Europa).
 
 - De locatie van uw Azure-SSIS IR hoeft niet gelijk te zijn aan de locatie van uw data factory, maar moet wel gelijk zijn aan de locatie van uw eigen Azure SQL Database-/MI-server (preview) waarop SSISDB wordt gehost. Op deze manier heeft uw Azure-SSIS Integration Runtime eenvoudig toegang tot SSISDB, zonder overmatig verkeer tussen verschillende locaties.
-- Als u geen bestaande Azure SQL Database-/MI-server (preview) hebt om SSISDB op te hosten, maar u on-premises gegevensbronnen/bestemmingen hebt, moet u een nieuwe Azure SQL Database-/MI-server (preview) maken op de locatie van een VNet dat is verbonden met uw on-premises netwerk.  Op deze manier kunt u uw Azure-SSIS IR maken met behulp van de nieuwe Azure SQL Database-/MI-server (preview) en deze koppelen aan het VNet op dezelfde locatie. Zo minimaliseert u het aantal verplaatsingen van gegevens op verschillende locaties.
-- Als de locatie van de bestaande Azure SQL Database-/MI-server (preview) waarop de SSISDB wordt gehost niet hetzelfde is als de locatie van een VNet dat is verbonden met uw on-premises netwerk, moet u eerst uw Azure-SSIS IR maken met een bestaande Azure SQL Database-/MI-server (preview) en deze toevoegen aan een ander VNet op dezelfde locatie. Vervolgens configureert u een VNet-naar-VNet-verbinding tussen de verschillende locaties.
+- Als u geen bestaande Azure SQL Database-/MI-server (preview) hebt om SSISDB op te hosten, maar u on-premises gegevensbronnen/bestemmingen hebt, moet u een nieuwe Azure SQL Database-/MI-server (preview) maken op de locatie van een virtueel netwerk dat is verbonden met uw on-premises netwerk.  Op deze manier kunt u uw Azure-SSIS IR maken met behulp van de nieuwe Azure SQL Database-/MI-server (preview) en deze koppelen aan het virtueel netwerk op dezelfde locatie. Zo minimaliseert u het aantal verplaatsingen van gegevens op verschillende locaties.
+- Als de locatie van de bestaande Azure SQL Database-/MI-server (preview) waarop de SSISDB wordt gehost niet hetzelfde is als de locatie van een virtueel netwerk dat is verbonden met uw on-premises netwerk, moet u eerst uw Azure-SSIS IR maken met een bestaande Azure SQL Database-/MI-server (preview) en deze toevoegen aan een ander virtueel netwerk op dezelfde locatie. Vervolgens configureert u een virtueel netwerk-naar-virtueel netwerkverbinding tussen de verschillende locaties.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen:
 
 - [Zelf-hostende integratie-runtime maken](create-self-hosted-integration-runtime.md)
-- [Een Azure-SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (preview) en het toevoegen van de IR aan een VNet. 
+- [Een Azure-SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (preview) en het toevoegen van de IR aan een virtueel netwerk. 

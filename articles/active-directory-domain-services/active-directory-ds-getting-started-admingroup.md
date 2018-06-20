@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 6f7c0372ec53157d42a229feddb5b3fce92ff4cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587899"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263972"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Inschakelen van Azure Active Directory Domain Services met Azure portal
 
@@ -72,6 +72,9 @@ Het proces voor het leveren van uw beheerde domein kan een uur duren.
 4. Wanneer het beheerde domein volledig is ingericht, de **overzicht** tabblad ziet u de status van het domein als **met**.
 
     ![Domain Services: tabblad Overzicht nadat het domein volledig is ingericht](./media/getting-started/domain-services-provisioned.png)
+    >[!NOTE]
+    >Azure AD Domain Services maakt tijdens het inrichtingsproces zakelijke toepassingen maken met de naam 'Domain Controller Services' en 'AzureActiveDirectoryDomainControllerServices' binnen uw directory. Deze bedrijfstoepassingen zijn nodig voor het onderhouden van uw beheerde domein. Het is noodzakelijk dat deze niet worden verwijderd op elk gewenst moment.
+    >
 
 5. Op de **eigenschappen** tabblad ziet u twee IP-adressen op welk domein domeincontrollers beschikbaar voor het virtuele netwerk zijn.
 

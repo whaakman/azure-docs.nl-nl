@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637171"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221532"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over logboekanalyse in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en stel uw vragen. Wanneer een vraag vaak wordt gevraagd, wordt deze toegevoegd aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -75,18 +75,21 @@ Log Analytics gebruikt UTC-tijd en elke dag om middernacht UTC begint. Als de we
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. Hoe kan ik gewaarschuwd wanneer de gegevens verzamelen stoppen?
 
-A: Gebruik de stappen in [een waarschuwingsregel maakt](log-analytics-alerts-creating.md#create-an-alert-rule) wilt worden gewaarschuwd als het verzamelen van gegevens stopt.
+A: Gebruik de stappen in [maken van een nieuwe logboek waarschuwing](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) wilt worden gewaarschuwd als het verzamelen van gegevens stopt.
 
 Bij het maken van de waarschuwing voor wanneer het verzamelen van gegevens stopt, stel de:
-- **Naam** naar *gegevensverzameling is gestopt*
-- **Ernst** op *Waarschuwing*
-- **Zoekquery** op `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-- **Tijdvenster** naar *30 minuten*.
-- **Waarschuwing frequentie** voor elke *tien* minuten.
-- **Waarschuwingen genereren op basis van** op het *aantal resultaten*
-- **Aantal resultaten** op *Groter dan 0*
 
-Deze waarschuwing wordt geactiveerd wanneer de query resultaten retourneert alleen als u heartbeat ontbreekt voor meer dan 15 minuten.  Gebruik de stappen in [Acties toevoegen aan waarschuwingsregels](log-analytics-alerts-actions.md) om een e-mail-, webhook- of runbookactie te configureren voor een waarschuwingsregel.
+- **Definieer meldingsvoorwaarde** werkruimte voor logboekanalyse opgeven als het doel van de resource.
+- **Waarschuwing criteria** het volgende opgeven:
+   - **Naam signaal** Selecteer **aangepaste logboek zoekactie**.
+   - **Zoekquery** op `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Waarschuwing logica** is **op basis van** *aantal resultaten* en **voorwaarde** is *groter is dan* een **drempelwaarde**  van *0*
+   - **Periode** van *30* minuten en **waarschuwing frequentie** voor elke *10* minuten
+- **Definieer de details van waarschuwing** het volgende opgeven:
+   - **Naam** naar *gegevensverzameling is gestopt*
+   - **Ernst** op *Waarschuwing*
+
+Geef een bestaande of maak een nieuwe [actie groep](../monitoring-and-diagnostics/monitoring-action-groups.md) zodat wanneer aan de waarschuwing logboek criteria voldoet, u wordt gewaarschuwd als er een heartbeat ontbreekt voor meer dan 15 minuten.
 
 ## <a name="configuration"></a>Configuratie
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Kan ik de naam van de tabel/blob-container die is gebruikt om te lezen van Azure Diagnostics (af) wijzigen?

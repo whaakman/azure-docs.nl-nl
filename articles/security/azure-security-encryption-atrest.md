@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: fa03d62a3125b3bf8f23a53903a733dbec8ea662
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4bcc691e00b373028acaf0936af8336a76306aec
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839460"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232320"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption in rust
 
@@ -130,7 +130,7 @@ Voor veel klanten is de essentiële eis om ervoor te zorgen dat de gegevens word
 
 Serverzijde versleuteling met behulp van service beheerd sleutels dus snel adressen nodig om versleuteling in rust met weinig overhead aan de klant. Indien beschikbaar een klant Hiermee opent u de Azure-portal voor het doelabonnement en resourceprovider doorgaans en controleert een vak die aangeeft dat ze de gegevens worden versleuteld. In sommige bronbeheer is serverzijde codering met sleutels service beheerd standaard ingeschakeld.
 
-Codering met sleutels die door Microsoft beheerde serverzijde betekent dat de service heeft volledige toegang tot het opslaan en de sleutels beheert. Hoewel sommige klanten beheren van de sleutels willen, omdat ze van mening bent dat krijgen ze een betere beveiliging, de kosten en het risico dat samenhangt met een aangepaste sleutel opslagoplossing rekening bij het evalueren van dit model. In manIn veel gevallen woordelijkheden kan bepalen dat resourcebeperkingen of risico's van een on-premises-oplossing, kan dit groter is dan het risico van het cloudbeheer van de versleuteling bij rust sleutels.  Echter kan dit model niet voldoende zijn voor organisaties die moeten voldoen om te bepalen voor het maken en de levenscyclus van de versleutelingssleutels of hebben andere personeel beheren van een service versleutelingssleutels dan die van de service (dat wil zeggen, scheiding van beheren sleutelbeheer van het algemene model voor het beheer voor de service).
+Codering met sleutels die door Microsoft beheerde serverzijde betekent dat de service heeft volledige toegang tot het opslaan en de sleutels beheert. Hoewel sommige klanten beheren van de sleutels willen, omdat ze van mening bent dat krijgen ze een betere beveiliging, de kosten en het risico dat samenhangt met een aangepaste sleutel opslagoplossing rekening bij het evalueren van dit model. In veel gevallen bepalen organisatie dat resourcebeperkingen of risico's van een on-premises-oplossing, kan dit groter is dan het risico van het cloudbeheer van de versleuteling bij rust sleutels.  Echter kan dit model niet voldoende zijn voor organisaties die moeten voldoen om te bepalen voor het maken en de levenscyclus van de versleutelingssleutels of hebben andere personeel beheren van een service versleutelingssleutels dan die van de service (dat wil zeggen, scheiding van beheren sleutelbeheer van het algemene model voor het beheer voor de service).
 
 ##### <a name="key-access"></a>Toegang tot de sleutel
 
@@ -233,7 +233,7 @@ Het wordt aanbevolen dat waar mogelijk, IaaS toepassingen gebruikmaken van Azure
 
 ## <a name="azure-resource-providers-encryption-model-support"></a>Ondersteuning voor Azure-resource providers codering model
 
-Microsoft Azure-Services elke ondersteuning voor een of meer van de versleuteling op rest-modellen. Voor sommige services echter een of meer van de modellen versleuteling mogelijk niet van toepassing. Services kunnen bovendien ondersteuning voor deze scenario's op verschillende schema's vrijgeven. Deze sectie beschrijft de versleuteling bij rust ondersteuning op het moment van schrijven van dit voor elk van de belangrijke gegevens voor Azure storage-services.
+Microsoft Azure-Services elke ondersteuning voor een of meer van de versleuteling op rest-modellen. Voor sommige services echter een of meer van de modellen versleuteling mogelijk niet van toepassing. Voor services die ondersteuning bieden voor de klant beheerd van belangrijke scenario's, kunnen ze alleen een subset van de typen sleutels die ondersteuning biedt voor sleutels versleutelingssleutels voor Azure Sleutelkluis ondersteunen. Services kunnen bovendien ondersteuning voor deze scenario's en typen van de sleutels op verschillende schema's vrijgeven. Deze sectie beschrijft de versleuteling bij rust ondersteuning op het moment van schrijven van dit voor elk van de belangrijke gegevens voor Azure storage-services.
 
 ### <a name="azure-disk-encryption"></a>Azure schijfversleuteling
 
@@ -243,7 +243,7 @@ De klant met behulp van Azure-infrastructuur als een Service (IaaS)-onderdelen v
 
 Alle services van Azure Storage (Blob storage, Queue storage, Table storage en Azure-bestanden) ondersteuning voor serverzijde versleuteling in rust, met bepaalde services sleutels door de klant beheerd en clientzijde versleuteling ondersteunen.  
 
-- Serverzijde: Alle Azure-opslagservices serverzijde codering standaard ingeschakeld met sleutels service beheerd dit transparant voor de toepassing is. Zie voor meer informatie [Azure Storage Service: versleuteling van gegevens in rust](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage en Azure Files bieden ook ondersteuning voor de klant beheerd sleutels in Azure Sleutelkluis. Zie voor meer informatie [Service versleuteling van opslag met behulp van de klant beheerd sleutels in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Serverzijde: Alle Azure-opslagservices serverzijde codering standaard ingeschakeld met sleutels service beheerd dit transparant voor de toepassing is. Zie voor meer informatie [Azure Storage Service: versleuteling van gegevens in rust](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage en Azure-bestanden ook ondersteuning voor RSA 2048-bits door de klant beheerd sleutels in Azure Sleutelkluis. Zie voor meer informatie [Service versleuteling van opslag met behulp van de klant beheerd sleutels in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 - Client-side: Azure Blobs, tabellen en wachtrijen clientzijde codering ondersteunen. Wanneer u de client-side '-versleuteling, kunnen klanten coderen van de gegevens en de gegevens als een gecodeerde blob uploaden. Sleutelbeheer wordt gedaan door de klant. Zie voor meer informatie [Client-Side-versleuteling en Azure Key Vault voor Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
@@ -251,40 +251,38 @@ Alle services van Azure Storage (Blob storage, Queue storage, Table storage en A
 
 Azure SQL Database ondersteunt momenteel versleuteling in rust voor servicezijde Microsoft beheerd en versleuteling van de client-side '-scenario's.
 
-Server-versleuteling wordt momenteel ondersteund via de functie voor SQL Transparent Data Encryption aangeroepen. Wanneer een klant Azure SQL Database kunt TDE sleutel automatisch worden gemaakt en ze worden beheerd. Codering in rust kan worden ingeschakeld op het niveau van de database en de server. Vanaf juni 2017 [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) standaard op nieuwe databases wordt ingeschakeld.
+Server-versleuteling wordt momenteel ondersteund via de functie voor SQL Transparent Data Encryption aangeroepen. Wanneer een klant Azure SQL Database kunt TDE sleutel automatisch worden gemaakt en ze worden beheerd. Codering in rust kan worden ingeschakeld op het niveau van de database en de server. Vanaf juni 2017 [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) is standaard ingeschakeld op nieuwe databases. Azure SQL Database ondersteunt RSA 2048-bits door de klant beheerd sleutels in Azure Sleutelkluis. Zie voor meer informatie [Transparent Data Encryption met uw eigen sleutel brengen ondersteuning voor Azure SQL Database en datawarehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
 Client-side '-versleuteling van gegevens van Azure SQL Database wordt ondersteund door de [altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx) functie. Versleutelde gebruikt altijd een sleutel die zijn gemaakt en opgeslagen door de client. Klanten kunnen de hoofdsleutel opslaan in een certificaatarchief van de Windows Azure Key Vault of een lokale Hardware Security Module. Met behulp van SQL Server Management Studio, kiezen SQL-gebruikers welke sleutel die ze gebruiken willen voor het versleutelen van die kolom.
 
-|                                  |                |                     | **Versleuteling Model**             |                              |        |
-|----------------------------------|----------------|---------------------|------------------------------|------------------------------|--------|
-|                                  |                |                     |                              |                              | **Client** |
-|                                  | **Sleutelbeheer** | **Service beheerde sleutel** | **De klant beheerd in de Sleutelkluis** | **De klant beheerd On-premises** |        |
-| **Opslag- en -Databases**            |                |                     |                              |                              |        |
-| Schijf (IaaS)                      |                | -                   | Ja                          | Ja*                         | -      |
-| SQL Server (IaaS)                |                | Ja                 | Ja                          | Ja                          | Ja    |
-| Azure SQL Database (PaaS)                 |                | Ja                 | Ja                          | -                            | Ja    |
-| Azure-opslag (blokkeren/pagina-BLOB's) |                | Ja                 | Ja                          | -                            | Ja    |
-| Azure-opslag (bestanden)            |                | Ja                 | Ja                          | -                            | -      |
-| Azure-opslag (tabellen, wachtrijen)   |                | Ja                 | -                            | -                            | Ja    |
-| Cosmos-DB (Document DB)          |                | Ja                 | -                            | -                            | -      |
-| StorSimple                       |                | Ja                 | -                            | -                            | Ja    |
-| Backup                           |                | -                   | -                            | -                            | Ja    |
-| **Intelligence en analyses**       |                |                     |                              |                              |        |
-| Azure Data Factory               |                | Ja                 | -                            | -                            | -      |
-| Azure Machine Learning           |                | -                   | Preview                      | -                            | -      |
-| Azure Stream Analytics           |                | Ja                 | -                            | -                            | -      |
-| HDInsight (Azure Blob-opslag)  |                | Ja                 | -                            | -                            | -      |
-| HDInsight (Data Lake Storage)   |                | Ja                 | -                            | -                            | -      |
-| Azure Data Lake Store            |                | Ja                 | Ja                          | -                            | -      |
-| Azure Data Catalog               |                | Ja                 | -                            | -                            | -      |
-| Power BI                         |                | Ja                 | -                            | -                            | -      |
-| **IoT-Services**                     |                |                     |                              |                              |        |
-| IoT Hub                          |                | -                   | -                            | -                            | Ja    |
-| Service Bus                      |                | Ja              | -                            | -                            | Ja    |
-| Event Hubs                       |                | Ja             | -                            | -                            | -      |
+|                                  |                    | **Versleuteling Model en sleutelbeheer** |                   |                    |
+|----------------------------------|--------------------|--------------------|--------------------|--------------------|
+|                                  | **Met behulp van Service beheerde sleutel voor serverzijde**     | **Met behulp van de klant beheerd in de Sleutelkluis voor serverzijde**             |  **Met de klant beheerd On-premises serverzijde**                  | **Client met behulp van Client beheerd**      |
+| **Opslag- en -Databases**        |                    |                    |                    |                    |                    |
+| Schijf (IaaS)                      | -                  | Ja, RSA 2048-bits  | Ja*               | -                  |
+| SQL Server (IaaS)                | Ja                | Ja, RSA 2048-bits  | Ja                | Ja                |
+| Azure SQL Database (PaaS)        | Ja                | Ja, RSA 2048-bits  | -                  | Ja                |
+| Azure-opslag (blokkeren/pagina-BLOB's) | Ja                | Ja, RSA 2048-bits  | -                  | Ja                |
+| Azure-opslag (bestanden)            | Ja                | Ja, RSA 2048-bits  | -                  | -                  |
+| Azure-opslag (tabellen, wachtrijen)   | Ja                | -                  | -                  | Ja                |
+| Cosmos-DB (Document DB)          | Ja                | -                  | -                  | -                  |
+| StorSimple                       | Ja                | -                  | -                  | Ja                |
+| Backup                           | -                  | -                  | -                  | Ja                |
+| **Intelligence en analyses**   |                    |                    |                    |                    |
+| Azure Data Factory               | Ja                | -                  | -                  | -                  |
+| Azure Machine Learning           | -                  | Voorbeeld van RSA 2048-bits | -                  | -                  |
+| Azure Stream Analytics           | Ja                | -                  | -                  | -                  |
+| HDInsight (Azure Blob-opslag)   | Ja                | -                  | -                  | -                  |
+| HDInsight (Data Lake Storage)    | Ja                | -                  | -                  | -                  |
+| Azure Data Lake Store            | Ja                | Ja, RSA 2048-bits  | -                  | -                  |
+| Azure Data Catalog               | Ja                | -                  | -                  | -                  |
+| Power BI                         | Ja                | -                  | -                  | -                  |
+| **IoT-Services**                 |                    |                    |                    |                    |
+| IoT Hub                          | -                  | -                  | -                  | Ja                |
+| Service Bus                      | Ja                | -                  | -                  | Ja                |
+| Event Hubs                       | Ja                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusie
 
 Bescherming van klantgegevens opgeslagen in Azure-Services is van groot belang aan Microsoft. Alle Azure gehoste services zijn belangrijk voor versleuteling bij rust opties. Fundamentele services zoals Azure Storage, Azure SQL Database en sleutel analytics en services voor bedrijfsinformatie een al versleuteling wilt gebruiken op de Rest-opties. Sommige van deze services ondersteunen sleutels van de klant beheerd en clientzijde, evenals sleutels service beheerd en versleuteling. Microsoft Azure-services zijn grotendeels verbeteren van versleuteling Rest beschikbaarheid en nieuwe opties zijn gepland voor de preview en algemene beschikbaarheid in de komende maanden.
-

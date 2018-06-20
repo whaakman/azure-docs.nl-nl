@@ -4,17 +4,17 @@ description: Dit artikel helpt u met de stappen voor het maken van een beleidsde
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9b1cfd762d6f050994688d1cd6afd91f0e43bfc3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 43f069fbd8f4fcc13bbc4d9e75763fa98aec1065
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195774"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601459"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Een beleidstoewijzing maken om niet-compatibele resources te identificeren in uw Azure-omgeving
 
@@ -49,7 +49,7 @@ In deze snelstartgids maakt u een beleidstoewijzing en wijst u de beleidsdefinit
    - Tag en waarde toepassen
    - SQL Server-versie 12.0 vereisen
 
-    Zie [Beleidssjablonen](json-samples.md) voor een volledige lijst met alle beschikbare ingebouwde beleidsregels.
+    Zie [Voorbeelden van beleid](json-samples.md) voor een volledige lijst met alle beschikbare ingebouwde beleidsregels.
 
 7. Doorzoek uw beleidsdefinities en zoek de definitie *Controleren van virtuele machines die geen beheerde schijven gebruiken*. Klik op dit beleid en vervolgens op **Selecteren**.
 

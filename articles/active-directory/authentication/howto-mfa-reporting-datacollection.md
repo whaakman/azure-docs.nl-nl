@@ -10,12 +10,12 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.topic: article
 ms.date: 05/01/2018
-ms.openlocfilehash: d28bb4b8e171ef6189f81acc337088b3c5499ccf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2281a35d1616aa88b0c646fb96cb9f95c3272536
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654895"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264365"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure multi-factor Authentication-gebruiker gegevens verzamelen
 
@@ -151,39 +151,39 @@ Voer de volgende opdracht voor het wijzigen van het pad op basis van uw installa
 
 ## <a name="gather-data-from-nps-extension"></a>Verzamelen van gegevens van de NPS-uitbreiding
 
-Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) om een aanvraag voor exporteren.
+Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) om een aanvraag voor exporteren.
 
 - MFA-informatie is opgenomen in de uitvoer, dit kan uren of dagen om te voltooien.
 - Instanties van de gebruikersnaam in de AuthN-AzureMfa/AuthNOptCh, AuthZ-AzureMfa/AuthZAdminCh en AuthZ-AzureMfa/AuthZOptCh gebeurtenislogboeken worden beschouwd als operationeel is en herhaaldelijke naar de informatie in de export.
 
 ## <a name="delete-data-from-nps-extension"></a>Gegevens uit de NPS-extensie verwijderen
 
-Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) om te vragen voor Account dicht bij het verwijderen van alle MFA cloudservicegegevens verzameld voor deze gebruiker.
+Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) om te vragen voor Account dicht bij het verwijderen van alle MFA cloudservicegegevens verzameld voor deze gebruiker.
 
 - Het duurt maximaal 30 dagen voor gegevens volledig worden verwijderd.
 
 ## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Verzamelen van gegevens van Windows Server 2016 Azure MFA AD FS-Adapter
 
-Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) om een aanvraag voor exporteren. 
+Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) om een aanvraag voor exporteren. 
 
 - MFA-informatie is opgenomen in de uitvoer, dit kan uren of dagen om te voltooien.
 - Instanties van de gebruikersnaam in de gebeurtenislogboeken van AD FS tracering/Debug (indien ingeschakeld) worden beschouwd als operationeel is en herhaaldelijke naar de informatie in de export.
 
 ## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Gegevens uit Windows Server 2016 Azure MFA AD FS-Adapter verwijderen
 
-Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) om te vragen voor Account dicht bij het verwijderen van alle MFA cloudservicegegevens verzameld voor deze gebruiker.
+Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) om te vragen voor Account dicht bij het verwijderen van alle MFA cloudservicegegevens verzameld voor deze gebruiker.
 
 - Het duurt maximaal 30 dagen voor gegevens volledig worden verwijderd.
 
 ## <a name="gather-data-for-azure-mfa"></a>Verzamelen van gegevens voor Azure MFA
 
-Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) om een aanvraag voor exporteren.
+Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) om een aanvraag voor exporteren.
 
 - MFA-informatie is opgenomen in de uitvoer, dit kan uren of dagen om te voltooien.
 
 ## <a name="delete-data-for-azure-mfa"></a>Gegevens verwijderen voor Azure MFA
 
-Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) om te vragen voor Account dicht bij het verwijderen van alle MFA cloudservicegegevens verzameld voor deze gebruiker.
+Gebruik de [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) om te vragen voor Account dicht bij het verwijderen van alle MFA cloudservicegegevens verzameld voor deze gebruiker.
 
 - Het duurt maximaal 30 dagen voor gegevens volledig worden verwijderd.
 

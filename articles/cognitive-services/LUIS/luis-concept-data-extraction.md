@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: ad9eaa966aafc4a9fc526d44d57c68cdaee3a5e0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35345975"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265249"
 ---
 # <a name="data-extraction"></a>Ophalen van gegevens
 LUIS biedt u de mogelijkheid informatie ophalen van een gebruiker natuurlijke taal utterances. De informatie wordt geëxtraheerd zodanig dat deze kan worden gebruikt door een programma, toepassing of chatbot actie te ondernemen.
@@ -711,4 +711,4 @@ Het eindpunt LUIS kan dezelfde gegevens in verschillende entiteiten detecteren:
 
 Zie [entiteiten toevoegen](luis-how-to-add-entities.md) voor meer informatie over het toevoegen van entiteiten aan uw app LUIS.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

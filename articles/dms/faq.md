@@ -10,25 +10,25 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.date: 06/19/2018
+ms.openlocfilehash: 2fd5049b8b65620087e3c1ec42b6a5dcb0e0741a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850069"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214100"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Veelgestelde vragen over het gebruik van de Service Azure Database migreren
 Dit artikel worden enkele veelgestelde vragen over het gebruik van de Service Azure Database migratie samen met verwante antwoorden.
 
 ### <a name="q-what-is-azure-database-migration-service"></a>Q. Wat is Azure Database migratieservice?
-De Azure-Service voor het migreren van Database is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime. De service is momenteel in de openbare Preview met ontwikkelingsinspanningen is gericht op:
+De Azure-Service voor het migreren van Database is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime. De service is momenteel in het algemeen beschikbaar is, met de verdere ontwikkelingsinspanningen is gericht op:
 - Betrouwbaarheid en prestaties.
 - Iteratieve toevoeging van de bron-doel-paren.
 - Blijvende investeringen in wrijving gratis migraties.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>Q. Welke paren bron doel de Service Azure Database migratie ondersteunt momenteel?
-De service in de openbare Preview ondersteunt momenteel migraties van SQL Server naar Azure SQL Database en gaat u naar de Azure-portal nu aan de slag met de Azure-Service voor het migreren van Database voor dit scenario. Andere paren bron doel, zoals SQL Server naar Azure SQL Database-beheerde exemplaar en Oracle naar Azure SQL Database zijn beschikbaar via een beperkte Private Preview. Aanmelden voor de gelegenheid om deel te nemen in de beperkte Private Preview van deze scenario's [hier](https://sqldatabase-migrationpreview.azurewebsites.net/).
+De service momenteel ondersteunt migraties van SQL Server naar Azure SQL Database en gaat u naar de Azure-portal nu aan de slag met de Azure-Service voor het migreren van Database voor dit scenario. Andere paren bron doel, zoals Oracle naar Azure SQL Database zijn beschikbaar via een beperkte Private Preview. Aanmelden voor de gelegenheid om deel te nemen in de beperkte Private Preview van deze scenario's [hier](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>Q. Hoe Azure Database migratie Service vergelijken met andere Microsoft-database hulpprogramma's voor migratie zoals Database migratie-assistent (DMA) of SQL Server Migration Assistant (SSMA)?
 De Azure-Service voor het migreren van Database is de voorkeursmethode voor databasemigratie naar Microsoft Azure op schaal. Voor meer informatie over hoe de Azure-Service voor het migreren van Database met andere Microsoft vergelijkt-hulpprogramma's voor migratie van de database en voor aanbevelingen voor het gebruik van de service voor verschillende scenario's, Zie het blog boeken [verschillen Microsoft Database Hulpprogramma's voor migratie en Services](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
@@ -93,4 +93,4 @@ Als de gebruiker expliciet stopt met het Azure Database migratie Service (DMS) o
 Wij willen graag van u. Stuur alle feedback en / ideeën hebt over de Service Azure Database migratie via User Voice [hier](https://feedback.azure.com/forums/906100-azure-database-migration-service).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het artikel voor een overzicht van de migratie van Azure databaseservice en regionale beschikbaarheid tijdens Public Preview [wat is Azure Database migratie Service Preview](dms-overview.md). 
+Zie het artikel voor een overzicht van de Azure-Database migratieservice en de beschikbaarheid van regionale [wat is de Service Azure Database migratie](dms-overview.md). 

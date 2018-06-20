@@ -1,26 +1,23 @@
 ---
-title: Overzicht van Microsoft Azure Data Lake Analytics | Microsoft Docs
-description: Met Data Lake Analytics kunt u zakelijke beslissingen nemen aan de hand van inzichten die u hebt gekregen uit uw cloudgegevens. Dit kan overigens op elke schaal.
+title: Overzicht van Data Lake Analytics
+description: Met Data Lake Analytics kunt u zakelijke beslissingen nemen aan de hand van inzichten die u hebt gekregen uit uw cloudgegevens. Dit kan op elke schaal.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: overview
 ms.date: 06/23/2017
-ms.author: saveenr
-ms.openlocfilehash: 8a70311825d0ef548660f8ce4d12b5100b530170
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623618"
 ---
-# <a name="welcome-to-azure-data-lake-analytics"></a>Welkom bij Azure Data Lake Analytics
+# <a name="what-is-azure-data-lake-analytics"></a>Wat is Azure Data Lake Analytics?
 
 Azure Data Lake Analytics is een service op aanvraag voor het uitvoeren van analysetaken, om de analyse van big data te vereenvoudigen. U hoeft geen hardware te implementeren, configureren en optimaliseren, maar kunt query's schrijven om uw data te transformeren en waardevolle inzichten te verkrijgen. De analyseservice kan taken van elke schaal onmiddellijk verwerken, door de hoeveelheid rekenkracht die u nodig hebt aan te passen. U betaalt alleen voor de tijd die nodig is voor het uitvoeren van uw taak, wat het gebruik van deze service zeer rendabel maakt. 
 

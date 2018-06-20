@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824683"
 ---
 # <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
@@ -31,6 +32,7 @@ Deze functie is beschikbaar voor de volgende Azure-services en regio's:
 - **Azure SQL Database**: algemeen verkrijgbaar in alle Azure-regio's
 - **Azure Cosmos DB**: algemeen verkrijgbaar in alle Azure-regio's voor openbare cloud 
 - **Azure SQL Data Warehouse**: preview in alle Azure-regio's voor openbare cloud
+- **Azure-databaseservices voor PostgreSQL en MySQL**: voorbeeld in de Azure-regio's waar de database-service beschikbaar is.
 
 Voor recente updates kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
 
@@ -98,7 +100,7 @@ Wanneer service-eindpunten zijn geconfigureerd voor een bepaalde service, contro
   - Geeft aan dat een meer rechtstreekse verbinding met de service actief is, vergeleken met routes met geforceerd tunnelen
 
 >[!NOTE]
-> Service-eindpuntroute overschrijft BGP- of UDR-routes voor de overeenkomst met het adresvoorvoegsel van een Azure-service. Meer informatie over [het oplossen van problemen met effectieve routes](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> Service-eindpuntroute overschrijft BGP- of UDR-routes voor de overeenkomst met het adresvoorvoegsel van een Azure-service. Meer informatie over [het oplossen van problemen met effectieve routes](diagnose-network-routing-problem.md)
 
 ## <a name="provisioning"></a>Inrichten
 

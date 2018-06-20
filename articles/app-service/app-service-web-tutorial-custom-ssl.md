@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ec58b5ef2b9095ba420a4518b84c4e2e6200abc3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193451"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714575"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Zelfstudie: een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden
 
@@ -84,17 +84,17 @@ Scrol in de navigatiebalk links van de web-app-pagina naar het gedeelte **Instel
 
 ![Menu Opschalen](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Controleer of de web-app zich niet in de categorie **Gratis** of **Gedeeld** bevindt. De huidige categorie van de web-app is gemarkeerd met een donkerblauw vak.
+Controleer of de web-app zich niet in de laag **F1** of **D1** bevindt. De huidige categorie van de web-app is gemarkeerd met een donkerblauw vak.
 
 ![Controleer prijscategorie](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Aangepaste SSL wordt niet ondersteund in de categorie **Gratis** of **Gedeeld**. Als u omhoog moet schalen, volgt u de stappen in het volgende gedeelte. Anders sluit u de pagina **Choose your pricing tier** (Uw prijscategorie kiezen) en gaat u door naar [Upload and bind your SSL certificate](#upload) (Uw SSL-certificaat uploaden en binden).
+Aangepaste SSL wordt niet ondersteund in de laag **F1** of **D1**. Als u omhoog moet schalen, volgt u de stappen in het volgende gedeelte. Anders sluit u de pagina **Scale up** (Omhoog schalen) en gaat u door naar [Upload and bind your SSL certificate](#upload) (Uw SSL-certificaat uploaden en binden).
 
 ### <a name="scale-up-your-app-service-plan"></a>Uw App Service-plan omhoog schalen
 
-Selecteer de prijscategorie **Basic**, **Standard** of **Premium**.
+Selecteer een van de lagen die niet gratis zijn (**B1**, **B2**, **B3** of een laag in de categorie **Productie**). Klik op **Aanvullende opties bekijken** voor aanvullende opties.
 
-Klik op **Selecteren**.
+Klik op **Toepassen**.
 
 ![Prijscategorie kiezen](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 

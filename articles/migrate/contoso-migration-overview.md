@@ -2,17 +2,16 @@
 title: Overzicht van de Contoso-migratie naar Azure | Microsoft Docs
 description: Biedt een overzicht van de strategie voor clientmigratie en scenario's die worden gebruikt door Contoso naar hun on-premises datacentrum migreren naar Azure.
 author: rayne-wiselman
-manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 659627eb6241bf31350b5a51c2e6c449c7f731c2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ec0308bb2e39c3801305748f19783e70d58b0b7e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300800"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232392"
 ---
 # <a name="contoso-migration-overview"></a>Migratie van Contoso: overzicht
 
@@ -37,9 +36,9 @@ Strategieën voor migratie naar de cloud kunnen worden onderverdeeld in vier hoo
 **Een strategie voor** | **Definitie** | **Wanneer gebruiken** 
 --- | --- | --- 
 **Rehost** | Vaak aangeduid als een 'lift-en-shift'-migratie. Deze optie niet codewijzigingen nodig en Hiermee kunt u uw bestaande apps migreren naar Azure snel. Elke app is gemigreerd zoals is te profiteren van de cloud, zonder de risico's en kosten in verband met codewijzigingen. | Wanneer u moet apps snel verplaatsen naar de cloud.<br/><br/> Als u wilt verplaatsen van een app zonder het te wijzigen.<br/><br/> Wanneer uw apps zijn ontworpen zodat ze gebruikmaken van kunnen [Azure IaaS](https://azure.microsoft.com/overview/what-is-iaas/) schaalbaarheid na de migratie.<br/><br/> Wanneer apps zijn belangrijk in uw bedrijf, maar u hoeft niet direct wijzigingen in de app-mogelijkheden.
-**Opsplitsen** | Vaak genoemd 'opnieuw inpakken', refactoring vereist, is de minimale wijzigingen in apps, zodat ze verbinding met maken kunnen [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/), en de offerings cloud te gebruiken.<br/><br/> U kan bijvoorbeeld bestaande apps migreren naar Azure App Service- of Azure Kubernetes Service (AKS). Of u relationele en niet-relationele databases kan opsplitsen in opties zoals Azure SQL Database-beheerd instantie, Azure-Database voor MySQL, Azure-Database voor PostgreSQL en Azure Cosmos DB. | Als uw app kan eenvoudig worden gebruikt om te kunnen werken in Azure.<br/><br/> Als u wilt toepassen innovatieve DevOps-procedures die door Azure, of u overweegt DevOps met behulp van een strategie voor een container voor werkbelastingen.<br/><br/> Voor het refactoring, moet u nadenken over de draagbaarheid van uw bestaande codebasis en ontwikkelingsvaardigheden beschikbaar.
-**Rearchitect** | Opnieuw vormgeven van voor de migratie is gericht op aanpassen en uitbreiden van app-functionaliteit en codebasis optimaliseren van de app-architectuur voor cloudschaalbaarheid.<br/><br/> Bijvoorbeeld, u een monolithisch toepassing in een groep microservices die samenwerken en eenvoudig worden geschaald uitgesplitst. Of u kan rearchitect relationele en niet-relationele databases DBaaS oplossingen, zoals Azure SQL Database-beheerd instantie, Azure-Database voor MySQL, Azure-Database voor PostgreSQL en Azure Cosmos DB volledig beheerd. | Wanneer uw apps nodig hebt van belangrijke wijzigingen op te nemen van nieuwe mogelijkheden of efficiënt werken op een cloudplatform.<br/><br/> Als u gebruiken van bestaande investeringen in de toepassing wilt, voldoen aan de vereisten voor schaalbaarheid in een rendabele manier, innovatieve Azure DevOps praktijken toepassen en zo het gebruik van virtuele machines.
-**Opnieuw samenstellen** | Opnieuw samenstellen vergt dingen een stap verder door het opnieuw opbouwen van een app maken met behulp van Azure-cloud-technologieën. U kan bijvoorbeeld groen veld apps met cloud-systeemeigen technologieën zoals zonder server, AI Azure, Azure SQL Database-beheerd instantie en Azure Cosmos DB samenstellen. | Wanneer u wilt dat snelle ontwikkeling en bestaande apps hebben beperkte functionaliteit en levensduur.<br/><br/> Wanneer u klaar bent voor snellere business innovatie (inclusief DevOps-procedures die zijn verstrekt door Azure), nieuwe toepassingen bouwen met cloud-systeemeigen technologieën en te profiteren van verbeteringen in AI, blockchain en IoT.
+**Opsplitsen** | Vaak genoemd 'opnieuw inpakken', refactoring vereist, is de minimale wijzigingen in apps, zodat ze verbinding met maken kunnen [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/), en de offerings cloud te gebruiken.<br/><br/> U kan bijvoorbeeld bestaande apps migreren naar Azure App Service- of Azure Kubernetes Service (AKS).<br/><br/> Of u relationele en niet-relationele databases kan opsplitsen in opties zoals Azure SQL Database-beheerd instantie, Azure-Database voor MySQL, Azure-Database voor PostgreSQL en Azure Cosmos DB. | Als uw app kan eenvoudig worden gebruikt om te kunnen werken in Azure.<br/><br/> Als u wilt toepassen innovatieve DevOps-procedures die door Azure, of u overweegt DevOps met behulp van een strategie voor een container voor werkbelastingen.<br/><br/> Voor het refactoring, moet u nadenken over de draagbaarheid van uw bestaande codebasis en ontwikkelingsvaardigheden beschikbaar.
+**Rearchitect** | Opnieuw vormgeven van voor de migratie is gericht op aanpassen en uitbreiden van app-functionaliteit en codebasis optimaliseren van de app-architectuur voor cloudschaalbaarheid.<br/><br/> Bijvoorbeeld, u een monolithisch toepassing in een groep microservices die samenwerken en eenvoudig worden geschaald uitgesplitst.<br/><br/> Of u kan rearchitect relationele en niet-relationele databases DBaaS oplossingen, zoals Azure SQL Database-beheerd instantie, Azure-Database voor MySQL, Azure-Database voor PostgreSQL en Azure Cosmos DB volledig beheerd. | Wanneer uw apps nodig hebt van belangrijke wijzigingen op te nemen van nieuwe mogelijkheden of efficiënt werken op een cloudplatform.<br/><br/> Wanneer u gebruiken van bestaande investeringen in de toepassing wilt, voldoen aan de vereisten voor schaalbaarheid, innovatieve Azure DevOps praktijken passen en zo het gebruik van virtuele machines.
+**Opnieuw samenstellen** | Opnieuw samenstellen vergt dingen een stap verder door het opnieuw opbouwen van een app maken met behulp van Azure-cloud-technologieën.<br/><br/> U kan bijvoorbeeld groen veld apps met cloud-systeemeigen technologieën zoals zonder server, AI Azure, Azure SQL Database-beheerd instantie en Azure Cosmos DB samenstellen. | Wanneer u wilt dat snelle ontwikkeling en bestaande apps hebben beperkte functionaliteit en levensduur.<br/><br/> Wanneer u klaar bent voor snellere business innovatie (inclusief DevOps-procedures die zijn verstrekt door Azure), nieuwe toepassingen bouwen met cloud-systeemeigen technologieën en te profiteren van verbeteringen in AI, blockchain en IoT.
 
 ## <a name="migration-articles"></a>Migratie-artikelen
 
@@ -57,8 +56,8 @@ Artikel 1: Overzicht (in dit artikel) | Biedt een overzicht van de strategie voo
 [Artikel 4: Rehost virtuele machines in Azure en een beheerde SQL-exemplaar](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstreert hoe Contoso de app SmartHotel migreert naar Azure. Migreren van de app web VM via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database in een SQL-exemplaar worden beheerd met de [Azure databasemigratie](https://docs.microsoft.com/azure/dms/dms-overview) service. | Beschikbaar
 [Artikel 5: Rehost voor virtuele machines in Azure](contoso-migration-rehost-vm.md) | Toont hoe de hun app SmartHotel virtuele machines met de Site Recovery-service voor het migreren van Contoso.
 [Artikel 6: Rehost virtuele machines in Azure en SQL Server-beschikbaarheidsgroepen](contoso-migration-rehost-vm-sql-ag.md) | Toont hoe de app SmartHotel in Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van de VM-app en de migratie van de Database-service om te migreren van de app-database naar een SQL Server AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
-Artikel 7: Een app Linux virtuele machines in Azure Rehost | Demonstreert hoe Contoso de app virtuele machines migreert naar Azure met Site Recovery. | Gepland
-Artikel 8: Rehost een Linux-app voor virtuele machines in Azure en Azure MySQL-Server | Laat zien hoe de app-VM met Site Recovery worden gemigreerd in Contoso en maakt gebruik van MySQL-Workbench om te migreren naar een Azure MySQL Server-exemplaar. | Gepland
+[Artikel 7: Een app Linux virtuele machines in Azure Rehost](contoso-migration-rehost-linux-vm.md) | Demonstreert hoe Contoso de app virtuele machines migreert naar Azure met Site Recovery. | Gepland
+[Artikel 8: Rehost een Linux-app voor virtuele machines in Azure en Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Laat zien hoe de app-VM met Site Recovery worden gemigreerd in Contoso en maakt gebruik van MySQL-Workbench om te migreren naar een Azure MySQL Server-exemplaar. | Gepland
 
 
 
@@ -66,8 +65,8 @@ Artikel 8: Rehost een Linux-app voor virtuele machines in Azure en Azure MySQL-S
 
 De artikelen twee demo-apps - SmartHotel en osTicket gebruiken.
 
-- SmartHotel360: Deze app is ontwikkeld door Microsoft als een test-app die u gebruiken kunt bij het werken met Azure. Als de open-source opgegeven en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360). Het is een ASP.NET-app die is verbonden met een SQL Server-database. De app is momenteel op twee virtuele VMware-machines met Windows Server 2008 R2 en SQL Server 2008 R2. De app VMs gehoste on-premises en beheerd door de vCenter-Server.
-- osTicket is een open source-service voor helpdesk-tickets app die wordt uitgevoerd op Linux. U kunt downloaden van [GitHub](https://github.com/osTicket/osTicket). Huidige de app is op twee virtuele VMware-machines uitgevoerd Ubuntu 16.04LTS, met Apache 2, PHP 7.0 en MySQL 5.7
+- **SmartHotel360**: deze app is ontwikkeld door Microsoft als een test-app die u gebruiken kunt bij het werken met Azure. Als de open-source opgegeven en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360). Het is een ASP.NET-app die is verbonden met een SQL Server-database. De app is momenteel op twee virtuele VMware-machines met Windows Server 2008 R2 en SQL Server 2008 R2. De app VMs gehoste on-premises en beheerd door de vCenter-Server.
+- **osTicket**: een open source-service voor helpdesk-tickets app die wordt uitgevoerd op Linux. U kunt downloaden van [GitHub](https://github.com/osTicket/osTicket). Huidige de app is op twee virtuele VMware-machines uitgevoerd Ubuntu 16.04LTS, met Apache 2, PHP 7.0 en MySQL 5.7
     
 
 ## <a name="next-steps"></a>Volgende stappen

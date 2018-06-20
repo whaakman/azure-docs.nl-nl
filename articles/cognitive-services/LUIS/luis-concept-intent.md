@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 11aaa6c0891d7087556a82f3a818ef865869b766
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5c2feb0240b676d4e106cbda65aaaed7604a35c5
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35350084"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265149"
 ---
 # <a name="intents-in-luis"></a>Intents in LUIS
 
@@ -101,4 +101,4 @@ Als het aantal intents verminderen of uw intents verdelen in meerdere apps voor 
 * Meer informatie over hoe [toevoegen en beheren van intents](luis-how-to-add-intents.md) in uw app LUIS.
 * Bekijk bedoeling [aanbevolen procedures](luis-concept-best-practices.md)
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

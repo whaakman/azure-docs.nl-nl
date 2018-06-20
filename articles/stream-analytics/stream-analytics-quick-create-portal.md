@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1e7245afe36d348b1cbd955900e34876b8e34511
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651723"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snelstart: Een Stream Analytics-taak maken via Azure Portal
 
@@ -41,7 +42,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
    ```
 2. Meld u aan bij Azure Portal.  
 
-3. Selecteer in de linkerbovenhoek in Azure Portal **Een resource maken** > **Storage** > **Storage-account**. Vul de pagina voor de Storage-accounttaak in, waarbij **Naam** is ingesteld op myasastorageaccount, **Locatie** op West US 2, **Resourcegroep** op MyRG (host het opslagaccount in dezelfde resourcegroep als de streaming-taak voor betere prestaties). De overige instellingen kunnen op de standaardwaarden blijven staan.  
+3. Selecteer in de linkerbovenhoek in Azure Portal **Een resource maken** > **Storage** > **Storage-account**. Vul de pagina voor de Storage-accounttaak in, waarbij **Naam** is ingesteld op 'asaquickstartstorage', **Locatie** op 'VS - west2', **Resourcegroep** op 'asaquickstart-resourcegroup' (host het opslagaccount in dezelfde resourcegroep als de streaming-taak voor betere prestaties). De overige instellingen kunnen op de standaardwaarden blijven staan.  
 
    ![Een opslagaccount maken](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
@@ -67,9 +68,9 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
 
    |**Instelling**  |**Voorgestelde waarde**  |**Beschrijving**  |
    |---------|---------|---------|
-   |Taaknaam   |  myJob   |   Voer een unieke naam in voor uw Stream Analytics-taak. De naam van een Stream Analytics-taak mag alleen alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten en moet tussen de 3 en 63 tekens lang zijn. |
+   |Taaknaam   |  myasajob   |   Voer een unieke naam in voor uw Stream Analytics-taak. De naam van een Stream Analytics-taak mag alleen alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten en moet tussen de 3 en 63 tekens lang zijn. |
    |Abonnement  | \<Uw abonnement\> |  Selecteer het Azure-abonnement dat u wilt gebruiken voor deze taak. |
-   |Resourcegroep   |   myResourceGroup  |   Selecteer **Nieuwe maken** en voer een naam voor de nieuwe resourcegroep voor uw account in. |
+   |Resourcegroep   |   asaquickstart-resourcegroup  |   Selecteer **Nieuwe maken** en voer een naam voor de nieuwe resourcegroep voor uw account in. |
    |Locatie  |  \<Selecteer de regio die het dichtst bij uw gebruikers is gelegen\> | Selecteer de geografische locatie waar u de Stream Analytics-taak kunt hosten. Gebruik de locatie die het dichtst bij uw gebruikers is gelegen voor betere prestaties en om de kosten van gegevensoverdracht te verminderen. |
    |Streaming-eenheden  | 1  |   Streaming-eenheden vertegenwoordigen de computerresources die nodig zijn om een taak uit te voeren. Deze waarde is standaard ingesteld op 1. Zie het artikel [Streaming-eenheden begrijpen en aanpassen](stream-analytics-streaming-unit-consumption.md) voor meer informatie over het schalen van streaming-eenheden.   |
    |Hostingomgeving  |  Cloud  |   Stream Analytics-taken kunnen worden geïmplementeerd in Cloud of in Edge. Met Cloud kunt u taken implementeren naar Azure Cloud en met Edge kunt u taken implementeren naar een IoT-randapparaat. |
@@ -116,7 +117,8 @@ In deze sectie gaat u blobopslag configureren als invoer voor de Stream Analytic
    |Uitvoeralias |   BlobOutput   |   Voer een unieke naam in voor de uitvoer van de taak. |
    |Abonnement  |  \<Uw abonnement\>  |  Selecteer het Azure-abonnement met het opslagaccount dat u hebt gemaakt. Het opslagaccount kan voor hetzelfde of een ander abonnement gelden. Voor dit voorbeeld wordt aangenomen dat u een opslagaccount voor hetzelfde abonnement hebt gemaakt. |
    |Storage-account |  myasastorageaccount |   Kies of typ de naam van het opslagaccount. Namen van opslagaccounts worden automatisch gedetecteerd als ze worden gemaakt in hetzelfde abonnement.       |
-   |Container |   container2  |  Maak een nieuwe container in hetzelfde opslagaccount dat u voor invoer hebt gebruikt.   |
+   |Container |   container1  |  Selecteer de bestaande container die u in uw opslagaccount hebt gemaakt.   |
+   |Padpatroon |   output  |  Voer een naam in die voor de uitvoer dient als het pad in uw bestaande container.   |
 
 4. De andere opties kunnen de standaardwaarden behouden. Selecteer **Opslaan** om de instellingen op te slaan.  
 
@@ -153,7 +155,7 @@ In deze sectie gaat u blobopslag configureren als invoer voor de Stream Analytic
 
    ![Taak starten](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. Na enkele minuten gaat u in de portal naar het opslagaccount en de container die u hebt geconfigureerd als uitvoer voor de taak. U ziet nu het uitvoerbestand in de container. Het duurt de eerste keer enkele minuten voordat de taak wordt gestart. Daarna wordt de taak voortgezet naarmate de gegevens binnenkomen.  
+3. Na enkele minuten gaat u in de portal naar het opslagaccount en de container die u hebt geconfigureerd als uitvoer voor de taak. Selecteer het uitvoerpad. U ziet nu het uitvoerbestand in de container. Het duurt de eerste keer enkele minuten voordat de taak wordt gestart. Daarna wordt de taak voortgezet naarmate de gegevens binnenkomen.  
 
    ![Getransformeerde uitvoer](./media/stream-analytics-quick-create-portal/transformed-output.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Met behulp van databases die worden geleverd door de SQL-Adapter RP op Azure-Stack | Microsoft Docs
-description: Het maken en beheren van de SQL-databases die zijn ingericht met behulp van de Resource Provider voor SQL-Adapter
+title: Met behulp van databases die worden geleverd door de bronprovider van SQL-Adapter op Azure-Stack | Microsoft Docs
+description: Het maken en beheren van de SQL-databases die zijn ingericht met behulp van de resourceprovider voor SQL-Adapter
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,49 +11,70 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b9f92b4d85e17bc848d82be413df1d0dad7c8548
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a82db16f2012672f6e2669f2fd8198b177f501f3
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294935"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264179"
 ---
 # <a name="create-sql-databases"></a>SQL-databases maken
-Selfservice-databases zijn opgenomen in de gebruikersportal. Een Azure-Stack-gebruiker moet een abonnement dat is een aanbieding met de SQL database-service.
 
-1. Aanmelden bij de [Azure Stack](azure-stack-poc.md) gebruikersportal (serviceadministrators kunt ook het beheerportal gebruiken).
+U kunt maken en beheren van selfservice-databases in de gebruikersportal. Een Azure-Stack-gebruiker moet een abonnement met een aanbieding met de SQL database-service.
 
-2. Klik op **+ nieuw** &gt; **gegevens en opslag '** &gt; **SQL Server-Database** &gt; **toevoegen**.
+1. Aanmelden bij de [Azure Stack](azure-stack-poc.md) gebruikersportal.
 
-3. Vul in het formulier met informatie over de database, met inbegrip van een **databasenaam**, **maximumgrootte**, en de andere parameters zo nodig wijzigen. U wordt gevraagd om door te gaan een SKU voor uw database. Als hosting-servers worden toegevoegd, waaraan ze een SKU zijn toegewezen. Databases zijn gemaakt in die toepassingen hosten van de servers die gezamenlijk de SKU.
+2. Selecteer **+ nieuw** &gt; **gegevens en opslag '** &gt; **SQL Server-Database** &gt; **toevoegen**.
 
-  ![Nieuwe database](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+3. Onder **Create Database**, voer de vereiste informatie, zoals **databasenaam** en **Max Size in MB**.
 
-  >[!NOTE]
-  > Grootte van de database moet ten minste 64 MB. Deze kan worden verhoogd met instellingen.
+   >[!NOTE]
+   >De databasegrootte moet ten minste 64 MB, die u kunt verhogen nadat u de database hebt geïmplementeerd.
 
-4. Vul de aanmeldingsinstellingen: **databaseaanmelding**, en **wachtwoord**. Deze instellingen zijn voor de SQL-verificatie-referentie die voor uw toegang tot alleen deze database wordt gemaakt. Aanmeldingsnaam voor de gebruiker moet wereldwijd uniek zijn. Maak een nieuwe aanmelding instelling of een bestaande set selecteren. U kunt instellingen voor aanmelding voor andere databases met dezelfde SKU hergebruiken.
+   Configureer de andere instellingen zoals vereist voor uw omgeving.
 
-    ![Maak een nieuwe databaseaanmelding](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+4. Onder **Create Database**, selecteer **SKU**. Onder **selecteert u een SKU**, selecteer de SKU voor uw database.
 
+   ![Database maken](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
-5. Het formulier verzendt en wachten op de implementatie te voltooien.
+   >[!NOTE]
+   >Als u hosting-servers worden toegevoegd aan Azure-Stack, waaraan ze een SKU zijn toegewezen. Databases zijn gemaakt in de groep servers in een SKU hosten.
 
-    In de resulterende blade ziet u het veld "Connection string". U kunt deze tekenreeks in een toepassing waarvoor toegang tot SQL Server (bijvoorbeeld een web-app) gebruiken in uw Azure-Stack.
+5. Selecteer **aanmelding**.
+6. Onder **selecteert u een aanmelding**, kies een bestaande aanmelding of selecteer **+ Maak een nieuwe aanmelding**.
+7. Onder **New Login**, voer een naam voor **databaseaanmelding** en een **wachtwoord**.
 
-    ![De verbindingsreeks ophalen](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+   >[!NOTE]
+   >Deze instellingen zijn voor de SQL-verificatie-referentie die voor uw toegang tot alleen deze database wordt gemaakt. Aanmeldingsnaam voor de gebruiker moet wereldwijd uniek zijn. U kunt instellingen voor aanmelding voor andere databases die gebruikmaken van dezelfde SKU hergebruiken.
 
-## <a name="delete-sql-alwayson-databases"></a>Verwijder SQL AlwaysOn-databases
-Wanneer een SQL AlwaysOn-database wordt verwijderd uit de resourceprovider, uit de primaire en groep voor AlwaysOn-beschikbaarheidsgroep is verwijderd maar door ontwerp, SQL AG plaatst de database in herstelstatus in elke replica en wordt de database niet verwijderen tenzij geactiveerd. Als een database wordt niet verwijderd, wordt de secundaire replica's gaat naar de status niet kan worden gesynchroniseerd. Een nieuwe database opnieuw wordt toegevoegd aan de AG met dezelfde via RP nog steeds werkt.
+   ![Maak een nieuwe databaseaanmelding](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
-## <a name="verify-sql-alwayson-databases"></a>Controleer of de SQL AlwaysOn-databases
-AlwaysOn-databases moeten worden weergegeven als gesynchroniseerd en beschikbaar zijn op alle exemplaren en in de beschikbaarheidsgroep. De database na een failover naadloos verbinding moet maken. U kunt SQL Server Management Studio gebruiken om te controleren dat een database wordt gesynchroniseerd:
+8. Selecteer **OK** om te implementeren van de database.
 
-![Controleer of AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+Onder **Essentials**, die wordt weergegeven nadat de database is geïmplementeerd, dient u de **verbindingsreeks**. U kunt deze tekenreeks gebruiken in elke toepassing die u moet toegang tot de SQL Server-database.
 
+![De verbindingsreeks ophalen](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+
+## <a name="sql-always-on-databases"></a>SQL Always On databases
+
+Standaard zijn altijd aan databases anders afgehandeld dan in een omgeving met zelfstandige servers. Zie voor meer informatie [introductie van SQL Server altijd op beschikbaarheidsgroepen op Azure virtuele machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
+
+### <a name="verify-sql-always-on-databases"></a>Controleer of SQL Always On databases
+
+De volgende schermafbeelding ziet u hoe u SQL Server Management Studio kunt gebruiken om te kijken naar de databasestatus van de in SQL Always On.
+
+![Status van AlwaysOn-database](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+
+AlwaysOn-databases moeten weergeven als gesynchroniseerd en beschikbaar zijn op alle SQL-exemplaren en weergegeven in Availability Groups. In de vorige schermafbeelding is in het voorbeeld database newdb1 en de status is **newdb1 (gesynchroniseerd)**.
+
+### <a name="delete-an-alwayson-database"></a>Verwijderen van een database met AlwaysOn
+
+Als u een SQL AlwaysOn-database van de resourceprovider verwijdert, verwijderd SQL database van de primaire replica en uit de beschikbaarheidsgroep.
+
+SQL vervolgens plaatst de database in de herstelstatus op de andere replica's en de database niet verwijderen tenzij geactiveerd. Als de database is niet verwijderd, gaat u de secundaire replica's in een status niet kan worden gesynchroniseerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

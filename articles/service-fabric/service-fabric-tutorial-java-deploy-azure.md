@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 370cb367a90c8c1a4f8051e79d3858d78c8c3b75
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644039"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Zelfstudie: een Java-toepassing implementeren in een Service Fabric-cluster in Azure
 Deze zelfstudie is deel drie van een reeks en laat zien hoe u een Service Fabric-toepassing implementeert in een cluster in Azure.
@@ -198,7 +199,7 @@ In de volgende stappen maakt u de benodigde resources die vereist zijn voor het 
     </Certificates>
     ```
 
-2. Om uw toepassing in dit cluster te implementeren, moet u SFCTL gebruiken om een verbinding met het cluster tot stand te brengen. SFCTL vereist een PEM-bestand met zowel de openbare als de persoonlijke sleutel om verbinding maken met het cluster. Daarom moet u de volgende opdracht uitvoeren om een PEM-bestand te produceren met zowel de openbare als de persoonlijke sleutel. 
+2. Om uw toepassing in dit cluster te implementeren, moet u SFCTL gebruiken om een verbinding met het cluster tot stand te brengen. SFCTL vereist een PEM-bestand met zowel de openbare als de persoonlijke sleutel om verbinding te maken met het cluster. Voer de volgende opdracht uit om een PEM-bestand met zowel de openbare als de persoonlijke sleutel te maken. 
 
     ```bash
     openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>

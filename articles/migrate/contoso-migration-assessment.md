@@ -3,17 +3,16 @@ title: Voor lokale werkbelastingen voor Contoso migratie naar Azure beoordelen |
 description: Meer informatie over hoe Contoso hun lokale machines voor migratie naar Azure met Azure migratie en Database Migraton evalueert
 services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 8568668032a97e574a85758080818311839a9caa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fb987c95afc0f77386f4f78c44f3c6825f86ee43
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301130"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232393"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: beoordelen voor lokale werkbelastingen voor migratie naar Azure
 
@@ -23,15 +22,15 @@ Dit document is de derde in reeks artikelen document hoe de lokale bronnen in he
 
 **Artikel** | **Details** | **Status**
 --- | --- | ---
-Artikel 1: overzicht | Biedt een overzicht van de strategie voor de migratie van Contoso, de serie artikelen en de voorbeeld-apps we gebruiken. | Beschikbaar
-Artikel 2: Een Azure-infrastructuur implementeren | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. De infrastructuur wordt gebruikt voor alle Contoso migratiescenario's. | Beschikbaar
-Artikel 3: Beoordelen lokale bronnen (in dit artikel) | Toont hoe een beoordeling van de lokale twee lagen SmartHotel app uitgevoerd in VMware in Contoso wordt uitgevoerd. Evalueren van de virtuele machines van een app met de [Azure migreren](migrate-overview.md) -service en de app SQL Server-database met de [Azure Database migratie-assistent](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
-Artikel 4: Verander (lift-en-shift) naar Azure VM's en een SQL-exemplaar beheerd | Demonstreert hoe Contoso de app SmartHotel migreert naar Azure. Migreren van de app frontend virtuele machine met behulp [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database met de [Azure databasemigratie](https://docs.microsoft.com/azure/dms/dms-overview) service om te migreren naar een SQL-exemplaar worden beheerd. | Beschikbaar
-Artikel 5: Verander (lift-en-shift) virtuele Azure-machines | Toont hoe Contoso hun app SmartHotel met Site Recovery alleen virtuele machines migreert.
-Artikel 6: Verander (lift-en-shift) naar Azure VM's en SQL Server-beschikbaarheidsgroepen | Toont hoe de app SmartHotel in Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van virtuele machines van de app en de migratie van de Database-service om te migreren van de app-database naar een SQL Server-beschikbaarheidsgroep. | Beschikbaar
-Artikel 7: Verander (lift-en-shift) naar Azure VM's en Azure MySQL-Server | Demonstreert hoe Contoso de SmartHotel app virtuele machines migreren met behulp van Site Recovery en MySQL Workbench (back-up en herstel) migreert naar een Azure MySQL Server-exemplaar. | Beschikbaar
+[Artikel 1: overzicht](contoso-migration-overview.md) | Biedt een overzicht van de strategie voor de migratie van Contoso, de serie artikelen en de voorbeeld-apps we gebruiken. | Beschikbaar
+[Artikel 2: Een Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. De infrastructuur wordt gebruikt voor alle Contoso migratiescenario's. | Beschikbaar
+Artikel 3: Beoordelen lokale bronnen (in dit artikel)  | Toont hoe een beoordeling van de lokale twee lagen SmartHotel app uitgevoerd in VMware in Contoso wordt uitgevoerd. Evalueren van de virtuele machines van een app met de [Azure migreren](migrate-overview.md) -service en de app SQL Server-database met de [Azure Database migratie-assistent](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
+[Artikel 4: Rehost virtuele machines in Azure en een beheerde SQL-exemplaar](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstreert hoe Contoso de app SmartHotel migreert naar Azure. Migreren van de app frontend virtuele machine met behulp [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database met de [Azure databasemigratie](https://docs.microsoft.com/azure/dms/dms-overview) service om te migreren naar een SQL-exemplaar worden beheerd. | Beschikbaar
+[Artikel 5: Rehost voor virtuele machines in Azure](contoso-migration-rehost-vm.md) | Toont hoe Contoso hun app SmartHotel met Site Recovery alleen virtuele machines migreert.
+[Artikel 6: Rehost virtuele machines in Azure en SQL Server-beschikbaarheidsgroepen](contoso-migration-rehost-vm-sql-ag.md) | Toont hoe de app SmartHotel in Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van virtuele machines van de app en de migratie van de Database-service om te migreren van de app-database naar een SQL Server-beschikbaarheidsgroep. | Beschikbaar
+[Artikel 7: Een app Linux virtuele machines in Azure Rehost](contoso-migration-rehost-linux-vm.md) | Toont hoe Contoso hun osService Linux-app met Azure Site Recovery wordt gemigreerd.
+[Artikel 8: Rehost een Linux-app voor virtuele machines in Azure en Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Laat zien hoe de Contoso migreert de osService Linux-app met behulp van Site Recovery voor VM-migratie en MySQL-Workbench om te migreren (naar een exemplaar van Azure MySQL-Server. | Beschikbaar
 
-Als u wilt gebruiken van de voorbeeld-app in dit artikel gebruikt, opgegeven als open source en kunt u het downloaden van [github](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="overview"></a>Overzicht
 
@@ -41,7 +40,7 @@ Samengevat in de volgende tabel voor het ophalen van hun voeten NAT en de techno
 
 **Naam van app** | **Platform** | **App-categorieën** | **Details**
 --- | --- | --- | ---
-SmartHotel<br/><br/> Vereisten voor Contoso reizen beheert | In Windows wordt uitgevoerd met een SQL Server-database | Twee lagen app met de frontend-ASP.NET-website uitgevoerd op een virtuele machine (WEBVM) en de SQL-Server op een andere virtuele machine (SQLVM) wordt uitgevoerd | Virtuele machines zijn VMware, uitgevoerd op een ESXi-host worden beheerd door de vCenter-server.<br/><br/> De voorbeeld-app kan worden gedownload vanaf [github](https://github.com/Microsoft/SmartHotel360).
+SmartHotel<br/><br/> Vereisten voor Contoso reizen beheert | In Windows wordt uitgevoerd met een SQL Server-database | Twee lagen app met de frontend-ASP.NET-website uitgevoerd op een virtuele machine (WEBVM) en de SQL-Server op een andere virtuele machine (SQLVM) wordt uitgevoerd | Virtuele machines zijn VMware, uitgevoerd op een ESXi-host worden beheerd door de vCenter-server.<br/><br/> De voorbeeld-app kan worden gedownload vanaf [GitHub](https://github.com/Microsoft/SmartHotel360).
 OSTicket<br/><br/> Contoso Service helpdesk-app | Op Linux/Apache, met een MySQL-PHP (licht) uitgevoerd. | App met een frontend PHP-website op een virtuele machine (OSTICKETWEB) en de MySQL-database op een andere virtuele machine (OSTICKETMYSQL) met twee lagen | De app wordt gebruikt door de klant service-apps voor het bijhouden van problemen voor interne werknemers en externe klanten.<br/><br/> De voorbeeld-app kan worden gedownload vanaf [GitHub](https://github.com/osTicket/osTicket).
 
 ## <a name="current-architecture"></a>Huidige architectuur
@@ -545,7 +544,7 @@ Deze weergave toont de totale compute- en opslagkosten om de virtuele machines i
 - Nadat de beoordeling is voltooid, wordt het toestel Azure migratie voor toekomstige evaluaties bewaard in Contoso.
 - Ze uitschakelen de VMware virtuele machine. Ze moeten deze opnieuw starten wanneer dit beleid extra virtuele machines beoordeelt.
 - De migratie van de Contoso-project houden zij in Azure.  Momenteel wordt geïmplementeerd in de resourcegroep ContosoFailoverRG in het Oost ons Azure-gebied.
--  De VM-collector heeft een licentie evaluatieperiode van 180 dagen. Als deze limiet is verlopen moet ze downloaden en de collector opnieuw instellen.
+-  De VM-collector heeft een licentie evaluatieperiode van 180 dagen. Als deze limiet is verlopen, moet ze downloaden en de collector opnieuw instellen.
 
 
 ## <a name="conclusion"></a>Conclusie

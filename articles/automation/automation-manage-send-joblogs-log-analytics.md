@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 562b1f1371133a1da8d24ebbb9c588f0597dda7f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194397"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228611"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Taakstatus en taak streams doorsturen van automatisering met Log Analytics
 Automation kan runbook taak status en taak streams verzenden naar de werkruimte voor logboekanalyse. Taak registreert en taak streams zichtbaar zijn in de Azure-portal of PowerShell zijn voor afzonderlijke taken en Hiermee kunt u eenvoudige onderzoeken uitvoeren. Met Log Analytics kunt u nu:
@@ -29,7 +29,7 @@ Automation kan runbook taak status en taak streams verzenden naar de werkruimte 
 Als u wilt beginnen met het verzenden van uw Automation-logboeken met Log Analytics, hebt u het volgende nodig:
 
 * De November 2016 of hoger release van [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
-* Een werkruimte voor logboekanalyse. Zie voor meer informatie [aan de slag met logboekanalyse](../log-analytics/log-analytics-get-started.md). 
+* Een Log Analytics-werkruimte. Zie voor meer informatie [aan de slag met logboekanalyse](../log-analytics/log-analytics-get-started.md). 
 * De ResourceId voor uw Azure Automation-account.
 
 
@@ -140,7 +140,7 @@ Als u wilt een waarschuwingsregel maakt, begint u met het maken van een zoekopdr
 2. Maken van een zoekquery logboek voor de waarschuwing door de volgende zoeken in het queryveld typen: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` u kunt de RunbookName groeperen met behulp van: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Als u logboeken van meer dan een Automation-account of -abonnement aan uw werkruimte, kunt u uw waarschuwingen per abonnement en de Automation-account kunt groeperen. Automation-accountnaam vindt u in het veld Resource in het doorzoeken van JobLogs.
-1. Openen van de **waarschuwingsregel toevoegen** scherm, klikt u op **waarschuwing** boven aan de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [waarschuwingen in logboekanalyse](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Openen van de **maken regel** scherm, klikt u op **+ nieuwe waarschuwingsregel** boven aan de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [waarschuwingen aanmelden voor Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Alle taken die zijn voltooid met fouten vinden
 Naast de waarschuwingen op fouten, vindt u wanneer een runbooktaak een fout niet wordt beëindigd heeft. In dergelijke gevallen PowerShell produceert een foutstroom, maar de fouten niet wordt beëindigd niet tot gevolg dat de taak onderbreken of als mislukt.    

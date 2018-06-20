@@ -1,67 +1,65 @@
 ---
-title: Cassandra gegevens importeren in Azure Cosmos DB | Microsoft Docs
-description: Informatie over het gebruik van de opdracht Copy CQL Cassandra om gegevens te kopiëren naar Azure Cosmos DB.
+title: Cassandra-gegevens importeren in Azure Cosmos DB | Microsoft Docs
+description: Lees hoe u met de CQL-opdracht COPY Cassandra-gegevens kunt kopiëren naar Azure Cosmos DB.
 services: cosmos-db
 author: govindk
 manager: kfile
-documentationcenter: ''
-ms.assetid: eced5f6a-3f56-417a-b544-18cf000af33a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-cassandra
+ms.devlang: dotnet
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 64f60e6beb5451d8f5acd382ca8e5672a2d096f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 26731d80f5917f9d21aacafb5f8a79cfb02855af
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795071"
 ---
-# <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Import Cassandra gegevens
+# <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Cassandra-gegevens importeren
 
-Deze zelfstudie vindt u instructies voor Cassandra gegevens importeren in Azure Cosmos DB met de opdracht Cassandra Query Language (CQL) kopiëren. 
+In deze zelfstudie vindt u instructies voor het importeren van Cassandra-gegevens in Azure Cosmos DB met de CQL-opdracht (Cassandra Query Language) COPY. 
 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
-> * Bij het ophalen van de verbindingsreeks
-> * Gegevens importeren met behulp van de opdracht cqlsh kopiëren
-> * Importeren met behulp van de Spark-connector 
+> * De verbindingsreeks ophalen
+> * Gegevens importeren met behulp van de cqlsh-opdracht COPY
+> * Importeren met de Spark-connector 
 
 # <a name="prerequisites"></a>Vereisten
 
-* Installeer [Apache Cassandra](http://cassandra.apache.org/download/) en in het bijzonder zorgen ervoor *cqlsh* aanwezig is.
-* Verhoogt de doorvoer: de duur van de migratie is afhankelijk van de hoeveelheid doorvoer die u hebt ingericht voor uw tabellen. Zorg ervoor dat de doorvoer voor grotere gegevens migraties verhogen. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer voor het opslaan van kosten. Voor meer informatie over de toenemende doorvoer in de [Azure-portal](https://portal.azure.com), Zie [Set doorvoer voor Azure Cosmos DB containers](set-throughput.md).
-* Schakel SSL: Azure Cosmos DB heeft strenge beveiligingsvereisten en standaarden. Zorg ervoor dat SSL in te schakelen wanneer u met uw account communiceert. Wanneer u CQL met SSH gebruiken, hebt u een optie om SSL-informatie te geven. 
+* Installeer [Apache Cassandra](http://cassandra.apache.org/download/) en zorg er met name voor dat *cqlsh* aanwezig is.
+* Verhoog de doorvoer: de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor uw tabellen hebt ingericht. Verhoog de doorvoer voor grotere gegevensmigraties. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Zie [Doorvoer instellen voor Azure Cosmos DB](set-throughput.md) voor meer informatie over het verhogen van de doorvoer in [Azure Portal](https://portal.azure.com).
+* Schakel SSL in: voor Azure Cosmos DB gelden strenge beveiligingsvereisten en -normen. Schakel SSL in wanneer u uw account gebruikt. Wanneer u CQL gebruikt met SSH, hebt u een optie om SSL-informatie op te geven. 
 
-## <a name="find-your-connection-string"></a>De verbindingsreeks vinden
+## <a name="find-your-connection-string"></a>Uw verbindingsreeks zoeken
 
-1. In de [Azure-portal](https://portal.azure.com), op het uiterst linkse, klikt u op **Azure Cosmos DB**.
+1. Klik in [Azure Portal](https://portal.azure.com) uiterst links op **Azure Cosmos DB**.
 
-2. In de **abonnementen** deelvenster, selecteer de accountnaam van uw.
+2. Selecteer in het deelvenster **Abonnementen** uw accountnaam.
 
-3. Klik op **verbindingsreeks**. Het rechter deelvenster bevat alle informatie die u nodig hebt om verbinding te maken aan uw account.
+3. Klik op **Verbindingsreeks**. Het rechterdeelvenster bevat alle informatie die u nodig hebt om verbinding te maken met uw account.
 
-    ![Pagina van de tekenreeks verbinding](./media/cassandra-import-data/keys.png)
+    ![Pagina Verbindingsreeks](./media/cassandra-import-data/keys.png)
 
-## <a name="use-cqlsh-copy"></a>Gebruik cqlsh kopiëren
+## <a name="use-cqlsh-copy"></a>Cqlsh-opdracht COPY gebruiken
 
-Cassandra om gegevens te importeren in Azure Cosmos DB voor gebruik met de Cassandra-API, gebruik de volgende richtlijnen:
+Als u Cassandra-gegevens wilt importeren in Azure Cosmos DB voor gebruik met de Cassandra-API, gebruikt u de volgende richtlijnen:
 
-1. Aanmelden bij cqhsh met de verbindingsgegevens van de portal.
-2. Gebruik de [opdracht CQL kopiëren](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) lokale gegevens kopiëren naar het eindpunt van de Apache Cassandra API. Controleer of de bron en doel in hetzelfde datacenter te minimaliseren latentieproblemen.
+1. Meld u aan bij cqhsh met de verbindingsgegevens van de portal.
+2. Gebruik de [CQL-opdracht COPY](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) om lokale gegevens te kopiëren naar het eindpunt van de Apache Cassandra-API. Controleer of de bron en het doel zich in hetzelfde datacenter bevinden om latentieproblemen te minimaliseren.
 
 ### <a name="guide-for-moving-data-with-cqlsh"></a>Handleiding voor het verplaatsen van gegevens met cqlsh
 
-1. Vooraf maken en schalen van uw tabel:
-    * Standaard Azure Cosmos DB voorziet in een nieuwe Cassandra API tabel met 1000 aanvraageenheden per seconde (RU/s) (maken op basis van CQL is ingericht met 400 RU/s). Voordat u de migratie met behulp van cqlsh, vooraf maken van alle tabellen van de [Azure-portal](https://portal.azure.com) of van cqlsh. 
+1. Maak van tevoren de tabel en schaal deze:
+    * Standaard wordt met Azure Cosmos DB een nieuwe Cassandra-API-tabel ingericht met 1000 aanvraageenheden per seconde (RU/s) (bij gebruik van CQL wordt de tabel ingericht met 400 RU/s). Voordat u de migratie start met cqlsh, maakt u vooraf alle tabellen vanuit [Azure Portal](https://portal.azure.com) of cqlsh. 
 
-    * Van de [Azure-portal](https://portal.azure.com), de doorvoer van uw tabellen van de standaard-doorvoer (400 of 1000 RU/s) verhogen tot 10.000 RU/s voor de duur van de migratie. U kunt met de hogere doorvoer voorkomen bandbreedtebeperking en migreren in minder tijd. Met elk uur facturering in Azure Cosmos DB, kunt u de doorvoer reduceren onmiddellijk na de migratie om kosten te besparen.
+    * Verhoog de doorvoer van de tabellen vanuit [Azure Portal](https://portal.azure.com) van de standaarddoorvoer (400 of 1000 RU/s) naar 10.000 RU/s voor de duur van de migratie. Met een hogere doorvoer voorkomt u beperkingen voor de migratie en kost deze minder tijd. Met uurlijkse facturering in Azure Cosmos DB kunt u de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
 
-2. Bepaal de RU kosten voor een bewerking. U kunt dit doen met behulp van Azure Cosmos DB Cassandra API SDK van uw keuze. In dit voorbeeld ziet de .NET-versie van het ophalen van RU kosten. 
+2. Bepaal de RU-kosten voor een bewerking. U kunt dit doen met de Azure Cosmos DB Cassandra-API SDK van uw keuze. In dit voorbeeld ziet u de .NET-versie van het ophalen van RU-kosten. 
 
     ```csharp
     var tableInsertStatement = table.Insert(sampleEntity);
@@ -76,11 +74,11 @@ Cassandra om gegevens te importeren in Azure Cosmos DB voor gebruik met de Cassa
  
     ``` 
 
-3. Bepaal de latentie van uw computer naar de service Azure Cosmos DB. Als u binnen een Azure-Datacenter, moet de latentie een lage één milliseconde cijfers. Als u zich buiten het Datacenter Azure, kunt u gebruiken psping om of azurespeed.com ophalen van de geschatte latentie van uw locatie.   
+3. Bepaal hoe lang het duurt voordat aanvragen vanaf uw computer worden beantwoord door de Azure Cosmos DB-service. Als u zich in een Azure-datacenter bevindt, moet de latentie een aantal milliseconden van één cijfer zijn. Als u zich buiten het Azure-datacenter bevindt, kunt u psping of azurespeed.com gebruiken om de geschatte latentie van uw locatie op te halen.   
 
-4. Berekenen van de juiste waarden voor parameters (INGESTRATE NUMPROCESS MAXBATCHSIZE of MINBATCHSIZE) die goede prestaties bieden. 
+4. Bereken de juiste waarden voor parameters (NUMPROCESS, INGESTRATE, MAXBATCHSIZE of MINBATCHSIZE) die goede prestaties leveren. 
 
-5. Voer de laatste migratie-opdracht. Met deze opdracht wordt ervan uitgegaan cqlsh met behulp van de verbindingsinformatie hebt gestart.
+5. Voer de laatste migratieopdracht uit. Als u deze opdracht uitvoert, wordt ervan uitgegaan dat u cqlsh hebt gestart met de verbindingsreeksgegevens.
 
    ```
    COPY exampleks.tablename FROM filefolderx/*.csv 
@@ -88,18 +86,18 @@ Cassandra om gegevens te importeren in Azure Cosmos DB voor gebruik met de Cassa
 
 ## <a name="use-spark-to-import-data"></a>Spark gebruiken om gegevens te importeren
 
-Voor gegevens die zich in een bestaand cluster in Azure virtuele machines, is het importeren van gegevens met Spark ook haalbare optie. Hiervoor moet Spark voor één keer of reguliere opname als intermediair worden ingesteld. 
+Voor gegevens die zich in een bestaand cluster op virtuele Azure-machines bevinden, kunt u ook gegevens importeren met Spark. Hiervoor moet Spark voor eenmalige of regelmatige gegevensopname worden ingesteld als intermediair. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u de volgende taken uitvoeren:
+In deze zelfstudie hebt u geleerd hoe u de volgende taken kunt uitvoeren:
 
 > [!div class="checklist"]
 > * De verbindingsreeks ophalen
-> * Gegevens importeren met behulp van de opdracht copy cql
-> * Importeren met behulp van de Spark-connector 
+> * Gegevens importeren met de CQL-opdracht COPY
+> * Importeren met de Spark-connector 
 
-U kunt nu doorgaan naar de sectie concepten voor meer informatie over Azure Cosmos DB. 
+U kunt nu doorgaan naar de sectie Concepten voor meer informatie over Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[Gegevens instelbare consistentieniveaus in Azure Cosmos-DB](../cosmos-db/consistency-levels.md)
+>[Instelbare gegevensconsistentieniveaus in Azure Cosmos DB](../cosmos-db/consistency-levels.md)

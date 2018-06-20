@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 618ed0f72886fff1c2de11e2fd856f6cc065a7b3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657584"
 ---
 # <a name="network-security"></a>Netwerkbeveiliging
 
@@ -138,7 +139,7 @@ U kunt de standaardregels niet verwijderen, maar u kunt ze negeren door regels t
 
 Met behulp van toepassingsbeveiligingsgroepen kunt u netwerkbeveiliging configureren als een natuurlijk verlengstuk van de structuur van een toepassing, waarbij u virtuele machines kunt groeperen en netwerkbeveiligingsbeleid kunt definiëren op basis van die groepen. Deze functie maakt het mogelijk het beveiligingsbeleid op grote schaal opnieuw te gebruiken zonder handmatig onderhoud van expliciete IP-adressen. Het platform verwerkt de complexiteit van expliciete IP-adressen en meerdere regelsets, zodat u zich kunt richten op uw bedrijfslogica.
 
-U kunt een toepassingsbeveiligingsregel opgeven als bron en doel in een beveiligingsregel. Nadat uw beveiligingsbeleid is gedefinieerd, kunt u virtuele machines maken en de netwerkinterfaces in de virtuele machine toewijzen aan een toepassingsbeveiligingsgroep. Het beleid wordt toegepast op basis van het lidmaatschap van de toepassingsbeveiligingsgroep van elke netwerkinterface binnen een virtuele machine. Het volgende voorbeeld laat zien hoe u een toepassingsbeveiligingsgroep kunt gebruiken voor alle webservers in uw abonnement:
+U kunt in een beveiligingsregel een en dezelfde toepassingsbeveiligingsgroep opgeven als de bron en het doel. Het is niet mogelijk om meerdere toepassingsbeveiligingsgroepen in de bron en het doel op te geven. Nadat uw beveiligingsbeleid is gedefinieerd, kunt u virtuele machines maken en de netwerkinterfaces in de virtuele machine toewijzen aan een toepassingsbeveiligingsgroep. Het beleid wordt toegepast op basis van het lidmaatschap van de toepassingsbeveiligingsgroep van elke netwerkinterface binnen een virtuele machine. Het volgende voorbeeld laat zien hoe u een toepassingsbeveiligingsgroep kunt gebruiken voor alle webservers in uw abonnement:
 
 1. Maak een toepassingsbeveiligingsgroep met de naam *Webservers*.
 2. Maak een netwerkbeveiligingsgroep met de naam *MijnNBG*.
@@ -152,7 +153,7 @@ Voor meer informatie over limieten bij het maken van toepassingsbeveiligingsgroe
 Toepassingsbeveiligingsgroepen hebben de volgende beperkingen:
 
 -   Alle netwerkinterfaces die zijn toegewezen aan de beveiligingsgroep van een toepassing moeten zich in hetzelfde virtuele netwerk bevinden als de eerste netwerkinterface die is toegewezen aan de beveiligingsgroep van de toepassing. Bijvoorbeeld, als de eerste netwerkinterface die is toegewezen aan de beveiligingsgroep van een toepassing met de naam *ASG1* in het virtuele netwerk aanwezig is met de naam *VNet1*, moeten alle volgende netwerkinterfaces die zijn toegewezen aan *ASG1* aanwezig zijn in *VNet1*. U kunt geen netwerkinterfaces van verschillende virtuele netwerken toevoegen aan dezelfde toepassingsbeveiligingsgroep.
-- Als u toepassingsbeveiligingsgroepen als bron en doel in een beveiligingsregel opgeeft, moeten de netwerkinterfaces in beide beveiligingsgroepen toepassing zich in hetzelfde virtuele netwerk bevinden. Als ASG1 bijvoorbeeld netwerkinterfaces van VNet1 bevat en ASG2 netwerkinterfaces van VNet2, kunt u ASG1 niet toewijzen als de bron en ASG2 als het doel in een regel. Alle netwerkinterfaces moeten aanwezig zijn in VNet1.
+- Als u in een beveiligingsregel een toepassingsbeveiligingsgroep als bron en doel opgeeft, moeten de netwerkinterfaces in beide toepassingsbeveiligingsgroepen zich in hetzelfde virtuele netwerk bevinden. Als ASG1 bijvoorbeeld netwerkinterfaces van VNet1 bevat en ASG2 netwerkinterfaces van VNet2, is het niet mogelijk om in een regel ASG1 toe te wijzen als bron en ASG2 als doel. Alle netwerkinterfaces moeten in VNet1 bestaan.
 
 ## <a name="azure-platform-considerations"></a>Overwegingen bij het Azure-platform
 

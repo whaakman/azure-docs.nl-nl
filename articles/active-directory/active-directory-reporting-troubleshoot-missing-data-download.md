@@ -3,27 +3,27 @@ title: 'Probleemoplossing: Ontbrekende gegevens in de gedownloade activiteitenlo
 description: Biedt een oplossing voor ontbrekende gegevens in de gedownloade activiteitenlogboeken van Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6878ff8175514b97fbeab70b932349ce400394dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: d0638404ec6f5b6d13aa207ef54913c1bd3ecc1a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589862"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232395"
 ---
-# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>Ik zie geen gegevens in de activiteitenlogboeken van Azure Active Directory die ik heb gedownload
+# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Ik kan geen gegevens vinden in de Azure Active Directory-activiteitenlogboeken die ik gedownload
 
 
 ## <a name="symptoms"></a>Symptomen
@@ -35,11 +35,11 @@ Ik heb de activiteitenlogboeken (audit of aanmeldingen) gedownload en ik zie nie
 
 ## <a name="cause"></a>Oorzaak
 
-Wanneer u activiteitenlogboeken downloadt in Azure Portal, worden er maximaal 120.000 records opgehaald, gesorteerd op meest recent. 
+Wanneer u de activiteitenlogboeken in de Azure-portal hebt gedownload, beperken we de schaal aan 5000 records, gesorteerd op de meest recente eerst. 
 
 ## <a name="resolution"></a>Oplossing
 
-U kunt gebruikmaken van [API's van Azure AD Reporting](active-directory-reporting-api-getting-started.md) om maximaal een miljoen records op te halen. Onze aanbevolen aanpak is om volgens een vast schema een script uit te voeren waarmee de API's van Reporting worden aangeroepen om gedurende een bepaalde periode (bijvoorbeeld dagelijks of wekelijks) alleen de gewijzigde records op te halen.
+U kunt gebruikmaken van [API's van Azure AD Reporting](active-directory-reporting-api-getting-started.md) om maximaal een miljoen records op te halen. De aanbevolen aanpak is een script uitvoeren op vaste tijden die de rapportage-API's voor het ophalen van records op incrementele wijze gedurende een periode (bijvoorbeeld dagelijks of wekelijks) aanroept.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Azure Active Directory reporting FAQ](active-directory-reporting-faq.md) (Veelgestelde vragen over Azure Active Directory-rapportage).

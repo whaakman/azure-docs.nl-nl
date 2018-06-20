@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/4/2017
 ms.author: saurse
-ms.openlocfilehash: aee0a3044ea4d1b9b867e795e94a37f8835ad212
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 89a39f6189367f91248b3868b1e1cb9f6abf0407
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605753"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228387"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Problemen met configuratie van de Azure Backup Agent en de inschrijving oplossen
 ## <a name="recommended-steps"></a>Aanbevolen stappen
@@ -36,13 +36,19 @@ Raadpleeg de aanbevolen acties in de volgende tabellen fouten die u tijdens de c
 
 | Foutdetails | Mogelijke oorzaken | Aanbevolen acties |
 | ---     | ---     | ---    |      
-| **Fout** </br>*Instellen van de versleutelingssleutel voor veilige back-ups is mislukt. De huidige bewerking is mislukt vanwege een interne fout 'ongeldig invoer servicefout'. Probeer de bewerking na enige tijd opnieuw. Als het probleem zich blijft voordoen, neem contact op met Microsoft ondersteuning*. |Server is al geregistreerd met een andere kluis.| Hef de registratie van de server uit de kluis en Registreer het opnieuw.
+| **Fout** </br>*Kan niet worden ingesteld van de versleutelingssleutel voor beveiligde back-ups activering niet volledig is gelukt, maar de wachtwoordzin voor versleuteling is opgeslagen in het volgende bestand*. |<li>Server is al geregistreerd met een andere kluis.<li>Tijdens het configureren van is de wachtwoordzin beschadigd| Hef de registratie van de server uit de kluis en Registreer opnieuw met een nieuwe wachtwoordzin.
 
 ## <a name="the-activation-did-not-complete-successfully-the-current-operation-failed-due-to-an-internal-service-error-0x1fc07"></a>De activering is niet voltooid. De huidige bewerking is mislukt vanwege een interne servicefout [0x1FC07]
 
 | Foutdetails | Mogelijke oorzaken | Aanbevolen acties |
 | ---     | ---     | ---    |          
-| **Fout** </br><ol><li>*De activering is niet voltooid. De huidige bewerking is mislukt vanwege een interne servicefout [0x1FC07]. Probeer de bewerking na enige tijd opnieuw. Als het probleem zich blijft voordoen, neem contact op met Microsoft ondersteuning* <li>*Fout bij het 34506. De wachtwoordzin voor versleuteling op deze computer is niet correct geconfigureerd*. | <li> De tijdelijke map bevindt zich op een volume dat onvoldoende ruimte heeft. <li> De tijdelijke map is niet goed verplaatst naar een andere locatie. <li> Het bestand OnlineBackup.KEK ontbreekt. | <li>De tijdelijke map of cachelocatie verplaatsen naar een volume met vrije ruimte gelijk is aan 5-10% van de totale grootte van de back-upgegevens. Als u wilt verplaatsen correct de cachelocatie, raadpleegt u de stappen in [vragen over de Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Zorg ervoor dat het bestand OnlineBackup.KEK aanwezig is. <br>*De standaardlocatie voor de tijdelijke map of het pad van de cache-locatie is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+| **Fout** </br><ol><li>*De activering is niet voltooid. De huidige bewerking is mislukt vanwege een interne servicefout [0x1FC07]. Probeer de bewerking na enige tijd opnieuw. Als het probleem zich blijft voordoen, neem contact op met Microsoft ondersteuning*| <li> De tijdelijke map bevindt zich op een volume dat onvoldoende ruimte heeft. <li> De tijdelijke map is niet goed verplaatst naar een andere locatie. <li> Het bestand OnlineBackup.KEK ontbreekt. | <li>Upgrade naar de [meest recente versie](http://aka.ms/azurebackup_agent) van de MARS-Agent.<li>De tijdelijke map of cachelocatie verplaatsen naar een volume met vrije ruimte gelijk is aan 5-10% van de totale grootte van de back-upgegevens. Als u wilt verplaatsen correct de cachelocatie, raadpleegt u de stappen in [vragen over de Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Zorg ervoor dat het bestand OnlineBackup.KEK aanwezig is. <br>*De standaardlocatie voor de tijdelijke map of het pad van de cache-locatie is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+  
+## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>Fout bij het 34506. De wachtwoordzin voor versleuteling op deze computer is niet correct geconfigureerd
+
+| Foutdetails | Mogelijke oorzaken | Aanbevolen acties |
+| ---     | ---     | ---    |          
+| **Fout** </br><ol><li>*Fout bij het 34506. De wachtwoordzin voor versleuteling op deze computer is niet correct geconfigureerd*. | <li> De tijdelijke map bevindt zich op een volume dat onvoldoende ruimte heeft. <li> De tijdelijke map is niet goed verplaatst naar een andere locatie. <li> Het bestand OnlineBackup.KEK ontbreekt. | <li>Upgrade naar de [meest recente versie](http://aka.ms/azurebackup_agent) van de MARS-Agent.<li>De tijdelijke map of cachelocatie verplaatsen naar een volume met vrije ruimte gelijk is aan 5-10% van de totale grootte van de back-upgegevens. Als u wilt verplaatsen correct de cachelocatie, raadpleegt u de stappen in [vragen over de Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Zorg ervoor dat het bestand OnlineBackup.KEK aanwezig is. <br>*De standaardlocatie voor de tijdelijke map of het pad van de cache-locatie is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.  
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.

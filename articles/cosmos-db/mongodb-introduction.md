@@ -1,77 +1,75 @@
 ---
-title: 'Inleiding tot Azure Cosmos DB: MongoDB API | Microsoft Docs'
-description: Meer informatie over hoe u Azure Cosmos DB kunt gebruiken om op te slaan en query grote hoeveelheden JSON-documenten met een lage latentie met behulp van de populaire OSS MongoDB APIs.
-keywords: Wat is MongoDB
+title: 'Inleiding tot Azure Cosmos DB: MongoDB-API | Microsoft Docs'
+description: Leer hoe u Azure Cosmos DB kunt gebruiken om grote aantallen JSON-documenten met lage latentie op te slaan en te doorzoeken met behulp van populaire OSS MongoDB-API’s.
+keywords: Wat is MongoDB?
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 02/12/2018
-ms.author: anhoh
-ms.openlocfilehash: bebf8b8830255277b5ea492f06e130ee667affa5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.author: sngun
+ms.openlocfilehash: c10f1fdc7e373633298b083d1317f17cff3aa2b8
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796628"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Inleiding tot Azure Cosmos DB: MongoDB-API
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is de wereldwijd gedistribueerde databaseservice met meerdere modellen van Microsoft voor essentiële toepassingen. Biedt Azure Cosmos DB [directe globale distributie](distribute-data-globally.md), [elastisch schalen van doorvoer en opslag](partition-data.md) overal ter wereld, één cijfer milliseconde latenties bij de 99th percentiel en gegarandeerde hoog beschikbaarheid van alle back-ups door [toonaangevende Sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Met Azure Cosmos DB worden [gegevens automatisch geïndexeerd](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), zonder dat u te maken krijgt met schema- en indexbeheer. Azure Cosmos DB beschikt over meerdere modellen en ondersteunt modellen voor document-, sleutelwaarde-, grafiek- en kolomgegevens. 
+[Azure Cosmos DB](../cosmos-db/introduction.md) is de wereldwijd gedistribueerde databaseservice met meerdere modellen van Microsoft voor essentiële toepassingen. Azure Cosmos DB biedt [gebruiksklare wereldwijde distributie](distribute-data-globally.md), [elastisch schalen van doorvoer en opslag](partition-data.md), latentie van slechts enkele milliseconden op het 99e percentiel, en een gegarandeerd hoge beschikbaarheid, ondersteund met [toonaangevende SLA’s](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Met Azure Cosmos DB worden [gegevens automatisch geïndexeerd](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), zonder dat u te maken krijgt met schema- en indexbeheer. Azure Cosmos DB beschikt over meerdere modellen en ondersteunt modellen voor document-, sleutelwaarde-, grafiek- en kolomgegevens. 
 
-![Azure Cosmos DB: MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![Azure Cosmos DB: MongoDB-API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
-Azure DB Cosmos-databases kunnen worden gebruikt als gegevensopslag voor apps die zijn geschreven voor [MongoDB](https://docs.mongodb.com/manual/introduction/). Deze functionaliteit betekent dat met behulp van de bestaande [stuurprogramma's](https://docs.mongodb.org/ecosystem/drivers/), uw toepassing geschreven voor MongoDB kan nu met Azure Cosmos DB communiceren en gebruiken van Azure DB die Cosmos-databases in plaats van MongoDB-databases. In veel gevallen kunt u overschakelen van het gebruik van MongoDB bij Azure Cosmos DB door eenvoudigweg een verbindingsreeks. Met deze functionaliteit kunt u gemakkelijk maken en in de MongoDB globaal gedistribueerd databasetoepassingen uitvoeren in Azure met Azure Cosmos DB en de cloud [uitgebreide toonaangevende Sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db), maar blijft bekend gebruiken vaardigheden en hulpprogramma's voor MongoDB.
+Azure Cosmos DB-databases kunnen worden gebruikt als gegevensopslag voor apps die zijn geschreven voor [MongoDB](https://docs.mongodb.com/manual/introduction/). Deze functionaliteit zorgt ervoor dat de toepassing die is geschreven voor MongoDB nu, door gebruik te maken van de bestaande [stuurprogramma’s](https://docs.mongodb.org/ecosystem/drivers/), kan communiceren met Azure Cosmos DB, en Azure Cosmos DB-databases kan gebruiken in plaats van MongoDB-databases. In veel gevallen hoeft u alleen een verbindingsreeks te wijzigen als u wilt overschakelen van MongoDB naar Azure Cosmos DB. Met deze functionaliteit kunt u eenvoudig MongoDB-databasetoepassingen bouwen die wereldwijd zijn gedistribueerd, en deze uitvoeren in de Azure-cloud met behulp van Azure Cosmos DB en de bijbehorende [uitgebreide toonaangevende SLA’s](https://azure.microsoft.com/support/legal/sla/cosmos-db), terwijl u gebruik blijft maken van vertrouwde vaardigheden en hulpprogramma’s voor MongoDB.
 
-**Compatibiliteit met MongoDB**: U kunt uw bestaande MongoDB-expertise toepassingscode en tooling gebruiken zoals Azure Cosmos DB via het protocol MongoDB 3.4 (versie 5) implementeert en ondersteunt de [MongoDB aggregatie pijplijn](mongodb-feature-support.md#aggregation-pipeline). U kunt ontwikkelen met behulp van MongoDB en deze implementeren in productieomgevingen met een volledig beheerde en globaal gedistribueerde Azure DB die Cosmos-service.
+**Compatibiliteit met MongoDB**: u kunt uw kennis van MongoDB aanwenden en gebruikmaken van de toepassingscode en hulpprogramma’s van MongoDB, omdat het MongoDB 3.4-wire-protocol (versie 5) is geïmplementeerd in Azure Cosmos DB en de [MongoDB-samenvoegingspijplijn](mongodb-feature-support.md#aggregation-pipeline) wordt ondersteund. U kunt toepassingen ontwikkelen met behulp van MongoDB en deze implementeren in productieomgevingen via de volledig beheerde en wereldwijd gedistribueerde Azure Cosmos DB-service.
 
-## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Wat is het voordeel van het gebruik van Azure DB die Cosmos voor MongoDB toepassingen?
+## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Wat is het voordeel van het gebruik van Azure Cosmos DB voor MongoDB-toepassingen?
 
-**Elastische schaalbare doorvoer en opslag:** voldoen aan uw toepassingen moeten door te schalen eenvoudig omhoog of omlaag de MongoDB-database. Uw gegevens worden opgeslagen op SSD-schijven (Solid State Disks) voor lage voorspelbare latenties. Azure Cosmos DB ondersteunt MongoDB-verzamelingen die kunnen worden geschaald naar vrijwel onbeperkte opslaggrootte en ingerichte doorvoer. Naarmate uw toepassing groeit, kunt u Azure Cosmos DB probleemloos elastisch schalen met voorspelbare prestaties. 
+**Elastisch schaalbare doorvoer en opslag**: U kunt de MongoDB-database eenvoudig omhoog of omlaag te schalen om te voldoen aan de behoeften van uw toepassingen. Uw gegevens worden opgeslagen op SSD-schijven (Solid State Disks) voor lage voorspelbare latenties. Azure Cosmos DB biedt ondersteuning voor MongoDB-verzamelingen waarvan de opslaggrootte en ingerichte doorvoer vrijwel onbeperkt kan worden geschaald. Naarmate uw toepassing groeit, kunt u Azure Cosmos DB probleemloos elastisch schalen met voorspelbare prestaties. 
 
-**Meerdere landen/regio-replicatie:** Azure Cosmos DB transparant uw gegevens worden gerepliceerd naar alle regio's die je hebt gekoppeld aan je account MongoDB, zodat u voor het ontwikkelen van toepassingen waarvoor globale toegang tot gegevens en tegelijkertijd de wisselwerking tussen consistentie, beschikbaarheid en prestaties, met bijbehorende garanties. Azure Cosmos DB biedt transparante regionale failover met multihoming-API's en de mogelijkheid om doorvoer en opslag wereldwijd elastisch te schalen. Meer informatie [Distribueer gegevens globaal](distribute-data-globally.md).
+**Replicatie voor meerdere regio's:** Azure Cosmos DB repliceert uw gegevens transparant naar alle regio's die u hebt gekoppeld aan uw MongoDB-account, zodat u toepassingen kunt ontwikkelen waarvoor wereldwijde toegang tot gegevens is vereist, en die tegelijkertijd zorgen voor een balans tussen consistentie, beschikbaarheid en prestaties, allemaal met overeenkomstige garanties. Azure Cosmos DB biedt transparante regionale failover met multihoming-API's en de mogelijkheid om doorvoer en opslag wereldwijd elastisch te schalen. Zie [Gegevens wereldwijd distribueren](distribute-data-globally.md) voor meer informatie.
 
-**Er is geen Serverbeheer**: U hoeft te beheren en schalen van uw MongoDB-databases. Azure Cosmos-database is een volledig beheerde service, waardoor u niet beschikt over een infrastructuur of virtuele Machines om zelf te beheren. Azure Cosmos DB is beschikbaar in 30 + [Azure-gebieden](https://azure.microsoft.com/regions/services/).
+**Geen serverbeheer**: u hoeft de MongoDB-databases niet te beheren en te schalen. Azure Cosmos DB is een volledig beheerde service. Dit betekent dat u de infrastructuur en virtuele machines niet zelf hoeft te beheren. Azure Cosmos DB is beschikbaar in meer dan 30 [Azure-regio’s](https://azure.microsoft.com/regions/services/).
 
-**Instelbare consistentieniveaus:** Azure Cosmos DB momenteel MongoDB versie 3.4 die twee consistentie instellingen sterk en uiteindelijk heeft wordt geïmplementeerd. Omdat Azure Cosmos DB multi-api, de instellingen van de consistentie van toepassing zijn op het niveau van het account en afdwingen van de consistentie wordt beheerd door elke API. Pas 3.6 MongoDB, er is geen concept van een sessieconsistentie, dus als u een MongoDB-API-account moet worden gebruikt met sessieconsistentie instelt, de consistentiecontrole is verlaagd tot de uiteindelijke bij gebruik van MongoDB APIs. Als u een garantie-your-eigenaar-lezen voor een account met MongoDB-API moet, wordt het standaardniveau voor consistentie voor het account moet worden ingesteld op strong of gebonden veroudering. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
+**Instelbare consistentieniveaus:** in Azure Cosmos DB is momenteel MongoDB-versie 3.4 geïmplementeerd. Deze versie heeft twee consistentieniveaus: sterk en mogelijk. Omdat Azure Cosmos DB meerdere API’s heeft, zijn de consistentieniveaus van toepassing op het accountniveau, en het afdwingen van de consistentie wordt beheerd met elke API. Tot MongoDB 3.6 was er nog geen sprake van sessieconsistentie. Als u een MongoDB-API-account instelt voor gebruik van sessieconsistentie, wordt bij het gebruik van MongoDB-API’s een downgrade uitgevoerd naar het consistentieniveau: mogelijk. Als u een read-your-own-write-garantie nodig hebt voor een MongoDB-API-account, moet het standaardconsistentieniveau voor het account worden ingesteld op gebonden of gebonden-verouderd. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
 
-| Azure Cosmos DB standaardniveau consistentie |   Mongo-API (3.4) |
+| Standaardconsistentieniveau voor Azure Cosmos DB |   Mongo API (3.4) |
 |---|---|
 |Mogelijk| Mogelijk |
-|Consistent prefix| Uiteindelijke met consistente volgorde |
-|Sessie| Uiteindelijke met consistente volgorde |
+|Consistent prefix| Mogelijk met consistente volgorde |
+|Sessie| Mogelijk met consistente volgorde |
 |Gebonden veroudering| Sterk |
 | Sterk | Sterk |
 
-**Automatische indexering**: standaard Azure Cosmos DB indexeert automatisch alle de documenten in uw MongoDB-eigenschappen van de database en niet verwacht of vereist een schema of het maken van secundaire indexen. De unieke index mogelijkheid kunt bovendien een UNIQUE-beperking voor alle documentvelden die al automatisch geïndexeerd in Azure Cosmos DB zijn.
+**Automatisch indexeren:** alle eigenschappen in documenten in de MongoDB-database worden standaard automatisch geïndexeerd in Azure Cosmos DB. Er wordt geen schema verwacht of vereist en er hoeven geen secundaire indexen te worden gemaakt. Bovendien maakt de unieke index een uniekheidsbeperking mogelijk in elk documentveld dat al automatisch is geïndexeerd in Azure Cosmos DB.
 
-**Enterprise hoogwaardige**: Azure Cosmos DB ondersteunt meerdere lokale replica's voor het leveren van 99,99% beschikbaarheid en gegevensbescherming, met betrekking tot lokale en regionale fouten. Azure Cosmos DB heeft enterprise hoogwaardige [naleving certificeringen](https://www.microsoft.com/trustcenter) en beveiligingsfuncties. 
+**Enterprise-kwaliteit**: Azure Cosmos DB biedt ondersteuning voor meerdere lokale replica’s voor een beschikbaarheid van 99.99% en gegevensbeveiliging bij lokale en regionale fouten. Azure Cosmos DB beschikt over [nalevingscertificeringen](https://www.microsoft.com/trustcenter) en beveiligingsfuncties op zakelijk niveau. 
 
-Meer informatie in deze video met Azure Cosmos DB Senior Program Manager, Aleksey Savateyev.
+Senior Program Manager Aleksey Savateyev geeft u hier meer informatie over in deze video.
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
 > 
 
 ## <a name="how-to-get-started"></a>Hoe gaat u aan de slag
 
-Ga als volgt de MongoDB-snelstartgidsen voor het maken van een Cosmos-DB Azure-account en uw bestaande MongoDB-toepassing voor het gebruik van Azure DB die Cosmos migreren of een nieuwe wilt bouwen:
+Volg de stappen in de MongoDB-quickstarts om een Azure Cosmos DB-account te maken en uw bestaande MongoDB-toepassing te migreren om Azure Cosmos DB te gebruiken, of bouw een nieuwe:
 
-* [Migreren van een bestaande Node.js MongoDB-web-app](create-mongodb-nodejs.md).
-* [Een web-App voor MongoDB-API met .NET- en de Azure-portal](create-mongodb-dotnet.md)
-* [Maken van een console-app van de MongoDB-API met Java en de Azure-portal](create-mongodb-java.md)
+* [Een bestaande Node.js MongoDB-web-app migreren](create-mongodb-nodejs.md).
+* [Een MongoDB-API-web-app ontwikkelen met .NET en Azure Portal](create-mongodb-dotnet.md)
+* [Een MongoDB-API-console-app ontwikkelen met Java en Azure Portal](create-mongodb-java.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over de Azure-API voor MongoDB Cosmos DB is geïntegreerd in de algehele Azure DB die Cosmos-documentatie, maar hier zijn enkele verwijzingen naar u op weg:
+Informatie over de Azure Cosmos DB MongoDB-API is geïntegreerd in de algemene documentatie voor Azure Cosmos DB, maar hier zijn enkele aanwijzingen om u op gang te helpen:
 
-* Ga als volgt de [verbinding maken met een account MongoDB](connect-mongodb-account.md) zelfstudie voor informatie over het ophalen van de verbindingsinformatie voor uw account.
-* Ga als volgt de [gebruik Studio 3T (MongoChef) met Azure Cosmos DB](mongodb-mongochef.md) zelfstudie voor informatie over het maken van een verbinding tussen uw Azure DB die Cosmos-database en de MongoDB-app in Studio 3 T.
-* Ga als volgt de [gegevens voor het migreren naar Azure Cosmos DB met het protocol ondersteunen voor MongoDB](mongodb-migrate.md) zelfstudie voor het importeren van uw gegevens naar een API voor MongoDB-database.
-* Verbinding maken met een API voor het gebruik van MongoDB-account [Robomongo](mongodb-robomongo.md).
-* Meer informatie over hoeveel RUs van uw bewerkingen met gebruikmaakt de [GetLastRequestStatistics opdracht en de Azure portal metrische gegevens](set-throughput.md#GetLastRequestStatistics).
-* Meer informatie over hoe [lezen voorkeuren voor globaal gedistribueerde apps configureren](../cosmos-db/tutorial-global-distribution-mongodb.md).
+* Volg de zelfstudie [Verbinding maken met een MongoDB-account](connect-mongodb-account.md) voor informatie over het ophalen van verbindingsreeksinformatie voor uw account.
+* Volg de zelfstudie [Studio 3T (MongoChef) gebruiken met Azure Cosmos DB](mongodb-mongochef.md) om te leren hoe u een verbinding maakt tussen een Azure Cosmos DB-database en de MongoDB-app in Studio 3T.
+* Volg de zelfstudie [Gegevens migreren naar Azure Cosmos DB met protocolondersteuning voor MongoDB](mongodb-migrate.md) om uw gegevens te importeren naar een API voor een MongoDB-database.
+* Maak verbinding met een API voor een MongoDB-account met behulp van [Robomongo](mongodb-robomongo.md).
+* Ontdek hoeveel RU’s uw bewerkingen gebruiken met de [opdracht GetLastRequestStatistics en de metrische gegevens in Azure Portal](set-throughput.md#GetLastRequestStatistics).
+* Meer informatie over het [configureren van leesvoorkeuren voor wereldwijd gedistribueerde apps](../cosmos-db/tutorial-global-distribution-mongodb.md).

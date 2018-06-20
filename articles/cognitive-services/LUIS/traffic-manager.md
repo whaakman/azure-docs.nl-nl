@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: b5849e0b4d9b7fb1f681a52aef2c403031ff0144
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 513d4395b1d3e631855c2f6e132d54331b3ddf8d
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35350044"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266342"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager gebruiken voor het beheren van endpoint-quotum via sleutels
 Language Understanding (LUIS) biedt de mogelijkheid het quotum van de aanvraag eindpunt boven een enkele sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en ze toe te voegen aan de toepassing LUIS op de **publiceren** pagina in de **Resources en sleutels** sectie. 
@@ -372,8 +372,8 @@ Bekijk [middleware](https://docs.microsoft.com/azure/bot-service/bot-builder-cre
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: https://docs.microsoft.com/azure/traffic-manager/
-[LUIS]:luis-reference-regions.md#luis-website
-[azure-portal]:https://portal.azure.com/
-[azure-storage]:https://azure.microsoft.com/services/storage/
-[routing-methods]:https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods
-[traffic-manager-endpoints]:https://docs.microsoft.com/azure/traffic-manager/traffic-manager-endpoint-types
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+[azure-portal]: https://portal.azure.com/
+[azure-storage]: https://azure.microsoft.com/services/storage/
+[routing-methods]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods
+[traffic-manager-endpoints]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-endpoint-types

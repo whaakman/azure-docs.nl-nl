@@ -2,18 +2,19 @@
 title: Opties voor Azure Storage-account | Microsoft Docs
 description: Informatie over opties voor het gebruik van Azure Storage.
 services: storage
-author: hux
+author: xyh1
 manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
 ms.author: hux
-ms.openlocfilehash: 69da15b98e6c519a3a8352cc7ca7212286cb4e52
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d6279a308bc4539184cca37c1343afe8725eca7f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248296"
 ---
 # <a name="azure-storage-account-options"></a>Opties voor Azure Storage-account
 
@@ -32,7 +33,7 @@ Elk accounttype wordt in de volgende sectie in meer detail beschreven:
 
 Accounts voor algemeen gebruik v2 (GPv2) zijn opslagaccounts die de nieuwste functies voor blobs, bestanden, wachtrijen en tabellen ondersteunen. GPv2-accounts ondersteunen alle API’s en functies die in GPv1- en Blob Storage-accounts worden ondersteund. Ze ondersteunen ook dezelfde functies voor duurzaamheid, beschikbaarheid, schaalbaarheid en prestatieverhogende functies in deze accounttypen. Prijsmodellen voor GPv2-accounts bieden de laagste prijzen per gigabyte en concurrerende transactieprijzen in de branche.
 
-U kunt uw GPv1-account upgraden naar een GPv2-account via Azure Portal, PowerShell of Azure CLI. 
+U kunt uw GPv1- of Blob Storage-account upgraden naar een GPv2-account via Azure Portal, PowerShell of Azure CLI. 
 
 Voor blok-blobs in een GPv2-opslagaccount kunt u kiezen tussen dynamische- en statische-opslaglagen op accountniveau, of dynamische-, statische- en archiefopslaglagen op blob-niveau op basis van toegangspatronen. Sla gegevens die vaak, onregelmatig en zelden worden geopend op in respectievelijk de dynamische-, statische- en archiefopslaglaag om de kosten te optimaliseren. 
 
@@ -45,11 +46,11 @@ GPv2-opslag-accounts geven het kenmerk **Toegangslaag** op accountniveau weer. D
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Een upgrade van een opslagaccount naar GPv2 uitvoeren
 
-Gebruikers kunnen op elk gewenst moment een GPv1-account upgraden naar een GPv2-account via PowerShell of Azure CLI. Deze wijziging kan niet ongedaan worden gemaakt en er zijn geen andere wijzigingen toegestaan.
+Gebruikers kunnen op elk gewenst moment een GPv1- of Blob Storage-account upgraden naar een GPv2-account via PowerShell of Azure CLI. Deze wijziging kan niet ongedaan worden gemaakt en er zijn geen andere wijzigingen toegestaan.
 
 #### <a name="upgrade-with-powershell"></a>Een upgrade uitvoeren met PowerShell
 
-Als u een upgrade wilt uitvoeren van een GPv1-account naar een GPv2-account via PowerShell, werkt u PowerShell eerst bij zodat van de meest recente versie van de **AzureRm.Storage**-module gebruik wordt gemaakt. Zie [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van PowerShell. Roep vervolgens de volgende opdracht aan om een upgrade van het account uit te voeren, waarmee u de namen van de resourcegroep en het opslagaccount vervangt:
+Als u een upgrade wilt uitvoeren van een GPv1- of Blob Storage-account naar een GPv2-account via PowerShell, werkt u PowerShell eerst bij zodat van de meest recente versie van de **AzureRm.Storage**-module gebruik wordt gemaakt. Zie [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van PowerShell. Roep vervolgens de volgende opdracht aan om een upgrade van het account uit te voeren, waarmee u de namen van de resourcegroep en het opslagaccount vervangt:
 
 ```powershell
 Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
@@ -57,7 +58,7 @@ Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <stor
 
 #### <a name="upgrade-with-azure-cli"></a>Een upgrade uitvoeren met Azure CLI
 
-Als u een upgrade wilt uitvoeren van een GPv1-account naar een GPv2-account via Azure CLI, installeert u eerst de meest recente versie van Azure CLI. Zie [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor meer informatie over het installeren van de CLI. Roep vervolgens de volgende opdracht aan om een upgrade van het account uit te voeren, waarmee u de namen van de resourcegroep en het opslagaccount vervangt:
+Als u een upgrade wilt uitvoeren van een GPv1- of Blob Storage-account naar een GPv2-account via Azure CLI, moet u eerst de nieuwste versie van Azure CLI installeren. Zie [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor meer informatie over het installeren van de CLI. Roep vervolgens de volgende opdracht aan om een upgrade van het account uit te voeren, waarmee u de namen van de resourcegroep en het opslagaccount vervangt:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
@@ -82,14 +83,11 @@ Zie [Over Azure Storage-accounts](../common/storage-create-storage-account.md?to
 
 Voor toepassingen waarvoor alleen de opslag van blok- of toevoeg-blobs is vereist, wordt aangeraden gebruik te maken van GPv2-opslagaccounts. Zo profiteert u maximaal van het gedifferentieerde prijsmodel voor gelaagde opslag. In bepaalde scenario’s kunt u echter het gebruik van GPv1 overwegen, bijvoorbeeld:
 
-* U moet nog steeds gebruikmaken van het klassieke implementatiemodel. Blob Storage-accounts zijn alleen beschikbaar via het Azure Resource Manager-implementatiemodel.
+* U moet nog steeds gebruikmaken van het klassieke implementatiemodel. GPv2- en Blob Storage-accounts zijn alleen beschikbaar via het Azure Resource Manager-implementatiemodel.
 
 * U gebruikt omvangrijke transacties of geo-replicatie bandbreedte, die beiden meer kosten in GPv2-opslagaccounts en Blob Storage-accounts dan in GPv1, en u hebt niet genoeg opslagruimte om te kunnen profiteren van de lagere kosten van GB-opslag.
 
 * U gebruikt een versie van de [REST API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) die ouder is dan 2014-02-14 of een clientbibliotheek met een lagere versie dan 4.x en u uw toepassing niet kunt upgraden.
-
-> [!NOTE]
-> Blob Storage-accounts worden momenteel ondersteund in alle Azure-regio's.
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 Alle opslagaccounts maken gebruik van een prijsmodel voor het opslaan van blobs op basis van laag van elke blob. Als u een opslagaccount gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
@@ -107,7 +105,7 @@ Alle opslagaccounts maken gebruik van een prijsmodel voor het opslaan van blobs 
 * **De opslaglaag wijzigen**: als u de accountopslaglaag wijzigt van 'cool' naar 'hot', worden kosten in rekening gebracht die overeenkomen met de kosten voor het lezen van alle bestaande gegevens in het opslagaccount. Bij een wijziging van de accountopslaglaag van dynamisch naar statisch, worden echter kosten in rekening gebracht die gelijk zijn aan die voor het schrijven van alle gegevens in de statische laag (alleen GPv2-accounts).
 
 > [!NOTE]
-> Zie de pagina [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over het prijsmodel voor Blob Storage-accounts. Zie de pagina [Prijsinformatie voor bandbreedte](https://azure.microsoft.com/pricing/details/data-transfers/) voor meer informatie over de kosten voor uitgaande gegevensoverdracht.
+> Zie de pagina [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over het prijsmodel voor opslagaccounts. Zie de pagina [Prijsinformatie voor bandbreedte](https://azure.microsoft.com/pricing/details/data-transfers/) voor meer informatie over de kosten voor uitgaande gegevensoverdracht.
 
 ## <a name="quickstart-scenarios"></a>Snelstartscenario's
 
@@ -115,8 +113,8 @@ In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt
 
 * [Een GPv2-opslagaccount maken.](#create-a-gpv2-storage-account-using-the-azure-portal)
 * [Een GPv1-opslagaccount of Blob Storage-account converteren naar een GPv2-opslagaccount.](#convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal)
-* [De opslaglaag van een GPv2-opslagaccount wijzigen.](#change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal)
-* [Een bloblaag instellen in een Blob-opslagaccount of GPv2-opslagaccount.](#change-the-storage-tier-of-a-blob-using-the-azure-portal)
+* [Een accountlaag instellen in een GPv2-opslagaccount of een Blob Storage-account.](#change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal)
+* [Een bloblaag instellen in een GPv2-opslagaccount of een Blob Storage-account.](#change-the-storage-tier-of-a-blob-using-the-azure-portal)
 
 U kunt de toegangslaag in de volgende voorbeelden niet instellen op Archive, omdat deze instelling voor het hele opslagaccount geldt. Archive Storage kan alleen worden ingesteld voor een specifieke blob.
 
@@ -195,7 +193,7 @@ U kunt de toegangslaag in de volgende voorbeelden niet instellen op Archive, omd
 
 
 ## <a name="evaluating-and-migrating-to-gpv2-storage-accounts"></a>Evalueren en migreren naar GPv2-opslagaccounts
-Het doel van deze sectie is om gebruikers op soepele wijze te helpen migreren naar het gebruik van GPv2-opslagaccounts (in tegenstelling tot GPv1). Er zijn twee scenario's voor gebruikers:
+Het doel van deze sectie is om gebruikers op soepele wijze te helpen migreren van GPv1-opslagaccounts naar GPv2-opslagaccounts). Er zijn twee scenario's voor gebruikers:
 
 * U beschikt over een bestaand GPv1-opslagaccount en wilt een wijziging evalueren in een GPv2-opslagaccount met de juiste opslaglaag.
 * U hebt besloten om een GPv2-opslagaccount te gebruiken of u hebt er al een, en u wilt evaluearen of u een dynamische- of statische-opslaglaag moet gebruiken.
@@ -225,7 +223,7 @@ Als dit is ingeschakeld, worden de capaciteitsgegevens van een Blob Storage-serv
 Voor het controleren van gegevenstoegangspatronen voor Blob Storage, moet u de metrische gegevens die per uur worden verzameld voor de transactie inschakelen vanaf de API. Als deze methode is ingeschakeld, worden er elk uur per-API-transacties verzameld en geregistreerd als een tabelvermelding die is naar de *$MetricsHourPrimaryTransactionsBlob*-tabel binnen hetzelfde opslagaccount wordt geschreven. De *$MetricsHourSecondaryTransactionsBlob*-tabel registreert de transacties naar het secundaire eindpunt bij gebruik van RA-GRS-opslagaccounts.
 
 > [!NOTE]
-> Als u een algemeen opslagaccount hebt waarin u pagina-blobs en virtuele-machineschijven of wachtrijen, bestanden of tabellen, hebt opgeslagen naast blok- en toevoegblobgegevens, is dit schattingsproces niet van toepassing. De capaciteitsgegevens maken geen onderscheid tussen blok-blobs en andere typen en geven dus geen capaciteitsgegevens voor andere gegevenstypen. Als u deze typen gebruikt, is een alternatieve methode om te kijken naar de hoeveelheden op uw meest recente factuur.
+> Als u een algemeen opslagaccount hebt waarin u pagina-blobs en virtuele-machineschijven of wachtrijen, bestanden of tabellen, hebt opgeslagen naast blok- en toevoegblobgegevens, is dit schattingsproces niet van toepassing. De capaciteitsgegevens maken geen onderscheid tussen blok-blobs en andere typen en geven geen capaciteitsgegevens voor andere gegevenstypen. Als u deze typen gebruikt, is een alternatieve methode om te kijken naar de hoeveelheden op uw meest recente factuur.
 
 Als u een goede schatting wilt maken van uw gegevensverbruik en toegangspatroon, raden we u aan voor de metrische gegevens een retentieperiode te kiezen die een goede afspiegeling is van uw normale gebruik en dat als uitgangspunt te nemen. Een optie is de metrische gegevens zeven dagen te bewaren en de gegevens elke week te verzamelen en aan het einde van de maand te analyseren. Een andere optie is de metrische gegevens van de afgelopen 30 dagen te bewaren en deze gegevens aan het einde van deze periode van 30 dagen te verzamelen en te analyseren.
 
@@ -271,11 +269,11 @@ De overdrachtskosten van geo-replicatiegegevens voor Blob Storage-accounts kan o
 
 ## <a name="migrating-existing-data"></a>Bestaande gegevens migreren
 
-Upgraden van een GPv1-account naar GPv2 kan gemakkelijk zonder uitvaltijd of API-wijzigingen en zonder de noodzaak om gegevens te migreren. Daarom wordt het aanbevolen GPv1-accounts naar GPv2-accounts te migreren in plaats van naar Blob Storage-accounts.
+Upgraden van een GPv1-account naar GPv2 kan gemakkelijk zonder uitvaltijd of API-wijzigingen en zonder de noodzaak om gegevens te migreren. Daarom wordt het ten zeerste aanbevolen GPv1-accounts naar GPv2-accounts te migreren in plaats van naar Blob Storage-accounts.
 
-Echter, als u naar een Blob Storage-account wilt migreren, kunt u de volgende instructies volgen.
+Echter, als u naar een Blob Storage-account wilt migreren en geen GPv2-accounts kunt gebruiken, kunt u de volgende instructies volgen. 
 
-Een Blob Storage-account is speciaal bedoeld voor het opslaan van blok-blobs en toevoeg-blobs. Bestaande opslagaccounts voor algemeen gebruik, waarin u naast blobs ook tabellen, wachtrijen, bestanden en schijven kunt opslaan, kunnen niet worden geconverteerd naar Blob Storage-accounts. Als u gebruik wilt maken van de toegangslagen, maakt u nieuwe Blob Storage-accounts en migreert u de bestaande gegevens naar deze nieuwe accounts.
+Een Blob Storage-account is speciaal bedoeld voor het opslaan van blok-blobs en toevoeg-blobs. Bestaande opslagaccounts voor algemeen gebruik, waarin u naast blobs ook tabellen, wachtrijen, bestanden en schijven kunt opslaan, kunnen niet worden geconverteerd naar Blob Storage-accounts. Als u gebruik wilt maken van de toegangslagen, maakt u nieuwe Blob Storage-accounts en migreert u de bestaande gegevens naar deze nieuwe accounts. 
 
 U kunt de volgende methoden gebruiken om bestaande gegevens vanaf on-premises opslagapparaten, van cloudopslagproviders van derden of vanuit bestaande opslagaccounts voor algemeen gebruik in Azure te migreren naar Blob Storage-accounts:
 
@@ -326,7 +324,7 @@ Ja. Het kenmerk **Acces Tier** dat op accountniveau is ingesteld, is de standaar
 
 Ja, u kunt de opslaglaag in het opslagaccount wijzigen door het kenmerk **Toegangslaag** in te stellen voor het opslagaccount. Als u de opslaglaag wijzigt, geldt dit voor alle objecten waarvoor geen expliciete laag is ingesteld en die zijn opgeslagen in het account. Bij het wijzigen van de opslaglaag van dynamisch naar statisch worden kosten in rekening gebracht voor zowel schrijfbewerkingen (per 10.000) (alleen voor GPv2-opslagaccounts). Bij het wijzigen van de opslaglaag van statisch naar dynamisch worden kosten in rekening gebracht voor zowel leesbewerkingen (per 10.000) als het ophalen van gegevens (per GB).
 
-**Hoe vaak kan ik de opslaglaag van mijn Blob Storage-account wijzigen?**
+**Hoe vaak kan ik de opslaglaag van mijn GPv2- of Blob Storage-account wijzigen?**
 
 Hoewel er geen beperking geldt voor het aantal keren dat u de opslaglaag kunt wijzigen, worden er voor het wijzigen van de opslaglaag van Cool naar Hot aanzienlijke kosten in rekening gebracht. Het wordt afgeraden de opslaglaag regelmatig te wijzigen.
 
@@ -339,6 +337,10 @@ Blobs in de opslaglaag voor 'cool' blobs hebben een lagere SLA (Service Level Av
 **Kan ik pagina-blobs en virtuele-machineschijven opslaan in Blob Storage-accounts?**
 
 Nee. Blob Storage-accounts ondersteunen alleen blok-blobs en toevoeg-blobs. Pagina-blobs worden niet ondersteund. Omdat virtuele machines van Azure gebruikmaken van pagina-blobs, kunnen virtuele-machineschijven niet worden opgeslagen in Blob Storage-accounts. Het is echter wel mogelijk om back-ups van de virtuele-machineschijven als blok-blobs op te slaan in een Blob Storage-account. Dit is een van de redenen om te overwegen GPv2 in plaats van Blob Storage-accounts te gebruiken.
+
+**Kan ik pagina-blobs in lagen met GPv2-opslagaccounts opdelen?**
+
+Nee. Pagina-blobs leiden de opslaglaag van uw account af, maar dit heeft geen invloed op prijs en beschikbaarheid. Het is niet mogelijk om de toegangslaag van een pagina-blob in Warm, Koud of Archief te wijzigen. De bewerking voor het instellen van een bloblaag is toegestaan op een paginablob in een Premium-opslagaccount, maar hiermee wordt alleen de toegestane grootte, de IOPS en de bandbreedte van de Premium-paginablob bepaald. Zie [Bloblaag instellen](https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier) voor meer informatie.
 
 **Moet ik mijn bestaande toepassingen wijzigen om GPv2-opslagaccounts te kunnen gebruiken?**
 

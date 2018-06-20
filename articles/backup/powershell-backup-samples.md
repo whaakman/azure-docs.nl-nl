@@ -1,34 +1,28 @@
 ---
-title: Voorbeelden van PowerShell voor Azure Backup | Microsoft Docs
-description: Voorbeelden van Azure Backup-PowerShell
+title: Azure Backup PowerShell-voorbeelden
+description: Azure Backup PowerShell-voorbeelden
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: f0ab7f5c397637a7d2c4d423edd29bc6edeb3841
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 841e8df146610de636a2f58c02c8ac2633ba2328
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607478"
 ---
 # <a name="azure-backup-powershell-samples"></a>Azure Backup PowerShell-voorbeelden
 
-De volgende tabel is gekoppeld aan de voorbeelden van de PowerShell-script dat back-up en herstellen van gegevens met Azure Backup.
+De volgende tabel bevat koppelingen naar PowerShell-scriptvoorbeelden waarin Azure Backup wordt gebruikt voor het maken van back-ups en het terugzetten van gegevens.
 
 | | |
 |---|---|
-|**Back-up van virtuele machines**||
-| [Back-up van een versleutelde virtuele machine naar Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Back-up van alle gegevens op de versleutelde virtuele machine.|
+|**Back-up maken van virtuele machines**||
+| [Een back-up maken van een versleutelde virtuele machine naar Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Maak een back-up van alle gegevens op de versleutelde virtuele machine.|
 | | |
 

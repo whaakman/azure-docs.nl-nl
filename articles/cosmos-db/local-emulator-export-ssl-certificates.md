@@ -1,108 +1,105 @@
 ---
-title: De Azure Cosmos DB Emulator certificaten exporteren | Microsoft Docs
-description: Bij het ontwikkelen van in talen en runtimes die geen van de Windows-certificaatarchief gebruikmaken moet u exporteren en de SSL-certificaten te beheren. Dit bericht geeft stapsgewijze instructies.
+title: De Azure Cosmos DB Emulator-certificaten exporteren | Microsoft Docs
+description: Wanneer u ontwikkelt in talen en runtimes waarvoor het Windows-certificaatarchief niet wordt gebruikt, moet u de SSL-certificaten exporteren en beheren. Dit bericht bevat stapsgewijze instructies.
 services: cosmos-db
-documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: voellm
 manager: kfile
 editor: ''
-ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d453cd544b3e913209f50e4e08b77282efab39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 5fce6553ce7407f892ed1de1f71bc812798f91c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611803"
 ---
-# <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporteren van de certificaten Azure Cosmos DB Emulator voor gebruiken met Java, Python en Node.js
+# <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>De Azure Cosmos DB Emulator-certificaten exporteren voor gebruik met Java, Python en Node.js
 
-[**Downloaden van de Emulator**](https://aka.ms/cosmosdb-emulator)
+[**De emulator downloaden**](https://aka.ms/cosmosdb-emulator)
 
-De Azure-Emulator Cosmos DB biedt een lokale omgeving waarin de service Azure Cosmos DB voor ontwikkelingsdoeleinden, met inbegrip van het gebruik van SSL-verbindingen. Dit artikel laat zien hoe u exporteert u het SSL-certificaat voor gebruik met talen en runtimes die niet worden geïntegreerd in de Windows-certificaatarchief zoals Java die gebruikmaakt van een eigen [certificaatarchief](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) en Python dat gebruikmaakt van [socket wrappers](https://docs.python.org/2/library/ssl.html) en Node.js dat gebruikmaakt van [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). U kunt meer lezen over de emulator in [de Emulator Azure Cosmos DB gebruiken voor ontwikkeling en tests](./local-emulator.md).
+De Azure Cosmos DB Emulator is een lokale omgeving waarin de Azure Cosmos DB-service wordt geëmuleerd voor ontwikkelingsdoeleinden, waaronder het gebruik van SSL-verbindingen. In dit bericht kunt u zien hoe u de SSL-certificaten kunt exporteren voor gebruik in talen en runtimes die niet kunnen integreren met het Windows-certificaatarchief, zoals Java, dat een eigen [certificaatarchief](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) gebruikt, Python dat [socketwrappers](https://docs.python.org/2/library/ssl.html) gebruikt en Node.js dat [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback) gebruikt. Meer informatie over de emulator vindt u in [Azure Cosmos DB Emulator gebruiken voor ontwikkeling en tests](./local-emulator.md).
 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
-> * Certificaten draaien
+> * Certificaten rouleren
 > * SSL-certificaat exporteren
-> * Het gebruik van het certificaat in Java, Python en Node.js leren
+> * Meer informatie over het gebruik van het certificaat in Java, Python en Node.js
 
-## <a name="certification-rotation"></a>Rotatie van de certificeringsinstantie
+## <a name="certification-rotation"></a>Certificering rouleren
 
-Certificaten in de Azure Cosmos DB lokale Emulator worden de eerste keer die is uitgevoerd op de emulator gegenereerd. Er zijn twee certificaten. Een gebruikt voor het verbinden met de lokale emulator en één voor het beheren van geheimen in de emulator. Het certificaat dat u wilt exporteren, is het verbindingscertificaat met de beschrijvende naam 'DocumentDBEmulatorCertificate'.
+Certificaten in Azure Cosmos DB Local Emulator worden gegenereerd wanneer de emulator de eerste keer wordt uitgevoerd. Er zijn twee certificaten. Eén wordt gebruikt voor het maken van verbinding met de lokale emulator en één voor het beheren van geheimen in de emulator. Het certificaat dat u wilt exporteren, is het verbindingscertificaat met de beschrijvende naam DocumentDBEmulatorCertificate.
 
-Beide certificaten kunnen worden hersteld door te klikken op **gegevens opnieuw** zoals hieronder wordt weergegeven in Azure Cosmos DB-Emulator wordt uitgevoerd in het Windows-systeemvak. Als u de certificaten opnieuw genereren en hebben ze in het certificaatarchief Java hebt geïnstalleerd of gebruikt ze ergens anders moet u deze bijwerken, anders uw toepassing wordt niet meer verbinding maken met de lokale emulator.
+Beide certificaten kunnen opnieuw worden gegenereerd door te klikken op **Gegevens herstellen**, zoals hieronder wordt weergegeven, vanuit Azure Cosmos DB Emulator dat actief is in het Windows-systeemvak. Als u de certificaten opnieuw genereert en deze hebt geïnstalleerd in het Java-certificaatarchief of ze ergens anders gebruikt, moet u deze bijwerken. Anders maakt de toepassing geen verbinding meer met de lokale emulator.
 
-![Azure DB Cosmos lokale emulator opnieuw instellen van gegevens](./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png)
+![Gegevens herstellen met de lokale emulator van Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png)
 
-## <a name="how-to-export-the-azure-cosmos-db-ssl-certificate"></a>Het exporteren van het Azure Cosmos DB SSL-certificaat
+## <a name="how-to-export-the-azure-cosmos-db-ssl-certificate"></a>Het SSL-certificaat van Azure Cosmos DB exporteren
 
-1. Start de Windows-certificaatbeheerder door certlm.msc uitgevoerd en navigeer naar de map persoonlijke-> certificaten en het certificaat openen met de beschrijvende naam **DocumentDbEmulatorCertificate**.
+1. Start het Windows-certificaatbeheer door certlm.msc uit te voeren en ga naar de map Persoonlijk->Certificaten om het certificaat met de beschrijvende naam **DocumentDbEmulatorCertificate** te openen.
 
-    ![Azure DB Cosmos lokale emulator exporteren stap 1](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
+    ![Stap 1 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
 
-2. Klik op **Details** vervolgens **OK**.
+2. Klik op **Details** en klik op **OK**.
 
-    ![Azure DB Cosmos lokale emulator exporteren stap 2](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
+    ![Stap 2 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
 
-3. Klik op **kopiëren naar bestand...** .
+3. Klik op **Kopiëren naar bestand...** .
 
-    ![Azure DB Cosmos lokale emulator exporteren stap 3](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
+    ![Stap 3 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
 4. Klik op **Volgende**.
 
-    ![Azure DB Cosmos lokale emulator exporteren stap 4](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
+    ![Stap 4 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
 
-5. Klik op **Nee, de persoonlijke sleutel niet exporteren**, klikt u vervolgens op **volgende**.
+5. Klik op **Nee, persoonlijke sleutel niet exporteren** en klik op **Volgende**.
 
-    ![Azure DB Cosmos lokale emulator exporteren stap 5](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png)
+    ![Stap 5 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png)
 
-6. Klik op **Base-64 gecodeerde X.509 (. CER)** en vervolgens **volgende**.
+6. Klik op **Base-64 encoded X.509 (.CER)** en klik op **Volgende**.
 
-    ![Azure DB Cosmos lokale emulator stap 6 exporteren](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png)
+    ![Stap 6 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png)
 
-7. Het certificaat een naam geven. In dit geval **documentdbemulatorcert** en klik vervolgens op **volgende**.
+7. Geef het certificaat een naam, in dit geval **documentdbemulatorcert**, en klik op **Volgende**.
 
-    ![Azure DB Cosmos lokale emulator stap 7 exporteren](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png)
+    ![Stap 7 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png)
 
 8. Klik op **Voltooien**.
 
-    ![Azure DB Cosmos lokale emulator stap 8 exporteren](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png)
+    ![Stap 8 van exporteren met lokale Azure DB Cosmos-emulator](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png)
 
-## <a name="how-to-use-the-certificate-in-java"></a>Het gebruik van het certificaat in Java
+## <a name="how-to-use-the-certificate-in-java"></a>Het certificaat gebruiken in Java
 
-Bij het uitvoeren van Java-toepassingen of MongoDB-toepassingen die gebruikmaken van de Java-client is het eenvoudiger om het certificaat installeren in het certificaatarchief van Java standaard dan geven de '-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword= '<password>'vlaggen. Bijvoorbeeld de opgenomen [Java-voorbeeldtoepassing](https://localhost:8081/_explorer/index.html) is afhankelijk van het standaard certificaatarchief.
+Wanneer u Java- of MongoDB-toepassingen uitvoert waarvoor de Java-client wordt gebruikt, is het makkelijker om het certificaat te installeren in het standaardcertificaatarchief van Java dan om de vlaggen "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>" door te geven. De opgenomen [Java-voorbeeldtoepassing](https://localhost:8081/_explorer/index.html) is bijvoorbeeld afhankelijk van het standaardcertificaatarchief.
 
-Volg de instructies in de [een certificaat toevoegen aan de Java CA certificatenarchief](https://docs.microsoft.com/azure/java-add-certificate-ca-store) het X.509-certificaat importeren in het certificaatarchief van de standaard Java. Houd werkt Vergeet niet dat u in de map % JAVA_HOME % wanneer keytool wordt uitgevoerd.
+Volg de instructies in [Een certificaat toevoegen aan het Java CA certificaatarchief](https://docs.microsoft.com/azure/java-add-certificate-ca-store) om het X.509-certificaat te importeren in het standaardcertificaatarchief van Java. Vergeet niet dat u in de map %JAVA_HOME% werkt wanneer u keytool uitvoert.
 
-Eenmaal de 'CosmosDBEmulatorCertificate' SSL-certificaat is geïnstalleerd uw toepassing moet kunnen verbinding maken en gebruiken van de lokale Azure Cosmos DB-Emulator. Als u problemen blijft ondervinden kunt u volgen de [SSL/TLS-verbindingen voor foutopsporing](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) artikel. Het is zeer waarschijnlijk dat het certificaat is niet geïnstalleerd in het archief %JAVA_HOME%/jre/lib/security/cacerts. Voor bijvoorbeeld als er meerdere geïnstalleerde versies van uw toepassing Java mogelijk gebruik van een andere cacerts archief dan één die u bijgewerkt.
+Wanneer het certificaat CosmosDBEmulatorCertificate is geïnstalleerd, kan de toepassing verbinding maken met de lokale Azure Cosmos DB-emulator en deze gebruiken. Als u problemen blijft ondervinden, leest u het artikel [Fouten in SSL/TLS-verbindingen opsporen](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). Het certificaat is waarschijnlijk niet geïnstalleerd in het archief %JAVA_HOME%/jre/lib/security/cacerts store. Als u bijvoorbeeld meerdere versies van Java hebt geïnstalleerd, kan de toepassing een ander cacerts-archief gebruiken dan het archief dat u hebt bijgewerkt.
 
-## <a name="how-to-use-the-certificate-in-python"></a>Het gebruik van het certificaat in Python
+## <a name="how-to-use-the-certificate-in-python"></a>Het certificaat gebruiken in Python
 
-Standaard de [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) voor de SQL-API wordt niet proberen en de SSL-certificaat gebruiken bij het verbinden met de lokale emulator. Als maar u wilt gebruiken, SSL-validatie voert u de voorbeelden in de [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentatie.
+Standaard wordt door de [Python SDK (versie 2.0.0 of hoger)](sql-api-sdk-python.md) voor de SQL-API niet het SSL-certificaat gebruikt bij het maken van verbinding met de lokale emulator. Als u echter wel SSL-validatie wilt gebruiken, volgt u de voorbeelden in de documentatie voor [Python-socketwrappers](https://docs.python.org/2/library/ssl.html).
 
-## <a name="how-to-use-the-certificate-in-nodejs"></a>Het gebruik van het certificaat in Node.js
+## <a name="how-to-use-the-certificate-in-nodejs"></a>Het certificaat gebruiken in Node.js
 
-Standaard de [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) voor de SQL-API wordt niet proberen en de SSL-certificaat gebruiken bij het verbinden met de lokale emulator. Als maar u wilt gebruiken, SSL-validatie voert u de voorbeelden in de [Node.js documentatie](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Standaard wordt door de [Node.js SDK (versie 1.10.1 of hoger)](sql-api-sdk-node.md) voor de SQL-API niet het SSL-certificaat gebruikt bij het maken van verbinding met de lokale emulator. Als u echter wel SSL-validatie wilt gebruiken, volgt u de voorbeelden in de [Node.js-documentatie](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Gedraaide certificaten
-> * Het SSL-certificaat wordt geëxporteerd
-> * Geleerd hoe u het certificaat in Java, Python en Node.js
+> * Certificaten gerouleerd
+> * Het SSL-certificaat geëxporteerd
+> * Geleerd over het gebruik van het certificaat in Java, Python en Node.js
 
-U kunt nu doorgaan met het maken van een HTTP-functies van Azure-trigger met een invoer binding Azure Cosmos DB zelfstudie.
+U kunt nu doorgaan met de zelfstudie Een Azure Functions HTTP-trigger maken met een Azure Cosmos DB-invoerbinding.
 
 > [!div class="nextstepaction"]
-> [Maken van een Azure-functie met invoer van de Azure Cosmos-database](tutorial-functions-http-trigger.md) 
+> [Een Azure-functie met invoer van Azure Cosmos DB maken](tutorial-functions-http-trigger.md) 

@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/18/2018
 ms.author: msangapu
-ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294008"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222974"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Op Linux FAQ-Azure App Service
 
 Met het uitbrengen van App-Service op Linux, momenteel niets over het toevoegen van functies en er verbeteringen aangebracht in ons platform. In dit artikel vindt u antwoorden op vragen of onze klanten is aangevraagd door ons onlangs.
 
-Als u een vraag, opmerking bij het artikel hebt en we deze zo snel mogelijk moet beantwoorden.
+Als u een vraag hebt, een reactie op in dit artikel.
 
 ## <a name="built-in-images"></a>Ingebouwde afbeeldingen
 
@@ -54,13 +54,13 @@ Ja, kunt u dat doen via de bronsite van de besturingselement-management (SCM).
 
 **Hoe kan ik een Linux-App Service-abonnement via een SDK of een Azure Resource Manager-sjabloon maken?**
 
-U moet instellen de **gereserveerde** veld van de app-service naar *true*.
+Stel de **gereserveerde** veld van de app-service naar *true*.
 
 ## <a name="continuous-integration-and-deployment"></a>Continue integratie en implementatie
 
 **Mijn web-app nog steeds de installatiekopie van een oude Docker-container gebruikt nadat ik de afbeelding op Docker-Hub hebt bijgewerkt. Ondersteund continue integratie en implementatie van aangepaste containers?**
 
-Continue integratie/implementatie instellen voor Azure Container register of DockerHub door het controleren van het volgende artikel afbeeldingen [continue implementatie met Web-App voor Containers](./app-service-linux-ci-cd.md). U kunt de container voor persoonlijke registers vernieuwen door te stoppen en vervolgens uw web-app te starten. Of u kunt wijzigen of toevoegen van een dummy toepassingsinstelling geforceerd vernieuwen van de container.
+Ja, voor het instellen van continue integratie/implementatie voor Azure Container register of DockerHub, door na [continue implementatie met Web-App voor Containers](./app-service-linux-ci-cd.md). U kunt de container voor persoonlijke registers vernieuwen door te stoppen en vervolgens uw web-app te starten. Of u kunt wijzigen of toevoegen van een dummy toepassingsinstelling geforceerd vernieuwen van de container.
 
 **Testomgevingen ondersteund?**
 
@@ -70,15 +70,15 @@ Ja.
 
 Ja, moet u een app instelling instellen `WEBSITE_WEBDEPLOY_USE_SCM` naar *false*.
 
-**GIT-implementatie van mijn toepassing mislukt wanneer u Linux-web-app. Hoe kan ik tijdelijke oplossing van het probleem?**
+**GIT-implementatie van mijn toepassing mislukt wanneer u Linux-web-app. Hoe kan ik het probleem omzeilen?**
 
-Als uw Linux-web-app niet Git-implementatie, kunt u de volgende alternatieve opties om de toepassingscode van uw te implementeren:
+Als uw Linux-web-app niet Git-implementatie, kies een van de volgende opties om de toepassingscode van uw te implementeren:
 
 - Gebruik de functie continue levering (Preview): U kunt de broncode van uw app opslaan in een Team Services Git-opslagplaats of GitHub-repo-continue levering van Azure gebruiken. Zie voor meer informatie [continue levering configureren voor Linux-web-app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Gebruik de [ZIP API implementeren](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Gebruik deze API [SSH in uw web-app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) en Ga naar de map waar u uw code te implementeren. Voer het volgende uit:
+- Gebruik de [ZIP API implementeren](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Gebruik deze API [SSH in uw web-app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) en Ga naar de map waar u uw code te implementeren. Voer de volgende code:
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -86,10 +86,11 @@ Als uw Linux-web-app niet Git-implementatie, kunt u de volgende alternatieve opt
 
 ## <a name="language-support"></a>Taalondersteuning
 
-**Ik wil websockets gebruiken in mijn Node.js-toepassing, eventuele speciale instellingen of -configuraties in te stellen?**
+**Ik wil websockets in mijn Node.js-toepassing, eventuele speciale instellingen of configuraties gebruiken om in te stellen?**
 
-Ja, uitschakelen `perMessageDeflate` in uw servercode voor Node.js. Als u socket.io gebruikt, doet u er bijvoorbeeld het volgende:
-```
+Ja, uitschakelen `perMessageDeflate` in uw serverzijde Node.js-code. Als u van socket.io gebruikmaakt, bijvoorbeeld de volgende code gebruiken:
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -101,16 +102,16 @@ Ja.
 
 **Ondersteund Composer als een afhankelijkheid manager voor PHP-apps?**
 
-Ja. Tijdens een Git-implementatie moet Kudu detecteren dat u een PHP-toepassing (dankzij de aanwezigheid van een bestand composer.lock) implementeert en Kudu vervolgens een installatie composer geactiveerd voor u.
+Tijdens een Git-implementatie moet Kudu Ja, detecteert dat u bij het implementeren van een PHP-toepassing (dankzij de aanwezigheid van een bestand composer.lock) en Kudu wordt een composer-installatie wordt geactiveerd.
 
 ## <a name="custom-containers"></a>Aangepaste containers
 
 **Ik gebruik mijn eigen aangepaste container. Ik wil het platform voor het koppelen van een SMB-share op de `/home/` directory.**
 
-U kunt dit doen door het instellen van de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app-instelling op *waar* of door het verwijderen van de app instellen volledig. Houd er rekening mee dat dit container wordt opnieuw opgestart wordt wanneer de opslag platform een wijziging doorloopt. 
+U kunt dit doen door het instellen van de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app-instelling op *true*. Houd er rekening mee dat dit ervoor container wordt opnieuw opgestart dat zorgt wanneer de opslag platform een wijziging doorloopt.
 
 >[!NOTE]
->Als de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` instelling is *false*, wordt de `/home/` directory wordt niet gedeeld met exemplaren van de schaal en bestanden die zijn geschreven er wordt niet worden vastgehouden in opnieuw wordt opgestart.
+>Als de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` instelling is niet opgegeven of is ingesteld op *false*, wordt de `/home/` directory wordt niet gedeeld met exemplaren van de schaal en bestanden die zijn geschreven er wordt niet worden vastgehouden in opnieuw wordt opgestart.
 
 **Mijn aangepaste container lang duurt om te starten en het platform de container opnieuw wordt opgestart voordat is gestart.**
 
@@ -162,6 +163,6 @@ U kunt uw idee op indienen de [forum met feedback van Web-Apps](https://aka.ms/w
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Wat is Azure App Service op Linux?](app-service-linux-intro.md)
-* [Faseringsomgevingen in Azure App Service instellen](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continue implementatie met Web-App voor Containers](./app-service-linux-ci-cd.md)
+- [Wat is Azure App Service op Linux?](app-service-linux-intro.md)
+- [Faseringsomgevingen in Azure App Service instellen](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Continue implementatie met Web-App voor Containers](./app-service-linux-ci-cd.md)

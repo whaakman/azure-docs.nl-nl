@@ -4,15 +4,15 @@ description: Beschrijft hoe u met behulp van de service Azure Migrate on-premise
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 695298be6cb9f56de26b8682c556285aba22d4a6
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e8d4380087e826a4f1332c0a39670c2309a10861
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272060"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236141"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>On-premises virtuele VMware-machines detecteren en beoordelen voor migratie naar Azure
 
@@ -118,29 +118,6 @@ Controleer of het .OVA-bestand veilig is voordat u het implementeert.
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    Voor OVA-versie 1.0.8.59
-
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    Voor OVA-versie 1.0.8.49
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    Voor OVA-versie 1.0.8.40:
-
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>De collector-VM maken
 
 Importeer het gedownloade bestand naar de vCenter Server.
@@ -162,7 +139,8 @@ Importeer het gedownloade bestand naar de vCenter Server.
 1. Klik in de vSphere Client-console met de rechtermuisknop op de VM > **Console openen**.
 2. Geef de voorkeursinstellingen voor de taal, de tijdzone en wachtwoorden op voor het apparaat.
 3. Klik op het bureaublad op de snelkoppeling **Collector uitvoeren**.
-4. Open in de Azure Migrate Collector het onderdeel **Vereisten instellen**.
+4. Klik in de bovenste balk van de gebruikersinterface van de collector op **Controleren op updates** en controleer of de nieuwste versie van de collector wordt uitgevoerd. Als dat niet het geval is, kunt u het nieuwste updatepakket downloaden via de koppeling en de collector bijwerken.
+5. Open in de Azure Migrate Collector het onderdeel **Vereisten instellen**.
     - Accepteer de licentievoorwaarden en lees de informatie van derden.
     - De collector controleert of de virtuele machine toegang heeft tot internet.
     - Als de virtuele machine via een proxy toegang heeft tot internet, klikt u op **Proxyinstellingen** en geeft u het proxyadres en de controlepoort op. Geef referenties op als de proxy verificatie nodig heeft. Lees [hier](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity) meer over de vereisten voor internetconnectiviteit en de lijst met URL's die de collector raadpleegt.
@@ -173,13 +151,13 @@ Importeer het gedownloade bestand naar de vCenter Server.
     - De collector controleert of de collector-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
     - Download en installeer VMware PowerCLI.
 
-5. Doe het volgende in **vCenter Server-details opgeven**:
+6. Doe het volgende in **vCenter Server-details opgeven**:
     - Geef de naam (FQDN) of het IP-adres op van de vCenter Server.
     - Geef in **User name** en **Password** de alleen-lezen accountreferenties op die de collector gebruikt om virtuele machines op de vCenter Server te detecteren.
     - Selecteer in **Collection scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1500 virtuele machines bevatten. Lees [hier](how-to-scale-assessment.md) meer over hoe u een grotere omgeving kunt detecteren.
 
-6. Geef in **Specify migration project** de Azure Migrate project-id en -sleutel op die u hebt gekopieerd in de portal. Als u deze niet hebt gekopieerd, opent u Azure Portal vanuit de collector-VM. Klik op de **overzichtspagina** van het project op **Machines detecteren** en kopieer de waarden.  
-7. In **View collection progress** bekijkt u de detectie en controleert u of metagegevens die vanuit de virtuele machines worden verzameld, zich binnen het bereik bevinden. De collector geeft aan hoe lang de detectie ongeveer zal duren. Lees [hier](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) meer over welke gegevens worden verzameld door de collector Azure Migrate.
+7. Geef in **Specify migration project** de Azure Migrate project-id en -sleutel op die u hebt gekopieerd in de portal. Als u deze niet hebt gekopieerd, opent u Azure Portal vanuit de collector-VM. Klik op de **overzichtspagina** van het project op **Machines detecteren** en kopieer de waarden.  
+8. In **View collection progress** bekijkt u de detectie en controleert u of metagegevens die vanuit de virtuele machines worden verzameld, zich binnen het bereik bevinden. De collector geeft aan hoe lang de detectie ongeveer zal duren. Lees [hier](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) meer over welke gegevens worden verzameld door de collector Azure Migrate.
 
 > [!NOTE]
 > De collector ondersteunt alleen 'Engels (Verenigde Staten)' als de taal van het besturingssysteem en de taal van de gebruikersinterface van de collector. Ondersteuning voor meer talen is binnenkort beschikbaar.
@@ -219,7 +197,7 @@ De weergave van de Azure-gereedheid in de evaluatie toont de gereedheidsstatus v
 - Niet gereed voor Azure
 - Gereedheid onbekend
 
-Voor virtuele machines die gereed zijn, wordt door Azure Migrate een VM-grootte in Azure aanbevolen. De aanbeveling voor de grootte die Azure Migrate heeft gedaan, is afhankelijk van het criterium voor het instellen van de grootte dat is opgegeven in de evaluatie-eigenschappen. Als het criterium voor het instellen van de grootte is gebaseerd op de prestaties, wordt de aanbeveling voor de grootte gedaan op basis van de prestatiegeschiedenis van de VM's. Als het criterium voor het instellen van de grootte 'zoals on-premises' is, wordt de aanbeveling voor de VM-grootte in Azure gedaan door te kijken naar de grootte van de on-premises VM (ongewijzigde grootte). Gegevens van CPU- en geheugengebruik door de VM worden niet meegenomen bij het bepalen van de VM-grootte. Als het instellen van de grootte is gebaseerd op 'zoals on-premises', wordt de grootte van de schijven bepaald door naar de prestatiegegevens te kijken.  [Meer informatie](concepts-assessment-calculation.md) over het instellen van de grootte in Azure Migrate.
+Voor virtuele machines die gereed zijn, wordt door Azure Migrate een VM-grootte in Azure aanbevolen. De aanbeveling voor de grootte die Azure Migrate heeft gedaan, is afhankelijk van het criterium voor het instellen van de grootte dat is opgegeven in de evaluatie-eigenschappen. Als het criterium voor het instellen van de grootte is gebaseerd op de prestaties, wordt de aanbeveling voor de grootte gedaan op basis van de prestatiegeschiedenis van de VM's (CPU en geheugen) en schijven (IOPS en doorvoer). Als het criterium voor het instellen van de grootte 'Zoals on-premises' is, houdt Azure Migrate geen rekening met de prestatiegegevens van de virtuele machine en de schijven. De aanbeveling voor de VM-grootte in Azure wordt gebaseerd op de grootte van de on-premises VM. De aanbeveling voor de grootte van de schijf wordt bepaald op basis van het type opslag dat is opgegeven bij de evaluatie-eigenschappen (de standaardwaarde is Premium-schijven). [Meer informatie](concepts-assessment-calculation.md) over het instellen van de grootte in Azure Migrate.
 
 Voor VM's die niet gereed of voorwaardelijk gereed zijn voor Azure, legt Azure Migrate de gereedheidsproblemen uit en biedt het herstelstappen aan.
 
@@ -244,7 +222,7 @@ Geschatte maandelijkse kosten voor computing en opslag worden samengevoegd voor 
 
 Elke evaluatie in Azure Migrate wordt gekoppeld aan een betrouwbaarheidsclassificatie van 1 ster tot 5 sterren (1 ster is de laagste score en 5 sterren de hoogste). De betrouwbaarheidsclassificatie wordt aan een evaluatie toegewezen op basis van de beschikbaarheid van de gegevenspunten die nodig zijn om de evaluatie te berekenen. De betrouwbaarheidsclassificatie van een evaluatie helpt u om de betrouwbaarheid in te schatten van de aanbevelingen voor de grootte die Azure Migrate geeft.
 
-Als u de grootte van de VM instelt op basis van de prestaties, heeft Azure Migrate de gebruiksgegevens nodig voor de CPU en het geheugen. Voor het bepalen van de grootte van elke schijf die aan de VM is gekoppeld, is de IOPS voor lezen/schrijven en doorvoer vereist. Ook heeft Azure Migrate voor iedere netwerkadapter die aan de VM is gekoppeld, gegevens over het inkomende/uitgaande netwerkverkeer nodig om de grootte in te kunnen stellen op basis van de prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten, zoals hieronder wordt weergegeven:
+De betrouwbaarheidsclassificatie van een evaluatie is nuttiger voor evaluaties die gebruikmaken van het criterium voor het aanpassen van de grootte als deze op basis van de prestaties plaatsvinden. Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebruiksgegevens nodig van de CPU en het geheugen van de virtuele machine. Voor elke schijf die aan de virtuele machine is gekoppeld, zijn de IOPS-gegevens van de schijf en de doorvoergegevens vereist. Ook heeft Azure Migrate voor iedere netwerkadapter die aan een VM is gekoppeld, gegevens over het inkomende/uitgaande netwerkverkeer nodig om de grootte in te kunnen stellen op basis van de prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten, zoals hieronder wordt weergegeven:
 
    **Beschikbaarheid van gegevenspunten** | **Betrouwbaarheidsclassificatie**
    --- | ---
@@ -269,3 +247,4 @@ Het kan voorkomen dat niet alle gegevenspunten beschikbaar zijn voor een evaluat
 - Meer informatie over het maken van uiterst betrouwbare evaluatiegroepen met behulp van [toewijzing van VM-afhankelijkheid](how-to-create-group-machine-dependencies.md)
 - [Meer informatie](concepts-assessment-calculation.md) over hoe evaluaties worden berekend.
 - [Meer informatie over](how-to-scale-assessment.md) het detecteren en evalueren van een grote VMware-omgeving.
+- [Lees](resources-faq.md) de veelgestelde vragen over Azure Migrate.

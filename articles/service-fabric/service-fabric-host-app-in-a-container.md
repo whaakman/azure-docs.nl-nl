@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/07/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: d0b3ce1fcabbc69c30e316a69e492da7c75d23ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207482"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642679"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Zelfstudie: Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
 
@@ -51,6 +51,8 @@ Controleer of de toepassing Fabrikam Fiber CallCenter wordt opgebouwd en zonder 
 
 ## <a name="containerize-the-application"></a>De toepassing in een container plaatsen
 Klik met de rechtermuisknop op het project **FabrikamFiber.Web** > **Add**  > **Container Orchestrator Support**.  Selecteer **Service Fabric** als de containerorchestrator en klik op **OK**.
+
+Klik op **Ja** om Docker nu over te schakelen naar Windows-containers.
 
 Het nieuwe Service Fabric-toepassingsproject **FabrikamFiber.CallCenterApplication** wordt in de oplossing gemaakt.  Er wordt een Dockerfile toegevoegd aan het bestaande **FabrikamFiber.Web**-project.  Ook wordt de map **PackageRoot** toegevoegd aan het project **FabrikamFiber.Web**, dat het servicemanifest en de instellingen voor de nieuwe FabrikamFiber.Web-service bevat. 
 
@@ -120,16 +122,17 @@ Werk in het project **FabrikamFiber.Web** de verbindingsreeks in het bestand **w
 >U een SQL Server naar keuze gebruiken voor lokale foutopsporing, zolang deze bereikbaar is vanaf de host. **localdb** biedt echter geen ondersteuning voor `container -> host`-communicatie. Als u een andere SQL-database wilt gebruiken tijdens het bouwen van een release-build van uw webtoepassing, voeg dan nog een verbindingsreeks toe aan uw *web.release.config*-bestand.
 
 ## <a name="run-the-containerized-application-locally"></a>De in een container geplaatste toepassing lokaal uitvoeren
-Druk op **F5** om de toepassing in een container uit te voeren en er fouten in op te sporen in het Service Fabric-ontwikkelingscluster.
+Druk op **F5** om de toepassing in een container uit te voeren en er fouten in op te sporen in het Service Fabric-ontwikkelingscluster. Klik op **Ja** als u een bericht ziet waarin wordt gevraagd om de groep 'ServiceFabricAllowedUsers' lees- en schrijfmachtigingen te verlenen voor de projectmap van Visual Studio.
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
-Nu de toepassing lokaal wordt uitgevoerd, begint u met de voorbereidingen voor implementatie in Azure.  Containerinstallatiekopieën moeten worden opgeslagen in een containerregister.  Maak een [Azure Container Registry](/azure/container-registry/container-registry-intro) met behulp van het volgende script.  Voordat u de toepassing in Azure implementeert, pusht u de containerinstallatiekopie naar dit register.  Wanneer de toepassing in het cluster in Azure is geïmplementeerd, wordt de installatiekopie van de container opgehaald uit dit register.
+Nu de toepassing lokaal wordt uitgevoerd, begint u met de voorbereidingen voor implementatie in Azure.  Containerinstallatiekopieën moeten worden opgeslagen in een containerregister.  Maak een [Azure Container Registry](/azure/container-registry/container-registry-intro) met behulp van het volgende script. De registernaam van de container is zichtbaar voor andere Azure-abonnementen en moet daarom uniek zijn.
+Voordat u de toepassing in Azure implementeert, pusht u de containerinstallatiekopie naar dit register.  Wanneer de toepassing in het cluster in Azure is geïmplementeerd, wordt de installatiekopie van de container opgehaald uit dit register.
 
 ```powershell
 # Variables
 $acrresourcegroupname = "fabrikam-acr-group"
 $location = "southcentralus"
-$registryname="fabrikamregistry"
+$registryname="fabrikamregistry$(Get-Random)"
 
 New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
 
@@ -143,7 +146,9 @@ U kunt:
 - Een testcluster maken vanuit Visual Studio. Met deze optie kunt u een beveiligd cluster rechtstreeks vanuit Visual Studio met de configuraties van uw voorkeur maken. 
 - [Een beveiligd cluster maken op basis van een sjabloon](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
-Wanneer u het cluster maakt, kiest u een SKU die ondersteuning biedt voor actieve containers (zoals Windows Server 2016 Datacenter met Containers). In deze zelfstudie wordt een cluster gemaakt vanuit Visual Studio, wat ideaal is voor testscenario's. Als u op een andere manier een cluster hebt gemaakt of een bestaand cluster gebruikt, kunt u uw verbindingseindpunt kopiëren en plakken, of kunt u het kiezen vanuit uw abonnement. 
+In deze zelfstudie wordt een cluster gemaakt vanuit Visual Studio, wat ideaal is voor testscenario's. Als u op een andere manier een cluster hebt gemaakt of een bestaand cluster gebruikt, kunt u uw verbindingseindpunt kopiëren en plakken, of kunt u het kiezen vanuit uw abonnement. 
+
+Kies bij het maken van het cluster een SKU die ondersteuning biedt voor actieve containers. Het besturingssysteem Windows Server op de clusterknooppunten moet compatibel zijn met het Windows Server-besturingssysteem van de container. Zie [Compatibiliteit tussen besturingssysteem van Windows Server-container en host-besturingssysteem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) voor meer informatie. In deze zelfstudie wordt standaard een Docker-installatiekopie op basis van Windows Server 2016 LTSC gebruikt. Containers op basis van deze installatiekopie kunnen worden uitgevoerd op clusters die zijn gemaakt met Windows Server 2016 Datacenter with Containers. Als u echter een cluster maakt of een bestaand cluster gebruikt op basis van Windows Server Datacenter Core 1709 with Containers, moet u de installatiekopie van het besturingssysteem van Windows Server waarop de container is gebaseerd wijzigen. Open het **Dockerfile** in het project **FabrikamFiber.Web**, maak een commentaar van de bestaande `FROM`-instructie (gebaseerd op `windowsservercore-ltsc`) en verwijder het commentaarteken voor de `FROM`-instructie die is gebaseerd op `windowsservercore-1709`. 
 
 1. Klik met de rechtermuisknop op het toepassingsproject **FabrikamFiber.CallCenterApplication** in Solution Explorer en kies **Publiceren**.
 

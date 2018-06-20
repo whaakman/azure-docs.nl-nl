@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7d7fcaded1f088961fb139b1fba6b1944b383435
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616508"
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Versies 1 en 2 van Azure Data Factory vergelijken
 In dit artikel wordt versie 2 (V2) van Azure Data Factory vergeleken met versie 1 (V1). Zie voor meer informatie over V1 [Inleiding tot Azure Data Factory](v1/data-factory-introduction.md). Zie voor meer informatie over V2 [Inleiding tot Data Factory (V2 - preview)](introduction.md).
@@ -139,7 +140,7 @@ De SDK's die zijn bijgewerkt voor V2 zijn niet achterwaarts compatibel met V1-cl
 
 ## <a name="roles-and-permissions"></a>Rollen en machtigingen
 
-De rol Bijdrager van Data Factory, versie 1, kan niet worden gebruikt voor het maken en beheren van resources van Data Factory, versie 2.
+De rol Bijdrager van Data Factory, versie 1, kan niet worden gebruikt voor het maken en beheren van resources van Data Factory, versie 2. Raadpleeg [Data Factory Contributor](../role-based-access-control/built-in-roles.md#data-factory-contributor) voor meer informatie.
 
 ## <a name="monitoring-experience"></a>Bewaken
 In V2 kunt u ook data factory's bewaken met behulp van [Azure Monitor](monitor-using-azure-monitor.md). De nieuwe PowerShell-cmdlets bieden ondersteuning voor het bewaken van [integratie-runtimes](monitor-integration-runtime.md). Zowel V1 als V2 ondersteunen visueel bewaken via bewakingstoepassingen die vanuit Azure Portal kunnen worden gestart.

@@ -1,73 +1,71 @@
 ---
-title: Gebruik Azure IoT Hub apparaat inrichtingsservice inrichten van apparaten over load balanced IoT hubs | Microsoft Docs
-description: DP's de inrichting van automatische inrichting voor load balanced IoT hubs in Azure Portal
-services: iot-dps
-keywords: 
+title: De Azure IoT Hub Device Provisioning-service gebruiken om apparaten in te richten op IoT-hubs met gelijke taakverdeling | Microsoft Docs
+description: DPS voor automatische apparaatinrichting voor IoT-hubs met gelijke taakverdeling in Azure Portal
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: d0a3720fe729d5e260bbe5b0902460c8c7cfc7cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629623"
 ---
-# <a name="provision-devices-across-load-balanced-iot-hubs"></a>Inrichten van apparaten via IoT hubs Netwerktaakverdeling
+# <a name="provision-devices-across-load-balanced-iot-hubs"></a>Apparaten inrichten in IoT-hubs met gelijke taakverdeling
 
-Deze zelfstudie laat zien dat het inrichten van apparaten voor meerdere, taakverdeling IoT hubs met behulp van het apparaat wordt ingericht Service (DP's). In deze zelfstudie leert u het volgende:
+In deze zelfstudie kunt u zien hoe u apparaten kunt inrichten voor meerdere IoT-hubs met gelijke taakverdeling met behulp van de Device Provisioning-service (DPS). In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * De Azure portal gebruiken voor het inrichten van een tweede apparaat met een tweede IoT-hub 
-> * Een inschrijving lijst vermelding toevoegen aan het tweede apparaat
-> * Het toewijzingsbeleid DP's ingesteld op **zelfs als deze distributie**
-> * De nieuwe iothub aan DP's koppelen
+> * Azure Portal gebruiken om een tweede apparaat in te richten op een tweede IoT-hub 
+> * Een vermelding in de registratielijst toevoegen aan het tweede apparaat
+> * Het DPS-toewijzingsbeleid instellen op **gelijkmatige verdeling**
+> * De nieuwe IoT-hub aan DPS koppelen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze zelfstudie bouwt voort op de vorige [inrichten van het apparaat een hub](tutorial-provision-device-to-hub.md) zelfstudie.
+Deze zelfstudie gaat verder op de vorige zelfstudie [Een apparaat inrichten op een hub](tutorial-provision-device-to-hub.md).
 
-## <a name="use-the-azure-portal-to-provision-a-second-device-to-a-second-iot-hub"></a>De Azure portal gebruiken voor het inrichten van een tweede apparaat met een tweede IoT-hub
+## <a name="use-the-azure-portal-to-provision-a-second-device-to-a-second-iot-hub"></a>Azure Portal gebruiken om een tweede apparaat in te richten op een tweede IoT-hub
 
-Volg de stappen in de [inrichten van het apparaat een hub](tutorial-provision-device-to-hub.md) zelfstudie voor het inrichten van een tweede apparaat met een andere IoT-hub.
+Volg de stappen in de zelfstudie [Een apparaat inrichten op een hub](tutorial-provision-device-to-hub.md) om een tweede apparaat in te richten op een andere IoT-hub.
 
-## <a name="add-an-enrollment-list-entry-to-the-second-device"></a>Een inschrijving lijst vermelding toevoegen aan het tweede apparaat
+## <a name="add-an-enrollment-list-entry-to-the-second-device"></a>Een vermelding in de registratielijst toevoegen aan het tweede apparaat
 
-De lijst van de inschrijving wordt het DP's uitgelegd welke methode van attestation (de methode voor het bevestigen van een apparaat-id) die worden gebruikt met het apparaat. De volgende stap is het toevoegen van een vermelding van de lijst met inschrijving voor het tweede apparaat. 
+Via de registratielijst wordt voor DPS aangegeven welke methode van attestation (de methode waarmee een apparaat-id wordt bevestigd) wordt gebruikt voor het apparaat. In de volgende stap voegt u een vermelding aan de registratielijst toe voor het tweede apparaat. 
 
-1. Klik op de pagina voor uw DP's, **inschrijvingen beheren**. De **inschrijving lijst vermelding toevoegen** pagina wordt weergegeven. 
-2. Klik boven aan de pagina op **toevoegen**.
-2. Vul de velden en klik vervolgens op **opslaan**.
+1. Klik op de pagina voor uw DPS op **Registraties beheren**. De pagina **Vermelding aan registratielijst toevoegen** wordt weergegeven. 
+2. Klik boven aan de pagina op **Toevoegen**.
+2. Vul de velden in en klik op **Opslaan**.
 
-## <a name="set-the-dps-allocation-policy"></a>Stel het beleid van de toewijzing DP 's
+## <a name="set-the-dps-allocation-policy"></a>Het DPS-toewijzingsbeleid instellen
 
-Het toewijzingsbeleid is een DP's-instelling die bepaalt hoe apparaten worden toegewezen aan een IoT-hub. Er zijn drie ondersteunde toewijzingsbeleid: 
+Het toewijzingsbeleid is een DPS-instelling waarmee wordt bepaald hoe apparaten aan een IoT-hub worden toegewezen. Er worden drie soorten toewijzingsbeleid ondersteund: 
 
-1. **Laagste latentie**: apparaten die zijn ingericht met een IoT-hub die is gebaseerd op de hub met de laagste latentie voor het apparaat.
-2. **Gelijkmatig gewogen distributie** (standaard): gekoppelde IoT hubs zijn waarschijnlijk gelijkmatig ingericht op deze apparaten hebben. Dit is de standaardinstelling. Als u apparaten met slechts één IoT-hub inricht, kunt u deze instelling bewaren. 
-3. **Statische configuratie via de lijst inschrijving**: specificatie van de gewenste IoT-hub in de lijst inschrijving heeft voorrang boven het toewijzingsbeleid DP's-niveau.
+1. **Laagste latentie**: apparaten worden ingericht voor een IoT-hub op basis van de hub met de laagste latentie voor het apparaat.
+2. **Gelijk gewogen distributie** (standaardinstelling): gekoppelde IoT-hubs hebben evenveel kans dat apparaten voor ze worden ingericht. Dit is de standaardinstelling. Als u apparaten voor slechts één IoT-hub inricht, kunt u deze instelling bewaren. 
+3. **Statische configuratie via de registratielijst**: specificatie van de gewenste IoT-hub in de registratielijst heeft voorrang boven het toewijzingsbeleid op DPS-niveau.
 
-Volg deze stappen voor het instellen van het toewijzingsbeleid voor:
+Volg deze stappen om het toewijzingsbeleid in te stellen:
 
-1. U stelt het toewijzingsbeleid door op de pagina DP's op **beheren toewijzingsbeleid voor**.
-2. De van toewijzingsbeleid instellen op **gelijkmatig gewogen distributie**.
+1. Als u het toewijzingsbeleid wilt instellen, klikt u op de pagina DPS op **Toewijzingsbeleid beheren**.
+2. Stel het DPS-toewijzingsbeleid in op **Gelijk gewogen distributie**.
 3. Klik op **Opslaan**.
 
-## <a name="link-the-new-iot-hub-to-dps"></a>De nieuwe iothub aan DP's koppelen
+## <a name="link-the-new-iot-hub-to-dps"></a>De nieuwe IoT-hub aan DPS koppelen
 
-De DP's en IoT-hub koppelen zodat DP's hub-apparaten kunt registreren.
+Koppel de DPS en IoT-hub, zodat via DPS apparaten kunnen worden geregistreerd naar deze hub.
 
-1. In de **alle resources** pagina, klikt u op de DP's die u eerder hebt gemaakt.
-2. Klik op de pagina DP's **gekoppelde IoT hubs**.
+1. Klik op de pagina **Alle resources** op de DPS die u eerder hebt gemaakt.
+2. Klik op de pagina DPS op **Gekoppelde IoT-hubs**.
 3. Klik op **Add**.
-4. In de **koppeling toevoegen met iothub** pagina, gebruik de keuzerondjes om op te geven of de gekoppelde IoT-hub zich in het huidige abonnement of in een ander abonnement bevindt. Kies de naam van de IoT-hub uit de **IoT-hub** vak.
+4. Geef op de pagina **Koppeling toevoegen aan IoT-hub** met behulp van de keuzerondjes aan of de gekoppelde IoT-hub zich in het huidige abonnement of in een ander abonnement bevindt. Kies vervolgens de naam van de IoT-hub in het vak **IoT-hub**.
 5. Klik op **Opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -75,10 +73,10 @@ De DP's en IoT-hub koppelen zodat DP's hub-apparaten kunt registreren.
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * De Azure portal gebruiken voor het inrichten van een tweede apparaat met een tweede IoT-hub 
-> * Een inschrijving lijst vermelding toevoegen aan het tweede apparaat
-> * Het toewijzingsbeleid DP's ingesteld op **zelfs als deze distributie**
-> * De nieuwe iothub aan DP's koppelen
+> * Azure Portal gebruiken om een tweede apparaat in te richten op een tweede IoT-hub 
+> * Een vermelding in de registratielijst toevoegen aan het tweede apparaat
+> * Het DPS-toewijzingsbeleid instellen op **gelijkmatige verdeling**
+> * De nieuwe IoT-hub aan DPS koppelen
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

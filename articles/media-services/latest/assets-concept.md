@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 791871fc3da98b380da9dbe32333a55f670c22e8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 541a8e83029fe1dc0ba386d1906b366e63041882
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638276"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268239"
 ---
 # <a name="assets"></a>Assets
 
@@ -88,7 +88,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 Paginering wordt ondersteund voor elk van de vier ingeschakelde sorteervolgorde. 
 
-Als een queryantwoord bevat een groot aantal (momenteel meer dan 1000) items, de service retourneert een '@odata.nextLink' eigenschap ophalen van de volgende pagina van de resultaten. Dit kan worden gebruikt door de volledige resultatenset. De paginagrootte kan niet worden geconfigureerd door de gebruiker. 
+Als een queryantwoord bevat een groot aantal (momenteel meer dan 1000) items, de service retourneert een '\@odata.nextLink ' eigenschap ophalen van de volgende pagina van de resultaten. Dit kan worden gebruikt door de volledige resultatenset. De paginagrootte kan niet worden geconfigureerd door de gebruiker. 
 
 Als activa zijn gemaakt of verwijderd tijdens het wisselbestand via de verzameling, worden de wijzigingen doorgevoerd in de geretourneerde resultaten (als deze wijzigingen zijn in het gedeelte van de verzameling die niet zijn gedownload.) 
 
@@ -105,6 +105,21 @@ while (currentPage.NextPageLink != null)
 ```
 
 Zie voor voorbeelden van REST [activa - lijst](https://docs.microsoft.com/rest/api/media/assets/list)
+
+
+### <a name="storage-side-encryption"></a>Versleuteling van opslag aan de clientzijde
+
+Ter bescherming van uw Assets in rust, moeten de activa door de versleuteling van opslag aan de clientzijde worden versleuteld. De volgende tabel ziet u hoe de versleuteling van opslag aan de clientzijde werkt in een Media Services:
+
+|versleutelingsoptie|Beschrijving|Media Services v2|Media Services v3|
+|---|---|---|---|
+|Media Services-versleuteling van opslag|AES-256-versleuteling, key beheerd door Media Services|Ondersteund<sup>(1)</sup>|Niet ondersteund<sup>(2)</sup>|
+|[Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Versleuteling aan de clientzijde van de server die worden aangeboden door Azure Storage-sleutel beheerd door Azure of door de klant|Ondersteund|Ondersteund|
+|[Versleuteling van opslag aan de clientzijde](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Versleuteling van clientzijde die worden aangeboden door de Azure-opslag, beheerd door de klant in de Sleutelkluis sleutel|Niet ondersteund|Niet ondersteund|
+
+<sup>1</sup> terwijl Media Services biedt ondersteuning voor de verwerking van inhoud in het wissen/zonder enige vorm van versleuteling, dit dus niet aanbevolen.
+
+<sup>2</sup> in Media Services-v3 versleuteling van opslag (AES-256-versleuteling) wordt alleen ondersteund voor compatibiliteit met eerdere wanneer uw Assets met Media Services-v2 zijn gemaakt. Dit betekent dat v3 werkt met bestaande opslag activa versleuteld, maar staat niet toe dat het maken van nieuwe activiteiten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

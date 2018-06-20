@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 25989d07b7d879ac68283ee56a7ccb0c07e09623
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
-ms.translationtype: HT
+ms.openlocfilehash: 76300b307c8e87a3dd108fc53d3b30a53d3276dd
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35345956"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263921"
 ---
 # <a name="manage-your-luis-account"></a>Uw account LUIS beheren
 De twee belangrijkste stukjes informatie voor een account LUIS zijn het gebruikersaccount en de sleutel ontwerpen. Uw aanmeldingsgegevens wordt beheerd op [account.microsoft.com](https://account.microsoft.com). Uw ontwerp sleutel wordt beheerd vanaf de [LUIS][LUIS] website **instellingen** pagina. 
@@ -50,8 +50,12 @@ Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [
 
 Als de tenantbeheerder wil dat alleen bepaalde gebruikers LUIS gebruiken, verwijzen naar dit [identiteit blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
+### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Gebruikersaccounts met meerdere e-mailberichten voor deelnemers
+Als u deelnemers aan een app LUIS toevoegt, geeft u het exacte e-mailadres moet een samenwerker LUIS gebruiken als een samenwerker. Terwijl Azure Active Directory (Azure AD) kan een enkele gebruiker meer dan één e-mailaccount uitwisselbaar, vereist LUIS dat gebruikers zich aanmelden met het e-mailadres dat is opgegeven in de lijst van de medewerker. 
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over uw [authoring sleutel](luis-concept-keys.md#authoring-key). 
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

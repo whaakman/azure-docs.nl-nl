@@ -1,66 +1,64 @@
 ---
-title: Ondersteuning van Azure DB Cosmos-functie voor MongoDB | Microsoft Docs
-description: Meer informatie over de functies die worden ondersteund die de MongoDB-API van Azure Cosmos DB voor MongoDB 3.4 biedt.
+title: Functieondersteuning in Azure Cosmos DB voor MongoDB | Microsoft Docs
+description: Meer informatie over de functieondersteuning die de Azure Cosmos DB MongoDB-API biedt voor MongoDB 3.4.
 services: cosmos-db
 author: alekseys
 manager: kfile
-documentationcenter: ''
-ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796352"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>API-ondersteuning voor MongoDB voor MongoDB-functies en -syntaxis
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt communiceren met de MongoDB-API van de database via een van de open-source MongoDB-client [stuurprogramma's](https://docs.mongodb.org/ecosystem/drivers). De MongoDB-API maakt het gebruik van de bestaande client-stuurprogramma's door aan de MongoDB [wire-protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt met de MongoDB-API van de database communiceren via een van de open-source MongoDB-[clientstuurprogramma's](https://docs.mongodb.org/ecosystem/drivers). De MongoDB-API maakt het gebruik van bestaande clientstuurprogramma's mogelijk doordat de API functioneert conform het MongoDB-[wireprotocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Met behulp van de Azure-API voor MongoDB Cosmos DB, kunt u profiteren van de voordelen van de MongoDB-APIs bent u gewend om, met alle van de enterprise-mogelijkheden die Azure Cosmos DB biedt: [globale distributie](distribute-data-globally.md), [automatische sharding](partition-data.md), beschikbaarheid en latentie garanties, automatische indexering van elk veld, versleuteling bij rust, back-ups en nog veel meer.
+Door gebruik te maken van de Azure Cosmos DB MongoDB-API hebt u de beschikking over de voordelen van de vertrouwde MongoDB-API’s, met alle zakelijke mogelijkheden die Azure Cosmos DB biedt: [wereldwijde distributie](distribute-data-globally.md), [automatische sharding](partition-data.md), garanties voor beschikbaarheid en latentie, automatisch indexeren van alle velden, versleuteling van niet-actieve gegevens, het maken van back-ups, en meer.
 
-## <a name="mongodb-query-language-support"></a>Taalondersteuning voor MongoDB-query
+## <a name="mongodb-query-language-support"></a>Ondersteuning voor MongoDB-querytaal
 
-Azure Cosmos DB MongoDB-API biedt uitgebreide ondersteuning voor taalconstructs MongoDB-query. Hieronder vindt u de gedetailleerde lijst met ondersteunde bewerkingen, operators, fasen, opdrachten en opties.
+Azure Cosmos DB MongoDB-API biedt uitgebreide ondersteuning voor MongoDB-querytaalconstructs. Hieronder ziet u de gedetailleerde lijst met momenteel ondersteunde bewerkingen, operators, fasen, opdrachten en opties.
 
 
 ## <a name="database-commands"></a>Databaseopdrachten
 
-Azure Cosmos DB ondersteunt de volgende databaseopdrachten op alle MongoDB-API-accounts. 
+Azure Cosmos DB biedt ondersteuning voor de volgende databaseopdrachten op alle MongoDB-API-accounts. 
 
-### <a name="query-and-write-operation-commands"></a>Vragen en in te schrijven bewerking opdrachten
-- verwijderen
-- zoeken
+### <a name="query-and-write-operation-commands"></a>Opdrachten voor query- en schrijfbewerkingen
+- delete
+- find
 - findAndModify
 - getLastError
 - getMore
-- Invoegen
-- bijwerken
+- insert
+- update
 
-### <a name="authentication-commands"></a>Verificatie-opdrachten
-- afmelden
-- Verifiëren
+### <a name="authentication-commands"></a>Verificatieopdrachten
+- logout
+- authenticate
 - getnonce
 
-### <a name="administration-commands"></a>Van beheeropdrachten
+### <a name="administration-commands"></a>Beheeropdrachten
 - dropDatabase
 - listCollections
-- vervolgkeuzelijst
+- drop
 - maken
 - filemd5
 - createIndexes
 - listIndexes
 - dropIndexes
-- ConnectionStatus
+- connectionStatus
 - reIndex
 
-### <a name="diagnostics-commands"></a>Opdrachten van diagnostische gegevens
+### <a name="diagnostics-commands"></a>Diagnostics commands
 - buildInfo
 - collStats
 - dbStats
@@ -70,21 +68,21 @@ Azure Cosmos DB ondersteunt de volgende databaseopdrachten op alle MongoDB-API-a
 
 <a name="aggregation-pipeline"/>
 
-## <a name="aggregation-pipelinea"></a>Aggregatie-pipeline</a>
+## <a name="aggregation-pipelinea"></a>Samenvoegingspijplijn</a>
 
-Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azure blog](https://aka.ms/mongodb-aggregation) voor instructies over het voorbereiden voor de openbare preview.
+Azure Cosmos DB biedt ondersteuning voor samenvoegingspijplijnen in de openbare preview-versie. Lees het [Azure-blog](https://aka.ms/mongodb-aggregation) voor instructies over deelname aan de openbare preview-versie.
 
-### <a name="aggregation-commands"></a>Aggregatie van opdrachten
+### <a name="aggregation-commands"></a>Samenvoegingsopdrachten
 - aggregate
-- aantal
-- Afzonderlijke
+- count
+- distinct
 
-### <a name="aggregation-stages"></a>Aggregatie-fasen
+### <a name="aggregation-stages"></a>Samenvoegingsfasen
 - $project
 - $match
 - $limit
 - $skip
-- $afwikkelbewerking
+- $unwind
 - $group
 - $sample
 - $sort
@@ -93,14 +91,14 @@ Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azu
 - $count
 - $addFields
 
-### <a name="aggregation-expressions"></a>Statistische expressies
+### <a name="aggregation-expressions"></a>Expressies voor samenvoegen
 
 #### <a name="boolean-expressions"></a>Booleaanse expressies
-- $en
-- $of
+- $and
+- $or
 - $not
 
-#### <a name="set-expressions"></a>Set-expressies
+#### <a name="set-expressions"></a>Expressies voor instellen
 - $setEquals
 - $setIntersection
 - $setUnion
@@ -109,7 +107,7 @@ Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azu
 - $anyElementTrue
 - $allElementsTrue
 
-#### <a name="comparison-expressions"></a>Vergelijkingsexpressies
+#### <a name="comparison-expressions"></a>Expressies voor vergelijken
 - $cmp
 - $eq
 - $gt
@@ -118,9 +116,9 @@ Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azu
 - $lte
 - $ne
 
-#### <a name="arithmetic-expressions"></a>Aritmetische expressies
+#### <a name="arithmetic-expressions"></a>Rekenkundige expressies
 - $abs
-- $toevoegen
+- $add
 - $ceil
 - $divide
 - $exp
@@ -129,13 +127,13 @@ Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azu
 - $log
 - $log10
 - $mod
-- $vermenigvuldigen
+- $multiply
 - $pow
 - $sqrt
-- $aftrekken
+- $subtract
 - $trunc
 
-#### <a name="string-expressions"></a>Expressies voor verbindingsreeksen
+#### <a name="string-expressions"></a>Tekenreeksexpressies
 - $concat
 - $indexOfBytes
 - $indexOfCP
@@ -149,7 +147,7 @@ Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azu
 - $toLower
 - $toUpper
 
-#### <a name="array-expressions"></a>Matrix-expressies
+#### <a name="array-expressions"></a>Matrixexpressies
 - $arrayElemAt
 - $concatArrays
 - $filter
@@ -170,7 +168,7 @@ Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azu
 - $week
 - $hour
 - $minute
-- $tweede
+- $second
 - $millisecond
 - $isoDayOfWeek
 - $isoWeek
@@ -179,11 +177,11 @@ Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azu
 - $cond
 - $ifNull
 
-## <a name="aggregation-accumulators"></a>Aggregatie accu 's
+## <a name="aggregation-accumulators"></a>Samenvoegingsaccumulators
 - $sum
 - $avg
-- $eerste
-- $laatste
+- $first
+- $last
 - $max
 - $min
 - $push
@@ -191,7 +189,7 @@ Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azu
 
 ## <a name="operators"></a>Operators
 
-Volgende operatoren worden ondersteund met de bijbehorende voorbeelden van hun gebruik. Houd rekening met dit voorbeelddocument in de onderstaande query's gebruikt:
+De volgende operators worden ondersteund met de bijbehorende gebruiksvoorbeelden. Overweeg om dit voorbeelddocument te gebruiken in de onderstaande query’s:
 
 ```json
 {
@@ -222,47 +220,47 @@ $lte | ``` { "Elevation": { $lte: 5000 } } ``` | | -
 $ne | ``` { "Elevation": { $ne: 1 } } ``` |  | -
 $in | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |  | -
 $nin | ``` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } ``` | | -
-$of | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
-$en | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
+$or | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
+$and | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
 $not | ``` { "Elevation": { $not: { $gt: 5000 } } } ```|  | -
-$noch | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |  | -
-$bestaat | ``` { "Status": { $exists: true } } ```|  | -
+$nor | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |  | -
+$exists | ``` { "Status": { $exists: true } } ```|  | -
 $type | ``` { "Status": { $type: "string" } } ```|  | -
 $mod | ``` { "Elevation": { $mod: [ 4, 0 ] } } ``` |  | -
 $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 ### <a name="notes"></a>Opmerkingen
 
-In $regex query's kunnen expressies links verankerd search index. Echter met behulp van 'i' aanpassingsfunctie (hoofdlettergevoeligheid) en 'M ' aanpassingsfunctie (multiline) zorgt ervoor dat de verzameling scan in alle expressies.
-Wanneer er een nodig om '$' of ' |', het is raadzaam om twee (of meer) regex-query's maken. Bijvoorbeeld, krijgt de volgende query in de oorspronkelijke: ```find({x:{$regex: /^abc$/})```, er als volgt worden gewijzigd: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-Het eerste deel wordt de index met de zoekopdracht beperken tot deze documenten vanaf ^ abc en het tweede gedeelte komt overeen met de exacte vermeldingen. De balk operator ' |' fungeert als een functie 'of' - de query ```find({x:{$regex: /^abc|^def/})``` overeenkomt met de documenten in welk veld 'x' waarden die met heeft "abc" of "def beginnen". Als u wilt gebruikmaken van de index, verdient het aanbeveling om de query in twee verschillende query's die worden toegevoegd door de $of operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+In $regex-query’s is zoeken in de index toegestaan op basis van links-verankerde expressies. Als u echter de aanpassingsfuncties i (geen hoofdlettergevoeligheid) en m (meerdere regels) gebruikt, wordt de verzameling gescand in alle expressies.
+Wanneer $ of | moet worden opgenomen, kunt u het beste twee (of meer) regex-query’s maken. Bijvoorbeeld, bij de volgende oorspronkelijke query: ```find({x:{$regex: /^abc$/})```, moet dit als volgt worden gewijzigd: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
+Het eerste deel maakt gebruik van de index om alleen te zoeken naar de documenten die beginnen met ^abc en het tweede deel zoekt naar een overeenkomst tussen de exacte vermeldingen. De streepoperator | fungeert als de functie: or. De query ```find({x:{$regex: /^abc|^def/})``` komt overeen met de documenten waarin het veld x waarden heeft die beginnen met abc of def. Als u de index wilt gebruiken, kunt u de query het beste opsplitsen in twee verschillende query’s die zijn verbonden met de operator $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
-### <a name="update-operators"></a>Update-operators
+### <a name="update-operators"></a>Operators voor updates
 
-#### <a name="field-update-operators"></a>Veld update operators
+#### <a name="field-update-operators"></a>Operators voor veldupdates
 - $inc
 - $mul
 - $rename
 - $setOnInsert
 - $set
-- $uitschakelen
+- $unset
 - $min
 - $max
 - $currentDate
 
-#### <a name="array-update-operators"></a>Matrix-update-operators
+#### <a name="array-update-operators"></a>Operators voor matrixupdates
 - $addToSet
 - $pop
 - $pullAll
-- $pull (Opmerking: $pull met voorwaarde wordt niet ondersteund)
+- $pull  (Let op: $pull met voorwaarde wordt niet ondersteund)
 - $pushAll
 - $push
-- elke $
+- $each
 - $slice
 - $sort
 - $position
 
-#### <a name="bitwise-update-operator"></a>Bitsgewijze update operator
+#### <a name="bitwise-update-operator"></a>Operators voor bitwise-updates
 - $bit
 
 ### <a name="geospatial-operators"></a>Georuimtelijke operators
@@ -271,7 +269,7 @@ Operator | Voorbeeld
 --- | --- |
 $geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Ja
 $geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja
-$bijna | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja
+$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja
 $nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Ja
 $geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja
 $minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Ja
@@ -289,42 +287,42 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Wordt niet ondersteund. Gebruik in plaats daarvan $regex 
+$text |  | Wordt niet ondersteund. Gebruik in plaats hiervan $regex 
 
 ### <a name="methods"></a>Methoden
 
-Volgende methoden worden ondersteund:
+De volgende methoden worden ondersteund:
 
-#### <a name="cursor-methods"></a>Cursor-methoden
+#### <a name="cursor-methods"></a>Cursormethoden
 
 Methode | Voorbeeld | Opmerkingen 
 --- | --- | --- |
-cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Documenten zonder sorteersleutel komen niet geretourneerd
+cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Documenten zonder sorteersleutel worden niet geretourneerd
 
 ## <a name="unique-indexes"></a>Unieke indexen
 
-Azure Cosmos DB indexeert elk veld in de documenten die standaard worden geschreven naar de database. Unieke indexen Zorg dat een bepaald veld geen dubbele waarden op alle documenten in een verzameling, vergelijkbaar met de uniekheid van de manier blijft behouden op de standaardwaarde '_id'-sleutel. U kunt nu aangepaste indexen in Azure Cosmos-database maken met de opdracht createIndex, met inbegrip van de 'unique-beperking.
+Met Azure Cosmos DB worden alle velden geïndexeerd in documenten die standaard naar de database zijn geschreven. Unieke indexen zorgen ervoor dat een specifiek veld geen dubbele waarden bevat in alle documenten van een verzameling, net zoals de uniekheid van de standaard-id-sleutel behouden blijft. U kunt nu met behulp van de opdracht createIndex aangepaste indexen maken in Azure Cosmos DB, met inbegrip van de uniekheidsbeperking.
 
-Unieke indexen zijn beschikbaar voor alle accounts voor MongoDB-API.
+Unieke indexen zijn beschikbaar in alle MongoDB-accounts.
 
-## <a name="time-to-live-ttl"></a>Time-to-live (TTL)
+## <a name="time-to-live-ttl"></a>TTL (time-to-live)
 
-Azure Cosmos DB biedt ondersteuning voor een relatieve time to live (TTL) op basis van de tijdstempel van het document. TTL kan worden ingeschakeld voor MongoDB-API-verzamelingen via de [Azure-portal](https://portal.azure.com).
+Azure Cosmos DB biedt ondersteuning voor een relatieve TTL (time-to-live) op basis van de tijdstempel van het document. TTL kan via [Azure Portal](https://portal.azure.com) worden ingeschakeld voor MongoDB-API-verzamelingen.
 
-## <a name="user-and-role-management"></a>Gebruiker-en rolbeheer
+## <a name="user-and-role-management"></a>Gebruikers- en rolbeheer
 
-Azure Cosmos DB ondersteunt nog geen gebruikers en rollen. Azure Cosmos DB biedt ondersteuning voor op rollen gebaseerd toegangsbeheer (RBAC) en alleen-lezen en alleen-lezen wachtwoorden/sleutels die kunnen worden verkregen via de [Azure-portal](https://portal.azure.com) (pagina verbindingsreeks).
+Azure Cosmos DB biedt nog geen ondersteuning voor gebruikers en rollen. Azure Cosmos DB biedt op rollen gebaseerd toegangsbeheer (RBAC), wachtwoorden voor lezen/schrijven en wachtwoorden met het kenmerk Alleen-lezen die kunnen worden verkregen via [Azure Portal](https://portal.azure.com) (pagina Verbindingsreeks).
 
 ## <a name="replication"></a>Replicatie
 
-Azure Cosmos DB ondersteunt automatische systeemeigen replicatie op de laagste lagen. Deze logica wordt uitgebreid uit als u de lage latentie, globale replicatie ook. Azure Cosmos DB biedt geen ondersteuning voor handmatige replicatieopdrachten.
+Azure Cosmos DB biedt ondersteuning voor automatische, systeemeigen replicatie op de laagste lagen. Deze logica is uitgebreid om tevens globale replicatie met een lage latentie te bereiken. Azure Cosmos DB biedt geen ondersteuning voor handmatige replicatieopdrachten.
 
 ## <a name="sharding"></a>Sharding
 
-Azure Cosmos DB ondersteunt automatische, serverzijde sharding. Azure Cosmos DB biedt geen ondersteuning voor handmatige sharding-opdrachten.
+Azure Cosmos DB biedt ondersteuning voor automatische sharding aan serverzijde. Azure Cosmos DB biedt geen ondersteuning voor handmatige sharding-opdrachten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over hoe [Studio 3T gebruiken](mongodb-mongochef.md) met een API voor MongoDB-database.
-- Meer informatie over hoe [Robo 3T gebruiken](mongodb-robomongo.md) met een API voor MongoDB-database.
-- Azure Cosmos DB verkennen met protocolondersteuning voor MongoDB [voorbeelden](mongodb-samples.md).
+- Meer informatie over het [gebruik van Studio 3T](mongodb-mongochef.md) met een API voor een MongoDB-database.
+- Meer informatie over het [gebruik van Robo 3T](mongodb-robomongo.md) met een API voor een MongoDB-database.
+- Verken Azure Cosmos DB met protocolondersteuning voor [voorbeelden](mongodb-samples.md) van MongoDB.

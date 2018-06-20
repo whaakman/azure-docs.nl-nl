@@ -12,11 +12,12 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
-ms.openlocfilehash: ca44354b6aa51cae9218594ba5120d9c4a6f5ece
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 06d711c99a6aaffe85adf740d2041c9fcc35ac23
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628093"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>Snelstart: Een Spark-cluster in HDInsight maken met behulp van een sjabloon
 
@@ -53,6 +54,12 @@ U maakt een HDInsight Spark-cluster met behulp van een Azure Resource Manager-sj
 3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden**, selecteer **Vastmaken aan dashboard** en selecteer **Kopen**. U ziet een nieuwe tegel met de titel **Implementatie van sjabloonimplementatie**. Het duurt ongeveer 20 minuten om het cluster te maken. Het cluster moet zijn gemaakt voordat u verder kunt gaan met de volgende sessie.
 
 Als u een probleem ondervindt met het maken van HDInsight-clusters, beschikt u mogelijk niet over de juiste machtigingen om dit te doen. Zie [Vereisten voor toegangsbeheer](../hdinsight-administer-use-portal-linux.md#create-clusters) voor meer informatie.
+
+## <a name="install-intellijeclipse-for-spark-application"></a>IntelliJ/Eclipse voor Spark-toepassing installeren
+Gebruik de Azure-toolkit voor de IntelliJ/Eclipse-invoegtoepassing om Spark scala-toepassingen te ontwikkelen die zijn geschreven in Scala, en verzend deze vervolgens rechtstreeks vanuit de IntelliJ/Eclipse Integrated Development Environment (IDE) naar een Azure HDInsight Spark-cluster. Zie [IntelliJ gebruiken om Spark-toepassing te schrijven/verzenden](./apache-spark-intellij-tool-plugin.md) en [Eclipse gebruiken om Spark-toepassing te schrijven/verzenden](./apache-spark-eclipse-tool-plugin.md).
+
+## <a name="install-vscode-for-pysparkhive-applications"></a>VSCode voor PySpark-/hive-toepassingen installeren
+Leer hoe u Azure HDInsight-hulpprogramma's voor Visual Studio Code (VSCode) kunt gebruiken om Hive-batchtaken, interactieve Hive-query's, PySpark-batch- en interactieve PySpark-scripts te maken en verzenden. De Azure HDInsight-hulpprogramma's kunnen worden geïnstalleerd op de platforms die worden ondersteund door VSCode. Zoals onder andere Windows, Linux en macOS. Zie [VSCode gebruiken om PySpark-toepassing te schrijven/verzenden](../hdinsight-for-vscode.md) voor meer informatie.
 
 ## <a name="create-a-jupyter-notebook"></a>Een Jupyter-notebook maken
 

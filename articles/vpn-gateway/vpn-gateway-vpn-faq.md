@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9ebdbb8958779e074195623aec90b7a6f6de2bb4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99ecf8af278823fbae41cb14df5c2372d6451e0c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236192"
 ---
 # <a name="vpn-gateway-faq"></a>Veelgestelde vragen VPN-gateways
 
@@ -166,13 +167,13 @@ Windows Server 2012 RRAS-servers (Routering en RAS) worden ondersteund voor site
 
 Andere VPN-softwareoplossingen zouden in principe met onze gateway moeten werken zolang ze voldoen aan de standaard-IPSec-implementaties. Neem contact op met de leverancier van de software voor configuratie- en ondersteuningsinstructies.
 
-## <a name="P2S"></a>Point-to-site – systeemeigen Azure-certificaatverificatie
+## <a name="P2S"></a>Point-to-site met behulp van systeemeigen Azure-certificaatverificatie
 
 Deze sectie is van toepassing op het Resource Manager-implementatiemodel.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Point-to-site - RADIUS-verificatie
+## <a name="P2SRADIUS"></a>Point-to-site met behulp van RADIUS-verificatie
 
 Deze sectie is van toepassing op het Resource Manager-implementatiemodel.
 

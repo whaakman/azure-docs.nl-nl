@@ -1,98 +1,96 @@
 ---
-title: Inleiding tot de Azure Cosmos DB Cassandra API | Microsoft Docs
-description: Ontdek hoe u Azure Cosmos-database gebruiken 'lift-en-shift' bestaande toepassingen en nieuwe toepassingen bouwen met behulp van de Cassandra stuurprogramma's en CQL die u al bekend met bent Cassandra-API.
+title: Inleiding tot de Azure Cosmos DBL Cassandra-API | Microsoft Docs
+description: Leer hoe u Azure Cosmos DB kunt gebruiken om bestaande toepassingen te gebruiken en te verplaatsen, en nieuwe toepassingen kunt bouwen met de Cassandra-API, met behulp van CQL en de apparaatstuurprogramma’s van Cassandra, waarmee u al vertrouwd bent.
 services: cosmos-db
 author: govindk
-manager: ''
-documentationcenter: ''
-ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
+manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-cassandra
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 65ab01031ed0fe554ef162f0115bdda39fd1c80b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: edc8ba7f8dd52a5facbfeb930a8660b082d72877
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795268"
 ---
-# <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Inleiding tot Azure Cosmos DB: Apache Cassandra API
+# <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Inleiding tot Azure Cosmos DB: Apache Cassandra-API
 
-Azure Cosmos DB biedt de Cassandra-API (preview) voor toepassingen die zijn geschreven voor Apache Cassandra dat moeten premium mogelijkheden, zoals:
+Azure Cosmos DB biedt de Cassandra-API (preview) voor toepassingen die zijn geschreven voor Azure Cassandra en die premium-mogelijkheden nodig hebben, zoals:
 
 * [Schaalbare opslaggrootte en doorvoer](partition-data.md).
-* [Directe globale distributie](distribute-data-globally.md)
+* [Kant en klare wereldwijde distributie](distribute-data-globally.md)
 * Latentie van slechts enkele milliseconden op het 99e percentiel.
-* [Vijf goed gedefinieerde consistentieniveaus](consistency-levels.md)
-* [Automatische indexering van gegevens](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) zonder te moeten omgaan met schema- en -beheer. 
-* Hoge beschikbaarheid, alle back-ups door gegarandeerd [toonaangevende Sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
+* [Vijf duidelijk gedefinieerde consistentieniveaus](consistency-levels.md)
+* [Automatisch indexeren van gegevens](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) zonder dat u te maken krijgt met schema- en indexbeheer. 
+* Gegarandeerde hoge beschikbaarheid, ondersteund met [toonaangevende SLA’s](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
 
-## <a name="what-is-the-azure-cosmos-db-apache-cassandra-api"></a>Wat is Azure Cosmos DB Apache Cassandra API?
+## <a name="what-is-the-azure-cosmos-db-apache-cassandra-api"></a>Wat is de Azure Cosmos DB Apache Cassandra-API?
 
-Azure Cosmos-database kan worden gebruikt als gegevensopslag voor apps die zijn geschreven voor [Apache Cassandra](https://cassandra.apache.org/), met behulp van de Apache Cassandra-API. Dit betekent dat met behulp van de bestaande [Apache in licentie gegeven stuurprogramma's die compatibel zijn met CQLv4](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver), uw toepassing voor Cassandra voortaan met de Azure-API voor Cassandra Cosmos-database communiceren kunnen geschreven. In veel gevallen kunt u overschakelen van het gebruik van Apache Cassandra voor het gebruik van Azure Cosmos DB Apache Cassandra API, door eenvoudigweg een verbindingsreeks. Met deze functionaliteit kunt u gemakkelijk maken en Cassandra API databasetoepassingen uitvoeren in de Azure-cloud met Azure Cosmos DB globale verdeling en [uitgebreide toonaangevende Sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db), maar blijft bekend gebruiken vaardigheden en hulpprogramma's voor Cassandra API.
+Azure Cosmos DB kan worden gebruikt als gegevensopslag voor apps die zijn geschreven voor [Apache Cassandra](https://cassandra.apache.org/), door gebruik te maken van de Apache Cassandra-API. Dit betekent dat uw toepassing die is geschreven voor Cassandra, nu kan communiceren met de Azure Cosmos DB Cassandra-API, door gebruik te maken van bestaande [apparaatstuurprogramma’s met een Apache-licentie die compatibel zijn met CQLv4](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). In veel gevallen kunt u eenvoudig overschakelen van Apache Cassandra naar de Apache Cassandra-API van Azure Cosmos DB door een verbindingsreeks te wijzigen. Met behulp van deze functionaliteit kunt u eenvoudig databasetoepassingen van Cassandra-API bouwen en uitvoeren in de Azure-cloud met de wereldwijde distributie en [uitgebreide toonaangevende SLA’s](https://azure.microsoft.com/support/legal/sla/cosmos-db) van Azure Cosmos DB, terwijl u gebruik kunt blijven maken van de vertrouwde vaardigheden en hulpprogramma’s voor de Cassandra-API.
 
 ![Azure Cosmos DB Cassandra-API](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-De API Cassandra kunt u communiceren met gegevens die zijn opgeslagen in Azure Cosmos-database met de querytaal Cassandra op basis van hulpprogramma's (zoals CQLSH) en Cassandra clientstuurprogramma's u al bekend bent met. Meer informatie over het in deze video Microsoft Mechanics met Principal Engineering Manager Kirill Gavrylyuk.
+De Cassandra-API stelt u in staat om gegevens te gebruiken die zijn opgeslagen in Azure Cosmos DB. Dit doet u via hulpprogramma’s op basis van de Cassandra-querytaal (bijvoorbeeld CQLSH) en Cassandra-clientstuurprogramma’s waarmee u al vertrouwd bent. Principal Engineering Manager Kirill Gavrylyuk geeft u hier meer informatie over in deze Microsoft Mechanics-video.
 
 > [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
 >
 
-## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Wat is het voordeel van het gebruik van Apache Cassandra API voor Azure Cosmos DB?
+## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Wat is het voordeel van het gebruik van de Apache Cassandra-API voor Azure Cosmos DB?
 
-**Er is geen operations management**: als een echte wordt volledig service beheerde, Azure Cosmos DB zorgt ervoor dat beheerders Cassandra API's niet te hoeven maken over het beheren en controleren van een allerlei instellingen voor OS, JVM en yaml-bestanden en hun wisselwerking. Azure Cosmos DB biedt bewaking van doorvoer, latentie, opslag en beschikbaarheid en waarschuwingen kunnen worden geconfigureerd. 
+**Geen operationeel management**: Azure Cosmos DB is een volledig beheerde service, waardoor beheerders van de Cassandra-API zich niet bezig hoeven te houden met het beheren en controleren van talloze instellingen in OS-, JVM- en yaml-bestanden en de bijbehorende wisselwerking. Azure Cosmos DB biedt controle van doorvoer, latentie, opslag en beschikbaarheid, en waarschuwingen die kunnen worden geconfigureerd. 
 
-**Prestatiebeheer**: Azure Cosmos DB biedt SLA back lage latentie leest en schrijft voor het 99th percentiel. Gebruikers hoeven niet te veel van de operationele overhead bieden goede lezen en schrijven van SLA's. Deze omvatten doorgaans compressie, het beheren van tombstones, waas filters instellen en replica lag planning. Azure DB Cosmos vergt weg de zorgen van het beheer van deze problemen en kunt u zich richten op de resultaten van de toepassing.
+**Prestatiebeheer**: Azure Cosmos DB biedt lage latentie van lees- en schrijfbewerkingen voor een percentiel van 99%, ondersteund met een SLA. Gebruikers hoeven zich geen zorgen te maken over een enorme operationele overhead om goede SLA’s voor lezen en schrijven te bieden. Deze omvatten gewoonlijk compressie van planning, beheer van tombstones, instellingen voor bloom-filters, en replicavertragingen. Met Azure Cosmos DB krijgt u niet te maken met deze zaken, waardoor u zich beter kunt focussen op de resultaten van de toepassing.
 
-**Automatische indexering**: Azure Cosmos DB indexeert automatisch alle kolommen van de tabel in Cassandra API-database. Azure Cosmos-database is niet vereist voor het maken van secundaire indexen om query's te versnellen. Dit zorgt voor lage latentie lezen en schrijven tijdens de automatische consistent te indexeren. 
+**Automatisch indexeren**: in Azure Cosmos DB worden alle kolommen van de tabel in de Cassandra-API-database automatisch geïndexeerd. U hoeft in Azure Cosmos DB geen secundaire indexen te maken om de query’s te versnellen. Er wordt een lage latentie geboden voor lezen en schrijven, terwijl er automatisch consistent wordt geïndexeerd. 
 
-**Mogelijkheid om te gebruiken van bestaande code en hulpprogramma's**: Azure Cosmos DB biedt kabel protocol niveau compatibiliteit met bestaande SDK's en hulpprogramma's. Deze compatibiliteit zorgt ervoor dat u kunt uw bestaande codebase met Cassandra API van Azure Cosmos DB met trivial wijzigingen.
+**Mogelijkheid om bestaande code en hulpprogramma’s te gebruiken**: Azure Cosmos DB biedt compatibiliteit van wire-protocolniveau’s met bestaande SDK’s en hulpprogramma’s. Door deze compatibiliteit kunt u bestaande codebase gebruiken met de Cassandra-API van Azure Cosmos DB, met slechts een klein aantal wijzigingen.
 
-**Doorvoer en opslag elasticiteit**: Azure Cosmos-platform biedt elasticiteit van gegarandeerde doorvoer tussen regio's via eenvoudige portal, PowerShell of CLI-bewerkingen. U kunt schalen Azure Cosmos DB tabellen met voorspelbare prestaties naadloos wanneer uw toepassing groeit. Azure Cosmos DB ondersteunt Cassandra API-tabellen die kunnen worden geschaald naar grootten vrijwel onbeperkte opslag. 
+**Elasticiteit van doorvoer en opslag**: het Azure Cosmos-platform biedt elasticiteit van gegarandeerde doorvoer naar verschillende regio’s via eenvoudige bewerkingen in de portal, in PowerShell of met de CLI. Naarmate uw toepassing groeit, kunt u Azure Cosmos DB-tabellen naadloos elastisch schalen met voorspelbare prestaties. Azure Cosmos DB biedt ondersteuning voor Cassandra-API-tabellen die nagenoeg onbeperkt kunnen worden geschaald. 
 
-**Globale distributie en de beschikbaarheid**: Azure Cosmos DB biedt de mogelijkheid om gegevens in de gehele Azure-regio's zodat gebruikers met een lage latentie ervaring terwijl de beschikbaarheid te distribueren. Azure Cosmos DB biedt 99,99% beschikbaarheid binnen een regio en 99,999% beschikbaarheid lezen over de regio's met de overhead van geen bewerkingen. Azure Cosmos DB is beschikbaar in 30 + [Azure-gebieden](https://azure.microsoft.com/regions/services/). Meer informatie [Distribueer gegevens globaal](distribute-data-globally.md). 
+**Wereldwijde distributie en beschikbaarheid**: Azure Cosmos DB heeft de mogelijkheid om gegevens te distribueren over verschillende Azure-regio’s en gebruikers zo een lage latentie te bieden, terwijl de beschikbaarheid gegarandeerd blijft. Azure Cosmos DB biedt 99,99% beschikbaarheid binnen een regio, en 99,999% beschikbaarheid voor lezen in meerdere regio’s, zonder operationele overhead. Azure Cosmos DB is beschikbaar in meer dan 30 [Azure-regio’s](https://azure.microsoft.com/regions/services/). Zie [Gegevens wereldwijd distribueren](distribute-data-globally.md) voor meer informatie. 
 
-**Keuze van de consistentie**: Azure Cosmos DB biedt de keuze van vijf goed gedefinieerde consistentieniveaus voor een optimale balans tussen de consistentie en prestaties. Deze consistentieniveaus zijn sterk, gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijk. Deze gedetailleerde, goed gedefinieerde consistentieniveaus kunt ontwikkelaar afweging geluid tussen de consistentie, beschikbaarheid en latentie. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie. 
+**Keuze in consistentie**: Azure Cosmos DB biedt de keuze uit vijf goed gedefinieerde consistentieniveaus voor een optimale balans tussen consistentie en prestaties. Deze consistentieniveaus zijn: sterk, gebonden-verouderd, sessie, consistent voorvoegsel en mogelijk. Op basis van deze gedetailleerde, goed gedefinieerde consistentieniveaus kunnen ontwikkelaars een goede balans vinden tussen de consistentie, beschikbaarheid en latentie. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie. 
 
-**Enterprise hoogwaardige**: beveiligd en compatibel zijn standaard: Azure cosmos DB biedt [naleving certificeringen](https://www.microsoft.com/trustcenter) zodat gebruikers kunnen het platform gebruiken zonder dat u problemen met naleving. Azure Cosmos DB biedt ook versleuteling in rust en bij beweging, firewall voor IP- en auditlogboeken voor vlak controleactiviteiten.  
+**Zakelijk niveau**: Azure Cosmos DB biedt [nalevingscertificeringen](https://www.microsoft.com/trustcenter) om ervoor te zorgen dat het platform veilig kan worden gebruikt. Azure Cosmos DB biedt ook versleuteling van niet-actieve en actieve gegevens, een IP-firewall, en auditlogboeken voor beheeractiviteiten.  
 
 <a id="sign-up-now"></a>
-## <a name="sign-up-now"></a>Nu aanmelden 
+## <a name="sign-up-now"></a>Nu registreren 
 
-Als u al een Azure-abonnement hebt, kunt u zich aanmeldt bij het programma Cassandra API (preview) in de [Azure-portal](https://aka.ms/cosmosdb-cassandra-signup).  Als u geen ervaring met Azure, zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/free) waar u 12 maanden gratis toegang tot Azure Cosmos DB krijgen. De volgende stappen om aan te vragen toegang tot het programma Cassandra API (preview).
+Als u al een Azure-abonnement hebt, kunt u zich in [Azure Portal](https://aka.ms/cosmosdb-cassandra-signup) registreren voor deelname aan het Cassandra-API-programma (preview).  Als u een nieuwe klant bent van Azure, registreert u zich voor een [gratis proefversie](https://azure.microsoft.com/free), waarna u 12 maanden gratis toegang krijgt tot Azure Cosmos DB. Voltooi de volgende stappen om toegang aan te vragen tot het Cassandra-API-programma (preview).
 
-1. In de [Azure-portal](https://portal.azure.com), klikt u op **maken van een resource** > **Databases** > **Azure Cosmos DB**. 
+1. Klik in [Azure Portal](https://portal.azure.com) op **Resource maken** > **Databases** > **Azure Cosmos DB**. 
 
-2. Selecteer op de pagina nieuwe Account **Cassandra** in het vak API. 
+2. Selecteer op de pagina Nieuw account de optie **Cassandra** in het API-vak. 
 
-3. In de **abonnement** Selecteer de Azure-abonnement dat u wilt gebruiken voor dit account.
+3. Selecteer in het vak **Abonnement** het Azure-abonnement dat u wilt gebruiken voor dit account.
 
-4. Klik op **zich registreren voor de preview vandaag**.
+4. Klik op **Registreer u vandaag nog voor de preview-versie**.
 
     ![Azure Cosmos DB Cassandra-API](./media/cassandra-introduction/cassandra-sign-up.png)
 
-3. Klik in de aanmelding voor vandaag voorbeeldvenster op **OK**. 
+3. Klik in het deelvenster Registreer u vandaag nog voor de preview-versie op **OK**. 
 
-    Als u de aanvraag indient, de status gewijzigd in **in afwachting van goedkeuring** in het deelvenster met de nieuwe account. 
+    Zodra u de aanvraag hebt verzonden, wordt de status in het deelvenster Nieuw account gewijzigd in **Goedkeuring in behandeling**. 
 
-Nadat u uw aanvraag indient, wacht u totdat de e-mailmelding dat uw aanvraag is goedgekeurd. Vanwege het grote aantal aanvragen ontvangt u meldingen binnen een week. U hoeft niet te maken van een ondersteuningsticket voor het voltooien van de aanvraag. Aanvragen wordt gecontroleerd in de volgorde waarin ze werden ontvangen. 
+Nadat u de aanvraag hebt verzonden, wacht u op een e-mailmelding waarin staat dat de aanvraag is goedgekeurd. Vanwege het grote aantal aanvragen kan het maximaal een week duren voordat u een melding ontvangt. U hoeft geen ondersteuningsticket te maken om de aanvraag te voltooien. Aanvragen worden beoordeeld in de volgorde waarin ze zijn ontvangen. 
 
 ## <a name="how-to-get-started"></a>Hoe gaat u aan de slag
-Eenmaal u het preview-programma hebt toegevoegd, voert u de snelstartgidsen Cassandra API voor het maken van een app met behulp van de API Cassandra:
+Zodra u deelneemt aan het preview-programma, volgt u de Cassandra-API-quickstarts om een app te maken met behulp van de Cassandra-API:
 
-* [Snelstartgids: Een Cassandra bouwen met Node.js en Azure DB die Cosmos-web-app](create-cassandra-nodejs.md)
-* [Snelstartgids: Een Cassandra bouwen met Java en Azure DB die Cosmos-web-app](create-cassandra-java.md)
-* [Snelstartgids: Een Cassandra bouwen web-app met .NET- en Azure Cosmos-DB](create-cassandra-dotnet.md)
-* [Snelstartgids: Een Cassandra bouwen web-app met Python en Azure Cosmos-DB](create-cassandra-python.md)
+* [Quickstart: Een Cassandra-web-app bouwen met Node.js en Azure Cosmos DB](create-cassandra-nodejs.md)
+* [Quickstart: Een Cassandra-web-app bouwen met Java en Azure Cosmos DB](create-cassandra-java.md)
+* [Quickstart: Een Cassandra-web-app bouwen met .NET en Azure Cosmos DB](create-cassandra-dotnet.md)
+* [Quickstart: Een Cassandra-web-app bouwen met Python en Azure Cosmos DB](create-cassandra-python.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over de API van Azure Cosmos DB Cassandra is geïntegreerd in de algehele Azure DB die Cosmos-documentatie, maar hier zijn enkele verwijzingen naar u op weg:
+Informatie over de Azure Cosmos DB Cassandra-API is geïntegreerd in de algemene documentatie voor Azure Cosmos DB, maar hier zijn enkele aanwijzingen om u op gang te helpen:
 
-* Ga als volgt de [snelstartgidsen](create-cassandra-nodejs.md) een account en een nieuwe app maken met behulp van een Git-voorbeeld
-* Ga als volgt de [zelfstudie](tutorial-develop-cassandra-java.md) programmatisch maken van een nieuwe app.
-* Ga als volgt de [Cassandra importeren gegevens zelfstudie](cassandra-import-data.md) uw bestaande gegevens wilt importeren in Azure Cosmos DB.
-* Lees de [Veelgestelde vragen over](faq.md#cassandra).
+* Volg de [quickstarts](create-cassandra-nodejs.md) om een account en een nieuwe app te maken met behulp van een Git-voorbeeld
+* Volg de [zelfstudie](tutorial-develop-cassandra-java.md) om een nieuwe app te maken met behulp van een programma.
+* Volg de [zelfstudie voor het importeren van Cassandra-gegevens](cassandra-import-data.md) om bestaande gegevens te importeren in Azure Cosmos DB.
+* Lees de [veelgestelde vragen](faq.md#cassandra).

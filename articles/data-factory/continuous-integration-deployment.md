@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 17fb10f4b39361a99d3f51ed753d333c6ec0bf15
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618586"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268162"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Continue integratie en implementatie in Azure Data Factory
 
@@ -89,42 +89,9 @@ Hier volgen de stappen voor het instellen van een Release VSTS zodat u kunt de i
 
 4.  Voer de naam van uw omgeving.
 
-5.  Voeg een Git-artefacten en selecteert u dezelfde repo geconfigureerd met de Data Factory. Kies `adf\_publish` als de standaardvertakking met de meest recente standaardversie.
+5.  Voeg een Git-artefacten en selecteert u dezelfde repo geconfigureerd met de Data Factory. Kies `adf_publish` als de standaardvertakking met de meest recente standaardversie.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
-
-6.  De geheimen worden opgehaald uit Azure Sleutelkluis. Er zijn twee manieren voor het afhandelen van de geheimen:
-
-    a.  De geheimen aan parameterbestand toevoegen:
-
-       -   Maak een kopie van de parameterbestand dat is geüpload naar de vertakking publiceren en stel de waarden van de parameters die u wilt ophalen uit de sleutelkluis met de volgende indeling:
-
-        ```json
-        {
-            "parameters": {
-                "azureSqlReportingDbPassword": {
-                    "reference": {
-                        "keyVault": {
-                            "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-                        },
-                        "secretName": " < secret - name > "
-                    }
-                }
-            }
-        }
-        ```
-
-       -   Wanneer u deze methode gebruikt, wordt het geheim automatisch opgehaald uit de sleutelkluis.
-
-       -   De parameterbestand moet zich in de publiceren onderliggende items.
-
-    b.  Voeg een [Azure Key Vault taak](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
-
-       -   Selecteer de **taken** tabblad, een nieuwe taak maken, zoekt u **Azure Key Vault** en toe te voegen.
-
-       -   Kies in de Sleutelkluis-taak, het abonnement waarin u de sleutelkluis hebt gemaakt, Geef indien nodig referenties in en kies vervolgens de sleutelkluis.
-
-       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Een implementatie van Azure Resource Manager-taak toevoegen:
 
@@ -134,7 +101,7 @@ Hier volgen de stappen voor het instellen van een Release VSTS zodat u kunt de i
 
     c.  Selecteer de **resourcegroep maken of bijwerken** in te grijpen.
 
-    d.  Selecteer **...** in de '**sjabloon**' veld. Bladeren naar het Resource Manager-sjabloon (*ARMTemplateForFactory.json*) die is gemaakt door de actie publiceren in de portal. Zoekt u naar dit bestand in de hoofdmap van de `adf\_publish` vertakking.
+    d.  Selecteer **...** in de **sjabloon** veld. Bladeren naar het Resource Manager-sjabloon (*ARMTemplateForFactory.json*) die is gemaakt door de actie publiceren in de portal. Zoekt u naar dit bestand in de map `<FactoryName>` van de `adf_publish` vertakking.
 
     e.  Doe hetzelfde voor het parameterbestand. Kies het juiste bestand afhankelijk van of u een kopie gemaakt of u het standaardbestand *ARMTemplateParametersForFactory.json*.
 
@@ -147,6 +114,43 @@ Hier volgen de stappen voor het instellen van een Release VSTS zodat u kunt de i
 9.  Maak een nieuwe release van de definitie van deze release.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Optioneel: de geheimen van Azure Sleutelkluis ophalen
+
+Als u geheimen om door te geven in een Azure Resource Manager-sjabloon hebt, raden wij u aan met Azure Key Vault met de release VSTS.
+
+Er zijn twee manieren voor het afhandelen van de geheimen:
+
+1.  De geheimen aan parameterbestand toevoegen. Zie voor meer informatie [Azure Sleutelkluis gebruiken voor veilige parameterwaarde worden doorgegeven tijdens de implementatie van](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+    -   Maak een kopie van de parameterbestand dat is geüpload naar de vertakking publiceren en stel de waarden van de parameters die u wilt ophalen uit de sleutelkluis met de volgende indeling:
+
+    ```json
+    {
+        "parameters": {
+            "azureSqlReportingDbPassword": {
+                "reference": {
+                    "keyVault": {
+                        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                    },
+                    "secretName": " < secret - name > "
+                }
+            }
+        }
+    }
+    ```
+
+    -   Wanneer u deze methode gebruikt, wordt het geheim automatisch opgehaald uit de sleutelkluis.
+
+    -   De parameterbestand moet zich in de publiceren onderliggende items.
+
+2.  Voeg een [Azure Key Vault taak](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) voordat de implementatie van Azure Resource Manager in de vorige sectie beschreven:
+
+    -   Selecteer de **taken** tabblad, een nieuwe taak maken, zoekt u **Azure Key Vault** en toe te voegen.
+
+    -   Kies in de Sleutelkluis-taak, het abonnement waarin u de sleutelkluis hebt gemaakt, Geef indien nodig referenties in en kies vervolgens de sleutelkluis.
+
+    ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-vsts-agent"></a>Machtigingen verlenen voor de agent VSTS
 De taak Azure Key Vault mislukken de eerste keer met een fout toegang geweigerd. De logboeken voor de versie downloaden en zoek de `.ps1` bestand met de opdracht uit om machtigingen geven voor de agent VSTS. U kunt de opdracht rechtstreeks uitvoeren of u kunt kopiëren van de principal-ID uit het bestand en het toegangsbeleid handmatig toevoegen in de Azure portal. (*Ophalen* en *lijst* de minimale machtigingen zijn vereist).
@@ -161,14 +165,9 @@ Implementatie kan mislukken als u probeert bij te werken, actief triggers. Voor 
 3.  Kies **Inline-Script** als het script typt en geef vervolgens uw code. Het volgende voorbeeld wordt de triggers gestopt:
 
     ```powershell
-    $armTemplate="$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json"
+    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $templateJson = Get-Content "$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json" | ConvertFrom-Json
-
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
-    $DataFactoryName -ResourceGroupName $ResourceGroupName
-
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $\_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)

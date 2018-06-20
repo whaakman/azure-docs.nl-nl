@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a3b14bd8409226772d210f60dadd525960f7890
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0094362ee083511b05027f22b37ed62d56d68d41
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192659"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217122"
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuwing
 
@@ -33,7 +33,7 @@ Er zijn twee opties voor het aanroepen van een runbook in de waarschuwingsconfig
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>Een runbook aanroepen met behulp van een webhook
 
-Met een webhook kunt u een bepaald runbook in Azure Automation starten via een afzonderlijke HTTP-aanvraag. Voordat u de [Log Analytics-waarschuwing](../log-analytics/log-analytics-alerts.md#alert-rules) configureert om het runbook aan te roepen met behulp van een webhook als waarschuwingsactie, moet u een [webhook maken](automation-webhooks.md#creating-a-webhook) voor het runbook dat met deze methode wordt aangeroepen. Vergeet niet om de webhook-URL te registreren, zodat u ernaar kunt verwijzen tijdens het configureren van de waarschuwingsregel.   
+Met een webhook kunt u een bepaald runbook in Azure Automation starten via een afzonderlijke HTTP-aanvraag. Voordat u configureert de [Webhook-actie voor het logboek waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md) voor het aanroepen van het runbook met behulp van een webhook als een actie van de waarschuwing, moet u [maken van een webhook](automation-webhooks.md#creating-a-webhook) voor het runbook dat via deze methode wordt aangeroepen. Vergeet niet om de webhook-URL te registreren, zodat u ernaar kunt verwijzen tijdens het configureren van de waarschuwingsregel.   
 
 ## <a name="calling-a-runbook-directly"></a>Een runbook direct aanroepen
 
@@ -99,6 +99,6 @@ Als u uw Automation-account dat is gekoppeld aan uw werkruimte voor logboekanaly
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Voor meer informatie over waarschuwingen in Log Analytics en het maken van een waarschuwing raadpleegt u [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) (Waarschuwingen in Log Analytics).
+* Zie voor meer informatie over het maken van een met behulp van een zoekopdracht in de logboekbestanden van het type Azure waarschuwing, [waarschuwingen aanmelden voor Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 * Als u wilt weten hoe u runbooks activeert met een webhook, raadpleegt u [Azure Automation-webhooks](automation-webhooks.md).

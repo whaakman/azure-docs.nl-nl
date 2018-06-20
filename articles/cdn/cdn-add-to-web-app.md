@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: de8b354cf0199d36d5e0b1410a9f79d4a9e3e05c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: efd8e93f32020d1ef3695e7fc6b9907374275848
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359778"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608386"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Zelfstudie: Azure CDN toevoegen aan een Azure App Service-web-app
 
@@ -55,6 +55,9 @@ Volg de [snelstart voor statische HTML](../app-service/app-service-web-get-start
 
 Open een browser en navigeer naar de [Azure Portal](https://portal.azure.com).
 
+### <a name="dynamic-site-acceleration-optimization"></a>Optimalisatie van dynamische siteversnelling
+Als u uw CDN-eindpunt wilt optimaliseren voor dynamische siteversnelling (DSA), gebruikt u de [CDN-portal](cdn-create-new-endpoint.md) om het profiel en het eindpunt te maken. Met [DSA-optimalisatie](cdn-dynamic-site-acceleration.md) worden de prestaties van webpagina's met dynamische inhoud aantoonbaar verbeterd. Zie [Configuratie van CDN-eindpunt voor sneller aanbieden van dynamische bestanden](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files) voor instructies voor het optimaliseren van een CDN-eindpunt voor DSA vanuit de CDN-portal. Als u het nieuwe eindpunt niet wilt optimaliseren, kunt u de web-app-portal gebruiken om dit te maken aan de hand van de stappen in de volgende sectie. Voor profielen van **Azure CDN van Verizon** geldt dat u de optimalisatie van een CDN-eindpunt niet kunt wijzigen nadat deze is gemaakt.
+
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Een CDN-profiel en -eindpunt maken
 
 Selecteer in het navigatiedeelvenster links **App Services** en selecteer vervolgens de app die u hebt gemaakt in de [Quickstart voor statische HTML](../app-service/app-service-web-get-started-html.md).
@@ -64,9 +67,6 @@ Selecteer in het navigatiedeelvenster links **App Services** en selecteer vervol
 Selecteer op de pagina **App Service** in het gedeelte **Instellingen** de optie **Netwerken > Azure CDN configureren voor uw app**.
 
 ![CDN selecteren in de portal](media/cdn-add-to-web-app/portal-select-cdn.png)
-
-### <a name="dynamic-site-acceleration-optimization"></a>Optimalisatie van dynamische siteversnelling
-Als u uw CDN-eindpunt wilt optimaliseren voor dynamische siteversnelling (DSA), gebruikt u de CDN-portal om het eindpunt rechtstreeks te maken. Met [DSA-optimalisatie](cdn-dynamic-site-acceleration.md) worden de prestaties van webpagina's met dynamische inhoud aantoonbaar verbeterd. Zie [Configuratie van CDN-eindpunt voor sneller aanbieden van dynamische bestanden](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files) voor meer informatie over het optimaliseren van een CDN-eindpunt voor DSA vanuit de CDN-portal. Voor profielen van **Azure CDN van Verizon** geldt dat u de optimalisatie van een CDN-eindpunt niet kunt wijzigen nadat deze is gemaakt.
 
 Geef op de pagina **Azure Content Delivery Network** de instellingen voor **Nieuw eindpunt** op zoals aangegeven in de tabel.
 

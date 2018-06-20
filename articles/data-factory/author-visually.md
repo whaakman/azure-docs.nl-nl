@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a7efe75507fad8e0391f9ad433ba416ed771063b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725139"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265285"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visual ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface ervaring (UX) kunt u visueel ontwerpen en implementeren van resources voor uw data factory zonder code te schrijven. U kunt activiteiten naar een pipeline-canvas te slepen, testruns uitvoeren, iteratief, foutopsporing en implementeren en controleren de pijplijn wordt uitgevoerd. Er zijn twee methoden voor het gebruik van de UX voor het uitvoeren van de visual ontwerpen:
@@ -63,11 +63,11 @@ Het deelvenster ziet u de volgende VSTS code opslagplaats instellingen:
 |:--- |:--- |:--- |
 | **Type van de opslagplaats** | Het type van de opslagplaats VSTS-code.<br/>**Opmerking**: GitHub wordt momenteel niet ondersteund. | Visual Studio Team Services Git |
 | **Azure Active Directory** | De naam van uw Azure AD-tenant. | <your tenant name> |
-| **Visual Studio Team Services-Account** | De naam van uw VSTS. U kunt vinden op de naam van uw VSTS `https://{account name}.visualstudio.com`. U kunt [aanmelden bij uw account VSTS](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en uw opslagplaatsen en projecten weergegeven. | \<de accountnaam van uw > |
-| **ProjectName** | De naam van uw VSTS-project. U vindt uw VSTS projectnaam `https://{account name}.visualstudio.com/{project name}`. | \<de naam van uw project VSTS > |
-| **RepositoryName** | De naam van uw VSTS code-opslagplaats. VSTS projecten bevatten Git-opslagplaatsen voor het beheren van uw broncode wanneer uw project groeit. U kunt een nieuwe opslagplaats maken of een bestaande opslagplaats die al in uw project, gebruiken. | \<de naam van uw VSTS code opslagplaats > |
-| **Samenwerking vertakking** | Uw VSTS samenwerking vertakking dat wordt gebruikt voor publicatie. Dit is standaard `master`. Wijzig deze waarde als u wilt publiceren van bronnen van een andere filialen. | \<de naam van het filiaal samenwerking > |
-| **Hoofdmap** | De hoofdmap in uw VSTS samenwerking vertakking. | \<de naam van de basis-map > |
+| **Visual Studio Team Services-Account** | De naam van uw VSTS. U kunt vinden op de naam van uw VSTS `https://{account name}.visualstudio.com`. U kunt [aanmelden bij uw account VSTS](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en uw opslagplaatsen en projecten weergegeven. | <your account name> |
+| **ProjectName** | De naam van uw VSTS-project. U vindt uw VSTS projectnaam `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
+| **RepositoryName** | De naam van uw VSTS code-opslagplaats. VSTS projecten bevatten Git-opslagplaatsen voor het beheren van uw broncode wanneer uw project groeit. U kunt een nieuwe opslagplaats maken of een bestaande opslagplaats die al in uw project, gebruiken. | <your VSTS code repository name> |
+| **Samenwerking vertakking** | Uw VSTS samenwerking vertakking dat wordt gebruikt voor publicatie. Dit is standaard `master`. Wijzig deze waarde als u wilt publiceren van bronnen van een andere filialen. | <your collaboration branch name> |
+| **Hoofdmap** | De hoofdmap in uw VSTS samenwerking vertakking. | <your root folder name> |
 | **Bestaande resources van de Data Factory naar bibliotheek importeren** | Hiermee wordt aangegeven of bestaande data factory resources importeren vanuit de UX **Authoring canvas** in een VSTS Git-opslagplaats. Schakel het importeren van uw data factory-resources in de bijbehorende Git-opslagplaats in JSON-indeling. Deze actie exporteert elke resource afzonderlijk (dat wil zeggen, de gekoppelde services en gegevenssets worden geëxporteerd naar afzonderlijke JSONs). Wanneer dit selectievakje niet is ingeschakeld, wordt de bestaande resources zijn niet geïmporteerd. | Geselecteerde (standaard) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Van configuratiemethode 2: UX canvas ontwerpen

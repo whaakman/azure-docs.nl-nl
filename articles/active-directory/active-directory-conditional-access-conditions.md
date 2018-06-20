@@ -1,6 +1,6 @@
 ---
-title: Voorwaarden in voorwaardelijke toegang van Azure Active Directory | Microsoft Docs
-description: Meer informatie over hoe toewijzingen van voorwaardelijke toegang van Azure Active Directory worden gebruikt voor het activeren van een beleid.
+title: Wat zijn de voorwaarden van voorwaardelijke toegang van Azure Active Directory? | Microsoft Docs
+description: Meer informatie over hoe voorwaarden van voorwaardelijke toegang van Azure Active Directory worden gebruikt voor het activeren van een beleid.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34735138"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232380"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden in Azure Active Directory voorwaardelijke toegang 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden van voorwaardelijke toegang van Azure Active Directory? 
 
 Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), u kunt beheren hoe gemachtigde gebruikers toegang tot uw cloud-apps. In een beleid voor voorwaardelijke toegang definieert u het antwoord ('dit doen") met de reden voor activering van uw beleid ('wanneer dit gebeurt'). 
 
@@ -140,7 +140,7 @@ Algemene gebruiksvoorbeelden voor deze voorwaarde zijn beleidsregels die:
 
 - Toegang blokkeren voor gebruikers die toegang tot een service van specifieke landen of regio's. 
 
-Zie voor meer informatie [voorwaarden van de locatie van voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-locations.md).
+Zie voor meer informatie [wat is de locatie-voorwaarde in voorwaardelijke toegang van Azure Active Directory?](active-directory-conditional-access-locations.md)
 
 
 ## <a name="client-apps"></a>Client-apps
@@ -241,7 +241,7 @@ Nee. Er is geen wijziging in het standaardgedrag voor het beleid. Het beleid bli
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u weten hoe beleid voor voorwaardelijke toegang configureren wilt, Zie [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Als u weten hoe beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Als u klaar om te configureren van beleidsregels voor voorwaardelijke toegang voor uw omgeving bent, Zie de [best practices voor voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

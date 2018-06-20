@@ -15,17 +15,18 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597923"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services
 ## <a name="overview"></a>Overzicht
 Azure biedt verschillende manieren om websites te hosten: [Azure App Service][Azure App Service], [Virtual Machines][Virtual Machines], [Service Fabric][Service Fabric] en [Cloud Services][Cloud Services]. Dit artikel geeft u inzicht in de diverse opties en helpt u de juiste keuze te maken voor uw webtoepassing.
 
-Azure App Service is de beste keuze voor de meeste web-apps. Implementatie en beheer zijn geïntegreerd in het platform, de schaal van sites kan snel worden aangepast bij intensief verkeer, en de ingebouwde taakverdeling en verkeersbeheer zorgen voor hoge beschikbaarheid. U kunt bestaande sites eenvoudig verplaatsen naar Azure App Service met een [online migratiehulpprogramma](https://www.migratetoazure.net/), een open source-app uit de galerie met webtoepassingen gebruiken of een nieuwe site maken met behulp van een framework en hulpprogramma's van uw keuze. Met de functie [WebJobs][WebJobs] kunt u eenvoudig achtergrondverwerking van taken toevoegen aan uw App Service-web-app.
+Azure App Service is de beste keuze voor de meeste web-apps. Implementatie en beheer zijn geïntegreerd in het platform, de schaal van sites kan snel worden aangepast bij intensief verkeer, en de ingebouwde taakverdeling en verkeersbeheer zorgen voor hoge beschikbaarheid. U kunt bestaande sites eenvoudig verplaatsen naar Azure App Service met een [online migratiehulpprogramma][migrate-tool], een open source-app uit de galerie met webtoepassingen gebruiken of een nieuwe site maken met behulp van een framework en hulpprogramma's van uw keuze. Met de functie [WebJobs][WebJobs] kunt u eenvoudig achtergrondverwerking van taken toevoegen aan uw App Service-web-app.
 
 Service Fabric is een goede keuze als u een nieuwe app maakt of een bestaande app herschrijft voor gebruik met een microservice-architectuur. Apps die worden uitgevoerd in een gedeelde groep machines, kunnen kleinschalig beginnen en afhankelijk van de behoefte opschalen tot wel honderden of duizenden machines. Stateful services maken het eenvoudig om de app-status consistent en betrouwbaar op te slaan en Service Fabric beheert automatisch de partitionering, schaalbaarheid en beschikbaarheid van de service voor u.  Service Fabric ondersteunt ook WebAPI met Open Web Interface voor .NET (OWIN) en ASP.NET Core.  Vergeleken met App Service biedt Service Fabric ook meer controle over en directe toegang tot de onderliggende infrastructuur. U hebt op afstand toegang tot uw servers en u kunt taken configureren om de server te starten. Cloud Services biedt een vergelijkbare mate van beheer en gebruiksgemak als Service Fabric, maar is een verouderde service. Er wordt aanbevolen bij de ontwikkeling van nieuwe toepassingen Service Fabric te gebruiken.
 
@@ -97,7 +98,7 @@ Azure App Service is een uitstekende oplossing voor het hosten van zakelijke web
 * Integratie met Active Directory
 
 ### <a id="iis6"></a> Ik heb een IIS6-toepassing die in Windows Server 2003 wordt uitgevoerd.
-Azure App Service maakt het eenvoudig om de infrastructuurkosten te voorkomen die gepaard gaan met het migreren van oudere IIS6-toepassingen. Microsoft heeft [gebruiksvriendelijke hulpprogramma's voor migratie en gedetailleerde migratierichtlijnen](https://www.migratetoazure.net/) gemaakt waarmee u de compatibiliteit kunt controleren en eventuele wijzigingen kunt identificeren die moeten worden aangebracht. Integratie met Visual Studio, TFS en veelgebruikte CMS-hulpprogramma's maakt het eenvoudig om IIS6-toepassingen rechtstreeks naar de cloud te implementeren. Wanneer deze is geïmplementeerd, biedt Azure Portal krachtige beheerprogramma's waarmee u omlaag kunt schalen om de kosten te beperken en omhoog kunt schalen om aan een toenemende vraag te voldoen. Met het hulpprogramma voor migratie kunt u:
+Azure App Service maakt het eenvoudig om de infrastructuurkosten te voorkomen die gepaard gaan met het migreren van oudere IIS6-toepassingen. Microsoft heeft [gebruiksvriendelijke hulpprogramma's voor migratie en gedetailleerde migratierichtlijnen][migrate-tool] gemaakt waarmee u de compatibiliteit kunt controleren en eventuele wijzigingen kunt identificeren die moeten worden aangebracht. Integratie met Visual Studio, TFS en veelgebruikte CMS-hulpprogramma's maakt het eenvoudig om IIS6-toepassingen rechtstreeks naar de cloud te implementeren. Wanneer deze is geïmplementeerd, biedt Azure Portal krachtige beheerprogramma's waarmee u omlaag kunt schalen om de kosten te beperken en omhoog kunt schalen om aan een toenemende vraag te voldoen. Met het hulpprogramma voor migratie kunt u:
 
 * snel en eenvoudig uw oude Windows Server 2003-webtoepassing naar de cloud migreren;
 * ervoor kiezen om uw gekoppelde SQL-database on-premises te houden en een hybride toepassing te maken;
@@ -191,3 +192,4 @@ Raadpleeg de volgende bronnen om aan de slag te gaan met de gekozen opties voor 
 <!-- IMG List -->
 
 [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+[migrate-tool]: https://www.movemetothecloud.net/

@@ -1,74 +1,74 @@
 ---
 title: Reageren op gebeurtenissen met Azure Log Analytics-waarschuwingen | Microsoft Docs
-description: Deze zelfstudie biedt u meer inzicht in waarschuwingen in Log Analytics om belangrijke informatie te herkennen in de OMS-opslagplaats en u proactief te informeren over problemen of acties aan te roepen om te proberen deze problemen te corrigeren.
+description: Deze zelfstudie biedt u meer inzicht in waarschuwingen van Log Analytics om belangrijke informatie in uw werkruimte te herkennen en u proactief te informeren over problemen of acties aan te roepen om te proberen deze problemen te verhelpen.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 70698dc233dac60a2fa2d1444930d21d3fba8773
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637120"
 ---
-# <a name="respond-to-events-with-log-analytics-alerts"></a>Reageren op gebeurtenissen met Log Analytics-waarschuwingen
-Waarschuwingen in Log Analytics geven belangrijke informatie in uw Log Analytics-opslagplaats aan. Ze worden gemaakt door waarschuwingsregels die automatisch met regelmatige tussenpozen zoekopdrachten in logboeken uitvoeren. Als de resultaten van de logboekzoekactie aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt en kan dit worden geconfigureerd voor het uitvoeren van een automatische reactie.  Deze zelfstudie is een vervolg van de zelfstudie [Dashboards van Log Analytics-gegevens maken en delen](log-analytics-tutorial-dashboards.md).   
+# <a name="respond-to-events-with-azure-monitor-alerts"></a>Reageren op gebeurtenissen met Azure Monitor-waarschuwingen
+Waarschuwingen in Azure Monitor kunnen belangrijke informatie in uw Log Analytics-opslagplaats aangeven. Ze worden gemaakt door waarschuwingsregels die automatisch met regelmatige tussenpozen zoekopdrachten in logboeken uitvoeren. Als de resultaten van de logboekzoekactie aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt en kan deze worden geconfigureerd voor het uitvoeren van een automatische reactie.  Deze zelfstudie is een vervolg van de zelfstudie [Dashboards van Log Analytics-gegevens maken en delen](log-analytics-tutorial-dashboards.md).   
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een waarschuwingsregel maken
-> * Een waarschuwingsregel configureren voor het verzenden van een e-mailmelding
+> * Een actiegroep configureren voor het verzenden van een e-mailmelding
 
 Om het voorbeeld in deze zelfstudie uit te voeren, moet u een bestaande virtuele machine [hebben verbonden met de Log Analytics-werkruimte](log-analytics-quick-collect-azurevm.md).  
 
 ## <a name="log-in-to-azure-portal"></a>Aanmelden bij Azure Portal
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-alerts"></a>Waarschuwingen maken
+Waarschuwingen worden gemaakt door regels voor waarschuwingen in Azure Monitor en kunnen automatisch opgeslagen query's uitvoeren of aangepaste zoekopdrachten in logboeken met regelmatige tussenpozen.  U kunt waarschuwingen maken op basis van specifieke prestatiemetrieken of wanneer bepaalde gebeurtenissen worden gemaakt, de afwezigheid van een gebeurtenis of een aantal gebeurtenissen die binnen een bepaalde periode worden gemaakt.  Waarschuwingen kunnen bijvoorbeeld worden gebruikt om u te waarschuwen wanneer het gemiddelde CPU-gebruik een bepaalde drempelwaarde overschrijdt, er een ontbrekende update wordt gedetecteerd of er een gebeurtenis wordt gegenereerd omdat een specifieke Windows-service of Linux-daemon niet wordt uitgevoerd.  Als de resultaten van de logboekzoekopdracht aan bepaalde criteria voldoen, wordt er een waarschuwing gemaakt. De regel kan vervolgens automatisch een of meer acties uitvoeren, bijvoorbeeld om u te informeren over de waarschuwing of om een ander proces aan te roepen. 
 
-Waarschuwingen worden gemaakt door waarschuwingsregels die automatisch met regelmatige tussenpozen zoekopdrachten in logboeken uitvoeren.  U kunt waarschuwingen maken op basis van specifieke prestatiemetrieken of wanneer bepaalde gebeurtenissen worden gemaakt, de afwezigheid van een gebeurtenis of een aantal gebeurtenissen die binnen een bepaalde periode worden gemaakt.  Waarschuwingen kunnen bijvoorbeeld worden gebruikt om u te waarschuwen wanneer het gemiddelde CPU-gebruik een bepaalde drempelwaarde overschrijdt of een gebeurtenis wordt gegenereerd wanneer een specifieke Windows-service of Linux-daemon niet wordt uitgevoerd.   Als de resultaten van de logboekzoekopdracht aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt. De regel kan vervolgens automatisch een of meer acties uitvoeren om u proactief te informeren over de waarschuwing of een ander proces aanroepen. 
-
-In het volgende voorbeeld maakt u een waarschuwingsregel voor een metrische meting waarmee een waarschuwing wordt gemaakt voor elk computerobject in de query met een waarde die hoger is dan de drempelwaarde van 90%.
+In het volgende voorbeeld maakt u een waarschuwingsregel voor een metrische meting die is gebaseerd op de query *Azure VMs - Processor Utilization* die u hebt opgeslagen in de [zelfstudie Gegevens visualiseren](log-analytics-tutorial-dashboards.md).  Er wordt een waarschuwing gemaakt voor elke virtuele machine die een drempel van 90% overschrijdt.  
 
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
-2. Start de OMS-portal door OMS-portal te selecteren en selecteer op de pagina **Overzicht** de optie **Zoeken in logboeken**.  
-3. Selecteer boven in de portal **Favorieten** en selecteer in het dialoogvenster **Opgeslagen zoekopdrachten** aan de rechterkant de query *Azure VM's - processorgebruik*.  
-4. Klik boven aan de pagina op **Waarschuwing** om het scherm **Waarschuwingsregel toevoegen** te openen.  
-5. Configureer de waarschuwingsregel met de volgende informatie:  
-   a. Geef een **Naam** op voor de waarschuwing, zoals *VM-processorgebruik overschrijdt > 90*  
-   b. Geef voor **Tijdvenster** een tijdsbereik op voor de query, zoals *30*.  De query retourneert alleen de records die zijn gemaakt binnen dit tijdsbereik.  
-   c. **Waarschuwingsfrequentie** geeft aan hoe vaak de query moet worden uitgevoerd.  Geef voor dit voorbeeld *5* minuten op, dat binnen ons opgegeven tijdvenster valt.  
-   d. Selecteer **Meting van metrische gegevens** en voer *90* in voor **Geaggregeerde waarde** en voer *3* in voor **Waarschuwing activeren op basis van**   
-   e. Schakel onder **Acties** e-mailmeldingen uit.
-6. Klik op **Opslaan** om de waarschuwingsregel te voltooien. Deze wordt onmiddellijk uitgevoerd.<br><br> ![Voorbeeld van waarschuwingsregel](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
+2. Selecteer in het linkerdeelvenster **Waarschuwingen** en klik vervolgens bovenaan de pagina op **Nieuwe waarschuwingsregel** om een nieuwe waarschuwing te maken.<br><br> ![Nieuwe waarschuwingsregel maken](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
+3. Ga naar de sectie **Waarschuwing maken** en selecteer uw werkruimte van Log Analytics als de bron, aangezien dit een waarschuwingssignaal op basis van een logboek is.  Filter de resultaten door in de vervolgkeuzelijst **Abonnement** het abonnement te selecteren met de VM en de eerder gemaakte Log Analytics-werkruimte (als u meer dan één abonnement hebt).  Filter op **resourcetype** door **Log Analytics** te selecteren in de vervolgkeuzelijst.  Selecteer als laatste **DefaultLAWorkspace** in de lijst **Resource** en klik vervolgens op **Gereed**.<br><br> ![Waarschuwing maken - stap 1](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
+4. Klik in de sectie **Waarschuwingscriteria** op **Criteria toevoegen** om onze opgeslagen query te selecteren en geef vervolgens logica op die de waarschuwingsregel volgt.  Selecteer in het deelvenster **Signaallogica configureren** de optie *Azure VMs - Processor Utilization* in de lijst.  Het deelvenster wordt bijgewerkt met de configuratie-instellingen voor de waarschuwing.  Bovenaan ziet u de resultaten voor de afgelopen 30 minuten van het geselecteerde signaal en de zoekquery zelf.  
+5. Configureer de waarschuwing met de volgende gegevens:  
+   a. Selecteer in de vervolgkeuzelijst *Gebaseerd op* de optie **Meting van metrische gegevens**.  Een meting van metrische gegevens maakt een waarschuwing voor elk object in de query met een waarde die de opgegeven drempelwaarde overschrijdt.  
+   b. Selecteer in de lijst **Voorwaarde** de optie **Groter dan** en geef **90** op voor **Drempel**.  
+   c. Selecteer in de sectie 'Waarschuwing activeren op basis van' de optie **Achtereenvolgende schendingen**, selecteer **Groter dan** in de vervolgkeuzelijst en voer een waarde in van 3.  
+   d. Accepteer de standaardwaarden in de sectie Evaluatie op basis van. De regel wordt om de vijf minuten uitgevoerd en retourneert records die zijn gemaakt binnen dit tijdsbestek.  
+6. Klik op **Gereed** om de waarschuwingsregel te voltooien.<br><br> ![Waarschuwingssignaal configureren](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)<br> 
+7. Geef een naam op voor de waarschuwing in het veld **Naam waarschuwingsregel**, zoals **Percentage CPU groter dan 90 procent**.  Geef bij **Beschrijving** gedetailleerde informatie op over de waarschuwing en selecteer **Kritiek (ernst 0)** in de vervolgkeuzelijst **Ernst**.<br><br> ![Details van waarschuwing configureren](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)<br>
+8. Als u de waarschuwingsregel direct na het maken wilt activeren, accepteert u de standaardwaarde voor **Regel inschakelen wanneer deze wordt gemaakt**.
+9. De laatste stap bestaat uit het instellen van een **actiegroep**, die ervoor zorgt dat elke keer dat een waarschuwing wordt geactiveerd, dezelfde acties worden genomen. De groep kan worden gebruikt voor elke regel die u definieert.  Configureer een nieuwe actiegroep met de volgende gegevens:  
+   a. Selecteer **Nieuwe actiegroep** om het deelvenster **Actiegroep toevoegen** weer te geven.
+   b. Geef voor **Naam van de actiegroep** een naam op zoals **IT Operations - waarschuwen** en voor **Korte naam** een waarde zoals **itops w**.  
+   c. Controleer of de standaardwaarden voor **Abonnement** en **Resourcegroep** juist zijn. Als dat niet het geval is, selecteert u de juiste waarden in de vervolgkeuzelijst.   
+   d. Geef in de sectie Acties een naam op voor de actie, zoals **E-mail verzenden**, en selecteer onder **Actietype** de optie **E-mail/Sms/Push/Spraak** in de vervolgkeuzelijst. Aan de rechterkant zie u het eigenschappendeelvenster **E-mail/Sms/Push/Spraak**, waarin u aanvullende gegevens kunt opgeven.
+   e. Schakel in het deelvenster **E-mail/Sms/Push/Spraak** de optie **E-mail** in en geef een geldig SMTP-e-mailadres op voor verzending van het bericht. f. Klik op **OK** om uw wijzigingen op te slaan.<br><br> ![Nieuwe actiegroep maken](./media/log-analytics-tutorial-response/action-group-properties-01.png)<br>
+10. Klik op **OK** om de actiegroep te voltooien. 
+11. Klik op **Waarschuwingsregel maken** om de waarschuwingsregel te voltooien. Deze wordt onmiddellijk uitgevoerd.<br><br> ![Nieuwe waarschuwingsregel voltooien](./media/log-analytics-tutorial-response/alert-rule-01.png)<br> 
 
-Waarschuwingsrecords die worden gemaakt door waarschuwingsregels in Log Analytics zijn van het type **Waarschuwing** en hebben **OMS** als SourceSystem.<br><br> ![Voorbeeld van gegenereerde waarschuwingsgebeurtenissen](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
+## <a name="view-your-alerts-in-azure-portal"></a>Waarschuwingen bekijken in Azure Portal
+U hebt nu een waarschuwing gemaakt en dus kunt u waarschuwingen van Azure weergeven in één deelvenster en daar alle waarschuwingsregels voor uw Azure-abonnementen beheren. U ziet een overzicht van alle waarschuwingsregels (ingeschakeld of uitgeschakeld) en u kunt sorteren op doelresources, resourcegroepen, regelnaam of status. Het venster bevat ook een samengesteld overzicht van alle geactiveerde waarschuwingen en het totale aantal geconfigureerde/ingeschakelde waarschuwingsregels.<br><br> ![Statuspagina voor Azure-waarschuwingen](./media/log-analytics-tutorial-response/azure-alerts-02.png)  
 
-## <a name="alert-actions"></a>Waarschuwingsacties
-U kunt geavanceerde acties met waarschuwingen uitvoeren, zoals het maken van een e-mailmelding, het starten van een [Automation-runbook](../automation/automation-runbook-types.md), het gebruiken van een webhook voor het maken van een incidentrecord in uw ITSM-incidentbeheersysteem of het gebruik van de oplossing [IT Service Management-connector](log-analytics-itsmc-overview.md) als reactie wanneer aan de waarschuwingscriteria wordt voldaan.   
-
-Met een e-mailactie wordt een e-mailbericht met details van de waarschuwing verzonden naar een of meer ontvangers. U kunt het onderwerp van het e-mailbericht opgeven, maar de inhoud ervan is een standaardindeling die wordt samengesteld door Log Analytics.  We gaan de waarschuwingsregel die u eerder hebt gemaakt bijwerken en deze configureren voor het verzenden van een e-mailmelding in plaats van actief te controleren op het waarschuwingsrecord met een logboekzoekopdracht.     
-
-1. Selecteer in de OMS-portal in het bovenste menu de optie **Instellingen** en selecteer vervolgens **Waarschuwingen**.
-2. Klik in de lijst met waarschuwingsregels op het potloodpictogram naast de waarschuwing die u eerder hebt gemaakt.
-3. Schakel onder de sectie **Acties** e-mailmeldingen in.
-4. Geef een **Onderwerp** op voor het e-mailbericht, zoals *Processorgebruik overschrijdt drempelwaarde > 90*.
-5. Voeg adressen van een of meer ontvangers toe in het veld **Ontvangers**.  Als u meer dan één adres opgeeft, scheidt u de adressen van elkaar met een puntkomma (;).
-6. Klik op **Opslaan** om de waarschuwingsregel te voltooien. Deze wordt onmiddellijk uitgevoerd.<br><br> ![Waarschuwingsregel met e-mailmelding](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
+Als de waarschuwing wordt geactiveerd, ziet u dit in de tabel, evenals het aantal keren dat de waarschuwing binnen het geselecteerde tijdsbestek is geactiveerd (de standaardwaarde is de afgelopen zes uur).  Er moet ook een e-mailbericht in uw Postvak IN staan dat er ongeveer zo uitziet, met de virtuele machine waar het om gaat en de belangrijkste resultaten die de zoekopdracht in dit geval heeft opgeleverd.<br><br> ![Voorbeeld van e-mail met waarschuwing](./media/log-analytics-tutorial-response/azure-alert-email-notification-01.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe waarschuwingsregels een probleem proactief kunnen identificeren en kunnen reageren op een probleem wanneer deze met regelmatige tussenpozen logboekzoekopdrachten uitvoeren en aan bepaalde criteria voldoen.  
+In deze zelfstudie hebt u geleerd hoe waarschuwingsregels een probleem proactief kunnen identificeren en kunnen reageren op een probleem wanneer deze met regelmatige tussenpozen logboekzoekopdrachten uitvoeren en aan bepaalde criteria voldoen.
 
 Volg deze link om voorbeelden te zien van vooraf gemaakte Log Analytics-scripts.  
 

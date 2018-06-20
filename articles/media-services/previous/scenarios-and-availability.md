@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 777ba32a6c3ec7545c9911c820ceda7ac823096a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809275"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenario's en de beschikbaarheid van Media Services-functies in datacenters
 
 Met Microsoft Azure Media Services (AMS) kunt u veilig video- of audio-inhoud uploaden, opslaan, coderen en verpakken, zowel voor levering on-demand als levering via livestreaming aan verschillende clients (bijvoorbeeld tv, pc en mobiele apparaten).
 
-AMS werkt vanuit diverse datacenters, op locaties overal wereld. Deze datacenters worden gegroepeerd in geografische regio's, waardoor u flexibiliteit hebt bij het kiezen waar u uw toepassingen ontwikkelt. U kunt zelf de [lijst met regio's en bijbehorende locaties](https://azure.microsoft.com/regions/) bekijken. 
+Azure Media Services werkt vanuit diverse datacentra, op locaties overal ter wereld. Deze datacenters worden gegroepeerd in geografische regio's, waardoor u flexibiliteit heeft bij het kiezen waar u uw toepassingen ontwikkelt. U kunt zelf de [lijst met regio's en bijbehorende locaties](https://azure.microsoft.com/regions/) bekijken. 
 
 Dit onderwerp bevat algemene scenario's voor het leveren van uw inhoud: [live](#live_scenarios) of [on-demand](#vod_scenarios). Het onderwerp bevat ook informatie over de beschikbaarheid van mediafuncties en -services in datacenters.
 
@@ -165,7 +166,7 @@ Deze sectie bevat informatie over de beschikbaarheid van Media Services-functies
 
 #### <a name="availability"></a>Beschikbaarheid
 
-Als u wilt bepalen of Media Services beschikbaar zijn in een datacenter, bladert u naar https://azure.microsoft.com/status/ en gaat u naar de tabel MEDIA.
+Als u wilt bepalen of Media Services beschikbaar is in een datacenter, bladert u naar https://azure.microsoft.com/status/ en gaat u naar de tabel MEDIA.
 
 ### <a name="streaming-endpoints"></a>Streaming-eindpunten 
 

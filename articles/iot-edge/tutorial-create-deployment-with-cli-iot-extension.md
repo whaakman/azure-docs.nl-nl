@@ -1,33 +1,33 @@
 ---
-title: Modules op rand van de IoT-apparaten met IoT-extensie voor Azure CLI 2.0 implementeren | Microsoft Docs
-description: Modules implementeren naar een IoT-randapparaat met IoT-extensie voor Azure CLI 2.0
-services: iot-edge
-keywords: ''
+title: Modules implementeren in IoT Edge-apparaten met IoT-extensie voor Azure CLI 2.0 | Microsoft Docs
+description: Modules implementeren in een IoT Edge-apparaat met IoT-extensie voor Azure CLI 2.0
 author: chrissie926
-manager: timlt
+manager: ''
 ms.author: menchi
 ms.date: 03/02/2018
-ms.topic: article
-ms.service: iot-edge
-ms.custom: ''
+ms.topic: tutorial
 ms.reviewer: kgremban
-ms.openlocfilehash: 7bc0d0706385f2f3e101d06be3a2837341c331b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.service: iot-edge
+services: iot-edge
+md.custom: mvc
+ms.openlocfilehash: deee54fe5d11d6d1cf5485357f853b1cb078f96d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631578"
 ---
-# <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Modules implementeren naar een IoT-randapparaat met IoT-extensie voor Azure CLI 2.0
+# <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Modules implementeren in een IoT Edge-apparaat met IoT-extensie voor Azure CLI 2.0
 
 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is een open-source, cross-platform opdrachtregelprogramma voor het beheren van Azure-resources, zoals IoT Edge. Azure CLI 2.0 is beschikbaar voor Windows, Linux en Mac OS.
 
-Met Azure CLI 2.0 kunt u Azure IoT Hub-resources, service-exemplaren voor apparaatinrichting en gebruiksklare gekoppelde hubs beheren. De nieuwe IoT-extensie verrijkt Azure CLI 2.0 met functies zoals Apparaatbeheer en de mogelijkheid om volledige IoT rand.
+Met Azure CLI 2.0 kunt u Azure IoT Hub-resources, service-exemplaren voor apparaatinrichting en gebruiksklare gekoppelde hubs beheren. De nieuwe IoT-extensie voorziet Azure CLI 2.0 van extra functies zoals Apparaatbeheer en alle functionaliteit van IoT Edge.
 
-In dit artikel leert instellen u Azure CLI 2.0 en de extensie IoT. Vervolgens leert u hoe modules implementeren op een IoT-randapparaat met behulp van de beschikbare CLI-opdrachten.
+In dit artikel leert u hoe u Azure CLI 2.0 en de IoT-extensie instelt. Vervolgens leert u hoe u modules implementeert in een IoT Edge-apparaat met de beschikbare CLI-opdrachten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-account. Als u een nog geen hebt, kunt u [een gratis account maken](https://azure.microsoft.com/free/?v=17.39a) vandaag. 
+* Een Azure-account. Als u nog geen account hebt, kunt u vandaag [een gratis account aanmaken](https://azure.microsoft.com/free/?v=17.39a). 
 
 * [Python 2.7 x of Python 3.x](https://www.python.org/downloads/).
 
@@ -35,20 +35,20 @@ In dit artikel leert instellen u Azure CLI 2.0 en de extensie IoT. Vervolgens le
 
 * [De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension):
    1. Voer `az extension add --name azure-cli-iot-ext` uit. 
-   2. Na de installatie met `az extension list` voor het valideren van de momenteel geïnstalleerde extensies of `az extension show --name azure-cli-iot-ext` voor informatie over de IoT-uitbreiding.
-   3. U kunt de extensie verwijderen met `az extension remove --name azure-cli-iot-ext`.
+   2. Gebruik na de installatie `az extension list` om de momenteel geïnstalleerde extensies te valideren of `az extension show --name azure-cli-iot-ext` voor informatie over de IoT-extensie.
+   3. Gebruik `az extension remove --name azure-cli-iot-ext` om de extensie te verwijderen.
 
 
-## <a name="create-an-iot-edge-device"></a>Een IoT-randapparaat maken
-Dit artikel bevat instructies voor het maken van de implementatie van een IoT-rand. In het voorbeeld laat zien hoe u aanmelden bij uw Azure-account, maken van een Azure Resource Group (een container met verwante resources voor een Azure-oplossing), een IoT Hub maken, drie IoT rand apparaten identiteit maken, markeringen en maak vervolgens de implementatie van een IoT-rand die u gericht is op deze apparaten. 
+## <a name="create-an-iot-edge-device"></a>Een IoT Edge-apparaat maken
+In dit artikel staan instructies voor het maken van een IoT Edge-implementatie. Het voorbeeld laat zien hoe u zich aanmeldt bij uw Azure-account, een Azure-resourcegroep maakt (bestaande uit een container die verwante resources voor een Azure-oplossing bevat), een IoT Hub maakt, drie identiteiten maakt voor IoT Edge-apparaten, labels instelt en een IoT Edge-implementatie maakt voor die apparaten. 
 
-Aanmelden bij uw Azure-account. Nadat u de volgende aanmelding opdracht invoert, wordt gevraagd een webbrowser aan te melden met een eenmalige code gebruiken: 
+Meld u aan bij uw Azure-account. Nadat u de volgende opdracht hebt ingevoerd, wordt u gevraagd een webbrowser te gebruiken om u met een eenmalige code aan te melden: 
 
    ```cli
    az login
    ```
 
-Maak een nieuwe resourcegroep aangeroepen **IoTHubCLI** in de regio VS-Oost: 
+Maak een nieuwe resourcegroep met de naam **IoTHubCLI** in de regio US - oost: 
 
    ```cli
    az group create -l eastus -n IoTHubCLI
@@ -56,28 +56,28 @@ Maak een nieuwe resourcegroep aangeroepen **IoTHubCLI** in de regio VS-Oost:
 
    ![Een resourcegroep maken][2]
 
-Maken van een IoT-hub aangeroepen **CLIDemoHub** in de zojuist gemaakte resourcegroep:
+Maak een IoT Hub met de naam **CLIDemoHub** onder de nieuwe resourcegroep:
 
    ```cli
    az iot hub create --name CLIDemoHub --resource-group IoTHubCLI --sku S1
    ```
 
    >[!TIP]
-   >Elk abonnement wordt één gratis IoT-hub toegewezen. Vervang de SKU-waarde met een gratis hub maakt met de opdracht CLI, `--sku F1`. Als u al een gratis hub in uw abonnement hebt, krijgt u een foutbericht weergegeven wanneer u een tweede maken. 
+   >Elk abonnement biedt toegang tot één gratis IoT-hub. Om een gratis hub te maken met een CLI-opdracht, vervangt u de SKU-waarde met `--sku F1`. Als u al een gratis hub in uw abonnement hebt, krijgt u een foutbericht wanneer u een tweede wilt maken. 
 
-Maak een Edge van de IoT-apparaat:
+Een IoT Edge-apparaat maken:
 
    ```cli
-   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   az iot hub device-identity create --device-id edge001 --hub-name CLIDemoHub --edge-enabled
    ```
 
-   ![Rand van de IoT-apparaat maken][4]
+   ![Een IoT Edge-apparaat maken][4]
 
-## <a name="configure-the-iot-edge-device"></a>Configureren van de rand van de IoT-apparaat
+## <a name="configure-the-iot-edge-device"></a>Een IoT Edge-apparaat configureren
 
-Maak een JSON-sjabloon voor implementatie en lokaal opslaan als een txt-bestand. U moet het pad naar het bestand wanneer u de opdracht toepassen configuratie uitvoert.
+Maak een JSON-sjabloon voor implementatie en sla die lokaal op als TXT-bestand. U hebt het pad naar het bestand nodig wanneer u de opdracht Configuratie toepassen uitvoert.
 
-Implementatie van JSON-sjablonen moeten altijd omvatten twee systeemmodules, edgeAgent en edgeHub. Naast deze twee, kunt u dit bestand aanvullende modules op de rand van de IoT-apparaat implementeren. Gebruik het volgende voorbeeld IoT randapparaat configureren met één tempSensor-module:
+De implementatie van een JSON-sjabloon moet altijd de twee systeemmodules EdgeAgent en EdgeHub bevatten. Bovendien kunt u dit bestand gebruiken om extra modules te implementeren in het IoT Edge-apparaat. Gebruik het volgende voorbeeld om uw IoT Edge-apparaat te configureren met een tempSensor-module:
 
    ```json
    {
@@ -140,23 +140,23 @@ Implementatie van JSON-sjablonen moeten altijd omvatten twee systeemmodules, edg
    }
    ```
 
-De configuratie van toepassing op uw IoT-randapparaat:
+De configuratie op uw IoT Edge-apparaat toepassen:
 
    ```cli
    az iot hub apply-configuration --device-id edge001 --hub-name CLIDemoHub --content C:\<configuration.txt file path>
    ```
 
-De modules die op uw IoT-randapparaat bekijken:
+De modules op uw IoT Edge-apparaat bekijken:
     
    ```cli
    az iot hub module-identity list --device-id edge001 --hub-name CLIDemoHub
    ```
 
-   ![Lijst met modules][6]
+   ![Modules in lijst weergeven][6]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over hoe [een IoT-randapparaat als een gateway gebruiken](how-to-create-transparent-gateway.md)
+* Ontdek hoe u [een IoT Edge-apparaat als gateway kunt gebruiken](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

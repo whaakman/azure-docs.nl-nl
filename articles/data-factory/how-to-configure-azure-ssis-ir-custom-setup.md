@@ -3,21 +3,22 @@ title: Setup voor de integratie van Azure SSIS runtime aanpassen | Microsoft Doc
 description: Dit artikel wordt beschreven hoe u met de interface met aangepaste installatie voor de integratie van Azure SSIS runtime extra onderdelen installeren of instellingen wijzigen
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: douglasl
-ms.openlocfilehash: 7b6cae9eaa4674e60edfae13c571d89153c9b498
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298389"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268127"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de integratie van Azure SSIS runtime aanpassen
 
@@ -30,13 +31,13 @@ U kunt gratis of niet-gelicentieerde onderdelen en betaalde of gelicentieerde on
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 
--   Als u wilt gebruiken `gacutil.exe` voor het installeren van assembly's in de Global Assembly Cache (GAC), moet u opgeven als onderdeel van uw aangepaste installatie of het exemplaar dat is opgegeven in de openbare Preview-container gebruiken.
+-   Als u wilt gebruiken `gacutil.exe` voor het installeren van assembly's in de Global Assembly Cache (GAC), moet u opgeven `gacutil.exe` als onderdeel van uw aangepaste installatie, of gebruik het exemplaar dat is opgegeven in de openbare Preview-container.
+
+-   Als u wilt verwijzen naar een submap in uw script `msiexec.exe` biedt geen ondersteuning voor de `.\` notatie om te verwijzen naar de hoofdmap. Gebruik een opdracht zoals `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` in plaats van `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
 -   Als u moet uw Azure-SSIS-IR met aangepaste installatie toevoegen aan een virtueel netwerk, worden alleen virtueel netwerk met Azure Resource Manager wordt ondersteund. Klassiek virtueel netwerk wordt niet ondersteund.
 
 -   Administratorshare is momenteel niet ondersteund in de Azure-SSIS-IR
-
--   Als u wilt een bestandsshare worden toegewezen aan een station in de aangepaste instellingen, de `net use` opdracht wordt momenteel niet ondersteund. U kunt een opdracht zoals als gevolg hiervan niet gebruiken `net use d: \\fileshareserver\sharename`. Gebruik in plaats daarvan de `cmdkey` command - bijvoorbeeld `cmdkey /add:fileshareserver /user:yyy /pass:zzz` - voor toegang tot de `\\fileshareserver\folder` rechtstreeks in uw pakketten.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -58,8 +59,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
     1.  U moet een scriptbestand met de naam hebben `main.cmd`, namelijk het toegangspunt voor uw aangepaste instellingen.
 
-    2.  Als u wilt dat extra logboeken die worden gegenereerd door andere hulpprogramma's (bijvoorbeeld `msiexec.exe`) om te worden geüpload naar de container, geef de vooraf gedefinieerde omgevingsvariabele `CUSTOM_SETUP_SCRIPT_LOG_DIR` als de logboekmap in uw scripts (bijvoorbeeld `msiexec /i xxx.msi /quiet
-        /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
+    2.  Als u wilt dat extra logboeken die worden gegenereerd door andere hulpprogramma's (bijvoorbeeld `msiexec.exe`) om te worden geüpload naar de container, geef de vooraf gedefinieerde omgevingsvariabele `CUSTOM_SETUP_SCRIPT_LOG_DIR` als de logboekmap in uw scripts (bijvoorbeeld `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 4.  Downloaden, installeren en starten [Azure Opslagverkenner](http://storageexplorer.com/).
 

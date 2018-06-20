@@ -1,30 +1,26 @@
 ---
-title: Uw eerste geautomatiseerde werkstroom maken - Azure Logic Apps | Microsoft Docs
-description: Deze quickstart laat zien hoe u uw eerste werkstroom met Azure Logic Apps kunt automatiseren voor scenario’s voor systeemintegratie en Enterprise Application Integration (EAI) waarmee systemen en cloudservices worden geïntegreerd.
-author: ecfan
-manager: anneta
-editor: ''
+title: Uw eerste werkstroom maken en automatiseren - Azure Logic Apps | Microsoft Docs
+description: Snelstart voor het maken van uw eerste logische app voor het automatiseren van taken, processen en werkstromen met Azure Logic Apps. Logische apps maken voor systeemintegratie en EAI-oplossingen (Enterprise Application Integration) voor uw systemen en cloudservices
 services: logic-apps
-keywords: werkstroom, cloudservices, systeemintegratie, enterprise application integration, EAI
-documentationcenter: ''
-ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300936"
 ---
-# <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Quickstart: Uw eerste werkstroom voor logische apps bouwen - Azure Portal
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snelstart: maak uw eerste geautomatiseerde werkstroom met Azure Logic Apps - Azure-portal
 
-In deze quickstart leert u uw eerste geautomatiseerde werkstroom maken met [Azure Logic Apps](../logic-apps/logic-apps-overview.md). In dit artikel maakt u een logische app waarmee de RSS-feed van een website regelmatig wordt gecontroleerd op nieuwe items. Als er nieuwe items bestaan, stuurt de logische app een e-mail voor elk item. Wanneer u bent klaar, ziet uw logische app eruit als deze werkstroom op hoog niveau:
+In deze snelstart leert u uw eerste geautomatiseerde werkstroom bouwen met [Azure Logic Apps](../logic-apps/logic-apps-overview.md). In dit artikel maakt u een logische app waarmee de RSS-feed van een website regelmatig wordt gecontroleerd op nieuwe items. Als er nieuwe items bestaan, stuurt de logische app een e-mail voor elk item. Wanneer u bent klaar, ziet uw logische app eruit als deze werkstroom op hoog niveau:
 
 ![Overzicht: voorbeeld van logische app](./media/quickstart-create-first-logic-app-workflow/overview.png)
 
@@ -164,7 +160,7 @@ Dit is een voorbeeld van een e-mailbericht dat deze logische app verzendt. Als u
 
 ![E-mail wordt verzonden voor nieuw RSS-feeditem](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Technisch gesproken wordt, als bij controle van de RSS-feed nieuwe items worden aangetroffen, de trigger geactiveerd en maakt de Logic Apps-engine een exemplaar van de werkstroom van uw logische app die de acties in de werkstroom uitvoert.
+Technisch gezien wordt, als bij controle van de RSS-feed nieuwe items worden aangetroffen, de trigger geactiveerd en maakt de Logic Apps-engine een exemplaar van de werkstroom van uw logische app die de acties in de werkstroom uitvoert.
 Als de trigger geen nieuwe items vindt, wordt deze niet geactiveerd en wordt het instantiëren van de werkstroom overgeslagen.
 
 Gefeliciteerd, u hebt uw eerste logische app in Azure Portal gemaakt en uitgevoerd.

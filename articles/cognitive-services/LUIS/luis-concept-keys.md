@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: bf131877080f46781e74991ef627922384cc4c08
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 70bca3b181e02f42da50e827154193936544131a
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345861"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263815"
 ---
 # <a name="keys-in-luis"></a>Sleutels in LUIS
 LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpunt](#endpoint-key). De authoring sleutel wordt automatisch voor u gemaakt wanneer u uw account LUIS maakt. Wanneer u klaar bent voor uw app LUIS publiceren, moet u [maakt u de eindpuntsleutel](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [toewijzen](Manage-keys.md#assign-endpoint-key) aan uw app LUIS en [gebruik in combinatie met de query eindpunt](#use-endpoint-key-in-query). 
@@ -76,4 +76,4 @@ Als u meer dan uw per tweede quotum foutbericht 429 HTTP-fout. Als u meer dan uw
 
 * Meer informatie over [concepten](Manage-Keys.md#assign-endpoint-key) over ontwerp- en eindpunt sleutels.
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

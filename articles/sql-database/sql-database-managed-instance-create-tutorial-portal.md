@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850607"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Een beheerd exemplaar voor Azure SQL Database maken in Azure Portal
 
@@ -161,16 +162,16 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt nadat u
 
    ![beheerd exemplaar maken](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. Selecteer uw abonnement en controleer of er onder Preview-voorwaarden **Geaccepteerd** staat.
+4. Selecteer uw abonnement en controleer of er onder Preview-voorwaarden **Geaccepteerd** staat.
 
    ![preview-voorwaarden managed instance geaccepteerd](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Vul het formulier voor het beheerde exemplaar in met behulp van de gegevens in onderstaande tabel:
+5. Vul het formulier voor het beheerde exemplaar in met behulp van de gegevens in onderstaande tabel:
 
    | Instelling| Voorgestelde waarde | Beschrijving |
    | ------ | --------------- | ----------- |
    |**Naam van het beheerde exemplaar**|Een geldige naam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
-   |**Beheerdersaanmeldgegevens voor het beheerde exemplaar**|Een geldige gebruikersnaam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.| 
+   |**Beheerdersaanmeldgegevens voor het beheerde exemplaar**|Een geldige gebruikersnaam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.| 
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 16 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Resourcegroep**|De resourcegroep die u eerder hebt gemaakt||
    |**Locatie**|De locatie die u eerder hebt geselecteerd|Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's.|
@@ -178,17 +179,17 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt nadat u
 
    ![formulier beheerd exemplaar maken](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. Klik op **Prijscategorie** om reken- en opslagresources toe te wijzen en de opties voor prijscategorieën te bekijken. Standaard krijgt het exemplaar 32 GB gratis opslagruimte, maar mogelijk is dit niet voldoende voor uw toepassingen.
-6. Gebruik de schuifregelaars of tekstvakken om de hoeveelheid opslagruimte en het aantal virtuele kernen op te geven. 
-   ![formulier beheerd exemplaar maken](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. Klik op **Prijscategorie** om reken- en opslagresources toe te wijzen en de opties voor prijscategorieën te bekijken. Standaard krijgt het exemplaar 32 GB gratis opslagruimte, maar mogelijk is dit niet voldoende voor uw toepassingen.
+7. Gebruik de schuifregelaars of tekstvakken om de hoeveelheid opslagruimte en het aantal virtuele kernen op te geven. 
+   ![prijscategorie beheerde instantie](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. Wanneer u klaar bent, klikt u op **Toepassen** om uw selectie op te slaan.  
-8. Klik op **Maken** om het beheerde exemplaar te implementeren.
-9. Klik op het pictogram voor **Meldingen** om de status van de implementatie te bekijken.
+8. Wanneer u klaar bent, klikt u op **Toepassen** om uw selectie op te slaan.  
+9. Klik op **Maken** om het beheerde exemplaar te implementeren.
+10. Klik op het pictogram voor **Meldingen** om de status van de implementatie te bekijken.
  
    ![voortgang implementatie](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. Klik op **Implementatie wordt uitgevoerd** om het venster Beheerd exemplaar te openen. Hier kunt u details van de voortgang van de implementatie controleren.
+11. Klik op **Implementatie wordt uitgevoerd** om het venster Beheerd exemplaar te openen. Hier kunt u details van de voortgang van de implementatie controleren.
  
    ![voortgang implementatie 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ In de volgende stappen wordt uitgelegd hoe u een virtuele machine maakt in hetze
 
    ![formulier virtuele machine maken](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. Klik op **OK**.
-4. Selecteer een grootte voor de VM. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Voor deze zelfstudie hebt u slechts een kleine virtuele machine nodig.
+4. Klik op **OK**.
+5. Selecteer een grootte voor de VM. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Voor deze zelfstudie hebt u slechts een kleine virtuele machine nodig.
 
     ![Formaten van virtuele machines](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. Klik op **Selecteren**.
-6. Klik op het formulier **Instellingen** op **Subnet** en selecteer vervolgens **vm_subnet**. Kies niet het subnet waarin het beheerde exemplaar is ingericht, maar een ander subnet in hetzelfde VNet.
+6. Klik op **Selecteren**.
+7. Klik op het formulier **Instellingen** op **Subnet** en selecteer vervolgens **vm_subnet**. Kies niet het subnet waarin het beheerde exemplaar is ingericht, maar een ander subnet in hetzelfde VNet.
 
     ![instellingen VM](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. Klik op **OK**.
-8. Bekijk op de samenvattingspagina de details van de aanbieding en klik vervolgens op **Maken** om te beginnen met de implementatie van de virtuele machine.
+8. Klik op **OK**.
+9. Bekijk op de samenvattingspagina de details van de aanbieding en klik vervolgens op **Maken** om te beginnen met de implementatie van de virtuele machine.
  
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
 

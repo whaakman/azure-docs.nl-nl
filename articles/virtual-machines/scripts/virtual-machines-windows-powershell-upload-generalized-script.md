@@ -1,36 +1,37 @@
 ---
-title: Een gegeneraliseerde VHD uploaden naar Azure PowerShell-voorbeeldscript | Microsoft Docs
-description: PowerShell-voorbeeldscript een gegeneraliseerde VHD uploaden naar Azure en een nieuwe virtuele machine maken met de resource manager-implementatiemodel en schijven beheerd.
+title: Voorbeeldscript van PowerShell voor uploaden van gegeneraliseerde VHD naar Azure | Microsoft Docs
+description: In dit artikel vindt u informatie over een voorbeeldscript van PowerShell waarmee u een gegeneraliseerde VHD (virtuele harde schijf) kunt uploaden naar Azure om een nieuwe VM (virtuele machine) te maken met behulp van het implementatiemodel van Resource Manager en Managed Disks.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 01/02/2017
+ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9534ce2a32ac57a441535cfa26f2981b804182d1
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: c1887bc7dc3cddce7f1c9f91f077388df2e73e9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716768"
 ---
-# <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Voorbeeld van een script een VHD uploaden naar Azure en een nieuwe virtuele machine maken
+# <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Voorbeeld van een script voor het uploaden van een VHD naar Azure om een nieuwe VM te maken
 
-Dit script wordt een lokale VHD-bestand van een gegeneraliseerde virtuele machine en geüpload naar Azure, installatiekopie van een beheerd schijf maakt en gebruikt het maken van een nieuwe virtuele machine.
+Met dit script wordt een lokaal VHD-bestand van een gegeneraliseerde VM geüpload naar Azure en wordt hiervan een installatiekopie van Managed Disks gemaakt om een nieuwe VM in te richten.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 ```powershell
 # Provide values for the variables
@@ -118,41 +119,41 @@ $vmList.Name
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten om de implementatie te maken. Elk item in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+In dit script worden de volgende opdrachten gebruikt om de implementatie te maken. Elk item in de tabel is een koppeling naar specifieke documentatie over de opdracht.
 
 | Opdracht                                                                                                             | Opmerkingen                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Nieuwe AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | Maakt een resourcegroep waarin alle resources worden opgeslagen.                                                                                                                          |
-| [Nieuwe AzureRmStorageAccount](/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | Hiermee maakt u een opslagaccount.                                                                                                                                                           |
-| [Voeg AzureRmVhd](/powershell/module/azurerm.resources/add-azurermvhd)                                               | Een virtuele harde schijf van een on-premises virtuele machine naar een blob in een cloud-opslagaccount in Azure uploadt.                                                                       |
-| [Nieuwe AzureRmImageConfig](/powershell/module/azurerm.resources/new-azurermimageconfig)                               | Maakt een configureerbare installatiekopie-object.                                                                                                                                                 |
-| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | Hiermee stelt u het besturingssysteem schijfeigenschappen op een installatiekopie-object.                                                                                                                        |
-| [Nieuwe AzureRmImage](/powershell/module/azurerm.resources/new-azurermimage)                                           | Maakt een nieuwe installatiekopie.                                                                                                                                                                 |
-| [Nieuwe AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | Hiermee maakt u de subnetconfiguratie van een. Deze configuratie wordt gebruikt met het proces voor het virtueel netwerk maken.                                                                                |
-| [Nieuwe-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | Hiermee maakt u een virtueel netwerk.                                                                                                                                                           |
-| [Nieuwe AzureRmPublicIpAddress](/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | Hiermee maakt u een openbaar IP-adres.                                                                                                                                                         |
-| [Nieuwe AzureRmNetworkInterface](/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | Maakt een netwerkinterface.                                                                                                                                                         |
-| [Nieuwe AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | Maakt een groep regel de netwerkbeveiligingsconfiguratie. Deze configuratie wordt gebruikt voor het maken van een regel voor het NSG wanneer het NSG wordt gemaakt.                                                       |
-| [Nieuwe AzureRmNetworkSecurityGroup](/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | Een netwerkbeveiligingsgroep maakt.                                                                                                                                                    |
-| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/get-azurermvirtualnetwork)                         | Hiermee haalt een virtueel netwerk in een resourcegroep.                                                                                                                                          |
-| [Nieuwe AzureRmVMConfig](/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | Maakt een VM-configuratie. Deze configuratie bevat informatie zoals de naam, het besturingssysteem en de beheerdersreferenties VM. De configuratie wordt gebruikt tijdens het maken van VM. |
-| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | Hiermee geeft u een installatiekopie voor een virtuele machine.                                                                                                                                            |
-| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | Hiermee stelt u het besturingssysteem schijfeigenschappen op een virtuele machine.                                                                                                                      |
-| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | Hiermee stelt u het besturingssysteem schijfeigenschappen op een virtuele machine.                                                                                                                      |
-| [Voeg AzureRmVMNetworkInterface](/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | Voegt een netwerkinterface toe aan een virtuele machine.                                                                                                                                       |
-| [Nieuwe-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Maak een virtuele machine.                                                                                                                                                            |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Hiermee verwijdert u een resourcegroep en alle resources binnen.                                                                                                                         |
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen.                                                                                                                          |
+| [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | Hiermee maakt u een opslagaccount.                                                                                                                                                           |
+| [Add-AzureRmVhd](/powershell/module/azurerm.resources/add-azurermvhd)                                               | Hiermee wordt een virtuele harde schijf geüpload van een on-premises virtuele machine naar een blob in een cloudopslagaccount in Azure.                                                                       |
+| [New-AzureRmImageConfig](/powershell/module/azurerm.resources/new-azurermimageconfig)                               | Hiermee maakt u een configureerbaar installatiekopie-object.                                                                                                                                                 |
+| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | Hiermee stelt u de schijfeigenschappen van het besturingssysteem in voor een installatiekopie-object.                                                                                                                        |
+| [New-AzureRmImage](/powershell/module/azurerm.resources/new-azurermimage)                                           | Hiermee maakt u een nieuwe installatiekopie.                                                                                                                                                                 |
+| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | Hiermee maakt u een subnetconfiguratie. Deze configuratie wordt gebruikt bij het maken van het virtueel netwerk.                                                                                |
+| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | Hiermee maakt u een virtueel netwerk.                                                                                                                                                           |
+| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | Hiermee maakt u een openbaar IP-adres.                                                                                                                                                         |
+| [New-AzureRmNetworkInterface](/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | Hiermee maakt u een netwerkinterface.                                                                                                                                                         |
+| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | Hiermee maakt u een regelconfiguratie voor de netwerkbeveiligingsgroep. Deze configuratie wordt gebruikt voor het maken van een NSG-regel wanneer de NSG wordt gemaakt.                                                       |
+| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | Hiermee maakt u een netwerkbeveiligingsgroep.                                                                                                                                                    |
+| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/get-azurermvirtualnetwork)                         | Hiermee haalt u een virtueel netwerk op in een resourcegroep.                                                                                                                                          |
+| [New-AzureRmVMConfig](/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | Hiermee maakt u een VM-configuratie. Deze configuratie bevat informatie zoals de naam, het besturingssysteem en de beheerdersreferenties van de virtuele machine. De configuratie wordt gebruikt tijdens het maken van de virtuele machine. |
+| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | Hiermee geeft u een installatiekopie voor een virtuele machine op.                                                                                                                                            |
+| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | Hiermee stelt u de schijfeigenschappen van het besturingssysteem in voor een virtuele machine.                                                                                                                      |
+| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | Hiermee stelt u de schijfeigenschappen van het besturingssysteem in voor een virtuele machine.                                                                                                                      |
+| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | Hiermee voegt u een netwerkinterface aan een virtuele machine toe.                                                                                                                                       |
+| [New-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Hiermee maakt u een virtuele machine.                                                                                                                                                            |
+| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Hiermee verwijdert u een resourcegroep en alle daarin opgenomen resources.                                                                                                                         |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over de Azure PowerShell-module de [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Voorbeelden van extra virtuele machine PowerShell-script kunnen worden gevonden in de [virtuele machine van Windows Azure-documentatie](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+U kunt extra PowerShell-scriptvoorbeelden voor virtuele machines vinden in de [Azure-documentatie voor Windows-VM's](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

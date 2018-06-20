@@ -1,5 +1,5 @@
 ---
-title: Een aangepast lab in Azure DevTest Labs openen| Microsoft Docs
+title: Een lab openen in Azure DevTest Labs | Microsoft Docs
 description: In deze zelfstudie opent u het lab dat is gemaakt met Azure DevTest Labs, claimt u virtuele machines, gebruikt u deze en maakt u de claims op een virtuele machine weer ongedaan.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: be4bde6bd320e8af7cd3119ff4ccdabd942963ca
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361835"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638021"
 ---
-# <a name="tutorial-access-a-custom-lab-in-azure-devtest-labs"></a>Zelfstudie: Een aangepast lab in Azure DevTest Labs openen
-In deze zelfstudie gebruikt u het aangepaste lab dat is gemaakt in de [zelfstudie: Een aangepast lab maken](tutorial-create-custom-lab.md) .
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Zelfstudie: Een lab openen in Azure DevTest Labs
+In deze zelfstudie gebruikt u het lab dat is gemaakt in de [zelfstudie: Een lab maken in Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 In deze zelfstudie voert u de volgende acties uit:
 
 > [!div class="checklist"]
-> * Een virtuele machine (VM) in het aangepaste lab claimen
+> * Een virtuele machine (VM) in het lab claimen
 > * Verbinding maken met de virtuele machine
 > * De claim op de virtuele machine ongedaan maken
 
@@ -70,8 +70,8 @@ Nadat u klaar bent met het gebruik van de virtuele machine, kunt u de claim op d
 1. Nadat de claim ongedaan is gemaakt, ziet u de virtuele machine in de lijst met **Claimbare virtuele machines** onderaan. 
     
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u gezien hoe u toegang kunt krijgen tot en gebruik kunt maken van een aangepast lab dat is gemaakt met Azure DevTest Labs. Zie voor meer informatie over toegang tot en het gebruik van virtuele machines in een aangepast lab 
+In deze zelfstudie hebt u gezien hoe u toegang kunt krijgen tot en gebruik kunt maken van een lab dat is gemaakt met Azure DevTest Labs. Voor meer informatie over toegang tot en het gebruik van virtuele machines in een lab raadpleegt u 
 
 > [!div class="nextstepaction"]
-> [Virtuele machines in een aangepast lab gebruiken](devtest-lab-add-vm.md)
+> [Virtuele machines gebruiken in een lab](devtest-lab-add-vm.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory voorwaardelijke toegang wat gebeurt er als hulpprogramma - preview | Microsoft Docs
-description: Meer informatie over hoe u de configuratie van uw beleid voor voorwaardelijke toegang van Azure Active Directory kunt testen.
+title: Wat is de wat als hulpprogramma van voorwaardelijke toegang van Azure Active Directory? -preview | Microsoft Docs
+description: Meer informatie over hoe u wat de gevolgen van uw beleid voor voorwaardelijke toegang van uw omgeving.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723827"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232309"
 ---
-# <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory voorwaardelijke toegang wat gebeurt er als hulpprogramma - preview
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>Wat is de wat als hulpprogramma van voorwaardelijke toegang van Azure Active Directory? -preview
 
 [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md) is een functie van Azure Active Directory (Azure AD) dat u bepalen hoe kunt gemachtigde gebruikers toegang hebben uw cloud-apps. Hoe u weet wat ze kunnen verwachten formulier de beleidsregels voor voorwaardelijke toegang in uw omgeving? Als u wilt deze vraag te beantwoorden, kunt u de **voorwaardelijke toegang wat gebeurt er als hulpprogramma**.
 
@@ -121,7 +121,7 @@ In de lijst van beleidsregels die niet van toepassing op uw gebruikers, u kunt e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u weten hoe beleid voor voorwaardelijke toegang configureren wilt, Zie [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Als u weten hoe beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Als u klaar om te configureren van beleidsregels voor voorwaardelijke toegang voor uw omgeving bent, Zie de [best practices voor voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

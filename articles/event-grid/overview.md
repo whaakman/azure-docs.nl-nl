@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/27/2018
+ms.date: 06/01/2018
 ms.author: babanisa
-ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303974"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725238"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure Event Grid
 
@@ -71,8 +71,6 @@ Op dit moment ondersteunen de volgende Azure-services handling-gebeurtenissen ui
 * Queue Storage
 * WebHooks
 
-Wanneer u Azure Functions als de handler gebruikt, gebruikt u de Event Grid-trigger in plaats van algemene HTTP-triggers. Functie-triggers van Event Grid worden namelijk automatisch gevalideerd. Bij gebruik van algemene HTTP-triggers moet u een [validatie-antwoord](security-authentication.md#webhook-event-delivery) implementeren.
-
 Zie [Gebeurtenis-handlers in Azure Event Grid](event-handlers.md) voor koppelingen naar artikelen waarin wordt aangegeven hoe u elke gebeurtenis-handler gebruikt.
 
 ## <a name="concepts"></a>Concepten
@@ -80,7 +78,7 @@ Zie [Gebeurtenis-handlers in Azure Event Grid](event-handlers.md) voor koppeling
 Azure Event Grid bevat vijf concepten waarmee u aan de slag kunt:
 
 * **Gebeurtenissen**: wat er is gebeurd.
-* **Gebeurtenisbronnen/-uitgevers**: waar de gebeurtenis heeft plaatsgevonden.
+* **Gebeurtenisbronnen**: waar de gebeurtenis heeft plaatsgevonden.
 * **Onderwerpen**: het eindpunt waarnaar uitgevers gebeurtenissen verzenden.
 * **Gebeurtenisabonnementen**: het eindpunt of ingebouwde mechanisme voor het routeren van gebeurtenissen, soms naar meerdere handlers. Abonnementen worden ook gebruikt door handlers om binnenkomende gebeurtenissen op een slimme manier te filteren.
 * **Gebeurtenis-handlers**: de app of de service die op de gebeurtenis reageert.
@@ -126,7 +124,7 @@ Event Grid verbindt uw app met andere services. Maak bijvoorbeeld een aangepast 
 
 ## <a name="how-much-does-event-grid-cost"></a>Wat kost Event Grid?
 
-Azure Event Grid maakt gebruik van een prijsmodel voor betalen per gebeurtenis, zodat u alleen betaalt voor wat u gebruikt. De eerste 100.000 bewerkingen per maand zijn gratis. Bewerkingen worden gedefinieerd als ingangsgebeurtenissen, geavanceerde matching, bezorgingspogingen en beheeraanroepen. Zie de [prijzenpagina](https://azure.microsoft.com/pricing/details/event-grid/) voor meer informatie.
+Azure Event Grid maakt gebruik van een prijsmodel voor betalen per gebeurtenis, zodat u alleen betaalt voor wat u gebruikt. De eerste 100.000 bewerkingen per maand zijn gratis. Bewerkingen worden gedefinieerd als inkomende gebeurtenissen, bezorgingspogingen voor abonnementen, beheeroproepen, en filteren op achtervoegsels van onderwerpen. Zie de [prijzenpagina](https://azure.microsoft.com/pricing/details/event-grid/) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

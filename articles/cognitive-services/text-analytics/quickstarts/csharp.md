@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: f46c5179fc245d84a72e038fe3870d2e6c990550
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: d9c61a83450844461f621ff16354881a029f7ad6
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35345957"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266291"
 ---
 # <a name="quickstart-for-text-analytics-api-with-c"></a>Snelstartgids voor Tekstanalyse API met C# 
 <a name="HOLTop"></a>
@@ -41,8 +41,8 @@ U moet ook beschikken over de [eindpunt en de toegangssleutel](../How-tos/text-a
 >  Terwijl u de [HTTP-eindpunten](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) rechtstreeks vanuit C#, de SDK Microsoft.Azure.CognitiveServices.Language veel gemakkelijker de service aanroepen zonder te hoeven maken over serialiseren en deserialiseren van JSON.
 >
 > Enkele nuttige koppelingen:
-> - [SDK Nuget-pagina](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language)
-> - [SDK-code ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/Language)
+> - [SDK Nuget-pagina](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [SDK-code ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>De tekst Analytics API met behulp van de SDK niet aanroepen

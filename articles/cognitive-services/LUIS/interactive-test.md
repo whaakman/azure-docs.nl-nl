@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 760434253a3ece14352154a22cc68142ec2b0531
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: fb4c3bb117d1ea60c9cc28d2b193ee3c01f6c945
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35760218"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221628"
 ---
 # <a name="test-your-luis-app"></a>Uw app LUIS testen
 <a name="train-your-app"></a>
@@ -92,18 +92,23 @@ Als u verschillende LUIS eindpunten hebt, gebruikt u de **extra instellingen** k
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Spellingcontrole van Bing correcties in test-deelvenster weergeven
-Vindt u de spellingcorrecties geleverd door [spellingcontrole van Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in de JSON-weergave van de **gepubliceerde** deelvenster van het testvenster. 
+Vereisten voor de spellingcorrecties weergeven: 
 
-Deze functie wilt gebruiken, u moet hebt gepubliceerd de app en hebben een Bing spellingcontrole [servicesleutel](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). De sleutel van de service wordt niet opgeslagen en moet opnieuw worden ingesteld voor elke browsersessie. 
+* Gepubliceerde app
+* Spellingcontrole van Bing [servicesleutel](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). De sleutel van de service wordt niet opgeslagen en moet opnieuw worden ingesteld voor elke browsersessie. 
 
-Gebruik de volgende de servicesleutel voor spellingcontrole van Bing v7 in het deelvenster. 
+Gebruik de volgende procedure om op te nemen de [spellingcontrole van Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) service in het deelvenster resultaten. 
 
-1. In het deelvenster testen op de **gepubliceerde** deelvenster **extra instellingen**.
+1. In de **Test** deelvenster een utterance invoeren. Wanneer de utterance wordt voorspeld, selecteert u **[inspecteren](#inspect-score)** onder de utterance die u hebt ingevoerd. 
 
-2. Voer in het pop-updialoogvenster uw **spellingcontrole van Bing** servicesleutel. 
+2. Wanneer de **inspecteren** Configuratiescherm wordt geopend, selecteer  **[vergelijken met gepubliceerde](#compare-with-published-version)**. 
+
+3. Wanneer de **gepubliceerde** Configuratiescherm wordt geopend, selecteer  **[extra instellingen](#additional-settings-in-test-panel)**.
+
+4. Voer in het pop-updialoogvenster uw **spellingcontrole van Bing** servicesleutel. 
     ![Voer de sleutel voor spellingcontrole van Bing-service](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
-3. Voer een query met een onjuiste spelling zoals `book flite to seattle` en voert u selecteert. De onjuiste spelling van het woord `flite` in de query verzonden naar LUIS wordt vervangen en de resulterende JSON zowel de oorspronkelijke query wordt weergegeven als `query`, en de gecorrigeerde spelling in de query als `alteredQuery`.
+5. Voer een query met een onjuiste spelling zoals `book flite to seattle` en voert u selecteert. De onjuiste spelling van het woord `flite` in de query verzonden naar LUIS wordt vervangen en de resulterende JSON zowel de oorspronkelijke query wordt weergegeven als `query`, en de gecorrigeerde spelling in de query als `alteredQuery`.
 
     ![Gecorrigeerd spelling JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
 

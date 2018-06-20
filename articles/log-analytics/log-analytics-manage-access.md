@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271667"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637528"
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
@@ -98,7 +98,7 @@ Voor de volgende activiteiten zijn ook Azure-machtigingen vereist:
 
 | Bewerking                                                          | Azure-machtigingen nodig | Opmerkingen |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Beheeroplossingen toevoegen en verwijderen                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Beheeroplossingen toevoegen en verwijderen                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Deze machtigingen moeten worden toegekend op het niveau van de resourcegroep of het abonnement. |
 | De prijscategorie wijzigen                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Gegevens weergeven op de tegels *Back-up* en *Site Recovery* | Beheerder/medebeheerder | Heeft toegang tot resources die zijn geïmplementeerd met behulp van het klassieke implementatiemodel |
 | Een werkruimte maken in Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -125,11 +125,14 @@ Leden van de rol *Lezer van Log Analytics* kunnen:
 
 
 Leden van de rol *Inzender van Log Analytics* kunnen:
-- Alle controlegegevens lezen 
-- Automation-accounts maken en configureren
-- Beheeroplossingen toevoegen en verwijderen
-- Opslagaccountsleutels lezen 
-- Verzameling met logboeken uit Azure Storage configureren
+- Alle controlegegevens lezen  
+- Automation-accounts maken en configureren  
+- Beheeroplossingen toevoegen en verwijderen    
+    > [!NOTE] 
+    > Om deze twee bewerkingen met succes uit te voeren, moet deze machtiging worden verleend op het niveau van de resourcegroep of het abonnement.  
+
+- Opslagaccountsleutels lezen   
+- Verzameling met logboeken uit Azure Storage configureren  
 - De controle-instellingen voor Azure-resources bewerken, inclusief
   - De VM-extensie toevoegen aan virtuele machines
   - Azure Diagnostics configureren op alle Azure-resources
@@ -157,7 +160,7 @@ Gebruik deze rollen om gebruikers toegang te geven op verschillende niveaus:
 - Resourcegroep: toegang tot alle werkruimten in de resourcegroep
 - Resource: alleen toegang tot de opgegeven werkruimte
 
-Gebruik [aangepaste rollen](../active-directory/role-based-access-control-custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
+Het wordt aangeraden om toewijzingen uit te voeren op resourceniveau (werkruimte) omdat dan een nauwkeurig toegangsbeheer mogelijk is.  Gebruik [aangepaste rollen](../active-directory/role-based-access-control-custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Gebruikersrollen in Azure en in Log Analytics-portal
 Als u minimaal Azure-leesmachtiging hebt in de Log Analytics-werkruimte, kunt u de Log Analytics-portal openen door op de taak **OMS-portal** te klikken wanneer de Log Analytics-werkruimte wordt weergegeven.

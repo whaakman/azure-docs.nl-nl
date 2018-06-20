@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 95a3c1d3effe6d4b73354fb3ef871aeb7767bfb4
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588859"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228561"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Configureerbare token levensduur in Azure Active Directory (openbare Preview)
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. Token levensduur voor alle apps in uw organisatie, voor een multitenant (meerdere organisatie)-toepassing of voor een specifieke service-principal kunt u instellen in uw organisatie.
@@ -335,7 +335,7 @@ In dit voorbeeld maakt u een paar beleidsregels, voor meer informatie over de we
 
     U hebt nu een beleid dat van toepassing op de hele organisatie. U kunt dit beleid 30 dagen voor een specifieke service-principal te behouden, maar het standaardbeleid organisatie wijzigen in de bovengrens van "tot ingetrokken."
 
-    1.  Als u wilt zien van uw organisatie service-principals, u kunt een query ofwel de [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) of de [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ook, u kunt dit testen in de [Explorer van Azure AD Graph](https://graphexplorer.cloudapp.net/), en de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) met behulp van uw Azure AD-account.
+    1.  Als u wilt zien van uw organisatie service-principals, u kunt een query ofwel de [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) of de [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ook, u kunt dit testen in de [Explorer van Azure AD Graph](https://graphexplorer.azurewebsites.net/), en de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) met behulp van uw Azure AD-account.
 
     2.  Wanneer u hebt de **ObjectId** van uw service-principal, voer de volgende opdracht:
 

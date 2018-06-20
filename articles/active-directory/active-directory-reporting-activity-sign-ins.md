@@ -3,25 +3,25 @@ title: Aanmeldactiviteitenrapporten in Azure Active Directory Portal | Microsoft
 description: Ontdek de aanmeldactiviteitenrapporten in de Azure Active Directory Portal
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6414be82e57741bf2af1de3650a3d9a28c4d6427
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588604"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232357"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -153,7 +153,7 @@ U kunt de gegevens van de aanmeldingsactiviteiten downloaden als u buiten Azure 
 
 ![Downloaden](./media/active-directory-reporting-activity-sign-ins/71.png "Downloaden")
 
-Als u op **Downloaden** klikt, wordt er een CSV-bestand gemaakt met de vijfduizend meest recente records. Als u meer flexibiliteit nodig hebt, kunt u kiezen voor de scriptoplossing. Klik op **Script** om een script te maken dat alle filters bevat die u hebt ingesteld. Naast de technische implementatie, wordt het aantal records dat u kunt downloaden ook beperkt door het [retentiebeleid voor Azure Active Directory-rapporten](active-directory-reporting-retention.md).  
+Als u op **Downloaden** klikt, wordt er een CSV-bestand gemaakt met de vijfduizend meest recente records. Als u meer flexibiliteit nodig hebt, kunt u kiezen voor de scriptoplossing. Te klikken op **Script** maakt een PowerShell-script dat bevat alle filters die u hebt ingesteld. Downloaden en uitvoeren van dit script in **beheerdersmodus** voor het genereren van het CSV-bestand. Naast de technische implementatie, wordt het aantal records dat u kunt downloaden ook beperkt door het [retentiebeleid voor Azure Active Directory-rapporten](active-directory-reporting-retention.md).  
 
 
 

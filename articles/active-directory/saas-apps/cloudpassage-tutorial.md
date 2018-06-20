@@ -7,18 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d46d56db2011660388e00068a4c6d8989cb9804
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 6377eeb06705528f567aaf6f29461db0023c27b4
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35907647"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36223124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Zelfstudie: Azure Active Directory-integratie met CloudPassage
 
@@ -130,11 +131,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
 
-    | Naam van kenmerk | De waarde van kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | --- | --- |
     | Voornaam |User.givenName |
     | Achternaam |User.surname |
-    | e-mail |User.mail |
+    | e-mailen |User.mail |
     
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 

@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d189af9b08f2b6e9ea194c15bfba683afc75a54
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10774e7ca1168a58e8c8d47e6a7295ff727fa1cd
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801446"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Vergelijking van hulpprogramma’s voor directory-integratie voor hybride identiteit
 In de afgelopen jaren hebben de hulpprogramma's voor directory-integratie zich enorm ontwikkeld.  Dit document geeft een overzicht van deze hulpprogramma's en hierin worden de beschikbare functies in elk hulpprogramma vergeleken.
@@ -38,7 +40,7 @@ FR = Toekomstige release
 PP = Openbare preview  
 
 ## <a name="on-premises-to-cloud-synchronization"></a>Synchronisatie van on-premises naar cloud
-| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices (AAD Sync) | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices (AAD Sync) - NIET MEER ONDERSTEUND | Azure Active Directory-synchronisatiehulpprogramma (DirSync) - NIET MEER ONDERSTEUND | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Verbinding maken met één on-premises AD-forest |● |● |● |● |● |
 | Verbinding maken met meerdere on-premises AD-forests |● |● | |● |● |
@@ -53,7 +55,7 @@ PP = Openbare preview
 
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Synchronisatie van cloud naar on-premises
-| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices - NIET MEER ONDERSTEUND  | Azure Active Directory-synchronisatiehulpprogramma (DirSync) - NIET MEER ONDERSTEUND  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Write-back van apparaten |● | |● | | |
 | Write-back van kenmerken (voor de hybride implementatie voor Exchange) |● |● |● |● |● |
@@ -61,15 +63,17 @@ PP = Openbare preview
 | Write-back van wachtwoorden (van de selfservice voor wachtwoordherstel (SSPR) en het wijzigen van wachtwoorden) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>Ondersteuning van verificatiefuncties
-| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices - NIET MEER ONDERSTEUND  | Azure Active Directory-synchronisatiehulpprogramma (DirSync) - NIET MEER ONDERSTEUND  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
-| Wachtwoordsynchronisatie voor één on-premises AD-forest |● |● |● | | |
-| Wachtwoordsynchronisatie voor meerdere on-premises AD-forests |● |● | | | |
+| Wachtwoord-hashsynchronisatie voor één on-premises AD-forest |●|●|● | | |
+| Wachtwoord-hashsynchronisatie voor meerdere on-premises AD-forests |●|● | | | |
+| Pass-through-verificatie voor één on-premises AD-forest |●| | | | |
 | Eenmalige aanmelding met federatie |● |● |● |● |● |
+| Naadloze eenmalige aanmelding|● |||||
 | Write-back van wachtwoorden (van SSPR en het wijzigen van wachtwoorden) |● |● | | | |
 
 ## <a name="set-up-and-installation"></a>Instellingen en installatie
-| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Microsoft Identity Manager 2016 (MIM) |
+| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices - NIET MEER ONDERSTEUND  | Azure Active Directory-synchronisatiehulpprogramma (DirSync) - NIET MEER ONDERSTEUND  | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Biedt ondersteuning voor installatie op een domeincontroller |● |● |● | |
 | Biedt ondersteuning voor installatie met SQL Express |● |● |● | |
@@ -80,7 +84,7 @@ PP = Openbare preview
 | Ondersteuning voor Windows Server 2012 en Windows Server 2012 R2 |● |● |● |● |
 
 ## <a name="filtering-and-configuration"></a>Filteren en configuratie
-| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices - NIET MEER ONDERSTEUND  | Azure Active Directory-synchronisatiehulpprogramma (DirSync) - NIET MEER ONDERSTEUND  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filteren op domeinen en organisatie-eenheden |● |● |● |● |● |
 | Filteren op kenmerkwaarden van objecten |● |● |● |● |● |

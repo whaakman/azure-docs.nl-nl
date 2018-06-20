@@ -1,25 +1,20 @@
 ---
 title: Berichtroutering configureren met Azure IoT Hub (.NET) | Microsoft Docs
 description: Berichtroutering configureren met Azure IoT Hub
-services: iot-hub
-documentationcenter: .net
 author: robinsh
 manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 0674ed033f77d7d2eca319d0b1e82171dfa4256d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700822"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Zelfstudie: berichtroutering configureren met IoT Hub
 
@@ -38,7 +33,7 @@ In deze zelfstudie voert u de volgende taken uit:
 > * Bekijk de resultaten...
 > * .. .in de Service Bus-wachtrij en e-mailberichten.
 > * ...in het opslagaccount.
-> * .. .in de Power BI-visualisatie.
+> * ...in de Power BI-visualisatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -46,7 +41,7 @@ In deze zelfstudie voert u de volgende taken uit:
 
 - Installeer [Visual Studio voor Windows](https://www.visualstudio.com/). 
 
-- Een Power BI-account voor het analyseren van de Stream Analytics van het standaardeindpunt. ([Power BI gratis proberen](https://app.powerbi.com/signupredirect?pbi_source=web))
+- Een Power BI-account voor het analyseren van de Stream Analytics van het standaardeindpunt. ([Probeer Power BI gratis uit](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - Een Office 365-account voor het verzenden van melding via e-mail. 
 
@@ -104,24 +99,24 @@ De eenvoudigste manier om dit script gebruiken is om het te kopiëren en het in 
 # You need it to create the device identity. 
 az extension add --name azure-cli-iot-ext
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
 iotHubConsumerGroup=ContosoConsumers
 containerName=contosoresults
 iotDeviceName=Contoso-Test-Device 
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-iotHubName=ContosoTestHub 
-storageAccountName=contosoresultsstorage 
-sbNameSpace=ContosoSBNamespace 
-sbQueueName=ContosoSBQueue
-
 # Create the resource group to be used
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+iotHubName=ContosoTestHub$RANDOM
+echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
 az iot hub create --name $iotHubName \
@@ -131,6 +126,10 @@ az iot hub create --name $iotHubName \
 # Add a consumer group to the IoT hub.
 az iot hub consumer-group create --hub-name $iotHubName \
     --name $iotHubConsumerGroup
+
+# The storage account name must be globally unique, so add a random number to the end.
+storageAccountName=contosostorage$RANDOM
+echo "Storage account name = " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
@@ -154,11 +153,19 @@ az storage container create --name $containerName \
     --account-key $storageAccountKey \
     --public-access off 
 
+# The Service Bus namespace must be globally unique, so add a random number to the end.
+sbNameSpace=ContosoSBNamespace$RANDOM
+echo "Service Bus namespace = " $sbNameSpace
+
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
     
+# The Service Bus queue name must be globally unique, so add a random number to the end.
+sbQueueName=ContosoSBQueue$RANDOM
+echo "Service Bus queue name = " $sbQueueName
+
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNameSpace \
@@ -183,23 +190,23 @@ De eenvoudigste manier om dit script gebruiken is om [PowerShell ISE](/powershel
 # Log into Azure account.
 Login-AzureRMAccount
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 $location = "West US"
 $resourceGroup = "ContosoResources"
 $iotHubConsumerGroup = "ContosoConsumers"
 $containerName = "contosoresults"
 $iotDeviceName = "Contoso-Test-Device"
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-$iotHubName = "ContosoTestHub"
-$storageAccountName = "contosoresultsstorage"
-$serviceBusNamespace = "ContosoSBNamespace"
-$serviceBusQueueName  = "ContosoSBQueue"
-
-# Create the resource group to be used  
+# Create the resource group to be used 
 #   for all resources for this tutorial.
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+$iotHubName = "ContosoTestHub$(Get-Random)"
+Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
 New-AzureRmIotHub -ResourceGroupName $resourceGroup `
@@ -213,6 +220,10 @@ Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
+
+# The storage account name must be globally unique, so add a random number to the end.
+$storageAccountName = "contosostorage$(Get-Random)"
+Write-Host "storage account name is " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
@@ -228,10 +239,20 @@ $storageContext = $storageAccount.Context
 New-AzureStorageContainer -Name $containerName `
     -Context $storageContext
 
+# The Service Bus namespace must be globally unique,
+#   so add a random number to the end.
+$serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
+Write-Host "Service Bus namespace is " $serviceBusNamespace
+
 # Create the Service Bus namespace.
 New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
+
+# The Service Bus queue name must be globally unique,
+#  so add a random number to the end.
+$serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
+Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
 New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
@@ -256,8 +277,6 @@ Maak vervolgens een apparaat-id en sla de bijbehorende sleutel op voor later geb
 
    ![Schermopname van de details van het apparaat, inclusief de sleutels.](./media/tutorial-routing/device-details.png)
 
-
-
 ## <a name="set-up-message-routing"></a>Berichtroutering instellen
 
 U gaat berichten naar andere resources doorsturen op basis van eigenschappen die door het gesimuleerde apparaat aan het bericht zijn gekoppeld. Berichten die niet aangepast zijn doorgestuurd, worden verzonden naar het standaardeindpunt (berichten/gebeurtenissen). 
@@ -278,7 +297,7 @@ Stel nu de routering in voor het opslagaccount. Definieer een eindpunt en stel v
    
    **Eindpunttype**: selecteer **Azure Storage Container** in de vervolgkeuzelijst.
 
-   Klik op **Een container kiezen** om de lijst met opslagaccounts te bekijken. Selecteer uw opslagaccount. In deze zelfstudie wordt gebruikgemaakt van **contosoresultsstorage**. Selecteer daarna de container. In deze zelfstudie wordt gebruikgemaakt van **contosoresults**. Klik op **Selecteren**, waarna u terugkeert naar het deelvenster Eindpunt toevoegen. 
+   Klik op **Een container kiezen** om de lijst met opslagaccounts te bekijken. Selecteer uw opslagaccount. In deze zelfstudie wordt gebruikgemaakt van **contosostorage**. Selecteer daarna de container. In deze zelfstudie wordt gebruikgemaakt van **contosoresults**. Klik op **Selecteren** om terug te keren naar het deelvenster **Eindpunt toevoegen**. 
    
    ![Schermopname waarin het toevoegen van een eindpunt wordt weergegeven.](./media/tutorial-routing/add-endpoint-storage-account.png)
    
@@ -390,7 +409,7 @@ De Service Bus-wachtrij moet worden gebruikt voor het ontvangen van berichten di
 
 ## <a name="set-up-azure-stream-analytics"></a>Azure Stream Analytics installeren
 
-Stel, als u de gegevens in een Power BI-visualisatie wilt zien, eerst een Stream Analytics-taak in om de gegevens op te halen. Houd er rekening mee dat alleen de berichten waarin het **niveau** **normaal** is, worden verzonden naar het standaardeindpunt en door de Stream Analytics-taak voor de Power BI-visualisatie worden opgehaald.
+Als u de gegevens in een Power BI-visualisatie wilt zien, stelt u eerst een Stream Analytics-taak in om de gegevens op te halen. Houd er rekening mee dat alleen de berichten waarin het **niveau** **normaal** is, worden verzonden naar het standaardeindpunt en door de Stream Analytics-taak voor de Power BI-visualisatie worden opgehaald.
 
 ### <a name="create-the-stream-analytics-job"></a>De Stream Analytics-taak maken
 
@@ -405,6 +424,8 @@ Stel, als u de gegevens in een Power BI-visualisatie wilt zien, eerst een Stream
    **Locatie**: gebruik dezelfde locatie die u in het instellingsscript hebt gebruikt. In deze zelfstudie wordt gebruikgemaakt van **VS-West**. 
 
    ![Schermopname waarin wordt weergegeven hoe u de Stream analytics-taak kunt maken.](./media/tutorial-routing/stream-analytics-create-job.png)
+
+3. Klik op **Maken** om de taak te maken. Als u wilt teruggaan naar de taak, klikt u op **Resourcegroepen**. In deze zelfstudie wordt gebruikgemaakt van **ContosoResources**. Selecteer de resourcegroep en klik op de Stream Analytics-taak in de lijst met resources. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Een invoer aan de Stream Analytics-taak toevoegen
 
@@ -434,17 +455,17 @@ Stel, als u de gegevens in een Power BI-visualisatie wilt zien, eerst een Stream
 
 1. Klik onder **Taaktopologie** op **Uitvoer**.
 
-2. Klik in het deelvenster **Uitvoer** op **Toevoegen** en selecteer vervolgens **PowerBI**. Vul de volgende velden in op het scherm dat wordt weergegeven:
+2. Klik in het deelvenster **Uitvoer** op **Toevoegen** en selecteer **Power BI**. Vul de volgende velden in op het scherm dat wordt weergegeven:
 
    **Uitvoeralias**: de alias die uniek is voor de uitvoer. In deze zelfstudie wordt gebruikgemaakt van **contosooutputs**. 
 
-   **Naam van dataset**: de naam van de gegevensset die moet worden gebruikt in Power BI. In deze zelfstudie wordt gebruikgemaakt van **contosodataset**. 
+   **Naam van de gegevensset**: de naam van de gegevensset die moet worden gebruikt in Power BI. In deze zelfstudie wordt gebruikgemaakt van **contosodataset**. 
 
-   **Naam van tabel**: de naam van de tabel die moet worden gebruikt in Power BI. In deze zelfstudie wordt gebruikgemaakt van **contosotable**.
+   **Tabelnaam**: de naam van de tabel die moet worden gebruikt in Power BI. In deze zelfstudie wordt gebruikgemaakt van **contosotable**.
 
    Accepteer de standaardwaarden voor de rest van de velden.
 
-3. Klik op **Machtigen** en meld u aan bij uw Power BI-account.
+3. Klik op **Autoriseren** en meld u aan bij uw Power BI-account.
 
    ![Schermopname waarin wordt weergegeven hoe u de uitvoerwaarden voor de Stream analytics-taak kunt instellen.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
@@ -462,19 +483,19 @@ Stel, als u de gegevens in een Power BI-visualisatie wilt zien, eerst een Stream
 
 4. Klik op **Opslaan**.
 
-5. Sluit het deelvenster Query.
+5. Sluit het deelvenster Query. Hiermee keert u terug naar de weergave van de resources in de resourcegroep. Klik op de Stream Analytics-taak. In deze zelfstudie heet deze taak **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Voer de Stream Analytics-taak uit
 
 Klik in de Stream Analytics-taak op **Start** > **Nu** > **Start**. Zodra de taak kan worden gestart, wordt de taakstatus veranderd van **Gestopt** naar **In uitvoering**.
 
-Als u het Power BI-rapport instelt, hebt u gegevens nodig, dus stelt u Power BI in nadat het apparaat is gemaakt en de simulatietoepassing van het apparaat is ingesteld.
+Als u het Power BI-rapport instelt, hebt u gegevens nodig, dus stelt u Power BI in nadat u het apparaat hebt gemaakt en de simulatietoepassing van het apparaat hebt ingesteld.
 
 ## <a name="run-simulated-device-app"></a>De app Gesimuleerd apparaat uitvoeren
 
 Eerder in het scriptinstellingsgedeelte stelt u een apparaat in voor de simulatie via een IoT-apparaat. In deze sectie downloadt u een .NET-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt. Deze toepassing verzendt berichten voor elk van de verschillende routeringsmethoden. 
 
-Download de oplossing voor de [IoT-apparaatsimulatie](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Hiermee downloadt u een opslagplaats die beschikt over meerdere toepassingen. De oplossing die u zoekt bevindt zich in Tutorials/Routing/SimulatedDevice/.
+Download de oplossing voor de [IoT-apparaatsimulatie](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Hiermee downloadt u een opslagplaats die meerdere toepassingen bevat. De oplossing die u zoekt bevindt zich in iot-hub/Tutorials/Routing/SimulatedDevice/.
 
 Dubbelklik op het oplossingsbestand (SimulatedDevice.sln om de code in Visual Studio) te openen en open vervolgens Program.cs. Vervang `{iot hub hostname}` door de hostnaam van de IoT Hub. De indeling van de hostnaam van de IoT Hub is **{iot-hub-name} .azure-devices.net**. Voor deze zelfstudie is de naam van de hubhost **ContosoTestHub.azure devices.net**. Vervang vervolgens `{device key}` door de apparaatsleutel die u eerder hebt opgeslagen bij het instellen van het gesimuleerde apparaat. 
 
@@ -512,11 +533,11 @@ Dit betekent het volgende:
 
    * De routering naar de Service Bus-wachtrij werkt correct.
 
-Stel nu, terwijl de toepassing nog steeds wordt uitgevoerd, de Power BI-visualisatie in om de berichten te zien die afkomstig zijn van de standaardroutering. 
+Stel nu de Power BI-visualisatie in terwijl de toepassing nog steeds wordt uitgevoerd om de berichten te bekijken die afkomstig zijn van de standaardroutering. 
 
-## <a name="set-up-the-powerbi-visualizations"></a>De Power BI-visualisaties instellen
+## <a name="set-up-the-power-bi-visualizations"></a>De Power BI-visualisaties instellen
 
-1. Meld u aan bij uw [PowerBI](https://powerbi.microsoft.com/)-account.
+1. Meld u aan bij uw [Power BI](https://powerbi.microsoft.com/)-account.
 
 2. Ga naar **Werkruimten** en selecteer de werkruimte die u hebt ingesteld toen u de uitvoer voor de Stream Analytics-taak hebt gemaakt. In deze zelfstudie wordt gebruikgemaakt van **Mijn werkruimte**. 
 
@@ -554,15 +575,15 @@ U zou gegevens moeten kunnen zien in beide diagrammen. Dit betekent het volgende
    * De Azure Stream Analytics-taak stroomt correct.
    * De Power BI-visualisatie is juist ingesteld.
 
-U kunt de diagrammen vernieuwen om de meest recente gegevens te zien. Dit kunt u doen door te klikken op de knop Vernieuwen bovenaan het PowerBI-venster. 
+U kunt de diagrammen vernieuwen om de meest recente gegevens te bekijken door te klikken op de knop Vernieuwen bovenaan het Power BI-venster. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen 
 
 Als u alle resources die u hebt gemaakt, wilt verwijderen, verwijdert u de resourcegroep. Hiermee verwijdert u ook alle resources in de groep. In dit geval worden de IoT Hub, de Service Bus-naamruimte en -wachtrij, de logische app, het opslagaccount en de resourcegroep zelf verwijderd. 
 
-### <a name="clean-up-resources-in-the-powerbi-visualization"></a>Resources in de Power BI-visualisatie opschonen
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Resources in de Power BI-visualisatie opschonen
 
-Meld u aan bij uw [PowerBI](https://powerbi.microsoft.com/)-account. Ga naar uw werkruimte. In deze zelfstudie wordt gebruikgemaakt van **Mijn werkruimte**. Als u de Power BI-visualisatie wilt verwijderen, gaat u naar Gegevenssets en klikt u op het prullenbakpictogram voor het verwijderen van de gegevensset. In deze zelfstudie wordt gebruikgemaakt van **contosodataset**. Wanneer u de gegevensset verwijdert, wordt het rapport ook verwijderd.
+Meld u aan bij uw [Power BI](https://powerbi.microsoft.com/)-account. Ga naar uw werkruimte. In deze zelfstudie wordt gebruikgemaakt van **Mijn werkruimte**. Als u de Power BI-visualisatie wilt verwijderen, gaat u naar Gegevenssets en klikt u op het prullenbakpictogram om de gegevensset te verwijderen. In deze zelfstudie wordt gebruikgemaakt van **contosodataset**. Wanneer u de gegevensset verwijdert, wordt het rapport ook verwijderd.
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Resources opschonen met Azure CLI
 
@@ -593,11 +614,11 @@ In deze zelfstudie hebt u geleerd hoe u met berichtroutering IoT Hub-berichten n
 > * Bekijk de resultaten...
 > * .. .in de Service Bus-wachtrij en e-mailberichten.
 > * ...in het opslagaccount.
-> * .. .in de Power BI-visualisatie.
+> * ...in de Power BI-visualisatie.
 
 Ga door naar de volgende zelfstudie voor informatie over het beheren van de toestand van een IoT-apparaat. 
 
 > [!div class="nextstepaction"]
-[Aan de slag met Azure IoT Hub-apparaatdubbels](iot-hub-node-node-twin-getstarted.md)
+[Uw apparaten configureren vanaf een back-endservice](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

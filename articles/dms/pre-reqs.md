@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/22/2018
-ms.openlocfilehash: b3fe97343d844eb5c030cf0aaa9da2a6f54a2472
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/19/2018
+ms.openlocfilehash: 3dc449724e405f83ce976b9f8b01a89c25d693fe
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168204"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221247"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Overzicht van vereisten voor het gebruik van de Service Azure Database migreren
 Er zijn verschillende vereisten die zijn vereist om ervoor te zorgen dat de Service Azure Database migratie probleemloos bij het uitvoeren van de database-migraties. Sommige van de vereisten van toepassing in alle scenario's (bron-doel paren) die door de service, worden ondersteund, terwijl andere vereisten uniek voor een specifiek scenario zijn.
@@ -63,4 +63,4 @@ Wanneer u de migratie van Azure databaseservice SQL Server uitvoert naar Azure S
    > Zie voor een volledig overzicht van de vereiste onderdelen voor de migratie van Azure databaseservice migraties van SQL Server uitvoert naar Azure SQL Database-beheerde exemplaar gebruiken de zelfstudie [SQL-Server migreren naar Azure SQL Database-beheerde exemplaar ](https://aka.ms/migratetomiusingdms).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het artikel voor een overzicht van de migratie van Azure databaseservice en regionale beschikbaarheid tijdens Public Preview [wat is Azure Database migratie Service Preview](dms-overview.md). 
+Zie het artikel voor een overzicht van de Azure-Database migratieservice en de beschikbaarheid van regionale [wat is de Service Azure Database migratie](dms-overview.md). 

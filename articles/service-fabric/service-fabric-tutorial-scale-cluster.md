@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642696"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>Zelfstudie: een Service Fabric-cluster schalen
 
@@ -85,7 +86,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Wanneer de verbinding is gemaakt, kunt u een opdracht gebruiken om de status van elk knooppunt in het cluster op te vragen. Voor PowerShell gebruikt u de opdracht `Get-ServiceFabricClusterHealth` en voor **sfctl** gebruikt u de opdracht `sfctl cluster select`.
+Wanneer de verbinding is gemaakt, kunt u een opdracht gebruiken om de status van elk knooppunt in het cluster op te vragen. Voor **PowerShell** gebruikt u de opdracht `Get-ServiceFabricClusterHealth` en voor **sfctl** de opdracht `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Uitschalen
 
@@ -131,15 +132,15 @@ Het Service Fabric-cluster moet weten dat dit knooppunt zal worden verwijderd. E
 
 1. Schakel het knooppunt uit zodat het geen replica meer is voor gegevens.  
 PowerShell: `Disable-ServiceFabricNode`  
-sfcli: `sfctl node disable`
+sfctl: `sfctl node disable`
 
 2. Stop het knooppunt zodat de Service Fabric-runtime netjes wordt afgesloten en uw app een beëindigingsaanvraag ontvangt.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfcli: `sfctl node transition --node-transition-type Stop`
+sfctl: `sfctl node transition --node-transition-type Stop`
 
 2. Verwijder het knooppunt uit het cluster.  
 PowerShell: `Remove-ServiceFabricNodeState`  
-sfcli: `sfctl node remove-state`
+sfctl: `sfctl node remove-state`
 
 Nadat deze drie stappen op het knooppunt zijn toegepast, kan het knooppunt worden verwijderd uit de schaalset. Als u naast de [bronzen][durability] duurzaamheidslaag nog een andere duurzaamheidslaag gebruikt, worden deze stappen voor u uitgevoerd wanneer de schaalsetinstantie wordt verwijderd.
 

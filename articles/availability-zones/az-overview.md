@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2018
+ms.date: 06/08/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9eb7105b2d1a95eb8ccfa96ea0bc5188aab1b4aa
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 7cfd3fba459f409079cb0c621edab3197070285e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164718"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232315"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Wat zijn de beschikbaarheid van Zones in Azure?
 Beschikbaarheid van Zones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen van datacenter hoge beschikbaarheid. Beschikbaarheid Zones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters uitgerust met onafhankelijke stroom, koeling en netwerken. Tolerantie, zodat is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding van beschikbaarheid Zones binnen een regio beschermt toepassingen en gegevens tegen storingen datacenter. Zone-redundante services repliceren uw toepassingen en gegevens over beschikbaarheid Zones beschermen tegen één punten van storingen. Met Zones, beschikbaarheid biedt Azure bedrijfstak best 99,99% VM bedrijfstijd SLA. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
+
+Een Zone beschikbaarheid in een Azure-regio is een combinatie van een domein met fouten en een updatedomein. Bijvoorbeeld, als u drie of meer virtuele machines over drie zones in een Azure-regio maakt, wordt uw virtuele machines worden effectief in drie domeinen met fouten en drie update domeinen gedistribueerd. De Azure-platform herkent deze verdeling tussen domeinen update om ervoor te zorgen dat virtuele machines in verschillende zones op hetzelfde moment niet worden bijgewerkt.
 
 Hoge beschikbaarheid in de toepassingsarchitectuur van uw bouwen door CO-locatie op uw resources berekening, opslag, netwerken en gegevens binnen een zone en gerepliceerd in andere zones. Azure-services die ondersteuning bieden voor beschikbaarheid Zones onderverdeeld in twee categorieën:
 
@@ -58,7 +60,7 @@ De Azure-services die ondersteuning bieden voor beschikbaarheid Zones zijn:
 
 
 ## <a name="pricing"></a>Prijzen
-Er is geen extra kosten voor virtuele machines die zijn geïmplementeerd in een Zone beschikbaarheid. SLA van 99,99% VM bedrijfstijd wordt aangeboden als twee of meer virtuele Machines zijn geïmplementeerd op twee of meer beschikbaarheid Zones binnen een Azure-regio. Er zijn extra tussen beschikbaarheid Zone VM-VM gegevensoverdracht kosten. Raadpleeg voor meer informatie de [bandbreedte prijzen](https://azure.microsoft.com/pricing/details/bandwidth/) pagina.
+Er is geen extra kosten voor virtuele machines die zijn geïmplementeerd in een Zone beschikbaarheid. Actieve tijdsduur van 99,99% VM SLA wordt aangeboden als twee of meer virtuele machines zijn geïmplementeerd op twee of meer beschikbaarheid Zones binnen een Azure-regio. Er zijn extra tussen beschikbaarheid Zone VM-VM gegevensoverdracht kosten. Raadpleeg voor meer informatie de [bandbreedte prijzen](https://azure.microsoft.com/pricing/details/bandwidth/) pagina.
 
 
 ## <a name="get-started-with-availability-zones"></a>Aan de slag met beschikbaarheid Zones

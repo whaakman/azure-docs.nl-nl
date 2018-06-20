@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: dde7012dee0eb5ea3ac2e1257cb8d2fca5843d4b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35350112"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263750"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>De strategie van de onderneming voor een app LUIS
 Bekijk deze ontwerpstrategieën voor uw app enterprise.
@@ -58,10 +58,13 @@ De chatbot ontvangt de utterance vervolgens verzendt naar de bovenliggende LUIS 
 
 Begrijpen hoe deze hiërarchie van aanroepen worden gesteld van het v4-Bot Builder [dispatcher-toepassing-tutorial][dispatcher-application-tutorial].  
 
+### <a name="intent-limits-in-dispatch-model"></a>Opzet limieten in dispatch-model
+Een toepassing dispatch heeft 500 dispatch-bronnen, gelijk is aan 500 intents als het maximum. 
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over hoe [testen van een batch](luis-how-to-batch-test.md)
 
-[LUIS]:luis-reference-regions.md
-[dispatcher-application-tutorial]:https://aka.ms/bot-dispatch
-[dispatch-tool]:https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
+[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch

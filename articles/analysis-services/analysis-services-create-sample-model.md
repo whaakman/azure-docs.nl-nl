@@ -1,68 +1,79 @@
 ---
-title: Toevoegen van een model in tabelvorm voorbeeld voor uw Azure Analysis Services-server | Microsoft Docs
-description: Informatie over het toevoegen van een voorbeeld-model in Azure Analysis Services.
+title: 'Zelfstudie: Een eenvoudig voorbeeldmodel toevoegen aan uw Azure Analysis Services-server met behulp van de eportal | Microsoft Docs'
+description: In deze zelfstudieles leert u hoe u een eenvoudig voorbeeldmodel toevoegt in Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
-ms.topic: conceptual
-ms.date: 04/12/2018
+ms.service: azure-analysis-services
+ms.topic: tutorial
+ms.date: 05/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 27353ff8c05f44b76304279e09a8a8d817041d78
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: f44e33d2b735b6743b2b74760f816442c2cd17fe
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596784"
 ---
-# <a name="tutorial-add-a-sample-model"></a>Zelfstudie: Een voorbeeld-model toevoegen
+# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Zelfstudie: Een voorbeeldmodel toevoegen via de portal
 
-In deze zelfstudie maakt toevoegen u een voorbeeld Adventure Works model aan uw server. Het model voorbeeld is een voltooide versie van de verkoop van Adventure Works Internet (1200) gegevens modelleren zelfstudie. Een voorbeeld-model is nuttig voor het model management testen, verbinding met hulpprogramma's en clienttoepassingen en het modelgegevens opvragen.
+In deze zelfstudie voegt u een voorbeeldmodeldatabase in tabelvorm van Adventure Works toe aan uw server. Het voorbeeldmodel is een voltooide versie van het voorbeeldgegevensmodel Internetverkoop van Adventure Works (1200). Een voorbeeldmodel is handig voor het testen van modelbeheer, het maken van verbinding met hulpprogramma's en clienttoepassingen en het opvragen van modelgegevens. In de zelfstudie worden [Azure Portal](https://portal.azure.com) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) gebruikt voor de volgende taken: 
+
+> [!div class="checklist"]
+> * Een voltooid voorbeeldgegevensmodel in tabelvorm toevoegen aan een server 
+> * Verbinding maken met het model via SSMS
+
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
-- Een Azure Analysis Services-server
-- Administrator-machtigingen voor server
+- Een Azure Analysis Services-server. Zie [Een server maken - portal](analysis-services-create-server.md) voor meer informatie.
+- Machtigingen voor serverbeheerder
+- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Meld u aan bij [Azure Portal](https://portal.azure.com/).
+Meld u aan bij de [portal](https://portal.azure.com/).
 
-## <a name="create-a-sample-model"></a>Een voorbeeld-model maken
+## <a name="add-a-sample-model"></a>Een voorbeeldmodel toevoegen
 
-1. Op de server **overzicht**, klikt u op **nieuw model**.
+1. Klik in **Overzicht** van server op **Nieuw model**.
 
-    ![Een voorbeeld-model maken](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
+    ![Een voorbeeldmodel maken](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. In **nieuw model** > **een gegevensbron kiezen**, Controleer of **voorbeeldgegevens** is geselecteerd en klik vervolgens op **toevoegen**.
+2. Controleer in **Nieuw model** > **Een gegevensbron kiezen** of **Voorbeeldgegevens** is geselecteerd en klik vervolgens op **Toevoegen**.
 
-    ![Selecteer voorbeeldgegevens](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    ![Voorbeeldgegevens selecteren](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
-3. In **overzicht**, Controleer of de `adventureworks` voorbeeld is gemaakt.
+3. Controleer in **Overzicht** of het `adventureworks`-voorbeeldmodel is toegevoegd.
 
-    ![Selecteer voorbeeldgegevens](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
+    ![Voorbeeldgegevens selecteren](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
+
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Het model van uw voorbeeld maakt gebruik van resources in het cachegeheugen. Als u uw voorbeeld-model niet gebruikt voor het testen, moet u het verwijderen van uw server.
+In het voorbeeldmodel worden cachegeheugenbronnen gebruikt. Verwijder het voorbeeldmodel van uw server als u dit niet gebruikt voor het testen.
 
-> [!NOTE]
-> Deze stappen wordt beschreven hoe u een model verwijdert uit een server met behulp van SSMS. U kunt ook een model verwijderen met behulp van de ontwerpfunctie webfunctie-preview.
+In deze stappen wordt beschreven hoe u een model verwijdert van een server met behulp van SSMS. U kunt een model ook verwijderen met behulp van de previewfunctie van Web Designer.
 
-1. In SSMS > **Objectverkenner**, klikt u op **Connect** > **Analysis Services**.
+1. Klik in SSMS > **Objectverkenner** op **Verbinding maken** > **Analysis Services**.
 
-2. In **verbinding maken met Server**, in de naam van de server vervolgens plakken **verificatie**, kies **Active Directory - Universal met ondersteuning voor MFA**, Voer uw gebruikersnaam en klik vervolgens op **Verbinding**.
+2. Plak de servernaam in **Verbinding maken met server** en kies vervolgens in **Verificatie** de optie **Active Directory - Universeel met MFA-ondersteuning**, typ uw gebruikersnaam en klik vervolgens op **Verbinding maken**.
 
     ![Aanmelden](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png)
 
-3. In **Objectverkenner**, met de rechtermuisknop op de `adventureworks` de voorbeelddatabase en klik vervolgens op **verwijderen**.
+3. Klik in **Objectverkenner** met de rechtermuisknop op de `adventureworks`-voorbeelddatabase en klik vervolgens op **Verwijderen**.
 
-    ![Voorbeelddatabase verwijderen](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
+    ![De voorbeelddatabase verwijderen](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-[Verbinding maken in Power BI Desktop](analysis-services-connect-pbi.md)   
-[Databaserollen en gebruikers beheren](analysis-services-database-users.md)
+In deze zelfstudie hebt u geleerd hoe u een eenvoudig voorbeeldmodel toevoegt aan uw server. Nu u een modeldatabase hebt, kunt u hiermee verbinding maken vanuit SQL Server Management Studio en hieraan gebruikersrollen toevoegen. Ga verder met de volgende zelfstudie voor meer informatie.
+
+> [!div class="nextstepaction"]
+> [Zelfstudie: Serverbeheerder en gebruikersrollen configureren](analysis-services-database-users.md)
 
 

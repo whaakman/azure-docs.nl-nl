@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849988"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](active-directory-aadconnect-get-started-express.md) niet aan uw implementatie of topologie voldoet.
@@ -214,12 +216,11 @@ Op een computer met de hulpprogramma's voor Groepsbeleidsbeheer.
 1.  Open de hulpprogramma's voor Groepsbeleidsbeheer
 2.  Bewerk het groepsbeleid dat op alle gebruikers wordt toegepast. Bijvoorbeeld het standaard domeinbeleid.
 3.  Ga naar **Gebruikersconfiguratie\Beheersjablonen\Windows-onderdelen\Internet Explorer\Onderdeel Internetopties van het Configuratiescherm\Het tabblad Beveiliging** en selecteer **Lijst van zonetoewijzingen voor websites**, zoals in de afbeelding hieronder.
-4.  Schakel het beleid in en geef de volgende twee items op in het dialoogvenster.
+4.  Schakel het beleid in en geef het volgende item op in het dialoogvenster.
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+    
 
 5.  Het moet er ongeveer als volgt uitzien:  
 ![Intranetzones](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
@@ -303,7 +304,7 @@ Wanneer u het te federeren domein selecteert, geeft Azure AD Connect u de inform
 >
 
 ## <a name="configuring-federation-with-pingfederate"></a>Federatie configureren met PingFederate
-PingFederate is heel eenvoudig met een paar muisklikken met Azure AD Connect te configureren. Voorafgaand aan de configuratie is het volgende vereist.  Er moet echter wel aan de volgende voorwaarden worden voldaan.
+PingFederate is heel eenvoudig met een paar muisklikken met Azure AD Connect te configureren. Er moet echter wel aan de volgende voorwaarden worden voldaan.
 - PingFederate 8.4 of hoger.  Zie het Engelstalige artikel [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html) voor meer informatie.
 - Een SSL-certificaat voor de Federation Service-naam die u wilt gebruiken (bijvoorbeeld sts.contoso.com)
 

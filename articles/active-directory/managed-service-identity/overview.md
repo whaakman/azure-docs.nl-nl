@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724095"
 ---
 #  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Wat is Managed Service Identity (MSI) voor Azure-resources?
 
@@ -26,12 +27,14 @@ ms.lasthandoff: 05/10/2018
 
 Een veelvoorkomende uitdaging bij het bouwen van cloud-apps is het beheren van de referenties die in uw code moeten worden opgenomen voor verificatie bij cloudservices. Het is belangrijk dat deze referenties veilig worden verwerkt. In het ideale geval worden ze nooit weergegeven op werkstations van ontwikkelaars of ingecheckt in broncodebeheer. Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Managed Service Identity (MSI) levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
 
+Managed Service Identity wordt gratis geleverd bij Azure Active Directory. Dit is de standaardoptie voor Azure-abonnementen. Er zijn geen extra kosten voor Managed Service Identity.
+
 ## <a name="how-does-it-work"></a>Hoe werkt het?
 
 Er zijn twee soorten Managed Service-identiteiten: **door het systeem toegewezen** en **door de gebruiker toegewezen**.
 
 - Een **door het systeem toegewezen identiteit** wordt rechtstreeks op een Azure Service-exemplaar ingeschakeld. Wanneer dit is ingeschakeld, wordt een identiteit voor het service-exemplaar in de Azure AD-tenant gemaakt, dat wordt vertrouwd door het abonnement van het service-exemplaar. Zodra de identiteit is gemaakt, worden de referenties ingericht op het service-exemplaar. De levenscyclus van een door het systeem toegewezen identiteit is rechtstreeks gekoppeld aan het Azure Service-exemplaar waarop de identiteit is ingeschakeld. Als het service-exemplaar wordt verwijderd, ruimt Azure automatisch de referenties en de identiteit in Azure AD op.
-- Een **door de gebruiker toegewezen identiteit** (openbare preview) wordt gemaakt als een zelfstandige Azure-resource. Via een productieproces maakt Azure een identiteit in de Azure AD-tenant, die wordt vertrouwd door het abonnement dat wordt gebruikt. Nadat de identiteit is gemaakt, kan deze worden toegewezen aan een of meer Azure Service-exemplaren. De levenscyclus van een door de gebruiker toegewezen identiteit wordt afzonderlijk beheerd van de levenscyclus van de Azure Service-exemplaren waaraan de identiteit is toegewezen.
+- Een **door de gebruiker toegewezen identiteit** wordt gemaakt als een zelfstandige Azure-resource. Via een productieproces maakt Azure een identiteit in de Azure AD-tenant, die wordt vertrouwd door het abonnement dat wordt gebruikt. Nadat de identiteit is gemaakt, kan deze worden toegewezen aan een of meer Azure Service-exemplaren. De levenscyclus van een door de gebruiker toegewezen identiteit wordt afzonderlijk beheerd van de levenscyclus van de Azure Service-exemplaren waaraan de identiteit is toegewezen.
 
 Als gevolg hiervan kan uw code een door het systeem of door de gebruiker toegewezen identiteit gebruiken om toegangstokens aan te vragen voor services die ondersteuning bieden voor Azure AD-verificatie. Azure zorgt voor het implementeren van de referenties die worden gebruikt door het service-exemplaar.
 
@@ -103,17 +106,6 @@ Volgt een zelfstudie over Managed Service Identity om complete scenario's te ler
 
 Beheerde identiteiten kunnen worden gebruikt voor verificatie bij services die ondersteuning bieden voor Azure AD-verificatie. Raadpleeg het volgende artikel voor een lijst met Azure-services die ondersteuning bieden voor Managed Service Identity:
 - [Services die Managed Service Identity ondersteunen](services-support-msi.md)
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Wat kost Managed Service Identity?
-
-Managed Service Identity wordt gratis geleverd bij Azure Active Directory. Dit is de standaardoptie voor Azure-abonnementen. Er zijn geen extra kosten voor Managed Service Identity.
-
-## <a name="support-and-feedback"></a>Ondersteuning en feedback
-
-We horen graag van u.
-
-* Stel vragen over de werking van Stack Overflow met de tag [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Vraag functies aan of geef feedback op het [Azure AD-feedbackforum voor ontwikkelaars](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
 ## <a name="next-steps"></a>Volgende stappen
 

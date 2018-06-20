@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: d3a59c2d9b62bdbde75c54347ce9117fc9114cd6
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164380"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220013"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure-Dashboards via een programma maken
 
@@ -89,11 +89,11 @@ Azure biedt de mogelijkheid voor het indelen van de implementatie van meerdere r
 Als u deze route gaat, wordt parameterisering moet worden gedaan met behulp van de syntaxis van de sjabloon.  U Vervang alle exemplaren van de resource-id we eerder zagen zoals hier wordt weergegeven.
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>Voorbeeld van de JSON-eigenschap met de vastgelegde resource-Id
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Voorbeeld van de JSON-eigenschap geconverteerd naar een geparameteriseerde versie op basis van Sjabloonparameters
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 U moet ook declareren van bepaalde vereiste sjabloon metagegevens en de parameters die aan de bovenkant van het json-sjabloon als volgt:
 

@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248238"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Zelfstudie: Windows-containers in Service Fabric bewaken met behulp van Log Analytics
 
@@ -212,18 +213,14 @@ Als u op een van deze panelen klikt, komt u terecht bij de Log Analytics-query d
 
 ## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>OMS-agent configureren voor het ophalen van prestatiemeteritems
 
-Een ander voordeel van het gebruik van de OMS-agent is de mogelijkheid om de prestatiemeteritems te wijzigen die u wilt ophalen via de OMS-gebruikersinterface. U hoeft dan de Azure diagnoseagent niet te configureren en geen op een Resource Manager-sjabloon gebaseerde upgrade uit te voeren. Als u dit wilt doen, klikt u op **OMS-portal** op de startpagina van uw Container Monitoring- of Service Fabric-oplossing.
+Een ander voordeel van het gebruik van de OMS-agent is de mogelijkheid om de prestatiemeteritems te wijzigen die u wilt ophalen via de OMS-gebruikersinterface. U hoeft dan de Azure diagnoseagent niet te configureren en geen op een Resource Manager-sjabloon gebaseerde upgrade uit te voeren. Als u dit wilt doen, klikt u op **OMS-werkruimte** op de startpagina van uw Container Monitoring- of Service Fabric-oplossing.
 
-![OMS-portal](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
-
-Hierna komt u terecht in de werkruimte in de OMS-portal, waar u uw oplossingen kunt zien, aangepaste dashboards kunt maken en de OMS-agent kunt configureren. 
-* Klik op het **tandwiel** in de rechterbovenhoek van het scherm om het menu *Instellingen* te openen.
+Hierna komt u terecht in de OMS-werkruimte, waar u uw oplossingen kunt zien, aangepaste dashboards kunt maken en de OMS-agent kunt configureren. 
+* Klik op **Geavanceerde instellingen** om het menu Geavanceerde instellingen te openen.
 * Klik op **Verbonden bronnen** > **Windows Servers** om te controleren of er *5 Windows-computers verbonden* zijn.
-* Klik op **Gegevens** > **Windows-prestatiemeteritems** om nieuwe prestatiemeteritems te zoeken en toe te voegen. Hier ziet u een lijst met aanbevelingen van Log Analytics voor prestatiemeteritems die u kunt verzamelen, evenals de optie om andere tellers te zoeken. Klik op **De geselecteerde prestatiemeteritems toevoegen** om de voorgestelde metrische gegevens te gaan zoeken.
+* Klik op **Gegevens** > **Windows-prestatiemeteritems** om nieuwe prestatiemeteritems te zoeken en toe te voegen. Hier ziet u een lijst met aanbevelingen van Log Analytics voor prestatiemeteritems die u kunt verzamelen, evenals de optie om andere tellers te zoeken. Controleer of de tellers **Processor(_Total)\% Processor Time** en **Memory(*)\Available MBytes** worden verzameld.
 
-    ![Prestatiemeteritems](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
-
-Terug in Azure Portal **vernieuwt** u binnen enkele minuten de Container Monitoring-oplossing en komen de gegevens van *Computerprestaties* binnen. Hierdoor krijgt u inzicht in het gebruik van uw resources. U kunt deze metrische gegevens ook gebruiken om de juiste beslissingen te maken over het schalen van het cluster of om te bevestigen dat een cluster de belasting op de juiste wijze verdeelt.
+**vernieuwt** u binnen enkele minuten de Container Monitoring-oplossing en komen de gegevens van *Computerprestaties* binnen. Hierdoor krijgt u inzicht in het gebruik van uw resources. U kunt deze metrische gegevens ook gebruiken om de juiste beslissingen te maken over het schalen van het cluster of om te bevestigen dat een cluster de belasting op de juiste wijze verdeelt.
 
 *Opmerking: controleer of de tijdfilters goed zijn ingesteld voor deze metrische gegevens.* 
 

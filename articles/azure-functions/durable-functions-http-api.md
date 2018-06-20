@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3c000e268c4c926991c3f1928f226065a436c6d2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32309977"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264882"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure-functies)
 
@@ -194,6 +194,81 @@ Hier volgt een voorbeeld antwoord nettolading met inbegrip van de orchestration 
 ```
 
 De **HTTP 202** antwoord bevat ook een **locatie** antwoordheader die verwijst naar dezelfde URL als voor de `statusQueryGetUri` veld eerder is vermeld.
+
+### <a name="get-all-instances-status"></a>Status van alle exemplaren ophalen
+
+U kunt ook de status van alle exemplaren opvragen. Verwijder de `instanceId` van de aanvraag 'Get status exemplaar'. De parameters zijn hetzelfde als 'Get status van het exemplaar.' 
+
+#### <a name="request"></a>Aanvraag
+
+Voor functies 1.0 is indeling van de aanvraag als volgt uit:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+De functies 2.0-indeling heeft dezelfde parameters maar een iets andere URL-voorvoegsel: 
+
+```http
+GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="response"></a>Antwoord
+
+Hier volgt een voorbeeld van een antwoord nettoladingen, inclusief de orchestration-status (indeling voor de leesbaarheid):
+
+```json
+[
+    {
+        "instanceId": "7af46ff000564c65aafbfe99d07c32a5",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-06-04T10:46:39Z",
+        "lastUpdatedTime": "2018-06-04T10:46:47Z"
+    },
+    {
+        "instanceId": "80eb7dd5c22f4eeba9f42b062794321e",
+        "runtimeStatus": "Running",
+        "input": null,
+        "customStatus": null,
+        "output": null,
+        "createdTime": "2018-06-04T15:18:28Z",
+        "lastUpdatedTime": "2018-06-04T15:18:38Z"
+    },
+    {
+        "instanceId": "9124518926db408ab8dfe84822aba2b1",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-06-04T10:46:54Z",
+        "lastUpdatedTime": "2018-06-04T10:47:03Z"
+    },
+    {
+        "instanceId": "d100b90b903c4009ba1a90868331b11b",
+        "runtimeStatus": "Pending",
+        "input": null,
+        "customStatus": null,
+        "output": null,
+        "createdTime": "2018-06-04T15:18:39Z",
+        "lastUpdatedTime": "2018-06-04T15:18:39Z"
+    }
+]
+```
+
+> [!NOTE]
+> Deze bewerking kan niet erg kostbaar in termen van Azure-opslag-i/o Als er een groot aantal rijen in de tabel exemplaren. Meer informatie over exemplaar tabel vindt u in de [prestaties en schaalbaarheid in duurzame functies (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentatie.
+> 
 
 ### <a name="raise-event"></a>Genereren van gebeurtenis
 

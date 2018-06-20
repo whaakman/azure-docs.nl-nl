@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211793"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726326"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -167,7 +167,9 @@ Wanneer u het adresvoorvoegsel 0.0.0.0/0 overschrijft, wordt de standaardrouteri
         - Het apparaat moet het netwerkadres kunnen omzetten en doorsturen, of het verkeer via een proxy omleiden naar de doelresource in het subnet, en het verkeer terugleiden naar internet. 
     - **Gateway van virtueel netwerk**: als de gateway een ExpressRoute-gateway is, kan een on-premises apparaat dat met internet is verbonden het netwerkadres omzetten en doorsturen, of het verkeer via een proxy omleiden naar de doelresource in het subnet, via [privé-peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) van ExpressRoute. 
 
-  Zie [DMZ tussen Azure en uw on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) en [DMZ tussen Azure en internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) voor uitgebreide informatie over de implementatie bij gebruik van virtuele netwerkgateways en virtuele apparaten tussen internet en Azure.
+Als uw virtuele netwerk is verbonden met een Azure VPN-gateway, koppelt u geen routetabel aan het [gatewaysubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) met een route die als bestemming heeft: 0.0.0.0/0. Als u dit wel doet, functioneert de gateway mogelijk niet juist.
+
+Zie [DMZ tussen Azure en uw on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) en [DMZ tussen Azure en internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) voor uitgebreide informatie over de implementatie bij gebruik van virtuele netwerkgateways en virtuele apparaten tussen internet en Azure.
 
 ## <a name="routing-example"></a>Voorbeeld van routering
 
@@ -259,5 +261,5 @@ De routetabel voor *Subnet2* bevat alle standaardroutes van Azure, plus de optio
 - [Maken van een gebruiker gedefinieerde route - Azure-portal](tutorial-create-route-table-portal.md)
 - [Het configureren van BGP op Azure VPN-Gateways met behulp van PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [BGP gebruiken met ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Alle routes weergeven voor een subnet](virtual-network-routes-troubleshoot-portal.md). Een door de gebruiker gedefinieerde routetabel bevat alleen door de gebruiker gedefinieerde routes, niet de standaard- en BGP-routes voor een subnet. Als u alle routes weergeeft, ziet u de standaardroutes, de BGP-routes en de door de gebruiker gedefinieerde routes voor het subnet waarin een netwerkinterface zich bevindt.
+- [Alle routes weergeven voor een subnet](diagnose-network-routing-problem.md). Een door de gebruiker gedefinieerde routetabel bevat alleen door de gebruiker gedefinieerde routes, niet de standaard- en BGP-routes voor een subnet. Als u alle routes weergeeft, ziet u de standaardroutes, de BGP-routes en de door de gebruiker gedefinieerde routes voor het subnet waarin een netwerkinterface zich bevindt.
 - [Het 'volgende hoptype' bepalen](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tussen een virtuele machine en een doel-IP-adres. De functie Azure Network Watcher maakt het mogelijk om te bepalen of verkeer een subnet verlaat en wordt doorgestuurd naar wat volgens u de bestemming moet zijn.

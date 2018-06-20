@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12cc84942c139d3c5e981aec902557201c9c8092
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345870"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264970"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>LUIS integreren met een bot met de Bot Builder SDK voor Node.js
 
@@ -235,15 +235,14 @@ Selecteer in de Azure-Portal op **testen in Web chatten** voor het testen van de
    ![HomeAutomation bot in Web chatten testen](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Als u dat uw bot niet altijd wordt herkend door de juiste bedoeling of entiteiten vinden, kunt u de prestaties van uw app LUIS verbeteren meer voorbeeld utterances traint wordt gegeven. U kunt uw app LUIS zonder dat aanpassingen uw bot code opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en te testen van uw app LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/train-test).
+> Als u dat uw bot niet altijd wordt herkend door de juiste bedoeling of entiteiten vinden, kunt u de prestaties van uw app LUIS verbeteren meer voorbeeld utterances traint wordt gegeven. U kunt uw app LUIS zonder dat aanpassingen uw bot code opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en te testen van uw app LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Meer informatie over Bot-Framework
 Meer informatie over [Bot Framework](https://dev.botframework.com/) en de [3.x](https://github.com/Microsoft/BotBuilder) en [4.x](https://github.com/Microsoft/botbuilder-js) SDK's.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
-U kunt andere intents, zoals Help, annuleren en begroeting, toevoegen aan de app LUIS. Vervolgens voegen dialoogvensters voor de nieuwe intents en te testen met behulp van de bot. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> U kunt andere intents, zoals Help, annuleren en begroeting, toevoegen aan de app LUIS. Vervolgens voegen dialoogvensters voor de nieuwe intents en te testen met behulp van de bot. 
 
 <!-- 
 > [!NOTE] 
@@ -298,10 +297,10 @@ U kunt andere intents, zoals Help, annuleren en begroeting, toevoegen aan de app
 <!-- Old Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-node-hotel-bot]:https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
+[Github-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
 [NodeJs]: https://nodejs.org/
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

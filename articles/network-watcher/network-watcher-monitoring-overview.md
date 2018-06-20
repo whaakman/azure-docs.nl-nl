@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639340"
 ---
 # <a name="what-is-azure-network-watcher"></a>Wat is Azure Network Watcher?
 
@@ -48,11 +49,11 @@ U kunt een bewerkbare versie van de afbeelding in SVG-indeling downloaden. Meer 
 
 ### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Problemen diagnosticeren met het filteren van netwerkverkeer naar of vanaf een VM
 
-Wanneer u een VM implementeert, past Azure standaard beveiligingsregels toe op de VM, die verkeer naar of van de VM toestaan of weigeren. U kunt Azure-standaardregels overschrijven of zelf extra regels maken. Op een bepaald moment kan een VM mogelijk niet meer communiceren met andere resources vanwege een beveiligingsregel. De functie *IP-stroom controleren* biedt u de mogelijkheid een bron- en bestemmings-IPv4-adres, een poort, een protocol (TCP of UDP) en een verkeersrichting (inkomend of uitgaand) op te geven. IP-stroomcontrole test vervolgens de communicatie en informeert u als de verbinding slaagt of mislukt. Als de verbinding mislukt, laat de functie IP-stroom controleren u weten welke beveiligingsregel de communicatie heeft toegestaan of geweigerd, zodat u het probleem kunt oplossen. Meer informatie over [IP-stroom controleren](network-watcher-ip-flow-verify-overview.md).
+Wanneer u een VM implementeert, past Azure standaard beveiligingsregels toe op de VM, die verkeer naar of van de VM toestaan of weigeren. U kunt Azure-standaardregels overschrijven of zelf extra regels maken. Op een bepaald moment kan een VM mogelijk niet meer communiceren met andere resources vanwege een beveiligingsregel. De functie *IP-stroom controleren* biedt u de mogelijkheid een bron- en bestemmings-IPv4-adres, een poort, een protocol (TCP of UDP) en een verkeersrichting (inkomend of uitgaand) op te geven. IP-stroomcontrole test vervolgens de communicatie en informeert u als de verbinding slaagt of mislukt. Als de verbinding mislukt, laat de functie IP-stroom controleren u weten welke beveiligingsregel de communicatie heeft toegestaan of geweigerd, zodat u het probleem kunt oplossen. Lees meer over het controleren van de IP-stroom door de zelfstudie [Diagnose uitvoeren voor een probleem met netwerkverkeersfilters op een virtuele machine](diagnose-vm-network-traffic-filtering-problem.md) uit te voeren.
 
 ### <a name="diagnose-network-routing-problems-from-a-vm"></a>Problemen met netwerkroutering vanaf een VM diagnosticeren
 
-Wanneer u een virtueel netwerk maakt, maakt Azure verschillende standaard uitgaande routes voor netwerkverkeer. Het uitgaande verkeer van alle resources, zoals virtuele machines, geïmplementeerd in een virtueel netwerk worden gerouteerd op basis van de Azure-standaardroutes. U kunt Azure-standaardroutes overschrijven of zelf extra routes maken. Het is mogelijk dat een VM niet meer met andere resources kan communiceren vanwege een specifieke route. Met de mogelijkheid *Volgende hop* kunt u een IPv4-adres van een bron en een bestemming opgeven. Volgende hop test vervolgens de communicatie en informeert u welk type volgende hop wordt gebruikt voor het routeren van verkeer. U kunt vervolgens een route verwijderen, wijzigen of toevoegen om een routeringsprobleem op te lossen. Meer informatie over de mogelijkheid [Volgende hop](network-watcher-next-hop-overview.md?).
+Wanneer u een virtueel netwerk maakt, maakt Azure verschillende standaard uitgaande routes voor netwerkverkeer. Het uitgaande verkeer van alle resources, zoals virtuele machines, geïmplementeerd in een virtueel netwerk worden gerouteerd op basis van de Azure-standaardroutes. U kunt Azure-standaardroutes overschrijven of zelf extra routes maken. Het is mogelijk dat een VM niet meer met andere resources kan communiceren vanwege een specifieke route. Met de mogelijkheid *Volgende hop* kunt u een IPv4-adres van een bron en een bestemming opgeven. Volgende hop test vervolgens de communicatie en informeert u welk type volgende hop wordt gebruikt voor het routeren van verkeer. U kunt vervolgens een route verwijderen, wijzigen of toevoegen om een routeringsprobleem op te lossen. Meer informatie over de mogelijkheid [Volgende hop](diagnose-vm-network-routing-problem.md).
 
 ### <a name="connection-troubleshoot"></a>Problemen met uitgaande verbindingen vanaf een VM diagnosticeren
 
@@ -64,7 +65,7 @@ Geavanceerde filteropties en verfijnde besturingselementen, zoals de mogelijkhei
 
 ### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Problemen met een Azure Virtual Network-gateway en -verbindingen diagnosticeren
 
-Virtuele netwerkgateways bieden connectiviteit tussen on-premises resources en virtuele netwerken in Azure. Het bewaken van gateways en hun verbindingen is essentieel om te zorgen dat de communicatie niet wordt vebroken. *Diagnostische gegevens van VPN* biedt de mogelijkheid om gateways en verbindingen te diagnosticeren. Diagnostische gegevens van VPN analyseert de status van de gateway of gatewayverbinding en leet u weten of een gateway en gatewayverbindingen beschikbaar zijn. Als de gateway of de verbinding niet beschikbaar is, wordt u geïnformeerd over de reden zodat u het probleem kunt oplossen. Meer informatie over [Diagnostische gegevens van VPN](network-watcher-troubleshoot-overview.md).
+Virtuele netwerkgateways bieden connectiviteit tussen on-premises resources en virtuele netwerken in Azure. Het bewaken van gateways en hun verbindingen is essentieel om te zorgen dat de communicatie niet wordt vebroken. *Diagnostische gegevens van VPN* biedt de mogelijkheid om gateways en verbindingen te diagnosticeren. Diagnostische gegevens van VPN analyseert de status van de gateway of gatewayverbinding en leet u weten of een gateway en gatewayverbindingen beschikbaar zijn. Als de gateway of de verbinding niet beschikbaar is, wordt u geïnformeerd over de reden zodat u het probleem kunt oplossen. Lees meer over diagnostische gegevens van een VPN door de zelfstudie [Een probleem vaststellen in de communicatie tussen netwerken](diagnose-communication-problem-between-networks.md) uit te voeren.
 
 ### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Relatieve latenties tussen Azure-regio's en internetproviders bepalen
 
@@ -90,7 +91,7 @@ Netwerkbeveiligingsgroepen (NSG) kunnen inkomend of uitgaand verkeer naar een ne
 
 ![Verkeersanalyse](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-Meer informatie over [NSG-stroomlogboeken](network-watcher-nsg-flow-logging-overview.md) en [verkeersanalyse](traffic-analytics.md).
+Lees meer over NSG-stroomlogboeken en het implementeren van [verkeersanalyse](traffic-analytics.md) door de zelfstudie [Logboekregistratie van netwerkverkeer naar en van een virtuele machine met Azure Portal](network-watcher-nsg-flow-logging-portal.md) uit te voeren.
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Diagnostische logboeken voor netwerkresources weergeven
 

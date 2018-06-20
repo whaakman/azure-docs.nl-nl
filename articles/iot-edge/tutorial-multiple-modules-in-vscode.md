@@ -1,51 +1,56 @@
 ---
-title: Beheren van meerdere Azure IoT Edge-modules in VS-Code | Microsoft Docs
-description: Gebruik Visual Studio Code voor het ontwikkelen van de rand van de IoT-oplossingen die gebruikmaken van meerdere modules.
-services: iot-edge
-keywords: ''
+title: Meerdere Azure IoT Edge-modules beheren in VS Code | Microsoft Docs
+description: Gebruik Visual Studio Code om Azure IoT Edge-oplossingen te ontwikkelen die gebruikmaken van meerdere modules.
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 4d9caa7aa95c99fa30e8ec76c5b6362615725622
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: MT
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 4a624994f93e7a3cbb04db2a0ec0b2b823a12ee7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763031"
 ---
-# <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code---preview"></a>Een rand van de IoT-oplossing met meerdere modules in Visual Studio Code opstellen - voorbeeld
-U kunt Visual Studio Code gebruiken voor het ontwikkelen van uw IoT-Edge-oplossing met meerdere modules. Dit artikel begeleidt bij het maken, bijwerken en implementeren van een rand van de IoT-oplossing die pipes sensorgegevens op het gesimuleerde apparaat IoT Edge in Visual Studio Code. 
+# <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code-preview"></a>Een IoT Edge-oplossing met meerdere modules ontwikkelen in Visual Studio Code (preview)
+
+U kunt Visual Studio Code gebruiken om een Azure IoT Edge-oplossing met meerdere modules te ontwikkelen. In dit artikel leest u hoe u een IoT Edge-oplossing kunt maken, bijwerken en implementeren waarmee sensorgegevens worden verzonden op een gesimuleerd IoT Edge-apparaat in VS Code. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het voltooien van de stappen in dit artikel hebt u de volgende vereisten voldaan:
+U moet over de volgende vereiste items beschikken om de stappen in dit artikel uit te voeren:
 
-- [Visual Studio Code](https://code.visualstudio.com/) 
-- [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-- [C# voor uitbreiding van de Visual Studio Code (via OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
+- [Visual Studio Code](https://code.visualstudio.com/)
+- De [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+- De [extensie C# voor Visual Studio Code (van OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 - [Docker](https://docs.docker.com/engine/installation/)
-- [.NET core SDK 2.0](https://www.microsoft.com/net/core#windowscmd) 
-- Sjabloon AzureIoTEdgeModule (`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)
-- Een actieve iothub met ten minste één IoT randapparaat
+- De [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd)
+- De sjabloon AzureIoTEdgeModule (`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)
+- Een actieve IoT-hub met minimaal één IoT Edge-apparaat
 
+U hebt ook [Docker voor VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) met Azure IoT Hub Device Explorer-integratie nodig om installatiekopieën en containers te beheren.
 
-* [Docker voor VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) met explorer-integratie voor het beheren van installatiekopieën en Containers.
+## <a name="prepare-your-first-iot-edge-solution"></a>Uw eerste IoT Edge-oplossing voorbereiden
 
-
-## <a name="prepare-your-first-iot-edge-solution"></a>Voorbereiden van uw eerste rand van de IoT-oplossing
-1. Typ in de VS Code opdracht palet en voer de opdracht **rand: nieuwe IoT oplossing**. Selecteer vervolgens uw werkruimtemap, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maak een C#-Module (**SampleModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de Docker-opslagplaats voor installatiekopieën voor uw eerste module opgeven. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/<first module name>`). U kunt deze ook wijzigen naar Azure container register- of Docker-Hub.
+1. Voer in het **opdrachtenpalet** van VS Code de opdracht **Edge: New IoT Edge solution** uit. Selecteer uw werkruimtemap en geef de oplossingsnaam op (de standaardwaarde is EdgeSolution). Maak een C#-module (met de naam **SampleModule**) als eerste gebruikersmodule in deze oplossing. U moet ook de opslagplaats voor Dockerinstallatiekopieën opgeven voor de eerste module. De standaardopslagplaats voor installatiekopieën is gebaseerd op een lokaal Docker-register (**localhost:5000/<first module name>**). U kunt dit wijzigen in Azure Container Registry of Docker Hub.
 
    > [!NOTE]
-   > Als u van een lokale Docker-register gebruikmaakt, controleert u of het register wordt uitgevoerd door de opdracht te typen `docker run -d -p 5000:5000 --restart=always --name registry registry:2` in het consolevenster.
+   > Als u een lokaal Docker-register gebruikt, controleert u of het register wordt uitgevoerd. Geef de volgende opdracht op in het consolevenster:
+   > 
+   > `docker run -d -p 5000:5000 --restart=always --name registry registry:2`
 
-2. Het venster tegenover Code laadt uw werkruimte rand van de IoT-oplossing. De hoofdmap bevat een `modules` map, een `.vscode` map en een deployment manifest sjabloonbestand. U kunt zien configuraties in voor foutopsporing `.vscode` map. Alle gebruikers module codes zijn submappen onder de map `modules`. De `deployment.template.json` is de deployment manifest-sjabloon. Sommige parameters in dit bestand wordt geparseerd uit de `module.json`, die bestaat in de modulemap van elke.
+2. In het VS Code-venster wordt de werkruimte van de IoT Edge-oplossing geladen. De hoofdmap bevat de map **modules**, de map **.vscode** en een sjabloonbestand voor het distributiemanifest. Foutopsporingsconfiguraties bevinden zich in de map .vscode. Alle gebruikersmodulecodes zijn submappen van de map modules. Het bestand deployment.template.json is de distributiemanifestsjabloon. Sommige parameters in dit bestand worden geparseerd van het bestand module.json, dat zich in elke modulemap bevindt.
 
-3. Uw tweede module toevoegen aan dit project oplossing. Typ deze tijd en voer **rand: module toevoegen IoT rand** en selecteer het sjabloonbestand implementatie bij te werken. Selecteer vervolgens een **Azure-functie - C#** met de naam **SampleFunction** en de Docker-opslagplaats voor installatiekopieën.
+3. Voeg de tweede module toe aan dit oplossingsproject. Geef de opdracht **Edge: Add IoT Edge module** op en voer deze uit. Selecteer het implementatiesjabloonbestand dat u wilt bijwerken. Selecteer een module **Azure Function - C#** met de naam **SampleFunction** en de bijbehorende Docker-opslagplaats voor installatiekopieën.
 
-4. Open de `deployment.template.json` bestand en controleer of er drie modules naast de runtime wordt mee aangegeven. Het bericht wordt gegenereerd op basis van de `tempSensor` -module, en wordt het rechtstreeks worden doorgegeven `SampleModule` en `SampleFunction`, vervolgens naar uw IoT-hub zijn verzonden. 
-5. Werk de routes op voor deze modules met de volgende inhoud:
+4. Open het bestand deployment.template.json. Controleer of met het bestand drie modules en de runtime worden gedeclareerd. Het bericht wordt gegenereerd vanuit de module tempSensor. Het bericht wordt rechtstreeks doorgegeven via de modules SampleModule en SampleFunction en vervolgens naar uw IoT-hub verzonden. 
+
+5. Werk de routes voor deze modules bij met de volgende inhoud:
+
    ```json
    "routes": {
       "SensorToPipeModule": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/SampleModule/inputs/input1\")",
@@ -54,23 +59,24 @@ Voor het voltooien van de stappen in dit artikel hebt u de volgende vereisten vo
    },
    ```
 
-6. Sla dit bestand.
+6. Sla dit bestand op.
 
-## <a name="build-and-deploy-your-iot-edge-solution"></a>Bouwen en implementeren van de rand van de IoT-oplossing
-1. Typ in de VS Code opdracht palet en voer de opdracht **rand: bouwen IoT oplossing**. Op basis van de `module.json` in de modulemap van elke, deze opdracht start te bouwen, containerize en push van elke module docker-installatiekopie. Vervolgens deze de vereiste waarde geeft `deployment.template.json` en genereert de `deployment.json` bestand met informatie uit de `config` map. U kunt de voortgang van de build in VS-Code geïntegreerde terminal zien.
+## <a name="build-and-deploy-your-iot-edge-solution"></a>Uw IoT Edge-oplossing maken en implementeren
 
-2. In Azure IoT Hub-apparaten explorer met de rechtermuisknop op een apparaat-ID van IoT-rand en selecteer vervolgens **implementatie creëert voor randapparaat**. Selecteer de `deployment.json` onder `config` map. Vervolgens ziet u dat de implementatie is gemaakt met een implementatie-ID in VS-Code wordt geïntegreerd terminal.
+1. Geef in het **opdrachtenpalet** van VS Code de opdracht **Edge: Build IoT Edge solution** op en voer deze uit. Op basis van het bestand module.json in elke modulemap wordt met de opdracht elke Docker-installatiekopie van de module gemaakt, in containers geplaatst en doorgegeven. Met de opdracht wordt vervolgens de vereiste waarde doorgevoerd naar het bestand deployment.template.json en wordt het bestand deployment.json gegenereerd met informatie uit de configuratiemap. In de geïntegreerde terminal in VS Code ziet u de voortgang van de build.
 
-3. Als u een IoT-randapparaat zijn simuleren op uw ontwikkelcomputer, ziet u dat de containers voor de installatiekopie module in een paar minuten wordt gestart.
+2. Klik in de Azure IoT Hub **Device Explorer** met de rechtermuisknop op de id van een IoT Edge-apparaat en selecteer de opdracht **Create deployment for Edge device**. Selecteer het bestand deployment.json in de configuratiemap. In de geïntegreerde terminal in VS Code ziet u dat de implementatie is gemaakt met een implementatie-id.
 
-## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
+3. Als u een IoT Edge-apparaat simuleert op uw ontwikkelcomputer, ziet u dat alle installatiekopiecontainers van de module binnen enkele minuten worden gestart.
 
-1. Om gegevens die binnenkomen in de IoT Hub te controleren, selecteert u **View** > **Command Palette...** en zoekt u naar **IoT: Start monitoring D2C message**. 
-2. Als u wilt stoppen met het controleren van gegevens, gebruikt u de opdracht **IoT: Stop monitoring D2C message** in de Command Palette. 
+## <a name="view-the-generated-data"></a>De gegenereerde gegevens weergeven
+
+1. Selecteer **View** > **Command Palette** om de gegevens te controleren die binnenkomen bij de IoT-hub. Selecteer vervolgens de opdracht **IoT: Start monitoring D2C message**. 
+2. Als u wilt stoppen met het controleren van de gegevens, gebruikt u de opdracht **IoT: Stop monitoring D2C message** in het **opdrachtenpalet**. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over andere scenario's voor het ontwikkelen van Azure IoT rand in de Visual Studio Code:
+Meer informatie over andere scenario's voor het ontwikkelen met Azure IoT Edge in Visual Studio Code:
 
-* [Fouten opsporen in een C#-module in VS-Code](how-to-vscode-debug-csharp-module.md)
-* [Fouten opsporen in een C#-functie in VS-Code](how-to-vscode-debug-azure-function.md)
+* [Fouten opsporen in een C#-module in VS Code](how-to-vscode-debug-csharp-module.md)
+* [Fouten opsporen in een C#-functie in VS Code](how-to-vscode-debug-azure-function.md)

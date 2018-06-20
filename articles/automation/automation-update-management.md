@@ -1,51 +1,58 @@
 ---
 title: Updatebeheer in Azure
-description: Dit artikel is bedoeld om u te leren begrijpen hoe u deze oplossing kunt gebruiken voor het beheren van updates voor uw Windows- en Linux-computers.
+description: In dit artikel is bedoeld om te begrijpen hoe de oplossing voor beheer van Azure-updates gebruiken voor het beheren van updates voor uw Windows- en Linux-computers.
 services: automation
 ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/23/2018
+ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d336b0a4c1de069fccce21a370ca64dc9e9359c9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8013a221f818b2aca8163e5f5195cae17c8a6a95
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831690"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232364"
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
-De oplossing updatebeheer in Azure automation kunt u voor het beheren van updates voor uw Windows- en Linux-computers geïmplementeerd in Azure, on-premises omgevingen of andere cloudproviders besturingssysteem. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
+U kunt de oplossing voor beheer van de Update in Azure Automation besturingssysteem om updates te beheren voor uw Windows- en Linux-computers die zijn geïmplementeerd in Azure, on-premises omgevingen of andere cloudproviders gebruiken. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
 
-Updatebeheer voor virtuele machines kunt u rechtstreeks vanuit uw Azure Automation-account.
-Zie [Updates voor meerdere virtuele machines in Azure beheren](manage-update-multi.md) voor informatie over het inschakelen van Updatebeheer voor virtuele machines vanaf uw Automation-account. U kunt ook updatebeheer inschakelen voor een enkele virtuele machine via de pagina van de virtuele machine in de Azure-portal. Dit scenario is beschikbaar voor zowel [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuele machines.
+U kunt updatebeheer inschakelen voor virtuele machines rechtstreeks vanuit uw Azure Automation-account. Zie voor meer informatie over hoe u updatebeheer inschakelt voor virtuele machines van uw Automation-account, [beheren van updates voor meerdere virtuele machines](manage-update-multi.md). U kunt ook updatebeheer inschakelen voor een enkele virtuele machine in het deelvenster van de virtuele machine in de Azure portal. Dit scenario is beschikbaar voor [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuele machines.
 
 ## <a name="solution-overview"></a>Oplossingenoverzicht
 
-Computers wordt beheerd door update management-gebruik de volgende configuraties voor het uitvoeren van implementaties beoordelen en bij te werken:
+Computers die beheerd worden door Management Update de volgende configuraties gebruiken dat u uitvoert en de update-implementaties:
 
-* Microsoft Monitoring agent voor Windows of Linux
+* Microsoft Monitoring Agent (MMA) voor Windows of Linux
 * PowerShell Desired State Configuration (DSC) voor Linux
 * Automation Hybrid Runbook Worker
-* Microsoft Update of Windows Server Update Services voor Windows-computers
+* Microsoft Update of Windows Server Update Services (WSUS) voor Windows-computers
 
-Het volgende diagram toont een conceptueel overzicht van het gedrag en de gegevensstroom van hoe de oplossing evalueert en beveiligingsupdates geldt voor alle verbonden Windows Server- en Linux-computers in een werkruimte.
+Het volgende diagram toont een conceptueel overzicht van het gedrag en de gegevensstroom van hoe de oplossing evalueert en beveiligingsupdates geldt voor alle Windows Server- en Linux-computers in een werkruimte verbonden:
 
-![Processtroom management bijwerken](media/automation-update-management/update-mgmt-updateworkflow.png)
+![Processtroom Management bijwerken](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Nadat een computer een scan voor compatibiliteit van updates voert, verzendt de agent de informatie in bulk met logboekanalyse. Op Windows-computers wordt de nalevingsscan standaard elke twaalf uur uitgevoerd. Naast het schema voor scannen, wordt de scan voor compatibiliteit van updates binnen 15 minuten als Microsoft Monitoring Agent (MMA) opnieuw wordt opgestart voordat de installatie van update en na installatie van update gestart. Op Linux-computers wordt de nalevingsscan standaard elke drie uur uitgevoerd. Wanneer de MMA-agent opnieuw is opgestart, wordt er altijd binnen vijftien minuten een aanvullende nalevingsscan gestart.
+Nadat een computer een scan voor compatibiliteit van updates voert, verzendt de agent de informatie in bulk naar Azure-logboekanalyse. Op een Windows-computer, wordt de scan voor naleving standaard elke 12 uur uitgevoerd. 
 
-De oplossing rapporteert hoe up-to-date de computer is op basis van de bron waarmee u in de huidige configuratie synchroniseert. Als de Windows-computer is geconfigureerd om te rapporteren aan WSUS, kunnen de resultaten afwijken van wat er wordt weergegeven in Microsoft Update, afhankelijk van wanneer WSUS voor het laatst is gesynchroniseerd met Microsoft Update. Dit is hetzelfde voor Linux-computers die zijn geconfigureerd voor rapportage aan een lokale opslagplaats ten opzichte van een openbare opslagplaats.
+Naast het schema voor scannen, wordt de scan voor compatibiliteit van updates binnen 15 minuten als de MMA opnieuw wordt opgestart voordat de installatie van update en na installatie van update gestart. 
+
+Voor een Linux-computer, wordt de scan voor naleving standaard elke drie uur uitgevoerd. Als de agent MMA opnieuw wordt opgestart, wordt een scan voor naleving binnen 15 minuten gestart.
+
+De oplossing rapporten hoe up-to-date de computer is gebaseerd op wat u de gegevensbron zijn geconfigureerd om te synchroniseren met. Als de Windows-computer is geconfigureerd om te rapporteren aan WSUS, afhankelijk van wanneer WSUS laatst gesynchroniseerd met Microsoft Update, wordt de resultaten afwijken van wat Microsoft-Updates wordt weergegeven. Dit is hetzelfde voor Linux-computers die zijn geconfigureerd voor rapportage aan een lokale opslagplaats in plaats van naar een openbare opslagplaats.
 
 > [!NOTE]
-> Updatebeheer is vereist op bepaalde URL's en poorten die worden ingeschakeld voor het correct rapporteren aan de service, Zie [Network planning voor Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning) voor meer informatie over deze vereisten.
+> Updatebeheer vereist voor het correct rapporteren aan de service, bepaalde URL's en poorten die worden ingeschakeld. Zie voor meer informatie over deze vereisten, [Network planning voor Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
 
-U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel*, worden niet opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates worden uitgevoerd. De geplande implementatie wordt gedefinieerd welke doelcomputers ontvangen de toepasselijke updates door het expliciet opgeven van computers of selecteren van een [computergroep](../log-analytics/log-analytics-computer-groups.md) die is gebaseerd op het logboek van zoekopdrachten van een bepaalde set van computers. U geeft ook een planning op voor het goedkeuren en toekennen van een bepaalde tijdsperiode waarin updates mogen worden geïnstalleerd. Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en ze vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt er een planning opgesteld waarmee een masterupdate-runbook voor de in de planning opgenomen computers start op het opgegeven tijdstip. Dit master-runbook start een onderliggend runbook op elke agent die installatie van de vereiste updates uitvoert.
+U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel* niet zijn opgenomen in het bereik van de implementatie voor Windows-computers. Alleen de vereiste updates zijn opgenomen in het bereik van de implementatie. 
 
-Op de doelcomputers wordt gelijktijdig ook de implementatie uitgevoerd op de datum en tijd die zijn opgegeven in de update-implementatie. Er wordt eerst een scan uitgevoerd om te controleren of de updates nog steeds vereist zijn. Vervolgens worden ze geïnstalleerd. Voor de WSUS-clientcomputers als de updates niet worden goedgekeurd in WSUS, mislukt de implementatie-update.
+De geplande implementatie wordt gedefinieerd welke doelcomputers de toepasselijke updates ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../log-analytics/log-analytics-computer-groups.md) dat gebaseerd op het logboek van zoekopdrachten van een specifieke set computers. U wordt ook een planning voor het goedkeuren en toewijzen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd. 
+
+Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en de runbooks geen configuratie vereist. Wanneer een update-implementatie wordt gemaakt, maakt de update-implementatie in een schema dat wordt een runbook master update op de opgegeven tijd voor de computers opgenomen gestart. Het master runbook wordt gestart van een onderliggend runbook voor elke agent voor installatie van vereiste updates uitvoeren.
+
+Op de datum en tijd die is opgegeven in de update-implementatie, uitvoeren de doelcomputers de implementatie parallel. Een scan wordt uitgevoerd vóór de installatie om te controleren of de updates nog steeds vereist. Voor WSUS-clientcomputers als de updates niet worden goedgekeurd in WSUS, mislukt de implementatie-update.
 
 ## <a name="clients"></a>Clients
 
@@ -55,61 +62,63 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken beoordelingen         |
-|Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5 of hoger is vereist ([downloaden .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> Windows PowerShell 4.0 of hoger is vereist ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([downloaden WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) wordt aanbevolen voor een hogere mate van betrouwbaarheid.         |
-|CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken beoordelingen.         |
+|Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5 of hoger is vereist. ([.NET Framework downloaden](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 wordt aanbevolen voor een hogere mate van betrouwbaarheid.  ([Downloaden WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates. Op basis van classificatie patchen vereist 'yum' van beveiligingsgegevens die CentOS heeft geen gebruiksklaar te retourneren.         |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
-|Ubuntu 14.04 TNS, 16.04 LTS (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
+|Ubuntu 14.04 TNS en 16.04 LTS (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 
-De volgende tabel worden de besturingssystemen die worden niet ondersteund:
+De volgende tabel geeft een overzicht van de besturingssystemen die niet worden ondersteund:
 
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
-|Windows-client     | Client-besturingssystemen (Windows 7, Windows 10, enzovoort) worden niet ondersteund.        |
-|Windows Server 2016 Nano Server     | Niet ondersteund       |
+|Windows-client     | Client-besturingssystemen (zoals Windows 7 en Windows 10) worden niet ondersteund.        |
+|Windows Server 2016 Nano Server     | Wordt niet ondersteund.       |
 
 ### <a name="client-requirements"></a>Clientvereisten
 
 #### <a name="windows"></a>Windows
 
-Windows-agents moeten worden geconfigureerd om te communiceren met een Windows Server Update Services (WSUS)-server of toegang hebben tot Microsoft Update. Updatebeheer met System Center Configuration Manager kan worden gebruikt, voor meer informatie over de integratiescenario's gaat u naar [System Center Configuration Manager integreren met updatebeheer](oms-solution-updatemgmt-sccmintegration.md#configuration). De [Windows-agent](../log-analytics/log-analytics-agent-windows.md) is vereist. Deze agent wordt automatisch geïnstalleerd als u voorbereiden op een virtuele machine in Azure.
+Windows-agents moeten worden geconfigureerd voor communicatie met WSUS-server of ze moeten toegang hebben tot Microsoft Update. U kunt met System Center Configuration Manager-updatebeheer. Zie voor meer informatie over scenario's voor integratie, [System Center Configuration Manager integreren met updatebeheer](oms-solution-updatemgmt-sccmintegration.md#configuration). De [Windows-agent](../log-analytics/log-analytics-agent-windows.md) is vereist. De agent wordt automatisch geïnstalleerd als u voorbereiden op Azure een virtuele machine.
 
 #### <a name="linux"></a>Linux
 
-Voor Linux moet de machine naar een update-opslagplaats persoonlijke of openbare worden kan toegang hebben. Een OMS-Agent voor Linux geconfigureerd voor rapportage aan meerdere Log Analytics-werkruimten wordt niet ondersteund met deze oplossing.
+Voor Linux moet de computer toegang hebben tot een update-opslagplaats. De opslagplaats update kan worden persoonlijke of openbare. Een Agent Operations Management Suite (OMS) voor Linux dat geconfigureerd voor rapportage aan meerdere Log Analytics-werkruimten wordt niet ondersteund met deze oplossing.
 
-Zie voor meer informatie over het installeren van de OMS-Agent voor Linux en download de nieuwste versie [Operations Management Suite-Agent voor Linux](https://github.com/microsoft/oms-agent-for-linux). Raadpleeg [Operations Management Suite-agent voor Windows](../log-analytics/log-analytics-windows-agent.md) voor meer informatie over het installeren van de OMS-agent voor Windows.
+Zie voor meer informatie over het installeren van de OMS-Agent voor Linux en download de nieuwste versie [Operations Management Suite-Agent voor Linux](https://github.com/microsoft/oms-agent-for-linux). Zie voor meer informatie over het installeren van de OMS-Agent voor Windows [Operations Management Suite-Agent voor Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>Machtigingen
 
-Om te kunnen maken en beheren van de update-implementaties, moet u specifieke machtigingen. Voor meer informatie over deze machtigingen [rollen gebaseerd toegangsbeheer - updatebeheer](automation-role-based-access-control.md#update-management)
+Als u wilt maken en beheren van de update-implementaties, moet u specifieke machtigingen. Zie voor meer informatie over deze machtigingen [op rollen gebaseerde toegang - updatebeheer](automation-role-based-access-control.md#update-management).
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 
-Deze oplossing bestaat uit de volgende resources die zijn toegevoegd aan uw Automation-account en rechtstreeks verbonden agents of verbonden Operations Manager-beheergroepen.
+De oplossing bestaat uit de volgende bronnen. De resources worden toegevoegd aan uw Automation-account. Ze zijn beide rechtstreeks verbonden zijn met agents of in een Operations Manager verbonden beheergroep.
 
 ### <a name="hybrid-worker-groups"></a>Hybrid Worker-groepen
 
-Nadat u deze oplossing hebt ingeschakeld, wordt elke Windows-computer die rechtstreeks zijn verbonden met uw werkruimte voor logboekanalyse automatisch geconfigureerd als een hybride Runbook Worker ter ondersteuning van de runbooks die zijn opgenomen in deze oplossing. Voor elke Windows-computer worden beheerd door de oplossing, wordt deze vermeld onder de pagina voor hybride worker groepen als een systeem hybrid worker-groep voor het Automation-account na de naamgevingsconventie *Hostname FQDN_GUID*. U kunt deze groepen met runbooks kan niet richt in uw account, anders die ze mislukken. Deze groepen zijn alleen bedoeld ter ondersteuning van de beheeroplossing.
+Nadat u deze oplossing hebt ingeschakeld, wordt elke Windows-computer die rechtstreeks verbonden met uw werkruimte voor logboekanalyse automatisch geconfigureerd als een hybride Runbook Worker ter ondersteuning van de runbooks die zijn opgenomen in deze oplossing.
 
-U kunt de Windows-computers echter wel toevoegen aan een Hybrid Runbook Worker-groep in uw Automation-account voor ondersteuning van Automation-runbooks, mits u hetzelfde account gebruikt voor zowel de oplossing als het lidmaatschap van de Hybrid Runbook Worker-groep. Deze functionaliteit is toegevoegd aan versie 7.2.12024.0 van de Hybrid Runbook Worker.
+Elke computer met Windows die wordt beheerd door de oplossing wordt vermeld in de **Hybrid worker-groepen** deelvenster als een **System hybrid worker-groep** voor het Automation-account. De oplossingen gebruiken de naamgevingsconventie *Hostname FQDN_GUID*. U kunt deze groepen met runbooks kan niet gericht in uw account. Deze mislukken als u probeert. Deze groepen zijn bedoeld ter ondersteuning van alleen de oplossing voor beheer.
+
+U kunt de Windows-computers toevoegen aan een hybride Runbook Worker-groep in uw Automation-account voor de ondersteuning van Automation-runbooks als u hetzelfde account voor de oplossing en het lidmaatschap van de Hybrid Runbook Worker gebruiken. Deze functionaliteit is toegevoegd in versie 7.2.12024.0 van de hybride Runbook Worker.
 
 ### <a name="management-packs"></a>Management packs
 
-Als uw System Center Operations Manager-beheergroep met een werkruimte voor logboekanalyse is verbonden, worden de volgende management packs geïnstalleerd in Operations Manager. Deze management packs worden na het toevoegen van deze oplossing ook op rechtstreeks verbonden Windows-computers geïnstalleerd. Met deze management packs hoeft u niets te configureren of te beheren.
+Als uw System Center Operations Manager-beheergroep met een werkruimte voor logboekanalyse is verbonden, worden de volgende management packs geïnstalleerd in Operations Manager. Deze management packs zijn ook op rechtstreeks verbonden zijn met Windows-computers geïnstalleerd als u de oplossing toevoegen. U hoeft niet te configureren of beheren van deze management packs.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Implementatie MP bijwerken
 
-Zie [Operations Manager koppelen aan Log Analytics](../log-analytics/log-analytics-om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
+Zie voor meer informatie over hoe de oplossing management packs worden bijgewerkt, [Operations Manager verbinden met Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
-### <a name="confirm-non-azure-machines-are-onboarded"></a>Niet-Azure-machines zijn vrijgegeven bevestigen
+### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Controleer of de niet-Azure-machines vrijgegeven zijn
 
-Om te bevestigen dat rechtstreeks verbonden machines communiceert Log Analytics na een paar minuten kunt u de volgende logboek zoekopdracht uitvoeren:
+Om te bevestigen dat rechtstreeks verbonden machines Log Analytics na een paar minuten communiceert, kunt u een de volgende logboek zoekacties uitvoeren.
 
 #### <a name="linux"></a>Linux
 
@@ -122,89 +131,95 @@ Heartbeat
 
 ```
 Heartbeat
-| where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table`
+| where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-Op een Windows-computer, kunt u het volgende om te controleren of de verbinding van de agent met logboekanalyse bekijken:
+Op een Windows-computer, kunt u de volgende informatie om te controleren of de agent-connectiviteit met logboekanalyse bekijken:
 
-1. Open Microsoft Monitoring Agent in het Configuratiescherm en op de **Azure Log Analytics** tabblad, de agent geeft een bericht weergegeven: **de Microsoft Monitoring Agent is verbonden met logboekanalyse** .
-2. Open het Windows-gebeurtenislogboek, ga naar **Toepassings- en servicelogboeken\Operations Manager**, en zoek naar gebeurtenis-id 3000 en 5002 van de bronserviceconnector. Deze gebeurtenissen geven aan de computer met de werkruimte voor logboekanalyse is geregistreerd en configuratie ontvangt.
+1. Open in het Configuratiescherm **Microsoft Monitoring Agent**. Op de **Azure Log Analytics** tabblad en de agent wordt het volgende bericht weergegeven: **de Microsoft Monitoring Agent is verbonden met logboekanalyse**.
+2. Open het Windows-gebeurtenislogboek. Ga naar **toepassingen en Services Logs\Operations Manager** en zoek naar gebeurtenis-ID 3000 en gebeurtenis-ID 5002 van de bron **serviceconnector**. Deze gebeurtenissen geven aan dat de computer is geregistreerd bij de werkruimte voor logboekanalyse en configuratie ontvangt.
 
-Als de agent kan niet communiceren met logboekanalyse en deze is geconfigureerd om te communiceren met internet via een firewall of proxyserver, controleert u de firewall of proxy-server correct is geconfigureerd aan de hand van [netwerkconfiguratie voor Windows-agent](../log-analytics/log-analytics-agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
+Als de agent kan niet met logboekanalyse communiceren en de agent is geconfigureerd voor communicatie met internet via een firewall of proxyserver, bevestigt u dat de firewall of proxy-server juist is geconfigureerd. Zie voor informatie over het controleren of de firewall of proxy-server correct is geconfigureerd, [netwerkconfiguratie voor Windows-agent](../log-analytics/log-analytics-agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Als uw Linux-systemen zijn geconfigureerd om te communiceren met een proxy of Gateway OMS en u voorbereiden op deze oplossing, update de *proxy.conf* machtigingen voor het verlenen van de groep omiuser leesmachtigingen voor het bestand door het uitvoeren van de volgende opdrachten: `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
+> Als uw Linux-systemen zijn geconfigureerd om te communiceren met een proxy of Gateway OMS en u onboarding bent deze oplossing, update de *proxy.conf* machtigingen voor het verlenen van de groep omiuser leesmachtigingen voor het bestand met behulp van de volgende opdrachten:
+>
+> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
-Bij pas toegevoegde Linux-agents staat de status **Bijgewerkt** na het uitvoeren van een beoordeling. Dit proces kan maximaal zes uur duren.
+Toegevoegde Linux-agents weergeven status **bijgewerkt** nadat een beoordeling is uitgevoerd. Dit proces kan maximaal zes uur duren.
 
-Om te controleren op een Operations Manager-beheergroep communiceert met Log Analytics, Zie [Operations Manager-integratie valideren met logboekanalyse](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
+Om te bevestigen dat een Operations Manager-beheergroep met Log Analytics communiceert, Zie [valideren Operations Manager-integration met logboekanalyse](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Gegevensverzameling
 
 ### <a name="supported-agents"></a>Ondersteunde agents
 
-De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing.
+De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing:
 
 | Verbonden bron | Ondersteund | Beschrijving |
 | --- | --- | --- |
-| Windows-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Windows-agents en start de installatie van de vereiste updates. |
-| Linux-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Linux-agents en start de installatie van de vereiste updates op ondersteunde besturingssysteemversies. |
-| Beheergroep Operations Manager |Ja |De oplossing verzamelt informatie over systeemupdates van agents in een verboden beheergroep.</br>Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de werkruimte voor logboekanalyse. |
+| Windows-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Windows-agents en start vervolgens de installatie van vereiste updates. |
+| Linux-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Linux-agents en start vervolgens de installatie van vereiste updates op ondersteunde distributies. |
+| Beheergroep Operations Manager |Ja |De oplossing verzamelt informatie over systeemupdates van agents in een verboden beheergroep.<br/>Er is een rechtstreekse verbinding tussen de Operations Manager-agent met logboekanalyse niet vereist. Gegevens uit de beheergroep doorgestuurd naar de werkruimte voor logboekanalyse. |
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
 
-Voor elke beheerde Windows-computer wordt twee keer per dag een scan uitgevoerd. Om de vijftien minuten wordt de Windows-API aangeroepen voor de laatste updatetijd om op die manier te bepalen of de status is gewijzigd. Als dat het geval is, wordt er een nalevingsscan gestart. Voor elke beheerde Linux-computer wordt elke drie uur een scan uitgevoerd.
+Een scan wordt uitgevoerd op twee keer per dag voor elke beheerde Windows-computer. Elke 15 minuten, de Windows-API wordt aangeroepen voor de query voor het laatst update om te bepalen of de status is gewijzigd. Als de status is gewijzigd, wordt een scan voor naleving gestart. 
 
-Het kan dertig minuten tot zes uur duren voordat er in het dashboard bijgewerkte gegevens worden weergegeven van de beheerder computers.
+Een scan wordt elke drie uur uitgevoerd voor elke Linux-computer beheerde.
 
-## <a name="viewing-update-assessments"></a>Update-evaluaties weergeven
+Het kost tussen 30 minuten en 6 uur voor het dashboard bijgewerkte gegevens van beheerde computers wilt weergeven.
 
-Klik op de **updatebeheer** op uw automation-account om de status van uw apparaten weer te geven.
+## <a name="viewing-update-assessments"></a>Beoordelingen van weergave-update
 
-Deze weergave bevat informatie over uw machines ontbrekende updates, update-implementaties en geplande update-implementaties.
+Selecteer in uw Automation-account **updatebeheer** om de status van uw apparaten weer te geven.
 
-U kunt een zoekopdracht met logboekbestanden die informatie over de machine, update of implementatie geeft door het selecteren van het item in de lijst uitvoeren. Hiermee opent u de **logboek zoeken** pagina met een query voor het geselecteerde item.
+Deze weergave bevat gegevens over uw computers, ontbrekende updates, update-implementaties en geplande update-implementaties. In de **naleving kolom**, ziet u de laatste keer dat de machine is beoordeeld. In de **gereedheid van de AGENT bijwerken** kolom, kunt u zien als de status van de update-agent. Als er een probleem is, selecteert u de koppeling naar de documentatie die kan helpen bij het oplossen van problemen dat u meer te weten welke stappen nemen om het probleem te verhelpen.
 
-![De standaardweergave management bijwerken](media/automation-update-management/update-management-view.png)
+Als u wilt uitvoeren in een logboek zoekquery waarmee informatie over de machine, update of implementatie, selecteert u het item in de lijst. De **logboek zoeken** deelvenster wordt geopend met een query voor het geselecteerde item:
 
-## <a name="installing-updates"></a>Updates installeren
+![De standaardweergave Management bijwerken](media/automation-update-management/update-management-view.png)
 
-Wanneer de updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door een *update-implementatie* te maken. Een Update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd op voor de implementatie, samen met een computer of een groep computers die moet worden opgenomen in het implementatiebereik. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over computergroepen. Wanneer u computergroepen in de installatie van updates opneemt, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Toekomstige wijzigingen aan een groep worden niet weergegeven. U kunt dit probleem omzeilen door de geplande update-implementatie te verwijderen en deze opnieuw te maken.
+## <a name="install-updates"></a>Updates installeren
+
+Nadat de updates worden beoordeeld op alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over computergroepen.
+
+ Wanneer u computergroepen in de installatie van updates opneemt, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Wijzigingen aan een groep niet worden gereflecteerd. U kunt dit probleem omzeilen implementatie van de geplande update verwijderen en opnieuw maken.
 
 > [!NOTE]
-> Virtuele Windows-machines die via Azure Marketplace zijn geïmplementeerd, worden standaard ingesteld voor het automatisch ontvangen van updates van de Windows Update-service. Dit gedrag wordt niet gewijzigd na het toevoegen van deze oplossing of na het toevoegen van virtuele Windows-machines aan uw werkruimte. Als u niet actief updates met deze oplossing wordt het standaardgedrag beheert (automatisch updates van toepassing) van toepassing is.
+> Windows virtuele machines die zijn geïmplementeerd vanuit Azure Marketplace standaard ingesteld op automatische updates ontvangen van Windows Update-Service. Dit gedrag verandert niet wanneer u deze oplossing toevoegt of Windows virtuele machines aan uw werkruimte toevoegen. Als u geen actief updates beheren met behulp van deze oplossing, geldt het standaardgedrag (automatisch updates wilt toepassen).
 
-Om te voorkomen dat updates buiten een onderhoudsperiode in Ubuntu worden toegepast, moet u het pakket Unattended-Upgrade opnieuw configureren en automatische updates uitschakelen. Zie [het onderwerp Automatic Updates in de Engelstalige Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) voor meer informatie.
+Configureren om te voorkomen updates buiten een onderhoudsvenster op Ubuntu wordt toegepast, het Unattended-Upgrade-pakket voor automatische updates niet uitschakelen. Zie voor meer informatie over het configureren van het pakket [Automatische Updates-onderwerp in de handleiding Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
-Voor virtuele machines die zijn gemaakt op basis van de on-demand RHEL-installatiekopieën (Red Hat Enterprise Linux) die beschikbaar zijn in Azure Marketplace, zijn ze geregistreerd voor toegang tot de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) die is geïmplementeerd in Azure. Andere Linux-distributies moeten volgens de ondersteunde methoden worden bijgewerkt vanuit de online distro-bestandsopslagplaats.
+Virtuele machines die zijn gemaakt op basis van installatiekopieën van het Red Hat Enterprise Linux (RHEL) op aanvraag die beschikbaar in Azure Marketplace zijn zijn geregistreerd voor toegang tot de [Red Hat Update-infrastructuur (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) die wordt geïmplementeerd in Azure. Alle Linux-distributie moet worden bijgewerkt vanuit de distributie bestanden online opslagplaats door de volgende ondersteunde methoden voor het distributiepunt.
 
-## <a name="viewing-missing-updates"></a>Ontbrekende updates weergeven
+## <a name="view-missing-updates"></a>Ontbrekende updates weergeven
 
-Klik op **ontbrekende updates** om de lijst met updates die in uw machines ontbreken weer te geven. Elke update wordt weergegeven en toont informatie met betrekking tot het aantal machines waarvoor de update, het besturingssysteem en de koppeling voor meer informatie. Elke update kan worden geselecteerd en de **logboek zoeken** pagina wordt weergegeven en ziet u meer informatie over de updates.
+Selecteer **ontbrekende updates** om de lijst met updates die in uw machines ontbreken weer te geven. Elke update wordt vermeld en kan worden geselecteerd. Informatie over het aantal machines waarvoor de update, het besturingssysteem en een koppeling voor meer informatie wordt weergegeven. De **logboek zoeken** deelvenster bevat meer informatie over de updates.
 
-## <a name="viewing-update-deployments"></a>Update-implementaties weergeven
+## <a name="view-update-deployments"></a>Weergave-update-implementaties
 
-Klik op de **Update-implementaties** tabblad om de lijst met bestaande Update-implementaties. Te klikken op een van de update-implementaties in de tabel wordt de **bijwerken implementatie uitgevoerd** pagina voor de implementatie van deze update.
+Selecteer de **implementaties bijwerken** tabblad om de lijst met bestaande update-implementaties. Selecteer een van de update-implementaties in de tabel openen de **bijwerken implementatie uitgevoerd** deelvenster voor die update-implementatie.
 
 ![Overzicht van de resultaten van de update-implementatie](./media/automation-update-management/update-deployment-run.png)
 
-## <a name="creating-an-update-deployment"></a>Een update-implementatie maken
+## <a name="create-or-edit-an-update-deployment"></a>Maken of bewerken van een update-implementatie
 
-Maak een nieuwe Update-implementatie door te klikken op de **schema-update-implementatie** knop aan de bovenkant van het scherm openen de **nieuwe implementatie-Update** pagina. U moet waarden opgeven voor de eigenschappen in de volgende tabel:
+Voor het maken van een nieuwe update-implementatie selecteert **schema-update-implementatie**. De **nieuwe Update-implementatie** deelvenster wordt geopend. Geef waarden voor de eigenschappen die in de volgende tabel worden beschreven:
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| Naam |Unieke naam voor het identificeren van de update-implementatie. |
-|Besturingssysteem| Linux- of Windows|
-| Machines bijwerken |Selecteer een opgeslagen zoekopdracht of Machine kiest uit de vervolgkeuzelijst en selecteert u afzonderlijke machines |
-|Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
-|Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voer de KB zonder het voorvoegsel 'KB' voor Windows. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
-|Planningsinstellingen|Selecteer de tijd om te starten en selecteer hetzij eenmaal of terugkerende voor het terugkeerpatroon|| Onderhoudsvenster |Aantal minuten instellen voor updates. De waarde kan niet worden worden minder dan 30 minuten en niet meer dan 6 uur |
+|Naam |Unieke naam voor het identificeren van de update-implementatie. |
+|Besturingssysteem| Selecteer **Linux** of **Windows**.|
+|Machines bijwerken |Selecteer een opgeslagen zoekopdracht of selecteer **Machine** uit de vervolgkeuzelijst en selecteer vervolgens afzonderlijke computers. |
+|Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt. CentOS ondersteunt dit niet uit het vak.|
+|Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voor Windows, voert u het KB-artikel zonder de **KB** voorvoegsel. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
+|Planningsinstellingen|Selecteer de tijd om te starten en selecteer vervolgens **eenmaal** of **terugkerend** voor het terugkeerpatroon.|| Onderhoudsvenster |Aantal minuten instellen voor updates. De waarde mag niet minder dan 30 minuten of langer dan 6 uur. |
 
 ## <a name="update-classifications"></a>Updateclassificaties
 
-De volgende tabellen bevatten een overzicht van de updateclassificaties in updatebeheer samen met een definitie voor elke classificatie.
+De volgende tabellen worden de updateclassificaties in het beheer van bijwerken met een definitie voor elke classificatie.
 
 ### <a name="windows"></a>Windows
 
@@ -216,19 +231,27 @@ De volgende tabellen bevatten een overzicht van de updateclassificaties in updat
 |Functiepakketten     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
 |Servicepacks     | Een volledige reeks van hotfixes die op een toepassing worden toegepast.        |
 |Definitie-updates     | Een update voor antivirus- of andere definitiebestanden.        |
-|Hulpprogramma's     | Een hulpprogramma of onderdeel dat u een of meer taken kunt voltooien.        |
-|Updates     | Een update voor een toepassing of bestand dat momenteel is geïnstalleerd.        |
+|Hulpprogramma's     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
+|Updates     | Een update aan voor een toepassing of bestand dat momenteel is geïnstalleerd.        |
 
 ### <a name="linux"></a>Linux
 
 |Classificatie  |Beschrijving  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een productspecifiek en beveiligingsgerelateerd probleem.         |
-|Andere Updates     | Alle andere updates die niet essentieel in aard of beveiligingsupdates.        |
+|Andere Updates     | Alle overige updates die niet essentieel zijn in aard of beveiligingsupdates niet.        |
+
+Voor Linux-updatebeheer kunnen worden onderscheiden essentiële updates en beveiligingsupdates in de cloud terwijl beoordelingsgegevens vanwege gegevens verrijking wordt weergegeven in de cloud. Voor patch-doeleinden, updatebeheer gebruikgemaakt van classificatie gegevens beschikbaar op de computer. In tegenstelling tot andere distributies CentOS heeft geen deze informatie beschikbaar is buiten het vak. Als er CentOS-machines die zijn geconfigureerd op een manier om beveiligingsgegevens voor de volgende opdracht te retourneren, zich updatebeheer bij patch op basis van classificaties.
+
+```bash
+sudo yum -q --security check-update
+```
+
+Er is geen methode methode ondersteund voor het inschakelen van de beschikbaarheid van de systeemeigen classificatie-gegevens op CentOS. Op dit moment worden alleen best-effort-ondersteuning is beschikbaar voor klanten aan wie u mogelijk hebt ingeschakeld dit op hun eigen.
 
 ## <a name="ports"></a>Poorten
 
-De volgende adressen zijn vereist voor het beheer van updates. Communicatie met deze adressen wordt via poort 443 uitgevoerd.
+De volgende adressen zijn vereist voor het beheer van updates. -Communicatie met deze adressen vindt plaats via poort 443.
 
 |Openbare Azure  |Azure Government  |
 |---------|---------|
@@ -236,11 +259,11 @@ De volgende adressen zijn vereist voor het beheer van updates. Communicatie met 
 |*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
 
-Voor meer informatie over de poorten die nodig zijn de hybride Runbook Worker, [Hybrid Worker-rol poorten](automation-hybrid-runbook-worker.md#hybrid-worker-role)
+Zie voor meer informatie over de poorten die vereist dat de hybride Runbook Worker [Hybrid Worker-rol poorten](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
 ## <a name="search-logs"></a>Zoeken in Logboeken
 
-Naast de informatie die beschikbaar zijn in de portal kunnen zoekopdrachten worden gedaan op basis van de logboeken. Met de **bijhouden** pagina openen, klikt u op **logboekanalyse**, Hiermee opent u de **logboek zoeken** pagina
+Naast de details die beschikbaar zijn in de Azure-portal, kunt u de logboeken zoekacties doen. In de **bijhouden** deelvenster **logboekanalyse**. De **logboek zoeken** deelvenster wordt geopend.
 
 ### <a name="sample-queries"></a>Voorbeeldquery's
 
@@ -248,7 +271,7 @@ De volgende tabel bevat een voorbeeld-logboek zoekt bijwerkrecords die door deze
 
 | Query’s uitvoeren | Beschrijving |
 | --- | --- |
-|Update</br>&#124;waar UpdateState == 'Vereist' en een optionele == false</br>&#124;Computer, titel, KBID, classificatie, PublishedDate project |Alle computers met ontbrekende updates</br>Voeg een van de volgende opties om te beperken van het besturingssysteem:</br>Besturingssysteemtype = 'Windows'</br>Besturingssysteemtype == 'Linux' |
+|Update</br>&#124;waar UpdateState == 'Vereist' en een optionele == false</br>&#124;Computer, titel, KBID, classificatie, PublishedDate project |Alle computers met ontbrekende updates</br>Voeg een van de volgende opties om te beperken van het besturingssysteem:</br>Besturingssysteemtype! = 'Linux'</br>Besturingssysteemtype == 'Linux' |
 | Update</br>&#124;waar UpdateState == 'Vereist' en een optionele == false</br>&#124;waar Computer == "ContosoVM1.contoso.com"</br>&#124;Computer, titel, KBID, Product, PublishedDate project |Ontbrekende updates voor een specifieke computer (vervang de waarde door de naam van uw eigen computer)|
 | Gebeurtenis</br>&#124;waar EventLevelName == "error" en elke Computer in ((Update &#124; waar (classificatie == 'Beveiligingsupdates' of classificatie == 'Essentiële Updates')</br>&#124;waar UpdateState == 'Vereist' en een optionele == false </br>&#124;afzonderlijke Computer)) |Foutgebeurtenissen voor machines met ontbrekende essentiële of beveiligingsupdates |
 | Update</br>&#124;waar UpdateState == 'Vereist' en een optionele == false</br>&#124;afzonderlijke titel |Afzonderlijke ontbrekende updates op alle computers |
@@ -258,50 +281,74 @@ De volgende tabel bevat een voorbeeld-logboek zoekt bijwerkrecords die door deze
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integreren met System Center Configuration Manager
 
-Klanten die hebben geïnvesteerd in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten, rekenen ook op zijn kracht en volwassenheid bij het beheren van software-updates als onderdeel van hun software-updatebeheercyclus.
+Klanten die in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten hebben geïnvesteerd is ook afhankelijk van de sterkte en de vervaldatum van Configuration Manager om te software-updates beheren. Configuration Manager maakt deel uit van de software update management (totaal)-cyclus.
 
 Zie voor meer informatie over de management-oplossing integreren met System Center Configuration Manager, [System Center Configuration Manager integreren met updatebeheer](oms-solution-updatemgmt-sccmintegration.md).
 
-## <a name="patching-linux-machines"></a>Linux-machines herstellen
+## <a name="patch-linux-machines"></a>Patch voor Linux-machines
 
 De volgende secties worden de mogelijke problemen met het Linux-patches.
 
-### <a name="package-exclusion"></a>Uitsluiting van pakket
+### <a name="unexpected-os-level-upgrades"></a>Onverwachte OS-niveau wordt bijgewerkt
 
-Op sommige varianten Linux zoals Red Hat Enterprise Linux treedt OS-niveau upgrades via pakketten. Dit kan leiden tot beheer van updates wordt uitgevoerd wanneer het nummer van de OS-versie wordt gewijzigd. Omdat Management Update worden dezelfde methodes gebruikt pakketten bijwerken wanneer een beheerder zou lokaal op de Linux-computer, is dit gedrag is opzettelijk.
+OS-niveau upgrades optreden op sommige varianten Linux zoals Red Hat Enterprise Linux via pakketten. Dit kan leiden tot beheer van updates wordt uitgevoerd wanneer het nummer van de OS-versie wordt gewijzigd. Omdat Management Update worden dezelfde methodes gebruikt om bij te werken van pakketten die een beheerder lokaal op de Linux-computer wilt gebruiken, is dit gedrag is opzettelijk.
 
-Om te voorkomen met het bijwerken van de versie van het besturingssysteem via beheer van updates wordt uitgevoerd, gebruikt u de **uitsluiting** functie.
+Om te voorkomen met het bijwerken van de versie van het besturingssysteem via beheer van updates wordt uitgevoerd, gebruikt de **uitsluiting** functie.
 
-In Red Hat Enterprise Linux, de naam van het pakket moeten worden uitgesloten zou zijn: redhat-release-server.x86_64
+In Red Hat Enterprise Linux is de naam van het pakket moeten worden uitgesloten redhat-release-server.x86_64.
 
 ![Pakketten moeten worden uitgesloten voor Linux](./media/automation-update-management/linuxpatches.png)
 
-### <a name="security-patches-not-being-applied"></a>Beveiligingspatches niet toegepast
+### <a name="critical--security-patches-arent-applied"></a>Kritieke / beveiligingspatches worden niet toegepast
 
-Wanneer u updates implementeert naar een Linux-machine, kunt u de updateclassificaties selecteren. Dit filtert de updates die worden toegepast op computers die voldoen aan de opgegeven criteria. Dit filter is lokaal op de machine toegepast wanneer de update wordt geïmplementeerd. Omdat update verrijking Management bijwerken in de cloud uitvoert, kunnen sommige updates in de Update Management worden gemarkeerd als die van beveiliging invloed, hoewel de lokale computer geen die informatie heeft. Als gevolg hiervan, als u essentiële updates op een Linux-machine toepassen, mogelijk zijn er updates die niet zijn gemarkeerd als die beveiliging van invloed zijn op deze machine en kunnen niet worden toegepast. Management bijwerken kan echter nog steeds melden dat de machine als niet-compatibele omdat er aanvullende informatie over de desbetreffende update.
+Wanneer u updates naar een Linux-machine implementeert, kunt u de updateclassificaties selecteren. Dit filtert de updates die worden toegepast op computers die voldoen aan de opgegeven criteria. Dit filter is lokaal op de machine toegepast wanneer de update wordt geïmplementeerd.
 
-Implementeren van updates door updateclassificatie werkt mogelijk niet op openSUSE Linux vanwege de verschillende patch model dat wordt gebruikt.
+Omdat update verrijking Management bijwerken in de cloud uitvoert, sommige updates mogelijk worden gemarkeerd in beheer bijwerken als bestanden met impact van de beveiliging, zelfs als de lokale computer geen die informatie. Als gevolg hiervan, als u essentiële updates op een Linux-machine toepassen, kan er updates die niet zijn gemarkeerd als die van beveiliging van invloed op machine en de updates worden niet toegepast.
+
+Update Management mogelijk nog steeds rapporteert echter dat de machine als niet-compatibele omdat er aanvullende informatie over de desbetreffende update.
+
+Implementeren van updates door updateclassificatie werkt niet op CentOS gebruiksklaar. Voor SUSE, selecteren *alleen* 'andere updates, zoals de classificatie tot enige vorm van beveiliging leiden kan updates ook worden geïnstalleerd als beveiligingsupdates met betrekking tot zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit is een beperking van zypper. In sommige gevallen kunt u opnieuw uitvoeren om te controleren of de update-implementatie vereist Raadpleeg het logboek voor update.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Deze sectie bevat informatie over het oplossen van problemen met de oplossing Update Management.
+Deze sectie bevat informatie over het oplossen van problemen met het beheersysteem voor Update.
 
-Als u problemen ondervindt bij het vrijgeven de oplossing of een virtuele machine, controleert u de **toepassingen en Services Logs\Operations Manager** gebeurtenislogboek op de lokale computer voor gebeurtenissen met de ID 4502 en gebeurtenis gebeurtenisbericht met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. In de volgende tabel worden specifieke foutberichten weergegeven, plus een mogelijke oplossing voor elk van deze fouten.
+### <a name="windows"></a>Windows
+
+Als u problemen ondervindt wanneer u om vrij te geven de oplossing of een virtuele machine probeert, controleert u de **toepassingen en Services Logs\Operations Manager** gebeurtenislogboek op de lokale computer op gebeurtenissen die gebeurtenis-ID 4502 event en-berichten bevatten **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. De volgende tabel illustreert specifieke foutberichten en een mogelijke oplossing voor elk:
 
 | Bericht | Reden | Oplossing |
 |----------|----------|----------|
-| Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>System.InvalidOperationException: {"Message":"Machine is al</br>geregistreerd bij een ander account. "} | Machine is al vrijgegeven aan een andere werkruimte voor updatebeheer | Voer het opruimen van oude artefacten uit door [de hybride runbookgroep te verwijderen](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Kan geen Machine te registreren voor patchbeheer, de registratie is mislukt met uitzondering</br>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---></br>System.Net.WebException: De onderliggende verbinding</br>is gesloten: Er is een onverwachte fout</br>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:</br>De client en server kunnen niet communiceren,</br>omdat ze geen gemeenschappelijk algoritme hebben | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-hybrid-runbook-worker.md#network-planning)|
-| Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-hybrid-runbook-worker.md#network-planning)|
-| Het certificaat dat is doorgegeven door de service \<wsid\>. oms.opinsights.azure.com</br>is niet uitgegeven door een certificeringsinstantie</br>die wordt gebruikt voor Microsoft-services. Contact</br>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee</br>TLS/SSL-communicatie wordt onderschept. |Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-hybrid-runbook-worker.md#network-planning)|
-| Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Maken van een zelfondertekend certificaat is mislukt. ---></br>System.UnauthorizedAccessException: Toegang is geweigerd. | Genereren van zelfondertekend certificaat is mislukt | Controleer of het systeemaccount</br>leestoegang heeft tot de map:</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA**|
+| Kan de machine niet registreren voor patchbeheer,<br/>Registratie is mislukt met uitzondering<br/>System.InvalidOperationException: {"Message":"Machine is al<br/>geregistreerd bij een ander account. "} | Computer is al vrijgegeven aan een andere werkruimte om updates te beheren. | Voer het opruimen van de oude artefacten door [verwijderen van de groep hybride Runbook](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group).|
+| Kan geen Machine te registreren voor patchbeheer, de registratie is mislukt met uitzondering<br/>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---><br/>System.Net.WebException: De onderliggende verbinding<br/>is gesloten: Er is een onverwachte fout<br/>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:<br/>De client en server kunnen niet communiceren,<br/>omdat ze geen gemeenschappelijk algoritme hebben | Gateway-proxy/firewall blokkeert communicatie. | [Bekijk de netwerkvereisten](automation-hybrid-runbook-worker.md#network-planning).|
+| Kan de machine niet registreren voor patchbeheer,<br/>Registratie is mislukt met uitzondering<br/>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Gateway-proxy/firewall blokkeert communicatie. | [Bekijk de netwerkvereisten](automation-hybrid-runbook-worker.md#network-planning).|
+| Het certificaat dat is doorgegeven door de service \<wsid\>. oms.opinsights.azure.com<br/>is niet uitgegeven door een certificeringsinstantie<br/>die wordt gebruikt voor Microsoft-services. Contact<br/>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee<br/>TLS/SSL-communicatie wordt onderschept. |Gateway-proxy/firewall blokkeert communicatie. | [Bekijk de netwerkvereisten](automation-hybrid-runbook-worker.md#network-planning).|
+| Kan de machine niet registreren voor patchbeheer,<br/>Registratie is mislukt met uitzondering<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>Maken van een zelfondertekend certificaat is mislukt. ---><br/>System.UnauthorizedAccessException: Toegang is geweigerd. | Fout bij het genereren van het zelfondertekend certificaat. | Controleer of het systeemaccount<br/>leestoegang heeft tot de map:<br/>**C:\ProgramData\Microsoft\**<br/>** Crypto\RSA**|
+
+### <a name="linux"></a>Linux
+
+Als update-uitvoeringen niet worden gestart op een Linux-machine, maakt u een kopie van het volgende logboekbestand en voor het oplossen van problemen worden bewaard:
+
+```
+/var/opt/microsoft/omsagent/run/automationworker/worker.log
+```
+
+Als er fouten optreden tijdens een update uitgevoerd nadat deze is gestart met succes op Linux, Controleer de uitvoer van de geïnfecteerde computer in de taak. Misschien vindt u specifieke foutberichten van uw machine Pakketbeheer die u kunt onderzoeken en actie ondernemen. Updatebeheer is vereist voor de package manager gezond voor geslaagde update-implementaties.
+
+In sommige gevallen kunnen updates pakket bijwerken Management zo wordt voorkomen dat een update-implementatie voltooid verstoren. Als dat wordt weergegeven, hebt u deze pakketten uitsluiten van toekomstige update wordt uitgevoerd of ze handmatig installeren zelf.
+
+Als u een probleem met een patch niet kunt oplossen, maakt u een kopie van het volgende logboekbestand en handhaven **voordat** de implementatie van de volgende update voor het oplossen van problemen wordt gestart:
+
+```
+/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Blijven de zelfstudie voor informatie over het beheren van updates voor Windows-VM's.
+Blijven de zelfstudie voor informatie over het beheren van updates voor uw virtuele machines van Windows.
 
 > [!div class="nextstepaction"]
 > [Updates en patches voor uw Windows Azure-VM's beheren](automation-tutorial-update-management.md)
 
-* Gebruik Logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
-* [Maak waarschuwingen](../log-analytics/log-analytics-alerts.md) wanneer wordt vastgesteld dat er essentiële updates ontbreken op de computers of als automatische updates is uitgeschakeld voor een computer.
+* Logboek van zoekopdrachten in gebruiken [logboekanalyse](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
+* [Waarschuwingen maken](../log-analytics/log-analytics-alerts.md) wanneer essentiële updates worden gedetecteerd als ontbrekend van computers of als een computer heeft de automatische updates uitgeschakeld.

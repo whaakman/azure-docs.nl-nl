@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 4ced7bcec87a9edde2e3ded8c8c61abe96003572
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: feb8acb674fd2dc62b62c26da6a6b42515f30242
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35345962"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265968"
 ---
 # <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Zelfstudie: Woordgroepenlijst ter verbetering van de voorspellingen toevoegen
 In deze zelfstudie, de nauwkeurigheid van opzet scores verbeteren en identificeren van entiteiten voor de woorden die dezelfde betekenis (synoniemen hebben) door het toevoegen van een verwisselbaar [woordgroep lijstfunctie](./luis-concept-feature.md).
@@ -33,7 +33,7 @@ Voor dit artikel, moet u een gratis [LUIS] [ LUIS] account om uw toepassing LUIS
 
 2. Zoals beschreven in [maken van een app](Create-new-app.md#import-new-app), importeer het bestand dat u gedownload naar de [LUIS] [ LUIS] website als een nieuwe app. De appnaam van de is 'Mijn woordgroepenlijst zelfstudie'. Intents en entiteiten utterances heeft. 
 
-3. [Train](luis-how-to-train.md) uw app. Totdat deze is getraind, u kunt geen [interactief testen](Train-Test.md#interactive-testing) in de [LUIS] [ LUIS] website. 
+3. [Train](luis-how-to-train.md) uw app. Totdat deze is getraind, u kunt geen [interactief testen](interactive-test.md#interactive-testing) in de [LUIS] [ LUIS] website. 
 
 4. Op de [publiceren](PublishApp.md) pagina de **opnemen alle voorspelde scores opzet** selectievakje. Wanneer het selectievakje is ingeschakeld, worden alle intents geretourneerd. Wanneer het selectievakje is uitgeschakeld, wordt alleen de bovenste bedoeling geretourneerd. 
 
@@ -174,7 +174,7 @@ U moet leren gebruiken LUIS die *wilt* en *vereisen* dezelfde betekenis in dit a
 5. Selecteer in de bovenste navigatiebalk **trainen** voor het trainen van de app, maar deze niet publiceren. U hebt nu twee modellen. U kunt waarden in de twee modellen vergelijken.
 
 ## <a name="compare-the-phrase-list-model-to-the-published-model"></a>Het model woordgroep lijst naar de gepubliceerde model vergelijken
-In deze app is niet het gepubliceerde model getraind met de synoniemen. Alleen het momenteel bewerkte model bevat de woordgroep synoniemen. Met kunt u de modellen vergelijken [interactieve testen](Train-Test.md#interactive-testing). 
+In deze app is niet het gepubliceerde model getraind met de synoniemen. Alleen het momenteel bewerkte model bevat de woordgroep synoniemen. Met kunt u de modellen vergelijken [interactieve testen](interactive-test.md#interactive-testing). 
 
 1. Open de **Test** deelvenster en voer de volgende utterance:
 
@@ -196,7 +196,7 @@ Nadat u de woordgroepenlijst, de toegenomen nauwkeurigheid van de utterance toev
 | Momenteel bewerken |✔| 0.92 | Hardware-entiteit geïdentificeerd |
 
 > [!TIP]
-> * Met behulp van [interactieve testen](Train-Test.md#interactive-testing), u kunt vergelijken met het gepubliceerde model om te trained wijzigingen die zijn aangebracht nadat u hebt gepubliceerd. 
+> * Met behulp van [interactieve testen](interactive-test.md#interactive-testing), u kunt vergelijken met het gepubliceerde model om te trained wijzigingen die zijn aangebracht nadat u hebt gepubliceerd. 
 > * Met behulp van [eindpunt testen](PublishApp.md#test-your-published-endpoint-in-a-browser), kunt u de daadwerkelijke LUIS reactie JSON bekijken. 
 
 ## <a name="get-the-entity-score-with-the-endpoint-test"></a>De score van de entiteit ophalen met de eindpunt-test
@@ -261,8 +261,6 @@ Wanneer deze niet langer nodig is, verwijdert u de app LUIS. Om dit te doen, sel
 > [!div class="nextstepaction"]
 > [Utterance voorspelling met eindpunt query ophalen](luis-get-started-cs-get-intent.md)
 
-[LUIS]: luis-reference-regions.md
-
-  [LUIS]:luis-reference-regions.md
-  [LuisFeatures]: luis-concept-feature.md
-  [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
+[LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json

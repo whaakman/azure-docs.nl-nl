@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261318"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Een functie in Linux maken met een aangepaste installatiekopie (preview)
 
@@ -43,7 +44,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 * [Git](https://git-scm.com/downloads)
 * Een actief [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * Een [Docker Hub-account](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -226,7 +227,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een functie-app vanuit Docker Hub implementeren.
 > * Toepassingsinstellingen toevoegen aan de functie-app.
 
-Lees meer over het lokaal ontwikkelen van Azure-functies met behulp van Azure Functions Core Tools.
+Lees hoe u continue integratiefunctionaliteit kunt inschakelen die is ingebouwd in het App Service-kernplatform. U kunt de functie-app configureren, zodat de container opnieuw wordt geïmplementeerd wanneer u de installatiekopie bijwerkt in Docker Hub.
 
 > [!div class="nextstepaction"] 
-> [Azure-functies lokaal programmeren en testen](functions-run-local.md)
+> [Doorlopende implementatie met Web App for Containers](../app-service/containers/app-service-linux-ci-cd.md)

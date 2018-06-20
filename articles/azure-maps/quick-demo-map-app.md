@@ -1,22 +1,20 @@
 ---
 title: Interactief zoeken naar kaarten met Azure Maps | Microsoft Docs
 description: 'Azure-snelstart: Een demo starten over interactief zoeken naar kaarten met Azure Maps'
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8dedaf95289d9637f5f3d1e80a763b5fb400c617
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8765b634b81742acf9fb4d40be8864800025351d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599759"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Een interactieve kaartzoekopdracht starten met Azure Maps
 
@@ -77,3 +75,11 @@ In deze snelstart hebt u een Azure Maps-account gemaakt en een demo-toepassing g
 
 > [!div class="nextstepaction"]
 > [Zoeken naar bezienswaardigheden met Maps](./tutorial-search-location.md)
+
+Bekijk de handleidingen hieronder voor meer voorbeelden van code en interactieve codering.
+
+> [!div class="nextstepaction"]
+> [Zoeken naar een adres met behulp van Azure Maps REST API’s](./how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Kaartbesturingselement in Azure Maps gebruiken](./how-to-use-map-control.md)

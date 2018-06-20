@@ -1,32 +1,28 @@
 ---
-title: Azure Data Lake Analytics beheren met Azure SDK voor Node.js | Microsoft Docs
-description: Informatie over het beheren van Data Lake Analytics-accounts, gegevensbronnen, taken en gebruikers met Azure SDK voor Node.js
+title: Azure Data Lake Analytics beheren met Azure SDK voor Node.js
+description: In dit artikel wordt beschreven hoe u de Azure SDK voor Node.js gebruikt om een Data Lake Analytics-accounts, gegevensbronnen, taken en gebruikers te beheren.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: f11695df74e30f7ba9b1459f443a720208e542c4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
+ms.topic: get-started-article
+ms.date: 12/05/2016
+ms.openlocfilehash: 7af56c7770de7eef0fcf33b2c29f02d3b9fe7170
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624308"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Azure Data Lake Analytics beheren met Azure SDK voor Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-U kunt de Azure SDK voor Node.js gebruiken voor het beheren van Azure Data Lake Analytics-accounts, taken en -catalogussen. Voor informatie over het beheer met andere hulpprogramma’s klikt u op het tabblad Select bovenaan.
+In dit artikel wordt beschreven hoe u Azure Data Lake Analytics, gegevensbronnen, gebruikers en taken beheert met behulp van een app die is geschreven met Azure SDK voor Node.js. 
 
-Momenteel wordt ondersteund:
-
+De volgende versies worden ondersteund:
 * **Node.js versie: 0.10.0 of hoger**
 * **REST-API-versie voor Account: 2015-10-01-preview**
 * **REST-API-versie voor Catalog: 2015-10-01-preview**

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 4cf20dacf66ee334dcd455ce1770609c175d3b88
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48dbd89216d27e9495a9129c6b873f86a9a23338
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763252"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Snelstart: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van een Resource Manager-sjabloon
 
@@ -77,6 +78,110 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een Azure 
 > Zie [HDInsight-clusters maken](../hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden om clusters te maken en inzicht te krijgen in de eigenschappen die worden gebruikt in deze zelfstudie.       
 > 
 >
+
+## <a name="use-vscode-to-run-hive-queries"></a>VSCode gebruiken om Hive-query's uit te voeren
+
+Zie [Azure HDInsight-hulpprogramma's voor Visual Studio Code gebruiken](../hdinsight-for-vscode.md) voor informatie over het ophalen van HDInsight-hulpprogramma's in VSCode.
+
+### <a name="submit-interactive-hive-queries"></a>Interactieve Hive-query's verzenden
+
+Met HDInsight-hulpprogramma’s voor VSCode kunt u interactieve Hive-query’s verzenden naar interactieve HDInsight-queryclusters.
+
+1. Maak een nieuwe werkmap en een nieuw Hive-scriptbestand, als u deze nog niet hebt.
+
+2. Maak verbinding met uw Azure-account en configureer vervolgens het standaardcluster, als u dit nog niet hebt gedaan.
+
+3. Kopieer en plak de volgende code in het Hive-bestand en sla het bestand op.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Klik met de rechtermuisknop op de scripteditor en selecteer vervolgens **HDInsight: Hive Interactive** om de query te verzenden. Met de hulpprogramma’s kunt u ook een codeblok verzenden in plaats van het hele scriptbestand, met behulp van het contextmenu. Kort hierna worden de queryresultaten weergegeven op een nieuw tabblad.
+
+   ![Resultaten van interactieve Hive-query’s](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
+
+    - Paneel **RESULTATEN**: u kunt het hele resultaat op een lokaal pad opslaan als een CSV-, JSON- of Excel-bestand, of gewoon meerdere regels selecteren.
+
+    - Paneel **BERICHTEN**: wanneer u **Regelnummer** selecteert, gaat u naar de eerste regel van het actieve script.
+
+Het uitvoeren van de interactieve query kost veel minder tijd dan het [uitvoeren van een Hive-batchtaak](#submit-hive-batch-scripts).
+
+### <a name="submit-hive-batch-scripts"></a>Hive-batchscripts verzenden
+
+1. Maak een nieuwe werkmap en een nieuw Hive-scriptbestand, als u deze nog niet hebt.
+
+2. Maak verbinding met uw Azure-account en configureer vervolgens het standaardcluster, als u dit nog niet hebt gedaan.
+
+3. Kopieer en plak de volgende code in het Hive-bestand en sla het bestand op.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Klik met de rechtermuisknop op de scripteditor en selecteer vervolgens **HDInsight: Hive Batch** om een Hive-taak te verzenden. 
+
+5. Selecteer het cluster waarnaar u de taak wilt verzenden.  
+
+    Nadat u de Hive-taak hebt verzonden, worden de taak-id en informatie over het slagen van de verzending weergegeven in het paneel **UITVOER**. Met de Hive-taak wordt ook de **WEBBROWSER** geopend, waarin de realtimetaaklogboeken en de status worden weergegeven.
+
+   ![Hive-taakresultaat verzenden](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
+
+[Het verzenden van interactieve Hive-query’s](#submit-interactive-hive-queries) gaat veel sneller dan het verzenden van een batchtaak.
+
+## <a name="use-visualstudio-to-run-hive-queries"></a>Visual Studio gebruiken om Hive-query’s uit te voeren
+
+Zie [Data Lake-hulpprogramma's voor Visual Studio gebruiken](./apache-hadoop-visual-studio-tools-get-started.md) voor informatie over het ophalen van HDInsight-hulpprogramma's in VSCode.
+
+### <a name="run-hive-queries"></a>Hive-query's uitvoeren
+
+U hebt twee opties voor het maken en uitvoeren van Hive-query's:
+
+* Ad-hocquery's maken
+* Een Hive-toepassing maken
+
+Ad-hocquery's maken en uitvoeren:
+
+1. In **Server Explorer** selecteert u **Azure** > **HDInsight-clusters**.
+
+2. Klik met de rechtermuisknop op het cluster waar u de query wilt uitvoeren en selecteer **Write a Hive Query** (Een Hive-query schrijven).  
+
+3. Voer de Hive-query's in 
+
+    De Hive-editor ondersteunt IntelliSense. Data Lake Tools voor Visual Studio biedt ondersteuning voor het laden van externe metagegevens wanneer u het Hive-script bewerkt. Wanneer u bijvoorbeeld **SELECT * FROM** typt, geeft IntelliSense alle voorgestelde tabelnamen weer. Wanneer een tabelnaam wordt opgegeven, geeft IntelliSense de kolomnamen weer. De hulpprogramma's ondersteunen de meeste DML-instructies, subquery's en ingebouwde UDF's van Hive.
+   
+    ![Schermafbeelding van een HDInsight Visual Studio Tools IntelliSense-voorbeeld 1](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-table-name.png "U-SQL IntelliSense")
+   
+    ![Schermafbeelding van een HDInsight Visual Studio Tools IntelliSense-voorbeeld 2](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-column-name.png "U-SQL IntelliSense")
+   
+   > [!NOTE]
+   > IntelliSense suggereert alleen de metagegevens van het cluster dat in de HDInsight-werkbalk is geselecteerd.
+   > 
+   
+4. Selecteer **Verzenden** of **Verzenden (geavanceerd)**. 
+   
+    ![Schermafbeelding van het verzenden van een Hive-query](./media/apache-hadoop-linux-tutorial-get-started/vs-batch-query.png)
+
+   Als u de optie voor geavanceerd verzenden selecteert, configureert u de **Taaknaam**, **Argumenten**, **Aanvullende configuraties** en **Statusmap** voor het script:
+
+    ![Schermafbeelding van een HDInsight Hadoop Hive-query](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Query's verzenden")
+
+   Interactieve Hive-query's uitvoeren
+
+   * klik op de pijl-omlaag om **Interactief** te kiezen. 
+   
+   * Klik op **Uitvoeren**.
+
+   ![Schermafbeelding van het uitvoeren van interactieve Hive-query’s](./media/apache-hadoop-linux-tutorial-get-started/vs-execute-hive-query.png)
+
+Een Hive-oplossing maken en uitvoeren:
+
+1. Selecteer in het menu **Bestand** de optie **Nieuw** en selecteer vervolgens **Project**.
+2. Selecteer **HDInsight** in het linkerdeelvenster. Selecteer **Hive-toepassing** in het middelste deelvenster. Voer de eigenschappen in en selecteer **OK**.
+   
+    ![Schermafbeelding van een nieuw Hive-project in HDInsight Visual Studio Tools](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Hive-toepassingen maken vanuit Visual Studio")
+3. Dubbelklik in **Solution Explorer** op **Script.hql** om het script te openen.
+4. Voer de Hive-query’s in en klik op Verzenden. (Raadpleeg stappen 3 en 4 hierboven)  
+
+
 
 ## <a name="run-hive-queries"></a>Hive-query's uitvoeren
 
@@ -158,7 +263,7 @@ Zie de volgende artikelen voor meer informatie over het analyseren van gegevens 
 * Zie [Pig gebruiken met HDInsight](hdinsight-use-pig.md) voor meer informatie over Pig, een taal die wordt gebruikt voor het omzetten van gegevens.
 * Zie [MapReduce gebruiken met HDInsight](hdinsight-use-mapreduce.md) voor meer informatie over MapReduce, een middel om programma's te schrijven die gegevens verwerken op Hadoop.
 * Zie voor meer informatie over het gebruik van de HDInsight-hulpprogramma's voor Visual Studio om gegevens op HDInsight te analyseren [Aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
-
+* Zie [Azure HDInsight-hulpprogramma’s voor Visual Studio Code gebruiken](../hdinsight-for-vscode.md) voor meer informatie over het gebruik van de HDInsight-hulpprogramma's voor VSCode om gegevens te analyseren in HDInsight.
 
 
 Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, raadpleegt u de volgende artikelen:

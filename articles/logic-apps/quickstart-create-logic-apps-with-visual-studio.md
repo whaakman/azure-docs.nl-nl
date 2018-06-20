@@ -1,29 +1,26 @@
 ---
-title: Het automatiseren van taken en processen met Visual Studio en Azure Logic Apps | Microsoft Docs
-description: Deze snelstart toont u hoe u werkstromen kunt maken voor het automatiseren van taken en processen met Azure Logic Apps in Visual Studio
-author: ecfan
-manager: SyntaxC4
-editor: ''
+title: Maak logische apps die werkstromen automatiseren met Visual Studio - Azure Logic Apps | Microsoft Docs
+description: Snelstart voor het automatiseren van taken, processen en werkstromen met Azure Logic Apps in Visual Studio
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 02e19de97654d751dc0cd557791a61a863a9a4e0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300749"
 ---
-# <a name="quickstart-automate-tasks-and-processes-with-azure-logic-apps---visual-studio"></a>Snelstart: Het automatiseren van taken en processen met Azure Logic Apps - Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snelstart: Maken en automatiseren van taken, processen en werkstromen met Azure Logic Apps in Visual Studio
 
-Met [Azure Logic Apps](../logic-apps/logic-apps-overview.md) kunt u werkstromen maken voor het automatiseren van taken en processen voor het integreren van apps, gegevens, systemen en services voor bedrijven en organisaties. Deze snelstart toont u hoe u deze werkstromen kunt ontwerpen en compileren door het maken van logische apps in Visual Studio en hoe u deze apps kunt implementeren naar <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> in de cloud. Hoewel u deze taken kunt uitvoeren in <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, kunt u met Visual Studio logische apps toevoegen aan het besturingselement voor de gegevensbron, verschillende versies publiceren en Azure Resource Manager-sjablonen maken voor verschillende implementatieomgevingen. 
+Met [Azure Logic Apps](../logic-apps/logic-apps-overview.md) en Visual Studio kunt u werkstromen maken voor het automatiseren van taken en processen om apps, gegevens, systemen en services van bedrijven en organisaties te integreren. Deze snelstart toont u hoe u deze werkstromen kunt ontwerpen en compileren door het maken van logische apps in Visual Studio en hoe u deze apps kunt implementeren naar <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> in de cloud. Hoewel u deze taken kunt uitvoeren in <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, kunt u met Visual Studio logische apps toevoegen aan het besturingselement voor de gegevensbron, verschillende versies publiceren en Azure Resource Manager-sjablonen maken voor verschillende implementatieomgevingen. 
 
 Als u niet vertrouwd bent met Azure Logic Apps en u alleen de basisconcepten wilt gebruiken, probeer dan de [snelstart voor het maken van een logische app in Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md). De ontwerpfunctie Logic App in zowel Azure Portal als in Visual Studio, werkt op dezelfde manier. 
 
@@ -187,4 +184,5 @@ Als u die niet meer nodig hebt, verwijdert u de resourcegroep die uw logische ap
 In dit artikel hebt u uw logische app met Visual Studio gebouwd, geïmplementeerd en uitgevoerd. Voor meer informatie over het beheren en uitvoeren van de geavanceerde implementatie voor logische apps met Visual Studio, raadpleegt u de volgende artikelen:
 
 > [!div class="nextstepaction"]
-> [Logische apps beheren met Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Logische apps beheren met Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Implementatiesjablonen maken voor logische apps met Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

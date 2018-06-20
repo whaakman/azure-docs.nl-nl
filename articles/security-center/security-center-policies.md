@@ -3,7 +3,7 @@ title: Beveiligingsbeleid instellen in Azure Security Center | Microsoft Docs
 description: In dit artikel leest u hoe u beveiligingsbeleid configureert in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/05/2018
+ms.author: terrylan
+ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364383"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756988"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Beveiligingsbeleid instellen in Azure Security Center
 In dit artikel leest u hoe u beveiligingsbeleid configureert in Security Center.
@@ -28,7 +28,7 @@ In dit artikel leest u hoe u beveiligingsbeleid configureert in Security Center.
 In Security Center wordt voor elk van uw Azure-abonnementen automatisch een standaardbeveiligingsbeleid gemaakt. In Security Center kunt u het beleid bewerken en controleren of het beleid wordt nageleefd.
 
 > [!NOTE]
-> U kunt Security Center-beleid nu uitbreiden met behulp van Azure-beleid, waarvan een beperkte preview beschikbaar is. Als u wilt deelnemen aan de preview, gaat u naar [Registreren voor Azure Policy](https://aka.ms/getpolicy). Zie [Integratie van Security Center-beveiligingsbeleid met Azure Policy](security-center-azure-policy.md) voor meer informatie.
+> U kunt Security Center-beleid nu uitbreiden met behulp van [Azure Policy](../azure-policy/azure-policy-introduction.md). Zie [Integratie van Security Center-beveiligingsbeleid met Azure Policy](security-center-azure-policy.md) voor meer informatie.
 
 De beveiligingsvereisten voor resources die worden gebruikt voor ontwikkeling of tests kunnen verschillen van de vereisten voor resources die worden gebruikt voor productietoepassingen. Voor toepassingen die gereglementeerde gegevens gebruiken, zoals persoonsgegevens, kan een hoger beveiligingsniveau vereist zijn. Beveiligingsbeleid dat in Azure Security Center is ingeschakeld, bepaalt de beveiligingsaanbevelingen en bewaking om u te helpen mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen. Lees de [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) (Plannings- en bedieningsgids voor Azure Security Center) voor meer informatie over hoe u kunt bepalen welke optie het best is voor u.
 
@@ -75,3 +75,5 @@ In dit artikel hebt u kunnen lezen hoe u het beveiligingsbeleid in Security Cent
 * [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
+
+Zie [Wat is Azure Policy?](../azure-policy/azure-policy-introduction.md) voor meer informatie over Azure Policy.

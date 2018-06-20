@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 375e0171f1a131ad95a9c6594cc0e05926e4dcc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642832"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Zelfstudie: de runtime van een Service Fabric-cluster upgraden
 
@@ -97,7 +98,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > Het kan lang duren voordat de upgrade voor de clusterruntime is voltooid. Tijdens het uitvoeren van de upgrade is PowerShell geblokkeerd. U kunt een andere PowerShell-sessie gebruiken om de status van de upgrade te controleren.
 
-De status van de upgrade kan worden gecontroleerd met PowerShell of met de CLI-opdracht `sfctl`.
+De status van de upgrade kan worden gecontroleerd met PowerShell of met de Azure Service Fabric CLI (sfctl).
 
 Maak eerst verbinding met het cluster met het SSL-certificaat dat is gemaakt in het eerste deel van de zelfstudie. Gebruik de cmdlet `Connect-ServiceFabricCluster` of `sfctl cluster upgrade-status`.
 

@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714512"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps
 
@@ -81,19 +82,19 @@ Schuif in de navigatiebalk links van de app-pagina naar de sectie **Instellingen
 
 ![Menu Opschalen](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-De huidige laag van de app wordt gemarkeerd door een blauwe rand. Controleer of de app zich niet in de **Gratis**-categorie bevindt. Aangepaste DNS wordt niet ondersteund in de **Gratis**-categorie. 
+De huidige laag van de app wordt gemarkeerd door een blauwe rand. Controleer of de app zich niet in de **F1**-laag bevindt. Aangepaste DNS wordt niet ondersteund in de **F1**-laag. 
 
 ![Controleer prijscategorie](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Als het App Service-plan niet **Gratis** is, sluit dan de pagina **Uw prijscategorie kiezen** en ga door met [Een CNAME-record toewijzen](#cname).
+Als het App Service-plan zich niet in de **F1**-laag bevindt, sluit u de pagina **Omhoog schalen** en gaat u door met [Een CNAME-record toewijzen](#cname).
 
 <a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Het App Service-plan opschalen
 
-Selecteer een van de betaalde categorieën (**Shared**, **Basic**, **Standard**, of **Premium**). 
+Selecteer een van de lagen die niet gratis zijn (**D1**, **B1**, **B2**, **B3** of een laag in de categorie **Productie**). Klik op **Aanvullende opties bekijken** voor aanvullende opties.
 
-Klik op **Selecteren**.
+Klik op **Toepassen**.
 
 ![Controleer prijscategorie](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

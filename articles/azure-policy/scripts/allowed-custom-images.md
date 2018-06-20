@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 10/30/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: f20fc596783e348805977e2a8dceb29cd5cf6fb8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18ad65fda35571a57a73c9a9215fae7a89ae8a3f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602649"
 ---
 # <a name="approved-vm-images"></a>Goedgekeurde VM-installatiekopieën
 
@@ -76,5 +77,5 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer Azure Policy-sjablonen zijn te vinden op [Sjablonen voor Azure Policy](../json-samples.md)
-- Meer Azure Policy-sjablonen voor virtuele Machines op [Beleid toepassen op Windows-VM's](/azure/virtual-machines/windows/policy)
+- Bekijk meer voorbeelden op [Voorbeelden van Azure Policy](../json-samples.md).
+- Meer Azure Policy-voorbeelden voor virtuele machines op [Beleid toepassen op Windows-VM's](../../virtual-machines/windows/policy.md).

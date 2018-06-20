@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/14/2018
+ms.date: 05/21/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9ee5478412b02615efec983dd0b99c12fc2d9213
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643580"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Herstel na noodgevallen instellen voor on-premises Hyper-V-VM's naar Azure
 
@@ -40,19 +41,31 @@ Voordat u begint, is het handig om [de architectuur te bekijken](concepts-hyper-
 2. Klik in **Aan de slag** op **Site Recovery**. Klik vervolgens op **Infrastructuur voorbereiden**.
 3. In **Beveiligingsdoel** > **Waar bevinden de machines zich**, selecteert u **On-premises**.
 4. In **Waarnaartoe wilt u de machines repliceren** selecteert u **Naar Azure**.
-5. Bij **Zijn de machines gevirtualiseerd?** selecteert u **Nee**. Klik vervolgens op **OK**.
+5. Bij **Gebruikt u System Center VMM om uw Hyper-V-hosts te beheren** selecteert u **Nee**. Klik vervolgens op **OK**.
 
     ![Replicatiedoel](./media/hyper-v-azure-tutorial/replication-goal.png)
 
+## <a name="confirm-deployment-planning"></a>Implementatieplanning bevestigen
+
+Wanneer u van plan bent een grote implementatie uit te voeren, moet u ervoor zorgen dat u eerst de [implementatieplanning voor Hyper-V-replicatie hebt voltooid](hyper-v-deployment-planner-overview.md). In het kader van deze zelfstudie selecteert u bij **Hebt u de implementatieplanning uitgevoerd?**, **Dat doe ik later** in de vervolgkeuzelijst.
+
+![Implementatieplanning](./media/hyper-v-azure-tutorial/deployment-planning.png)
+
 ## <a name="set-up-the-source-environment"></a>De bronomgeving instellen
 
-Als u de bronomgeving wilt instellen, voegt u Hyper-V-hosts toe aan een Hyper-V-site, downloadt en installeert u de Azure Site Recovery Provider en de Azure Recovery Services-agent en registreert u de Hyper-V-site in de kluis. 
+Voor het instellen van de bronomgeving, maakt u eerst een Hyper-V-site en voegt u Hyper-V-hosts toe aan die site. Download en installeer vervolgens op elke host de Azure Site Recovery Provider en de Azure Recovery Services-agent. Registreer daarna de Hyper-V-site in de kluis. 
 
 1. Klik in **Infrastructuur voorbereiden** op **Bron**.
 2. Klik op **+Hyper-V-site** en geef de naam op van de site die in de vorige zelfstudie is gemaakt: **ContosoHyperVSite**.
-3. Klik op **+Hyper-V-server**.
+
+    ![Hyper-V-site](./media/hyper-v-azure-tutorial/hyperv-site.png)
+
+3. Nadat de site is gemaakt, klikt u op **+Hyper-V Server**.
+
+    ![Hyper-V-server](./media/hyper-v-azure-tutorial/hyperv-server.png)
+
 4. Download het Provider-installatiebestand.
-5. Download de registratiesleutel voor de kluis. U hebt deze sleutel nodig om de Provider-installatie uit te voeren. De sleutel blijft vijf dagen na het genereren ervan geldig.
+6. Download de registratiesleutel voor de kluis. U hebt deze sleutel nodig om de Provider-installatie uit te voeren. De sleutel blijft vijf dagen na het genereren ervan geldig.
 
     ![Provider downloaden](./media/hyper-v-azure-tutorial/download.png)
     

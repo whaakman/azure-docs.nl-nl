@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3508631336ac322268f12ff97e35827767ae1bb9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 27b8c9391de4014f45257e3808647b3e49c250b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651944"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Voorbeelden van Microsoft Azure PowerShell voor virtuele-machineschaalsets
 
@@ -30,6 +31,7 @@ De volgende tabel bevat links naar bash-scripts die zijn gebouwd met behulp van 
 |---|---|
 |**Een schaalset maken en beheren**||
 | [Een virtuele-machineschaalset maken](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Hiermee maakt u een virtuele-machineschaalset met een minimale configuratie. |
+| [Een volledige virtuele-machineschaalset maken](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Hiermee maakt u een virtuele-machineschaalset en de bijbehorende resources met behulp van een configuratiebestand. |
 | [Een schaalset maken op basis van een aangepaste VM-installatiekopie](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een virtuele-machineschaalset die gebruikmaakt van een aangepaste VM-installatiekopie. |
 | [Toepassingen installeren in een schaalset](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Gebruik de aangepaste scriptextensie van Azure voor het installeren van een eenvoudige webtoepassing in een schaalset. |
 |**Opslag beheren**||

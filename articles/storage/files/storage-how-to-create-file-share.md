@@ -5,7 +5,7 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 4dfc4bca4453b5a8027086bd7c3625efc8feda03
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 85e021d439698e864a26bde9515369ae801c3796
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737857"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Een bestandsshare maken in Azure Files
 U kunt Azure-bestandsshares maken met [Azure Portal](https://portal.azure.com/), de PowerShell-cmdlets van Azure Storage, de clientbibliotheken van Azure Storage of de REST-API van Azure Storage. In deze zelfstudie leert u het volgende:
-* [Een Azure-bestandsshare maken met de Azure Portal](#Create file share through the Portal)
-* [Een Azure-bestandsshare maken met Powershell](#Create file share using PowerShell)
-* [Een Azure-bestandsshare maken met de CLI](#create-file-share-using-command-line-interface-cli)
+* [Een Azure-bestandsshare maken met Azure Portal](#create-file-share-through-the-azure-portal)
+* [Een Azure-bestandsshare maken met Powershell](#create-file-share-through-powershell)
+* [Een Azure-bestandsshare maken met CLI](#create-file-share-through-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het maken van een Azure-bestandsshare kunt u een opslagaccount gebruiken dat al bestaat of [een nieuw Azure Storage-account maken](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Als u een Azure-bestandsshare wilt maken met PowerShell, hebt u de sleutel en de naam van uw opslagaccount nodig. U hebt de sleutel van het opslagaccount nodig als u van plan bent Powershell of de CLI te gebruiken.

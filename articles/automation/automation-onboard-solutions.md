@@ -7,13 +7,14 @@ author: eamonoreilly
 ms.author: eamono
 manager: carmonm
 ms.topic: tutorial
-ms.date: 03/16/2018
+ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 97db493b77483d68860c6124f1063bc4a743c3be
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5d03ec7c5e0aaa68c1db34fedbd428f264e49e43
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830517"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Onboarding van oplossingen voor updates en het bijhouden van wijzigingen voor Azure Automation
 
@@ -36,7 +37,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om deze zelfstudie te voltooien
 
 ## <a name="onboard-an-azure-vm"></a>Onboarding van een Azure-VM uitvoeren
 
-Er zijn meerdere manieren om onboarding van computers uit te voeren. U kunt onboarding van de oplossing uitvoeren [vanaf een virtuele machine](automation-onboard-solutions-from-vm.md), [via uw Automation-account](automation-onboard-solutions-from-automation-account.md) of een runbook. Deze zelfstudie begeleidt u bij het inschakelen van Updatebeheer via een runbook. Voor het uitvoeren van onboarding van Azure-VM's op grote schaal moet onboarding van een bestaande VM worden uitgevoerd met de oplossing Wijzigingen bijhouden of Updatebeheer. In deze stap voert u onboarding van een virtuele machine met Updatebeheer en Wijzigingen bijhouden uit.
+Er zijn meerdere manieren om onboarding van computers uit te voeren. U kunt onboarding van de oplossing uitvoeren [vanaf een virtuele machine](automation-onboard-solutions-from-vm.md), [door meerdere computers te doorzoeken](automation-onboard-solutions-from-browse.md), [via uw Automation-account](automation-onboard-solutions-from-automation-account.md) of via een runbook. Deze zelfstudie begeleidt u bij het inschakelen van Updatebeheer via een runbook. Voor het uitvoeren van onboarding van Azure-VM's op grote schaal moet onboarding van een bestaande VM worden uitgevoerd met de oplossing Wijzigingen bijhouden of Updatebeheer. In deze stap voert u onboarding van een virtuele machine met Updatebeheer en Wijzigingen bijhouden uit.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Wijzigingen bijhouden en Inventaris inschakelen
 

@@ -9,12 +9,13 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 02/28/2018
-ms.openlocfilehash: 766373f4b9390e576285db73d9e9e9942eb6624f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/02/2018
+ms.openlocfilehash: fab3aa7d0b1fe0f4fafd4b2fdca24ad0e8a3d03c
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737228"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Wat is Azure Database for PostgreSQL?
 
@@ -22,14 +23,14 @@ Azure Database for PostgreSQL is een relationele databaseservice in de Microsoft
 
 - Ingebouwde hoge beschikbaarheid zonder extra kosten
 - Voorspelbare prestaties, tegen all-inclusive prijzen op basis van betalen per gebruik
-- Schalen op elk gewenst moment binnen enkele seconden
+- Schalen naar behoefte, binnen enkele seconden
 - Beveiliging ter bescherming van gevoelige niet-actieve en actieve gegevens
 - Automatische back-ups en herstel naar een tijdstip tot 35 dagen geleden
 - Beveiliging en naleving van enterprise-kwaliteit
 
 Alle deze mogelijkheden vereisen nauwelijks beheer, en alles wordt zonder extra kosten geleverd. Dankzij deze mogelijkheden kunt u zich richten op het sneller ontwikkelen en op de markt brengen van toepassingen, in plaats van kostbare tijd en middelen in te zetten voor het beheer van virtuele machines en infrastructuur. U kunt bovendien de open-source hulpprogramma's en het platform van uw keuze blijven gebruiken om uw toepassing verder te ontwikkelen, en deze te leveren met de snelheid en efficiëntie die uw bedrijf vereist zonder dat u nieuwe vaardigheden hoeft te leren. 
 
-Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van Azure Database for PostgreSQL met betrekking tot prestaties, schaalbaarheid en beheerbaarheid. Zie deze snelstartgidsen om snel aan de slag te gaan:
+Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van Azure Database for PostgreSQL met betrekking tot prestaties, schaalbaarheid en beheerbaarheid. Zie deze Quick Starts om snel aan de slag te gaan:
 
 - [Een Azure Database for PostgreSQL maken met Azure Portal](quickstart-create-server-database-portal.md)
 - [Een Azure Database for PostgreSQL maken met Azure CLI](quickstart-create-server-database-azure-cli.md)
@@ -52,7 +53,15 @@ Azure databaseservices hebben traditiegetrouw een uitstekende gegevensbeveiligin
 
 De Azure Database for PostgreSQL-service gebruikt opslagversleuteling voor niet-actieve gegevens. Gegevens, met inbegrip van back-ups, worden op schijf versleuteld (met uitzondering van tijdelijke bestanden die door de engine tijdens het uitvoeren van query's worden gemaakt). De service maakt gebruikt van AES 256-bits versleuteling die deel uitmaakt van Azure Storage-versleuteling. De sleutels worden door het systeem beheerd. Opslagversleuteling is altijd actief en kan niet worden uitgeschakeld.
 
-Standaard is de Azure Database for PostgreSQL-service zo geconfigureerd dat [SSL-verbindingsbeveiliging](./concepts-ssl-connection-security.md) is vereist voor gegevens die zich door het netwerk verplaatsen. Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.  Desgewenst kunt u uitschakelen dat SSL is vereist voor het maken van verbinding met uw databaseservice als uw clienttoepassing geen ondersteuning biedt voor SSL-connectiviteit.
+Standaard is de Azure Database for PostgreSQL-service zo geconfigureerd dat [SSL-verbindingsbeveiliging](./concepts-ssl-connection-security.md) is vereist voor gegevens die zich door het netwerk verplaatsen. Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld. Desgewenst kunt u uitschakelen dat SSL is vereist voor het maken van verbinding met uw databaseservice als uw clienttoepassing geen ondersteuning biedt voor SSL-connectiviteit.
+
+## <a name="contacts"></a>Contactpersonen
+Voor eventuele vragen of suggesties over het werken met Azure Database for MySQL stuurt u een e-mailbericht naar het Azure Database for MySQL-team ([@AskAzure DB voor PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Let op: dit is geen alias voor technische ondersteuning.
+
+Overweeg ook de volgende aanspreekpunten, indien van toepassing:
+- Als u contact wilt opnemen met Azure-ondersteuning, kunt u een [ticket indienen vanuit Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Als u een probleem met uw account wilt oplossen, kunt u een [ondersteuningsaanvraag](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) indienen in Azure Portal.
+- Als u feedback wilt geven of een nieuwe functie wilt aanvragen, maakt u een vermelding via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/postgresql/) voor kostenvergelijkingen en calculators.

@@ -4,15 +4,15 @@ description: Biedt een overzicht van de service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202844"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236362"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -48,8 +48,8 @@ Een beoordeling helpt u bij het identificeren van de Azure geschiktheid van de l
 **Eigenschap** | **Details**
 --- | ---
 **Doellocatie** | De Azure-locatie waarnaar u wilt migreren.<br/><br/>Azure Migrate ondersteunt momenteel 30 regio's, waaronder Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, Centraal-India, VS - midden, China - oost, China - noord, Oost-Azië, VS - oost, Duitsland - centraal, Duitsland - noordoost, VS - oost 2, Japan - oost, Japan - west, Korea - midden, Korea - zuid, Noord-centraal VS, Noord-Europa, Zuid-centraal VS , Zuidoost-Azië, Zuid-India, UK - zuid, UK - west, US Gov - Arizona, US Gov - Texas, US Gov - Virginia, West-centraal VS, West-Europa, India - west, VS - west en VS - west 2. De doellocatie is standaard ingesteld op VS - west 2.
-**Opslagredundantie** | Het type [opslagredundantie](https://docs.microsoft.com/azure/storage/common/storage-redundancy) dat na de migratie door de virtuele Azure-machines wordt gebruikt. De standaardinstelling is lokaal redundante opslag (LRS). Houd er rekening mee dat Azure Migrate alleen beoordelingen op basis van beheerde schijven ondersteunt en dat beheerde schijven alleen LRS ondersteunen. Daarom heeft het kenmerk momenteel alleen de LRS-optie.
-**Criterium voor het aanpassen van de grootte** | Het door Azure Migrate te gebruiken criterium om VM's op de juiste grootte te maken voor Azure. U kunt de grootte aanpassen op basis van de *prestatiegeschiedenis* van de on-premises VM's of voor de grootte van de VM's *Zoals on-premises* opgeven in Azure. Bij deze optie wordt geen rekening gehouden met de prestatiegeschiedenis. De standaardwaarde is dat de grootte wordt aangepast op basis van de prestaties.
+**Opslagtype** | U kunt opgeven welke type schijf u wilt toewijzen in Azure. Deze eigenschap is van toepassing wanneer het criterium voor het aanpassen van de grootte 'Zoals on-premises' is. U kunt het doeltype van de schijf opgeven als beheerde Premium-schijven of beheerde Standard schijven. De standaardwaarde is beheerde Premium-schijven. Voor het aanpassen van de grootte op basis van prestaties geldt dat de aanbeveling automatisch wordt gedaan op basis van de prestatiegegevens van de virtuele machines. Houd er rekening mee dat Azure Migrate voor migratiebeoordeling alleen ondersteuning voor beheerde schijven biedt.
+**Criterium voor het aanpassen van de grootte** | Het door Azure Migrate te gebruiken criterium om VM's op de juiste grootte te maken voor Azure. U kunt de grootte aanpassen op basis van de *prestatiegeschiedenis* van de on-premises VM's of voor de grootte van de VM's *Zoals on-premises* opgeven in Azure. Bij deze optie wordt geen rekening gehouden met de prestatiegeschiedenis. De standaardwaarde is het aanpassen van de grootte 'Zoals on-premises'.
 **Prijsplannen** | Voor de berekening van de kosten wordt er in een beoordeling nagegaan of u Software Assurance hebt en in aanmerking komt voor [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Er wordt ook rekening gehouden met [Azure-aanbiedingen](https://azure.microsoft.com/support/legal/offer-details/) waar u eventueel gebruik van maakt en u kunt kortingen (%) voor specifieke abonnementen opgeven die worden toegepast boven op de aanbieding.
 **Prijscategorie** | U kunt de [prijscategorie (Basic/Standard)](../virtual-machines/windows/sizes-general.md) van de Azure-VM's opgeven. Als u bijvoorbeeld van plan bent om een productieomgeving te migreren, doet u er waarschijnlijk goed aan te kiezen voor de categorie Standard. Hiermee beschikt u over VM's met lage latentie, maar zijn de kosten mogelijk wel hoger. Hebt u daarentegen een ontwikkel-/testomgeving, dan is de categorie Basic wellicht de juiste keuze. Hierbij krijgt u VM's met een hogere latentie, maar lagere kosten. Standaard wordt de categorie [Standard](../virtual-machines/windows/sizes-general.md) gebruikt.
 **Prestatiegeschiedenis** | Azure Migrate evalueert de prestaties van on-premises machines standaard aan de hand van de prestatiegeschiedenis van de afgelopen dag, met een percentielwaarde van 95%. U kunt deze waarden wijzigen in de beoordelingseigenschappen.
@@ -100,4 +100,6 @@ Nadat u de on-premises machines hebt beoordeeld voor migratie met de Azure Migra
 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Volg een zelfstudie](tutorial-assessment-vmware.md) om een evaluatie uit te voeren voor een on-premises VM met VMware.
+
+- [Volg een zelfstudie](tutorial-assessment-vmware.md) om een evaluatie uit te voeren voor een on-premises VM met VMware.
+- [Lees](resources-faq.md) de veelgestelde vragen over Azure Migrate.

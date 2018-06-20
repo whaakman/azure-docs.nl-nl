@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b98c1995aa9051029049711ece18aeb23c444f1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365364"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642791"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Zelfstudie: containers verpakken en implementeren als een Service Fabric-toepassing
 
@@ -237,7 +237,7 @@ Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-v
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>De toepassing bouwen en implementeren in het cluster
 U kunt de toepassing implementeren in het Azure-cluster met behulp van de Service Fabric CLI. Als de Service Fabric CLI niet op uw computer is geïnstalleerd, volgt u de instructies [hier](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) om deze te installeren. 
 
-Maak verbinding met het Service Fabric-cluster in Azure. Vervang de plaatsaanduiding voor het eindpunt door uw eigen eindpunt. Het eindpunt moet een volledige URL zijn die lijkt op de onderstaande.
+Maak verbinding met het Service Fabric-cluster in Azure. Vervang het voorbeeld van een eindpunt door uw eigen eindpunt. Het eindpunt moet een volledige URL zijn die lijkt op de onderstaande.
 
 ```bash
 sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify

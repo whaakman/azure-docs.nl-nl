@@ -15,11 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7a860742192227e92a14d9bb5622dc9b61f6cb99
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716020"
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Aan de slag met Microsoft Power BI Embedded
 
@@ -33,7 +34,7 @@ Ontwikkelaars kunnen meer tijd besteden aan het bouwen van de kerncompetentie va
 
 ## <a name="register-an-application-within-azure-active-directory"></a>Een toepassing registreren met Azure Active Directory
 
-Een toepassing moet in Azure Active Directory (AAD) worden geregistreerd om in een aangepaste toepassing te kunnen worden ingesloten. De tenant van een geregistreerde toepassing moet een Power BI-tenant zijn. Een Power BI-tenant betekent dat ten minste één gebruiker in de organisatie is aangemeld voor Power BI. Als een gebruiker is aangemeld voor Power BI, worden de Power BI-API's weergegeven in de geregistreerde toepassing.
+Een toepassing moet in Azure Active Directory (AAD) zijn geregistreerd om in een aangepaste toepassing te kunnen worden ingesloten. De tenant van een geregistreerde toepassing moet een Power BI-tenant zijn. Een Power BI-tenant betekent dat ten minste één gebruiker in de organisatie is aangemeld voor Power BI. Als een gebruiker is aangemeld voor Power BI, worden de Power BI-API's weergegeven in de geregistreerde toepassing.
 
 Voor meer informatie over het registreren van een toepassing in AAD raadpleegt u [Register an Azure AD app to embed Power BI content](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/) (Een Azure AD-app registreren om Power BI-inhoud in te sluiten).
 
@@ -48,14 +49,14 @@ Er zijn voorbeelden om u op weg te helpen. Voor een stapsgewijze behandeling van
 Creëer Power BI Embedded-capaciteit in Microsoft Azure om uw toepassing naar productie te verplaatsen. Voor meer informatie over het creëren van capaciteit raadpleegt u [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Power BI Embedded-capaciteit creëren in de Azure-portal).
 
 > [!IMPORTANT]
-> Omdat insluittokens alleen zijn bedoeld voor het testen van een ontwikkeling, kan een Power BI-hoofdaccount maar een beperkt aantal insluittokens genereren. Voor productie-insluitscenario's moet een [capaciteit worden aangeschaft](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Er is geen limiet voor het genereren van insluittokens wanneer een capaciteit is aangeschaft. Ga naar [Beschikbare functies ophalen](https://msdn.microsoft.com/en-us/library/mt846473.aspx) om te controleren op het huidige ingesloten gebruik in percentages.
+> Omdat insluittokens alleen zijn bedoeld voor het testen door een ontwikkelaar, kan een Power BI-hoofdaccount maar een beperkt aantal insluittokens genereren. Voor productie-insluitscenario's moet een [capaciteit worden aangeschaft](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Er is geen limiet voor het genereren van insluittokens wanneer een toegewezen capaciteit is aangeschaft. Ga naar [Beschikbare functies ophalen](https://msdn.microsoft.com/en-us/library/mt846473.aspx) om te controleren op het huidige ingesloten gebruik in percentages.
 
-Uw capaciteit beheren vanuit de Power BI-beheerportal. Wijs een werkruimtetoewijzer toe om u te helpen bij uw app-werkruimten. Voor meer informatie raadpleegt u [Manage capacities within Power BI Premium and Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/) (Capaciteit beheren in Power BI Premium en Power BI Embedded).
+Uw capaciteit beheren vanuit de Power BI-beheerportal. Wijs een werkruimtebeheerder toe om u te helpen bij uw app-werkruimten. Voor meer informatie raadpleegt u [Manage capacities within Power BI Premium and Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/) (Capaciteit beheren in Power BI Premium en Power BI Embedded).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Als u zover bent dat u Power BI Embedded-capaciteit kunt gaan creëren, raadpleegt u [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Power BI Embedded-capaciteit creëren in de Azure-portal).
 
-Als u een stapsgewijze behandeling van het voorbeeld zoekt, raadpleeg dan [Integrate a dashboard, tile, or report into your application](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/) (Een dashboard, tegel of rapport integreren in een toepassing).
+Als u een stapsgewijs voorbeeld zoekt, raadpleeg dan [Een Power BI-rapport, dashboard of tegel insluiten in een toepassing voor uw klanten](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/).
 
 Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)

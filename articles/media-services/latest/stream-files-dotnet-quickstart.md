@@ -13,18 +13,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/08/2018
 ms.author: juliako
-ms.openlocfilehash: 40759fc65caa181651de68756f4374f879fd9c9c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701035"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Snelstartgids: Videobestanden streamen - .NET
 
 > [!NOTE]
 > De nieuwste versie van Azure Media Services is momenteel in preview en wordt ook wel v3 of versie 3 genoemd. Als u wilt werken met API's van v3, moet u een nieuw Media Services-account maken. De procedure hiervoor wordt ook beschreven in deze snelstartgids. 
 
-Deze snelstartgids laat zien hoe u met Azure Media Services eenvoudig video's kunt streamen naar allerlei verschillende browsers en apparaten. 
+Deze snelstartgids laat zien hoe u met Azure Media Services eenvoudig video's kunt streamen naar allerlei verschillende browsers en apparaten. Met het voorbeeld in dit onderwerp wordt inhoud gecodeerd die u toegankelijk maakt via een HTTPS-URL. 
 
 Als u deze snelstartgids hebt voltooid, weet u hoe u een video kunt streamen.  
 
@@ -43,6 +44,18 @@ Gebruik de volgende opdracht om een GitHub-opslagplaats te klonen op uw computer
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
+
+Het voorbeeld bevindt zich in de map [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
+
+In het voorbeeld worden de volgende acties uitgevoerd:
+
+1. Er wordt een transformatie gemaakt (eerst wordt gecontroleerd of de opgegeven transformatie bestaat). 
+2. Er wordt een uitvoerasset gemaakt die wordt gebruikt als de uitvoer van de coderingstaak.
+3. De invoer van de taak wordt gemaakt en is gebaseerd op een HTTPS-URL.
+4. De coderingstaak wordt met behulp van de eerder gemaakte invoer en uitvoer verzonden.
+5. De status van de taak wordt gecontroleerd.
+6. Er wordt een StreamingLocator gemaakt.
+7. Er worden streaming-URL's samengesteld.
 
 Als u meer wilt weten over de werking van de functies in het voorbeeld, bekijkt u de code en leest u de opmerkingen in [dit bronbestand](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 

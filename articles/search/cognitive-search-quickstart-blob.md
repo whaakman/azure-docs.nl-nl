@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640258"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snelstart: een pijplijn voor cognitief zoeken maken met vaardigheden en voorbeeldgegevens
 
@@ -95,6 +96,8 @@ Een voordeel van het gebruik van de wizard **Gegevens importeren** is dat u hier
 ### <a name="step-2-add-cognitive-skills"></a>Stap 2: cognitieve vaardigheden toevoegen
 
 Voeg vervolgens verrijkingsstappen toevoegen aan de pijplijn voor indexering. De portal biedt u vooraf gedefinieerde cognitieve vaardigheden voor afbeeldingsanalyse en tekstanalyse. In de portal werkt een set vaardigheden via één bronveld. Dat lijkt misschien een klein doel, maar voor Azure-blobs bevat het veld `content` het meeste van het blobdocument (bijvoorbeeld een Word-document of PowerPoint-presentatie). Dit veld is een ideale invoer omdat het alle inhoud van een blob bevat.
+
+Soms wilt u de tekstweergave extraheren uit bestanden die voornamelijk bestaan uit gescande afbeeldingen, zoals een PDF die wordt gegenereerd door een scanner. Met Azure Search kunt automatisch inhoud extraheren uit ingesloten afbeeldingen in het document. Dit kan met de optie **OCR inschakelen en alle tekst samenvoegen in het veld merged_content**. Er wordt automatisch een veld `merged_content` gemaakt met daarin zowel de tekst die is opgehaald uit het document als de tekstweergave van afbeeldingen die in het document zijn ingesloten. Wanneer u deze optie selecteert, wordt het `Source data field` ingesteld op `merged_content`.
 
 Kies in **Cognitieve vaardigheden toevoegen** de vaardigheden die de verwerking van natuurlijke taal uitvoeren. Kies bij deze snelstart voor entiteitsherkenning voor personen, organisaties en locaties.
 

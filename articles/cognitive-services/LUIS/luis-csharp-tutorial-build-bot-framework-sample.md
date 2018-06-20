@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3db2588edefa2f07d22609d7c454367d5572d5e0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35345974"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263877"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web-App Bot met behulp van de sjabloon LUIS voor C#
 
@@ -80,7 +80,7 @@ Open **toepassingsinstellingen** en bewerkt u de **LuisAppId** veld de toepassin
 > Als u geen de LUIS app-ID van de [start Automation app](luis-get-started-create-app.md), meld u aan bij de [LUIS](luis-reference-regions.md) website met dezelfde account die u gebruikt voor aanmelding bij Azure. 
 > 1. Klik op **mijn apps**. 
 > 2. De LUIS-app die u eerder hebt gemaakt met de intents en entiteiten van het domein HomeAutomation te zoeken.
-> 3. In de **instellingen** pagina voor de app LUIS, vinden en kopiëren van de app-ID. Zorg ervoor dat dit [getraind](Train-Test.md) en [gepubliceerd](PublishApp.md). 
+> 3. In de **instellingen** pagina voor de app LUIS, vinden en kopiëren van de app-ID. Zorg ervoor dat dit [getraind](interactive-test.md) en [gepubliceerd](PublishApp.md). 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -145,7 +145,7 @@ Klik in de Azure-portal op **testen in Web chatten** voor het testen van de bot.
    ![HomeAutomation bot in Web chatten testen](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> U kunt uw app LUIS zonder dat aanpassingen uw bot code opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en te testen van uw app LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/train-test). 
+> U kunt uw app LUIS zonder dat aanpassingen uw bot code opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en te testen van uw app LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Download de bot voor foutopsporing
 Als uw bot niet werkt, downloadt u het project naar uw lokale computer en doorgaan [foutopsporing](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
@@ -160,6 +160,8 @@ Voeg de LUIS intents en Bot service dialoogvensters voor het verwerken van **Hel
 > [!div class="nextstepaction"]
 > [Toevoegen van intents](./luis-how-to-add-intents.md)
 > [spraak voorbereiden](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
+
+
 <!-- Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
@@ -168,7 +170,7 @@ Voeg de LUIS intents en Bot service dialoogvensters voor het verwerken van **Hel
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]:https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
+[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 <!-- tested on Win10 -->

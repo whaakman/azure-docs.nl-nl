@@ -1,25 +1,24 @@
 ---
 title: 'Snelstart: telemetrie verzenden naar Azure IoT Hub | Microsoft Docs'
 description: In deze snelstart voert u een iOS-voorbeeldtoepassing uit om gesimuleerde telemetrie te verzenden naar een IoT-hub en telemetrie van de IoT-hub te lezen voor verwerking in de cloud.
-services: iot-hub
 author: kgremban
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: ''
+services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/20//2018
+ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7b7f8e1805850861b30eb2a54991e5ab7fa96335
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808176"
 ---
-# <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>Telemetrie verzenden van een apparaat naar een IoT-hub (Swift)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Snelstart: Telemetrie verzenden van een apparaat naar een IoT-hub (iOS)
+
+[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub is een Azure-service waarmee grote hoeveelheden telemetrie van uw IoT-apparaten naar de cloud kunt opnemen voor opslag of verwerking. In dit artikel verzendt u telemetrie van een toepassing met een gesimuleerd apparaat naar IoT Hub. Vervolgens kunt u de gegevens bekijken vanuit een back-endtoepassing. 
 
@@ -42,32 +41,8 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-De eerste stap is Azure Portal te gebruiken om een IoT-hub te maken in uw abonnement. Met de IoT-hub kunt u grote hoeveelheden telemetrie naar de cloud opnemen vanaf een groot aantal apparaten. De hub stelt één of meerdere back-end diensten in de cloud in staat om die telemetrie te lezen en te verwerken.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
-
-1. Selecteer **Een resource maken** > **Internet of Things** > **IoT Hub**. 
-
-   ![Selecteren om IoT Hub te installeren](media/quickstart-send-telemetry-ios/selectiothub.png)
-
-1. Gebruik de waarden in de volgende tabel voor het maken van uw IoT-hub:
-
-    | Instelling | Waarde |
-    | ------- | ----- |
-    | Naam | Een unieke naam voor uw hub |
-    | Prijs- en schaalniveau | F1 Free |
-    | IoT Hub-eenheden | 1 |
-    | Partities voor apparaat-naar-cloud | 2 partities |
-    | Abonnement | Uw Azure-abonnement. |
-    | Resourcegroep | Nieuwe maken. Voer een naam in voor uw resourcegroep. |
-    | Locatie | De locatie het dichtst bij u in de buurt. |
-    | Vastmaken aan dashboard | Ja |
-
-1. Klik op **Create**.  
-
-   ![Hub-instellingen](media/quickstart-send-telemetry-ios/hubdefinition.png)
-
-1. Noteer de namen van uw IoT-hub en resourcegroep. U gebruikt deze waarden later in deze snelstart.
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
@@ -168,10 +143,13 @@ Als u de IoT-hub niet langer nodig hebt, verwijdert u deze en de resourcegroep i
 
 In dit artikel stelt u een IoT-hub in, registreert u een apparaat, verzendt u gesimuleerde telemetrie van een iOS-apparaat naar de hub en leest u de telemetrie vanaf de hub. 
 
-Zie [Cloud-naar-apparaat-berichten verzenden met iOS (Swift)](iot-hub-ios-swift-c2d.md) om door te gaan met leren over de samenwerking van iOS-apparaten met IoT Hub.
+Ga verder met de volgende snelstartgids als u wilt weten hoe u een gesimuleerd apparaat beheert vanuit een back-endtoepassing.
+
+> [!div class="nextstepaction"]
+> [Snelstartgids: Een apparaat beheren dat is verbonden met een IoT-hub](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

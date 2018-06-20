@@ -3,17 +3,18 @@ title: Een vaardigheden maken in een pijplijn cognitieve zoeken (Azure Search) |
 description: Gegevens extraheren natuurlijke taal verwerking, definiëren of afbeelding analysis stappen voor het aanvullen en gestructureerde gegevens ophalen uit uw gegevens voor gebruik in Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640923"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268232"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Het maken van een vaardigheden in een pijplijn verrijking
 
@@ -106,11 +107,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -210,11 +211,11 @@ De structuur van de aangepaste Bing entiteit zoeken enricher intrekken:
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -228,9 +229,9 @@ De structuur van de aangepaste Bing entiteit zoeken enricher intrekken:
 
 Deze definitie is een aangepaste kwalificatie die een web-API als onderdeel van het proces verrijking aanroept. Voor elke organisatie geïdentificeerd door opname van de benoemde entiteit, roept deze kwalificatie een web-API de beschrijving van die organisatie vinden. De orchestration van wanneer de web-API-aanroep en hoe de ontvangen gegevens stromen wordt intern verwerkt door de engine verrijking. De initialisatie van de nodig voor het aanroepen van deze aangepaste API moet echter worden opgegeven in de JSON (zoals uri, httpHeaders en de invoer verwacht). Zie voor richtlijnen bij het maken van een aangepaste web-API voor de pijplijn verrijking [het definiëren van een aangepaste interface](cognitive-search-custom-skill-interface.md).
 
-U ziet dat het contextveld '' is ingesteld op ```"/document/content/organizations/*"``` met een sterretje, wat betekent dat de stap verrijking heet *voor elk* organisatie onder ```"/document/content/organizations"```. 
+U ziet dat het contextveld '' is ingesteld op ```"/document/organizations/*"``` met een sterretje, wat betekent dat de stap verrijking heet *voor elk* organisatie onder ```"/document/organizations"```. 
 
-Uitvoer wordt in dit geval een bedrijfsbeschrijving gegenereerd voor elke organisatie geïdentificeerd. Wanneer u verwijst naar de beschrijving in een downstream stap (bijvoorbeeld bij het uitpakken van sleutel woordgroep), zou u het pad ```"/document/content/organizations/*/description"``` om dit te doen. 
+Uitvoer wordt in dit geval een bedrijfsbeschrijving gegenereerd voor elke organisatie geïdentificeerd. Wanneer u verwijst naar de beschrijving in een downstream stap (bijvoorbeeld bij het uitpakken van sleutel woordgroep), zou u het pad ```"/document/organizations/*/description"``` om dit te doen. 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Enrichments maken structuur buiten niet-gestructureerde gegevens
 

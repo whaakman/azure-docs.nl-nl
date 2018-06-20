@@ -1,21 +1,22 @@
 ---
 title: Uw apparaten bewaken in Azure IoT Central | Microsoft Docs
 description: Gebruik als operator uw Azure IoT Central-toepassing om uw apparaten te bewaken.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: a07c9e3c28fadaead8bfaaebe4d1ee06ac66a99e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201384"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235478"
 ---
-# <a name="use-azure-iot-central-to-monitor-your-devices"></a>Azure IoT Central gebruiken om uw apparaten te bewaken
+# <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Zelfstudie: Azure IoT Central gebruiken om uw apparaten te bewaken
 
 In deze zelfstudie leert u hoe u als operator uw Microsoft Azure IoT Central toepassing kunt gebruiken om uw apparaten te bewaken en instellingen te wijzigen.
 
@@ -50,11 +51,11 @@ De **Apparaat**-pagina voor het gesimuleerde apparaat **Aangesloten aircondition
 
 Als operator kunt u informatie over het apparaat bekijken op de pagina’s **Metingen**, **Instellingen**, **Eigenschappen**, **Regels** en  **Dashboard**. De builder heeft het **Dashboard** aangepast om belangrijke informatie weer te geven over een aangesloten airconditioningapparaat.
 
-* Kies de weergave **Dashboard** om informatie over het apparaat te bekijken:
+Kies de weergave **Dashboard** om informatie over het apparaat te bekijken.
 
-    ![Apparaatdashboard](media/tutorial-monitor-devices/initial_screen.png)
+![Apparaatdashboard](media/tutorial-monitor-devices/initial_screen.png)
 
-    De grafiek op het dashboard toont een grafische voorstelling van de temperatuur van het apparaat. U kunt ook de huidige doeltemperatuur voor het apparaat bekijken in de tegel **​​Doeltemperatuur instellen**. U besluit dat de doeltemperatuur te hoog is.
+De grafiek op het dashboard toont een grafische voorstelling van de temperatuur van het apparaat. U kunt ook de huidige doeltemperatuur voor het apparaat bekijken in de tegel **​​Doeltemperatuur instellen**. U besluit dat de doeltemperatuur te hoog is.
 
 ## <a name="remediate-an-issue"></a>Een probleem oplossen
 
@@ -64,7 +65,7 @@ Gebruik de pagina **Instellingen** om de doeltemperatuur van het apparaat te wij
 
     ![Instellingen bijwerken](media/tutorial-monitor-devices/change_settings.png)
 
-1. Kies **Dashboard** en controleer de waarde van de nieuwe instelling:
+2. Kies **Dashboard** en controleer de waarde van de nieuwe instelling:
 
     ![Bijgewerkt apparaatdashboard](media/tutorial-monitor-devices/new_settings.png)
 
@@ -77,4 +78,4 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een probleem onderzoeken
 > * Een probleem oplossen
 
-Nu u uw apparaat hebt gecontroleerd, is de voorgestelde volgende stap [Een apparaat toevoegen](tutorial-add-device.md).
+Nu u weet hoe u uw apparaat controleert, is de voorgestelde volgende stap [Een apparaat toevoegen](tutorial-add-device.md).

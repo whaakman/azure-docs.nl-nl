@@ -14,53 +14,70 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 3a7656e54181c8e8e7b6b1bd39f80ce8ed01c807
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ac5073d1abc32b7598a869750f9c5a801559e9e6
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294857"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264074"
 ---
 # <a name="update-the-sql-resource-provider"></a>Bijwerken van de SQL-resourceprovider
-Een nieuwe resourceprovider voor SQL kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Terwijl de bestaande adapter werken blijft, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken. Updates moeten worden geïnstalleerd in volgorde: u kunt de versies niet overslaan (overzicht van de versies in [implementeert de vereisten van de provider resource](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
 
-Bijwerken van de resourceprovider die u gebruikt de *UpdateSQLProvider.ps1* script. Het proces is vergelijkbaar met het proces dat wordt gebruikt voor het installeren van een resourceprovider, zoals beschreven in de [implementeert de bronprovider](.\azure-stack-sql-resource-provider-deploy.md) artikel. Het script is opgenomen in het downloaden van de resourceprovider.
+*Van toepassing op: Azure Stack geïntegreerd systemen.*
 
-De *UpdateSQLProvider.ps1* script maakt een nieuwe virtuele machine met de meest recente code van de resource-provider en de instellingen van de oude virtuele machine naar de nieuwe virtuele machine wordt gemigreerd. De instellingen die worden gemigreerd database en het hosten van server-gegevens bevatten en de vereiste DNS-record.
+Een nieuwe resourceprovider voor SQL kan worden vrijgegeven wanneer Azure Stack wordt bijgewerkt naar een nieuwe build. Hoewel de bestaande adapter werken blijft, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken.
 
-Het script vereist gebruik van dezelfde argumenten die worden beschreven voor het script DeploySqlProvider.ps1. Geef het certificaat hier ook. 
+>[!IMPORTANT]
+>In de volgorde waarin die ze worden vrijgegeven, moet u updates installeren. U kunt de versies niet overslaan. Raadpleeg de lijst met versies in [implementeert de vereisten van de provider resource](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Het is raadzaam dat u de installatiekopie van het meest recente Windows Server 2016 Core uit het beheer van de Marketplace downloaden. Als u een update installeert moet, kunt u één plaatsen. MSU-pakket in het pad van de lokale afhankelijkheid. Als meer dan één. MSU-bestand wordt gevonden, mislukt het script.
+## <a name="overview"></a>Overzicht
 
-Hieronder volgt een voorbeeld van de *UpdateSQLProvider.ps1* script dat u vanuit de PowerShell-prompt uitvoeren kunt. Zorg ervoor dat de accountgegevens en wachtwoorden zo nodig wijzigen: 
+Voor het bijwerken van de resourceprovider, gebruiken de *UpdateSQLProvider.ps1* script. Dit script is opgenomen in het downloaden van de nieuwe SQL-resourceprovider. De updateproces is vergelijkbaar met het proces waarmee [implementeert de bronprovider](.\azure-stack-sql-resource-provider-deploy.md). Het script bijwerken gebruikt dezelfde argumenten als het script DeploySqlProvider.ps1 en moet u geeft certificaatgegevens.
+
+### <a name="update-script-processes"></a>Bijwerken van de script-processen
+
+De *UpdateSQLProvider.ps1* script maakt een nieuwe virtuele machine (VM) met de meest recente resource provider-code.
+
+>[!NOTE]
+>Het is raadzaam dat u de installatiekopie van het meest recente Windows Server 2016 Core uit het beheer van de Marketplace downloaden. Als u een update installeert moet, schakelt u een **één** MSU-pakket in het pad van de lokale afhankelijkheid. Het script mislukt als er meer dan één MSU-bestand op deze locatie.
+
+Na de *UpdateSQLProvider.ps1* script maakt een nieuwe virtuele machine, wordt het script de volgende instellingen van de oude VM-provider wordt gemigreerd:
+
+* Database-informatie
+* hosting-servergegevens
+* vereiste DNS-record
+
+### <a name="update-script-powershell-example"></a>Voorbeeld van PowerShell-script bijwerken
+
+U kunt bewerken en voer het volgende script vanaf een verhoogde PowerShell ISE. Vergeet niet de accountgegevens en -wachtwoorden nodig zijn voor uw omgeving te wijzigen.
 
 > [!NOTE]
-> Het updateproces geldt alleen voor geïntegreerde systemen.
+> Het bijwerkproces is alleen van toepassing op systemen met Azure-Stack geïntegreerd.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines
+# For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
 
-# The service admin account (can be Azure AD or AD FS).
+# The service administrator account (this can be Azure AD or AD FS).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new Resource Provider VM.
+# Set the credentials for the new resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
-# And the cloudadmin credential required for privileged endpoint access.
+# Add the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
@@ -74,25 +91,26 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
   -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+  -DependencyFilesLocalPath $tempDir\cert `
+
  ```
 
 ## <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parameters
-U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als er parametervalidatie mislukt, wordt u gevraagd de vereiste parameters bevatten.
+
+U kunt de volgende parameters vanaf de opdrachtregel opgeven wanneer u het script uitvoeren. Als u dit niet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters bevatten.
 
 | Parameternaam | Beschrijving | Opmerking of de standaardwaarde |
 | --- | --- | --- |
 | **CloudAdminCredential** | De referentie voor de beheerder van de cloud, nodig voor toegang tot de bevoegde eindpunt. | _Vereist_ |
-| **AzCredential** | De referenties voor de Azure-Stack-admin-serviceaccount. Gebruik dezelfde referenties die u gebruikt voor de implementatie van Azure-Stack. | _Vereist_ |
+| **AzCredential** | De referenties voor de Azure-Stack-beheerdersaccount. Gebruik dezelfde referenties die u gebruikt voor de implementatie van Azure-Stack. | _Vereist_ |
 | **VMLocalCredential** | De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ |
 | **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het bevoegde eindpunt. |  _Vereist_ |
-| **DependencyFilesLocalPath** | Het PFX-certificaatbestand moet in deze map ook worden geplaatst. | _Optionele_ (_verplichte_ voor meerdere knooppunten) |
+| **DependencyFilesLocalPath** | U moet ook het PFX-certificaatbestand in deze map geplaatst. | _Optioneel voor één knooppunt, maar verplicht voor meerdere knooppunten_ |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ |
 | **MaxRetryCount** | Het aantal keren dat u wilt opnieuw proberen aan elke als er een storing optreedt.| 2 |
 | **RetryDuration** |De time-interval tussen nieuwe pogingen, in seconden. | 120 |
-| **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources (Zie de volgende opmerkingen). | Nee |
+| **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources. | Nee |
 | **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

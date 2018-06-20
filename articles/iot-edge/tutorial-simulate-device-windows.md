@@ -1,61 +1,62 @@
 ---
-title: Azure IoT-Edge van Windows simuleren | Microsoft Docs
-description: De runtime Azure IoT Edge op een gesimuleerd apparaat in Windows installeren en implementeren van uw eerste module
-services: iot-edge
-keywords: ''
+title: Azure IoT Edge simuleren op Windows | Microsoft Docs
+description: De Azure IoT Edge-runtime installeren op een gesimuleerd apparaat in Windows en de eerste module implementeren
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
 ms.date: 11/16/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 213a0e7cebda6a8b89ef460799cbec477b487a64
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: MT
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 7ad99a49a578de4997a2d76d48da33aba6847f3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631187"
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Azure IoT rand implementeren op een gesimuleerd apparaat in de Windows - voorbeeld
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Azure IoT Edge implementeren op een gesimuleerd apparaat in Windows - preview
 
-Azure IoT-rand kunt u voor het uitvoeren van analyses en het verwerken van gegevens op uw apparaten, in plaats van alle gegevens push naar de cloud. De rand van de IoT-zelfstudies laten zien hoe u verschillende soorten modules die zijn gebouwd op basis van de Azure-services of aangepaste code implementeren, maar u moet eerst een apparaat om te testen. 
+Met Azure IoT Edge kunt u analyses en gegevensverwerking uitvoeren op uw apparaten, in plaats van dat u alle gegevens moet doorsturen naar de cloud. In de IoT Edge-zelfstudies kunt u zien hoe u verschillende typen modules implementeert die zijn gemaakt op basis van Azure-services of aangepaste code, maar eerst hebt u een apparaat nodig dat u kunt testen. 
 
 In deze zelfstudie leert u het volgende:
 
 1. Een IoT Hub maken
-2. Een IoT-Edge-apparaat registreren
-3. Starten van de rand van de IoT-runtime
+2. Een IoT Edge-apparaat registreren
+3. De IoT Edge-runtime starten
 4. Een module implementeren
 
-![Zelfstudie-architectuur][2]
+![Zelfstudiearchitectuur][2]
 
-Het gesimuleerde apparaat die u in deze zelfstudie maakt is een monitor op een o turbine die temperatuur en vochtigheid druk gegevens genereert. U bent geïnteresseerd in deze gegevens omdat uw turbines worden uitgevoerd op verschillende niveaus van efficiëntie, afhankelijk van de voorwaarden weer. De andere zijde van Azure IoT-zelfstudies bouwen voort op het werk dat u hier doen door het implementeren van modules die de gegevens voor zakelijke inzichten analyseren. 
+Het gesimuleerde apparaat dat u in deze zelfstudie maakt, is een monitor op een windturbine waarmee temperatuur-, luchtvochtigheids- en drukgegevens worden gegenereerd. U bent geïnteresseerd in deze gegevens omdat uw turbines verschillende efficiëntieniveaus hebben, afhankelijk van de weersomstandigheden. De andere Azure IoT Edge-zelfstudies zijn een uitbreiding op het werk dat u hier doet. Hierin worden modules geïmplementeerd waarmee de gegevens worden geanalyseerd voor zakelijke inzichten. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze zelfstudie wordt ervan uitgegaan dat u een computer of virtuele machine met Windows om te simuleren dat een Internet of Things-apparaat. 
+Voor deze zelfstudie wordt ervan uitgegaan dat u een computer of virtuele machine met Windows gebruikt om een Internet of Things-apparaat te simuleren. 
 
 >[!TIP]
->Als u Windows in een virtuele machine uitvoert, schakelt u [geneste virtualisatie] [ lnk-nested] en ten minste 2 GB geheugen toewijzen. 
+>Als u Windows uitvoert op een virtuele machine, schakelt u [geneste virtualisatie][lnk-nested] in en moet u ten minste 2 GB geheugen toewijzen. 
 
-1. Zorg ervoor dat u een ondersteunde Windowsversie:
+1. Zorg ervoor dat u een ondersteunde versie van Windows gebruikt:
    * Windows 10 
    * Windows Server
-2. Installeer [Docker voor Windows] [ lnk-docker] en zorg ervoor dat deze wordt uitgevoerd.
-3. Installeer [Python op Windows] [ lnk-python] en zorg ervoor dat u de opdracht pip kunt gebruiken. Deze zelfstudie is getest met Python versies > 2.7.9 = en > = 3.5.4.  
-4. Voer de volgende opdracht voor het downloaden van het script IoT Edge-besturingselement.
+2. Installeer [Docker voor Windows][lnk-docker] en contoleer of deze wordt uitgevoerd.
+3. Installeer [Python op Windows][lnk-python] en zorg ervoor dat u de opdracht pip kunt gebruiken. Deze zelfstudie is getest met Python-versies >=2.7.9 en >=3.5.4.  
+4. Voer de volgende opdracht uit om script voor de besturing van IoT Edge te downloaden.
 
    ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Azure IoT-rand kunt uitvoeren containers Windows of Linux-containers. Als u werkt met een van de volgende versies van Windows, kunt u Windows-containers:
->    * Windows 10 vallen auteurs bijwerken
->    * WindowsServer 1709 (Build 16299)
->    * Windows IoT Core (16299 bouwen) op een apparaat x64 64
+> Met Azure IoT Edge kunnen zowel Windows- als Linux-containers worden uitgevoerd. Als u werkt met een van de volgende Windows-versies, kunt u Windows-containers gebruiken:
+>    * Windows 10 Fall Creators Update
+>    * Windows Server 1709 (Build 16299)
+>    * Windows IoT Core (Build 16299) op een x64-apparaat
 >
-> Volg de instructies in voor Windows IoT Core [IoT rand runtime installeren op Windows IoT Core][lnk-install-iotcore]. Anders gewoon [Docker voor het gebruik van Windows-containers configureren][lnk-docker-containers]. Gebruik de volgende opdracht voor het valideren van uw vereisten:
+> Voor Windows IoT Core volgt u de instructies in [IoT Edge-runtime installeren op Windows IoT Core][lnk-install-iotcore]. Anders [configureert u Docker voor het gebruik van Windows-containers][lnk-docker-containers]. Gebruik de volgende opdracht om de vereisten te valideren:
 >    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -63,27 +64,27 @@ Deze zelfstudie wordt ervan uitgegaan dat u een computer of virtuele machine met
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-De zelfstudie begint met het maken van uw IoT-Hub.
+Begin aan de zelfstudie door uw IoT Hub te maken.
 ![IoT Hub maken][3]
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
 
-## <a name="register-an-iot-edge-device"></a>Een IoT-Edge-apparaat registreren
+## <a name="register-an-iot-edge-device"></a>Een IoT Edge-apparaat registreren
 
-Een IoT-Edge-apparaat registreren bij uw nieuwe IoT-Hub.
+Registreer een IoT Edge-apparaat bij uw net gemaakte IoT Hub.
 ![Een apparaat registreren][4]
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
-## <a name="configure-the-iot-edge-runtime"></a>Configureren van de rand van de IoT-runtime
+## <a name="configure-the-iot-edge-runtime"></a>De IoT Edge-runtime configureren
 
-Installeren en starten van de rand van Azure IoT-runtime op uw apparaat. 
+Installeer en start de Azure IoT Edge-runtime op uw apparaat. 
 ![Een apparaat registreren][5]
 
-De runtime IoT-rand wordt geïmplementeerd op alle rand van de IoT-apparaten. Het omvat twee modules. De **IoT rand agent** vereenvoudigt de implementatie en controle van modules die zich in de rand van de IoT-apparaat. De **rand van de IoT hub** beheert de communicatie tussen het apparaat aan de rand van de IoT-modules en tussen het apparaat en IoT Hub. Wanneer u de runtime op het nieuwe apparaat configureert, worden alleen de rand van de IoT-agent wordt gestart op het eerste. Wanneer u een module implementeert, wordt de rand van de IoT-hub later geleverd. 
+De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. Deze bevat twee modules. Met de **IoT Edge-agent** worden de implementatie en bewaking van modules op het IoT Edge-apparaat mogelijk gemaakt. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd. Wanneer u de runtime op het nieuwe apparaat configureert, wordt in het begin alleen de IoT Edge-agent gestart. De IoT Edge-hub komt later, wanneer u een module implementeert. 
 
 
-Configureer de runtime door uw verbindingsreeks rand van de IoT-apparaat uit de vorige sectie.
+Configureer de runtime met behulp van de verbindingsreeks van het IoT Edge-apparaat uit de vorige sectie.
 
 ```cmd
 iotedgectl setup --connection-string "{device connection string}" --nopass
@@ -95,7 +96,7 @@ Start de runtime.
 iotedgectl start
 ```
 
-Controleer de Docker om te zien of de rand van de IoT-agent wordt uitgevoerd als een module.
+Controleer Docker om te zien of de IoT Edge-agent wordt uitgevoerd als een module.
 
 ```cmd
 docker ps
@@ -105,7 +106,7 @@ docker ps
 
 ## <a name="deploy-a-module"></a>Een module implementeren
 
-Uw Azure-IoT-randapparaat beheren vanuit de cloud voor het implementeren van een module van telemetriegegevens naar IoT Hub verzendt.
+Beheer uw Azure IoT Edge-apparaat vanuit de cloud om een module te implementeren waarmee telemetriegegevens worden verzonden naar IoT Hub.
 ![Een apparaat registreren][6]
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -113,34 +114,34 @@ Uw Azure-IoT-randapparaat beheren vanuit de cloud voor het implementeren van een
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
-In deze zelfstudie hebt gemaakt van een nieuwe IoT Edge-apparaat en de rand van de IoT-runtime is geïnstalleerd. Vervolgens gebruikt u de Azure-portal voor de push-een IoT-Edge-module worden uitgevoerd op het apparaat zonder dat wijzigingen aanbrengen in het apparaat zelf. In dit geval wordt maakt de module die u gepusht milieu gegevens die u voor de zelfstudies gebruiken kunt. 
+In deze zelfstudie hebt u een nieuw IoT Edge-apparaat gemaakt en de IoT Edge-runtime erop geïnstalleerd. Vervolgens hebt u Azure Portal gebruikt om een IoT Edge-module te pushen om deze uit te voeren op het apparaat zonder dat er wijzigingen in het apparaat zelf hoeven te worden aangebracht. In dit geval worden met de module die u hebt gepusht, omgevingsgegevens gemaakt die u voor de zelfstudies kunt gebruiken. 
 
-Open de opdrachtprompt op de computer die uw gesimuleerde apparaat nogmaals uit te voeren. Bevestig dat de module op basis van de cloud geïmplementeerd op uw IoT-randapparaat wordt uitgevoerd. 
+Open nogmaals de opdrachtprompt op de computer waarop het gesimuleerde apparaat wordt uitgevoerd. Bevestig dat de module die vanuit de cloud is geïmplementeerd, op uw IoT Edge -apparaat wordt uitgevoerd. 
 
 ```cmd
 docker ps
 ```
 
-![Drie modules op uw apparaat weergeven](./media/tutorial-simulate-device-windows/docker-ps2.png)
+![Drie modules op uw apparaat bekijken](./media/tutorial-simulate-device-windows/docker-ps2.png)
 
-Bekijk de berichten worden verzonden vanaf de module tempSensor naar de cloud. 
+Bekijk de berichten die vanaf de module tempSensor naar de cloud worden verzonden. 
 
 ```cmd
 docker logs -f tempSensor
 ```
 
-![De gegevens van uw module weergeven](./media/tutorial-simulate-device-windows/docker-logs.png)
+![De gegevens van uw module bekijken](./media/tutorial-simulate-device-windows/docker-logs.png)
 
-U kunt ook weergeven met de telemetrie verzenden van het apparaat met behulp van de [IoT Hub explorer hulpprogramma][lnk-iothub-explorer]. 
+U kunt ook de [IoT Hub-verkenner][lnk-iothub-explorer] gebruiken om de telemetrie te bekijken die het apparaat verzendt. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt gemaakt van een nieuwe IoT Edge-apparaat en de Azure IoT rand cloud-interface gebruikt voor het implementeren van code op het apparaat. U hebt nu een gesimuleerd apparaat genereren van onbewerkte gegevens over de omgeving. 
+In deze zelfstudie hebt u een nieuw IoT Edge-apparaat gemaakt en de Azure IoT Edge-cloudinterface gebruikt om code te implementeren op het apparaat. U hebt nu een gesimuleerd apparaat waarmee onbewerkte gegevens over de omgeving worden gegenereerd. 
 
-Deze zelfstudie is de vereiste voor alle van de andere zijde van de IoT-zelfstudies. U kunt door te gaan naar een van de andere zelfstudies voor meer informatie over hoe Azure IoT rand kunt u deze gegevens tot zakelijke inzichten aan de rand.
+Deze zelfstudie is vereist voor alle andere IoT Edge-zelfstudies. U kunt doorgaan met elke andere zelfstudie om te leren hoe Azure IoT Edge u verder kan helpen bij het omzetten van uw gegevens in bedrijfsinzichten.
 
 > [!div class="nextstepaction"]
-> [Ontwikkelen en implementeren van C#-code als een module](tutorial-csharp-module.md)
+> [C#-code ontwikkelen en implementeren als een module](tutorial-csharp-module.md)
 
 <!-- Images -->
 [2]: ./media/tutorial-install-iot-edge/install-edge-full.png

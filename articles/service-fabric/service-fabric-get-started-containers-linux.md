@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: a38eb1f291d00d942ff0a1579b20bca7e012991a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642934"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213121"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Uw eerste Service Fabric-containertoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -165,32 +165,18 @@ Om een Service Fabric-containertoepassing te maken, opent u een terminalvenster 
 
 Geef uw toepassing een naam (bijvoorbeeld `mycontainer`) evenals de toepassingsservice (bijvoorbeeld `myservice`).
 
-Geef voor de naam van de installatiekopie de URL op voor de containerinstallatiekopie in een containerregister (bijvoorbeeld: ´myregistry.azurecr.io/samples/helloworldapp´). 
+Voor de naam van de installatiekopie, moet u de URL opgeven voor de container-installatiekopie in een container register (bijvoorbeeld ' myregistry.azurecr.io/samples/helloworldapp'). 
 
 Omdat voor deze installatiekopie een workloadinvoerpunt is gedefinieerd, hoeft u niet expliciet invoeropdrachten op te geven (opdrachten worden uitgevoerd in de container, zodat de container na het opstarten actief blijft). 
 
 Geef '1' exemplaar op.
 
+Geef de poorttoewijzing in de juiste indeling. Voor dit artikel, moet u opgeven ```80:4000``` als de poorttoewijzing. Hierdoor u die hebt geconfigureerd, kunt u alle inkomende aanvragen op poort 4000 binnenkort op de hostcomputer wordt omgeleid naar poort 80 voor de container.
+
 ![Service Fabric Yeoman-generator voor containers][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>Poorttoewijzing en containeropslagplaatsverificatie configureren
-Uw containerservice heeft een eindpunt voor communicatie nodig. Voeg nu het protocol en de poort toe, en typ onder de tag ´Resources´ een `Endpoint` in het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de containerservice naar poort 4000: 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
-Door `UriScheme` op te geven wordt het eindpunt van de container automatisch geregistreerd bij de Service Fabric Naming-service voor meer zichtbaarheid. Een volledig voorbeeld van een ServiceManifest.xml-bestand vindt u aan het einde van dit artikel. 
-
-Configureer de poorttoewijzing poort-naar-host voor de container door een `PortBinding`-beleid op te geven in `ContainerHostPolicies` van het bestand ApplicationManifest.xml. Voor dit artikel geldt: `ContainerPort` is 80 (de container gebruikt poort 80, zoals opgegeven in het Dockerfile) en `EndpointRef` is myServiceTypeEndpoint (het eindpunt dat is gedefinieerd in het servicemanifest). Binnenkomende aanvragen naar de service op poort 4000 worden toegewezen aan poort 80 op de container. Als de container moet verifiëren bij een persoonlijke privéopslagplaats, voegt u `RepositoryCredentials` toe. Voeg voor dit artikel de accountnaam en het wachtwoord in voor het containerregister myregistry.azurecr.io. Zorg ervoor dat het beleid wordt toegevoegd onder de tag ´ServiceManifestImport´ dat overeenkomt met het juiste servicepakket.
+## <a name="configure-container-repository-authentication"></a>Container opslagplaats verificatie configureren
+ Als de container moet verifiëren bij een persoonlijke privéopslagplaats, voegt u `RepositoryCredentials` toe. Voeg voor dit artikel de accountnaam en het wachtwoord in voor het containerregister myregistry.azurecr.io. Zorg ervoor dat het beleid wordt toegevoegd onder de 'ServiceManifestImport'-tag die overeenkomt met het juiste servicepakket.
 
 ```xml
    <ServiceManifestImport>
@@ -227,14 +213,6 @@ U kunt het gedrag van de **STATUSCONTROLE** voor elke container configureren doo
 Standaard is *IncludeDockerHealthStatusInSystemHealthReport* ingesteld op **true** en *RestartContainerOnUnhealthyDockerHealthStatus* op **false**. Als *RestartContainerOnUnhealthyDockerHealthStatus* is ingesteld op **true**, wordt een herhaaldelijk niet goed werkende container opnieuw opgestart (mogelijk op andere knooppunten).
 
 Als u de **STATUSCONTROLE**-integratie voor het hele Service Fabric-cluster wilt uitschakelen, stelt u [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) in op **false**.
-
-## <a name="build-and-package-the-service-fabric-application"></a>De Service Fabric-toepassing bouwen en inpakken
-De Service Fabric Yeoman-sjablonen bevatten een bouwscript voor [Gradle](https://gradle.org/), dat u kunt gebruiken om de toepassing via de terminal te maken. Ga als volgt te werk om de toepassing te maken en in te pakken:
-
-```bash
-cd mycontainer
-gradle
-```
 
 ## <a name="deploy-the-application"></a>De toepassing implementeren
 Als de toepassing is gemaakt, kunt u deze met behulp van de Service Fabric-CLI implementeren in het lokale cluster.

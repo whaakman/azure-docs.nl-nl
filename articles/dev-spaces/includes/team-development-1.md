@@ -10,41 +10,42 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 404e238e51b7ac8b799f413965560a8d42ccc5df
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: 41418cb908f2bf149a3d0087728652b44cd6b19e
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825507"
 ---
-Tot nu toe hebt u uitgevoerd van uw toepassing code alsof u de enige ontwikkelaar werken op de app. In deze sectie leert u hoe Azure Dev spaties stroomlijnt het teamontwikkeling:
-* Schakel in een team van ontwikkelaars kunnen werken in dezelfde ontwikkelomgeving.
-* Biedt ondersteuning voor elke ontwikkelaar sequentieel op hun code in isolatie en geen last van anderen op te splitsen.
-* Testen code end-to-end, voorafgaand aan code commit, zonder te hoeven maken mocks of afhankelijkheden simuleren.
+Tot nu toe hebt u de code van de toepassing uitgevoerd alsof u de enige ontwikkelaar bent die werkt aan de app. In deze sectie leert u hoe teamontwikkeling wordt gestroomlijnd met Azure Dev Spaces:
+* Laat een team ontwikkelaars in dezelfde omgeving werken door ze naar behoefte in een gedeelde ontwikkelruimte of in individuele ontwikkelruimten te laten werken.
+* Biedt ondersteuning om alle ontwikkelaars hun code geïsoleerd te laten herhalen, zonder dat ze het gevaar lopen dat ze andermans code breken.
+* Test code end-to-end, voordat u de code doorvoert, zonder nagebootste code te maken of afhankelijkheden te simuleren.
 
-## <a name="challenges-with-developing-microservices"></a>Uitdagingen bij het ontwikkelen van microservices
-Uw voorbeeldtoepassing zeer complex is op dit moment niet. Maar in de praktijk-ontwikkeling uitdagingen snel ontstaan als u meer services toevoegen en uitbreiden van het ontwikkelteam.
+### <a name="challenges-with-developing-microservices"></a>Uitdagingen bij het ontwikkelen van microservices
+Momenteel is uw voorbeeldcode niet erg complex. Maar in de pratijk krijgt u bij het ontwikkelen al snel te maken met uitdagingen wanneer u meer services toevoegt en het ontwikkelteam groeit.
 
-Een afbeelding toevoegen aan een service die communiceert met andere services tientallen werkt.
+Stel, bijvoorbeeld, dat u werkt aan een service die werkt met een heel aantal andere services.
 
-- Het kan worden niet realistisch om alles voor ontwikkeling lokaal worden uitgevoerd. Uw Developer-computer heeft misschien niet voldoende resources om de hele app uitvoeren. Of wellicht uw app heeft eindpunten die moeten worden openbaar bereikbaar is (bijvoorbeeld uw app reageert op een webhook van een SaaS-app).
+- Alles lokaal uitvoeren voor ontwikkeling is dan misschien niet zo realistisch. Uw ontwikkelmachine heeft mogelijk niet genoeg resources om de hele app uit te voeren. Of misschien heeft uw app eindpunten die openbaar bereikbaar moeten zijn (bijvoorbeeld als de app reageert op een webhook vanuit een SaaS-app).
 
-- U kunt proberen de services die u afhankelijk van zijn alleen worden uitgevoerd, maar dit betekent dat u zou moeten weten volledige sluiting afhankelijkheden (bijvoorbeeld de afhankelijkheden van afhankelijkheden). Of is een kwestie van het niet eenvoudig weten hoe het bouwen en uitvoeren van de afhankelijkheden omdat u niet werken.
-- Sommige ontwikkelaars gebruik simuleren of mocking een groot deel van hun serviceafhankelijkheden. Deze aanpak kunt soms maar snel het beheren van deze mocks kunt uitvoeren op een eigen inspanning ontwikkeling. Plus, deze benadering leidt tot uw Developer-omgeving op zoek heel verschillend voor productie en subtiele fouten kunnen creep in.
-- Hieruit volgt dat tijdens het doorzoeken van elk type van de end-to-end testen moeilijk. Testen van de integratie kan alleen in de praktijk zich voordoen na doorvoeren, wat betekent dat u problemen Zie verderop in het ontwikkelingsproces bevindt.
+- U kunt proberen om alleen de services uit te voeren waarvan u afhankelijk bent, maar dit betekent dat u bekend moet zijn met de volledige sluiting van afhankelijkheden (bijvoorbeeld de afhankelijkheden van afhankelijkheden). Of misschien weet u zo gauw niet hoe u de afhankelijkheden bouwt en uitvoert omdat u niet met ze hebt gewerkt.
+- Sommige ontwikkelaars maken gebruik van het simuleren of nabootsen van veel van hun serviceafhankelijkheden. Deze aanpak kan soms helpen, maar het beheren van deze nabootsingen brengt ook al snel uitdagingen op het gebied van ontwikkelen met zich mee. Bovendien laat deze aanpak uw ontwikkelomgeving er heel anders uitzien dan de productieomgeving, waardoor subtiele fouten kunnen optreden.
+- Een direct gevolg is dat end-to-endtesten moeilijk wordt. De integratie kan alleen realistisch worden getest na een doorvoering, wat betekent dat problemen pas later in de ontwikkelcyclus zichtbaar worden.
 
 ![](../media/common/microservices-challenges.png)
 
 
-## <a name="work-in-a-shared-development-environment"></a>Werken in een gedeelde ontwikkelomgeving
-Met Azure Dev spaties, kunt u instellen een *gedeelde* ontwikkelomgeving in Azure. Elke ontwikkelaar kunnen zich concentreren op slechts hun deel van de toepassing en iteratief kunt ontwikkelen *vooraf code doorvoert* in een omgeving die al bevat alle andere services en cloudbronnen die afhankelijk zijn van hun scenario's. Afhankelijkheden zijn altijd up-to-date en ontwikkelaars werken op een manier die productie weerspiegelt.
+### <a name="work-in-a-shared-dev-space"></a>In een gedeelde ontwikkelruimte werken
+Met Azure Dev Spaces kunt u een *gedeelde* ontwikkelruimte instellen in Azure. Elke ontwikkelaar kan zich richten op het eigen deel van de toepassing, en kan *vooraf doorgevoerde code* iteratief doorvoeren in een ontwikkelruimte die alle andere services en cloudresources al bevat waarvan de scenario’s afhankelijk zijn. Afhankelijkheden zijn altijd up-to-date en ontwikkelaars werken op een manier die de productie weerspiegelt.
 
-## <a name="work-in-your-own-space"></a>Werken in uw eigen ruimte
-Tijdens het ontwikkelen van code voor uw service en voordat u klaar bent om te controleren in, code vaak niet in goede staat verkeren. U bent nog steeds iteratief vormgeven van, testen en over het experimenteren met oplossingen. Azure Dev spaties biedt het concept van een **ruimte**, waarmee u werkt in isolatie en zonder bang van de leden van uw team.
+### <a name="work-in-your-own-space"></a>Werken in uw eigen ruimte
+Terwijl u code ontwikkelt voor uw service en voordat u klaar bent om deze uit te geven, is de codestatus meestal niet in orde. U bent de code nog steeds iteratief aan het vormen en testen, en aan het experimenten met oplossingen. Azure Dev Spaces biedt het concept van een **ruimte**, waardoor u geïsoleerd kunt werken, zonder dat u de code van teamleden per ongeluk breekt.
 
 > [!Note]
-> Voordat u verder, alle vensters voor VS-Code voor beide services sluit en voer vervolgens `azds up -d` in elk van de hoofdmap van de service. (Dit is een Preview-beperking.)
+> Sluit voordat u verdergaat all VS Code-vensters voor beide services en voer `azds up -d` uit in elke hoofdmap van de service. (Dit is een Preview-beperking.)
 
-U gaat nu een nader bekijken waarin de services worden uitgevoerd. Voer de `azds list` opdracht, en u ziet de uitvoer is vergelijkbaar met het volgende:
+Laten we eens beter kijken naar waar de services momenteel worden uitgevoerd. Voer de opdracht `azds list` uit en de uitvoer is vergelijkbaar met de volgende uitvoer:
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points
@@ -53,15 +54,15 @@ mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
 webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
-De ruimte kolom ziet u dat beide services worden uitgevoerd in een ruimte met de naam `default`. Iedereen die Hiermee opent u de openbare URL en gaat u naar de web-app wordt aangeroepen het codepad al eerder aangegeven die wordt uitgevoerd voor beide services. Nu Stel dat u wilt doorgaan met het ontwikkelen van `mywebapi`. Hoe kunt u codewijzigingen aanbrengen en deze testen en andere ontwikkelaars die gebruik van de dev-omgeving maken niet onderbreken? Hiervoor moet u uw eigen space instellen.
+De kolom Ruimte toont dat beide services in een ruimte genaamd `default` worden uitgevoerd. Iedereen die de openbare URL opent en naar de web-app navigeert, roept het codepad aan dat u eerder hebt geschreven en dat actief is in beide services. Stel nu dat u door wilt gaan met de ontwikkeling van `mywebapi`. Hoe kunt u wijzigingen aanbrengen in de code en die testen zonder andere ontwikkelaars te onderbreken die dezelfde ontwikkelruimte gebruiken? Hiervoor moet u uw eigen ruimte instellen.
 
-## <a name="create-a-space"></a>Een spatie maken
-Uitvoeren van uw eigen versie van `mywebapi` in een andere dan `default`, kunt u uw eigen ruimte met behulp van de volgende opdracht:
+### <a name="create-a-space"></a>Een ruimte maken
+Om uw eigen versie van `mywebapi` uit te voeren in een andere ruimte dan `default`, kunt u uw eigen ruimte maken met de volgende opdracht:
 
 ``` 
 azds space create --name scott
 ```
 
-Ik heb mijn naam voor de nieuwe ruimte gebruikt dan die van persoonsgegevens aan mijn peers is de ruimte die ik werk in in het bovenstaande voorbeeld, maar alles wat u graag en flexibel over wat het betekent, zoals 'sprint4' of 'demo.' aanroepen
+In bovenstaand voorbeeld heb ik mijn naam gebruikt voor een nieuwe ruimte zodat die herkenbaar is voor mijn collega’s als de ruimte waarin ik werk. U kunt het echter noemen zoals u wilt en flexibel zijn voor wat betreft de betekenis, zoals ‘sprint4’ of ‘demo’.
 
-Voer de `azds space list` opdracht om een lijst weer van alle spaties in de dev-omgeving. Een sterretje (*) weergegeven naast de momenteel geselecteerde ruimte. In het geval is de ruimte die met de naam 'scott' automatisch geselecteerd wanneer deze is gemaakt. U kunt nog een spatie selecteren op elk gewenst moment de `azds space select` opdracht.
+Voer de opdracht `azds space list` uit om een lijst te krijgen van alle ruimten in de ontwikkelomgeving. Naast de momenteel geselecteerde ruimte verschijnt een asterisk (*). In uw geval is de ruimte met de naam ‘scott’ automatisch geselecteerd toen die werd gemaakt. U kunt op elk moment een andere ruimte selecteren met de opdracht `azds space select`.

@@ -5,41 +5,42 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 06/04/2018
 ms.author: raynew
-ms.openlocfilehash: 724144e8f2f2f76c4ad98b4c5cad84e69dadadbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209722"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737102"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure
 
-Deze zelfstudie laat zien hoe u een herstelanalyse kunt uitvoeren voor een on-premises machine naar Azure, met behulp van een failovertest. Tijdens een dergelijke analyse wordt uw replicatiestrategie gevalideerd zonder dat er kans op gegevensverlies is. In deze zelfstudie leert u het volgende:
+[Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps actief blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
+
+- Dit is de vierde zelfstudie in een reeks waarin u ziet hoe u herstel naar Azure na een noodgeval kunt instellen voor on-premises VMware-VM’s. Er wordt van uitgegaan dat u de eerste twee zelfstudies hebt voltooid:
+    - In de [eerste zelfstudie](tutorial-prepare-azure.md) hebben we de Azure-onderdelen ingesteld die nodig zijn voor VMware-noodherstel.
+    - In de [tweede zelfstudie](vmware-azure-tutorial-prepare-on-premises.md) hebben we on-premises onderdelen voor noodherstel voorbereid en de vereisten bekeken.
+    - In de [derde zelfstudie](vmware-azure-tutorial.md) hebben we replicatie ingesteld en ingeschakeld voor de on-premises VMware-VM.
+- In deze zelfstudies ziet u steeds het eenvoudigste implementatiepad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. 
+
+
+In dit artikel laten we zien hoe u herstelanalyse kunt uitvoeren voor on-premises machines naar Azure, met behulp van een failovertest. Tijdens een dergelijke analyse wordt uw replicatiestrategie gevalideerd zonder dat er kans op gegevensverlies is. Leer hoe u het volgende doet:
 
 > [!div class="checklist"]
 > * Een geïsoleerd netwerk instellen voor de failovertest
 > * Voorbereiden om verbinding te maken met de virtuele Azure-machine na de failover
 > * Een failovertest uitvoeren voor één machine
 
-Dit is de vierde zelfstudie in een reeks. In deze zelfstudie wordt ervan uitgegaan dat u de taken in de vorige zelfstudies al hebt voltooid.
-
-1. [Azure voorbereiden](tutorial-prepare-azure.md)
-2. [On-premises VMware voorbereiden](tutorial-prepare-on-premises-vmware.md)
-3. [Herstel na noodgeval instellen](tutorial-vmware-to-azure.md)
+In deze zelfstudie wordt VMware-noodherstel naar Azure ingesteld met de meest eenvoudige instellingen. Lees de [handleiding](site-recovery-test-failover-to-azure.md) als u meer wilt leren over de stappen van een testfailover.
 
 ## <a name="verify-vm-properties"></a>VM-eigenschappen verifiëren
 
-Voordat u een failovertest uitvoert, controleert u de eigenschappen van de virtuele machine en zorgt u ervoor dat de VM met Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], [de VM met VMware of de fysieke server](vmware-physical-azure-support-matrix.md#replicated-machines) voldoet aan de Azure-vereisten.
+Voordat u een failovertest uitvoert, controleert u de eigenschappen van de VMware-VM en zorgt u ervoor dat de VM met Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], [de VM met VMware of de fysieke server](vmware-physical-azure-support-matrix.md#replicated-machines) voldoet aan de Azure-vereisten.
 
-1. Klik in **Beveiligde items** op **Gerepliceerde items** > VM.
+1. Klik in **Beveiligde items** op **Gerepliceerde items** > en de VM.
 2. In het deelvenster **Gerepliceerd item** bevindt zich een overzicht van VM-informatie, status, en de laatste beschikbare herstelpunten. Klik op **Eigenschappen** om meer details te bekijken.
-3. In **Berekening en netwerk** kunt u de Azure-naam, de resourcegroep, de doelgrootte, [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md) en instellingen van de beheerde schijf wijzigen
-   
-      >[!NOTE]
-      Failback naar on-premises Hyper-V-machines vanaf virtuele machines in Azure met beheerde schijven wordt momenteel niet ondersteund. Gebruik de optie met beheerde schijven alleen voor failover als u van plan bent om on-premises VM's te migreren naar Azure, zonder failback te configureren.
-   
+3. In **Berekening en netwerk** kunt u de Azure-naam, resourcegroep, doelgrootte, beschikbaarheidsset, en instellingen van de beheerde schijf wijzigen.
 4. U kunt de netwerkinstellingen bekijken en wijzigen, inclusief het netwerk-/subnet waarin de Azure VM zich na failover bevindt en het IP-adres dat eraan wordt toegewezen.
 5. In **Schijven** ziet u informatie over het besturingssysteem en de gegevensschijven van de VM.
 

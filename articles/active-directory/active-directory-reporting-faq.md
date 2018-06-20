@@ -3,24 +3,24 @@ title: Azure Active Directory-Veelgestelde vragen over rapportage | Microsoft Do
 description: Azure Active Directory-Veelgestelde vragen over rapportage.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf253e0b8451b3798360a657485289f089239c70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588587"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232361"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory-Veelgestelde vragen over rapportage
 
@@ -72,7 +72,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 **V: hoe veel records die ik vanuit Azure-portal kunt downloaden?**
 
-**A:** kunt u maximaal 120 K records downloaden van de Azure-portal. De records worden gesorteerd op *meest recente* en standaard krijgt u de meest recente 120 K-records. 
+**A:** u kunt maximaal 5000 records downloaden van de Azure-portal. De records worden gesorteerd op *meest recente* en standaard krijgt u de meest recente 5000 records. Kies uw filtervoorwaarden voor record grootte van meer dan 5000, en klik vervolgens op de *Script* knop op de Azure-portal. Hiermee wordt een PowerShell-script kan worden uitgevoerd voor het genereren van een CSV-bestand van alle records die overeenkomen met uw filtercriteria gedownload. U moet het PowerShell-script uitvoeren *beheerdersmodus*. Zie voor meer informatie [aanmelden activiteiten downloaden](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
 
 ---
 
@@ -84,7 +84,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 **V: hoe krijg ik een premium-licentie**
 
-**A:** Zie [aan de slag met Azure Active Directory Premium](active-directory-get-started-premium.md) voor een deze vraag te beantwoorden.
+**A:** Zie [aan de slag met Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) voor een deze vraag te beantwoorden.
 
 ---
 

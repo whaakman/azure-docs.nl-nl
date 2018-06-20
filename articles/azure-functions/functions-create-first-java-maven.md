@@ -11,21 +11,22 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/02/2018
+ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f9b8046e0fb730f55dbdacf567869ae88df2a524
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600592"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Uw eerste functie maken met Java en Maven (Preview)
 
 > [!NOTE] 
 > Java voor Azure Functions is momenteel in preview.
 
-In deze snelstart vindt u instructies voor het maken van een [serverloos](https://azure.microsoft.com/overview/serverless-computing/) Functions-project met Maven. Daarnaast wordt uitgelegd hoe u het project lokaal kunt testen en vervolgens kunt implementeren naar Azure Functions. Wanneer u bent klaar, hebt u een door HTTP getriggerde functie-app die in Azure wordt uitgevoerd.
+In deze quickstart vindt u instructies voor het maken van een [serverloos](https://azure.microsoft.com/overview/serverless-computing/) Functions-project met Maven. Daarnaast wordt uitgelegd hoe u het project lokaal kunt testen en vervolgens kunt implementeren naar Azure Functions. Wanneer u bent klaar, hebt u een door HTTP getriggerde functie-app die in Azure wordt uitgevoerd.
 
 ![Hello World-functie aanroepen vanaf de opdrachtregel met cURL](media/functions-create-java-maven/hello-azure.png)
 
@@ -39,27 +40,13 @@ Als u functie-apps wilt ontwikkelen met behulp van Java, moet het volgende zijn 
 -  [Azure-CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
-> De omgevingsvariabele JAVA_HOME moet zijn ingesteld op de installatielocatie van de JDK om deze snelstart te kunnen voltooien.
+> De omgevingsvariabele JAVA_HOME moet zijn ingesteld op de installatielocatie van de JDK om deze quickstart te kunnen voltooien.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) is een lokale ontwikkelingsomgeving voor het schrijven, uitvoeren en debuggen van Azure Functions. 
+Azure Functions Core Tools is een lokale ontwikkelingsomgeving voor het schrijven, uitvoeren en debuggen van Azure Functions vanaf de terminal of opdrachtprompt. 
 
-Ga voor de installatie naar de sectie [Installeren](https://github.com/azure/azure-functions-core-tools#installing) van het project Azure Functions Core Tools voor specifieke instructies voor uw besturingssysteem.
-
-U kunt deze ook handmatig installeren met [npm](https://www.npmjs.com/), opgenomen in [Node.js](https://nodejs.org/), na de volgende vereiste installaties:
-
--  [.NET Core](https://www.microsoft.com/net/core), nieuwste versie.
--  [Node.js](https://nodejs.org/download/), versie 8.6 of hoger.
-
-Voer het volgende uit om door te gaan met installeren op basis van npm:
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> Als er problemen zijn bij het installeren van Azure Functions Core Tools versie 2.0, raadpleegt u [Runtime versie 2.x](/azure/azure-functions/functions-run-local#version-2x-runtime).
+Installeer [versie 2 van Core Tools](functions-run-local.md#v2) op uw lokale computer voordat u doorgaat.
 
 ## <a name="generate-a-new-functions-project"></a>Een nieuw Functions-project genereren
 

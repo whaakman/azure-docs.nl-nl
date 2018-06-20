@@ -3,17 +3,16 @@ title: Contoso-Set van een infrastructuur voor migratie | Microsoft Docs
 description: Meer informatie over hoe Contoso stelt u een Azure-infrastructuur voor migratie naar Azure.
 services: azure-migrate
 author: rayne-wiselman
-manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 8b7f0675c1bbf378d02eb52843caf27a1dce2fb8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: bf861dc6317a8cc3a3ed862dfd6c133a1dcbe685
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301198"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232369"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implementeren van een migratie-infrastructuur
 
@@ -42,11 +41,12 @@ In dit artikel die Contoso alle Infrastructuurelementen instellen, moeten ze de 
 
 Voordat u ze kunnen migreren naar Azure, is het essentieel dat Contoso hun infrastructuur voorbereiden.  Er zijn in het algemeen vijf brede gebieden die ze nodig hebben bij het nadenken over:
 
-1. **Azure-abonnementen**: hoe worden ze kopen van Azure en communiceren met de Azure-platform en -services?
-2. **Hybride identiteit**: hoe worden ze beheren en toegang tot on-premises en Azure-resources na de migratie controleren? Hoe ze uitbreiden of identiteitsbeheer verplaatsen naar de cloud?
-3. **Herstel na noodgevallen en herstelmogelijkheden**: hoe zorgt ze ervoor dat de apps en de infrastructuur robuuste zijn als stroomstoringen en noodsituaties optreedt?
-4. **Networking**: hoe moeten ze het ontwerpen van uw netwerkinfrastructuur en stel de verbinding tussen hun on-premises datacentrum en Azure?
-5. **Beveiliging en beheeracties**: hoe ze beveiligt hun hybride/Azure-implementatie, en houd het afgestemd op beveiliging en beheeracties vereisten?
+**Stap 1: Azure-abonnementen**: hoe worden ze kopen van Azure en communiceren met de Azure-platform en -services?  
+**Stap 2: Hybride identiteit**: hoe worden ze beheren en toegang tot on-premises en Azure-resources na de migratie controleren? Hoe ze uitbreiden of identiteitsbeheer verplaatsen naar de cloud?  
+**Stap 3: Herstel na noodgevallen en herstelmogelijkheden**: hoe zorgt ze ervoor dat de apps en de infrastructuur robuuste zijn als stroomstoringen en noodsituaties optreedt?  
+**Stap 4: Networking**: hoe moeten ze het ontwerpen van uw netwerkinfrastructuur en stel de verbinding tussen hun on-premises datacentrum en Azure?  
+**Stap 5: Beveiliging**: hoe worden ze hun hybride/Azure-implementatie beveiligen?  
+**Stap 6: Governance**: hoe behoudt ze hun implementatie die is afgestemd op beveiliging en beheeracties vereisten?
 
 ## <a name="before-you-start"></a>Voordat u begint
 
@@ -575,7 +575,7 @@ Na het bijwerken van de netwerkinstellingen zijn Contoso gereed voor het bouwen 
 
      ![Wizard Nieuw Volume](./media/contoso-migration-infrastructure/volume-wizard.png)
 
-7. In Serverbeheer het toevoegen van de **Active Directory Domain Services** rol. Ze klikt u vervolgens configureren de virtuele machine als een domeincontroller.
+7. Klik in Serverbeheer het toevoegen van de **Active Directory Domain Services** rol. Ze klikt u vervolgens configureren de virtuele machine als een domeincontroller.
 
       ![Serverfunctie](./media/contoso-migration-infrastructure/server-role.png)  
 
@@ -780,4 +780,4 @@ Met deze infrastructuur aanwezig nu ze verplaatsen op en probeer uit migratie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als een eerste migratiescenario Contoso gaat hun lokale SmartHotel twee lagen app uitgevoerd op virtuele VMware-machines naar Azure migreren. Deze moeten virtuele machines van de app virtuele Azure-machines en de app-database migreren naar een Azure SQL beheerd-exemplaar.
+Als een eerste migratiescenario Contoso gaat [evalueren hun lokale SmartHotel twee lagen app voor migratie naar Azure](contoso-migration-assessment.md). 

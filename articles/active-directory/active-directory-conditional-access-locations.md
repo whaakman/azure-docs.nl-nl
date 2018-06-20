@@ -1,5 +1,5 @@
 ---
-title: Voorwaarden van de locatie van voorwaardelijke toegang van Azure Active Directory | Microsoft Docs
+title: Wat is de voorwaarden van de locatie van voorwaardelijke toegang van Azure Active Directory? | Microsoft Docs
 description: Informatie over het gebruik van de voorwaarde locatie toegang tot uw cloud-apps op basis van de netwerklocatie van de gebruiker.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1b3dd172e42ecbaa20bbd3763fa13651e1663adb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e5924262d9965c4e6732f8c23031cd575dc7958d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725289"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232385"
 ---
-# <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden van de locatie van voorwaardelijke toegang van Azure Active Directory 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Wat is de voorwaarde van de locatie van voorwaardelijke toegang van Azure Active Directory? 
 
 Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), kunt u bepalen hoe gemachtigde gebruikers hebben toegang tot uw cloud-apps. De voorwaarde van de locatie van een beleid voor voorwaardelijke toegang kunt u deze instellingen naar de netwerklocaties van uw gebruikers toegang.
 
@@ -166,6 +166,6 @@ API en PowerShell is nog niet ondersteund voor benoemde locaties of voor beleid 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u weten hoe beleid voor voorwaardelijke toegang configureren wilt, Zie [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Als u weten hoe beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Als u klaar om te configureren van beleidsregels voor voorwaardelijke toegang voor uw omgeving bent, Zie de [best practices voor voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

@@ -3,23 +3,24 @@ title: Enterprise-editie inrichten voor de integratie van Azure SSIS Runtime | M
 description: In dit artikel beschrijft de functies van de Enterprise Edition voor op de Azure-SSIS-integratie-Runtime en het inrichten
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: douglasl
-ms.openlocfilehash: 55f4fd18dbebe8a4c666c5512b9cad46ddf9f7d7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 73997345895bc54f54db1d66c0c6c24c24153dd2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296853"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268106"
 ---
-# <a name="enterprise-edition-of-the-azure-ssis-integration-runtime"></a>Enterprise-editie van de Runtime Azure SSIS-integratie
+# <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Inrichten Enterprise Edition voor op de Runtime Azure SSIS-integratie
 
 De Enterprise-editie van de Runtime Azure SSIS-integratie kunt u de volgende geavanceerde gebruiken en premium-functies:
 -   Gegevens vastleggen CDC ()-onderdelen wijzigen

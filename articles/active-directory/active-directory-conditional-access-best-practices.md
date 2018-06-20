@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c155e18ddc4f1713aa9c62a991f4e849e024c5da
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 88e6b1a64d4ceff64c1ee74a297e7af0c5a27379
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723657"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232396"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -31,7 +31,7 @@ Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-direc
 - Dingen die u moet weten 
 - Wat is Vermijd bij het configureren van beleidsregels voor voorwaardelijke toegang. 
 
-In dit artikel wordt ervan uitgegaan dat u bekend de concepten en termen die worden beschreven in [voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+In dit artikel wordt ervan uitgegaan dat u bekend de concepten en termen die worden beschreven in [wat is er voorwaardelijke toegang in Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
 
 
 
@@ -154,4 +154,4 @@ Zie voor meer informatie [migreren klassieke beleid in de Azure portal](active-d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u weten hoe beleid voor voorwaardelijke toegang configureren wilt, Zie [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+Als u weten hoe beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).

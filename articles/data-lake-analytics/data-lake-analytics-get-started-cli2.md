@@ -1,31 +1,28 @@
 ---
-title: Aan de slag met Azure Data Lake Analytics met Azure CLI 2.0 | Microsoft Docs
-description: 'Ontdek hoe u de Azure-opdrachtregelinterface 2.0 kunt gebruiken voor het maken van een Data Lake Analytics-account, het maken van een Data Lake Analytics-taak met U-SQL en het verzenden van de taak. '
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
+title: Aan de slag met Azure Data Lake Analytics met Azure CLI 2.0
+description: Ontdek hoe u de Azure-opdrachtregelinterface 2.0 kunt gebruiken voor het maken van een Data Lake Analytics-account en het verzenden van een U-SQL-taak.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.topic: get-started-article
 ms.date: 06/18/2017
-ms.author: jgao
-ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3095c3281e1797c8103e0c229c62aca1aae3444f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625098"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Aan de slag met Azure Data Lake Analytics met Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-In deze zelfstudie ontwikkelt u een taak voor het lezen van een TSV-bestand (door tabs gescheiden waarden) en het converteren ervan naar een CSV-bestand (door komma's gescheiden waarden). Als u dezelfde zelfstudie wilt volgen met andere ondersteunde hulpprogramma's, gebruikt u de vervolgkeuzelijst boven aan deze sectie.
+In dit artikel wordt beschreven hoe u de Azure-opdrachtregelinterface 2.0 kunt gebruiken voor het maken van een Data Lake Analytics-account en een U-SQL-taak en catalogussen kunt verzenden. De taak leest een TSV-bestand (door tabs gescheiden waarden) en converteert dat naar een CSV-bestand (door komma's gescheiden waarden). 
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
+Voordat u begint, hebt u de volgende items nodig:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. Zie [Azure CLI installeren en configureren](https://docs.microsoft.com/cli/azure/install-azure-cli).

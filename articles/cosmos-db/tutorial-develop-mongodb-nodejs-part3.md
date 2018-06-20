@@ -2,24 +2,22 @@
 title: Zelfstudie voor MongoDB, Angular en Node voor Azure - deel 3 | Microsoft Docs
 description: Deel 3 van de serie zelfstudies voor het maken van een MongoDB-app met Angular en Node op Azure Cosmos DB, waarbij gebruik wordt gemaakt van dezelfde API's als voor MongoDB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: de645f46a889ba05fc54b1c5d2b9da64393d348e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eba96be567094a3e2e3977f505d4e4a67f0b5cea
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798301"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 3: de gebruikersinterface maken met Angular
 
@@ -55,56 +53,20 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
 
     In het terminalvenster wordt een bevestiging getoond van de nieuwe componenten.
 
-    ```bash
-    installing component
-      create src\client\app\heroes.component.ts
-      update src\client\app\app.module.ts 
-    ```
+    ![Hero-component installeren](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
 
     Laten we eens kijken naar de bestanden die zijn gemaakt en bijgewerkt. 
 
-3. In Visual Studio Code, in het deelvenster **Explorer**, gaat u naar de nieuwe map **src\client\app** en opent u het nieuwe bestand **heroes.component.ts** dat in stap 2 is gemaakt. Dit TypeScript-componentbestand is met de vorige opdracht gemaakt.
+3. Ga in Visual Studio Code in het deelvenster **Explorer** naar de nieuwe map **src\app** en open het nieuwe bestand **heroes.component.ts** dat is gegenereerd in de app-map. Dit TypeScript-componentbestand is met de vorige opdracht gemaakt.
 
     > [!TIP]
     > Als in de app-map geen Visual Studio Code wordt weergegeven, voert u op de Mac Command+Shift+P in, en in Windows Ctrl+Shift+P om het opdrachtpalet te openen. Typ *Reload Window* om de systeemwijziging van kracht te laten worden.
-
-    ![Het bestand heroes.component.ts openen](./media/tutorial-develop-mongodb-nodejs-part3/open-folder.png)
 
 4. Open in dezelfde map het bestand **app.module.ts**. U ziet dat `HeroesComponent` aan de declaraties in regel 5 is toegevoegd en dat het ook in regel 10 is geïmporteerd.
 
     ![Het bestand app-module.ts openen](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-    Met de component Heroes kunt u nu een nieuw bestand voor de HTML van de heroes-component maken. We hebben een minimale app gemaakt, dus het was de bedoeling de HTML in hetzelfde bestand onder te brengen als het TypeScript-bestand. We willen het echter openbreken en een apart bestand maken.
-
-5. Klik in het deelvenster **Explorer** met de rechtermuisknop op de map **app**, klik op **New File** en geef het nieuwe bestand de naam *heroes.component.html*.
-
-6. Verwijder in het bestand **heroes.component.ts** de regels 5 tot en met 9 
-
-    ```ts
-    template: `
-        <p>
-          heroes Works!
-        </p>
-      `,
-      ```
-      en vervang deze door
-  
-    ```ts
-    templateUrl: './heroes.component.html',
-    ```
-
-    om te verwijzen naar het nieuwe HTML-bestand.
- 
-    > [!TIP]
-    > U kunt gebruikmaken van de Angular Essentials-extensies van John Papa en codefragmenten voor Visual Studio Code om het ontwikkelen te versnellen. 
-    > 1. Klik op de knop **Extensions** ![knop Visual Studio Code Extensions](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png).
-    > 2. Typ *angular essentials* in het zoekvak.
-    > 3. Klik op **Install**. 
-    > 4. Klik op de knop **Reload** als u de nieuwe extensies wilt gebruiken.
-    > of downloaden van [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
-    > ![Angular Essentials-extensie](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
-
-7. Ga terug naar het bestand **heroes.component.html** en kopieer er de volgende code in. `<div>` is de container voor de hele pagina. In de container bevindt zich een lijst met hero's die we moeten maken, zodat als u op een ervan klikt, u deze kunt selecteren en in de gebruikersinterface bewerken of verwijderen. In de HTML staat de stijl, zodat u weet welke is geselecteerd. Er is ook een bewerkingsgebied, waar u een nieuwe hero kunt toevoegen of een bestaande hero kunt bewerken. 
+5. Ga terug naar het bestand **heroes.component.html** en kopieer er de volgende code in. `<div>` is de container voor de hele pagina. In de container bevindt zich een lijst met hero's die we moeten maken, zodat als u op een ervan klikt, u deze kunt selecteren en in de gebruikersinterface bewerken of verwijderen. In de HTML staat de stijl, zodat u weet welke is geselecteerd. Er is ook een bewerkingsgebied, waar u een nieuwe hero kunt toevoegen of een bestaande hero kunt bewerken. 
 
     ```html
     <div>
@@ -143,7 +105,7 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
     </div>
     ```
 
-8. Met de HTML op de juiste plaats voegen we deze toe aan het bestand **heroes.component.ts**, waarna we interactie kunnen aangaan met de sjabloon. Met de nieuwe code, hieronder toegevoegd aan **heroes.component.ts**, wordt de sjabloon aan het componentbestand toegevoegd. Er is een constructor toegevoegd waarmee enkele hero's worden opgehaald en de hero-servicecomponent wordt geïnitialiseerd om alle gegevens op te halen. De code voegt ook alle vereiste methoden toe voor het afhandelen van gebeurtenissen in de gebruikersinterface. U kunt de volgende code over de bestaande code in **heroes.component.ts** heen kopiëren. 
+7. Met de HTML op de juiste plaats voegen we deze toe aan het bestand **heroes.component.ts**, waarna we interactie kunnen aangaan met de sjabloon. Met de volgende code wordt de sjabloon aan het componentbestand toegevoegd. Er is een constructor toegevoegd waarmee enkele hero's worden opgehaald en de hero-servicecomponent wordt geïnitialiseerd om alle gegevens op te halen. De code voegt ook alle vereiste methoden toe voor het afhandelen van gebeurtenissen in de gebruikersinterface. U kunt de volgende code over de bestaande code in **heroes.component.ts** heen kopiëren. U ziet nu waarschijnlijk fouten in de gebieden Hero en HeroService omdat de bijbehorende componenten nog niet zijn geïmporteerd. U lost deze fouten op in de volgende sectie. 
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -151,6 +113,7 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
     @Component({
       selector: 'app-heroes',
       templateUrl: './heroes.component.html'
+        styleUrls: ['./heroes.component.scss']
     })
     export class HeroesComponent implements OnInit {
       addingHero = false;
@@ -210,7 +173,7 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
     }
     ```
 
-9. Open in **Explorer** het bestand **app/app.module.ts** en werk regels 13 (komma toevoegen) en 14 bij om een import voor een `FormsModule` toe te voegen. De importsectie moet er nu als volgt uitzien:
+8. Open in **Explorer** het bestand **app/app.module.ts** en werk de importsectie bij om een import voor een `FormsModule` toe te voegen. De importsectie moet er nu als volgt uitzien:
 
     ```
     imports: [
@@ -219,7 +182,7 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
     ],
     ```
 
-10. Voeg een import toe voor de nieuwe module FormsModule in regel 3. 
+9. Voeg in het bestand **app/app.module.ts** een import toe voor de nieuwe module FormsModule op regel 3. 
 
     ```
     import { BrowserModule } from '@angular/platform-browser';
@@ -229,7 +192,7 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
 
 ## <a name="use-css-to-set-the-look-and-feel"></a>CSS gebruiken voor het instellen van het uiterlijk
 
-1. Open in het deelvenster Explorer het bestand **src/client/styles.scss**.
+1. Open in het deelvenster Explorer het bestand **src/styles.scss**.
 
 2. Kopieer de volgende code in het bestand **styles.scss**, waarmee u de bestaande inhoud van het bestand vervangt.
 
@@ -392,34 +355,34 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
 
 Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcomponenten in **app.component.ts** wijzigen.
 
-1. Open in het deelvenster Explorer het bestand **client/app/app.component.ts**.
-
-2. Wijzig de titel in regel 6 tot en met 8 in Heroes en laat de naam van de component die we in **heroes.components.ts** (app-heroes) hebben gemaakt, verwijzen naar de nieuwe component. De sjabloonsectie moet er nu als volgt uitzien: 
+1. Open **/app/app.component.ts** in het deelvenster Explorer, wijzig de titel in Heroes en laat de naam van de component die we in **heroes.components.ts** (app-heroes) hebben gemaakt, verwijzen naar de nieuwe component. De inhoud van het bestand ziet er nu als volgt uit: 
 
     ```ts
-    template: `
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.scss'],
+      template: `
       <h1>Heroes</h1>
       <div class="header-bar"></div>
       <app-heroes></app-heroes>
-    `,
+    `
+    })
+    export class AppComponent {
+      title = 'app';
+    }
+
     ```
 
-3. **heroes.components.ts** bevat andere componenten waarnaar wordt verwezen, bijvoorbeeld de component Hero, dus die moeten we ook maken. Gebruik in de Angular CLI-opdrachtprompt de volgende opdracht om een hero-model en een bestand te maken met de naam **hero.ts**, waarin g=genereren, cl=klasse en hero=naam van de klasse.
+2. **heroes.components.ts** bevat andere componenten waarnaar wordt verwezen, bijvoorbeeld de component Hero, dus die moeten we ook maken. Gebruik in de Angular CLI-opdrachtprompt de volgende opdracht om een hero-model en een bestand te maken met de naam **hero.ts**, waarin g=genereren, cl=klasse en hero=naam van de klasse.
 
     ```bash
     ng g cl hero
     ```
 
-    In het terminalvenster wordt een bevestiging getoond van de nieuwe klasse.
-
-    ```bash
-    installing class
-    create src\client\app\hero.ts
-    ```
-
-4. Open in het deelvenster Explorer het bestand **src\client\app\hero.ts**.
-
-5. Vervang in **hero.ts** de inhoud van het bestand door de volgende code, waardoor aan een Hero-klasse een id, een naam en een uitspraak wordt toegevoegd. 
+3. Open **src\app\hero.ts** in het deelvenster Explorer. Vervang in **hero.ts** de inhoud van het bestand door de volgende code, waardoor aan een Hero-klasse een id, een naam en een uitspraak wordt toegevoegd.
 
     ```ts
       export class Hero {
@@ -429,15 +392,15 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
     }
     ```
 
-6. Ga terug naar **heroes.components.ts**. U ziet dat in regel `selectedHero: Hero;` (regel 10), `Hero` rood is onderlijnd. 
+4. Ga terug naar **heroes.components.ts**. U ziet dat in regel `selectedHero: Hero;` (regel 10), `Hero` rood is onderlijnd. 
 
-7. Klik op de term `Hero` en links van het codeblok wordt een gloeilamppictogram weergegeven. 
+5. Klik op de term `Hero` en links van het codeblok wordt een gloeilamppictogram weergegeven. 
 
     ![Gloeilamp in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
-8. Klik op de gloeilamp en vervolgens op **Import Hero from "client/app/hero".** of **Import Hero from "./hero".** (Het bericht dat u ziet, is afhankelijk van uw instellingen)
+6. Klik op de gloeilamp en klik op **Import Hero from "/app/hero".** of **Import Hero from "./hero".** (Het bericht dat u ziet, is afhankelijk van uw instellingen)
 
-    In regel 2 verschijnt een nieuwe regel met code. Als regel 2 naar client/app/hero verwijst, wijzigt u de regel zodat wordt verwezen naar het hero-bestand vanaf de lokale map (./hero). Regel 2 moet er als volgt uitzien:
+    In regel 2 verschijnt een nieuwe regel met code. Als regel 2 naar /app/hero verwijst, wijzigt u de regel zodat wordt verwezen naar het hero-bestand vanuit de lokale map (./hero). Regel 2 moet er als volgt uitzien:
 
    ```
    import { Hero } from "./hero";
@@ -453,23 +416,15 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
     ng g s hero -m app.module
     ```
 
-    Volgens de uitvoer is **hero.service.ts** gemaakt en **app.module.ts** bijgewerkt.
-  
-    ```bash
-    installing service
-      create src\client\app\hero.service.ts
-      update src\client\app\app.module.ts
-    ```
+2. Ga in Visual Studio Code terug naar **heroes.components.ts**. In regel `constructor(private heroService: HeroService) {}` (regel 13) is `HeroService` rood onderlijnd. Klik op `HeroService` en u ziet links van het codeblok de gloeilamp verschijnen. Klik op de gloeilamp en vervolgens op **Import HeroService from "./hero.service ".** of op **Import HeroService from "/app/hero.service ".**
+
+    Als u op de gloeilamp klikt, wordt een nieuwe regel met code aan regel 2 toegevoegd. Als regel 2 naar de map /app/hero.service verwijst, wijzigt u de regel zodat wordt verwezen naar het hero-bestand vanuit de lokale map (./hero.serivce). Regel 2 moet er als volgt uitzien:
     
-    In app.module.ts zijn de volgende regels met code toegevoegd (regels 6 en 17):
-    
-    ```typescript
-    import { HeroService } from './hero.service';
-    ...
-        providers: [HeroService],
+    ```javascript
+    import { HeroService } from "./hero.service"
     ```
 
-2. Open **hero.service.ts** in Visual Studio Code en kopieer er de volgende code in, waarmee de inhoud van het bestand wordt vervangen.
+3. Open **hero.service.ts** in Visual Studio Code en kopieer er de volgende code in, waarmee de inhoud van het bestand wordt vervangen.
 
     ```ts
     import { Injectable } from '@angular/core';
@@ -503,7 +458,7 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
 
     Deze code maakt gebruik van de nieuwste versie van HttpClient van Angular, een module die u moet opgeven. Dat gaan we nu doen.
 
-3. Open **app.module.ts** in Visual Studio Code en importeer HttpClientModule door de importsectie zodanig bij te werken dat HttpClientModule wordt opgenomen.
+4. Open **app.module.ts** in Visual Studio Code en importeer HttpClientModule door de importsectie zodanig bij te werken dat HttpClientModule wordt opgenomen.
 
     ```ts
     imports: [
@@ -513,18 +468,10 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
     ],
     ```
 
-4. Voeg in **app.module.ts** de HttpClientModule-importeerinstructie toe aan de lijst met imports.
+5. Voeg in **app.module.ts** de HttpClientModule-importeerinstructie toe aan de lijst met imports.
 
     ```ts
     import { HttpClientModule } from '@angular/common/http';
-    ```
-
-5. Ga in Visual Studio Code terug naar **heroes.components.ts**. In regel `constructor(private heroService: HeroService) {}` (regel 13) is `HeroService` rood onderlijnd. Klik op `HeroService` en u ziet links van het codeblok de gloeilamp verschijnen. Klik op de gloeilamp en vervolgens op **Import HeroService from "./hero.service ".** of op **Import HeroService from "client/app/hero.service ".**
-
-    Als u op de gloeilamp klikt, wordt een nieuwe regel met code aan regel 2 toegevoegd. Als regel 2 naar de map client/app/hero.service verwijst, wijzigt u de regel zodat wordt verwezen naar het hero-bestand vanaf de lokale map (./hero.serivce). Regel 2 moet er als volgt uitzien:
-    
-    ```javascript
-    import { HeroService } from "./hero.service"
     ```
 
 6. Sla alle bestanden op in Visual Studio Code.
@@ -539,7 +486,7 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
 
     Als er problemen zijn, wordt er in het terminalvenster informatie over de bestanden weergegeven, zodat ze kunnen worden gerepareerd. Als u klaar bent met bouwen, worden de nieuwe bestanden opgeslagen in de map **dist**. U kunt de nieuwe bestanden desgewenst controleren in de map **dist**.
 
-    We gaan nu de app uitvoeren.
+    Nu gaan we de app uitvoeren.
 
 2. Klik in Visual Studio Code aan de linkerkant op de knop **Debug** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) en klik vervolgens op de knop **Start Debugging** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
 

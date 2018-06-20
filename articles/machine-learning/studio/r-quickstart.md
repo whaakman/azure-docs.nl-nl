@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836372"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227237"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Beknopte zelfstudie voor programmeertaal R voor Azure Machine Learning
 
@@ -41,7 +41,7 @@ Reeks tijdgegevens zijn gegevens waarin de waarden een tijdsindex hebben. De tij
 
 In deze snelstartgids wordt worden werken met Californië zuivelproductie en prijzen van gegevens. Deze gegevens omvatten maandelijkse informatie op de productie van verschillende producten en de prijs van melkvet, een benchmark basisproduct.
 
-De gegevens die worden gebruikt in dit artikel, samen met het R-scripts kunnen worden [hier gedownload][download]. Deze gegevens oorspronkelijk is gemaakt van gegevens op de universiteit Wisconsin op http://future.aae.wisc.edu/tab/production.html.
+De gegevens die worden gebruikt in dit artikel, samen met het R-scripts kunnen worden [gedownload hier](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Deze gegevens oorspronkelijk is gemaakt van gegevens op de universiteit Wisconsin op https://dairymarkets.com.
 
 ### <a name="organization"></a>Organisatie
 We zullen verschillende stappen doorlopen als u meer informatie over het maken, testen en uitvoeren van analyses en gegevens manipulatie R-code in de Azure Machine Learning-omgeving.  
@@ -123,7 +123,7 @@ Azure Machine Learning wordt geleverd met meer dan 350 vooraf geïnstalleerde R-
 Als u niet de laatste regel van deze code op het moment dat begrijpt, kunt u lezen op. In de rest van dit document wordt uitvoerig besproken R gebruiken in de Azure Machine Learning-omgeving.
 
 ### <a name="introduction-to-rstudio"></a>Inleiding tot RStudio
-RStudio is een veelgebruikte IDE voor R. Ik gebruik RStudio bewerken, testen en foutopsporing enkele van de R-code die wordt gebruikt in deze snelstartgids. Zodra de R-code is getest en klaar zijn, u gewoon knippen en plakken in de editor RStudio naar een Machine Learning Studio [R-Script uitvoeren] [ execute-r-script] module.  
+RStudio is een veelgebruikte IDE voor R. Ik gebruik RStudio bewerken, testen en foutopsporing enkele van de R-code die wordt gebruikt in deze snelstartgids. Zodra de R-code getest en klaar zijn is, kunt u gewoon knippen en plakken van de editor RStudio naar een Machine Learning Studio [R-Script uitvoeren] [ execute-r-script] module.  
 
 Als u niet de R-programmeertaal op uw computer geïnstalleerd hebt, ik het beste dat u doet u dat nu. Gratis downloads van open-source R taal zijn beschikbaar op de uitgebreide R archief netwerk (CRAN) op [ http://www.r-project.org/ ](http://www.r-project.org/). Er zijn downloads beschikbaar voor Windows, Mac OS- en Linux/UNIX. Kies een mirror in de buurt en volg de aanwijzingen downloaden. CRAN bevat bovendien een schat aan nuttig analytics en data manipulatie pakketten.
 
@@ -1241,7 +1241,7 @@ Er zijn veel books op R waarmee u aan de slag kunt. Hier volgen enkele die ik ha
 * R Inferno door Patrick Burns is een verrassend grappige adresboek dat met een aantal lastig en moeilijk onderwerpen die u tegenkomen werkt kunt bij het programmeren in R. Het rapport is beschikbaar voor het vrije op http://www.burns-stat.com/documents/books/the-r-inferno/.
 * Als u een diepgaand in geavanceerde onderwerpen in R wilt, hebt u een overzicht van het adresboek Geavanceerd R door Hadley Wickham. De online versie van deze handleiding is beschikbaar voor het vrije op http://adv-r.had.co.nz/.
 
-Een lijst van R time series-pakketten kunt u vinden in de taakweergave CRAN voor analyse van reeks: http://cran.r-project.org/web/views/TimeSeries.html. Voor informatie over specifieke tijd reeks object pakketten, moet u de documentatie voor het desbetreffende pakket verwijzen.
+Een catalogus met R time series-pakketten kunt u vinden in de taakweergave CRAN voor analyse van reeks: http://cran.r-project.org/web/views/TimeSeries.html. Voor informatie over specifieke tijd reeks object pakketten, moet u de documentatie voor het desbetreffende pakket verwijzen.
 
 Het rapport inleidende Time Series met R door Paul Cowpertwait en Andrew Metcalfe bevat een inleiding tot R gebruiken voor analyse van reeks. Veel meer theoretische teksten bevatten R voorbeelden.
 

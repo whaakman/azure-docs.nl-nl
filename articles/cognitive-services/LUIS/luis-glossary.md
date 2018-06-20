@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 420f268090dbcfcc4f2fa7383b8b8892952030ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345867"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265384"
 ---
 # <a name="glossary"></a>Woordenlijst
 
@@ -179,7 +179,7 @@ De abonnementssleutel is de sleutel gekoppeld aan de service LUIS [u hebt gemaak
 
 ## <a name="test"></a>Test
 
-[Testen](train-test.md#test-your-app) een app LUIS betekent een utterance doorgeeft aan LUIS en weergeven van de JSON-resultaten.
+[Testen](interactive-test.md#test-your-app) een app LUIS betekent een utterance doorgeeft aan LUIS en weergeven van de JSON-resultaten.
 
 ## <a name="timezoneoffset"></a>Verschuiving van de tijdzone
 
@@ -210,4 +210,4 @@ Een utterance is een wachtwoordzin van natuurlijke taal zoals 'adresboek 2 ticke
 
 Een LUIS [versie](luis-how-to-manage-versions.md) is een specifieke gegevensmodel dat is gekoppeld aan een LUIS app-ID en het gepubliceerde-eindpunt. Elke app LUIS heeft ten minste één versie.
 
-[batch-testing]: train-test.md#batch-testing
+[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

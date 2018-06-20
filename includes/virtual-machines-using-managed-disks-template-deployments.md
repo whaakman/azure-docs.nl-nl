@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: f363c52093e0ae8314e07e750eb4362f71e9a4b1
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: b2561f4b1b5ef27f389114c85f0646b968f7765e
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826511"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269558"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Met beheerde-schijven in Azure Resource Manager-sjablonen
 
@@ -256,4 +256,4 @@ Als u wilt zoeken in volledige informatie over de REST-API-specificaties, Contro
 * Ga naar de [overzicht van Azure schijven beheerd](../articles/virtual-machines/windows/managed-disks-overview.md) document voor meer informatie over beheerde schijven.
 * De sjabloon-naslagdocumentatie voor bronnen voor virtuele machines controleren in via de [Microsoft.Compute/virtualMachines sjabloonverwijzing](/azure/templates/microsoft.compute/virtualmachines) document.
 * Bekijk de naslagdocumentatie over de sjabloon voor de schijfbronnen in via de [Microsoft.Compute/disks sjabloonverwijzing](/azure/templates/microsoft.compute/disks) document.
-* Voor informatie over het gebruik van beheerde schijven in virtuele Azure-machine-schaalsets, gaat u naar de [gegevensschijven gebruiken met schaalsets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) document.
+* Voor informatie over het gebruik van beheerde schijven in virtuele Azure-machine-schaalsets, gaat u naar de [gegevensschijven gebruiken met schaalsets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) document.
