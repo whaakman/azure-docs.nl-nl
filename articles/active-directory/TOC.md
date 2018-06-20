@@ -184,6 +184,8 @@
 ### [Overzicht](manage-apps/what-is-application-management.md)
 ### [Aan de slag](manage-apps/plan-an-application-integration.md)
 ### [Zelfstudies voor SaaS-app-integratie](saas-apps/tutorial-list.md)
+
+
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Momentopnamerapporten maken](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Continue rapportage configureren](https://docs.microsoft.com/cloud-app-security/discovery-docker)
@@ -255,27 +257,110 @@
 #### [Beperkingen voor tenants](manage-apps/tenant-restrictions.md)
 #### [SCIM gebruiken voor het inrichten van gebruikers](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Problemen oplossen](active-directory-application-troubleshoot-content-map.md)
-#### [Ontwikkeling van toepassingen](active-directory-application-dev-troubleshoot-content-map.md)
-##### [Configuratie en registratie](active-directory-application-dev-config-content-map.md)
-##### [Ontwikkeling](active-directory-application-dev-development-content-map.md)
-#### [Beheer van toepassingen](active-directory-application-management-troubleshoot-content-map.md)
-##### [Configuratie](active-directory-application-config-content-map.md)
-##### [Aanmelden](active-directory-application-sign-in-content-map.md)
-##### [Inrichten](active-directory-application-provisioning-content-map.md)
 
-###### [Verifiëren of een gebruiker is ingericht](application-provisioning-when-will-provisioning-finish-specific-user.md) 
-###### [Het inrichten duurt lang](application-provisioning-when-will-provisioning-finish.md) 
-###### [Het inrichten van gebruikers configureren](application-provisioning-config-how-to.md) 
-###### [Problemen bij het configureren van inrichting](application-provisioning-config-problem.md) 
-###### [Problemen bij het opslaan van administratorreferenties](application-provisioning-config-problem-storage-limit.md) 
-###### [Er worden geen gebruikers ingericht](application-provisioning-config-problem-no-users-provisioned.md) 
-###### [De verkeerde gebruikers worden ingericht](application-provisioning-config-problem-wrong-users-provisioned.md) 
+### Problemen oplossen
 
-##### [Toegang beheren](active-directory-application-access-content-map.md)
-##### [Toegangsvenster](active-directory-application-access-panel-content-map.md)
-##### [Toepassingsproxy](active-directory-application-proxy-content-map.md)
-##### [Voorwaardelijke toegang](active-directory-application-conditional-access-content-map.md)
+
+
+#### Toegangsvenster
+##### [App wordt niet weergegeven](application-access-panel-unexpected-application-not-appearing.md)
+##### [App wordt onverwacht weergegeven](application-access-panel-unexpected-application-appears.md)
+##### [Het aanmelden is mislukt](application-access-panel-web-sign-in-problem.md)
+##### [Fout bij het installeren van browserextensie](application-access-panel-extension-problem-installing.md)
+##### [Selfservice-app-toegang gebruiken](application-access-panel-self-service-applications-how-to.md)
+##### [Fout bij selfservice-app-toegang gebruiken](application-access-panel-self-service-applications-problem.md)
+
+#### Een app toevoegen
+##### [Type app kiezen](application-config-add-app-problem-how-to-choose-application-type.md)
+##### [Veelvoorkomende problemen - galerie-apps](application-config-add-app-problem-problem-adding-gallery-app.md)
+##### [Veelvoorkomende problemen - niet-galerie-apps](application-config-add-app-problem-problem-adding-non-gallery-app.md)
+
+#### Toepassingsproxy
+##### [Probleem bij weergeven app-pagina](application-proxy-page-appearance-broken-problem.md)
+##### [Applicatie laden duurt te lang](application-proxy-page-load-speed-problem.md)
+##### [Koppelingen op de toepassingspagina werken niet](application-proxy-page-links-broken-problem.md)
+##### [Welke poorten moet ik openen voor mijn app?](application-proxy-connectivity-ports-how-to.md)
+##### [Geen werkende connector in een connectorgroep voor mijn app](application-proxy-connectivity-no-working-connector.md)
+##### [Configureren in beheerportal](application-proxy-config-how-to.md)
+##### [Eenmalige aanmelding voor mijn app configureren](application-proxy-config-sso-how-to.md)
+##### [Probleem bij het maken van een app in de beheerportal](application-proxy-config-problem.md)
+##### [Kerberos-beperkte overdracht configureren](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+##### [Configureren met PingAccess](application-proxy-back-end-ping-access-how-to.md)
+##### [De fout 'Kan deze zakelijke toepassing niet openen'](application-proxy-sign-in-bad-gateway-timeout-error.md)
+##### [Probleem bij het installeren van de connector voor de toepassingsproxyagent](application-proxy-connector-installation-problem.md)
+
+
+#### Een toepassing registreren
+##### [Geef de velden op voor het toepassingsobject](application-dev-registration-config-specific-application-property-how-to.md)
+##### [Standaardinstellingen levensduur van token wijzigen](application-dev-registration-config-change-token-lifetime-how-to.md)
+
+#### Verificatie
+##### [Eindpunten configureren](application-dev-registration-config-how-to.md)
+
+#### Voorwaardelijke toegang
+##### [Klant voldeed niet aan voorvereisten voor apparaatregistratie](active-directory-conditional-access.md)
+##### [De tenant wordt geblokkeerd vanwege verkeerd ingestelde beleidsregels voor voorwaardelijke toegang](active-directory-conditional-access-device-remediation.md)
+##### [Hoe en wanneer worden regels buiten het bedrijfsnetwerk actief?](https://aka.ms/calocation)
+##### [Hoe kan ik het aantal apparaten die een gebruiker mag registreren in Azure AD verhogen?](active-directory-azureadjoin-setup.md)
+##### [Hoe kan ik voorwaardelijke toegang instellen voor Exchange Online?](https://aka.ms/csforexchange)
+##### [Hoe kan ik voorwaardelijke toegang voor Windows 7-apparaten instellen](active-directory-conditional-access.md#device-based-conditional-access)
+##### [In welke toepassingen wordt voorwaardelijke toegang ondersteund?](active-directory-conditional-access-supported-apps.md)
+
+#### Een API zoeken
+##### [Een API zoeken](application-dev-api-find-an-api-how-to.md)
+
+#### Toegang beheren
+##### [Gebruikers en groepen toewijzen aan een app](application-access-assignment-how-to-add-assignment.md)
+##### [Toegang van gebruikers tot app verwijderen](application-access-assignment-how-to-remove-assignment.md)
+##### [Selfservice-app-toewijzing configureren](application-access-self-service-how-to.md)
+##### [Onverwachte gebruiker toegewezen](application-access-unexpected-user-assignment.md)
+##### [Onverwachte app in de lijst met toepassingen](application-access-unexpected-application.md)
+
+#### Apps met meerdere tenants
+##### [Een nieuwe app configureren](application-dev-setup-multi-tenant-app.md)
+##### [Toevoegen aan de app-galerie](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+
+#### Machtigingen
+##### [Machtigingen kiezen voor een API](application-dev-perms-for-given-api.md)
+##### [Machtigingen verlenen aan mijn app](application-dev-registration-config-grant-permissions-how-to.md)
+##### [Gedelegeerde vs. toepassingsmachtigingen](application-dev-delegated-and-app-perms.md)
+##### [Toepassingstoestemming](application-dev-consent-framework.md)
+
+#### Inrichten
+##### [Hoelang het duurt](application-provisioning-when-will-provisioning-finish-specific-user.md)
+##### [Uurregistratie - galerie-app](application-provisioning-when-will-provisioning-finish.md)
+##### [Gebruikersinrichting configureren - galerie-app](application-provisioning-config-how-to.md)
+##### [Probleem bij gebruikersinrichting configureren - galerie-app](application-provisioning-config-problem.md)
+##### [Probleem bij het opslaan van administrorreferenties tijdens het configureren van gebruikersinrichting galerie-app](application-provisioning-config-problem-storage-limit.md)
+##### [Gebruikers zijn niet ingericht - galerie-app](application-provisioning-config-problem-no-users-provisioned.md)
+##### [Verkeerde gebruikers ingericht - galerie-app](application-provisioning-config-problem-wrong-users-provisioned.md)
+
+#### Eenmalige aanmelding
+##### [Een methode kiezen](application-config-sso-how-to-choose-sign-on-method.md)
+##### [Configureren](application-dev-registration-config-sso-how-to.md)
+##### [Federatief configureren - galerie-apps](application-config-sso-how-to-configure-federated-sso-gallery.md)
+##### [Veelvoorkomende problemen bij federatief configureren - galerie-apps](application-config-sso-problem-configure-federated-sso-gallery.md)
+##### [Federatief configureren - niet-galerie-apps](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+##### [Veelvoorkomende problemen bij federatief configureren - niet-galerie-apps](application-config-sso-problem-configure-federated-sso-non-gallery.md)
+##### [Wachtwoord configureren - galerie-apps](application-config-sso-how-to-configure-password-sso-gallery.md)
+##### [Veelvoorkomende problemen bij wachtwoord configureren - galerie-apps](application-config-sso-problem-configure-password-sso-gallery.md)
+##### [Wachtwoord configureren - niet-galerie-apps](application-config-sso-how-to-configure-password-sso-non-gallery.md)
+##### [Veelvoorkomende problemen bij wachtwoord configureren - niet-galerie-apps](application-config-sso-problem-configure-password-sso-non-gallery.md)
+
+#### Problemen bij aanmelden gebruiker
+##### [Onverwacht instemmingsprompt](application-sign-in-unexpected-user-consent-prompt.md)
+##### [Fout bij toestemming gebruiker](application-sign-in-unexpected-user-consent-error.md)
+##### [Problemen met aanmelden vanaf aangepaste portal](application-sign-in-other-problem-deeplink.md)
+##### [Problemen met aanmelden vanaf toegangsvenster](application-sign-in-other-problem-access-panel.md)
+##### [Fout bij de aanmeldingspagina van toepassing](application-sign-in-problem-application-error.md)
+##### [Probleem met wachtwoord eenmalige aanmelding - niet-galerie-app](application-sign-in-problem-password-sso-non-gallery.md)
+##### [Probleem met wachtwoord eenmalige aanmelding - galerie-app](application-sign-in-problem-password-sso-gallery.md)
+##### [Probleem met aanmelden bij een Microsoft-app](application-sign-in-problem-first-party-microsoft.md)
+##### [Probleem met federatieve eenmalige aanmelding - niet-galerie-app](application-sign-in-problem-federated-sso-non-gallery.md)
+##### [Probleem met federatieve eenmalige aanmelding - galerie-app](application-sign-in-problem-federated-sso-gallery.md)
+##### [Probleem met zelfontwikkelde app](application-sign-in-problem-custom-dev.md)
+##### [Probleem met on-premises app - toepassingsproxy](application-sign-in-problem-on-premises-application-proxy.md)
+
 ### [Apps ontwikkelen](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Documentbibliotheek](active-directory-apps-index.md)
 

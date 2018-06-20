@@ -5,30 +5,35 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 06/01/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 344947b7906d15e819e372e0affe4af3c34ba69b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 93440b8a1c9fd1b386931e5998c70133071a079e
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198755"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823041"
 ---
 # <a name="azure-dev-spaces"></a>Azure Dev Spaces
-Azure Dev Spaces stelt u in staat om snel te ontwikkelen met Kubernetes. Met Azure Dev Spaces krijgt u ook de beschikking over uitgebreide ontwikkelmogelijkheden, zoals het opsporen van fouten in Azure Kubernetes-containers. Daarnaast kunt iteratief containers ontwikkelen in de cloud met behulp van bekende tools zoals VS Code, Visual Studio of de opdrachtregel. Azure Dev Spaces is met name handig voor teamontwikkeling, waarbij isolatie van afzonderlijke codevertakkingen in hun eigen ruimten een essentieel onderdeel is van de ontwikkelingscyclus.
+Azure Dev Spaces biedt een snelle, iteratieve Kubernetes-ontwikkelervaring voor teams. Met minimale instelling van ontwikkelingsmachines kunt u rechtstreeks in Azure Kubernetes Service (AKS) herhaaldelijk containers uitvoeren en fouten hierin opsporen. Ontwikkel in Windows, Mac of Linux met bekende hulpprogramma's zoals Visual Studio, Visual Studio Code of de opdrachtregel.
+
+[!INCLUDE[](includes/dev-spaces-preview.md)]
 
 ## <a name="how-azure-dev-spaces-simplifies-kubernetes-development"></a>Hoe Azure Dev Spaces de ontwikkeling van Kubernetes vereenvoudigt 
 
-Deze aanpak biedt verschillende voordelen:
-
-* U krijgt een ontwikkelomgeving zonder infrastructuur die representatief is voor productie, met volledige toegang tot resources in de cloud.
-* U kunt rechtstreeks in Kubernetes fouten opsporen in containers van Node.js en .NET Core met VS Code of Visual Studio. Alle andere talen kunnen worden ontwikkeld met de opdrachtregelinterface.
-* U kunt een instantie van Kubernetes delen binnen uw ontwikkelteam om kosten te besparen en de configuratie van lokale computers voor nieuwe teamleden tot een minimum te beperken.
-* Ontwikkel uw code in een geïsoleerde omgeving en voer end-to-end tests uit met andere onderdelen zonder dat u afhankelijkheden hoeft te repliceren of na te bootsen.
+Azure Dev Spaces helpt ontwikkelteams als volgt productiever op Kubernetes te werken:
+- Minimaliseer instellingen voor lokale ontwikkelingsmachines voor elk teamlid en werk rechtstreeks in AKS, een beheerde Kubernetes-cluster in Azure.
+- Voer code herhaaldelijk uit voor een snelle foutopsporing rechtstreeks in Kubernetes met Visual Studio 2017 of Visual Studio Code.
+- Genereer middelen voor 'configuratie als code' in Docker en Kubernetes om te gebruiken van ontwikkeling tot productie. 
+- Deel een beheerde Kubernetes-cluster met uw team en werk hier samen aan. Ontwikkel uw code in een geïsoleerde omgeving en voer end-to-end tests uit met andere onderdelen zonder dat u afhankelijkheden hoeft te repliceren of na te bootsen.
 
 [!INCLUDE[](includes/get-started.md)]
 
 ![](media/azure-dev-spaces/vscode-overview.png)
+
+## <a name="see-also"></a>Zie ook
+
+[Azure Kubernetes Service](/azure/aks)

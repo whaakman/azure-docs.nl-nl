@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648122"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215521"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
@@ -39,7 +39,7 @@ De volgende overzichten van de tabel van belangrijke verschillen en ontwikkelaar
 
 | | Gebruiksscenario | 
 | --- | --- | 
-|SQL Database Managed Instance |Voor klanten die willen migreren van een groot aantal apps vanaf on-premises of IaaS, zelf is gebouwd, of ISV hebt opgegeven, met voorstellen als lage migratie inspanning mogelijk exemplaar beheerd. Met behulp van de volledig geautomatiseerde [gegevens migratie Service (DMS)](/sql/dma/dma-overview) in Azure, klanten kunnen lift- en hun lokale SQL Server verplaatsen naar een beheerde-exemplaar dat compatibiliteit met SQL Server on-premises en volledige isolatie van biedt de exemplaren van de klant met systeemeigen ondersteuning voor VNET.  Met Software Assurance, kun je de bestaande licenties voor kortingen op een beheerde exemplaar van SQL Database met de [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Beheerde exemplaar van SQL Database is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren waarvoor hoge beveiliging en een uitgebreide programmeren voor aanvallen. |
+|SQL Database Managed Instance |Voor klanten die willen migreren van een groot aantal apps vanaf on-premises of IaaS, zelf is gebouwd, of ISV hebt opgegeven, met voorstellen als lage migratie inspanning mogelijk exemplaar beheerd. Met behulp van de volledig geautomatiseerde [gegevens migratie Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, klanten kunnen lift- en hun lokale SQL Server verplaatsen naar een beheerde-exemplaar dat compatibiliteit met SQL Server on-premises en volledige isolatie van biedt de exemplaren van de klant met systeemeigen ondersteuning voor VNET.  Met Software Assurance, kun je de bestaande licenties voor kortingen op een beheerde exemplaar van SQL Database met de [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Beheerde exemplaar van SQL Database is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren waarvoor hoge beveiliging en een uitgebreide programmeren voor aanvallen. |
 |Azure SQL Database (enkele of groep) |**Elastische pools**: voor klanten ontwikkelen van nieuwe multitenant SaaS-toepassingen of opzettelijk transformeert hun bestaande on-premises apps in een multitenant SaaS-app, voorstellen elastische pools. Voordelen van dit model zijn: <br><ul><li>Conversie van het bedrijfsmodel te verkopen, licenties te verkopen abonnementen (voor ISV's)</li></ul><ul><li>Isolatie van tenants eenvoudig en opsommingsteken bewijs</li></ul><ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul><ul><li>De mogelijkheid uit te schalen zonder een vaste maximum op</li></ul>**Eén databases**: voor het ontwikkelen van nieuwe apps dan de multitenant SaaS, waarvan de werklast stabiel en voorspelbaar is, klanten voorstellen individuele databases. Voordelen van dit model zijn:<ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul>  <ul><li>Voorspelbare prestaties voor elke database</li></ul>|
 |SQL-IaaS virtuele machine|Voor klanten die behoefte hebben aan voor het aanpassen van het besturingssysteem of de database-server, evenals klanten die de specifieke vereisten in termen van apps van derden door kant met SQL Server uitgevoerd (op dezelfde virtuele machine), SQL-VM's voorstellen / IaaS als de optimale oplossing|
 |||
@@ -186,11 +186,10 @@ De Azure-Service voor het migreren van Database is een volledig beheerde service
 
 De migratie maakt gebruik van SQL-back-ups naar Azure blob storage. Back-ups opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar exemplaar dat wordt beheerd. Als u een bestaande SQL-database herstellen naar een beheerde-exemplaar, kunt u het volgende doen:
 
-- Gebruik [Data migratie-Service (DMS)](/sql/dma/dma-overview). Zie voor een zelfstudie [migreren naar een exemplaar beheerd met behulp van Azure Database migratie Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) van een back-upbestand van de database herstellen
+- Gebruik [Data migratie-Service (DMS)](../dms/dms-overview.md). Zie voor een zelfstudie [migreren naar een exemplaar beheerd met behulp van Azure Database migratie Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) van een back-upbestand van de database herstellen
 - Gebruik de [T-SQL-herstelopdracht](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Zie voor een zelfstudie waarin wordt getoond hoe Wide World Importers - back-upbestand Standard database terugzetten [herstelt van een back-upbestand naar een exemplaar beheerd](sql-database-managed-instance-restore-from-backup-tutorial.md). Deze zelfstudie ziet dat u hebt voor het uploaden van een back-upbestand naar de Azure-blog opslag en te beveiligen met behulp van een Shared access signature (SAS)-sleutel.
   - Zie voor meer informatie over het terugzetten van URL [systeemeigen terugzetten vanaf URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-- [Uit een Bacpac-bestand importeren](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>SQL-functies die worden ondersteund 
 

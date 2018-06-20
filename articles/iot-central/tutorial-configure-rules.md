@@ -1,21 +1,22 @@
 ---
 title: Regels en acties configureren in Azure IoT Central | Microsoft Docs
 description: Deze zelfstudie laat u zien hoe u als bouwer op telemetrie gebaseerde regels en acties in uw Azure IoT Central-toepassing kunt configureren.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 5ac19e0e25ea3e25ede4d87776c01f8bcaea4655
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202234"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236328"
 ---
-# <a name="2---configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>2 -Regels en acties voor uw apparaat configureren in Azure IoT Central
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Zelfstudie: Regels en acties voor uw apparaat configureren in Azure IoT Central
 
 Deze zelfstudie laat u zien hoe u als bouwer op telemetrie gebaseerde regels en acties in uw Microsoft Azure IoT Central-toepassing kunt configureren.
 
@@ -39,17 +40,17 @@ Voer voordat u begint de zelfstudie [Een nieuw apparaattype definiëren in uw to
 
     U ziet de apparaatsjabloon **Aangesloten airconditioner (1.0.0)**  en het apparaat **Aangesloten airconditioner-1** dat u in de vorige zelfstudie hebt gemaakt.
 
-1. Als u uw aangesloten airconditioningapparaat wilt aanpassen, kiest u het apparaat dat u in de vorige zelfstudie hebt gemaakt:
+2. Als u uw aangesloten airconditioningapparaat wilt aanpassen, kiest u het apparaat dat u in de vorige zelfstudie hebt gemaakt:
 
     ![Pagina Aangesloten airconditioner](media/tutorial-configure-rules/builderdevicelist.png)
 
-1. Als u een regel wilt toevoegen in de weergave **Regels**, kiest u **Regels**:
+3. Als u een regel wilt toevoegen in de weergave **Regels**, kiest u **Regels**:
 
     ![Weergave Regels](media/tutorial-configure-rules/builderrulesview.png)
 
-1. In deze zelfstudie voegt u een op drempelwaarden gebaseerde telemetrieregel toe. Als u een regel op basis van drempelwaarden wilt maken, kiest u **Nieuwe regel** en vervolgens **Telemetrie**.
+4. Als u de telemetrieregel op basis van drempelwaarden wilt maken, kiest u achtereenvolgens **Nieuwe regel** en **Telemetrie**.
 
-1. Gebruik de informatie in de volgende tabel om uw regel te definiëren:
+5. Gebruik de informatie in de volgende tabel om uw regel te definiëren:
 
     | Instelling     | Waarde                          |
     | ----------- | ------------------------------ |
@@ -67,11 +68,11 @@ Wanneer u een regel definieert, definieert u ook een actie die moet worden uitge
 
     ![Actie temperatuurregel](media/tutorial-configure-rules/builderaddaction.png)
 
-1. Gebruik de informatie in de volgende tabel om uw actie te definiëren:
+2. Gebruik de informatie in de volgende tabel om uw actie te definiëren:
 
     | Instelling   | Waarde                          |
     | --------- | ------------------------------ |
-    | Aan        | Uw e-mailadres             |
+    | Handeling        | Uw e-mailadres             |
     | Opmerkingen     | De temperatuur in de airconditioner heeft de drempelwaarde overschreden. |
 
     > [!NOTE]
@@ -79,7 +80,7 @@ Wanneer u een regel definieert, definieert u ook een actie die moet worden uitge
 
     ![Temperatuuractie in Application Builder](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-1. Kies **Opslaan**. De regel wordt weergegeven op de pagina **Regels**:
+3. Kies **Opslaan**. De regel wordt weergegeven op de pagina **Regels**:
 
     ![Regels in Application Builder](media/tutorial-configure-rules/builderrules.png)
 

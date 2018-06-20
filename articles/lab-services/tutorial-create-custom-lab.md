@@ -1,6 +1,6 @@
 ---
-title: Een aangepast lab in Azure DevTest Labs maken | Microsoft Docs
-description: In deze snelstartgids kunt u een aangepast lab maken met Azure DevTest Labs.
+title: Een lab met Azure DevTest Labs maken | Microsoft Docs
+description: In deze snelstart maakt u een lab met Azure DevTest Labs.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,26 +14,26 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362240"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636984"
 ---
-# <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>Zelfstudie: Een aangepast lab maken met Azure DevTest Labs
-In deze zelfstudie maakt u een aangepast lab met Azure Portal. Een labbeheerder stelt in een organisatie een lab op, maakt virtuele machines in het lab en configureert beleidsregels. Labgebruikers (bijvoorbeeld ontwikkelaars en testers) claimen virtuele machines in het lab, maken hier verbinding mee en gebruiken deze. 
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Zelfstudie: Een lab maken met Azure DevTest Labs
+In deze zelfstudie maakt u een lab met Azure Portal. Een labbeheerder stelt in een organisatie een lab op, maakt virtuele machines in het lab en configureert beleidsregels. Labgebruikers (bijvoorbeeld ontwikkelaars en testers) claimen virtuele machines in het lab, maken hier verbinding mee en gebruiken deze. 
 
 In deze zelfstudie voert u de volgende acties uit:
 
 > [!div class="checklist"]
-> * Een aangepast lab maken
+> * Een lab maken
 > * Virtuele machines (VM) toevoegen aan het lab
 > * Een gebruiker toevoegen aan de rol Labgebruiker
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-## <a name="create-a-custom-lab"></a>Een aangepast lab maken
+## <a name="create-a-lab"></a>Een lab maken
 In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te maken in Azure DevTest Labs. 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -97,8 +97,8 @@ In de volgende zelfstudie ziet u hoe een labgebruiker een virtuele machine kan c
 4. Herhaal deze stappen voor het verwijderen van de aanvullende resourcegroep die voor u is gemaakt met de naam `<your resource group name><random numbers>`. Bijvoorbeeld: `splab3988722144001`. De virtuele machines worden gemaakt in deze resourcegroep in plaats van in de resourcegroep waarin het lab bestaat. 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie maakt u een aangepast lab met een virtuele machine en geeft u een gebruiker toegang tot het lab. Voor meer informatie over toegang tot het lab als labgebruiker gaat u door naar de volgende zelfstudie:
+In deze zelfstudie hebt u een lab gemaakt met een virtuele machine en hebt u een gebruiker toegang gegeven tot het lab. Voor meer informatie over toegang tot het lab als labgebruiker gaat u door naar de volgende zelfstudie:
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Toegang tot het aangepaste lab](tutorial-use-custom-lab.md)
+> [Zelfstudie: Toegang tot het lab](tutorial-use-custom-lab.md)
 

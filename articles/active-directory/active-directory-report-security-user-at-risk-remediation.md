@@ -2,22 +2,24 @@
 title: Beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal | Microsoft Docs
 description: Meer informatie over het beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 services: active-directory
-author: MarkusVi
-manager: femila
+author: priyamohanram
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/23/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ed6201e9edcef39b14b948b6b2f6e0b5da01ec60
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
-ms.translationtype: HT
+ms.openlocfilehash: 60a77a8bee54c0582cbc9c88b9d517820a2760e0
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221977"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 
@@ -29,12 +31,20 @@ Microsoft spant zich in om uw omgevingen veilig te houden. Als onderdeel van dez
 Als ongebruikelijke activiteiten wijzen op mogelijk niet-geautoriseerde toegang tot een aantal van uw gebruikersaccounts, ontvangt u meldingen waardoor u actie kunt ondernemen. Als u meldingen ontvangt, betekent dit nog niet dat van de eigen systemen van Microsoft misbruik is gemaakt.
  
 
-## <a name="azure-active-directory-report-access"></a>Toegang tot Azure Active Directory-rapporten
+## <a name="access-the-users-flagged-for-risk-report"></a>Gebruikers bekijken voor wie wordt aangegeven dat ze risico lopen
 
-U kunt gebruikers voor wie wordt aangegeven dat ze risico lopen, weergeven via een onlinerapport van Azure Active Directory. Als u geen abonnement hebt op Azure, kunt u zich gratis abonneren op [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD).  
-Zodra u geabonneerd bent, kunt u uw Office 365-referenties gebruiken om toegang te krijgen tot het Azure-beheercentrum. Houd er rekening mee dat bij een basisabonnement de hoeveelheid verstrekte details beperkt is. Aanvullende gegevens en analyses zijn verkrijgbaar voor abonnees van Azure Premium. Zie het [beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal](active-directory-reporting-security-user-at-risk.md) voor meer informatie.
+U kunt gebruikers voor wie wordt aangegeven dat ze risico lopen, bekijken via het [bijbehorende rapport](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) in Azure Active Directory (AD). Als u geen abonnement hebt op Azure AD, kunt u zich gratis abonneren via het eenmalige proces op [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). In dit rapport kunt u verschillende acties uitvoeren, zoals:
 
-Als u de toegang tot Azure Active Directory hebt geactiveerd, wordt u doorgestuurd naar de [Azure AD-portal](https://portal.azure.com). Als u het rapport meteen wilt inzien, klikt u op de volgende URL: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk).
+- Een tijdelijk wachtwoord genereren
+- Vereisen dat gebruikers veilig hun wachtwoord opnieuw instellen de volgende keer dat ze zich aanmelden
+- Het gebruikersrisico afwijzen zonder een herstelactie uit te voeren.
+
+Zie het [Beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal](active-directory-reporting-security-user-at-risk.md) voor meer informatie.
+
+### <a name="azure-ad-subscription-for-office-365-customers"></a>Azure AD-abonnement voor Office 365-klanten
+
+Zodra u geabonneerd bent, kunt u uw Office 365-referenties gebruiken om toegang te krijgen tot het Azure-beheercentrum. Nadat u de toegang tot Azure AD hebt geactiveerd, wordt u doorgestuurd naar de Azure AD-portal. Bij een basisabonnement worden minder details in rapporten verstrekt. Aanvullende gegevens en analyses zijn verkrijgbaar voor abonnees van Azure Premium.
+
 
 **Voor toegang tot het beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in het Office 365-beheercentrum:**
 
@@ -45,7 +55,7 @@ Als u de toegang tot Azure Active Directory hebt geactiveerd, wordt u doorgestuu
 4.  Klik in het navigatiemenu aan de linkerkant op **Azure Active Directory**. 
 5.  Klik in het navigatievenster, onder **Beveiliging**, op **Gebruikers voor wie wordt aangegeven dat ze risico lopen**.
 
-Bekijk de informatie die hier wordt weergegeven. Stel het wachtwoord voor het hier vermelde account opnieuw in. 
+Bekijk de informatie die hier wordt weergegeven. Stel het wachtwoord voor het vermelde account opnieuw in. 
 
 ## <a name="remediation-actions"></a>Herstelacties
 

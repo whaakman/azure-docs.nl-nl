@@ -2,24 +2,22 @@
 title: Zelfstudie voor MongoDB, Angular en Node voor Azure - deel 2 | Microsoft Docs
 description: Deel 2 van de serie zelfstudies voor het maken van een MongoDB-app met Angular en Node op Azure Cosmos DB, waarbij gebruik wordt gemaakt van dezelfde API's als voor MongoDB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 9d3c3209807a201f11d4d0a4ddd905f332a3951f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b35f003c18e19eafd3dfa9988409ceacb44e3bc4
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798063"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 2: een Node.js Express-app maken met de Angular CLI 
 
@@ -65,10 +63,10 @@ Voor deze zelfstudie hebt u verder nodig:
 
 ## <a name="use-the-angular-cli-to-create-a-new-project"></a>De Angular CLI gebruiken om een nieuw project te maken
 
-1. Navigeer in de opdrachtprompt naar de map waar u het nieuwe project wilt opslaan en voer de volgende opdracht uit. Met deze opdracht worden een nieuwe map en een nieuw project gemaakt met de naam angular-cosmosdb. Ook worden de Angular-componenten geïnstalleerd die voor een nieuwe app zijn vereist. Tevens wordt de broncode geïnstalleerd in de src-/clientmap (-sd src/client), worden de minimale instellingen gebruikt (--minimal) en wordt opgegeven dat het project gebruikmaakt van Sass (een CSS-achtige syntaxis met de vlag --style scss).
+1. Navigeer in de opdrachtprompt naar de map waar u het nieuwe project wilt opslaan en voer de volgende opdracht uit. Met deze opdracht worden een nieuwe map en een nieuw project gemaakt met de naam angular-cosmosdb. Ook worden de Angular-componenten geïnstalleerd die voor een nieuwe app zijn vereist. Tevens worden de minimale instellingen gebruikt (--minimal) en wordt opgegeven dat het project gebruikmaakt van Sass (een CSS-achtige syntaxis met de vlag --style scss).
 
     ```bash
-    ng new angular-cosmosdb -sd src/client --minimal --style scss
+    ng new angular-cosmosdb --minimal --style scss
     ```
 
 2. Als de opdracht is voltooid, wijzigt u de mappen in de src-/clientmap.
@@ -151,11 +149,9 @@ Voor deze zelfstudie hebt u verder nodig:
 
 7. Sla al uw gewijzigde bestanden op. 
 
-8. In Visual Studio Code klikt u op de knop **Debug** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), klik u op de knop Gear ![knop Gear in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png) en selecteert u **Node.js** om een configuratie te maken.
+8. In Visual Studio Code klikt u op de knop **Debug** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), klik u op de knop Gear ![knop Gear in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Het nieuwe bestand launch.json wordt geopend in Visual Studio Code.
 
-   Het nieuwe bestand launch.json wordt geopend in Visual Studio Code.
-
-8. Wijzig in regel 11 van het bestand launch.json `"program": "${file}"` in `"program": "${workspaceRoot}/src/server/index.js"` en sla het bestand op.
+8. Wijzig in regel 11 van het bestand launch.json `"${workspaceFolder}\\server"` in `"program": "${workspaceRoot}/src/server/index.js"` en sla het bestand op.
 
 9. Klik op de knop **Start Debugging** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) om de app uit te voeren.
 

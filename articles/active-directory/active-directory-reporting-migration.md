@@ -3,34 +3,28 @@ title: Activiteitsrapporten voor Azure Active Directory-gebruiker niet vinden in
 description: Meer informatie over waar de activiteitsrapporten van de Azure Active Directory-gebruiker zich bevindt in de Azure-portal.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 12/06/2017
-ms.author: curtand
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 985bdc3c00549844958c23a83496a019d7a31944
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f22219a0e2ff342e25a2efdeb319f389250ecfef
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231318"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Activiteitsrapporten niet vinden in de Azure-portal
 
 In dit artikel worden beschreven Activiteitsrapporten voor Azure Active Directory-gebruiker zoeken in de Azure portal.
 
-## <a name="whats-new"></a>Nieuwe functies
-
-Rapporten in de klassieke Azure portal zijn ingedeeld in categorieën:
-* Beveiligingsrapporten
-* Activiteitsrapporten
-* Geïntegreerde app-rapporten
-
-### <a name="activity-and-integrated-app-reports"></a>Activiteit en geïntegreerde app-rapporten
+## <a name="activity-and-integrated-app-reports"></a>Activiteit en geïntegreerde app-rapporten
 
 Voor het context-rapporten in de Azure portal, worden bestaande rapporten samenvoegen in één weergave. Één onderliggende API biedt de gegevens naar de weergave.
 
@@ -87,7 +81,7 @@ Voor meer informatie over het gebruik van de toepassing voor alle apps of voor e
 
 #### <a name="azure-ad-anomalous-activity-reports"></a>Azure AD afwijkende activiteit rapporten
 
-Azure AD-beveiligingsgroep voor afwijkende activiteit rapporten vanuit de klassieke Azure portal om u te bieden met één centrale weergave zijn geconsolideerd. Deze weergave toont alle risicogebeurtenissen die betrekking hebben op beveiliging dat Azure AD kunt detecteren en van rapporteren.
+Azure AD-beveiligingsgroep voor afwijkende activiteit rapporten waarmee u één centrale weergave worden samengevoegd. Deze weergave toont alle risicogebeurtenissen die betrekking hebben op beveiliging dat Azure AD kunt detecteren en van rapporteren.
 
 De volgende tabel afwijkende activiteit een lijst met de Azure AD beveiligingsrapporten en bijbehorende risico gebeurtenistypen in de Azure portal.
 
@@ -104,8 +98,6 @@ De volgende Azure AD afwijkende activiteitsbeveiliging rapporten zijn niet opgen
 
 * Aanmeldingen na meerdere mislukte pogingen
 * Aanmeldingen vanuit meerdere locaties
-
-Deze rapporten zijn nog steeds beschikbaar in de klassieke Azure portal, maar ze op een bepaald moment in de toekomst wordt afgeschaft.
 
 Zie [Risicogebeurtenissen in Azure Active Directory](active-directory-identity-protection-risk-events.md) voor meer informatie.  
 
@@ -125,29 +117,10 @@ Zie voor meer informatie over beveiligingsrapporten:
 - [Riskant aanmeldingen rapport in de Azure Active Directory-portal](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Activiteitsrapporten in de klassieke Azure portal vergeleken met de Azure-portal
-
-De tabel in deze sectie worden de bestaande rapporten in de klassieke Azure portal. Ook wordt beschreven hoe u de dezelfde informatie kunt krijgen in de Azure-portal.
-
-Alle controle om gegevens te bekijken, op de **Azure Active Directory** blade onder **activiteit**, gaat u naar **controlelogboeken**.
-
-![Controlelogboeken](./media/active-directory-reporting-migration/61.png "Controlelogboeken")
-
-| Klassieke Azure-portal                 | Om te zoeken in de Azure portal                                                         |
-| ---                                  | ---                                                                        |
-| Controlelogboeken                           | Voor **activiteitscategorie**, selecteer **Core Directory**.                       |
-| Activiteit voor wachtwoord opnieuw instellen              | Voor **activiteitscategorie**, selecteer **Self-service wachtwoordbeheer**. |
-| Registratie-activiteit wachtwoord opnieuw instellen | Voor **activiteitscategorie**, selecteer **Self-service wachtwoordbeheer**.     |
-| In activiteit         | Voor **activiteitscategorie**, selecteer **groepsbeheer met Self-service**.        |
-| Inrichten van de activiteit van een account        | Voor **activiteitscategorie**, selecteer **Account gebruikersaanvragen**.         |
-| Overschakeling van de status van het wachtwoord             | Voor **activiteitscategorie**, selecteer **automatische overschakeling van de App-wachtwoord**.      |
-| Fouten bij het inrichten van een account          | Voor **activiteitscategorie**, selecteer **Account gebruikersaanvragen**.        |
-| Wijzigingen in de groep Office365 naam         | Voor **activiteitscategorie**, selecteer **Self-service wachtwoordbeheer**. Voor **activiteit brontype**, selecteer **groep**. Voor **Activiteitbron**, selecteer **O365 groepen**.|
-
 Om weer te geven de **toepassingsgebruik** rapporteren op de **Azure Active Directory** blade onder **beheren**, selecteer **bedrijfstoepassingen**, en selecteer vervolgens **aanmeldingen**.
 
 
-![Enterprise toepassingen aanmeldingen rapport](./media/active-directory-reporting-migration/199.png "Enterprise toepassingen aanmeldingen rapport")
+![Enterprise toepassingen aanmeldingen rapport](./media/active-directory-reporting-migration/199.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

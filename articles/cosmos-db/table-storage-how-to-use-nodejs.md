@@ -1,32 +1,30 @@
 ---
-title: Het gebruik van Azure Table storage of Azure Cosmos DB van Node.js | Microsoft Docs
-description: Gestructureerde gegevens opslaan in de cloud met Azure Table storage of Azure Cosmos DB.
+title: Azure Table Storage of Azure Cosmos DB Table-API van Node.js gebruiken | Microsoft Docs
+description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage of de Azure Cosmos DB Table-API.
 services: cosmos-db
-documentationcenter: nodejs
 author: SnehaGunda
 manager: kfile
-ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 3f1908a6c2d129da44e0719b2cf69cf09baef356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 19e152b8cb8f18a616af647b31a4f35998f47858
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798216"
 ---
-# <a name="how-to-use-azure-table-storage-from-nodejs"></a>Hoe Azure Table storage gebruiken met Node.js
+# <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Azure Table Storage of de Azure Cosmos DB Table-API van Node.js gebruiken
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Overzicht
-Dit artikel laat zien hoe u veelvoorkomende scenario's met Azure Storage, Table-service of Azure Cosmos DB in een Node.js-toepassing uitvoert.
+In dit artikel wordt beschreven hoe u veelvoorkomende scenario's uitvoert met de Azure Storage Table-service of Azure Cosmos DB in een Node.js-toepassing.
 
-## <a name="create-an-azure-service-account"></a>Een Azure-service-account maken
+## <a name="create-an-azure-service-account"></a>Een Azure-serviceaccount maken
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
@@ -34,16 +32,16 @@ Dit artikel laat zien hoe u veelvoorkomende scenario's met Azure Storage, Table-
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Een tabel-API van Azure Cosmos DB-account maken
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Een Azure Cosmos DB Table-API-account maken
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="configure-your-application-to-access-azure-storage"></a>Uw toepassing configureren voor toegang tot Azure Storage
-Voor het gebruik van Azure Storage of Azure Cosmos DB, moet u de Azure-opslag-SDK voor Node.js, waaronder een set van gemak bibliotheken die met de REST van de Storage-services communiceren.
+## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Configureer uw toepassing voor toegang tot Azure Storage of de Azure Cosmos DB Table-API
+U hebt voor het gebruik van Azure Storage of Azure Cosmos DB de Azure Storage SDK voor Node.js nodig. Dit bevat een set met handige bibliotheken die met de Storage REST-services communiceren.
 
-### <a name="use-node-package-manager-npm-to-install-the-package"></a>Knooppunt Package Manager (NPM) gebruiken voor het installeren van het pakket
-1. Een opdrachtregelinterface gebruiken zoals **PowerShell** (Windows), **Terminal** (Mac) of **Bash** (Unix) en navigeer naar de map waar u uw toepassing hebt gemaakt.
-2. Type **npm Installeer azure-opslag** in het opdrachtvenster. Uitvoer van de opdracht is vergelijkbaar met het volgende voorbeeld.
+### <a name="use-node-package-manager-npm-to-install-the-package"></a>Node Package Manager (NPM) gebruiken om het pakket te installeren
+1. Gebruik een opdrachtregelinterface zoals **PowerShell** (Windows), **Terminal** (Mac) of **Bash** (Unix) en ga naar de map waar u uw toepassing hebt gemaakt.
+2. Typ **npm install azure-storage** in het opdrachtvenster. De uitvoer van de opdracht is vergelijkbaar met het volgende voorbeeld.
 
        azure-storage@0.5.0 node_modules\azure-storage
        +-- extend@1.2.1
@@ -55,37 +53,37 @@ Voor het gebruik van Azure Storage of Azure Cosmos DB, moet u de Azure-opslag-SD
        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
        +-- xml2js@0.2.7 (sax@0.5.2)
        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-3. U kunt handmatig uitvoeren de **ls** opdracht om te controleren of een **node_modules** map is gemaakt. In deze map vindt u de **azure-opslag** , dit pakket bevat de bibliotheken die u moet toegang hebben tot opslag.
+3. U kunt de **ls**-opdracht handmatig uitvoeren om te controleren of een **node_modules**-map is gemaakt. In deze map vindt u het **azure-storage**-pakket. Dit pakket bevat de bibliotheken die u nodig hebt om toegang te krijgen tot opslag.
 
 ### <a name="import-the-package"></a>Het pakket importeren
-De volgende code toevoegen aan de bovenkant van de **server.js** bestand in uw toepassing:
+Voeg de volgende code toe aan het begin van het **server.js**-bestand in uw toepassing:
 
 ```nodejs
 var azure = require('azure-storage');
 ```
 
 ## <a name="add-an-azure-storage-connection"></a>Een Azure Storage-verbinding toevoegen
-De Azure-module leest de omgevingsvariabelen AZURE_STORAGE_ACCOUNT en AZURE_STORAGE_ACCESS_KEY of AZURE_STORAGE_CONNECTION_STRING voor de benodigde informatie om te verbinden met uw Azure Storage-account. Als deze omgevingsvariabelen zijn niet ingesteld, moet u de accountgegevens opgeven bij het aanroepen van **TableService**. De volgende code maakt bijvoorbeeld een **TableService** object:
+De Azure Storage-module leest de omgevingsvariabelen AZURE_STORAGE_ACCOUNT en AZURE_STORAGE_ACCESS_KEY, of AZURE_STORAGE_CONNECTION_STRING voor de informatie die nodig is om verbinding te maken met uw Azure Storage-account. Als deze omgevingsvariabelen niet zijn ingesteld, moet u de accountgegevens opgeven bij het aanroepen van **TableService**. De volgende code maakt bijvoorbeeld een **TableService**-object:
 
 ```nodejs
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-comsos-db-connection"></a>Een Azure Comsos DB-verbinding toevoegen
-Als u wilt een Cosmos-DB Azure-verbinding toevoegen, maakt een **TableService** object en geeft u de accountnaam, de primaire sleutel en het eindpunt. U kunt deze waarden van kopiëren **instellingen** > **verbindingsreeks** in de Azure portal voor uw account Cosmos DB. Bijvoorbeeld:
+## <a name="add-an-azure-comsos-db-connection"></a>Een Azure Cosmos DB-verbinding toevoegen
+Als u een Azure Cosmos DB-verbinding wilt toevoegen, maakt u een **TableService**-object en geeft u uw accountnaam, primaire sleutel en eindpunt op. U kunt deze waarden kopiëren uit **Instellingen** > **Verbindingsreeks** in Azure Portal voor uw Cosmos DB-account. Bijvoorbeeld:
 
 ```nodejs
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## <a name="create-a-table"></a>Een tabel maken
-De volgende code maakt een **TableService** object en gebruikt deze om een nieuwe tabel maken. 
+Met de volgende code maakt u een **TableService**-object en gebruikt u dit om een nieuwe tabel te maken. 
 
 ```nodejs
 var tableSvc = azure.createTableService();
 ```
 
-De aanroep van **createTableIfNotExists** maakt een nieuwe tabel met de opgegeven naam als deze niet al bestaat. Het volgende voorbeeld wordt een nieuwe tabel MijnTabel "' als deze niet al bestaat:
+De aanroep van **createTableIfNotExists** maakt een nieuwe tabel met de opgegeven naam als deze nog niet bestaat. In het volgende voorbeeld wordt een nieuwe tabel genaamd 'mytable' gemaakt als deze nog niet bestaat:
 
 ```nodejs
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
@@ -95,24 +93,24 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 });
 ```
 
-De `result.created` is `true` als een nieuwe tabel is gemaakt, en `false` als de tabel al bestaat. De `response` bevat informatie over de aanvraag.
+`result.created` is `true` als een nieuwe tabel wordt gemaakt, en `false` als de tabel al bestaat. De `response` bevat informatie over de aanvraag.
 
 ### <a name="filters"></a>Filters
-U kunt toepassen optionele filteren om de bewerkingen die worden uitgevoerd met behulp van **TableService**. Bewerkingen voor het filteren kunt opnemen logboekregistratie, automatische nieuwe pogingen, enzovoort. Filters zijn objecten die een methode met de handtekening implementeren:
+U optioneel filters toepassen op de bewerkingen die worden uitgevoerd met behulp van **TableService**. Filterbewerkingen kunnen logboekregistratie, automatische nieuwe pogingen, enzovoort bevatten. Filters zijn objecten die een methode implementeren met de handtekening:
 
 ```nodejs
 function handle (requestOptions, next)
 ```
 
-Hierna moet u de voorverwerking van de aanvraag-opties, de methode moet aanroepen **volgende**, een retouraanroep met de volgende handtekening doorgeven:
+Na uitvoering van de voorbewerkingen voor de aanvraagopties, moet de methode **next** aanroepen en een retouraanroep doorgeven met de volgende handtekening:
 
 ```nodejs
 function (returnObject, finalCallback, next)
 ```
 
-In deze retouraanroep en na de verwerking de **returnObject** (de reactie van de aanvraag naar de server), de callback moet ofwel aanroepen **volgende** als deze bestaat als u wilt doorgaan met het verwerken van andere filters of gewoon aanroepen **finalCallback** anders naar einde van het service-aanroepen.
+In deze retouraanroep en na verwerking van **returnObject** (de reactie van de aanvraag op de server), moet de retouraanroep **next** aanroepen als deze bestaat om door te gaan met het verwerken van andere filters of gewoon **finalCallback** aanroepen om te stoppen met service-aanroepen.
 
-Twee filters die Pogingslogica implementeren zijn opgenomen in de Azure SDK voor Node.js, **ExponentialRetryPolicyFilter** en **LinearRetryPolicyFilter**. De volgende code maakt een **TableService** -object dat gebruikmaakt van de **ExponentialRetryPolicyFilter**:
+Twee filters die logica implementeren voor nieuwe pogingen zijn opgenomen in de Azure SDK voor Node.js: **ExponentialRetryPolicyFilter** en **LinearRetryPolicyFilter**. De volgende maakt een **TableService**-object dat gebruikmaakt van de **ExponentialRetryPolicyFilter**:
 
 ```nodejs
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -120,14 +118,14 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Een entiteit toevoegen aan een tabel
-Als u wilt een entiteit toevoegen, moet u eerst een object dat de entiteitseigenschappen van uw bepaalt maken. Alle entiteiten moeten bevatten een **PartitionKey** en **RowKey**, die de unieke id's voor de entiteit zijn.
+Wanneer u een entiteit wilt toevoegen, moet u eerst een object maken dat uw entiteitseigenschappen definieert. Alle entiteiten moeten een **PartitionKey** en **RowKey** bevatten, die unieke id's voor de entiteit zijn.
 
-* **PartitionKey** -bepaalt de partitie waarop de entiteit is opgeslagen.
-* **RowKey** - unieke wijze identificeert de entiteit in de partitie.
+* **PartitionKey** bepaalt de partitie waarop de entiteit is opgeslagen.
+* **RowKey** identificeert de entiteit in de partitie.
 
-Beide **PartitionKey** en **RowKey** moet tekenreekswaarden. Zie voor meer informatie [inzicht in de tabel Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+**PartitionKey** en **RowKey** moet beide tekenreekswaarden zijn. Zie [Het gegevensmodel van de tabelservice](http://msdn.microsoft.com/library/azure/dd179338.aspx) voor meer informatie.
 
-Hier volgt een voorbeeld van het definiëren van een entiteit. Houd er rekening mee dat **dueDate** is gedefinieerd als een soort **Edm.DateTime**. Op te geven is optioneel en typen zijn afgeleid indien niet opgegeven.
+Hier volgt een voorbeeld van het definiëren van een entiteit. Houd er rekening mee dat **dueDate** is gedefinieerd als een type **Edm.DateTime**. Het specificeren van het type is optioneel en als dit niet wordt opgegeven, wordt het type afgeleid.
 
 ```nodejs
 var task = {
@@ -139,11 +137,11 @@ var task = {
 ```
 
 > [!NOTE]
-> Er is ook een **tijdstempel** veld voor elke record, die door Azure wordt ingesteld wanneer een entiteit wordt ingevoegd of bijgewerkt.
+> Er is ook een veld **Tijdstempel** voor elk record. Deze wordt door Azure ingesteld wanneer een entiteit wordt ingevoegd of bijgewerkt.
 >
 >
 
-U kunt ook de **entityGenerator** -entiteiten maken. Het volgende voorbeeld wordt de dezelfde taak entiteit met behulp van de **entityGenerator**.
+U kunt ook de **entityGenerator** gebruiken om entiteiten te maken. In het volgende voorbeeld wordt de dezelfde taakentiteit gemaakt met behulp van de **entityGenerator**.
 
 ```nodejs
 var entGen = azure.TableUtilities.entityGenerator;
@@ -155,7 +153,7 @@ var task = {
 };
 ```
 
-Voor een entiteit toevoegen aan de tabel, geeft u de entiteitsobject aan de **insertEntity** methode.
+Wanneer u een entiteit wilt toevoegen aan de tabel, geeft u het entiteitsobject door aan de **insertEntity**-methode.
 
 ```nodejs
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
@@ -165,30 +163,30 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-Als de bewerking voltooid is, `result` bevat de [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) van de ingevoegde record en `response` bevat informatie over het opnieuw.
+Als de bewerking is gelukt, bevat `result` de [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) van het ingevoegde record en `response` informatie over de bewerking.
 
-Voorbeeld van een antwoord:
+Voorbeeld van een reactie:
 
 ```nodejs
 { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
 
 > [!NOTE]
-> Standaard **insertEntity** resulteert niet in de entiteit ingevoegd als onderdeel van de `response` informatie. Als u van plan bent andere bewerkingen uitvoert op deze entiteit of wilt de informatie in de cache, kan het handig zijn om deze opgehaald als onderdeel van de `result`. U kunt dit doen door in te schakelen **echoContent** als volgt:
+> **insertEntity** retourneert niet standaard de ingevoegde entiteit als onderdeel van de `response`-informatie. Als u van plan bent andere bewerkingen uit te voeren op deze entiteit of de informatie in de cache wilt plaatsen, kan het handig zijn om de entiteit te retourneren als onderdeel van de `result`. U kunt dit doen door **echoContent** in te schakelen, als volgt:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 >
 >
 
-## <a name="update-an-entity"></a>Bijwerken van een entiteit
+## <a name="update-an-entity"></a>Een entiteit bijwerken
 Er zijn meerdere methoden beschikbaar voor het bijwerken van een bestaande entiteit:
 
-* **replaceEntity** -Updates van een bestaande entiteit door deze te vervangen.
-* **mergeEntity** -Updates van een bestaande entiteit door nieuwe eigenschapswaarden in de bestaande entiteit samen te voegen.
-* **insertOrReplaceEntity** -Updates van een bestaande entiteit door deze te vervangen. Als er is geen entiteit bestaat, wordt er een nieuwe ingevoegd.
-* **insertOrMergeEntity** -Updates van een bestaande entiteit door nieuwe eigenschapswaarden in de bestaande samen te voegen. Als er is geen entiteit bestaat, wordt er een nieuwe ingevoegd.
+* **replaceEntity** werkt een bestaande entiteit bij door deze te vervangen.
+* **mergeEntity** werkt een bestaande entiteit bij door nieuwe eigenschapswaarden in de bestaande entiteit samen te voegen.
+* **insertOrReplaceEntity** werkt een bestaande entiteit bij door deze te vervangen. Als er geen entiteit bestaat, wordt er een nieuwe ingevoegd.
+* **insertOrMergeEntity** werkt een bestaande entiteit bij door nieuwe eigenschapswaarden in de bestaande entiteit samen te voegen. Als er geen entiteit bestaat, wordt er een nieuwe ingevoegd.
 
-Het volgende voorbeeld toont het bijwerken van een entiteit met **replaceEntity**:
+Het volgende voorbeeld laat zien hoe u een entiteit bijwerkt met **replaceEntity**:
 
 ```nodejs
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
@@ -199,24 +197,24 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 ```
 
 > [!NOTE]
-> Standaard wordt bijwerken van een entiteit niet gecontroleerd of de gegevens worden bijgewerkt eerder is gewijzigd door een ander proces. Ter ondersteuning van gelijktijdige updates:
+> Standaard wordt bij het bijwerken van een entiteit niet gecontroleerd of de bij te werken gegevens eerder zijn gewijzigd door een ander proces. Gelijktijdige updates verwerken:
 >
-> 1. Haal de ETag van het object wordt bijgewerkt. Dit wordt geretourneerd als onderdeel van de `response` voor elke entiteit-gerelateerde bewerking en kan worden opgehaald via `response['.metadata'].etag`.
-> 2. Bij het uitvoeren van een updatebewerking op een entiteit toevoegen de ETag-informatie naar de nieuwe entiteit die eerder werden opgehaald. Bijvoorbeeld:
+> 1. Haal de ETag op van het object dat wordt bijgewerkt. Deze wordt geretourneerd als onderdeel van de `response` voor elke entiteit-gerelateerde bewerking en kan worden opgehaald via `response['.metadata'].etag`.
+> 2. Bij het uitvoeren van een updatebewerking op een entiteit, voegt u de eerder opgehaalde ETag-informatie toe aan de nieuwe entiteit. Bijvoorbeeld:
 >
->       entity2 [.metadata] .etag = currentEtag;
-> 3. De updatebewerking niet uitvoeren. Als de entiteit is gewijzigd sinds u de ETag-waarde opgehaald zoals een ander exemplaar van uw toepassing een `error` wordt geretourneerd met de mededeling dat de update-voorwaarde die is opgegeven in de aanvraag is niet voldaan aan.
+>       entity2['.metadata'].etag = currentEtag;
+> 3. Voer de updatebewerking uit. Als de entiteit is gewijzigd sinds u de ETag-waarde hebt opgehaald, bijvoorbeeld in een ander exemplaar van uw toepassing, wordt een `error` geretourneerd met de mededeling dat niet is voldaan aan de updatevoorwaarde die is opgegeven in de aanvraag.
 >
 >
 
-Met **replaceEntity** en **mergeEntity**, als de entiteit die wordt bijgewerkt niet bestaat, en vervolgens de updatebewerking is mislukt; daarom als u wilt opslaan van een entiteit ongeacht of deze al bestaat, gebruik **insertOrReplaceEntity** of **insertOrMergeEntity**.
+Als u **replaceEntity** en **mergeEntity** gebruikt en de bij te werken entiteit niet bestaat, mislukt de updatebewerking. Gebruik daarom **insertOrReplaceEntity** of **insertOrMergeEntity** als u een entiteit wilt opslaan ongeacht of deze al bestaat.
 
-De `result` voor bewerkingen van geslaagde update bevat de **Etag** van de bijgewerkte entiteit.
+De `result` voor geslaagde updatebewerkingen bevat de **Etag** van de bijgewerkte entiteit.
 
-## <a name="work-with-groups-of-entities"></a>Werken met groepen van entiteiten
-Soms is het zinvol verzenden meerdere bewerkingen samen in een batch om ervoor te zorgen atomic verwerking door de server. Gebruik hiertoe die de **TableBatch** klasse voor het maken van een batch en gebruik vervolgens de **executeBatch** methode van **TableService** de batch-bewerkingen uit te voeren.
+## <a name="work-with-groups-of-entities"></a>Werken met groepen entiteiten
+Soms is het zinvol om meerdere bewerkingen samen in een batch te verzenden om te zorgen dat ze atomisch worden verwerkt door de server. Gebruik hiertoe die de **TableBatch**-klasse voor het maken van een batch en gebruik vervolgens de **executeBatch**-methode van **TableService** om de batchbewerkingen uit te voeren.
 
- Het volgende voorbeeld ziet u twee entiteiten in een batch te verzenden:
+ In het volgende voorbeeld ziet u hoe u twee entiteiten in een batch kunt verzenden.
 
 ```nodejs
 var task1 = {
@@ -244,19 +242,19 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 });
 ```
 
-Voor een geslaagde batchbewerkingen, `result` bevat informatie voor elke bewerking in de batch.
+Voor geslaagde batchbewerkingen bevat `result` informatie voor elke bewerking in de batch.
 
-### <a name="work-with-batched-operations"></a>Werken met batchbewerkingen
-U kunt inspecteren bewerkingen die zijn toegevoegd aan een batch door de `operations` eigenschap. U kunt ook de volgende methoden gebruiken om te werken met bewerkingen:
+### <a name="work-with-batched-operations"></a>Batchbewerkingen gebruiken
+U kunt bewerkingen die zijn toegevoegd aan een batch, inspecteren door de `operations`-eigenschap te bekijken. U kunt ook de volgende methoden gebruiken om te werken met bewerkingen:
 
-* **Schakel** -Hiermee wist u alle bewerkingen van een batch.
-* **getOperations** -krijgt een bewerking van de batch.
-* **hasOperations** -retourneert true als de batch bewerkingen bevat.
-* **removeOperations** -Hiermee verwijdert u een bewerking.
-* **de grootte van** -retourneert het aantal bewerkingen in de batch.
+* **clear** wist u alle bewerkingen uit een batch.
+* **getOperations** haalt bewerkingen uit de batch.
+* **hasOperations** retourneert 'true' als de batch bewerkingen bevat.
+* **removeOperations** verwijdert een bewerking.
+* **size** retourneert het aantal bewerkingen in de batch.
 
-## <a name="retrieve-an-entity-by-key"></a>Een entiteit sleutel ophalen
-Om te retourneren van een specifieke entiteit op basis van de **PartitionKey** en **RowKey**, gebruiken de **retrieveEntity** methode.
+## <a name="retrieve-an-entity-by-key"></a>Een entiteit ophalen op basis van sleutel
+Wanneer u een specifieke entiteit wilt retourneren op basis van de **PartitionKey** en **RowKey**, gebruikt u de **retrieveEntity**-methode.
 
 ```nodejs
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -266,19 +264,19 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 });
 ```
 
-Nadat u deze bewerking is voltooid, `result` de entiteit bevat.
+Nadat u deze bewerking is voltooid, bevat `result` de entiteit.
 
-## <a name="query-a-set-of-entities"></a>Query uitvoeren op een verzameling entiteiten
-Om te vragen een tabel, gebruikt u de **TableQuery** object voor het bouwen van een query-expressie met behulp van de volgende componenten:
+## <a name="query-a-set-of-entities"></a>Een query uitvoeren voor een aantal entiteiten
+Wanneer u een query wilt uitvoeren op een tabel, gebruikt u het **TableQuery**-object om een query-expressie op te bouwen met de volgende componenten:
 
-* **Selecteer** -de velden moeten worden geretourneerd van de query.
-* **waar** -where component.
+* **select**: de velden die moeten worden geretourneerd door de query.
+* **where**: de waar-component.
 
-  * **en** - een `and` where-voorwaarde.
-  * **of** - een `or` where-voorwaarde.
-* **Top** -het aantal items op te halen.
+  * **and**: een `and` where-conditie.
+  * **or**: een `or` where-conditie.
+* **top**: het aantal op te halen items.
 
-Het volgende voorbeeld wordt een query waarmee de bovenste vijf items met een PartitionKey van 'hometasks' geretourneerd.
+In het volgende voorbeeld wordt een query gemaakt waarmee de bovenste vijf items met een PartitionKey 'hometasks' worden geretourneerd.
 
 ```nodejs
 var query = new azure.TableQuery()
@@ -286,7 +284,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Omdat **Selecteer** niet wordt gebruikt, alle velden worden geretourneerd. Als u wilt uitvoeren van de query op een tabel, **queryEntities**. Het volgende voorbeeld maakt gebruik van deze query retourneren van entiteiten op "MijnTabel".
+Omdat **select** niet wordt gebruikt, worden alle velden geretourneerd. Als u de query wilt uitvoeren op een tabel, gebruikt u **queryEntities**. In het volgende voorbeeld wordt deze query gebruikt om entiteiten te retourneren uit 'mytable'.
 
 ```nodejs
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -296,11 +294,11 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 });
 ```
 
-Als dit lukt, `result.entries` bevat een matrix van entiteiten die overeenkomen met de query. Als de query kan niet alle entiteiten retourneren `result.continuationToken` is niet -*null* en kan worden gebruikt als de derde parameter van **queryEntities** meer resultaten ophalen. Gebruik voor de eerste query *null* voor de derde parameter.
+Als dit lukt, bevat `result.entries` een matrix van entiteiten die overeenkomen met de query. Als de query kan niet alle entiteiten kan retourneren, is `result.continuationToken` niet-*null* en kan worden gebruikt als de derde parameter van **queryEntities** om meer resultaten op te halen. Gebruik voor de eerste query *null* voor de derde parameter.
 
 ### <a name="query-a-subset-of-entity-properties"></a>Een query uitvoeren op een subset van entiteitseigenschappen
-Een query naar een tabel ophalen slechts enkele velden van een entiteit.
-Dit verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. Gebruik de **Selecteer** component en geef de namen van de velden om te retourneren. Bijvoorbeeld de volgende query retourneert alleen de **beschrijving** en **dueDate** velden.
+Met een query naar een tabel kunnen slechts enkele velden van een entiteit worden opgehaald.
+Dit verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. Gebruik de **select**-component en geef de namen door van de velden die moeten worden geretourneerd. De volgende query retourneert bijvoorbeeld alleen de velden **description** en **dueDate**.
 
 ```nodejs
 var query = new azure.TableQuery()
@@ -310,7 +308,7 @@ var query = new azure.TableQuery()
 ```
 
 ## <a name="delete-an-entity"></a>Een entiteit verwijderen
-U kunt een entiteit met behulp van de sleutels van de partitie en rij verwijderen. In dit voorbeeld wordt de **task1** object bevat de **RowKey** en **PartitionKey** waarden van de entiteit wilt verwijderen. Klik in het object wordt doorgegeven aan de **deleteEntity** methode.
+U kunt een entiteit verwijderen met behulp van zijn partities en rijsleutels. In dit voorbeeld bevat het **task1**-object de **RowKey**- en **PartitionKey**-waarden van de te verwijderen entiteit. Het object wordt doorgegeven aan de **deleteEntity**-methode.
 
 ```nodejs
 var task = {
@@ -326,12 +324,12 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ```
 
 > [!NOTE]
-> Overweeg het gebruik van ETags bij het verwijderen van items, om ervoor te zorgen dat het item niet is gewijzigd door een ander proces. Zie [bijwerken van een entiteit](#update-an-entity) voor informatie over het gebruik van ETags.
+> Overweeg het gebruik van ETags bij het verwijderen van items om zeker te weten dat het item niet is gewijzigd door een ander proces. Zie [Een entiteit bijwerken](#update-an-entity) voor informatie over het gebruik van ETags.
 >
 >
 
 ## <a name="delete-a-table"></a>Een tabel verwijderen
-De volgende code wordt een tabel uit een opslagaccount verwijderd.
+Met de volgende code wordt een tabel uit een opslagaccount verwijderd.
 
 ```nodejs
 tableSvc.deleteTable('mytable', function(error, response){
@@ -341,14 +339,14 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Als u niet zeker of de tabel bestaat weet, gebruikt u **deleteTableIfExists**.
+Als u niet zeker weet of de tabel bestaat, gebruikt u **deleteTableIfExists**.
 
-## <a name="use-continuation-tokens"></a>Voortzetting tokens gebruiken
-Wanneer u in de tabellen voor grote hoeveelheden resultaten zoekt, zoekt u voortzetting tokens. Mogelijk zijn er grote hoeveelheden gegevens beschikbaar voor uw query die u niet beseft waarschijnlijk als u niet bouwen wilt herkennen als een vervolgtoken aanwezig is.
+## <a name="use-continuation-tokens"></a>Vervolgtokens gebruiken
+Wanneer u query's uitvoert op tabellen en veel resultaten krijgt, let dan op de vervolgtokens. Mogelijk zijn er zonder dat u het weet grote hoeveelheden gegevens beschikbaar voor uw query als u in uw query geen rekening hebt gehouden met de aanwezigheid van vervolgtokens.
 
-De **resultaten** -object geretourneerd tijdens het opvragen van entiteiten stelt een `continuationToken` eigenschap bij dergelijke token aanwezig is. Vervolgens kunt u dit bij het uitvoeren van een query om te blijven over de partitie en tabel entiteiten verplaatst.
+Het **results**-object geretourneerd tijdens het uitvoeren van een query op entiteitensets, stelt een `continuationToken`-eigenschap in wanneer een dergelijk token aanwezig is. Vervolgens kunt u deze bij het uitvoeren van een query gebruiken om door te gaan in de partitie- en tabelentiteiten.
 
-Wanneer een query uitvoert, kunt u opgeven een `continuationToken` parameter tussen het objectexemplaar query en de callback-functie:
+Wanneer u een query uitvoert, kunt u een `continuationToken`-parameter opgeven tussen de queryobjectinstantie en de retouraanroepfunctie:
 
 ```nodejs
 var nextContinuationToken = null;
@@ -367,14 +365,14 @@ dc.table.queryEntities(tableName,
     });
 ```
 
-Als u de `continuationToken` object, vindt u eigenschappen zoals `nextPartitionKey`, `nextRowKey` en `targetLocation`, die kan worden gebruikt voor alle resultaten doorlopen.
+Als u het `continuationToken`-object inspecteert, vindt u eigenschappen zoals `nextPartitionKey`, `nextRowKey` en `targetLocation`, die kunnen worden gebruikt om door alle resultaten te lopen.
 
 ## <a name="work-with-shared-access-signatures"></a>Werken met handtekeningen voor gedeelde toegang
-Shared access signatures (SAS) zijn geen veilige manier toegang te bieden gedetailleerde tot tabellen zonder dat de naam van het Opslagaccount of sleutels. SAS worden vaak gebruikt voor beperkte toegang tot uw gegevens, zoals het toestaan van een mobiele app records wilt zoeken.
+Shared Access Signatures (SAS) zijn een veilige manier om op detailniveau toegang te bieden tot tabellen zonder dat u de naam of sleutels van uw opslagaccount hoeft te geven. SAS wordt vaak gebruikt voor beperkte toegang tot uw gegevens, bijvoorbeeld om een mobiele app toe te staan om een query uit te voeren op records.
 
-Een vertrouwde toepassing zoals een cloud-gebaseerde service genereert een SAS met de **generateSharedAccessSignature** van de **TableService**, en biedt dit aan een niet-vertrouwde of semi vertrouwde toepassing zoals een mobiele app. De SAS is gegenereerd met een beleid in, die beschrijft de begin- en einddatums gedurende welke de SAS geldig is, evenals het toegangsniveau verleend aan de SAS-houder.
+Een vertrouwde toepassing zoals een cloud-gebaseerde service genereert een SAS met de **generateSharedAccessSignature** van de **TableService**, en biedt dit aan een niet-vertrouwde of semi-vertrouwde toepassing aan, zoals een mobiele app. De SAS wordt gegenereerd op basis van beleid, waarin de begin- en einddatum wordt vermeld voor de geldigheid van de SAS, evenals het toegangsniveau verleend aan de SAS-houder.
 
-Het volgende voorbeeld genereert een nieuw beleid voor gedeelde toegang die zorgen de SAS-houder aan query ('r') in de tabel dat ervoor en 100 minuten na het tijdstip waarop dat deze is gemaakt is verlopen.
+In het volgende voorbeeld wordt een nieuwe beleidsregel gegenereerd voor gedeelde toegang, die zorgt dat de SAS-houder een query ('r') kan uitvoeren op de tabel. Deze toegang verloopt 100 minuten na het tijdstip waarop de toegang is gemaakt.
 
 ```nodejs
 var startDate = new Date();
@@ -394,9 +392,9 @@ var tableSAS = tableSvc.generateSharedAccessSignature('mytable', sharedAccessPol
 var host = tableSvc.host;
 ```
 
-Houd er rekening mee moet u ook de informatie over de host opgeven als vereist is wanneer de SAS-houder probeert te krijgen van de tabel.
+Houd er rekening mee dat u ook de informatie over de host moet opgeven, aangezien dit is vereist wanneer de SAS-houder toegang probeert te krijgen tot de tabel.
 
-Vervolgens kunt u de clienttoepassing gebruikmaakt van de SAS met **TableServiceWithSAS** bewerkingen op de tabel uit te voeren. Het volgende voorbeeld maakt verbinding met de tabel en een query uitvoeren.
+De clienttoepassing maakt dan gebruik van de SAS met **TableServiceWithSAS** om bewerkingen op de tabel uit te voeren. In het volgende voorbeeld wordt verbinding gemaakt met de tabel en een query uitgevoerd.
 
 ```nodejs
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -410,12 +408,12 @@ sharedTableService.queryEntities(query, null, function(error, result, response) 
 });
 ```
 
-Omdat de SAS met alleen toegang tot de query is gegenereerd, wordt er een fout geretourneerd als u wilt invoegen, bijwerken of verwijderen van entiteiten.
+Omdat de SAS alleen querytoegang biedt, wordt er een fout geretourneerd als u entiteiten wilt invoegen, bijwerken of verwijderen.
 
-### <a name="access-control-lists"></a>Access Control Lists
-U kunt ook een lijst met ACL (Access Control) het toegangsbeleid instellen voor een SAS. Dit is handig als u toestaan dat meerdere clients toegang tot de tabel wilt, maar bieden verschillende toegangsbeleid voor elke client.
+### <a name="access-control-lists"></a>Toegangsbeheerlijsten
+U kunt ook een ACL (Access Control List) gebruiken om het toegangsbeleid in te stellen voor een SAS. Dit is handig als u meerdere clients toegang wilt geven tot de tabel, maar voor elke client een ander toegangsbeleid wilt instellen.
 
-Een ACL die is geïmplementeerd met behulp van een matrix van toegangsbeleid, met een ID die is gekoppeld aan elk beleid. Het volgende voorbeeld definieert twee beleidsregels, één voor 'gebruiker1' en één voor 'gebruiker2':
+Een ACL wordt geïmplementeerd met behulp van een matrix van toegangsbeleidregels, met een id die is gekoppeld aan elk beleid. In het volgende voorbeeld worden twee beleidsregels gedefinieerd, één voor 'gebruiker1' en één voor 'gebruiker2':
 
 ```nodejs
 var sharedAccessPolicy = {
@@ -432,7 +430,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-Het volgende voorbeeld wordt de huidige ACL voor de **hometasks** tabel en voegt vervolgens het nieuwe beleid met behulp van **setTableAcl**. Met deze aanpak kunt:
+In het volgende voorbeeld wordt de huidige ACL voor de **hometasks**-tabel opgehaald en vervolgens het nieuwe beleid toegevoegd met behulp van **setTableAcl**. Deze aanpak biedt u de volgende mogelijkheid:
 
 ```nodejs
 var extend = require('extend');
@@ -448,17 +446,17 @@ if(!error){
 });
 ```
 
-Nadat de ACL is ingesteld, kunt u vervolgens een SAS op basis van de ID voor een beleid maken. Het volgende voorbeeld wordt een nieuwe SAS voor 'gebruiker2':
+Nadat de ACL is ingesteld, kunt u een SAS maken op basis van de id van een beleid. In het volgende voorbeeld wordt een nieuwe SAS voor 'gebruiker2' gemaakt:
 
 ```nodejs
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie.
+Zie de volgende informatie bronnen voor meer informatie:
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
-* [Azure-opslag-SDK voor Node.js](https://github.com/Azure/azure-storage-node) opslagplaats op GitHub.
+* [Azure Storage SDK voor Node.js](https://github.com/Azure/azure-storage-node)-opslag op GitHub.
 * [Azure voor Node.js-ontwikkelaars](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
 * [Een Node.js-web-app maken in Azure](../app-service/app-service-web-get-started-nodejs.md)
-* [Bouw en implementeer een Node.js-toepassing naar een Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (met behulp van Windows PowerShell)
+* [Een Node.js-toepassing bouwen en implementeren in een Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (met Windows PowerShell)

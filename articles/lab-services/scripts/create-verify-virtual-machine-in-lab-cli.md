@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-scriptvoorbeeld - Een virtuele machine maken en controleren in een aangepaste lab | Microsoft Docs
-description: Met dit Azure CLI-script wordt een virtuele machine in een aangepast lab gemaakt en gecontroleerd of deze beschikbaar is.
+title: Azure CLI-scriptvoorbeeld - Een virtuele machine maken en controleren in een lab | Microsoft Docs
+description: Met dit Azure CLI-script wordt een virtuele machine in een lab gemaakt en gecontroleerd of deze beschikbaar is.
 services: lab-services
 author: spelluru
 manager: ''
@@ -14,15 +14,16 @@ ms.workload: na
 ms.date: 04/12/2018
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: bd564cda7b4d5c2158b8499b48b8faa68309b461
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1adffd067a2a140f901469182f02cd76ba1da10c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763065"
 ---
-# <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-custom-lab"></a>Azure CLI gebruiken om een virtuele machine in een aangepast lab te maken en om de beschikbaarheid ervan controleren
+# <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Azure CLI gebruiken om een virtuele machine in een lab te maken en de beschikbaarheid te controleren in Azure DevTest Labs
 
-Met dit Azure CLI-script wordt een virtuele machine (VM) in een aangepaste lab gemaakt. De virtuele machine is gemaakt op basis van een Marketplace-installatiekopie met SSH-verificatie. Via dit script wordt gecontroleerd of de virtuele machine beschikbaar is voor gebruik. 
+Met dit Azure CLI-script wordt een virtuele machine (VM) in een lab gemaakt. De virtuele machine is gemaakt op basis van een Marketplace-installatiekopie met SSH-verificatie. Via dit script wordt gecontroleerd of de virtuele machine beschikbaar is voor gebruik. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -47,11 +48,11 @@ In dit script worden de volgende opdrachten gebruikt:
 | Opdracht | Opmerkingen |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az lab vm create ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Hiermee wordt een virtuele machine (VM) in een aangepast lab gemaakt. |
-| [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Hiermee wordt de status van de virtuele machine in een aangepast lab weergegeven. |
+| [az lab vm create ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Hiermee wordt een virtuele machine (VM) in een lab gemaakt. |
+| [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Hiermee wordt de status van de virtuele machine in een lab weergegeven. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) voor meer informatie over de Azure CLI.
 
-Er zijn extra voorbeelden van Azure Lab Services PowerShell-scripts te vinden in de [voorbeelden van Azure Lab Services CLI](../samples-cli.md).
+Er zijn extra voorbeelden van Azure Lab Services CLI-scripts te vinden in de [voorbeelden van Azure Lab Services CLI](../samples-cli.md).

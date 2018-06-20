@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: a57118feb85a010e38d73b758ebfb84d1cc463fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bd42268c36f44dc20b88d27d19cbf378e848b82f
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361247"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823143"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Aan de slag in Azure Dev Spaces met behulp van .NET Core
 
@@ -32,7 +32,7 @@ U kunt nu een op Kubernetes gebaseerde ontwikkelomgeving maken in Azure.
 Azure Dev Spaces vereist minimale instellingen voor de lokale computer. De configuratie van uw ontwikkelomgeving wordt grotendeels opgeslagen in de cloud en kan worden gedeeld met andere gebruikers. Begin met het downloaden en uitvoeren van de [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> Als u de Azure CLI al hebt geïnstalleerd, controleert u of u versie 2.0.32 of hoger gebruikt.
+> Als u de Azure CLI al hebt geïnstalleerd, controleert u of u versie 2.0.33 of hoger gebruikt.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -42,7 +42,11 @@ Azure Dev Spaces vereist minimale instellingen voor de lokale computer. De confi
 
 Terwijl u wacht totdat het cluster wordt gemaakt, kunt u beginnen met het ontwikkelen van code.
 
-## <a name="create-an-aspnet-core-web-app"></a>Een ASP.NET Core-web-app maken
+## <a name="create-a-web-app-running-in-a-container"></a>Een web-app maken die wordt uitgevoerd in een container
+
+In deze sectie maakt u een ASP.NET Core-web-app en voert u deze uit in een container in Kubernetes.
+
+### <a name="create-an-aspnet-core-web-app"></a>Een ASP.NET Core-web-app maken
 Als u [.NET Core](https://www.microsoft.com/net) hebt geïnstalleerd, kunt u snel een ASP.NET Core-web-app maken in een map met de naam `webfrontend`.
     
 ```cmd
@@ -55,7 +59,7 @@ Of **download voorbeeldcode vanuit GitHub**  door te navigeren naar https://gith
 
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
-## <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
+### <a name="update-a-content-file"></a>Een inhoudsbestand bijwerken
 Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd in Kubernetes. Het gaat er om dat u de codewijzigingen snel en iteratief toegepast kunt zien in een Kubernetes-omgeving in de cloud.
 
 1. Zoek het bestand `./Views/Home/Index.cshtml` en bewerk de HTML-code. Wijzig bijvoorbeeld regel 70 waar `<h2>Application uses</h2>` staat in iets als: `<h2>Hello k8s in Azure!</h2>`
@@ -64,7 +68,7 @@ Azure Dev Spaces draait niet alleen om het ophalen van code die wordt uitgevoerd
 
 Wat is er gebeurd? Bewerkingen van inhoudsbestanden, zoals HTML en CSS, vereisen geen hercompilatie in een .NET Core-web-app, dus worden gewijzigde inhoudsbestanden in de actieve container in Azure door een actieve `azds up`-opdracht automatisch gesynchroniseerd, zodat u uw inhoudsbewerkingen meteen kunt zien.
 
-## <a name="update-a-code-file"></a>Een codebestand bijwerken
+### <a name="update-a-code-file"></a>Een codebestand bijwerken
 Het bijwerken van codebestanden vereist iets meer werk, omdat een .NET Core-app bijgewerkte binaire toepassingsbestanden moet bouwen en produceren.
 
 1. Druk in het terminalvenster op `Ctrl+C` (om `azds up` te stoppen).
@@ -97,11 +101,11 @@ Er bestaat echter een nog *snellere methode* voor het ontwikkelen van code. Deze
 ### <a name="debug-the-container-in-kubernetes"></a>Fouten opsporen in de container in Kubernetes
 Druk op **F5** om fouten in uw code op te sporen in Kubernetes.
 
-Net als bij de `up`-opdracht wordt code gesynchroniseerd met de ontwikkelomgeving en wordt een container gemaakt en geïmplementeerd in Kubernetes. Op dit moment is het foutopsporingsprogramma uiteraard gekoppeld aan de externe container.
+Net als bij de opdracht `up` wordt code gesynchroniseerd met de ontwikkelomgeving en wordt een container gemaakt en geïmplementeerd in Kubernetes. Op dit moment is het foutopsporingsprogramma uiteraard gekoppeld aan de externe container.
 
 [!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
-Stel een onderbrekingspunt in een codebestand aan serverzijde, bijvoorbeeld binnen de `Index()`-functie in het `Controllers/HomeController.cs`-bronbestand. Als de browserpagina wordt vernieuwd, wordt het onderbrekingspunt bereikt.
+Stel een onderbrekingspunt in een codebestand aan serverzijde, bijvoorbeeld binnen de functie `Index()` in het bronbestand `Controllers/HomeController.cs`. Als de browserpagina wordt vernieuwd, wordt het onderbrekingspunt bereikt.
 
 U hebt volledige toegang tot foutopsporingsgegevens, net alsof de code lokaal wordt uitgevoerd. Denk hierbij aan de aanroep-stack, lokale variabelen en informatie over uitzonderingen, enzovoort.
 
@@ -138,7 +142,7 @@ Omwille van de tijd downloaden we voorbeeldcode uit een GitHub-opslagplaats. Ga 
 ### <a name="run-mywebapi"></a>*mywebapi* uitvoeren
 1. Open de map `mywebapi` in een *afzonderlijk VS Code-venster*.
 1. Druk op F5 en wacht tot de service is gebouwd en geïmplementeerd. Dit proces is voltooid, zodra de VS Code-balk voor foutopsporing wordt weergegeven.
-1. Noteer de URL van het eindpunt. Deze ziet er ongeveer als volgt uit: http://localhost:\<portnumber\>. **Tip: op de VS Code-statusbalk wordt een klikbare URL weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in de ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
+1. Noteer de URL van het eindpunt. Deze ziet er ongeveer als volgt uit: http://localhost:\<portnumber\>. **Tip: op de VS Code-statusbalk wordt een klikbare URL weergegeven.** Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in onze ontwikkelomgeving in Azure. Het localhost-adres is te zien omdat er nog geen openbare eindpunten zijn gedefinieerd in `mywebapi` en toegang daarom alleen mogelijk is binnen het Kubernetes-exemplaar. Voor uw gemak en om interactie met de privésessie mogelijk te maken vanaf de lokale computer wordt in Azure Dev Spaces een tijdelijke SSH-tunnel gemaakt naar de container die wordt uitgevoerd in Azure.
 1. Wanneer `mywebapi` klaar is, opent u de browser naar het localhost-adres. Voeg `/api/values` toe aan de URL om de standaard GET-API voor de `ValuesController` aan te roepen. 
 1. Als alle stappen zijn voltooid, moet er een reactie van de `mywebapi`-service te zien zijn.
 
@@ -152,23 +156,25 @@ Nu gaan we code schrijven in `webfrontend` waarmee een aanvraag wordt verzonden 
     {
         ViewData["Message"] = "Hello from webfrontend";
         
-        // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-        // headers in the incoming request to any outgoing requests
-        using (var client = new HeaderPropagatingHttpClient(this.Request))
-        {
-            // Call *mywebapi*, and display its response in the page
-            var response = await client.GetAsync("http://mywebapi/api/values/1");
-            ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-        }
+        using (var client = new System.Net.Http.HttpClient())
+            {
+                // Call *mywebapi*, and display its response in the page
+                var request = new System.Net.Http.HttpRequestMessage();
+                request.RequestUri = new Uri("http://mywebapi/api/values/1");
+                if (this.Request.Headers.ContainsKey("azds-route-as"))
+                {
+                    // Propagate the dev space routing header
+                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
+                }
+                var response = await client.SendAsync(request);
+                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            }
 
         return View();
     }
     ```
 
-U ziet dat de DNS-servicedetectie van Kubernetes wordt gebruikt om naar de service te verwijzen als `http://mywebapi`. **Code in de ontwikkelomgeving wordt op dezelfde manier uitgevoerd als later in de productiefase**.
-
-Het bovenstaande codevoorbeeld maakt ook gebruik van een `HeaderPropagatingHttpClient`-klasse. Deze helperklasse werd toegevoegd aan uw codemap op het moment dat u `azds prep` uitvoerde. `HeaderPropagatingHttpClient` is afgeleid van de bekende `HttpClient`-klasse en biedt extra functionaliteit om specifieke headers vanuit een bestaand ASP.NET HttpRequest-object door te geven aan een uitgaand HttpRequestMessage-object. Verderop zullen we zien hoe het gebruik van deze afgeleide klasse een productievere ontwikkeling in teamscenario's mogelijk maakt.
-
+In het vorige codevoorbeeld wordt de `azds-route-as`-header van de binnenkomende aanvraag doorgestuurd naar de uitgaande aanvraag. Later ziet u hoe dit teamleden helpt om samen te ontwikkelen.
 
 ### <a name="debug-across-multiple-services"></a>Foutopsporing in meerdere services
 1. Op dit punt moet `mywebapi` nog steeds worden uitgevoerd met het bijgevoegde foutopsporingsprogramma. Als dit niet het geval is, drukt u op F5 in het `mywebapi`-project.

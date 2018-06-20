@@ -1,27 +1,24 @@
 ---
 title: Lokaal ontwikkelen met de Azure Cosmos DB Emulator | Microsoft Docs
-description: Met behulp van de Azure-Emulator Cosmos DB, kunt u ontwikkelen en testen van de toepassing lokaal voor gratis, zonder te maken van een Azure-abonnement.
+description: Met behulp van de Azure Cosmos DB Emulator kunt u uw toepassing lokaal ontwikkelen en testen, kosteloos en zonder dat u een Azure-abonnement hoeft te nemen.
 services: cosmos-db
-documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: David-Noble-at-work
 manager: kfile
 editor: ''
-ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824091"
 ---
-# <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokale ontwikkeling en testen
+# <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokaal ontwikkelen en testen
 
 <table>
 <tr>
@@ -30,7 +27,7 @@ ms.lasthandoff: 04/28/2018
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker-Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
+  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker-bron</strong></td>
@@ -38,142 +35,143 @@ ms.lasthandoff: 04/28/2018
 </tr>
 </table>
   
-De Azure-Emulator Cosmos DB biedt een lokale omgeving waarin de service Azure Cosmos DB voor ontwikkelingsdoeleinden worden geëmuleerd. Met behulp van de Azure-Emulator Cosmos DB, kunt u ontwikkelen en testen van de toepassing lokaal zonder te maken van een Azure-abonnement of mogelijke kosten. Wanneer u tevreden bent over hoe uw toepassing in de Azure-Emulator Cosmos DB werkt, kunt u overschakelen naar het met een Azure DB die Cosmos-account in de cloud.
+De Azure Cosmos DB Emulator is een lokale omgeving waarin de Azure Cosmos DB-service wordt geëmuleerd voor ontwikkelingsdoeleinden. Met behulp van de Azure Cosmos DB Emulator kunt u uw toepassing lokaal ontwikkelen en testen, kosteloos en zonder een Azure-abonnement te maken. Als u tevreden bent over hoe uw toepassing in de Azure Cosmos DB Emulator werkt, kunt u overstappen naar een Azure Cosmos DB-account in de cloud.
 
 > [!NOTE]
-> Op dit moment de Data Explorer in de emulator alleen volledige ondersteuning voor SQL-API-verzamelingen en MongoDB-verzamelingen. Tabel, grafiek en Cassandra containers worden niet volledig ondersteund. 
+> Op dit moment biedt de Data Explorer in de emulator alleen volledige ondersteuning voor SQL API-verzamelingen en MongoDB-verzamelingen. Tabel-, grafiek- en Cassandra-containers worden niet volledig ondersteund. 
 
 Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
-> * Installeren van de Emulator
-> * Verificatie van aanvragen
-> * Met behulp van de Data Explorer in de Emulator
+> * De emulator installeren
+> * Aanvragen verifiëren
+> * De Data Explorer in de emulator gebruiken
 > * SSL-certificaten exporteren
-> * Het aanroepen van de Emulator vanaf de opdrachtregel
-> * De Emulator uitgevoerd op Docker voor Windows
+> * De emulator aanroepen vanaf de opdrachtregel
+> * De emulator uitvoeren op Docker voor Windows
 > * Traceringsbestanden verzamelen
 > * Problemen oplossen
 
-Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij Kirill Gavrylyuk ziet u hoe u aan de slag met de Azure-Emulator Cosmos DB. Denk eraan dat de video verwijst naar de emulator als de DocumentDB-Emulator, maar het programma zelf is de Azure-Emulator Cosmos DB gewijzigd sinds de video grondverf. Alle informatie in de video is nog steeds correct zijn voor de Emulator Azure Cosmos DB. 
+Het is raadzaam om eerst de volgende video te bekijken, waarin Kirill Gavrylyuk laat zien hoe u aan de slag gaat met de Azure Cosmos DB Emulator. In de video wordt de emulator de DocumentDB Emulator genoemd, maar sinds de opname van de video is de naam van de emulator gewijzigd in Azure Cosmos DB Emulator. Verder is alle informatie in de video nog steeds correct zijn voor de Azure Cosmos DB Emulator. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
 > 
 
-## <a name="how-the-emulator-works"></a>De werking van de Emulator
-De Azure-Emulator Cosmos DB biedt een hoogwaardige emulatie van de service Azure Cosmos DB. Het ondersteunt dezelfde functionaliteit als Azure Cosmos DB, inclusief ondersteuning voor het maken en uitvoeren van query's JSON-documenten, inrichting en schalen van verzamelingen en uitvoering van opgeslagen procedures en triggers. U kunt ontwikkelen en testen van toepassingen met behulp van de Azure-Emulator Cosmos-database en deze implementeren in Azure op schaal globale door het maken van een configuratie voor één eindpunt van de verbinding voor Azure Cosmos DB wijzigen.
+## <a name="how-the-emulator-works"></a>Hoe de Emulator werkt
+De Azure Cosmos DB Emulator biedt een hoogwaardige emulatie van de Azure Cosmos DB-service. Hij ondersteunt dezelfde functionaliteit als Azure Cosmos DB, inclusief het maken van en het uitvoeren van query's op JSON-documenten, het inrichten en schalen van verzamelingen en het uitvoeren van opgeslagen procedures en triggers. U kunt toepassingen ontwikkelen en testen met behulp van de Azure Cosmos DB Emulator en deze op globale schaal implementeren in Azure door slechts één wijziging aan te brengen in de configuratie van het verbindingseindpunt voor Azure Cosmos DB.
 
-Terwijl we een lokale emulatie van hoge kwaliteit van de werkelijke Azure DB die Cosmos-service hebt gemaakt, is de implementatie van de Azure Cosmos DB-Emulator is anders dan die van de service. De Azure-Emulator Cosmos DB gebruikt bijvoorbeeld de standaard OS-componenten zoals het lokale bestandssysteem voor de persistentie en HTTPS-protocolstack voor connectiviteit. Dit betekent dat bepaalde functies die afhankelijk van de Azure-infrastructuur is zoals globale replicatie, één cijfer milliseconde latentie voor leest/schrijft en instelbare consistentieniveaus zijn niet beschikbaar via de Azure-Emulator Cosmos DB.
+Hoewel we een lokale emulatie van hoge kwaliteit hebben gemaakt van de werkelijke Azure Cosmos DB-service, is de implementatie van de Azure Cosmos DB Emulator is anders dan die van de service. De Azure Cosmos DB Emulator gebruikt bijvoorbeeld de standaard besturingssysteemonderdelen, zoals het lokale bestandssysteem voor persistentie en de HTTPS-protocolstack voor connectiviteit. Dit betekent dat bepaalde functies die afhankelijk zijn van de Azure-infrastructuur, zoals globale replicatie, vertragingen van milliseconden voor lezen/schrijven en instelbare consistentieniveaus, niet beschikbaar zijn via de Azure Cosmos DB Emulator.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Verschillen tussen de Emulator en de service 
-Omdat de Azure-Emulator Cosmos DB een geëmuleerde omgeving uitgevoerd op een lokale developer-werkstation biedt, zijn er enkele verschillen in functionaliteit tussen de emulator en een Cosmos-DB Azure-account in de cloud:
+Omdat de Azure Cosmos DB Emulator een geëmuleerde omgeving op een lokaal ontwikkelaarswerkstation biedt, zijn er enkele verschillen in functionaliteit tussen de emulator en een Azure Cosmos DB-account in de cloud:
 
-* De Azure-Emulator Cosmos DB ondersteunt slechts één vaste account en een bekende hoofdsleutel.  Toegangssleutel wordt opnieuw gegenereerd, is niet mogelijk in de Azure-Emulator Cosmos DB.
-* De Azure-Emulator Cosmos-database is niet een schaalbare service en wordt geen ondersteuning voor een groot aantal verzamelingen.
-* De Azure-Emulator Cosmos DB komt niet simuleren verschillende [Azure Cosmos DB consistentieniveaus](consistency-levels.md).
-* De Azure-Emulator Cosmos DB komt niet simuleren [meerdere landen/regio replicatie](distribute-data-globally.md).
-* De Azure-Emulator Cosmos DB biedt geen ondersteuning voor de service quotum onderdrukkingen die beschikbaar in de Azure DB die Cosmos-service (bijvoorbeeld de maximale grootte document, verbeterde gepartitioneerde verzameling opslag zijn).
-* Als uw exemplaar van de Azure Cosmos DB-Emulator zijn mogelijk niet up-to-date blijven met de meest recente wijzigingen met de service Azure Cosmos DB, neemt u [Azure DB die Cosmos-Capaciteitsplanner](https://www.documentdb.com/capacityplanner) productie (RUs) doorvoerbehoeften van nauwkeurig te schatten uw toepassing.
+* Op dit moment biedt de Data Explorer in de emulator alleen ondersteuning voor SQL API-verzamelingen en MongoDB-verzamelingen. Tabel-, grafiek- en Cassandra-API's worden nog niet ondersteund.  
+* De Azure Cosmos DB Emulator ondersteunt slechts één vast account en een bekende hoofdsleutel.  Het genereren van toegangssleutels is niet mogelijk in de  Azure Cosmos DB Emulator.
+* De Azure Cosmos DB Emulator-service is niet schaalbaar en biedt geen ondersteuning voor een groot aantal verzamelingen.
+* De Azure Cosmos DB Emulator simuleert niet verschillende [Azure Cosmos DB-consistentieniveaus](consistency-levels.md).
+* De Azure Cosmos DB Emulator simuleert niet [replicatie in meerdere regio's](distribute-data-globally.md).
+* De Azure Cosmos DB Emulator biedt geen ondersteuning voor overschrijdingen van het servicequotum die beschikbaar zijn in de Azure Cosmos DB-service (bijvoorbeeld de limieten voor documentgrootte, meer gepartitioneerde opslag van verzamelingen).
+* Aangezien uw exemplaar van de  Azure Cosmos DB Emulator mogelijk niet is bijgewerkt met de meest recente wijzigingen via de Azure Cosmos DB-service, gebruikt u de [Azure Cosmos DB-capaciteitsplanner](https://www.documentdb.com/capacityplanner) om de productiedoorvoerbehoefte van uw toepassing nauwkeurig te schatten.
 
 ## <a name="system-requirements"></a>Systeemvereisten
-De Azure-Emulator Cosmos DB heeft de volgende hardware en software-vereisten:
+De Azure Cosmos DB Emulator heeft de volgende hardware- en software-vereisten:
 
 * Softwarevereisten
-  * Windows Server 2012 R2, WindowsServer 2016 of Windows 10
+  * Windows Server 2012 R2, Windows Server 2016 of Windows 10
 *   Minimale hardwarevereisten
-  * 2 GB RAM-GEHEUGEN
+  * 2 GB RAM
   * 10 GB beschikbare schijfruimte
 
 ## <a name="installation"></a>Installatie
-U kunt downloaden en installeren van de Azure Cosmos DB-Emulator van de [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) of u kunt de emulator uitvoeren op Docker voor Windows. Zie voor instructies over het gebruik van de Emulator op Docker voor Windows [uitgevoerd op Docker](#running-on-docker). 
+U kunt de Azure Cosmos DB Emulator downloaden en installeren via het [Microsoft Downloadcentrum](https://aka.ms/cosmosdb-emulator) of u kunt de emulator uitvoeren op Docker voor Windows. Zie [Uitvoeren op Docker](#running-on-docker) voor instructies over het gebruik van de emulator op Docker voor Windows. 
 
 > [!NOTE]
-> Als u wilt installeren, configureren en uitvoeren van de Azure Cosmos DB-Emulator, moet u beheerdersbevoegdheden hebben op de computer.
+> Als u de Azure Cosmos DB Emulator wilt installeren, configureren en uitvoeren, moet u beheerdersbevoegdheden hebben op de computer.
 
-## <a name="running-on-windows"></a>Uitgevoerd op Windows
+## <a name="running-on-windows"></a>Uitvoeren in Windows
 
-Start de Emulator Azure Cosmos DB, selecteer de knop Start of druk op de Windows-toets. Begint te typen **Azure Cosmos DB Emulator**, en selecteert u de emulator in de lijst met toepassingen. 
+U kunt de Azure Cosmos DB Emulator starten door de Start-knop te selecteren of op de Windows-toets te drukken. Begin met het typen van **Azure Cosmos DB Emulator** en selecteer de emulator in de lijst met toepassingen. 
 
-![Selecteer de knop Start of druk op de Windows-toets, begint te typen ** Azure Cosmos DB Emulator ** en selecteert u de emulator van de lijst met toepassingen](./media/local-emulator/database-local-emulator-start.png)
+![Selecteer de Start-knop of druk op de Windows-toets, begin met het typen van ** Azure Cosmos DB Emulator ** en selecteer de emulator in de lijst met toepassingen](./media/local-emulator/database-local-emulator-start.png)
 
-Wanneer de emulator wordt uitgevoerd, ziet u een pictogram in het Windows-systeemvak. ![Azure DB Cosmos lokale emulator taakbalk melding](./media/local-emulator/database-local-emulator-taskbar.png)
+Wanneer de emulator wordt gestart, ziet u een pictogram in het systeemvak op de taakbalk van Windows. ![Pictogram in systeemvak van lokale Azure DB Cosmos Emulator](./media/local-emulator/database-local-emulator-taskbar.png)
 
-De Azure DB-Emulator standaard Cosmos wordt uitgevoerd op de lokale computer ('localhost'), luistert op poort 8081.
+De Azure Cosmos DB Emulator wordt standaard uitgevoerd op de lokale computer ('localhost'), en luistert op poort 8081.
 
-De Azure-Emulator Cosmos DB wordt standaard geïnstalleerd bij naar de `C:\Program Files\Azure Cosmos DB Emulator` directory. U kunt ook starten en stoppen van de emulator vanaf de opdrachtregel. Zie [opdrachtregelprogramma](#command-line) voor meer informatie.
+De Azure Cosmos DB Emulator wordt standaard geïnstalleerd in de map `C:\Program Files\Azure Cosmos DB Emulator`. U kunt de emulator ook starten en stoppen vanaf de opdrachtregel. Zie de [informatie over het opdrachtregelprogramma](#command-line).
 
-## <a name="start-data-explorer"></a>Start de Data Explorer
+## <a name="start-data-explorer"></a>Data Explorer starten
 
-Wanneer de emulator Azure Cosmos DB Start worden automatisch de Azure Cosmos DB Data Explorer in uw browser geopend. Het adres wordt weergegeven als [ https://localhost:8081/_explorer/index.html ](https://localhost:8081/_explorer/index.html). Als u de explorer sluiten en wilt het later opnieuw openen, kunt u de URL in uw browser te openen of starten van de Azure-Emulator Cosmos-database in het pictogram in systeemvak voor Windows, zoals hieronder wordt weergegeven.
+Als de Azure Cosmos DB Emulator wordt gestart, wordt automatisch de Azure Cosmos DB Data Explorer in uw browser geopend. Het adres wordt weergegeven als [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Als u de explorer sluit en later opnieuw wilt openen, kunt u de URL in uw browser openen of deze starten vanuit de Azure Cosmos DB Emulator in het Windows-systeemvak, zoals hieronder weergegeven.
 
-![Azure DB Cosmos lokale emulator data explorer starten](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
+![Startprogramma voor Data Explorer van lokale Azure Cosmos DB Emulator](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
 ## <a name="checking-for-updates"></a>Controleren op updates
-Data Explorer geeft aan of er een nieuwe update beschikbaar voor downloaden. 
+Data Explorer geeft aan of er een nieuwe update beschikbaar is om te downloaden. 
 
 > [!NOTE]
-> Gegevens die zijn gemaakt in een versie van de Azure-Emulator Cosmos-database kan niet worden gegarandeerd toegankelijk zijn voor het gebruik van een andere versie. Als u nodig hebt om uw gegevens voor de lange termijn, verdient het aanbeveling om op te slaan die gegevens in een Azure DB die Cosmos-account, in plaats van de Azure-Emulator Cosmos DB. 
+> Gegevens die zijn gemaakt in de ene versie van de Azure Cosmos DB Emulator, zijn niet gegarandeerd toegankelijk wanneer u een andere versie gebruikt. Als u uw gegevens voor de lange termijn wilt bewaren, verdient het aanbeveling om die gegevens op te slaan in een Azure DB Cosmos-account, in plaats van in de Azure Cosmos DB Emulator. 
 
-## <a name="authenticating-requests"></a>Verificatie van aanvragen
-Net zoals met Azure Cosmos DB in de cloud, moet elke aanvraag die u op basis van de Azure-Emulator Cosmos DB maakt worden geverifieerd. De Azure-Emulator Cosmos DB ondersteunt één vaste account en een bekende verificatiesleutel voor de verificatie van de hoofdsleutel. Dit account en de sleutel zijn de enige referenties zijn toegestaan voor gebruik met de Azure Cosmos DB-Emulator. Dit zijn:
+## <a name="authenticating-requests"></a>Aanvragen verifiëren
+Net als bij Azure Cosmos DB in de cloud, moet elke aanvraag die u op basis van de Azure Cosmos DB Emulator maakt, worden geverifieerd. De Azure Cosmos DB Emulator ondersteunt één vast account en een bekende verificatiesleutel voor hoofdsleutelverificatie. Dit account en deze sleutel zijn de enige referenties die zijn toegestaan voor gebruik met de Azure Cosmos DB Emulator. Dit zijn:
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 
 > [!NOTE]
-> De hoofdsleutel ondersteund door de Azure Cosmos DB-Emulator is bedoeld voor gebruik met de emulator. U kunt uw Azure DB die Cosmos-account voor productie en de sleutel niet gebruiken met de Azure Cosmos DB-Emulator. 
+> De hoofdsleutel ondersteund door de Azure Cosmos DB Emulator is alleen bedoeld voor gebruik met de emulator. U kunt niet uw Azure DB Cosmos-account en -sleutel voor productie gebruiken met de Azure Cosmos DB Emulator. 
 
 > [!NOTE] 
-> Als u de emulator hebt gestart met de optie/Key, gebruikt u de gegenereerde sleutel in plaats van ' C2y6yDjf5/R + ob0N8A7Cgv30VRDJIWEHLM + 4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw == "
+> Als u de emulator hebt gestart met de optie/Key, gebruikt u de gegenereerde sleutel in plaats van 'C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=='
 
-Bovendien, net als de service Azure Cosmos DB de Emulator Azure Cosmos-database ondersteunt alleen beveiligde communicatie via SSL.
+Bovendien ondersteunt de Azure Cosmos DB Emulator (net als de Azure Cosmos DB-service) alleen beveiligde communicatie via SSL.
 
-## <a name="running-on-a-local-network"></a>Uitgevoerd op een lokaal netwerk
+## <a name="running-on-a-local-network"></a>Uitvoeren op een lokaal netwerk
 
-U kunt de emulator uitvoeren op een lokaal netwerk. Geef de optie /AllowNetworkAccess op zodat de toegang tot het netwerk de [opdrachtregel](#command-line-syntax), die ook vereisen dat u / Key opgeeft = key_string of/KeyFile = bestandsnaam. U kunt /GenKeyFile = bestandsnaam voor het genereren van een bestand met een willekeurige sleutel tevoren betaalt.  Vervolgens u doorgeven kunt dat naar/KeyFile = bestandsnaam of/Key = contents_of_file.
+U kunt de emulator uitvoeren op een lokaal netwerk. U maakt netwerktoegang mogelijk door de optie /AllowNetworkAccess op te geven bij de [opdrachtregel](#command-line-syntax). U moet hiervoor ook /Key=sleutelreeks of /KeyFile=bestandsnaam opgeven. U kunt /GenKeyFile=bestandsnaam gebruiken voor het van tevoren genereren van een bestand met een willekeurige sleutel.  Dat kunt u doorgeven aan /KeyFile=bestandsnaam of /Key=inhoud van bestand.
 
-Toegang tot het netwerk voor het eerst inschakelen wordt de gebruiker moet de emulator afsluiten en verwijderen van de emulator gegevensmap (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
+Om voor de eerste keer toegang te krijgen tot het netwerk, moet de gebruiker de emulator afsluiten en de gegevensmap van de emulator verwijderen (C:\Users\gebruikersnaam\AppData\Local\CosmosDBEmulator).
 
-## <a name="developing-with-the-emulator"></a>Ontwikkelen met de Emulator
-Zodra u de Azure Cosmos DB-Emulator uitgevoerd op uw bureaublad hebt, kunt u elke ondersteunde [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) of de [REST-API van Azure Cosmos DB](/rest/api/cosmos-db/) om te communiceren met de Emulator. De Azure-Emulator Cosmos DB tevens een ingebouwde Data Explorer waarmee u verzamelingen maken voor de SQL- en MongoDB APIs- en weergeven en bewerken van documenten zonder een code te schrijven.   
+## <a name="developing-with-the-emulator"></a>Ontwikkelen met de emulator
+Wanneer de Azure Cosmos DB Emulator op uw computer wordt uitgevoerd, kunt u elke ondersteunde [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) of de [Azure Cosmos DB REST API](/rest/api/cosmos-db/) gebruiken om met de emulator te communiceren. De Azure Cosmos DB Emulator bevat ook een ingebouwde Data Explorer. Hiermee kunt u verzamelingen maken voor de SQL en MongoDB API's en kunt u documenten weergeven en bewerken zonder code te schrijven.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"), 
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-Als u [Azure Cosmos DB protocolondersteuning voor MongoDB](mongodb-introduction.md), gebruik de volgende verbindingsreeks:
+Als u [Azure Cosmos DB-protocolondersteuning voor MongoDB](mongodb-introduction.md) gebruikt, gebruikt u de volgende verbindingsreeks:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
-U kunt bestaande hulpprogramma's zoals [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) verbinding maken met de Azure-Emulator Cosmos DB. U kunt ook migreren van gegevens tussen de Azure-Emulator Cosmos DB en het gebruik van Azure DB die Cosmos service de [Azure Cosmos DB hulpprogramma voor gegevensmigratie](https://github.com/azure/azure-documentdb-datamigrationtool).
+U kunt bestaande hulpprogramma's zoals [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) gebruiken om verbinding te maken met de Azure Cosmos DB Emulator. U kunt ook gegevens migreren tussen de Azure Cosmos DB Emulator en de Azure Cosmos DB-service met behulp van de [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
 > [!NOTE] 
-> Als u de emulator hebt gestart met de optie/Key, gebruikt u de gegenereerde sleutel in plaats van ' C2y6yDjf5/R + ob0N8A7Cgv30VRDJIWEHLM + 4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw == "
+> Als u de emulator hebt gestart met de optie/Key, gebruikt u de gegenereerde sleutel in plaats van 'C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=='
 
-Met behulp van de emulator Azure Cosmos DB standaard, kunt u maximaal 25 verzamelingen met één partitie of 1 gepartitioneerde verzameling. Zie voor meer informatie over het wijzigen van deze waarde [PartitionCount waarde](#set-partitioncount).
+Met de Azure Cosmos DB Emulator kunt u standaard maximaal 25 verzamelingen met één partitie of één gepartitioneerde verzameling maken. Zie [De PartitionCount-waarde instellen](#set-partitioncount) voor meer informatie over het wijzigen van deze waarde.
 
 ## <a name="export-the-ssl-certificate"></a>Het SSL-certificaat exporteren
 
-.NET-talen en runtime gebruik van de Windows-certificaatarchief veilig verbinding te maken met de lokale Azure DB die Cosmos-emulator. Andere talen hebben hun eigen methode voor het beheren en gebruiken van certificaten. Java maakt gebruik van een eigen [certificaatarchief](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) dat gebruikmaakt van Python [socket wrappers](https://docs.python.org/2/library/ssl.html).
+.NET-talen en -runtime maken gebruik van het Windows-certificaatarchief om veilig verbinding te maken met de lokale Azure DB Cosmos Emulator. Andere talen hebben hun eigen methode voor het beheren en gebruiken van certificaten. Java maakt gebruik van een eigen [certificaatarchief](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), terwijl Python gebruikmaakt van [socketwrappers](https://docs.python.org/2/library/ssl.html).
 
-U wilt exporteren met behulp van de certificaatbeheerder Windows ter verkrijging van een certificaat wilt gebruiken met talen en runtimes die niet worden geïntegreerd in het certificaatarchief van Windows. U kunt starten door certlm.msc uitgevoerd of de stapsgewijze instructies in [exporteert u het certificaat Azure Cosmos DB Emulator](./local-emulator-export-ssl-certificates.md). Zodra de certificate manager wordt uitgevoerd, opent u de persoonlijke certificaten zoals hieronder wordt weergegeven en exporteer het certificaat met de beschrijvende naam 'DocumentDBEmulatorCertificate' als een BASE-64 X.509 (.cer)-bestand gecodeerde.
+Om een certificaat te verkrijgen voor gebruik bij talen en runtimes die niet worden geïntegreerd in het certificaatarchief van Windows, moet u het exporteren met behulp van de Windows Certificate Manager. U kunt dit starten door certlm.msc uit te voeren of de stapsgewijze instructies te volgen in [De Azure Cosmos DB Emulator-certificaten exporteren](./local-emulator-export-ssl-certificates.md). Zodra de certificaatmanager wordt uitgevoerd, opent u de persoonlijke certificaten zoals hieronder weergegeven en exporteert u het certificaat met de beschrijvende naam 'DocumentDBEmulatorCertificate' als een BASE 64-gecodeerd X.509-bestand (.cer).
 
-![Azure DB Cosmos lokale emulator SSL-certificaat](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+![SSL-certificaat voor een lokale Azure Cosmos DB Emulator](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-Het X.509-certificaat kan worden geïmporteerd in het certificaatarchief Java door de instructies in [een certificaat toevoegen aan de Java CA certificatenarchief](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Zodra het certificaat wordt geïmporteerd in het certificaatarchief, Java en de MongoDB-toepassingen worden verbinding kunnen maken met de Azure-Emulator Cosmos DB.
+Volg de instructies in [Een certificaat toevoegen aan het Java CA-certificaatarchief](https://docs.microsoft.com/azure/java-add-certificate-ca-store) om het X.509-certificaat te importeren in het Java-certificaatarchief. Zodra het certificaat is geïmporteerd in het certificaatarchief, kunnen Java en de MongoDB-toepassingen verbinding maken met de Azure Cosmos DB Emulator.
 
-Bij het verbinden met de emulator van Python en Node.js-SDK's, is SSL-verificatie uitgeschakeld.
+Bij het verbinden met de emulator van Python en Node.js SDK's, is SSL-verificatie uitgeschakeld.
 
 ## <a id="command-line"></a>Opdrachtregelprogramma
-Vanaf de installatielocatie, kunt u de opdrachtregel om te starten en stoppen van de emulator, opties configureren en andere bewerkingen uitvoeren.
+Vanaf de installatielocatie kunt u de opdrachtregel gebruiken om de emulator te starten en te stoppen, opties te configureren en andere bewerkingen uitvoeren.
 
 ### <a name="command-line-syntax"></a>De syntaxis van opdrachtregel
 
     CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
 
-Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` bij de opdrachtprompt.
+Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te zien.
 
 <table>
 <tr>
@@ -184,120 +182,120 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
 </tr>
 <tr>
   <td>[Geen argumenten]</td>
-  <td>De Azure-Emulator Cosmos DB met standaardinstellingen wordt opgestart.</td>
+  <td>Start de Azure Cosmos DB Emulator met standaardinstellingen.</td>
   <td>CosmosDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>
   <td>[Help]</td>
-  <td>Geeft de lijst met ondersteunde opdrachtregelargumenten.</td>
+  <td>Toont de lijst met ondersteunde opdrachtregelargumenten.</td>
   <td>CosmosDB.Emulator.exe /?</td>
   <td></td>
 </tr>
 <tr>
   <td>GetStatus</td>
-  <td>Hiermee haalt u de status van de Azure-Emulator Cosmos DB. De status wordt aangegeven door de afsluitcode: 1 = starten, 2 = wordt uitgevoerd, 3 = gestopt. Een afsluitcode van het negatieve geeft aan dat er een fout opgetreden. Geen enkele andere uitvoer is bereikt.</td>
+  <td>Downloadt de status van de Azure Cosmos DB Emulator. De status wordt aangegeven door de afsluitcode: 1 = starten, 2 = wordt uitgevoerd, 3 = gestopt. Een negatieve afsluitcode geeft aan dat er een fout is opgetreden. Er wordt geen andere uitvoer geproduceerd.</td>
   <td>CosmosDB.Emulator.exe /GetStatus</td>
   <td></td>
 <tr>
   <td>Afsluiten</td>
-  <td>De Azure Cosmos DB-Emulator wordt afgesloten.</td>
+  <td>Sluit de Azure Cosmos DB Emulator af.</td>
   <td>CosmosDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
-  <td>Gegevenspad</td>
-  <td>Hiermee geeft u het pad waarin de gegevensbestanden worden opgeslagen. Standaard is % LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath =&lt;gegevenspad&gt;</td>
+  <td>DataPath</td>
+  <td>Specificeert het pad waarin de gegevensbestanden worden opgeslagen. Standaard is %LocalAppdata%\CosmosDBEmulator.</td>
+  <td>CosmosDB.Emulator.exe /DataPath=&lt;gegevenspad&gt;</td>
   <td>&lt;gegevenspad&gt;: een toegankelijk pad</td>
 </tr>
 <tr>
   <td>Poort</td>
-  <td>Hiermee geeft u het poortnummer dat moet worden gebruikt voor de emulator.  De standaardwaarde is 8081.</td>
-  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
-  <td>&lt;poort&gt;: poortnummer</td>
+  <td>Specificeert het poortnummer dat moet worden gebruikt voor de emulator.  Standaardpoort is 8081.</td>
+  <td>CosmosDB.Emulator.exe /Port=&lt;poort&gt;</td>
+  <td>&lt;poort&gt;: enkel poortnummer</td>
 </tr>
 <tr>
   <td>MongoPort</td>
-  <td>Hiermee geeft u het poortnummer dat moet worden gebruikt voor compatibiliteit met MongoDB API. De standaardwaarde is 10255.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
-  <td>&lt;mongoport&gt;: poortnummer</td>
+  <td>Specificeert het poortnummer dat moet worden gebruikt MongoDB compatibiliteit-API. Standaardinstelling is 10255.</td>
+  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongopo0rt&gt;</td>
+  <td>&lt;mongopo0rt&gt;: enkel poortnummer</td>
 </tr>
 <tr>
   <td>DirectPorts</td>
-  <td>Hiermee geeft u de poorten te gebruiken voor rechtstreekse connectiviteit. Standaardwaarden zijn 10251,10252,10253,10254.</td>
+  <td>Specificeert de poorten die worden gebruikt voor rechtstreekse connectiviteit. Standaardwaarden zijn 10251,10252,10253,10254.</td>
   <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
   <td>&lt;directports&gt;: door komma's gescheiden lijst met 4 poorten</td>
 </tr>
 <tr>
   <td>Sleutel</td>
-  <td>De autorisatiesleutel voor de emulator. Sleutel moet de base 64-codering van een 64-byte-vector.</td>
-  <td>CosmosDB.Emulator.exe/key:&lt;sleutel&gt;</td>
-  <td>&lt;sleutel&gt;: sleutel moet de base 64-codering van een 64-byte-vector</td>
+  <td>De autorisatiesleutel voor de emulator. De sleutel moet de base 64-codering zijn van een 64-byte-vector.</td>
+  <td>CosmosDB.Emulator.exe /Key:&lt;sleutel&gt;</td>
+  <td>&lt;sleutel&gt;: sleutel moet de base 64-codering zijn van een 64-byte-vector</td>
 </tr>
 <tr>
   <td>EnableRateLimiting</td>
-  <td>Hiermee geeft u op deze aanvraag snelheidsbeperking gedrag is ingeschakeld.</td>
+  <td>Geeft aan dat het beperkingsgedrag van de aanvraagsnelheid is ingeschakeld.</td>
   <td>CosmosDB.Emulator.exe /EnableRateLimiting</td>
   <td></td>
 </tr>
 <tr>
   <td>DisableRateLimiting</td>
-  <td>Hiermee geeft u op deze aanvraag snelheidsbeperking gedrag is uitgeschakeld.</td>
+  <td>Geeft aan dat het beperkingsgedrag van de aanvraagsnelheid is uitgeschakeld.</td>
   <td>CosmosDB.Emulator.exe /DisableRateLimiting</td>
   <td></td>
 </tr>
 <tr>
   <td>NoUI</td>
-  <td>Worden de emulator gebruikersinterface niet weergegeven.</td>
-  <td>/ Noui CosmosDB.Emulator.exe</td>
+  <td>De gebruikersinterface van de emulator niet weergeven.</td>
+  <td>CosmosDB.Emulator.exe /NoUI</td>
   <td></td>
 </tr>
 <tr>
   <td>NoExplorer</td>
-  <td>Geen data explorer weergeven bij het opstarten.</td>
+  <td>Geen Data Explorer weergeven bij het opstarten.</td>
   <td>CosmosDB.Emulator.exe /NoExplorer</td>
   <td></td>
 </tr>
 <tr>
   <td>PartitionCount</td>
-  <td>Hiermee geeft u het maximum aantal gepartitioneerde verzamelingen. Zie [wijzigen van het aantal verzamelingen](#set-partitioncount) voor meer informatie.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
-  <td>&lt;partitioncount&gt;: het maximale aantal toegestane verzamelingen met één partitie. Standaardwaarde is 25. Maximaal toegestane aantal is 250.</td>
+  <td>Specificeert het maximumaantal gepartitioneerde verzamelingen. Zie [Het aantal verzamelingen wijzigen](#set-partitioncount) voor meer informatie.</td>
+  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;aantal partities&gt;</td>
+  <td>&lt;aantal partities&gt;: het maximumaantal toegestane verzamelingen met één partitie. Standaardaantal is 25. Maximaal toegestaan is 250.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
-  <td>Hiermee geeft u het aantal partities voor een gepartitioneerde verzameling.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
-  <td>&lt;defaultpartitioncount&gt; standaardwaarde is 25.</td>
+  <td>Specificeert het aantal partities voor een gepartitioneerde verzameling.</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;standaardaantal partities&gt;</td>
+  <td>&lt;standaardaantal partities&gt; Standaardaantal is 25.</td>
 </tr>
 <tr>
   <td>AllowNetworkAccess</td>
-  <td>Geeft toegang tot de emulator via een netwerk. U moet ook doorgeven/Key =&lt;key_string&gt; of/KeyFile =&lt;bestandsnaam&gt; waarmee toegang tot het netwerk.</td>
-  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>of<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
+  <td>Geeft toegang tot de emulator via een netwerk. U moet ook /Key=&lt;sleutelreeks&gt; of /KeyFile=&lt;bestandsnaam&gt; doorgeven om netwerktoegang in te schakelen.</td>
+  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;sleutelreeks&gt;<br><br>of<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;bestandsnaam&gt;</td>
   <td></td>
 </tr>
 <tr>
   <td>NoFirewall</td>
-  <td>Firewall-regels niet worden aangepast wanneer /AllowNetworkAccess wordt gebruikt.</td>
+  <td>Firewallregels niet aanpassen wanneer /AllowNetworkAccess wordt gebruikt.</td>
   <td>CosmosDB.Emulator.exe /NoFirewall</td>
   <td></td>
 </tr>
 <tr>
   <td>GenKeyFile</td>
   <td>Een nieuwe autorisatiesleutel genereren en opslaan in het opgegeven bestand. De gegenereerde sleutel kan worden gebruikt met de opties/Key of/KeyFile.</td>
-  <td>CosmosDB.Emulator.exe /GenKeyFile =&lt;pad naar het sleutelbestand&gt;</td>
+  <td>CosmosDB.Emulator.exe  /GenKeyFile=&lt;pad naar sleutelbestand&gt;</td>
   <td></td>
 </tr>
 <tr>
   <td>Consistentie</td>
-  <td>Stel het standaardniveau voor consistentie voor het account.</td>
-  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
-  <td>&lt;consistentie&gt;: waarde moet een van de volgende [consistentieniveaus](consistency-levels.md): sessie, sterke, Eventual of BoundedStaleness.  De standaardwaarde is de sessie.</td>
+  <td>Het standaard consistentieniveau voor het account instellen.</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistentie&gt;</td>
+  <td>&lt;consistentie&gt;: waarde moet een van de volgende [consistentieniveaus](consistency-levels.md) zijn: sessie, sterk, mogelijk of gebonden veroudering.  De standaardwaarde is Sessie.</td>
 </tr>
 <tr>
   <td>?</td>
-  <td>De helpbericht weergeven.</td>
+  <td>Het helpbericht weergeven.</td>
   <td></td>
   <td></td>
 </tr>
@@ -305,9 +303,9 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
 
 ## <a id="set-partitioncount"></a>Het aantal verzamelingen wijzigen
 
-Standaard kunt u maximaal 25 verzamelingen met één partitie of 1 gepartitioneerde verzameling op basis van de Azure-Emulator Cosmos DB. Doordat de **PartitionCount** waarde, kunt u maximaal 250 verzamelingen met één partitie of 10 gepartitioneerde verzamelingen of een combinatie van de twee die niet meer dan 250 één partities (waar 1 verzameling gepartitioneerd = 25 één partitie verzameling).
+Standaard kunt u maximaal 25 verzamelingen met één partitie of één gepartitioneerde verzameling maken met de Azure Cosmos DB Emulator. Door de waarde voor **PartitionCount** aan te passen, kunt u maximaal 250 verzamelingen met één partitie of tien gepartitioneerde verzamelingen maken, of een combinatie van de twee die niet meer dan 250 enkele partities bevat (waarbij één gepartitioneerde verzameling gelijk is aan 25 verzamelingen met één partitie).
 
-Als u probeert een verzameling maken nadat het huidige aantal partities is overschreden, genereert de emulator een uitzondering ServiceUnavailable met het volgende bericht.
+Als u probeert een verzameling maken nadat het huidige aantal partities is overschreden, genereert de emulator een ServiceUnavailable-uitzondering met het volgende bericht.
 
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
@@ -315,23 +313,23 @@ Als u probeert een verzameling maken nadat het huidige aantal partities is overs
     Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
-Als u het aantal beschikbare verzamelingen wilt de Emulator Azure Cosmos DB, het volgende doen:
+Als u het aantal beschikbare verzamelingen voor de Azure Cosmos DB Emulator wilt wijzigen, doet u het volgende:
 
-1. Alle lokale Azure Cosmos DB Emulator gegevens verwijderen met de rechtermuisknop op de **Azure Cosmos DB Emulator** pictogram op de taakbalk en vervolgens klikken op **gegevens opnieuw instellen...** .
-2. Alle gegevens van de emulator in deze map C:\Users\user_name\AppData\Local\CosmosDBEmulator verwijderen.
-3. Sluit alle geopende exemplaren met de rechtermuisknop op de **Azure Cosmos DB Emulator** pictogram op de taakbalk en vervolgens klikken op **afsluiten**. Het duurt een paar minuten voor alle exemplaren om af te sluiten.
+1. Verwijder alle lokale Azure Cosmos DB Emulator-gegevens door met de rechtermuisknop te klikken op het pictogram van de **Azure Cosmos DB Emulator** pictogram in het systeemvak en vervolgens te klikken op **Gegevens opnieuw instellen...** .
+2. Verwijder alle gegevens van de emulator in de map C:\Users\gebruikersnaam\AppData\Local\CosmosDBEmulator.
+3. Sluit alle geopende exemplaren door met de rechtermuisknop te klikken op het pictogram van de **Azure Cosmos DB Emulator** in het systeemvak en vervolgens te klikken op **Afsluiten**. Het afsluiten van alle exemplaren kan een paar minuten duren.
 4. Installeer de nieuwste versie van de [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
-5. Start de emulator met de vlag PartitionCount door een waarde < = 250. Bijvoorbeeld: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
+5. Start de emulator met de vlag PartitionCount door een waarde < = 250 in te stellen. Bijvoorbeeld: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
 
-## <a name="controlling-the-emulator"></a>Beheren van de Emulator
+## <a name="controlling-the-emulator"></a>De emulator beheren
 
-De Emulator wordt geleverd met een PowerShell-module voor het starten, stoppen, verwijderen en bij het ophalen van de status van de service. Om deze te gebruiken:
+De emulator wordt geleverd met een PowerShell-module voor het starten, stoppen, en verwijderen, en het ophalen van de status van de service. U gebruikt deze als volgt:
 
 ```powershell
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-of de `PSModules` map op uw `PSModulesPath` en importeer dit als volgt:
+of plaats de map `PSModules` op uw `PSModulesPath` en importeer deze als volgt:
 
 ```powershell
 $env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
@@ -348,7 +346,7 @@ Hier volgt een samenvatting van de opdrachten voor het beheren van de emulator v
 
 #### <a name="remarks"></a>Opmerkingen
 
-Retourneert een van deze waarden ServiceControllerStatus: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running of ServiceControllerStatus.Stopped.
+Retourneert een van deze ServiceControllerStatus-waarden: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running of ServiceControllerStatus.Stopped.
 
 ### `Start-CosmosDbEmulator`
 
@@ -358,7 +356,7 @@ Retourneert een van deze waarden ServiceControllerStatus: ServiceControllerStatu
 
 #### <a name="remarks"></a>Opmerkingen
 
-Hiermee start u de emulator. Standaard wordt de opdracht wacht totdat de emulator is klaar om aanvragen te accepteren. Gebruik de optie - NoWait als u de cmdlet om te retourneren als deze de emulator wordt gestart.
+Start de emulator. Standaard wacht de opdracht totdat de emulator klaar is om aanvragen te accepteren. Gebruik de optie -NoWait als u wilt dat de cmdlet wordt geretourneerd zodra deze de emulator heeft gestart.
 
 ### `Stop-CosmosDbEmulator`
 
@@ -368,7 +366,7 @@ Hiermee start u de emulator. Standaard wordt de opdracht wacht totdat de emulato
 
 #### <a name="remarks"></a>Opmerkingen
 
-Hiermee stopt de emulator. Standaard wordt deze opdracht wacht totdat de emulator volledig afsluiten is. Gebruik de optie - NoWait als u de cmdlet om terug te keren zodra de emulator begint af te sluiten.
+Stopt de emulator. Standaard wacht deze opdracht totdat de emulator volledig is afgesloten. Gebruik de optie -NoWait als u wilt dat de cmdlet wordt geretourneerd zodra het afsluiten van de emulator wordt gestart.
 
 ### `Uninstall-CosmosDbEmulator`
 
@@ -378,21 +376,21 @@ Hiermee stopt de emulator. Standaard wordt deze opdracht wacht totdat de emulato
 
 #### <a name="remarks"></a>Opmerkingen
 
-Hiermee verwijdert u de emulator en eventueel verwijdert u de volledige inhoud van $env: LOCALAPPDATA\CosmosDbEmulator.
-De cmdlet zorgt ervoor dat de emulator is gestopt voordat u deze verwijdert.
+Verwijdert de emulator en optioneel ook de inhoud van $env:LOCALAPPDATA\CosmosDbEmulator.
+De cmdlet zorgt ervoor dat de emulator is gestopt deze wordt verwijderd.
 
-## <a name="running-on-docker"></a>Uitgevoerd op Docker
+## <a name="running-on-docker"></a>Uitvoeren op Docker
 
-De Azure-Emulator Cosmos DB kan worden uitgevoerd op Docker voor Windows. De Emulator werkt niet op Docker voor Oracle Linux.
+De Azure Cosmos DB Emulator kan worden uitgevoerd op Docker voor Windows. De emulator werkt niet op Docker voor Oracle Linux.
 
-Zodra u hebt [Docker voor Windows](https://www.docker.com/docker-windows) geïnstalleerd, overschakelen naar de Windows-containers met de rechtermuisknop op het Docker-pictogram op de werkbalk en selecteert u **overschakelen naar de Windows-containers**.
+Nadat u [Docker voor Windows](https://www.docker.com/docker-windows) hebt geïnstalleerd, schakelt u over naar Windows-containers door met de rechtermuisknop te klikken op het Docker-pictogram op de werkbalk en **Overschakelen naar Windows-containers** te selecteren.
 
-Pull vervolgens de installatiekopie van de Emulator van Docker-Hub met de volgende opdracht in uw favoriete shell.
+Haal vervolgens de installatiekopie van de emulator van Docker Hub met de volgende opdracht in uw favoriete shell.
 
 ```     
 docker pull microsoft/azure-cosmosdb-emulator 
 ```
-Voer de volgende opdrachten voor het starten van de installatiekopie.
+Voer de volgende opdrachten uit om de installatiekopie te starten.
 
 Vanaf de opdrachtregel:
 ```cmd 
@@ -406,7 +404,7 @@ md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
 docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
-Het antwoord ziet er ongeveer als volgt uit:
+De reactie ziet er ongeveer als volgt uit:
 
 ```
 Starting Emulator
@@ -420,7 +418,7 @@ powershell .\importcert.ps1
 Starting interactive shell
 ``` 
 
-Nu gebruik van het eindpunt en de hoofdsleutel in uit het antwoord in de client en het SSL-certificaat importeren in de host. Doe het volgende vanaf een opdrachtprompt admin voor het importeren van het SSL-certificaat:
+Gebruik nu het eindpunt en de hoofdsleutel uit de reactie in uw client en importeer het SSL-certificaat in de host. Doe het volgende vanaf een opdrachtprompt voor een beheerder om het SSL-certificaat te importeren:
 
 Vanaf de opdrachtregel:
 ```cmd 
@@ -434,109 +432,109 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 .\importcert.ps1
 ```
 
-De interactieve shell sluiten nadat de Emulator is gestart wordt afgesloten container van de Emulator.
+Wanneer u de interactieve shell sluit nadat de emulator is gestart, wordt de container van de emulator afgesloten.
 
-Als u wilt openen gaat de Data Explorer u naar de volgende URL in uw browser. Het eindpunt van de emulator is opgegeven in het antwoordbericht hierboven weergegeven.
+U opent de Data Explorer door naar de volgende URL in uw browser te gaan. Het eindpunt van de emulator wordt vermeld in het reactiebericht dat hierboven wordt getoond.
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Gebruik de volgende tips voor het oplossen van problemen die u met de Azure DB die Cosmos-emulator tegenkomt:
+Gebruik de volgende tips voor het oplossen van problemen die u kunnen optreden met de Azure Cosmos DB Emulator:
 
-- Als u een nieuwe versie van de Emulator is geïnstalleerd en worden er fouten optreden, zorg ervoor dat u uw gegevens herstellen. U kunt uw gegevens herstellen door met de rechtermuisknop op het pictogram Azure Cosmos DB Emulator op de taakbalk en vervolgens te klikken op de gegevens opnieuw instellen... Als de fouten die niet wordt opgelost, kunt u deze kunt verwijderen en opnieuw installeren van de app. Zie [verwijderen van de lokale emulator](#uninstall) voor instructies.
+- Als u een nieuwe versie van de emulator hebt geïnstalleerd en er fouten optreden, zorg dan dat u uw gegevens opnieuw instelt. U kunt uw gegevens opnieuw instellen door met de rechtermuisknop te klikken op het pictogram van de Azure Cosmos DB Emulator in het systeemvak en vervolgens te klikken op Gegevens opnieuw instellen…. Als de fouten hiermee niet worden opgelost, kunt u de app verwijderen en opnieuw installeren. Zie [De lokale emulator verwijderen](#uninstall) voor instructies.
 
-- Als de Azure DB die Cosmos-emulator vastloopt, verzamelen van dumpbestanden vanuit de map c:\Users\user_name\AppData\Local\CrashDumps, deze comprimeren en deze koppelt aan een e-mail naar [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+- Als de Azure Cosmos DB Emulator vastloopt, verzamelt u dumpbestanden vanuit de map c:\Users\gebruikersnaam\AppData\Local\CrashDumps, comprimeert u de bestanden en verstuurt u het gecomprimeerde bestand als bijlage bij een e-mail naar [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
-- Als u crashes ondervindt in CosmosDB.StartupEntryPoint.exe, kunt u de volgende opdracht uitvoeren vanaf een opdrachtprompt beheerder: `lodctr /R` 
+- Als CosmosDB.StartupEntryPoint.exe vastloopt, voert u de volgende opdracht uit vanaf een opdrachtprompt voor een beheerder: `lodctr /R` 
 
-- Als u een verbindingsprobleem ondervindt [verzamelen traceringsbestanden](#trace-files), deze comprimeren en deze koppelt aan een e-mail naar [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+- Als er sprake is van een verbindingsprobleem, [verzamelt u de traceringsbestanden](#trace-files), comprimeert u de bestanden en verstuurt u het gecomprimeerde bestand als bijlage bij een e-mail naar [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- Als u krijgt een **Service niet beschikbaar** bericht, de emulator mogelijk mislukken de netwerkstack initialiseren. Controleer of er de beveiligde client Pulse of Juniper netwerken client is geïnstalleerd, zoals netwerk filterstuurprogramma ertoe leiden het probleem dat kunnen. Verwijderen van stuurprogramma's van derden netwerk filter doorgaans wordt het probleem opgelost.
+- Als u het bericht **Service niet beschikbaar** krijgt, is het mogelijk dat de emulator de netwerkstack niet kan initialiseren. Controleer of de veilige Pulse-client of Juniper-netwerkclient is geïnstalleerd. De netwerkfilterstuurprogramma's van deze clients kunnen mogelijk de oorzaak zijn van het probleem. Doorgaans kan het probleem worden opgelost door stuurprogramma's voor netwerkfilters van derden te verwijderen.
 
 ### <a id="trace-files"></a>Traceringsbestanden verzamelen
 
-Voor het verzamelen van foutopsporingsgegevens, voert u de volgende opdrachten uit vanaf een administratieve opdrachtprompt:
+Voor het verzamelen van foutopsporingsgegevens, voert u de volgende opdrachten uit vanaf een opdrachtprompt voor een beheerder:
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown`. Bekijk het systeemvak om te controleren of het programma is afgesloten, kan een minuut duren. U kunt ook klikken op **afsluiten** in de gebruikersinterface van Azure DB die Cosmos-emulator.
+2. `CosmosDB.Emulator.exe /shutdown`. Kijk in het systeemvak of het programma is afgesloten. Dit kan een minuut duren. U kunt ook klikken op **Afsluiten** in de gebruikersinterface van Azure Cosmos DB Emulator.
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
-5. Reproduceer het probleem. Als u Data Explorer niet werkt, hoeft u alleen moet worden gewacht op de browser te openen voor een paar seconden de fout te achterhalen.
+5. Reproduceer het probleem. Als Data Explorer niet werkt, hoeft u alleen te wachten tot de browser een paar seconden wordt geopend om de fout te achterhalen.
 5. `CosmosDB.Emulator.exe /stoptraces`
-6. Navigeer naar `%ProgramFiles%\Azure Cosmos DB Emulator` en het bestand docdbemulator_000001.etl niet vinden.
-7. Het etl-bestand samen met reproduceren stappen om verzenden [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com) voor foutopsporing.
+6. Ga naar `%ProgramFiles%\Azure Cosmos DB Emulator` en zoek het bestand docdbemulator_000001.etl op.
+7. Stuur het .etl-bestand samen met de reproductiestappen naar [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) om de fout op te sporen.
 
-### <a id="uninstall"></a>Verwijderen van de lokale Emulator
+### <a id="uninstall"></a>De lokale emulator verwijderen
 
-1. Sluit alle geopende exemplaren van de lokale Emulator door met de rechtermuisknop op het pictogram Azure Cosmos DB Emulator op de taakbalk en klikt u op afsluiten. Het duurt een paar minuten voor alle exemplaren om af te sluiten.
-2. Typ in het zoekvak Windows **Apps en functies** en klik op de **Apps en -functies (systeeminstellingen)** resultaat.
-3. Schuif in de lijst met apps naar **Azure Cosmos DB Emulator**, selecteert u het, klik op **verwijderen**, bevestigen en klikt u op **verwijderen** opnieuw.
-4. Wanneer de app is verwijderd, gaat u naar C:\Users\<gebruiker > \AppData\Local\CosmosDBEmulator en verwijder de map. 
+1. Sluit alle geopende exemplaren van de lokale emulator door met de rechtermuisknop te klikken op het pictogram van de Azure Cosmos DB Emulator in het systeemvak en vervolgens te klikken op Afsluiten. Het afsluiten van alle exemplaren kan een paar minuten duren.
+2. Typ in het zoekvak Windows **Apps en onderdelen** en klik op **Apps en onderdelen (systeeminstellingen)**.
+3. Ga in de lijst met apps naar **Azure Cosmos DB Emulator**, selecteer de app, klik op **Verwijderen**, bevestig dit en klik nogmaals op **Verwijderen**.
+4. Wanneer de app is verwijderd, gaat u naar C:\Users\<gebruiker>\AppData\Local\CosmosDBEmulator en verwijdert u de map. 
 
 ## <a name="change-list"></a>Lijst met wijzigingen
 
-U kunt het versienummer controleren met de rechtermuisknop te klikken op de lokale emulatorpictogram op de taakbalk en de over menu-item.
+U kunt het versienummer controleren door met de rechtermuisknop op het pictogram van de lokale emulator op de taakbalk te klikken en vervolgens te klikken op het menu-item Info over.
 
-### <a name="1220-released-on-april-20-2018"></a>1.22.0. Uitgebracht op 20 April 2018
+### <a name="1220-released-on-april-20-2018"></a>1.22.0. Uitgebracht op 20 april 2018
 
-Naast de Emulator services pariteit met cloudservices Cosmos DB bijwerkt, hebt opgenomen verbeterde PowerShell documentatie en een aantal verschillende oplossingen voor problemen.
+We hebben niet alleen de Emulator-services bijgewerkt voor pariteit met Cosmos DB-cloudservices, maar we hebben ook verbeterde PowerShell-documentatie en enkele foutoplossingen toegevoegd.
 
-### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 uitgebracht op 27 maart 2018
+### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 Uitgebracht op 27 maart 2018
 
-Naast de Emulator services pariteit bijwerkt met Cosmos DB cloudservices, vindt u een nieuwe functie en twee oplossingen voor problemen in deze release.
+We hebben niet alleen de Emulator-services bijgewerkt voor pariteit met Cosmos DB-cloudservices, maar we hebben ook een nieuwe functie en twee foutoplossingen in deze release toegevoegd.
 
 #### <a name="features"></a>Functies
 
 1. De opdracht Start-CosmosDbEmulator bevat nu opties voor opstarten.
 
-#### <a name="bug-fixes"></a>Oplossingen voor problemen
+#### <a name="bug-fixes"></a>Opgeloste fouten
 
-1. De Microsoft.Azure.CosmosDB.Emulator PowerShell-module nu zorgt u ervoor dat de `ServiceControllerStatus` opsomming wordt geladen.
+1. De Microsoft.Azure.CosmosDB.Emulator PowerShell-module zorgt er nu voor dat de `ServiceControllerStatus`-opsomming wordt geladen.
 
-2. De Microsoft.Azure.CosmosDB.Emulator PowerShell-module bevat nu een manifest; een weglating van de eerste release.
+2. De Microsoft.Azure.CosmosDB.Emulator PowerShell-module bevat nu een manifest, die niet aanwezig was in de eerste release.
 
-### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 uitgebracht op 14 februari 2018
+### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 Uitgebracht op 14 februari 2018
 
-Er is een nieuwe functie en twee oplossingen voor problemen in deze release. Dankzij de klanten die heeft geholpen bij ons om te zoeken en los deze problemen.
+Deze release bevat één nieuwe functie en twee oplossingen voor problemen. Dit is dankzij klanten die ons hebben geholpen bij het vinden en verhelpen van deze problemen.
 
-#### <a name="bug-fixes"></a>Oplossingen voor problemen
+#### <a name="bug-fixes"></a>Opgeloste fouten
 
-1. De emulator werkt nu op computers met 1 of 2 kernen (of virtuele CPU's)
+1. De emulator werkt nu op computers met één of twee kernen (of virtuele CPU's)
 
-   Cosmos DB wijst taken voor het uitvoeren van de diverse services. Het aantal taken dat toegewezen is een meervoud zijn van het aantal kernen op een host. De standaardwaarde meerdere werkt goed in productieomgevingen wanneer het aantal kernen groot is. Op computers met een processor van 1 of 2 de geen taken worden toegewezen voor deze services wanneer deze meerdere wordt toegepast.
+   Cosmos DB wijst taken voor het uitvoeren van de diverse services. Het aantal taken dat wordt toegewezen, is een meervoud zijn van het aantal kernen op een host. De standaard meervoudige waarde werkt goed in productieomgevingen wanneer het aantal kernen groot is. Op computers met één of twee processors worden geen taken toegewezen om deze services uit te voeren wanneer deze meervoudige waarde wordt toegepast.
 
-   We dit door een onderdrukking configuratie toe te voegen aan de emulator gecorrigeerd. We zijn een veelvoud van 1 nu van toepassing. Het aantal taken dat is toegewezen voor het uitvoeren van verschillende services is nu gelijk zijn aan het aantal kernen op een host.
+   We hebben dit gecorrigeerd door een onderdrukking van de configuratie toe te voegen aan de emulator. We passen nu een meervoud van 1 toe. Het aantal taken dat is toegewezen voor het uitvoeren van verschillende services, is nu gelijk zijn aan het aantal kernen op een host.
 
-   Als er niets anders voor deze release kon zou zijn om dit probleem te verhelpen. We vinden dat veel ontwikkelen en testen omgevingen die als host fungeert voor de emulator 1 of 2 kernen hebben.
+   We zouden deze release alleen al voor het verhelpen van deze kwestie hebben uitgebracht. Veel ontwikkel-/testomgevingen die de emulator hosten, hebben één of twee kernen.
 
-2. De emulator is niet langer vereist voor het Microsoft Visual C++ 2015 redistributable moet worden geïnstalleerd.
+2. De emulator vereist niet langer dat het herdistribueerbare Microsoft Visual C++ 2015-onderdeel is geïnstalleerd.
 
-   Er zijn nieuwe installaties van Windows (desktop en server-edities) omvatten geen deze herdistribueerbaar pakket gevonden. Daarom bundel we nu de herdistribueerbare binaire bestanden met de emulator.
+   Nieuwe installaties van Windows (desktop- en server-edities) bevatten niet dit herdistribueerbare pakket. Daarom bundelen we nu de herdistribueerbare binaire bestanden met de emulator.
 
 #### <a name="features"></a>Functies
 
-Veel van de besproken om toegang te hebben laten weten dat klanten: het normaal zou zijn handig als u de Emulator scriptbare is. Daarom in deze release toegevoegd enige mogelijkheid script. De Emulator bevat nu een PowerShell-module voor het starten, stoppen, status ophalen en verwijderen van zichzelf: `Microsoft.Azure.CosmosDB.Emulator`. 
+Veel van de klanten die we hebben gesproken, zouden het handig vinden als de emulator scriptbaar zou zijn. Daarom hebben we in deze release enkele scriptfuncties toegevoegd. De emulator bevat nu een PowerShell-module voor het starten, stoppen en status ophalen en om zichzelf te verwijderen: `Microsoft.Azure.CosmosDB.Emulator`. 
 
-### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 uitgebracht op 26 januari 2018
+### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 Uitgebracht op 26 januari 2018
 
-* De pijplijn MongoDB-aggregatie standaard ingeschakeld.
+* De pijplijn MongoDB-aggregatie is standaard ingeschakeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * De lokale Emulator geïnstalleerd
-> * Rand de Docker voor Windows-Emulator
-> * Geverifieerde aanvragen
-> * De Data Explorer gebruikt in de Emulator
-> * Geëxporteerde SSL-certificaten
-> * Naam van de Emulator vanaf de opdrachtregel
-> * Verzamelde traceringsbestanden
+> * De lokale emulator geïnstalleerd
+> * De emulator uitgevoerd op Docker voor Windows
+> * Aanvragen geverifieerd
+> * De Data Explorer in de emulator gebruikt
+> * SSL-certificaten geëxporteerd
+> * De emulator aangeroepen vanaf de opdrachtregel
+> * Traceringsbestanden verzameld
 
-In deze zelfstudie hebt u geleerd hoe u van de Emulator van de lokale voor gratis lokale ontwikkeling. U kunt nu doorgaan met de volgende zelfstudie en informatie over het exporteren van de Emulator SSL-certificaten. 
+In deze zelfstudie hebt u geleerd hoe u de lokale emulator kunt gebruiken voor gratis lokale ontwikkelingsdoeleinden. U kunt nu verder gaan met de volgende zelfstudie om te leren hoe u SSL-certificaten voor de emulator exporteert. 
 
 > [!div class="nextstepaction"]
-> [De Azure Cosmos DB Emulator certificaten exporteren](local-emulator-export-ssl-certificates.md)
+> [De Azure Cosmos DB Emulator-certificaten exporteren](local-emulator-export-ssl-certificates.md)

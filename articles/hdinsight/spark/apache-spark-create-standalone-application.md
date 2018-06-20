@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: c72f513c7134c556afa5fa5d0b94c17b1142be54
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ed90e50167f7e86c464b1571b91dc27435437e9b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627413"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Zelfstudie: Een Scala Maven-toepassing maken voor Spark in HDInsight met behulp van IntelliJ
 
@@ -46,6 +47,41 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 * Een Apache Spark-cluster in HDInsight. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
 * Oracle Java Development kit. Deze kunt u [hier](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) downloaden.
 * Een Java-IDE. In dit artikel wordt IntelliJ IDEA 18.1.1 gebruikt. Deze kunt u [hier](https://www.jetbrains.com/idea/download/) downloaden.
+
+## <a name="use-intellij-to-create-application"></a>IntelliJ gebruiken om een toepassing te maken
+
+1. Start IntelliJ IDEA en maak een project. Voer in het dialoogvenster **Nieuw project** de volgende handelingen uit: 
+
+   a. Selecteer **HDInsight** > **Spark in HDInsight (Scala)**.
+
+   b. Selecteer in de lijst **Build-programma** een van de volgende opties, afhankelijk van uw behoeften:
+
+      * **Maven**, voor de ondersteuning van de wizard Scala-project maken
+      * **SBT**, voor het beheren van de afhankelijkheden en het maken van het Scala-project
+
+   ![Het dialoogvenster Nieuw project](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+
+2. Selecteer **Volgende**.
+
+3. Met de wizard Scala-project maken wordt automatisch gedetecteerd of u de Scala-invoegtoepassing hebt geïnstalleerd. Selecteer **Installeren**.
+
+   ![Scala-invoegtoepassing controleren](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
+
+4. Selecteer **OK** om de Scala-invoegtoepassing te downloaden. Volg de instructies om IntelliJ opnieuw te starten. 
+
+   ![Het dialoogvenster Scala-invoegtoepassing installeren](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
+
+5. Voer in het venster **Nieuw project** de volgende handelingen uit:  
+
+    ![De Spark SDK selecteren](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+
+   a. Geef een projectnaam en locatie op.
+
+   b. Selecteer in de vervolgkeuzelijst **Project SDK** de optie **Java 1.8** voor het Spark 2.x-cluster of selecteer **Java 1.7** voor het Spark 1.x-cluster.
+
+   c. In de vervolgkeuzelijst **Spark-versie** wordt de juiste versie voor Spark SDK en Scala SDK geïntegreerd via de wizard Scala-project maken. Selecteer **Spark 1.x** als de Spark-clusterversie ouder is dan 2.0. Selecteer anders **Spark 2.x**. In dit voorbeeld wordt **Spark 2.0.2 (Scala 2.11.8)** gebruikt.
+
+6. Selecteer **Voltooien**.
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Scala-invoegtoepassing voor IntelliJ IDEA installeren
 Gebruik de volgende stappen om de Scala-invoegtoepassing te installeren:

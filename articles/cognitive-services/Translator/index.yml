@@ -1,0 +1,72 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Translator Text-API
+metadata:
+  title: Documentatie voor Translator Text - snelstarts, zelfstudies, API-referentie - Azure Cognitive Services | Microsoft Docs
+  description: Informatie over hoe u Translator Text-API gebruikt om tekst in meerdere talen te vertalen.
+  services: cognitive-services
+  author: Jann-Skotdal
+  manager: Chris.Wendt
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2017
+  ms.author: v-jansko
+  ms.openlocfilehash: 0700566320d68adb6a07ba5675a03f3a841058fc
+  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 06/19/2018
+  ms.locfileid: "36268345"
+abstract:
+  description: Microsoft Translator Text-API is een cloudgebaseerde service voor machinevertaling. Met deze API kunt u tekst in bijna realtime vertalen van een app of service via een eenvoudige REST API-aanroep. De API gebruikt de modernste technologie voor neurale machinevertaling en biedt statistische machinevertalingstechnologie. Voor de lijst met ondersteunde talen, voor zowel neurale als statistische machinevertaling, raadpleegt u <a href="languages.md">Ondersteunde talen</a>.
+sections:
+- title: Snelstarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Aan de slag met de Translator Text-API:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+      title: C#
+    - image:
+        src: media/index/logo_java.svg
+      title: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      title: Node.js
+    - image:
+        src: media/index/logo_python.svg
+      title: Python
+    rows:
+    - title: Vertaal tekst van één taal naar de andere
+      values:
+      - href: quickstart-csharp-translate
+      - href: 
+      - href: 
+      - href: 
+    - title: Coverteer tekst van één script naar het andere
+      values:
+      - href: quickstart-csharp-transliterate
+      - href: 
+      - href: 
+      - href: 
+    - title: Bepaal de taal van de tekst
+      values:
+      - href: quickstart-csharp-detect
+      - href: 
+      - href: 
+      - href: 
+    - title: Haal alternatieve vertalingen op en gebruik deze
+      values:
+      - href: quickstart-csharp-dictionary
+      - href: 
+      - href: 
+      - href: 
+- title: Naslaginformatie
+  items:
+  - type: paragraph
+    text: <p><a href="reference/v3-0-reference.md">API-naslaginformatie</a></p>
