@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: f831c046bcf8f633841f9dc4a0fce6d1e419e6c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205651"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287623"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerken modi voor service Fabric-container
 
@@ -231,7 +231,23 @@ Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in 
      </Endpoints>
    </Resources>
    ```
+   
+6. Voor Windows wordt een VM opnieuw wordt opgestart het open netwerk opnieuw worden gemaakt. Dit is het beperken van het onderliggende probleem in de netwerkstack. Standaard is dat het netwerk. Als dit gedrag worden uitgeschakeld moet, kan de volgende configuratie worden gebruikt gevolgd door een upgrade van de configuratie.
 
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
+ 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inzicht krijgen in het Service Fabric-toepassingsmodel](service-fabric-application-model.md)
 * [Meer informatie over de Service Fabric-service manifest resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)

@@ -1,6 +1,6 @@
 ---
-title: Ingebouwde functies voor op rollen gebaseerde toegangsbeheer (RBAC) in Azure | Microsoft Docs
-description: Beschrijving van de ingebouwde functies voor op rollen gebaseerde toegangsbeheer (RBAC) in Azure. Hier worden de acties en notActions.
+title: Ingebouwde rollen in Azure | Microsoft Docs
+description: Beschrijving van de ingebouwde functies voor op rollen gebaseerde toegangsbeheer (RBAC) in Azure. Hier worden de acties, notActions, dataActions en notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 06/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267370"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294493"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde rollen voor toegangsbeheer op basis van rollen in Azure
+# <a name="built-in-roles-in-azure"></a>Ingebouwde rollen in Azure
 [Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) heeft meerdere definities van ingebouwde rol die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot bronnen in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md).
 
 De ingebouwde rollen zijn altijd in ontwikkeling. Als u de meest recente roldefinities, gebruikt [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) of [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list).
@@ -39,7 +39,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 | [AcrImageSigner](#acrimagesigner) | acr-afbeeldingsondertekenaar |
 | [AcrQuarantineReader](#acrquarantinereader) | acr-quarantainegegevenslezer |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr-quarantainegegevensschrijver |
-| [API Management-Service Inzender](#api-management-service-contributor) | Kan de service en de API's beheren |
+| [API Management-Service Inzender](#api-management-service-contributor) | Service en de API's kunt beheren |
 | [Rol Operator API Management-Service](#api-management-service-operator-role) | Kan de service beheren, maar niet de API's |
 | [Rol van API Management-Service lezer](#api-management-service-reader-role) | Alleen-lezentoegang tot de service en API's |
 | [Application Insights-Onderdeelinzender](#application-insights-component-contributor) | Kan onderdelen van Application Insights beheren |
@@ -63,9 +63,9 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 | [Klassieke Virtual Machine Contributor](#classic-virtual-machine-contributor) | Hiermee beheert u klassieke virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount beheren waaraan de virtuele machines zijn gekoppeld. |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) | Hiermee beheert u ClearDB MySQL-databases, maar kunt u niet de toegang tot de databases beheren. |
 | [De rol van de lezer-Account cosmos DB](#cosmos-db-account-reader-role) | Gegevens van Azure DB die Cosmos-account kan worden gelezen. Zie [DocumentDB-Account Inzender](#documentdb-account-contributor) voor het beheren van Azure DB die Cosmos-accounts. |
-| [Data Factory Inzender](#data-factory-contributor) | Data factory's en de onderliggende resources hierin maken en beheren. |
+| [Data Factory Inzender](#data-factory-contributor) | Maken en beheren van de data Factory, evenals de onderliggende resources binnen deze. |
 | [Data Lake Analytics-ontwikkelaars](#data-lake-analytics-developer) | Hiermee kunt u uw eigen taken indienen, controleren en beheren, maar geen Data Lake Analytics-accounts maken of verwijderen. |
-| [Gegevens Purger](#data-purger) | Analytische gegevens kunt wissen |
+| [Gegevens Purger](#data-purger) | Kan analytische gegevens verwijderen |
 | [DevTest Labs gebruiker](#devtest-labs-user) | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
 | [DNS-Zone Inzender](#dns-zone-contributor) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
 | [DocumentDB-Account Inzender](#documentdb-account-contributor) | Kan Azure Cosmos DB accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
@@ -178,7 +178,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Kan de service en de API's beheren |
+> | **Beschrijving** | Service en de API's kunt beheren |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Acties** |  |
 > | Microsoft.ApiManagement/service/* | Maken en beheren van API Management-service |
@@ -660,7 +660,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Data factory's en de onderliggende resources hierin maken en beheren. |
+> | **Beschrijving** | Maken en beheren van de data Factory, evenals de onderliggende resources binnen deze. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Lezen van rollen en functie toewijzingen |
@@ -703,11 +703,11 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Maken of bijwerken van een compute-beleid. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Een compute-beleid verwijderen. |
 
-## <a name="data-purger"></a>Gegevens Purger
+## <a name="data-purger"></a>Gegevensverwijderaar
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Analytische gegevens kunt wissen |
+> | **Beschrijving** | Kan analytische gegevens verwijderen |
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Acties** |  |
 > | Microsoft.Insights/components/*/read |  |
@@ -1110,7 +1110,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op
 > | Microsoft.Security/policies/write | Updates van het beveiligingsbeleid |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-## <a name="security-manager-legacy"></a>Beveiligingsbeheer (verouderd)
+## <a name="security-manager-legacy"></a>Security Manager (verouderd)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

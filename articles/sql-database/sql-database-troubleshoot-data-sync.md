@@ -1,26 +1,26 @@
 ---
-title: Problemen met synchroniseren van Azure SQL-gegevens (Preview) | Microsoft Docs
-description: Informatie over het oplossen van veelvoorkomende problemen met het synchroniseren van Azure SQL-gegevens (Preview).
+title: Synchroniseren van Azure SQL-gegevens oplossen | Microsoft Docs
+description: Informatie over het oplossen van veelvoorkomende problemen met het synchroniseren van Azure SQL-gegevens.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 43d230b013f95c56fb162be3e361a6b68d1b26fe
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757533"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296132"
 ---
-# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Problemen oplossen met het synchroniseren van de SQL-gegevens (Preview)
+# <a name="troubleshoot-issues-with-sql-data-sync"></a>Problemen oplossen met het synchroniseren van de SQL-gegevens
 
-In dit artikel wordt beschreven hoe bekende problemen oplossen met Azure SQL-gegevenssynchronisatie (Preview). Als er een oplossing voor een probleem is, het hier opgegeven.
+In dit artikel wordt beschreven hoe bekende problemen oplossen met het synchroniseren van Azure SQL-gegevens. Als er een oplossing voor een probleem is, het hier opgegeven.
 
-Zie voor een overzicht van het synchroniseren van de SQL-gegevens (Preview) [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-sync-data.md).
+Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie](sql-database-sync-data.md).
 
 ## <a name="sync-issues"></a>Problemen met synchronisatie
 
@@ -28,7 +28,7 @@ Zie voor een overzicht van het synchroniseren van de SQL-gegevens (Preview) [syn
 
 #### <a name="description-and-symptoms"></a>Beschrijving en symptomen
 
-Synchronisatie mislukt bij het synchroniseren van de SQL-gegevens (Preview) gebruikersinterface portal voor on-premises-databases die gekoppeld aan de agent zijn. In de lokale computer die de agent wordt uitgevoerd, ziet u System.IO.IOException fouten in het gebeurtenislogboek. De fouten zeggen dat de schijf onvoldoende ruimte is.
+Synchronisatie mislukt bij het synchroniseren van gegevens van SQL-portal UI voor on-premises-databases die gekoppeld aan de agent zijn. In de lokale computer die de agent wordt uitgevoerd, ziet u System.IO.IOException fouten in het gebeurtenislogboek. De fouten zeggen dat de schijf onvoldoende ruimte is.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -38,7 +38,7 @@ Maak meer schijfruimte vrij op het station waarop de map % TEMP %.
 
 #### <a name="description-and-symptoms"></a>Beschrijving en symptomen
 
-Een groep voor synchronisatie in het synchroniseren van de SQL-gegevens (Preview) is al in de verwerkingsstatus lang duren. Deze reageert niet op de **stoppen** opdracht en de logboeken worden geen nieuwe items weergegeven.
+Een groep voor synchronisatie in SQL-gegevenssynchronisatie is in de verwerkingsstatus gedurende een lange periode. Deze reageert niet op de **stoppen** opdracht en de logboeken worden geen nieuwe items weergegeven.
 
 #### <a name="cause"></a>Oorzaak
 
@@ -48,14 +48,14 @@ Een van de volgende voorwaarden kan leiden tot een groep voor synchronisatie wor
 
 -   **De clientagent is geïnstalleerd of ontbreekt**. Als de clientagent is geïnstalleerd of anderszins ontbreekt:
 
-    1. Verwijder de agent XML-bestand uit de installatiemap synchroniseren van de SQL-gegevens (Preview) als het bestand bestaat.
+    1. Het XML-bestand van agent verwijderen uit de installatiemap synchroniseren van de SQL-gegevens als het bestand bestaat.
     2. Installeer de agent op de lokale computer (deze kan zijn hetzelfde of een andere computer). Dien vervolgens de agent-sleutel die wordt gegenereerd in de portal voor de agent die wordt weergegeven als offline.
 
 -   **Het synchroniseren van gegevens van SQL-service wordt gestopt**.
 
     1. In de **Start** menu, zoekt u **Services**.
     2. Selecteer in de lijst met zoekresultaten **Services**.
-    3. Zoek de **synchroniseren van de SQL-gegevens (Preview)** service.
+    3. Zoek de **SQL gegevenssynchronisatie** service.
     4. Als de status van de service **gestopt**, met de rechtermuisknop op de servicenaam en selecteer vervolgens **Start**.
 
 #### <a name="resolution"></a>Oplossing
@@ -70,7 +70,7 @@ Als de tabellen met dezelfde naam, maar die afkomstig zijn van een andere databa
 
 #### <a name="cause"></a>Oorzaak
 
-De SQL-gegevenssynchronisatie (Preview) inrichtingsproces maakt gebruik van de dezelfde Traceringstabellen voor tabellen die dezelfde naam hebben, maar die zich in verschillende schema's. Als gevolg hiervan worden wijzigingen van beide tabellen doorgevoerd in de tabel met dezelfde bijhouden. Dit zorgt ervoor dat wijzigingen onjuiste gegevens tijdens de synchronisatie.
+Het synchroniseren van de SQL-gegevens inrichtingsproces maakt gebruik van de dezelfde Traceringstabellen voor tabellen die dezelfde naam hebben, maar die zich in verschillende schema's. Als gevolg hiervan worden wijzigingen van beide tabellen doorgevoerd in de tabel met dezelfde bijhouden. Dit zorgt ervoor dat wijzigingen onjuiste gegevens tijdens de synchronisatie.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -109,10 +109,10 @@ De beste oplossing wordt voorkomen. Zorg ervoor dat er geen kringverwijzingen in
 ### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a>Dit bericht weergegeven: ' kan de waarde NULL niet invoegen in de kolom \<kolom\>. Kolom mag geen null-waarden." Wat betekent dit en hoe kan ik doen? 
 Dit foutbericht geeft aan dat een van de twee volgende problemen is opgetreden:
 -  Een tabel hebben niet een primaire sleutel. U kunt dit probleem oplossen door moet u een primaire sleutel toevoegen aan alle tabellen die u wilt synchroniseren.
--  Er is een WHERE-component in de instructie CREATE INDEX. Synchroniseren van gegevens (Preview) kunnen deze voorwaarde niet worden verwerkt. U kunt dit probleem oplossen door de component WHERE verwijderen of wijzigingen handmatig aanbrengen voor alle databases. 
+-  Er is een WHERE-component in de instructie CREATE INDEX. Synchroniseren van gegevens kunnen deze voorwaarde niet worden verwerkt. U kunt dit probleem oplossen door de component WHERE verwijderen of wijzigingen handmatig aanbrengen voor alle databases. 
  
-### <a name="how-does-data-sync-preview-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Hoe wordt synchroniseren van gegevens (Preview) kringverwijzingen verwerkt? Dat wil zeggen, wanneer dezelfde gegevens in meerdere synchronisatiegroepen is gesynchroniseerd en als gevolg hiervan blijft wijzigen?
-Synchroniseren van gegevens (Preview) kunnen kringverwijzingen niet worden verwerkt. Zorg ervoor dat ze kunnen worden vermeden. 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Hoe wordt gegevenssynchronisatie kringverwijzingen verwerkt? Dat wil zeggen, wanneer dezelfde gegevens in meerdere synchronisatiegroepen is gesynchroniseerd en als gevolg hiervan blijft wijzigen?
+Synchroniseren van gegevens kunnen kringverwijzingen niet worden verwerkt. Zorg ervoor dat ze kunnen worden vermeden. 
 
 ## <a name="client-agent-issues"></a>Problemen met client-agent
 
@@ -131,27 +131,6 @@ Ga voor de oorzaak van de fout genereren en bekijk de logboeken van Windows Inst
 
 U kunt ook logboekregistratie voor alle installaties die worden uitgevoerd door Windows Installer inschakelen. De Microsoft Knowledge Base-artikel [het inschakelen van logboekregistratie voor Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) biedt een oplossing voor één muisklik inschakelen van logboekregistratie voor Windows Installer. Het bevat ook de locatie van de logboeken.
 
-### <a name="my-client-agent-doesnt-work"></a>Mijn clientagent werkt niet
-
-#### <a name="description-and-symptoms"></a>Beschrijving en symptomen
-
-U kunt de volgende berichten te zien krijgen wanneer u probeert de clientagent te gebruiken:
-
-"Synchronisatie is mislukt met uitzondering er een fout is opgetreden tijdens het deserialiseren van de parameter www.microsoft.com/.../05:GetBatchInfoResult. (Zie InnerException voor meer informatie."
-
-"De binnenste Uitzonderingsbericht: Type 'Microsoft.Synchronization.ChangeBatch' is een ongeldig verzameltype aangezien het geen standaardconstructor."
-
-#### <a name="cause"></a>Oorzaak
-
-Dit is een bekend probleem met het synchroniseren van de SQL-gegevens (Preview)-installatie. De meest waarschijnlijke oorzaak van dit bericht is een van de volgende opties:
-
--   U kunt Windows 8 Developer Preview worden uitgevoerd.
--   Hebt u .NET Framework 4.5 is geïnstalleerd.
-
-#### <a name="resolution"></a>Oplossing
-
-Zorg ervoor dat u de clientagent installeren op een computer waarop Windows 8 Developer Preview wordt niet uitgevoerd en dat .NET Framework 4.5 is niet geïnstalleerd.
-
 ### <a name="my-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a>Mijn clientagent werkt niet wanneer ik de verwijdering annuleren
 
 #### <a name="description-and-symptoms"></a>Beschrijving en symptomen
@@ -160,7 +139,7 @@ De clientagent werkt niet, zelfs nadat u de verwijdering annuleert.
 
 #### <a name="cause"></a>Oorzaak
 
-Dit gebeurt omdat de clientagent voor het synchroniseren van de SQL-gegevens (Preview) worden niet referenties opgeslagen.
+Dit gebeurt omdat de clientagent voor het synchroniseren van de SQL-gegevens worden niet referenties opgeslagen.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -215,18 +194,18 @@ Een mogelijke oorzaak van dit probleem is dat het wachtwoord op de lokale server
 
 Wachtwoord van de agent een update naar uw huidige serverwachtwoord:
 
-1. Zoek de clientagent voor synchroniseren van de SQL-gegevens (Preview) Preview service.  
+1. Zoek de gegevenssynchronisatie SQL client agent-service.  
     a. Selecteer **Start**.  
     b. Voer in het zoekvak **services.msc**.  
     c. Selecteer in de lijst met zoekresultaten **Services**.  
-    d. In de **Services** venster, blader naar de vermelding voor **synchroniseren van de SQL-gegevens (Preview) Agent Preview**.  
-2. Met de rechtermuisknop op **synchroniseren van de SQL-gegevens (Preview) Agent Preview**, en selecteer vervolgens **stoppen**.
-3. Met de rechtermuisknop op **synchroniseren van de SQL-gegevens (Preview) Agent Preview**, en selecteer vervolgens **eigenschappen**.
-4. Op **synchroniseren van de SQL-gegevens (Preview) Preview Agenteigenschappen**, selecteer de **aanmelden** tabblad.
+    d. In de **Services** venster, blader naar de vermelding voor **SQL Data Sync-Agent**.  
+2. Met de rechtermuisknop op **SQL Data Sync-Agent**, en selecteer vervolgens **stoppen**.
+3. Met de rechtermuisknop op **SQL Data Sync-Agent**, en selecteer vervolgens **eigenschappen**.
+4. Op **Sync SQL-Agent gegevenseigenschappen**, selecteer de **aanmelden** tabblad.
 5. In de **wachtwoord** Voer uw wachtwoord.
 6. In de **wachtwoord bevestigen** vak, uw wachtwoord opnieuw invoeren.
 7. Selecteer **Apply** en vervolgens **OK**.
-8. In de **Services** venster met de rechtermuisknop op de **synchroniseren van de SQL-gegevens (Preview) Agent Preview** service en klik vervolgens op **Start**.
+8. In de **Services** venster met de rechtermuisknop op de **SQL Data Sync-Agent** service en klik vervolgens op **Start**.
 9. Sluit de **Services** venster.
 
 ### <a name="i-cant-submit-the-agent-key"></a>Ik heb de sleutel van de agent kan niet worden verzonden
@@ -239,8 +218,8 @@ Nadat u hebt gemaakt of opnieuw maken van een sleutel voor een agent, die u wilt
 
 Voordat u verdergaat, controleert u de volgende voorwaarden:
 
--   Het synchroniseren van de SQL-gegevens (Preview) Windows-service wordt uitgevoerd.  
--   Het serviceaccount voor het synchroniseren van de SQL-gegevens (Preview) Preview Windows-service heeft toegang tot het netwerk.    
+-   De SQL Data Sync Windows-service wordt uitgevoerd.  
+-   Het serviceaccount voor SQL Data Sync Windows-service heeft toegang tot het netwerk.    
 -   De uitgaande 1433-poort is geopend in uw lokale firewallregel.
 -   Het lokale IP-adres wordt toegevoegd aan de server of database firewallregel voor de synchronisatiedatabase metagegevens.
 
@@ -248,7 +227,7 @@ Voordat u verdergaat, controleert u de volgende voorwaarden:
 
 De sleutel van de agent is een unieke identificatie voor elke lokale agent. De sleutel moet voldoen aan twee voorwaarden:
 
--   De sleutel van de client-agent op de server synchroniseren van de SQL-gegevens (Preview) en de lokale computer moet identiek zijn.
+-   De sleutel van de client-agent op de server synchroniseren van de SQL-gegevens en de lokale computer moet identiek zijn.
 -   De sleutel van de client-agent kan slechts één keer worden gebruikt.
 
 #### <a name="resolution"></a>Oplossing
@@ -272,7 +251,7 @@ De nieuwe sleutel met de agent toepassen:
 
 #### <a name="description-and-symptoms"></a>Beschrijving en symptomen
 
-Als een lokaal eindpunt (dat wil zeggen, een database) dat is geregistreerd bij een clientagent synchroniseren van de SQL-gegevens (Preview) wordt niet bereikbaar is, kan de clientagent kan niet worden verwijderd.
+Als een lokaal eindpunt (dat wil zeggen, een database) dat is geregistreerd bij een SQL-gegevenssynchronisatie-clientagent niet bereikbaar wordt, kan de clientagent kan niet worden verwijderd.
 
 #### <a name="cause"></a>Oorzaak
 
@@ -295,8 +274,8 @@ Voer de volgende stappen uit:
 2. Open het deelvenster Component Services.  
     a. Voer in het zoekvak op de taakbalk **services.msc**.  
     b. Dubbelklik in de zoekresultaten op **Services**.  
-3. Stop de **synchroniseren van de SQL-gegevens (Preview) Preview** service.
-4. Start opnieuw op de **synchroniseren van de SQL-gegevens (Preview) Preview** service.  
+3. Stop de **SQL gegevenssynchronisatie** service.
+4. Start opnieuw op de **SQL gegevenssynchronisatie** service.  
 5. Open de app opnieuw.
 
 ## <a name="setup-and-maintenance-issues"></a>Problemen met Setup en onderhoud
@@ -335,12 +314,12 @@ Op te lossen niet verwijderen van een groep voor synchronisatie:
 
 -   Zorg ervoor dat de clientagent online is en probeer het opnieuw.
 -   Als de clientagent is geïnstalleerd of anderszins ontbreekt:  
-    a. Verwijder de agent XML-bestand uit de installatiemap synchroniseren van de SQL-gegevens (Preview) als het bestand bestaat.  
+    a. Het XML-bestand van agent verwijderen uit de installatiemap synchroniseren van de SQL-gegevens als het bestand bestaat.  
     b. Installeer de agent op de lokale computer (deze kan zijn hetzelfde of een andere computer). Dien vervolgens de agent-sleutel die wordt gegenereerd in de portal voor de agent die wordt weergegeven als offline.
--   Zorg ervoor dat het synchroniseren van de SQL-gegevens (Preview)-service wordt uitgevoerd:  
+-   Zorg ervoor dat het synchroniseren van gegevens van SQL-service wordt uitgevoerd:  
     a. In de **Start** menu, zoekt u **Services**.  
     b. Selecteer in de lijst met zoekresultaten **Services**.  
-    c. Zoek de **synchroniseren van de SQL-gegevens (Preview) Preview** service.  
+    c. Zoek de **SQL gegevenssynchronisatie** service.  
     d. Als de status van de service **gestopt**, met de rechtermuisknop op de servicenaam en selecteer vervolgens **Start**.
 -   Zorg ervoor dat uw SQL-databases en SQL Server-databases alle online zijn.
 -   Wacht totdat het proces voor het inrichten of synchronisatie is voltooid en probeer vervolgens de groep voor synchronisatie te verwijderen.
@@ -361,7 +340,7 @@ Als deze bewerking is mislukt voor de database verwijderen uit de groep voor syn
     a. Selecteer de **Start** menu.  
     b. Voer in het zoekvak **services.msc**.  
     c. In de **programma's** sectie van de zoekopdracht resulteert deelvenster, dubbelklikt u op **Services**.  
-    d. Met de rechtermuisknop op de **synchroniseren van de SQL-gegevens (Preview)** service.  
+    d. Met de rechtermuisknop op de **SQL gegevenssynchronisatie** service.  
     e. Als de service wordt uitgevoerd, stoppen.  
     f. Met de rechtermuisknop op de service en selecteer vervolgens **Start**.  
     g. Controleer of de database nog steeds is geregistreerd. Als het is niet langer geregistreerd, bent u klaar. Ga anders verder met de volgende stap.
@@ -391,7 +370,7 @@ Logboek-op-as-a-service-referenties aan de gebruikersaccount verlenen:
 
 #### <a name="cause"></a>Oorzaak
 
-Synchroniseren van de SQL-gegevens (Preview) Hiermee verwijdert u de databases die offline zijn van de service voor een of meer (zoals geteld vanaf het moment dat de database offline ging) 45 dagen zijn. Als een database offline voor een of meer 45 dagen is en vervolgens weer online wordt gezet, wordt de status ervan is **verouderd**.
+Synchroniseren van de SQL-gegevens Hiermee verwijdert u de databases die offline zijn van de service voor een of meer (zoals geteld vanaf het moment dat de database offline ging) 45 dagen zijn. Als een database offline voor een of meer 45 dagen is en vervolgens weer online wordt gezet, wordt de status ervan is **verouderd**.
 
 #### <a name="resolution"></a>Oplossing
 
@@ -421,14 +400,14 @@ Als de status van een groep voor synchronisatie **verouderd**, de groep voor syn
 
 #### <a name="description-and-symptoms"></a>Beschrijving en symptomen
 
-U kunt een groep voor synchronisatie niet verwijderen binnen drie minuten na het verwijderen of stoppen van de bijbehorende clientagent voor synchroniseren van de SQL-gegevens (Preview).
+U kunt een groep voor synchronisatie niet verwijderen binnen drie minuten na het verwijderen of stoppen van de bijbehorende synchroniseren van gegevens van SQL-clientagent.
 
 #### <a name="resolution"></a>Oplossing
 
 1. Verwijderen van een groep voor synchronisatie, terwijl de agents gekoppeld sync online zijn (aanbevolen).
-2. Als de agent offline is, maar is geïnstalleerd, brengt u het online op de lokale computer. Wacht totdat de status van de agent moet worden weergegeven als **Online** in de portal voor het synchroniseren van de SQL-gegevens (Preview). Verwijder vervolgens de groep voor synchronisatie.
+2. Als de agent offline is, maar is geïnstalleerd, brengt u het online op de lokale computer. Wacht totdat de status van de agent moet worden weergegeven als **Online** in de portal voor het synchroniseren van de SQL-gegevens. Verwijder vervolgens de groep voor synchronisatie.
 3. Als de agent offline, is omdat deze is verwijderd:  
-    a.  Verwijder de agent XML-bestand uit de installatiemap synchroniseren van de SQL-gegevens (Preview) als het bestand bestaat.  
+    a.  Het XML-bestand van agent verwijderen uit de installatiemap synchroniseren van de SQL-gegevens als het bestand bestaat.  
     b.  Installeer de agent op de lokale computer (deze kan zijn hetzelfde of een andere computer). Dien vervolgens de agent-sleutel die wordt gegenereerd in de portal voor de agent die wordt weergegeven als offline.  
     c. Probeer te verwijderen van de groep voor synchronisatie.
 
@@ -437,16 +416,16 @@ U kunt een groep voor synchronisatie niet verwijderen binnen drie minuten na het
 Als u een verloren of beschadigde database vanaf een back-up herstellen, is er mogelijk een nonconvergence van gegevens in de synchronisatiegroepen waartoe de database behoort.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het synchroniseren van de SQL-gegevens (Preview):
+Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
--   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-sync-data.md)  
--   [Instellen van Azure SQL-gegevenssynchronisatie (Preview)](sql-database-get-started-sql-data-sync.md)  
--   [Aanbevolen procedures voor het synchroniseren van Azure SQL gegevens (Preview)](sql-database-best-practices-data-sync.md)  
--   [Monitor voor Azure SQL synchroniseren van gegevens (Preview) met logboekanalyse](sql-database-sync-monitor-oms.md)  
--   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens (Preview) te configureren:  
+-   [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync (Preview)](sql-database-sync-data.md)  
+-   [Azure SQL Data Sync instellen](sql-database-get-started-sql-data-sync.md)  
+-   [Aanbevolen procedures voor Azure SQL Data Sync](sql-database-best-practices-data-sync.md)  
+-   [Azure SQL Data Sync bewaken met Log Analytics](sql-database-sync-monitor-oms.md)  
+-   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:  
     -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Het synchroniseren van de SQL-gegevens (Preview) REST-API-documentatie downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [De documentatie over de REST-API van SQL Data Sync downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Zie voor meer informatie over SQL-Database:
 

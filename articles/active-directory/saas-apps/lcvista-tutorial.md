@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1a82718b17c623a59b0ea03297f47d54ff49eced
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0cd42f5863293dfe5b52ab1fd99c2fc04aa9aeee
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225949"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Zelfstudie: Azure Active Directory-integratie met LCVista
 
@@ -224,7 +224,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen. Klik op de tegel LCVista in het deelvenster toegang, wordt u omgeleid naar de organisatie aanmelding op de pagina. Na een geslaagde aanmelding u zal worden aangemeld bij uw toepassing LCVista. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen. Klik op de tegel LCVista in het deelvenster toegang, wordt u omgeleid naar de organisatie aanmelding op de pagina. Na een geslaagde aanmelding u zal worden aangemeld bij uw toepassing LCVista. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

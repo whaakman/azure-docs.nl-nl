@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: 89b3f1184254964a32073c63de3fe69d8a51e292
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e614c78ca4e8ed7afbce0d3f2423ce137c5225b5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652954"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294972"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Gebruik Azure aangepast Script extensie versie 2 met virtuele Linux-machines
 Aangepast Script extensie versie 2 downloads en scripts uitvoeren op virtuele machines in Azure. Deze uitbreiding is nuttig voor na de implementatie-configuratie, software-installatie of een andere Configuratiebeheer /-taak. U kunt scripts downloaden van Azure Storage of een andere internetlocatie voor toegankelijk of u kunt ze met de extensie runtime opgeven. 
@@ -154,7 +154,7 @@ De conversie dos2unix worden overgeslagen door de skipDos2Unix in te stellen op 
 ```json
 {
   "fileUris": ["<url>"],
-  "commandToExecute": "<command-to-execute>"
+  "commandToExecute": "<command-to-execute>",
   "skipDos2Unix": true
 }
 ```

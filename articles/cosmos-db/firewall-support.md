@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: f0cbbe147386aa5d50e207fdd9c86fd9571ec144
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0407d3c58fa63a11c8391f069039f7c35a15ceb7
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611735"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294734"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Ondersteuning van Azure DB Cosmos-firewall
 Als u wilt beveiligen gegevens die zijn opgeslagen in een databaseaccount Azure Cosmos DB, Azure Cosmos DB heeft biedt ondersteuning voor een geheim op basis van [autorisatie model](https://msdn.microsoft.com/library/azure/dn783368.aspx) die gebruikmaakt van een sterke Hash-based message authentication code (HMAC). Azure Cosmos DB ondersteunt nu, naast het model geheime gebaseerde autorisatie beleid IP gebaseerd toegangsbeheer voor binnenkomende firewallondersteuning aangestuurd. Dit model is vergelijkbaar met de firewallregels van een systeem van traditionele databases en biedt een extra beveiligingsniveau voor de account van de Azure DB die Cosmos-database. Met dit model, kunt u nu een databaseaccount Azure Cosmos DB om te worden alleen toegankelijk vanuit een goedgekeurde set machines en/of cloud services configureren. Toegang tot Azure Cosmos DB resources uit deze goedgekeurde sets met machines en services vereisen nog steeds de aanroeper om weer te geven van een geldige verificatietoken.
@@ -32,7 +32,7 @@ Een Azure Cosmos DB-databaseaccount is standaard toegankelijk via openbaar inter
 ## <a id="configure-ip-policy"></a> Het IP-beleid voor toegangsbeheer configureren
 Het IP-beleid voor toegangsbeheer kan worden ingesteld in de Azure portal of programmatisch via [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), of de [REST-API](/rest/api/cosmos-db/) door het bijwerken van de **ipRangeFilter** eigenschap. 
 
-Om in te stellen de IP-beleid voor toegangsbeheer in Azure portal, gaat u naar de pagina Azure DB die Cosmos-account, klikt u op **Firewall** in het navigatiemenu, wijzigt u vervolgens de **toegang toestaan via** van waarde naar  **Netwerken geselecteerd**, en klik vervolgens op **opslaan**. 
+Om in te stellen de IP-beleid voor toegangsbeheer in Azure portal, gaat u naar de pagina Azure DB die Cosmos-account, klikt u op **Firewall- en virtuele netwerken** in het navigatiemenu, wijzigt u vervolgens de **toegang toestaan via** waarde naar **netwerken geselecteerd**, en klik vervolgens op **opslaan**. 
 
 ![Schermopname die laat zien hoe u de Firewall-pagina in de Azure portal openen](./media/firewall-support/azure-portal-firewall.png)
 
@@ -56,10 +56,10 @@ Toegang tot de Azure portal is standaard ingeschakeld wanneer u de Firewall-inst
 
 ![Schermopname die laat zien hoe u Azure portal-toegang](./media/firewall-support/enable-azure-portal.png)
 
-## <a name="connections-from-other-azure-paas-services"></a>Verbindingen van andere Azure-PaaS-services 
+## <a name="connections-from-public-azure-datacenters-or-azure-paas-services"></a>Verbindingen van openbare Azure-datacenters of Azure PaaS-services
 In Azure, PaaS-services zoals Azure Stream analytics, Azure Functions en Azure App Service gebruikt in combinatie met Azure Cosmos DB. Voor toegang tot Azure Cosmos DB databaseaccount van deze services met IP-adressen niet beschikbaar zijn IP-adres 0.0.0.0 toevoegen aan de lijst met toegestane IP-adressen die zijn gekoppeld aan uw Azure DB die Cosmos-databaseaccount programmatisch. 
 
-Toegang tot de andere Azure-services is standaard ingeschakeld wanneer u de Firewall-instellingen te wijzigen **netwerken geselecteerd** in de Azure portal. 
+Toegang tot de verbindingen van binnen een openbare Azure-datacenters is standaard ingeschakeld wanneer u de Firewall-instellingen te wijzigen **netwerken geselecteerd** in de Azure portal. 
 
 ![Schermopname die laat zien hoe u de Firewall-pagina in de Azure portal openen](./media/firewall-support/enable-azure-services.png)
 
@@ -91,8 +91,6 @@ Wanneer u een databaseaccount Azure Cosmos DB vanaf een computer op het internet
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Het oplossen van het IP-beleid voor toegangsbeheer
 ### <a name="portal-operations"></a>Portal-bewerkingen
 Als u een IP-toegangsbeleid voor het account van uw Azure DB die Cosmos-database, alle toegang tot uw Azure DB die Cosmos-databaseaccount vanaf computers buiten de geconfigureerde toegestaan lijst met IP-adresbereiken worden geblokkeerd. Dus als u inschakelen portal gegevens vlak bewerkingen wilt zoals het bladeren door verzamelingen en query-documenten, moet u expliciet toestaan toegang tot de Azure portal met behulp van de **Firewall** pagina in de portal. 
-
-![Schermopname die laat zien hoe u een voor toegang tot de Azure-portal](./media/firewall-support/azure-portal-firewall.png)
 
 ### <a name="sdk--rest-api"></a>SDK & Rest-API
 Voor toegang via SDK of REST-API van computers niet in de lijst met toegestane uit veiligheidsoverwegingen het resultaat van algemene 404 niet gevonden zonder extra details. Controleer of het IP-adres toegestaan lijst die zijn geconfigureerd voor het account van uw Azure DB die Cosmos-database om te controleren of de dat configuratie van het juiste beleid wordt toegepast op uw databaseaccount Azure Cosmos DB.

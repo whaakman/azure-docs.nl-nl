@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 158a0f6d948172ec7d986703e9fa95dd19bdde6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 351f3e34f5050d922655a633ec89f51d191b946e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592259"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295615"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Speciale overwegingen voor exemplaren
 Azure AD Connect wordt meestal gebruikt met het wereldwijde exemplaar van Azure AD en Office 365. Maar er zijn ook andere exemplaren en deze hebben verschillende vereisten voor de URL's en andere speciale overwegingen.
@@ -38,8 +38,6 @@ Wanneer u zich bij uw Azure AD-tenant aanmelden, moet u een account in het domei
 
 Functies die momenteel niet aanwezig in de Microsoft Cloud-Duitsland:
 
-* **Azure AD Connect Health** is niet beschikbaar.
-* **Automatische updates** is niet beschikbaar.
 * **Wachtwoord terugschrijven** is beschikbaar voor het voorbeeld met Azure AD Connect versie 1.1.570.0 en na.
 * Andere Azure AD Premium-services zijn niet beschikbaar.
 
@@ -61,8 +59,6 @@ Deze cloud werd ondersteund door eerdere releases van DirSync. Vanaf build 1.1.1
 
 Functies die momenteel niet aanwezig in de Microsoft Azure Government cloud:
 
-* **Azure AD Connect Health** is niet beschikbaar.
-* **Automatische updates** is niet beschikbaar.
 * **Wachtwoord terugschrijven** is beschikbaar voor het voorbeeld met Azure AD Connect versie 1.1.570.0 en na.
 * Andere Azure AD Premium-services zijn niet beschikbaar.
 

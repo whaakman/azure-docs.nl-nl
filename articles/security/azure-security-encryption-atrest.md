@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bcc691e00b373028acaf0936af8336a76306aec
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232320"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294053"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption in rust
 
@@ -259,7 +259,7 @@ Client-side '-versleuteling van gegevens van Azure SQL Database wordt ondersteun
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **Met behulp van Service beheerde sleutel voor serverzijde**     | **Met behulp van de klant beheerd in de Sleutelkluis voor serverzijde**             |  **Met de klant beheerd On-premises serverzijde**                  | **Client met behulp van Client beheerd**      |
 | **Opslag- en -Databases**        |                    |                    |                    |                    |                    |
-| Schijf (IaaS)                      | -                  | Ja, RSA 2048-bits  | Ja*               | -                  |
+| Schijf (IaaS)                      | -                  | Ja, RSA 2048-bits  | Ja               | -                  |
 | SQL Server (IaaS)                | Ja                | Ja, RSA 2048-bits  | Ja                | Ja                |
 | Azure SQL Database (PaaS)        | Ja                | Ja, RSA 2048-bits  | -                  | Ja                |
 | Azure-opslag (blokkeren/pagina-BLOB's) | Ja                | Ja, RSA 2048-bits  | -                  | Ja                |

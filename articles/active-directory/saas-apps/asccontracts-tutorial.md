@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c22182f995b36d23f632cf1478a863de91c57f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c5a55f00273ea070d824f0b3d75fc86b4ff6be11
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225691"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286888"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Zelfstudie: Azure Active Directory-integratie met ASC contracten
 
@@ -201,7 +201,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op de tegel ASC contracten in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing ASC contracten. Zie voor meer informatie over het toegangsvenster. [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).
+Als u op de tegel ASC contracten in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing ASC contracten. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
@@ -223,4 +223,3 @@ Als u op de tegel ASC contracten in het deelvenster toegang, u moet ophalen auto
 [201]: ./media/asccontracts-tutorial/tutorial_general_201.png
 [202]: ./media/asccontracts-tutorial/tutorial_general_202.png
 [203]: ./media/asccontracts-tutorial/tutorial_general_203.png
-

@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: f9517cb552130e340310abc4affdad8bdadc26fe
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265748"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294418"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Het configureren van Azure-Database voor replicatie van MySQL-gegevens in
 
-In dit artikel leert u hoe u gegevens in de replicatie instellen in de Azure-Database voor de MySQL-service configureren van primaire en replicaservers.
+In dit artikel leert u het instellen van de replicatie van gegevens in in de Azure-Database voor de MySQL-service door de primaire en replica-servers te configureren. Gegevens in replicatie kunt u gegevens van een primaire MySQL-server on-premises uitgevoerd in de virtuele machines of database-services die door andere cloudproviders worden gehost in een replica in de Azure-Database voor de MySQL-service synchroniseren. 
 
 In dit artikel wordt ervan uitgegaan dat er ten minste enige ervaring met MySQL-servers en databases.
 
@@ -29,7 +29,7 @@ In dit artikel wordt ervan uitgegaan dat er ten minste enige ervaring met MySQL-
    Maak een nieuwe MySQL-server (ex. 'replica.mysql.database.azure.com'). Raadpleeg [maken van een Azure-Database voor de MySQL-server met behulp van de Azure-portal](quickstart-create-mysql-server-database-using-azure-portal.md) voor het maken van de server. Deze server is de replicaserver '' in de gegevens in replicatie.
 
    > [!IMPORTANT]
-   > Deze server moet worden gemaakt in de Prijscategorieën voor algemene doeleinden of geoptimaliseerd voor geheugen.
+   > De Azure-Database voor de MySQL-server moet worden gemaakt in de Prijscategorieën voor algemene doeleinden of geoptimaliseerd voor geheugen.
    > 
 
 2. Dezelfde gebruikersaccounts en de bijbehorende rechten maken
@@ -37,6 +37,7 @@ In dit artikel wordt ervan uitgegaan dat er ten minste enige ervaring met MySQL-
    Gebruikersaccounts worden niet gerepliceerd van de primaire server naar de replicaserver. Als u van plan zodat gebruikers beschikken over toegang tot de replica-server bent, moet u handmatig maken van alle accounts en de bijbehorende machtigingen op de nieuwe Azure-Database voor de MySQL-server.
 
 ## <a name="configure-the-primary-server"></a>De primaire server configureren
+De volgende stappen voorbereiden en configureren van de MySQL-server die gehost on-premises, in een virtuele machine of databaseservice die wordt gehost door andere cloudproviders voor replicatie van gegevens in. Deze server is de 'primaire' in de gegevens in replicatie. 
 
 1. Binaire logboekregistratie inschakelen
 
@@ -203,7 +204,7 @@ In dit artikel wordt ervan uitgegaan dat er ten minste enige ervaring met MySQL-
 
 ## <a name="other-stored-procedures"></a>Andere opgeslagen procedures
 
-### <a name="stop-replication"></a>Stop replicatie
+### <a name="stop-replication"></a>Replicatie stoppen
 
 Als u wilt stoppen van replicatie tussen de primaire en replica-server, gebruikt u de volgende opgeslagen procedure:
 
@@ -226,3 +227,6 @@ Een replicatiefout overslaan en wilt doorgaan, gebruikt u de volgende opgeslagen
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
+## <a name="next-steps"></a>Volgende stappen
+- Meer informatie over [gegevens in replicatie](concepts-data-in-replication.md) voor Azure-Database voor MySQL. 

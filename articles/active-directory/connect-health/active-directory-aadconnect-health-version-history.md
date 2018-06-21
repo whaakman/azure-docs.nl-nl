@@ -14,15 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7147b282d9bcbf48391d60466c77d28eca396832
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590375"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294272"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versiegeschiedenis van status Azure AD Connect
 Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerkt met nieuwe functies en functionaliteit. Dit artikel worden de versies en onderdelen die zijn uitgebracht.
+
+## <a name="june-2018"></a>2018 juni 
+**Nieuwe preview-functies:** 
+* Azure AD Connect Health for Sync - diagnosticeren en op herstellen dubbele kenmerk synchronisatiefouten vanuit de portal 
+
+**Agentupdate:** 
+*   Azure AD Connect Health-agent voor AD FS (versie 3.1.2.0)  
+   1. Oplossingen voor problemen en verbetering voor waarschuwingen 
+
 
 ## <a name="may-2018"></a>Mei 2018
 **Agentupdate:**
@@ -35,7 +44,7 @@ Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerk
  2. Agent privacy verbetering  
  3. Algemene verbeteringen en oplossingen voor problemen
 
-* Azure AD Connect Health-agent voor synchronisatie (versie 3.0.244.0)
+* Azure AD Connect Health-agent voor synchronisatie (versie 3.0.164.0) uitgebracht met Azure AD Connect versie 1.1.819.0
  1. Agent privacy verbetering  
  2. Algemene verbeteringen en oplossingen voor problemen
 
@@ -98,7 +107,7 @@ Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerk
 ## <a name="october-2016"></a>Oktober 2016
 **Agentupdate:**
 
-* Azure AD Connect Health-agent voor AD FS \(versie 2.6.408.0\)
+* Azure AD Connect Health-agent voor AD FS (versie 2.6.408.0)
 1. Verbeteringen in het client-IP-adressen in verificatieaanvragen detecteren
 2. Oplossingen voor problemen die zijn gerelateerd aan waarschuwingen
 * Azure AD Connect Health-agent voor AD DS (versie 2.6.408.0)

@@ -1,20 +1,18 @@
 ---
 title: " Beheren van VMware vCenter-server in Azure Site Recovery | Microsoft Docs"
 description: Dit artikel wordt beschreven hoe toevoegen en beheren van VMware vCenter in Azure Site Recovery.
-services: site-recovery
 author: AnoopVasudavan
-manager: gauravd
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: anoopkv
-ms.openlocfilehash: be415340da09043eccd361b0168bb304d8904bef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48b6cf9b90b429520df435aee00f57ea7b588748
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852299"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284995"
 ---
 # <a name="manage-vmware-vcenter-servers"></a>VMware vCenter-servers beheren 
 
@@ -64,7 +62,7 @@ Wijzig de referenties waarmee verbinding met de vCenter-server of ESXi-host als 
 6. Nadat de taak van Server vernieuwen is voltooid, selecteert u de vCenter-Server te openen van de vCenter **samenvatting** pagina.
 7. Selecteer de zojuist toegevoegde account in de **vCenter-server/vSphere hostaccount** veld en klikt u op **opslaan**.
 
-    ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
+    ![Wijzig-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## <a name="delete-a-vcenter-server"></a>Een vCenter-server verwijderen
 

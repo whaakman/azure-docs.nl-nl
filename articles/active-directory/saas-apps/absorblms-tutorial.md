@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 4cf4e0ffc339bb90f013315a53025c83fcaad21f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4aa2a2f41bcdd78991184e026f22f8e04754eccb
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217568"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Zelfstudie: Azure Active Directory-integratie met LMS opnemen
 
@@ -266,7 +266,7 @@ Gebruiker Britta Simon om aan te wijzen LMS vangen, het volgende doen:
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
-In het deelvenster toegang selecteren de **kunnen LMS** tegel automatisch aangemeld bij uw toepassing LMS opvangen. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).
+In het deelvenster toegang selecteren de **kunnen LMS** tegel automatisch aangemeld bij uw toepassing LMS opvangen. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
@@ -288,4 +288,3 @@ In het deelvenster toegang selecteren de **kunnen LMS** tegel automatisch aangem
 [201]: ./media/absorblms-tutorial/tutorial_general_201.png
 [202]: ./media/absorblms-tutorial/tutorial_general_202.png
 [203]: ./media/absorblms-tutorial/tutorial_general_203.png
-

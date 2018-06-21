@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/2/2018
+ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314045"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293618"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-end-status, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -36,7 +36,7 @@ Toepassingsgateway biedt de mogelijkheid voor het bewaken van de status van afzo
 Het back-end-statusrapport weerspiegelt de uitvoer van de statuscontrole van de Application Gateway naar de back-end-exemplaren. Bij het zoeken is voltooid en de back-end kan verkeer ontvangen, als in orde wordt beschouwd. Anders wordt deze orde beschouwd.
 
 > [!IMPORTANT]
-> Als er een netwerkbeveiligingsgroep (NSG) op een Application Gateway-subnet, opent u poortbereiken 65503 65534 op het subnet voor Application Gateway voor binnenkomend verkeer. Deze poorten zijn vereist voor de back-end-status API om te werken.
+> Als er een netwerkbeveiligingsgroep (NSG) op een Application Gateway-subnet, opent u poortbereiken 65503 65534 op het subnet voor Application Gateway voor binnenkomend verkeer. Dit poortbereik is vereist voor communicatie met Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten kunnen zich externe entiteiten, waaronder de klanten van deze gateways, niet kunnen starten van de wijzigingen op de eindpunten.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Status van de back-end via de portal weergeven
@@ -169,16 +169,16 @@ Het toegangslogboek wordt alleen gegenereerd als u deze op elk exemplaar van de 
 
 |Waarde  |Beschrijving  |
 |---------|---------|
-|instanceId     | Gateway-instantie die de aanvraag wordt uitgevoerd.        |
-|clientIP     | Oorspronkelijke IP-adres voor de aanvraag.        |
-|clientPort     | Poort voor de aanvraag afkomstig is.       |
+|Exemplaar-id     | Gateway-instantie die de aanvraag wordt uitgevoerd.        |
+|client-IP     | Oorspronkelijke IP-adres voor de aanvraag.        |
+|enterpriseclient     | Poort voor de aanvraag afkomstig is.       |
 |HttpMethod     | HTTP-methode die wordt gebruikt door de aanvraag.       |
 |requestUri     | De URI van de aanvraag ontvangen.        |
 |RequestQuery     | **Server-gerouteerd**: exemplaar van de Back-end-adresgroep die de aanvraag is verzonden.</br>**X-AzureApplicationGateway-logboek-ID**: correlatie-ID van de aanvraag gebruikt. Het kan worden gebruikt om op te lossen problemen met de verkeer voor de back-endservers. </br>**STATUS van de SERVER**: HTTP-antwoordcode Application Gateway van de back-end ontvangen.       |
 |UserAgent     | De gebruikersagent van de HTTP-aanvraag-header.        |
 |httpStatus     | HTTP-statuscode geretourneerd naar de client van de toepassingsgateway.       |
 |Httpversie     | HTTP-versie van de aanvraag.        |
-|receivedBytes     | Grootte van het pakket ontvangen in bytes.        |
+|ReceivedBytes     | Grootte van het pakket ontvangen in bytes.        |
 |sentBytes| Grootte van het pakket dat is verzonden, in bytes.|
 |timeTaken| Totale tijdsduur (in milliseconden) die het duurt voordat een aanvraag te verwerken en de reactie daarop worden verzonden. Dit wordt berekend als het interval van de tijd wanneer Application Gateway ontvangt de eerste byte van een HTTP-aanvraag aan de tijd wanneer de bewerking is voltooid voor het verzenden van het antwoord. Het is belangrijk te weten het veld tijd omvat gewoonlijk het tijdstip waarop de aanvraag en antwoord-pakketten worden overgebracht via het netwerk. |
 |sslEnabled| Communicatie met de back-end-adresgroepen wordt aangegeven of SSL gebruikt. Geldige waarden zijn in- of uitschakelen.|
@@ -213,7 +213,7 @@ De prestatielogboek wordt alleen gegenereerd als u deze op elk exemplaar van de 
 
 |Waarde  |Beschrijving  |
 |---------|---------|
-|instanceId     |  Application Gateway-exemplaren waarvoor gegevens wordt gegenereerd. Er is een rij per exemplaar voor een toepassingsgateway met meerdere-exemplaar.        |
+|Exemplaar-id     |  Application Gateway-exemplaren waarvoor gegevens wordt gegenereerd. Er is een rij per exemplaar voor een toepassingsgateway met meerdere-exemplaar.        |
 |healthyHostCount     | Het aantal orde hosts in de groep back-end.        |
 |unHealthyHostCount     | Het aantal beschadigde hosts in de groep back-end.        |
 |requestCount     | Het aantal geleverde aanvragen.        |
@@ -250,20 +250,20 @@ De firewall-logboek is gegenereerd, alleen als u deze voor elke application gate
 
 |Waarde  |Beschrijving  |
 |---------|---------|
-|instanceId     | Gateway toepassingsexemplaar voor welke firewall worden gegevens gegenereerd. Er is een rij per exemplaar voor een toepassingsgateway met meerdere-exemplaar.         |
-|clientIp     |   Oorspronkelijke IP-adres voor de aanvraag.      |
-|clientPort     |  Poort voor de aanvraag afkomstig is.       |
+|Exemplaar-id     | Gateway toepassingsexemplaar voor welke firewall worden gegevens gegenereerd. Er is een rij per exemplaar voor een toepassingsgateway met meerdere-exemplaar.         |
+|client-IP     |   Oorspronkelijke IP-adres voor de aanvraag.      |
+|enterpriseclient     |  Poort voor de aanvraag afkomstig is.       |
 |requestUri     | De URL van de aanvraag ontvangen.       |
 |ruleSetType     | Type van de regelset. De beschikbare waarde is OWASP.        |
 |ruleSetVersion     | Regelset versie die wordt gebruikt. Beschikbare waarden zijn 2.2.9 en 3.0.     |
 |ruleId     | Regel-ID van de activerende gebeurtenis.        |
-|bericht     | Gebruiksvriendelijke bericht voor de triggergebeurtenis. Meer informatie vindt u in de detailsectie.        |
+|message     | Gebruiksvriendelijke bericht voor de triggergebeurtenis. Meer informatie vindt u in de detailsectie.        |
 |actie     |  Actie op die op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
 |site     | De site waarvoor het logboek is gegenereerd. Alleen globale wordt momenteel, omdat er regels zijn globale vermeld.|
 |details     | Details van de activerende gebeurtenis.        |
 |Details.Message     | Beschrijving van de regel.        |
 |details.data     | Specifieke gegevens gevonden in de aanvraag die overeenkomt met de regel.         |
-|details.file     | Configuratiebestand die deel uitmaakt van de regel.        |
+|Details.File     | Configuratiebestand die deel uitmaakt van de regel.        |
 |details.line     | Regelnummer in het configuratiebestand dat de gebeurtenis.       |
 
 ```json

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 541a8e83029fe1dc0ba386d1906b366e63041882
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268239"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284835"
 ---
 # <a name="assets"></a>Assets
 
@@ -107,7 +107,7 @@ while (currentPage.NextPageLink != null)
 Zie voor voorbeelden van REST [activa - lijst](https://docs.microsoft.com/rest/api/media/assets/list)
 
 
-### <a name="storage-side-encryption"></a>Versleuteling van opslag aan de clientzijde
+## <a name="storage-side-encryption"></a>Versleuteling van opslag aan de clientzijde
 
 Ter bescherming van uw Assets in rust, moeten de activa door de versleuteling van opslag aan de clientzijde worden versleuteld. De volgende tabel ziet u hoe de versleuteling van opslag aan de clientzijde werkt in een Media Services:
 

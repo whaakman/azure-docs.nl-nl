@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737806"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294087"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -91,7 +91,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 
 * <a id="afs-region-availability"></a>
 **Welke regio's worden ondersteund voor Azure File-synchronisatie (preview)?**  
-    Azure File-synchronisatie is momenteel beschikbaar in Australië-Oost, Canada centraal, VS-Oost, Zuidoost-Azië, VK Zuid, West-Europa en VS-West. Ondersteuning voor meer regio's worden toegevoegd wanneer we voor algemene beschikbaarheid werken. Zie voor meer informatie [beschikbaarheid in regio's](storage-sync-files-planning.md#region-availability).
+    Azure File-synchronisatie is momenteel beschikbaar in Australië-Oost, Australië-Zuidoost, Canada centraal, Canada Oost, VS-midden, Oost-Azië, VS-Oost, US2 Oost, Noord-Europa, Zuidoost-Azië, VK Zuid, VK West, West-Europa en VS-West. Ondersteuning voor meer regio's worden toegevoegd wanneer we voor algemene beschikbaarheid werken. Zie voor meer informatie [beschikbaarheid in regio's](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Kan ik domein en niet-domein-servers in de groep voor synchronisatie met dezelfde hebben?**  

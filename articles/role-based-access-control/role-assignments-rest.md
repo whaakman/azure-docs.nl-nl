@@ -1,6 +1,6 @@
 ---
-title: Op rollen gebaseerde toegangsbeheer met de REST - Azure AD | Microsoft Docs
-description: Op rollen gebaseerde toegangsbeheer met de REST-API beheren
+title: Beheren van toegang met RBAC en de REST-API - Azure | Microsoft Docs
+description: Informatie over het beheren van toegang voor gebruikers, groepen en toepassingen met behulp van op rollen gebaseerde toegangsbeheer (RBAC) en de REST-API. Dit omvat het weergeven van access, toegang te verlenen en toegang verwijderen.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,25 +15,21 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f81c84f5db4b595acf851a315c03cd4189514afa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fdf246ede9fd030c03a70a90b35d4dd1fb645df1
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267472"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294459"
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>Op rollen gebaseerde toegangsbeheer met de REST-API beheren
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure-CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-the-rest-api"></a>Beheren van toegang met RBAC en de REST-API
 
-Met op rollen gebaseerde toegangsbeheer (RBAC), definiëren u toegang voor gebruikers, groepen en service-principals door het toewijzen van rollen bij een bepaald bereik. Dit artikel wordt beschreven hoe u voor het beheren van toegang met behulp van de REST-API.
+[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u toegang tot bronnen in Azure beheren. Dit artikel wordt beschreven hoe het beheren van toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en de REST-API.
 
 ## <a name="list-all-role-assignments"></a>Lijst van alle roltoewijzingen
 Geeft een lijst van alle roltoewijzingen aan het opgegeven bereik en subscopes.
 
-Aan de lijst roltoewijzingen, u moet toegang hebben tot `Microsoft.Authorization/roleAssignments/read` bewerking in het bereik. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-assignments-portal.md).
+Aan de lijst roltoewijzingen, u moet toegang hebben tot `Microsoft.Authorization/roleAssignments/read` bewerking in het bereik. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer van Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Aanvraag
 Gebruik de **ophalen** methode met de volgende URI:
@@ -83,7 +79,7 @@ Statuscode: 200
 ## <a name="get-information-about-a-role-assignment"></a>Informatie ophalen over een roltoewijzing
 Hiermee haalt u informatie over één roltoewijzing opgegeven door de id van de toewijzing van rollen.
 
-Als u informatie over een roltoewijzing, u moet toegang hebben tot `Microsoft.Authorization/roleAssignments/read` bewerking. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-assignments-portal.md).
+Als u informatie over een roltoewijzing, u moet toegang hebben tot `Microsoft.Authorization/roleAssignments/read` bewerking. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer van Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Aanvraag
 Gebruik de **ophalen** methode met de volgende URI:
@@ -124,7 +120,7 @@ Statuscode: 200
 ## <a name="create-a-role-assignment"></a>Een roltoewijzing maken
 Een roltoewijzing bij het opgegeven bereik voor de opgegeven principal verlenen van de opgegeven rol maken.
 
-Voor het maken van een roltoewijzing, u moet toegang hebben tot `Microsoft.Authorization/roleAssignments/write` bewerking. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-assignments-portal.md).
+Voor het maken van een roltoewijzing, u moet toegang hebben tot `Microsoft.Authorization/roleAssignments/write` bewerking. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer van Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Aanvraag
 Gebruik de **plaatsen** methode met de volgende URI:
@@ -182,7 +178,7 @@ Statuscode: 201
 ## <a name="delete-a-role-assignment"></a>Een roltoewijzing verwijderen
 Een roltoewijzing bij het opgegeven bereik verwijderen.
 
-Als u wilt een roltoewijzing hebt verwijderd, u moet toegang hebben tot de `Microsoft.Authorization/roleAssignments/delete` bewerking. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-assignments-portal.md).
+Als u wilt een roltoewijzing hebt verwijderd, u moet toegang hebben tot de `Microsoft.Authorization/roleAssignments/delete` bewerking. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer van Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Aanvraag
 Gebruik de **verwijderen** methode met de volgende URI:
@@ -223,7 +219,7 @@ Statuscode: 200
 ## <a name="list-all-roles"></a>Lijst van alle rollen
 Geeft een lijst van alle functies die beschikbaar voor toewijzing op het opgegeven bereik zijn.
 
-Lijst met rollen, u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/read` bewerking in het bereik. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-assignments-portal.md).
+Lijst met rollen, u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/read` bewerking in het bereik. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer van Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Aanvraag
 Gebruik de **ophalen** methode met de volgende URI:
@@ -306,7 +302,7 @@ Statuscode: 200
 ## <a name="get-information-about-a-role"></a>Informatie ophalen over een rol
 Hiermee haalt u informatie over een enkele rol die is opgegeven door de rol definitie-id. Zie voor informatie over de weergegeven naam met één functie, [lijst van alle rollen](role-assignments-rest.md#list-all-roles).
 
-Als u informatie over een rol, u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/read` bewerking. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-assignments-portal.md).
+Als u informatie over een rol, u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/read` bewerking. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer van Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Aanvraag
 Gebruik de **ophalen** methode met de volgende URI:
@@ -386,7 +382,7 @@ Statuscode: 200
 ## <a name="create-a-custom-role"></a>Een aangepaste beveiligingsrol maken
 Maak een aangepaste beveiligingsrol.
 
-Voor het maken van een aangepaste rol die u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/write` bewerking op alle de `AssignableScopes`. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-assignments-portal.md).
+Voor het maken van een aangepaste rol die u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/write` bewerking op alle de `AssignableScopes`. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer van Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Aanvraag
 Gebruik de **plaatsen** methode met de volgende URI:
@@ -489,7 +485,7 @@ Statuscode: 201
 ## <a name="update-a-custom-role"></a>Bijwerken van een aangepaste rol
 Een aangepaste rol wijzigen.
 
-Voor het wijzigen van een aangepaste rol die u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/write` bewerking op alle de `AssignableScopes`. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-assignments-portal.md).
+Voor het wijzigen van een aangepaste rol die u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/write` bewerking op alle de `AssignableScopes`. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer van Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Aanvraag
 Gebruik de **plaatsen** methode met de volgende URI:
@@ -592,7 +588,7 @@ Statuscode: 201
 ## <a name="delete-a-custom-role"></a>Een aangepaste rol verwijderen
 Een aangepaste rol verwijderen.
 
-Voor het verwijderen van een aangepaste rol die u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/delete` bewerking op alle de `AssignableScopes`. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-assignments-portal.md).
+Voor het verwijderen van een aangepaste rol die u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/delete` bewerking op alle de `AssignableScopes`. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer van Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Aanvraag
 Gebruik de **verwijderen** methode met de volgende URI:

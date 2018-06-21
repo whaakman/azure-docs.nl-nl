@@ -8,18 +8,24 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 4215795b7cd2a25427a3ce9b3cde16bfc69cb009
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185940"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284978"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Maken en beheren van de api-sleutels voor een Azure Search-service
 
-Alle aanvragen voor een search-service moeten een api-sleutel die is gegenereerd specifiek voor uw service. Deze api-sleutel is het enige mechanisme voor het verifiëren van toegang tot uw search-service-eindpunt. 
+Alle aanvragen voor een search-service moeten een alleen-lezen api-sleutel die is gegenereerd specifiek voor uw service. De api-sleutel is het enige mechanisme voor het verifiëren van toegang tot uw search-service-eindpunt en bij elke aanvraag moet worden opgenomen. In [REST oplossingen](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key), de api-sleutel wordt doorgaans een aanvraag-header opgegeven. In [.NET oplossingen](search-howto-dotnet-sdk.md#core-scenarios), een sleutel wordt vaak worden opgegeven als een configuratie-instelling en vervolgens doorgegeven als [referenties](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (beheersleutel) of [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (querysleutel) op [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
+
+Sleutels worden gemaakt met uw search-service tijdens het inrichten van de service. U kunt weergeven en ophalen van waarden in de [Azure-portal](https://portal.azure.com).
+
+![Portal-pagina, instellingen, sleutels sectie](media/search-manage/azure-search-view-keys.png)
+
+## <a name="what-is-an-api-key"></a>Wat is een api-sleutel
 
 Een api-sleutel is een tekenreeks van willekeurige getallen en letters bestaan. Via [rol gebaseerde machtigingen](search-security-rbac.md), kunt u verwijderen of de toetsen niet lezen, maar u kunt een sleutel vervangen met een door de gebruiker gedefinieerd wachtwoord of gebruikmaken van Active Directory als de primaire verificatie methodologie voor het openen van zoekopdrachten. 
 
@@ -27,7 +33,7 @@ Twee soorten sleutels worden gebruikt voor toegang tot uw search-service: admin 
 
 |Sleutel|Beschrijving|Limieten|  
 |---------|-----------------|------------|  
-|Beheer|De volledige rechten verleent voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen.<br /><br /> Twee administratorsleutels genoemd *primaire* en *secundaire* sleutels in de portal worden gegenereerd als de service wordt gemaakt en afzonderlijk kan worden hersteld op aanvraag. Met twee sleutels, kunt u één sleutel overschakelen tijdens het gebruik van de tweede sleutel voor permanente toegang tot de service.<br /><br /> Administratorsleutels alleen in de HTTP-aanvraagheaders opgegeven. U kunt een admin api-sleutel in een URL plaatsen.|Maximaal 2 per service|  
+|Gemeente|De volledige rechten verleent voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen.<br /><br /> Twee administratorsleutels genoemd *primaire* en *secundaire* sleutels in de portal worden gegenereerd als de service wordt gemaakt en afzonderlijk kan worden hersteld op aanvraag. Met twee sleutels, kunt u één sleutel overschakelen tijdens het gebruik van de tweede sleutel voor permanente toegang tot de service.<br /><br /> Administratorsleutels alleen in de HTTP-aanvraagheaders opgegeven. U kunt een admin api-sleutel in een URL plaatsen.|Maximaal 2 per service|  
 |Query’s uitvoeren|Alleen-lezen toegang verleent tot indexen en documenten en worden doorgaans verleend aan clienttoepassingen die zoekaanvragen.<br /><br /> Querysleutels worden op verzoek gemaakt. U kunt ze handmatig maken in de portal of programmatisch via de [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Querysleutels kunnen worden opgegeven in de header van een HTTP-aanvraag voor het zoeken, suggestie of zoekbewerking. U kunt ook een querysleutel doorgeven als een parameter van een URL. Afhankelijk van hoe uw clienttoepassing formuleert voor de aanvraag, is het mogelijk dat het eenvoudiger om door te geven van de sleutel als een queryparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|50 per service|  
 
  Visueel, bestaat er geen onderscheid tussen een beheersleutel en querysleutel. Beide sleutels zijn tekenreeksen die bestaat uit 32 willekeurig gegenereerd alfanumerieke tekens. Als u het bijhouden van welk type sleutel dat is opgegeven in uw toepassing verliest, kunt u [controleren de sleutelwaarden in de portal](https://portal.azure.com) of gebruik de [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/) om de waarde en sleuteltype te retourneren.  

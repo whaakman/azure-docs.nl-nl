@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 918f5d9efa1163558e44c2c67028dbf802f479a5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ccb7269109309355e2af95f6fb2aa060c1998b22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266784"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286015"
 ---
 # <a name="entities-in-luis"></a>Entiteiten in LUIS
 
@@ -66,7 +66,7 @@ LUIS biedt veel verschillende soorten entiteiten; vooraf gedefinieerde entiteite
 | Naam | Kan label | Beschrijving |
 | -- |--|--|
 | **Vooraf gedefinieerde** <br/>[Aangepaste](#prebuilt)| |  **Definitie**<br>Ingebouwde typen die algemene begrippen vertegenwoordigen. <br><br>**lijst**<br/>nummer van de belangrijkste woordgroep, rangtelwoord temperatuur, dimensie, geld, leeftijd, percentage, e, URL, telefoonnummer en sleutel woordgroep. <br><br>Namen van vooraf gedefinieerde entiteiten zijn gereserveerd. <br><br>Alle vooraf gedefinieerde entiteiten die zijn toegevoegd aan de toepassing wordt geretourneerd in de [eindpunt](luis-glossary.md#endpoint) query. Zie voor meer informatie [vooraf gemaakte entiteiten](./Pre-builtEntities.md). <br/><br/>[Voorbeeld van een antwoord voor entiteit](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Reguliere expressie**<br/>[Reguliere expressie](#regex)||**Definitie**<br>Aangepaste reguliere expressie voor opgemaakte tekst. Het letters worden genegeerd en culturele variant worden genegeerd.  <br><br>Deze entiteit is geschikt voor woorden of zinnen die consistent zijn geformatteerd met een wijziging die ook consistent is.<br><br>Reguliere expressie die overeenkomt met toegepast nadat de spelling veranderingen. <br><br>Als de reguliere expressie te complex is is, zoals het gebruik van veel haakjes, bent u niet kunt toevoegen van de expressie aan het model. <br><br>**Voorbeeld**<br>`kb[0-9]{6,}` komt overeen met kb123456.<br/><br/>[Snelstartgids](luis-quickstart-intents-regex-entity.md)<br>[Voorbeeld van een antwoord voor entiteit](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Reguliere expressie**<br/>[Reguliere expressie](#regex)||**Definitie**<br>Aangepaste reguliere expressie voor opgemaakte utterance voor onbewerkte tekst. Het letters worden genegeerd en culturele variant worden genegeerd.  <br><br>Deze entiteit is geschikt voor woorden of zinnen die consistent zijn geformatteerd met een wijziging die ook consistent is.<br><br>Reguliere expressie die overeenkomt met toegepast nadat de spelling veranderingen. <br><br>Als de reguliere expressie te complex is is, zoals het gebruik van veel haakjes, bent u niet kunt toevoegen van de expressie aan het model. <br><br>**Voorbeeld**<br>`kb[0-9]{6,}` komt overeen met kb123456.<br/><br/>[Snelstartgids](luis-quickstart-intents-regex-entity.md)<br>[Voorbeeld van een antwoord voor entiteit](luis-concept-data-extraction.md)|
 | **Eenvoudige** <br/>[Machine geleerd](#machine-learned) | ✔ | **Definitie**<br>Een enkele entiteit is een algemene entiteit die beschrijft een één concept en uit de context hebt geleerd van een computer is ontdekt. Context bevatten woord keuze, word plaatsing en utterance lengte.<br/><br/>Dit is een goede entiteit voor de woorden of zinnen die niet consistent zijn opgemaakt maar hetzelfde wijzen. <br/><br/>[Snelstartgids](luis-quickstart-primary-and-secondary-data.md)<br/>[Voorbeeld van een antwoord voor entiteit](luis-concept-data-extraction.md#simple-entity-data)|  
 | **lijst** <br/>[Exacte overeenkomst](#exact-match)|| **Definitie**<br>Lijst entiteiten vertegenwoordigen een vaste, gesloten reeks verwante woorden samen met hun synoymns in uw systeem. <br><br>Elke entiteit lijst heeft misschien een of meer formulieren. Het meest geschikt voor een bekende set met variaties op manieren naar hetzelfde concept vertegenwoordigen.<br/><br/>LUIS detecteert geen extra waarden voor de lijst entiteiten. Gebruik de om te zien [semantische woordenlijst](luis-glossary.md#semantic-dictionary) voor suggesties voor nieuwe woorden op basis van de huidige lijst.<br/><br>Als er meer dan één entiteit van de lijst met dezelfde waarde, wordt elke entiteit in de query eindpunt geretourneerd. <br/><br/>[Snelstartgids](luis-quickstart-intent-and-list-entity.md)<br>[Voorbeeld van een antwoord voor entiteit](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Gemengde modus](#mixed) | ✔|**Definitie**<br>Patterns.any is een tijdelijke aanduiding voor de variabele lengte alleen gebruikt in een patroon sjabloon utterance markeren waar de entiteit begint en eindigt.  <br><br>**Voorbeeld**<br>Uitgaande van een zoekopdracht utterance voor rapporten op basis van de titel, haalt de pattern.any de volledige titel. Een sjabloon utterance met pattern.any is `Who wrote {BookTitle}[?]`.<br/><br/>[Zelfstudie](luis-tutorial-pattern.md)<br>[Voorbeeld van een antwoord voor entiteit](luis-concept-data-extraction.md#composite-entity-data)|  

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716717"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287800"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configureren AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -56,7 +56,7 @@ Voordat u de zelfstudie begint, moet u [voldoen aan vereisten voor het maken van
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## Het cluster maken
+## <a name="create-the-cluster"></a>Het cluster maken
 
 Nadat de vereiste onderdelen zijn voltooid, wordt de eerste stap is om een Windows Server-failovercluster met twee SQL-servers en een witness-server te maken.
 
@@ -413,8 +413,8 @@ Voor het configureren van de load balancer, moet u een back-endpool een test mak
    | **Naam** | Tekst | SQLAlwaysOnEndPointListener |
    | **Frontend IP-adres** | Kies een adres |Gebruik het adres dat u hebt gemaakt tijdens het maken van de load balancer. |
    | **Protocol** | Kies TCP |TCP |
-   | **Poort** | Gebruik de poort voor SQL Server-exemplaar | 1433 |
-   | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 1433 |
+   | **Poort** | Gebruik de poort voor de beschikbaarheidsgroep-listener | 1435 |
+   | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 1435 |
    | **Test** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
    | **Time-out voor inactiviteit** | Minuten geopend te houden die een TCP-verbinding | 4 |

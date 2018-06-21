@@ -1,6 +1,6 @@
 ---
-title: Op rollen gebaseerde toegangsbeheer (RBAC) met Azure PowerShell beheren | Microsoft Docs
-description: Het beheren van RBAC met Azure PowerShell, met inbegrip van de aanbieding rollen, rollen toewijzen en het verwijderen van roltoewijzingen.
+title: Beheren van toegang met RBAC en Azure PowerShell | Microsoft Docs
+description: Informatie over het beheren van toegang voor gebruikers, groepen en toepassingen met behulp van op rollen gebaseerde toegangsbeheer (RBAC) en Azure PowerShell. Dit omvat het weergeven van access, toegang te verlenen en toegang verwijderen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,27 +14,23 @@ ms.workload: identity
 ms.date: 04/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 00646187da1f93c01c3a57b50905239afd5e2bc8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 231f7b915c324a5af91564c80d17bbad335d658d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266795"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294766"
 ---
-# <a name="manage-role-based-access-control-with-azure-powershell"></a>Op rollen gebaseerde toegangsbeheer met Azure PowerShell beheren
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure-CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-azure-powershell"></a>Toegang met RBAC en Azure PowerShell beheren
 
-Met op rollen gebaseerde toegangsbeheer (RBAC), kunt u toegang voor gebruikers, groepen en service-principals definiëren door het toewijzen van rollen bij een bepaald bereik. Dit artikel wordt beschreven hoe u voor het beheren van toegang met behulp van Azure PowerShell.
+[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u toegang tot bronnen in Azure beheren. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en Azure PowerShell beheren.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u PowerShell gebruiken kunt voor het beheren van RBAC, moet u een van de volgende:
 
 * [PowerShell in de Azure-Cloud-Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell 5.1.0 of hoger](/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
 ## <a name="list-roles"></a>Lijst met rollen
 
@@ -146,9 +142,9 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ...
 ```
 
-## <a name="see-who-has-access"></a>Zien wie toegang heeft
+## <a name="list-access"></a>Lijst met toegang
 
-RBAC toegangstoewijzingen weergeven door gebruiken [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+In RBAC, voor toegang tot lijst, u de naam de roltoewijzingen.
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>Roltoewijzingen lijst op een specifiek bereik
 
@@ -174,7 +170,7 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-### <a name="list-roles-assigned-to-a-user"></a>Lijst met functies die zijn toegewezen aan een gebruiker
+### <a name="list-role-assignments-for-a-user"></a>Lijst roltoewijzingen voor een gebruiker
 
 U kunt de rollen die zijn toegewezen aan een opgegeven gebruiker gebruiken [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
@@ -200,15 +196,17 @@ Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
 Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-### <a name="list-classic-service-administrator-and-coadmin-role-assignments"></a>Lijst met klassieke servicebeheerder en coadmin roltoewijzingen
+### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>De roltoewijzingen lijst voor klassieke servicebeheerder en medebeheerders
 
-Toewijzingen voor de klassieke abonnementsbeheerder en medebeheerders access weergeven door gebruiken [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment):
+Roltoewijzingen voor klassieke abonnementsbeheerder en medebeheerders weergeven door gebruiken [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment):
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 ```
 
 ## <a name="grant-access"></a>Toegang verlenen
+
+In RBAC, voor het verlenen van toegang, maakt u een roltoewijzing.
 
 ### <a name="search-for-object-ids"></a>Zoeken naar object-id 's
 
@@ -228,7 +226,7 @@ Als u de object-ID voor een Azure AD-service-principal of toepassing, gebruikt [
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 ```
 
-### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Een rol toewijzen aan een toepassing op het abonnementsbereik
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Een roltoewijzing voor een toepassing op een scope abonnement maken
 
 Gebruiken voor het verlenen van toegang tot een toepassing op het abonnementsbereik [New AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
@@ -250,7 +248,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Een rol toewijzen aan een gebruiker op het groepsbereik resource
+### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Een roltoewijzing voor een gebruiker bij een groepsbereik resource maken
 
 Gebruiken om toegang te verlenen aan een gebruiker op het groepsbereik resource, [New AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
@@ -274,7 +272,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Een rol toewijzen aan een groep in het bereik van de resource
+### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Een roltoewijzing voor een groep maken op een scope resource
 
 Gebruiken om toegang te verlenen aan een groep voor de resource-scope, [New AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
@@ -307,7 +305,7 @@ CanDelegate        : False
 
 ## <a name="remove-access"></a>Toegang verwijderen
 
-U kunt de toegang voor gebruikers, groepen en toepassingen met [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment):
+In RBAC, als u wilt verwijderen, access, u verwijdert een roltoewijzing met behulp van [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment):
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
@@ -581,7 +579,7 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-## <a name="see-also"></a>Zie ook
+## <a name="next-steps"></a>Volgende stappen
 
 * [Azure PowerShell gebruiken met Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 

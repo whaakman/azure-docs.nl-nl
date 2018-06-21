@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f54f0fb16838b245ac09c08c7afd9e6a53449afc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59bc6652a61e0c61188bbfd09251161411923628
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594224"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287572"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: filtering configureren
 U gebruikt voor het filteren, kunt u bepalen welke objecten worden weergegeven in Azure Active Directory (Azure AD) van uw on-premises directory. De standaardconfiguratie wordt van alle objecten in alle domeinen in de geconfigureerde forests. Dit is in het algemeen zijn de aanbevolen configuratie. Gebruikers met behulp van Office 365-werkbelastingen, zoals Exchange Online en Skype voor bedrijven profiteren van een volledige lijst met globale adressen zodat ze kunnen e-mail verzenden en iedereen. Met de standaardconfiguratie hebben ze dezelfde ervaring die ze met een lokale implementatie van Exchange- of Lync hebben zou.
@@ -40,7 +40,7 @@ In dit artikel bevat informatie over het configureren van de verschillende metho
 ## <a name="basics-and-important-notes"></a>Basisbeginselen en belangrijke opmerkingen
 In Azure AD Connect-synchronisatie, kunt u filteren op elk gewenst moment inschakelen. Als u met een standaardconfiguratie van directory-synchronisatie begint en filtering configureren, worden de objecten die worden gefilterd niet meer gesynchroniseerd naar Azure AD. Vanwege deze wijziging worden alle objecten in Azure AD die eerder zijn gesynchroniseerd, maar vervolgens zijn gefilterd verwijderd in Azure AD.
 
-Voordat u wijzigingen aanbrengt filteren, zorg ervoor dat u [uitschakelen van de geplande taak](#disable-scheduled-task) zodat u wijzigingen die u nog niet hebt gecontroleerd om alleen correct als per ongeluk niet exporteren.
+Voordat u wijzigingen aanbrengt filteren, zorg ervoor dat u [uitschakelen van de geplande taak](#disable-the-scheduled-task) zodat u wijzigingen die u nog niet hebt gecontroleerd om alleen correct als per ongeluk niet exporteren.
 
 Omdat filteren, veel objecten op hetzelfde moment verwijderen kan, die u wilt zorgen dat uw nieuwe filters juist zijn voordat u begint met het exporteren van wijzigingen naar Azure AD. Nadat u de configuratiestappen hebt voltooid, wordt aangeraden dat u volgt de [verificatiestappen](#apply-and-verify-changes) voordat u exporteert en wijzigingen in Azure AD aanbrengen.
 

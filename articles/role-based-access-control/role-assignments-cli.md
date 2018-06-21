@@ -1,6 +1,6 @@
 ---
-title: Beheren van op rollen gebaseerde toegangsbeheer (RBAC) met Azure CLI | Microsoft Docs
-description: Informatie over het beheren van op rollen gebaseerde toegangsbeheer (RBAC) met de Azure-opdrachtregelinterface lijst met functies en functie acties en rollen toewijzen aan de scopes abonnement en de toepassing.
+title: Beheren van toegang met RBAC en Azure CLI | Microsoft Docs
+description: Informatie over het beheren van toegang voor gebruikers, groepen en toepassingen met behulp van op rollen gebaseerde toegangsbeheer (RBAC) en Azure CLI. Dit omvat het weergeven van access, toegang te verlenen en toegang verwijderen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,30 +14,24 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b50d04bcbd067059bf4816468585e5d56a63d41
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266734"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294401"
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Toegangsbeheer op basis van rollen met de Azure-opdrachtregelinterface beheren
+# <a name="manage-access-using-rbac-and-azure-cli"></a>Beheren van toegang met RBAC en Azure CLI
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure-CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
-
-
-Met op rollen gebaseerde toegangsbeheer (RBAC), kunt u toegang voor gebruikers, groepen en service-principals definiëren door het toewijzen van rollen bij een bepaald bereik. In dit artikel wordt beschreven hoe roltoewijzingen met behulp van de Azure-opdrachtregelinterface (CLI) beheren.
+[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u toegang tot bronnen in Azure beheren. Dit artikel wordt beschreven hoe u toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en Azure CLI kunt beheren.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Als u de Azure CLI wilt roltoewijzingen beheren, hebt u de volgende vereisten:
 
-* [Azure CLI 2.0](/cli/azure). U kunt deze in uw browser gebruiken met [Azure Cloud Shell](../cloud-shell/overview.md), of [installeren](/cli/azure/install-azure-cli) op macOS, Linux of Windows en uitvoeren vanaf de opdrachtregel.
+* [Azure CLI](/cli/azure). U kunt deze in uw browser gebruiken met [Azure Cloud Shell](../cloud-shell/overview.md), of [installeren](/cli/azure/install-azure-cli) op macOS, Linux of Windows en uitvoeren vanaf de opdrachtregel.
 
-## <a name="list-role-definitions"></a>Roldefinities lijst
+## <a name="list-roles"></a>Lijst met rollen
 
 U kunt alle beschikbare roldefinities gebruiken [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list):
 
@@ -94,7 +88,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role-definition"></a>Van Lijstacties van een roldefinitie
+### <a name="list-actions-of-a-role"></a>Van Lijstacties van een rol
 
 U kunt de acties van een roldefinitie gebruiken [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list):
 
@@ -182,7 +176,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-role-assignments"></a>Roltoewijzingen lijst
+## <a name="list-access"></a>Lijst met toegang
+
+In RBAC, voor toegang tot lijst, u de naam de roltoewijzingen.
 
 ### <a name="list-role-assignments-for-a-user"></a>Lijst roltoewijzingen voor een gebruiker
 
@@ -240,7 +236,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## <a name="create-role-assignments"></a>Roltoewijzingen maken
+## <a name="grant-access"></a>Toegang verlenen
+
+In RBAC, voor het verlenen van toegang, maakt u een roltoewijzing.
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Een roltoewijzing voor een gebruiker maken
 
@@ -290,9 +288,9 @@ Het volgende voorbeeld wordt de *Virtual Machine Contributor* role in een toepas
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-a-role-assignment"></a>Een roltoewijzing verwijderen
+## <a name="remove-access"></a>Toegang verwijderen
 
-U kunt een roltoewijzing verwijderen [az roltoewijzing verwijderen](/cli/azure/role/assignment#az-role-assignment-delete):
+In RBAC, als u wilt verwijderen, access, u verwijdert een roltoewijzing met behulp van [az roltoewijzing verwijderen](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>

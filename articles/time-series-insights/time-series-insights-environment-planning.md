@@ -3,7 +3,7 @@ title: Plannen van de schaal van uw omgeving Azure Time Series Insights | Micros
 description: In dit artikel wordt beschreven hoe Volg de aanbevolen procedures bij het plannen van een Azure Time Series Insights-omgeving, inclusief opslagcapaciteit, Gegevensretentie, inkomend capaciteit en bewaking.
 services: time-series-insights
 ms.service: time-series-insights
-author: jasonwhowell
+author: ashannon7
 ms.author: jasonh
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 45f081c4e1dbd32b46c8a69f32b0b205b948f9b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 49842f971645f97d954451ff6755294dc3c5a40f
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652318"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293261"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Uw omgeving Azure Time Series Insights plannen
 

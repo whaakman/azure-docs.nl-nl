@@ -9,12 +9,12 @@ ms.date: 02/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c90cc28956e4dd7730cc7ba09a173f505f056fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30dc833edabfe3d13769bafc9fa0eb6bdd51bb23
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632397"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287204"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Opslaan van gegevens aan de rand met SQL Server-databases
 
@@ -33,7 +33,7 @@ De volgende artikelen voor het voltooien van deze zelfstudie zijn niet vereist, 
 * [Visual Studio Code te ontwikkelen en implementeren van Azure Functions voor Azure IoT Edge gebruiken](how-to-vscode-develop-azure-function.md)
 
 Nadat u de vereiste zelfstudies hebt voltooid, hebt u nu alle vereiste onderdelen op uw computer: 
-* Een actief Azure-IoT-hub.
+* Een actieve Azure IoT hub met ten minste een Edge van de IoT-apparaat.
 * Een IoT randapparaat met ten minste 2 GB RAM-geheugen en een schijfstation 2 GB.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -43,7 +43,6 @@ Nadat u de vereiste zelfstudies hebt voltooid, hebt u nu alle vereiste onderdele
 * [Python 2.7](https://www.python.org/downloads/)
 * [IoT-rand besturingselement script](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * Sjabloon AzureIoTEdgeFunction (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-* Een actieve iothub met ten minste een Edge van de IoT-apparaat.
 
 Windows- en Linux-containers op x64 processorarchitecturen voor deze zelfstudie werken. SQL Server biedt geen ondersteuning voor ARM-processors.
 

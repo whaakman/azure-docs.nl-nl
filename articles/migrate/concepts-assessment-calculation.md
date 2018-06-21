@@ -4,14 +4,14 @@ description: Biedt een overzicht van assessment berekeningen in de service Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: ec8e026fc9bab192f6944e590fa703dbbd5772c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221356"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287885"
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -109,7 +109,7 @@ Als het criterium sizing *als lokale sizing*, Azure migreren houdt geen rekening
 
 Elke evaluatie in Azure Migrate wordt gekoppeld aan een betrouwbaarheidsclassificatie van 1 ster tot 5 sterren (1 ster is de laagste score en 5 sterren de hoogste). De betrouwbaarheidsclassificatie wordt aan een evaluatie toegewezen op basis van de beschikbaarheid van de gegevenspunten die nodig zijn om de evaluatie te berekenen. De betrouwbaarheidsclassificatie van een evaluatie helpt u om de betrouwbaarheid in te schatten van de aanbevelingen voor de grootte die Azure Migrate geeft.
 
-De betrouwbaarheid van een beoordeling is vooral nuttig om beoordelingen met sizing criterium als ' formaat op basis van prestaties. Voor op basis van prestaties sizing moet Azure migreren de gebruiksgegevens voor CPU, geheugen van de virtuele machine. Bovendien voor elke schijf die is gekoppeld aan de virtuele machine, moet de schijf-IOPS en doorvoer gegevens. Op dezelfde manier voor elke netwerkadapter die is gekoppeld aan een VM, moet Azure migreren het netwerk in/out doen formaat op basis van prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten, zoals hieronder wordt weergegeven:
+De betrouwbaarheidsclassificatie van een evaluatie is nuttiger voor evaluaties die gebruikmaken van het criterium voor het aanpassen van de grootte als deze op basis van de prestaties plaatsvinden. Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebruiksgegevens nodig van de CPU en het geheugen van de virtuele machine. Voor elke schijf die aan de virtuele machine is gekoppeld, zijn de IOPS-gegevens van de schijf en de doorvoergegevens vereist. Ook heeft Azure Migrate voor iedere netwerkadapter die aan een VM is gekoppeld, gegevens over het inkomende/uitgaande netwerkverkeer nodig om de grootte in te kunnen stellen op basis van de prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten, zoals hieronder wordt weergegeven:
 
    **Beschikbaarheid van gegevenspunten** | **Betrouwbaarheidsclassificatie**
    --- | ---
@@ -132,7 +132,7 @@ Het kan voorkomen dat niet alle gegevenspunten beschikbaar zijn voor een evaluat
 
 Nadat sizing aanbevelingen voltooid zijn, berekend Azure migreren na de migratie berekenings- en kosten.
 
-- **COMPUTE-kosten**: de API van de facturering voor het berekenen van de maandelijkse kosten voor de virtuele machine met behulp van de aanbevolen grootte van de virtuele machine in Azure, Azure migreren gebruikt. De berekening wordt het besturingssysteem, software assurance, locatie en valuta-instellingen rekening. Deze cumuleert de kosten van alle machines, voor het berekenen van de totale maandelijkse compute-kosten.
+- **COMPUTE-kosten**: de API van de facturering voor het berekenen van de maandelijkse kosten voor de virtuele machine met behulp van de aanbevolen grootte van de virtuele machine in Azure, Azure migreren gebruikt. De berekening wordt het besturingssysteem, software assurance, gereserveerde exemplaren, VM bedrijfstijd, locatie en valuta-instellingen rekening. Deze cumuleert de kosten van alle machines, voor het berekenen van de totale maandelijkse compute-kosten.
 - **Opslagkosten**: de maandelijkse opslag kosten voor een machine wordt berekend door het samenvoegen van de maandelijkse kosten van alle schijven die zijn gekoppeld aan de machine. De totale maandelijkse opslagkosten berekend Azure migreren door de kosten voor opslag van alle machines samen te voegen. De berekening niet op dit moment aanbiedingen die zijn opgegeven in de instellingen voor evaluatie in aanmerking genomen.
 
 Kosten worden weergegeven in de opgegeven in de instellingen voor beoordeling valuta.

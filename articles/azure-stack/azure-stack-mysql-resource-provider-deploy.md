@@ -1,6 +1,6 @@
 ---
-title: MySQL-databases als PaaS op Azure-Stack gebruiken | Microsoft Docs
-description: Ontdek hoe u implementeert de Bronprovider van MySQL en MySQL-databases opgeven als een service op Azure-Stack.
+title: Met behulp van MySQL-databases op Azure-Stack | Microsoft Docs
+description: Meer informatie over hoe u MySQL-databases kan implementeren als een service op Azure-Stack en de snelle stappen voor het implementeren van de resource provider-adapter van MySQL-Server.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,48 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 06/20/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: ef4d34870cce7d2a149b2592e341956419272c92
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 061d9431890622dafafa8c180027b8df735c100e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604196"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295754"
 ---
-# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack 
-U kunt een MySQL-resourceprovider op Azure-Stack implementeren. Nadat u de resourceprovider implementeert, kunt u MySQL-servers en -databases via Azure Resource Manager-implementatiesjablonen maken. U kunt ook de MySQL-databases opgeven als een service.  
+# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
+MySQL-Server van Azure-Stack van resourceprovider te MySQL-databases weergeven als een service van Azure-Stack gebruiken. De MySQL resource provider-service wordt uitgevoerd op virtuele machine een Windows Server core-virtuele machine is van de MySQL-resourceprovider.
 
-MySQL-databases die op websites gelden, ondersteuning voor verschillende platforms van de website. Bijvoorbeeld: nadat u de resourceprovider hebt geïmplementeerd, kunt u WordPress websites van het platform voor Web-Apps als een service (PaaS)-invoegtoepassing voor Azure-Stack. 
- 
-Kopieer het bestand voor het implementeren van de MySQL-provider op een systeem dat geen toegang tot Internet heeft [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) naar een lokale share. Die sharenaam vervolgens opgeven wanneer u wordt gevraagd om deze. U moet de Azure en Azure Stack PowerShell-modules installeren. 
-
-## <a name="mysql-server-resource-provider-adapter-architecture"></a>MySQL-Server resource provider adapter-architectuur 
-De resourceprovider bestaat uit drie onderdelen: 
-- **De MySQL resource provider adapter VM**, dit is een virtuele Windows-computer waarop de provider-services wordt uitgevoerd. 
-- **De resourceprovider zelf**, die inrichting verzoeken verwerkt en resources van de database zichtbaar gemaakt. 
-- **Servers die als host MySQL-Server fungeren**, die een capaciteit voor databases die worden genoemd die als host fungeert voor servers. U moet zelf MySQL exemplaren maken of toegang tot de externe SQL-exemplaren. Ga naar de [Azure Stack Snelstartgalerie](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) voor een van de voorbeeldsjabloon die kunt: 
-    - Maak een MySQL-server voor u. 
-    - Downloaden en implementeren van een MySQL-Server uit Azure Marketplace. 
-
-
-> [!NOTE] 
-> Hosting-servers die zijn geïnstalleerd op Azure-Stack moeten geïntegreerde systemen worden gemaakt van een tenantabonnement. Ze kunnen niet worden gemaakt van het standaard provider-abonnement. Ze moeten worden gemaakt vanuit de tenantportal of vanuit een PowerShell-sessie met een juiste aanmelden. Alle hosting-servers toerekenbare VM's zijn en moeten de juiste licenties hebt. De servicebeheerder kan de eigenaar van de tenant-abonnement zijn. 
-
-### <a name="required-privileges"></a>Vereiste bevoegdheden 
-Het systeem-account moet hebben de volgende bevoegdheden: 
-- Database: Maken, verwijderen 
-- Aanmelding: Maken, instellen, verwijderen, toekennen, intrekken 
- 
 ## <a name="deploy-the-resource-provider"></a>De resourceprovider implementeren 
 1. Als u dit nog niet hebt gedaan, registreren van uw development kit en downloaden van de installatiekopie van het Windows Server 2016 Datacenter Core downloadbare via Marketplace-beheer. U kunt een installatiekopie van Windows Server 2016 Core moet gebruiken. U kunt ook een script maken van een [installatiekopie van Windows Server 2016](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Zorg ervoor dat de core-optie te selecteren.) 
 
 2. Meld u bij een host die toegang heeft tot de bevoegde eindpunt VM:
     - Bij installaties van de Azure SDK, moet u zich aanmelden bij de fysieke host.  
     - Op geïntegreerde systemen moet de host een systeem dat toegang heeft tot de bevoegde eindpunt. 
+    
     >[!NOTE] 
     > Het systeem waarop het script wordt uitgevoerd *moet* worden van een Windows 10 of Windows Server 2016-systeem met de meest recente versie van de .NET runtime geïnstalleerd. Anders mislukt de installatie. De Azure-Stack ASDK host voldoet aan dit criterium. 
+    
 3. Download de binaire MySQL resourceprovider. Voer vervolgens de zelfstandig uitpakken om de inhoud naar een tijdelijke map te pakken. 
     >[!NOTE]  
     > De resourceprovider heeft een minimale bijbehorende Azure-Stack bouwen. Zorg ervoor dat het juiste binaire bestand voor de versie van Azure-Stack met downloaden.
@@ -76,7 +57,7 @@ Het systeem-account moet hebben de volgende bevoegdheden:
     - De certificaten en andere artefacten uploadt naar een opslagaccount op Azure-Stack. 
     - Publiceert galerie pakketten zodat u de SQL-databases via de galerie kunt implementeren. 
     - Publiceert een gallery-pakket voor het implementeren van de hosting-servers. 
-    - Een VM-usin een Stack van Windows Server 2016 Azure marketplace-installatiekopie implementeert en de resourceprovider wordt geïnstalleerd. 
+    - Een VM die gebruikmaakt van een Azure-Stack van Windows Server 2016 marketplace-installatiekopie implementeert en de resourceprovider wordt geïnstalleerd. 
     - Registreert een lokale DNS-record dat is toegewezen aan uw VM-resourceprovider. 
     - Registreert uw resourceprovider met de lokale Azure Resource Manager (tenant en beheer). 
 
@@ -118,12 +99,12 @@ Het systeem-account moet hebben de volgende bevoegdheden:
     # Find the ERCS01 IP address first, and make sure the certificate 
     # file is in the specified directory. 
     $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds ` 
-    VMLocalCredential $vmLocalAdminCreds ` 
-    CloudAdminCredential $cloudAdminCreds ` 
-    PrivilegedEndpoint $privilegedEndpoint ` 
-    DefaultSSLCertificatePassword $PfxPass ` 
-    DependencyFilesLocalPath $tempDir\cert ` 
-    AcceptLicense 
+        -VMLocalCredential $vmLocalAdminCreds ` 
+        -CloudAdminCredential $cloudAdminCreds ` 
+        -PrivilegedEndpoint $privilegedEndpoint ` 
+        -DefaultSSLCertificatePassword $PfxPass ` 
+        -DependencyFilesLocalPath $tempDir\cert ` 
+        -AcceptLicense 
     ``` 
 
 ### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters 
@@ -155,317 +136,6 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als 
 
       ![Controleer of de implementatie van de MySQL RP](./media/azure-stack-mysql-rp-deploy/mysqlrp-verify.png) 
 
-## <a name="provide-capacity-by-connecting-to-a-mysql-hosting-server"></a>Een capaciteit door verbinding te maken met een MySQL-hostingserver 
-1. Aanmelden bij de Azure-Stack-portal als de beheerder van een service. 
-2. Selecteer **SERVERVIRTUALISATIE** > **MySQL-Servers die als host fungeert** > **+ toevoegen**. Op de **MySQL-Servers die als host fungeert** blade kunt u de resourceprovider MySQL-Server verbinden met de werkelijke instanties van MySQL-Server die als back-end van de resourceprovider fungeert. 
 
-![Hosting-servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png) 
-
-3. Geef de details van de verbinding van uw MySQL-Server-exemplaar. Zorg ervoor dat de volledig gekwalificeerde domeinnaam (FQDN) of een geldig IPv4-adres en niet korte naam van de VM. Deze installatie niet langer biedt een standaardexemplaar MySQL. De grootte die opgegeven, helpt de resourceprovider voor het beheren van de capaciteit voor de database. Deze moet dicht bij de fysieke capaciteit van de database-server. 
-
-    > [!NOTE] 
-    > Als de MySQL-exemplaar kan worden geopend door de tenant en Azure Resource Manager-beheerder, kan deze worden geplaatst onder het beheer van de resourceprovider. Het exemplaar MySQL *moet* worden toegewezen aan de resourceprovider. 
-
-4. Als u servers toevoegt, moet u ze toewijzen aan een nieuwe of bestaande SKU om toe te staan van differentiatie van serviceaanbiedingen. U kunt bijvoorbeeld hebben een enterprise-exemplaar leveren: 
-    - capaciteit voor de database
-    - Automatisch back-up
-    - servers met hoge prestaties voor afzonderlijke afdelingen reserveren 
-
-    > [!IMPORTANT] 
-    > U kunt zelfstandige servers niet samen met AlwaysOn-exemplaren in de dezelfde SKU. Wilt mix typen na het toevoegen van de eerste hosting server, resulteert in een fout. 
-
-    De SKU-naam moet overeenkomen met de eigenschappen zodat tenants hun databases op de juiste wijze kunnen plaatsen. Alle hosting-servers in een SKU moeten dezelfde mogelijkheden hebben. 
-
-    ![Maken van een MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png) 
-
-## <a name="test-your-deployment-by-creating-your-first-mysql-database"></a>Uw implementatie testen door uw eerste MySQL-database te maken 
-1. Aanmelden bij de Azure-Stack-portal als de beheerder van een service. 
-2. Selecteer **+ nieuw** > **gegevens en opslag** > **MySQL-Database**. 
-3. Geef de databasedetails. 
-
-    ![Een test MySQL-database maken](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
- 
-4. Selecteer een SKU. 
-
-    ![Selecteer een SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png) 
-
-5. De instelling van een aanmelding maken. U kunt een bestaande instelling van de aanmelding opnieuw of maak een nieuwe. Deze instelling bevat de gebruikersnaam en wachtwoord voor de database. 
-
-    ![Maak een nieuwe databaseaanmelding](./media/azure-stack-mysql-rp-deploy/create-new-login.png) 
-
-    De verbindingsreeks bevat de naam van de bestaande database-server. Kopieer de verbindingsreeks van de portal. 
-
-    ![De verbindingsreeks ophalen voor de MySQL-database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png) 
-
-    > [!NOTE] 
-    > De lengte van de gebruikersnamen mag maximaal 32 tekens MySQL 5.7. In eerdere versies, mag deze 16 tekens niet overschrijden. 
-
-## <a name="add-capacity"></a>Toevoegen van capaciteit 
-Capaciteit toevoegen door het toevoegen van aanvullende MySQL-servers in de Stack van Azure-portal. Extra servers kunnen worden toegevoegd aan een nieuwe of bestaande SKU. Zorg ervoor dat de kenmerken van de server hetzelfde zijn. 
- 
-## <a name="make-mysql-databases-available-to-tenants"></a>MySQL-databases beschikbaar te maken voor tenants 
-Plannen en aanbiedingen MySQL-databases om beschikbaar te maken voor tenants maken. Bijvoorbeeld: de service Microsoft.MySqlAdapter toevoegen, een target toevoegen, enzovoort. 
-
-![Plannen en aanbiedingen voor zijn onder meer databases maken](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png) 
-
-## <a name="update-the-administrative-password"></a>Het beheerderswachtwoord bijwerken 
-U kunt het wachtwoord wijzigen door eerst op de server-exemplaar van MySQL wijzigen. Selecteer **SERVERVIRTUALISATIE** > **MySQL-Servers die als host fungeert**. Selecteer vervolgens de hostserver. In de **instellingen** Configuratiescherm, selecteer **wachtwoord**. 
-
-![Het beheerderswachtwoord bijwerken](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png) 
-
-## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Update de MySQL resource provider-adapter (alleen geïntegreerde systemen)
-Een nieuwe SQL resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Terwijl de bestaande adapter werken blijft, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken.  
- 
-Bijwerken van de resourceprovider die u gebruikt de **UpdateMySQLProvider.ps1** script. Het proces is vergelijkbaar met het proces dat wordt gebruikt voor het installeren van een resourceprovider, zoals beschreven in de [implementeert de bronprovider](#deploy-the-resource-provider) sectie van dit artikel. Het script is opgenomen in het downloaden van de resourceprovider. 
-
-De **UpdateMySQLProvider.ps1** script maakt een nieuwe virtuele machine met de meest recente code van de resource-provider en de instellingen van de oude virtuele machine naar de nieuwe virtuele machine wordt gemigreerd. De instellingen die worden gemigreerd database en het hosten van server-gegevens bevatten en de vereiste DNS-record. 
-
-Het script vereist gebruik van dezelfde argumenten die worden beschreven voor het script DeployMySqlProvider.ps1. Geef het certificaat hier ook.  
-
-Hieronder volgt een voorbeeld van de *UpdateMySQLProvider.ps1* script dat u vanuit de PowerShell-prompt uitvoeren kunt. Zorg ervoor dat de accountgegevens en wachtwoorden zo nodig wijzigen:  
-
-> [!NOTE] 
-> Het updateproces geldt alleen voor geïntegreerde systemen. 
-
-```powershell 
-# Install the AzureRM.Bootstrapper module and set the profile. 
-Install-Module -Name AzureRm.BootStrapper -Force 
-Use-AzureRmProfile -Profile 2017-03-09-profile 
-
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
-$domain = "AzureStack" 
-
-# For integrated systems, use the IP address of one of the ERCS virtual machines 
-$privilegedEndpoint = "AzS-ERCS01" 
-
-# Point to the directory where the resource provider installation files were extracted. 
-$tempDir = 'C:\TEMP\MYSQLRP' 
-
-# The service admin account (can be Azure Active Directory or Active Directory Federation Services). 
-$serviceAdmin = "admin@mydomain.onmicrosoft.com" 
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
-$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass) 
- 
-# Set credentials for the new resource provider VM. 
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass) 
- 
-# And the cloudadmin credential required for privileged endpoint access. 
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
-$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass) 
-
-# Change the following as appropriate. 
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
- 
-# Change directory to the folder where you extracted the installation files. 
-# Then adjust the endpoints. 
-$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
--VMLocalCredential $vmLocalAdminCreds ` 
--CloudAdminCredential $cloudAdminCreds ` 
--PrivilegedEndpoint $privilegedEndpoint ` 
--DefaultSSLCertificatePassword $PfxPass ` 
--DependencyFilesLocalPath $tempDir\cert ` 
--AcceptLicense 
-``` 
- 
-### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parameters 
-U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet, of als er parametervalidatie mislukt, wordt u gevraagd de vereiste parameters bevatten. 
-
-| Parameternaam | Beschrijving | Opmerking of de standaardwaarde | 
-| --- | --- | --- | 
-| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, nodig voor toegang tot de bevoegde eindpunt. | _Vereist_ | 
-| **AzCredential** | De referenties voor de Azure-Stack-admin-serviceaccount. Dezelfde referenties gebruiken dat u gebruikt voor het implementeren van Azure-Stack. | _Vereist_ | 
-| **VMLocalCredential** |De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ | 
-| **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het bevoegde eindpunt. |  _Vereist_ | 
-| **DependencyFilesLocalPath** | Het PFX-certificaatbestand moet in deze map ook worden geplaatst. | _Optionele_ (_verplichte_ voor meerdere knooppunten) | 
-| **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ | 
-| **MaxRetryCount** | Het aantal keren dat u wilt opnieuw proberen aan elke als er een storing optreedt.| 2 | 
-| **RetryDuration** | De time-interval tussen nieuwe pogingen, in seconden. | 120 | 
-| **Verwijderen** | Verwijder de resourceprovider en alle bijbehorende resources (Zie de volgende opmerkingen). | Nee | 
-| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fouten. | Nee | 
-| **AcceptLicense** | Slaat de prompt voor het accepteren van de licentie GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
- 
-## <a name="collect-diagnostic-logs"></a>Diagnostische logboeken verzamelen 
-De MySQL-resourceprovider is de virtuele machine een vergrendeld. Als het nodig zijn voor het verzamelen van Logboeken van de virtuele machine, een PowerShell net genoeg Administration (JEA)-eindpunt wordt _DBAdapterDiagnostics_ is opgegeven voor dit doel. Er zijn twee opdrachten beschikbaar via dit eindpunt: 
-
-- **Get-AzsDBAdapterLog**. Bereidt een zip-pakket met RP diagnostische logboeken en plaatst deze op de schijf van de sessie van de gebruiker. De opdracht kan worden aangeroepen zonder parameters en de laatste vier uur van Logboeken verzamelt. 
-
-- **Verwijder AzsDBAdapterLog**. Ruimt bestaande logboek-pakketten op de resourceprovider VM 
-
-Een gebruikersaccount aangeroepen _dbadapterdiag_ is gemaakt tijdens de RP-implementatie of update voor de verbinding met het eindpunt van de diagnostische gegevens voor het uitpakken van RP-Logboeken. Het wachtwoord van dit account is hetzelfde als het wachtwoord voor het lokale administrator-account tijdens de implementatie-update. 
-
-Voor het gebruik van deze opdrachten moet u een externe PowerShell-sessie met de resource provider virtuele machine maken en de opdracht aanroepen. U kunt desgewenst FromDate en ToDate parameters opgeven. Als u een of beide van deze niet opgeeft, worden de FromDate vier uur vóór de huidige tijd en de ToDate worden de huidige tijd. 
-
-Dit voorbeeldscript wordt getoond hoe het gebruik van deze opdrachten: 
-
-```powershell 
-# Create a new diagnostics endpoint session. 
-$databaseRPMachineIP = '<RP VM IP address>' 
-$diagnosticsUserName = 'dbadapterdiag' 
-$diagnosticsUserPassword = '<Enter Diagnostic password>' 
-$diagCreds = New-Object System.Management.Automation.PSCredential ` 
-        ($diagnosticsUserName, (ConvertTo-SecureString -String $diagnosticsUserPassword -AsPlainText -Force)) 
-$session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds 
-        -ConfigurationName DBAdapterDiagnostics 
-
-# Sample captures logs from the previous one hour 
-$fromDate = (Get-Date).AddHours(-1) 
-$dateNow = Get-Date 
-$sb = {param($d1,$d2) Get-AzSDBAdapterLog -FromDate $d1 -ToDate $d2} 
-$logs = Invoke-Command -Session $session -ScriptBlock $sb -ArgumentList $fromDate,$dateNow 
-
-# Copy the logs 
-$sourcePath = "User:\{0}" -f $logs 
-$destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs 
-Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage 
-
-# Cleanup logs 
-$cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLog } 
-# Close the session 
-$session | Remove-PSSession 
-``` 
-
-## <a name="maintenance-operations-integrated-systems"></a>Onderhoudsbewerkingen (geïntegreerde systemen) 
-De MySQL-resourceprovider is de virtuele machine een vergrendeld. Bijwerken van de resource provider van de virtuele machine kan worden uitgevoerd via het eindpunt PowerShell net genoeg Administration (JEA) _DBAdapterMaintenance_. Een script wordt geleverd bij de RP-installatiepakket te vergemakkelijken van deze bewerkingen. 
-
-### <a name="update-the-virtual-machine-operating-system"></a>Werk het besturingssysteem van de virtuele machine 
-Er zijn verschillende manieren om bij te werken van Windows Server-VM: 
-- Installeer het meest recente resource provider-pakket met de installatiekopie van een momenteel patches Windows Server 2016 Core 
-- Een Windows Update-pakket installeren tijdens de installatie of het bijwerken van de RP 
-
-### <a name="update-the-virtual-machine-windows-defender-definitions"></a>De virtuele machine Windows Defender-definities bijwerken 
-Volg deze stappen voor de Defender-definities bijwerken: 
-1. Download de Windows Defender-definities vanuit bijwerken [Windows Defender Definition](https://www.microsoft.com/en-us/wdsi/definitions).
-
-    Klik op deze pagina onder 'Handmatig downloaden en installeren van de definities' downloaden ' Windows Defender Antivirus voor Windows 10 en Windows 8.1 "64-bits bestand.
-    
-    Directe koppeling: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64. 
-
-2. Maak een PowerShell-sessie met MySQL RP-adapter van de virtuele machine onderhoud eindpunt. 
-
-3. Kopieer het bestand van de update definities de DB-adapter-machine met de onderhoudsmodus endpoint-sessie. 
-
-4. Op het onderhoud PowerShell sessie aanroepen de _Update DBAdapterWindowsDefenderDefinitions_ opdracht. 
-
-5. Na de installatie, is het aanbevolen het updatebestand definities verwijderen. Het kan worden verwijderd op de onderhoud sessie met de _verwijderen ItemOnUserDrive)_ opdracht. 
-
-Hier volgt een voorbeeld van een script om bij te werken de Defender definities (vervang deze door het adres of de naam van de virtuele machine met de werkelijke waarde): 
-
-```powershell 
-# Set credentials for the RP VM local admin user 
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force 
-$vmLocalAdminUser = "<local admin user name>" 
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ` 
-    ($vmLocalAdminUser, $vmLocalAdminPass) 
-
-# Public IP Address of the DB adapter machine 
-$databaseRPMachine  = "<RP VM IP address>" 
-$localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe" 
- 
-# Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions.  
-Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64' ` 
-    -Outfile $localPathToDefenderUpdate  
-
-# Create session to the maintenance endpoint 
-$session = New-PSSession -ComputerName $databaseRPMachine ` 
-    -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance 
-
-# Copy defender update file to the db adapter machine 
-Copy-Item -ToSession $session -Path $localPathToDefenderUpdate ` 
-     -Destination "User:\" 
-
-# Install the update file 
-Invoke-Command -Session $session -ScriptBlock ` 
-    {Update-AzSDBAdapterWindowsDefenderDefinition -DefinitionsUpdatePackageFile "User:\"} 
-
-# Cleanup the definitions package file and session 
-Invoke-Command -Session $session -ScriptBlock ` 
-    {Remove-AzSItemOnUserDrive -ItemPath "User:\"} 
-$session | Remove-PSSession  
-``` 
-### <a name="secrets-rotation"></a>Geheimen draaien  
-*Deze instructies gelden alleen voor Azure Stack geïntegreerde systemen versie 1804 en Later. Probeer geen geheime rotatie op pre-1804 Azure Stack-versies.* 
- 
-Wanneer met behulp van de resourceproviders SQL en MySQL met Azure-Stack geïntegreerd systemen, kunt u de volgende infrastructuur (implementatie) geheimen draaien: 
-- Externe SSL-certificaat [opgegeven tijdens de implementatie](azure-stack-pki-certs.md). 
-- Het resource provider VM lokale administrator-account opgegeven wachtwoord tijdens de implementatie. 
-- Het wachtwoord resource provider diagnostische gebruiker (dbadapterdiag). 
-#### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-voorbeelden voor roulatie van geheimen 
- 
-**Alle geheimen op hetzelfde moment wijzigen** 
-```powershell 
-.\SecretRotationMySQLProvider.ps1 `
-    -Privilegedendpoint $Privilegedendpoint `
-    -CloudAdminCredential $cloudCreds `
-    -AzCredential $adminCreds `
-    –DiagnosticsUserPassword $passwd `
-    -DependencyFilesLocalPath $certPath `
-    -DefaultSSLCertificatePassword $certPasswd `  
-    -VMLocalCredential $localCreds 
-``` 
-**Diagnostische gebruikerswachtwoord alleen wijzigen** 
-```powershell 
-.\SecretRotationMySQLProvider.ps1 `
-    -Privilegedendpoint $Privilegedendpoint `
-    -CloudAdminCredential $cloudCreds `
-    -AzCredential $adminCreds `
-    –DiagnosticsUserPassword  $passwd  
-``` 
-
-**Wachtwoord voor VM lokale administrator-account wijzigen** 
-```powershell 
-.\SecretRotationMySQLProvider.ps1 `
-    -Privilegedendpoint $Privilegedendpoint `
-    -CloudAdminCredential $cloudCreds `
-    -AzCredential $adminCreds `
-    -VMLocalCredential $localCreds 
-``` 
-**SSL-certificaat wijzigen** 
-```powershell 
-.\SecretRotationMySQLProvider.ps1 `
-    -Privilegedendpoint $Privilegedendpoint `
-    -CloudAdminCredential $cloudCreds `
-    -AzCredential $adminCreds `
-    -DependencyFilesLocalPath $certPath `
-    -DefaultSSLCertificatePassword $certPasswd  
-``` 
-
-### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1 parameters 
-|Parameter|Beschrijving| 
-|-----|-----| 
-|AzCredential|Referentie van account voor Azure Stack-servicebeheerder.| 
-|CloudAdminCredential|Azure Stack cloud admin-account domeinreferentie.| 
-|PrivilegedEndpoint|Bevoorrechte eindpunt voor toegang tot Get-AzureStackStampInformation.| 
-|DiagnosticsUserPassword|Wachtwoord van de gebruiker diagnostische gegevens.| 
-|VMLocalCredential|Het lokale administrator-account van de MySQLAdapter VM.| 
-|DefaultSSLCertificatePassword|Standaard SSL-certificaat (* pfx) wachtwoord.| 
-|DependencyFilesLocalPath|Afhankelijkheid bestanden lokaal pad.| 
-|     |     | 
-
-### <a name="known-issues"></a>Bekende problemen 
-Probleem: De logboeken voor rotatie geheimen worden niet automatisch verzameld als het script mislukt wanneer deze wordt uitgevoerd. 
- 
-Tijdelijke oplossing: Gebruik de cmdlet Get-AzsDBAdapterLogs voor het verzamelen van alle resource provider-Logboeken, met inbegrip van AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log onder C:\Logs. 
-
-## <a name="remove-the-mysql-resource-provider-adapter"></a>Verwijder de adapter MySQL resource provider 
-Als u wilt verwijderen van de resourceprovider, is het essentieel voor Verwijder eerst alle afhankelijkheden. 
-1. Zorg ervoor dat u het oorspronkelijke implementatiepakket dat u hebt gedownload voor deze versie van de resourceprovider. 
-
-2. Alle tenant databases moeten worden verwijderd van de resourceprovider. (De tenant-databases niet verwijderen van de gegevens.) Deze taak moet worden uitgevoerd door de huurder zelf. 
-
-3. Tenants moeten Hef de registratie van de naamruimte. 
-
-4. De beheerder moet de hosting-servers verwijderen van de MySQL-Adapter. 
-
-5. De beheerder moet de schema's die verwijzen naar de MySQL-Adapter verwijderen. 
-
-6. De beheerder moet geen quota's die gekoppeld aan de MySQL-Adapter zijn verwijderen. 
-
-7. Opnieuw uit het script voor implementatie met de volgende parameters: 
-    - De - parameter verwijderen 
-    - De Azure Resource Manager-eindpunten 
-    - De DirectoryTenantID 
-    - De referenties voor de service administrator-account 
-
-### <a name="next-steps"></a>Volgende stappen
-[App-Services bieden als PaaS](azure-stack-app-service-overview.md)
+## <a name="next-steps"></a>Volgende stappen
+[Hosting-servers toevoegen](azure-stack-mysql-resource-provider-hosting-servers.md)

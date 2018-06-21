@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299974"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293197"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>B2B-communicatie met Azure-logboekanalyse bijhouden
 
@@ -56,39 +56,31 @@ Als u Log Analytics B2B-berichten voor uw logische app bijhouden, moet u toevoeg
 
    ![Selecteer de werkruimte voor logboekanalyse](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Onder **Management**, kies **OMS-Portal**.
+3. Onder **Management**, kies **overzicht**.
 
-   ![Kies de OMS-portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Kies Log Analytics-portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Nadat de startpagina wordt geopend, kiest u **galerie met oplossingen**.    
+4. Nadat de startpagina wordt geopend, kiest u **toevoegen** voor het installeren van Logic Apps B2B-oplossing.    
+   ![Kies de galerie met oplossingen](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![Kies de galerie met oplossingen](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. Onder **alle oplossingen**, zoeken en kiest u **Logic Apps B2B**.     
-
-   ![Logic Apps B2B kiezen](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. Onder **Logic Apps B2B**, kies **toevoegen**.
-
-   ![Kies toevoegen](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. Onder **beheeroplossingen**, zoeken en maken **Logic Apps B2B** oplossing.     
+   ![Logic Apps B2B kiezen](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    Op de startpagina van de tegel voor **Logic Apps B2B-berichten** wordt nu weergegeven. 
    Deze tegel-het aantal berichten updates wanneer uw B2B-berichten worden verwerkt.
-
-   ![Startpagina van de tegel Logic Apps B2B-berichten](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>Status van bijhouden bericht en details in Log Analytics
 
-1. Nadat uw B2B-berichten worden verwerkt, kunt u de status en details voor deze berichten weergeven. Kies op de startpagina van de **Logic Apps B2B-berichten** tegel.
+1. Nadat uw B2B-berichten worden verwerkt, kunt u de status en details voor deze berichten weergeven. Kies op de pagina overzicht de **Logic Apps B2B-berichten** tegel.
 
-   ![Aantal bijgewerkte berichten](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Aantal bijgewerkte berichten](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > Standaard de **Logic Apps B2B-berichten** tegel ziet u gegevens op basis van een enkele dag. Om het bereik van de gegevens wijzigen in een ander interval, kiest u het bereik-besturingselement aan de bovenkant van de pagina:
    > 
-   > ![Bereik van de gegevens wijzigen](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![Bereik van de gegevens wijzigen](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. Na het bericht weergegeven dashboard status, kunt u meer details voor een specifieke bericht-type, waarin gegevens op basis van een enkele dag weergeven. Kies de tegel voor **AS2**, **X12**, of **EDIFACT**.

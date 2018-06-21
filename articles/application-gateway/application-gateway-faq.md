@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/19/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: a2f664525235fa97b0694362d7dc82086e31f71d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229332"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295525"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen voor Application Gateway
 
@@ -115,7 +115,7 @@ Nee, maar u kunt andere Toepassingsgateways in het subnet implementeren.
 
 Netwerkbeveiligingsgroepen worden ondersteund op het subnet voor Application Gateway met de volgende beperkingen:
 
-* Uitzonderingen moeten in worden geplaatst voor binnenkomend verkeer op poorten 65503-65534 voor back-end health correct te laten werken.
+* Uitzonderingen moeten in worden geplaatst voor binnenkomend verkeer op poort 65503 65534. Dit poortbereik is vereist voor communicatie met Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten kunnen zich externe entiteiten, waaronder de klanten van deze gateways, niet kunnen starten van de wijzigingen op de eindpunten.
 
 * Uitgaande verbinding met internet kan niet worden geblokkeerd.
 
@@ -159,7 +159,7 @@ Dit scenario kan worden gedaan met nsg's op Application Gateway-subnet. De volge
 
 * Toestaan dat binnenkomend verkeer van de bron-IP-of het IP-bereik.
 
-* Toestaan van binnenkomende aanvragen van alle bronnen poorten 65503 65534 voor [back-end health communicatie](application-gateway-diagnostics.md).
+* Toestaan van binnenkomende aanvragen van alle bronnen poorten 65503 65534 voor [back-end health communicatie](application-gateway-diagnostics.md). Dit poortbereik is vereist voor communicatie met Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten kunnen zich externe entiteiten, waaronder de klanten van deze gateways, niet kunnen starten van de wijzigingen op de eindpunten.
 
 * Toestaan van binnenkomende Azure Load Balancer-tests (AzureLoadBalancer-tag) en binnenkomende virtueel netwerkverkeer (VirtualNetwork-tag) op de [NSG](../virtual-network/security-overview.md).
 

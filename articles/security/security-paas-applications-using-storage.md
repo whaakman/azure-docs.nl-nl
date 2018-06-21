@@ -12,39 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 06/20/2018
 ms.author: TomShinder
-ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc04973a003c65f52f3387292f11fede65edce3
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418217"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295292"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Beveiligen van PaaS-webtoepassingen en mobiele toepassingen met behulp van Azure Storage
+
 In dit artikel bespreken we een verzameling van Azure Storage aanbevolen beveiligingsprocedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure en de ervaringen van klanten zoals zelf.
 
 De [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md) bevat een schat voor gedetailleerde informatie over Azure Storage en beveiliging.  Dit artikel heeft betrekking op een hoog niveau enkele concepten gevonden in de handleiding voor beveiliging en koppelingen naar de beveiligingshandleiding, evenals andere bronnen voor meer informatie.
 
 ## <a name="azure-storage"></a>Azure Storage
+
 Azure maakt het mogelijk te implementeren en gebruiken van opslag op manieren niet eenvoudig haalbare lokale. U kunt een hoge mate van schaalbaarheid en beschikbaarheid met relatief weinig moeite bereiken met Azure storage. Niet alleen Azure storage vormt de basis voor Windows en Linux Azure Virtual Machines, kan het ook grote gedistribueerde toepassingen ondersteunen.
 
 Azure Storage biedt de volgende vier services: Blob Storage, Table Storage, Queue Storage en File Storage. Zie voor meer informatie, [Inleiding tot Microsoft Azure Storage](../storage/storage-introduction.md).
 
 ## <a name="best-practices"></a>Aanbevolen procedures
+
 In dit artikel worden de volgende aanbevolen procedures:
 
 - Beveiliging:
    - Shared Access Signatures (SAS)
-   - Beheerde schijven
    - RBAC (op rollen gebaseerd toegangsbeheer)
 
 - Versleuteling van opslag:
    - Versleuteling aan de clientzijde voor waardevolle gegevens
-   - Azure Disk Encryption voor virtuele machines (VM's)
    - Storage Service-versleuteling
 
 ## <a name="access-protection"></a>Netwerktoegangsbeveiliging
+
 ### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Shared Access Signature gebruiken in plaats van de sleutel van een opslagaccount
 
 In een IaaS-oplossing, meestal met Windows Server of Linux virtuele machines met bestanden beveiligd tegen openbaarmaking en beveiligingsactiviteiten bedreigingen met behulp van de toegangsmechanismen. U wilt gebruiken op Windows [toegangsbeheerlijsten (ACL)](../virtual-network/virtual-networks-acl.md) en op Linux, u waarschijnlijk gebruikt [type chmod](https://en.wikipedia.org/wiki/Chmod). In wezen, dit is precies wat u zou doen als u bestanden op een server in uw eigen datacenter vandaag zijn beveiligt.
@@ -66,12 +68,6 @@ SAS kunt u de manier waarop u wilt delen zonder dat opslag uw toegangscodes voor
 
 Zie voor meer informatie, [handtekeningen voor gedeelde toegang met behulp van](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). Zie voor meer informatie over mogelijke risico's en aanbevelingen die risico's te beperken, [Best practices wanneer via SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-### <a name="use-managed-disks-for-vms"></a>Beheerde schijven voor virtuele machines gebruiken
-
-Wanneer u de optie [Azure beheerd schijven](../storage/storage-managed-disks-overview.md), Azure beheert de storage-accounts die u voor uw VM-schijven gebruikt. U hoeft te doen is Kies het type schijf (Premium of standaard) en de schijfgrootte; Azure-opslag doet de rest. U hoeft niet te hoeven maken over de limieten voor schaalbaarheid die zijn anders u naar meerdere accounts voor opslag moet mogelijk.
-
-Zie voor meer informatie, [Veelgestelde vragen over beheerde en onbeheerde premium-schijven](../storage/storage-faq-for-disks.md).
-
 ### <a name="use-role-based-access-control"></a>Op rollen gebaseerde toegangsbeheer gebruiken
 
 Eerder besproken Shared Access Signature (SAS) met beperkte toegang tot objecten in uw opslagaccount verlenen aan andere clients zonder dat de sleutel van uw account-opslagaccount. Soms is de risico's die zijn gekoppeld aan een bepaalde bewerking op basis van uw opslagaccount opwegen tegen de voordelen van SAS. Soms is het eenvoudiger om toegang op een andere manier te beheren.
@@ -89,6 +85,7 @@ Zie voor meer informatie over RBAC:
 - [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md) voor details over het beveiligen van uw opslagaccount met RBAC
 
 ## <a name="storage-encryption"></a>Storage-versleuteling
+
 ### <a name="use-client-side-encryption-for-high-value-data"></a>Client-side '-versleuteling gebruiken voor waardevolle gegevens
 
 Versleuteling aan clientzijde kunt u programmatisch gegevens onderweg voordat u uploadt naar Azure Storage te versleutelen en ontsleutelen van gegevens via een programma bij het ophalen van het uit de opslag.  Dit biedt versleuteling van gegevens die worden verzonden, maar het biedt ook versleuteling van gegevens in rust.  Versleuteling aan clientzijde is de veiligste methode van het versleutelen van uw gegevens, maar hoeft u programmatische wijzigingen aanbrengen in uw toepassing en processen voor sleutelbeheer plaatsen in plaats.
@@ -97,15 +94,12 @@ Versleuteling aan clientzijde ook kunt u enige controle over uw versleutelingssl
 
 Versleuteling aan clientzijde is ingebouwd in de Java en de opslagclientbibliotheken voor .NET.  Zie [Client-Side-versleuteling en Azure Key Vault voor Microsoft Azure Storage](../storage/storage-client-side-encryption.md) voor informatie over het coderen van gegevens binnen clienttoepassingen en genereren en beheren van uw eigen versleutelingssleutels.
 
-### <a name="azure-disk-encryption-for-vms"></a>Azure Disk Encryption voor virtuele machines
-Azure Disk Encryption is een functie waarmee u uw Windows- en Linux IaaS-schijven voor virtuele machine versleutelen. Azure Disk Encryption maakt gebruik van de branche standaard BitLocker-functie van Windows en de functie DM-Crypt van Linux voor volumeversleuteling voor het besturingssysteem en de gegevensschijven. De oplossing is geïntegreerd met Azure Key Vault om te controleren en beheren van de schijfversleuteling sleutels en geheimen in uw abonnement sleutelkluis. De oplossing zorgt er ook voor dat alle gegevens op de virtuele machine-schijven zijn versleuteld in rust in uw Azure-opslag.
-
-Zie [Azure Disk Encryption for Windows and Linux IaaS VM's](azure-security-disk-encryption.md).
-
 ### <a name="storage-service-encryption"></a>Storage Service-versleuteling
+
 Wanneer [Service Opslagversleuteling](../storage/storage-service-encryption.md) voor File storage is ingeschakeld, worden de gegevens versleuteld automatisch met AES-256-versleuteling. Microsoft verwerkt de versleuteling, ontsleuteling en sleutelbeheer. Deze functie is beschikbaar voor LRS- en GRS redundantie typen.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 In dit artikel is geïntroduceerd aan een verzameling van Azure Storage aanbevolen beveiligingsprocedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen. Zie voor meer informatie over het beveiligen van uw PaaS-implementaties:
 
 - [PaaS-implementaties beveiligen](security-paas-deployments.md)

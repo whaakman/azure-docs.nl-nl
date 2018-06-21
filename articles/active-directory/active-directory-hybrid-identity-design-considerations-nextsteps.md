@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4ac8e517e68f7cbba3019fa27065468b387c1b65
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801487"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284667"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybride identiteit ontwerp overwegingen bij volgende stappen
 Nu dat u hebt uw vereisten definiëren en alle opties voor uw beheeroplossing voor mobiele apparaten voltooid, kunt u kunt de volgende stappen voor het implementeren van de ondersteunende infrastructuur bij u en uw organisatie.
@@ -42,7 +42,7 @@ Conceptuele en procedurele planning, implementatie en beheer komt goed van pas b
 ## <a name="hybrid-identity-resources"></a>Bronnen voor hybride identiteit
 De volgende bronnen vaak bewaking, biedt het laatste nieuws en updates voor oplossingen voor het beheer van mobiele apparaten:
 
-* [Microsoft Enterprise Mobility-blog](http://blogs.technet.com/b/enterprisemobility/)
+* [Microsoft Enterprise Mobility-blog](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft In The Cloud-blog](http://blogs.technet.com/b/in_the_cloud/)
 * [Microsoft Intune-blog](http://blogs.technet.com/b/microsoftintune/)
 * [Microsoft System Center Configuration Manager-blog](http://blogs.technet.com/b/configurationmgr/)

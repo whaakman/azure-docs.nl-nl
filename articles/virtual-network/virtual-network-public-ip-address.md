@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 3962b2e598f94767bd0fbbe990084875deec5e40
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4345199ed952b6d0e044d4ac99c29c47c477780d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266896"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287065"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Maken, wijzigen of verwijderen van een openbaar IP-adres
 
@@ -92,6 +92,16 @@ Hoewel de portal biedt de optie voor het maken van twee openbare IP-adresbronnen
 |CLI|[lijst met openbare ip-AZ](/cli/azure/network/public-ip#az-network-public-ip-list) aan de lijst met openbare IP-adressen, [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az-network-public-ip-show) om weer te geven instellingen; [az netwerk openbare ip-update](/cli/azure/network/public-ip#az-network-public-ip-update) bijwerken; [az netwerk openbare ip-verwijderen](/cli/azure/network/public-ip#az-network-public-ip-delete) verwijderen|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ophalen van een openbare IP-adres-object en de instellingen bekijken [Set AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress) instellingen; bijwerken [Verwijderen AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) verwijderen|
 
+## <a name="assign-a-public-ip-address"></a>Een openbaar IP-adres toewijzen
+
+Meer informatie over een openbaar IP-adres toewijzen aan de volgende bronnen:
+
+- Een [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM (bij het maken van), of naar een [bestaande VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- [Internet gerichte Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Site-naar-site-verbinding met een Azure VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure virtuele-Machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+
 ## <a name="permissions"></a>Machtigingen
 
 Als u wilt uitvoeren van taken voor openbare IP-adressen, moet uw account worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is toegewezen de nodige acties die worden vermeld in de volgende tabel:
@@ -107,4 +117,3 @@ Als u wilt uitvoeren van taken voor openbare IP-adressen, moet uw account worden
 
 - Maak een openbare IP-adres met [PowerShell](powershell-samples.md) of [Azure CLI](cli-samples.md) steekproef scripts of met behulp van Azure [Resource Manager-sjablonen](template-samples.md)
 - Maken en toepassen van [Azure beleid](policy-samples.md) voor de openbare IP-adressen
-- Openbare IP-adressen toewijzen bij het maken van een [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure virtuele Machine, een [Azure internetgerichte Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), een [Azure Toepassingsgateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), een [Site-naar-site-verbinding met een Azure VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), of een [Azure virtuele-Machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: a57337acadafe40839e16d6a31861ff7c892c071
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9cfdd6828a6d7ec699501a485519f843c59d0422
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602498"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295580"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migreren IaaS-middelen van klassiek naar Azure Resource Manager met behulp van Azure PowerShell
 Deze stappen ziet u hoe u Azure PowerShell-opdrachten voor het migreren van infrastructuur als een dienst (IaaS) resources van het klassieke implementatiemodel naar het Azure Resource Manager-implementatiemodel.
@@ -46,8 +46,6 @@ Hier volgen enkele aanbevolen procedures die wij adviseren kijkt u bij het evalu
 > Toepassingsgateways worden momenteel niet ondersteund voor migratie van klassiek naar Resource Manager. Verwijder de gateway voordat u een voorbereidingsbewerking voor het verplaatsen van het netwerk voor het migreren van een klassiek virtueel netwerk met een Application gateway. Nadat u de migratie hebt voltooid, sluit u de gateway in Azure Resource Manager.
 >
 >ExpressRoute-gateways die verbinding maken met ExpressRoute-circuits in een ander abonnement kunnen niet automatisch worden gemigreerd. In dergelijke gevallen verwijderen van de ExpressRoute-gateway, migreren van het virtuele netwerk en de gateway opnieuw maken. Zie [migreren ExpressRoute-circuits en bijbehorende virtuele netwerken van het klassieke naar het Resource Manager-implementatiemodel](../../expressroute/expressroute-migration-classic-resource-manager.md) voor meer informatie.
->
->
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Stap 2: Installeer de nieuwste versie van Azure PowerShell
 Er zijn twee manieren Azure PowerShell te installeren: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) of [Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). WebPI ontvangt maandelijkse updates. PowerShell Gallery ontvangt updates doorlopend. In dit artikel is gebaseerd op Azure PowerShell versie 2.1.0.
@@ -90,8 +88,6 @@ Stel uw Azure-abonnement voor de huidige sessie. In het volgende voorbeeld wordt
 > Registratie is een eenmalige stap, maar u moet dit doen eenmaal voordat u de migratie. Zonder te registreren ziet u het volgende foutbericht weergegeven:
 >
 > *BadRequest: Abonnement is niet geregistreerd voor migratie.*
->
->
 
 Registreren bij de resourceprovider voor migratie met behulp van de volgende opdracht:
 
@@ -137,12 +133,15 @@ Get-AzureRmVMUsage -Location "West US"
 ```
 
 ## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Stap 6: Voer de opdrachten voor het migreren van uw IaaS-resources
+* [Migreren van virtuele machines in een cloudservice (niet in een virtueel netwerk)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Migreren van virtuele machines in een virtueel netwerk](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Storage-Account migreren](#step-62-migrate-a-storage-account)
+
 > [!NOTE]
 > Alle bewerkingen die hier wordt beschreven, zijn de idempotent. Als er een probleem dan een niet-ondersteunde functie of een configuratiefout, raden wij aan dat u opnieuw de voorbereiden proberen afgebroken of doorgevoerd, bewerking. Het platform worden vervolgens de actie opnieuw probeert.
->
->
 
-## <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Stap 6.1: Optie 1 - migreren van virtuele machines in een cloudservice (niet in een virtueel netwerk)
+
+### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Stap 6.1: Optie 1 - migreren van virtuele machines in een cloudservice (niet in een virtueel netwerk)
 Haal de lijst van cloudservices met behulp van de volgende opdracht uit en kies vervolgens de cloudservice die u wilt migreren. Als de virtuele machines in de cloudservice zich in een virtueel netwerk of als ze web-of werkrollen hebben, de opdracht wordt een foutbericht geretourneerd.
 
 ```powershell
@@ -169,7 +168,7 @@ Bereid de virtuele machines in de cloudservice voor migratie. U hebben kunt kiez
     $validate.ValidationMessages
     ```
 
-    De voorgaande opdracht geeft alle waarschuwingen en fouten die migratie blokkeren. Als validatie gelukt is, dan kunt u aan bij de **voorbereiden** stap:
+    De volgende opdracht geeft alle waarschuwingen en fouten die migratie blokkeren. Als validatie gelukt is, dan kunt u aan bij de **voorbereiden** stap:
 
     ```powershell
     Move-AzureService -Prepare -ServiceName $serviceName `
@@ -193,7 +192,7 @@ Bereid de virtuele machines in de cloudservice voor migratie. U hebben kunt kiez
     $validate.ValidationMessages
     ```
 
-    De voorgaande opdracht geeft alle waarschuwingen en fouten die migratie blokkeren. Als validatie geslaagd is, kunt klikt u vervolgens u doorgaan met de volgende voorbereidingsstap:
+    De volgende opdracht geeft alle waarschuwingen en fouten die migratie blokkeren. Als validatie geslaagd is, kunt klikt u vervolgens u doorgaan met de volgende voorbereidingsstap:
 
     ```powershell
         Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
@@ -223,7 +222,7 @@ Als de voorbereide configuratie er goed uitziet, kunt u verder gaan en het doorv
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-## <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Stap 6.1: Optie 2: migreren van virtuele machines in een virtueel netwerk
+### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Stap 6.1: Optie 2: migreren van virtuele machines in een virtueel netwerk
 
 Als u wilt migreren van virtuele machines in een virtueel netwerk, moet u het virtuele netwerk migreren. De virtuele machines migreren automatisch met het virtuele netwerk. Kies het virtuele netwerk dat u wilt migreren.
 > [!NOTE]
@@ -241,8 +240,6 @@ Dit voorbeeld wordt de naam van het virtuele netwerk op **myVnet**. De naam van 
 
 > [!NOTE]
 > Als het virtuele netwerk of werkrollen of VM's met niet-ondersteunde configuraties bevat, krijgt u een validatiefoutbericht.
->
->
 
 Eerst valideren als u het virtuele netwerk migreren kunt met behulp van de volgende opdracht:
 
@@ -250,7 +247,7 @@ Eerst valideren als u het virtuele netwerk migreren kunt met behulp van de volge
     Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
 ```
 
-De voorgaande opdracht geeft alle waarschuwingen en fouten die migratie blokkeren. Als validatie geslaagd is, kunt klikt u vervolgens u doorgaan met de volgende voorbereidingsstap:
+De volgende opdracht geeft alle waarschuwingen en fouten die migratie blokkeren. Als validatie geslaagd is, kunt klikt u vervolgens u doorgaan met de volgende voorbereidingsstap:
 
 ```powershell
     Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
@@ -268,82 +265,85 @@ Als de voorbereide configuratie er goed uitziet, kunt u verder gaan en het doorv
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-## <a name="step-62-migrate-a-storage-account"></a>Stap 6.2 migreren, een opslagaccount
-Zodra u bent met klaar de virtuele machines migreert, wordt aangeraden migreren van de storage-accounts.
+### <a name="step-62-migrate-a-storage-account"></a>Stap 6.2 migreren, een opslagaccount
+Zodra u bent met klaar de virtuele machines migreert, wordt aangeraden u de volgende controles van vereisten uitvoeren voordat u de storage-accounts migreert.
 
-Voordat u het opslagaccount migreert, uitvoeren voorafgaand aan de vereiste controles in:
+> [!NOTE]
+> Als uw storage-account geen gekoppelde schijven of VM-gegevens heeft, gaat u rechtstreeks naar de **Storage-Account valideren en de migratie Start** sectie.
 
-* **Klassieke virtuele machines waarvan schijven zijn opgeslagen in het opslagaccount migreren**
+* **Controles op vereisten als u alle virtuele machines hebt gemigreerd of uw storage-account schijfbronnen heeft**
+    * **Klassieke virtuele machines waarvan schijven zijn opgeslagen in het opslagaccount migreren**
 
-    Voorafgaand aan de opdracht RoleName eigenschappen en geretourneerd DiskName van alle klassieke VM-schijven in de storage-account. RoleName is de naam van de virtuele machine waaraan een schijf is gekoppeld. Als de voorgaande opdracht retourneert schijven vervolgens ervoor te zorgen dat virtuele machines die deze schijven zijn gekoppeld worden gemigreerd vóór de migratie van het opslagaccount.
+        De volgende opdracht retourneert RoleName en DiskName eigenschappen van de klassieke VM schijven in de storage-account. RoleName is de naam van de virtuele machine waaraan een schijf is gekoppeld. Als u deze opdracht retourneert schijven vervolgens ervoor te zorgen dat virtuele machines die deze schijven zijn gekoppeld worden gemigreerd vóór de migratie van het opslagaccount.
+        ```powershell
+         $storageAccountName = 'yourStorageAccountName'
+          Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+          DiskName | Format-List -Property RoleName, DiskName
+
+        ```
+    * **Niet-gekoppelde klassieke VM schijven die zijn opgeslagen in het opslagaccount verwijderd**
+
+        Zoeken naar niet-gekoppelde schijven in de klassieke VM in de opslagruimte rekening met volgende opdracht:
+
+        ```powershell
+            $storageAccountName = 'yourStorageAccountName'
+            Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
+
+        ```
+        Als de bovenstaande opdracht retourneert schijven Verwijder deze schijven met volgende opdracht:
+
+        ```powershell
+           Remove-AzureDisk -DiskName 'yourDiskName'
+        ```
+    * **VM-installatiekopieën verwijderen opgeslagen in de storage-account**
+
+        De volgende opdracht retourneert alle VM-installatiekopieën met besturingssysteemschijf opgeslagen in het opslagaccount.
+         ```powershell
+            Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                    } | Select-Object -Property ImageName, ImageLabel
+         ```
+         De volgende opdracht retourneert alle VM-installatiekopieën met gegevensschijven opgeslagen in het opslagaccount.
+         ```powershell
+
+            Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                             -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                            } | Select-Object -Property ImageName, ImageLabel
+         ```
+        Verwijder alle VM-installatiekopieën die worden geretourneerd door de bovenstaande opdrachten met de volgende opdracht:
+        ```powershell
+        Remove-AzureVMImage -ImageName 'yourImageName'
+        ```
+* **Valideren van de Storage-Account in en begint met de migratie**
+
+    Elk opslagaccount voor de migratie valideren met behulp van de volgende opdracht. In dit voorbeeld wordt de naam van het opslagaccount is **myStorageAccount**. De naam in dit voorbeeld vervangen door de naam van uw eigen opslagaccount.
+
     ```powershell
-     $storageAccountName = 'yourStorageAccountName'
-      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
-      DiskName | Format-List -Property RoleName, DiskName
-
+        $storageAccountName = "myStorageAccount"
+        Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
     ```
-* **Niet-gekoppelde klassieke VM schijven die zijn opgeslagen in het opslagaccount verwijderd**
 
-    Zoeken naar niet-gekoppelde schijven in de klassieke VM in de opslagruimte rekening met volgende opdracht:
+    Volgende stap is het opslagaccount voorbereiden voor migratie
 
     ```powershell
-        $storageAccountName = 'yourStorageAccountName'
-        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
-
+        $storageAccountName = "myStorageAccount"
+        Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
     ```
-    Als de bovenstaande opdracht retourneert schijven Verwijder deze schijven met volgende opdracht:
+
+    Controleer de configuratie voor de voorbereide storage-account met behulp van Azure PowerShell of de Azure-portal. Als u niet klaar voor de migratie bent en u wilt terugkeren naar de oude status, gebruikt u de volgende opdracht:
 
     ```powershell
-       Remove-AzureDisk -DiskName 'yourDiskName'
+        Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
     ```
-* **VM-installatiekopieën verwijderen opgeslagen in de storage-account**
 
-    Opdracht vóór retourneert alle VM-installatiekopieën met besturingssysteemschijf opgeslagen in het opslagaccount.
-     ```powershell
-        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
-                                } | Select-Object -Property ImageName, ImageLabel
-     ```
-     Opdracht vóór retourneert alle VM-installatiekopieën met gegevensschijven opgeslagen in het opslagaccount.
-     ```powershell
+    Als de voorbereide configuratie er goed uitziet, kunt u verder gaan en het doorvoeren van de resources met behulp van de volgende opdracht:
 
-        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
-                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
-                                        } | Select-Object -Property ImageName, ImageLabel
-     ```
-    Verwijder alle VM-installatiekopieën die worden geretourneerd door de bovenstaande opdrachten met behulp van de voorgaande opdracht:
     ```powershell
-    Remove-AzureVMImage -ImageName 'yourImageName'
+        Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
     ```
-
-Elk opslagaccount voor de migratie valideren met behulp van de volgende opdracht. In dit voorbeeld wordt de naam van het opslagaccount is **myStorageAccount**. De naam in dit voorbeeld vervangen door de naam van uw eigen opslagaccount.
-
-```powershell
-    $storageAccountName = "myStorageAccount"
-    Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
-```
-
-Volgende stap is het opslagaccount voorbereiden voor migratie
-
-```powershell
-    $storageAccountName = "myStorageAccount"
-    Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
-```
-
-Controleer de configuratie voor de voorbereide storage-account met behulp van Azure PowerShell of de Azure-portal. Als u niet klaar voor de migratie bent en u wilt terugkeren naar de oude status, gebruikt u de volgende opdracht:
-
-```powershell
-    Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
-```
-
-Als de voorbereide configuratie er goed uitziet, kunt u verder gaan en het doorvoeren van de resources met behulp van de volgende opdracht:
-
-```powershell
-    Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
-```
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van de migratie van IaaS resources van klassieke in Azure Resource Manager-platform ondersteund](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Technische deep dive op platform ondersteund migratie van klassiek naar Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Technische details over door platforms ondersteunde migratie van klassiek naar Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Planning voor de migratie van IaaS-resources van het klassieke implementatiemodel naar Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [CLI gebruiken voor het migreren van IaaS-middelen van klassiek naar Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Community-hulpprogramma's voor hulp bij de migratie van IaaS-middelen van klassiek naar Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

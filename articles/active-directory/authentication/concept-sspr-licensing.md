@@ -10,30 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864651"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292556"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licentievereisten voor selfservicegebruikers Azure AD-wachtwoord opnieuw instellen
 
-Azure Active Directory (Azure AD) voor wachtwoordherstel functie, zodat u *moet ten minste één licentie is toegewezen in uw organisatie hebben*. We afdwingen niet dat per gebruiker licentieverlening op de ervaring van wachtwoord opnieuw instellen. U hebt een echte licentie nodig als een gebruiker direct of indirect profiteert van een functie die door die licentie mogelijk wordt gemaakt.
+Azure Active Directory (Azure AD) voor wachtwoordherstel functie, zodat u *moet ten minste één licentie is toegewezen in uw organisatie hebben* voor die gebruiker. U hebt een echte licentie nodig als een gebruiker direct of indirect profiteert van een functie die door die licentie mogelijk wordt gemaakt.
 
 * **Alleen in de cloud gebruikers**: Office 365 een betaald SKU of Azure AD Basic
 * **Cloud** of **on-premises gebruikers**: Azure AD Premium-P1 of P2, Enterprise Mobility + Security (EMS) of Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>Licenties die vereist zijn voor write-back van wachtwoord
+## <a name="licensing-requirements-for-password-writeback"></a>Licentievereisten voor write-back van wachtwoord
+
+**Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met lokale Write-back is een premium-functie van Azure AD**. Zie voor meer informatie over licentieverlening de [Azure Active Directory website prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Voor het gebruik van wachtwoord terugschrijven, moet u een van de volgende licenties die zijn toegewezen op uw tenant hebben:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + Security E3 of A3
+* Enterprise Mobility + Security E5 of A5
+* Microsoft 365 E3 of A3
+* Microsoft 365 E5 of A5
 * Microsoft 365 F1
 
 > [!WARNING]

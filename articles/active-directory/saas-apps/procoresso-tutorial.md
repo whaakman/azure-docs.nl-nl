@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: e96a34cf0e9fe4f4b0a35790089bda17ced5d818
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 380b7e8fc48b88449cf43fda92af7f9503771777
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231243"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Zelfstudie: Azure Active Directory-integratie met Procore SSO
 
@@ -254,7 +254,7 @@ In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebru
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u testen van uw instellingen voor eenmalige aanmelding wilt, opent u het toegangsvenster. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586). Als u op de tegel Procore SSO in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw Procore SSO-toepassing.
+Als u testen van uw instellingen voor eenmalige aanmelding wilt, opent u het toegangsvenster. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). Als u op de tegel Procore SSO in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw Procore SSO-toepassing.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

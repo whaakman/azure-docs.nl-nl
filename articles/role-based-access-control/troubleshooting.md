@@ -1,6 +1,6 @@
 ---
-title: Op rollen gebaseerde toegangsbeheer Azure RBAC oplossen | Microsoft Docs
-description: Hulp bij problemen of vragen hebt over op rollen gebaseerd toegangsbeheer resources.
+title: Het oplossen van RBAC in Azure | Microsoft Docs
+description: Problemen oplossen met Azure op rollen gebaseerde toegangsbeheer (RBAC).
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,22 +15,22 @@ ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5ca43fe3a8ff27ff4a811aeb26abf4a6f26d8b35
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 557d3330ef155181c050a18b14d31b65ba1f2dcf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267166"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295389"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Op rollen gebaseerde toegangsbeheer van Azure oplossen 
+# <a name="troubleshooting-rbac-in-azure"></a>RBAC in Azure oplossen
 
-In dit artikel antwoorden op veelgestelde vragen over de specifieke rechten die zijn verleend aan rollen, zodat u wat u weet kunt verwachten wanneer u de rollen in de Azure-portal en kan toegangsproblemen oplossen. Deze drie rollen hebben betrekking op alle brontypen:
+In dit artikel antwoorden op veelgestelde vragen over op rollen gebaseerde toegangsbeheer (RBAC), zodat u wat u weet kunt verwachten wanneer u de rollen in de Azure-portal en kan toegangsproblemen oplossen. Deze drie rollen hebben betrekking op alle brontypen:
 
 * Eigenaar  
 * Inzender  
 * Lezer  
 
-Eigenaars en medewerkers hebt volledige toegang tot de beheerervaring, maar een medewerker kan geen toegang verlenen aan andere gebruikers of groepen. Dingen ophalen iets interessanter met de lezersrol zodat waar we even uitgeeft. Zie de [toegangsbeheer op basis van rollen get-started artikel](role-assignments-portal.md) voor meer informatie over het om toegang te verlenen.
+Eigenaars en medewerkers hebt volledige toegang tot de beheerervaring, maar een medewerker kan geen toegang verlenen aan andere gebruikers of groepen. Dingen ophalen iets interessanter met de rol lezer zodat waar we even uitgeeft. Voor informatie over het toegang seee [beheren van toegang met RBAC en de Azure-portal](role-assignments-portal.md).
 
 ## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>Toegang voor schrijven-mogelijkheden
@@ -97,9 +97,7 @@ Hiervoor is vereist **schrijven** toegang tot zowel de **virtuele machine**, en 
 
 Als u geen toegang deze tegels tot, vraag uw beheerder voor Inzender toegang tot de resourcegroep.
 
-## <a name="see-more"></a>Meer informatie
-* [Op rollen gebaseerd toegangsbeheer](role-assignments-portal.md): aan de slag met RBAC in Azure portal.
-* [Ingebouwde rollen](built-in-roles.md): meer informatie over de functies die standaard in RBAC.
-* [Aangepaste rollen in Azure RBAC](custom-roles.md): informatie over het maken van aangepaste rollen aan uw behoeften toegang.
-* [Maken van een geschiedenisrapport voor gewijzigde van toegang](change-history-report.md): bijhouden van wijzigen van roltoewijzingen in RBAC.
+## <a name="next-steps"></a>Volgende stappen
+* [Beheren van toegang met RBAC en de Azure-portal](role-assignments-portal.md)
+* [Weergave activiteitenlogboeken RBAC wijzigingen](change-history-report.md)
 

@@ -1,6 +1,6 @@
 ---
 title: De Azure-opslagemulator gebruiken voor ontwikkeling en testen | Microsoft Docs
-description: De Azure-opslagemulator biedt een gratis lokale ontwikkelingsomgeving voor het ontwikkelen en testen van uw Azure Storage-toepassingen. Informatie over hoe aanvragen worden geverifieerd, verbinding maken met de emulator van uw toepassing en het gebruik van het opdrachtregelprogramma.
+description: De Azure-opslagemulator biedt een gratis lokale ontwikkelingsomgeving voor het ontwikkelen en testen van uw Azure Storage-toepassingen. Informatie over hoe aanvragen worden gemachtigd, verbinding maken met de emulator van uw toepassing en het gebruik van het opdrachtregelprogramma.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305103"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295587"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>De Azure-opslagemulator gebruiken voor ontwikkeling en testen
 
@@ -46,7 +46,7 @@ Starten van de Azure-opslagemulator:
 
 Wanneer de opslagemulator wordt gestart, verschijnt een opdrachtpromptvenster. U kunt dit consolevenster starten en stoppen van de opslagemulator, gegevens wissen status ophalen en initialiseren van de emulator. Zie voor meer informatie de [Storage emulator opdrachtregelprogramma verwijzing](#storage-emulator-command-line-tool-reference) verderop in dit artikel.
 
-Wanneer de emulator wordt uitgevoerd, ziet u een pictogram in het Windows-systeemvak.
+Wanneer de emulator wordt gestart, ziet u een pictogram in het systeemvak op de taakbalk van Windows.
 
 Wanneer u het opdrachtpromptvenster van storage emulator sluit, moet de opslagemulator wordt nog uitgevoerd. Om te zetten in het venster Opslagemulator console opnieuw, de voorgaande stappen alsof de opslagemulator wordt gestart.
 
@@ -81,14 +81,14 @@ Zie voor meer informatie over deze opdrachten [Storage emulator opdrachtregelpro
 > U kunt de [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) voor het beheren van uw SQL Server-exemplaren, met inbegrip van de installatie van de LocalDB. In de SMSS **verbinding maken met Server** dialoogvenster opgeven `(localdb)\MSSQLLocalDb` in de **servernaam:** veld verbinding maken met de LocalDB-exemplaar.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Verificatie-aanvragen op basis van de opslagemulator
-Nadat u hebt geïnstalleerd en de opslagemulator is gestart, kunt u uw code te vergelijken met het testen. Net als bij Azure Storage in de cloud, moet elke aanvraag die u op basis van de opslagemulator aanbrengt worden geverifieerd, tenzij het een anonieme aanvraag. U kunt aanvragen op basis van de opslagemulator met gedeelde sleutel verificatie of met een shared access signature (SAS) verifiëren.
+Nadat u hebt geïnstalleerd en de opslagemulator is gestart, kunt u uw code te vergelijken met het testen. Net als bij Azure Storage in de cloud, elke aanvraag die u op basis van de opslagemulator aanbrengt is geautoriseerd, tenzij het een anonieme aanvraag. U kunt aanvragen op basis van de opslagemulator met gedeelde sleutel verificatie of met een shared access signature (SAS) autoriseren.
 
-### <a name="authenticate-with-shared-key-credentials"></a>Verifiëren met referenties van de gedeelde sleutel
+### <a name="authorize-with-shared-key-credentials"></a>Met de referenties van de gedeelde sleutel autoriseren
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Zie voor meer informatie over verbindingsreeksen [configureren Azure Storage-verbindingsreeksen](../storage-configure-connection-string.md).
 
-### <a name="authenticate-with-a-shared-access-signature"></a>Verificatie met een shared access signature
+### <a name="authorize-with-a-shared-access-signature"></a>Met een shared access signature autoriseren
 Sommige clientbibliotheken van Azure storage, zoals de Xamarin-bibliotheek is alleen ondersteuning voor verificatie met een shared access signature (SAS)-token. U kunt het SAS-token met een hulpprogramma als maken de [Opslagverkenner](http://storageexplorer.com/) of een andere toepassing die ondersteuning biedt voor verificatie met gedeelde sleutel.
 
 U kunt ook een SAS-token genereren met behulp van Azure PowerShell. Het volgende voorbeeld wordt een SAS-token met volledige machtigingen voor een blob-container gegenereerd:
@@ -163,7 +163,7 @@ Vanaf versie 3.0 biedt wordt een consolevenster weergegeven wanneer u de Opslage
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
 ### <a name="options"></a>Opties
-Als u wilt weergeven in de lijst met opties, typt u `/help` bij de opdrachtprompt.
+Typ `/help` bij de opdrachtprompt om een lijst met opties te zien.
 
 | Optie | Beschrijving | Opdracht | Argumenten |
 | --- | --- | --- | --- |
@@ -204,12 +204,23 @@ De volgende verschillen naar Table storage in de emulator van toepassing:
 Er zijn geen verschillen specifieke naar Queue storage in de emulator.
 
 ## <a name="storage-emulator-release-notes"></a>Opmerkingen bij de release van de opslag-emulator
+
+### <a name="version-55"></a>Versie 5.5
+* De opslagemulator ondersteunt nu 2017-11-09-versie van de storage-services voor blobs, wachtrijen en tabellen service-eindpunten.
+* Er is ondersteuning toegevoegd voor de blob **gemaakt** eigenschap tijd voor het maken van de blob.
+
+### <a name="version-54"></a>5.4-versie
+Ter verbetering van de stabiliteit van de installatie, probeert de emulator niet langer te reserveren poorten tijdens de installatie. Als poort reserveringen aanbrengen wilt, gebruikt u de *- reserveports* optie van de **init** opdracht te geven.
+
+### <a name="version-53"></a>Versie 5.3
+De opslagemulator biedt nu ondersteuning voor versie 2017-07-29 van de storage-services voor blobs, wachtrijen en tabellen service-eindpunten.
+
 ### <a name="version-52"></a>Versie 5.2
 * De opslagemulator biedt nu ondersteuning voor versie 2017-04-17 van de storage-services voor blobs, wachtrijen en tabellen service-eindpunten.
 * Een fout vastgesteld waar tabel eigenschapswaarden zijn niet wordt correct gecodeerd.
 
 ### <a name="version-51"></a>Versie 5.1
-* Een bug vast waar de opslagemulator is retourneren de `DataServiceVersion` -header in sommige reacties waarbij de service niet was.
+Een bug vast waar de opslagemulator is retourneren de `DataServiceVersion` -header in sommige reacties waarbij de service niet was.
 
 ### <a name="version-50"></a>Versie 5.0
 * Het installatieprogramma van de emulator opslag niet langer bestaande MSSQL controleert en .NET Framework wordt geïnstalleerd.

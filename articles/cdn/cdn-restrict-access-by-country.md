@@ -1,6 +1,6 @@
 ---
 title: Azure CDN-inhoud per land beperken | Microsoft Docs
-description: Informatie over het beperken van toegang tot uw Azure CDN-inhoud met de functie voor het filteren van geo.
+description: Informatie over het toegang te beperken door land uw Azure CDN-inhoud via de functie geo filteren.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -12,71 +12,103 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: v-deasim
-ms.openlocfilehash: 93321c4c8a7f8d79835d702ca07132eed94f6493
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 661356aeb2369bc1bbddd6caee57b256dd9e1212
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260749"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285012"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Azure CDN-inhoud per land beperken
 
 ## <a name="overview"></a>Overzicht
-Wanneer een gebruiker wordt uw inhoud standaard aanvraagt, wordt de inhoud aangeboden ongeacht waar de gebruiker gemaakt voor deze aanvraag uit. In sommige gevallen wilt u mogelijk beperken van toegang tot uw inhoud door land. In dit artikel wordt uitgelegd hoe u de *geo filteren* functie om de service configureren voor het toestaan of blokkeren van toegang per land.
+Wanneer een gebruiker wordt uw inhoud standaard aanvraagt, wordt de inhoud aangeboden ongeacht de locatie van de gebruiker die de aanvraag. In sommige gevallen kunt u echter toegang tot uw inhoud door land te beperken. Met de *geo filteren* functie, kunt u regels maken op specifieke paden op uw CDN-eindpunt wilt toestaan of blokkeren van inhoud in de geselecteerde landen.
 
-> [!IMPORTANT]
-> De Azure CDN-producten bieden dezelfde functionaliteit geo filteren, maar hebben een klein verschil in landcodes te ondersteunen. Zie voor meer informatie [Azure CDN landcodes](https://msdn.microsoft.com/library/mt761717.aspx).
-
-
-Zie voor meer informatie over overwegingen die van toepassing zijn op de configuratie van dit type beperking [overwegingen](cdn-restrict-access-by-country.md#considerations).  
-
-![Landen filteren](./media/cdn-filtering/cdn-country-filtering-akamai.png)
-
-## <a name="step-1-define-the-directory-path"></a>Stap 1: Het directorypad definiëren
 > [!IMPORTANT]
 > **Azure CDN Standard van Microsoft** profielen ondersteunen geen geo-filteren op basis van het pad.
->
+> 
 
+## <a name="standard-profiles"></a>Standaard-profielen
+De procedures in deze sectie hebben betrekking op **Azure CDN Standard van Akamai** en **Azure CDN Standard van Verizon** alleen profielen. 
 
-Selecteer uw eindpunt in de portal en het filteren van Geo-tabblad vinden op de linkernavigatiebalk voor deze functie vindt.
+Voor **Azure CDN Premium van Verizon** profielen, moet u de **beheren** portal activeren geo filteren. Zie voor meer informatie [Azure CDN Premium van Verizon profielen](#azure-cdn-premium-from-verizon-profiles).
 
-Wanneer u een filter land configureert, moet u het relatieve pad naar de locatie waarnaar gebruikers wordt toegestaan of toegang geweigerd. U geo-filtering kunt toepassen voor alle bestanden met een slash (/) of de geselecteerde mappen door te geven mappaden */pictures/*. U kunt ook een geografisch filteren in één bestand toepassen door te geven van het bestand en daarbij de afsluitende slash */pictures/city.png*.
+### <a name="define-the-directory-path"></a>Pad naar de map definiëren
+Voor toegang tot de functie geo filteren, selecteer uw CDN-eindpunt in de portal en vervolgens **Geo filteren** via instellingen in het menu links. 
 
-Voorbeeld van de directory pad filter:
+![Standard geo filteren](./media/cdn-filtering/cdn-geo-filtering-standard.png)
 
-    /                                 
-    /Photos/
-    /Photos/Strasbourg/
-      /Photos/Strasbourg/city.png
+Van de **pad** geeft u het relatieve pad naar de locatie waarnaar gebruikers wordt toegestaan of toegang geweigerd. 
 
-## <a name="step-2-define-the-action-block-or-allow"></a>Stap 2: Definieer de actie: blokkeren of toestaan
-**Blokkeren:** gebruikers van de opgegeven landen wordt de toegang geweigerd tot bedrijfsmiddelen aangevraagd bij dat recursieve-pad. Als er geen andere land-filteropties zijn geconfigureerd voor die locatie, klikt u vervolgens alle andere gebruikers mogen toegang.
+U geo-filtering kunt toepassen voor alle bestanden met een zone voor forward schuine streep (/) of specifieke mappen selecteren door op te geven van directory-paden (bijvoorbeeld */pictures/*). U kunt ook toepassen geo filteren op één bestand (bijvoorbeeld */pictures/city.png*). Er zijn meerdere regels toegestaan; Nadat u een regel hebt ingevoerd, wordt de volgende regel geeft u op een lege rij weergegeven.
 
-**Toestaan:** alleen uit de opgegeven landen gebruikers toegang tot bedrijfsmiddelen aangevraagd bij dat recursieve-pad kunnen.
+Bijvoorbeeld zijn de volgende filters voor directory-pad geldig:   
+*/*                                 
+*/Photos/*     
+*/Photos/Straatsburg /*     
+*/Photos/Strasbourg/City.PNG*
 
-## <a name="step-3-define-the-countries"></a>Stap 3: De landen definiëren
-Selecteer de landen die u wilt blokkeren of toestaan voor het pad. 
+### <a name="define-the-type-of-action"></a>Definieer het type actie
 
-De regel van het blokkeren van /Photos/Straatsburg/wordt bijvoorbeeld bestanden met inbegrip van filteren:
+Van de **actie** selecteert **toestaan** of **blok**: 
 
-    http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg
-    http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
+- **Toestaan dat**: alleen gebruikers van de opgegeven landen toegang hebben tot de assets die zijn opgevraagd uit het recursieve-pad.
 
+- **Blok**: uit de opgegeven landen toegang geweigerd voor gebruikers aan de activa die zijn opgevraagd uit het recursieve-pad. Als er geen andere land-filteropties zijn geconfigureerd voor die locatie, klikt u vervolgens alle andere gebruikers mogen toegang.
 
-### <a name="country-codes"></a>Landcodes
-De functie geo filteren gebruikt landcodes voor het definiëren van de landen waarin een aanvraag wordt toegestaan of geblokkeerd voor een beveiligde map. Hoewel de alle Azure CDN-producten dezelfde functionaliteit geo filteren bieden, is er een klein verschil in de landcodes ondersteunen. Zie voor meer informatie [Azure CDN landcodes](https://msdn.microsoft.com/library/mt761717.aspx). 
+Bijvoorbeeld, een geo-filterregel voor het blokkeren van het pad */foto's /Straatsburg/* filtert u de volgende bestanden:     
+*http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+
+### <a name="define-the-countries"></a>Definieer de landen
+Van de **LANDCODES** , selecteert u de landen die u wilt blokkeren of toestaan voor het pad. 
+
+Nadat u klaar bent met de landen selecteren, selecteert u **opslaan** voor het activeren van de nieuwe regel voor het filteren van geo. 
+
+![Regels geo filteren](./media/cdn-filtering/cdn-geo-filtering-rules.png)
+
+### <a name="clean-up-resources"></a>Resources opschonen
+Voor het verwijderen van een regel selecteren uit de lijst op de **Geo filteren** pagina en kies vervolgens **verwijderen**.
+
+## <a name="azure-cdn-premium-from-verizon-profiles"></a>Azure CDN Premium van Verizon profielen
+Voor **voor Azure CDN Premium van Verizon** profielen, de gebruikersinterface voor het maken van een regel voor het filteren van geo verschilt:
+
+1. Selecteer in het menu bovenaan in uw Azure CDN-profiel **beheren**.
+
+2. Selecteer in de portal Verizon **HTTP grote**, selecteer daarna **landen filteren**.
+
+    ![Standard geo filteren](./media/cdn-filtering/cdn-geo-filtering-premium.png)
+
+3. Selecteer **land Filter toevoegen**.
+
+    De **stap één:** pagina wordt weergegeven.
+
+4. Geef het mappad op, selecteer **blok** of **toevoegen**, selecteer daarna **volgende**.
+
+    De **stap twee:** pagina wordt weergegeven. 
+
+5. Selecteer een of meer landen uit de lijst en vervolgens **voltooien** voor het activeren van de regel. 
+    
+    De nieuwe regel wordt weergegeven in de tabel op de **landen filteren** pagina.
+
+    ![Regels geo filteren](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
+
+### <a name="clean-up-resources"></a>Resources opschonen
+Selecteer het verwijderpictogram naast een regel te verwijderen of het bewerkingspictogram om deze te wijzigen in de regeltabel van land filteren.
 
 ## <a name="considerations"></a>Overwegingen
-* Wijzigingen in uw land filteren configuratie komen niet onmiddellijk van kracht:
+* Wijzigingen in uw configuratie voor het filteren van geo komen niet onmiddellijk van kracht:
    * Voor profielen van **Azure CDN Standard van Microsoft** is het doorgeven gewoonlijk binnen 10 minuten voltooid. 
    * Profielen van **Azure CDN Standard van Akamai** worden doorgaans binnen één minuut doorgegeven. 
-   * Voor **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen, doorgeven voltooid gewoonlijk in 10 minuten. 
+   * Profielen van **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** worden normaal gesproken binnen 10 minuten doorgegeven. 
  
-* Deze functie biedt geen ondersteuning voor jokertekens (bijvoorbeeld ' *').
+* Deze functie biedt geen ondersteuning voor jokertekens (bijvoorbeeld *).
 
-* De configuratie van de geo-filteren die zijn gekoppeld aan het relatieve pad wordt recursief toegepast naar het opgegeven pad.
+* De configuratie van de geo-filteren die zijn gekoppeld aan het relatieve pad is toegepaste recursief naar het opgegeven pad.
 
-* Slechts één regel kan worden toegepast op hetzelfde relatieve pad. Dat wil zeggen, kan niet meerdere land filters die naar hetzelfde relatieve pad verwijzen te maken. Een map hebben echter meerdere filters land, vanwege de aard recursieve van land filters. Een submap van een eerder geconfigureerde map kan met andere woorden, een ander land filter toegewezen.
+* Slechts één regel kan worden toegepast op hetzelfde relatieve pad. Dat wil zeggen, kan niet meerdere land filters die naar hetzelfde relatieve pad verwijzen te maken. Omdat land filters recursieve, kan een map echter meerdere land filters hebben. Een submap van een eerder geconfigureerde map kan met andere woorden, een ander land filter toegewezen.
+
+* De functie geo filteren gebruikt landcodes voor het definiëren van de landen waarvan een aanvraag wordt toegestaan of geblokkeerd voor een beveiligde map. Maar Akamai en Verizon profielen bieden ondersteuning voor de meeste van de dezelfde landcodes, zijn er een paar verschillen. Zie voor meer informatie [Azure CDN landcodes](https://msdn.microsoft.com/library/mt761717.aspx). 
 

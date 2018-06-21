@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: bb0952fe5b78b0a9933cf7e9f20787150bdbcc3b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ad3eed8886754c5785b7dfd19b36c9e18f1623ea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231505"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Zelfstudie: Azure Active Directory-integratie met SensoScientific draadloze temperatuur Monitoring System
 
@@ -214,7 +214,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen. Klik op de tegel SensoScientific draadloze temperatuur Monitoring System in het deelvenster toegang, u zal worden automatisch aangemeld bij uw toepassing SensoScientific draadloze temperatuur Monitoring System. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen. Klik op de tegel SensoScientific draadloze temperatuur Monitoring System in het deelvenster toegang, u zal worden automatisch aangemeld bij uw toepassing SensoScientific draadloze temperatuur Monitoring System. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

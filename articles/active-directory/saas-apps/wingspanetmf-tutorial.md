@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 63d22a3213e7a3d8d2f8bf7714eb5bc8f3f0f477
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ee9c1494cb2bca4193bfe8b16b72ba5d317f9f3e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212635"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Zelfstudie: Azure Active Directory-integratie met Wingspan eTMF
 
@@ -204,7 +204,7 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen. 
 
-Klik op de tegel Wingspan eTMF in het deelvenster toegang, wordt u omgeleid naar de organisatie aanmelding op de pagina. Na een geslaagde aanmelding u zal worden aangemeld bij uw Wingspan eTMF-toepassing. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).
+Klik op de tegel Wingspan eTMF in het deelvenster toegang, wordt u omgeleid naar de organisatie aanmelding op de pagina. Na een geslaagde aanmelding u zal worden aangemeld bij uw Wingspan eTMF-toepassing. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

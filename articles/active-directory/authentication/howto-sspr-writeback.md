@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868822"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296160"
 ---
 # <a name="password-writeback-overview"></a>Overzicht van de Write-back van wachtwoord
 
-U kunt Azure Active Directory (Azure AD) voor wachtwoorden terugschrijven naar uw lokale Active Directory configureren met terugschrijven van wachtwoorden. Wachtwoord terugschrijven verwijdert de behoefte instellen en beheren van een complexe on-premises-oplossing voor selfservice voor wachtwoordherstel (SSPR) opnieuw en biedt een handige manier cloud-gebaseerde voor uw gebruikers opnieuw in te stellen hun on-premises wachtwoorden waar ze ook zijn. Wachtwoord terugschrijven is een onderdeel van [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) die kunnen worden ingeschakeld en gebruikt door bestaande Premium-abonnees [Azure Active Directory-edities](../active-directory-whatis.md).
+U kunt Azure Active Directory (Azure AD) voor wachtwoorden terugschrijven naar uw lokale Active Directory configureren met terugschrijven van wachtwoorden. Wachtwoord terugschrijven verwijdert de behoefte instellen en beheren van een complexe on-premises-oplossing voor selfservice voor wachtwoordherstel (SSPR) opnieuw en biedt een handige manier cloud-gebaseerde voor uw gebruikers opnieuw in te stellen hun on-premises wachtwoorden waar ze ook zijn. Wachtwoord terugschrijven is een onderdeel van [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) die kunnen worden ingeschakeld en gebruikt door bestaande Premium-abonnees [Azure Active Directory-edities](../fundamentals/active-directory-whatis.md).
 
 Wachtwoord terugschrijven biedt de volgende functies:
 
@@ -129,7 +129,7 @@ Als u de juiste machtigingen voor terugschrijving wachtwoord instelt, moet u de 
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licentievereisten voor write-back van wachtwoord
 
-Zie voor meer informatie over licentieverlening [licenties nodig zijn voor write-back van wachtwoord](concept-sspr-licensing.md#licenses-required-for-password-writeback) of de volgende sites:
+Zie voor meer informatie over licentieverlening [licenties nodig zijn voor write-back van wachtwoord](concept-sspr-licensing.md) of de volgende sites:
 
 * [Azure Active Directory website prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

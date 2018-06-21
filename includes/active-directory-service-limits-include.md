@@ -1,8 +1,26 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory
+author: curtand
+ms.service: active-directory
+ms.topic: include
+ms.date: 06/20/2018
+ms.author: curtand
+ms.custom: include file
+ms.openlocfilehash: 10b5fbe0a03d3ea712edc9df603bbcea5e188a02
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296529"
+---
 Hier vindt u de beperkingen voor gebruik en andere servicelimieten voor de Azure Active Directory-service.
 
 | Category | Limieten |
 | --- | --- |
-| Mappen |Eén gebruiker kan slechts worden gekoppeld aan maximaal twintig Azure Active Directory-mappen.<br />Voorbeelden van mogelijke combinaties: <ul> <li>Eén gebruiker maakt twintig mappen.</li><li>Eén gebruiker wordt als lid toegevoegd aan twintig mappen.</li><li>Eén gebruiker maakt tien mappen en wordt later door anderen aan tien andere mappen toegevoegd.</li></ul> |
+| Mappen |Een enkele gebruiker kan worden gekoppeld met een maximum van 20 Azure Active Directory-mappen zijn.<br />Voorbeelden van mogelijke combinaties: <ul> <li>Eén gebruiker maakt twintig mappen.</li><li>Eén gebruiker wordt als lid toegevoegd aan twintig mappen.</li><li>Eén gebruiker maakt tien mappen en wordt later door anderen aan tien andere mappen toegevoegd.</li></ul> |
+| Domeinen | U kunt niet meer dan 900 beheerde domeinnamen toevoegen. Als u alle domeinen voor federatie met lokale Active Directory instellen wilt, kunt u niet meer dan 450 domeinnamen toevoegen in elke map. |
 | Objecten |<ul><li>Maximaal 500.000 objecten kan worden gemaakt in een enkele map door gebruikers van de editie Free van Azure Active Directory.</li><li>Niet-beheerders mogen maximaal 250 objecten maken.</li></ul> |
 | Schema-uitbreidingen |<ul><li>Uitbreidingen van het type 'tekenreeks' mogen uit maximaal 256 tekens bestaan. </li><li>Uitbreidingen van het type 'binair' mogen uit maximaal 256 bytes bestaan.</li><li>Er mogen maximaal 100 uitbreidingswaarden (voor ALLE typen en ALLE toepassingen) worden geschreven naar één object.</li><li>Alleen de entiteiten User, Group, TenantDetail, Device, Application en ServicePrincipal mogen worden uitgebreid met kenmerken met één waarde van het type 'tekenreeks' of 'binair'.</li><li>Schema-uitbreidingen zijn alleen beschikbaar in de Graph API-versie 1.21-preview. Er moet schrijftoegang worden verleend aan de toepassing om een uitbreiding te kunnen registreren.</li></ul> |
 | Toepassingen |Maximaal 100 gebruikers kunt eigenaar zijn van één toepassing. |

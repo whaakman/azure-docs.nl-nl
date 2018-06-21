@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643206"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294809"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -40,17 +40,17 @@ Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in
   
   Om te bepalen van de versie van Windows Server met de Containers die u nodig hebt voor uw cluster, voert de `ver` opdracht vanaf een opdrachtprompt van Windows op uw ontwikkelcomputer:
 
-  * Als de versie bevat *x.x.14323.x*, klikt u vervolgens [maken van een cluster](service-fabric-cluster-creation-via-portal.md) afzonderlijk selecteren *Windows Server 2016 Datacenter met Containers* voor het besturingssysteem of [Service Fabric gratis proberen](https://aka.ms/tryservicefabric) met een cluster van derden.
-  * Als de versie bevat *x.x.16299.x*, klikt u vervolgens [maken van een cluster](service-fabric-cluster-creation-via-portal.md) afzonderlijk selecteren *WindowsServerSemiAnnual Datacenter-Core-1709-met-Containers* voor de Besturingssysteem. U kunt een cluster partij niet gebruiken.
+  * Als de versie bevat *x.x.14323.x*, selecteer daarna *Windows Server 2016 Datacenter met Containers* voor het besturingssysteem wanneer [maken van een cluster](service-fabric-cluster-creation-via-portal.md). U kunt ook [Service Fabric gratis proberen](https://aka.ms/tryservicefabric) met een cluster van derden.
+  * Als de versie bevat *x.x.16299.x*, selecteer daarna *WindowsServerSemiAnnual Datacenter-Core-1709-met-Containers* voor het besturingssysteem wanneer [maken van een cluster](service-fabric-cluster-creation-via-portal.md). U kunt een cluster partij echter niet gebruiken.
 
 * Een register in Azure Container Registry - [Een containerregister maken](../container-registry/container-registry-get-started-portal.md) in uw Azure-abonnement.
 
 > [!NOTE]
-> Containers implementeren in een Service Fabric-cluster in Windows 10 of in een cluster dat Docker CE niet ondersteunt. Met behulp van deze stapsgewijze handleiding test u lokaal de Docker-engine in Windows 10 en implementeert u de containerservices in een Windows Server-cluster in Azure met Docker EE. 
+> Containers implementeren naar een Service Fabric-cluster met Windows 10 wordt ondersteund.  Zie [in dit artikel](service-fabric-how-to-debug-windows-containers.md) voor informatie over het configureren van Windows 10 om te worden uitgevoerd van Windows-containers.
 >   
 
 > [!NOTE]
-> Service Fabric versie 6.1 biedt preview-ondersteuning voor Windows Server versie 1709. Open netwerken en de DNS-service voor Service Fabric werken niet met Windows Server versie 1709. 
+> Service Fabric-versie 6.2 en later ondersteunen implementeren containers voor clusters met Windows Server versie 1709.  
 > 
 
 ## <a name="define-the-docker-container"></a>De Docker-container definiëren

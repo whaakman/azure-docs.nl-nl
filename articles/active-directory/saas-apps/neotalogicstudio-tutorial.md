@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 5eb56460356267d3676361797ed8eeff7aa57b80
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 01987f3a5f2a37d7cf2b16202310b7d442c9d7a8
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210289"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285828"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Zelfstudie: Azure Active Directory-integratie met Neota logica Studio
 
@@ -204,9 +204,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Klik op de tegel Neota logica Studio in het deelvenster toegang, wordt u omgeleid naar de organisatie aanmelding pagina. Na een geslaagde aanmelding u zal worden aangemeld bij uw toepassing Neota logica Studio. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).
-
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586). 
+Klik op de tegel Neota logica Studio in het deelvenster toegang, wordt u omgeleid naar de organisatie aanmelding pagina. Na een geslaagde aanmelding u zal worden aangemeld bij uw toepassing Neota logica Studio. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

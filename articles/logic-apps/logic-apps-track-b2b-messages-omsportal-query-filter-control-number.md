@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 520a1212eaccc48f8b8b423f7dede9c16409220b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300324"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294306"
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Query voor AS2, X 12 en EDIFACT berichten in Log Analytics
 
@@ -53,41 +53,33 @@ In dit voorbeeld ziet hoe u berichten op basis van hun DIF besturingselement aan
 
    ![Selecteer de werkruimte voor logboekanalyse](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. Onder **Management**, kies **OMS-Portal**.
+3. Onder **Management**, kies **logboek zoeken**.
 
-   ![Kies de OMS-portal](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+   ![Kies Lo zoeken](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
 
-4. Kies op de startpagina **logboek zoeken**.
-
-   ![Kies op uw startpagina "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
-
-   -of-
-
-   ![Kies in het menu "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
-
-5. Voer in het zoekvak, een veld dat u wilt zoeken en druk op **Enter**. Wanneer u te typen begint, logboekanalyse laat zien u mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. Meer informatie over [hoe u gegevens wilt zoeken in logboekanalyse](../log-analytics/log-analytics-log-searches.md).
+4. Voer in het zoekvak, een veld dat u wilt zoeken en druk op **Enter**. Wanneer u te typen begint, logboekanalyse laat zien u mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. Meer informatie over [hoe u gegevens wilt zoeken in logboekanalyse](../log-analytics/log-analytics-log-searches.md).
 
    Dit voorbeeld wordt gezocht voor gebeurtenissen met de **Type = AzureDiagnostics**.
 
    ![Begin met het typen van queryreeks](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. Kies in de linkerbalk de periode die u wilt weergeven. Als een filter aan uw query wilt toevoegen, kiest u **+ toevoegen**.
+5. Kies in de linkerbalk de periode die u wilt weergeven. Als een filter aan uw query wilt toevoegen, kiest u **+ toevoegen**.
 
    ![Filter toevoegen aan de query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-7. Onder **Filters toevoegen**, voer de naam van het filter zodat u kunt het filter dat u wilt zoeken. Selecteer het filter en kies **+ toevoegen**.
+6. Onder **Filters toevoegen**, voer de naam van het filter zodat u kunt het filter dat u wilt zoeken. Selecteer het filter en kies **+ toevoegen**.
 
    Ga voor het besturingselement interchange nummer in dit voorbeeld wordt gezocht naar het woord 'DIF' en selecteert **event_record_messageProperties_interchangeControlNumber_s** als het filter.
 
    ![Selecteer filter](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-9. Selecteer de filterwaarde die u wilt gebruiken en kies in de linkerbalk **toepassen**.
+7. Selecteer de filterwaarde die u wilt gebruiken en kies in de linkerbalk **toepassen**.
 
    In het volgende voorbeeld wordt het nummer van het besturingselement interchange voor de berichten die we willen.
 
    ![Selecteer filterwaarde](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-10. Nu kunt u terugkeren naar de query die u maakt. De query is bijgewerkt met het geselecteerde filter gebeurtenis en de waarde. De resultaten van uw vorige worden nu te gefilterd.
+8. Nu kunt u terugkeren naar de query die u maakt. De query is bijgewerkt met het geselecteerde filter gebeurtenis en de waarde. De resultaten van uw vorige worden nu te gefilterd.
 
     ![Ga terug naar uw query met gefilterde resultaten](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 

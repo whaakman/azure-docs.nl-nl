@@ -1,27 +1,19 @@
 ---
 title: Met behulp van toegangsbeheer op basis van rollen voor het beheren van Azure Site Recovery | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u moeten worden toegepast en op rollen gebaseerde toegangsbeheer (RBAC) gebruiken voor het beheren van uw Azure Site Recovery-implementaties
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+author: mayanknayar
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: manayar
-ms.openlocfilehash: 072e3bc2e1a13476b43fb72c8631453e2ffa3b27
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9d1d6aac463e5b9cf9994bfefac1aa1c38bb1e03
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071602"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284738"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Toegangsbeheer op basis van rollen gebruiken voor het beheren van Azure Site Recovery-implementaties
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Toegangsbeheer op basis van rollen voor het beheren van toegang tot de Site Recovery gebruiken
 
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u taken scheiden binnen uw team en alleen specifieke machtigingen verlenen aan gebruikers desgewenst specifieke taken uitvoeren.
 
@@ -33,7 +25,7 @@ Azure Site Recovery biedt 3 ingebouwde functies voor het beheren van Site Recove
 
 Als u op zoek bent om te definiëren van uw eigen rollen voor nog meer Zie hoe [aangepaste rollen maken](../role-based-access-control/custom-roles.md) in Azure.
 
-## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Vereiste machtigingen voor replicatie inschakelen voor de nieuwe virtuele Machines
+## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Vereiste machtigingen voor het inschakelen van replicatie voor de nieuwe virtuele machines
 Wanneer een nieuwe virtuele Machine naar Azure met Azure Site Recovery worden gerepliceerd, worden de bijbehorende gebruiker toegangsniveaus om ervoor te zorgen dat de gebruiker de vereiste machtigingen heeft voor het gebruik van de Azure-resources die aan de Site Recovery gevalideerd.
 
 Schakel replicatie voor een nieuwe virtuele machine door moet een gebruiker hebben:

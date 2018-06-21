@@ -4,14 +4,14 @@ description: Adressen Veelgestelde vragen over Azure migreren
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: snehaa
-ms.openlocfilehash: a18cab73a019039bf5e5829ad1faa4b8f1a70391
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209942"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285702"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migreren van de Azure - Veelgestelde vragen (FAQ)
 
@@ -21,7 +21,7 @@ Dit artikel bevat veelgestelde vragen over Azure migreren. Als u aanvullende vra
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Verschilt Azure migreren vanuit Azure Site Recovery?
 
-Azure migreren is een beoordeling service waarmee u de werkbelasting van uw lokale detecteren en plan de migratie naar Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), samen met alleen een noodherstel, helpt u bij het migreren van lokale werkbelastingen voor IaaS VM's in Azure. 
+Azure migreren is een beoordeling service waarmee u de werkbelasting van uw lokale detecteren en plan de migratie naar Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), samen met alleen een noodherstel, helpt u bij het migreren van lokale werkbelastingen voor IaaS VM's in Azure.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Hoe wordt Azure migreren vanuit Azure Site Recovery implementatie Planner verschillende?
 
@@ -36,6 +36,10 @@ Azure migreren is een hulpprogramma voor migratieplanning en Azure Site Recovery
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Heeft Azure migreren vCenter-Server voor het detecteren van een VMware-omgeving nodig?
 
 Ja, Azure migreren vereist vCenter-Server voor het detecteren van een VMware-omgeving. Geen biedt ondersteuning voor detectie van ESXi-hosts die niet worden beheerd door een vCenter-Server.
+
+### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Welke Azure-regio's worden ondersteund door Azure migreren?
+
+Azure migreren ondersteunt momenteel VS-Oost en West-Centraal VS als project locaties. Houd er rekening mee dat zelfs als in West-Centraal VS en VS-Oost, u alleen migratie projecten maken kunt, kunt u nog steeds beoordelen uw machines voor [doellocaties voor meerdere](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). De projectlocatie wordt alleen gebruikt voor het opslaan van de gedetecteerde gegevens.
 
 ## <a name="discovery"></a>Detectie
 

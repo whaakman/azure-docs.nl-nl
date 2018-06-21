@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1764f4ed9dfe73763c288844be85d4805401887e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185217"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285964"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure replicatie
 
@@ -29,7 +29,7 @@ Gegevens worden gerepliceerd naar Azure storage tijdens de replicatie en betaalt
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>Wat kan ik doen met VMware naar Azure replicatie?
 - **Herstel na noodgevallen**: U kunt een volledige noodherstel instellen. In dit scenario kunt u lokale virtuele VMware-machines repliceren naar Azure-opslag. Klik, als uw on-premises infrastructuur niet beschikbaar is, kunt u een failover naar Azure. Wanneer u een failover uitvoert, kan Azure VM's worden gemaakt met behulp van de gerepliceerde gegevens. U kunt toegang tot apps en werkbelastingen op de Azure VM's totdat uw on-premises datacentrum weer beschikbaar is. U kunt vervolgens failback van Azure naar uw on-premises site.
-- **Migratie**: U kunt Site Recovery lokale virtuele VMware-machines migreren naar Azure. In dit scenario kunt u lokale virtuele VMware-machines repliceren naar Azure-opslag. Vervolgens schakelt u over on-premises naar Azure. Na een failover de je apps en werkbelastingen zijn beschikbaar en worden uitgevoerd op Azure Virtual machines.
+- **Migratie**: U kunt Site Recovery lokale virtuele VMware-machines migreren naar Azure. In dit scenario kunt u lokale virtuele VMware-machines repliceren naar Azure-opslag. Vervolgens schakelt u over on-premises naar Azure. Na een failover zijn uw toepassingen en workloads beschikbaar en worden uitgevoerd op Azure Virtual machines.
 
 
 
@@ -41,7 +41,7 @@ U moet een Azure-abonnement, een Recovery Services-kluis, een opslagaccount en e
 U moet een LRS of GRS-opslagaccount. GRS wordt aanbevolen, omdat de gegevens dan flexibel zijn te gebruiken als er sprake is van regionale uitval of als de primaire regio niet kan worden hersteld. Premium-opslag wordt ondersteund.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Mijn Azure-account is nodig voor machtigingen voor het maken van virtuele machines?
-Als u een abonnement beheerder bent, kunt u de replicatie-machtigingen die u nodig hebt. Als dat niet het geval is, moet u machtigingen voor het maken van een Azure VM in de resourcegroep en het virtuele netwerk die u opgeeft wanneer u Site Reocvery configureert en schrijfmachtigingen voor de record van de geselecteerde opslagaccount. [Meer informatie](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+Als u een abonnementsbeheerder bent, kunt u de replicatie-machtigingen die u nodig hebt. Als dat niet het geval is, moet u machtigingen voor het maken van een Azure VM in de resourcegroep en het virtuele netwerk die u opgeeft bij het configureren van Site Recovery en schrijfmachtigingen voor het geselecteerde opslagaccount. [Meer informatie](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 
 

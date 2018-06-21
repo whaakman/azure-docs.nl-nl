@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655167"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295685"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Migreren van Media Services-v2 aan v3
 
@@ -50,6 +50,10 @@ Dit artikel beschrijft de wijzigingen die zijn geïntroduceerd in Azure Media Se
 
 ## <a name="changes-from-v2"></a>Wijzigingen van v2
 
+* In Media Services-v3 versleuteling van opslag (AES-256-versleuteling) wordt alleen ondersteund voor compatibiliteit met eerdere wanneer uw Assets met Media Services-v2 zijn gemaakt. Dit betekent dat v3 werkt met bestaande opslag activa versleuteld, maar staat niet toe dat het maken van nieuwe activiteiten.
+
+    Voor de activa met v3 gemaakt, Media Services ondersteunt de [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) serverversleuteling opslag.
+    
 * Media Services SDK's ontkoppeld van de opslag-SDK die u meer controle over de opslag-SDK hebt gebruikt en versiebeheer problemen voorkomt. 
 * V3 zijn alle van de codering bitsnelheden in bits per seconde. Dit is anders dan de REST-v2 die Media Encoder Standard voorinstellingen. Bijvoorbeeld, de bitrate in v2 zou worden opgegeven als 128, maar in v3-128000 zou zijn. 
 * AssetFiles, AccessPolicies, IngestManifests bestaan niet in v3.
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Beleid voor inhoud sleutels maken
 2. Asset maken
 3. Inhoud uploaden of Asset gebruiken als JobOutput
-4. Locator maken
+4. StreamingLocator maken
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 06/08/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 7cfd3fba459f409079cb0c621edab3197070285e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7a67d65621da129640d3bb551cb0976ec1912050
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232315"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284801"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Wat zijn de beschikbaarheid van Zones in Azure?
 Beschikbaarheid van Zones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen van datacenter hoge beschikbaarheid. Beschikbaarheid Zones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters uitgerust met onafhankelijke stroom, koeling en netwerken. Tolerantie, zodat is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding van beschikbaarheid Zones binnen een regio beschermt toepassingen en gegevens tegen storingen datacenter. Zone-redundante services repliceren uw toepassingen en gegevens over beschikbaarheid Zones beschermen tegen één punten van storingen. Met Zones, beschikbaarheid biedt Azure bedrijfstak best 99,99% VM bedrijfstijd SLA. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
@@ -57,6 +57,8 @@ De Azure-services die ondersteuning bieden voor beschikbaarheid Zones zijn:
 - Openbaar IP-adres
 - Zoneredundante opslag
 - SQL Database
+- Event Hubs
+- Service Bus
 
 
 ## <a name="pricing"></a>Prijzen

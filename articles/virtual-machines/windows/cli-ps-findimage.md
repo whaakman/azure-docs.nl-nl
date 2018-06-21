@@ -15,16 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 885ee10bc63b65d936f5b433a18c4435b2503720
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 269d1392e00d02a79a360e3528fdde174563f2cf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313440"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295207"
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Het zoeken van installatiekopieën van virtuele Windows-machine in Azure Marketplace met Azure PowerShell
 
 In dit artikel wordt beschreven hoe u met Azure PowerShell VM-installatiekopieën vinden in Azure Marketplace. Gebruik deze informatie om een Marketplace-installatiekopie opgeven wanneer u een virtuele machine via een programma met PowerShell maken Resource Manager-sjablonen of andere hulpprogramma's.
+
+Ook bladeren beschikbare installatiekopieën en aanbiedingen met behulp van de [Azure Marketplace](https://azuremarketplace.microsoft.com/) winkel, de [Azure-portal](https://portal.azure.com), of de [Azure CLI](../linux/cli-ps-findimage.md). 
 
 Zorg ervoor dat u geïnstalleerd en geconfigureerd, de meest recente [Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
 

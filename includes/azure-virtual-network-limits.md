@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 7c7540a650d8726fb0a376788073968af6b48834
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
+ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35683029"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297963"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over hoe [weergeven van het actuele Resourcegebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -25,7 +25,7 @@ ms.locfileid: "35683029"
 | Privé-IP-adressen per virtueel netwerk |4096 |4096 |
 | Gelijktijdige TCP of UDP loopt per NIC van een virtuele machine of rolinstantie |500.000 |500.000 |
 | Netwerkbeveiligingsgroepen (NSG's) |100 |200 |
-| NSG-regels per NSG |200 |400 |
+| NSG-regels per NSG |200 |1000 |
 | Door de gebruiker gedefinieerde routetabellen |100 |200 |
 | Door de gebruiker gedefinieerde routes per routetabel |100 |400 |
 | Openbare IP-adressen (dynamisch) |5 |contact met ondersteuning |
@@ -64,6 +64,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 ** Deze standaardlimieten gelden voor abonnementen die niet eerder deze limieten verhoogd door middel van ondersteuning hebben nog
 
 #### <a name="load-balancer"></a>Load Balancer-limieten
+De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement. Meer informatie over hoe [weergeven van het actuele Resourcegebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md)
 
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |

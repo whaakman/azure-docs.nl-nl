@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: 14ed3ef57da28b6929115cf3e5746653d199b140
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: 72f8211ecc0534b15402911de8fc0ec3d541a835
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263745"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294901"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Gegevens repliceren aan Azure MySQL-Database
 
-Gegevens in de replicatie-functie kunt u om gegevens uit een MySQL-server on-premises uitgevoerd in de virtuele machines of databaseservices die worden gehost door andere cloudproviders aan de Azure service MySQL-Database te synchroniseren. Gegevens in de replicatie is gebaseerd op de binaire logboek (binlog) op basis van positie bestandsreplicatie systeemeigen naar MySQL. Zie voor meer informatie over binlog replicatie, de [MySQL binlog replicatie-overzicht](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Gegevens in replicatie kunt u gegevens van een MySQL-server on-premises uitgevoerd in de virtuele machines of databaseservices die worden gehost door andere cloudproviders aan de Azure-Database MySQL-service synchroniseren. Gegevens in de replicatie is gebaseerd op de binaire logboek (binlog) bestand positie replicatie op basis van systeemeigen naar MySQL. Zie voor meer informatie over binlog replicatie, de [MySQL binlog replicatie-overzicht](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
 ## <a name="when-to-use-data-in-replication"></a>Wanneer gebruikt u gegevens in replicatie
 De belangrijkste scenario's overwegen om gegevens in replicatie zijn:

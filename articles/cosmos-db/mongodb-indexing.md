@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: d0c74bd2ba7a4a77a16d481ddb3b76f90a923254
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3979c2a10707936c54c0d55ebcc85c470cabc3aa
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798284"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294527"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexeren in de MongoDB-API van Azure Cosmos DB
 
@@ -101,3 +101,4 @@ Op dit moment kunnen alleen unieke indexen worden gemaakt wanneer de verzameling
 ## <a name="next-steps"></a>Volgende stappen
 * [Indexering van gegevens door Azure Cosmos DB](../cosmos-db/indexing-policies.md)
 * [Gegevens in Azure Cosmos DB-verzamelingen automatisch laten verlopen met TTL](../cosmos-db/time-to-live.md)
+* [Verlopen van gegevens in Azure Cosmos DB MongoDB-API](../cosmos-db/mongodb-ttl.md)

@@ -3,19 +3,19 @@ title: Het toevoegen van een gebeurtenisbron IoT-Hub aan Azure Time Series Insig
 description: Dit artikel wordt beschreven hoe u een gebeurtenisbron die is verbonden met een IoT-Hub aan uw omgeving Time Series Insights toevoegt
 ms.service: time-series-insights
 services: time-series-insights
-author: sandshadow
+author: ashannon7
 ms.author: edett
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 01ab5017a5f16a0c46ea2bc600cef6bbf81de963
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b970d01c586e016d47b0f0480d73f06211969814
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652522"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294877"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Het toevoegen van een gebeurtenisbron IoT-Hub aan Time Series Insights-omgeving
 Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die gegevens uit een IoT-Hub in uw omgeving Time Series Insights leest toevoegen.

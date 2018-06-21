@@ -3,15 +3,15 @@ title: VMware naar Azure replicatie Azure Site Recovery-architectuur | Microsoft
 description: In dit artikel biedt een overzicht van de onderdelen en gebruikt wanneer de lokale virtuele VMware-machines repliceren naar Azure met Azure Site Recovery-architectuur
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: c1aa89f14edab7d0e560c20d6bc48480aff1631f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 61c283c178936c98a9a18509c1b46035e48f8f24
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184578"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285267"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware naar Azure replicatie-architectuur
 
@@ -42,7 +42,7 @@ De stappen voor het instellen van VMware naar Azure noodherstel of de migratie z
 3. **De replicatie instellen**. Kies van waar u naar wilt repliceren. U configureert de bronomgeving replicatie met behulp van een VMware één on-premises VM (configuratieserver) waarop alle van de on-premises Site Recovery-onderdelen die u nodig hebt. Na de installatie kunt u de configuratie van server-machine in de Recovery Services-kluis registreren. Selecteer vervolgens de doelinstellingen. [Meer informatie](vmware-azure-tutorial.md).
 4. **Maken van een beleid voor wachtwoordreplicatie**. U maakt een beleid voor wachtwoordreplicatie waarmee wordt aangegeven hoe replicatie moet gebeuren. 
     - **Drempelwaarde voor RPO**: deze bewakingsinstelling statussen als replicatie niet binnen de opgegeven tijd wordt uitgevoerd, een waarschuwing (en eventueel een e-mailbericht) is uitgegeven. Als u de RPO-drempel op 30 minuten instellen en replicatie gebeurt gedurende 30 minuten wordt verhinderd door een probleem, wordt bijvoorbeeld een gebeurtenis gegenereerd. Deze instelling heeft geen invloed op de replicatie. Replicatie is continue en herstelpunten worden gemaakt om de paar minuten
-    - **Bewaartermijn**: herstelpunt bewaarbeleid geeft aan hoe lang herstelpunten moet worden opgeslagen in Azure. Geef een waarde tussen 0 en 24 uur voor premium-opslag of omhoog tot 72 uur voor standard-opslag. U kunt de failover naar de meest recente herstelpunt of naar een opgeslagen als u de waarde die hoger is dan nul. Na de bewaarperiode worden herstelpunten opgeschoond.
+    - **Bewaartermijn**: herstelpunt bewaarbeleid geeft aan hoe lang herstelpunten moet worden opgeslagen in Azure. Geef een waarde tussen 0 en 24 uur voor premium-opslag of omhoog tot 72 uur voor standard-opslag. U kunt failover naar de meest recente herstelpunt of naar een opgeslagen als u de waarde die hoger is dan nul. Na de bewaarperiode worden herstelpunten opgeschoond.
     - **Crashconsistent momentopnamen**: standaard Site Recovery crashconsistent momentopnamen worden gemaakt en worden er herstelpunten aangemaakt met hen elke paar minuten. Een herstelpunt crashconsistent als alle onderdelen met elkaar verbonden gegevens schrijven volgorde consistent is, zoals ze waren op het moment het herstelpunt is gemaakt. Om beter te begrijpen, stelt u de status van de gegevens op de harde schijf van uw PC zich na een stroomstoring of een soortgelijke gebeurtenis. Er is een crashconsistent herstelpunt meestal voldoende als uw toepassing is ontworpen voor het herstellen van een crash zonder eventuele gegevensinconsistenties op.
     - **Toepassingsconsistente momentopnamen**: als deze waarde niet nul is, de Mobility-service uitgevoerd op de virtuele machine probeert om file system-toepassingsconsistente momentopnamen en herstelpunten te genereren. De eerste momentopname wordt gemaakt nadat de initiële replicatie is voltooid. Vervolgens worden momentopnamen gemaakt met de frequentie die u opgeeft. Een herstelpunt is toepassingsconsistente als naast schrijven-volgorde wordt consistente, actieve toepassingen Voer alle hun activiteiten en hun buffers naar schijf (toepassing stilleggen) leegmaken. Toepassingsconsistente herstelpunten worden aanbevolen voor databasetoepassingen zoals SQL, Oracle en Exchange. Als een momentopname van een crashconsistent voldoende is, kunt u deze waarde ingesteld op 0.  
     - **Consistentie tussen meerdere VM's**: U kunt eventueel ook een replicatiegroep maken. Wanneer u replicatie inschakelt, kunt u virtuele machines vervolgens verzamelen in die groep. Virtuele machines in een replicatie repliceren groeperen en crashconsistent en toepassingsconsistente herstelpunten wanneer failover hebt gedeeld. Moet u deze optie zorgvuldig, omdat dit kan invloed hebben op prestaties van de workload als momentopnamen worden verzameld over meerdere machines nodig. Dit alleen doen als virtuele machines dezelfde werkbelasting en consistent worden uitgevoerd en virtuele machines hebben vergelijkbare bussen. U kunt maximaal 8 virtuele machines toevoegen aan een groep. 

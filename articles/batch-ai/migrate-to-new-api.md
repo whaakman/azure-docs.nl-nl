@@ -15,18 +15,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: b59173259aa86a429b9f926a8e5ffbfd046451a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294874"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294955"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>Migreren naar de bijgewerkte Batch AI-API
 
-In de komende Batch AI REST-API versie 2018-05-01 en verwante Batch AI-SDK's en hulpprogramma's, zijn belangrijke wijzigingen en nieuwe functies worden geïntroduceerd.
+In de Batch AI REST-API versie 2018-05-01 en verwante Batch AI-SDK's en hulpprogramma's, zijn belangrijke wijzigingen en nieuwe functies geïntroduceerd.
 
-Als u een eerdere versie van de API van Batch AI hebt gebruikt, is dit artikel wordt uitgelegd hoe u uw code en scripts voor gebruik met de nieuwe API wijzigen. U kunt deze wijzigingen pas nadat de nieuwe API beschikbaar is.
+Als u een eerdere versie van de API van Batch AI hebt gebruikt, is dit artikel wordt uitgelegd hoe u uw code en scripts voor gebruik met de nieuwe API wijzigen. 
 
 ## <a name="whats-changing"></a>Wat wordt gewijzigd?
 

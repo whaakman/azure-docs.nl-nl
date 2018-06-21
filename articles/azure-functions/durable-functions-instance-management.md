@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d6f7c924491614190952ce620f33572307a22c22
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265432"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287745"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>-Exemplaren in duurzame functies (Azure Functions) beheren
 
@@ -216,6 +216,41 @@ Er zijn twee gevallen afhankelijk van de tijd om op te halen van het antwoord va
 
 > [!NOTE]
 > De indeling van de webhook-URL's kan verschillen, afhankelijk van welke versie van de Azure Functions-host die u uitvoert. Het vorige voorbeeld is voor de Azure Functions 2.0-host.
+
+## <a name="retrieving-http-management-webhook-urls"></a>Bij het ophalen van HTTP-beheer Webhook-URL 's
+
+Externe systemen kunnen communiceren met duurzame functies via de webhook-URL's die deel van het standaardantwoord dat wordt beschreven uitmaken in [HTTP-URL van de API-detectie](durable-functions-http-api.md). Echter, de webhook-URL's ook toegankelijk zijn via een programma in de orchestration-client of in een functie van de activiteit via de [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)klasse. 
+
+[CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) heeft één parameter:
+
+* **InstanceId**: de unieke ID van het exemplaar.
+
+De methode retourneert een exemplaar van de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) met de volgende tekenreekseigenschappen:
+
+* **Id**: de exemplaar-ID van de orchestration (moet hetzelfde zijn als de `InstanceId` invoer).
+* **StatusQueryGetUri**: de URL van de status van de orchestration-exemplaar.
+* **SendEventPostUri**: de URL 'gebeurtenis activeren' van de orchestration-exemplaar.
+* **TerminatePostUri**: de URL 'is beëindigd' van de orchestration-exemplaar.
+
+Functies van de activiteit kunnen een exemplaar van verzenden [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) en externe systemen om te controleren of gebeurtenissen naar een orchestration verhogen:
+
+```csharp
+#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
+
+public static void SendInstanceInfo(
+    [ActivityTrigger] DurableActivityContext ctx,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [DocumentDB(
+        databaseName: "MonitorDB",
+        collectionName: "HttpManagementPayloads",
+        ConnectionStringSetting = "CosmosDBConnection")]out dynamic document)
+{
+    HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
+
+    // send the payload to Cosmos DB
+    document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e8295d7cba023697e803bce2d8a321a943761f2a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bb2d6194b5a515d89e3204679860ab19a052ba03
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222903"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285161"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Zelfstudie: Azure Active Directory-integratie met Datahug
 
@@ -240,7 +240,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
-Als u op de tegel Datahug in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Datahug. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586). 
+Als u op de tegel Datahug in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Datahug. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

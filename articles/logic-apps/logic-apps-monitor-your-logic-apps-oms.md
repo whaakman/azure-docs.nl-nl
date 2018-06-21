@@ -12,20 +12,20 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/9/2017
+ms.date: 06/19/2018
 ms.author: LADocs; divswa
-ms.openlocfilehash: 493d82f59600d83a083bb13cdd0a21b872d77a43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299940"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294571"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Controleren en verkrijgen van inzicht in logic app wordt uitgevoerd met Log Analytics
 
 Voor bewaking en uitgebreidere informatie over foutopsporing, kunt u Log Analytics inschakelen op hetzelfde moment als u een logische app maakt. Log Analytics biedt Diagnostische logboekregistratie en controle voor uw logische app wordt uitgevoerd via de Azure portal. Wanneer u de oplossing Logic Apps Management toevoegt, krijgt u de cumulatieve status van uw logische app wordt uitgevoerd en de specifieke gegevens, zoals status, uitvoeringstijd, de status opnieuw indienen en correlatie-id's.
 
-Dit onderwerp leest het inschakelen van logboekanalyse zodat u de runtime-gebeurtenissen weergeven kunt of gegevens voor uw logische app uitgevoerd.
+In dit artikel laat zien hoe op logboekanalyse inschakelen, zodat u runtime-gebeurtenissen bekijken kunt en gegevens voor uw logische app uitvoeren.
 
  > [!TIP]
  > Volg deze stappen voor voor het bewaken van uw bestaande logische apps [Diagnostische logboekregistratie inschakelen en logic app runtimegegevens verzenden naar logboekanalyse](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
@@ -67,17 +67,17 @@ Als u al ingeschakeld logboekanalyse tijdens het maken van uw logische app, moet
 
    ![Selecteer de werkruimte voor logboekanalyse](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. Onder **Management**, kies **OMS-Portal**.
+3. Onder **Management**, kies **overzicht**.
 
-   ![Kies 'OMS-Portal'](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   ![Kies 'OMS-Portal'](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. Onder **alle oplossingen**, zoeken en kiest u de tegel voor de **Logic Apps Management** oplossing.
+4. Kies op de pagina overzicht **toevoegen** de tegel oplossingen voor het beheer te openen. 
 
-   ![Kies 'Logic Apps Management'](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![Kies 'Logic Apps Management'](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Voor het installeren van de oplossing in de werkruimte voor logboekanalyse, kies **toevoegen**.
+5. Blader door de lijst met **beheeroplossingen**, kies **Logic Apps Management** oplossing, en kies **maken** om deze te installeren op de pagina overzicht.
 
-   ![Kies "Toevoegen" voor 'Logic Apps Management'](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Kies "Toevoegen" voor 'Logic Apps Management'](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 

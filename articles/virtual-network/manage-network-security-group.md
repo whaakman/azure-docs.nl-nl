@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: f2fe02a6e7e696fa2c0ab301e7469060d6bd4ab6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658669"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295671"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -39,7 +39,7 @@ Het account dat u zich aanmelden bij of verbinding maken met Azure met moet word
 
 ## <a name="work-with-network-security-groups"></a>Met netwerkbeveiligingsgroepen werken
 
-U kunt maken, [weergeven van alle](#view-all-network-security-groups), [details weergeven van](#view-details-of-a-network-security-group), [wijzigen](#change-a-network-security-group), en [verwijderen](#delete-a-network-security-group) een netwerkbeveiligingsgroep. U kunt ook [koppelen of ontkoppelen](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) een netwerkbeveiligingsgroep van een netwerkinterface of een subnet.
+U kunt maken, [weergeven van alle](#view-all-network-security-groups), [details weergeven van](#view-details-of-a-network-security-group), [wijzigen](#change-a-network-security-group), en [verwijderen](#delete-a-network-security-group) een netwerkbeveiligingsgroep. U kunt ook [koppelen of ontkoppelen](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface) een netwerkbeveiligingsgroep van een netwerkinterface of een subnet.
 
 ### <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
 
@@ -121,9 +121,9 @@ Er is een limiet voor het aantal regels per netwerkbeveiligingsgroep per Azure-l
     
     |Instelling  |Waarde  |Details  |
     |---------|---------|---------|
-    |Bron     | Selecteer **eventuele**, **IP-adressen**, of **Service Tag**.        | Als u selecteert **IP-adressen**, moet u vervolgens opgeven **bron-IP-adressen/CIDR-bereiken**. U kunt een enkele waarde of een door komma's gescheiden lijst met meerdere waarden opgeven. Een voorbeeld van meerdere waarden is 10.0.0.0/16, 192.188.1.1. Er gelden beperkingen voor het aantal waarden die u kunt opgeven. Zie [Azure beperkt](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie. Als u selecteert **Service Tag**, moet u één service-label selecteren. Een servicetag is een vooraf gedefinieerde id voor een categorie IP-adressen. Zie voor meer informatie over de beschikbare service-tags en wat elke tag vertegenwoordigt, [Service labels](security-overview.md#service-tags)        |
+    |Bron     | Selecteer **eventuele**, **IP-adressen**, of **Service Tag**.        | Als u selecteert **IP-adressen**, moet u vervolgens opgeven **bron-IP-adressen/CIDR-bereiken**. U kunt een enkele waarde of een door komma's gescheiden lijst met meerdere waarden opgeven. Een voorbeeld van meerdere waarden is 10.0.0.0/16, 192.188.1.1. Er gelden beperkingen voor het aantal waarden die u kunt opgeven. Zie [Azure beperkt](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie. Als u selecteert **Service Tag**, moet u één service-label selecteren. Een servicetag is een vooraf gedefinieerde id voor een categorie IP-adressen. Zie voor meer informatie over de beschikbare service-tags en wat elke tag vertegenwoordigt, [Service labels](security-overview.md#service-tags). Als het opgegeven IP-adres is toegewezen aan een virtuele machine van Azure, zorg ervoor dat u de privé IP-adres, niet het openbare IP-adres, als een openbaar IP-adres is toegewezen aan de virtuele machine. Beveiligingsregels worden verwerkt nadat Azure vertaalt het openbare IP-adres aan een particulier IP-adres voor inkomende beveiligingsregels en voordat u Azure zet een privé IP-adres in een openbaar IP-adres voor uitgaande regels. Zie voor meer informatie over openbare en particuliere IP-adressen in Azure, [IP-adrestypen](virtual-network-ip-addresses-overview-arm.md).        |
     |Poortbereiken van bron     | Geef een losse poort, bijvoorbeeld 80, een poortbereik, bijvoorbeeld 1024-65535 of een door komma's gescheiden lijst van één poorten en/of poortbereiken zoals 80, 1024-65535. Hiermee geeft u een sterretje voor verkeer op een willekeurige poort. | De poorten en adresbereiken opgeven welke poorten-verkeer wordt toegestaan of geweigerd door de regel. Er gelden beperkingen voor het aantal poorten die u kunt opgeven. Zie [Azure beperkt](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.  |
-    |Doel     | Selecteer **eventuele**, **IP-adressen**, of **virtueel netwerk**.        | Als u selecteert **IP-adressen**, moet u vervolgens opgeven **doel-IP-adressen/CIDR-bereiken**. Net als bij **bron** en **bron-IP-adressen/CIDR-bereiken**, kunt u één of meerdere adressen of adresbereiken en er gelden beperkingen aan het getal dat u kunt opgeven. Selecteren **virtueel netwerk**, die een servicetag is, betekent dat verkeer is toegestaan voor alle IP-adressen in de adresruimte van het virtuele netwerk.        |
+    |Doel     | Selecteer **eventuele**, **IP-adressen**, of **virtueel netwerk**.        | Als u selecteert **IP-adressen**, moet u vervolgens opgeven **doel-IP-adressen/CIDR-bereiken**. Net als bij **bron** en **bron-IP-adressen/CIDR-bereiken**, kunt u één of meerdere adressen of adresbereiken en er gelden beperkingen aan het getal dat u kunt opgeven. Selecteren **virtueel netwerk**, die een servicetag is, betekent dat verkeer is toegestaan voor alle IP-adressen in de adresruimte van het virtuele netwerk. Als het opgegeven IP-adres is toegewezen aan een virtuele machine van Azure, zorg ervoor dat u de privé IP-adres, niet het openbare IP-adres, als een openbaar IP-adres is toegewezen aan de virtuele machine. Beveiligingsregels worden verwerkt nadat Azure vertaalt het openbare IP-adres aan een particulier IP-adres voor inkomende beveiligingsregels en voordat u Azure zet een privé IP-adres in een openbaar IP-adres voor uitgaande regels. Zie voor meer informatie over openbare en particuliere IP-adressen in Azure, [IP-adrestypen](virtual-network-ip-addresses-overview-arm.md).        |
     |Poortbereiken van doel     | Geef een enkele waarde of een door komma's gescheiden lijst met waarden. | Net als bij **bron poortbereiken**, kunt u één of meerdere poorten en adresbereiken opgeven en er gelden beperkingen aan het getal dat u kunt opgeven. |
     |Protocol     | Selecteer **eventuele**, **TCP**, of **UDP**.        |         |
     |Bewerking     | Selecteer **toestaan** of **weigeren**.        |         |

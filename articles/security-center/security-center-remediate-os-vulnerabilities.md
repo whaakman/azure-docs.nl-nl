@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103928"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285913"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Herstellen van beveiligingsconfiguraties in Azure Security Center
 Azure Security Center analyseert dagelijks het besturingssysteem (OS) van uw virtuele machines (VM's) en de computers voor een configuratie waardoor de virtuele machines en computers kwetsbaar voor aanvallen. Security Center raadt aan dat u beveiligingsproblemen oplossen wanneer de configuratie van uw besturingssysteem komt niet overeen met de aanbevolen configuratie van de beveiligingsregels en configuratiewijzigingen voor deze beveiligingsproblemen te verhelpen.
@@ -51,7 +51,7 @@ In dit voorbeeld bevat informatie over de aanbeveling 'Beveiligingsconfiguraties
 
   - **CCEID**: de CCE unieke id voor de regel. Security Center gebruikt Common Configuration Enumeration (CCE) om de unieke id's toewijzen aan configuratieregels.
   - **Naam**: de naam van de regel is mislukt.
-  - **Regeltype**: de *registersleutel*, *beveiligingsbeleid*, of *controlebeleid* regeltype.
+  - **Regeltype**: de *registersleutel*, *beveiligingsbeleid*, *controlebeleid*, of *IIS* regeltype.
   - **Nee. van virtuele machines & computers**: het totale aantal virtuele machines en computers die de mislukte regel van toepassing op.
   - **Ernst regel**: waarde van de CCE *Kritiek*, *belangrijk*, of *waarschuwing*.
   - **Status**: de huidige status van de aanbeveling:
@@ -100,10 +100,10 @@ De specifieke configuraties die worden bewaakt, Zie [lijst met regels van de aan
 
 Zie de volgende bronnen voor meer informatie over Security Center:
 
-* Zie voor een lijst met ondersteunde Windows- en Linux-machines, [ondersteunde platforms in Azure Security Center](security-center-os-coverage.md). 
-* Zie voor meer informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen, [beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md). 
-* Zie voor meer informatie over hoe aanbevelingen u helpen bij het beveiligen van uw Azure-resources, [aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md). 
-* Zie voor meer informatie over de status van uw Azure-resources, [beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md). 
+* Zie voor een lijst met ondersteunde Windows- en Linux-machines, [ondersteunde platforms in Azure Security Center](security-center-os-coverage.md).
+* Zie voor meer informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen, [beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md).
+* Zie voor meer informatie over hoe aanbevelingen u helpen bij het beveiligen van uw Azure-resources, [aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md).
+* Zie voor meer informatie over de status van uw Azure-resources, [beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md).
 * Zie voor informatie over het beheren van en reageren op beveiligingswaarschuwingen, [beheren en erop reageren beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md).
 * Zie voor meer informatie over het bewaken van de status van uw partneroplossingen, [partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md).
 * Zie voor antwoorden op veelgestelde vragen over het gebruik van de service [Veelgestelde vragen over Azure Security Center](security-center-faq.md).

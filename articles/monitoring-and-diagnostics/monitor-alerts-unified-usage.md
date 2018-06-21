@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264337"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287834"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen aan met een Azure-Monitor  
 
@@ -64,7 +64,7 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van waarsch
 
 5. * Metrische waarschuwingen: Zorg ervoor dat **brontype** is geselecteerd als signaaltype als **metriek**, klikt u vervolgens één keer juiste **resource** gekozen Klik *gedaan*terug te keren naar waarschuwing maken. Vervolgens gebruikt de **criteria toevoegen** knop kiezen die het signaal specifieke lijst met opties signaal, hun monitoring-service en het type vermeld - die beschikbaar zijn voor de resource die eerder hebt geselecteerd.
 
-    ![Selecteer een resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
+    ![Een resource selecteren](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
@@ -148,7 +148,13 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 2. De **waarschuwingen Dashboard** wordt weergegeven - waarin alle Azure-waarschuwingen zijn unified en weergegeven in een enkelvoud board ![waarschuwing Dashboard](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Van links naar rechts boven ziet het Dashboard u in één oogopslag de volgende - protocollen voor een gedetailleerd overzicht kan worden geklikt:
     - *Deze gebeurtenis wordt gestart waarschuwingen*: het aantal waarschuwingen op dit moment hebt voldaan aan de logica en in staat wordt gestart
-    - *Totaal aantal waarschuwingsregels*: het aantal waarschuwingsregels gemaakt en in subtekst, het getal dat zijn momenteel ingeschakeld
+    - *Totaal aantal waarschuwingsregels*: het aantal waarschuwingsregels gemaakt en in subtekst, het getal dat zijn momenteel ingeschakeld 
+    
+
+        > [!NOTE]
+        > Om ervoor te zorgen consistent dashboard met informatie over alle gestarte waarschuwingen, met inbegrip van logboek-waarschuwingen voor application insights en logboekanalyse; [Uitgebreid unified waarschuwing (preview)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) moet worden gebruikt
+  
+  
 4. Een lijst met alle gestarte waarschuwingen weergegeven die de gebruiker kan klikken om details te bekijken
 5. Tot in zoeken naar specifieke waarschuwingen; een de dropdown-opties op de voorgrond kunt gebruiken voor het filteren van specifieke *abonnement, resourcegroep en/of Resource*. Verdere voor een niet-omgezette waarschuwing, gebruikt de *Filter waarschuwing* optie vinden voor het opgegeven trefwoord - specifieke overeenkomende waarschuwingen met *, waarschuwing Criteria, Resource-groep en doelbron*
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: fa79d50d6ef2899dcaf4116dcfe8ac7fae077959
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 85eb1cd40986bd6fb83c80a274046bbae3756b7e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212684"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295450"
 ---
 # <a name="manage-secrets-in-service-fabric-applications"></a>Geheimen in Service Fabric-toepassingen beheren
 Deze handleiding leert u de stappen voor het beheren van geheimen in een Service Fabric-toepassing. Geheimen mag gevoelige informatie, zoals de storage-verbindingsreeksen, wachtwoorden of andere waarden die niet moeten worden behandeld als tekst zonder opmaak.
@@ -43,7 +43,7 @@ Een certificaat voor het uitwisselen van gegevens wordt uitsluitend gebruikt voo
 Dit certificaat moet worden geïnstalleerd op elk knooppunt in het cluster. Deze wordt gebruikt tijdens runtime voor het ontsleutelen van waarden in een service Settings.xml zijn opgeslagen. Zie [het maken van een cluster met Azure Resource Manager] [ service-fabric-cluster-creation-via-arm] voor installatie-instructies. 
 
 ## <a name="encrypt-application-secrets"></a>Toepassing geheimen versleutelen
-Wanneer u een toepassing implementeert, versleutelen geheime waarden met het certificaat en injecteren van een service Settings.xml-configuratiebestand. De Service Fabric SDK bevat ingebouwde geheime versleuteling en ontsleuteling functies. Geheime waarden kunnen worden versleuteld op het moment van gebouwd ontsleuteld en gelezen via een programma in de servicecode. 
+Wanneer u een toepassing implementeert, versleutelen geheime waarden met het certificaat en injecteren van een service Settings.xml-configuratiebestand. De Service Fabric SDK bevat ingebouwde geheime versleuteling en ontsleuteling functies. Geheime waarden kunnen worden versleuteld op build-tijd ontsleuteld en gelezen via een programma in de servicecode. 
 
 De volgende PowerShell-opdracht wordt gebruikt voor het versleutelen van een geheim. Met deze opdracht versleutelt alleen de waarde; Dit gebeurt **niet** Meld u aan de gecodeerde tekst. U moet hetzelfde certificaat uitwisselen die is geïnstalleerd in uw cluster voor het produceren van gecodeerde tekst voor geheime waarden gebruiken:
 

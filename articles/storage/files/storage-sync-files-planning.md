@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 160f01c3094548277e1f68e0002954ae63c79ce6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738327"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296174"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -145,6 +145,9 @@ Voor Azure File-synchronisatie en DFS-R side-by-side werken:
 
 Zie voor meer informatie [DFS-replicatie-overzicht](https://technet.microsoft.com/library/jj127250).
 
+### <a name="windows-search"></a>Windows Search
+Als cloud tiering is ingeschakeld op een servereindpunt, bestanden die zijn genoeg worden overgeslagen en niet zijn geïndexeerd door Windows Search. Bestanden lagen niet juist geïndexeerd.
+
 ### <a name="antivirus-solutions"></a>Anti-virussoftware
 Omdat antivirus werkt door te scannen bestanden voor bekende schadelijke code, kan een antivirusprogramma kan ertoe leiden dat het intrekken van gelaagde bestanden. Omdat gelaagde bestanden het kenmerk 'offline' is ingesteld hebben, wordt u aangeraden overleg met de softwareleverancier voor meer informatie over hoe de oplossing configureren voor het lezen van offlinebestanden overslaan. 
 
@@ -158,6 +161,11 @@ De volgende oplossingen bekend zijn bij het overslaan van offlinebestanden onder
 
 ### <a name="backup-solutions"></a>Back-upoplossingen
 Back-upoplossingen kunnen leiden tot het intrekken van gelaagde bestanden zoals anti-virussoftware. Wordt u aangeraden een back-upoplossing van cloud naar het back-up van de Azure-bestandsshare in plaats van een lokale back-product.
+
+Als u een back-up on-premises-oplossing gebruikt, moeten de back-ups worden uitgevoerd op een server in de groep voor synchronisatie met cloud tiering uitgeschakeld. Gebruik de optie bestand herstelbewerkingen bij het herstellen van bestanden in de locatie van de server-eindpunt. Teruggezette bestanden worden gesynchroniseerd naar alle eindpunten in de groep voor synchronisatie en bestaande bestanden wordt vervangen door de versie van back-up hersteld.
+
+> [!Note]  
+> Toepassingsgevoelige, herstelopties volumeniveau en bare metal (BMR) kunnen leiden tot onverwachte resultaten en worden momenteel niet ondersteund. Deze opties worden ondersteund in een toekomstige release terugzetten.
 
 ### <a name="encryption-solutions"></a>Versleuteling oplossingen
 Ondersteuning voor versleuteling oplossingen, is afhankelijk van hoe ze worden geïmplementeerd. Azure File-synchronisatie is bekend dat werkt met:
@@ -180,6 +188,7 @@ Azure File-synchronisatie is alleen beschikbaar in de volgende regio's Preview-v
 | Regio | Datacenter-locatie |
 |--------|---------------------|
 | Australië - oost | New South Wales |
+| Australië - zuidoost | Victoria |
 | Canada - midden | Toronto |
 | Canada - oost | Quebec (stad) |
 | VS - midden | Iowa |
@@ -189,6 +198,7 @@ Azure File-synchronisatie is alleen beschikbaar in de volgende regio's Preview-v
 | Noord-Europa | Ierland |
 | Zuidoost-Azië | Singapore |
 | Verenigd Koninkrijk Zuid | Londen |
+| Verenigd Koninkrijk West | Cardiff |
 | West-Europa | Nederland |
 | VS - west | Californië |
 

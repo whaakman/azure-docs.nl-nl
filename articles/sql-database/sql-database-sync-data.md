@@ -1,6 +1,6 @@
 ---
-title: Synchroniseren van Azure SQL-gegevens (Preview) | Microsoft Docs
-description: Dit overzicht introduceert Azure SQL-gegevenssynchronisatie (Preview)
+title: Synchroniseren van Azure SQL-gegevens | Microsoft Docs
+description: Dit overzicht introduceert synchroniseren van Azure SQL-gegevens
 services: sql-database
 author: douglaslms
 manager: craigg
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 18177e0671ddf36d0e02e6b943467d703f78ffd0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c31735719e559a25b53acf0bfcf1efff0cee4d5e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301045"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296181"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL synchroniseren van gegevens (Preview)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL-gegevens synchroniseren
 
 Synchroniseren van de SQL-gegevens is een service die is gebouwd op Azure SQL Database waarmee u de gegevens die u twee richtingen op meerdere SQL-databases en exemplaren van SQL Server selecteert synchroniseren.
 
@@ -53,15 +53,15 @@ Synchroniseren van gegevens is handig in gevallen waarin gegevens moet tussen ve
 
 -   **Globaal gedistribueerde toepassingen:** veel bedrijven verschillende regio's en zelfs meerdere landen omvatten. Om te beperken netwerklatentie, is het raadzaam om uw gegevens in een regio dicht bij u. U kunt databases eenvoudig in regio's over de hele wereld gesynchroniseerd houden met het synchroniseren van gegevens.
 
-Synchroniseren van gegevens is niet geschikt is voor de volgende scenario's:
+Synchroniseren van gegevens is niet de beste oplossing voor de volgende scenario's:
 
--   Herstel na noodgevallen
-
--   Lezen van schaal
-
--   ETL (OLTP met OLAP)
-
--   Migratie van on-premises SQL Server naar Azure SQL Database
+| Scenario | Enkele aanbevolen oplossingen |
+|----------|----------------------------|
+| Herstel na noodgevallen | [Azure geografisch redundante back-ups](sql-database-automated-backups.md) |
+| Lezen van schaal | [Gebruik alleen-lezen partities laden werklast alleen-lezen-query (preview)](sql-database-read-scale-out.md) |
+| ETL (OLTP met OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) of [SQL Server integratieservices](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migratie van on-premises SQL Server naar Azure SQL Database | [Migratie van Azure databaseservice](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## <a name="how-does-data-sync-work"></a>Hoe werkt synchroniseren van gegevens? 
 
@@ -83,7 +83,7 @@ Omdat synchroniseren van gegevens op basis van een trigger, transactionele consi
 #### <a name="performance-impact"></a>Prestatie-invloed
 Gegevens synchroniseren gebruikt invoegen, bijwerken en verwijderen van triggers voor het bijhouden van wijzigingen. Tabellen wordt gemaakt in de database voor het bijhouden. Deze wijziging bijhouden activiteiten heeft dit gevolgen voor de werkbelasting van uw database. De servicelaag beoordelen en indien nodig te upgraden.
 
-Inrichting en opheffen van inrichting tijdens synchronisatie groep maken, kunnen bijwerken en verwijderen ook invloed op de prestaties van de database. 
+Inrichting en het opheffen van inrichting tijdens synchronisatie groep maken, bijwerken en verwijderen kunnen ook invloed op de prestaties van de database. 
 
 ### <a name="general-requirements"></a>Algemene vereisten
 
@@ -127,13 +127,13 @@ Inrichting en opheffen van inrichting tijdens synchronisatie groep maken, kunnen
 
 ## <a name="faq-about-sql-data-sync"></a>Veelgestelde vragen over het synchroniseren van de SQL-gegevens
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Wat kost het synchroniseren van de SQL-gegevens (Preview)-service?
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Wat kost het synchroniseren van gegevens van SQL-service?
 
-Er zijn geen kosten voor het synchroniseren van de SQL-gegevens (Preview)-service zelf tijdens de Preview.  Echter samenvoegen u nog steeds gegevensoverdracht kosten voor de verplaatsing van gegevens in uw exemplaar van SQL-Database. Zie voor meer informatie [prijzen SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+Er zijn geen kosten voor het synchroniseren van gegevens van SQL-service zelf.  Echter samenvoegen u nog steeds gegevensoverdracht kosten voor de verplaatsing van gegevens in uw exemplaar van SQL-Database. Zie voor meer informatie [prijzen SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### <a name="what-regions-support-data-sync"></a>Welke regio's ondersteuning voor synchroniseren van gegevens?
 
-Synchroniseren van de SQL-gegevens (Preview) is beschikbaar in alle openbare cloud-regio's.
+Synchroniseren van de SQL-gegevens is beschikbaar in alle openbare cloud-regio's.
 
 ### <a name="is-a-sql-database-account-required"></a>Is een SQL-Database-account vereist? 
 
@@ -152,7 +152,7 @@ Ja. Het schema handmatig maken in de nieuwe database door het uitvoeren van scri
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Moet ik back-up en herstellen van mijn databases synchroniseren van de SQL-gegevens gebruiken?
 
-Het is niet raadzaam om te synchroniseren van de SQL-gegevens (Preview) gebruiken voor het maken van een back-up van uw gegevens. U kunt geen back-up of herstellen naar een bepaald punt in tijd omdat synchronisaties synchroniseren van de SQL-gegevens (Preview) niet samengesteld zijn. Synchroniseren van de SQL-gegevens (Preview) is bovendien andere SQL-objecten, zoals opgeslagen procedures geen back-up en het equivalent van een herstelbewerking niet snel kan.
+Het is niet raadzaam om te synchroniseren van de SQL-gegevens gebruiken voor het maken van een back-up van uw gegevens. U kunt geen back-up of herstellen naar een bepaald punt in tijd omdat SQL gegevenssynchronisatie synchronisaties niet samengesteld. Synchroniseren van de SQL-gegevens worden bovendien andere SQL-objecten, zoals opgeslagen procedures geen back-up en het equivalent van een herstelbewerking niet snel kan.
 
 Zie voor een back-techniek aanbevolen, [kopiëren van een Azure SQL database](sql-database-copy.md).
 
@@ -172,7 +172,7 @@ Ja. Synchroniseren van de SQL-gegevens ondersteunt sortering in de volgende scen
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>Wordt federation ondersteund in SQL-gegevenssynchronisatie?
 
-Hoofddatabase voor Federatie kan worden gebruikt in de Service SQL synchroniseren van gegevens (Preview) zonder een beperking. U kunt het eindpunt gefedereerde Database toevoegen aan de huidige versie van het synchroniseren van de SQL-gegevens (Preview).
+Hoofddatabase voor Federatie kan worden gebruikt in de SQL-Sync-Service voor gegevens zonder een beperking. U kunt het eindpunt gefedereerde Database toevoegen aan de huidige versie van het synchroniseren van de SQL-gegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 

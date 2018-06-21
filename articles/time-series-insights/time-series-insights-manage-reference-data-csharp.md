@@ -3,7 +3,7 @@ title: Beheren van referentiegegevens in Azure Time Series Insights-omgeving met
 description: In dit artikel wordt beschreven hoe referentiegegevens voor een Azure Time Series Insights-omgeving beheren door te maken van een aangepaste toepassing in de C# (c-sharp) .NET taal geschreven.
 ms.service: time-series-insights
 services: time-series-insights
-author: venkatgct
+author: ashannon7
 ms.author: venkatja
 manager: jhubbard
 ms.reviewer: jasonh, kfile, anshan
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 6cbc95f3af1fc65967248d0b1e8501498a4be68c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0bb216e8be98b0ee795176a6d3ca9ed73baad231
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652886"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294121"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Referentiegegevens voor een Azure Time Series Insights-omgeving beheren met C#
 

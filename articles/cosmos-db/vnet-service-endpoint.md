@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: aab2446a21739beb029b103241431fb9998e1861
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 0bd31270ca67dc993cc7ac72ab2bab9bf70005ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735455"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293992"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Veilige toegang tot een Cosmos-DB Azure-account met behulp van Azure Virtual Network service-eindpunt
 
@@ -80,7 +80,7 @@ Nadat u Azure Virtual Network service-eindpunten zijn ingeschakeld voor het acco
 
 Als uw Azure DB die Cosmos-account wordt gebruikt door andere Azure-services zoals Azure Search of toegankelijk is vanuit de Stream analytics of Power BI, u toegang toestaan door het controleren van **toegang tot Azure-Services toestaan**.
 
-Om te controleren of u toegang hebt tot Azure Cosmos DB metrische gegevens vanuit de portal, moet u inschakelen **toegang tot Azure-portal** opties. Zie voor meer informatie over deze opties, [verbindingen van Azure-portal](firewall-support.md#connections-from-the-azure-portal) en [verbindingen van Azure PaaS services](firewall-support.md#connections-from-other-azure-paas-services) secties. Na het selecteren van toegang, selecteer **opslaan** de instellingen op te slaan.
+Om te controleren of u toegang hebt tot Azure Cosmos DB metrische gegevens vanuit de portal, moet u inschakelen **toegang tot Azure-portal** opties. Zie voor meer informatie over deze opties, [verbindingen van Azure-portal](firewall-support.md#connections-from-the-azure-portal) en [verbindingen van Azure PaaS services](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services) secties. Na het selecteren van toegang, selecteer **opslaan** de instellingen op te slaan.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Een virtueel netwerk of subnet verwijderen 
 

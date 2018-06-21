@@ -1,6 +1,6 @@
 ---
 title: Minimale downtime migratie naar Azure-Database voor PostgreSQL
-description: Dit artikel wordt beschreven hoe u een minimale downtime migratie uitvoert door een PostgreSQL-database in te pakken op een bestand, de PostgreSQL-database terugzetten vanuit een archiefbestand door pg_dump in Azure-Database gemaakt voor PostgreSQL en instellen van de eerste keer wordt geladen en continue synchroniseren van gegevens uit de brondatabase met de doeldatabase met behulp van Attunity repliceren voor Microsoft Migrations.
+description: Dit artikel wordt beschreven hoe u een minimale downtime migratie van een PostgreSQL-database naar Azure-Database voor PostgreSQL uitvoert met behulp van de Service Azure Database migratie.
 services: postgresql
 author: HJToland3
 ms.author: jtoland
@@ -8,32 +8,24 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 48cf460405ae3985553f9bff29f4fd7abb008196
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 06/21/2018
+ms.openlocfilehash: 9ab5d4615a8baf763d0b7ee47bf0890124f8665c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692086"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292539"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Minimale downtime migratie naar Azure-Database voor PostgreSQL
-U kunt uw bestaande PostgreSQL-database migreren naar Azure-Database voor PostgreSQL door Attunity repliceren voor Microsoft Migrations. Attunity repliceren is een gezamenlijke aanbieding van Attunity en Microsoft. Samen met de Azure-databaseservice migratie is het opgenomen zonder extra kosten voor klanten van Microsoft. 
+U PostgreSQL migraties naar Azure-Database kunt uitvoeren voor PostgreSQL met minimale downtime met behulp van de nieuwe geïntroduceerd **continue synchronisatie mogelijkheid** voor de [Azure migratie databaseservice](https://aka.ms/get-dms) (DMS) . Deze functionaliteit beperkt de hoeveelheid uitvaltijd die wordt veroorzaakt door de toepassing.
 
-Attunity repliceren helpt uitvaltijd tijdens migraties van de database en het zorgt ervoor dat de brondatabase operationeel tijdens het proces.
+## <a name="overview"></a>Overzicht
+DMS voert een initiële belasting van uw on-premises naar Azure Database voor PostgreSQL en eventuele nieuwe transacties naar Azure vervolgens continu gesynchroniseerd terwijl de toepassing actief blijft. Nadat de gegevens de resultaten op de doel-Azure aan clientzijde, u stop de toepassing voor een korte ogenblik (minimale downtime), wacht u totdat de laatste batch van gegevens (vanaf het moment dat u de toepassing gestopt tot de toepassing daadwerkelijk niet beschikbaar is voor alle nieuwe verkeer) te vangen omhoog in de doel- en werk vervolgens de verbindingsreeks om te verwijzen naar Azure. Wanneer u klaar bent, is uw toepassing worden live in Azure.
 
-Attunity repliceren is een hulpprogramma voor de data replication waarmee het synchroniseren van gegevens tussen verschillende bronnen en -doelen. Dit geeft het script voor het schema maken en gegevens die zijn gekoppeld aan elke databasetabel. Attunity repliceren wordt niet doorgegeven eventuele andere artefacten (zoals SP, triggers, functies, enzovoort) of converteren, bijvoorbeeld, de PL-SQL-code die wordt gehost in een dergelijke artefacten met T-SQL.
+![Continue synchroniseren met de Azure-Service voor het migreren van Database](./media/howto-migrate-online/ContinuousSync.png)
 
-> [!NOTE]
-> Hoewel Attunity repliceren een uitgebreide reeks migratiescenario's ondersteunt, ligt de nadruk op ondersteuning voor een specifieke subset van de bron/doel-paren.
+Migratie van PostgreSQL bronnen DMS is momenteel in preview. Als u uitproberen van de service wilt voor het migreren van de werkbelasting van uw PostgreSQL, zich aanmelden via de Azure-DMS [voorbeeldpagina](https://aka.ms/dms-preview) om uit te drukken, uw interesse. Uw feedback is zeer waardevol bij het verder verbeteren van de service.
 
-Een overzicht van het proces voor het uitvoeren van een migratie met minimale downtime omvat:
-
-* **Migreren van het schema van de bron PostgreSQL** voor een Azure-Database voor PostgreSQL-database met behulp van de [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) opdracht met de parameter - n en vervolgens via de [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) opdracht.
-
-* **Instellen van de initiële belasting en synchroniseren van doorlopende gegevens uit de brondatabase voor de doeldatabase** door Attunity repliceren voor Microsoft Migrations. Hierdoor minimaliseert de tijd die de brondatabase moet worden ingesteld als alleen-lezen tijdens het voorbereiden van uw toepassingen en de doeldatabase PostgreSQL overschakelen op Azure.
-
-Zie voor meer informatie over de repliceren Attunity voor Microsoft Migrations biedt de volgende bronnen:
- - Ga naar de [Attunity repliceren voor Microsoft Migrations](https://aka.ms/attunity-replicate) webpagina.
- - Download [Attunity repliceren voor Microsoft-migraties](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Ga naar de [Attunity repliceren Community](https://aka.ms/attunity-community/) voor een introductiehandleiding, zelfstudies en ondersteuning.
- - Zie voor stapsgewijze instructies over het gebruik van Attunity repliceren PostgreSQL migreren naar Azure-Database voor PostgreSQL de [Database Migratiehandleiding](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).
+## <a name="next-steps"></a>Volgende stappen
+- Bekijk de video [App modernisering met Microsoft Azure](https://medius.studios.ms/Embed/Video/BRK2102?sid=BRK2102), die een demo waarin wordt getoond hoe PostgreSQL apps migreren naar Azure-Database voor PostgreSQL bevat.
+- Aanmelden voor een beperkte preview van minimale downtime migraties van PostgreSQL met Azure-Database voor PostgreSQL via de Azure-DMS [voorbeeldpagina](https://aka.ms/dms-preview).

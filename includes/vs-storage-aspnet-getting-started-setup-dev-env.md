@@ -22,7 +22,7 @@ Deze sectie helpt bij het instellen van de ontwikkelomgeving. Dit omvat het make
 
 2. Selecteer in het contextmenu **toevoegen** > **Connected-Service**.
 
-1. In de **verbonden Services** dialoogvenster, **Cloud-opslag met Azure Storage**, en selecteer vervolgens **configureren**.
+1. In de **verbonden Services** dialoogvenster, **Cloud-opslag met Azure Storage**.
 
     ![In het dialoogvenster Schermafbeelding van de verbonden Services](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 

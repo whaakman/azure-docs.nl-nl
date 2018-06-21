@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: juliako
-ms.openlocfilehash: 75bfb0d5d29f0b8e038e68af08130564b72a05bf
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 14779306815681c368a98d698a6688d528a6c747
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266750"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294026"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quota's en beperkingen in Azure Media Services v3
 
@@ -25,10 +25,11 @@ Dit artikel wordt beschreven, quota's en beperkingen in Azure Media Services v3.
 | Resource | Standaardlimiet | 
 | --- | --- | 
 | Activa per Azure Media Services-account | 1.000.000|
-| JobInputs per taak | 50 |
-| JobOutputs per taak | 20 (opgelost) |
+| JobInputs per taak | 50 (opgelost)|
+| JobOutputs per taak/TransformOutputs in een transformatie | 20 (opgelost) |
+| Bestanden per JobInput|10 (opgelost)|
 | Bestandsgrootte| In bepaalde situaties geldt er een limiet voor de maximale bestandsgrootte voor de verwerking van Media Services wordt ondersteund. <sup>(1)</sup> |
-| Taken per Media Services-account | 500.000 <sup>(2)</sup>|
+| Taken per Media Services-account | 500.000 <sup>(2)</sup> (opgelost)|
 | Aanbieding transformaties|Het antwoord, met 1000 transformaties per pagina pagineren|
 | Taken weergeven|Het antwoord, met 500 taken per pagina pagineren|
 | LiveEvents per Media Services-account |5|
@@ -36,11 +37,9 @@ Dit artikel wordt beschreven, quota's en beperkingen in Azure Media Services v3.
 | StreamingPolicies | 1.000.000<sup>(3)</sup> |
 | LiveOutputs in uitvoeringstoestand per LiveEvent |3|
 | LiveOutputs gestopt per LiveEvent |50|
-| Aantal bestanden per JobInput|10|
 | Opslagaccounts | 100<sup>(4)</sup> (opgelost) |
 | Streaming-eindpunten in uitvoeringstoestand per Media Services-account|2|
-| Transformaties per Media Services-account | 100 |
-| TransformOutputs in een transformatie| 20|
+| Transformaties per Media Services-account | 100 (opgelost)|
 | Unieke StreamingLocators die tegelijk zijn gekoppeld aan een Asset | 20<sup>(5)</sup> |
 
 <sup>1</sup> de maximale grootte voor één blob momenteel maximaal 5 TB in Azure Blob-opslag is ondersteund. Aanvullende limieten gelden echter in Azure Media Services op basis van de VM-grootten die worden gebruikt door de service. Als het bronbestand groter dan 260 GB is, mislukt de taak waarschijnlijk. Hebt u 4K-inhoud die groter is dan de limiet van 260 GB, contact met ons op amshelp@microsoft.com voor mogelijke oplossingen voor de ondersteuning van uw scenario.

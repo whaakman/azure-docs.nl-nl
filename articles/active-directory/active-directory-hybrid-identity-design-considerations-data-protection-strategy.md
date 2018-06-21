@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: f0def105997213ae5d356de89e6189b6441facbd
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824165"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295573"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definieer de strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit
 In deze taak definieert u de strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in:
@@ -57,7 +57,7 @@ Afhankelijk van hoe u de vragen in beantwoord [gegevensbeveiligingsvereisten bep
 >
 
 ## <a name="define-content-management-options"></a>Definieer de opties voor inhoudbeheer
-Een voordeel van het gebruik van Azure AD voor het beheren van een infrastructuur voor hybride identiteit is dat het proces volledig transparant vanuit het perspectief van de eindgebruiker is. De gebruiker probeert te krijgen tot een gedeelde bron, de resource vereist verificatie, de gebruiker heeft een verificatieaanvraag naar Azure AD om de token verkrijgen en toegang tot de bron te verzenden. Dit gehele proces wordt uitgevoerd op de achtergrond, zonder tussenkomst van de gebruiker. Het is ook mogelijk machtiging verlenen om te een [groep](active-directory-manage-groups.md#getting-started-with-access-management) gebruikers zodat zij bepaalde algemene acties uit te voeren.
+Een voordeel van het gebruik van Azure AD voor het beheren van een infrastructuur voor hybride identiteit is dat het proces volledig transparant vanuit het perspectief van de eindgebruiker is. De gebruiker probeert te krijgen tot een gedeelde bron, de resource vereist verificatie, de gebruiker heeft een verificatieaanvraag naar Azure AD om de token verkrijgen en toegang tot de bron te verzenden. Dit gehele proces wordt uitgevoerd op de achtergrond, zonder tussenkomst van de gebruiker. Het is ook mogelijk machtiging verlenen om te een [groep](fundamentals/active-directory-manage-groups.md#getting-started-with-access-management) gebruikers zodat zij bepaalde algemene acties uit te voeren.
 
 Organisaties die zorgen te maken over de privacy van gegevens meestal zijn vereisen gegevensclassificatie voor hun oplossing. Als de huidige on-premises infrastructuur gegevensclassificatie al wordt gebruikt, is het mogelijk te gebruiken van Azure AD als de belangrijkste opslagplaats voor de identiteit van de gebruiker. Een algemene hulpprogramma dat het gebruikte lokaal is voor gegevensclassificatie heet [Data Classification Toolkit](https://msdn.microsoft.com/library/Hh204743.aspx) voor Windows Server 2012 R2. Dit hulpprogramma kunt u identificeren, classificeren en beveiligen van gegevens op bestandsservers in uw privécloud. Het is ook mogelijk gebruik van de [automatische Bestandsclassificatie](https://technet.microsoft.com/library/hh831672.aspx) in Windows Server 2012 deze taak uit te voeren.
 
@@ -131,12 +131,12 @@ Elke interactie in het diagram weergegeven zoals in afbeelding X vertegenwoordig
 
   3. Voorwaardelijke toegang voor Office 365-toepassingen met Microsoft Intune: IT-beheerders kunnen apparaatbeleid voor voorwaardelijke toegang voor het beveiligen van bedrijfsbronnen, terwijl tegelijkertijd waardoor de informatiewerkers op compatibele apparaten toegang krijgen tot de services inrichten. Zie [Conditional Access Device Policies for Office 365 services (Engelstalig)](active-directory-conditional-access-device-policies.md) voor meer informatie.
 
-  4. Voorwaardelijke toegang voor Saas-apps: [deze functie](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) kunt u regels voor toegang per toepassing multi-factor authentication-server en de mogelijkheid om te blokkeren van toegang voor gebruikers niet op een vertrouwd netwerk configureren. U kunt de multi-factor authentication-regels toepassen op alle gebruikers die zijn toegewezen aan de toepassing of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen. Gebruikers kunnen worden uitgesloten van de vereiste voor meervoudige verificatie als ze toegang hebben tot de toepassing van een IP-adres dat in binnen de organisatie-netwerk.
+  4. Voorwaardelijke toegang voor Saas-apps: [deze functie](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kunt u regels voor toegang per toepassing multi-factor authentication-server en de mogelijkheid om te blokkeren van toegang voor gebruikers niet op een vertrouwd netwerk configureren. U kunt de multi-factor authentication-regels toepassen op alle gebruikers die zijn toegewezen aan de toepassing of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen. Gebruikers kunnen worden uitgesloten van de vereiste voor meervoudige verificatie als ze toegang hebben tot de toepassing van een IP-adres dat in binnen de organisatie-netwerk.
 
 Omdat de opties voor toegangsbeheer gebruiken een gelaagde benadering, vergelijking tussen deze opties zijn niet geldig voor deze taak. Zorg ervoor dat u gebruik van alle beschikbare opties voor elk scenario dat vereist dat u toegang tot uw resources.
 
 ## <a name="define-incident-response-options"></a>Definieer de opties voor respons op incidenten
-Azure AD kan helpen IT identiteit potentiële beveiligingsrisico's in de omgeving door de bewaking van gebruikersactiviteit. IT Azure AD Access kunt en gebruiksrapporten meer inzicht verkrijgen in de integriteit en beveiliging van de directory van uw organisatie. Met deze informatie kunt kan IT-beheerder beter bepalen waar mogelijk beveiligingsrisico's mogelijk liggen zodat ze voldoende plannen kunnen die risico's te beperken.  [Azure AD Premium-abonnement](active-directory-get-started-premium.md) beschikt over een reeks beveiligingsrapporten waardoor IT om deze informatie te verkrijgen. [Azure AD-rapporten](active-directory-view-access-usage-reports.md) als volgt worden ingedeeld:
+Azure AD kan helpen IT identiteit potentiële beveiligingsrisico's in de omgeving door de bewaking van gebruikersactiviteit. IT Azure AD Access kunt en gebruiksrapporten meer inzicht verkrijgen in de integriteit en beveiliging van de directory van uw organisatie. Met deze informatie kunt kan IT-beheerder beter bepalen waar mogelijk beveiligingsrisico's mogelijk liggen zodat ze voldoende plannen kunnen die risico's te beperken.  [Azure AD Premium-abonnement](fundamentals/active-directory-get-started-premium.md) beschikt over een reeks beveiligingsrapporten waardoor IT om deze informatie te verkrijgen. [Azure AD-rapporten](active-directory-view-access-usage-reports.md) als volgt worden ingedeeld:
 
 * **Rapporten voor afwijkingsdetectie**: aanmelden gebeurtenissen die zijn gevonden zijn afwijkende bevatten. Het doel is u rekening houden met deze activiteit en kunt u bepalen of een gebeurtenis verdacht is.
 * **Rapport van de toepassing geïntegreerde**: biedt inzicht in hoe cloud-toepassingen in uw organisatie worden gebruikt. Azure Active Directory biedt integratie met duizenden cloud-toepassingen.
@@ -145,9 +145,9 @@ Azure AD kan helpen IT identiteit potentiële beveiligingsrisico's in de omgevin
 * **Activiteitenlogboeken**: bevatten een record van alle controlegebeurtenissen binnen de afgelopen 24 uur, afgelopen 7 dagen of afgelopen 30 dagen, evenals wijzigingen in groep activiteiten en activiteit voor wachtwoord opnieuw instellen en registratie.
 
 > [!TIP]
-> Een ander rapport waarmee u kunt ook het Incident Response-team werkt aan een aanvraag is de [gebruiker met gelekte referenties](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) rapport. Dit rapport geeft alle resultaten weer tussen de lijst gelekte aanmeldingsreferenties en uw tenant.
+> Een ander rapport waarmee u kunt ook het Incident Response-team werkt aan een aanvraag is de [gebruiker met gelekte referenties](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) rapport. Dit rapport geeft alle resultaten weer tussen de lijst gelekte aanmeldingsreferenties en uw tenant.
 >
->
+
 
 Andere belangrijke ingebouwde rapporten in Azure AD die kan worden gebruikt tijdens een onderzoek respons op incidenten en zijn:
 

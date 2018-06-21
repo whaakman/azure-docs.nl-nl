@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 061269050ad598e1877c3b7bc6745d4095816020
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301215"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293520"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
@@ -118,19 +118,11 @@ Om te zoeken en weergeven van gebeurtenissen in uw logische app, zoals gebeurten
 
    ![Selecteer de werkruimte voor logboekanalyse](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. Onder **Management**, kies **OMS-Portal**.
+3. Onder **Management**, kies **logboek zoeken**.
 
-   ![Kies 'OMS-Portal'](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
+   ![Kies 'Logboek zoekopdracht'](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
-4. Kies op de startpagina **logboek zoeken**.
-
-   ![Kies op uw startpagina "Logboek zoeken"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
-
-   -of-
-
-   ![Kies in het menu "Logboek zoeken"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
-
-5. Geef in het zoekvak, een veld dat u wilt zoeken en druk op **Enter**. Wanneer u te typen begint, ziet u mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. 
+4. Geef in het zoekvak, een veld dat u wilt zoeken en druk op **Enter**. Wanneer u te typen begint, ziet u mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. 
 
    Bijvoorbeeld als u zoekt de top 10-gebeurtenissen die hebben plaatsgevonden, invoeren en deze zoekopdracht selecteren: **categorie Zoek == "WorkflowRuntime" | 10 beperken**
 
@@ -138,27 +130,27 @@ Om te zoeken en weergeven van gebeurtenissen in uw logische app, zoals gebeurten
 
    Meer informatie over [hoe u gegevens wilt zoeken in logboekanalyse](../log-analytics/log-analytics-log-searches.md).
 
-6. Kies de periode die u wilt weergeven in de linkerbalk op de resultatenpagina.
+5. Kies de periode die u wilt weergeven in de linkerbalk op de resultatenpagina.
 Als u wilt uw query te verfijnen door een filter toe te voegen, kies **+ toevoegen**.
 
    ![Kies tijdskader voor de queryresultaten](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-7. Onder **Filters toevoegen**, voer de naam van het filter zodat u kunt het filter dat u wilt zoeken. Selecteer het filter en kies **+ toevoegen**.
+6. Onder **Filters toevoegen**, voer de naam van het filter zodat u kunt het filter dat u wilt zoeken. Selecteer het filter en kies **+ toevoegen**.
 
    In dit voorbeeld wordt het woord 'status' mislukt-gebeurtenissen onder vinden **AzureDiagnostics**.
    Hier het filter voor **status_s** is al geselecteerd.
 
    ![Selecteer filter](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-8. Selecteer de filterwaarde die u wilt gebruiken en kies in de linkerbalk **toepassen**.
+7. Selecteer de filterwaarde die u wilt gebruiken en kies in de linkerbalk **toepassen**.
 
    ![Filterwaarde selecteert, kiest u 'Toepassen'](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-9. Nu kunt u terugkeren naar de query die u maakt. De query wordt bijgewerkt met het geselecteerde filter en de waarde. De resultaten van uw vorige worden nu te gefilterd.
+8. Nu kunt u terugkeren naar de query die u maakt. De query wordt bijgewerkt met het geselecteerde filter en de waarde. De resultaten van uw vorige worden nu te gefilterd.
 
    ![Ga terug naar uw query met gefilterde resultaten](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-10. Sla de query voor toekomstig gebruik, kies **opslaan**. Meer informatie over [het opslaan van uw query](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+9. Sla de query voor toekomstig gebruik, kies **opslaan**. Meer informatie over [het opslaan van uw query](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
 <a name="extend-diagnostic-data"></a>
 
