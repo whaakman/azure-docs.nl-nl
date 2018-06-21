@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 8eefb66e50b4dfd601428eec90784b0991276b5a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: c24c311f6ee446122fea7fd7699b34ab2ae8510c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807886"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292837"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Snelstartgids: Een apparaat beheren dat is verbonden met een IoT-hub (.NET)
 
@@ -143,9 +143,7 @@ De back-endtoepassing maakt verbinding met een eindpunt aan de servicezijde van 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u van plan bent om de zelfstudies uit te voeren, hebt u de resourcegroep en IoT-hub nog nodig.
-
-Als u de IoT-hub niet langer nodig hebt, verwijdert u deze en de resourcegroep in de portal. Selecteer hiertoe de resourcegroep met de IoT-hub en klik op **Verwijderen**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

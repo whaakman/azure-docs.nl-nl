@@ -3,20 +3,20 @@ title: Quickstart - Azure Time Series Insights-verkenner | Microsoft Docs
 description: In deze quickstart wordt beschreven hoe u de verkenner van Azure Time Series Insights kunt gebruiken in uw webbrowser om grote hoeveelheden IoT-gegevens te visualiseren. In dit artikel worden de belangrijkste functies van de verkenner van Azure Time Series Insights behandeld via een rondleiding in een demo-omgeving.
 ms.service: time-series-insights
 services: time-series-insights
-author: MarkMcGeeAtAquent
-ms.author: v-mamcge
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: dbf0aef7a032c9b9808db14031555c7498874ac3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 45eb469fdbd3603d1ebdcb558485ff0f93822f6b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652114"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293857"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Quickstart: Azure Time Series Insights verkennen
 In deze quickstart wordt in een gratis demo-omgeving uitgelegd hoe u aan de slag kunt met de verkenner van Azure Time Series Insights. U leert hoe u in uw webbrowser grote hoeveelheden IoT-gegevens kunt visualiseren en u maakt een rondleiding door de belangrijkste functies van de verkenner van Time Series Insights. 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4caa4dfcfdc468c69241c5cf61d3c520609a088a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e52674014a888913e288f7b0749d9b2e05bedf45
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710258"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292783"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Snelstart: aanmelden instellen voor een ASP.NET-toepassing met Azure Active Directory B2C
 
@@ -124,4 +124,4 @@ In deze snelstart hebt u een voorbeeld van een voor Azure AD B2C geconfigureerde
 U kunt verdergaan met de zelfstudie als u wilt leren hoe u de ASP.NET-voorbeeld-app kunt configureren voor het gebruik van uw eigen Azure AD B2C-tenant.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: verificatie van gebruikers met Azure Active Directory B2C in een ASP.NET-web-app](active-directory-b2c-tutorials-web-app.md)
+> [Een Azure Active Directory B2C-tenant maken in Azure Portal](tutorial-create-tenant.md)

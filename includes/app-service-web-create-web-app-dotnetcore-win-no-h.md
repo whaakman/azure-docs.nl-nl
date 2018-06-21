@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 2e5f5f596834eeb04620005fb7e024cf9e4ffdb3
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3275fb0e40e7cdd6f02ec96fb949ec4e4e673f26
+ms.sourcegitcommit: 902aae1b5f872993185cbf1e35a4f7bb93748226
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28987305"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35656314"
 ---
 Een [web-app](../articles/app-service/containers/app-service-linux-intro.md) maken in het App Service-plan `myAppServicePlan`. 
 
@@ -40,8 +40,6 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
   < JSON data removed for brevity. >
 }
 ```
-
-U hebt een lege web-app in een Linux-container gemaakt, waarbij git-implementatie is ingeschakeld.
 
 > [!NOTE]
 > De URL van de externe Git wordt weergegeven in de eigenschap `deploymentLocalGitUrl`, met de indeling `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Sla deze URL op, want u hebt deze later nodig.

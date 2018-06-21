@@ -48,7 +48,7 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
-    - name: Activiteitenlogboeken
+    - name: Activiteitenlogboeken bekijken
       href: change-history-report.md
     - name: Toegangsrechten voor de globale beheerder uitbreiden
       href: elevate-access-global-admin.md
