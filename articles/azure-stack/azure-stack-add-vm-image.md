@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 309bd35eabe1d5c4af9a35d5f2b879bce225a402
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604366"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287701"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine in Azure Stack beschikbaar maken
 
@@ -207,7 +207,7 @@ Wanneer u de installatiekopie van de virtuele machine die u hebt geüpload niet 
     Bijvoorbeeld: `1.0.0`  
     De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Deze versie is in de notatie  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Neem geen een spatie of andere speciale tekens in dit veld.  
     
-    Zie voor meer informatie over theRemove AzsPlatformImage cmdlet de Microsoft PowerShell [Azure Stack Operator module documentatie](https://docs.microsoft.com/powershell/module/).
+    Zie voor meer informatie over de cmdlet Remove-AzsPlatformImage de Microsoft PowerShell [Azure Stack Operator module documentatie](https://docs.microsoft.com/powershell/module/).
 
 ## <a name="next-steps"></a>Volgende stappen
 
