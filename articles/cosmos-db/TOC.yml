@@ -328,6 +328,8 @@ items:
                 href: mongodb-readpreference.md
               - name: Indexeren
                 href: mongodb-indexing.md
+              - name: TTL in MongoDB
+                href: mongodb-ttl.md
               - name: Uw gegevens visualiseren met Power BI
                 href: powerbi-visualize.md
               - name: Het gebruik van Storage Explorer beheren

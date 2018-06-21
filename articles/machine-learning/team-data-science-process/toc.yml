@@ -54,15 +54,17 @@
     - name: Azure Machine Learning
       href: walkthroughs-aml-with-tdsp.md
       items:
-        - name: Gevoelsclassificatie
+        - name: Gevoelsclassificatie met Keras & Scikit Learn
           href: predict-twitter-sentiment.md
+        - name: Gevoelsclassificatie met AML-pakket voor tekstanalyse
+          href: predict-twitter-sentiment-amltextpackage.md
         - name: Inkomstenclassificatie VS
           href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: Herkenning biomedische entiteit
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
-        - name: Afbeeldingsclassificatie voor huidkanker
+        - name: Afbeeldingsclassificatie voor huidkanker met AML-visiepakket
           href: isic-image-classification.md
           maintainContext: true
     - name: Spark met PySpark en Scala

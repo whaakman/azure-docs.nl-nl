@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Zelfstudies
   items:
-    - name: 1 - Toepassing registreren
-      href: tutorial-register-applications.md
+    - name: 1 - B2C-tenant maken
+      href: tutorial-create-tenant.md
     - name: 2 - Accounts verifiëren
       items:
         - name: ASP.NET

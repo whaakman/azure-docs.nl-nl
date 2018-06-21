@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234514"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293713"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Web-apps configureren in Azure App Service
 
@@ -46,7 +46,7 @@ De **toepassingsinstellingen** blade bevat instellingen die zijn gegroepeerd ond
 Omwille van de technische Java inschakelen voor uw app .NET, PHP en Python worden de opties uitgeschakeld.
 
 <a name="platform"></a>
-**Platform**. Hiermee selecteert u of uw web-app wordt uitgevoerd in een 32-bits of 64-bits-omgeving. De 64-bits-omgeving vereist Basic- of Standard-modus. Gratis en gedeelde modi altijd uitgevoerd in een 32-bits-omgeving.
+**Platform**. Hiermee selecteert u of uw web-app wordt uitgevoerd in een 32-bits of 64-bits-omgeving. De 64-bits-omgeving vereist Basic- of Standard-laag. Gratis en gedeelde laag wordt altijd uitgevoerd in een 32-bits-omgeving.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -56,6 +56,13 @@ Omwille van de technische Java inschakelen voor uw app .NET, PHP en Python worde
 **AlwaysOn**. Standaard worden web-apps uit het geheugen verwijderd als ze een bepaalde tijd inactief zijn. Hiermee wordt het systeem te besparen. In de modus voor Basic- of Standard, schakelt u **altijd op** te houden van de app geladen voortdurend. Als uw app doorlopende webtaken wordt uitgevoerd of wordt uitgevoerd WebJobs geactiveerd met behulp van een expressie CRON, moet u inschakelen **altijd op**, of de webtaken niet betrouwbaar worden uitgevoerd.
 
 **Beheerde Pipeline-versie**. Hiermee stelt u de IIS [pipeline-modus]. Laat deze set geïntegreerde (standaard) tenzij u hebt een oudere app waarvoor een oudere versie van IIS is vereist.
+
+**HTTP-versie**. Ingesteld op **2.0** ondersteuning voor inschakelen [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol. 
+
+> [!NOTE]
+> De meeste moderne browsers ondersteund HTTP/2-protocol via TLS alleen, terwijl de niet-versleutelde verkeer nog steeds gebruik van HTTP/1.1. Om ervoor te zorgen dat de client browsers verbinding maken met uw app met HTTP/2, ofwel [een App Service-certificaat kopen](web-sites-purchase-ssl-web-site.md) voor het aangepaste domein van uw app of [een derde partij certificaat binden](app-service-web-tutorial-custom-ssl.md).
+
+**ARR affiniteit**. In een app wordt die uitgebreid naar meerdere exemplaren van virtuele machine, ARR affiniteit cookies garanderen dat de client wordt gerouteerd naar hetzelfde exemplaar voor de duur van de sessie. Om te verbeteren de prestaties van staatloze toepassingen, kunt u deze optie instelt op **uit**.   
 
 **Automatisch wisselen**. Als u automatisch wisselen voor een implementatiesleuf inschakelt, wordt App Service automatisch de web-app wisselen naar de productie wanneer u een update push naar die site. Zie voor meer informatie [implementeren naar tijdelijke sleuven voor web-apps in Azure App Service](web-sites-staged-publishing.md).
 

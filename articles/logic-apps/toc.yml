@@ -268,14 +268,14 @@
       items:
         - name: De status van logische apps bewaken
           href: logic-apps-monitor-your-logic-apps.md
-        - name: De status van logische apps in OMS bewaken met Log Analytics
+        - name: De status van logische apps bewaken met Azure Log Analytics
           href: logic-apps-monitor-your-logic-apps-oms.md
         - name: B2B-berichten bewaken
           href: logic-apps-monitor-b2b-message.md
           items:
-            - name: B2B-berichten bijhouden in OMS
+            - name: B2B-berichten bewaken met Azure Log Analytics
               href: logic-apps-track-b2b-messages-omsportal.md
-            - name: B2B-berichten in OMS opvragen
+            - name: Query's uitvoeren op Azure Log Analytics voor B2B-berichten
               href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
     - name: 'Voorbeelden, scenario''s en rondleidingen'
       href: logic-apps-examples-and-scenarios.md

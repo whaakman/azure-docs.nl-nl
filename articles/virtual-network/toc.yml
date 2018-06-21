@@ -161,12 +161,8 @@
               href: virtual-networks-dmz-nsg.md
     - name: Configureren
       items:
-        - name: Virtuele machines
-          items:
-            - name: Netwerkinterfaces toevoegen of verwijderen
-              href: virtual-network-network-interface-vm.md
-            - name: Naamomzetting voor VM's en cloudservices
-              href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+        - name: Naamomzetting voor VM's en cloudservices
+          href: virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: Dynamische DNS gebruiken met uw eigen DNS-server
           href: virtual-networks-name-resolution-ddns.md
         - name: Netwerkdoorvoer optimaliseren
@@ -191,17 +187,16 @@
               href: virtual-network-nsg-manage-log.md
         - name: Routetabellen
           href: manage-route-table.md
-        - name: Netwerkinterfaces
-          href: virtual-network-network-interface.md
+        - name: VM-netwerken
           items:
-            - name: IP-adressen
+            - name: Een netwerkinterface maken of verwijderen
+              href: virtual-network-network-interface.md
+            - name: Netwerkinterfaces toevoegen of verwijderen
+              href: virtual-network-network-interface-vm.md
+            - name: IP-adressen toevoegen of verwijderen
               href: virtual-network-network-interface-addresses.md
         - name: Openbare IP-adressen
           href: virtual-network-public-ip-address.md
-        - name: Virtuele machines
-          items:
-            - name: Een VM verplaatsen naar een ander subnet
-              href: virtual-networks-move-vm-role-to-subnet.md
     - name: Problemen oplossen
       items:
         - name: Netwerkbeveiligingsgroepen
@@ -277,6 +272,8 @@
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                     - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md
+                - name: Een VM verplaatsen naar een ander subnet
+                  href: virtual-networks-move-vm-role-to-subnet.md
         - name: Cloudservice en netwerkbeveiliging
           href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
           items:
