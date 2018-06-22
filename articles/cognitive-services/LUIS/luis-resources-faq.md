@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9804b9d5187637fe509d79134f93280d93daca76
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b6b333937e7c88f566fc401967b26cbd31ca158b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266138"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301499"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding-Veelgestelde vragen
 
@@ -49,6 +49,9 @@ De vorige **patroonfunctie** momenteel is afgeschaft, vervangen door  **[patrone
 
 ### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Hoe gebruik ik een entiteit voor het ophalen van de juiste gegevens? 
 Zie [entiteiten](luis-concept-entity-types.md) en [ophalen van gegevens](luis-concept-data-extraction.md).
+
+### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Variaties van een voorbeeld utterance leestekens bevatten? 
+De verschillende variaties als voorbeeld utterances naar de bedoeling toevoegen of toevoegen van het patroon van de utterance voorbeeld met de [syntaxis voor het negeren van](luis-concept-patterns.md#pattern-syntax) de leestekens. 
 
 ## <a name="luis-endpoint"></a>LUIS eindpunt
 

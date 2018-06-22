@@ -16,10 +16,10 @@ ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
 ms.openlocfilehash: 2c2813a7f2d909a23c8f5d4f5ac0280b3f932ba6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
+ms.lasthandoff: 06/21/2018
 ms.locfileid: "34700121"
 ---
 # <a name="azure-stack-1804-update"></a>Azure-Stack 1804 update
@@ -37,11 +37,11 @@ Het buildnummer van Azure Stack 1804 update **20180513.1**.
 ### <a name="new-features"></a>Nieuwe functies
 Deze update bevat de volgende verbeteringen voor Azure-Stack.
 
-- <!-- 15028744 - IS -->  **Visual Studio support for disconnected Azure Stack deployments using AD FS**. Within Visual Studio you now can add subscriptions and authenticate using AD FS federated User credentials. 
+- <!-- 15028744 - IS -->  **Visual Studio-ondersteuning voor niet-verbonden Azure Stack-implementaties met AD FS**. In Visual Studio nu kunt u abonnementen toevoegt en verifiëren federatieve met AD FS gebruikersreferenties. 
  
-- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
+- <!-- 1779474, 1779458 - IS --> **Gebruik virtuele machines voor reeks Av2 en F**. Azure Stack kan nu gebruikmaken van virtuele machines op basis van de grootte van de virtuele machines Av2-serie en F-serie. Zie voor meer informatie [grootten van virtuele machines in Azure-Stack ondersteund](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
-- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
+- <!-- 1759172 - IS, ASDK --> **Nieuwe beheerdersrechten abonnementen**. Met 1804 zijn twee nieuwe typen van abonnementen beschikbaar in de portal. Deze nieuwe abonnement-typen worden naast de standaard Provider-abonnement en zichtbaar met de nieuwe Azure-Stack installaties vanaf versie 1804. *Deze nieuwe typen abonnementen niet gebruiken voor deze versie van Azure-Stack*. We zullen bekendmaken voor het gebruik van deze typen abonnement aan met een toekomstige update. 
 
   Als u Azure-Stack naar versie 1804 bijwerken, zijn de twee nieuwe abonnement typen niet zichtbaar. Echter nieuwe implementaties van Azure-Stack geïntegreerd systemen en installaties van de versie van de Azure-Stack Development Kit 1804 of hoger hebben toegang tot alle drie abonnement typen.  
 
@@ -58,11 +58,11 @@ Deze update bevat de volgende verbeteringen voor Azure-Stack.
 
 ## <a name="fixed-issues"></a>Opgeloste problemen
 
-- <!-- IS, ASDK -->  In the admin portal, you no longer have to refresh the Update tile before it displays information.
+- <!-- IS, ASDK -->  In het beheerportal hoeft u niet langer de tegel Update vernieuwen voordat deze informatie wordt weergegeven.
  
-- <!-- 2050709  -->  You can now use the admin portal to edit storage metrics for Blob service, Table service, and Queue service.
+- <!-- 2050709  -->  U kunt nu het beheerportal opslag metrische gegevens voor Blob-service, service Table en Queue-service bewerken.
  
-- <!-- IS, ASDK --> Under **Networking**, when you click **Connection** to set up a VPN connection, **Site-to-site (IPsec)** is now the only available option.
+- <!-- IS, ASDK --> Onder **Networking**, wanneer u klikt op **verbinding** voor het instellen van een VPN-verbinding, **Site-naar-site (IPsec)** is nu de enige beschikbare optie.
 
 - **Verschillende oplossingen** voor prestaties, stabiliteit, beveiliging en het besturingssysteem dat wordt gebruikt door de Azure-Stack.
 
@@ -85,7 +85,7 @@ De volgende zijn nu beschikbaar, maar geen Azure-Stack update 1804 vereist.
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces kan controleren   
 - Tijdens de installatie van de update 1804 ziet u mogelijk waarschuwingen met de titel *fout: sjabloon voor FaultType UserAccounts.New ontbreekt.*  U kunt deze waarschuwingen negeren. Deze waarschuwingen wordt automatisch gesloten nadat de update naar 1804 is voltooid.   
  
-- <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+- <!-- TBD - IS --> Probeer niet voor het maken van virtuele machines tijdens de installatie van deze update. Zie voor meer informatie over het beheren van updates, [beheren van updates in de Azure-Stack overzicht](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
@@ -97,37 +97,37 @@ De volgende zijn nu beschikbaar, maar geen Azure-Stack update 1804 vereist.
 Hieronder vindt u na de installatie bekende problemen voor de build **20180513.1**.
 
 #### <a name="portal"></a>Portal
-- <!-- 1272111 - IS --> After you install or update to this version of Azure Stack, you might not be able to view Azure Stack scale units in the Admin portal.  
+- <!-- 1272111 - IS --> Na het installeren of bijwerken naar deze versie van Azure-Stack, kunt u mogelijk niet schaaleenheden Azure Stack weergeven in de beheerportal.  
   Tijdelijke oplossing: Gebruik PowerShell om weer te geven informatie over schaaleenheden. Zie voor meer informatie de [help](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) voor Azure Stack Module 1.3.0 inhoud. 
 
-- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+- <!-- 2332636 - IS -->  Wanneer u AD FS voor uw Azure-Stack identiteitssysteem en de update in deze versie van Azure-Stack, de standaardeigenaar van het abonnement van de provider standaard ingesteld op de ingebouwde **CloudAdmin** gebruiker.  
   Tijdelijke oplossing: Los dit probleem nadat u deze update installeert, gebruikt u stap 3 van de [Trigger automation voor het configureren van een claimprovider in Azure-Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure opnieuw instellen van de eigenaar van het standaard provider-abonnement.   
 
-- <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+- <!-- TBD - IS ASDK --> Sommige typen beheerdersrechten abonnementen zijn niet beschikbaar.  Wanneer u Azure-Stack naar deze versie bijwerkt, worden de typen van de twee abonnementen zijn [geïntroduceerd in versie 1804](#new-features) zijn niet zichtbaar in de console. Dit is normaal gedrag. Het abonnement niet beschikbaar-typen zijn *softwarelicentiecontrole abonnement*, en *verbruik abonnement*. Deze typen abonnement zichtbaar zijn in de nieuwe Azure-Stack omgevingen vanaf versie 1804 maar nog niet klaar voor gebruik. U moet blijven gebruiken de *Provider standaard* abonnementstype.  
 
 
-- <!-- TBD -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
+- <!-- TBD -  IS ASDK -->De mogelijkheid [een nieuwe ondersteuningsaanvraag openen vanuit de vervolgkeuzelijst](azure-stack-manage-portals.md#quick-access-to-help-and-support) uit binnen de beheerder van de portal is niet beschikbaar. Gebruik in plaats daarvan de volgende koppeling:     
     - Gebruik voor Azure-Stack geïntegreerde systemen https://aka.ms/newsupportrequest.
 
-- <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
+- <!-- 2403291 - IS ASDK --> Hebt u mogelijk geen gebruik van de horizontale schuifbalk langs de onderkant van de portals beheerder en gebruiker. Als u geen toegang de horizontale schuifbalk tot, links gebruik de breadcrumbs om te navigeren naar een vorige blade in de portal voor u de naam van de blade selecteert u wilt weergeven in de lijst van de breadcrumb gevonden aan de bovenkant van de portal.
   ![Breadcrumb](media/azure-stack-update-1804/breadcrumb.png) 
 
-- <!-- TBD - IS --> It might not be possible to view compute or storage resources in the administrator portal. The cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
+- <!-- TBD - IS --> Het is niet mogelijk om compute of opslag resources in de beheerdersportal weer te geven. De oorzaak van dit probleem is een fout opgetreden tijdens de installatie van de update zorgt ervoor dat de update niet correct worden gerapporteerd als geslaagd. Als dit probleem optreedt, moet u contact op met Microsoft Customer Support Services voor ondersteuning.
 
-- <!-- TBD - IS --> You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
+- <!-- TBD - IS --> U ziet een lege dashboard in de portal. Als u wilt herstellen het dashboard, selecteert u het pictogram tandwielpictogram in de rechterbovenhoek van de portal en selecteer vervolgens **standaardinstellingen herstellen**.
 
-- <!-- TBD - IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
+- <!-- TBD - IS ASDK --> Gebruiker abonnementen resulteert in een zwevende resources te verwijderen. Als tijdelijke oplossing Gebruikersbronnen of de hele resourcegroep eerst te verwijderen en verwijder vervolgens de gebruikersabonnementen.
 
-- <!-- TBD - IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
+- <!-- TBD - IS ASDK --> U kunt machtigingen aan uw abonnement met behulp van de portals Azure Stack niet weergeven. Als tijdelijke oplossing PowerShell te gebruiken om machtigingen te controleren.
 
-- <!-- TBD - IS ASDK --> In the admin portal, you might see a critical alert for the *Microsoft.Update.Admin* component. The Alert name, description, and remediation all display as:  
+- <!-- TBD - IS ASDK --> In het beheerportal, ziet u mogelijk een kritieke waarschuwing voor de *Microsoft.Update.Admin* onderdeel. De naam van waarschuwing, beschrijving en herstel alle als weergegeven:  
     - *Fout - sjabloon voor FaultType ResourceProviderTimeout ontbreekt.*
 
   Deze waarschuwing kan worden genegeerd. 
 
 
 #### <a name="health-and-monitoring"></a>Status en bewaking
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Mogelijk ziet u waarschuwingen voor de *Health-domeincontroller* onderdeel dat u hebt de volgende details:  
 
    Waarschuwing #1:
    - NAAM: De functie van de infrastructuur is slecht
@@ -145,7 +145,7 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180513.1
  
 
 #### <a name="compute"></a>Compute
-- <!-- TBD - IS --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
+- <!-- TBD - IS --> Als u de grootte van een virtuele machine voor de implementatie van een virtuele machine, sommige F-serie VM-grootten zijn niet zichtbaar als onderdeel van de selector grootte wanneer u een virtuele machine maken. De volgende VM-grootten worden niet weergegeven in de selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, en *F64s_v2*.  
   Als tijdelijke oplossing een van de volgende methoden te gebruiken voor het implementeren van een virtuele machine. In elke methode moet u opgeven van de VM-grootte die u wilt gebruiken.
 
   - **Azure Resource Manager-sjabloon:** als u een sjabloon gebruikt, stelt de *vmSize* in de sjabloon zodat deze overeenkomt met de gewenste VM-grootte. Bijvoorbeeld, het volgende wordt gebruikt voor het implementeren van een virtuele machine die gebruikmaakt van de *F32s_v2* grootte:  
@@ -161,46 +161,46 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180513.1
   - **PowerShell:** met PowerShell kunt u [nieuw AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) met de parameter waarmee de VM-grootte, vergelijkbaar met `-VMSize "Standard_F32s_v2"`.
 
 
-- <!-- TBD - IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
+- <!-- TBD - IS ASDK --> Instellingen voor virtuele-machineschaalsets schalen zijn niet beschikbaar in de portal. Als tijdelijke oplossing kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
 
-- <!-- TBD - IS --> When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
+- <!-- TBD - IS --> Bij het maken van een beschikbaarheidsset in de portal door te gaan naar **nieuw** > **Compute** > **beschikbaarheidsset**, kunt u alleen maken een beschikbaarheidsset met een domein met fouten en het updatedomein van 1. Als tijdelijke oplossing bij het maken van een nieuwe virtuele machine, maakt u de beschikbaarheidsset met behulp van PowerShell, CLI of vanuit de portal.
 
-- <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
+- <!-- TBD - IS ASDK --> Wanneer u virtuele machines op de gebruikersportal van Azure-Stack maakt, wordt een onjuist aantal gegevensschijven dat aan een virtuele machine van de D-reeks koppelen kunt weergegeven in de portal. Alle ondersteunde D-reeks VMs aankan zo veel gegevensschijven als de configuratie van de Azure.
 
-- <!-- TBD - IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
+- <!-- TBD - IS ASDK --> Wanneer een installatiekopie van een virtuele machine niet kan worden gemaakt, kan een mislukte item dat u niet verwijderen, worden toegevoegd aan de VM-installatiekopieën compute-blade.
 
   Als tijdelijke oplossing door een nieuwe VM-installatiekopie te maken met een dummy VHD die kan worden gemaakt via de Hyper-V (New-VHD-pad C:\dummy.vhd-vaste - SizeBytes 1 GB). Dit proces los het probleem dat verhindert dat het mislukte item wordt verwijderd. Vervolgens kunt 15 minuten na het maken van de installatiekopie van het dummy, u met succes verwijderen.
 
   U kunt vervolgens redownload van de VM-installatiekopie die eerder is mislukt.
 
-- <!-- TBD - IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+- <!-- TBD - IS ASDK --> Als u een uitbreiding op de implementatie van een VM-inrichting te lang duurt, door gebruikers laten de inrichting time-outwaarde in plaats van bij het stoppen van het proces voor de toewijzing ongedaan maken of verwijderen van de virtuele machine.  
 
-- <!-- 1662991 IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
+- <!-- 1662991 IS ASDK --> Diagnostische gegevens van Linux-VM wordt niet ondersteund in Azure-Stack. Wanneer u een Linux-VM met diagnostische gegevens van virtuele machine is ingeschakeld implementeert, mislukt de implementatie. De implementatie mislukt ook als u de Linux-VM basismetrieken via de instellingen voor diagnostische inschakelt.  
 
 
 #### <a name="networking"></a>Netwerken
-- <!-- 1766332 - IS ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
+- <!-- 1766332 - IS ASDK --> Onder **Networking**, als u op **VPN-Gateway maken** voor het instellen van een VPN-verbinding, **op basis van beleid** wordt vermeld als een VPN-type. Selecteer deze optie niet. Alleen de **Route gebaseerd** optie wordt ondersteund in Azure-Stack.
 
-- <!-- 2388980 - IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
+- <!-- 2388980 - IS ASDK --> Nadat een virtuele machine is gemaakt en gekoppeld aan een openbaar IP-adres, kunt u die virtuele machine uit dat IP-adres kan niet loskoppelen. Disassociation lijkt te werken, maar de eerder toegewezen openbaar IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine.
 
   Op dit moment moet u alleen nieuwe openbare IP-adressen voor de nieuwe virtuele machines die u maakt.
 
   Dit gebeurt zelfs als u een nieuwe virtuele machine het IP-adres toewijzen (gewoonlijk aangeduid als een *VIP's wisselen*). Alle toekomstige verbinding probeert te maken via dit resultaat van de IP-adres in van een verbinding met de oorspronkelijk gekoppelde virtuele machine en niet naar het nieuwe bericht.
 
-- <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased. 
+- <!-- 2292271 - IS ASDK --> Als u een quotumlimiet voor een netwerkbron die deel uitmaakt van een aanbieding en het Plan dat is gekoppeld aan een tenantabonnement verhoogt, wordt de nieuwe limiet niet toegepast op dat abonnement. De nieuwe limiet is echter van toepassing op nieuwe abonnementen die zijn gemaakt nadat het quotum wordt verhoogd. 
 
   Gebruik een invoegtoepassing plan quotum te verhogen een netwerk wanneer het abonnement al gekoppeld aan een abonnement is om dit probleem omzeilen. Zie voor meer informatie hoe [beschikbaar maken van een plan voor de invoegtoepassing](azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
-- <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription. 
+- <!-- 2304134 IS ASDK --> U kunt een abonnement met DNS-Zone-bronnen of routetabel resources zijn gekoppeld niet verwijderen. Om het abonnement is verwijderd, moet u eerst een DNS-Zone en routetabel resources verwijderen uit het tenantabonnement. 
   
 
-- <!-- 1902460 - IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
+- <!-- 1902460 - IS ASDK --> Azure-Stack ondersteunt één *lokale netwerkgateway* per IP-adres. Dit geldt voor alle abonnementen van de tenant. Nadat het maken van de eerste lokale gateway netwerkverbinding, daaropvolgende pogingen tot het maken van een lokale gateway netwerkbron met hetzelfde IP-adres worden geblokkeerd.
 
-- <!-- 16309153 - IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
+- <!-- 16309153 - IS ASDK --> Op een virtueel netwerk dat is gemaakt met een DNS-Server-instelling van *automatische*, wijzigen voor een aangepaste DNS-Server mislukt. De bijgewerkte instellingen zijn niet doorgevoerd in de virtuele machines in dit Vnet.
 
-- <!-- TBD - IS ASDK --> Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+- <!-- TBD - IS ASDK --> Azure-Stack biedt geen ondersteuning voor extra netwerkinterfaces toevoegen aan een VM-instantie nadat de virtuele machine is geïmplementeerd. Als de virtuele machine meer dan één netwerkinterface vereist, moeten ze tijdens de implementatie worden gedefinieerd.
 
-- <!-- 2096388 IS --> You cannot use the admin portal to update rules for a network security group. 
+- <!-- 2096388 IS --> U kunt het beheerportal niet gebruiken om bij te werken van regels voor een netwerkbeveiligingsgroep. 
 
     Tijdelijke oplossing voor App Service: als u extern bureaublad op de exemplaren van de domeincontroller moet, u wijzigt de beveiligingsregels voor verbindingen binnen de netwerkbeveiligingsgroepen met PowerShell.  Hieronder vindt u voorbeelden van hoe *toestaan*, en zet u de configuratie van *weigeren*:  
     
@@ -265,13 +265,13 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180513.1
 
 #### <a name="sql-and-mysql"></a>SQL- en MySQL
 
-- <!-- TBD - IS --> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
+- <!-- TBD - IS --> Alleen de resourceprovider wordt voor het maken van items op servers die SQL-host of MySQL ondersteund. Items die worden gemaakt op een hostserver die niet zijn gemaakt door de resourceprovider kunnen leiden tot een niet-overeenkomende staat.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> Speciale tekens, inclusief spaties en perioden, worden niet ondersteund in de **familie** of **laag** namen bij het maken van een SKU voor de resourceproviders SQL en MySQL.
 
 
 > [!NOTE]  
-> <!-- TBD - IS --> After you update to Azure Stack 1804, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1802, first apply version 1803, and then update to 1804.      
+> <!-- TBD - IS --> Nadat u naar Azure Stack 1804 bijwerkt, kunt u blijven gebruiken van de SQL- en MySQL resourceproviders die u eerder hebt geïmplementeerd.  U wordt aangeraden dat u SQL en MySQL bijwerken wanneer er een nieuwe versie beschikbaar. Als Azure-Stack updates toepassen op SQL- en MySQL resourceproviders sequentieel worden verwerkt.  Als u versie 1802, versie 1803 eerst toe te passen en vervolgens bijwerken naar 1804.      
 >   
 > De installatie van update 1804 heeft geen invloed op het huidige gebruik van SQL- of MySQL resourceproviders door uw gebruikers.
 > Ongeacht de versie van de resourceproviders die u gebruikt de gegevens van uw gebruikers in hun databases is niet aangeraakt, en blijft toegankelijk.    
@@ -279,14 +279,14 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180513.1
 
 
 #### <a name="app-service"></a>App Service
-- <!-- 2352906 - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- <!-- 2352906 - IS ASDK --> Gebruikers moeten de storage resourceprovider registreren voordat ze hun eerste Azure-functie in het abonnement maken.
 
-- <!-- TBD - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
+- <!-- TBD - IS ASDK --> Om de infrastructuur (werknemers, beheer, front-rollen) uitbreiden, moet u PowerShell gebruiken, zoals beschreven in de release-opmerkingen voor Compute.
 
-- <!-- TBD - IS ASDK --> App Service can only be deployed into the **Default Provider Subscription** at this time.  In a future update App Service will deploy into the new Metering Subscription introduced in Azure Stack 1804 and all existing deployments will be migrated to this new subscription also.
+- <!-- TBD - IS ASDK --> App Service kan alleen worden geïmplementeerd in de **Provider-abonnement standaard** op dit moment.  In een toekomstige update App Service implementeert in het nieuwe abonnement softwarelicentiecontrole geïntroduceerd in Azure Stack 1804 en alle bestaande implementaties worden gemigreerd naar het nieuwe abonnement ook.
 
 #### <a name="usage"></a>Gebruik  
-- <!-- TBD - IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+- <!-- TBD - IS ASDK --> Gebruik van openbare IP-adres-gebruiksgegevens meter toont dezelfde *datum/tijd gebeurtenis* waarde voor elke record in plaats van de *TimeDate* tijdstempel die wordt aangegeven wanneer de record is gemaakt. U niet op dit moment kunnen deze gegevens gebruiken om uit te voeren nauwkeurige registratie van het gebruik van openbare IP-adres.
 
 
 <!-- #### Identity -->

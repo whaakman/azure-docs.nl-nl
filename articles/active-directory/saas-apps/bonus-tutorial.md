@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: adde08f7981e6e23ba5bf2601d2f019702d1d33c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d06f8e148e382c44b8858cc2f149f5851198d0d5
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231641"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Zelfstudie: Azure Active Directory-integratie met Bonusly
 
@@ -112,7 +112,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
-    > De waarde is geen echte. Werk de waarde met de werkelijke antwoord-URL. Neem contact op met [Bonusly ondersteuningsteam](https://Bonusly/contact) de waarde op te halen.
+    > De waarde is geen echte. Werk de waarde met de werkelijke antwoord-URL. Neem contact op met [Bonusly ondersteuningsteam](https://bonus.ly/contact) de waarde op te halen.
  
 4. Op de **SAML-certificaat voor ondertekening van** sectie, Kopieer de **VINGERAFDRUK** waarde van het certificaat.
 

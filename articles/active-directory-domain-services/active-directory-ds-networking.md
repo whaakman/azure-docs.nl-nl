@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265039"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300992"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Overwegingen voor Azure AD Domain Services netwerken
 ## <a name="how-to-select-an-azure-virtual-network"></a>Het selecteren van een virtuele Azure-netwerk
@@ -107,7 +107,7 @@ Het NSG ziet ook hoe vergrendelen beveiligde LDAP toegang via internet. Deze reg
 
 ![Voorbeeld NSG LDAPS om toegang te beveiligen via internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Meer informatie** - [maken van een Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Meer informatie** - [maken van een Netwerkbeveiligingsgroep](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Netwerkverbinding
@@ -145,4 +145,4 @@ U kunt een Resource Manager gebaseerde virtueel netwerk verbinding maken met de 
 * [Virtueel netwerk van Azure-peering](../virtual-network/virtual-network-peering-overview.md)
 * [Een VNet-naar-VNet-verbinding voor het klassieke implementatiemodel configureren](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Beveiligingsgroepen voor Azure-netwerk](../virtual-network/security-overview.md)
-* [Een Netwerkbeveiligingsgroep maken](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Een Netwerkbeveiligingsgroep maken](../virtual-network/manage-network-security-group.md)

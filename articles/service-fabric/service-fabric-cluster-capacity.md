@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5046a5e3771e95d76bb6edc7987a1e3176abeb0
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641880"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309412"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen bij capaciteitsplanning
 Voor productie-implementatie is capaciteitsplanning een belangrijke stap. Hier zijn enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -46,6 +46,8 @@ De **knooppunttype** kunnen worden beschouwd als equivalent aan rollen in Clouds
 Elk knooppunttype is een afzonderlijke scale ingesteld en kan worden uitgebreid of omlaag onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken hebben. Voor meer informatie over de relaties tussen knooppunttypen en virtuele-machineschaalsets hoe voor RDP in één van de exemplaren het openen van nieuwe poorten en enzovoort, Zie [knooppunttypen Service Fabric-cluster](service-fabric-cluster-nodetypes.md).
 
 Een Service Fabric-cluster kan bestaan uit meer dan één knooppunttype. In dat geval het cluster bestaat uit één primaire knooppunttype en knooppunttypen van een of meer niet-primaire.
+
+Een type met één knooppunt kan alleen 100 knooppunten per virtuele-machineschaalset niet overschrijden. Mogelijk moet u virtuele-machineschaalset wordt ingesteld voor de betreffende schaal en automatisch schalen kan geen automagically toevoegen virtuele-machineschaalsets toevoegen. Virtuele-machineschaalsets in-place toevoegen aan een live cluster is een uitdaging en vaak dit leidt ertoe dat gebruikers nieuwe clusters inrichten met de juiste knooppunttypen ingericht tijdens het maken. 
 
 ### <a name="primary-node-type"></a>Primaire knooppunttype
 
@@ -188,7 +190,7 @@ In deze richtlijnen staatloze werkbelastingen die u op de niet-primaire nodetype
 
 **Aantal VM-instanties:** voor productieworkloads staatloze zijn, is de minimale ondersteunde niet - primaire type knooppuntgrootte 2. Hiermee kunt u twee staatloze exemplaren van uw toepassing en waardoor uw service te blijven werken het verlies van een VM-instantie worden uitgevoerd. 
 
-**VM SKU:** . Dit is het knooppunttype waar uw toepassingsservices worden uitgevoerd, dus de VM-SKU u kiest, moet rekening gehouden met de piekbelasting u van plan bent om in elk knooppunt te plaatsen. De capaciteitsbehoeften van de nodetype wordt bepaald door de werkbelasting die u van plan bent om uit te voeren in het cluster, zodat we u met kwalitatieve richtlijnen voor uw specifieke werkbelasting, maar hier vindt u de algemene richtlijnen om u te helpen aan de slag niet opgeven
+**VM SKU:** . Dit is het knooppunttype waar uw toepassingsservices worden uitgevoerd, dus de VM-SKU u kiest, moet rekening gehouden met de piekbelasting u van plan bent om in elk knooppunt te plaatsen. De capaciteitsbehoeften van het knooppunttype wordt bepaald door de werkbelasting die u van plan bent om uit te voeren in het cluster, zodat we u met kwalitatieve richtlijnen voor uw specifieke werkbelasting, maar hier vindt u de algemene richtlijnen om u te helpen aan de slag niet opgeven
 
 Voor productieworkloads 
 

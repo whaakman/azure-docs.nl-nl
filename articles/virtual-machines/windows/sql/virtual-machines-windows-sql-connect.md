@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 522ece2528e43c1037dc6bb707201ecda8074dd9
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29400236"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301383"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Verbinding maken met een virtuele Machine van SQL Server op Azure
 
@@ -41,9 +41,9 @@ Uw opties voor connectiviteit zijn onder andere:
 
 | Optie | Beschrijving |
 |---|---|
-| **Public** | Via internet verbinding maken met SQL Server |
-| **Private** | Verbinding maken met SQL Server in hetzelfde virtuele netwerk |
-| **Local** | Verbinding maken met SQL Server lokaal op dezelfde virtuele machine | 
+| **openbare** | Via internet verbinding maken met SQL Server |
+| **Persoonlijke** | Verbinding maken met SQL Server in hetzelfde virtuele netwerk |
+| **lokale** | Verbinding maken met SQL Server lokaal op dezelfde virtuele machine | 
 
 De volgende secties worden de **openbare** en **persoonlijke** opties in meer detail.
 
@@ -139,7 +139,7 @@ De volgende tabel bevat de vereisten voor het verbinding maken met SQL Server wo
 | [Maak een SQL-aanmelding](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Als u SQL-verificatie gebruikt, moet u een SQL-aanmelding met een gebruikersnaam en wachtwoord die ook machtigingen voor de doeldatabase heeft. |
 | [TCP/IP-protocol inschakelen](#manualTCP) | SQL Server moet verbindingen via TCP toestaan. |
 | [Voor de SQL Server-poort-firewallregel inschakelen](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | De firewall op de virtuele machine moet binnenkomend verkeer op de SQL Server-poort (standaard 1433) toestaan. |
-| [Maken van een groep voor de netwerkbeveiligingsregel voor TCP 1433](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | U moet de virtuele machine voor het ontvangen verkeer op de SQL Server-poort (standaard 1433) als u verbinding wilt maken via internet toestaan. Lokale en virtuele-netwerk-only verbindingen vereisen geen dit. Dit is de enige stap vereist in de Azure-portal. |
+| [Maken van een groep voor de netwerkbeveiligingsregel voor TCP 1433](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | U moet de virtuele machine voor het ontvangen verkeer op de SQL Server-poort (standaard 1433) als u verbinding wilt maken via internet toestaan. Lokale en virtuele-netwerk-only verbindingen vereisen geen dit. Dit is de enige stap vereist in de Azure-portal. |
 
 > [!TIP]
 > De stappen in de bovenstaande tabel zijn gedaan voor u wanneer u verbinding in de portal configureert. Gebruik alleen de volgende stappen uit om te bevestigen dat de configuratie of verbinding handmatig instellen voor SQL Server.

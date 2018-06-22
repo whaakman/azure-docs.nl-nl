@@ -1,6 +1,6 @@
 ---
-title: De extensie OMS Azure virtuele machine voor Linux | Microsoft Docs
-description: Implementeer de OMS-agent op Linux virtuele machine met de extensie van een virtuele machine.
+title: Extensie van virtuele machine met Azure Log Analytics voor Linux | Microsoft Docs
+description: Implementeer de agent logboekanalyse op Linux virtuele machine met de extensie van een virtuele machine.
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/21/2018
 ms.author: danis
-ms.openlocfilehash: f0d8224e5578a5ae46245e6c70792e962a44c933
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc8b3f6a4ff6b683fc4ed2777adf6ab0b17f05be
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652852"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301482"
 ---
-# <a name="oms-virtual-machine-extension-for-linux"></a>Extensie van de virtuele machine OMS voor Linux
+# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Meld u de extensie van de virtuele machine Analytics voor Linux
 
 ## <a name="overview"></a>Overzicht
 
-Log Analytics biedt mogelijkheden voor bewaking, waarschuwingen en waarschuwing herstel tussen cloud en on-premises activa. De extensie van de virtuele machine OMS-Agent voor Linux is gepubliceerd en ondersteund door Microsoft. De extensie wordt de OMS-agent geïnstalleerd op virtuele machines in Azure, en virtuele machines in een bestaande werkruimte voor logboekanalyse schrijft. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de OMS-virtuele machine voor Linux.
+Log Analytics biedt mogelijkheden voor bewaking, waarschuwingen en waarschuwing herstel tussen cloud en on-premises activa. De extensie van de virtuele machine Log Analytics-Agent voor Linux is gepubliceerd en ondersteund door Microsoft. De extensie installeert de Log Analytics-agent op Azure virtuele machines en virtuele machines in een bestaande werkruimte voor logboekanalyse inschrijft. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de uitbreiding van de virtuele machine Log Analytics voor Linux.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-De extensie OMS-Agent kan worden uitgevoerd op basis van deze Linux-distributies.
+De extensie Log Analytics-Agent kan worden uitgevoerd op basis van deze Linux-distributies.
 
 | Distributie | Versie |
 |---|---|
@@ -44,9 +44,9 @@ De extensie OMS-Agent kan worden uitgevoerd op basis van deze Linux-distributies
 | SUSE Linux Enterprise Server | 11 en 12 (x86/x64) |
 
 ### <a name="agent-and-vm-extension-version"></a>Agent en de VM-extensie-versie
-De volgende tabel bevat een toewijzing van de versie van de VM OMS-uitbreiding en de bundel OMS-Agent voor elke versie. Een koppeling naar de release-opmerkingen voor de bundel-versie van OMS-agent is opgenomen. Release-opmerkingen bevatten gegevens over oplossingen voor problemen en nieuwe functies beschikbaar zijn voor een bepaalde agent-release.  
+De volgende tabel bevat een toewijzing van de versie van de Log Analytics VM-extensie en Log Analytics Agent bundel voor elke versie. Een koppeling naar de release-opmerkingen voor de logboekanalyse bundel agentversie is opgenomen. Release-opmerkingen bevatten gegevens over oplossingen voor problemen en nieuwe functies beschikbaar zijn voor een bepaalde agent-release.  
 
-| Versie van de virtuele Linux-machine OMS-uitbreiding | Versie van de bundel OMS-Agent | 
+| Log Analytics Linux VM-extensie-versie | Log Analytics agentversie bundel | 
 |--------------------------------|--------------------------|
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
@@ -62,15 +62,15 @@ De volgende tabel bevat een toewijzing van de versie van de VM OMS-uitbreiding e
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center wordt automatisch voorziet in de OMS-agent en is verbonden met een standaard Log Analytics-werkruimte gemaakt door ASC in uw Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval worden de geconfigureerde werkruimte overschreven en Hiermee verbreekt u de verbinding met Azure Security Center.
+Azure Security Center wordt automatisch bepalingen van de agent Log Analytics en is verbonden met een standaard Log Analytics-werkruimte gemaakt door ASC in uw Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval worden de geconfigureerde werkruimte overschreven en Hiermee verbreekt u de verbinding met Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
-De extensie OMS-Agent voor Linux vereist dat de virtuele doelmachine is verbonden met internet. 
+De extensie Log Analytics-Agent voor Linux vereist dat de virtuele doelmachine is verbonden met internet. 
 
 ## <a name="extension-schema"></a>Extensieschema
 
-De volgende JSON ziet u het schema voor de uitbreiding OMS-Agent. De extensie moet u de werkruimte-ID en werkruimtesleutel uit de doel-Log Analytics-werkruimte; Deze waarden kunnen worden [gevonden in de werkruimte voor logboekanalyse](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) in de Azure portal. Omdat de werkruimtesleutel moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de configuratie van een beveiligde instelling. Azure VM-extensie beveiligde instellingsgegevens is versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
+De volgende JSON ziet u het schema voor de uitbreiding Log Analytics-Agent. De extensie moet u de werkruimte-ID en werkruimtesleutel uit de doel-Log Analytics-werkruimte; Deze waarden kunnen worden [gevonden in de werkruimte voor logboekanalyse](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) in de Azure portal. Omdat de werkruimtesleutel moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de configuratie van een beveiligde instelling. Azure VM-extensie beveiligde instellingsgegevens is versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
 
 ```json
 {
@@ -109,7 +109,7 @@ De volgende JSON ziet u het schema voor de uitbreiding OMS-Agent. De extensie mo
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Sjablonen zijn ideaal bij het implementeren van een of meer virtuele machines waarvoor de implementatieconfiguratie post zoals voorbereiding voor logboekanalyse. Een voorbeeld Resource Manager-sjabloon met de OMS-Agent VM-extensie vindt u op de [galerie van Azure Quick Start](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Sjablonen zijn ideaal bij het implementeren van een of meer virtuele machines waarvoor de implementatieconfiguratie post zoals voorbereiding voor logboekanalyse. Een voorbeeld Resource Manager-sjabloon met de Log Analytics Agent VM-extensie vindt u op de [galerie van Azure Quick Start](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 De JSON-configuratie voor de extensie van een virtuele machine worden genest in de bron van de virtuele machine, of aan de basis- of bovenste niveau van een Resource Manager JSON-sjabloon geplaatst. De plaatsing van de JSON-configuratie is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
@@ -165,7 +165,7 @@ Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, de naam va
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-implementatie
 
-De Azure CLI kan worden gebruikt voor het implementeren van de OMS-Agent VM-extensie op een bestaande virtuele machine. Vervang de *workspaceId* en *workspaceKey* met die van de werkruimte voor logboekanalyse. 
+De Azure CLI kan worden gebruikt voor het implementeren van de Log Analytics Agent VM-extensie op een bestaande virtuele machine. Vervang de *workspaceId* en *workspaceKey* met die van de werkruimte voor logboekanalyse. 
 
 ```azurecli
 az vm extension set \

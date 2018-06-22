@@ -9,12 +9,12 @@ ms.custom: develop databases
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 89e5497c10f3e24dd84333f095a9bd7c0017ea88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a21ce5c9cbf5517733a6b491124e51b163f6c2b9
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647864"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309296"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren door technologieën voor In-Memory in SQL-Database
 
@@ -72,7 +72,7 @@ Gedetailleerde video's over de technologieën:
 
 In het geheugen OLTP bevat geheugen geoptimaliseerde tabellen die worden gebruikt voor het opslaan van gebruikersgegevens. Deze tabellen zijn vereist voor het geheugen. Aangezien u geheugen rechtstreeks in de SQL Database-service beheert, hebben we het concept van een quotum voor gebruikersgegevens. Dit idee wordt aangeduid als *In het geheugen OLTP-opslag*.
 
-Elke prijscategorie en elke elastische pool prijscategorie ondersteunde zelfstandige-database bevat een bepaalde hoeveelheid In het geheugen OLTP-opslag. Zie [resource op basis van het DTU-limieten](sql-database-dtu-resource-limits.md) en [vCore gebaseerde limieten](sql-database-vcore-resource-limits.md).
+Elke prijscategorie en elke elastische pool prijscategorie ondersteunde zelfstandige-database bevat een bepaalde hoeveelheid In het geheugen OLTP-opslag. Zie [resource op basis van het DTU - limieten voor één database](sql-database-dtu-resource-limits-single-databases.md), [resource op basis van het DTU - limieten voor elastische pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore gebaseerde limieten - individuele databases](sql-database-vcore-resource-limits-single-databases.md) en [vCore gebaseerde limieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 De volgende items meetellen voor uw opslagruimte In het geheugen OLTP cap:
 

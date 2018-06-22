@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e92d1ba948626c05e7b66d2c0d469ac6c6571a2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4813c492ba25b0d6dd524e2c0b4b5b6e8c2a2bfa
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228183"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308238"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Zelfstudie: Azure Active Directory-integratie met TimeOffManager
 
@@ -112,7 +112,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
     > [!NOTE] 
-    > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke antwoord-URL. U krijgt deze waarde van **voor eenmalige aanmelding instellingenpagina** waarmee wordt uitgelegd later in de zelfstudie of neem contact op met [TimeOffManager ondersteuningsteam](http://www.timeoffmanager.com/contact-us.aspx).
+    > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke antwoord-URL. U krijgt deze waarde van **voor eenmalige aanmelding instellingenpagina** waarmee wordt uitgelegd later in de zelfstudie of neem contact op met [TimeOffManager ondersteuningsteam](https://www.purelyhr.com/contact-us).
  
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 

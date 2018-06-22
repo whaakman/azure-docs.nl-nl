@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 58cf30163837f6d3c327b7c0c6c2542ea294e8d6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e9dc784d84c43600f3ba4fda92e023c01afe8995
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228992"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Zelfstudie: Azure Active Directory-integratie met Shmoop voor scholen
 
@@ -120,7 +120,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
     ![Eenmalige aanmelding configureren](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop voor School ondersteunt twee rollen voor gebruikers: **leraar** en **studenten**. Deze rollen in Azure AD zo instellen dat gebruikers de juiste rollen kunnen worden toegewezen. Zie voor informatie over het configureren van rollen in Azure AD, [toegangsbeheer op basis van rollen in de cloud-toepassingen die gebruikmaken van Azure AD](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/).
+    > Shmoop voor School ondersteunt twee rollen voor gebruikers: **leraar** en **studenten**. Deze rollen in Azure AD zo instellen dat gebruikers de juiste rollen kunnen worden toegewezen. Zie voor informatie over het configureren van rollen in Azure AD, [beheren van toegang met RBAC en de Azure-portal](../../role-based-access-control/role-assignments-portal.md).
     
 5. In de **gebruikerskenmerken** sectie het **eenmalige aanmelding** dialoogvenster het SAML-token kenmerk configureren zoals wordt weergegeven in de vorige afbeelding.  Vervolgens voert u de volgende stappen uit:
 

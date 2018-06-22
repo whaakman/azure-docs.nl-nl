@@ -1,6 +1,6 @@
 ---
-title: Classificatie van de installatiekopie met Azure Machine Learning (AML)-pakket voor Computer Vision (AMLPCV) en Team gegevens wetenschappelijke processen (TDSP) | Microsoft Docs
-description: Gebruik van TDSP (Team gegevens wetenschap proces) en AMLPCV voor classificatie van de afbeelding beschrijft
+title: Afbeelding van classificatie met het Azure Machine Learning-pakket voor computer vision en Team gegevens wetenschap proces (TDSP) | Microsoft Docs
+description: Beschrijft het gebruik van het Team gegevens wetenschap proces (TDSP) en het Azure Machine Learning-pakket voor computer vision voor classificatie van de installatiekopie.
 services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: xibingao
@@ -15,73 +15,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: xibingao
-ms.openlocfilehash: a3dcfd8a9292d31c7342b8d50ec58c0da53318d3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f9e88cfb7185845e96f287b39bebaaa24320f537
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837215"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300787"
 ---
-# <a name="skin-cancer-image-classification-with-azure-machine-learning-aml-package-for-computer-vision-amlpcv-and-team-data-science-process-tdsp"></a>Skin kanker installatiekopie classificatie met Azure Machine Learning (AML)-pakket voor Computer Vision (AMLPCV) en Team gegevens wetenschap proces (TDSP)
+# <a name="skin-cancer-image-classification-with-the-azure-machine-learning-package-for-computer-vision-and-team-data-science-process"></a>Weergavekader kanker installatiekopie classificatie met het Azure Machine Learning-pakket voor computer vision en Team gegevens wetenschappelijke processen
 
-## <a name="introduction"></a>Inleiding
+Dit artikel laat zien hoe u de [Azure Machine Learning-pakket voor computer vision](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) om te trainen, testen en implementeren van een *installatiekopie classificatie* model. Dit voorbeeld worden de structuur Team gegevens wetenschap proces (TDSP) en sjablonen in [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation). In dit scenario biedt het complete voorbeeld. Gebruikt de [Microsoft cognitieve Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) als de deep framework leren en training wordt uitgevoerd op een [Gegevenswetenschap virtuele machine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU-machine. Implementatie gebruikmaakt van de Azure Machine Learning uitoefening CLI.
 
-Dit artikel laat zien hoe u de [Azure Machine Learning-pakket voor Computer Vision (AMLPCV)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) om te trainen, testen en implementeren van een **installatiekopie classificatie** model. Dit voorbeeld worden de TDSP structuur en sjablonen in [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation). Het complete voorbeeld vindt u in dit scenario. Hierbij [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) als de deep framework leren en training wordt uitgevoerd op een [gegevens wetenschappelijke VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU-machine. Implementatie gebruikmaakt van de Azure ML uitoefening CLI.
+De frame van veel toepassingen in het domein van de visie computer kunnen worden geplaatst als afbeelding classificatie problemen. Deze omvatten ontwikkelen van modellen dat eenvoudige vragen beantwoorden als 'Is een aanwezig is in de installatiekopie van het object?' waar het object is mogelijk een aquaduct, auto of verzenden. Dit omvat ook antwoorden op complexere vragen zoals 'welke klasse ogen ziekte ernst evinced door deze geduld retinal scan?' Het Azure Machine Learning-pakket voor computer vision stroomlijnt installatiekopie classificatie gegevensverwerking en de pijplijn modelleren. 
 
-De frame van veel toepassingen in het domein van de visie computer kunnen worden geplaatst als afbeelding classificatie problemen. Deze omvatten ontwikkelen van modellen dat antwoorden op vragen zoals 'Is een aanwezig is in de installatiekopie van het object?' (object kan worden *aquaduct*, *auto*, of *verzenden*) en hoe complexer vragen zoals 'welke klasse ogen ziekte ernst evinced door deze geduld retinal scan?' AMLPCV stroomlijnt installatiekopie classificatie gegevensverwerking en modellering pijplijn. 
+## <a name="link-to-the-github-repository"></a>Koppeling naar de GitHub-opslagplaats
+Dit artikel bevat een samenvatting document over het voorbeeld. U vindt meer uitgebreide documentatie op de [GitHub site](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification).
 
-## <a name="link-to-github-repository"></a>Koppeling naar de GitHub-opslagplaats
-We bieden hier samenvatting documentatie over het voorbeeld. Uitgebreidere documentatie vindt u op de [GitHub site](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification).
+## <a name="team-data-science-process-walkthrough"></a>Team gegevens wetenschap proces scenario
 
-## <a name="team-data-science-process-tdsp-walkthrough-with-amlpcv"></a>Team gegevens wetenschap proces (TDSP)-scenario met AMLPCV
+In dit scenario maakt gebruik van de [Team gegevens wetenschap proces](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) levenscyclus. Het scenario omvat de volgende stappen in de levenscyclus.
 
-In dit scenario maakt gebruik van de [Team gegevens wetenschap proces (TDSP)](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) levenscyclus.
-
-Het scenario omvat de volgende stappen in de levenscyclus van:
-
-### <a name="1-data-acquisionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. Gegevens acquision](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
-ISIC gegevensset wordt gebruikt voor de installatiekopie van classificatie-taak. ISIC (de internationale Skin Imaging samenwerking) is een partership tussen academische wereld en industrie ter bevordering van de toepassing van digitale skin te bestuderen te reduceren melanoma sterfte imaging. De [ISIC archief](https://isic-archive.com/#images) meer dan 13.000 skin beschadiging afbeeldingen met labels onschadelijk of kwaadaardig bevat. We downloaden een voorbeeld van de installatiekopieën van het van ISIC archief.
+### <a name="1-data-acquisitionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. Overname van gegevens](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
+De internationale Skin Imaging samenwerking ISIC ()-gegevensset wordt gebruikt voor de installatiekopie van classificatie-taak. ISIC is een samenwerking tussen academische wereld en bedrijfstak van de toepassing van digitale skin imaging te bestuderen te reduceren melanoma sterfte te vergemakkelijken. De [ISIC archief](https://isic-archive.com/#images) meer dan 13.000 skin beschadiging installatiekopieën die zijn gelabeld als ze goedaardig of kwaadaardig bevat. Een voorbeeld van de installatiekopieën uit het archief van ISIC downloaden.
 
 ### <a name="2-modelinghttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode02modeling"></a>[2. Modeling](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/02_modeling)
-In stap modellering, worden de volgende substappen uitgevoerd. 
+In de stap modellering, worden de volgende substappen uitgevoerd.
 
-<b>2.1 gegevensset maken</b><br>
+#### <a name="dataset-creation"></a>Het maken van de gegevensset
 
-Om een Dataset-object in AMLPCV genereren, bieden een hoofdmap van installatiekopieën op de lokale schijf. 
+Een dataset-object in het Azure Machine Learning-pakket voor computer vision genereren door op te geven van een hoofdmap van installatiekopieën op de lokale schijf. 
 
-<b>2.2 visualisatie en aantekening images</b><br>
+#### <a name="image-visualization-and-annotation"></a>Visualisatie van de installatiekopie en aantekening
 
-De afbeeldingen in het object dataset visualiseren en enkele van de labels Corrigeer zo nodig.
+De afbeeldingen in het object dataset visualiseren en de labels Corrigeer zo nodig.
 
-<b>2.3 installatiekopie uitdiepen</b><br>
+#### <a name="image-augmentation"></a>Afbeelding uitdiepen
 
-Uitbreiden van een dataset-object met behulp van de transformaties beschreven in de [imgaug](https://github.com/aleju/imgaug) bibliotheek.
+Uitbreiden van een dataset-object met behulp van de transformaties die worden beschreven in de [imgaug](https://github.com/aleju/imgaug) bibliotheek.
 
-<b>2.4 DNN modeldefinitie</b><br>
+#### <a name="dnn-model-definition"></a>DNN modeldefinitie
 
-De model-architectuur gebruikt in de stap training definiëren. Zes verschillende per getraind diep neurale netwerk modellen worden ondersteund in AMLPCV: AlexNet, Resnet 18 Resnet-34 en Resnet 50, Resnet 101 en Resnet 152.
+De model-architectuur die wordt gebruikt in de stap training definiëren. Zes vooraf getraind diep neural network-modellen worden ondersteund in het Azure Machine Learning-pakket voor computer vision: AlexNet, Resnet 18 Resnet 34, Resnet 50, Resnet 101 en Resnet 152.
 
-<b>2.5 classificatie Training</b><br>
+#### <a name="classifier-training"></a>Training van classificatie
 
 Training van de neural netwerken met standaard of aangepaste parameters.
 
-<b>2.6-evaluatie en visualisatie</b><br>
+#### <a name="evaluation-and-visualization"></a>Evaluatie en visualisatie
 
-De Substap biedt functionaliteit om het evalueren van de prestaties van het getrainde model op een onafhankelijke testgegevensset. De evaluatie van metrische gegevens behoren nauwkeurigheid, precisie en intrekken en ROC-curve.
+Functionaliteit voor het evalueren van de prestaties van het getrainde model op een onafhankelijke testgegevensset bieden. De evaluatie van metrische gegevens behoren nauwkeurigheid, precisie, intrekken en ROC-curve.
 
-Deze substappen worden gedetailleerd beschreven in de bijbehorende Jupyter-Notebook. We ook richtlijnen gegeven voor het inschakelen van de parameters zoals learning snelheid, mini batchgrootte en Drop-out snelheid de prestaties van het model verder te verbeteren.
+De substappen worden gedetailleerd beschreven in de bijbehorende Jupyter-Notebook. De notebook bevat ook richtlijnen voor het inschakelen van de parameters, zoals de leertempo, mini batchgrootte en Drop-out snelheid de prestaties van het model verder te verbeteren.
 
 ### <a name="3-deploymenthttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode03deployment"></a>[3. Implementatie](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/03_deployment)
 
-Deze stap operationalizes het model van de stap modellering geproduceerd. Het geeft de uitoefening vereisten en installatie. Ten slotte wordt het verbruik van de webservice ook uitgelegd. Voor deze zelfstudie leert u hoe diep learning-modellen met AMLPCV maken en het model in Azure operationeel.
+Deze stap operationalizes het model dat wordt gemaakt van de stap modelleren. Hierdoor worden de vereisten en de vereiste instellingen. Het verbruik van de webservice wordt ook uitgelegd. In deze zelfstudie leert u grondige learning-modellen met het Azure Machine Learning-pakket voor computer vision maken en het model in Azure operationeel.
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees meer documentatie op [Azure Machine Learning-pakket voor Computer Vision (AMLPCV)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) en [Team gegevens wetenschap proces (TDSP)](https://aka.ms/tdsp) aan de slag.
+- Lezen van aanvullende documentatie over [Azure Machine Learning-pakket voor computer vision](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest).
+- Lees de [Team gegevens wetenschap proces](https://aka.ms/tdsp) documentatie om te beginnen.
 
 
 ## <a name="references"></a>Verwijzingen
 
-* [Azure Machine Learning-pakket voor Computer Vision (AMLPCV)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
+* [Azure Machine Learning-pakket voor visie op computer](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
 * [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation)
-* [VM voor Gegevenswetenschap](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
+* [Gegevens wetenschappelijke virtuele machine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
 

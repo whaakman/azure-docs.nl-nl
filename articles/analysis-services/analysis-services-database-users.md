@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a2338045c43f9eb240ce55fd1ec31a4db40fd4e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8870c4199d5f24d1e8d07bc97d61a09c07052c1e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598348"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307976"
 ---
 # <a name="manage-database-roles-and-users"></a>Databaserollen en gebruikers beheren
 
-Alle gebruikers moeten op het niveau van de database model behoren tot een rol. Gebruikers met bepaalde machtigingen voor de modeldatabase definiëren rollen Elke gebruiker of beveiligingsgroep toegevoegd aan een rol moet een account in een Azure AD-tenant in hetzelfde abonnement als de server hebben.
+Alle gebruikers moeten op het niveau van de database model behoren tot een rol. Gebruikers met bepaalde machtigingen voor de modeldatabase definiëren rollen Elke gebruiker of beveiligingsgroep toegevoegd aan een rol moet een account in een Azure AD-tenant in hetzelfde abonnement als de server hebben. 
 
 Hoe het definiëren van rollen is verschillend, afhankelijk van het hulpprogramma dat u gebruikt, maar het effect is hetzelfde.
 
@@ -27,6 +27,9 @@ Rolmachtigingen zijn onder andere:
 *  **Lees** -kunnen gebruikers een clienttoepassing gebruiken om verbinding maken met en analyseren van gegevens van de database model.
 
 Wanneer een model in tabelvorm-project maakt, kunt u rollen maken en toevoegen van gebruikers of groepen aan deze rollen met rolbeheer in SSDT. Wanneer geïmplementeerd naar een server, gebruikt u SSMS, [Analysis Services-PowerShell-cmdlets](https://msdn.microsoft.com/library/hh758425.aspx), of [Tabellaire Model scripttaal](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) toevoegen of verwijderen van rollen en leden van de gebruiker.
+
+> [!NOTE]
+> Beveiligingsgroepen moeten hebben de `MailEnabled` eigenschap ingesteld op `True`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Toevoegen of beheren van rollen en gebruikers in SSDT  
   

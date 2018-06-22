@@ -12,35 +12,35 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: f9793156b3728f617b92624651ff89ab2665c061
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 1c7fd3ac1a4cf62dd8f909acc26615ea5f96f32c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235804"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309095"
 ---
 # <a name="determine-the-listing-type-for-your-solution"></a>Het Type aanbieding voor uw oplossing bepalen  
 De winkelobjecten ondersteunen veel publicatieopties: typen aanbieding en typen aan te bieden. Selecteer een aanbiedingtype die het best de details van uw oplossing en de service vertegenwoordigt. Alle publicatieopties geven toegang om te leiden delen.   
 
 | Storefront | Vermeldingstype | App-type | Technische richtlijnen |  
 |:--- |:--- |:--- |:--- |  
-| AppSource | [lijst](#list) | [Overleg Service](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
-| Azure Marketplace | [lijst](#list) | [Overleg service](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| Azure Marketplace | [lijst](#list) | [Contact met mij opnemen](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| Azure Marketplace | [Proefversie](#trial) | [Gratis proefversie / SaaS-evaluatieversie](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
+| AppSource | [lijst](#list) | [Overleg Service](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| Azure Marketplace | [lijst](#list) | [Overleg service](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| Azure Marketplace | [lijst](#list) | [Contact met mij opnemen](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| Azure Marketplace | [Proefversie](#trial) | [Gratis proefversie / SaaS-evaluatieversie](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
 | AppSource |  | Cortana Intelligence | [Docs.Microsoft.com/Azure/machine-Learning/team-Data-Science-process/cortana-Intelligence-appsource-Publishing-Guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 | AppSource |  |Dynamics 365 voor betrokkenheid van de klant | [Docs.Microsoft.com/dynamics365/Customer-engagement/Developer/Publish-App-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 | AppSource |  | Dynamics 365 voor Financiën en bewerkingen | [Docs.Microsoft.com/dynamics365/Unified-Operations/dev-ITPro/LCS-Solutions/LCS-Solutions-App-Source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
-| Azure Marketplace | [Proefversie](#trial) | [Interactieve demo](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| Azure Marketplace | [Proefversie](#trial) | [Testen](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
+| Azure Marketplace | [Proefversie](#trial) | [Interactieve demo](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| Azure Marketplace | [Proefversie](#trial) | [Testen](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
 | AppSource |  | Office 365 | [Docs.Microsoft.com/Office/dev/Store/Submit-to-the-Office-Store](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store) |  
-| AppSource |  | Power BI | [Docs.Microsoft.com/Power-BI/Developer/Office-Store](https://docs.microsoft.com/power-bi/developer/office-store) | | Azure Marketplace | [Transact](#transact) | [Apps van Azure: beheerde app](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [Docs.Microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| Azure Marketplace | [Transact](#transact) | [Apps van Azure: oplossingssjabloon](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| Azure Marketplace | [Transact](#transact) | [Container](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| Azure Marketplace | [Transact](#transact) | [SaaS-app](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| Azure Marketplace | [Transact](#transact) | [Virtuele machine](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |   
+| AppSource |  | Power BI | [Docs.Microsoft.com/Power-BI/Developer/Office-Store](https://docs.microsoft.com/power-bi/developer/office-store) | | Azure Marketplace | [Transact](#transact) | [Apps van Azure: beheerde app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [Docs.Microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| Azure Marketplace | [Transact](#transact) | [Apps van Azure: oplossingssjabloon](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| Azure Marketplace | [Transact](#transact) | [Container](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| Azure Marketplace | [Transact](#transact) | [SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| Azure Marketplace | [Transact](#transact) | [Virtuele machine](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |   
 
 ## <a name="azure-certified-program"></a>Azure gecertificeerd programma  
 Alle virtuele machines (VM's) in Azure Marketplace gepubliceerd zijn getest voor het programma Azure gecertificeerd.  
@@ -58,7 +58,7 @@ De volgende tabel biedt meer informatie over de specifieke vereisten voor AppSou
 
 | Vermeldingstype | App-type | Technische richtlijnen |  
 |:--- |:--- |:--- |  
-| [lijst](#list) | [Overleg service](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| [lijst](#list) | [Overleg service](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
 |  | Cortana Intelligence | [Docs.Microsoft.com/Azure/machine-Learning/team-Data-Science-process/cortana-Intelligence-appsource-Publishing-Guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 |  |Dynamics 365 voor betrokkenheid van de klant | [Docs.Microsoft.com/dynamics365/Customer-engagement/Developer/Publish-App-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 |  | Dynamics 365 voor Financiën en bewerkingen | [Docs.Microsoft.com/dynamics365/Unified-Operations/dev-ITPro/LCS-Solutions/LCS-Solutions-App-Source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
@@ -68,20 +68,23 @@ De volgende tabel biedt meer informatie over de specifieke vereisten voor AppSou
 ---   
 
 ## <a name="azure-marketplace-publishing-by-product"></a>Azure Marketplace-Publishing door Product  
+
+![](./media/marketplace-publishers-guide/workflow-azure-marketplace.png)  
+
 De volgende tabel biedt meer informatie over de specifieke vereisten voor Azure Marketplace.  
 
 | Vermeldingstype | Type aanbieding |  Technische richtlijnen |  
 |:--- |:--- |:--- |  
-| [lijst](#list) | [Overleg service](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| [lijst](#list) | [Contact met mij opnemen](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| [Proefversie](#trial) | [Gratis proefversie / SaaS-evaluatieversie](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
-| [Proefversie](#trial) | [Interactieve demo](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| [Proefversie](#trial) | [Testen](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
-| [Transact](#transact) | [Apps van Azure: beheerde app](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [Docs.Microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| [Transact](#transact) | [Apps van Azure: oplossingssjabloon](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| [Transact](#transact) | [Container](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| [Transact](#transact) | [SaaS-app](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| [Transact](#transact) | [Virtuele machine](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |  
+| [lijst](#list) | [Overleg service](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| [lijst](#list) | [Contact met mij opnemen](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| [Proefversie](#trial) | [Gratis proefversie / SaaS-evaluatieversie](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
+| [Proefversie](#trial) | [Interactieve demo](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| [Proefversie](#trial) | [Testen](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
+| [Transact](#transact) | [Apps van Azure: beheerde app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [Docs.Microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| [Transact](#transact) | [Apps van Azure: oplossingssjabloon](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| [Transact](#transact) | [Container](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| [Transact](#transact) | [SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| [Transact](#transact) | [Virtuele machine](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |  
 
 ---   
 
@@ -93,10 +96,10 @@ De lijst vermeldingstype bevat de volgende typen van de aanbieding op de winkelo
 
 | Type aanbieding | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Advies | AppSource | [Vereisten: AppSource: lijst: adviesdiensten](#requirements:-appsource:-list:-consulting-service) |  
-| Advies | Azure Marketplace | [Vereisten: Azure Marketplace: lijst: adviesdiensten](#requirements:-azure-marketplace:-list:-consulting-service) |  
+| Advies | AppSource | [Vereisten: AppSource: lijst: adviesdiensten](#requirements-appsource-list-consulting-service) |  
+| Advies | Azure Marketplace | [Vereisten: Azure Marketplace: lijst: adviesdiensten](#requirements-azure-marketplace-list-consulting-service) |  
 | Contact opnemen | AppSource | [](#) |  
-| Contact opnemen | Azure Marketplace | [Vereisten: AppSource: lijst: contact met mij opnemen](#requirements:-azure-marketplace:-list:-contact-me) |  
+| Contact opnemen | Azure Marketplace | [Vereisten: AppSource: lijst: contact met mij opnemen](#requirements-azure-marketplace-list-contact-me) |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Vereisten: AppSource: lijst: advies service  
 Wanneer de aanbieding voornamelijk uit professional services, bijvoorbeeld beoordelingen, implementaties, workshops bestaat, gebruikt u het type van de aanbieding ondersteuningsdiensten.  
@@ -130,12 +133,12 @@ De evaluatieversie vermeldingstype bevat de volgende typen van de aanbieding op 
 
 | Type aanbieding | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Gratis / SaaS-evaluatieversie | AppSource | [Vereisten voor Type aanbieding: proefversie](#Listing-Type-Requirements:-trial) |  
-| Gratis / SaaS-evaluatieversie | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: gratis proefversie / SaaS-evaluatieversie](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
-| Interactieve demo | AppSource | [Vereisten voor Type aanbieding: proefversie](#Listing-Type-Requirements:-trial) |  
-| Interactieve demo | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: interactieve demo](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
-| Test drive | AppSource | [Vereisten voor Type aanbieding: proefversie](#Listing-Type-Requirements:-trial) |  
-| Test drive | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: testen](#requirements:-azure-marketplace:-trial:-test-drive) |  
+| Gratis / SaaS-evaluatieversie | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements-trial) |  
+| Gratis / SaaS-evaluatieversie | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: gratis proefversie / SaaS-evaluatieversie](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| Interactieve demo | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements-trial) |  
+| Interactieve demo | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: interactieve demo](#requirements-azure-marketplace-trial-interactive-demo) |  
+| Test drive | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements-trial) |  
+| Test drive | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: testen](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Vereisten: Azure Marketplace: proefversie  
 
@@ -177,11 +180,11 @@ Het type van de aanbieding Transact bevat de volgende typen van de aanbieding op
 
 | Type aanbieding | Storefront | Details |   
 |:---        |:---        | :--- |  
-| Apps van Azure: beheerde app | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: apps van Azure: beheerde app](#requirements:-azure-marketplace:-transact:-Azure-apps:-Managed-app) |  
-| Apps van Azure: oplossingssjabloon | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: apps van Azure: oplossingssjabloon](#requirements:-azure-marketplace:-transact:-Azure-apps:-Solution-template) |  
-| Containers | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Container](#requirements:-azure-marketplace:-transact:-Container) |  
-| SaaS-app  | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: SaaS-app](#requirements:-azure-marketplace:-transact:-SaaS-app) |  
-| Virtuele machine | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: virtuele Machine](#requirements:-azure-marketplace:-transact:-Virtual-Machine) |  
+| Apps van Azure: beheerde app | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: apps van Azure: beheerde app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Apps van Azure: oplossingssjabloon | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: apps van Azure: oplossingssjabloon](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Containers | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
+| SaaS-app  | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  
+| Virtuele machine | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: virtuele Machine](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 #### <a name="requirements-azure-marketplace-transact-azure-apps-managed-app"></a>Vereisten: Azure Marketplace: Transact: apps van Azure: beheerde app  
 De Azure-app gebruiken: app-aanbiedingtype beheerd wanneer de volgende voorwaarden vereist zijn.  
@@ -209,11 +212,10 @@ Microsoft ondersteunt momenteel gratis en bring-your-eigenaar-license (BYOL) lic
 
 | Vereiste | Details |  
 |:--- |:--- |  
-|Facturerings- en softwarelicentiecontrole  |  De container moet ondersteuning bieden voor een gratis of Bring Your Own License modellen facturering.       |  
-|Afbeelding is gemaakt van Dockerfile   |   Installatiekopieën van de container moeten worden gebaseerd op de Docker-installatiekopie-specificatie en moeten worden gebouwd op basis van een Dockerfile. Meer informatie over het maken van docker-installatiekopieën [hier]. (https://docs.docker.com/engine/reference/builder/#usage)
-|Host in ACR   |   Installatiekopieën van de container moeten worden gehost in een Azure Container register (ACR)-opslagplaats. Meer informatie over het werken met ACR [hier]. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     
-|Afbeelding tagging   |   Installatiekopieën van de container moeten ten minste 1 tag bevatten (maximum aantal tags: 16). Meer informatie over labels van een installatiekopie van [hier]. (https://docs.docker.com/engine/reference/commandline/tag/)     | 
-
+| Facturerings- en softwarelicentiecontrole | Ondersteuning voor beide de gratis of facturering BYOL-model. |  
+| Afbeelding is gemaakt van Dockerfile | Installatiekopieën van de container moeten worden gebaseerd op de Docker-installatiekopie-specificatie en moeten worden gebouwd op basis van een Dockerfile.<ul> <li>Voor meer informatie over het maken van docker-installatiekopieën, gaat u naar de sectie gebruik zich bevindt op [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
+| Host in ACR | Installatiekopieën van de container moeten worden gehost in een Azure Container register (ACR)-opslagplaats.<ul> <li>Ga naar de Quick Start voor meer informatie over het werken met ACR: maken van een container register met behulp van de Azure portal-pagina zich bevindt op [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Afbeelding tagging | Installatiekopieën van de container moeten ten minste 1 tag bevatten (maximum aantal tags: 16).<ul> <li>Voor meer informatie over labels van een installatiekopie, gaat u naar de docker-tag pagina zich bevindt op [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 
 #### <a name="requirements-azure-marketplace-transact-saas-app"></a>Vereisten: Azure Marketplace: Transact: SaaS-app  
@@ -225,12 +227,10 @@ Microsoft als host fungeert voor de handel-transactie. Microsoft stuklijsten uw 
 
 | Vereiste | Details |  
 |:--- |:--- |  
-|Facturerings- en softwarelicentiecontrole   |   Uw aanbieding is een maandelijkse vast tarief prijs. Gebruik gebaseerde-prijzen en -mogelijkheden voor op gebruik gebaseerde 'true '-up worden niet ondersteund op dit moment.      |  
-|Annulering  |   Uw aanbieding is op elk gewenst moment Annuleerbare door de klant.      |  
-|Startpagina van de transactie   |   Voor het hosten van de startpagina van een Azure gezamenlijke transactie waar gebruikers kunnen maken en beheren van de SaaS-serviceaccount.      |   
-|API-abonnement    |   Stelt u een service die met de SaaS-abonnement maken communiceren kan, bijwerken en verwijderen van een gebruiker-account en service-plan bloot. Kritieke API wijzigingen moeten binnen 24 uur worden ondersteund. Niet-kritieke API wijzigingen worden regelmatig uitgebracht.      | 
-
-
+|Facturerings- en softwarelicentiecontrole | Uw aanbieding is een maandelijkse vast tarief prijs. Gebruik gebaseerde-prijzen en -mogelijkheden voor op gebruik gebaseerde 'true '-up worden niet ondersteund op dit moment. |  
+|Annulering | Uw aanbieding is op elk gewenst moment Annuleerbare door de klant. |  
+|Startpagina van de transactie | Voor het hosten van de startpagina van een Azure gezamenlijke transactie waar gebruikers kunnen maken en beheren van de SaaS-serviceaccount. |   
+| API-abonnement | Stelt u een service die met de SaaS-abonnement maken communiceren kan, bijwerken en verwijderen van een gebruiker-account en service-plan bloot. Kritieke API wijzigingen moeten binnen 24 uur worden ondersteund. Niet-kritieke API wijzigingen worden regelmatig uitgebracht. |  
 
 #### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Vereisten: Azure Marketplace: Transact: virtuele machine  
 Het type van de aanbieding virtuele machine gebruiken wanneer u een virtueel apparaat voor het abonnement is gekoppeld aan uw klant implementeert. VM's zijn volledig commerce ingeschakeld met betalen naar gebruik of Bring-your-eigenaar-License (BYOL) licentieverlening modellen. Microsoft als host fungeert voor de transactie handel en te betalen rekeningen van uw klant namens jou. U ophalen het voordeel van het gebruik van de gewenste betaling relatie tussen uw klant en Microsoft, met inbegrip van Enterprise overeenkomsten.  

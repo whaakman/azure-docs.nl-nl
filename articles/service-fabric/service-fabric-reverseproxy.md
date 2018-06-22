@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212272"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301577"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric-omgekeerde proxy
 Omgekeerde proxy is ingebouwd in Azure Service Fabric helpt microservices uitgevoerd in een Service Fabric-cluster detecteren en te communiceren met andere services die HTTP-eindpunten hebben.
@@ -57,8 +57,13 @@ In plaats van de poort van een afzonderlijke service in de Load Balancer configu
 ![Externe communicatie][0]
 
 > [!WARNING]
-> Wanneer u de reverse proxy-poort in de Load Balancer configureert, zijn alle microservices in het cluster die een HTTP-eindpunt adresseerbare van buiten het cluster.
+> Wanneer u de reverse proxy-poort in de Load Balancer configureert, zijn alle microservices in het cluster die een HTTP-eindpunt adresseerbare van buiten het cluster. Dit betekent dat microservices bedoeld voor intern gebruik gedetecteerd door een bepaald kwaadwillende gebruiker worden kan. Deze potenially geeft ernstige problemen die kunnen worden misbruikt; bijvoorbeeld:
 >
+> * Een kwaadwillende gebruiker mogelijk een denial of service-aanval door het aanroepen van een interne service beschikt niet over een voldoende beperkte kwetsbaarheid herhaaldelijk start.
+> * Een kwaadwillende gebruiker mogelijk onjuist ingedeelde pakketten leveren aan een interne service, wat resulteert in onbedoeld gedrag.
+> * Een service die is bedoeld voor intern gebruik mogelijk persoonlijke of gevoelige gegevens niet bedoeld om te worden blootgesteld aan services buiten het cluster, dus het blootstellen van deze gevoelige informatie naar een kwaadwillende gebruiker geretourneerd. 
+>
+> Zorg ervoor dat u volledig begrijpt en beperken van de mogelijke gevolgen voor de beveiliging voor uw cluster en de apps die worden uitgevoerd, voordat u de poort omgekeerde proxy openbaar maken. 
 >
 
 

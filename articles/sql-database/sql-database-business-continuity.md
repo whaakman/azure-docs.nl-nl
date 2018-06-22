@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0399b9037e162aa712b87b498b968750226af23a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9149405e2778557a94815812fdf4966d38a3149c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646385"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308452"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -38,11 +38,11 @@ De volgende tabel vergelijkt de invoegen en RPO voor elke servicelaag voor de dr
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Gebruik restore-punt in tijd een database herstellen
 
-SQL-Database wordt automatisch uitgevoerd wekelijks een combinatie van volledige databaseback-ups, differentiële back-ups database per uur en transactie logboekback-ups om de vijf - tien minuten om te voorkomen dat uw bedrijf verlies van gegevens. Als u de [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md), en vervolgens deze back-ups worden opgeslagen in de opslag van de RA-GRS voor 35 dagen voor databases in de Standard en Premium Servicelagen en 7 dagen voor databases in de laag Basic-service. Als de retentietermijn voor de servicelaag niet aan uw bedrijfsvereisten voldoet, verhoogt u de retentietermijn door [de servicelaag te wijzigen](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Als u de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md), de bewaartermijn van de back-ups is configureerbaar tot 35 dagen in het algemeen en kritieke bedrijfstiers. De volledige en differentiële databaseback-ups worden ook gerepliceerd naar een [gekoppeld datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in een datacenter. Zie voor meer informatie [automatische databaseback-ups](sql-database-automated-backups.md).
+SQL-Database wordt automatisch uitgevoerd wekelijks een combinatie van volledige databaseback-ups, differentiële back-ups database per uur en transactie logboekback-ups om de vijf - tien minuten om te voorkomen dat uw bedrijf verlies van gegevens. Als u de [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md), en vervolgens deze back-ups worden opgeslagen in de opslag van de RA-GRS voor 35 dagen voor databases in de Standard en Premium Servicelagen en 7 dagen voor databases in de laag Basic-service. Als de retentietermijn voor de servicelaag niet aan uw bedrijfsvereisten voldoet, verhoogt u de retentietermijn door [de servicelaag te wijzigen](sql-database-single-database-scale.md). Als u de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md), de bewaartermijn van de back-ups is configureerbaar tot 35 dagen in het algemeen en kritieke bedrijfstiers. De volledige en differentiële databaseback-ups worden ook gerepliceerd naar een [gekoppeld datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in een datacenter. Zie voor meer informatie [automatische databaseback-ups](sql-database-automated-backups.md).
 
 Als de maximale ondersteunde PITR bewaarperiode niet voldoende is voor uw toepassing is, kunt u deze uitbreiden door een langdurige bewaarperiode (LTR)-beleid voor de databases te configureren. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 
-U kunt deze automatische databaseback-ups gebruiken om een database te herstellen na diverse storingen, zowel binnen uw datacenter als naar een ander datacenter. Bij het gebruik van automatische databaseback-ups is de geschatte duur van het herstel afhankelijk van diverse factoren, waaronder het totale aantal databases dat op hetzelfde moment in dezelfde regio moet worden hersteld, de grootte van de database, de transactielogboekgrootte en de netwerkbandbreedte. De hersteltijd is meestal minder dan 12 uur. Wanneer er naar een andere gegevensregio wordt hersteld, is het mogelijke gegevensverlies beperkt tot 1 uur door de geografisch redundante opslag van differentiële back-ups die elk uur worden uitgevoerd.
+U kunt deze automatische databaseback-ups gebruiken om een database te herstellen na diverse storingen, zowel binnen uw datacenter als naar een ander datacenter. Bij het gebruik van automatische databaseback-ups is de geschatte duur van het herstel afhankelijk van diverse factoren, waaronder het totale aantal databases dat op hetzelfde moment in dezelfde regio moet worden hersteld, de grootte van de database, de transactielogboekgrootte en de netwerkbandbreedte. De hersteltijd is meestal minder dan 12 uur. Het duurt langer om een zeer grote of actieve database te herstellen. Zie voor meer informatie over hersteltijd [database hersteltijd](sql-database-recovery-using-backups.md#recovery-time). Wanneer er naar een andere gegevensregio wordt hersteld, is het mogelijke gegevensverlies beperkt tot 1 uur door de geografisch redundante opslag van differentiële back-ups die elk uur worden uitgevoerd.
 
 > [!IMPORTANT]
 > Als u wilt herstellen met behulp van geautomatiseerde back-ups, moet u lid zijn van de rol Inzender voor SQL Server of de eigenaar van het abonnement zijn. Zie [RBAC: ingebouwde rollen](../role-based-access-control/built-in-roles.md). U kunt herstellen met behulp van Azure Portal, PowerShell of de REST-API. U kunt Transact-SQL niet gebruiken.

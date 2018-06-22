@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 4848132254736aca12be5e31325d98a936754af2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220631"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Zelfstudie: Azure Active Directory-integratie met SAP Business Object Cloud
 
@@ -129,7 +129,7 @@ Voor het instellen van Azure AD eenmalige aanmelding met SAP Business Object Clo
     ![URL's en SAP Business Object Cloud-domein-URL 's](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > De waarden in deze URL's zijn voor de demonstratie alleen. Werk de waarden op met de werkelijke aanmeldings-URL en identificatie-URL. Als u de URL voor eenmalige aanmelding, neem contact op met de [SAP Business Object Cloud Client ondersteuningsteam](https://www.sap.com/product/analytics/cloud-analytics.support.html). U kunt de identificatie-URL ophalen door het downloaden van de metagegevens van de SAP Business Object Cloud van de beheerconsole. Dit wordt verderop in de zelfstudie uitgelegd. 
+    > De waarden in deze URL's zijn voor de demonstratie alleen. Werk de waarden op met de werkelijke aanmeldings-URL en identificatie-URL. Als u de URL voor eenmalige aanmelding, neem contact op met de [SAP Business Object Cloud Client ondersteuningsteam](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). U kunt de identificatie-URL ophalen door het downloaden van de metagegevens van de SAP Business Object Cloud van de beheerconsole. Dit wordt verderop in de zelfstudie uitgelegd. 
 
 4. Onder **SAML-certificaat voor ondertekening van**, selecteer **Metadata XML**. Sla het bestand met metagegevens op uw computer.
 

@@ -15,12 +15,12 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 3e37edbf8d29441541e77ed0660dc9a71618fdee
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7809e0b9265ec62bded67d0b0ed851ee0ba98315
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894239"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301696"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-installatiekopieën in Azure
 Met Visual Studio in een vooraf geconfigureerde Azure virtuele machine (VM) is een snelle en eenvoudige manier om naar een up uitgevoerd development environment van nul. Installatiekopieën met verschillende configuraties van Visual Studio zijn beschikbaar in de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -32,8 +32,8 @@ Afbeeldingen voor de meest recente primaire versies, Visual Studio 2017 en Visua
 
 | Release-versie                                              | Edities                     |     Productversie     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: Laatste (versie 15,7)                    |    Enterprise, Community     |      Versie 15.7.0     |
-| Visual Studio 2017: Meest recente Preview (versie 15,8, Preview 1) |    Enterprise, Community     |      Versie 15.8.1     |
+| Visual Studio 2017: Laatste (versie 15,7)                    |    Enterprise, Community     |      Versie 15.7.3     |
+| Visual Studio 2017: Meest recente Preview (versie 15,8, Preview 2) |    Enterprise, Community     |      Versie 15.8.2     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versie 15.0.13    |
 |   Visual Studio 2015: Laatste (Update 3)                      |    Enterprise, Community     |  Versie 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             Geen             | (Verlopen voor onderhoud) |

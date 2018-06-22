@@ -1,6 +1,6 @@
 ---
-title: Met BulkExecutor Java-bibliotheek voor het uitvoeren van bulkbewerkingen in Azure Cosmos DB | Microsoft Docs
-description: Gebruik Azure Cosmos DB BulkExecutor Java-bibliotheek bulkimport en documenten bijwerken naar Azure Cosmos DB verzamelingen.
+title: Met bulksgewijs executor Java-bibliotheek voor het uitvoeren van bulkbewerkingen in Azure Cosmos DB | Microsoft Docs
+description: Gebruik Azure Cosmos DB bulksgewijs executor Java-bibliotheek bulkimport en documenten bijwerken naar Azure Cosmos DB verzamelingen.
 keywords: Java bulksgewijs executor
 services: cosmos-db
 author: tknandu
@@ -10,22 +10,22 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 77135ec5f62636d1dd634361da345b00d98ad918
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610239"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300710"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>BulkExecutor Java-bibliotheek gebruiken voor het uitvoeren van andere bulkbewerkingen op Azure DB die Cosmos-gegevens
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulksgewijs executor Java-bibliotheek gebruiken voor het uitvoeren van andere bulkbewerkingen op Azure DB die Cosmos-gegevens
 
-Deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos-DB bulksgewijs executor Java-bibliotheek te importeren en bijwerken van Azure DB die Cosmos-documenten. Zie voor meer informatie over BulkExecutor-bibliotheek en hoe kunt u gebruikmaken van grote doorvoer en opslag, [BulkExecutor bibliotheek overzicht](bulk-executor-overview.md) artikel. In deze zelfstudie maakt u een Java-toepassing bouwt die willekeurige documenten genereert en bulksgewijs geïmporteerd in een verzameling Azure Cosmos DB zijn. Nadat u hebt geïmporteerd, wordt u bulksgewijs bijwerken van sommige eigenschappen van een document. 
+Deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos-DB bulksgewijs executor Java-bibliotheek te importeren en bijwerken van Azure DB die Cosmos-documenten. Zie voor meer informatie over bulksgewijs executor-bibliotheek en hoe kunt u gebruikmaken van grote doorvoer en opslag, [bulksgewijs executor bibliotheek overzicht](bulk-executor-overview.md) artikel. In deze zelfstudie maakt u een Java-toepassing bouwt die willekeurige documenten genereert en bulksgewijs geïmporteerd in een verzameling Azure Cosmos DB zijn. Nadat u hebt geïmporteerd, wordt u bulksgewijs bijwerken van sommige eigenschappen van een document. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.  
 
-* [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met de `https://localhost:8081` URI. De primaire sleutel is opgegeven [aanvragen verifiëren](local-emulator.md#authenticating-requests).  
+* [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met de `https://localhost:8081` URI. De primaire sleutel wordt gegeven in [Aanvragen verifiëren](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
   - Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.  
@@ -197,7 +197,7 @@ U kunt bestaande documenten met behulp van de API BulkUpdateAsync bijwerken. In 
 
 ## <a name="performance-tips"></a>Tips voor prestaties 
 
-Houd rekening met de volgende punten voor betere prestaties bij gebruik van BulkExecutor bibliotheek:
+Houd rekening met de volgende punten voor betere prestaties bij gebruik van bulksgewijs executor bibliotheek:
 
 * Voer uw toepassing van een virtuele machine van Azure in dezelfde regio bevinden als uw regio Cosmos DB account schrijven voor de beste prestaties.  
 * Voor hogere doorvoer kan bereiken:  
@@ -211,6 +211,6 @@ Houd rekening met de volgende punten voor betere prestaties bij gebruik van Bulk
 
     
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over de pakketgegevens maven en release-opmerkingen van BulkExecutor Java-bibliotheek,[BulkExecutor SDK details](sql-api-sdk-bulk-executor-java.md).
+* Zie voor meer informatie over de pakketgegevens maven en release-opmerkingen van bulksgewijs executor Java-bibliotheek,[bulksgewijs executor SDK details](sql-api-sdk-bulk-executor-java.md).
 
 

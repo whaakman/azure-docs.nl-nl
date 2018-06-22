@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: be6e5fb83ea88ce30b64f5e1eb53422f0404410f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbf4e2a35667484fea66a1888cdfc0184a806583
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229620"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308313"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Zelfstudie: Salesforce configureren voor het automatisch gebruikers inrichten
 
@@ -95,7 +95,7 @@ Het doel van deze sectie is het inschakelen van de gebruiker het inrichten van A
 
 10. Kopiëren van het token, Ga naar uw Azure AD-venster en plak deze in de **geheim Token** veld.
 
-11. De **Tenant-URL** moet worden opgegeven als het exemplaar van Salesforce in de Cloud van de overheid Salesforce. Anders is optioneel. Voer de URL van de tenant met behulp van de indeling van https://your-instance.my.salesforce.com, uw instantie vervangen door de naam van uw Salesforce-exemplaar.
+11. De **Tenant-URL** moet worden opgegeven als het exemplaar van Salesforce in de Cloud van de overheid Salesforce. Anders is optioneel. Voer de URL van de tenant met behulp van de indeling van ' https://\<uw instantie\>. my.salesforce.com, ' vervangen \<uw instantie\> met de naam van uw Salesforce-exemplaar.
 
 12. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw Salesforce-app.
 

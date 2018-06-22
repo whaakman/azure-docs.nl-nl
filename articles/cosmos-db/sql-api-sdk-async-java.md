@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/18/2018
+ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: 4b12652783c94d132a5c1f4d4aa352d4e2318edf
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797665"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300676"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -53,6 +53,16 @@ De SQL-API asynchrone Java SDK verschilt van de SQL-API Java SDK dankzij de asyn
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Org.json afhankelijkheid vervangen door jackson vanwege Prestatieoverwegingen en licentieverlening ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Afgeschafte OfferV2 klasse verwijderd.
+* Toegevoegde accessor-methode aan klasse van de aanbieding voor doorvoer inhoud.
+* Elke methode in een Document of systeembronnen org.json typen gewijzigd om te retourneren van een jackson objecttype retourneren.
+* methode getObject(.) van klassen uitbreiden JsonSerializable gewijzigd om te retourneren van een ObjectNode jackson typt.
+* de methode getCollection(.) gewijzigd om te retourneren van de verzameling van ObjectNode.
+* Verwijderde JsonSerializable subklassen constructors met org.json.JSONObject arg.
+* JsonSerializable.toJson (SerializationFormattingPolicy.Indented) gebruikt nu twee spaties voor inspringing.
+  
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
 * Ondersteuning toegevoegd voor unieke Index beleid.
 * Ondersteuning toegevoegd voor het beperken van de reactie voortzetting token grootte in de feed opties.
@@ -89,6 +99,7 @@ Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SD
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.0.0](#2.0.0) |20 juni 2018|--- |
 | [1.0.2](#1.0.2) |18 mei 2018|--- |
 | [1.0.1](#1.0.1) |20 april 2018|--- |
 | [1.0.0](#1.0.0) |27 februari, 2018|--- |

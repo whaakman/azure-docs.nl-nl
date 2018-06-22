@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: 08b0cd35294a6cd4086fd5640b09d944ed361c41
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba7a13a94d01de9d284282cbed25c873778e46e0
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367134"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309566"
 ---
 Dit artikel geeft een overzicht van een verzameling bewezen procedures voor het uitvoeren van een virtuele Linux-machine in Azure, waarbij aandacht wordt besteed aan schaalbaarheid, beschikbaarheid, beheerbaarheid en beveiliging. Azure ondersteunt verschillende populaire Linux-distributies, met inbegrip van CentOS, Debian, Red Hat Enterprise, Ubuntu en FreeBSD. Zie [Azure en Linux][azure-linux] voor meer informatie.
 
@@ -139,7 +139,7 @@ Gebruik de volgende CLI-opdracht om de toewijzing van een virtuele machine op te
 azure vm deallocate <resource-group> <vm-name>
 ```
 
-In Azure Portal wordt met de knop **Stoppen** de toewijzing van een virtuele machine opgeheven. Als u echter afsluit via het besturingssysteem terwijl u bent aangemeld, wordt de virtuele machine wel gestopt, maar de toewijzing ervan *niet* opgeheven, zodat u nog steeds kosten in rekening worden gebracht.
+In Azure Portal wordt met de knop **Stoppen** de toewijzing van een virtuele machine opgeheven. Echter, als u met het besturingssysteem terwijl aangemeld afsluit, de virtuele machine is gestopt, maar *niet* toewijzing opgeheven, zodat u nog steeds gefactureerd.
 
 **Een virtuele machine verwijderen.** Als u een virtuele machine verwijdert, worden de VHD's niet verwijderd. Dit betekent dat u de virtuele machine veilig zonder gegevensverlies kunt verwijderen. Er worden echter nog steeds kosten in rekening gebracht voor opslag. Als u de VHD wilt verwijderen, verwijdert u het bestand uit [Blob Storage][blob-storage].
 

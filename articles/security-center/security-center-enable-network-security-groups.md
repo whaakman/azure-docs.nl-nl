@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 3c0ad4a0e1a5f4f2fd6def4f29599e2e55eb1a9d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fe75781629e8d6416405cc9eec9ce14e61a00b14
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364451"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301424"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Inschakelen van Netwerkbeveiligingsgroepen in Azure Security Center
 Azure Security Center raadt aan dat u een netwerkbeveiligingsgroep (NSG) inschakelen als een nog niet is ingeschakeld. Nsg's bevatten een lijst met regels voor lijst ACL (Access Control) toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een virtueel netwerk. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. Bovendien het verkeer naar een afzonderlijke virtuele machine kan worden beperkt door een NSG rechtstreeks aan die VM koppelen verdere. Voor meer informatie over [wat is er een Netwerkbeveiligingsgroep (NSG)?](../virtual-network/security-overview.md)
@@ -43,7 +43,7 @@ Als u geen nsg's is ingeschakeld, Security Center twee aanbevelingen worden aan 
 
    ![Netwerkbeveiligingsgroep kiezen][4]
 
-Als u een NSG maakt, volg de stappen in [het nsg's met de Azure portal beheren](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) maken van een NSG en beveiligingsregels voor verbindingen.
+Als u een NSG maakt, volg de stappen in [beheren van een netwerkbeveiligingsgroep](../virtual-network/manage-network-security-group.md) maken van een NSG en beveiligingsregels voor verbindingen.
 
 ## <a name="see-also"></a>Zie ook
 In dit artikel hebt u geleerd u hoe de aanbeveling Security Center 'Netwerkbeveiligingsgroepen inschakelen' voor subnetten of virtuele machines te implementeren. Zie de volgende onderwerpen voor meer informatie over het nsg's inschakelen:

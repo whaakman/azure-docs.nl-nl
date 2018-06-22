@@ -7,20 +7,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: jodebrui
-ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647337"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308676"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitor In-geheugen OLTP-opslag
-Wanneer u [In het geheugen OLTP](sql-database-in-memory.md), gegevens in tabellen geoptimaliseerd voor geheugen en tabelvariabelen bevindt zich in In het geheugen OLTP-opslag. Elke servicelaag Premium en kritieke zakelijke heeft een maximale In het geheugen OLTP opslaggrootte, die wordt beschreven in [resource op basis van het DTU-limieten](sql-database-dtu-resource-limits.md) en [vCore gebaseerde limieten](sql-database-vcore-resource-limits.md). Wanneer deze limiet wordt overschreden, invoegen en bijwerken operations kunnen mislukken met fout 41823 voor zelfstandige databases en de fout 41840 voor elastische pools. Op dat moment moet aan gegevens om geheugen vrij te verwijderen, of upgrade van de prestatielaag van uw database.
+Wanneer u [In het geheugen OLTP](sql-database-in-memory.md), gegevens in tabellen geoptimaliseerd voor geheugen en tabelvariabelen bevindt zich in In het geheugen OLTP-opslag. Elke servicelaag Premium en kritieke zakelijke heeft een maximale grootte van de In-geheugen OLTP-opslag. Zie [resource op basis van het DTU - limieten voor één database](sql-database-dtu-resource-limits-single-databases.md), [resource op basis van het DTU - limieten voor elastische pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore gebaseerde limieten - individuele databases](sql-database-vcore-resource-limits-single-databases.md) en [vCore gebaseerde limieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
+
+Wanneer deze limiet wordt overschreden, invoegen en bijwerken operations kunnen mislukken met fout 41823 voor zelfstandige databases en de fout 41840 voor elastische pools. Op dat moment moet aan gegevens om geheugen vrij te verwijderen, of upgrade van de prestatielaag van uw database.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Bepalen of gegevens binnen het kapje In-Memory OLTP-opslag passen
-Bepaal de caps opslag van de verschillende Servicelagen. Zie [resource op basis van het DTU-limieten](sql-database-dtu-resource-limits.md) en [vCore gebaseerde limieten](sql-database-vcore-resource-limits.md).
+Bepaal de caps opslag van de verschillende Servicelagen. Zie [resource op basis van het DTU - limieten voor één database](sql-database-dtu-resource-limits-single-databases.md), [resource op basis van het DTU - limieten voor elastische pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore gebaseerde limieten - individuele databases](sql-database-vcore-resource-limits-single-databases.md) en [vCore gebaseerde limieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Het schatten van geheugenvereisten voor een tabel geoptimaliseerd voor geheugen works voor SQL Server dezelfde manier als het komt in Azure SQL Database. Enkele minuten duren om te controleren dat artikel op [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 

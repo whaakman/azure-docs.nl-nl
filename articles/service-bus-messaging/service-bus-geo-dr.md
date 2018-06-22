@@ -2,23 +2,18 @@
 title: Azure Service Bus Geo-noodherstel | Microsoft Docs
 description: Het gebruik van de geografische regio's voor failover en herstel na noodgevallen in Azure Service Bus uitvoeren
 services: service-bus-messaging
-documentationcenter: ''
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237342"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301516"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-noodherstel
 
@@ -68,7 +63,7 @@ U kunt de failover met het bewaken van systemen of met op maat gemaakte bewaking
 
 Als u de failover start, zijn twee stappen vereist:
 
-1. Als er een andere storing optreedt, die u wilt worden opnieuw failover mogelijk is. Daarom instellen van een andere passieve naamruimte en werk de koppeling. 
+1. Als er een andere storing optreedt, die u wilt mogelijk opnieuw failover. Daarom instellen van een andere passieve naamruimte en werk de koppeling. 
 
 2. Berichten van de oude primaire naamruimte ophalen zodra deze weer beschikbaar is. Hierna is waarmee de naamruimte voor reguliere messaging buiten uw installatie van de geo-recovery, of verwijder de oude primaire naamruimte.
 
@@ -89,9 +84,9 @@ Als u een scenario waarin u de verbindingen van producenten en consumenten niet 
 
 De [voorbeelden op GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) laten zien hoe u instelt en start een failover. Deze voorbeelden laten zien dat de volgende concepten:
 
-- Een voorbeeld van een .net en instellingen die vereist zijn in Azure Active Directory om het gebruik van Azure Resource Manager met Service Bus Setup en schakel Geo-noodherstel.
+- Een voorbeeld van een .NET en de instellingen die nodig zijn in Azure Active Directory voor het gebruik van Azure Resource Manager met Service Bus instellen en inschakelen van Geo-noodherstel.
 - Stappen voor het uitvoeren van de voorbeeldcode.
-- Het gebruik van een bestaande naamruimte als alias.
+- Het gebruik van een bestaande naamruimte als een alias.
 - Stappen om Geo-noodherstel via PowerShell of CLI ook worden ingeschakeld.
 - [Verzenden en ontvangen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) uit de huidige primaire of secundaire naamruimte met de alias.
 
@@ -106,6 +101,17 @@ Houd rekening met de volgende overwegingen rekening houden met deze versie:
 3. Mislukte via een complexe gedistribueerde infrastructuur moet [uitgetest](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) ten minste één keer. 
 
 4. Synchroniseren van entiteiten kan enige tijd duren, ongeveer 50-100 entiteiten per minuut. Abonnementen en regels tellen ook als entiteiten. 
+
+## <a name="availability-zones-preview"></a>Beschikbaarheid Zones (preview)
+
+De Service Bus Premium-SKU ondersteunt ook [beschikbaarheid Zones](../availability-zones/az-overview.md), bieden fouttolerantie geïsoleerd locaties binnen een Azure-regio. 
+
+> [!NOTE]
+> De beschikbaarheid van Zones preview wordt alleen ondersteund in de **VS-midden**, **VS-Oost 2**, en **Frankrijk centrale** regio's.
+
+U kunt Zones beschikbaarheid inschakelen op nieuwe naamruimten alleen met de Azure portal. Service Bus biedt geen ondersteuning voor migratie van bestaande naamruimten. Zoneredundantie van de niet worden uitgeschakeld nadat deze is ingeschakeld op uw naamruimte.
+
+![3][]
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -123,3 +129,4 @@ Zie voor meer informatie over Service Bus-berichtenservice, de volgende artikele
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
+[3]: ./media/service-bus-geo-dr/az.png

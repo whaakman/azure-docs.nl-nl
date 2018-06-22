@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 90a28162fb1f455c154ad4d2da7beac6bc785bc7
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642662"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301033"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Log Analytics voor een cluster instellen
 
@@ -38,20 +38,20 @@ Als u een werkruimte voor logboekanalyse toevoegen wilt nadat u een cluster hebt
 
 3. Selecteer **Maken**.
 
-    ![OMS SF analyses in de Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
+    ![Service Fabric-analyses in de Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
 4. Selecteer in het venster van het maken van Service Fabric Analytics **Selecteer een werkruimte** voor de **OMS-werkruimte** veld en vervolgens **Maak een nieuwe werkruimte**. Vul de vereiste vermeldingen. De enige vereiste hier is het abonnement voor de Service Fabric-cluster en de werkruimte is hetzelfde. Als uw vermeldingen zijn geverifieerd, wordt uw werkruimte gestart om te implementeren. De implementatie duurt slechts enkele minuten.
 
 5. Wanneer u klaar bent, selecteert u **maken** opnieuw op de onderkant van het Service Fabric Analytics-venster maken. Zorg ervoor dat de nieuwe werkruimte wordt weergegeven onder **OMS-werkruimte**. Deze actie worden de oplossing toegevoegd aan de werkruimte die u hebt gemaakt.
 
-Als u van Windows gebruikmaakt, gaat u verder met de volgende stappen uit om met OMS het opslagaccount waar uw Clustergebeurtenissen worden opgeslagen. 
+Als u van Windows gebruikmaakt, gaat u verder met de volgende stappen uit om met Log Analytics het opslagaccount waar uw Clustergebeurtenissen worden opgeslagen. 
 
 >[!NOTE]
 >Inschakelen van deze ervaring voor Linux-clusters is nog niet beschikbaar. 
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics-werkruimte verbinding te maken met uw cluster 
 
-1. De werkruimte moet worden verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt. Selecteer **ServiceFabric\<Naam_werkruimte\>**  en Ga naar de overzichtspagina. Daar kunt u instellingen, werkruimte-instellingen en toegang tot de OMS-werkruimte.
+1. De werkruimte moet worden verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt. Selecteer **ServiceFabric\<Naam_werkruimte\>**  en Ga naar de overzichtspagina. Daar kunt u instellingen, werkruimte-instellingen en toegang Log Analytics-werkruimte.
 
 2. In het menu linkernavigatievenster onder **werkruimte gegevensbronnen**, selecteer **opslagaccounts logboeken**.
 
@@ -65,16 +65,16 @@ Als u van Windows gebruikmaakt, gaat u verder met de volgende stappen uit om met
 
 7. Selecteer **OK** verbinding maken met uw werkruimte logboeken voor uw cluster.
 
-    ![Logboeken voor storage-account toevoegen aan OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+    ![Storage-account logboeken met logboekanalyse toevoegen](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
 Het account nu worden weergegeven als onderdeel van uw opslagaccount wordt geregistreerd in uw werkruimte-gegevensbronnen.
 
-U kunt de Service Fabric Analytics-oplossing hebt toegevoegd in een logboekanalyse OMS-werkruimte nu goed met uw cluster-platform en de logboektabel van toepassing verbonden is. U kunt aanvullende bronnen toevoegen aan de werkruimte op dezelfde manier.
+U kunt de Service Fabric Analytics-oplossing hebt toegevoegd in een werkruimte voor logboekanalyse die nu goed met uw cluster-platform en de logboektabel van toepassing verbonden is. U kunt aanvullende bronnen toevoegen aan de werkruimte op dezelfde manier.
 
 
-## <a name="deploy-oms-by-using-a-resource-manager-template"></a>OMS implementeren met behulp van een Resource Manager-sjabloon
+## <a name="deploy-log-analytics-by-using-a-resource-manager-template"></a>Log Analytics implementeren met behulp van een Resource Manager-sjabloon
 
-Wanneer u een cluster met een Resource Manager-sjabloon implementeert, de sjabloon is, wordt een nieuwe OMS-werkruimte maakt, voegt de Service Fabric-oplossing naar de werkruimte en geconfigureerd voor het lezen van gegevens uit de tabellen met de juiste opslag.
+Wanneer u een cluster met een Resource Manager-sjabloon implementeert, de sjabloon is, wordt een nieuwe werkruimte voor logboekanalyse maakt, voegt de Service Fabric-oplossing naar de werkruimte en geconfigureerd voor het lezen van gegevens uit de tabellen met de juiste opslag.
 
 U kunt gebruiken en wijzigen [deze voorbeeldsjabloon](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) om te voldoen aan uw vereisten.
 
@@ -86,7 +86,7 @@ De volgende wijzigingen aanbrengen:
         "type": "string",
         "defaultValue": "sfomsworkspace",
         "metadata": {
-            "description": "Name of your OMS Log Analytics Workspace"
+            "description": "Name of your Log Analytics Workspace"
         }
     },
     "omsRegion": {
@@ -98,21 +98,21 @@ De volgende wijzigingen aanbrengen:
             "Southeast Asia"
         ],
         "metadata": {
-            "description": "Specify the Azure Region for your OMS workspace"
+            "description": "Specify the Azure Region for your Log Analytics workspace"
         }
     }
     ```
 
     De `omsRegion` waarden moeten voldoen aan een specifieke set van de waarden. Kiezen die het dichtst bij de implementatie van het cluster.
 
-2. Als u de logboekbestanden van de toepassing met OMS verzendt, eerst bevestigen dat de `applicationDiagnosticsStorageAccountType` en `applicationDiagnosticsStorageAccountName` zijn opgenomen als parameters in de sjabloon. Als ze niet opgenomen zijn, toe te voegen aan het gedeelte variabelen en hun waarden indien nodig bewerken. U kunt ze ook opnemen als parameters aan de hand van de voorgaande indeling.
+2. Als u de logboekbestanden van de toepassing met Log Analytics verzendt, eerst bevestigen dat de `applicationDiagnosticsStorageAccountType` en `applicationDiagnosticsStorageAccountName` zijn opgenomen als parameters in de sjabloon. Als ze niet opgenomen zijn, toe te voegen aan het gedeelte variabelen en hun waarden indien nodig bewerken. U kunt ze ook opnemen als parameters aan de hand van de voorgaande indeling.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
     "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]"
     ```
 
-3. De Service Fabric OMS-oplossing toevoegen aan uw sjabloon variabelen:
+3. De Service Fabric-oplossing toevoegen aan uw sjabloon variabelen:
 
     ```json
     "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
@@ -188,16 +188,16 @@ De volgende wijzigingen aanbrengen:
 
     Azure Resource Manager heeft vastgesteld dat deze opdracht een update aan voor een bestaande resource. Wordt alleen de wijzigingen tussen de sjabloon voor het besturen van de bestaande implementatie en de nieuwe sjabloon opgegeven verwerkt.
 
-## <a name="deploy-oms-by-using-azure-powershell"></a>OMS implementeren met behulp van Azure PowerShell
+## <a name="deploy-log-analytics-by-using-azure-powershell"></a>Log Analytics implementeren met behulp van Azure PowerShell
 
-U kunt ook uw resource OMS Log Analytics via PowerShell implementeren met behulp van de `New-AzureRmOperationalInsightsWorkspace` opdracht. Als u deze methode gebruikt, zorg ervoor dat u hebt geïnstalleerd [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Dit script gebruiken voor het maken van een nieuwe OMS Log Analytics-werkruimte en de Service Fabric-oplossing aan toe te voegen: 
+U kunt ook uw resource logboekanalyse via PowerShell implementeren met behulp van de `New-AzureRmOperationalInsightsWorkspace` opdracht. Als u deze methode gebruikt, zorg ervoor dat u hebt geïnstalleerd [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Dit script gebruiken voor het maken van een nieuwe werkruimte voor logboekanalyse en de Service Fabric-oplossing aan toe te voegen: 
 
 ```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
 $Location = "<Resource group location>"
-$WorkspaceName = "<OMS Log Analytics workspace name>"
+$WorkspaceName = "<Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
@@ -216,11 +216,11 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-Wanneer u bent klaar, de stappen in de vorige sectie OMS Log Analytics verbinding met het juiste storage-account.
+Wanneer u bent klaar, de stappen in de vorige sectie logboekanalyse verbinding met het juiste storage-account.
 
-U kunt ook andere oplossingen toevoegen of andere wijzigingen aanbrengen in de OMS-werkruimte met behulp van PowerShell. Zie voor meer informatie, [Log Analytics beheren met behulp van PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
+U kunt ook andere oplossingen toevoegen of andere wijzigingen aanbrengen in uw werkruimte voor logboekanalyse met behulp van PowerShell. Zie voor meer informatie, [Log Analytics beheren met behulp van PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [De OMS-Agent implementeren](service-fabric-diagnostics-oms-agent.md) naar uw knooppunten om te verzamelen prestatiemeteritems en verzamelen van Logboeken voor uw containers en docker-statistieken
+* [Log Analytics-Agent implementeren](service-fabric-diagnostics-oms-agent.md) naar uw knooppunten om te verzamelen prestatiemeteritems en verzamelen van Logboeken voor uw containers en docker-statistieken
 * Familiarized ophalen met de [zoeken en uitvoeren van query's in logboek registreren](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van logboekanalyse
 * [Weergave Designer gebruiken voor het maken van aangepaste weergaven in Log Analytics](../log-analytics/log-analytics-view-designer.md)

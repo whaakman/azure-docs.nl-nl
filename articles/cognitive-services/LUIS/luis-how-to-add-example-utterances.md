@@ -10,21 +10,21 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12cbffdbd9ab299d4405aa50c0e49db9c20ab0fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 74a4b77bd9823e5462eecd438cf4c1d863e79892
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345866"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300635"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Voorbeeld utterances en label met entiteiten toevoegen
 
-Utterances zijn voorbeelden van gebruiker vragen of opdrachten. Als u wilt leren Language Understanding (LUIS), moet u toevoegen [voorbeeld utterances](luis-concept-utterance.md) naar een [bedoeling](luis-concept-intent.md).
+Voorbeeld utterances zijn voorbeelden van de tekst van de gebruiker vragen of opdrachten. Als u wilt leren Language Understanding (LUIS), moet u toevoegen [voorbeeld utterances](luis-concept-utterance.md) naar een [bedoeling](luis-concept-intent.md).
 
-In het algemeen u eerst een utterance toevoegen en vervolgens entiteiten maken en labelen utterances op de pagina met opzet. Als u entiteiten liever eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
+In het algemeen een utterance voorbeeld eerst aan de opzet toevoegen en vervolgens entiteiten en label utterances maken op de pagina met opzet. Als u entiteiten liever eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
 
 ## <a name="add-an-utterance"></a>Een utterance toevoegen
-Voer een relevante utterance u van uw gebruikers, zoals verwachten op een pagina opzet `book 2 adult business tickets to Paris tomorrow on Air France` in het tekstvak onder de naam van de opzet en druk op Enter. 
+Geef een voorbeeld van de relevante utterance u van uw gebruikers, zoals verwachten op een pagina opzet `book 2 adult business tickets to Paris tomorrow on Air France` in het tekstvak onder de naam van de opzet en druk op Enter. 
  
 >[!NOTE]
 >Alle utterances converteert LUIS naar kleine letters.
@@ -32,6 +32,9 @@ Voer een relevante utterance u van uw gebruikers, zoals verwachten op een pagina
 ![Schermopname van Intents pagina met details met utterance gemarkeerd](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
 
 Utterances worden toegevoegd aan de lijst met utterances voor het huidige doel. 
+
+## <a name="ignoring-words-and-punctuation"></a>Woorden en leestekens worden genegeerd
+Als u negeren specifieke woorden of leestekens in het voorbeeld utterance wilt, gebruikt u een [patroon](luis-concept-patterns.md#pattern-syntax) met de _negeren_ syntaxis. 
 
 ## <a name="add-simple-entity-label"></a>Eenvoudige entiteit label toevoegen
 In de volgende procedure maakt en aangepaste entiteiten in de volgende utterance op de pagina opzet label:

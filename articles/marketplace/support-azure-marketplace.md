@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6ad1c226246bc1523daca84235591afc27a3b132
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: a2962f50258bb3f65f574882ce2ea46ff006aac3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825117"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309347"
 ---
 # <a name="support-for-azure-marketplace"></a>Ondersteuning voor Azure Marketplace  
 De ondersteuningsopties voor Azure Marketplace.  
@@ -50,7 +50,7 @@ De ondersteuningsopties voor Azure Marketplace.
 |:--- |:--- |  
 | Vertraging: [join.marketplace.azure.com](https://join.marketplace.azure.com) | Toegestane omgeving voor de ondersteuning van Partners met de technische problemen. Er zijn over 350 + Partners momenteel werkt in deze omgeving. |  
 | MSDN-forums: Marketplace zich bevindt op [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network-forum. |  
-| Stack-overloop: Azure zich bevindt op [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-omgeving om oplossingen en vragen over alles met betrekking tot de Azure Marketplace.<ul> <li>Stack-overloop: Azure Marketplace zich bevindt op [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack-overloop: Azure Resource Manager zich bevindt op [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack-overloop: Azure virtuele Machines zich bevindt op [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li><li>[Containers in Azure](https://stackoverflow.com/search?q=azure+container)</li></ul> |
+| Stack-overloop: Azure zich bevindt op [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-omgeving om oplossingen en vragen over alles met betrekking tot de Azure Marketplace.<ul> <li>Stack-overloop: Azure Marketplace zich bevindt op [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack-overloop: Azure Resource Manager zich bevindt op [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack-overloop: virtuele Machines in Azure zich bevindt op [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack-overloop: Containers in Azure zich bevindt op [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Marketing-resources  
 

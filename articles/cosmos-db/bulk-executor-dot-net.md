@@ -1,6 +1,6 @@
 ---
-title: Met BulkExecutor .NET-bibliotheek voor het uitvoeren van bulkbewerkingen in Azure Cosmos DB | Microsoft Docs
-description: Gebruik Azure Cosmos DB BulkExecutor .NET-bibliotheek bulkimport en documenten bijwerken naar Azure Cosmos DB verzamelingen.
+title: Met bulksgewijs executor .NET-bibliotheek voor het uitvoeren van bulkbewerkingen in Azure Cosmos DB | Microsoft Docs
+description: Gebruik Azure Cosmos DB bulksgewijs executor .NET-bibliotheek bulkimport en documenten bijwerken naar Azure Cosmos DB verzamelingen.
 keywords: .NET bulksgewijs executor
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611157"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300768"
 ---
-# <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Met BulkExecutor .NET-bibliotheek voor het uitvoeren van bulkbewerkingen in Azure Cosmos-DB
+# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Met bulksgewijs executor .NET-bibliotheek voor het uitvoeren van bulkbewerkingen in Azure Cosmos-DB
 
-Deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos-DB BulkExecutor .NET-bibliotheek te importeren en bijwerken van documenten voor Azure DB die Cosmos-verzamelingen. Zie voor meer informatie over BulkExecutor-bibliotheek en hoe kunt u gebruikmaken van grote doorvoer en opslag, [BulkExecutor bibliotheek overzicht](bulk-executor-overview.md) artikel. Deze zelfstudie helpt u bij een voorbeeldtoepassing voor .NET die invoer willekeurig gegenereerde documenten bulksgewijs in een verzameling Azure Cosmos DB. Nadat u hebt geïmporteerd ziet u hoe u kunt bulksgewijs de geïmporteerde gegevens door te geven van patches als bewerkingen om uit te voeren op specifieke documentvelden bijwerken.
+Deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos-DB bulksgewijs executor .NET-bibliotheek om te importeren en bijwerken van documenten naar Azure Cosmos DB verzamelingen. Zie voor meer informatie over bulksgewijs executor-bibliotheek en hoe kunt u gebruikmaken van grote doorvoer en opslag, [bulksgewijs executor bibliotheek overzicht](bulk-executor-overview.md) artikel. Deze zelfstudie helpt u bij een voorbeeldtoepassing voor .NET die invoer willekeurig gegenereerde documenten bulksgewijs in een verzameling Azure Cosmos DB. Nadat u hebt geïmporteerd ziet u hoe u kunt bulksgewijs de geïmporteerde gegevens door te geven van patches als bewerkingen om uit te voeren op specifieke documentvelden bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -27,7 +27,7 @@ Deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos-DB BulkEx
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint. 
 
-* [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met de `https://localhost:8081` URI. De primaire sleutel is opgegeven [aanvragen verifiëren](local-emulator.md#authenticating-requests).
+* [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met de `https://localhost:8081` URI. De primaire sleutel wordt gegeven in [Aanvragen verifiëren](local-emulator.md#authenticating-requests).
 
 * Een SQL-API van Azure Cosmos DB-account maken met behulp van de stappen in [-databaseaccount maken](create-sql-api-dotnet.md#create-a-database-account) sectie van het .NET-Quick Start-artikel. 
 
@@ -166,7 +166,7 @@ U kunt bestaande documenten met behulp van de API BulkUpdateAsync bijwerken. In 
     
 ## <a name="performance-tips"></a>Tips voor prestaties 
 
-Houd rekening met de volgende punten voor betere prestaties bij gebruik van BulkExecutor bibliotheek:
+Houd rekening met de volgende punten voor betere prestaties bij gebruik van bulksgewijs executor bibliotheek:
 
 * Voer uw toepassing van een Azure virtuele machine die zich in dezelfde regio bevinden als uw regio Cosmos DB account schrijven voor de beste prestaties.  
 
@@ -196,4 +196,4 @@ Houd rekening met de volgende punten voor betere prestaties bij gebruik van Bulk
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over de details van de Nuget-pakket en release-opmerkingen van BulkExecutor .net-bibliotheek,[BulkExecutor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+* Zie voor meer informatie over de details van de Nuget-pakket en release-opmerkingen van bulksgewijs executor .net-bibliotheek,[bulksgewijs executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 

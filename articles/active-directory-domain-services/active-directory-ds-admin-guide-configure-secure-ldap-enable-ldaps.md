@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 81986fdd9cbfbeb41c794e2364bf7bfea1069742
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4263034408de059880b91e8106f6832ccacc6085
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211251"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300965"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 
@@ -131,4 +131,4 @@ Als u nog steeds problemen ondervindt verbinding te maken met het beheerde domei
 * [Een beheerd domein van Azure AD Domain Services beheren](active-directory-ds-admin-guide-administer-domain.md)
 * [Groepsbeleid voor een Azure AD Domain Services beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md)
-* [Een Netwerkbeveiligingsgroep maken](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Een Netwerkbeveiligingsgroep maken](../virtual-network/tutorial-filter-network-traffic.md)

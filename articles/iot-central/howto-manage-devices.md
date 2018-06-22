@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: b0772e3186c86239c773222a2b2e8d602a46aa52
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807472"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300591"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Beheer van apparaten in uw Azure IoT centrale toepassing
 
@@ -49,7 +49,7 @@ Een apparaat toevoegen aan uw Azure IoT centrale toepassing:
 1. Kies **echte** of **gesimuleerde**. Een echte apparaat is voor een fysiek apparaat waarmee u verbinding met uw Azure IoT centrale toepassing maken. Een gesimuleerd apparaat heeft voor u gegenereerd door Azure IoT centrale voorbeeldgegevens. In dit voorbeeld wordt een echte apparaat. Kies **echte** om te navigeren naar de **Apparaatdetails** pagina voor het nieuwe apparaat.
 
 
-## <a name="bulk-import-devices"></a>Bulkimport apparaten
+## <a name="import-devices"></a>Apparaten importeren
 
 Groot aantal apparaten verbinding van uw toepassing, Azure IoT centrale Bulksgewijs aanbiedingen importeren apparaten via een CSV-bestand. 
 
@@ -65,9 +65,12 @@ Bulksgewijs registreren apparaten in uw toepassing:
 
 1. Kies de apparaat-sjabloon waarvoor u bulksgewijs wilt maken de apparaten in het linkerdeelvenster.
 
-1. Kies **nieuw** en selecteer **bulkimport**.
+ >   [!NOTE] 
+    Als u een sjabloon van het apparaat niet hebt, maar kunt u apparaten onder importeren **niet-gekoppelde apparaten** en registreren zonder een sjabloon. Wanneer apparaten zijn geïmporteerd, kunt u vervolgens koppelen ze met een sjabloon als volgende stap.
 
-    [![Bulksgewijs importactie](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+1. Klik op **Import**.
+
+    [![Actie importeren](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. Selecteer het CSV-bestand met de lijst met apparaat-id's moeten worden geïmporteerd.
 
@@ -75,9 +78,25 @@ Bulksgewijs registreren apparaten in uw toepassing:
 
 1. Nadat het importeren is voltooid, wordt een bericht op het raster apparaat weergegeven.
 
-    [![Bulksgewijs importeren geslaagd](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    [![Importeren voltooid](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 Als het apparaat mislukt importeren, ziet u een foutbericht weergegeven in het raster apparaat. Een logboekbestand voor het vastleggen van alle fouten gegenereerd en door te klikken op het foutbericht kan worden gedownload.
+
+
+**Apparaten koppelen aan een sjabloon**
+
+Als u apparaten registreren met het starten van de import onder **niet-gekoppelde apparaten**, en vervolgens de apparaten worden gemaakt zonder een apparaatkoppeling sjabloon. Apparaat moet zijn gekoppeld aan een sjabloon om de gegevens en andere details over het apparaat te onderzoeken. Volg deze stappen voor het koppelen van apparaten met een sjabloon:
+1. Kies **Explorer** in het navigatiemenu links.
+1. Kies in het linkerdeelvenster **niet-gekoppelde apparaten**.
+    [![Niet-gekoppelde apparaten](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+1. Selecteer de apparaten die u wilt koppelen aan een sjabloon.
+1. Klik op **koppelen** optie.
+    [![Apparaten koppelen](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+1. De sjabloon kiezen uit de lijst met beschikbare sjablonen en klik op **koppelen** knop.
+1. De geselecteerde apparaten zijn onder de sjabloon van het betreffende apparaat verplaatst.
+
+ >   [!NOTE] 
+    Als een apparaat is gekoppeld aan een sjabloon kan niet worden gewijzigd of die zijn gekoppeld aan een andere sjabloon.
 
 ## <a name="export-devices"></a>Exporteren van apparaten
 
@@ -86,7 +105,7 @@ Voor het inrichten van apparaten verbinding maken met IoT centraal, moet u de ve
 Bulksgewijs export apparaten van uw toepassing:
 1. Kies **Explorer** in het navigatiemenu links.
 
-1. Een het linkerpaneel kiest u de sjabloon van het apparaat waarvoor u wilt exporteren van de apparaten.
+1. Kies de apparaat-sjabloon die u wilt exporteren van de apparaten in het linkerdeelvenster.
 
 1. Selecteer de apparaten die u wilt exporteren en klik op de **exporteren** in te grijpen.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 86b7d8aa9d1c0d770f7b145377f49c5dc2c694a2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f2ab0a4458c83aa9e5c9cee4875e41c24f615018
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303429"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301196"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Azure Active Directory aanmeldingsopties configureren in het gedrag voor een toepassing met een Thuisrealmdetectie-beleid
 
@@ -185,7 +185,7 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFe
 Het volgende beleid versnelt automatisch-gebruikers aan een AD FS in het scherm er is meer dan één federatieve domein in uw tenant. Als u meer dan één federatieve domein hebt dat verificatie van gebruikers voor toepassingen, moet u het domein om automatisch versnellen opgeven.
 
 ``` powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, "PreferredDomain":"federated.example.edu"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Voer de volgende opdracht voor het maken van een beleid voor verificatie van de gebruikersnaam en wachtwoord voor federatieve gebruikers rechtstreeks met Azure Active Directory voor specifieke toepassingen inschakelen:
