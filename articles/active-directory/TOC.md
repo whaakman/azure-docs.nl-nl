@@ -417,6 +417,7 @@
 #### Zelfstudies
 ##### [Klassiek MFA-beleid migreren](active-directory-conditional-access-migration-mfa.md)
 #### Concepten
+##### [Basisbescherming](active-directory-conditional-access-baseline-protection.md)
 ##### [Voorwaarden](active-directory-conditional-access-conditions.md)
 ##### [Locatievoorwaarden](active-directory-conditional-access-locations.md)
 ##### [Besturingselementen](active-directory-conditional-access-controls.md)
