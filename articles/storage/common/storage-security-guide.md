@@ -6,22 +6,23 @@ author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304526"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
-
-## <a name="overview"></a>Overzicht
 
 Azure Storage biedt een uitgebreide reeks beveiligingsmogelijkheden die samen kunnen ontwikkelaars om beveiligde toepassingen te bouwen:
 
 - Alle gegevens die worden geschreven naar Azure Storage automatisch worden versleuteld met [opslag Service versleuteling (SSE)](storage-service-encryption.md). Zie voor meer informatie [standaard versleuteling aangekondigd voor Azure Blobs, bestanden, Table en Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- Het opslagaccount zelf kan worden beveiligd met op rollen gebaseerde toegangsbeheer en Azure Active Directory. 
+- Azure Active Directory (Azure AD) en op rollen gebaseerde toegangsbeheer (RBAC) worden ondersteund voor Azure Storage voor zowel bron-beheerbewerkingen en bewerkingen, als volgt:   
+    - U kunt binnen het bereik van het opslagaccount op beveiligings-principals en het gebruik van Azure AD te autoriseren resource management-bewerkingen zoals Sleutelbeheer RBAC-rollen toewijzen.
+    - Azure AD-integratie wordt ondersteund in preview voor gegevensbewerkingen voor de services Blob en wachtrij. U kunt binnen het bereik van een abonnement, resourcegroep, storage-account of een afzonderlijke container of de wachtrij moet een beveiligings-principal of een beheerde service-identiteit RBAC-rollen toewijzen. Zie voor meer informatie [verifiëren van toegang tot Azure Storage met Azure Active Directory (Preview)](storage-auth-aad.md).   
 - Gegevens onderweg tussen een toepassing en Azure kunnen worden beveiligd met behulp van [versleuteling van de Client-Side](../storage-client-side-encryption.md), HTTPS- of SMB 3.0.  
 - Besturingssysteem en gegevensschijven die wordt gebruikt door virtuele machines van Azure kunnen worden versleuteld met [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Gedelegeerde toegang tot de gegevensbron-objecten in Azure Storage kan worden verleend met behulp van [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
@@ -84,7 +85,7 @@ Hier volgen de belangrijkste punten die u weten wilt over het gebruik van RBAC v
 * De gebruiker moet worden ingesteld in uw Azure Active Directory voordat u kunt een rol aan ze toewijzen.
 * U kunt een rapport van die verleend/ingetrokken wat voor soort toegang naar/van wie en op welke bereik met PowerShell of Azure CLI kunt maken.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 * [Toegangsbeheer op basis van rollen in Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   In dit artikel wordt het toegangsbeheer op basis van rollen in Azure Active Directory uitgelegd.
@@ -100,7 +101,7 @@ Hier volgen de belangrijkste punten die u weten wilt over het gebruik van RBAC v
 * [Azure Storage Resource Provider REST API-verwijzing](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Deze API-verwijzing beschrijft de API's die u gebruiken kunt voor het beheren van uw storage-account via een programma.
-* [Ontwikkelaarshandleiding voor verificatie met Azure Resource Manager-API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [Gebruik Resource Manager authenticatie-API aan abonnementen, toegang](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   Dit artikel laat zien hoe u verifieert met behulp van de Resource Manager-API's.
 * [Toegangsbeheer op basis van rollen voor Microsoft Azure vanuit Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -108,7 +109,7 @@ Hier volgen de belangrijkste punten die u weten wilt over het gebruik van RBAC v
   Dit is een koppeling naar een video op Channel 9 van de vergadering over MS Ignite in 2015. In deze sessie wordt ingegaan op de opties voor toegangsbeheer en rapportage in Azure en worden aanbevolen procedures behandeld voor de beveiliging van de toegang tot Azure-abonnementen met Azure Active Directory.
 
 ### <a name="managing-your-storage-account-keys"></a>Het beheren van uw toegangscodes voor opslag
-De opslagaccountsleutels zijn 512-bits tekenreeksen die zijn gemaakt met Azure die samen met de naam van het opslagaccount, kan worden gebruikt voor toegang tot de gegevensobjecten die zijn opgeslagen in de storage-account, bijvoorbeeld, blobs entiteiten in een tabel, Wachtrijberichten en bestanden op een bestandsshare in Azure. Beheren van toegang tot het account sleutels besturingselementen toegang tot opslag op het vlak van gegevens voor dat opslagaccount.
+De opslagaccountsleutels zijn 512-bits tekenreeksen die zijn gemaakt door Azure die samen met de naam van het opslagaccount, kan worden gebruikt voor toegang tot de gegevensobjecten die zijn opgeslagen in de storage-account, bijvoorbeeld, blobs, entiteiten in een tabel, Wachtrijberichten en bestanden op een Azure-bestandsshare. Beheren van toegang tot het account sleutels besturingselementen toegang tot opslag op het vlak van gegevens voor dat opslagaccount.
 
 Elk opslagaccount heeft twee sleutels die worden aangeduid als 'Sleutel 1' en "Sleutel 2" in de [Azure-portal](http://portal.azure.com/) en in de PowerShell-cmdlets. Deze kunnen worden hersteld handmatig met behulp van een van de verschillende methoden, waaronder, maar niet beperkt tot het gebruik van de [Azure-portal](https://portal.azure.com/), PowerShell, de Azure CLI of programmatisch met behulp van de Storage-clientbibliotheek voor .NET of de REST-API van Azure Storage-Services.
 
@@ -143,7 +144,7 @@ Een ander voordeel van het gebruik van Azure Sleutelkluis is dat kunt u ook toeg
 
 Opmerking: het verdient aanbeveling gebruik slechts één van de sleutels in al uw toepassingen op hetzelfde moment. Als u sleutel 1 op bepaalde plaatsen en sleutel 2 in andere gevallen gebruikt, kunt u zich niet uw sleutels draaien zonder een toepassing toegang verliezen.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 * [Over Azure Storage-Accounts](storage-create-storage-account.md#regenerate-storage-access-keys)
 
   Dit artikel biedt een overzicht van de storage-accounts en weergeven, kopiëren en opnieuw genereren van de toegangssleutels voor opslag.
@@ -160,12 +161,15 @@ Opmerking: het verdient aanbeveling gebruik slechts één van de sleutels in al 
 ## <a name="data-plane-security"></a>Beveiliging van gegevens vlak
 Beveiliging van gegevens vlak verwijst naar de methoden voor het beveiligen van de gegevensobjecten die is opgeslagen in Azure Storage-de blobs, wachtrijen, tabellen en bestanden. We methoden voor het versleutelen van de gegevens en beveiliging tijdens de overdracht van de gegevens hebt gezien, maar hoe moet u doen over het beheren van toegang tot de objecten?
 
-Er zijn twee methoden voor het verlenen van toegang tot de gegevensobjecten zelf. Het gaat hierbij om toegang tot de opslagaccountsleutels beheren en het gebruik van handtekeningen voor gedeelde toegang om toegang te verlenen aan specifieke gegevensobjecten voor een specifieke hoeveelheid tijd.
+Hebt u drie opties voor het verlenen van toegang tot gegevensobjecten in Azure Storage, waaronder:
+
+- Met behulp van Azure AD om toegang tot containers en wachtrijen (Preview) te verlenen. Azure AD levert voordelen ten opzichte van andere methoden voor autorisatie, waaronder de noodzaak voor het opslaan van geheimen in uw code te verwijderen. Zie voor meer informatie [verifiëren van toegang tot Azure Storage met Azure Active Directory (Preview)](storage-auth-aad.md). 
+- Met behulp van uw toegangscodes voor opslag om toegang via gedeelde sleutel te verlenen. Autoriseren via gedeelde sleutel vereist het opslaan van uw toegangscodes voor opslag in uw toepassing, zodat Microsoft raadt het Azure AD in plaats daarvan gebruik waar mogelijk. Voor productietoepassingen, of voor het verlenen van toegang tot Azure-tabellen en bestanden, voert u de gedeelde sleutel met terwijl Azure AD-integratie in preview.
+- Met behulp van handtekeningen voor gedeelde toegang gecontroleerde om machtigingen te verlenen aan specifieke gegevensobjecten voor een specifieke hoeveelheid tijd.
 
 Bovendien voor Blob Storage kunt u openbare toegang om uw blobs te door het instellen van het toegangsniveau voor de container met de blobs dienovereenkomstig. Als u toegang hebt ingesteld voor een container voor Blob of Container, is het toegestaan openbare leestoegang voor de blobs in de container. Dit betekent dat iedereen met een URL die verwijst naar een blob in de container kunt openen in een browser zonder met behulp van een Shared Access Signature of het hebben van de opslagaccountsleutels.
 
 Naast het beperken van toegang tot en met de autorisatie, kunt u ook gebruiken [Firewalls en virtuele netwerken](storage-network-security.md) om toegang tot het opslagaccount op basis van regels netwerk te beperken.  Deze aanpak kunt weigeren van toegang tot openbare internetverkeer, en Verleen toegang tot alleen op specifieke Azure Virtual Networks of openbare internet IP-adresbereiken.
-
 
 ### <a name="storage-account-keys"></a>Opslagaccountsleutels
 Toegangscodes voor opslag zijn 512-bits-tekenreeksen die zijn gemaakt door Azure die samen met de naam van het opslagaccount, kan worden gebruikt voor toegang tot de gegevensobjecten die zijn opgeslagen in het opslagaccount.
@@ -205,7 +209,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Hoe de Shared Access Signature is geverifieerd door de Azure Storage-Service
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Hoe de Shared Access Signature is geautoriseerd door de Azure Storage-Service
 Als de storage-service heeft de aanvraag ontvangt, bevat de parameters voor invoer voor de query en een handtekening met dezelfde methode als het aanroepende programma gemaakt. De twee handtekeningen worden vervolgens vergeleken. Als de gebruiker akkoord gaat, vervolgens controleren de storage-service de versie van de storage-service om te controleren of dat deze geldig is, Controleer of de huidige datum en tijd binnen het opgegeven venster zijn, zorg ervoor dat de toegang aangevraagd komt overeen met de aanvraag is ingediend, enzovoort.
 
 Bijvoorbeeld, met onze URL, zou als de URL die naar een bestand in plaats van een blob verwijst is deze aanvraag mislukt omdat deze geeft aan dat de Shared Access Signature voor een blob. Als de REST-opdracht wordt aangeroepen om bij te werken van een blob, zou deze mislukken omdat de Shared Access Signature geeft aan dat alleen lezen-toegang is toegestaan.
@@ -231,7 +235,7 @@ Als u van een SAS afgeleid van een toegangsbeleid opgeslagen gebruikmaakt, kunt 
 
 Omdat met behulp van een SAS afgeleid van een opgeslagen-beleid u de mogelijkheid om in te trekken die SAS onmiddellijk biedt, is het aanbevolen gebruik altijd toegangsbeleid opgeslagen indien mogelijk.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 Raadpleeg de volgende artikelen voor meer gedetailleerde informatie over het gebruik van handtekeningen voor gedeelde toegang en opgeslagen toegangsbeleid, met voorbeelden voltooid:
 
 * Dit zijn de verwijzing naar artikelen.
@@ -264,21 +268,9 @@ Als u een kanaal voor veilige communicatie, moet u altijd HTTPS gebruiken tijden
 U kunt het gebruik van HTTPS afdwingen bij het aanroepen van de REST-API's voor toegang tot objecten in de storage-accounts door in te schakelen [vereiste gegevensoverdracht Secure](../storage-require-secure-transfer.md) voor het opslagaccount. Verbindingen met HTTP geweigerd als deze optie is ingeschakeld.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Met behulp van versleuteling tijdens de overdracht met Azure-bestandsshares
-Azure Files ondersteunt HTTPS wanneer met de REST API, maar meer vaak gebruikt als een SMB-bestandsshare op een virtuele machine is gekoppeld. SMB 2.1 biedt geen ondersteuning voor versleuteling, zodat de verbindingen zijn alleen toegestaan binnen dezelfde regio in Azure. Versleuteling van SMB 3.0 ondersteunt echter en is beschikbaar in Windows Server 2012 R2, Windows 8, Windows 8.1 en Windows 10, waardoor zowel de regio-overschrijdende toegang en de toegang van het bureaublad.
+[Azure Files](../files/storage-files-introduction.md) ondersteunt versleuteling via SMB 3.0 en met HTTPS wanneer met de REST-API van het bestand. Bij het koppelen van de Azure-bestandsshare buiten de Azure-regio zich bevindt, bijvoorbeeld on-premises of in een andere Azure-regio, is SMB 3.0 met versleuteling altijd vereist. SMB 2.1 biedt geen ondersteuning voor versleuteling, zodat verbindingen zijn standaard alleen toegestaan binnen dezelfde regio in Azure, maar SMB 3.0 met versleuteling kan worden afgedwongen door [vereisen veilige overdracht](../storage-require-secure-transfer.md) voor het opslagaccount.
 
-Hoewel Azure-bestandsshares kunnen worden gebruikt voor Unix, ondersteunt de Linux SMB-client nog geen versleuteling, zodat toegang is alleen toegestaan binnen een Azure-regio. Ondersteuning voor Linux codering is op het overzicht van Linux-ontwikkelaars die verantwoordelijk is voor SMB-functionaliteit. Bij het toevoegen van versleuteling, hebt u dezelfde mogelijkheid voor het openen van een Azure-bestandsshare op Linux, zoals u zou voor Windows doen.
-
-U kunt het gebruik van versleuteling met de service Azure Files afdwingen door in te schakelen [vereiste gegevensoverdracht Secure](../storage-require-secure-transfer.md) voor het opslagaccount. Als u de REST API's gebruikt, wordt HTTPs is vereist. Voor SMB, wordt SMB alleen verbindingen die ondersteuning bieden voor versleuteling verbinding gemaakt.
-
-#### <a name="resources"></a>Resources
-* [Inleiding Azure Files](../files/storage-files-introduction.md)
-* [Aan de slag met Azure-bestanden in Windows](../files/storage-how-to-use-files-windows.md)
-
-  In dit artikel biedt een overzicht van Azure-bestandsshares en het koppelen en gebruiken ze in Windows.
-
-* [Azure Files gebruiken met Linux](../files/storage-how-to-use-files-linux.md)
-
-  In dit artikel laat zien hoe een Azure-bestandsshare op een Linux-systeem en uploaden/downloaden van bestanden te koppelen.
+SMB 3.0 met versleuteling is beschikbaar in [alle ondersteunde besturingssystemen voor Windows en Windows Server](../files/storage-how-to-use-files-windows.md) met uitzondering van Windows 7 en Windows Server 2008 R2, die alleen SMB 2.1 ondersteuning. SMB 3.0 wordt ook ondersteund op [Mac OS](../files/storage-how-to-use-files-mac.md) en op distributies van [Linux](../files/storage-how-to-use-files-linux.md) met Linux kernel 4.11 en hoger. Ondersteuning voor SMB 3.0 versleuteling is ook backported tot oudere versies van de kernel Linux door verschillende Linux-distributies, raadpleegt u [Understanding SMB clientvereisten](../files/storage-how-to-use-files-linux.md#smb-client-reqs).
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Met behulp van Client-side-versleuteling voor het beveiligen van gegevens die u naar de opslag verzendt
 Een andere optie waarmee u ervoor te zorgen dat uw gegevens beveiligd is terwijl ze worden overgebracht tussen een clienttoepassing en -opslag is versleuteling aan de clientzijde. De gegevens worden versleuteld voordat ze worden overgedragen naar de Azure-opslag. Als de gegevens worden opgehaald uit Azure Storage, worden de gegevens worden ontsleuteld nadat het is ontvangen op de client. Hoewel de gegevens worden versleuteld via de kabel gaat, wordt aangeraden dat u ook gebruik van HTTPS, omdat deze gegevens integriteitscontroles ingebouwd die toegangsbeheermodel netwerkfouten die invloed hebben op de integriteit van de gegevens.
@@ -309,7 +301,7 @@ Versleuteling aan clientzijde is ingebouwd in de Java en de clientbibliotheken .
 
 U kunt voor de versleuteling zelf, genereren en beheren van uw eigen versleutelingssleutels. U kunt ook sleutels die zijn gegenereerd door de Azure Storage-clientbibliotheek gebruiken of u kunt de Azure Sleutelkluis genereren van de sleutels hebben. U kunt uw versleutelingssleutels opslaan in de opslag van uw lokale sleutels of kunt u ze opslaan in een Azure Sleutelkluis. Azure Sleutelkluis kunt u toegang verlenen tot de geheimen in Azure Key Vault voor specifieke gebruikers met Azure Active Directory. Dit betekent dat niet alleen iedereen kan lezen van de Azure Sleutelkluis en de sleutels die u voor versleuteling aan clientzijde gebruikt ophalen.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 * [Blobs in Microsoft Azure Storage met Azure Key Vault versleutelen en ontsleutelen](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 
   In dit artikel laat zien hoe client-side '-versleuteling gebruiken met Azure Sleutelkluis, inclusief het maken van de KEK en op te slaan in de kluis met behulp van PowerShell.
@@ -350,7 +342,7 @@ De oplossing ondersteunt niet de volgende scenario's, functies en -technologie i
 
 Deze functie zorgt ervoor dat alle gegevens voor de virtuele machine-schijven is versleuteld in rust in Azure Storage.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 * [Azure Disk Encryption for Windows and Linux IaaS VM 's](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Vergelijking van Azure Disk Encryption, SSE en Client-Side-versleuteling
@@ -412,11 +404,11 @@ Er is een artikel dat wordt vermeld in de onderstaande die bronnen bevat de lijs
 
 ![Momentopname van de velden in een logboekbestand](./media/storage-security-guide/image3.png)
 
-We geïnteresseerd bent in de vermeldingen voor GetBlob en hoe ze zijn geverifieerd, dus moeten we vermeldingen met type bewerking 'Get-Blob' zoekt, en controleer de status van de aanvraag (vierde</sup> kolom) en de autorisatie-type (achtste</sup> kolom).
+We geïnteresseerd bent in de vermeldingen voor GetBlob en hoe ze zijn gemachtigd, dus moeten we vermeldingen met type bewerking 'Get-Blob' zoekt en controleer de status van de aanvraag (vierde</sup> kolom) en de autorisatie-type (achtste</sup> kolom).
 
-Bijvoorbeeld, in de eerste paar rijen in de bovenstaande aanbieding, de status van de aanvraag is 'Geslaagd' en de autorisatie-type 'geverifieerd'. Dit betekent dat de aanvraag is gevalideerd met behulp van de sleutel van het opslagaccount.
+Bijvoorbeeld, in de eerste paar rijen in de bovenstaande aanbieding, de status van de aanvraag is 'Geslaagd' en de autorisatie-type 'geverifieerd'. Dit betekent dat de aanvraag is geautoriseerd met behulp van de sleutel van het opslagaccount.
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>Hoe worden mijn blobs geverifieerd?
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>Hoe wordt toegang tot mijn BLOB's worden toegestaan?
 We hebben drie gevallen waarin we geïnteresseerd bent.
 
 1. De blob openbaar is en toegankelijk is via een URL zonder een Shared Access Signature. In dit geval wordt de status van de aanvraag is 'AnonymousSuccess' en het autorisatie-type is 'anonymous'.
@@ -431,7 +423,7 @@ We hebben drie gevallen waarin we geïnteresseerd bent.
 
 U kunt de Microsoft Message Analyzer weergeven en analyseren van deze logboeken. Het bevat de mogelijkheden van zoeken en filteren. Bijvoorbeeld, u mogelijk wilt zoeken voor exemplaren van GetBlob om te zien of het gebruik wat u verwacht is, dat wil zeggen, om ervoor te zorgen iemand is geen toegang hebben tot uw storage-account verkeerd.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 * [Storage Analytics](../storage-analytics.md)
 
   Dit artikel is een overzicht van storage analytics en hoe u ze inschakelen.
@@ -486,7 +478,7 @@ Dit is wat elke rij betekent:
 * **ExposedHeaders** Zo weet welke antwoordheaders moeten worden weergegeven door de browser van de uitgever van de aanvraag. In dit voorbeeld wordt een koptekst die beginnen met ' x-ms - meta-' zichtbaar.
 * **MaxAgeInSeconds** dit is de maximale tijdsduur dat een browser cache worden opgeslagen door de voorbereidende opties-aanvraag. (Raadpleeg de onderstaande eerste artikel voor meer informatie over de voorbereidende aanvraag).
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 Bekijk deze resources voor meer informatie over CORS en hoe deze in te schakelen.
 
 * [Cross-Origin-Resource delen (CORS) ondersteuning voor de Azure Storage-Services op Azure.com](../storage-cors-support.md)
@@ -513,8 +505,7 @@ Bekijk deze resources voor meer informatie over CORS en hoe deze in te schakelen
 
    Microsoft blijft deze tot elke klant om te bepalen of FIPS-modus in te schakelen. We zijn ervan overtuigd dat er geen dwingende redenen voor klanten die niet zijn onderworpen aan wettelijke voorschriften FIPS-modus standaard inschakelen.
 
-   **Bronnen**
-
+### <a name="resources"></a>Bronnen
 * [Waarom We je niet aanbevelen 'FIPS-modus' meer](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   In dit artikel blog geeft een overzicht van FIPS en wordt uitgelegd waarom ze niet standaard ingeschakeld in de FIPS-modus.
