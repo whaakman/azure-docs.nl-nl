@@ -2,19 +2,19 @@
 title: Beperkingen in Azure-Database voor MySQL
 description: Dit artikel wordt beschreven beperkingen in Azure-Database voor MySQL, zoals het aantal verbinding en opties voor opslag-engine.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264881"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309923"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beperkingen in Azure-Database voor MySQL
 De volgende secties beschrijven capaciteit, ondersteuning voor opslag-engine, ondersteuning van bevoegdheden, gegevensondersteuning manipulatie instructie en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
@@ -60,29 +60,29 @@ Wanneer er verbindingen de limiet overschrijdt, wordt de volgende fout:
 ## <a name="data-manipulation-statement-support"></a>Ondersteuning voor gegevens manipulatie-instructie
 
 ### <a name="supported"></a>Ondersteund
-- LOAD gegevens INVOERBESTAND - worden ondersteund, maar het moet de [lokale] parameter die wordt omgeleid naar een UNC-pad (Azure-opslag gekoppeld via XSMB) opgeven.
+- `LOAD DATA INFILE` wordt ondersteund, maar de `[LOCAL]` parameter moet worden opgegeven en worden vervolgens omgeleid naar een UNC-pad (Azure-opslag gekoppeld via SMB).
 
 ### <a name="unsupported"></a>Niet-ondersteund
-- SELECTEREN... IN HET UITVOERBESTAND
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Functionele beperkingen
 
 ### <a name="scale-operations"></a>Schaalbewerkingen
-- Dynamische schaalbaarheid van servers in de prijscategorie is momenteel niet ondersteund. Dat wil zeggen, schakelen tussen Basic, algemeen gebruik en geoptimaliseerd voor geheugen Prijscategorieën.
+- Dynamische schaling naar en van de Basic Prijscategorieën is momenteel niet ondersteund.
 - Verkleinen storage server wordt niet ondersteund.
 
 ### <a name="server-version-upgrades"></a>Server-versie-upgrades
 - Automatische migratie tussen versies van de primaire database-engine is momenteel niet ondersteund.
 
 ### <a name="point-in-time-restore"></a>Een punt in de tijd herstellen
-- Herstellen naar andere servicelaag en/of Compute-eenheden en de opslaggrootte is niet toegestaan.
+- Wanneer u de functie PITR gebruikt, wordt de nieuwe server gemaakt met dezelfde configuratie als de server die is gebaseerd op.
 - Herstellen van een verwijderde server wordt niet ondersteund.
 
 ### <a name="subscription-management"></a>Abonnementsbeheer
 - Dynamisch vooraf gemaakte servers verplaatsen tussen abonnement en resourcegroep is momenteel niet ondersteund.
 
 ## <a name="current-known-issues"></a>Huidige bekende problemen
-- MySQL-serverexemplaar wordt de verkeerde serverversie nadat de verbinding tot stand is gebracht. Als u de juiste server exemplaar versiebeheer, gebruikt u Selecteer version(); de opdracht bij de MySQL-prompt.
+- MySQL-serverexemplaar wordt de verkeerde serverversie nadat de verbinding tot stand is gebracht. Als u de juiste server-engine versie van het exemplaar, gebruikt de `select version();` opdracht.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Wat is beschikbaar in elke servicelaag](concepts-pricing-tiers.md)

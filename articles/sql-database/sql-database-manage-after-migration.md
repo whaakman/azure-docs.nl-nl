@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2a0a411d5f2b19eda844cba160429ecfe958c45e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650108"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309610"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud: uw database in Azure SQL Database beheren
 
@@ -31,7 +31,6 @@ Dit artikel worden enkele van de belangrijkste kenmerken van Azure SQL-database 
 - Veiligheid en naleving
 - Intelligent database bewaken en onderhoud
 - Gegevensverplaatsing
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR)
 Mogelijkheden voor zakelijke continuïteit en noodherstel recovery kunnen u uw bedrijf, zoals gebruikelijk gaan als er een ramp optreedt. De noodherstel mogelijk een gebeurtenis voor het niveau van database (bijvoorbeeld iemand per ongeluk zakt een cruciaal tabel) of een datacenter niveau gebeurtenis (regionale ramp, bijvoorbeeld een tsunami). 
@@ -235,7 +234,7 @@ SQL-Database biedt verschillende servicecategorieën Basic, Standard en Premium.
 
 Om te controleren of dat u bent op de juiste prestatieniveau, kunt u uw query's en database resourceverbruik via een van de hierboven vermelde manieren 'Hoe bewaak ik het prestatie- en -gebruik in SQL-Database' controleren. Ziet u dat uw query's / databases consistent worden uitgevoerd op CPU/geheugen enz. u overwegen kunt omhoog schalen naar een hoger prestatieniveau hot. Op dezelfde manier als u Houd er rekening mee dat zelfs tijdens de piekuren die u niet goed lijken te gebruiken van de resources zo veel mogelijk; Overweeg bij het verkleinen van het huidige prestatieniveau. 
 
-Als u een patroon SaaS-app of een database consolidatie scenario hebt, kunt u overwegen een elastische Pool voor kostenoptimalisatie op. Elastische groep is een uitstekende manier om een database consolidatie en kosten-optimalisatie. Voor meer informatie over het beheren van meerdere databases met behulp van de elastische Pool, Zie: [beheren van toepassingen en databases](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal). 
+Als u een patroon SaaS-app of een database consolidatie scenario hebt, kunt u overwegen een elastische Pool voor kostenoptimalisatie op. Elastische groep is een uitstekende manier om een database consolidatie en kosten-optimalisatie. Voor meer informatie over het beheren van meerdere databases met behulp van de elastische Pool, Zie: [beheren van toepassingen en databases](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Hoe vaak moet ik database integriteitscontroles voor mijn database uitvoeren?
 SQL-Database maakt gebruik van sommige smart technieken die toe te staan om bepaalde klassen van beschadigde gegevens automatisch en zonder verlies van gegevens te verwerken. Deze technieken zijn ingebouwd in de service en wordt gebruikt door de service wanneer moet zich voordoet. Uw back-ups over de service worden regelmatig een getest door deze terug te zetten en DBCC CHECKDB waarop. Als er problemen zijn, lost SQL-Database proactief ze. [Automatische pagina reparatie](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) wordt gebruikt voor het oplossen van pagina's die zijn beschadigd of hebben problemen met de gegevensintegriteit. De database-pagina's worden altijd geverifieerd met de standaardinstelling van de CONTROLESOM die controleert of de integriteit van de pagina. SQL-Database proactief bewaakt en controleert de integriteit van gegevens van uw database en als er zich problemen voordoen, lost ze met de hoogste prioriteit. Naast deze informatie kunt u desgewenst uw eigen integriteitscontroles op uw wordt uitgevoerd.  Zie voor meer informatie [integriteit van gegevens in SQL-Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

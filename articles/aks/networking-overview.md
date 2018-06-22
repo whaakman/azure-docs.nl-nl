@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: d6f42a5f3ce907fdb759bef29ca25bdc7fe365d9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 207accc30e10c4e2bed5b713fc59e2f9ad86a876
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757005"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309846"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Netwerkconfiguratie in Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Knooppunten in een cluster AKS is geconfigureerd voor eenvoudige netwerken gebru
 ## <a name="advanced-networking"></a>Geavanceerde netwerken
 
 **Geavanceerde** netwerken plaatst het gehele product in een Azure-netwerk (VNet) die u configureert, meeleveren automatische verbinding met de VNet-resources en integratie met de uitgebreide set mogelijkheden die aanbieding VNets.
-Geavanceerde netwerken is momenteel beschikbaar alleen wanneer het implementeren van AKS-clusters in de [Azure-portal] [ portal] of met Resource Manager-sjabloon.
+Geavanceerde netwerken is beschikbaar wanneer u clusters AKS implementeren met de [Azure-portal][portal], Azure CLI of met Resource Manager-sjabloon.
 
 Knooppunten in een cluster AKS is geconfigureerd voor gebruik van geavanceerde netwerken de [Azure Container netwerken Interface (CNI)] [ cni-networking] Kubernetes-invoegtoepassing.
 
@@ -47,7 +47,7 @@ Geavanceerde netwerkvoorzieningen bieden de volgende voordelen:
 * Gehele product hebben toegang tot bronnen op het openbare Internet. Ook een functie van basisnetwerken.
 
 > [!IMPORTANT]
-> Elk knooppunt in een cluster AKS is geconfigureerd voor geavanceerde netwerken kan maximaal hosten **30 gehele product**. Elke VNet ingericht voor gebruik met de Azure-CNI-invoegtoepassing beperkt tot is **4096 geconfigureerde IP-adressen**.
+> Elk knooppunt in een cluster AKS is geconfigureerd voor geavanceerde netwerken kan maximaal hosten **30 gehele product** wanneer geconfigureerd met behulp van de Azure-portal.  Alleen door het wijzigen van de eigenschap maxPods bij het implementeren van een cluster met Resource Manager-sjabloon kunt u de maximale waarde. Elke VNet ingericht voor gebruik met de Azure-CNI-invoegtoepassing beperkt tot is **4096 geconfigureerde IP-adressen**.
 
 ## <a name="advanced-networking-prerequisites"></a>Geavanceerde netwerken vereisten
 
@@ -75,19 +75,47 @@ Het plan IP-adres voor een cluster AKS bestaat uit een VNet, ten minste één su
 
 Zoals gezegd, elke VNet ingericht voor gebruik met de Azure-CNI-invoegtoepassing beperkt tot is **4096 geconfigureerde IP-adressen**. Elk knooppunt in een cluster is geconfigureerd voor geavanceerde netwerken kan maximaal hosten **30 gehele product**.
 
-## <a name="configure-advanced-networking"></a>Geavanceerde netwerk configureren
+## <a name="deployment-parameters"></a>Implementatieparameters
 
-Wanneer u [maken van een cluster AKS](kubernetes-walkthrough-portal.md) in de Azure portal, de volgende parameters worden geconfigureerd voor geavanceerde netwerken:
+Wanneer een AKS-cluster maakt, de volgende parameters kunnen worden geconfigureerd voor geavanceerde netwerken:
 
 **Virtueel netwerk**: de VNet waarin u wilt implementeren van het cluster Kubernetes. Als u maken van een nieuw VNet voor uw cluster wilt, selecteert u *nieuw* en volg de stappen in de *virtueel netwerk maken* sectie.
 
 **Subnet**: het subnet binnen het VNet waar u wilt implementeren van het cluster. Als u maken van een nieuw subnet in het VNet voor uw cluster wilt, selecteert u *nieuw* en volg de stappen in de *subnet maken* sectie.
 
-**Kubernetes service adresbereik**: het IP-adresbereik voor de service van het cluster Kubernetes IP-adressen. Dit bereik moet niet binnen het VNet-IP-adresbereik van het cluster.
+**Kubernetes service adresbereik**: de *Kubernetes service adresbereik* is het IP-adresbereik van waaruit de adressen die zijn toegewezen aan Kubernetes services in uw cluster (Zie voor meer informatie over services Kubernetes, [ Services] [ services] in de documentatie van Kubernetes).
+
+Het Kubernetes service IP-adresbereik:
+
+* Moet niet binnen het VNet-IP-adresbereik van het cluster
+* Mogen elkaar niet overlappen met een andere vnet's waarmee het cluster VNet samenwerkt
+* Mogen elkaar niet overlappen met een lokale IP-adressen
+
+Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Bijvoorbeeld, als een schil probeert te krijgen tot een IP-adres buiten het cluster, en als dat gebeurt ook IP moet een service IP-adres, ziet u mogelijk onvoorspelbaar gedrag en fouten.
 
 **Kubernetes DNS-service IP-adres**: het IP-adres voor de DNS-service van het cluster. Dit adres moet binnen het *Kubernetes service adresbereik*.
 
 **Docker Bridge adres**: het IP-adres en IP-masker toewijzen aan de Docker-brug. Dit IP-adres moet niet binnen het VNet-IP-adresbereik van het cluster.
+
+## <a name="configure-networking---cli"></a>Networking - CLI configureren
+
+Wanneer u een cluster AKS met de Azure CLI maakt, kunt u ook geavanceerde netwerken configureren. Gebruik de volgende opdrachten voor het maken van een nieuw cluster met AKS met geavanceerde netwerkfuncties ingeschakeld.
+
+Haal eerst de subnet-ID voor de bestaande subnet waarin het cluster AKS wordt gekoppeld:
+
+```console
+$ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query [].id --output tsv
+
+/subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
+```
+
+Gebruik de [az aks maken] [ az-aks-create] opdracht met de `--network-plugin azure` argument voor het maken van een cluster met geavanceerde netwerken. Update de `--vnet-subnet-id` waarde met de subnet-ID in de vorige stap verzameld:
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin azure --vnet-subnet-id <subnet-id> --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24
+```
+
+## <a name="configure-networking---portal"></a>Configureren van netwerken - portal
 
 De volgende schermafbeelding van de Azure-portal toont een voorbeeld van het configureren van deze instellingen tijdens het maken van de cluster AKS:
 
@@ -143,7 +171,9 @@ Kubernetes clusters die zijn gemaakt met de ACS-Engine ondersteuning voor zowel 
 [acs-engine]: https://github.com/Azure/acs-engine
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md

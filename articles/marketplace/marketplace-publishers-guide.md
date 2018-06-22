@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4b7d861ee0207c6a16c83e23d259411f7e874354
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823381"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309228"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>AppSource Publisher handleiding en Azure Marketplace  
 
@@ -118,7 +118,7 @@ Elke winkel biedt speciale opties waarmee u kunt uw publishing maximaliseren. De
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>Publiceren in webwinkels op Marketplace  
-De volgende secties helpen u de publicatieopties in AppSource en Azure Marketplace navigeren.  
+De volgende pagina's kunnen u de publicatieopties in AppSource en Azure Marketplace navigeren.  
 
 Een uitgever in de winkelobjecten op marketplace in drie eenvoudige stappen worden.  
 1.  Ga naar de [, bepalen het Type aanbieding voor uw oplossing](./determine-your-listing-type.md) pagina.  
@@ -135,7 +135,6 @@ Een uitgever in de winkelobjecten op marketplace in drie eenvoudige stappen word
 ---  
 
 ## <a name="support"></a>Ondersteuning  
-
 *   Ga naar de [ondersteuning voor AppSource](./support-appsource.md) pagina.  
 *   Ga naar de [ondersteuning voor Azure Marketplace](./support-azure-marketplace.md) pagina.  
 
@@ -147,6 +146,7 @@ Een uitgever in de winkelobjecten op marketplace in drie eenvoudige stappen word
 
 ## <a name="guidelines"></a>Richtlijnen  
 *   Ga naar de [richtlijnen](./guidelines.md) pagina.  
+    *   Ga naar de [richtlijnen voor het maken van een Microsoft-ID voor het beheren van een marketplace-account](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) sectie.  
 *   Ga naar de [registreren in Dev Center](./register-dev-center.md) pagina.  
 *   Ga naar de [toevoegen Bank en belastinggegevens](./add-bank-tax-info.md) pagina.  
 *   Ga naar de [inschakelen proefversie gebruikmaken van Azure AD](./enable-trial-using-azure-ad.md) pagina.  

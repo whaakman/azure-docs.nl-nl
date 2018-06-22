@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725442"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308156"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -280,6 +280,10 @@ Als u een opslagaccount voor meerdere apps van de functie deelt, zorg dat elke f
 ## <a name="retry-behavior"></a>Opnieuw proberen
 
 In tegenstelling tot de wachtrij worden geactiveerd opnieuw niet de timertrigger nadat een functie is mislukt. Wanneer een functie is mislukt, is niet het aangeroepen tot de volgende keer opnieuw op basis van de planning.
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+Zie voor informatie over wat te doen wanneer de timertrigger werkt niet zoals verwacht, [Investigating en rapporteren van problemen met timer geactiveerd functies niet geactiveerd,](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
 ## <a name="next-steps"></a>Volgende stappen
 

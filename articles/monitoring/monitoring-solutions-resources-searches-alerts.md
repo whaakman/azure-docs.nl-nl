@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b16c88b5ec45dec7bf0fe40da24e817ae325a3e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c29d6cb0da2e394912a2584b0d3c3cedf13f054c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887914"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304484"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics toe te voegen opgeslagen zoekopdrachten en waarschuwingen met beheersysteem (Preview)
 
@@ -44,16 +44,13 @@ De naam van de werkruimte wordt op de naam van elke resource logboekanalyse.  Di
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
 ## <a name="log-analytics-api-version"></a>Log Analytics-API-versie
-Alle logboekanalyse resources die zijn gedefinieerd in het Resource Manager-sjabloon hebben een eigenschap **apiVersion** waarmee wordt gedefinieerd met de versie van de API van de bron moet gebruiken.  Deze versie is verschillend voor resources die gebruikmaken van de [legacy en de bijgewerkte querytaal](../log-analytics/log-analytics-log-search-upgrade.md).  
+Alle logboekanalyse resources die zijn gedefinieerd in het Resource Manager-sjabloon hebben een eigenschap **apiVersion** waarmee wordt gedefinieerd met de versie van de API van de bron moet gebruiken.   
 
- De volgende tabel geeft de Log Analytics-API-versies voor opgeslagen zoekopdrachten in eerdere versies en bijgewerkte werkruimten: 
+De volgende tabel bevat de API-versie voor de resource die in dit voorbeeld worden gebruikt.
 
-| Werkruimteversie | API-versie | Query’s uitvoeren |
+| Resourcetype | API-versie | Query’s uitvoeren |
 |:---|:---|:---|
-| V1 (verouderd)   | 2015-11-01-preview | Verouderde indeling.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =  |
-| v2 (upgrade) | 2015-11-01-preview | Verouderde indeling.  Geconverteerd naar bijgewerkte indeling op installeren.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =<br>Geconverteerd naar: gebeurtenis &#124; waar EventLevelName == "Error"  |
-| v2 (upgrade) | 2017-03-03-preview | De indeling van de upgrade. <br>Voorbeeld: Gebeurtenis &#124; waar EventLevelName == "Error"  |
-
+| savedSearches | 2017-03-15-preview | Gebeurtenis &#124; waar EventLevelName == "Error"  |
 
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
@@ -90,7 +87,7 @@ Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel besch
 > U moet wellicht escape-tekens gebruiken in de query bevat tekens die kunnen worden geïnterpreteerd als JSON.  Bijvoorbeeld, als de query is **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write '**, deze worden geschreven in het oplossingsbestand als **Type: AzureActivity OperationName:\" Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Waarschuwingen
-[Meld u Analytics waarschuwingen](../log-analytics/log-analytics-alerts.md) zijn gemaakt door regels voor waarschuwingen die een opgeslagen zoekopdracht op een vast interval uitvoert.  Als de resultaten van de query overeenkomen met criteria opgegeven, wordt een waarschuwing record gemaakt en een of meer acties worden uitgevoerd.  
+[Waarschuwingen van Azure Log](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) zijn gemaakt door Azure waarschuwingsregels die opgegeven logboek query's met regelmatige tussenpozen uitvoeren.  Als de resultaten van de query aan opgegeven criteria voldoen, wordt een waarschuwing record gemaakt en een of meer acties worden uitgevoerd met behulp van [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
 > Alle waarschuwingen in een werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Acties zijn voor gebruikers die waarschuwingen naar Azure uitbreiden, nu beheerd met Azure Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
@@ -196,7 +193,7 @@ De eigenschappen voor de actie waarschuwing resources worden in de volgende tabe
 | Type | Ja | Type van de actie.  Dit is **waarschuwing** voor meldingen. |
 | Naam | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weergegeven in de console voor de waarschuwingsregel. |
 | Beschrijving | Nee | Optionele beschrijving van de waarschuwing. |
-| Ernst | Ja | Ernst van de waarschuwing record uit de volgende waarden:<br><br> **Kritieke**<br>**Waarschuwing**<br>**Informatief**
+| Severity | Ja | Ernst van de waarschuwing record uit de volgende waarden:<br><br> **Kritieke**<br>**Waarschuwing**<br>**Informatief**
 
 
 #### <a name="threshold"></a>Drempelwaarde
@@ -338,11 +335,12 @@ In dit voorbeeld worden [standaardoplossing parameters]( monitoring-solutions-so
           "SolutionPublisher": "Contoso",
           "ProductName": "SampleSolution",
     
-          "LogAnalyticsApiVersion": "2015-03-20",
-    
+          "LogAnalyticsApiVersion-Search": "2017-03-15-preview",
+              "LogAnalyticsApiVersion-Solution": "2015-11-01-preview",
+
           "MySearch": {
             "displayName": "Error records by hour",
-            "query": "Type=MyRecord_CL | measure avg(Rating_d) by Instance_s interval 60minutes",
+            "query": "MyRecord_CL | summarize AggregatedValue = avg(Rating_d) by Instance_s, bin(TimeGenerated, 60m)",
             "category": "Samples",
             "name": "Samples-Count of data"
           },
@@ -350,7 +348,7 @@ In dit voorbeeld worden [standaardoplossing parameters]( monitoring-solutions-so
             "Name": "[toLower(concat('myalert-',uniqueString(resourceGroup().id, deployment().name)))]",
             "DisplayName": "My alert rule",
             "Description": "Sample alert.  Fires when 3 error records found over hour interval.",
-            "Severity": "Critical",
+            "Severity": "critical",
             "ThresholdOperator": "gt",
             "ThresholdValue": 3,
             "Schedule": {
@@ -378,7 +376,7 @@ In dit voorbeeld worden [standaardoplossing parameters]( monitoring-solutions-so
             "location": "[parameters('workspaceRegionId')]",
             "tags": { },
             "type": "Microsoft.OperationsManagement/solutions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Solution')]",
             "dependsOn": [
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
@@ -406,7 +404,7 @@ In dit voorbeeld worden [standaardoplossing parameters]( monitoring-solutions-so
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [ ],
             "tags": { },
             "properties": {
@@ -419,7 +417,7 @@ In dit voorbeeld worden [standaardoplossing parameters]( monitoring-solutions-so
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name)]"
             ],
@@ -433,7 +431,7 @@ In dit voorbeeld worden [standaardoplossing parameters]( monitoring-solutions-so
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/',  variables('MyAlert').Schedule.Name, '/',  variables('MyAlert').Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/',  variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]"
             ],

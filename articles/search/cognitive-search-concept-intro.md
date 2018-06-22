@@ -3,17 +3,18 @@ title: Cognitieve zoeken voor het ophalen van gegevens, natuurlijke taal worden 
 description: Ophalen van gegevens, verwerking van natuurlijke taal (NLP) en beeldverwerking doorzoekbare om inhoud te maken in Azure Search indexeren cognitieve vaardigheden gebruiken.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641108"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304631"
 ---
 # <a name="what-is-cognitive-search"></a>Wat is cognitieve zoeken?
 
@@ -25,12 +26,12 @@ AI-integratie is via *cognitieve vaardigheden* die brondocumenten via sequentië
 
 Kwalificaties gebruikt tijdens het indexeren zijn vooraf gedefinieerde of aangepaste:
 
-+ [Prefined vaardigheden](cognitive-search-predefined-skills.md) zijn gebaseerd op dezelfde AI algoritmen in cognitieve Services-API's gebruikt: [met de naam entiteit erkenning](cognitive-search-skill-named-entity-recognition.md), [uitpakken van sleutel woordgroep](cognitive-search-skill-keyphrases.md), en [OCR](cognitive-search-skill-ocr.md) zijn een paar. 
++ [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) zijn gebaseerd op dezelfde AI algoritmen in cognitieve Services-API's gebruikt: [met de naam entiteit erkenning](cognitive-search-skill-named-entity-recognition.md), [uitpakken van sleutel woordgroep](cognitive-search-skill-keyphrases.md), en [OCR](cognitive-search-skill-ocr.md)zijn een paar. 
 
 + [Aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) kunnen zijn ontwikkeld door u voor alle gespecialiseerde bewerkingen die u nodig hebt. Voorbeelden van aangepaste vaardigheden mogelijk een aangepaste entiteit module of document classificatie die gericht is op een specifiek domein zoals Financiën, wetenschappelijke publicaties of arts.
 
 > [!NOTE]
-> Cognitieve zoekopdrachten bevindt zich in de openbare preview-fase en momenteel wordt uitvoering van vaardigheden gratis aangeboden. De prijzen voor deze functionaliteit worden op een later moment bekend gemaakt.
+> Cognitieve zoeken is openbare preview en vaardigheden uitvoering wordt momenteel gratis aangeboden. De prijzen voor deze functionaliteit worden op een later moment bekend gemaakt.
 
 ## <a name="components-of-cognitive-search"></a>Onderdelen van cognitieve zoeken
 

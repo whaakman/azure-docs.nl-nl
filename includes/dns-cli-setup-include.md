@@ -9,7 +9,7 @@ Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
 ### <a name="sign-in-to-your-azure-account"></a>Aanmelden bij uw Azure-account
 
-Open een consolevenster en doorloop de verificatie met uw referenties. Raadpleeg [Log in to Azure from the Azure CLI (Aanmelden bij Azure vanaf de Azure CLI)](/cli/azure/authenticate-azure-cli) voor meer informatie.
+Open een consolevenster en doorloop de verificatie met uw referenties. Zie voor meer informatie [aanmelden bij Azure met Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ```azurecli
 azure login

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: 22de973ae00c93f82b274c0b833149b9fe494a7f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a62a6b334fd58ce360d932cdc4a8f04f36e3232d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209847"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Zelfstudie: Azure Active Directory-integratie met ServiceChannel
 
@@ -126,7 +126,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
     ![Eenmalige aanmelding configureren](./media/servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 
-    > Klik op de [hier](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) weten hoe u configureert **rol** in Azure AD
+    > Zie [beheren van toegang met RBAC en de Azure-portal](../../role-based-access-control/role-assignments-portal.md) voor meer informatie over het configureren van **rol** in Azure AD.
 
 5. In **gebruikerskenmerken** sectie, klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** en kenmerken instellen.
 

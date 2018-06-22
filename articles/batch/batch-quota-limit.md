@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310533"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304449"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -51,14 +51,10 @@ Als u een Batch-account hebt gemaakt met de groep toewijzing modus is ingesteld 
 | [Gelijktijdige taken](batch-parallel-node-tasks.md) per rekenknooppunt |4 x aantal kernen voor knooppunt |
 | [Toepassingen](batch-application-packages.md) per Batch-account |20 |
 | Toepassingspakketten per toepassing |40 |
-| Grootte van de toepassing-pakket (elk) |Ongeveer 195GB<sup>1</sup> |
-| Maximale startgrootte van taak | 32768 tekens<sup>2</sup> |
-| Taak maximale levensduur | 7 dagen<sup>3</sup> |
+| Taak maximale levensduur | 7 dagen<sup>1</sup> |
 | Rekenknooppunten in de pool communicatie tussen knooppunten is ingeschakeld | 100 |
 
-<sup>1</sup> azure Storage-limiet voor maximale blob blokgrootte<br />
-<sup>2</sup> bevat bronbestanden en omgevingsvariabelen<br />
-<sup>3</sup> de maximale levensduur van een taak uit wanneer deze wordt toegevoegd aan de taak is wanneer deze is voltooid, is 7 dagen. Voltooide taken blijven voor onbepaalde tijd bestaan; gegevens voor taken die niet binnen de maximale levensduur zijn voltooid, zijn niet toegankelijk.
+<sup>1</sup> de maximale levensduur van een taak uit wanneer deze wordt toegevoegd aan de taak is wanneer deze is voltooid, is 7 dagen. Voltooide taken blijven voor onbepaalde tijd bestaan; gegevens voor taken die niet binnen de maximale levensduur zijn voltooid, zijn niet toegankelijk.
 
 
 ## <a name="view-batch-quotas"></a>Batch-quota's weergeven

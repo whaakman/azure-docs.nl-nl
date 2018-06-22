@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
+ms.topic: conceptual
+ms.reviewer: Dale.Koetke
+ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a401bc3ed68dc9273ac14cfd357b9c05111dd54c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309853"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Volume-prijzen en -gegevens in Application Insights beheren
 
@@ -88,7 +90,7 @@ De hoeveelheid gegevens die u verzendt, wordt beperkt op drie manieren:
 
     Wees voorzichtig bij het instellen van de dagelijkse limiet. Uw doel zijn om *nooit bereikt het dagelijkse kapje*. Als u de dagelijkse limiet bereikt, verliest u de gegevens voor de rest van de dag en u uw toepassing kan niet controleren. Om te wijzigen van de dagelijkse limiet, gebruiken de **dagelijkse volume cap** optie. U hebt toegang tot deze optie in de **gebruik en de geschatte kosten** deelvenster (dit wordt beschreven in meer detail later in dit artikel).
     De beperking voor sommige abonnement typen die tegoed dat kan niet worden gebruikt voor Application Insights hebt verwijderd. Als het abonnement een bestedingslimiet heeft, heeft het dagelijkse cap dialoogvenster voorheen instructies voor het verwijderen van de bestedingslimiet en inschakelen van de dagelijkse cap buiten 32,3 MB per dag wordt gegenereerd.
-* **Beperking**: de gegevenssnelheid 32.000 gebeurtenissen per seconde, gemiddelde beperking limieten meer dan 1 minuut.
+* **Beperking**: beperking limieten de gegevenssnelheid 32.000 gebeurtenissen per seconde is een gemiddelde waarde per instrumentatiesleutel meer dan 1 minuut.
 
 *Wat gebeurt er als mijn app de bandbreedteregeling snelheid overschrijdt?*
 

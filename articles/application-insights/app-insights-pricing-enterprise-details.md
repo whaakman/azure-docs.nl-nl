@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6df013506e4541fee7850850776d26e5c69a799d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 65307eab0bf1b5f502f11c14c369826cd12e0966
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309832"
 ---
 # <a name="enterprise-plan-details"></a>Abonnementsdetails voor Enterprise
 
@@ -26,6 +27,9 @@ Azure Application Insights heeft twee prijscategorie plannen: Basic- en Enterpri
 De Enterprise-serviceplan heeft een kosten per knooppunt en elk knooppunt een dagelijkse gegevens vergoeding ontvangt. In de onderneming prijzen plan, u in rekening worden gebracht voor gegevens boven het inbegrepen tegoed ingenomen. Als u Operations Management Suite gebruikt, moet u de Enterprise-serviceplan kiezen. 
 
 Zie voor de huidige prijzen in uw valuta en regio, [Application Insights prijzen](http://azure.microsoft.com/pricing/details/application-insights/).
+
+> [!NOTE]
+> In April 2018, we [geïntroduceerd](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) een nieuw prijsmodel voor het bewaken van Azure. Dit model neemt een eenvoudige 'betalen naar gebruik' model in de volledige portfolio van de bewaking van services. Meer informatie over de [nieuwe prijzen model](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hoe naar [beoordeling van de gevolgen voor de upgrade naar dit model](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) op basis van de gebruikspatronen en [hoe u kunt kiezen voor het nieuwe model](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
 
 ## <a name="how-the-enterprise-plan-works"></a>Hoe werkt dit plan Enterprise
 

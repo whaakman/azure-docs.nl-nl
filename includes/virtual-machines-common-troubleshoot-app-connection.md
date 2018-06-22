@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371266"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313510"
 ---
 Er zijn diverse redenen wanneer u mag niet beginnen of verbinding maken met een toepassing die wordt uitgevoerd op Azure een virtuele machine (VM). Oorzaken zijn onder meer de toepassing niet actief of luistert op de verwachte poorten, de luisterpoort geblokkeerd of netwerken regels niet goed doorgeven verkeer naar de toepassing. Dit artikel wordt beschreven methodische wijze om te zoeken en los het probleem.
 
@@ -32,7 +32,7 @@ Als u verbinding maken met een toepassing hebt, probeert u de volgende algemene 
 
 * De virtuele machine opnieuw opstarten
 * Het eindpunt opnieuw / firewall-regels / netwerk beveiligingsregels voor de groep (NSG)
-  * [Resource Manager-model - Netwerkbeveiligingsgroepen beheren](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager-model - Netwerkbeveiligingsgroepen beheren](../articles/virtual-network/manage-network-security-group.md)
   * [Klassieke model - eindpunten Cloudservices beheren](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Verbinding maken vanaf een andere locatie, zoals een andere virtuele Azure-netwerk
 * De virtuele machine implementeren
@@ -93,7 +93,7 @@ Als u geen toegang de toepassing tot, controleert u of de volgende instellingen:
 * Inbraakdetectie of netwerkbeheer-software op de doel-virtuele machine met toestaat het verkeer.
 * Cloud Services-eindpunten of Netwerkbeveiligingsgroepen bieden de mogelijkheid het verkeer:
   * [Klassieke model - eindpunten Cloudservices beheren](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager-model - Netwerkbeveiligingsgroepen beheren](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager-model - Netwerkbeveiligingsgroepen beheren](../articles/virtual-network/manage-network-security-group.md)
 * Een afzonderlijk onderdeel dat wordt uitgevoerd in uw virtuele machine in het pad tussen de test virtuele machine en de virtuele machine, zoals een load balancer of een firewall, toestaat het verkeer.
 
 Gebruik Windows Firewall met geavanceerde beveiliging om te bepalen of de firewallregels voor binnenkomend en uitgaand verkeer van uw toepassing sluiten op een Windows-gebaseerde virtuele machine.

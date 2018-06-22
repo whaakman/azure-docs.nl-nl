@@ -2,75 +2,49 @@
 title: Hoge beschikbaarheid - service van Azure SQL Database | Microsoft Docs
 description: Meer informatie over de functies en mogelijkheden voor hoge beschikbaarheid van Azure SQL Database-service
 services: sql-database
-author: anosov1960
+author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 04/24/2018
-ms.author: sashan
-ms.reviewer: carlrab
-ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.date: 06/20/2018
+ms.author: jovanpop
+ms.reviewer: carlrab, sashan
+ms.openlocfilehash: 4e1963e97a7458db8badb63e28dbc3d215ad88b2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839806"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309627"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
-Microsoft heeft de belofte aangebracht in de klanten die hoge beschikbaarheid (HA) is ingebouwd in de service en de klanten hoeven niet te werken, speciale logica voor het toevoegen of beslissingen rond HA vanaf het begin van de Azure SQL Database PaaS-aanbieding. Microsoft onderhoudt volledige controle over de HA-systeemconfiguratie en bewerking, biedt klanten een SLA. De HA-SLA van toepassing op een SQL-database in een regio en biedt geen bescherming in geval van een mislukking van de totale regio die wordt veroorzaakt door factoren buiten het beheer van Microsoft redelijkerwijs (bijvoorbeeld een natuurramp, war, besluiten van terrorisme, riots, overheids-actie of een netwerk- of apparaatstoring buiten de datacenters van Microsoft, waaronder op klant sites of tussen sites van de klant en Datacenter van Microsoft).
 
-Microsoft gebruikt om de ruimte van het probleem van HA vereenvoudigen, de volgende veronderstellingen:
-1.  Fouten van hardware en software zijn onvermijdelijk
-2.  Operationele medewerkers maken fouten die tot mislukte leiden
-3.  Geplande servicebewerkingen veroorzaken storingen 
+Azure SQL-Database is de maximaal beschikbare database Platform als een Service die zorgt ervoor dat uw database van is en de actieve 99,99% tijd, zonder dat u over het onderhouden en downtime. Dit is een volledig beheerde SQL Server Database Engine-proces gehost in de Azure-cloud die ervoor zorgt dat uw SQL Server-database altijd bijgewerkt/hersteld is zonder uw workload. Azure SQL-Database kunnen snel herstellen zelfs in de meest kritieke omstandigheden ervoor te zorgen dat uw gegevens altijd beschikbaar is.
 
-Dergelijke afzonderlijke gebeurtenissen zijn incidentele in de cloud, ze optreden, elke week als dat niet elke dag. 
+Azure-platform is volledig beheert van elke Azure SQL Database en garandeert geen verlies van gegevens en een hoog percentage van de beschikbaarheid van gegevens. Azure verwerkt automatisch patchen, back-ups, replicatie, foutdetectie, onderliggende potentiële hardware, software of netwerkstoringen, implementatie oplossingen voor problemen, failovers, upgrades van de database en overige onderhoudstaken. SQL Server-engineers hebben geïmplementeerd de bekendste procedures ervoor te zorgen dat de onderhoudswerkzaamheden zijn voltooid in minder dan 0,01% tijd van de levensduur van uw database. Deze architectuur is ontworpen om ervoor te zorgen dat doorgevoerd gegevens nooit verloren en wordt dat onderhoudsbewerkingen worden uitgevoerd zonder de werkbelasting. Er zijn geen onderhoudsvensters of downtimes moeten waarvoor u de werkbelasting niet meer bij de database is bijgewerkt of onderhouden. Ingebouwde hoge beschikbaarheid in Azure SQL Database zorgt ervoor dat de database kan nooit worden enkel storingspunt in de architectuur van de software.
 
-## <a name="fault-tolerant-sql-databases"></a>Fouttolerantie SQL-databases
-Klanten meest geïnteresseerd bent in de tolerantie van hun eigen databases en minder geïnteresseerd bent in de tolerantie van de service SQL Database als geheel. 99,99% beschikbaarheid voor een service is nutteloos als 'mijn database' deel uit van de 0,01% van de databases die zijn niet maakt beschikbaar. Elke database moet zich fouttolerantie en fout risicobeperking moet nooit leiden tot verlies van een transactie die is vastgelegd. 
+Er zijn twee hoge beschikbaarheid modellen in Azure SQL toegepast:
 
-SQL-Database gebruikt voor gegevens, zowel lokale opslag (LS) op basis van direct gekoppelde schijven VHD en externe opslag (RS) op basis van Azure Premium-opslag-pagina-blobs. 
-- Lokale opslag wordt gebruikt in de Premium- of Business-kritische (preview) databases en elastische pools, die zijn ontworpen voor bedrijfskritieke kritieke OLTP-toepassingen met een hoge IOPS-vereisten. 
-- Externe opslag wordt gebruikt in Basic, Standard en algemeen Servicelagen, die zijn ontworpen voor budget georiënteerde zakelijke workloads waarvoor opslag is vereist en rekencapaciteit afzonderlijk van elkaar schalen. Ze een één-pagina-blob voor de database en logboekbestanden en de replicatie en failover mechanismen ingebouwde opslag gebruiken.
+- Standaard/algemeen doel model waarmee 99,99% beschikbaarheid van maar een aantal mogelijke vermindering in prestaties tijdens onderhoudsactiviteiten.
+- Premium/kritieke bedrijfsmodel waarmee biedt ook 99,99% beschikbaarheid met minimale prestatie-invloed van uw werkbelasting zelfs tijdens onderhoudsactiviteiten.
 
-In beide gevallen worden de replicatie, foutdetectie en failover-mechanismen van SQL-Database zijn volledig geautomatiseerd en werkt zonder menselijke tussenkomst. Deze architectuur is ontworpen om ervoor te zorgen dat doorgevoerd gegevens nooit verloren en wordt dat gegevens duurzaamheid voorrang hebben op alle anders.
+Azure upgrades en -patches onderliggende besturingssysteem, stuurprogramma's en SQL Server Database Engine transparant met de minimale uitvaltijd voor eindgebruikers. Azure SQL-Database wordt uitgevoerd op de meest recente stabiele versie van SQL Server Database Engine en het Windows-besturingssysteem en de meeste van de gebruikers niet ziet dat de upgrades continu worden uitgevoerd.
 
-De belangrijkste voordelen:
-- Klanten u optimaal wilt profiteren van gerepliceerde databases zonder te configureren of onderhouden ingewikkeld hardware, software, besturingssystemen of virtualisatieomgevingen.
-- Volledige ACID-eigenschappen van relationele databases worden beheerd door het systeem.
-- Failovers zijn volledig geautomatiseerd zonder verlies van de vastgelegde gegevens.
-- Routering van verbindingen met de primaire replica wordt dynamisch beheerd door de service met geen toepassingslogica vereist.
-- De hoge mate van automatische redundantie wordt geleverd zonder extra kosten.
+## <a name="standard-availability"></a>Standaard-beschikbaarheid
 
-> [!NOTE]
-> De architectuur beschreven hoge beschikbaarheid is onderworpen aan zonder kennisgeving worden gewijzigd. 
+Standaard beschikbaarheid verwijst naar SLA van 99,99% dat in de lagen Standard/Basic/algemeen doel wordt toegepast. Beschikbaarheid wordt bereikt door scheiding van de berekenings- en lagen. In het model standaard beschikbaarheid hebben we twee lagen:
 
-## <a name="data-redundancy"></a>De gegevensredundantie
+- Een stateless berekeningslaag dat alleen tijdelijke en in de cache opgeslagen gegevens (bijvoorbeeld – plancache, buffergroep en kolom store pool) bevat en dat het proces sqlserver.exe wordt uitgevoerd. Dit staatloze SQL Server-knooppunt wordt beheerd door de Azure Service Fabric dat proces initialiseert, controleert de status van het knooppunt en failover naar een andere locatie uitvoert, indien nodig.
+- Een stateful laag met de databasebestanden (.mdf/.ldf) die zijn opgeslagen in Azure Premium-opslag-schijven. Azure-opslag zorgt ervoor dat er worden geen verlies van gegevens van een record die in een databasebestand wordt geplaatst. Azure-opslag heeft ingebouwde beschikbaarheid/gegevensredundantie dat ervoor zorgt dat elke record in het logboekbestand of de pagina in bestand wordt behouden zelfs als de SQL Server-proces is vastgelopen.
 
-De oplossing met hoge beschikbaarheid in SQL-Database is gebaseerd op [altijd op beschikbaarheidsgroepen](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) -technologie van SQL Server en maakt het werkt voor zowel LS RS databases met minimale verschillen. De technologie altijd op beschikbaarheid van groep wordt gebruikt voor persistentie in LS configuratie, terwijl in RS wordt gebruikt voor beschikbaarheid (laag RTO door actieve geo-replicatie). 
+Wanneer het besturingssysteem of database-engine is bijgewerkt of als een kritiek probleem in Sql Server-proces wordt gedetecteerd, Azure Service Fabric staatloze SQL Server-proces wordt verplaatst naar een andere staatloze rekenknooppunt. Gegevens in Azure Storage-laag wordt niet beïnvloed en gegevens/logboekbestanden zijn gekoppeld aan de nieuwe geïnitialiseerde SQL Server-proces. Verwachte failover-tijd kan worden gemeten in seconden. Dit proces wordt gegarandeerd dat 99,99% beschikbaarheid, maar heeft deze mogelijk bepaalde prestaties gevolgen voor zwaar worden belast die worden uitgevoerd vanwege overgangsduur en het nieuwe SQL Server-knooppunt van het feit gestart met koude cache.
 
-## <a name="local-storage-configuration"></a>Configuratie van de lokale opslag
+## <a name="premium-availability"></a>Premium-beschikbaarheid
 
-In deze configuratie, elke database wordt online gezet door de management-service (MS) in de besturingselement-ring. Eén primaire replica en ten minste twee secundaire replica's (quorum-set) bevinden zich in een tenant ring die drie onafhankelijke fysieke subsystemen binnen hetzelfde datacenter omvat. Lees- en schrijfbewerkingen worden verzonden door de gateway (GW) naar de primaire replica en de geschreven asynchroon worden gerepliceerd naar de secundaire replica's. SQL-Database gebruikt een schema op basis van een quorum doorvoeren waarbij gegevens worden geschreven naar de primaire en ten minste één secundaire replica voordat de transactie-doorvoeracties.
+Premium-beschikbaarheid is ingeschakeld in Premium-laag van Azure SQL Database en is bedoeld voor intensieve werkbelastingen die invloed op de prestaties vanwege de lopende onderhoudsbewerkingen kunnen tolereren.
 
-De [Service Fabric](../service-fabric/service-fabric-overview.md) system failover automatisch opnieuw opgebouwd replica's als knooppunten uitvallen en behoudt het lidmaatschap van een quorum-set als knooppunten afwijken en deelnemen aan het systeem. Gepland onderhoud wordt zorgvuldig gecoördineerd om te voorkomen dat het quorum-set gaan omlaag dan een minimale replica telling (meestal 2). Dit model geschikt is voor Premium- en kritieke zakelijke databases (preview), maar het vereist dat de redundantie van zowel berekenings- en -onderdelen en resulteert in een hogere kosten.
+In het model premium integreert Azure SQL-database berekeningen en opslag op één knooppunt. Het Database-Engine van SQL Server-proces en onderliggende mdf/ldf-bestanden worden geplaatst op hetzelfde knooppunt met lokaal gekoppelde SSD-opslag bieden lage latentie voor uw workload.
 
-## <a name="remote-storage-configuration"></a>Configuratie van de externe opslag
-
-Voor externe opslagconfiguraties (Basic, Standard of algemeen lagen), wordt precies één kopie beheerd in externe blob-opslag, met behulp van de opslagmogelijkheden van systemen voor duurzaamheid en redundantie bits rotting detectie. 
-
-De architectuur van hoge beschikbaarheid wordt door het volgende diagram geïllustreerd:
- 
-![architectuur voor hoge beschikbaarheid](./media/sql-database-high-availability/high-availability-architecture.png)
-
-## <a name="failure-detection-and-recovery"></a>Foutdetectie en herstel 
-Een grootschalige gedistribueerd systeem moet een uiterst betrouwbare fout detectiesysteem die betrouwbaar werken en fouten kunt opsporen snel en zo dicht mogelijk bij de klant. Dit systeem is voor SQL-Database op basis van Azure Service Fabric. 
-
-Met de primaire replica is direct duidelijk of en wanneer de primaire replica is mislukt en werk kan niet worden voortgezet omdat alle lees- en schrijfbewerkingen worden uitgevoerd op de primaire replica eerst. Dit proces van het promoveren van een secundaire replica de status van de primaire heeft beoogde hersteltijd (RTO) = 30 seconden en beoogd herstelpunt (RPO) = 0. Om te beperken van de impact van de 30 seconden RTO, is de beste manier om te proberen opnieuw verbinding maken met meerdere keren met een kleinere wachttijd voor verbindingspogingen mislukt.
-
-Wanneer een secundaire replica is mislukt, wordt de database naar een minimale quorum-set, met geen spares is. Het service fabric start het proces herconfiguratie vergelijkbaar met het proces dat volgt op de primaire replica is mislukt, dus na een korte wachten om te bepalen of de fout permanent, een andere secundaire replica is gemaakt. In geval van een tijdelijke status van de out-of-service, zoals een besturingssysteemfout of een upgrade is niet onmiddellijk een nieuwe replica gebouwd zodat het knooppunt opnieuw op te starten in plaats daarvan. 
-
-Voor de configuraties externe opslag gebruikt SQL-Database Always ON functionaliteit voor databases failover tijdens upgrades. Daarvoor een nieuwe SQL-exemplaar is geactiveerd uitschakelen van tevoren als onderdeel van de geplande upgrade gebeurtenis en koppelt en herstelt u het databasebestand uit externe opslag. In geval van een proces crashes of andere niet-geplande gebeurtenissen Windows Fabric beheert de beschikbaarheid van het exemplaar en gekoppeld als een laatste stap van het herstel van het bestand van de externe database.
+Hoge beschikbaarheid is geïmplementeerd met behulp van standaard [altijd op beschikbaarheidsgroepen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Elke database is een cluster met databaseknooppunten met een primaire database die toegankelijk is voor de werkbelasting van de klant en enkele secundaire processen met kopieën van gegevens. Het primaire knooppunt duwt voortdurend de wijzigingen aan secundaire knooppunten om ervoor te zorgen dat de gegevens beschikbaar zijn op secundaire replica's is als het primaire knooppunt om welke reden vastloopt. Failover wordt verwerkt door de SQL Server Database Engine – één secundaire replica wordt het primaire knooppunt en een nieuwe secundaire replica wordt gemaakt om ervoor te zorgen voldoende knooppunten in het cluster. De werkbelasting wordt automatisch omgeleid naar de nieuwe primaire knooppunt. Failover-tijd wordt gemeten in milliseconden en de nieuwe primaire instantie is onmiddellijk gereed om te blijven voldoen aan aanvragen.
 
 ## <a name="zone-redundant-configuration-preview"></a>Zone-redundante configuratie (preview)
 
@@ -86,7 +60,7 @@ De zone redundant versie van de architectuur van hoge beschikbaarheid wordt door
 ![hoge beschikbaarheid architectuur zoneredundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Scale-out lezen
-Zoals wordt beschreven, service Premium en Business-kritische (preview) lagen hefboomwerking quorum-stelt en AlwaysON-technologie voor hoge beschikbaarheid in één zone en zone redundant configuraties. Een van de voordelen van AlwasyON is de replica's zijn altijd de transactioneel consistent is. Omdat de replica's hetzelfde prestatieniveau als het primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen-query's zijn geïsoleerd van de belangrijkste lezen-schrijven werkbelasting en niet van invloed op de prestaties. Lees de functie scale-out is bedoeld voor de toepassingen die logisch zijn alleen-lezen werkbelastingen zoals analytics gescheiden en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding met de primaire. 
+Zoals wordt beschreven, service Premium en Business-kritische (preview) lagen hefboomwerking quorum-stelt en altijd op technologie voor hoge beschikbaarheid in één zone en zone redundant configuraties. Een van de voordelen van AlwasyON is de replica's zijn altijd de transactioneel consistent is. Omdat de replica's hetzelfde prestatieniveau als het primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen-query's zijn geïsoleerd van de belangrijkste lezen-schrijven werkbelasting en niet van invloed op de prestaties. Lees de functie scale-out is bedoeld voor de toepassingen die logisch zijn alleen-lezen werkbelastingen zoals analytics gescheiden en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding met de primaire. 
 
 Als u wilt de lezen Scale-Out-functie met een bepaalde database gebruiken, moet u expliciet deze activeren bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door aan te roepen de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp van de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode.
 
@@ -100,7 +74,7 @@ Als lezen Scale-Out is uitgeschakeld of u de eigenschap ReadScale in een niet-on
 De functie lezen Scale-Out ondersteunt sessie niveau consistentie. Als de alleen-lezen-sessie opnieuw verbinding maakt nadat een verbindingsfout veroorzaken bij replica niet beschikbaar zijn, kan deze worden omgeleid naar een andere replica. Terwijl onwaarschijnlijk, kan dit leiden tot het verwerken van de gegevensset die is verouderd. Op dezelfde manier als een toepassing schrijft gegevens via een alleen-lezen-sessie en leest onmiddellijk met behulp van de alleen-lezen-sessie, is het mogelijk dat de nieuwe gegevens niet direct zichtbaar is.
 
 ## <a name="conclusion"></a>Conclusie
-Azure SQL Database is nauw geïntegreerd met het Azure-platform en maximaal afhankelijk is van het Service Fabric voor foutdetectie en herstel van Azure Storage-Blobs voor gegevensbescherming en beschikbaarheid Zones voor hogere fouttolerantie. Op hetzelfde moment Azure SQL database volledig maakt gebruik van de AlwaysOn-technologie van SQL Server-product vak voor replicatie en failover. De combinatie van deze technologieën kan de toepassingen volledig de voordelen van een gemengde opslagmodel en ondersteuning van de zwaarste serviceovereenkomsten. 
+Azure SQL Database is nauw geïntegreerd met het Azure-platform en maximaal afhankelijk is van het Service Fabric voor foutdetectie en herstel van Azure Storage-Blobs voor gegevensbescherming en beschikbaarheid Zones voor hogere fouttolerantie. Op hetzelfde moment Azure SQL database volledig maakt gebruik van de AlwaysOn-beschikbaarheidsgroep-technologie van SQL Server-product vak voor replicatie en failover. De combinatie van deze technologieën kan de toepassingen volledig de voordelen van een gemengde opslagmodel en ondersteuning van de zwaarste serviceovereenkomsten. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7c2cd84df8f1eccbd30a7c8054ec8d06336cf2dd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 66a23876eebe177c767b20f60f86891c35da3385
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264643"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301859"
 ---
 # <a name="utterances-in-luis"></a>Utterances in LUIS
 
@@ -52,6 +52,9 @@ In elke herhaling van het model, Voeg een grote hoeveelheid utterances geen. Utt
 LUIS bouwt effectieve modellen met utterances die zorgvuldig zijn geselecteerd. Het toevoegen van te veel utterances is geen waardevolle omdat hierdoor verwarring.  
 
 Het is beter om te beginnen met een paar utterances vervolgens [eindpunt utterances bekijken](label-suggested-utterances.md) voor het juiste opzet voorspelling en entiteit ophalen.
+
+## <a name="ignoring-words-and-punctuation"></a>Woorden en leestekens worden genegeerd
+Als u negeren specifieke woorden of leestekens in het voorbeeld utterance wilt, gebruikt u een [patroon](luis-concept-patterns.md#pattern-syntax) met de _negeren_ syntaxis. 
 
 ## <a name="training-utterances"></a>Training utterances
 Training is niet-deterministisch: de voorspelling utterance kan enigszins verschillen voor verschillende versies of apps.

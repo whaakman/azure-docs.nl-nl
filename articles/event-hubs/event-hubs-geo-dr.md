@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
-ms.locfileid: "26745891"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302110"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs Geo-noodherstel
 
@@ -101,6 +101,17 @@ Houd rekening met de volgende overwegingen rekening houden met deze versie:
 
 4. Synchroniseren van entiteiten kan enige tijd duren, ongeveer 50-100 entiteiten per minuut.
 
+## <a name="availability-zones-preview"></a>Beschikbaarheid Zones (preview)
+
+De standaard SKU van Event Hubs biedt ook ondersteuning voor [beschikbaarheid Zones](../availability-zones/az-overview.md), bieden fouttolerantie geïsoleerd locaties binnen een Azure-regio. 
+
+> [!NOTE]
+> De beschikbaarheid van Zones preview wordt alleen ondersteund in de **VS-midden**, **VS-Oost 2**, en **Frankrijk centrale** regio's.
+
+U kunt Zones beschikbaarheid inschakelen op nieuwe naamruimten alleen met de Azure portal. Event Hubs biedt geen ondersteuning voor migratie van bestaande naamruimten. Zoneredundantie van de niet worden uitgeschakeld nadat deze is ingeschakeld op uw naamruimte.
+
+![3][]
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * De [op GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) wordt begeleid bij een eenvoudige werkstroom die u maakt een geo-koppeling en start een failover voor een noodherstelscenario.
@@ -114,3 +125,4 @@ Voor meer informatie over Event Hubs gaat u naar de volgende koppelingen:
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

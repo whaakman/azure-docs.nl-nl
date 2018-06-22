@@ -5,27 +5,22 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802541"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301798"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Aanbevolen procedures voor verbeterde prestaties met behulp van Service Bus-berichtenservice
 
 Dit artikel wordt beschreven hoe u Azure Service Bus gebruikt om prestaties te optimaliseren wanneer brokered berichten uitwisselen. Het eerste deel van dit artikel beschrijft de verschillende methoden die worden aangeboden aan de prestaties verbeteren. Het tweede gedeelte biedt richtlijnen voor het gebruik van Service Bus op een manier die de beste prestaties in een bepaald scenario te kan bieden.
 
-In dit onderwerp wordt de term 'client' verwijst naar een entiteit die toegang heeft tot de Service Bus. Een client kan duren voordat de rol van een afzender of een ontvanger. De term 'afzender' wordt gebruikt voor een Service Bus-wachtrij of onderwerp client dat berichten naar een Service Bus-wachtrij of onderwerp abonnement verzendt. De term "ontvanger" verwijst naar een Service Bus-wachtrij of abonnement client die berichten van een Service Bus-wachtrij of abonnement ontvangt.
+In dit artikel wordt verwijst de term 'client' naar een entiteit die toegang heeft tot de Service Bus. Een client kan duren voordat de rol van een afzender of een ontvanger. De term 'afzender' wordt gebruikt voor een Service Bus-wachtrij of onderwerp client dat berichten naar een Service Bus-wachtrij of onderwerp abonnement verzendt. De term "ontvanger" verwijst naar een Service Bus-wachtrij of abonnement client die berichten van een Service Bus-wachtrij of abonnement ontvangt.
 
 Deze secties vindt enkele concepten die Service Bus gebruikt ter verbetering van prestaties.
 
@@ -37,7 +32,7 @@ Service Bus kunnen clients verzenden en ontvangen van berichten uit via een van 
 2. Servicebus-berichtenservice Protocol (SBMP)
 3. HTTP
 
-AMQP en SBMP zijn efficiënter, omdat ze de verbinding met Service Bus onderhouden, zolang de messagingfactory bestaat. Ook wordt batchverwerking en veelgevraagde geïmplementeerd. Tenzij expliciet wordt vermeld, is alle inhoud in dit onderwerp wordt aangenomen dat het gebruik van AMQP of SBMP.
+AMQP en SBMP zijn efficiënter, omdat ze de verbinding met Service Bus onderhouden, zolang de messagingfactory bestaat. Ook wordt batchverwerking en veelgevraagde geïmplementeerd. Tenzij expliciet wordt vermeld, wordt het gebruik van AMQP of SBMP aangenomen dat alle inhoud in dit artikel.
 
 ## <a name="reusing-factories-and-clients"></a>Hergebruik van de fabrieken en clients
 
@@ -45,13 +40,13 @@ Service Bus-clienttoepassing objecten, zoals [QueueClient] [ QueueClient] of [Me
 
 ## <a name="concurrent-operations"></a>Gelijktijdige bewerkingen
 
-Een bewerking (verzenden, ontvangen, verwijderen, enz.) neemt enige tijd in. Deze tijd bevat de verwerking van de bewerking door de Service Bus-service naast de latentie van de aanvraag en het antwoord. Voor een verhoging van het aantal bewerkingen per keer moeten worden operations gelijktijdig worden uitgevoerd. U kunt deze instemming bereiken op verschillende manieren:
+Een bewerking (verzenden, ontvangen, verwijderen, enz.) neemt enige tijd in. Deze tijd bevat de verwerking van de bewerking door de Service Bus-service naast de latentie van de aanvraag en het antwoord. Voor een verhoging van het aantal bewerkingen per keer moeten worden operations gelijktijdig worden uitgevoerd. 
 
-* **Asynchrone bewerkingen**: de client plant u bewerkingen door het uitvoeren van asynchrone bewerkingen. De volgende aanvraag is gestart voordat de vorige aanvraag is voltooid. Het volgende codefragment is een voorbeeld van een verzendbewerking asynchroon:
+De client wordt gelijktijdige bewerkingen door het uitvoeren van asynchrone bewerkingen. De volgende aanvraag is gestart voordat de vorige aanvraag is voltooid. Het volgende codefragment is een voorbeeld van een verzendbewerking asynchroon:
   
  ```csharp
-  BrokeredMessage m1 = new BrokeredMessage(body);
-  BrokeredMessage m2 = new BrokeredMessage(body);
+  Message m1 = new BrokeredMessage(body);
+  Message m2 = new BrokeredMessage(body);
   
   Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
     {
@@ -65,25 +60,14 @@ Een bewerking (verzenden, ontvangen, verwijderen, enz.) neemt enige tijd in. Dez
   Console.WriteLine("All messages sent");
   ```
   
-  De volgende code is een voorbeeld van een asynchrone bewerking ontvangen:
+  De volgende code is een voorbeeld van een asynchrone bewerking ontvangen. Zie het volledige programma [hier](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues):
   
   ```csharp
-  Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  
-  Task.WaitAll(receive1, receive2);
-  Console.WriteLine("All messages received");
-  
-  async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-  {
-    BrokeredMessage m = t.Result;
-    Console.WriteLine("{0} received", m.Label);
-    await m.CompleteAsync();
-    Console.WriteLine("{0} complete", m.Label);
-  }
-  ```
+  var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
+  var doneReceiving = new TaskCompletionSource<bool>();
 
-* **Meerdere fabrieken**: alle clients (afzenders naast ontvangers) die zijn gemaakt door de dezelfde fabrieken delen één TCP-verbinding. De maximale doorvoer wordt beperkt door het aantal bewerkingen die deze TCP-verbinding kunt doorlopen. De doorvoer die kan worden verkregen met een enkele factory varieert aanzienlijk met TCP-inclusief de tijd en de grootte van het bericht. Gebruik meerdere messaging fabrieken om hogere doorvoersnelheden.
+  receiver.RegisterMessageHandler(
+  ```
 
 ## <a name="receive-mode"></a>Modus ontvangen
 
@@ -95,7 +79,7 @@ Service Bus biedt geen ondersteuning voor transacties voor ontvangen en delete-b
 
 ## <a name="client-side-batching"></a>Batchverwerking aan de clientzijde
 
-Clientzijde batchverwerking kan een wachtrij of onderwerp client vertraging in het verzenden van een bericht voor een bepaalde periode. Als de client aanvullende berichten tijdens deze periode verzendt, verzendt het de berichten in één batch. Client-side batchverwerking ook zorgt ervoor dat een wachtrij of abonnement client meerdere batch **Complete** aanvragen in één aanvraag. Batchverwerking is alleen beschikbaar voor asynchrone **verzenden** en **Complete** bewerkingen. Synchrone bewerkingen worden onmiddellijk naar de Service Bus-service verzonden. Geen batchverwerking optreden voor peek of ontvangstbewerkingen, noch gebeurt batchverwerking over clients.
+Clientzijde batchverwerking kan een wachtrij of onderwerp client vertraging in het verzenden van een bericht voor een bepaalde periode. Als de client aanvullende berichten verstuurt tijdens deze periode, worden de berichten in één batch verstuurd. Client-side batchverwerking ook zorgt ervoor dat een wachtrij of abonnement client meerdere batch **Complete** aanvragen in één aanvraag. Batchverwerking is alleen beschikbaar voor asynchrone **verzenden** en **Complete** bewerkingen. Synchrone bewerkingen worden onmiddellijk naar de Service Bus-service verzonden. Geen batchverwerking optreden voor peek of ontvangstbewerkingen, noch gebeurt batchverwerking over clients.
 
 Een client gebruikt standaard een batch-interval van 20 ms. U kunt het interval batch wijzigen door in te stellen de [BatchFlushInterval] [ BatchFlushInterval] eigenschap voordat u de messagingfactory maakt. Deze instelling geldt voor alle clients die zijn gemaakt door deze factory.
 
@@ -108,7 +92,7 @@ mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05
 MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
-Batchverwerking heeft geen invloed op het aantal factureerbare messaging bewerkingen en is alleen beschikbaar voor de Service Bus-client-protocol. Het HTTP-protocol biedt geen ondersteuning voor batchverwerking.
+Batchverwerking heeft geen invloed op het aantal factureerbare messaging bewerkingen en is alleen beschikbaar voor de Service Bus client protocol met behulp van de [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) bibliotheek. Het HTTP-protocol biedt geen ondersteuning voor batchverwerking.
 
 ## <a name="batching-store-access"></a>Toegang tot store batchverwerking
 
@@ -135,7 +119,7 @@ Toegang tot batch store heeft geen invloed op het aantal factureerbare messaging
 
 Wanneer een bericht is tabelruimte, wordt het prefetched bericht vergrendeld in de service. Met de vergrendeling kan niet door een andere ontvanger het bericht prefetched worden ontvangen. Als de ontvanger het bericht niet voltooien kan voordat de vergrendeling verloopt, wordt het bericht beschikbaar voor andere ontvangers. De prefetched kopie van het bericht blijft in de cache. De ontvanger die de verlopen cachekopie verbruikt ontvangt een uitzondering opgetreden bij een poging te voltooien dat bericht. Standaard wordt de bericht-vergrendeling verloopt na 60 seconden. Deze waarde kan worden uitgebreid tot 5 minuten. Om te voorkomen dat het verbruik van verlopen berichten, moet de cachegrootte altijd kleiner zijn dan het aantal berichten die door een client kan worden gebruikt binnen de time-outinterval vergrendelen.
 
-Wanneer u de vervaldatum van de vergrendeling standaard van 60 seconden, een goede waarde voor [SubscriptionClient.PrefetchCount] [ SubscriptionClient.PrefetchCount] is de maximaal 20 keer verwerkingssnelheid weer van alle ontvangers van de gegevensfactory. Bijvoorbeeld, een factory maakt drie ontvangers en elke ontvanger kan maximaal 10 berichten per seconde worden verwerkt. Het aantal prefetch mag niet meer dan 20 X 3 X 10 = 600. Standaard [QueueClient.PrefetchCount] [ QueueClient.PrefetchCount] is ingesteld op 0, wat betekent dat er geen berichten meer van de service worden opgehaald.
+Wanneer u de vervaldatum van de vergrendeling standaard van 60 seconden, een goede waarde voor [PrefetchCount] [ SubscriptionClient.PrefetchCount] is de maximaal 20 keer verwerkingssnelheid weer van alle ontvangers van de gegevensfactory. Bijvoorbeeld, een factory maakt drie ontvangers en elke ontvanger kan maximaal 10 berichten per seconde worden verwerkt. Het aantal prefetch mag niet meer dan 20 X 3 X 10 = 600. Standaard [PrefetchCount] [ QueueClient.PrefetchCount] is ingesteld op 0, wat betekent dat er geen berichten meer van de service worden opgehaald.
 
 De totale doorvoer voor een wachtrij of een abonnement veelgevraagde berichten worden verhoogd omdat dit het totale aantal berichtbewerkingen of retouren verlaagt. Ophalen van het eerste bericht echter duurt langer (vanwege de verhoogde berichtgrootte). Ontvangen van berichten tabelruimte worden sneller omdat deze berichten door de client al zijn gedownload.
 
@@ -158,12 +142,12 @@ Als een bericht weergegeven met essentiële informatie die mag geen verloren wor
 > [!NOTE]
 > Express-entiteiten bieden geen ondersteuning voor transacties.
 
-## <a name="use-of-partitioned-queues-or-topics"></a>Gebruik van gepartitioneerde wachtrijen en onderwerpen
+## <a name="partitioned-queues-or-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
 
 Intern, Service Bus maakt gebruik van hetzelfde knooppunt en messaging opslaan om te verwerken en opslaan van alle berichten voor een Berichtentiteit (wachtrij of onderwerp). Een [gepartitioneerde wachtrij of onderwerp](service-bus-partitioning.md), aan de andere kant is verdeeld over meerdere knooppunten en de messaging-stores. Gepartitioneerde wachtrijen en onderwerpen niet alleen resulteert in een hogere doorvoer dan reguliere wachtrijen en onderwerpen, ze hogere beschikbaarheid vertonen. Als u een gepartitioneerde entiteit, stelt de [EnablePartitioning] [ EnablePartitioning] eigenschap **true**, zoals wordt weergegeven in het volgende voorbeeld. Zie voor meer informatie over gepartitioneerde entiteiten [gepartitioneerde berichtentiteiten][Partitioned messaging entities].
 
 > [!NOTE]
-> Gepartitioneerde entiteiten worden niet meer ondersteund in de [Premium-SKU](service-bus-premium-messaging.md). 
+> Gepartitioneerde entiteiten worden niet ondersteund in de [Premium-SKU](service-bus-premium-messaging.md). 
 
 ```csharp
 // Create partitioned queue.
@@ -172,7 +156,7 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-## <a name="use-of-multiple-queues"></a>Gebruik van meerdere wachtrijen
+## <a name="multiple-queues"></a>Meerdere wachtrijen
 
 Als het is niet mogelijk om een gepartitioneerde wachtrij of onderwerp te gebruiken of de verwachte belasting kan niet worden verwerkt door een enkele gepartitioneerde wachtrij of onderwerp, moet u meerdere messaging-entiteiten. Wanneer u meerdere entiteiten, moet u een specifieke client voor elke entiteit in plaats van dezelfde client voor alle entiteiten maken.
 

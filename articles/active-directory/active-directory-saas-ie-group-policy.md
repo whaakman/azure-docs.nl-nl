@@ -15,12 +15,12 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34341003"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308531"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>De extensie van het Configuratiescherm toegang voor Internet Explorer met behulp van Groepsbeleid implementeren
 Deze zelfstudie laat zien hoe het gebruik van Groepsbeleid op afstand installeren van de extensie Toegangspaneel voor Internet Explorer op uw gebruikers-machines. Deze uitbreiding is vereist voor Internet Explorer-gebruikers hoeven zich aanmeldt bij apps die zijn geconfigureerd met [op basis van wachtwoorden eenmalige aanmelding](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -44,7 +44,7 @@ Eerst moet u het installer-pakket plaatsen op een netwerklocatie die toegankelij
    
     ![Geopende bestanden- en opslagservices](./media/active-directory-saas-ie-group-policy/shares.png)
 4. Voltooi de **Wizard Nieuwe Share** en stel de machtigingen om ervoor te zorgen dat deze kan worden geopend op uw gebruikers-machines. [Meer informatie over shares.](https://technet.microsoft.com/library/cc753175.aspx)
-5. De volgende Microsoft Windows Installer-pakket (MSI-bestand) te downloaden: [toegang Configuratiescherm Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+5. De volgende Microsoft Windows Installer-pakket (MSI-bestand) te downloaden: [toegang Configuratiescherm Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Kopieer het installatiepakket op de gewenste locatie op de share.
    
     ![Kopieer het MSI-bestand naar de share.](./media/active-directory-saas-ie-group-policy/copy-package.png)

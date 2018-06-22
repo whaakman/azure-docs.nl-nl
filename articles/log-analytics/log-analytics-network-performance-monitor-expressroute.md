@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d97e380f83cc4e5e5a2d9686a7ac8426967f4b93
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237780"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302196"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute Manager
+# <a name="expressroute-manager"></a>ExpressRoute-Manager
 
 Kunt u de mogelijkheid Azure ExpressRoute Manager in [netwerk Prestatiemeter](log-analytics-network-performance-monitor.md) voor het bewaken van end-to-end-connectiviteit en prestaties tussen uw filialen en Azure via Azure ExpressRoute. Belangrijkste voordelen zijn: 
 
@@ -29,7 +29,7 @@ Kunt u de mogelijkheid Azure ExpressRoute Manager in [netwerk Prestatiemeter](lo
 - Het bijhouden van gebruik van de bandbreedte, verlies en latentieperiode circuit, peering en Azure Virtual Network-niveau voor ExpressRoute.
 - Detectie van netwerktopologie van uw ExpressRoute-circuits.
 
-![ExpressRoute-Monitor](media/log-analytics-network-performance-monitor/expressroute-intro.png)
+![ExpressRoute-bewaking](media/log-analytics-network-performance-monitor/expressroute-intro.png)
 
 ## <a name="configuration"></a>Configuratie 
 Open de configuratie voor netwerk-Prestatiemeter te openen de [netwerk Prestatiemeter oplossing](log-analytics-network-performance-monitor.md) en selecteer **configureren**.
@@ -37,7 +37,7 @@ Open de configuratie voor netwerk-Prestatiemeter te openen de [netwerk Prestatie
 ### <a name="configure-network-security-group-rules"></a>Netwerkbeveiligingsgroepen configureren 
 Voor de servers in Azure die worden gebruikt voor het bewaken van via het netwerk Prestatiemeter configureren (NSG) netwerkbeveiligingsgroepen voor TCP-verkeer op de poort die wordt gebruikt door Netwerkcontrole van de prestaties van de synthetische transacties. De standaardpoort is 8084. Deze configuratie kan de Operations Management Suite-agent geïnstalleerd op Azure Virtual machines om te communiceren met een on-premises monitoring agent. 
 
-Zie voor meer informatie over het NSG [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+Zie voor meer informatie over Nsg [Netwerkbeveiligingsgroepen](../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
 > Voordat u met deze stap doorgaat, de lokale server-agent en de Azure-server-agent installeren en de EnableRules.ps1 PowerShell-script uitvoeren. 

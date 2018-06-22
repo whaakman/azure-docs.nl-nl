@@ -1,24 +1,19 @@
 ---
 title: Plannen van taken met Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Klik hier voor meer informatie over het plannen van een taak Azure IoT Hub een directe methode op meerdere apparaten aan te roepen. U het apparaat met Azure IoT SDK voor .NET gebruiken voor het implementeren van het gesimuleerde apparaat-apps en een app service de taak uit te voeren.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 012/16/2018
-ms.author: v-masebo;dobett
-ms.openlocfilehash: 76c8d3739b2af3c010cd80585c93c097fc9eb466
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+services: iot-hub
+ms.topic: conceptual
+ms.date: 03/06/2018
+ms.author: dobett
+ms.openlocfilehash: beb1e1e166325cb41a5d4e4fa07565b1f3d4b3bb
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308581"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Planning en broadcast-taken (.NET/.NET)
 
@@ -87,8 +82,9 @@ In deze sectie maakt u een .NET-consoletoepassing dat met een directe methode is
     ```csharp
     static string DeviceConnectionString = "<yourDeviceConnectionString>";
     static DeviceClient Client = null;
+    ```
 
-1. Add the following to implement the direct method on the device:
+1. Voeg de volgende voor het implementeren van de directe methode op het apparaat:
 
     ```csharp
     static Task<MethodResponse> LockDoor(MethodRequest methodRequest, object userContext)
@@ -100,8 +96,9 @@ In deze sectie maakt u een .NET-consoletoepassing dat met een directe methode is
         string result = "'Door was locked.'";
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
+    ```
 
-1. Add the following to implement the device twins listener on the device:
+1. Voeg de volgende voor het implementeren van het apparaat horende listener op het apparaat:
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
@@ -175,6 +172,7 @@ In deze sectie maakt u een .NET-consoletoepassing maken (met C#) die gebruikmaak
 1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingen door de IoT Hub-verbindingsreeks voor de hub die u hebt gemaakt in de vorige sectie en de naam van uw apparaat.
 
     ```csharp
+    static JobClient jobClient;
     static string connString = "<yourIotHubConnectionString>";
     static string deviceId = "<yourDeviceId>";
     ```

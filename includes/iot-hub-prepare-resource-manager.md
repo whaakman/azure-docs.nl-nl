@@ -5,7 +5,7 @@ Installeer de [Azure PowerShell-cmdlets] [ lnk-powershell-install] voordat u doo
 
 De volgende stappen laten zien hoe wachtwoordverificatie voor een AD-toepassing met behulp van PowerShell instellen. U kunt deze opdrachten uitvoeren in een standaard PowerShell-sessie.
 
-1. Aanmelden bij uw Azure-abonnement met de volgende opdracht:
+1. Meld u bij uw Azure-abonnement met de volgende opdracht:
 
     ```powershell
     Connect-AzureRmAccount

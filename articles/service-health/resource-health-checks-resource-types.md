@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 831383ffa3aa3464f3d62da4e1609cf3f1a4707e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795942"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309593"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Status van resourcetypen en controleert in Azure resourcestatus
 Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resourcestatus door resourcetypen.
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|Uitgevoerde controles|
+|---|
+|<ul><li>Is de server actief en werkend?</li><li>Heeft de server onvoldoende geheugen beschikbaar?</li><li>Wordt de server gestart?</li><li>Is de server herstellen?</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |Uitgevoerde controles|
@@ -105,6 +110,11 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 |Uitgevoerde controles|
 |---|
 |<ul><li> Zijn er aanmeldingen bij de database?</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|Uitgevoerde controles|
+|---|
+|<ul><li>Aanvragen voor gegevens lezen uit het opslagaccount mislukken vanwege problemen met het Azure Storage-platform?</li><li>Aanvragen om gegevens te schrijven naar het opslagaccount mislukken vanwege problemen met het Azure Storage-platform?</li><li>Het cluster waar het opslagaccount bevindt zich niet beschikbaar is?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |Uitgevoerde controles|

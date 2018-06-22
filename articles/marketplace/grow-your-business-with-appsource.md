@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: d93f66282e3f735565389904c65436ed2ad79480
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 11a4fe4cd7b4b08b4468e08bba754518d27abb99
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825158"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309535"
 ---
 # <a name="grow-your-business-with-appsource"></a>Uw bedrijf met AppSource uitbreiden  
 AppSource gebruiken bij het benaderen van zakelijke klanten om te zoeken, probeer en ophalen van LOB-software als een service (SaaS) apps en implementatieservices om te helpen station bedrijfsresultaten en problemen sneller op waarde.  
@@ -32,8 +32,7 @@ AppSource gebruiken bij het benaderen van zakelijke klanten om te zoeken, probee
 | ***Apps om productiviteit, efficiëntie en zakelijke inzichten te verbeteren*** | Apps biedt voor regels van het bedrijf zijn, met inbegrip van de klantenservice, HR en bewerkingen |  
 | ***Ervaren implementatiepartner helpt bij het aanpassen van apps met de unieke situatie voor uw klant*** | Biedt een catalogus van de offerings ondersteuningsdiensten voor oplossingen op basis van Dynamics 365, Power BI, PowerApps en partner-apps bieden gebruikers de bedrijven bieden voorspelbare resultaten |  
 
-<!-- # Grow your business with AppSource  -->
-Zowel Azure Marketplace en AppSource zijn de startende punten voor gezamenlijke Ga op de markt activiteiten met Microsoft en een vliegwiel voor zakelijke groei. Launch-promotie, genereren van de vraag en gemeenschappelijke verkoop en marketing gebruikt, mag uw marketplace-aanbieding de spil van uw cloud-business-engine. Er zijn geen kosten voor deelname. Klanten van Microsoft bezoekt u de winkelobjecten op de marketplace elke dag om de juiste apps en services om u te helpen bij het verhogen van het bedrijf voor uw klant te zoeken. Microsoft-doel is het verbinden van organisaties met de oplossingen en services van Microsoft en Microsoft-partners.  
+<!-- # Grow your business with AppSource  --> Zowel Azure Marketplace en AppSource zijn de startende punten voor gezamenlijke Ga op de markt activiteiten met Microsoft en een vliegwiel voor zakelijke groei. Launch-promotie, genereren van de vraag en gemeenschappelijke verkoop en marketing gebruikt, mag uw marketplace-aanbieding de spil van uw cloud-business-engine. Er zijn geen kosten voor deelname. Klanten van Microsoft bezoekt u de winkelobjecten op de marketplace elke dag om de juiste apps en services om u te helpen bij het verhogen van het bedrijf voor uw klant te zoeken. Microsoft-doel is het verbinden van organisaties met de oplossingen en services van Microsoft en Microsoft-partners.  
 
 ## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>Zakelijke voordelen van het koppelen van een cloud-marketplace  
 Er zijn diverse dwingende redenen waarom u moet worden toegevoegd aan de winkelobjecten op marketplace. Hier volgen de voordelen van specifiek voor het weergeven van uw aanbiedingen op AppSource kunt u uw bedrijf uitbreiden:  
@@ -53,7 +52,7 @@ Er zijn diverse dwingende redenen waarom u moet worden toegevoegd aan de winkelo
 *   **Lijst van uw advies aanbiedingen voor services**  
     Zakelijke gebruikers zoekt ervaren partners kunnen de klant aan de slag met vertrouwen door het aanbieden van kwaliteit advies ontworpen voor voorspelbare resultaten. Lijst van uw advies aanbiedingen voor services om zakelijke gebruikers vinden het aanbiedingen om de klant te snel aan de slag.  
 *   **Aan de slag met vertrouwen**  
-    Het team van Microsoft AppSource is hier om een naadloze onboarding-ervaring te bieden. Het team AppSource is hier kunt u elke stap van de manier, werkt de ervaring van de proefversie of testomgeving station, zodat u voldoet aan de criteria in de lijst en meer.  
+    Het team van Microsoft AppSource is hier om een naadloze onboarding-ervaring te bieden. Het team AppSource is hier kunt u elke stap van de manier waarop; Hiermee wordt aangegeven of het werkt op de proefversie of testomgeving station ervaring, zodat u voldoet aan de criteria in de lijst, en meer.  
 *   **De pagina van uw app-aanbieding aanpassen**  
     U hebt de flexibiliteit bij het bepalen hoe u wilt uw apps op AppSource markt. Geef een video, gegevensbladen, documentatie en gedetailleerde beschrijving. Microsoft werkt samen met u uw app op AppSource in een aantrekkelijke manier is geïnstalleerd.  
 *   **Bruikbare inzichten verkrijgen**  
@@ -112,7 +111,7 @@ De volgende tabellen worden de details elke stap van het invullen van uw aanbied
 | Via instellingen | Aanbevolen procedures | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **De aanbiedingsnaam van de** | De samenvatting van de aanbieding wordt weergegeven op de zoekpagina van de aanbieding op de AppSource startpagina en app-galerie. Zoekwoorden opnemen in uw aanbodoverzicht betere rangschikking van uw app in zoekmachineresultaten. |
-| **Beschrijving van aanbieding** | **Geef een beschrijving van goede aanbieding**<br />De toegevoegde waarde van uw aanbieding in de eerste paar zinnen van uw beschrijving duidelijk te beschrijven. Houd er rekening mee dat de eerste paar zinnen kunnen worden weergegeven in zoekmachineresultaten.<br />Vertrouw niet op de functies en functionaliteit van uw product te verkopen. In plaats daarvan ligt de nadruk op de waarde die u levert. Branchespecifieke vocabulaire of op basis van een voordeel termen zo veel mogelijk gebruik.<br />Belangrijkste onderdelen van de toegevoegde waarde moeten bevatten informatie over:<br />•What is het product<br />•WHO krijgt uit de meest<br />•What nodig, of pijn bestaat het adres.<br />Vertel klanten hoe hun bedrijf of de levensduur van het werk afwijken kan nadat ze uw oplossing gebruiken.<br />Zoekwoorden en sleutelwoord variaties in de beschrijving van de aanbieding te verbeteren van de volgorde van uw aanbieding in zoekmachineresultaten opnemen.<br />Geef de beschrijving van de aanbieding met eenvoudige HTML.<br />Hier volgt een voorbeeld van een eenvoudige aanbieding pagina weergeven (zoals weergegeven in het bovenstaande voorbeeld van de aanbieding) met een overzicht van de aanbieding gevolgd door een lijst van de belangrijkste mogelijkheden. Het maximum aantal tekens is 3000.<br />_HTML-voorbeelden_<br /><p>Organisatie Insights voor Dynamics 365 (online) bevat belangrijke metrische gegevens over acceptatie en gebruiksgegevens voor uw organisatie Dynamics 365 en hulpmiddelen voor het voorkomen van problemen met prestaties en ondersteuning.</p> <ul><li><strong>Dashboards aanpassen</strong><br /> Uw dashboard instellen om een uitgebreide gebruikerservaring en momentopnamen van uw belangrijke gegevens te bieden.<ul> <li><strong>Goedkeuring controleren en te gebruiken:</strong> uw meest actieve gebruikers identificeren van pagina-aanvragen, meest gebruikte entiteiten en werkstromen.</li> </ul><p>Minimaal ondersteunde versie van de platform: 8.1.1</p> |
+| **Beschrijving van aanbieding** | **Geef een beschrijving van goede aanbieding**<br />De toegevoegde waarde van uw aanbieding in de eerste paar zinnen van uw beschrijving duidelijk te beschrijven. Houd er rekening mee dat de eerste paar zinnen kunnen worden weergegeven in zoekmachineresultaten.<br />Vertrouw niet op de functies en functionaliteit van uw product te verkopen. In plaats daarvan ligt de nadruk op de waarde die u levert. Branchespecifieke vocabulaire of op basis van een voordeel termen zo veel mogelijk gebruik.<br />Belangrijkste onderdelen van de toegevoegde waarde moeten bevatten informatie over:<ul> <li>Wat is het product</li>  <li>Wie krijgt uit de meest</li> <li>Welke nodig of pijn het adres.</li> </ul>Vertel klanten hoe hun bedrijf of de levensduur van het werk afwijken kan nadat ze uw oplossing gebruiken.<br />Zoekwoorden en sleutelwoord variaties in de beschrijving van de aanbieding te verbeteren van de volgorde van uw aanbieding in zoekmachineresultaten opnemen.<br />Geef de beschrijving van de aanbieding met eenvoudige HTML.<br />Hier volgt een voorbeeld van een eenvoudige aanbieding pagina weergeven (zoals weergegeven in het bovenstaande voorbeeld van de aanbieding) met een overzicht van de aanbieding gevolgd door een lijst van de belangrijkste mogelijkheden. Het maximum aantal tekens is 3000.<br />*HTML-voorbeelden*<br />Organisatie Insights voor Dynamics 365 (online) bevat belangrijke metrische gegevens over acceptatie en gebruiksgegevens voor uw organisatie Dynamics 365 en hulpmiddelen voor het voorkomen van problemen met prestaties en ondersteuning. <ul> <li>**Dashboards aanpassen**<br />Uw dashboard instellen om een uitgebreide gebruikerservaring en momentopnamen van uw belangrijke gegevens te bieden.<ul> <li>**Goedkeuring controleren en gebruiken**<br />Uw meest actieve gebruikers identificeren van pagina-aanvragen, meest gebruikte entiteiten en werkstromen.</li> </ul></li> </ul>Versie van de minimale ondersteunde platforms: `8.1.1` |
 
 **Via details - details van aanbieding**  
 
@@ -134,7 +133,7 @@ De volgende tabellen worden de details elke stap van het invullen van uw aanbied
 | **Schermafbeeldingen** | Maximaal vijf schermafbeeldingen toevoegen, gebruikmaken van de belangrijkste zoekwoorden de namen. |
 
 ### <a name="promote-the-availability-of-your-offer-on-appsource"></a>De beschikbaarheid van uw aanbieding op AppSource promoveren  
-Wanneer uw aanbieding op AppSource wordt vermeld, hebt u het recht om de badge 'Beschikbaar op AppSource' op de pagina weer te geven behaald. 
+Wanneer uw aanbieding op AppSource wordt vermeld, hebt u het recht om weer te geven behaald de ***beschikbaar op AppSource*** badge op de pagina. 
 
  ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
     

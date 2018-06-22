@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 9bb79a2054a0e51ce435f51a52f964062427cea4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647993"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309126"
 ---
 # <a name="sql-database-faq"></a>Veelgestelde vragen over SQL Database
 
@@ -24,9 +24,9 @@ De huidige versie van SQL Database is V12. Versie V11 buiten gebruik gesteld.
 ## <a name="what-is-the-sla-for-sql-database"></a>Wat is de SLA voor SQL-Database?
 Wordt gegarandeerd dat ten minste 99,99% van de tijd, hebt u connectiviteit tussen uw Microsoft Azure SQL Database en de Internet-gateway, ongeacht de servicelaag. Zie voor meer informatie [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>De nieuwe vCore gebaseerde aankoopmodel (preview) voor Azure SQL Database Whatis?
+## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Wat is de nieuwe vCore gebaseerde aankoopmodel (preview) voor Azure SQL Database?
 
-De nieuwe aankoopmodel is in aanvulling op het bestaande model op basis van DTU. Het model op basis van vCore is ontworpen om klanten flexibiliteit, controle, transparantie, en een eenvoudige manier om te vertalen naar on-premises werklastvereisten naar de cloud. Ook kunnen klanten scale rekenkracht en opslag op basis van hun werkbelasting behoeften. Individuele database en met het model vCore elastische pool-opties zijn ook in aanmerking voor van 30 procent besparingen met het [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Zie [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md) voor meer informatie. 
+Het nieuwe aanschafmodel is een aanvulling op het bestaande DTU-model. Het model op basis van vCore is ontworpen om klanten flexibiliteit, controle, transparantie, en een eenvoudige manier om te vertalen naar on-premises werklastvereisten naar de cloud. Ook kunnen klanten hun berekenings- en rsources op basis van hun werkbelasting behoeften te schalen. Individuele database en met het model vCore elastische pool-opties zijn ook in aanmerking voor van 30 procent besparingen met het [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Zie [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md) voor meer informatie. 
 
 ## <a name="what-is-a-vcore"></a>Wat is een vCore? 
 Een virtuele core vertegenwoordigt de logische CPU aangeboden met de optie te kiezen tussen generaties van hardware. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell) 2,4 GHz processors en Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2.3 GHz-processors.
@@ -36,7 +36,7 @@ Nee, de introductie van het model op basis van vCore voor de elastische groep en
 
 In veel gevallen kunnen toepassingen profiteren van de eenvoud van een vooraf geconfigureerde bundel met resources. Daarom blijven we bieden en deze keuzes op basis van DTU voor onze klanten te ondersteunen. Als u deze gebruikt en het voldoet aan uw zakelijke vereisten, moet u blijven doen.
 
-Beide modellen, zowel die op basis van DTU als vCores, blijven naast elkaar bestaan. We introduceren het vCore-model omdat onze klanten om meer duidelijkheid vroegen wat hun databaseresources betreft. Ook wilden ze de mogelijkheid hebben om computing en opslag individueel te schalen. Het model op basis van vCore kan ook aanvullende besparing voor klanten met het actieve Software Assurance via het voordeel van de hybride Azure voor SQL Server.
+Beide modellen, zowel die op basis van DTU als vCores, blijven naast elkaar bestaan. We starten van het model op basis van vCore in reactie op aanvragen van klanten voor meer transparantie om hun bronnen database en de mogelijkheid hun resources berekeningen en opslag afzonderlijk schalen. Het model op basis van vCore kan ook aanvullende besparing voor klanten met het actieve Software Assurance via het voordeel van de hybride Azure voor SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>Hoe moet ik kiezen tussen de vs aankopen model op basis van DTU de vCore gebaseerde aankoopmodel (preview)? 
 De Data Transmission Unit (DTU) is gebaseerd op gecombineerde meetgegevens van CPU, geheugen en lees- en schrijfbewerkingen. De DTU -prestatieniveaus staan voor vooraf geconfigureerde bundels met resources die bedoeld zijn voor verschillende prestatieniveaus van toepassingen. Klanten die niet wilt zorgen over de onderliggende resources en de voorkeur aan van een vooraf geconfigureerde bundel tijdens elke maand van een vast bedrag betaalt vinden het model op basis van DTU meer geschikt zijn voor hun behoeften. Voor klanten die meer inzicht in de onderliggende resources moeten of schalen ze onafhankelijk voor optimale prestaties, wordt het model op basis van vCore wel de beste keuze.  Bovendien, als een klant een actieve Software Assurance (SA) voor SQL Server heeft, ze kunnen gebruikmaken van hun bestaande investeringen en opslaan van maximaal 30% met [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  In elk van de aankopen modellen bieden de voordelen van een volledig beheerde service zoals automatische back-ups, software-updates en patches. 
@@ -49,10 +49,10 @@ U hebt 180 dagen van gebruiksrechten tweeledig van de licentie om ervoor te zorg
 
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Hoe Azure hybride voordeel voor SQL Server afwijken van licentiemobiliteit?
-Vandaag de dag bieden we SQL Server-klanten met Software Assurance license mobility voordelen waardoor hernieuwde toewijzing van de licenties worden naar de gedeelde servers van derden. Deze vergoeding kan worden gebruikt op Azure IaaS en AWS EC2.
+Vandaag de dag, bieden we license mobility voordelen voor SQL Server-klanten met Software Assurance waarmee hernieuwde toewijzing van de licenties worden naar de gedeelde servers van derden. Deze vergoeding kan worden gebruikt op Azure IaaS en AWS EC2.
 Azure hybride-voordeel voor SQL Server verschilt van licentiemobiliteit in twee hoofdgebieden:
 - Deze biedt economische voordelen voor het verplaatsen van maximaal gevirtualiseerde werkbelastingen naar Azure. SQL EE-klanten kunnen krijgen 4 kernen in Azure in de algemene doel-SKU voor elke core ze on-premises voor maximaal gevirtualiseerde toepassingen eigenaar. Licentiemobiliteit is speciale kostenvoordelen niet toegestaan voor het verplaatsen van gevirtualiseerde werkbelastingen naar de cloud.
-- Het biedt voor een PaaS-doel in Azure die maximaal compatibel is met SQL Server on-premises – beheerde exemplaar van SQL-Database.
+- Het zorgt voor een PaaS-doel in Azure (SQL-Database beheerd exemplaar) die maximaal compatibel is met SQL Server on-premises
 
 ## <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Wat zijn de specifieke rechten van het voordeel van de hybride Azure voor SQL Server?
 Klanten van de SQL-Database heeft de volgende rechten die zijn gekoppeld aan Azure hybride voordeel voor SQL Server:
@@ -70,7 +70,7 @@ Klanten van de SQL-Database heeft de volgende rechten die zijn gekoppeld aan Azu
 De compute-kosten duidt de totale rekencapaciteit die is ingericht voor de toepassing. In de servicelaag kritieke zakelijke toewijzen we automatisch ten minste 3 Always ON-replica's. De prijs vCore is zodat deze extra toewijzing van rekenresources ongeveer 2.7 x hoger in kritieke zakelijke. Om dezelfde reden zijn de hogere opslag prijs per GB in de essentiële zakelijke laag de hoge i/o en lage latentie van de SSD-opslag. Op hetzelfde moment verschilt de kosten van het back-upopslag niet omdat in beide gevallen we een klasse standard-opslag gebruiken.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>Hoe ben ik in rekening gebracht voor opslag - gebaseerd op wat ik tevoren configureren of wat de database wordt gebruikt?
-Andere soorten opslag wordt anders gefactureerd. Voor de opslag van gegevens u worden in rekening gebracht voor de ingerichte opslag op basis van de maximale database of groepsgrootte die u selecteert. De kosten wordt niet gewijzigd, tenzij u verminderen of die maximaal verhogen. Back-upopslag hoort bij geautomatiseerde back-ups van uw exemplaar. Door de retentieperiode van uw back-ups te vergroten, zal er meer back-upopslag door uw exemplaar worden verbruikt. Er worden geen extra kosten in rekening gebracht voor back-upopslag voor maximaal 100% van uw totale ingerichte serveropslag. Aanvullende verbruik van back-upopslag wordt in rekening gebracht in GB per maand. Als u bijvoorbeeld een database-opslag van 100 GB hebt, krijgt u 100 GB aan back-upopslag, zonder extra kosten. Maar als de back-up 110 GB is, betaalt u voor de aanvullende 10 GB.
+Andere soorten opslag wordt anders gefactureerd. Voor de opslag van gegevens er worden in rekening gebracht voor de ingerichte opslag op basis van de database of een groep maximumgrootte die u selecteert. De kosten wordt niet gewijzigd, tenzij u verminderen of die maximaal verhogen. Back-upopslag hoort bij geautomatiseerde back-ups van uw exemplaar. Door de retentieperiode van uw back-ups te vergroten, zal er meer back-upopslag door uw exemplaar worden verbruikt. Er worden geen extra kosten in rekening gebracht voor back-upopslag voor maximaal 100% van uw totale ingerichte serveropslag. Aanvullende verbruik van back-upopslag wordt in rekening gebracht in GB per maand. Als u bijvoorbeeld een database-opslag van 100 GB hebt, krijgt u 100 GB aan back-upopslag, zonder extra kosten. Maar als de back-up 110 GB is, betaalt u voor de aanvullende 10 GB.
 
 Voor back-up van één database u in rekening worden gebracht naar rato op basis van een voor de opslag die is toegewezen aan de databaseback-ups minus de grootte van de database. Voor back-up van een pool voor elastische u in rekening worden gebracht naar rato op basis van een voor de opslag die is toegewezen aan de databaseback-ups van alle databases in de pool minus de maximale grootte van de elastische groep. Een toename van de grootte van de database of de elastische groep of een toename van de Transactiesnelheid meer opslagruimte vereist en dus verhoogt de back-upopslag factuur.  Als u de maximale grootte verhoogt, wordt deze nieuwe bedrag afgetrokken van de grootte van de back-upopslag gefactureerd.
 
@@ -90,18 +90,18 @@ Ja, kunt u het niveau van compute uw toepassing moet en voorkomen dat de opslag 
 U kunt het bewaren van back-up configureren voor PITR tussen 7 en 35 dagen. De back-ups opslag brengt afzonderlijk op basis van de werkelijke opslagverbruik als deze de opslaghoeveelheid gelijk aan de maximale grootte overschrijdt. In voorbeeld van standaard is de bewaarperiode PITR ingesteld op 7 dagen. In veel gevallen is de maximale grootte voldoende zijn voor het opslaan van 7 dagen van back-ups.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>Waarom kan u de selectie van het genereren van de hardware voor compute toestaan?
-Ons doel is maximale flexibiliteit inschakelen zodat u kunt een configuratie voor prestaties die overeenkomt met de behoeften van de toepassing. De bovenstaande tabel toont de verschillen tussen Gen4 en Gen5. In het bijzonder biedt Gen4 hardware aanzienlijk meer geheugen per vCore. Gen5 hardware, kunt u opschalen compute veel hoger. We willen deze verschillen transparant maken zodat u de verhouding tussen het optimale prijs/prestaties voor uw toepassing bereiken kunt.
+Ons doel is maximale flexibiliteit inschakelen zodat u kunt een configuratie voor prestaties die overeenkomt met de behoeften van de toepassing. De bovenstaande tabel toont de verschillen tussen Gen4 en Gen5. In het bijzonder biedt Gen4 hardware aanzienlijk meer geheugen per vCore. Gen5 hardware, kunt u opschalen rekenresources veel hoger. We willen deze verschillen transparant maken zodat u de verhouding tussen het optimale prijs/prestaties voor uw toepassing bereiken kunt.
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Moet ik mijn toepassing offline te converteren van een database op basis van DTU naar een servicelaag met vCore? 
-De nieuwe servicelagen bieden een eenvoudige onlineconversiemethode die vergelijkbaar is met het bestaande upgradeproces van de Standard- naar de Premium-servicelaag en omgekeerd. Deze conversie kan worden gestart via Portal, ARM, PowerShell, Azure CLI of T-SQL. Zie [individuele databases beheren](sql-database-single-database-resources.md) en [elastische pools beheren](sql-database-elastic-pool.md).
+De nieuwe servicelagen bieden een eenvoudige onlineconversiemethode die vergelijkbaar is met het bestaande upgradeproces van de Standard- naar de Premium-servicelaag en omgekeerd. Deze conversie kan worden gestart met de Azure-portal, PowerShell, Azure CLI, T-SQL of de REST-API. Zie [individuele databases beheren](sql-database-single-database-scale.md) en [elastische pools beheren](sql-database-elastic-pool.md).
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>Kan ik een database van een servicelaag met vCore converteren naar een DTU gebaseerde? 
-Ja, kunt u eenvoudig uw database converteren naar een ondersteunde prestaties doelstelling met behulp van de Portal of programmatisch met Portal, ARM, PowerShell, Azure CLI of T-SQL. Zie [individuele databases beheren](sql-database-single-database-resources.md) en [elastische pools beheren](sql-database-elastic-pool.md).
+Ja, kunt u eenvoudig uw database converteren naar een ondersteunde prestaties doelstelling met Azure-portal, PowerShell, Azure CLI, T-SQL of de REST-API. Zie [individuele databases beheren](sql-database-single-database-scale.md) en [elastische pools beheren](sql-database-elastic-pool.md).
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Kan ik een upgrade of downgraden tussen de lagen van de service voor algemene doeleinden en kritieke zakelijke? 
 Ja, met enkele beperkingen. De doel-SKU moet voldoen aan de maximale database of de elastische groepsgrootte die u hebt geconfigureerd voor uw bestaande implementatie. Als u [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), de essentiële Business-SKU is alleen beschikbaar voor klanten met Enterprise-editie licenties. Alleen klanten die gemigreerd van on-premises naar Azure hybride voordeel voor SQL Server met Enterprise-editie licenties voor algemene doeleinden kunnen upgraden naar kritieke zakelijke. Zie voor meer informatie [wat zijn de specifieke rechten van het Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
-Deze conversie resulteert niet in de uitvaltijd en kan worden gestart met behulp van de Portal, ARM, PowerShell, Azure CLI of T-SQL. Zie [individuele databases beheren](sql-database-single-database-resources.md) en [elastische pools beheren](sql-database-elastic-pool.md).
+Deze conversie resulteert niet in de uitvaltijd en kan worden gestart met behulp van Azure-portal, PowerShell, Azure CLI, T-SQL of de REST-API. Zie [individuele databases beheren](sql-database-single-database-scale.md) en [elastische pools beheren](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Ik gebruik een Premium RS-database die niet beschikbaar zijn in het algemeen - kan ik upgraden naar een nieuwe laag en een soortgelijk prijs/prestaties voordeel behalen?
 Omdat het model vCore controle over de hoeveelheid ingerichte berekeningen en opslag toestaat, kunt u efficiënter beheren de resulterende kosten, waardoor het een aantrekkelijk doel voor RS Premium-databases. Bovendien de [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) biedt een aanzienlijke korting wanneer het model op basis van vCore wordt gebruikt. 
@@ -193,3 +193,4 @@ In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-databases**, se
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Een database verplaatsen tussen abonnementen
 In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-servers** en selecteer vervolgens de server die als host fungeert voor uw database in de lijst. Klik op **verplaatsen**, en selecteer vervolgens de resources te verplaatsen en het abonnement om naar te verplaatsen.
+

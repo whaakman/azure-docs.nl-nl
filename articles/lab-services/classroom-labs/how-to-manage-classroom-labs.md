@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 705209becff7c8ad20e7d09f056aa1ae1577b7ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 311e58f01fac6d7786992b3c11e4b1b7c02ca838
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654972"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304519"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Leslokaal labs in Azure Lab Services beheren 
 In dit artikel wordt beschreven hoe maken en configureren van een testomgeving leslokaal, alle leslokaal labs weergeven of verwijderen van een testomgeving leslokaal.
+
+## <a name="prerequisites"></a>Vereisten
+Als u een testomgeving leslokaal in een lab-account instelt, moet u lid zijn van de **Lab Maker** rol in het lab-account. De labeigenaar van een een gebruiker kunt toevoegen aan de rol van testlab met behulp van de stappen in het volgende artikel: [een gebruiker toevoegen aan de rol van Lab](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Een leslokaallab maken
 
@@ -34,9 +37,9 @@ In dit artikel wordt beschreven hoe maken en configureren van een testomgeving l
     7. Selecteer **Opslaan**.
 
         ![Een leslokaallab maken](../media/how-to-manage-classroom-labs/new-lab-window.png)
-1. U ziet de **startpagina** voor het lab. 
+1. U ziet de **dashboard** voor de testomgeving. 
     
-    ![Startpagina leslokaallab](../media/how-to-manage-classroom-labs/classroom-lab-home-page.png)
+    ![Leslokaal lab-dashboard](../media/how-to-manage-classroom-labs/classroom-lab-home-page.png)
 
 ## <a name="configure-usage-policy"></a>Gebruiksbeleid configureren
 
@@ -47,7 +50,7 @@ In dit artikel wordt beschreven hoe maken en configureren van een testomgeving l
     ![Gebruiksbeleid](../media/how-to-manage-classroom-labs/usage-policy-settings.png)
 
 ## <a name="set-up-the-template"></a>De sjabloon instellen
-Een sjabloon in een lab is een basiskopie van de virtuele machine waarvan de virtuele machines van alle gebruikers worden gemaakt. Stel de sjabloon voor de virtuele machine zo in dat deze is geconfigureerd met precies wat u de labgebruikers wilt bieden. U kunt een naam en een beschrijving opgeven voor de sjabloon die de gebruikers van het lab kunnen zien. Stel de zichtbaarheid van de sjabloon in op openbaar om instanties van de sjabloon-VM voor de gebruikers van uw lab beschikbaar te maken.  
+Een sjabloon in een lab is een basiskopie van de virtuele machine waarvan de virtuele machines van alle gebruikers worden gemaakt. Stel de sjabloon voor de virtuele machine zo in dat deze is geconfigureerd met precies wat u de labgebruikers wilt bieden. U kunt een naam en een beschrijving opgeven voor de sjabloon die de gebruikers van het lab kunnen zien. Publiceer de sjabloon om exemplaren van de VM-sjabloon beschikbaar stellen aan uw lab-gebruikers.  
 
 ### <a name="set-template-title-and-description"></a>Set Sjabloontitel en beschrijving
 1. Selecteer in de sectie **Sjabloon** de optie **Bewerken** (potloodpictogram) voor de sjabloon. 
@@ -57,24 +60,51 @@ Een sjabloon in een lab is een basiskopie van de virtuele machine waarvan de vir
 
     ![Beschrijving van leslokaallab](../media/how-to-manage-classroom-labs/lab-description.png)
 
-### <a name="make-instances-of-the-template-public"></a>Exemplaren van de sjabloon openbaar maken 
-Nadat u de zichtbaarheid van een sjabloon hebt ingesteld op **Openbaar**, maakt Azure Lab Services virtuele machines in het lab met behulp van de sjabloon. Het aantal virtuele machines dat in dit proces wordt gemaakt, is hetzelfde als het maximum aantal gebruikers dat in het lab is toegestaan. Dit kunt u instellen in het gebruiksbeleid van het lab. Alle virtuele machines hebben dezelfde configuratie als de sjabloon.  
+### <a name="set-up-the-template-vm"></a>De VM-sjabloon instellen
+ U verbinding maken met de VM-sjabloon en de vereiste software installeren op deze vooraleer het beschikbaar op uw studenten. 
 
-1. Selecteer **Zichtbaarheid** in de sectie **Sjabloon**. 
-2. Selecteer op de pagina **Beschikbaarheid** de optie **Openbaar**.
+1. Wacht totdat de sjabloon voor virtuele machine gereed is. Zodra u klaar bent, is de **Start** knop moet worden ingeschakeld. Selecteer voor het starten van de virtuele machine **Start**.
+
+    ![Start de VM-sjabloon](../media/tutorial-setup-classroom-lab/start-template-vm.png)
+1. Voor verbinding met de VM, selecteer **Connect**, en volg de instructies. 
+
+    ![Verbinding maken met de VM-sjabloon](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
+1. Software die zijn voor studenten vereist te doen in het lab (bijvoorbeeld Visual Studio, Azure Storage Explorer, enzovoort) te installeren. 
+2. Verbinding verbreken (Sluit uw extern bureaublad-sessiehost) uit de VM-sjabloon. 
+3. **Stop** de VM-sjabloon door het selecteren van **stoppen**. 
+
+    ![Stoppen van de VM-sjabloon](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
+
+
+### <a name="publish-the-template"></a>Publiceer de sjabloon 
+Wanneer u een sjabloon publiceert, maakt Azure Lab Services virtuele machines in de testomgeving met behulp van de sjabloon. Het aantal virtuele machines dat in dit proces wordt gemaakt, is hetzelfde als het maximum aantal gebruikers dat in het lab is toegestaan. Dit kunt u instellen in het gebruiksbeleid van het lab. Alle virtuele machines hebben dezelfde configuratie als de sjabloon. 
+
+1. Selecteer **publiceren** in de **sjabloon** sectie. 
+
+    ![Publiceren van de VM-sjabloon](../media/tutorial-setup-classroom-lab/public-access.png)
+1. In de **publiceren** Selecteer de **gepubliceerde** optie. 
+2. Selecteer nu de **publiceren** knop. Dit proces duurt een bepaalde tijd, afhankelijk van hoeveel virtuele machines worden gemaakt, dit is hetzelfde als het aantal gebruikers dat is toegestaan in de testomgeving.
     
     > [!IMPORTANT]
     > Wanneer een sjabloon openbaar beschikbaar is, kan de toegang kan niet worden gewijzigd naar privé. 
-3. Selecteer **Opslaan**.
+4. Overschakelen naar de **virtuele machines** pagina en controleer of u vijf virtuele machines die zich in **niet langer toegewezen** status. Deze virtuele machines worden nog niet toegewezen aan studenten. 
 
-    ![Beschikbaarheid](../media/how-to-manage-classroom-labs/public-access.png)
+    ![Virtuele machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
+5. Wacht totdat de virtuele machines worden gemaakt. Ze moeten **gestopt** status. U kunt een student VM starten, verbinding maken met de virtuele machine, stop de virtuele machine en verwijderen van de virtuele machine op deze pagina. U kunt ze worden gestart op deze pagina of kunt uw studenten starten van de virtuele machines. 
+
+    ![Virtuele machines gestopt](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+
 
 ## <a name="send-registration-link-to-students"></a>Registratiekoppeling naar studenten verzenden
 
-1. Selecteer de tegel **Gebruikersregistratie**.
-2. Selecteer in het dialoogvenster **Gebruikersregistratie** de knop **Kopiëren**. De koppeling wordt naar het klembord gekopieerd. Plak deze in een e-mailprogramma en verstuur een e-mail naar de student. 
+1. Overschakelen naar de **Dashboard** weergeven. 
+2. Selecteer de tegel **Gebruikersregistratie**.
 
-    ![Registratiekoppeling voor studenten](../media/how-to-manage-classroom-labs/registration-link.png)
+    ![Registratiekoppeling voor studenten](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
+1. Selecteer in het dialoogvenster **Gebruikersregistratie** de knop **Kopiëren**. De koppeling wordt naar het klembord gekopieerd. Plak deze in een e-mailprogramma en verstuur een e-mail naar de student. 
+
+    ![Registratiekoppeling voor studenten](../media/tutorial-setup-classroom-lab/registration-link.png)
+2. Op de **gebruikersregistratie** dialoogvenster, **sluiten**. 
 
 ## <a name="view-all-classroom-labs"></a>Alle leslokaal labs weergeven
 1. Navigeer naar [Lab Services van Azure-portal](https://labs.azure.com).
@@ -94,9 +124,20 @@ Nadat u de zichtbaarheid van een sjabloon hebt ingesteld op **Openbaar**, maakt 
 
     ![In het dialoogvenster verwijderen](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
  
+## <a name="manage-student-vms"></a>Studenten VM's beheren
+Zodra de studenten registreren met Azure Lab Services met behulp van de registratie van de koppeling opgegeven, ziet u de virtuele machines aan studenten toegewezen op de **virtuele machines** tabblad. 
+
+![Virtuele machines die zijn toegewezen aan studenten](../media/how-to-manage-classroom-labs/virtual-machines-students.png)
+
+U kunt de volgende taken op een student VM doen: 
+
+- Een virtuele machine stoppen als de virtuele machine wordt uitgevoerd. 
+- Start een virtuele machine als de virtuele machine is gestopt. 
+- Maak verbinding met de VM. 
+- Verwijder de virtuele machine. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Aan de slag met het installeren van een lab met Azure Lab Services:
 
 - [Een leslokaallab instellen](how-to-manage-classroom-labs.md)
-- [Een testomgeving instellen](../tutorial-create-custom-lab.md)
+- [Een lab instellen](../tutorial-create-custom-lab.md)

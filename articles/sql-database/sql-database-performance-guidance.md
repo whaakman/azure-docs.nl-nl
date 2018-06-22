@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 613fc4d914635f46d09552858706975006fcbff6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650465"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309211"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Afstemming van de prestaties in Azure SQL Database
 
@@ -25,7 +25,7 @@ In dat u geen toepasselijke aanbevelingen, en u nog steeds prestatieproblemen, j
 - Uw toepassing afstemmen en enkele aanbevolen procedures die u kunnen de prestaties verbeteren van toepassing. 
 - De database optimaliseren door indexen en query's efficiënter werken met gegevens te wijzigen.
 
-Dit zijn handmatige methodes omdat u nodig hebt om te bepalen wat [model op basis van de DTU limieten](sql-database-dtu-resource-limits.md) en [model op basis van vCore limieten (preview)](sql-database-vcore-resource-limits.md) aan uw behoeften voldoet. Anders moet u voor het herschrijven van de toepassing of databasecode en de wijzigingen implementeren.
+Dit zijn handmatige methodes omdat u nodig hebt om te bepalen van de hoeveelheid resources voldoen aan uw behoeften. Anders moet u voor het herschrijven van de toepassing of databasecode en de wijzigingen implementeren.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Laag van de toenemende prestaties van uw database
 
@@ -271,8 +271,8 @@ Sommige toepassingen zijn schrijven-intensief. U kunt de totale i/o-belasting va
 Sommige databasetoepassingen hebben lezen zware workloads. Opslaan in cache lagen mogelijk de belasting van de database te verminderen en het prestatieniveau vereist ter ondersteuning van een database met behulp van Azure SQL Database mogelijk verkleint. Met [Azure Redis-Cache](https://azure.microsoft.com/services/cache/), als u een werkbelasting lezen zware hebt, kunt u de gegevens eenmaal lezen (of bijvoorbeeld eenmaal per toepassingslaag machine, afhankelijk van hoe deze is geconfigureerd), en die gegevens buiten uw SQL-database op te slaan. Dit is een manier om te beperken van de database laden (CPU en i/o-lezen), maar er is een effect op transactionele consistentie omdat de gegevens worden gelezen uit de cache is mogelijk niet gesynchroniseerd met de gegevens in de database. Hoewel in veel toepassingen een zekere mate van inconsistentie acceptabel is, die geldt niet voor alle werkbelastingen. U moet eventuele toepassingsvereisten volledig begrijpen voordat u een toepassing lagen in het cachegeheugen strategie implementeert.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over DTU gebaseerde Servicelagen [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en [model op basis van de DTU limieten](sql-database-dtu-resource-limits.md)
-* Zie voor meer informatie over Servicelagen op basis van vCore [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md) en [vCore gebaseerde limieten (preview)](sql-database-vcore-resource-limits.md)
+* Zie voor meer informatie over DTU gebaseerde Servicelagen [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md).
+* Zie voor meer informatie over Servicelagen op basis van vCore [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md).
 * Zie voor meer informatie over elastische pools [wat is er een Azure elastische groep?](sql-database-elastic-pool.md)
 * Zie voor meer informatie over prestaties en elastische pools [wanneer te overwegen een elastische pool](sql-database-elastic-pool-guidance.md)
 

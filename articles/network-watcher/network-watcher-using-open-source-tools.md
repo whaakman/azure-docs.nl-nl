@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 61abda6053fe743e294f309df3a6e1041052ec6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23864012"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302230"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualiseren patronen in het netwerkverkeer naar en van uw virtuele machines met open-source hulpprogramma 's
 
-Pakket opnamen bevatten gegevens van het netwerk waarmee u kunt het netwerk forensische en grondige pakketinspecties uitvoeren. Er zijn veel wordt geopend, source hulpprogramma's die u gebruiken kunt voor het analyseren van opnamen van pakket voor het verkrijgen van inzicht in uw netwerk. Een van deze programma is CapAnalysis, een visualisatie pakket open-source hulpprogramma. Pakket vastleggen gegevens te visualiseren is een waardevolle manier voor het afleiden van snel inzicht op patronen en afwijkingen in uw netwerk. Visualisaties bieden ook een manier om dergelijke insights te delen op een manier eenvoudig worden gebruikt.
+Pakket opnamen bevatten gegevens van het netwerk waarmee u kunt het netwerk forensische en grondige pakketinspecties uitvoeren. Er zijn veel wordt geopend, source hulpprogramma's die u gebruiken kunt voor het analyseren van opnamen van pakket voor het verkrijgen van inzicht in uw netwerk. Een van deze programma is CapAnalysis, een hulpprogramma visualisatie open source-pakket. Pakket vastleggen gegevens te visualiseren is een waardevolle manier voor het afleiden van snel inzicht op patronen en afwijkingen in uw netwerk. Visualisaties bieden ook een manier om dergelijke insights te delen op een manier eenvoudig worden gebruikt.
 
-Azure netwerk-Watcher biedt u de mogelijkheid voor het vastleggen van deze waardevolle gegevens doordat u voor het pakket opnamen uitvoeren op uw netwerk. In dit artikel bieden we een overzicht van het visualiseren en Verkrijg inzicht in het pakket worden vastgelegd met behulp van CapAnalysis met netwerk-Watcher.
+Azure netwerk-Watcher biedt u de mogelijkheid voor het vastleggen van gegevens doordat u voor het pakket opnamen uitvoeren op uw netwerk. In dit artikel biedt een doorlopen van het visualiseren en Verkrijg inzicht in het pakket worden vastgelegd met behulp van CapAnalysis met netwerk-Watcher.
 
 ## <a name="scenario"></a>Scenario
 
@@ -37,19 +37,19 @@ U hebt een eenvoudige webtoepassing geïmplementeerd op een virtuele machine in 
 
 ### <a name="install-capanalysis"></a>CapAnalysis installeren
 
-Als u wilt installeren CapAnalysis op een virtuele machine, kunt u hier de officiële instructies https://www.capanalysis.net/ca/how-to-install-capanalysis verwijzen.
-In volgorde extern toegang tot CapAnalysis, moeten we open poort 9877 op de virtuele machine door een nieuwe beveiligingsregel voor binnenkomende toe te voegen. Raadpleeg voor meer informatie over het maken van regels in Netwerkbeveiligingsgroepen [regels maken in een bestaande NSG](../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg). Wanneer de regel is toegevoegd, moet u kunnen toegang krijgen tot CapAnalysis van`http://<PublicIP>:9877`
+Als u wilt installeren CapAnalysis op een virtuele machine, kunt u verwijzen naar de officiële instructies hier https://www.capanalysis.net/ca/how-to-install-capanalysis.
+In volgorde extern toegang tot CapAnalysis, moet u poort 9877 op de virtuele machine openen door een nieuwe beveiligingsregel voor binnenkomende toe te voegen. Raadpleeg voor meer informatie over het maken van regels in Netwerkbeveiligingsgroepen [regels maken in een bestaande NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). Wanneer de regel is toegevoegd, moet u kunnen toegang krijgen tot CapAnalysis van `http://<PublicIP>:9877`
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Gebruik Azure netwerk-Watcher pakket vastleggen sessie starten
 
-Netwerk-Watcher kunt u pakketten om bij te houden van verkeer van en naar een virtuele machine vastleggen. U kunt verwijzen naar de instructies op de [beheren pakket worden vastgelegd met de netwerk-Watcher](network-watcher-packet-capture-manage-portal.md) pakket vastleggen sessie starten. Deze pakketopname kan worden opgeslagen in een blob storage toegankelijk door CapAnalysis.
+Netwerk-Watcher kunt u pakketten om bij te houden van verkeer van en naar een virtuele machine vastleggen. U kunt verwijzen naar de instructies op de [beheren pakket worden vastgelegd met de netwerk-Watcher](network-watcher-packet-capture-manage-portal.md) pakket vastleggen sessie starten. Een pakketopname kan worden opgeslagen in een blob storage toegankelijk door CapAnalysis.
 
 ### <a name="upload-a-packet-capture-to-capanalysis"></a>Een pakketopname uploaden naar CapAnalysis
 U kunt rechtstreeks uploaden een pakketopname die door de netwerk-watcher via het tabblad 'Importeren van URL' en het geven van een koppeling naar de blob storage waar het vastleggen van het pakket wordt opgeslagen.
 
-Wanneer een koppeling biedt naar CapAnalysis, zorg er dan voor dat een SAS-token toevoegen aan de URL van de opslag-blob.  Hiervoor gaat u naar de gedeelde-toegangshandtekening van het opslagaccount, de toegestane machtigingen aanwijzen en druk op de knop SAS genereren voor het maken van een token. Vervolgens kunt u deze SAS-token toevoegen aan de URL van de pakket vastleggen opslag-blob.
+Wanneer een koppeling biedt naar CapAnalysis, zorg er dan voor dat een SAS-token toevoegen aan de URL van de opslag-blob.  Hiervoor gaat u naar de gedeelde-toegangshandtekening van het opslagaccount, de toegestane machtigingen aanwijzen en druk op de knop SAS genereren voor het maken van een token. U kunt vervolgens het SAS-token toevoegen aan de URL van de pakket vastleggen opslag-blob.
 
-De resulterende URL ziet er ongeveer als volgt: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+De resulterende URL ziet er ongeveer de volgende URL: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 
 
 ### <a name="analyzing-packet-captures"></a>Analyseren van pakket worden vastgelegd
@@ -86,7 +86,7 @@ CapAnalysis biedt verschillende opties voor het visualiseren van uw pakketopname
 
     ![filters][11]
 
-    Ga naar [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) voor meer informatie over alle CapAnalysis mogelijkheden.
+    Ga naar [ https://www.capanalysis.net/ca/#about ](https://www.capanalysis.net/ca/#about) voor meer informatie over alle CapAnalysis mogelijkheden.
 
 ## <a name="conclusion"></a>Conclusie
 

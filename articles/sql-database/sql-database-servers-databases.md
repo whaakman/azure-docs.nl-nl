@@ -1,33 +1,22 @@
 ---
-title: Maken en beheren van Azure SQL-servers en databases | Microsoft Docs
-description: Meer informatie over Azure SQL Database-server en database-concepten en over het maken en beheren van servers en -databases.
+title: Azure logische SQL-servers en individuele databases | Microsoft Docs
+description: Meer informatie over logische Azure SQL Database-server en één database concepten en hun bronnen.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 2600e39dec91fc6916fa7bbd02e318d33cfa3c99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649054"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309177"
 ---
-# <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database-servers en databases maken en beheren
-
-SQL-Database biedt drie typen databases:
-
-- Een individuele database gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een [gecombineerd berekenings-en opslagbronnen set](sql-database-service-tiers-dtu.md) of een [onafhankelijk van de schaal van de berekenings- en resources](sql-database-service-tiers-vcore.md). Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
-- Een database gemaakt als onderdeel van een [pool van databases](sql-database-elastic-pool.md) binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een [gecombineerd aantal resources voor berekeningen en opslag (DTU gebaseerd)](sql-database-service-tiers-dtu.md) of een [onafhankelijk van de schaal van de berekenings- en -resources (vCore gebaseerd)](sql-database-service-tiers-vcore.md) die worden gedeeld door alle databases in de groep. Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
-- Een [exemplaar van een SQL-server](sql-database-managed-instance.md) (een beheerde exemplaar) gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een gedefinieerde set berekenings- en resources voor alle databases op die server-exemplaar. Een beheerde exemplaar bevat zowel systeem- en gebruikersdatabases. Beheerde exemplaar is ontworpen om in te schakelen database lift-en-verschuiving naar een volledig beheerde PaaS zonder de toepassing opnieuw. Beheerde exemplaar biedt hoge compatibiliteit met het lokale SQL Server-programmeermodel en ondersteunt de grote meerderheid van SQL Server-functies en bijbehorende hulpprogramma's en services.  
-
-Microsoft Azure SQL Database ondersteunt tabular data stream (TDS)-protocol clientversie 7.3 of hoger en alleen versleutelde TCP/IP-verbindingen.
-
-> [!IMPORTANT]
-> Exemplaar van SQL Database-beheerd biedt die momenteel in de openbare preview een enkel servicelaag voor algemene doeleinden. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie. De rest van dit artikel niet van toepassing op beheerde exemplaar.
+# <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Azure logische SQL Database-servers en individuele databases en hun bronnen
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Wat is een logische Azure SQL-server?
 
@@ -59,6 +48,20 @@ Een logische server met Azure Database:
 - Hoofdaanmeldingen op serverniveau kunnen alle databases op een server beheren
 - Kunnen aanmeldingen bevatten die vergelijkbaar zijn met die in de exemplaren van SQL Server op uw locaties die toegang hebben tot een of meer databases op de server, en waaraan beperkte beheerrechten kunnen worden verleend. Zie [Aanmeldingen](sql-database-manage-logins.md) voor meer informatie.
 - De standaardsortering voor alle gebruikersdatabases gemaakt op een logische server is `SQL_LATIN1_GENERAL_CP1_CI_AS`, waarbij `LATIN1_GENERAL` Engels (Verenigde Staten), `CP1` is codetabel 1252, `CI` is niet hoofdlettergevoelig, en `AS` accentgevoelig is.
+
+## <a name="logical-servers-and-databases"></a>Logische servers en -databases
+
+U kunt op een logische server maken:
+
+- Een individuele database gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een [gecombineerd berekenings-en opslagbronnen set](sql-database-service-tiers-dtu.md) of een [onafhankelijk van de schaal van de berekenings- en resources](sql-database-service-tiers-vcore.md). Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
+- Een database gemaakt als onderdeel van een [pool van databases](sql-database-elastic-pool.md) binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een [gecombineerd aantal resources voor berekeningen en opslag (DTU gebaseerd)](sql-database-service-tiers-dtu.md) of een [onafhankelijk van de schaal van de berekenings- en -resources (vCore gebaseerd)](sql-database-service-tiers-vcore.md) die worden gedeeld door alle databases in de groep. Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
+
+> [!IMPORTANT]
+> Exemplaar van SQL Database-beheerd die momenteel in de openbare preview is een [exemplaar van een SQL-server](sql-database-managed-instance.md) (een beheerde exemplaar) gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een gedefinieerde set van berekening en opslag bronnen voor alle databases op die server-exemplaar. Een beheerde exemplaar bevat zowel systeem- en gebruikersdatabases. Beheerde exemplaar is ontworpen om in te schakelen database lift-en-verschuiving naar een volledig beheerde PaaS zonder de toepassing opnieuw. Beheerde exemplaar biedt hoge compatibiliteit met het lokale SQL Server-programmeermodel en ondersteunt de grote meerderheid van SQL Server-functies en bijbehorende hulpprogramma's en services. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie. De rest van dit artikel niet van toepassing op beheerde exemplaar.
+
+## <a name="tds-and-tcpip-connections"></a>TDS- en TCP/IP-verbindingen
+
+Microsoft Azure SQL Database ondersteunt tabular data stream (TDS)-protocol clientversie 7.3 of hoger en alleen versleutelde TCP/IP-verbindingen.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Azure SQL databases hebt beveiligd met SQL Database-firewall
 
@@ -109,7 +112,7 @@ Gebruik de volgende PowerShell-cmdlets voor het maken en beheren van Azure SQL-s
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Een of meer databases opgehaald|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Stelt eigenschappen van een database of een bestaande database is verplaatst naar een elastische pool|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Hiermee verwijdert u een database|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Maakt een resourcegroep]
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Maakt een resourcegroep|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Hiermee maakt u een server|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Retourneert informatie over servers|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Hiermee wijzigt u de eigenschappen van een server|

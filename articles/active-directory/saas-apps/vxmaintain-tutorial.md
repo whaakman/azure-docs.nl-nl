@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d43e446d1ee1ed4dafc63481b4c874d994896d3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fc8918ed2901d2f443b94bac8587e24c3f04eeec
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230264"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308744"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Zelfstudie: Azure Active Directory-integratie met vxMaintain
 
@@ -111,7 +111,7 @@ In deze sectie maakt kunt u zowel Azure AD-eenmalige aanmelding inschakelen in d
     b. In de **antwoord-URL** typt u een URL die heeft de volgende syntaxis: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
-    > De voorgaande waarden zijn niet echt. Deze bijwerken met de werkelijke-id en antwoord-URL. De waarden, neem contact op met de [vxMaintain ondersteuningsteam](http://www.verisae.com/contact-us).
+    > De voorgaande waarden zijn niet echt. Deze bijwerken met de werkelijke-id en antwoord-URL. De waarden, neem contact op met de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact).
  
 4. Onder **SAML-certificaat voor ondertekening van**, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
 
@@ -121,7 +121,7 @@ In deze sectie maakt kunt u zowel Azure AD-eenmalige aanmelding inschakelen in d
 
     ![De knop Opslaan](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Voor het configureren van **vxMaintain** SSO, verzendt de gedownloade **Metadata XML** van het bestand in de [vxMaintain ondersteuningsteam](http://www.verisae.com/contact-us).
+6. Voor het configureren van **vxMaintain** SSO, verzendt de gedownloade **Metadata XML** van het bestand in de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact).
 
 > [!TIP]
 > Bij het instellen van de app, vindt u een beknopte versie van de voorgaande instructies in de [Azure-portal](https://portal.azure.com). Na het toevoegen van de app vanuit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad en vervolgens naar de ingesloten documentatie van de **configuratie** sectie. 
@@ -161,7 +161,7 @@ In deze sectie kunt u testgebruiker Britta Simon in de Azure portal maken door h
  
 ### <a name="create-a-vxmaintain-test-user"></a>Een testgebruiker vxMaintain maken
 
-In deze sectie maakt u testgebruiker Britta Simon in vxMaintain. Als gebruikers wilt toevoegen in het platform vxMaintain, werken met de [vxMaintain ondersteuningsteam](http://www.verisae.com/contact-us). Voordat u eenmalige aanmelding gebruiken, maken en activeren van de gebruikers.
+In deze sectie maakt u testgebruiker Britta Simon in vxMaintain. Als gebruikers wilt toevoegen in het platform vxMaintain, werken met de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact). Voordat u eenmalige aanmelding gebruiken, maken en activeren van de gebruikers.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

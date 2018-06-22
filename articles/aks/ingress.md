@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8452708ef6b3d1944495c3c2c152c1e753a9cebf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f237e2b25089e4f89ddda2d37a7aa4019befe0da
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599895"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302073"
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS-inkomend voor Azure Kubernetes-Service (AKS)
 
@@ -33,13 +33,19 @@ Helm gebruiken om de NGINX inkomend controller te installeren. De controller wor
 Bijwerken van de grafiek-opslagplaats.
 
 ```console
-helm repo update
+$ helm repo update
 ```
 
-De NGINX inkomend controller installeren. Dit voorbeeld installeert de controller in de `kube-system` naamruimte, dit kan worden gewijzigd met een naamruimte van uw keuze.
+De NGINX inkomend controller installeren. Dit voorbeeld installeert de controller in de `kube-system` naamruimte (ervan uitgaande dat RBAC *niet* ingeschakeld), dit kan worden gewijzigd met een naamruimte van uw keuze.
 
+```console
+$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
-helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+
+**Opmerking:** als RBAC *is* ingeschakeld op uw cluster kubernetes, de bovenstaande opdracht brengt uw domeincontroller inkomend is onbereikbaar. Probeer in plaats daarvan het volgende:
+
+```console
+$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=true --set rbac.createRole=true --set rbac.createClusterRole=true
 ```
 
 Tijdens de installatie wordt een Azure openbare IP-adres voor de controller inkomend gemaakt. Als u het openbare IP-adres, gebruikt u de opdracht kubectl get-service. Het kan even duren voor het IP-adres moet worden toegewezen aan de service.

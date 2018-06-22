@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 45b645fe556d1f9630ee15b1f2f605bbaf3f87f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648061"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309330"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Een VNet configureren voor beheerde Azure SQL Database-exemplaar
 
 Azure SQL Database beheerd-instantie (preview) moet worden geïmplementeerd in een Azure [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md). Deze implementatie kunt de volgende scenario's: 
-- Rechtstreeks verbinding maken met een exemplaar beheerd vormen een on-premises netwerk 
+- Verbinding maken met een exemplaar beheerd rechtstreeks vanuit een on-premises netwerk 
 - Verbinding maken met een exemplaar beheerd gekoppelde server of een andere lokale gegevensopslag 
 - Verbinding maken met een exemplaar beheerde Azure-resources  
 

@@ -7,14 +7,14 @@ manager: carmonm
 keywords: back-ups; een back-up;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/1/2018
+ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5aa07d7861413fa0ddc0d5af7aefe828df412b4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606633"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309143"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -34,11 +34,14 @@ Voordat u beveiligen (of back-up) een Resource Manager geïmplementeerde virtuel
 Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [Back-up van uw virtuele machines](backup-azure-arm-vms.md) artikel. Als u wilt instellen of een van deze vereisten te controleren, begeleidt in dit artikel u de stappen.
 
 ## <a name="supported-operating-systems-for-backup"></a>Ondersteunde besturingssystemen voor back-up
- * **Linux**: Azure Backup ondersteunt [een lijst met distributies die Azure onderschrijft](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), behalve CoreOS Linux. 
- 
+
+ * **Linux**: Azure Backup ondersteunt [een lijst met distributies die Azure onderschrijft](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), behalve CoreOS Linux. Zie voor een overzicht van Linux-besturingssystemen die ondersteuning voor het herstellen van bestanden, [bestanden herstellen vanuit back-up van virtuele machine](backup-azure-restore-files-from-vm.md#for-linux).
+
     > [!NOTE] 
     > Andere bring-your-eigenaar-Linux-distributies mogelijk werkt, zolang de VM-agent beschikbaar op de virtuele machine is en ondersteuning voor Python bestaat. Deze distributies worden echter niet ondersteund.
- * **Windows Server**: versies ouder dan Windows Server 2008 R2 worden niet ondersteund.
+    >
+ * **Windows Server**, **Windows-client**: versies ouder dan Windows Server 2008 R2 of Windows 7, worden niet ondersteund.
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Beperkingen bij een back-up en herstellen van een virtuele machine
 Voordat u uw omgeving hebt voorbereid, zorg er dan voor dat deze beperkingen begrijpen:

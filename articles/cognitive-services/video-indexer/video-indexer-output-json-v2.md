@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: 6c410b054ba98961d15a4db0ff7eaa2804245cb0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 87301e4ce3c5b7db054b3dd86e8ee1ac5d90d3ca
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345904"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309057"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video indexeerfunctie uitvoer geproduceerd door v2 API
 
@@ -493,8 +493,8 @@ Bedrijfs- en merknamen gedetecteerd in de spraak naar de tekst van de tekst en/o
 |---|---|
 |id|De merk-ID.|
 |naam|De naam merken.|
-|wikiId | Het achtervoegsel van de url merk-Wikipedia (Engelstalig). Bijvoorbeeld, "Target_Corporation" is het achtervoegsel van [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
-|wikiUrl | Het merk de url van de Wikipedia (Engelstalig), als bestaat. Bijvoorbeeld [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|ReferenceId | Het achtervoegsel van de url merk-Wikipedia (Engelstalig). Bijvoorbeeld, "Target_Corporation" is het achtervoegsel van [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceUrl | Het merk de url van de Wikipedia (Engelstalig), als bestaat. Bijvoorbeeld [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|De beschrijving merken.|
 |tags|Een lijst met vooraf gedefinieerde codes die gekoppeld aan deze huisstijl zijn.|
 |vertrouwen|De waarde van de betrouwbaarheid van de Video indexeerfunctie merk detectie (0-1).|
@@ -522,8 +522,8 @@ Bedrijfs- en merknamen gedetecteerd in de spraak naar de tekst van de tekst en/o
 {
     "id": 1,
     "name": "Microsoft",
-    "wikiId": "Microsoft",
-    "wikiUrl": "http: //en.wikipedia.org/wiki/Microsoft",
+    "referenceId": "Microsoft",
+    "referenceUrl": "http: //en.wikipedia.org/wiki/Microsoft",
     "description": "Microsoft Corporation is...",
     "tags": [
     "competitors",

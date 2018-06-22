@@ -6,18 +6,18 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802303"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301713"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Aanbevolen procedures voor de isolatie van toepassingen tegen storingen van de Service Bus en noodsituaties
 
-Bedrijfskritieke toepassingen hanteert continu, zelfs in aanwezigheid van niet-geplande storingen of noodsituaties. Dit onderwerp beschrijft de technieken die u gebruiken kunt voor het beveiligen van Service Bus-toepassingen op basis van een mogelijke onderbreking van deze service of na noodgevallen.
+Bedrijfskritieke toepassingen hanteert continu, zelfs in aanwezigheid van niet-geplande storingen of noodsituaties. Dit artikel wordt beschreven technieken die u gebruiken kunt voor het beveiligen van Service Bus-toepassingen op basis van een mogelijke onderbreking van deze service of na noodgevallen.
 
 Een storing wordt gedefinieerd als Azure Service Bus, tijdelijk niet beschikbaar. De storing, kan sommige onderdelen van Service Bus, zoals een berichten-store of zelfs het gehele datacenter beïnvloeden. Nadat het probleem is verholpen, weer Service Bus beschikbaar is. Normaal gesproken veroorzaakt een storing geen verlies van berichten of andere gegevens. Een voorbeeld van een onderdeelfout is het ontbreken van een bepaalde berichten-store. Een voorbeeld van een onderbreking van de hele datacenter is een stroomstoring van het datacenter of een netwerkswitch defecte datacenter. Een storing kan de laatste van enkele minuten tot enkele dagen.
 
@@ -78,6 +78,17 @@ De [Geo-replicatie met Service Bus brokered berichten] [ Geo-replication with Se
 
 Service Bus ondersteunt Geo-noodherstel en Geo-replicatie op het niveau van de naamruimte. Zie voor meer informatie [Azure Service Bus Geo-noodherstel](service-bus-geo-dr.md). De functie disaster recovery, beschikbaar voor de [Premium-SKU](service-bus-premium-messaging.md) alleen metagegevens noodherstel implementeert, en is afhankelijk van de primaire en secundaire disaster recovery naamruimten.
 
+## <a name="availability-zones-preview"></a>Beschikbaarheid Zones (preview)
+
+Biedt ondersteuning voor de Service Bus Premium-SKU [beschikbaarheid Zones](../availability-zones/az-overview.md), bieden fouttolerantie geïsoleerd locaties binnen een Azure-regio. 
+
+> [!NOTE]
+> De beschikbaarheid van Zones preview wordt alleen ondersteund in de **VS-midden**, **VS-Oost 2**, en **Frankrijk centrale** regio's.
+
+U kunt Zones beschikbaarheid inschakelen op nieuwe naamruimten alleen met de Azure portal. Service Bus biedt geen ondersteuning voor migratie van bestaande naamruimten. Zoneredundantie van de niet worden uitgeschakeld nadat deze is ingeschakeld op uw naamruimte.
+
+![1][]
+
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over herstel na noodgevallen, deze artikelen:
 
@@ -93,3 +104,5 @@ Zie voor meer informatie over herstel na noodgevallen, deze artikelen:
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

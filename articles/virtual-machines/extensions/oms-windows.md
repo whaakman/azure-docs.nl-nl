@@ -1,6 +1,6 @@
 ---
-title: De extensie OMS Azure virtuele machine voor Windows | Microsoft Docs
-description: Implementeer de OMS-agent op virtuele Windows-computer met de extensie van een virtuele machine.
+title: Extensie van virtuele machine met Azure Log Analytics voor Windows | Microsoft Docs
+description: Implementeer de agent logboekanalyse op virtuele Windows-computer met de extensie van een virtuele machine.
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: c365c43eb5abb975bf77e28ad061ff091f5ec627
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 49e5033f6c77b19dd8545e9b6fd30ce03ce21f34
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942639"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301777"
 ---
-# <a name="oms-virtual-machine-extension-for-windows"></a>OMS de extensie van de virtuele machine voor Windows
+# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Meld u de extensie van de virtuele machine Analytics voor Windows
 
-Operations Management Suite (OMS) biedt mogelijkheden voor bewaking, waarschuwingen en waarschuwing herstel tussen cloud en on-premises activa. De extensie voor de OMS-Agent van een virtuele machine voor Windows is gepubliceerd en ondersteund door Microsoft. De extensie wordt de OMS-agent geïnstalleerd op virtuele machines in Azure, en virtuele machines in een bestaande OMS-werkruimte schrijft. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de OMS-virtuele machine voor Windows.
+Log Analytics biedt mogelijkheden voor bewaking voor cloud en on-premises activa. De extensie van de virtuele machine Log Analytics-Agent voor Windows is gepubliceerd en ondersteund door Microsoft. De extensie installeert de Log Analytics-agent op Azure virtuele machines en virtuele machines in een bestaande werkruimte voor logboekanalyse inschrijft. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de uitbreiding van de virtuele machine Log Analytics voor Windows.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-De extensie OMS-Agent versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016.
+De extensie Log Analytics-Agent versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center wordt automatisch voorziet in de OMS-agent en is verbonden met de standaard log analytics-werkruimte van de Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval worden de geconfigureerde werkruimte en einde van de verbinding met Azure Security Center overschreven.
+Azure Security Center wordt automatisch bepalingen van de agent Log Analytics en is verbonden met de standaard log analytics-werkruimte van de Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval worden de geconfigureerde werkruimte en einde van de verbinding met Azure Security Center overschreven.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
-De extensie OMS-Agent voor Windows is vereist dat de virtuele doelmachine is verbonden met internet. 
+De extensie Log Analytics-Agent voor Windows is vereist dat de virtuele doelmachine is verbonden met internet. 
 
 ## <a name="extension-schema"></a>Extensieschema
 
-De volgende JSON ziet u het schema voor de uitbreiding OMS-Agent. De extensie moet u de werkruimte-Id en werkruimtesleutel uit de doel-OMS-werkruimte, kunnen deze worden gevonden in de OMS-portal. Omdat de werkruimtesleutel moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de configuratie van een beveiligde instelling. Azure VM-extensie beveiligde instellingsgegevens is versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
+De volgende JSON ziet u het schema voor de uitbreiding Log Analytics-Agent. De extensie moet u de werkruimte-Id en werkruimtesleutel van de doel-werkruimte voor logboekanalyse. U vindt deze in de instellingen van de werkruimte in de Azure-portal. Omdat de werkruimtesleutel moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de configuratie van een beveiligde instelling. Azure VM-extensie beveiligde instellingsgegevens is versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
 
 ```json
 {
@@ -79,11 +79,11 @@ De volgende JSON ziet u het schema voor de uitbreiding OMS-Agent. De extensie mo
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie beschreven kan worden gebruikt in een Azure Resource Manager-sjabloon voor de uitbreiding OMS-Agent wordt uitgevoerd tijdens de sjabloonimplementatie van een Azure Resource Manager. Een voorbeeldsjabloon met de OMS-Agent VM-extensie vindt u op de [galerie van Azure Quick Start](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie beschreven kan worden gebruikt in een Azure Resource Manager-sjabloon voor de uitbreiding Log Analytics-Agent wordt uitgevoerd tijdens de sjabloonimplementatie van een Azure Resource Manager. Een voorbeeldsjabloon met de Log Analytics Agent VM-extensie vindt u op de [galerie van Azure Quick Start](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 De JSON voor de extensie van een virtuele machine worden genest in de bron van de virtuele machine, of aan de basis- of bovenste niveau van een Resource Manager JSON-sjabloon geplaatst. De plaatsing van de JSON van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-Het volgende voorbeeld wordt ervan uitgegaan dat de OMS-extensie is genest binnen de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de `"resources": []` object van de virtuele machine.
+Het volgende voorbeeld wordt ervan uitgegaan dat de uitbreiding voor logboekanalyse is genest binnen de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de `"resources": []` object van de virtuele machine.
 
 
 ```json
@@ -138,7 +138,7 @@ Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, de naam va
 
 ## <a name="powershell-deployment"></a>PowerShell-implementatie
 
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren van de extensie van de virtuele machine OMS-Agent op een bestaande virtuele machine. Voordat u de opdracht uitvoert, moeten de openbare en persoonlijke configuraties worden opgeslagen in een PowerShell-hash-tabel. 
+De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren van de extensie van de virtuele machine Log Analytics-Agent op een bestaande virtuele machine. Voordat u de opdracht uitvoert, moeten de openbare en persoonlijke configuraties worden opgeslagen in een PowerShell-hash-tabel. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

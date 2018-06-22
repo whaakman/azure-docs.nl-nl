@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c87b90e82b1300e147533256e3286421a73f08d2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42d1b40e01653e8fb5fa5bf118c65de758832f4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218891"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Zelfstudie: Azure Active Directory-integratie met Tangoe opdracht Premium Mobile
 
@@ -114,7 +114,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://sso.tangoe.com/sp/ACS.saml2`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [Tangoe opdracht Premium Mobile Client ondersteuningsteam](https://www.tangoe.com/contact-2/) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [Tangoe opdracht Premium Mobile Client ondersteuningsteam](https://www.tangoe.com/contact-us/) ophalen van deze waarden. 
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -128,7 +128,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Configuratiesectie Tangoe opdracht Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. Als u eenmalige aanmelding die zijn geconfigureerd voor uw toepassing, neem contact op met uw [Tangoe opdracht Premium Mobile Client ondersteuningsteam](https://www.tangoe.com/contact-2/) en biedt het volgende:
+7. Als u eenmalige aanmelding die zijn geconfigureerd voor uw toepassing, neem contact op met uw [Tangoe opdracht Premium Mobile Client ondersteuningsteam](https://www.tangoe.com/contact-us/) en biedt het volgende:
 
    - Het metagegevensbestand van de gedownloade
    - De **SAML entiteit-ID**
@@ -174,7 +174,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Tangoe opdracht Premium Mobile maken. 
 
-Tangoe opdracht Premium mobiele App moet de gebruikers moeten worden ingericht in de toepassing voordat u eenmalige aanmelding. Dus neem werk met de [Tangoe opdracht Premium Mobile Client ondersteuningsteam](https://www.tangoe.com/contact-2/) voor het inrichten van al deze gebruikers in de toepassing. 
+Tangoe opdracht Premium mobiele App moet de gebruikers moeten worden ingericht in de toepassing voordat u eenmalige aanmelding. Dus neem werk met de [Tangoe opdracht Premium Mobile Client ondersteuningsteam](https://www.tangoe.com/contact-us/) voor het inrichten van al deze gebruikers in de toepassing. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

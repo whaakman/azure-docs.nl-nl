@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 135f934cd6b352dad9e4cea5a14406804f31b66b
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825111"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307482"
 ---
 # <a name="guidelines"></a>Richtlijnen  
 
@@ -35,7 +35,7 @@ Als meer dan één persoon toegang tot de Microsoft-ID gebruikt om uw marketplac
 
 >[!IMPORTANT]
 >Om meerdere gebruikers toegang tot uw account Microsoft Developer Center (Dev Center), wordt aangeraden dat u Azure Active Directory (Azure AD) voor het toewijzen van rollen naar afzonderlijke gebruikers. Elke gebruiker toegang moet hebben tot het account door aanmelden met afzonderlijke Azure AD-referenties. Uw Microsoft-ID maken met behulp van een e-mailadres in een domein geregistreerd bij uw bedrijf Microsoft raadt het e-mailbericht niet worden toegewezen aan een persoon. Een voorbeeld is `windowsapps@fabrikam.com`.  
->*   Voor meer informatie gaat u naar de [probleem: Microsoft-ID in een Azure AD domain federatieve](#issue:-microsoft-id-in-an-azure-ad-federated-domain) sectie.  
+>*   Voor meer informatie gaat u naar de [probleem: Microsoft-ID in een Azure AD domain federatieve](#issue-microsoft-id-in-an-azure-ad-federated-domain) sectie.  
 
 *   Beperk de toegang op de Microsoft-ID op het kleinste aantal ontwikkelaars. 
 *   Instellen van een zakelijke e-mail distributielijst (DL) met iedereen die toegang moet hebben tot uw account Dev Center. Het e-mailadres DL toevoegen aan je beveiligingsgegevens. De DL kan alle werknemers in de lijst voor het ontvangen van beveiligingscodes wanneer dit wordt aangevraagd en voor het beheren van de beveiligingsgegevens voor uw Microsoft-ID. Als het instellen van een distributielijst, is niet haalbaar, moet de eigenaar van de afzonderlijke e-mailaccount voor toegang tot en het delen van de beveiligingscode desgevraagd beschikbaar zijn.  

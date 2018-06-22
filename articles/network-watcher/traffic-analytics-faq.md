@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: de85e4295a59c54cb68306bf0cbc516bf5e1f8e2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236396"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313295"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Verkeer analytics Veelgestelde vragen
 
@@ -28,17 +28,25 @@ ms.locfileid: "35236396"
 
     - Een abonnement van de netwerk-Watcher ingeschakeld
     - NSG-stroom logboeken ingeschakeld voor het nsg's die u wilt bewaken
-    - Een Azure Storage-account voor het opslaan van onbewerkte flog Logboeken
+    - Een Azure Storage-account voor het opslaan van onbewerkte stroom Logboeken
     - Een werkruimte voor logboekanalyse (OMS), met lees- en schrijftoegang
     - Gebruiker moet worden toegewezen met een van de volgende rollen op abonnementsniveau:
     
-            All permissions *
-            All Read permissions */read
-            All network permissions Microsoft.Network/*
-            All network read permissions Microsoft.Network/*/read
+    1.  U moet een van de volgende klassieke administrator
+    
+        - Accountbeheerder
+        - Servicebeheerder 
+        - Co-beheerder
+        
+    2.  Uw account moet een van de volgende RBAC-rollen hebben in het abonnementsbereik
+    
+        - Eigenaar
+        - Inzender
+        - Lezer
+        - Inzender voor netwerken
 
-    Of gebruiker moet worden toegewezen met alle functies op abonnementsniveau te volgen: 
-
+    3. Uw account moet beschikken over een aangepaste RBAC-rollen met een machtiging voor alle volgende genoemde acties op abonnementsniveau
+            
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
         - Microsoft.Network/loadBalancers/read 
@@ -50,22 +58,22 @@ ms.locfileid: "35236396"
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
         
-Volg onderstaande stappen om te controleren op functies die zijn toegewezen aan een gebruiker voor een abonnement:
+    Volg onderstaande stappen om te controleren op functies die zijn toegewezen aan een gebruiker voor een abonnement:
 
-Meld u aan bij Azure Login-AzureRmAccount met 
+    Meld u aan bij gebruik van Azure **Login-AzureRmAccount** 
 
-Selecteer het vereiste abonnement met behulp van de Select-AzureRmSubscription 
+    Selecteer het abonnement vereist met **Select-AzureRmSubscription** 
 
-Nu u de rollen die zijn toegewezen aan een opgegeven gebruiker gebruiken Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators 
+    Nu u de rollen die zijn toegewezen aan een opgegeven gebruiker gebruiken **Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators** 
 
-Als u geen uitvoer ziet na het uitvoeren van commends vervolgens kunt contact met respectieve abonnement admin, als u wilt toegang krijgen tot de opdrachten uit te voeren.  
+    Als u geen uitvoer ziet na het uitvoeren van commends vervolgens kunt contact met respectieve abonnement admin, als u wilt toegang krijgen tot de opdrachten uit te voeren.  
 
-Voor meer informatie Zie [rollen gebaseerd toegangsbeheer met Azure PowerShell beheren](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+    Voor meer informatie Zie [rollen gebaseerd toegangsbeheer met Azure PowerShell beheren](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
 
 
 2.  Welke Azure-regio's traffic analytics beschikbaar zijn in?
 
-    In de preview-versie, kunt u verkeer analytics voor nsg's in een van de volgende **ondersteunde regio's**: West-Centraal VS, VS-Oost, VS-Oost 2, Noordelijk Centraal, VS, Zuid-centraal VS, VS-midden, VS-West, VS-West-2, West-Europa, Noord-Europa , West VK, Zuid VK, Australië-Oost en Australië-Zuidoost. De werkruimte voor logboekanalyse moet bestaan in de West-Centraal VS, VS-Oost, West-Europa, Australië-Zuidoost of de regio Zuid VK.
+    In de preview-versie, kunt u verkeer analytics voor nsg's in een van de volgende **ondersteunde regio's**: West-Centraal VS, VS-Oost, VS-Oost 2, Noordelijk Centraal, VS, Zuid-centraal VS, VS-midden, VS-West, VS-West 2, West-Europa, Noord-Europa VK West, VK Zuid, Australië-Oost, Australië-Zuidoost en Zuidoost-Azië. De werkruimte voor logboekanalyse moet bestaan in de West-Centraal VS, VS-Oost, West-Europa, VK Zuid, Australië-Zuidoost of de regio Zuidoost-Azië.
 
 3.  Kan het nsg's ik stroom inschakelen Logboeken voor zich in verschillende regio's dan mijn OMS-werkruimte?
 
@@ -127,11 +135,11 @@ Voor meer informatie Zie [rollen gebaseerd toegangsbeheer met Azure PowerShell b
 
 14. Kan ik traffic analytics met PowerShell of een Azure Resource Manager-sjabloon configureren?
 
-Ja, traffic analytics configuratie met behulp van windows powershell wordt ondersteund vanaf versie 6.2.1 en hoger, maar Azure Resource Manager-sjabloonondersteuning is niet beschikbaar op presenteren. Voor meer informatie, hoe PowerShell kan worden gebruikt voor het configureren van traffic analytics Raadpleeg volgende [documentatie](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
+        Yes, traffic analytics configuration using windows powershell is supported from version 6.2.1 onwards, however Azure Resource Manager template support is not available at present. To learn more, how PowerShell can be used to configure traffic analytics please refer following [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  Hoe wordt verkeer analytics prijs?
 
-Verkeer analytics datalimiet geldt voor stroom logboekgegevens verwerkt door de service en de heeft geresulteerd verbeterde logboeken op te slaan in een werkruimte voor logboekanalyse. Meer informatie over prijzen plan neemt weten [Klik hier](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
+        Verkeer analytics datalimiet geldt voor stroom logboekgegevens verwerkt door de service en de heeft geresulteerd verbeterde logboeken op te slaan in een werkruimte voor logboekanalyse. Meer informatie over prijzen plan neemt weten [Klik hier](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  Hoe kan ik navigeren met behulp van toetsenbord in Geo overzichtsweergave?
 
@@ -162,3 +170,47 @@ Verkeer analytics datalimiet geldt voor stroom logboekgegevens verwerkt door de 
         - `ESC` de uitgebreide selectie wordt samengevouwen.
         - De `UP Arrow` sleutel voert dezelfde actie als `ESC`. De `Down arrow` sleutel voert dezelfde actie als `Enter`.
         - Gebruik `Shift+Plus` inzoomen, en `Shift+Minus` om uit te zoomen.
+
+17. Hoe kan ik ga toetsenbord gebruiken in de weergave voor VNet-topologie
+
+    De pagina van de topologie virtuele netwerken bevat twee hoofdsecties:
+    
+    - **Banner**: de banner geplaatst in de rechterbovenhoek van de virtuele netwerken topologie biedt de mogelijkheid verkeer Distributiefilters via knoppen zoals verbonden VNets/verbroken VNets/actief/inactief/op-premises/Azure-regio openbare IP-adressen selecteren / Zware/gemiddeld/laag/toegestaan/geblokkeerd en informatie van de legenda. Het respectieve filter wordt toegepast op de selectie van gedefinieerde knoppen van de topologie, zoals als een gebruiker de knop met 'Active' filter onder de banner selecteert en vervolgens de topologie de 'Active' VNets in uw implementatie markeert.
+    - **Topologie**: sectie van de netwerktopologie geplaatst onder de banner toont de distributie van verkeer tussen VNets.
+    
+    **Toetsenbordnavigatie op koptekst**
+    
+    - Standaard is de selectie op de pagina van de topologie virtuele netwerken voor het logo van het filter 'VNets verbonden' knop.
+    - Ga naar een andere filters knop, kunt u de `Tab` sleutel naar de volgende verplaatsen. Gebruik om te navigeren achteruit, `Shift+Tab` sleutel. Navigatie richting prioriteit is links naar rechts, gevolgd door boven naar beneden.
+    - Druk op de `Enter` pijltoets het geselecteerde filter wilt toepassen. Op basis van filterselectie en implementatie, worden een of meerdere knooppunten (VNet) onder de sectie topologie gemarkeerd.
+        - Schakelen tussen **Banner** en **topologie**, drukt u op `Ctrl+F6`.
+        
+    **Toetsenbordnavigatie op topologie**
+    
+    - Zodra u hebt geselecteerd een filter op de koptekst en ingedrukt `Ctrl+F6`, focus naar een van de gemarkeerde knooppunten (**VNet**) in de Topologieweergave.
+    - Gemarkeerd om te navigeren naar andere knooppunten in de Topologieweergave kunt u de `Shift+Right arrow` voor voorwaartse beweging. 
+    - Op de gemarkeerde knooppunten focus naar de **informatie werkset** voor het knooppunt. Standaard focus naar de knop 'Meer informatie' op de **informatie werkset**. Om verder te bladeren in **vak** geven, gebruikt u `Right` en `Left arrow` sleutels verplaatsen voorwaarts en achterwaarts, respectievelijk. Drukken `Enter` heeft hetzelfde effect als de knop gerichte in de **informatie werkset**.
+    - Op de selectie van eventuele dergelijke knooppunten, de bijbehorende alle verbindingen kunnen bezoeken, één voor één door te drukken `Shift+Left arrow` sleutel. Focus naar de **informatie werkset** van die verbinding. Op elk gewenst moment de focus kan worden verplaatst naar het knooppunt door te drukken `Shift+Right arrow` opnieuw.
+    
+
+18. Hoe kan ik ga toetsenbord gebruiken in de weergave van Subnet-topologie
+
+    De pagina van de topologie virtuele subnetwerken bevat twee hoofdsecties:
+    
+    - **Banner**: de banner geplaatst in de rechterbovenhoek van de virtuele subnetwerken topologie biedt de mogelijkheid verkeer Distributiefilters via knoppen zoals actief/inactief/externe verbindingen/op-premises/Azure-regio openbare IP-adressen selecteren/Active loopt / Zware/gemiddeld/laag/kwaadaardig verkeer/toegestaan/geblokkeerd, subnetten/back-end gatewaysubnetten en Frontend-subnetten. Het respectieve filter wordt toegepast op de selectie van gedefinieerde knoppen van de topologie, zoals als een gebruiker de knop met 'Active' filter onder de banner selecteert en vervolgens de topologie het 'Active' virtuele subnetwerk in uw implementatie markeert.
+    - **Topologie**: de topologie sectie geplaatst onder de banner toont de distributie van verkeer tussen virtuele subnetwerken.
+    
+    **Toetsenbordnavigatie op koptekst**
+    
+    - Standaard is de selectie op de pagina virtuele subnetwerken topologie voor het logo van het filter 'Subnetten' knop.
+    - Ga naar een andere filters knop, kunt u de `Tab` sleutel naar de volgende verplaatsen. Gebruik om te navigeren achteruit, `Shift+Tab` sleutel. Navigatie richting prioriteit is links naar rechts, gevolgd door boven naar beneden.
+    - Druk op de `Enter` pijltoets het geselecteerde filter wilt toepassen. Op basis van filterselectie en implementatie, worden een of meerdere knooppunten (Subnet) onder de sectie topologie gemarkeerd.
+        - Schakelen tussen **Banner** en **topologie**, drukt u op `Ctrl+F6`.
+        
+    **Toetsenbordnavigatie op topologie**
+    
+    - Zodra u hebt geselecteerd een filter op de koptekst en ingedrukt `Ctrl+F6`, focus naar een van de gemarkeerde knooppunten (**Subnet**) in de Topologieweergave.
+    - Gemarkeerd om te navigeren naar andere knooppunten in de Topologieweergave kunt u de `Shift+Right arrow` voor voorwaartse beweging. 
+    - Op de gemarkeerde knooppunten focus naar de **informatie werkset** voor het knooppunt. Standaard focus naar de knop 'Meer informatie' op de **informatie werkset**. Om verder te bladeren in **vak** geven, gebruikt u `Right` en `Left arrow` sleutels verplaatsen voorwaarts en achterwaarts, respectievelijk. Drukken `Enter` heeft hetzelfde effect als de knop gerichte in de **informatie werkset**.
+    - Op de selectie van eventuele dergelijke knooppunten, de bijbehorende alle verbindingen kunnen bezoeken, één voor één door te drukken `Shift+Left arrow` sleutel. Focus naar de **informatie werkset** van die verbinding. Op elk gewenst moment de focus kan worden verplaatst naar het knooppunt door te drukken `Shift+Right arrow` opnieuw.    
+

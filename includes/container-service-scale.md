@@ -14,7 +14,7 @@ U kunt het aantal agentknooppunten in een DC/OS-, Docker Swarm- of Kubernetes-cl
 
 ## <a name="scale-with-the-azure-cli-20"></a>Schalen met de Azure CLI 2.0
 
-Zorg ervoor dat de meest recente versie van Azure CLI 2.0 is [geïnstalleerd](/cli/azure/install-az-cli2) en dat u bent aangemeld bij een Azure-account (`az login`).
+Zorg ervoor dat u [geïnstalleerd](/cli/azure/install-az-cli2) de nieuwste Azure CLI 2.0 en aangemeld bij een Azure-account (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Bekijk het huidige aantal agents
 Voer de `az acs show` opdracht uit om te zien hoeveel agents zich momenteel in het cluster bevinden. Deze geeft de clusterconfiguratie weer. De volgende opdracht toont bijvoorbeeld de configuratie van de containerservice met de naam `containerservice-myACSName` in de resourcegroep `myResourceGroup`:

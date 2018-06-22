@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: c8b0529b0ae45d7bcee5574991551a424c13ba70
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713861"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309860"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Veelgestelde vragen over Azure Active Directory device management
 
@@ -44,7 +44,7 @@ ms.locfileid: "34713861"
 **V: ik het apparaat onlangs geregistreerd. Waarom zie ik het apparaat niet onder Mijn gebruikersgegevens in de Azure portal?**
 
 **A:** Windows 10-apparaten die zijn hybride die lid zijn van Azure AD, worden niet weergegeven onder de apparaten van gebruikers.
-U moet PowerShell gebruiken voor alle apparaten. 
+U moet alle apparaten weergeven in Azure-portal gebruiken. U kunt ook PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Alleen de volgende apparaten worden vermeld in de apparaten van gebruikers:
 
@@ -52,25 +52,24 @@ Alleen de volgende apparaten worden vermeld in de apparaten van gebruikers:
 - Alle niet - Windows 10 / apparaten met Windows Server 2016.
 - Alle niet-Windows-apparaten 
 
----
-
-**V: Waarom kan ik de apparaten die zijn geregistreerd bij Azure Active Directory in de Azure portal niet zien?** 
-
-**A:** nu ziet u ze in Azure AD-Directory -> alle apparaten menu. U kunt ook Azure PowerShell gebruiken om te zoeken naar alle apparaten. Zie voor meer informatie de [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
-
 --- 
 
 **V: hoe weet wat de status van het apparaat registratie van de client is?**
 
-**A:** voor Windows 10 en Windows Server 2016 of hoger, voert u dsregcmd.exe/status.
+**A:** u kunt de Azure portal gebruiken, gaat u naar alle apparaten en zoek naar het apparaat met apparaat-ID. Controleer de waarde onder de kolom van het type join.
 
-Voor eerdere versies van het besturingssysteem, voert u '%programFiles%\Microsoft werkplek Join\autoworkplace.exe'
+Als u controleren van de status van het lokale apparaat registratie van een geregistreerd apparaat wilt:
+
+- Voer voor Windows 10 en Windows Server 2016 of hoger, dsregcmd.exe/status.
+- Voor eerdere versies van het besturingssysteem, voert u '%programFiles%\Microsoft werkplek Join\autoworkplace.exe'
 
 ---
 
-**V: Waarom is een apparaat ik hebt verwijderd in de Azure portal of met Windows PowerShell nog steeds vermeld als geregistreerd?**
+**V: ik hebt verwijderd in de Azure portal of via Windows PowerShell, maar de lokale staat op het apparaat staat nog steeds wordt geregistreerd?**
 
-**A:** dit is standaard. Het apparaat geen toegang tot bronnen in de cloud. Als u wilt opnieuw opnieuw te registreren, moet een handmatige actie moet worden uitgevoerd op het apparaat. 
+**A:** dit is standaard. Het apparaat geen toegang tot bronnen in de cloud. 
+
+Als u wilt opnieuw opnieuw te registreren, moet een handmatige actie moet worden uitgevoerd op het apparaat. 
 
 Schakel de join-status van Windows 10 en Windows Server 2016 die on-premises AD-domein:
 
@@ -85,6 +84,13 @@ Voor eerdere Windows-besturingssysteem versies die zich on-premises AD-domein:
 1.  Open de opdrachtprompt als beheerder.
 2.  Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.  Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+---
+** V: Hoe ik loskoppelen van een Azure AD join-apparaat lokaal op het apparaat?
+**A:** 
+- Zorg dat u automatische inschrijving uitschakelen zodat de geplande taak voor het apparaat niet opnieuw registreren voor hybride Azure AD join-apparaten. Open vervolgens opdrachtprompt als beheerder en typ `dsregcmd.exe /debug /leave`. U kunt ook worden deze opdracht uitgevoerd als een script op meerdere apparaten bulksgewijs loskoppelen.
+
+- Voor pure Azure AD join apparaten, zorg ervoor dat u beschikt over offline lokaal administrator-account of maak een, als u niet meer kunnen aanmelden met de referenties van een Azure AD-gebruiker. Ga vervolgens naar **instellingen** > **Accounts** > **toegang werk of School**. Selecteer uw account en klik op **Disconnect**. Volg de aanwijzingen en geef de referenties van de lokale beheerder als u wordt gevraagd. Start opnieuw op het apparaat om het loskoppelen proces te voltooien.
 
 ---
 
@@ -119,7 +125,7 @@ Voor eerdere Windows-besturingssysteem versies die zich on-premises AD-domein:
 ---
 
 
-**V: ik Zie apparaatrecord onder de gebruikersgegevens in de Azure portal en de status kunt zien, zoals die is geregistreerd op de client. Kan dat ik een correct instellen voor het gebruik van voorwaardelijke toegang?**
+**V: ik Zie de record van apparaat onder de gebruikersgegevens in de Azure portal en kunt zien hoe de status op het apparaat is geregistreerd. Kan dat ik een correct instellen voor het gebruik van voorwaardelijke toegang?**
 
 **A:** de apparaatstatus join, weergegeven door de apparaat-id, moet overeenkomen met die op Azure AD en voldoen aan de evaluatiecriteria van een voor voorwaardelijke toegang. Zie voor meer informatie [aan de slag met Azure Active Directory-apparaatregistratie](active-directory-device-registration.md).
 
@@ -137,6 +143,8 @@ Voor eerdere Windows-besturingssysteem versies die zich on-premises AD-domein:
 
 - Federatieve aanmeldingen vereist uw federatieserver ter ondersteuning van een actieve WS-Trust-eindpunt. 
 
+- Pass through-verificatie is ingeschakeld en de gebruiker is een tijdelijk wachtwoord dat moet worden gewijzigd bij aanmelding.
+
 ---
 
 **V: Waarom zie ik de "... Oops is een fout opgetreden!" dialoogvenster wanneer ik probeer doen van Azure AD join mijn computer?**
@@ -147,7 +155,7 @@ Voor eerdere Windows-besturingssysteem versies die zich on-premises AD-domein:
 
 **V: waarom niet mijn poging om te nemen van een PC maar ik heb informatie over de fout niet ontvangen?**
 
-**A:** een waarschijnlijke oorzaak is dat de gebruiker is aangemeld bij het apparaat met het ingebouwde administratoraccount. Maak een andere lokale account voordat u Azure Active Directory Join gebruikt om de installatie te voltooien. 
+**A:** een waarschijnlijke oorzaak is dat de gebruiker is aangemeld bij het apparaat met het ingebouwde lokale beheerdersaccount. Maak een andere lokale account voordat u Azure Active Directory Join gebruikt om de installatie te voltooien. 
 
 ---
 

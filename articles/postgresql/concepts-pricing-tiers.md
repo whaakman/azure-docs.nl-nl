@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 06/21/2018
+ms.openlocfilehash: 970d5362ae7f6f459a8921ef935c1b74b897420d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756633"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309909"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Prijscategorieën PostgreSQL-Database
 
@@ -25,7 +25,7 @@ U kunt een Azure-Database voor PostgreSQL-server maken in een van drie verschill
 | COMPUTE generatie | Gen 4, 5 Gen | Gen 4, 5 Gen | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Geheugen per vCore | 2 GB | 5 GB | 10 GB |
-| Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 2 TB | 5 GB tot 2 TB |
+| Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 4 TB | 5 GB tot 4 TB |
 | Opslagtype | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | De back-up bewaarperiode database | 7 tot 35 dagen | 7 tot 35 dagen | 7 tot 35 dagen |
 
@@ -37,7 +37,7 @@ Gebruik de volgende tabel als uitgangspunt om een prijscategorie te selecteren.
 | Algemeen doel | De meeste zakelijke workloads waarvoor taakverdeling reken- en geheugencapaciteit met schaalbare i/o-doorvoer. Voorbeelden zijn onder meer servers voor het hosten van web- en mobiele apps en andere bedrijfstoepassingen.|
 | Geoptimaliseerd geheugen | Hoge prestaties database werklasten die in het geheugen prestaties zijn vereist voor een snellere verwerking van transacties en hogere gelijktijdigheid. Voorbeelden zijn onder meer servers voor de verwerking van realtime gegevens en high-performance transactionele of analytische apps.|
 
-Nadat u een server hebt gemaakt, kan het aantal vCores worden gewijzigd omhoog of omlaag (binnen dezelfde prijscategorie) binnen enkele seconden. U kunt ook afzonderlijk de hoeveelheid opslag van en de back-up bewaarperiode omhoog of omlaag zonder uitvaltijd voor de toepassing aanpassen. U kunt de prijscategorie of het type back-upopslag niet wijzigen nadat een server is gemaakt. Zie voor meer informatie de [schalen](#scale-resources) sectie.
+Nadat u een server hebt gemaakt, het aantal vCores, hardware generatie en prijzen servicetier (met uitzondering van en naar Basic) kan worden gewijzigd omhoog of omlaag binnen enkele seconden. U kunt ook afzonderlijk de hoeveelheid opslag van en de back-up bewaarperiode omhoog of omlaag zonder uitvaltijd voor de toepassing aanpassen. U kunt het back-upopslag-type niet wijzigen nadat een server is gemaakt. Zie voor meer informatie de [schalen](#scale-resources) sectie.
 
 
 ## <a name="compute-generations-and-vcores"></a>COMPUTE generaties en vCores
@@ -49,7 +49,7 @@ COMPUTE resources worden geleverd als vCores die de logische CPU van de onderlig
 | VS - midden | X |  |
 | VS - oost | X | X |
 | VS - oost 2 | X | X |
-| Noord-centraal VS | X |  |
+| Noord-centraal VS | X | X |
 | Zuid-centraal VS | X | X |
 | VS - west | X | X |
 | VS - west 2 |  | X |
@@ -60,7 +60,7 @@ COMPUTE resources worden geleverd als vCores die de logische CPU van de onderlig
 | West-Europa |  | X |
 | Verenigd Koninkrijk West |  | X |
 | Verenigd Koninkrijk Zuid |  | X |
-| Oost-Azië | X |  |
+| Oost-Azië | X | X |
 | Zuidoost-Azië | X | X |
 | Australië - oost |  | X |
 | Australië - zuidoost |  | X |
@@ -78,9 +78,9 @@ De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar is voor u
 |    | **Basic** | **Voor algemene doeleinden** | **Geoptimaliseerd voor geheugen** |
 |:---|:----------|:--------------------|:---------------------|
 | Opslagtype | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 2 TB | 5 GB tot 2 TB |
+| Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 4 TB | 5 GB tot 4 TB |
 | Maximale grootte van de verhoging | 1 GB | 1 GB | 1 GB |
-| IOPS | Variabele |3 IOPS/GB<br/>Min 100 IOP's | 3 IOPS/GB<br/>Min 100 IOP's |
+| IOPS | Variabele |3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 7500 IOP 's | 3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 7500 IOP 's |
 
 U kunt extra opslagcapaciteit toevoegen tijdens en na het maken van de server. De laag Basic biedt geen garantie van een IOPS. In het algemeen en de geoptimaliseerd voor geheugen Prijscategorieën schalen het aantal IOPS dat met de opslaggrootte van de ingerichte in een ratio van 3:1.
 
@@ -100,9 +100,9 @@ De service wordt automatisch een back-ups van uw server. De minimale bewaarperio
 
 ## <a name="scale-resources"></a>Resources omhoog/omlaag schalen
 
-Nadat u uw server maakt, kunt u de vCores, de hoeveelheid opslagruimte en de back-up bewaarperiode onafhankelijk wijzigen. U kunt de prijscategorie of het type back-upopslag niet wijzigen nadat een server is gemaakt. Het aantal vCores kan worden geschaald omhoog of omlaag in de dezelfde prijscategorie. De back-up bewaarperiode kan worden geschaald omhoog of omlaag uit 7 tot 35 dagen. De grootte van de opslagruimte kan alleen worden verhoogd.  Schalen van de resources kan worden gedaan door middel van de portal of Azure CLI. Zie voor een voorbeeld van het gebruik van Azure CLI schalen [bewaken en schalen van een Azure-Database voor PostgreSQL-server met behulp van Azure CLI](scripts/sample-scale-server-up-or-down.md).
+Nadat u uw server maakt, kunt u onafhankelijk wijzigen de vCores, het genereren van de hardware, de prijscategorie (behalve naar en van Basic), de hoeveelheid opslag en de back-up bewaarperiode. U kunt het back-upopslag-type niet wijzigen nadat een server is gemaakt. Het aantal vCores kan worden geschaald omhoog of omlaag. De back-up bewaarperiode kan worden geschaald omhoog of omlaag uit 7 tot 35 dagen. De grootte van de opslagruimte kan alleen worden verhoogd. Schalen van de resources kan worden gedaan door middel van de portal of Azure CLI. Zie voor een voorbeeld van schalen met Azure CLI, [bewaken en schalen van een Azure-Database voor PostgreSQL-server met behulp van Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
-Wanneer u het aantal vCores wijzigt, wordt een kopie van de oorspronkelijke server gemaakt met de nieuwe compute-toewijzing. Nadat de nieuwe server actief is, worden verbindingen via overgeschakeld naar de nieuwe server. Tijdens het moment dat wanneer het systeem overgeschakeld naar de nieuwe server, kunnen er geen nieuwe verbindingen tot stand worden gebracht en alle niet-doorgevoerde transacties teruggedraaid. Dit venster verschilt, maar in de meeste gevallen is minder dan een minuut.
+Wanneer u het aantal vCores wijzigt, wordt het genereren van de hardware of de prijscategorie, een kopie van de oorspronkelijke server gemaakt met de nieuwe compute-toewijzing. Nadat de nieuwe server actief is, worden verbindingen via overgeschakeld naar de nieuwe server. Tijdens het moment dat wanneer het systeem overgeschakeld naar de nieuwe server, kunnen er geen nieuwe verbindingen tot stand worden gebracht en alle niet-doorgevoerde transacties teruggedraaid. Dit venster verschilt, maar in de meeste gevallen is minder dan een minuut.
 
 Schaalbaarheid van opslag en het wijzigen van de back-up bewaarperiode zijn true online bewerkingen. Er is geen uitvaltijd en uw toepassing wordt niet beïnvloed. Zoals IOPS met de grootte van de ingerichte opslag uitbreiden, kunt u het aantal IOPS dat beschikbaar is op uw server door te schalen opslag van verhogen.
 

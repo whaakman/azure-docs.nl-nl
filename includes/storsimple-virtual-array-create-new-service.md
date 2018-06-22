@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Een nieuwe service maken
 
-1.  Met uw Microsoft-accountreferenties, meld u aan bij de Azure-portal op deze URL: <https://portal.azure.com/>. Als het apparaat in de portal van de overheid implementeert, moet u zich aanmelden op: <https://portal.azure.us/>
+1.  Met behulp van uw Microsoft-accountreferenties, zich aanmelden bij de Azure-portal op deze URL: <https://portal.azure.com/>. Als het apparaat in de portal van de overheid implementeert, moet u zich aanmelden op: <https://portal.azure.us/>
 
 2.  Klik in de Azure-portal op **+ maken van een resource** &gt; **opslag** &gt; **virtuele StorSimple-reeks**.
 

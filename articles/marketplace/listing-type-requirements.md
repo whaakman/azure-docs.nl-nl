@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dbb14854f00fb133c3604a1dd529d42120371fd2
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 07a62dfa2d7e1c71daf547c5aa7c8c7d15830bfd
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825124"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309313"
 ---
 # <a name="requirements-by-listing-type"></a>Vereisten voor door vermeldingstype  
 De technische en marketing inhoud vereisten verschillen per winkel, het aanbiedingtype en type van de aanbieding. Bekijk de volgende specificaties om te controleren of de naleving.  
 1. Via vereisten:  
-    *   [AppSource](#storefront-requirements:-appSource)  
-    *   [Azure Marketplace](#storefront-requirements:-azure-marketplace)  
+    *   [AppSource](#storefront-requirements-appSource)  
+    *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. Vermeldingstype en aanbieding Type vereisten:  
     *   Voor meer informatie over de aanbieding waardetypen en aanbiedingstypen, gaat u naar de Bepaal het Type aanbieding voor uw oplossing pagina op [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  
 
@@ -62,10 +62,10 @@ De lijst vermeldingstype bevat de volgende typen van de aanbieding op de winkelo
 
 | Type aanbieding | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Advies | AppSource | [Vereisten: AppSource: lijst: adviesdiensten](#requirements:-appsource:-list:-consulting-services) |  
-| Advies | Azure Marketplace | [Vereisten: Azure Marketplace: lijst: adviesdiensten](#requirements:-azure-marketplace:-list:-consulting-services) |  
+| Advies | AppSource | [Vereisten: AppSource: lijst: adviesdiensten](#requirements-appsource-list-consulting-services) |  
+| Advies | Azure Marketplace | [Vereisten: Azure Marketplace: lijst: adviesdiensten](#requirements-azure-marketplace-list-consulting-services) |  
 | Contact opnemen | AppSource | [](#) |  
-| Contact opnemen | Azure Marketplace | [Vereisten: AppSource: lijst: contact met mij opnemen](#requirements:-azure-marketplace:-list:-contact-me) |  
+| Contact opnemen | Azure Marketplace | [Vereisten: AppSource: lijst: contact met mij opnemen](#requirements-azure-marketplace-list-contact-me) |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Vereisten: AppSource: lijst: advies service  
 
@@ -89,12 +89,12 @@ De lijst vermeldingstype bevat de volgende typen van de aanbieding op de winkelo
 
 | Type aanbieding | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Gratis / SaaS-evaluatieversie | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements:-trial) |  
-| Gratis / SaaS-evaluatieversie | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: gratis proefversie / SaaS-evaluatieversie](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
-| Interactieve demo | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements:-trial) |  
-| Interactieve demo | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: interactieve demo](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
-| Test drive | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements:-trial) |  
-| Test drive | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: testen](#requirements:-azure-marketplace:-trial:-test-drive) |  
+| Gratis / SaaS-evaluatieversie | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements-trial) |  
+| Gratis / SaaS-evaluatieversie | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: gratis proefversie / SaaS-evaluatieversie](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| Interactieve demo | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements-trial) |  
+| Interactieve demo | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: interactieve demo](#requirements-azure-marketplace-trial-interactive-demo) |  
+| Test drive | AppSource | [Vereisten voor Type aanbieding: proefversie](#listing-type-requirements-trial) |  
+| Test drive | Azure Marketplace | [Vereisten: Azure Marketplace: proefversie: testen](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Vereisten: Azure Marketplace: proefversie  
 
@@ -131,11 +131,11 @@ De lijst vermeldingstype bevat de volgende typen van de aanbieding op de winkelo
 
 | Type aanbieding | Storefront | Details |   
 |:---        |:---        | :--- |  
-| Apps van Azure: beheerde app | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: apps van Azure: beheerde app](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  
-| Apps van Azure: oplossingssjabloon | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: apps van Azure: oplossingssjabloon](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  
-| Containers | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Container](#requirements:-azure-marketplace:-transact:-container) |  
-| SaaS-app  | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: SaaS-app](#requirements:-azure-marketplace:-transact:-saas-app) |  
-| Virtuele machine | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: virtuele machine](#requirements:-azure-marketplace:-transact:-virtual-machine) |  
+| Apps van Azure: beheerde app | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: apps van Azure: beheerde app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Apps van Azure: oplossingssjabloon | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: apps van Azure: oplossingssjabloon](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Containers | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
+| SaaS-app  | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  
+| Virtuele machine | Azure Marketplace | [Vereisten: Azure Marketplace: Transact: virtuele machine](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 <!-- #### Requirements: Azure Marketplace: Transact: Azure apps: Managed app  
 

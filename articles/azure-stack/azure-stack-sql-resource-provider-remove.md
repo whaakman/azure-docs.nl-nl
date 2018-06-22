@@ -1,6 +1,6 @@
 ---
 title: Verwijderen van de SQL-resourceprovider op Azure-Stack | Microsoft Docs
-description: Meer informatie over hoe u de SQL-resourceprovider van uw Azure-Stack-implementatie kunt verwijderen.
+description: Meer informatie over hoe u de SQL-resourceprovider verwijderen van uw Azure-Stack-implementatie.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,32 +11,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/20/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9f90201cad0f74923460c2f25eff4de98dc6690a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 150d1c40463aa04527bdd6e356a4c24ef68b02ef
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294777"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301895"
 ---
-# <a name="removing-the-mysql-resource-provider"></a>Verwijderen van de MySQL-resourceprovider  
-Voordat u de SQL-resourceprovider verwijdert, is het essentieel voor het eerst alle afhankelijkheden te verwijderen.
+# <a name="remove-the-sql-resource-provider"></a>Verwijderen van de SQL-resourceprovider
 
-## <a name="remove-the-mysql-resource-provider"></a>Verwijder de MySQL-resourceprovider 
+Voordat u de SQL-resourceprovider verwijdert, moet u alle afhankelijkheden van de provider verwijderen. U moet ook een kopie van het implementatiepakket dat is gebruikt voor het installeren van de resourceprovider.
 
-1. Controleer of u een bestaande SQL-provider bronafhankelijkheden hebt verwijderd.
+## <a name="to-remove-the-sql-resource-provider"></a>Verwijderen van de SQL-resourceprovider
 
-  > [!NOTE]
-  > Verwijderen van de SQL-resourceprovider wordt voortgezet zelfs als afhankelijke resources de resourceprovider momenteel gebruikt. 
+1. Controleer of u alle bestaande SQL resource provider afhankelijkheden hebt verwijderd.
+
+   > [!NOTE]
+   > Verwijderen van de SQL-resourceprovider wordt voortgezet zelfs als afhankelijke resources de resourceprovider momenteel gebruikt.
   
-2. Zorg ervoor dat u het oorspronkelijke implementatiepakket dat u voor deze versie van de adapter SQL resource provider hebt gedownload.
-3. Opnieuw uit het script voor implementatie met de volgende parameters:
-    - Gebruik de - parameter verwijderen
-    - De IP-adres of de DNS-naam van het bevoegde eindpunt.
-    - De referentie voor de beheerder van de cloud, nodig voor toegang tot de bevoegde eindpunt.
-    - De referenties voor de Azure-Stack-admin-serviceaccount. Dezelfde referenties gebruiken dat u gebruikt voor het implementeren van Azure-Stack.
+2. Een kopie van de SQL-resourceprovider binaire krijgen en voer vervolgens de zelfstandig uitpakken om de inhoud naar een tijdelijke map te pakken.
+
+3. Open een nieuw verhoogde PowerShell-console-venster en Ga naar de map waar u de binaire bestanden voor SQL resource provider hebt uitgepakt.
+
+4. Voer het script DeploySqlProvider.ps1 is met de volgende parameters:
+
+    - **Verwijder**. Hiermee verwijdert u de resourceprovider en alle bijbehorende resources.
+    - **PrivilegedEndpoint**. De IP-adres of de DNS-naam van het bevoegde eindpunt.
+    - **CloudAdminCredential**. De referentie voor de beheerder van de cloud, moet u toegang tot de bevoegde eindpunt.
+    - **AzCredential**. De referentie voor de Azure-Stack-admin-serviceaccount. Gebruik dezelfde referenties die u gebruikt voor de implementatie van Azure-Stack.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [App-Services bieden als PaaS](azure-stack-app-service-overview.md)

@@ -6,8 +6,8 @@ Voordat het CDN management code schrijft, moet u doen voorbereiding, zodat de co
 * Machtigingen toepassen op de resourcegroep, zodat alleen gemachtigde gebruikers van uw Azure AD-tenant met de CDN-profiel communiceren kunnen
 
 ### <a name="creating-the-resource-group"></a>De resourcegroep maken
-1. Meld u aan bij de [Azure-Portal](https://portal.azure.com).
-2. Klik op **maken van een resource**.
+1. Meld u aan bij [Azure-portal](https://portal.azure.com).
+2. Klik op **Een resource maken**.
 3. Zoeken naar **resourcegroep** en klik in het deelvenster van de groep Resource op **maken**.
 
     ![Een nieuwe resourcegroep maken](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
