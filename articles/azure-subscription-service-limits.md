@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700189"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318959"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -40,8 +40,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 
 > [!NOTE]
 > Het is belangrijk om te benadrukken dat quota's voor resources in Azure-resourcegroepen per regio toegankelijk zijn voor uw abonnement zijn, en niet per abonnement, omdat de service management-quota. Laten we vCPU quota gebruiken als voorbeeld. Als u aanvragen van een verhoging van het quotum met ondersteuning voor Vcpu alleen, moet u bepalen hoeveel vcpu's die u wilt gebruiken in welke regio's en vervolgens een specifieke aanvraag voor Azure-resourcegroep vCPU quota's voor de bedragen en regio's die u wilt maken. Als u 30 vcpu's in West-Europa gebruiken wilt voor het uitvoeren van uw toepassing bevat, moet u daarom specifiek 30 vcpu's in West-Europa aanvragen. Maar u geen een vCPU quotum verhogen in elke andere regio--alleen West-Europa heeft het quotum 30 vCPU.
-> <!-- -->
-> U kunt als gevolg hiervan handiger om u te overwegen beslist wat uw Azure-resourcegroep quota's nodig zijn voor uw workload in elke regio een, en dat bedrag in elke regio waarin u implementatie overweegt aanvragen. Zie [implementatieproblemen oplossen](resource-manager-common-deployment-errors.md) voor meer informatie voor het detecteren van uw huidige quota's voor specifieke regio's.
+> <!-- --> U kunt als gevolg hiervan handiger om u te overwegen beslist wat uw Azure-resourcegroep quota's nodig zijn voor uw workload in elke regio een, en dat bedrag in elke regio waarin u implementatie overweegt aanvragen. Zie [implementatieproblemen oplossen](resource-manager-common-deployment-errors.md) voor meer informatie voor het detecteren van uw huidige quota's voor specifieke regio's.
 >
 >
 
@@ -325,7 +324,7 @@ Zie voor meer informatie over limieten voor een meer gedetailleerd niveau, zoals
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Limieten voor SQL-Database
-Zie voor SQL-Database-limieten, [limieten voor SQL Database](sql-database/sql-database-resource-limits.md).
+Zie voor SQL-Database-limieten, [SQL Database limieten voor individuele databases](sql-database/sql-database-vcore-resource-limits-single-databases.md) en [SQL Database limieten voor elastische pools en gegroepeerde databases](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse-limieten
 Zie voor SQL Data Warehouse-limieten, [limieten voor SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

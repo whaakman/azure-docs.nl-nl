@@ -16,12 +16,12 @@ ms.date: 06/18/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 9aa060c6f28adb8361fcb9267ea658fda27b442c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 193be37f4c804d087bf404f14bc60e27349038ad
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223447"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319034"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integratie van de SaaS-toepassingen met Azure Active Directory
 
@@ -137,7 +137,7 @@ Zie voor een uitgebreide lijst met SaaS-apps die vooraf geïntegreerde met Azure
 | ![logo](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco-Cloud](ciscocloud-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - gebruikers inrichten](cisco-webex-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - gebruikers inrichten](clarizen-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Schakel controleren](clearreview-tutorial.md)|
@@ -224,7 +224,7 @@ Zie voor een uitgebreide lijst met SaaS-apps die vooraf geïntegreerde met Azure
 | ![logo](./media/tutorial-list/active-directory-saas-freshgrade-tutorial.png)| [FreshGrade](freshgrade-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-front-tutorial.png)| [Begin](front-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-fuse-tutorial.png)| [integreert](fuse-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-fuse-tutorial.png)| [Integreert](fuse-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-fuze-tutorial.png)| [Fuze](fuze-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [G-Suite](google-apps-tutorial.md)|[G-Suite - gebruikers inrichten](google-apps-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-gaggleamp-tutorial.png)| [GaggleAMP](gaggleamp-tutorial.md)|
@@ -523,7 +523,7 @@ Zie voor een uitgebreide lijst met SaaS-apps die vooraf geïntegreerde met Azure
 | ![logo](./media/tutorial-list/active-directory-saas-syncplicity-tutorial.png)| [Syncplicity](syncplicity-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-synergi-tutorial.png)| [Synergi](synergi-tutorial.md)|
 
-## <a name="t"></a>T
+## <a name="t"></a>D
 
 | Logo | Zelfstudie voor eenmalige aanmelding | Zelfstudie voor het inrichten van gebruiker |
 | :---: | :--- | :--- |

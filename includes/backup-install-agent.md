@@ -2,7 +2,7 @@
 Installeer de backup-agent op elk van uw Windows-machines (Windows Server, Windows-client, System Center Data Protection Manager-server of Azure Backup-Server-machine) gebruikt voor back-ups naar Azure na het maken van de Recovery Services-kluis.
 
 1. Open uw abonnement in de [Azure Portal](https://ms.portal.azure.com/).
-2. Selecteer op het menu links **alle services** en typt u in de lijst met services **Recovery Services**. Klik op **Recovery Services-kluizen**.
+2. Selecteer in het menu links **Alle services** en typ **Recovery Services** in de lijst met services. Klik op **Recovery Services-kluizen**.
 
    ![Recovery Services-kluis openen](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 3. Klik op de pagina snel starten op de **voor Windows Server, System Center Data Protection Manager of Windows client** onder de optie **Agent downloaden**. Klik op **opslaan** om deze te kopiëren naar de lokale computer.
@@ -18,7 +18,7 @@ Installeer de backup-agent op elk van uw Windows-machines (Windows Server, Windo
    
     ![Referenties voor de kluis](./media/backup-install-agent/vc.png)
    
-    Het kluisreferentiebestand is alleen geldig voor 48 uur (nadat deze gedownload vanuit de portal). Als u treedt er een fout in dit scherm (bijvoorbeeld ' kluisreferentiebestand aangeboden is verlopen'), aanmelding bij de Azure portal en download het kluisreferentiebestand opnieuw.
+    Het kluisreferentiebestand is alleen geldig voor 48 uur (nadat deze gedownload vanuit de portal). Als er een fout in dit scherm (bijvoorbeeld ' kluis bestand opgegeven referenties is verlopen') optreden, meld u aan bij de Azure portal en download het kluisreferentiebestand opnieuw.
    
     Zorg ervoor dat de toepassing setup toegang heeft tot het kluisreferentiebestand. Als u toegang-gerelateerde fouten optreden, wordt het kluisreferentiebestand te kopiëren naar een tijdelijke locatie op de lokale machine en probeer het opnieuw.
    

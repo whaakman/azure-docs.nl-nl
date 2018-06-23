@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a1a5d6d455086ee34767e92b277936840717bcd6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 910a5c85d16cb46465598a77d5321cc0eed99744
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933770"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319245"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Een interne load balancer gebruiken met Azure Kubernetes Service (AKS)
 
-Interne load balancing maakt een service Kubernetes toegankelijk voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk als het cluster Kubernetes. Dit documentgegevens maken van een interne load balancer met Azure Kubernetes Service (AKS).
+Interne load balancing maakt een service Kubernetes toegankelijk voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk als het cluster Kubernetes. Dit documentgegevens maken van een interne load balancer met Azure Kubernetes Service (AKS). Azure Load Balancer is beschikbaar in twee SKU's: Basic en Standard. AKS maakt gebruik van de basis-SKU.
 
 ## <a name="create-internal-load-balancer"></a>Interne load balancer maken
 

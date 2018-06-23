@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: b2c564e8d49e39d9cdc09d3fe168388d579de70e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 01b0717660265b28d4ea7d804a761e7e425c997c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29812654"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319597"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Instellen van de bronomgeving voor VMware naar Azure replicatie
 
@@ -39,12 +39,12 @@ Het artikel wordt ervan uitgegaan dat u al hebt:
 
 ## <a name="set-up-the-configuration-server"></a>De configuratieserver instellen
 
-U de configuratieserver instellen als een lokale VMware virtuele machine, een Open Virtualization Format OVF ()-sjabloon gebruiken. [Meer informatie](concepts-vmware-to-azure-architecture.md) over de onderdelen die worden geïnstalleerd op de VMware-VM. 
+U kunt de configuratieserver instellen als een lokale VMware virtuele machine via een sjabloon Open Virtualization-toepassing (eicellen). [Meer informatie](concepts-vmware-to-azure-architecture.md) over de onderdelen die worden geïnstalleerd op de VMware-VM.
 
 1. Meer informatie over de [vereisten](vmware-azure-deploy-configuration-server.md#prerequisites) voor implementatie van configuratieserver.
 2. [Controleer capaciteit cijfers](vmware-azure-deploy-configuration-server.md#capacity-planning) voor implementatie.
-3. [Download](vmware-azure-deploy-configuration-server.md#download-the-template) en [importeren](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) de OVF-sjabloon (how-naar-implementeren-configuratie-server.md) voor het instellen van een lokale VMware virtuele machine die wordt uitgevoerd van de configuratieserver.
-4. Schakel op de VMware-VM en [registreren](vmware-azure-deploy-configuration-server.md#register-the-configuration-server) in de Recovery Services-kluis.
+3. [Download](vmware-azure-deploy-configuration-server.md#download-the-template) en [importeren](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) de eicellen-sjabloon voor het instellen van een lokale VMware virtuele machine die wordt uitgevoerd van de configuratieserver. Het certificaat dat is opgegeven met de sjabloon is een evaluatie-licentie en gedurende 180 dagen geldig is. Na moet deze periode klant de windows activeren bij een geleverde certificaat.
+4. Schakel op de VMware-VM en [registreren](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) in de Recovery Services-kluis.
 
 
 ## <a name="add-the-vmware-account-for-automatic-discovery"></a>De VMware-account voor automatische detectie toevoegen

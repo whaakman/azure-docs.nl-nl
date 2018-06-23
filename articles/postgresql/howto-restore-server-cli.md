@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411495"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319638"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure-Database voor PostgreSQL met de Azure CLI
 
@@ -32,32 +32,6 @@ Voor het voltooien van deze handleiding instructies, hebt u het volgende nodig:
 
 > [!IMPORTANT]
 > Deze handleiding instructies vereist het gebruik van Azure CLI versie 2.0 of hoger. Controleer de versie, bij de opdrachtprompt Azure CLI Voer `az --version`. Als u wilt installeren of upgraden, Zie [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>De extensie toevoegen
-Voeg de bijgewerkte Azure Database for PostgreSQL-beheerextensie toe met de volgende opdracht:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Controleer of de juiste versie van de extensie is geïnstalleerd. 
-```azurecli-interactive
-az extension list
-```
-
-Het geretourneerde JSON-script moet het volgende bevatten: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Als versie 0.0.5 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Back-upconfiguratie instellen
 
@@ -139,7 +113,7 @@ De `az postgres server georestore` opdracht requies de volgende parameters:
 |resource-group| myResourceGroup | De naam van de resourcegroep de nieuwe server deel van uitmaakt.|
 |naam | mydemoserver georestored | De naam van de nieuwe server. |
 |source-server | mydemoserver | De naam van de bestaande server waarvan back-ups redundante geo worden gebruikt. |
-|location | eastus | De locatie van de nieuwe server. |
+|locatie | eastus | De locatie van de nieuwe server. |
 |SKU-naam| GP_Gen4_8 | Deze parameter stelt de prijscategorie laag, compute genereren en aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een voor algemene doeleinden, Gen 4-server met 8 vCores.|
 
 

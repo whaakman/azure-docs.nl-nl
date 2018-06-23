@@ -3,7 +3,7 @@ title: Azure voor eenmalige aanmelding SAML-Protocol | Microsoft Docs
 description: In dit artikel beschrijft de eenmalige aanmelding op SAML-protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: ddd5fa6f2ed0878afd8bbd6399471e92dfa30385
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: 6f567edd64aef2f106e1077e4b0cf06ab625b234
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156701"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317616"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML-protocol
+
 In dit artikel bevat informatie over het SAML 2.0-verificatieaanvragen en -antwoorden die ondersteuning biedt voor eenmalige aanmelding voor Azure Active Directory (Azure AD).
 
 Het onderstaande diagram kunt protocol beschrijft de volgorde voor eenmalige aanmelding. De cloudservice (de serviceprovider) maakt gebruik van een HTTP-omleiding binding om door te geven een `AuthnRequest` (verificatie) aanvraagelement naar Azure AD (de id-provider). Vervolgens Azure AD maakt gebruik van een HTTP post binding te posten een `Response` element met de cloudservice.
@@ -31,7 +33,8 @@ Het onderstaande diagram kunt protocol beschrijft de volgorde voor eenmalige aan
 ![Eenmalige aanmelding werkstroom](media/active-directory-single-sign-on-protocol-reference/active-directory-saml-single-sign-on-workflow.png)
 
 ## <a name="authnrequest"></a>AuthnRequest
-Om aan te vragen een gebruikersverificatie, cloud services-verzenden een `AuthnRequest` element naar Azure AD. Een voorbeeld van SAML 2.0 `AuthnRequest` kan moeten uitzien:
+
+Om aan te vragen een gebruikersverificatie, cloud services-verzenden een `AuthnRequest` element naar Azure AD. Een voorbeeld van SAML 2.0 `AuthnRequest` kan eruitzien als in het volgende voorbeeld:
 
 ```
 <samlp:AuthnRequest
@@ -43,33 +46,34 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| Id |vereist |Azure AD maakt gebruik van dit kenmerk voor het vullen van de `InResponseTo` kenmerk van het geretourneerde antwoord. ID moet niet beginnen met een getal, zodat een gemeenschappelijke strategie is een tekenreeks, zoals 'id' naar de tekenreeksweergave van een GUID toevoegen aan het begin. Bijvoorbeeld: `id6c1c178c166d486687be4aaf5e482730` is een geldige ID. |
-| Versie |vereist |Dit moet **2.0**. |
-| IssueInstant |vereist |Dit is een datum/tijd-tekenreeks met een UTC-waarde en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een DateTime-waarde van dit type verwacht maar niet evalueren of gebruik de waarde. |
-| AssertionConsumerServiceUrl |optioneel |Indien opgegeven, moet dit overeen met de `RedirectUri` van de cloudservice in Azure AD. |
-| ForceAuthn |optioneel | Dit is een Booleaanse waarde. Indien waar, betekent dit dat de gebruiker wordt geforceerd opnieuw worden geverifieerd, zelfs als ze een geldige sessie met Azure AD hebben. |
-| IsPassive |optioneel |Dit is een Booleaanse waarde die aangeeft of Azure AD moet worden geverifieerd achtergrond, zonder tussenkomst van de gebruiker met behulp van de sessiecookie als er een bestaat. Als dit waar is, probeert Azure AD te verifiëren van de gebruiker met behulp van de sessie-cookie. |
+| ID | Vereist | Azure AD maakt gebruik van dit kenmerk voor het vullen van de `InResponseTo` kenmerk van het geretourneerde antwoord. ID moet niet beginnen met een getal, zodat een gemeenschappelijke strategie is een tekenreeks, zoals 'id' naar de tekenreeksweergave van een GUID toevoegen aan het begin. Bijvoorbeeld: `id6c1c178c166d486687be4aaf5e482730` is een geldige ID. |
+| Versie | Vereist | Deze parameter moet worden ingesteld op **2.0**. |
+| IssueInstant | Vereist | Dit is een datum/tijd-tekenreeks met een UTC-waarde en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een DateTime-waarde van dit type verwacht maar niet evalueren of gebruik de waarde. |
+| AssertionConsumerServiceUrl | Optioneel | Indien opgegeven, deze parameter moet overeenkomen met de `RedirectUri` van de cloudservice in Azure AD. |
+| ForceAuthn | Optioneel | Dit is een Booleaanse waarde. Indien waar, betekent dit dat de gebruiker wordt geforceerd opnieuw worden geverifieerd, zelfs als ze een geldige sessie met Azure AD hebben. |
+| IsPassive | Optioneel | Dit is een Booleaanse waarde die aangeeft of Azure AD moet worden geverifieerd achtergrond, zonder tussenkomst van de gebruiker met behulp van de sessiecookie als er een bestaat. Als dit waar is, probeert Azure AD te verifiëren van de gebruiker met behulp van de sessie-cookie. |
 
-Alle andere `AuthnRequest` kenmerken, zoals toestemming, bestemming, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex en ProviderName zich **genegeerd**.
+Alle andere `AuthnRequest` kenmerken, zoals toestemming, bestemming AssertionConsumerServiceIndex, AttributeConsumerServiceIndex en ProviderName zich **genegeerd**.
 
 Azure AD ook negeert de `Conditions` -element in `AuthnRequest`.
 
 ### <a name="issuer"></a>Certificaatverlener
+
 De `Issuer` -element in een `AuthnRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Normaal gesproken deze is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.
 
-Een voorbeeld SAML fragment met de `Issuer` element uitziet:
+Een SAML-fragment met de `Issuer` element lijkt op het volgende voorbeeld:
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
 ```
 
 ### <a name="nameidpolicy"></a>NameIDPolicy
+
 Dit element vraagt de indeling van een bepaalde naam-ID in het antwoord en is optioneel in `AuthnRequest` elementen die worden verzonden naar Azure AD.
 
-Een voorbeeld van een `NameIdPolicy` element uitziet:
+Een `NameIdPolicy` element lijkt op het volgende voorbeeld:
 
 ```
 <NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
@@ -90,16 +94,16 @@ De `RequestedAuthnContext` element Hiermee geeft u de gewenste verificatiemethod
 ### <a name="scoping"></a>Bereik
 De `Scoping` -element een lijst met identiteitsproviders bevat, is optioneel in `AuthnRequest` elementen die worden verzonden naar Azure AD.
 
-Indien opgegeven, bevatten geen de `ProxyCount` kenmerk `IDPListOption` of `RequesterID` element als ze worden niet ondersteund.
+Indien opgegeven, zijn niet opgenomen in de `ProxyCount` kenmerk `IDPListOption` of `RequesterID` element, zoals ze worden niet ondersteund.
 
 ### <a name="signature"></a>Handtekening
-Neem geen een `Signature` -element in `AuthnRequest` elementen, zoals Azure AD biedt geen ondersteuning voor ondertekend verificatieaanvragen.
+Zijn niet opgenomen in een `Signature` -element in `AuthnRequest` elementen, zoals Azure AD biedt geen ondersteuning voor ondertekend verificatieaanvragen.
 
 ### <a name="subject"></a>Onderwerp
 Azure AD negeert de `Subject` element van `AuthnRequest` elementen.
 
-## <a name="response"></a>Antwoord
-Wanneer een aangevraagde eenmalige aanmelding voltooid is, boekt Azure AD een reactie op de cloudservice. Een voorbeeldreactie op een poging voor geslaagde ziet er als volgt:
+## <a name="response"></a>Reactie
+Wanneer een aangevraagde eenmalige aanmelding voltooid is, boekt Azure AD een reactie op de cloudservice. Een reactie op een poging voor geslaagde ziet er in het volgende voorbeeld:
 
 ```
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -144,27 +148,30 @@ Wanneer een aangevraagde eenmalige aanmelding voltooid is, boekt Azure AD een re
 </samlp:Response>
 ```
 
-### <a name="response"></a>Antwoord
+### <a name="response"></a>Reactie
+
 De `Response` element het resultaat van de autorisatieaanvraag bevat. Azure AD-stelt de `ID`, `Version` en `IssueInstant` waarden in de `Response` element. Hiermee ook de volgende kenmerken:
 
 * `Destination`: Wanneer de aanmelding is voltooid, wordt deze ingesteld op de `RedirectUri` van de serviceprovider (cloudservice).
 * `InResponseTo`: Dit is ingesteld op de `ID` kenmerk van de `AuthnRequest` element dat het antwoord wordt gestart.
 
 ### <a name="issuer"></a>Certificaatverlener
+
 Azure AD-stelt de `Issuer` element op de `https://login.microsoftonline.com/<TenantIDGUID>/` waar <TenantIDGUID> is de tenant-ID van de Azure AD-tenant.
 
-Voor, een voorbeeldreactie met verlener element kan als volgt uitzien:
+Bijvoorbeeld kan een antwoord met verlener element eruitzien als in het volgende voorbeeld:
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### <a name="status"></a>Status
-De `Status` element het slagen of mislukken van de aanmelding worden weergegeven. Het bevat de `StatusCode` element, dat een code of een set geneste codes die de status van de aanvraag bevat. Dit omvat ook de `StatusMessage` -element bevat aangepaste foutberichten die zijn gegenereerd tijdens de aanmelding.
+
+De `Status` element het slagen of mislukken van de aanmelding worden weergegeven. Het bevat de `StatusCode` -element bevat een code of een set geneste codes die de status van de aanvraag vertegenwoordigt. Dit omvat ook de `StatusMessage` -element bevat aangepaste foutberichten die zijn gegenereerd tijdens de aanmelding.
 
 <!-- TODO: Add a authentication protocol error reference -->
 
-Hier volgt een SAML-reactie op een mislukte poging voor eenmalige aanmelding.
+Het volgende voorbeeld wordt een SAML-reactie op een mislukte poging voor eenmalige aanmelding.
 
 ```
 <samlp:Response ID="_f0961a83-d071-4be5-a18c-9ae7b22987a4" Version="2.0" IssueInstant="2013-03-18T08:49:24.405Z" InResponseTo="iddce91f96e56747b5ace6d2e2aa9d4f8c" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -180,9 +187,11 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 ```
 
 ### <a name="assertion"></a>Verklaring
+
 Naast de `ID`, `IssueInstant` en `Version`, Azure AD Hiermee stelt u de volgende elementen in de `Assertion` element van het antwoord.
 
 #### <a name="issuer"></a>Certificaatverlener
+
 Dit is ingesteld op `https://sts.windows.net/<TenantIDGUID>/`waar <TenantIDGUID> is de Tenant-ID van de Azure AD-tenant.
 
 ```
@@ -190,6 +199,7 @@ Dit is ingesteld op `https://sts.windows.net/<TenantIDGUID>/`waar <TenantIDGUID>
 ```
 
 #### <a name="signature"></a>Handtekening
+
 Azure AD ondertekent de bevestiging in reactie op een geslaagde aanmelding. De `Signature` element bevat een digitale handtekening die de cloudservice gebruiken kunt voor het verifiëren van de bron om te controleren of de integriteit van de bevestiging.
 
 Voor het genereren van de digitale handtekening, Azure AD maakt gebruik van de ondertekeningssleutel in de `IDPSSODescriptor` element van het document met metagegevens.
@@ -201,6 +211,7 @@ Voor het genereren van de digitale handtekening, Azure AD maakt gebruik van de o
 ```
 
 #### <a name="subject"></a>Onderwerp
+
 Hiermee geeft u de principal die de houder van de instructies in de verklaring is. Het bevat een `NameID` element, dat de geverifieerde gebruiker vertegenwoordigt. De `NameID` waarde is een gerichte id waarnaar wordt doorverwezen alleen de serviceprovider die de doelgroep voor het token. Het is permanent - kunnen worden ingetrokken, maar nooit opnieuw wordt toegewezen. Het is ook ondoorzichtig, omdat het over de gebruiker niet vrijgegeven en kan niet worden gebruikt als een id voor kenmerk query's.
 
 De `Method` kenmerk van de `SubjectConfirmation` element is altijd ingesteld op `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
@@ -215,6 +226,7 @@ De `Method` kenmerk van de `SubjectConfirmation` element is altijd ingesteld op 
 ```
 
 #### <a name="conditions"></a>Voorwaarden
+
 Dit element bevat de voorwaarden die de aanvaardbaar gebruik van SAML-asserties definiëren.
 
 ```
@@ -231,6 +243,7 @@ De `NotBefore` en `NotOnOrAfter` kenmerken Geef het interval op gedurende welke 
 * De waarde van de `NotOnOrAfter` kenmerk is 70 minuten later is dan de waarde van de `NotBefore` kenmerk.
 
 #### <a name="audience"></a>Doelgroep
+
 Dit document bevat een URI die een doelgroep identificeert. Azure AD wordt de waarde van dit element op de waarde van `Issuer` element van de `AuthnRequest` die de aanmelding hebt gestart. Om te evalueren de `Audience` waarde, gebruikt u de waarde van de `App ID URI` dat is opgegeven tijdens de toepassingsregistratie.
 
 ```
@@ -242,6 +255,7 @@ Dit document bevat een URI die een doelgroep identificeert. Azure AD wordt de wa
 Als de `Issuer` waarde, de `Audience` waarde moet exact overeenkomen met een van de SPN-namen die staat voor de cloudservice in Azure AD. Echter, als de waarde van de `Issuer` element is niet een URI-waarde de `Audience` waarde in het antwoord is de `Issuer` waarde voorafgegaan door `spn:`.
 
 #### <a name="attributestatement"></a>AttributeStatement
+
 Hierin worden claims over de onderwerpnaam of de gebruiker. Het volgende fragment bevat een voorbeeld van een `AttributeStatement` element. Het weglatingsteken geeft aan dat het element kan bestaan uit meerdere kenmerken en kenmerkwaarden.
 
 ```
@@ -256,10 +270,11 @@ Hierin worden claims over de onderwerpnaam of de gebruiker. Het volgende fragmen
 </AttributeStatement>
 ```        
 
-* **Naam van Claim** : de waarde van de `Name` kenmerk (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) is de UPN van de geverifieerde gebruiker, zoals `testuser@managedtenant.com`.
-* **ObjectIdentifier Claim** : de waarde van de `ObjectIdentifier` kenmerk (`http://schemas.microsoft.com/identity/claims/objectidentifier`) is de `ObjectId` van de directoryobject dat de geverifieerde gebruiker in Azure AD vertegenwoordigt. `ObjectId` is een niet-wijzigbaar, globaal unieke en veilige id van de geverifieerde gebruiker opnieuw te gebruiken.
+* **Naam van Claim** -de waarde van de `Name` kenmerk (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) is de UPN van de geverifieerde gebruiker, zoals `testuser@managedtenant.com`.
+* **ObjectIdentifier Claim** -de waarde van de `ObjectIdentifier` kenmerk (`http://schemas.microsoft.com/identity/claims/objectidentifier`) is de `ObjectId` van de directoryobject dat de geverifieerde gebruiker in Azure AD vertegenwoordigt. `ObjectId` is een niet-wijzigbaar, globaal unieke en veilige id van de geverifieerde gebruiker opnieuw gebruiken.
 
 #### <a name="authnstatement"></a>AuthnStatement
+
 Dit element wordt gesteld dat het onderwerp verklaring is geverifieerd door een bepaalde manier op een bepaald moment.
 
 * De `AuthnInstant` kenmerk geeft de tijd waarop de gebruiker is geverifieerd met Azure AD.

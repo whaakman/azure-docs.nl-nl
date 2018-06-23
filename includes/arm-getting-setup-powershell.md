@@ -24,7 +24,7 @@ Controleer de waarde van **PSVersion** 3.0 of 4.0. Als dit niet het geval is, Zi
 ### <a name="set-your-azure-account-and-subscription"></a>Uw Azure-account en -abonnement instellen
 Als u nog geen Azure-abonnement hebt, kunt u activeren uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
-Open een Azure PowerShell-opdrachtprompt en meld u aan bij Azure met deze opdracht.
+Open een Azure PowerShell-opdrachtprompt en aanmelden bij Azure met deze opdracht.
 
     Connect-AzureRmAccount
 

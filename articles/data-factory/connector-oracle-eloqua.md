@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory (bèta) | Microsoft Docs
+title: Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory (Preview) | Microsoft Docs
 description: Ontdek hoe u gegevens kopiëren van Oracle Eloqua naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fa26e71651f0b13da97653e998974c6fd39fe3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edab4a27966a0bdb278007c0d030fe43a126a35
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617192"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320602"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory (bèta)
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory (Preview)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens van Oracle Eloqua kopiëren. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Deze connector is momenteel in de bètaversie. U kunt uitproberen en feedback geven. Gebruik deze niet in een productieomgeving.
+> Deze connector is momenteel in preview. U kunt uitproberen en feedback geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -49,8 +49,8 @@ De volgende eigenschappen worden ondersteund voor Oracle Eloqua gekoppelde servi
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Eloqua** | Ja |
-| endpoint | Het eindpunt van de server Eloqua. (dat wil zeggen, eloqua.example.com)  | Ja |
-| gebruikersnaam | De sitenaam en de gebruikersnaam van uw account Eloqua in het formulier: naam-/ gebruikersnaam site. (dat wil zeggen, Eloqua/Alice)  | Ja |
+| eindpunt | Het eindpunt van de server Eloqua. Eloqua ondersteunt meerdere datacenters, om te bepalen van uw eindpunt, meld u aan bij https://login.eloqua.com met uw referenties, Kopieer de **basis-URL** gedeelte van de omgeleide URL met het patroon van `xxx.xxx.eloqua.com`. | Ja |
+| gebruikersnaam | De sitenaam en de gebruikersnaam van uw account Eloqua in het formulier: `SiteName\Username` bijvoorbeeld `Eloqua\Alice`.  | Ja |
 | wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Geeft aan of de eindpunten van de gegevensbron zijn versleuteld via HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Geeft aan of de hostnaam in het certificaat van de server overeenkomen met de hostnaam van de server om verbinding te maken via SSL vereisen. De standaardwaarde is true.  | Nee |
@@ -64,8 +64,8 @@ De volgende eigenschappen worden ondersteund voor Oracle Eloqua gekoppelde servi
     "properties": {
         "type": "Eloqua",
         "typeProperties": {
-            "endpoint" : "eloqua.example.com",
-            "username" : "Eloqua/Alice",
+            "endpoint" : "<base URL e.g. xxx.xxx.eloqua.com>",
+            "username" : "<site name>\\<user name e.g. Eloqua\\Alice>",
             "password": {
                  "type": "SecureString",
                  "value": "<password>"

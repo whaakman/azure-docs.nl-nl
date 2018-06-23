@@ -3,7 +3,7 @@ title: Versiegeschiedenis van Azure AD Connect Health
 description: Dit document beschrijft de versies voor Azure AD Connect Health en wat is opgenomen in deze versies.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7147b282d9bcbf48391d60466c77d28eca396832
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 3e3cebd47a259c7c297d6df0eaf76a350111f2e3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294272"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319262"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versiegeschiedenis van status Azure AD Connect
 Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerkt met nieuwe functies en functionaliteit. Dit artikel worden de versies en onderdelen die zijn uitgebracht.
@@ -30,7 +30,7 @@ Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerk
 
 **Agentupdate:** 
 *   Azure AD Connect Health-agent voor AD FS (versie 3.1.2.0)  
-   1. Oplossingen voor problemen en verbetering voor waarschuwingen 
+   1. Hotfix voor geheugenbeheer agent en gerelateerde waarschuwingen speciaal voor versie 3.0.244.0
 
 
 ## <a name="may-2018"></a>Mei 2018

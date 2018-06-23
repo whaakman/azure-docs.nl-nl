@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 892cf2cfc93c86b9196000d94f976407156ec248
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b71cac474c915d0ebcc9beed29551fbce8b515ea
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594275"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318993"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory-v2.0 en de clientreferentiestroom van OAuth 2.0
 U kunt de [OAuth 2.0-clientreferenties verlenen](http://tools.ietf.org/html/rfc6749#section-4.4) opgegeven in RFC 6749, wel *tweearmige OAuth*, toegang krijgen tot bronnen web gehost met behulp van de identiteit van een toepassing. Dit type grant vaak wordt gebruikt voor de server naar server interacties dat moeten worden uitgevoerd op de achtergrond, zonder directe interactie met een gebruiker. Deze typen toepassingen vaak worden aangeduid als *daemons* of *-serviceaccounts*.
@@ -96,7 +96,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | tenant |Vereist |De directory-tenant die u wilt machtiging van aanvragen. Dit kan zijn in de beschrijvende naam van de indeling of GUID. Als u niet welk tenant de gebruiker behoort en u laten aanmelden met een tenant weet wilt, gebruikt u `common`. |
 | client_id |Vereist |De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
 | redirect_uri |Vereist |De omleidings-URI waar u het antwoord moet worden verzonden voor uw app om af te handelen. Moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het moet een URL zijn gecodeerd en kunnen extra padsegmenten hebben. |
-| state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
+| toestand |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
 
 Azure AD wordt op dit punt wordt afgedwongen dat alleen een tenantbeheerder aanmelden kan bij de aanvraag niet voltooien. De beheerder wordt gevraagd om goed te keuren alle machtigingen van rechtstreekse toepassing die u hebt aangevraagd voor uw app in de app-portal voor wachtwoordregistratie.
 
@@ -110,7 +110,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | Parameter | Beschrijving |
 | --- | --- | --- |
 | tenant |De directory-tenant die uw toepassing, de machtigingen die zij gevraagd in GUID-indeling. |
-| state |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
+| toestand |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
 | admin_consent |Ingesteld op **true**. |
 
 ##### <a name="error-response"></a>Foutbericht
@@ -122,7 +122,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parameter | Beschrijving |
 | --- | --- | --- |
-| error |Een code-tekenreeks voor fout die u gebruiken kunt voor het classificeren van typen fouten, en dat u kunt gebruiken om te reageren op fouten. |
+| fout |Een code-tekenreeks voor fout die u gebruiken kunt voor het classificeren van typen fouten, en dat u kunt gebruiken om te reageren op fouten. |
 | error_description |Een specifiek foutbericht waarmee u kunt identificeren de hoofdoorzaak van een fout. |
 
 Nadat u een geslaagde reactie van het eindpunt van app-inrichting ontvangen hebt, hebben de rechtstreekse toepassing worden machtigingen aangevraagde opgedaan met uw app. U kunt nu een token voor de resource die u wilt aanvragen.
@@ -215,7 +215,7 @@ Een foutmelding ziet er als volgt:
 
 | Parameter | Beschrijving |
 | --- | --- |
-| error |Een tekenreeks van de fout code die u gebruiken kunt voor het classificeren van typen fouten die optreden en om te reageren op fouten. |
+| fout |Een tekenreeks van de fout code die u gebruiken kunt voor het classificeren van typen fouten die optreden en om te reageren op fouten. |
 | error_description |Een specifiek foutbericht die u kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 | error_codes |Een lijst met foutcodes STS-specifieke die met diagnostische gegevens helpen kunnen. |
 | tijdstempel |De tijd waarop de fout is opgetreden. |

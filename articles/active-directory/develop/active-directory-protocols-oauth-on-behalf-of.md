@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: celested
-ms.reviewer: hirsin; nacanuma
+ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2bb0d10fee04c4ee48344695769fa7768b0f3a85
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e8957db002dd6fdeaf6da03b02e518e3e423539d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823863"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317728"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service naar serviceaanroepen met behulp van gedelegeerde gebruikersidentiteit in de On-namens-stroom
 De OAuth 2.0 On-Behalf-Of (OBO) stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
@@ -52,7 +52,7 @@ Registreer zowel de clienttoepassing en de middelste laag-service in Azure AD.
 3. Klik op **meer Services** in de nav linkerkant en kies **Azure Active Directory**.
 4. Klik op **App registraties** en kies **registratie van de nieuwe toepassing**.
 5. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype. Op basis van de toepassing type set de aanmeldings-URL of Omleidings-URL naar de basis-URL. Klik op **maken** om de toepassing te maken.
-6. Kies uw toepassing tijdens het nog steeds in de Azure portal en klik op **instellingen**. Kies in het menu instellingen **sleutels** en toevoegen van een sleutel - selecteert u een sleutel duur van 1 jaar of 2 jaar. Wanneer u deze pagina, de waarde van de sleutel wordt weergegeven, kopiëren en opslaan van de waarde in een veilige locatie - moet u deze sleutel later naar de toepassing configureren in uw implementatie - waarde van deze sleutel wordt niet meer weergegeven, noch worden opgehaald door een andere manier, dus neem record zodra deze is zichtbaar zijn vanaf de Azure-Portal.
+6. Kies uw toepassing tijdens het nog steeds in de Azure portal en klik op **instellingen**. Kies in het menu instellingen **sleutels** en toevoegen van een sleutel - selecteert u een sleutel duur van 1 jaar of 2 jaar. Wanneer u deze pagina opslaat, waarde van de sleutel wordt weergegeven, kopiëren en opslaan van de waarde in een veilige locatie - moet u deze sleutel later naar de toepassing configureren in uw implementatie - waarde van deze sleutel worden niet opnieuw weergegeven en ook niet worden opgehaald door een andere manier , dus controleer zodra deze zichtbaar zijn vanaf de Azure-Portal is opnemen.
 
 ### <a name="register-the-client-application"></a>De clienttoepassing registreren
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -60,7 +60,7 @@ Registreer zowel de clienttoepassing en de middelste laag-service in Azure AD.
 3. Klik op **meer Services** in de nav linkerkant en kies **Azure Active Directory**.
 4. Klik op **App registraties** en kies **registratie van de nieuwe toepassing**.
 5. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype. Op basis van de toepassing type set de aanmeldings-URL of Omleidings-URL naar de basis-URL. Klik op **maken** om de toepassing te maken.
-6. Machtigingen configureren voor uw toepassing - in het menu instellingen, kiest u de **vereist machtigingen** sectie, klikt u op **toevoegen**, klikt u vervolgens **selecteert u een API**, en typ de naam van de service voor de middelste laag in het tekstvak. Klik vervolgens op **Selecteer machtigingen** en selecteer ' toegang *servicenaam*'.
+6. Machtigingen configureren voor uw toepassing - in het menu instellingen, kiest u de **vereist machtigingen** sectie, klikt u op **toevoegen**, klikt u vervolgens **selecteert u een API**, en typ de naam van de middelste laag-service in het tekstvak. Klik vervolgens op **Selecteer machtigingen** en selecteer ' toegang *servicenaam*'.
 
 ### <a name="configure-known-client-applications"></a>Bekende clienttoepassingen configureren
 In dit scenario heeft de middelste laag-service geen tussenkomst van de gebruiker om op te halen van de gebruiker toestemming voor toegang tot de downstream-API. Daarom moet de optie om toegang te verlenen aan de downstream-API worden gepresenteerd tevoren als onderdeel van de toestemming stap tijdens de verificatie.

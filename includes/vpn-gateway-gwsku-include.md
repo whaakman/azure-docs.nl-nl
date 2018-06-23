@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 05dc8ae48a9164e4f7118d378ab0eb7c30a4249e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/23/2018
 ms.locfileid: "30196798"
 ---
 Wanneer u een virtuele netwerkgateway maakt, moet u de gewenste gateway-SKU opgeven. Selecteer de SKU die aan uw vereisten voldoet op basis van de typen werkbelasting, doorvoer, functies en SLA's.
@@ -29,7 +29,7 @@ De nieuwe VPN-gateway SKU's stroomlijnen de functiesets aangeboden op de gateway
 
 | **SKU**| **Functies**|
 | ---    | ---         |
-|**Basic** (**)   | **Route gebaseerde VPN-**: 10 tunnels met P2S; er zijn geen RADIUS-verificatie voor P2S; er is geen IKEv2 voor P2S<br>**Op beleid gebaseerd VPN**: (IKEv1): 1 tunnel; geen P2S|
+|**Basic** (*)   | **Route gebaseerde VPN-**: 10 tunnels met P2S; er zijn geen RADIUS-verificatie voor P2S; er is geen IKEv2 voor P2S<br>**Op beleid gebaseerd VPN**: (IKEv1): 1 tunnel; geen P2S|
 | **VpnGw1, VpnGw2 en VpnGw3** | **Route gebaseerde VPN-**: maximaal 30 tunnels (*), P2S, BGP, actieve, aangepaste IPsec/IKE-beleid, ExpressRoute/VPN co-existentie |
 |        |             |
 

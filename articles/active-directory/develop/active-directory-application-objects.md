@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 10/19/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: e8e693355fb9b30e1a69b49f20d5044c531e2fcd
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol
+ms.openlocfilehash: d7194846dbeab2a5da8a8ceaa5a1040f33e8d515
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155616"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317126"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Toepassing en service-principal objecten in Azure Active Directory (Azure AD)
 Soms kan de betekenis van de term 'application' verkeerd worden begrepen wanneer gebruikt in de context van Azure AD. Het doel van dit artikel is om te verduidelijken conceptuele en concrete aspecten van de integratie van Azure AD-toepassingen, met een afbeelding van de registratie en toestemming voor op een [multitenant toepassing](active-directory-dev-glossary.md#multi-tenant-application).
@@ -29,7 +30,7 @@ Soms kan de betekenis van de term 'application' verkeerd worden begrepen wanneer
 ## <a name="overview"></a>Overzicht
 Een toepassing die is geïntegreerd met Azure AD heeft gevolgen die verdergaan dan het aspect van software. 'Application' wordt vaak gebruikt als een algemene term verwijst naar het niet alleen de toepassingssoftware, maar ook de Azure AD-registratie en rol in verificatie/autorisatie 'conversaties' tijdens runtime. Per definitie een toepassing kan worden gebruikt een [client](active-directory-dev-glossary.md#client-application) rol (verbruikt een resource), een [bronserver](active-directory-dev-glossary.md#resource-server) functie blootstellen van API's (clients) of zelfs beide. Het conversatie-protocol wordt gedefinieerd door een [OAuth 2.0 Authorization Grant stroom](active-directory-dev-glossary.md#authorization-grant), zodat de client of de resource toegang/van de bron om gegevens te beveiligen respectievelijk. Nu gaan we een dieper niveau en Zie hoe een toepassing op het moment van ontwerp en runtime-Hiermee geeft u het model van Azure AD-toepassing. 
 
-## <a name="application-registration"></a>Toepassingsregistratie
+## <a name="application-registration"></a>Een toepassing registreren
 Wanneer het registreren van een Azure AD-toepassing in de [Azure-portal][AZURE-Portal], twee objecten worden gemaakt in uw Azure AD-tenant: een object voor de toepassing en een service-principal-object.
 
 #### <a name="application-object"></a>Object voor de toepassing
@@ -68,9 +69,9 @@ In stap 2 wanneer beheerders van Contoso en Fabrikam toestemming te geven voltoo
 In stap 3 hebben de consument tenants van de HR-toepassing (Contoso en Fabrikam) elk hun eigen service-principal-object. Elke vertegenwoordigt het gebruik van een exemplaar van de toepassing tijdens runtime, bepaald door de machtigingen ingestemd door de respectieve beheerder.
 
 ## <a name="next-steps"></a>Volgende stappen
-Object van de toepassing van een toepassing toegankelijk via de Azure AD Graph API de [Azure portal] [ AZURE-Portal] application manifest-editor of [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), zoals wordt weergegeven met de OData [Toepassingsentiteit][AAD-Graph-App-Entity].
+Object van de toepassing van een toepassing toegankelijk via de Azure AD Graph API de [Azure portal] [ AZURE-Portal] application manifest-editor of [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), als dat wordt vertegenwoordigd door de OData [Toepassingsentiteit][AAD-Graph-App-Entity].
 
-Service principal-object van een toepassing toegankelijk zijn via de Azure AD Graph API of [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), zoals wordt weergegeven met de OData [ServicePrincipal entiteit][AAD-Graph-Sp-Entity].
+Service principal-object van een toepassing toegankelijk zijn via de Azure AD Graph API of [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), zoals wordt weergegeven met de OData [ServicePrincipal entiteit] [ AAD-Graph-Sp-Entity].
 
 De [Explorer van Azure AD Graph](https://graphexplorer.azurewebsites.net/) is nuttig voor het opvragen van de toepassing en de service-principals.
 

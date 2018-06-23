@@ -1,5 +1,5 @@
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij [Azure-portal](https://portal.azure.com).
 2. Klik op **Een resource maken**, daarna op **Web en mobiel** en vervolgens op **Mobile Engagement**.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)

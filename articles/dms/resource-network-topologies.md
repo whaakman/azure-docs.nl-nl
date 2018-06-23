@@ -1,5 +1,5 @@
 ---
-title: Topologieën voor Azure SQL DB-beheerde exemplaar migraties met behulp van de migratie van Azure databaseservice netwerk | Microsoft Docs
+title: Topologieën voor Azure SQL Database-beheerd instantie migraties met behulp van de migratie van Azure databaseservice netwerk | Microsoft Docs
 description: Meer informatie over de bron en doel-configuraties voor migratie databaseservice.
 services: database-migration
 author: HJToland3
@@ -10,16 +10,16 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/06/2018
-ms.openlocfilehash: 5904864ffba656dab17e1549ed9832be4258a67f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/21/2018
+ms.openlocfilehash: 9fcee103854209016d73e29b598c9f33d35c4b6c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235397"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316864"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Netwerktopologieën voor Azure SQL DB-beheerde exemplaar migraties met behulp van de Service Azure Database migreren
-In dit artikel leert u over verschillende netwerktopologieën maken waarin de Azure-Service voor het migreren van Database werken kunt met voor een naadloze migratie-ervaring bieden via on-premises SQL-Servers naar Azure SQL Database-beheerde exemplaar.
+Dit artikel bevat verschillende netwerktopologieën maken waarin de Azure-Service voor het migreren van Database werken kunt met een uitgebreide migratie-ervaring bieden van on-premises SQL-Servers aan Azure SQL Database-beheerd instantie.
 
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Azure SQL Database beheerd exemplaar dat is geconfigureerd voor hybride werkbelastingen 
 Deze topologie te gebruiken als uw Azure SQL Database beheerd-exemplaar is verbonden met uw on-premises netwerk. Deze aanpak biedt de meest vereenvoudigde netwerkroutering en levert gegevensdoorvoer tijdens de migratie.
@@ -40,7 +40,7 @@ Deze topologie gebruiken als uw omgeving een of meer van de volgende scenario's 
 
 **Vereisten**
 - Het VNET dat Azure Database migratie-Service wordt gebruikt voor dit scenario moet ook worden verbonden met de on-premises netwerk via een (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- U moet instellen [VNET netwerk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tussen het VNET gebruikt voor Azure SQL Database-beheerde exemplaar en de Azure-Service voor het migreren van Database.
+- Instellen van [VNET netwerk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tussen het VNET gebruikt voor Azure SQL Database-beheerde exemplaar en de Azure-Service voor het migreren van Database.
 
 
 ## <a name="cloud-to-cloud-migrations-shared-vnet"></a>Cloud-naar-cloud migraties: gedeelde VNET
@@ -62,7 +62,7 @@ Deze topologie gebruiken als uw omgeving een of meer van de volgende scenario's 
 ![Netwerktopologie voor Cloud-naar-Cloud-migraties met een geïsoleerd vnet](media\resource-network-topologies\cloud-to-cloud-isolated.png)
 
 **Vereisten**
-- U moet instellen [VNET netwerk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tussen het VNET gebruikt voor Azure SQL Database-beheerde exemplaar en de Azure-Service voor het migreren van Database.
+- Instellen van [VNET netwerk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tussen het VNET gebruikt voor Azure SQL Database-beheerde exemplaar en de Azure-Service voor het migreren van Database.
 
 
 ## <a name="see-also"></a>Zie ook

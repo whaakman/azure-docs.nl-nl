@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2018
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 8fe3db09acbdec606f25d0bc81300bc4f5e87411
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1450cffca7a4cfa57856c75cdcc9e106958ea043
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157385"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319119"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory-verificatiebibliotheken voor v2.0
 
@@ -58,16 +58,16 @@ Zie de volgende secties in dit artikel voor een lijst met bibliotheken die met h
 > [!IMPORTANT]
 > De MSAL preview bibliotheken zijn geschikt voor gebruik in een productieomgeving. Microsoft biedt dezelfde productie niveau ondersteuning voor deze bibliotheken als de huidige productie libraries (ADAL). Tijdens de preview verwachten dat de wijzigingen in de API MSAL indeling van de interne cache en andere mechanismen van deze bibliotheken zonder voorafgaande kennisgeving u moet te laten samen met oplossingen voor problemen of verbeterde functies. Dit mogelijk invloed op uw toepassing. Een wijziging in de cache-indeling moet bijvoorbeeld mogelijk uw gebruikers zich opnieuw aanmelden. Een wijziging in de API moet u mogelijk het bijwerken van uw code. Wanneer de algemene beschikbaarheid (GA)-versie beschikbaar komt, alle toepassingen met een preview-versie van de tapewisselaar moeten binnen zes maanden bijwerken of ze meer werken.
 
-| Platform | Bibliotheek | Downloaden | Broncode | Voorbeeld | Referentie
+| Platform | Tapewisselaar | Downloaden | Broncode | Voorbeeld | Referentie
 | --- | --- | --- | --- | --- | --- |
 | .NET-client, Windows Store UWP, Xamarin iOS en Android | MSAL .NET (Preview) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Bureaublad-App](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
-| Javascript | MSAL.js (Preview) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [App met één pagina](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
+| JavaScript | MSAL.js (Preview) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [App met één pagina](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
 | voor iOS, Mac OS | MSAL (Preview) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS App](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
 | Android | MSAL (Preview) | [De centrale opslagplaats](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android-App](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Microsoft ondersteund server middleware bibliotheken
 
-| Platform | Bibliotheek | Downloaden | Broncode | Voorbeeld | Referentie
+| Platform | Tapewisselaar | Downloaden | Broncode | Voorbeeld | Referentie
 | --- | --- | --- | --- | --- | --- |
 | .NET 4.x | OWIN OpenID Connect middleware |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/) |[MVC-App](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
 | .NET 4.x | OWIN OAuth Bearer-middleware voor AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/) |  | |
@@ -83,7 +83,7 @@ Zie de volgende secties in dit artikel voor een lijst met bibliotheken die met h
 |:---:|:---:|:---:|:---:|:---:|
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Voorbeeld van de systeemeigen app](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Voorbeeld van de systeemeigen app](active-directory-v2-devquickstarts-ios.md) |
-| Javascript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
+| JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | Java | [Notulist Java scribejava](https://github.com/scribejava/scribejava) | [Versie 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | PHP | [De PHP-League oauth2-client](https://github.com/thephpleague/oauth2-client) | [1.4.2 versie](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/) | |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |

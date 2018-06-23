@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
-ms.reviewer: dastrock
-ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin, dastrock
+ms.openlocfilehash: 0b3e7d9b7a01767e44c7c59c7250808290a03c30
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157602"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319221"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migreren van de Azure Access Control-service
 
@@ -82,7 +82,7 @@ De volgende secties worden op hoog niveau aanbevelingen voor het migreren van to
 
 Ten minste één andere vorm van verificatie biedt ondersteuning voor elke cloudservice van Microsoft die tokens die zijn uitgegeven door toegangsbeheer nu accepteert. Het juiste verificatiemechanisme varieert voor elke service. Het is raadzaam dat u de specifieke documentatie bij elke service voor de officiële verwijzen. Elke reeks documentatie is voor het gemak hier opgegeven:
 
-| Service | Richtlijnen |
+| Service | Hulp |
 | ------- | -------- |
 | Azure Service Bus | [Migreren naar handtekeningen voor gedeelde toegang](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migreren naar handtekeningen voor gedeelde toegang](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -104,7 +104,7 @@ Ten minste één andere vorm van verificatie biedt ondersteuning voor elke cloud
 
 SharePoint 2013, 2016 en SharePoint Online klanten lang ACS gebruikt voor verificatie in de cloud, on-premises en hybride scenario's. Sommige functies van SharePoint en gebruiksvoorbeelden worden beïnvloed door de ACS buiten gebruik stellen, terwijl andere gebruikers. De onderstaande tabel bevat een overzicht van migratie richtlijnen voor enkele van de meest populaire SharePoint die ACS gebruiken voor de functie:
 
-| Functie | Richtlijnen |
+| Functie | Hulp |
 | ------- | -------- |
 | Verifiëren van gebruikers van Azure AD | Voorheen 1.1 SAML-tokens vereist door SharePoint voor verificatie heeft geen ondersteuning voor Azure AD en ACS gebruikt als intermediaire die compatibile van SharePoint met Azure AD-token wordt opgemaakt. Nu kunt u [SharePoint rechtstreeks verbinden met Azure AD dat gebruikmaakt van token uitgiftebeleid](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
 | [Verificatie van de App- & server-naar-server-verificatie in SharePoint on-premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Niet van invloed op een ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig zijn. | 
@@ -158,7 +158,7 @@ Op een hoog niveau *Azure Active Directory is waarschijnlijk de beste keuze voor
 | WS-Trust | Ondersteund | Niet ondersteund |
 | **Token indelingen** | | |
 | JWT | Ondersteund In Beta | Ondersteund |
-| SAML 1.1 | Ondersteund | Preview |
+| SAML 1.1 | Ondersteund | Voorbeeld |
 | SAML 2.0 | Ondersteund | Ondersteund |
 | SWT | Ondersteund | Niet ondersteund |
 | **Aanpassingen** | | |
@@ -292,7 +292,7 @@ U kunt ook Azure AD gebruiken voor verificatie van de server naar server met beh
 | ---------- | ----------- | ---------------- |
 | Het registreren van een webservice | Maken van een relying party in de Access Control-beheerportal | Een Azure AD-webtoepassing maken in de Azure portal |
 | Het registreren van een client | Maken van een service-identiteit in de Access Control-beheerportal | Een andere Azure AD-webtoepassing maken in de Azure portal |
-| Protocol dat wordt gebruikt |-OAuth WRAP protocol<br />-De referenties van de client OAuth 2.0-concept 13 verlenen | OAuth 2.0-clientreferenties verlenen |
+| Protocol dat wordt gebruikt |-OAuth WRAP protocol<br />-De referenties van de client OAuth 2.0-concept 13 verlenen | Referenties voor OAuth 2.0-client verlenen |
 | Methoden voor clientverificatie |-Eenvoudig wachtwoord<br />-Ondertekende SWT<br />-SAML-token van een federatieve identiteiten-provider |-Eenvoudig wachtwoord<br />-Ondertekende JWT |
 | Token indelingen |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Alleen JWT |
 | Token transformatie |-Aangepaste claims toevoegen<br />-Eenvoudig als dan claimuitgifte logica | Aangepaste claims toe te voegen | 

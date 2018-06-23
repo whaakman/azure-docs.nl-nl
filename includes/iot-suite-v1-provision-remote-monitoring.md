@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/30/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4224575644e754724d2129f101aed6b9e4b54b65
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04081a514d9b96a5289594a730ec0519e6ee0b01
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670163"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329787"
 ---
 ## <a name="provision-the-solution"></a>De oplossing inrichten
 
 Als u de vooraf geconfigureerde oplossing voor externe controle in uw account nog niet hebt ingericht:
 
-1. Meld u aan bij [azureiotsuite.com][lnk-azureiotsuite] met de referenties van uw Azure-account en klik op **+** om een oplossing te maken.
+1. Aanmelden bij [azureiotsuite.com] [ lnk-azureiotsuite] met behulp van uw Azure accountreferenties en klikt u op **+** om een oplossing te maken.
 2. Klik op de tegel **Externe controle** op **Selecteren**.
 3. Voer een **oplossingsnaam** in voor uw vooraf geconfigureerde oplossing voor externe controle.
 4. Selecteer de **regio** die en het **abonnement** dat u wilt gebruiken voor het inrichten van de oplossing.

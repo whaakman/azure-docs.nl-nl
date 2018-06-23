@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 23c9056bbfa6ae0be0f7c73a34250a2fff77f4d2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266003"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319085"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met de Azure CLI
 
@@ -32,32 +32,6 @@ Voor het voltooien van deze handleiding instructies, hebt u het volgende nodig:
 
 > [!IMPORTANT]
 > Deze handleiding instructies vereist het gebruik van Azure CLI versie 2.0 of hoger. Controleer de versie, bij de opdrachtprompt Azure CLI Voer `az --version`. Als u wilt installeren of upgraden, Zie [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>De extensie toevoegen
-Voeg de bijgewerkte Azure Database for MySQL-beheerextensie toe met de volgende opdracht:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Controleer of de juiste versie van de extensie is geïnstalleerd. 
-```azurecli-interactive
-az extension list
-```
-
-Het geretourneerde JSON-script moet het volgende bevatten: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Als versie 0.0.5 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Back-upconfiguratie instellen
 
@@ -139,7 +113,7 @@ De `az mysql server georestore` opdracht requies de volgende parameters:
 |resource-group| myResourceGroup | De naam van de resourcegroep de nieuwe server deel van uitmaakt.|
 |naam | mydemoserver georestored | De naam van de nieuwe server. |
 |source-server | mydemoserver | De naam van de bestaande server waarvan back-ups redundante geo worden gebruikt. |
-|location | eastus | De locatie van de nieuwe server. |
+|locatie | eastus | De locatie van de nieuwe server. |
 |SKU-naam| GP_Gen4_8 | Deze parameter stelt de prijscategorie laag, compute genereren en aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een voor algemene doeleinden, Gen 4-server met 8 vCores.|
 
 

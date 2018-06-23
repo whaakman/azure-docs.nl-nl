@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 12422a1123673feac1977fa5f52f49b2cdfda777
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fa3ab6df9b471a596cc229edf5fb555009c3101d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621343"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318390"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Veelgestelde vragen
 > [!NOTE]
@@ -41,7 +41,7 @@ Zie [prijsinformatie voor Data Factory pagina] [ adf-pricing-details] voor de pr
 * Voor een zelfstudie over het **gegevens kopiëren of verplaatsen** Kopieeractiviteit gebruikt, Zie [gegevens kopiëren van Azure Blob-opslag naar Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Voor een zelfstudie over het **gegevens transformeren** met HDInsight Hive-activiteit. Zie [gegevens verwerken door het Hive-script uitvoeren op Hadoop-cluster](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>Wat is de beschikbaarheid van de Data Factory-s-regio?
+### <a name="what-is-the-data-factorys-region-availability"></a>Wat is de Data Factory beschikbaarheid in regio's?
 Data Factory is beschikbaar in **VS-West** en **Noord-Europa**. De berekenings- en -services die worden gebruikt door gegevensfactory's kunnen zich in andere regio's. Zie [ondersteunde regio's](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Wat zijn de limieten van het aantal data factory's / pijplijnen/activiteiten, gegevenssets?

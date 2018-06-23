@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: f45a9dfaf2863b81083fbfb647f420d9a4baed5a
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 58bfae51fda10d14d9b1c4ea34cc10345d9a90ac
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264660"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318055"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
 Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende utterances vergelijkbaar zijn. Doordat het patroon voor de utterance zijn LUIS een hoge betrouwbaarheid in de voorspelling. 
@@ -50,7 +50,9 @@ Onvoldoende utterances voorbeeld gezien, zou LUIS kunnen meer vertrouwen voorspe
 Een patroon wordt vergeleken op basis van de entiteiten in het patroon eerst detecteren en vervolgens de rest van de woorden en word volgorde van het patroon wordt gevalideerd. Entiteiten zijn vereist in het patroon voor een patroon moet worden gezocht. 
 
 ## <a name="pattern-syntax"></a>De syntaxis van het patroon
-Entiteiten in patronen worden omgeven door accolades. Patronen kunnen bevatten entiteiten en entiteiten met rollen. Pattern.any is een entiteit die alleen wordt gebruikt in patronen. De syntaxis voor elk van deze wordt in de volgende secties uitgelegd.
+De syntaxis van het patroon is een sjabloon voor een utterance. De sjabloon moet bevatten woorden en entiteiten die u wilt vergelijken en woorden en leestekens die u wilt negeren. Het is **niet** een reguliere expressie. 
+
+Entiteiten in patronen worden omgeven door accolades, `{}`. Patronen kunnen bevatten entiteiten en entiteiten met rollen. Pattern.any is een entiteit die alleen wordt gebruikt in patronen. De syntaxis wordt in de volgende secties uitgelegd.
 
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntaxis voor een entiteit toevoegen aan een sjabloon patroon
 Als u wilt een entiteit in de sjabloon voor het patroon toevoegen, zoals de entiteitsnaam van de met accolades, rond `Who does {Employee} manage?`. 
@@ -90,7 +92,7 @@ Stel bijvoorbeeld dat u hebt een patroon met beide optionele syntaxis `[]`, en d
 
 Houd rekening met het patroon [zoeken] e over {onderwerp} [from {persoon}]. In de volgende utterances de **onderwerp** en **persoon** entiteit zijn uitgepakt correct en onjuist:
 
-|Utterance|Entiteit|Juiste uitpakken|
+|utterance|Entiteit|Juiste uitpakken|
 |--|--|:--:|
 |e-mail over honden van Chris|onderwerp honden =<br>persoon Chris =|✔|
 |Stuur een e-mail over de man van La-Mancha|onderwerp het man =<br>persoon La Mancha =|X|
@@ -109,7 +111,7 @@ Optionele tekst in de utterance met de reguliere expressie vierkant haakje-synta
 Leestekens zoals `.`, `!`, en `?` kunnen worden genegeerd met de vierkante haken. Als u wilt dat deze markeringen, moet elke is ingeschakeld in een afzonderlijke patroon. De syntaxis van de optionele ondersteunt momenteel geen een item in een lijst van meerdere items worden genegeerd.
 
 ## <a name="patterns-only"></a>Alleen patronen
-Een app zonder eventuele utterances voorbeeld kan LUIS in opzet. Dit is alleen toegestaan als patronen die zijn gebruikt. Patronen vereist ten minste één entiteit in elke patroon. Voor een patroon alleen-lezen-app mogen het patroon geen machine geleerde entiteiten omdat deze voorbeeld utterances vereisen. 
+Een app zonder eventuele utterances voorbeeld kan LUIS in opzet. Dit gebruik is alleen toegestaan als patronen die zijn gebruikt. Patronen vereist ten minste één entiteit in elke patroon. Voor een patroon alleen-lezen-app mogen het patroon geen machine geleerde entiteiten omdat deze voorbeeld utterances vereisen. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 Meer informatie over [aanbevolen procedures](luis-concept-best-practices.md).

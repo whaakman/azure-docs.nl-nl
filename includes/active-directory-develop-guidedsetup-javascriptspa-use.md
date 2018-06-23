@@ -1,4 +1,4 @@
-## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>De Microsoft Authentication Library (MSAL) gebruiken voor de gebruiker van de aanmeldingspagina
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Gebruik de Microsoft Authentication Library (MSAL) aan te melden als de gebruiker
 
 1.  Maak een bestand met de naam `app.js`. Als u Visual Studio gebruikt, selecteert u het project (basismap project), klik met de rechtermuisknop en selecteer: `Add`  >  `New Item`  >  `JavaScript File`:
 2.  Voeg de volgende code naar uw `app.js` bestand:
@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-off button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -119,16 +119,16 @@ De SPA die worden gegenereerd door deze handleiding maakt geen gebruik van het t
 
 #### <a name="getting-a-user-token-interactively"></a>Een gebruiker ophalen interactief token
 
-Na de initiële aanmelden, u niet wilt dat de gebruikers vragen om andere referenties telkens wanneer ze nodig hebben om aan te vragen van een token voor toegang tot een bron – dus *acquireTokenSilent* de meeste gevallen moet worden gebruikt voor het verkrijgen van tokens. Er zijn echter situaties die u nodig hebt om af te dwingen gebruikers werken met Azure Active Directory-v2-eindpunt: voorbeelden zijn:
--   Gebruikers willen hun referenties opnieuw invoeren omdat het wachtwoord is verlopen
--   Uw toepassing vraagt toegang tot een resource die de gebruiker toestemming geven moet aan
--   Tweeledige verificatie is vereist
+Na de initiële aanmelden, u niet wilt gebruikers vragen om te verifiëren, elke keer dat ze nodig hebben om aan te vragen van een token voor toegang tot een bron – dus *acquireTokenSilent* de meeste gevallen moet worden gebruikt voor het verkrijgen van tokens. Er zijn echter situaties die u wilt afdwingen dat gebruikers om te communiceren met Azure Active Directory-v2-eindpunt: voorbeelden zijn:
+- Gebruikers willen hun referenties opnieuw invoeren omdat het wachtwoord is verlopen
+- Uw toepassing vraagt toegang tot een resource die de gebruiker toestemming geven moet aan
+- Tweeledige verificatie is vereist
 
-Het aanroepen van de *acquireTokenRedirect(scope)* ertoe leiden dat gebruikers omleiden naar het Azure Active Directory-v2-eindpunt (of *acquireTokenPopup(scope)* resultaat op een pop-upvenster) waar gebruikers moeten communiceren met door het bevestigen van hun referenties, het toestemming verlenen aan de vereiste resource of voltooien van rekening de twee te houden met verificatie.
+Het aanroepen van de *acquireTokenRedirect(scope)* ertoe leiden dat gebruikers omleiden naar het Azure Active Directory-v2-eindpunt (of *acquireTokenPopup(scope)* resultaat op een pop-upvenster) waar gebruikers moeten communiceren door het bevestigen van hun referenties, het toestemming verlenen aan de vereiste resource of voltooien van rekening de twee te houden met verificatie.
 
 #### <a name="getting-a-user-token-silently"></a>Een gebruiker ophalen achtergrond token
 De ` acquireTokenSilent` methode verwerkt token acquisities van organisaties en verlenging zonder tussenkomst van de gebruiker. Na `loginRedirect` (of `loginPopup`) wordt uitgevoerd voor de eerste keer `acquireTokenSilent` is de methode die vaak worden gebruikt voor het verkrijgen van tokens die worden gebruikt voor toegang tot beveiligde bronnen voor volgende aanroepen - aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden aangebracht.
-`acquireTokenSilent`kan mislukken in sommige gevallen – bijvoorbeeld van de gebruiker het wachtwoord is verlopen. Uw toepassing kan verwerken van deze uitzondering op twee manieren:
+`acquireTokenSilent` kan mislukken in sommige gevallen – bijvoorbeeld van de gebruiker het wachtwoord is verlopen. Uw toepassing kan verwerken van deze uitzondering op twee manieren:
 
 1.  Voer een aanroep naar `acquireTokenRedirect` onmiddellijk, wat ertoe leidt de gebruiker aan te melden. Dit patroon wordt meestal gebruikt in toepassingen met online wanneer er geen niet-geverifieerde inhoud in de toepassing beschikbaar is voor de gebruiker is. Dit patroon maakt gebruik van de steekproef die worden gegenereerd door deze Begeleide installatie.
 
@@ -198,13 +198,13 @@ In de voorbeeldtoepassing die is gemaakt door deze handleiding worden de `callWe
 
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Een methode voor het ondertekenen van de gebruiker toevoegen
+## <a name="add-a-method-to-sign-off-the-user"></a>Toevoegen van een methode voor het ondertekenen van de gebruiker af
 
 Voeg de volgende code naar uw `app.js` bestand:
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign off the user
  */
 function signOut() {
     userAgentApplication.logout();
