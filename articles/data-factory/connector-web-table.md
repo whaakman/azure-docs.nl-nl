@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 5fb3aca61b63d70c9341a3964247addf7241a844
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b48bfcd5057dcdcce921a56e664d5bc3506585c1
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618120"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335904"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Gegevens kopiëren van Web-tabel met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ Voor het gebruik van deze tabel Web connector, moet u voor het instellen van een
 
 ## <a name="getting-started"></a>Aan de slag
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar de connector voor Web-tabel.
 

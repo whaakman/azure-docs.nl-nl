@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cb68b00232edd79a7b9cf239c1576c88731812d6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cca35d75f6d5560a621d377ae544eeba41434962
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617678"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316376"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ De volgende eigenschappen worden ondersteund voor SQL Server gekoppeld-service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SqlServer** | Ja |
-| connectionString |ConnectionString informatie die nodig zijn voor de verbinding met de SQL Server-database met behulp van de SQL-verificatie of de Windows-verificatie opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectionString |ConnectionString informatie die nodig zijn voor de verbinding met de SQL Server-database met behulp van de SQL-verificatie of de Windows-verificatie opgeven. Raadpleeg het volgende voorbeeld en u toevoegen aanvullen om meer eigenschappen bijvoorbeeld AlwaysOn bevatten. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | Gebruikersnaam |Geef de gebruikersnaam als u Windows-verificatie gebruikt. Voorbeeld: **domainname\\gebruikersnaam**. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Nee |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
@@ -490,21 +490,21 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | Datum en tijd |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| Decimale |Decimale |
+| decimale |decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |dubbele |
-| Afbeelding |Byte[] |
+| Float |Double |
+| installatiekopie |Byte[] |
 | int |Int32 |
-| Money |Decimale |
+| Money |decimale |
 | nchar |Tekenreeks, Char] |
 | ntext |Tekenreeks, Char] |
-| numerieke |Decimale |
+| numerieke |decimale |
 | nvarchar |Tekenreeks, Char] |
 | echte |Enkelvoudig |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimale |
+| smallmoney |decimale |
 | sql_variant |Object * |
 | tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |

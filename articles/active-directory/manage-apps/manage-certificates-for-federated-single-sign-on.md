@@ -3,7 +3,7 @@ title: Federatiecertificaten beheren in Azure AD | Microsoft Docs
 description: Informatie over het aanpassen van de vervaldatum voor uw federatiecertificaten en het vernieuwen van certificaten die binnenkort verlopen.
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
-ms.author: jeedes
-ms.openlocfilehash: c4d812db6371a4cd1fcc701f7eae2c913c29fb6b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.reviewer: jeedes
+ms.openlocfilehash: 5b4e2694a9b7e67643cb1e3b3cbc99fab940bd9d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303424"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337798"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding bij Azure Active Directory beheren
 In dit artikel bevat informatie over veelgestelde vragen en informatie met betrekking tot de certificaten die Azure Active Directory (Azure AD) maakt om vast te stellen federatieve eenmalige aanmelding (SSO) aan uw SaaS-toepassingen. Toepassingen toevoegen vanuit de app-galerie van Azure AD of met behulp van een sjabloon voor niet-galerie toepassingen. De toepassing configureren met behulp van de federatieve SSO-optie.
@@ -84,7 +85,7 @@ De volgende vernieuwing stappen moeten resulteren in geen aanzienlijke uitvaltij
     ![Een nieuw certificaat genereren](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](../active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Artikel index voor Toepassingsbeheer in Azure Active Directory](../active-directory-apps-index.md)
 * [Toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](what-is-single-sign-on.md)
 * [Het oplossen van problemen op basis van SAML eenmalige aanmelding](../develop/active-directory-saml-debugging.md)

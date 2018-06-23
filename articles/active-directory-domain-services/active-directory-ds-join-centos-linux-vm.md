@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d570428f3e3ea23302e3cecc6bfa759468419986
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d76371935fddbfe94c6dc45e27971487e7fa4277
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216823"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333578"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux virtuele machine toevoegen aan een beheerd domein
 In dit artikel leest u hoe een CentOS Linux virtuele machine in Azure koppelen aan een beheerd domein van Azure AD Domain Services.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:
@@ -87,7 +89,7 @@ Nu de vereiste pakketten zijn geïnstalleerd op de virtuele Linux-machine, de vo
     > [!NOTE]
     > **Voor probleemoplossing:** als *realm detecteren* is niet gevonden uw beheerde domein:  
       * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).  
-      * Controleer of de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is. 
+      * Controleer of de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
       * Controleer als u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.  
       >
 

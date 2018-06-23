@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: e1162a3f87c9242e7366109302b3bd807b1fdcc8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9e21547f6e1088677bb5699d17d81d170b4cab3d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214372"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332130"
 ---
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>Een beheerd domein ter ondersteuning van synchronisatie van het profiel voor SharePoint-Server configureren
 SharePoint Server bevat een User Profile-Service die wordt gebruikt voor synchronisatie van het profiel. Als u de Service-profiel instelt, moeten geschikte machtigingen worden toegekend op Active Directory-domein. Zie voor meer informatie [Active Directory Domain Services-machtigingen voor synchronisatie van het profiel in SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).
 
 Dit artikel wordt uitgelegd hoe u Azure AD Domain Services beheerde domeinen voor het implementeren van de service voor SharePoint serversynchronisatie van gebruikersprofielen kunt configureren.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="the-aad-dc-service-accounts-group"></a>De groep AAD DC serviceaccounts
 Een beveiligingsgroep genaamd '**AAD DC-serviceaccounts**' is beschikbaar in de organisatie-eenheid 'Gebruikers' in uw beheerde domein. Ziet u deze groep in de **Active Directory: gebruikers en Computers** MMC-module op uw beheerde domein.

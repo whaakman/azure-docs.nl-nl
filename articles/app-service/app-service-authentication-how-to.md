@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763139"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337854"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service aanpassen
 
@@ -89,11 +89,11 @@ Wanneer uw provider toegangstoken is verlopen, moet u de gebruiker te verifiëre
 
 - **Google**: Append een `access_type=offline` querytekenreeksparameter naar uw `/.auth/login/google` API-aanroep. Als de Mobile Apps SDK wordt gebruikt, kunt u de parameter toevoegen aan een van de `LogicAsync` overloads (Zie [Google vernieuwen Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: geen biedt vernieuwen van tokens. Lange levensduur hebben tokens verloopt over 60 dagen (Zie [Facebook is verlopen en de extensie toegangstokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: toegangstokens verloopt niet (Zie [Twitter OAuth Veelgestelde vragen over het](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq)).
+- **Twitter**: toegangstokens verloopt niet (Zie [Twitter OAuth Veelgestelde vragen over het](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
 - **Microsoft-Account**: wanneer [verificatie-instellingen voor Microsoft-Account configureren](app-service-mobile-how-to-configure-microsoft-authentication.md), selecteer de `wl.offline_access` bereik.
 - **Azure Active Directory**: In [ https://resources.azure.com ](https://resources.azure.com), moet u de volgende stappen uitvoeren:
     1. Selecteer boven aan de pagina **lezen/schrijven**.
-    1. Navigeer in de browser links naar **abonnementen** > **_\<abonnement\_naam_**   >  **resourceGroups** > _**\<resource\_groep\_name >**_   >  **providers** > **Microsoft.Web** > **sites** > _**\<app \_name >**_ > **config** > **authsettings**. 
+    1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
     1. Klik op **Bewerken**.
     1. De volgende eigenschap wijzigen. Vervang  _\<app\_id >_ met de Azure Active Directory-toepassings-ID van de service die u wilt openen.
 
@@ -103,7 +103,7 @@ Wanneer uw provider toegangstoken is verlopen, moet u de gebruiker te verifiëre
 
     1. Klik op **plaatsen**. 
 
-Zodra uw provider is geconfigureerd, kunt u zien of vernieuwen van tokens in de tokenopslag door aan te roepen zijn `/.auth/me`. 
+Wanneer de provider is geconfigureerd, kunt u [vinden het vernieuwingstoken en de verlooptijd van het toegangstoken](#retrieve-tokens-in-app-code) in de tokenopslag. 
 
 Als u wilt vernieuwen uw toegangstoken op elk gewenst moment, roept u `/.auth/refresh` in een andere taal. Het volgende fragment gebruikt jQuery voor het vernieuwen van de toegangstokens te geven van een JavaScript-client.
 
@@ -140,7 +140,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Zowel Microsoft-Account en Azure Active Directory kunt u zich aanmelden via meerdere domeinen. Microsoft-Account kan bijvoorbeeld _outlook.com_, _live.com_, en _hotmail.com_ accounts. Azure Active Directory kunt een willekeurig aantal aangepaste domeinen voor de accounts aanmelden. Dit is mogelijk ongewenste voor een interne app, dat u niet dat iedereen met wilt een _outlook.com_ account voor toegang. Volg deze stappen om te beperken van de domeinnaam van de e-mailaccounts.
 
-In [ https://resources.azure.com ](https://resources.azure.com), gaat u naar **abonnementen** > **_\<abonnement\_naam_**   >  **resourceGroups** > _**\<resource\_groep\_name >**_   >  **providers** > **Microsoft.Web** > **sites**  >    _**\<app\_name >**_ > **config** > **authsettings**. 
+In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
 
 Klik op **bewerken**, de volgende eigenschap wijzigen en klik vervolgens op **plaatsen**. Zorg ervoor dat u  _\<domein\_name >_ met het domein dat u wilt.
 

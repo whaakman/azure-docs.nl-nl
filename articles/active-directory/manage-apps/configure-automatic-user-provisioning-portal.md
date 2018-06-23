@@ -3,7 +3,7 @@ title: Gebruikers inrichten beheer voor zakelijke apps in Azure Active Directory
 description: Informatie over het beheren van gebruikers account inrichten voor zakelijke apps met de Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: asmalser
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
-ms.author: asmalser
+ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: eabeeb407b4894f92192932e44b9add1aa7d9307
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 926db432e413c3fc1360f68598e952830d212cb9
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303428"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331462"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Het beheer van gebruikersaccount inrichten voor zakelijke apps in Azure portal
-In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van automatische account gebruikersaanvragen en verwijderen van gegevens voor toepassingen die ondersteuning bieden voor deze, met name lijsten die zijn toegevoegd in de categorie 'aanbevolen' van de [Azure Active Directory-toepassingsgalerie](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over automatische account gebruikersaanvragen en hoe het werkt, [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](../active-directory-saas-app-provisioning.md).
+In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van automatische account gebruikersaanvragen en de inrichting voor toepassingen die deze, met name lijsten die zijn toegevoegd uit de categorie 'aanbevolen' van de ondersteunen[ Azure Active Directory-toepassingsgalerie](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over automatische account gebruikersaanvragen en hoe het werkt, [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Uw apps te zoeken in de portal
 Alle toepassingen die zijn geconfigureerd voor eenmalige aanmelding in een map met een directory-beheerder met behulp van de [Azure Active Directory-toepassingsgalerie](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), kan worden bekeken en beheerd in de [Azure-portal](https://portal.azure.com). De toepassingen vindt u in de **alle Services** &gt; **bedrijfstoepassingen** sectie van de portal. Zakelijke apps zijn apps die zijn geïmplementeerd en worden gebruikt binnen uw organisatie.
@@ -39,7 +39,7 @@ Instellingen voor het inrichten gebruikersaccount kan worden beheerd door te sel
 ## <a name="provisioning-modes"></a>Inrichting modi
 De **inrichten** deelvenster begint met een **modus** menu ziet u welke inrichting modi worden ondersteund voor een zakelijke toepassing en kan ze worden geconfigureerd. De beschikbare opties zijn onder andere:
 
-* **Automatische** -deze optie wordt weergegeven als Azure AD ondersteunt automatische inrichting op basis van een API en/of de inrichting van gebruikersaccounts aan deze toepassing. Als u deze modus wordt weergegeven een interface waarmee beheerders via Azure AD verbinding maken met de toepassing Gebruikersbeheer API configureren, Accounttoewijzingen en werkstromen die definiëren hoe de gegevens van gebruikersaccounts moeten stromen tussen Azure AD maken en de app en het beheren van de Azure AD-service inricht.
+* **Automatische** -deze optie wordt weergegeven als Azure AD ondersteunt automatische inrichting op basis van een API en/of de inrichting van gebruikersaccounts aan deze toepassing. Als u deze modus wordt weergegeven een interface waarmee beheerders via Azure AD verbinding maken met de toepassing Gebruikersbeheer API configureren, Accounttoewijzingen en werkstromen die definiëren hoe de gegevens van gebruikersaccounts moeten stromen tussen Azure AD maken en de App en het beheren van de Azure AD-service inricht.
 * **Handmatige** -deze optie wordt weergegeven als Azure AD biedt geen ondersteuning voor automatische inrichting van gebruikersaccounts aan deze toepassing. Deze optie betekent dat account gebruikersrecords opgeslagen in de toepassing moeten worden beheerd met behulp van een extern proces, op basis van de gebruiker beheer en inrichting mogelijkheden van die toepassing (met inbegrip van SAML-compileerprogramma inrichting).
 
 ## <a name="configuring-automatic-user-account-provisioning"></a>Configuratie van automatische gebruikers account inrichten
@@ -70,7 +70,7 @@ Als inrichting wordt ingeschakeld voor het eerst uitvoert voor een toepassing, s
 
 Wijzigen van de **inrichting Status** naar **uit** gewoon de inrichting-service wordt onderbroken. In deze status Azure niet maken, bijwerken of verwijderen van een gebruiker of groepsobjecten worden weergegeven in de app. Wijzigen van de status tot on zorgt ervoor dat de service om op te halen waarop dit werd afgebroken.
 
-Selecteren van de **huidige status wissen en opnieuw starten van synchronisatie** checkbox en opslaan de inrichting-service gestopt, dumpbestanden gegevens over welke Azure AD-accounts in de cache wordt beheerd, de services opnieuw gestart en de initiële synchronisatie opnieuw wordt uitgevoerd. Deze optie kan beheerders het inrichtingsproces voor de implementatie opnieuw starten.
+Als u de **huidige status wissen en opnieuw starten van synchronisatie** checkbox en slaan de inrichting-service gestopt, dumpbestanden gegevens over welke Azure AD-accounts in de cache wordt beheerd door de services opnieuw gestart en voert de eerste synchronisatie opnieuw. Deze optie kan beheerders het inrichtingsproces voor de implementatie opnieuw starten.
 
 ### <a name="synchronization-details"></a>Synchronisatiedetails
 Deze sectie bevat aanvullende informatie over de werking van de inrichting service, inclusief de eerste en laatste keer dat de inrichting-service wordt uitgevoerd op de toepassing en hoeveel gebruikers en groepsobjecten worden beheerd.

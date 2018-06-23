@@ -2,13 +2,13 @@ U kunt gemakkelijk [automatisch schalen](../articles/monitoring-and-diagnostics/
 
 ## <a name="horizontal-or-vertical-scaling"></a>Horizontale of verticale schalen
 
-De functie voor automatisch schalen van Azure Monitor alleen schaalt horizontaal, die een stijging ('uit') of te verlagen ('in') van het aantal virtuele machines. Horizontaal schalen biedt meer flexibiliteit in een situatie met een cloud omdat deze kunt u mogelijk duizenden virtuele machines om belasting te verwerken uitvoeren. U horizontaal schalen door automatisch of handmatig wijzigen van de capaciteit (of het aantal exemplaren) van de de schaalaanpassingsset. 
+De functie voor automatisch schalen van Azure Monitor alleen schaalt horizontaal, die een stijging ('uit') of te verlagen ('in') van het aantal virtuele machines. Horizontaal schalen biedt meer flexibiliteit in een situatie met een cloud omdat deze kunt u mogelijk duizenden virtuele machines om belasting te verwerken uitvoeren. U schalen horizontaal door automatisch of handmatig wijzigen van de capaciteit (of het aantal exemplaren) van de schaal is ingesteld. 
 
 Verticale schaling blijft hetzelfde aantal virtuele machines, maar de virtuele machines maakt ('actief') meer of minder ('omlaag') krachtige. Power wordt gemeten in kenmerken, zoals geheugen, CPU-snelheid of schijfruimte. Verticale schaling is afhankelijk van de beschikbaarheid van grotere hardware, waarbij snel een bovenlimiet treffers en kan verschillen per regio. Verticale schaling, moet ook meestal een virtuele machine stoppen en opnieuw starten. U schalen verticaal door het instellen van een nieuwe grootte in de configuratie van de virtuele machines in de schaalset.
 
 Met behulp van runbooks in [Azure Automation](../articles/automation/automation-intro.md), kunt u gemakkelijk [schalen van virtuele machines in een set scale](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) omhoog of omlaag.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Maken van een virtuele-machineschaalset
+## <a name="create-a-virtual-machine-scale-set"></a>Een virtuele-machineschaalset maken
 
 -Schaalsets kunnen gemakkelijk te implementeren en beheren van identieke virtuele machines als een set. U kunt Linux maken of schaal voor Windows wilt instellen met de [Azure-portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), of de [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). U kunt ook maken en beheren-schaalsets met SDK's, zoals [Python](/develop/python) of [Node.js](/nodejs/azure), of rechtstreeks met de [REST-API's](/rest/api/compute/virtualmachinescalesets). Automatische schaling van virtuele machines wordt gerealiseerd door het toepassen van regels en metrische gegevens aan de schaalaanpassingsset.
 
@@ -18,9 +18,9 @@ Automatische schaling, biedt het juiste aantal virtuele machines voor het afhand
 
 U kunt automatisch schalen inschakelen bij het maken van de schaal instelt met behulp van [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) of [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). U kunt deze ook inschakelen nadat de schaalaanpassingsset is gemaakt. Maken van een schaalset, de uitbreiding te installeren en configureren voor automatisch schalen met behulp van een [Azure Resource Manager-sjabloon](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Inschakelen van de Azure-Monitor voor automatisch schalen in de Azure portal of automatisch schalen van de set schaalinstellingen inschakelen.
 
-![Schakel automatisch schalen](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
+![Automatisch schalen inschakelen](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>Metrische gegevens
+### <a name="metrics"></a>Waarden
 
 De functie voor automatisch schalen van Azure Monitor kunt u het aantal virtuele machines met omhoog schalen of omlaag gaat op basis van [metrische gegevens](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Standaard voorzien VM's basismetrieken hostniveau schijf-, netwerk- en CPU-gebruik. Wanneer u het verzamelen van diagnostische gegevens met de extensie voor diagnostische configureert, worden extra Gast OS-prestatiemeteritems beschikbaar voor de schijf, CPU en geheugen.
 

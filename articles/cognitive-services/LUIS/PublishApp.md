@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 056608e7843c8feab28359de5f2762164287f09d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 12a63e65a739be08d436f8f1b53df566255b1fb1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35345976"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36322056"
 ---
 # <a name="publish-your-trained-app"></a>Uw getraind app publiceren
 Wanneer u klaar bent met het maken en testen van uw app LUIS publiceren. Nadat de app is gepubliceerd, ziet u de pagina publiceren alle bijbehorende HTTP [eindpunten](luis-glossary.md#endpoint). Deze eindpunten per [regio](luis-reference-regions.md) en per [sleutel](Manage-Keys.md), vervolgens zijn geïntegreerd in elke client, chatbot of back-end-toepassing. 
 
-U kunt altijd [testen](train-test.md) uw app voordat het wordt gepubliceerd. 
+U kunt altijd [testen](interactive-test.md) uw app voordat het wordt gepubliceerd. 
 
 ## <a name="production-and-staging-slots"></a>Productie- en staging-sleuven
 U kunt uw app publiceren de **Staging-sleuf** of de **productiesite**. Met behulp van twee publishing sleuven kunt hiermee u twee verschillende versies met de gepubliceerde eindpunten of dezelfde versie hebben op twee verschillende eindpunten. 
@@ -138,12 +138,12 @@ De volgende parameters voor query-tekenreeks kunnen worden gebruikt met de eindp
 
 |Querytekenreeks|Type|Voorbeeldwaarde|Doel|
 |--|--|--|--|
-|Uitgebreide|booleaans|true|Omvatten [alle opzet scores](#include-all-predicted-intent-scores) voor utterance|
-|van timezoneoffset is|nummer (eenheid is minuten)|60|Stel [tijdzone offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) voor [datetimeV2 vooraf gemaakte entiteiten](luis-reference-prebuilt-entities.md#builtindatetimev2)|
+|uitgebreide|booleaans|true|Omvatten [alle opzet scores](#include-all-predicted-intent-scores) voor utterance|
+|van timezoneoffset is|nummer (eenheid is minuten)|60|Stel [tijdzone offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) voor [datetimeV2 vooraf gemaakte entiteiten](luis-reference-prebuilt-datetimev2.md)|
 |Spellingcontrole|booleaans|true|[spelling corrigeren](#enable-bing-spell-checker) van utterance--gebruikt in combinatie met bing-spellen-controle-subscription-key querytekenreeksparameter|
-|Bing-spellen-controle-subscription-key|Abonnements-ID||gebruikt in combinatie met spellingcontrole queryreeksparameter opgeven|
+|Bing-spellen-controle-subscription-key|abonnements-ID||gebruikt in combinatie met spellingcontrole queryreeksparameter opgeven|
 |Fasering|booleaans|false|Selecteer staging- of -eindpunt|
-|Logboek|booleaans|true|toevoegen van query's en resultaten aan te melden|
+|logboek|booleaans|true|toevoegen van query's en resultaten aan te melden|
 
 
 ## <a name="test-your-published-endpoint-in-a-browser"></a>Testen van uw gepubliceerde eindpunt in een browser
@@ -154,4 +154,4 @@ Test uw gepubliceerde eindpunt door te selecteren van de URL in de **eindpunt** 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie [sleutels beheren](./Manage-Keys.md) sleutels toevoegen aan uw app LUIS en meer informatie over hoe sleutels worden toegewezen aan de regio's.
-* Zie [Train en uw app testen](Train-Test.md) voor instructies voor het testen van uw gepubliceerde app in de test-console.
+* Zie [Train en uw app testen](interactive-test.md) voor instructies voor het testen van uw gepubliceerde app in de test-console.

@@ -3,7 +3,7 @@ title: Inrichting van apps in Azure Active Directory met behulp van SCIM automat
 description: Azure Active Directory kunnen automatisch worden ingericht, gebruikers en groepen naar een toepassing of identiteit store die door een webservice is fronted met de interface die is gedefinieerd in de specificatie SCIM protocol
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: asmalser
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 2bbea8f082e482ec5f5a08ce9978940e05c2325b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 40fa7959fc27692489a6317df0eddb9208c57bd6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303468"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337966"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Systeem voor verschillende domeinen Identity Management (SCIM) gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory voor toepassingen
 
@@ -361,11 +361,11 @@ Groep resources worden geïdentificeerd door de schema-id en http://schemas.micr
 | mailNickname |externalId |
 | beheerder |beheerder |
 | mobiele |phoneNumbers type eq 'mobiel'.value |
-| object-id |Id |
+| object-id |ID |
 | Postcode |adressen type eq 'werk'.postalCode |
 | proxy-adressen |e-mailberichten [Geef eq 'andere']. Waarde |
 | physical-Delivery-OfficeName |adressen [Geef eq 'andere']. Indeling |
-| StreetAddress |adressen type eq 'werk'.streetAddress |
+| streetAddress |adressen type eq 'werk'.streetAddress |
 | Achternaam |name.familyName |
 | Telefoonnummer |phoneNumbers type eq 'werk'.value |
 | user-PrincipalName |Gebruikersnaam |
@@ -377,7 +377,7 @@ Groep resources worden geïdentificeerd door de schema-id en http://schemas.micr
 | mail |e-mailberichten type eq 'werk'.value |
 | mailNickname |displayName |
 | leden |leden |
-| object-id |Id |
+| object-id |ID |
 | proxyAddresses |e-mailberichten [Geef eq 'andere']. Waarde |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Gebruikers inrichten en de inrichting
@@ -697,7 +697,7 @@ De volgende afbeelding ziet u de berichten dat Azure AcD naar een service SCIM v
 * [Expressies voor kenmerktoewijzingen schrijven](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Bereikfilters voor gebruikers inrichten](../active-directory-saas-scoping-filters.md)
 * [Meldingen inrichten van een account](../active-directory-saas-app-provisioning.md)
-* [Lijst met zelfstudies over het integreren van SaaS-Apps](../active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

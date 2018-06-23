@@ -11,21 +11,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/19/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfcab5a84d9e8b0bf164c666162636ede2e1b06f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 18b6aaf7396c16714370435d2ee6d3a4960ecf21
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763779"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337973"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Overzicht van de SAP HANA (grote exemplaren) en architectuur op Azure
 
 ## <a name="what-is-sap-hana-on-azure-large-instances"></a>Wat is een SAP HANA in Azure (grote exemplaren)?
 
-SAP HANA in Azure (grote exemplaren) is een unieke oplossing naar Azure. Naast het leveren van virtuele machines voor het implementeren en uitvoeren van SAP HANA, biedt Azure u de mogelijkheid om te worden uitgevoerd en SAP HANA implementeren op bare metal-servers die aan u zijn toegewezen. De SAP HANA in Azure (grote exemplaren)-oplossing is gebaseerd op niet-gedeelde/hostserver bare-metal hardware die aan u is toegewezen. De serverhardware is ingesloten in grotere stempels die compute/server-, netwerk- en opslaginfrastructuur bevatten. Als een combinatie is afgestemd HANA center gegevensintegratie (TDI) gecertificeerd. SAP HANA in Azure (grote exemplaren) biedt een andere server SKU's of grootten. Eenheden kunnen 72 CPU's en 768 GB geheugen en Ga naar eenheden waarvoor 960 CPU's en 20 TB aan geheugen.
+SAP HANA in Azure (grote exemplaren) is een unieke oplossing naar Azure. Naast het leveren van virtuele machines voor het implementeren en uitvoeren van SAP HANA, biedt Azure u de mogelijkheid om te worden uitgevoerd en SAP HANA implementeren op bare metal-servers die aan u zijn toegewezen. De SAP HANA in Azure (grote exemplaren)-oplossing is gebaseerd op niet-gedeelde/hostserver bare-metal hardware die aan u is toegewezen. De serverhardware is ingesloten in grotere stempels die compute/server-, netwerk- en opslaginfrastructuur bevatten. Als een combinatie is afgestemd HANA center gegevensintegratie (TDI) gecertificeerd. SAP HANA in Azure (grote exemplaren) biedt een andere server SKU's of grootten. Eenheden 36 Intel CPU-kernen en 768 GB aan geheugen en gaat u naar maximaal eenheden die tot 480 Intel CPU-kernen hebben en maximaal 24 hebben TB aan geheugen.
 
 De klantisolatie binnen de infrastructuur stempel moet worden uitgevoerd in tenants, ziet dat:
 
@@ -80,9 +80,9 @@ Naast de certificering NetWeaver vereist SAP een speciale voor SAP HANA onderste
 
 De core SAP-notitie op NetWeaver en een zekere mate SAP HANA-certificaat is [SAP-notitie #1928533 – SAP-toepassingen in Azure: ondersteunde producten en typen van de virtuele machine van Azure](https://launchpad.support.sap.com/#/notes/1928533).
 
-De [SAP Opmerking #2316233 - SAP HANA op Microsoft Azure (grote exemplaren)](https://launchpad.support.sap.com/#/notes/2316233/E) is ook belangrijk. Deze heeft de oplossing in deze handleiding beschreven. Bovendien worden ondersteund voor SAP HANA uitvoering in het type GS5 VM van Azure. Informatie voor deze aanvraag is gepubliceerd op [de SAP-website](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+De certificeringsinstantie records voor SAP HANA op Azure (grote exemplaren) eenheden vindt u in de [SAP HANA gecertificeerd IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. 
 
-De SAP HANA in Azure (grote exemplaren)-oplossing in SAP-notitie #2316233 bedoelde biedt Microsoft en SAP-klanten de mogelijkheid voor het implementeren van grote SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA of andere werkbelastingen SAP HANA in Azure. De oplossing is gebaseerd op de SAP HANA gecertificeerde specifieke hardware stempel ([SAP HANA aangepast center gegevensintegratie – TDI](https://scn.sap.com/docs/DOC-63140)). Als u een oplossing voor SAP HANA TDI geconfigureerd uitvoert, worden alle SAP HANA-toepassingen (zoals SAP Business Suite van SAP HANA, SAP BW voor SAP HANA, S4/HANA en BW4/HANA) werkt op de hardware-infrastructuur.
+De SAP HANA op typen van Azure (grote exemplaren), waarnaar in SAP HANA gecertificeerd site IaaS-Platforms, biedt Microsoft en SAP-klanten de mogelijkheid voor het implementeren van grote SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA of andere werkbelastingen SAP HANA in Azure. De oplossing is gebaseerd op de SAP HANA gecertificeerde specifieke hardware stempel ([SAP HANA aangepast center gegevensintegratie – TDI](https://scn.sap.com/docs/DOC-63140)). Als u een oplossing voor SAP HANA TDI geconfigureerd uitvoert, worden alle SAP HANA-toepassingen (zoals SAP Business Suite van SAP HANA, SAP BW voor SAP HANA, S4/HANA en BW4/HANA) werkt op de hardware-infrastructuur.
 
 Vergeleken met de SAP HANA uitgevoerd in de virtuele machines, is deze oplossing een voordeel. Het biedt voor een veel grotere volumes van geheugen. Om deze oplossing, moet u inzicht in de volgende belangrijke aspecten:
 
@@ -132,7 +132,9 @@ Net als bij virtuele machines, wordt SAP HANA in Azure (grote exemplaren) aangeb
 
 Net zoals u tussen verschillende VM typen met Azure Virtual Machines kiezen kunt, kunt u kiezen uit verschillende SKU's van HANA grote instantie die speciaal voor de werkbelasting van de verschillende soorten SAP HANA geschikt zijn. SAP geldt geheugen processor socket-ratio's voor verschillende werkbelastingen op basis van de Intel processor generaties. De volgende tabel toont de SKU-typen die worden aangeboden.
 
-SAP HANA in Azure (grote exemplaren) is vanaf juli 2017 beschikbaar in verschillende configuraties in de Azure-regio's VS-West, VS-Oost, Australië-Oost, Australië-Zuidoost, West-Europa en van Noord-Europa.
+SAP HANA voor Azure (grote exemplaren)-service is beschikbaar in verschillende configuraties in de Azure-regio's VS-West, VS-Oost, Australië-Oost, Australië-Zuidoost, West-Europa, Noord-Europa, Japan-Oost en van Japan-West.
+
+[SAP HANA-SKU's van HANA grote exemplaren gecertificeerd](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) lijst zoals:
 
 | SAP-oplossing | CPU | Geheugen | Storage | Beschikbaarheid |
 | --- | --- | --- | --- | --- |
@@ -148,17 +150,31 @@ SAP HANA in Azure (grote exemplaren) is vanaf juli 2017 beschikbaar in verschill
 |---| SAP HANA op Azure S576m<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kernen en 576 CPU threads |  12.0 TB |  28 TB | Beschikbaar |
 |---| SAP HANA op Azure S768m<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kernen en 768 CPU threads |  16,0 TB |  36 TB | Beschikbaar |
 |---| SAP HANA op Azure S960m<br /> – 20 x Intel Xeon®-Processor E7 8890 v4<br /> 480 CPU-kernen en 960 CPU threads |  20,0 TB |  46 TB | Beschikbaar |
-| Geoptimaliseerd voor OLTP **TDIv5**: SAP Business Suite<br /> voor SAP HANA of S/4HANA (OLTP)<br /> algemene OLTP | SAP HANA op Azure S192xm<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kernen en 192 CPU threads |  6.0 TB |  16 TB | Beschikbaar |
-|---| SAP HANA op Azure S384xxm<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kernen en 384 CPU threads |  12.0 TB |  28 TB | Beschikbaar |
-|---| SAP HANA op Azure S576xm<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kernen en 576 CPU threads |  18,0 TB |  41 TB | Beschikbaar |
-|---| SAP HANA op Azure S768xm<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kernen en 768 CPU threads |  24.0 TB |  56 TB | Beschikbaar |
+
+
+SAP kan onder SAP HANA TDIv5, klantspecifieke sizing en tot de server-configuraties die niet zijn opgenomen leiden kunnen gecertificeerde klantspecifieke projecten:
+
+- [SAP HANA-gecertificeerde apparaten](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
+- [SAP HANA gecertificeerd IaaS-platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+
+In veel gevallen voert deze klantspecifieke serverconfiguraties meer geheugen dan de server eenheden gecertificeerd met SAP. Bij het werken met SAP, hoeft klanten de mogelijkheid SAP ondersteuning krijgen en certificeren voor hun klantspecifieke grootte server-configuraties. In Azure worden de volgende grote exemplaar HANA standaard SKU's beschikbaar zijn en in de Microsoft prijslijst voor dergelijke TDIv5 klantspecifieke sizing projecten.
+
+
+| Oorspronkelijke SKU die kan worden <br /> uitgebreid in het geheugen | CPU | Geheugen | Storage | Beschikbaarheid |
+| --- | --- | --- | --- | --- |
+| S192m kan worden uitgebreid naar | SAP HANA op Azure S192xm<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kernen en 192 CPU threads |  6.0 TB |  16 TB | Beschikbaar |
+| S384xm kan worden uitgebreid naar | SAP HANA op Azure S384xxm<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kernen en 384 CPU threads |  12.0 TB |  28 TB | Beschikbaar |
+| S576m kan worden uitgebreid naar | SAP HANA op Azure S576xm<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kernen en 576 CPU threads |  18,0 TB |  41 TB | Beschikbaar |
+| S768m kan worden uitgebreid naar | SAP HANA op Azure S768xm<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kernen en 768 CPU threads |  24.0 TB |  56 TB | Beschikbaar |
+
 - CPU-kernen = de som van de CPU-kernen niet-hyper-threaded van de som van de processors van de server-eenheid.
-- CPU-threads = de som van de compute-threads geleverd door hyper-threaded CPU-kernen van de som van de processors van de server-eenheid. Alle eenheden zijn standaard geconfigureerd voor gebruik van Hyper-Threading-technologie.
+- CPU-threads = de som van de compute-threads geleverd door hyper-threaded CPU-kernen van de som van de processors van de server-eenheid. De meeste eenheden zijn standaard geconfigureerd voor gebruik van Hyper-Threading-technologie.
+- Op basis van de leverancier aanbevelingen S768m, zijn S768xm en S960m niet geconfigureerd voor het gebruik van Hyper-Threading voor SAP HANA uitgevoerd.
 
 
 De specifieke configuraties gekozen zijn afhankelijk van de werkbelasting, CPU-bronnen en gewenste geheugen. Het is mogelijk voor OLTP-werkbelasting met de SKU's die zijn geoptimaliseerd voor de OLAP-werkbelasting. 
 
-De hardware voor de aanbiedingen zijn SAP HANA TDI gecertificeerd. Twee verschillende soorten hardware deelt de SKU's in:
+De basis voor de aanbiedingen, met uitzondering van eenheden klantspecifieke sizing projecten, hardware zijn gecertificeerd met een SAP HANA TDI. Twee verschillende soorten hardware deelt de SKU's in:
 
 - S72, S72m S144, S144m, S192, S192m en S192xm, die zijn aangeduid als 'Type ik klasse' van SKU's.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm en S960m die zijn aangeduid als de 'Typ II klasse' van SKU's.
@@ -296,7 +312,7 @@ Deze lijst samengevoegd naast de vereisten voor SAP HANA uitgevoerd op Azure (gr
    > Het besturingssysteem die is geleverd door Microsoft is niet geregistreerd bij SUSE. Dit is niet gekoppeld aan een exemplaar van het beheerprogramma voor abonnement.
 
 - SUSE Linux abonnement beheerprogramma geïmplementeerd in Azure op een virtuele machine. Dit hulpprogramma biedt de mogelijkheid voor SAP HANA in Azure (grote exemplaren) worden geregistreerd en respectievelijk bijgewerkt door SUSE. (Er is geen internettoegang binnen het datacenter grote exemplaar HANA.) 
-- Licenties voor Red Hat Enterprise Linux 6.7 of 7.2 voor SAP HANA.
+- Licenties voor Red Hat Enterprise Linux 6.7 of 7.x voor SAP HANA.
 
    > [!NOTE]
    > Het besturingssysteem die is geleverd door Microsoft is niet geregistreerd met Red Hat. Dit is niet gekoppeld aan een exemplaar van het Red Hat abonnement Manager.
@@ -347,7 +363,7 @@ Zie de volgende tabel in termen van de opslagtoewijzing van. De tabel bevat de r
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
 | S192 | 4.608 GB | 1.024 GB | 1.536 GB | 1.024 GB |
 | S192m | 11,520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
-| S192xm |  12.000 GB |  2.050 GB |  2.050 GB |  2.040 GB |
+| S192xm |  11,520 GB |  1.536 GB |  1.792 GB |  1.536 GB |
 | S384 | 11,520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
 | S384m | 12.000 GB | 2.050 GB | 2.050 GB | 2,040 GB |
 | S384xm | 16.000 GB | 2.050 GB | 2.050 GB | 2,040 GB |
@@ -384,7 +400,7 @@ Opslagruimte wordt gebruikt voor grote exemplaar HANA kan een transparante coder
 Met het Type klasse ik van SKU's, de LUN wordt opgeslagen op opstarten van het volume is versleuteld. Voor de klasse Type II van SKU's van HANA grote exemplaar moet u voor het versleutelen van het bestand Boot.ini LUN met OS-methoden. Voor meer informatie contact op met het beheer van de Service Microsoft-team.
 
 
-## <a name="networking"></a>Netwerken
+## <a name="networking"></a>Netwerk
 
 De architectuur van het netwerk van Azure services is een belangrijk onderdeel van de geslaagde implementatie van SAP-toepassingen op grote HANA-exemplaar. SAP HANA in implementaties van Azure (grote exemplaren) hebben doorgaans een groter SAP Liggend met verschillende andere SAP-oplossingen met verschillende grootten van databases, verbruik van CPU en geheugengebruik. Is het waarschijnlijk dat niet alle die SAP-systemen zijn gebaseerd op SAP HANA. Uw SAP-liggend is waarschijnlijk een hybride die gebruikmaakt van:
 
@@ -480,9 +496,7 @@ Voor een meer schaalbare netwerkarchitectuur:
 
 ![SAP toepassingslaag via meerdere virtuele netwerken implementeren](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-De afbeelding toont de toepassingslaag SAP of onderdelen, geïmplementeerd in meerdere virtuele netwerken. Deze configuratie geïntroduceerd onvermijdelijke latentie overhead die is opgetreden tijdens de communicatie tussen de toepassingen die worden gehost in deze virtuele netwerken. Standaard wordt het netwerkverkeer tussen virtuele machines zich in verschillende virtuele netwerken doorsturen via de enterprise-randrouters in deze configuratie. Sinds September 2016 kan deze routering worden geoptimaliseerd. 
-
-De manier te optimaliseren en de latentie in de communicatie tussen twee virtuele netwerken beperken is door de peering virtuele netwerken in dezelfde regio. Deze methode werkt ook als deze virtuele netwerken zich op verschillende abonnementen behoren. Met het virtuele netwerk peering, kunt de communicatie tussen VM's in twee verschillende virtuele netwerken de Azure-netwerk-backbone gebruiken om rechtstreeks met elkaar communiceren. Latentie toont alsof de virtuele machines zich in hetzelfde virtuele netwerk. Het verkeer die zijn gericht op IP-adresbereiken die zijn verbonden via de gateway virtuele Azure-netwerk doorgestuurd via de afzonderlijke virtuele netwerkgateway van het virtuele netwerk. 
+De afbeelding toont de toepassingslaag SAP of onderdelen, geïmplementeerd in meerdere virtuele netwerken. Deze configuratie geïntroduceerd onvermijdelijke latentie overhead die is opgetreden tijdens de communicatie tussen de toepassingen die worden gehost in deze virtuele netwerken. Standaard wordt het netwerkverkeer tussen virtuele machines zich in verschillende virtuele netwerken doorsturen via de enterprise-randrouters in deze configuratie. De manier te optimaliseren en de latentie in de communicatie tussen twee virtuele netwerken beperken is door de peering virtuele netwerken in dezelfde regio. Deze methode werkt ook als deze virtuele netwerken zich op verschillende abonnementen behoren. Met het virtuele netwerk peering, kunt de communicatie tussen VM's in twee verschillende virtuele netwerken de Azure-netwerk-backbone gebruiken om rechtstreeks met elkaar communiceren. Latentie toont alsof de virtuele machines zich in hetzelfde virtuele netwerk. Het verkeer die zijn gericht op IP-adresbereiken die zijn verbonden via de gateway virtuele Azure-netwerk doorgestuurd via de afzonderlijke virtuele netwerkgateway van het virtuele netwerk. 
 
 Zie voor meer informatie over het virtuele netwerk peering [virtuele netwerk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 

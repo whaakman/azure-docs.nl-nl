@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 780a7cb3035dbe19c45b5fe9c6dfae54fccafd03
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8b1fe447cb673b9bc1f4fe4e73f7412a21f701a5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293645"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330859"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Het toevoegen van een Event Hub gebeurtenisbron aan Time Series Insights-omgeving
 
@@ -26,6 +26,22 @@ Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die g
 - Een Event Hub maken. Zie voor meer informatie over Event Hubs [een Event Hubs-naamruimte en een event hub met de Azure portal maken](../event-hubs/event-hubs-create.md)
 - De Event Hub moet actieve bericht gebeurtenissen worden verzonden in hebben. Zie voor meer informatie [gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Een speciale klantengroep maken in de Event Hub voor de omgeving Time Series inzicht gebruiken uit. Elke keer reeks Insights gebeurtenisbron moet beschikken over een eigen speciale klantengroep die niet wordt gedeeld met andere consumenten. Als meerdere lezers gebeurtenissen van de dezelfde consumergroep gebruiken, zijn alle lezers waarschijnlijk fouten. Houd er rekening mee dat er ook een limiet van 20 consumergroepen per Event Hub is. Zie voor meer informatie de [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md).
+
+### <a name="add-a-consumer-group-to-your-event-hub"></a>Een consumergroep toevoegen aan uw Event Hub
+Consumer-groepen worden gebruikt door toepassingen voor het ophalen van gegevens uit Azure Event Hubs. Geef een speciale klantengroep voor gebruik door deze Time Series Insights omgeving alleen betrouwbare manier om gegevens te lezen van uw Event Hub.
+
+Als u wilt een nieuwe consumergroep toevoegen aan uw Event Hub, de volgende stappen uit:
+1. Zoek in de Azure-portal en open uw Event Hub.
+
+2. Onder de **entiteiten** kop, selecteer **consumergroepen**.
+
+   ![Event Hub - een consumergroep toevoegen](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+
+3. Selecteer **+ Consumergroep** toevoegen van een nieuwe consumergroep. 
+
+4. Op de **consumergroepen** pagina, geeft u een nieuwe unieke **naam**.  Deze dezelfde naam gebruiken bij het maken van een nieuwe gebeurtenisbron in de Time Series Insights-omgeving.
+
+5. Selecteer **maken** voor het maken van de nieuwe consumergroep.
 
 ## <a name="add-a-new-event-source"></a>Een nieuwe gebeurtenisbron toevoegen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -78,29 +94,14 @@ Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die g
    | Serialisatie-indeling voor gebeurtenissen | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
    | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de berichtindeling van de berichtgegevens in Event Hub worden verzonden. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
+10. Speciale TSI consumer naam van de groep die u hebt toegevoegd aan uw Event hub toevoegen.
 
-10. Selecteer **maken** om toe te voegen van de nieuwe gebeurtenisbron.
+11. Selecteer **maken** om toe te voegen van de nieuwe gebeurtenisbron.
    
    ![Klik op Maken](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
    Wanneer de gebeurtenisbron is gemaakt, begint Time Series Insights automatisch met het streamen van gegevens naar uw omgeving.
 
-
-### <a name="add-a-consumer-group-to-your-event-hub"></a>Een consumergroep toevoegen aan uw Event Hub
-Consumer-groepen worden gebruikt door toepassingen voor het ophalen van gegevens uit Azure Event Hubs. Geef een speciale klantengroep voor gebruik door deze Time Series Insights omgeving alleen betrouwbare manier om gegevens te lezen van uw Event Hub.
-
-Als u wilt een nieuwe consumergroep toevoegen aan uw Event Hub, de volgende stappen uit:
-1. Zoek in de Azure-portal en open uw Event Hub.
-
-2. Onder de **entiteiten** kop, selecteer **consumergroepen**.
-
-   ![Event Hub - een consumergroep toevoegen](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
-
-3. Selecteer **+ Consumergroep** toevoegen van een nieuwe consumergroep. 
-
-4. Op de **consumergroepen** pagina, geeft u een nieuwe unieke **naam**.  Deze dezelfde naam gebruiken bij het maken van een nieuwe gebeurtenisbron in de Time Series Insights-omgeving.
-
-5. Selecteer **maken** voor het maken van de nieuwe consumergroep.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Definieer gegevenstoegangsbeleid](time-series-insights-data-access.md) om de gegevens te beveiligen.

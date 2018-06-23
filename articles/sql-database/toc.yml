@@ -98,22 +98,22 @@
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: Resources voor één database schalen
           href: sql-database-single-database-scale.md
-        - name: Elastische pools en gegroepeerde databases
-          items:
-            - name: Elastische pools en gegroepeerde databases
-              href: sql-database-elastic-pool.md
-            - name: Pools en gegroepeerde databases beheren
-              href: sql-database-elastic-pool-manage.md
-            - name: Op vCore gebaseerde resourcelimieten
-              href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: Op DTU gebaseerde resourcelimieten
-              href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: Resources voor elastische pools schalen
-          href: sql-database-elastic-pool-scale.md
         - name: Connectiviteitsarchitectuur
           href: sql-database-connectivity-architecture.md
         - name: T-SQL-verschillen
           href: sql-database-transact-sql-information.md
+    - name: Elastische pools en gegroepeerde databases
+      items:
+        - name: Elastische pools en gegroepeerde databases
+          href: sql-database-elastic-pool.md
+        - name: Pools en gegroepeerde databases beheren
+          href: sql-database-elastic-pool-manage.md
+        - name: Op vCore gebaseerde resourcelimieten
+          href: sql-database-vcore-resource-limits-elastic-pools.md
+        - name: Op DTU gebaseerde resourcelimieten
+          href: sql-database-dtu-resource-limits-elastic-pools.md
+        - name: Resources voor elastische pools schalen
+          href: sql-database-elastic-pool-scale.md
     - name: Beheerde exemplaren
       items:
         - name: Beheerde exemplaren

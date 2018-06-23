@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 44b34c20c8b21b58ef67beedc1074f0664048b90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212368"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Zelfstudie: Azure Active Directory-integratie met Manabi Pocket
 
@@ -101,35 +100,29 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Dialoogvenster voor eenmalige aanmelding](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. Op de **Manabi Pocket domein en de URL's** sectie, voert u de volgende stappen uit als u wilt configureren, de toepassing in **IDP** modus gestart:
+3. Op de **Manabi Pocket domein en de URL's** sectie, voert u de volgende stappen uit:
 
     ![URL's en Manabi Pocket domein eenmalige aanmelding informatie](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-    
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. In de **aanmeldings-URL** textbox, typ de URL: `https://ed-cl.com/`
+
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Manabi Pocket Client ondersteuningsteam](mailto:info-ed-cl@ntt.com) ophalen van deze waarden.
+    > De id-waarde is geen echte. Deze waarde door de werkelijke ID bijwerken. Neem contact op met [Manabi Pocket Client ondersteuningsteam](mailto:info-ed-cl@ntt.com) deze waarde op te halen.
 
-4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
-
-    ![URL's en Manabi Pocket domein eenmalige aanmelding informatie](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    In de **aanmeldings-URL** textbox, typ de URL: `https://ed-cl.com/`
-
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. Klik op **opslaan** knop.
+5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. Eenmalige aanmelding configureren op **Manabi Pocket** zijde, moet u de gedownloade verzenden **Metadata XML** naar [Manabi Pocket ondersteuningsteam](mailto:info-ed-cl@ntt.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+6. Eenmalige aanmelding configureren op **Manabi Pocket** zijde, moet u de gedownloade verzenden **Metadata XML** naar [Manabi Pocket ondersteuningsteam](mailto:info-ed-cl@ntt.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -196,7 +189,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
-    
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
@@ -222,4 +215,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

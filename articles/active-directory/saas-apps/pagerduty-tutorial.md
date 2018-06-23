@@ -8,19 +8,18 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 37409ee72591d943a834ff38f077a002a1724ab9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 18c3dbdcf85c5b06b4f0f20c85b9fe751a3719fe
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215389"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317979"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Zelfstudie: Azure Active Directory-integratie met PagerDuty
 
@@ -60,14 +59,14 @@ Voor het configureren van de integratie van PagerDuty in Azure AD, moet u PagerD
 
 **Als u wilt toevoegen PagerDuty uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram.
 
     ![De Azure Active Directory-knop][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
-    
+
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop Nieuw toepassing][3]
@@ -102,8 +101,8 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+1. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+
     ![Dialoogvenster voor eenmalige aanmelding](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
 3. Op de **PagerDuty domein en de URL's** sectie, voert u de volgende stappen uit:
@@ -114,12 +113,12 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<tenant-name>.pagerduty.com`
 
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [PagerDuty Client ondersteuningsteam](https://www.pagerduty.com/support/) ophalen van deze waarden. 
+    > [!NOTE]
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [PagerDuty Client ondersteuningsteam](https://www.pagerduty.com/support/) ophalen van deze waarden.
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 5. Klik op **opslaan** knop.
 
@@ -127,34 +126,33 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. Op de **PagerDuty configuratie** sectie, klikt u op **configureren PagerDuty** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out URL's en SAML Single Sign-On Service** van de **Naslaggids punt.**
 
-    ![PagerDuty configuratie](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+    ![PagerDuty configuratie](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
 7. In een ander browservenster, meld u bij uw bedrijf Pagerduty site als beheerder.
 
 8. Klik in het menu bovenaan op **Accountinstellingen**.
-   
+
     ![Instellingen account](./media/pagerduty-tutorial/ic778535.png "Accountinstellingen")
 
 9. Klik op **Single Sign-on**.
-   
+
     ![Eenmalige aanmelding](./media/pagerduty-tutorial/ic778536.png "eenmalige aanmelding")
 
 10. Op de **Schakel eenmalige aanmelding (SSO)** pagina, voert u de volgende stappen uit:
-   
+
     ![Eenmalige aanmelding inschakelen](./media/pagerduty-tutorial/ic778537.png "eenmalige aanmelding inschakelen")
-   
+
     a. Open uw base-64 gecodeerde certificaat gedownload vanuit Azure-portal in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **X.509-certificaat** tekstvak
   
     b. In de **aanmeldings-URL** textbox plakken **SAML Single Sign-On Service-URL** die u hebt gekopieerd vanuit Azure-portal.
   
     c. In de **afmelding URL** textbox plakken **Sign-Out URL** die u hebt gekopieerd vanuit Azure-portal.
- 
-    d. Selecteer **Single Sign-on inschakelen**.
- 
-    e. Klik op **wijzigingen opslaan**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    d. Selecteer **toestaan gebruikersnaam en wachtwoord aanmelden**.
+
+    e. Selecteer **EXACTE vereisen authentication context vergelijking** selectievakje.
+
+    f. Klik op **wijzigingen opslaan**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -262,8 +260,6 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/pagerduty-tutorial/tutorial_general_01.png
@@ -277,4 +273,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-

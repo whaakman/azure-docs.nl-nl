@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.openlocfilehash: 933a5c8a9cde9134071a12dd0aed684358cc8696
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: asteen
+ms.openlocfilehash: f318c53de073c8f1fa6c3ae11cb335a4a91e137d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292851"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334958"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Kerberos-beperkte overdracht configuraties voor toepassingsproxy oplossen
 
@@ -66,7 +66,7 @@ Wat er wordt een probleem KCD? Er zijn enkele algemene aanwijzingen waarvoor KCD
 
 Beide van deze installatiekopieën de dezelfde symptoom weergeven: fout van eenmalige aanmelding. Gebruikerstoegang tot de toepassing is geweigerd.
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Hoe u oplossen, is afhankelijk van het probleem en de problemen die u wilt zien. Voordat u een verder gaat, gebruik de volgende artikelen. Ze bieden nuttige probleemoplossingsinformatie:
 

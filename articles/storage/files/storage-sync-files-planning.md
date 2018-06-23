@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296174"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335836"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -145,6 +145,9 @@ Voor Azure File-synchronisatie en DFS-R side-by-side werken:
 
 Zie voor meer informatie [DFS-replicatie-overzicht](https://technet.microsoft.com/library/jj127250).
 
+### <a name="sysprep"></a>Sysprep
+Met behulp van sysprep op een server die de Azure-bestand Sync-agent geïnstalleerd is, wordt niet ondersteund en kan leiden tot onverwachte resultaten. Agentregistratie installatie en server moet worden uitgevoerd na de implementatie van de serverinstallatiekopie en sysprep mini-installatie te voltooien.
+
 ### <a name="windows-search"></a>Windows Search
 Als cloud tiering is ingeschakeld op een servereindpunt, bestanden die zijn genoeg worden overgeslagen en niet zijn geïndexeerd door Windows Search. Bestanden lagen niet juist geïndexeerd.
 
@@ -182,25 +185,25 @@ In het algemeen ondersteunen Azure bestand Sync interoperabiliteit met coderings
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andere oplossingen voor beheer van hiërarchische Storage (HSM)
 Er zijn geen andere HSM-oplossingen moeten worden gebruikt met het synchroniseren van Azure-bestand.
 
-## <a name="region-availability"></a>Beschikbaarheid in regio’s
+## <a name="region-availability"></a>Beschikbaarheid voor de regio
 Azure File-synchronisatie is alleen beschikbaar in de volgende regio's Preview-versie:
 
-| Regio | Datacenter-locatie |
+| Gebied | Datacenter-locatie |
 |--------|---------------------|
-| Australië - oost | New South Wales |
-| Australië - zuidoost | Victoria |
-| Canada - midden | Toronto |
-| Canada - oost | Quebec (stad) |
-| VS - midden | Iowa |
-| Oost-Azië | Hongkong |
-| VS - oost | Virginia |
+| Australië - Oost | New South Wales |
+| Australië - Zuidoost | Victoria |
+| Canada Centraal | Toronto |
+| Canada Oost | Quebec (stad) |
+| Centrale VS | Iowa |
+| Azië - oost | Hongkong |
+| Oostelijke VS | Virginia |
 | Oost-US2 | Virginia |
-| Noord-Europa | Ierland |
+| Europa - noord | Ierland |
 | Zuidoost-Azië | Singapore |
-| Verenigd Koninkrijk Zuid | Londen |
-| Verenigd Koninkrijk West | Cardiff |
-| West-Europa | Nederland |
-| VS - west | Californië |
+| VK Zuid | Londen |
+| VK West | Cardiff |
+| Europa - west | Nederland |
+| VS - westen | California |
 
 Wij ondersteunen alleen met een Azure-bestandsshare die zich in dezelfde regio bevinden als de Storage-Sync-Service synchroniseren in preview.
 

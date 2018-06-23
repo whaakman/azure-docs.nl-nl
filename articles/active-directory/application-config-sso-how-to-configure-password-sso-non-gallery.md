@@ -3,22 +3,23 @@ title: Het configureren van wachtwoord eenmalige aanmelding voor een niet-galeri
 description: Het configureren van een aangepaste niet-galerie-toepassing voor beveiligde op basis van wachtwoorden eenmalige aanmelding wanneer deze niet wordt weergegeven in de Azure AD-Toepassingsgalerie
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: afa976d94b77a98e4c8678310bb80d81b74e54f6
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: 9fe7e3b3dc6ec0e67e5b4e3ca5a4b83ba4d76fde
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069805"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334238"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor de toepassing van een niet-galerie
 

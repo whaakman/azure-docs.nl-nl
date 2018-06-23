@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2c2813a7f2d909a23c8f5d4f5ac0280b3f932ba6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 9fc58d971db18db63e4dc76123ff1311b77e0191
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "34700121"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316430"
 ---
 # <a name="azure-stack-1804-update"></a>Azure-Stack 1804 update
 
@@ -89,7 +89,9 @@ De volgende zijn nu beschikbaar, maar geen Azure-Stack update 1804 vereist.
 
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
-*Er zijn geen stappen na-update voor de update 1804.*
+Na de installatie van 1804 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).  
+ - [KB 4341392 - Stack van Azure Hotfix 1.0.180523.11](https://support.microsoft.com/en-us/help/4341392).
+
 
 
 

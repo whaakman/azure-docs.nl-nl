@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 3f49e4ac0073c81a6e55e6653acc7c6531989379
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ea7aa6c9dbde9a161567a815870b05da06cc82c8
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212237"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331708"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Groepsbeleid voor een Azure AD Domain Services beheerd domein beheren
 Azure Active Directory Domain Services omvat ingebouwde groepsbeleidsobjecten (GPO's) voor de containers 'AADDC gebruikers' en 'AADDC Computers'. U kunt deze ingebouwde groepsbeleidsobjecten om Groepsbeleid te configureren op het beheerde domein. Leden van de groep 'AAD DC Administrators' kunnen bovendien hun eigen aangepaste OE's maken in het beheerde domein. Ze kunnen ook aangepaste GPO's maken en deze koppelen aan deze aangepaste organisatie-eenheden. Gebruikers die deel uitmaken van de groep 'AAD DC-beheerders' krijgen beheerprivileges heeft Groepsbeleid op het beheerde domein.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:

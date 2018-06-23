@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4be591a15c7ba2c6deaa17f1847233f409179472
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e80c69657dfb7cbab7d29c94d3dd3c56574de7b7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "35349977"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321993"
 ---
 # <a name="speech-service-rest-apis"></a>Spraak service REST-API 's
 
@@ -31,11 +31,14 @@ Oost-Azië| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conver
 Noord-Europa| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
-> Als u de akoestisch model of taalmodel of uitspraak hebt aangepast, kunt u uw aangepaste eindpunt gebruiken.
+> U moet toevoegen aan de gewenste taal in de URI om te voorkomen dat een 401 http-fout. Dus voor en-US moet de juiste URI zou zijn: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 
 De spraak tekst API anders is vergelijkbaar met de [REST-API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) voor de vorige Speech-API.
 
 De spraak tekst REST-API ondersteunt alleen korte utterances. Aanvragen kunnen maximaal 10 seconden audio bevatten en een maximum van 14 seconden algehele laatste. De REST-API retourneert alleen de laatste resultaten niet geheel of gedeeltelijk tussentijdse resultaten.
+
+> [!NOTE]
+> Als u de akoestisch model of taalmodel of uitspraak hebt aangepast, kunt u uw aangepaste eindpunt gebruiken.
 
 ## <a name="text-to-speech"></a>Tekst naar spraak
 
@@ -143,7 +146,7 @@ De C#-klasse hieronder ziet u het verkrijgen van een toegangstoken. Uw spraak se
     public class Authentication
     {
         public static readonly string FetchTokenUri =
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
 
@@ -164,7 +167,6 @@ De C#-klasse hieronder ziet u het verkrijgen van een toegangstoken. Uw spraak se
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -210,7 +212,7 @@ Als voorheen, zorg ervoor dat de `FetchTokenUri` waarde komt overeen met de regi
     public class Authentication
     {
         public static readonly string FetchTokenUri = 
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
         private Timer accessTokenRenewer;
@@ -270,7 +272,6 @@ Als voorheen, zorg ervoor dat de `FetchTokenUri` waarde komt overeen met de regi
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -279,3 +280,8 @@ Als voorheen, zorg ervoor dat de `FetchTokenUri` waarde komt overeen met de regi
         }
     }
 ```
+
+## <a name="next-steps"></a>Volgende stappen
+
+* [Uw proefabonnement spraak ophalen](https://azure.microsoft.com/try/cognitive-services/)
+* [Informatie over het aanpassen van een model spraak](how-to-customize-speech-models.md)

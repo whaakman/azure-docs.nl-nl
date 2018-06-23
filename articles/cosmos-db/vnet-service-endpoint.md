@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 76387733b1511593280f4a9439f5ddbf12d60975
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301999"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333909"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Veilige toegang tot een Cosmos-DB Azure-account met behulp van Azure Virtual Network service-eindpunt
 
@@ -80,7 +80,7 @@ Nadat u Azure Virtual Network service-eindpunten zijn ingeschakeld voor het acco
 
 Als uw Azure DB die Cosmos-account wordt gebruikt door andere Azure-services zoals Azure Search of toegankelijk is vanuit de Stream analytics of Power BI, u toegang toestaan door het controleren van **toegang tot Azure-Services toestaan**.
 
-Om te controleren of u toegang hebt tot Azure Cosmos DB metrische gegevens vanuit de portal, moet u inschakelen **toegang tot Azure-portal** opties. Zie voor meer informatie over deze opties, [verbindingen van Azure-portal](firewall-support.md#connections-from-the-azure-portal) en [verbindingen van Azure PaaS services](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services) secties. Na het selecteren van toegang, selecteer **opslaan** de instellingen op te slaan.
+Om te controleren of u toegang hebt tot Azure Cosmos DB metrische gegevens vanuit de portal, moet u inschakelen **toegang tot Azure-portal** opties. Zie voor meer informatie over deze opties, [verbindingen van Azure-portal](firewall-support.md#connections-from-the-azure-portal) en [verbindingen van Azure PaaS services](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services) secties. Na het selecteren van toegang, selecteer **opslaan** de instellingen op te slaan.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Een virtueel netwerk of subnet verwijderen 
 
@@ -145,11 +145,20 @@ Gebruik de volgende stappen uit op een Cosmos-DB Azure-account het Service-eindp
 
    ```powershell
    $locations = @(@{})
+
+   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+
+   $locations = @(@{"locationName"="<Write location>"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="<Read location>"; 
+                  "failoverPriority"=1}) #>
+
    $consistencyPolicy = @{}
    $cosmosDBProperties = @{}
 
    $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
    $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
+
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True

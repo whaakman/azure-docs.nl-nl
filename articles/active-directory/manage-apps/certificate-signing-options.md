@@ -3,7 +3,7 @@ title: Geavanceerde opties in het SAML-token voor vooraf geïntegreerde apps in 
 description: Informatie over het gebruik van geavanceerde opties in het SAML-token voor vooraf geïntegreerde apps in Azure Active Directory voor Certificaatondertekening
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: barbkess
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
-ms.author: jeedes
+ms.author: barbkess
+ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 16cb3e034bd928bbae8ae1f2e8d6b94b9ec699e4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 77cf2b1fb6eb4f67c0d6595e244bb317b5e68462
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303420"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332930"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Geavanceerde opties in het SAML-token voor galerie apps in Azure Active Directory voor Certificaatondertekening
 Azure Active Directory (Azure AD) ondersteunt vandaag duizenden vooraf geïntegreerde toepassingen in de App-galerie van Azure Active Directory. Dit aantal bevat meer dan 500 toepassingen die ondersteuning bieden voor eenmalige aanmelding met behulp van het SAML 2.0-protocol. Als een gebruiker zich bij een toepassing via Azure AD verifieert via SAML, verzendt Azure AD een token naar de toepassing (via een HTTP POST). De toepassing wordt vervolgens valideert en gebruikt het token aan te melden als de gebruiker in plaats van naar een gebruikersnaam en wachtwoord wordt gevraagd. Deze SAML-tokens worden ondertekend met de unieke certificaat dat gegenereerd in Azure AD en door specifieke standaard algoritmen.

@@ -1,93 +1,57 @@
 ---
-title: Een schijf toevoegen aan de Linux-VM met de Azure CLI | Microsoft Docs
-description: Meer informatie over een permanente schijf toevoegen aan uw Linux-VM met de Azure CLI 1.0 en 2.0.
-keywords: virtuele Linux-machine, resource-schijf toevoegen
+title: Een gegevensschijf toevoegen voor Linux-VM met de Azure CLI | Microsoft Docs
+description: Meer informatie over een permanente gegevensschijf toevoegen aan uw Linux-VM met de Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/02/2017
-ms.author: rclaus
+ms.date: 06/13/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30837003"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331220"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Een schijf toevoegen aan een virtuele Linux-machine
 In dit artikel laat zien hoe een permanente schijf koppelen met uw virtuele machine zodat u kunt uw gegevens - zelfs als uw virtuele machine is ingericht vanwege onderhoud vergroten of verkleinen. 
 
 
-## <a name="use-managed-disks"></a>Gebruik de schijven van de beheerde
-Met Azure Managed Disks wordt het beheren van schrijven voor virtuele Azure-machines eenvoudiger. Hierbij worden namelijk de opslagaccounts die zijn gekoppeld aan de VM-schijven beheerd. U hoeft alleen het type (Premium of Standard) en de grootte op te geven van de schijf die u nodig hebt. Azure maakt en beheert de schijf dan voor u. Zie voor meer informatie [schijven beheerd overzicht](managed-disks-overview.md).
+## <a name="attach-a-new-disk-to-a-vm"></a>Een nieuwe schijf koppelen aan een virtuele machine
 
-
-### <a name="attach-a-new-disk-to-a-vm"></a>Een nieuwe schijf koppelen aan een virtuele machine
-Als u alleen een nieuwe schijf nodig op de virtuele machine, gebruikt u de [az vm schijf koppelen](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) opdracht met de `--new` parameter. Als uw virtuele machine zich in een Zone beschikbaarheid, wordt de schijf automatisch gemaakt in dezelfde regio bevindt als de virtuele machine. Zie voor meer informatie [overzicht van de Zones van de beschikbaarheid](../../availability-zones/az-overview.md). Het volgende voorbeeld wordt een schijf met de naam *myDataDisk* die *50*Gb in grootte:
+Als u een nieuwe, lege gegevensschijf toevoegen op de virtuele machine wilt, gebruikt u de [az vm schijf koppelen](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) opdracht met de `--new` parameter. Als uw virtuele machine zich in een Zone beschikbaarheid, wordt de schijf automatisch gemaakt in dezelfde regio bevindt als de virtuele machine. Zie voor meer informatie [overzicht van de Zones van de beschikbaarheid](../../availability-zones/az-overview.md). Het volgende voorbeeld wordt een schijf met de naam *myDataDisk* is 50 Gb:
 
 ```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
+az vm disk attach \
+   -g myResourceGroup \
+   --vm-name myVM \
+   --disk myDataDisk \
+   --new \
+   --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a>Een bestaande schijf koppelen 
-In veel gevallen. u koppelt schijven die al zijn gemaakt. De schijf-ID vinden voor een bestaande schijf koppelen, en de ID op te geven de [az vm schijf koppelen](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) opdracht. De volgende voorbeeldquery's voor een schijf met de naam *myDataDisk* in *myResourceGroup*, koppelt u deze vervolgens aan met de virtuele machine met de naam *myVM*:
+## <a name="attach-an-existing-disk"></a>Een bestaande schijf koppelen 
+
+De schijf-ID vinden voor een bestaande schijf koppelen, en de ID op te geven de [az vm schijf koppelen](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) opdracht. De volgende voorbeeldquery's voor een schijf met de naam *myDataDisk* in *myResourceGroup*, koppelt u deze vervolgens aan met de virtuele machine met de naam *myVM*:
 
 ```azurecli
-# find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
-```
-
-De uitvoer ziet er ongeveer als volgt (u kunt de `-o table` optie als u wilt willekeurige opdracht van de uitvoer in opmaken):
-
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Empty",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 50,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
-  "location": "westus",
-  "name": "myDataDisk",
-  "osType": null,
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
-  "type": "Microsoft.Compute/disks"
-}
-```
-
-
-## <a name="use-unmanaged-disks"></a>Niet-beheerde schijven gebruiken
-Niet-beheerde schijven is extra overhead maken en beheren van de onderliggende storage-accounts vereist. Niet-beheerde schijven worden gemaakt in hetzelfde opslagaccount als de besturingssysteemschijf. Gebruik wilt maken en koppelen van een niet-beheerde schijf, de [zonder begeleiding az vm-schijf koppelen](/cli/azure/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach) opdracht. Het volgende voorbeeld wordt een *50*GB onbeheerde schijf naar de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*:
-
-```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
 ```
 
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Verbinding maken met de Linux-VM naar de nieuwe schijf koppelen
-Aan de partitie formatteren, en de nieuwe schijf koppelen zodat uw Linux-VM kan worden gebruikt, SSH in uw Azure-virtuele machine. Zie voor meer informatie [SSH gebruiken met Linux op Azure](mac-create-ssh-keys.md). Het volgende voorbeeld maakt verbinding met een virtuele machine met de openbare DNS-vermelding van *mypublicdns.westus.cloudapp.azure.com* met de gebruikersnaam *azureuser*: 
+Aan de partitie formatteren, en de nieuwe schijf koppelen zodat uw Linux-VM kan worden gebruikt, SSH in uw virtuele machine. Zie voor meer informatie [SSH gebruiken met Linux op Azure](mac-create-ssh-keys.md). Het volgende voorbeeld maakt verbinding met een virtuele machine met de openbare DNS-vermelding van *mypublicdns.westus.cloudapp.azure.com* met de gebruikersnaam *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -115,7 +79,7 @@ Hier *sdc* is de schijf die we willen. De schijf met partitioneren `fdisk`, een 
 sudo fdisk /dev/sdc
 ```
 
-De uitvoer lijkt op die in het volgende voorbeeld:
+Gebruik de `n` opdracht voor het toevoegen van een nieuwe partitie. In dit voorbeeld wordt er ook voor kiezen `p` voor een primaire partitie en de rest van de standaardwaarden accepteren. De uitvoer is vergelijkbaar met het volgende voorbeeld:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -137,7 +101,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-De partitie maken door te typen `p` bij de opdrachtprompt als volgt:
+De partitietabel afdrukken door te typen `p` en gebruik vervolgens `w` schrijven in de tabel schijf en af te sluiten. De uitvoer ziet er ongeveer als volgt uitzien:
 
 ```bash
 Command (m for help): p
@@ -225,7 +189,7 @@ Open vervolgens de */etc/fstab* bestand in een teksteditor als volgt:
 sudo vi /etc/fstab
 ```
 
-In dit voorbeeld gebruiken we de UUID-waarde voor de */dev/sdc1* apparaat dat is gemaakt in de vorige stappen en het koppelpunt van */datadrive*. Voeg de volgende regel toe aan het einde van de */etc/fstab* bestand:
+In dit voorbeeld gebruikt u de UUID-waarde voor de */dev/sdc1* apparaat dat is gemaakt in de vorige stappen en het koppelpunt van */datadrive*. Voeg de volgende regel toe aan het einde van de */etc/fstab* bestand:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
@@ -262,11 +226,10 @@ Er zijn twee manieren om in te schakelen TRIM ondersteunen in uw Linux-VM. Raadp
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Denk eraan dat de nieuwe schijf is niet beschikbaar voor de virtuele machine als deze opnieuw is opgestart tenzij u deze informatie om te schrijven uw [fstab](http://en.wikipedia.org/wiki/Fstab) bestand.
 * Bekijk uw Linux-VM juist is geconfigureerd, zodat de [optimaliseren van de prestaties van uw Linux-machine](optimization.md) aanbevelingen.
 * Uw opslagcapaciteit uitbreiden door extra schijven toe te voegen en [configureren RAID](configure-raid.md) voor extra prestaties.
 

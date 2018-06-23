@@ -11,13 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320756"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Toepassingen toegang geven tot bronnen van de Azure-Stack door het service-principals maken
 
@@ -93,54 +95,7 @@ Als u Azure-Stack AD FS gebruikt als de identity-archief hebt geïmplementeerd, 
 * Service-principal toewijzen aan een rol.
 * Meld u met de service-principal-identiteit.
 
-### <a name="before-you-begin"></a>Voordat u begint
-
-[Download de vereiste Azure Stack-hulpprogramma's op uw lokale computer.](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>De identiteit van PowerShell-module importeren
-
-Navigeer naar de downloadmap voor de Azure-Stack-hulpprogramma's en de identiteit van PowerShell-module importeren met behulp van de volgende opdracht:
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-Als u de Identity-module importeren, krijgt u mogelijk dit foutbericht wordt weergegeven: 'AzureStack.Connect.psm1 niet digitaal is ondertekend. Het script wordt niet uitgevoerd op het systeem'.
-
-U kunt dit probleem oplossen, moet u het uitvoeringsbeleid zodat het uitvoeren van het script configureren. Als u wilt het uitvoeringsbeleid instellen, voer de volgende opdracht in een PowerShell-sessie met verhoogde bevoegdheid:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>De service-principal maken
-
-U kunt een service-principal maken met de volgende opdracht om ervoor te zorgen voor het bijwerken van de **DisplayName** parameter:
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>Een rol toewijzen
-
-Nadat u de service-principal gemaakt, moet u [toewijzen aan een rol](azure-stack-create-service-principals.md#assign-role-to-service-principal).
-
-### <a name="sign-in-using-powershell"></a>Meld u aan met behulp van PowerShell
-
-U kunt zich aanmelden naar Azure-Stack door de volgende opdracht uit te voeren, om ervoor te zorgen om bij te werken de **EnvironmentName** parameter met de naam van uw app:
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+Zie voor meer informatie over het maken van de service-principal [service-principal maken voor AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>De service-principal toewijzen aan een rol
 

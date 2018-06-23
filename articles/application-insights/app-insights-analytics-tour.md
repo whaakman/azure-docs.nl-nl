@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 01a34eed3ea073deaaf449d28d7f8462f12b5a33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294306"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335278"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Een rondleiding van Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is de functie krachtige zoeken van [Application Insights](app-insights-overview.md). Deze pagina's worden de Log Analytics query language beschreven.
@@ -129,7 +129,7 @@ Een string-waarde converteren naar een geheel getal groter gebruiken-dan vergeli
 `resultCode` has type string, so we must cast it app-insights-analytics-reference.md#casts for a numeric comparison.
 --->
 
-## <a name="time"></a>Time
+## <a name="time"></a>Tijd
 
 Uw query's zijn standaard beperkt de laatste 24 uur. Maar u kunt dit bereik wijzigen:
 
@@ -180,7 +180,7 @@ Andere voorbeelden:
 
 
 ## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): selecteren en de namen van kolommen berekenen
-Gebruik [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) te pikken kolommen u wilt:
+Gebruik [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) te pikken kolommen u wilt:
 
 ```AIQL
 
@@ -203,7 +203,7 @@ U kunt ook wijzigen van kolommen en definiëren van nieuwe:
             ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
-![Resultaat](./media/app-insights-analytics-tour/270.png)
+![resultaat](./media/app-insights-analytics-tour/270.png)
 
 * Kolomnamen kunnen spaties bevatten of symbolen als ze zijn tussen zoals deze: `['...']` of `["..."]`
 * `%` is de gebruikelijke modulo operator.
@@ -433,7 +433,7 @@ Gebruik de bovenstaande query, maar vervang de laatste regel:
 
 We hebben ook de bovengrens verwijderd in de where-component, om op te halen van de juiste cijfers inclusief alle sessies met meer dan één verzoek:
 
-![Resultaat](./media/app-insights-analytics-tour/180.png)
+![resultaat](./media/app-insights-analytics-tour/180.png)
 
 Waaruit zien we dat:
 
@@ -458,7 +458,7 @@ Als u een afzonderlijke verdeling voor elk land, we zojuist hebben om de kolom c
 
 ![](./media/app-insights-analytics-tour/190.png)
 
-## <a name="join"></a>Koppelen
+## <a name="join"></a>Lid worden
 We hebben toegang tot verschillende tabellen, inclusief aanvragen en uitzonderingen.
 
 Als u de uitzonderingen die betrekking hebben op een aanvraag die is geretourneerd foutantwoord zoekt, kunnen we de tabellen samenvoegen op `session_Id`:
@@ -525,7 +525,7 @@ Gebruik *laten* voor het definiëren van een functie:
 ## <a name="accessing-nested-objects"></a>Het openen van geneste objecten
 Geneste objecten gemakkelijk toegankelijk. Bijvoorbeeld, in de stroom uitzonderingen ziet u gestructureerde objecten als volgt:
 
-![Resultaat](./media/app-insights-analytics-tour/520.png)
+![resultaat](./media/app-insights-analytics-tour/520.png)
 
 U kunt deze afvlakken door het kiezen van de eigenschappen die u geïnteresseerd bent in:
 

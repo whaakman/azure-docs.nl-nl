@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 06/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c4294947cba72b1638e77c2dd8de1f5ee37b62a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285983"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335751"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Status van de container Azure Kubernetes Service (AKS) (Preview)
 
@@ -37,7 +37,7 @@ Als u geïnteresseerd bent in controleren en beheren van de Docker- en Windows c
 ## <a name="requirements"></a>Vereisten 
 Lees voordat u begint, de volgende informatie zodat u in de ondersteunde vereisten inzicht.
 
-- De volgende versies van AKS cluster worden ondersteund: 1.7.7-1.9.6.
+- Een nieuwe of bestaande AKS-cluster
 - Een beperkte OMS-agent voor Linux-versie microsoft / oms:ciprod04202018 en hoger. Deze agent wordt automatisch geïnstalleerd tijdens de voorbereiding van de status van de container.  
 - Een Log Analytics-werkruimte.  Kan worden gemaakt wanneer u de bewaking van het nieuwe cluster AKS inschakelen of u via maken kunt [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), of vanuit de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md).
 - Lid van de rol Inzender van logboekanalyse om in te schakelen bewaking van de container.  Zie voor meer informatie over het beheren van toegang tot een werkruimte voor logboekanalyse [werkruimten beheren](../log-analytics/log-analytics-manage-access.md).
@@ -244,7 +244,7 @@ Als u Azure CLI gebruiken, moet u eerst installeren en gebruiken van CLI lokaal.
 Nadat de controle is ingeschakeld, kunnen duurt ongeveer 15 minuten voordat u kunt voor een overzicht van operationele gegevens voor het cluster.  
 
 ## <a name="verify-agent-deployed-successfully"></a>Controleer of de agent geïmplementeerd
-Om te controleren of de OMS-agent correct is geïmplementeerd, voer de volgende opdracht: ` kubectl get ds omsagent --namespace=kube-system`.
+Om te controleren of de OMS-agent correct is geïmplementeerd, voer de volgende opdracht: `kubectl get ds omsagent --namespace=kube-system`.
 
 De uitvoer moet eruitzien als de volgende aangeeft dat deze correct hebt geïmplementeerd:
 
@@ -304,7 +304,7 @@ De volgende tabel beschrijft de gegevens die zijn gepresenteerd wanneer u de Con
 | Opnieuw opstarten | Van het aantal van opnieuw opstarten van berekenen containers. |
 | Bedrijfstijd | Geeft de tijd sinds een container is gestart. |
 | Schil | Alleen voor containers. Er wordt weergegeven dat deze zich pods. |
-| Knooppunt | Alleen voor containers en het gehele product. Er wordt weergegeven welke domeincontroller het die zich bevindt. | 
+| Node | Alleen voor containers en het gehele product. Er wordt weergegeven welke domeincontroller het die zich bevindt. | 
 | Trend Gem % | Staafdiagram trend presenteren gemiddelde metrische % van de container. |
 
 Kies in de selector **Containers**.<br><br> ![Selecteer containers weergeven](./media/monitoring-container-health/container-performance-and-health-view-09.png)
@@ -323,7 +323,7 @@ De volgende tabel beschrijft de informatie die wordt weergegeven wanneer u Conta
 | Opnieuw opstarten | Geeft de tijd sinds een container is gestart. |
 | Bedrijfstijd | Geeft de tijd sinds een container is gestart of opnieuw opgestart. |
 | Schil | Schil informatie waar het zich bevindt. |
-| Knooppunt |  Het knooppunt waarin de container zich bevindt.  | 
+| Node |  Het knooppunt waarin de container zich bevindt.  | 
 | Trend Gem % | Staafdiagram trend presenteren gemiddelde metrische % van de container. |
 
 ## <a name="container-data-collection-details"></a>De verzameling Gegevensdetails container
@@ -359,7 +359,7 @@ De uitvoer van de container-logboeken worden doorgestuurd naar logboekanalyse zi
 ### <a name="example-log-search-queries"></a>Voorbeeld logboek zoekquery 's
 Vaak is het nuttig voor het bouwen van query's beginnen met een voorbeeld ongeveer twee minuten en vervolgens aan uw behoeften te bewerken. U kunt experimenteren met de volgende voorbeeldquery's waarmee u kunt meer geavanceerde query's maken.
 
-| Query’s uitvoeren | Beschrijving | 
+| Query | Beschrijving | 
 |-------|-------------|
 | ContainerInventory<br> &#124;Computer, naam, de installatiekopie, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime project<br> &#124;tabel weergeven | Lijst van alle Container lifecycle informatie| 
 | KubeEvents_CL<br> &#124;waar not(isempty(Namespace_s))<br> &#124;TimeGenerated desc sorteren<br> &#124;tabel weergeven | Kubernetes gebeurtenissen|
@@ -472,7 +472,7 @@ Als u Azure CLI gebruiken, moet u eerst installeren en gebruiken van CLI lokaal.
 
 Als de werkruimte alleen ter ondersteuning van de bewaking van het cluster is gemaakt en niet langer nodig, hebt u het bestand handmatig verwijderen. Als u niet bekend met het verwijderen van een werkruimte bent, Zie [verwijderen met de Azure portal een Azure-logboekanalyse-werkruimte](../log-analytics/log-analytics-manage-del-workspace.md).  Vergeet niet over de **werkruimte Resource-ID** we eerder in stap 4 hebt gekopieerd, gaat u dat nodig.  
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 Deze sectie bevat informatie over het oplossen van problemen met de status van de container.
 
 Als de status van de container met succes is ingeschakeld en geconfigureerd, maar u bent niet gezien statusinformatie of resulteert in een Log Analytics wanneer u een logboek zoekopdracht uitvoert, kunt u de volgende stappen uit om u te helpen bij het analyseren van het probleem kunt uitvoeren.   

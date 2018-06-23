@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 280c91d6a871984959d587e9895166853e89cc45
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 85c854e697e7178bbdb3429c5384d67731770117
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615679"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335509"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Gegevens kopiëren naar een Azure Search-index met behulp van Azure Data Factory
 
@@ -37,7 +37,7 @@ U kunt gegevens van alle ondersteunde brongegevensarchief kopiëren naar Azure S
 
 ## <a name="getting-started"></a>Aan de slag
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Azure Search-connector.
 
@@ -176,8 +176,8 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 | Reeks | J |
 | Int32 | J |
 | Int64 | J |
-| dubbele | J |
-| Boole-waarde | J |
+| Double | J |
+| Booleaanse waarde | J |
 | DataTimeOffset | J |
 | Tekenreeksmatrix | N |
 | GeographyPoint | N |

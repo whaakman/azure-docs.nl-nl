@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren van Amazon Marketplace-webservice met behulp van Azure Data Factory (bèta) | Microsoft Docs
+title: Gegevens kopiëren van Amazon Marketplace-webservice met behulp van Azure Data Factory (Preview) | Microsoft Docs
 description: Ontdek hoe u gegevens kopiëren van Amazon Marketplace-webservice naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 0f15ab5a84a51f0a22b00b647046e5a15da469a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: add0f9185ac94a8b673e0c05de9de919286ffa3a
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616359"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337952"
 ---
-# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Gegevens kopiëren van Amazon Marketplace-webservice met behulp van Azure Data Factory (bèta)
+# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Gegevens kopiëren van Amazon Marketplace-webservice met behulp van Azure Data Factory (Preview)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van Amazon Marketplace-webservice. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Deze connector is momenteel in de bètaversie. U kunt uit te proberen en ons feedback te geven. Gebruik deze niet in een productieomgeving.
+> Deze connector is momenteel in preview. U kunt uit te proberen en ons feedback te geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -38,7 +38,7 @@ Azure Data Factory biedt een ingebouwde stuurprogramma's zodat connectiviteit, d
 
 ## <a name="getting-started"></a>Aan de slag
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met Amazon Marketplace Web Service-connector.
 
@@ -49,7 +49,7 @@ De volgende eigenschappen worden ondersteund voor Amazon Marketplace Web Service
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AmazonMWS** | Ja |
-| endpoint | Het eindpunt van de Amazon MWS-server (dat wil zeggen, mws.amazonservices.com)  | Ja |
+| eindpunt | Het eindpunt van de Amazon MWS-server (dat wil zeggen, mws.amazonservices.com)  | Ja |
 | marketplaceID | De Amazon Marketplace-ID die u gegevens wilt ophalen uit. Voor informatie over het ophalen van gegevens uit meerdere Marketplace-id's scheiden met komma's (`,`). (dat wil zeggen, A2EUQ1WTGCTBG2)  | Ja |
 | sellerID | De Amazon verkoper-ID.  | Ja |
 | mwsAuthToken | Het verificatietoken Amazon MWS. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |

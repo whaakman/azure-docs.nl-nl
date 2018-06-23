@@ -8,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8b58eae9aa08d8f6539370fa6e78a7a4813c18f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5fbac725894d01b2dc622d3542f865a66b240743
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631017"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333773"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>Continue integratie en continue implementatie naar Azure IoT rand - voorbeeld
 Deze zelfstudie laat zien hoe u kunt de continue integratie en functies voor continue implementatie van de Visual Studio Team Services (VSTS) en Microsoft Team Foundation Server (TFS) voor het bouwen, testen en implementeren van toepassingen snel en efficiënt op uw Azure IoT-rand. 
@@ -33,7 +33,7 @@ Het duurt 30 minuten om deze zelfstudie te voltooien.
 
 In deze sectie maakt u een voorbeeld van een IoT-rand oplossing met controles die u als onderdeel van deze procedure kunt uitvoeren. Voer de stappen in voordat u de instructies in deze sectie, [ontwikkelen van een rand van de IoT-oplossing met meerdere modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
 
-1. Typ in de VS Code opdracht palet en voer de opdracht **rand: nieuwe IoT oplossing**. Selecteer vervolgens uw werkruimtemap, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maak een C#-Module (**FilterModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de Docker-opslagplaats voor installatiekopieën voor uw eerste module opgeven. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/filtermodule`). U moet het Azure Container register wijzigen (`<your container registry address>/filtermodule`) of Docker-Hub voor verdere continue integratie.
+1. Typ in de VS Code opdracht palet en voer de opdracht **rand: nieuwe IoT oplossing**. Selecteer vervolgens uw werkruimtemap, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maak een C#-Module (**FilterModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de opslagplaats voor Dockerinstallatiekopieën opgeven voor de eerste module. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/filtermodule`). U moet het Azure Container register wijzigen (`<your container registry address>/filtermodule`) of Docker-Hub voor verdere continue integratie.
 
     ![Setup ACR](./media/how-to-ci-cd/acr.png)
 
@@ -428,11 +428,11 @@ In deze sectie maakt u een build-definitie die is geconfigureerd voor het automa
 
 1. Kies de koppeling naar de build in de berichtenbalk die wordt weergegeven. Of Ga naar de definitie voor de meest recente in de wachtrij build-taak maken.
 
-    ![Ontwikkelen](./media/how-to-ci-cd/build-def.png)
+    ![Build](./media/how-to-ci-cd/build-def.png)
 
 1. Nadat de build is voltooid, ziet u de samenvatting voor elke taak en de resultaten in het logboekbestand live. 
     
-    ![Voltooien](./media/how-to-ci-cd/complete.png)
+    ![Voltooid](./media/how-to-ci-cd/complete.png)
 
 1. U kunt teruggaan naar de Code van de VS en controleer of de IoT Hub apparaat explorer. Het apparaat aan de rand met de module moet beginnen met (Zorg ervoor dat u referenties van de registersleutel hebt toegevoegd aan de rand runtime).
 
@@ -452,7 +452,7 @@ Dus bij het implementeren van de rand van de IoT-apparaten, zijn er drie belangr
 Deze zelfstudie laat zien hoe u de continue integratie en functies voor continue implementatie van VSTS of TFS kunt gebruiken. 
 
 * Inzicht in de rand van de IoT-implementatie in [begrijpen IoT rand implementaties voor één apparaten of op grote schaal](module-deployment-monitoring.md)
-* Doorloop de stappen voor het maken, bijwerken of verwijderen van een implementatie in [implementeren en controleren van de rand van de IoT-modules op grote schaal] [how-naar-implementeren-monitor.md].
+* Doorloop de stappen voor het maken, bijwerken of verwijderen van een implementatie in [implementeren en controleren van de rand van de IoT-modules op grote schaal](how-to-deploy-monitor.md).
 
 
 

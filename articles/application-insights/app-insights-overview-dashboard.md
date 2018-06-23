@@ -10,28 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337560"
 ---
-# <a name="application-insights-overview-dashboard-preview"></a>Application Insights-Overzichtsdashboard (preview)
+# <a name="application-insights-overview-dashboard"></a>Application Insights Overzichtsdashboard
 
-Application Insights is altijd een overzichtsvenster van de samenvatting voor een snelle, op overzichtelijke beoordeling van de status en prestaties van uw toepassing opgegeven. De nieuwe preview Overzichtsdashboard biedt een snellere flexibelere ervaring.
+Application Insights is altijd een overzichtsvenster van de samenvatting voor een snelle, op overzichtelijke beoordeling van de status en prestaties van uw toepassing opgegeven. Het nieuwe Overzichtsdashboard biedt een snellere flexibelere ervaring.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>Hoe test ik uit de nieuwe ervaring?
 
- In Application Insights onder: _overzicht_, selecteer _nieuwe overzicht probeer daarna deze de ervaring van de standaard wordt_.
+Het nieuwe Overzichtsdashboard start nu standaard:
 
-![Overzicht Preview](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-01.png)
-
-Hierdoor start u de nieuwe standaard Overzichtsdashboard:
-
-![Overzicht van voorbeeldvenster](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-02.png)
+![Overzicht van voorbeeldvenster](.\media\app-insights-overview-dashboard\overview-0001.png)
 
 ## <a name="better-performance"></a>Betere prestaties
 
@@ -39,7 +36,7 @@ Selectie voor bereik van tijd is vereenvoudigd naar een eenvoudige interface met
 
 ![Tijdsbereik](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-De algemene is prestaties aanzienlijk verhoogd. Elke standaard dynamisch bijwerken van de KPI-tegel wordt gekoppeld aan de bijbehorende Application Insights-functie. Bijvoorbeeld, als u mislukte aanvragen wordt gestart, de _fouten_ deelvenster:
+De algemene is prestaties aanzienlijk verhoogd. U hebt met één Klik voor populaire functies zoals **Search** en **Analytics**. Elke standaard dynamisch bijwerken van de tegel KPI verschaft inzicht in de bijbehorende Application Insights-functies. Kunnen geen aanvragen selecteren voor meer informatie over **fouten** onder de **onderzoeken** header:
 
 ![Fouten](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
@@ -51,11 +48,11 @@ Voor toegang tot de standaard dashboard selecteren _Toepassingendashboard_ in de
 
 ![Dashboardweergave](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
 
-Als dit de eerste keer wordt toegang tot het dashboard deze gestart een standaardweergave:
+Als dit de eerste keer toegang tot het dashboard, wordt er een standaardweergave gestart:
 
 ![Dashboardweergave](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-Terwijl u de standaardweergave wilt behouden, als u deze toe, kunt u toevoegen en verwijderen van het dashboard om op de beste afhankelijk van de behoeften van uw team.
+Als u deze kunt u de standaardweergave houden. Of u kunt ook toevoegen en verwijderen van het dashboard om te aan te passen aan de behoeften van uw team.
 
 > [!NOTE]
 > Alle gebruikers met toegang tot de Application Insights-resource delen dezelfde toepassing dashboard ervaring. Wijzigingen die zijn aangebracht door een gebruiker past u de weergave voor alle gebruikers.
@@ -63,6 +60,12 @@ Terwijl u de standaardweergave wilt behouden, als u deze toe, kunt u toevoegen e
 Als u wilt navigeren weer aan de ervaring overzicht gewoon selecteren:
 
 ![Overzicht van knop](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+
+## <a name="access-the-classic-overview-dashboard"></a>Toegang tot het klassieke Overzichtsdashboard
+
+Als u de oude overzicht mist, kiest u **klassieke overzicht**.
+
+![Klassiek overzicht](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

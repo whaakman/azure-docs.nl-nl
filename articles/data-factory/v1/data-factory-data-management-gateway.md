@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: abc542f79d722f24ff6a6e9d96d12364ed76894b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d28d25b74ce46c0323b01670bfdb639c02b92d8a
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621180"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335802"
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -46,7 +46,7 @@ Data management gateway biedt de volgende mogelijkheden:
 * Toegang tot on-premises gegevensbronnen veilig beheren.
   * Er zijn geen wijzigingen vereist voor de firewall van het bedrijf. Gateway alleen uitgaande HTTP-gebaseerde verbindingen maakt met internet te openen.
   * Referenties voor uw on-premises gegevensopslagexemplaren met uw certificaat niet versleutelen.
-* Gegevens verplaatsen efficiënt gegevens worden overgedragen parallel flexibel omgaan met onregelmatige netwerkproblemen met automatisch Pogingslogica.
+* Gegevens verplaatsen efficiënt - gegevens worden overgedragen parallel flexibel omgaan met onregelmatige netwerkproblemen met automatisch Pogingslogica.
 
 ### <a name="command-flow-and-data-flow"></a>Opdracht stroom en de gegevensstroom
 Wanneer u een kopieeractiviteit om gegevens tussen on-premises en cloud te kopiëren, de activiteit maakt gebruik van een gateway voor gegevensoverdracht van on-premises gegevensbron naar de cloud en vice versa.
@@ -184,7 +184,7 @@ Er zijn drie opties:
 
 * **Gebruik geen proxy**: Gateway expliciet gebruikt geen elke proxy verbinding maken met cloudservices.
 * **Gebruik system proxy**: Gateway maakt gebruik van de proxy-instelling is geconfigureerd in diahost.exe.config en diawp.exe.config.  Als geen proxy is geconfigureerd in diahost.exe.config en diawp.exe.config, gateway wordt verbonden met cloudservice rechtstreeks zonder gebruik te maken via proxy.
-* **Aangepaste proxy gebruikt**: de HTTP-proxy-instellingen te gebruiken voor de gateway in plaats van configuraties in diahost.exe.config en diawp.exe.config configureren.  Adres en poort zijn vereist.  Gebruikersnaam en wachtwoord zijn optioneel, afhankelijk van uw proxy s verificatie-instelling.  Alle instellingen zijn versleuteld met de referenties van het certificaat van de gateway en die lokaal zijn opgeslagen op de hostcomputer van de gateway.
+* **Aangepaste proxy gebruikt**: de HTTP-proxy-instellingen te gebruiken voor de gateway in plaats van configuraties in diahost.exe.config en diawp.exe.config configureren.  Adres en poort zijn vereist.  Gebruikersnaam en wachtwoord zijn optioneel, afhankelijk van uw proxyserver verificatie-instelling.  Alle instellingen zijn versleuteld met de referenties van het certificaat van de gateway en die lokaal zijn opgeslagen op de hostcomputer van de gateway.
 
 Data management gateway Host Service wordt automatisch opnieuw opgestart nadat u de bijgewerkte proxy-instellingen opslaan.
 
@@ -208,7 +208,7 @@ U kunt weergeven en bijwerken van HTTP-proxy met behulp van Configuration Manage
 Als u selecteert **system proxy gebruiken** instellen voor de HTTP-proxy, gateway maakt gebruik van de proxy-instelling in diahost.exe.config en diawp.exe.config.  Als er geen proxyserver is opgegeven in diahost.exe.config en diawp.exe.config, gateway wordt verbonden met cloudservice rechtstreeks zonder gebruik te maken via proxy. De volgende procedure bevat instructies voor het bijwerken van het bestand diahost.exe.config.  
 
 1. Maak een veilige kopie van C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config back-up van het oorspronkelijke bestand in Verkenner.
-2. Start van Notepad.exe uitgevoerd als administrator en tekstbestand C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config opent. U kunt het standaardlabel voor system.net vinden zoals weergegeven in de volgende code:
+2. Starten van Notepad.exe uitgevoerd als administrator en open tekstbestand "C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. U kunt het standaardlabel voor system.net vinden zoals weergegeven in de volgende code:
 
          <system.net>
              <defaultProxy useDefaultCredentials="true" />
@@ -225,19 +225,19 @@ Als u selecteert **system proxy gebruiken** instellen voor de HTTP-proxy, gatewa
    Aanvullende eigenschappen zijn toegestaan in de tag proxy om op te geven van de vereiste instellingen zoals scriptLocation. Raadpleeg [proxy Element (netwerkinstellingen)](https://msdn.microsoft.com/library/sa91de1e.aspx) op syntaxis.
 
          <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
-3. Start de Data Management Gateway Host service, die de wijzigingen neemt vervolgens het configuratiebestand in de oorspronkelijke locatie op te slaan. De service te starten: Gebruik de applet services in het Configuratiescherm, of vanuit de **Data Management Gateway Configuration Manager** > Klik op de **Service stoppen** knop en klik vervolgens op de **Service starten**. Als de service niet wordt gestart, is het waarschijnlijk dat er een onjuiste syntaxis van de XML-label is toegevoegd in het toepassingsconfiguratiebestand die is bewerkt.
+3. Start de Data Management Gateway Host service, die de wijzigingen neemt vervolgens het configuratiebestand in de oorspronkelijke locatie op te slaan. De service te starten: Gebruik de applet services in het Configuratiescherm, of vanuit de **Data Management Gateway Configuration Manager** > Klik op de **Service stoppen** knop en klik vervolgens op de **starten Service**. Als de service niet wordt gestart, is het waarschijnlijk dat er een onjuiste syntaxis van de XML-label is toegevoegd in het toepassingsconfiguratiebestand die is bewerkt.
 
 > [!IMPORTANT]
 > Vergeet niet om bij te werken **beide** diahost.exe.config en diawp.exe.config.  
 
 
-Naast deze punten moet u ook om ervoor te zorgen dat Microsoft Azure is in uw bedrijf s goedgekeurde lijst. De lijst met geldige Microsoft Azure-IP-adressen kan worden gedownload vanuit de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+Naast deze punten moet u ook om te controleren of Microsoft Azure in goedgekeurde lijst van uw bedrijf. De lijst met geldige Microsoft Azure-IP-adressen kan worden gedownload vanuit de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Mogelijke problemen voor firewall en proxy server-problemen
 Als u fouten overeen met de volgende procedures optreden, is het waarschijnlijk door onjuiste configuratie van de firewall of proxyserver server gateway verbinding maken met de Data Factory blokkeert zichzelf verifiëren. Raadpleeg de vorige sectie om te controleren of uw firewall en proxy-server correct zijn geconfigureerd.
 
 1. Wanneer u probeert om de gateway te registreren, wordt de volgende fout: 'kan niet de gatewaycode registreren. Voordat u probeert de gatewaycode opnieuw registreren, Controleer of de data management gateway verbonden is en Data Management Gateway Host Service wordt gestart."
-2. Als u Configuration Manager openen, u status weergegeven als de verbinding verbroken of verbinding maken. tijdens het weergeven van Windows-gebeurtenislogboeken onder Logboeken > toepassings- en servicelogboeken > Data Management Gateway ziet u foutberichten, zoals de volgende fout: `Unable to connect to the remote server`
+2. Wanneer u Configuration Manager opent, ziet u status als 'Verbinding verbroken' of "Verbinden." Tijdens het weergeven van Windows-gebeurtenislogboeken onder 'Logboeken' > 'Toepassingen en Services Logs' > 'Data Management Gateway', ziet u foutberichten, zoals de volgende fout: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Open poort 8050 voor referentieversleuteling.
@@ -249,7 +249,7 @@ Als u een firewall van derden gebruikt, kunt u handmatig de poort 8050 openen. A
 
 Als u niet de poort te openen 8050 op de gatewaycomputer, gebruikgemaakt van mechanismen dan met behulp van de **instelling referenties** toepassing voor het configureren van referenties voor gegevensopslag. U kunt bijvoorbeeld [nieuw AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell-cmdlet. Zie [instelling referenties en beveiliging](#set-credentials-and-securityy) sectie op hoe de referenties voor het opslaan van gegevens kan worden ingesteld.
 
-## <a name="update"></a>Update
+## <a name="update"></a>Bijwerken
 Data management gateway wordt standaard automatisch bijgewerkt wanneer een nieuwere versie van de gateway beschikbaar is. De gateway is niet bijgewerkt tot de geplande taken kunt uitvoeren. Geen verdere taken worden verwerkt door de gateway, totdat de updatebewerking is voltooid. Als de update is mislukt, is gateway teruggedraaid naar de oude versie.
 
 De geplande updatetijd ziet u in de volgende locaties:
@@ -369,7 +369,7 @@ Beschikbaar geheugen | Beschikbaar geheugen op een gateway-knooppunt. Deze waard
 CPU-gebruik | CPU-gebruik van een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 
 Networking (In/Out) | Netwerkgebruik van een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 
 Gelijktijdige taken (actief / beperken) | Het aantal taken of taken die op elk knooppunt worden uitgevoerd. Deze waarde is een momentopname van een bijna realtime. Limiet geeft aan dat het maximum aantal gelijktijdige taken voor elk knooppunt. Deze waarde is gedefinieerd op basis van de grootte van de machine. U kunt de limiet voor gelijktijdige taakuitvoering in geavanceerde scenario's waarbij geheugen-CPU-netwerk onder gebruikt, maar activiteiten zijn time-out opschalen verhogen. Deze mogelijkheid is ook beschikbaar met één knooppunt gateway (zelfs wanneer de functie voor schaalbaarheid en beschikbaarheid is niet ingeschakeld).  
-Rol | Er zijn twee soorten rollen in een gateway met meerdere knooppunten Dispatcher- en werkrollen. Alle knooppunten zijn werknemers, wat betekent dat ze kunnen alle worden gebruikt om uit te voeren taken. Er is slechts één dispatcher knooppunt, die wordt gebruikt voor het pull-taken/taken van cloudservices en ze verzenden naar andere worker-knooppunten (inclusief zelf).
+Functie | Er zijn twee soorten rollen in een gateway met meerdere knooppunten - Dispatcher- en werkrollen. Alle knooppunten zijn werknemers, wat betekent dat ze kunnen alle worden gebruikt om uit te voeren taken. Er is slechts één dispatcher knooppunt, die wordt gebruikt voor het pull-taken/taken van cloudservices en ze verzenden naar andere worker-knooppunten (inclusief zelf).
 
 In deze pagina ziet u enkele instellingen die duidelijker wanneer er twee of meer knooppunten (scale-out-scenario) in de gateway. Zie [Data Management Gateway - hoge beschikbaarheid en schaalbaarheid](data-factory-data-management-gateway-high-availability-scalability.md) voor meer informatie over het instellen van een gateway met meerdere knooppunten.
 
@@ -380,7 +380,7 @@ Status  | Opmerkingen/scenario 's
 :------- | :------------------
 Online | Knooppunt verbonden met Data Factory-service.
 Offline | Knooppunt is offline.
-Upgraden | Het knooppunt wordt automatisch bijgewerkt.
+Bijwerken | Het knooppunt wordt automatisch bijgewerkt.
 Beperkt | Vanwege een verbindingsprobleem. Kan worden veroorzaakt door HTTP-poort 8050 probleem, service bus-verbindingsprobleem of synchronisatieprobleem in de referentie. 
 Inactief | Er is een knooppunt in een configuratie van de configuratie van andere knooppunten van de meeste andere.<br/><br/> Een knooppunt mag inactief zijn als er geen verbinding met andere knooppunten maken. 
 
@@ -468,7 +468,7 @@ Voer de volgende stappen uit voor het versleutelen van referenties in de Data Fa
     ```
 Als u de portal vanaf een machine die verschilt van het gateway-apparaat openen, moet u ervoor zorgen dat de toepassing Referentiebeheer verbinding met de gateway-machine maken kan. Als de toepassing niet kan van het gateway-apparaat bereiken, kunt niet u referenties voor de gegevensbron in te stellen en om verbinding met de gegevensbron te testen.  
 
-Wanneer u gebruikt de **instelling referenties** toepassing, de portal versleutelt de referenties met het certificaat dat is opgegeven in de **certificaat** tabblad van de **Gateway Configuration Manager** op de gateway-apparaat.
+Wanneer u gebruikt de **instelling referenties** toepassing, de portal versleutelt de referenties met het certificaat dat is opgegeven in de **certificaat** tabblad van de **Gateway Configuration Manager**  op de gateway-apparaat.
 
 Als u voor een API-gebaseerde methode voor het versleutelen van de referenties op zoek bent, kunt u de [nieuw AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell-cmdlet om referenties te versleutelen. Het certificaat wordt gebruikt door de cmdlet die gateway is geconfigureerd om te gebruiken om de referenties te versleutelen. Toevoegen van versleutelde referenties voor de **EncryptedCredential** element van de **connectionString** in de JSON. U gebruikt de JSON met de [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet of in de Data Factory-Editor.
 
@@ -490,12 +490,12 @@ Deze sectie beschrijft het maken en registreren van een gateway met behulp van A
 3. Gebruik de **nieuw AzureRmDataFactoryGateway** cmdlet voor het maken van een logische gateway als volgt:
 
     ```PowerShell
-    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF �Description <desc>
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **Van de voorbeeldopdracht en uitvoer**:
 
     ```
-    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF �Description �gateway for walkthrough�
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
     Name              : MyGateway
     Description       : gateway for walkthrough

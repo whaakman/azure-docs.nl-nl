@@ -9,16 +9,15 @@ editor: cgronlun
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: afe1a784ecc0a8f8846a71d21cc7ca8eb76078ec
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337679"
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Toegangsbeheer in Azure Data Lake Store
 
@@ -61,7 +60,7 @@ De identiteiten van gebruikers en groepen zijn Azure Active Directory-identiteit
 
 De machtigingen voor een bestandssysteemobject zijn **Lezen**, **Schrijven** en **Uitvoeren**. Deze kunnen worden gebruikt voor bestanden en mappen zoals weergegeven in de onderstaande tabel:
 
-|            |    File     |   Map |
+|            |    Bestand     |   Map |
 |------------|-------------|----------|
 | **Lezen (L)** | Kan de inhoud van een bestand lezen | **Lezen** en **Uitvoeren** zijn vereist om de inhoud van de map weer te geven|
 | **Schrijven (S)** | Kan schrijven of toevoegen aan een bestand | **Schrijven** en **Uitvoeren** zijn vereist om onderliggende items in een map te maken |
@@ -266,7 +265,7 @@ De vergrendelde bit is een geavanceerdere functie van een POSIX-bestandssysteem.
 
 De volgende tabel laat zien hoe de vergrendelde bit in de Data Lake Store werkt.
 
-| Gebruikersgroep         | File    | Map |
+| Gebruikersgroep         | Bestand    | Map |
 |--------------------|---------|-------------------------|
 | Vergrendelde bit **UIT** | Geen effect   | Geen effect.           |
 | Vergrendelde bit **AAN**  | Geen effect   | Zorgt ervoor dat niemand behalve **supergebruikers** en de **gebruiker die eigenaar is** van een onderliggend item het betreffende item kan verwijderen of hernoemen.               |
@@ -326,7 +325,7 @@ Nee, maar Standaard ACL's kunnen worden gebruikt voor het instellen van ACL's vo
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Waar kan ik meer informatie over het POSIX-model voor toegangsbeheer?
 
-* [POSIX met behulp van toegangsbeheerlijsten op Linux](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
+* [POSIX met behulp van toegangsbeheerlijsten op Linux](https://www.linux.com/news/posix-acls-linux)
 
 * [Handleiding voor HDFS-machtigingen](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 

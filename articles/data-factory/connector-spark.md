@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: bf51e0ce03c2f69ab08aa56b8d48cf3e3636ed40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aa7719fe621a6e264145c9582bf854248d2987fc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618382"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334095"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Gegevens kopiëren van Spark met behulp van Azure Data Factory 
 
@@ -36,7 +36,7 @@ Azure Data Factory biedt een ingebouwde stuurprogramma's zodat connectiviteit, d
 
 ## <a name="getting-started"></a>Aan de slag
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met Spark-connector.
 

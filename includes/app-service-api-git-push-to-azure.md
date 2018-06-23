@@ -10,7 +10,7 @@ Configureer uw lokale Git-implementatie zodat deze naar de externe instantie kan
 git remote add azure <URI from previous step>
 ```
 
-Push naar de externe Azure-instantie om uw app te implementeren. U wordt gevraagd naar het wachtwoord dat u eerder hebt gemaakt bij het maken van de implementatiegebruiker. Zorg ervoor dat u het wachtwoord gebruikt dat u eerder in de snelstartgids hebt gemaakt en niet het wachtwoord dat u gebruikt om u aan te melden bij Azure Portal.
+Push naar de externe Azure-instantie om uw app te implementeren. U wordt gevraagd naar het wachtwoord dat u eerder hebt gemaakt bij het maken van de implementatiegebruiker. Zorg ervoor dat u het wachtwoord dat u eerder in de Quick Start hebt gemaakt en niet het wachtwoord die u aan te melden bij de Azure-portal invoeren.
 
 ```bash
 git push azure master

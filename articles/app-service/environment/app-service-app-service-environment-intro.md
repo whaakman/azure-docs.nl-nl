@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b13f726ada6deba67d5ed484eca769fed354e400
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca30818b015e95594d3b2c9861d98f24174c0aea
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836782"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318160"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Inleiding tot de App Service-omgeving v1
 
@@ -62,18 +62,18 @@ Bijvoorbeeld: Hiermee kunt u één worker-groep maken met minder krachtige reken
 
 Zie voor meer informatie over de hoeveelheid beschikbaar is op de front- en werkrollen opslaggroepen rekenresources [het configureren van een App-serviceomgeving][HowToConfigureanAppServiceEnvironment].  
 
-Voor meer informatie over de beschikbare compute resource grootten die worden ondersteund in een App Service-omgeving, Raadpleeg de [prijzen van App Service] [ AppServicePricing] pagina en bekijk de beschikbare opties voor App Service-omgevingen in de prijscategorie Premium.
+Voor meer informatie over de beschikbare compute resource grootten die worden ondersteund in een App Service-omgeving, Raadpleeg de [prijzen van App Service] [ AppServicePricing] pagina en bekijk de beschikbare opties voor App Service-omgevingen in de Premium-prijscategorie.
 
 ## <a name="virtual-network-support"></a>Virtual Network-ondersteuning
-Een App Service-omgeving kunnen worden gemaakt in **beide** een virtueel netwerk van Azure Resource Manager, **of** een virtueel netwerk voor klassieke implementatie-model ([meer informatie over virtuele netwerken][MoreInfoOnVirtualNetworks]).  Omdat een App Service-omgeving altijd in een virtueel netwerk en nauwkeuriger binnen een subnet van een virtueel netwerk bestaat, kunt u gebruikmaken van de beveiligingsfuncties van virtuele netwerken om te beheren, zowel binnenkomend en uitgaand netwerkcommunicatie.  
+Een App Service-omgeving kunnen worden gemaakt in **beide** een virtueel netwerk van Azure Resource Manager, **of** een virtueel netwerk voor klassieke implementatie-model ([meer informatie over virtuele netwerken] [MoreInfoOnVirtualNetworks]).  Omdat een App Service-omgeving altijd in een virtueel netwerk en nauwkeuriger binnen een subnet van een virtueel netwerk bestaat, kunt u gebruikmaken van de beveiligingsfuncties van virtuele netwerken om te beheren, zowel binnenkomend en uitgaand netwerkcommunicatie.  
 
 Een App Service-omgeving kan worden beide Internetgericht met een openbaar IP-adres of interne geconfronteerd met alleen een adres Azure interne Load Balancer (ILB).
 
 U kunt [netwerkbeveiligingsgroepen] [ NetworkSecurityGroups] te beperken van binnenkomende netwerkcommunicatie met het subnet waarin een App Service-omgeving zich bevindt.  Hiermee kunt u apps achter upstream apparaten en services, zoals web application firewalls en aanbieders van SaaS-netwerk uitvoeren.
 
-Apps moeten ook vaak toegang tot bedrijfsbronnen zoals interne databases en -services.  Vaak wordt deze eindpunten om beschikbaar te maken alleen voor interne netwerkverkeer dat binnen een virtuele Azure-netwerk.  Zodra een App-serviceomgeving is toegevoegd aan hetzelfde virtuele netwerk als de interne services, apps die worden uitgevoerd in de omgeving ze toegankelijk zijn, inclusief eindpunten bereikbaar is via [Site-naar-Site] [ SiteToSite] en [Azure ExpressRoute] [ ExpressRoute] verbindingen.
+Apps hebben ook vaak toegang nodig tot bedrijfsresources zoals interne databases en webservices.  Vaak wordt deze eindpunten om beschikbaar te maken alleen voor interne netwerkverkeer dat binnen een virtuele Azure-netwerk.  Zodra een App-serviceomgeving is toegevoegd aan hetzelfde virtuele netwerk als de interne services, apps die worden uitgevoerd in de omgeving ze toegankelijk zijn, inclusief eindpunten bereikbaar is via [Site-naar-Site] [ SiteToSite] en [Azure ExpressRoute] [ ExpressRoute] verbindingen.
 
-Voor meer informatie over de werking van App Service-omgevingen met virtuele netwerken en on-premises netwerken raadpleegt u de volgende artikelen op [netwerkarchitectuur][NetworkArchitectureOverview], [binnenkomend verkeer beheren][ControllingInboundTraffic], en [veilig verbinding te maken met back-ends][SecurelyConnectingToBackends]. 
+Voor meer informatie over de werking van App Service-omgevingen met virtuele netwerken en on-premises netwerken raadpleegt u de volgende artikelen op [netwerkarchitectuur][NetworkArchitectureOverview], [inkomende beheren Verkeer][ControllingInboundTraffic], en [veilig verbinding maakt met de back-ends][SecurelyConnectingToBackends]. 
 
 ## <a name="getting-started"></a>Aan de slag
 Om aan de slag met App Service-omgevingen, Zie [hoe te maken van een App Service-omgeving][HowToCreateAnAppServiceEnvironment]
@@ -93,7 +93,7 @@ Zie voor meer informatie over het gebruik van een App Service-omgeving met Expre
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
+[SiteToSite]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]:  app-service-web-configure-an-app-service-environment.md
 [ControllingInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md

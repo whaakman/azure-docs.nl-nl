@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a94d97fb90e65fd569047a3d55945437002d97ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9537380daab80529c3ba6307f1b2cd82a8c0ca41
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334666"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Een upgrade uitvoert naar de nieuwste Azure multi-factor Authentication-Server
 
@@ -47,21 +48,12 @@ Als u een van versie 6.x of naar v7.x oudere of nieuwere upgrade uitvoert, worde
 
 Als u de Gebruikersportal op meerdere servers hebt, kunt u de installatie voor al deze herhalen. 
 
-
 ## <a name="upgrade-the-mobile-app-web-service"></a>Upgrade van de mobiele Web-App Service
 
-1. Maak een back-up van het bestand web.config dat zich in de virtuele map van de webservice voor mobiele App-installatielocatie (bijvoorbeeld C:\inetpub\wwwroot\app of C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService).
-2. Kopieer het bestand MultiFactorAuthenticationMobileAppWebServiceSetup64.msi van de locatie van de MFA-Servers is geïnstalleerd en plaatsen op de webserver voor registratie van mobiele App.
-3. Het installatieprogramma uitvoert. 
-
-  Als een fout met de mededeling optreedt dat Microsoft Visual C++ Redistributable Update 2015 1 of hoger vereist is, downloadt en installeert u het meest recente updatepakket van het [Microsoft Download Center](https://www.microsoft.com/download/). De versies x86- en x64 installeren.
-
-4. Nadat de bijgewerkte software van de webservice voor mobiele App is geïnstalleerd, vergelijk het web.config-bestand dat een back-in stap 1 met het nieuwe bestand web.config. Als er geen nieuwe kenmerken in het nieuwe bestand web.config aanwezig is, kunt u uw opgeslagen web.config kopiëren naar de virtuele map en de nieuwe database overschrijven. Een andere optie is om te kopiëren en plakken de appSettings-waarden en de Web Service SDK-URL van de back-upbestand in het nieuwe bestand web.config.
-
-Als u de webservice voor mobiele App op meerdere servers hebt, kunt u de installatie voor al deze herhalen. 
+> [!NOTE]
+> Bij een upgrade van een versie van Azure MFA-Server die ouder zijn dan 8.0 naar 8.0 + dat de webservice voor mobiele Apps kan worden verwijderd na de upgrade
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>Upgrade van de AD FS-Adapters
-
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>Als MFA wordt uitgevoerd op andere servers dan de AD FS
 

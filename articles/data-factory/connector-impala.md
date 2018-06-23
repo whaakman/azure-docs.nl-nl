@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren van Impala met behulp van Azure Data Factory (bèta) | Microsoft Docs
+title: Gegevens kopiëren van Impala met behulp van Azure Data Factory (Preview) | Microsoft Docs
 description: Informatie over het kopiëren van gegevens van Impala naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een data factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 73987d03cb96fa421d193504fe6eaf6c3b5ddb18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 49e9c338128cc857347bbf052c19dc34dd08f9c6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618766"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337616"
 ---
-# <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Gegevens kopiëren van Impala met behulp van Azure Data Factory (bèta)
+# <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Gegevens kopiëren van Impala met behulp van Azure Data Factory (Preview)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van Impala. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory, die in het algemeen beschikbaar is, Zie [Kopieeractiviteit in versie 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Deze connector is momenteel in de bètaversie. U kunt uitproberen en feedback geven. Gebruik deze niet in een productieomgeving.
+> Deze connector is momenteel in preview. U kunt uitproberen en feedback geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -38,7 +38,7 @@ U kunt gegevens uit Impala kopiëren naar een ondersteunde sink-gegevensarchief.
 
 ## <a name="get-started"></a>Aan de slag
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar de connector Impala.
 

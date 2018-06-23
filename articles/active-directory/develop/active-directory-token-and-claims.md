@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a12ac87eba14db4ff13868446cf8d14b10d1f5fb
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801861"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317823"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD-tokenverwijzing
 Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens bij de verwerking van elke verificatiestroom. Dit document beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token. 
@@ -61,9 +61,9 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | Verificatie Instant |Registreert de datum en tijd waarop de verificatie heeft plaatsgevonden. <br><br> **Voorbeeldwaarde SAML**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Verificatiemethode |Geeft aan hoe het onderwerp van het token is geverifieerd. <br><br> **Voorbeeldwaarde SAML**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Voorbeeldwaarde JWT**: `“amr”: ["pwd"]` |
 | `given_name` |Voornaam |De eerste biedt of als u ' ' naam van de gebruiker, zoals ingesteld op het gebruikersobject Azure AD. <br><br> **Voorbeeldwaarde SAML**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> **Voorbeeldwaarde JWT**: <br> `"given_name": "Frank"` |
-| `groups` |Groepen |Biedt de object-id's die de groepslidmaatschappen van de certificaathouder vertegenwoordigen. Deze waarden zijn uniek (Zie de Object-ID) en veilig kunnen worden gebruikt voor het beheren van toegang tot, zoals het afdwingen van de autorisatie voor toegang tot een resource. De groepen die zijn opgenomen in de claim groepen zijn geconfigureerd op basis van per toepassing, via de eigenschap 'groupMembershipClaims' van het toepassingsmanifest. Een waarde van null alle groepen uitsluit, een waarde van 'Beveiligingsgroep' bevat alleen uitgevoerd voor Active Directory-beveiligingsgroep lidmaatschappen en een waarde 'Alle' wordt beveiligingsgroepen en distributielijsten van Office 365. <br><br> **Notities**: <br> Zie de `hasgroups` claimen hieronder voor meer informatie over het gebruik van de `groups` aanspraak maken op de impliciete subsidie. <br> Voor andere stromen, als het nummer van de gebruiker zich in groepen gaat u over een limiet (150 voor SAML, 200 voor JWT) aanspraak maken op een overschot toegevoegd de claim bronnen wijzen op het eindpunt van de grafiek met de lijst met groepen voor de gebruiker. (in. <br><br> **Voorbeeldwaarde SAML**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Voorbeeldwaarde JWT**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
-|`hasgroups` | JWT impliciete groepen overschot Stroomindicator| Indien aanwezig, altijd `true`, ter aanduiding van de gebruiker lid is van ten minste één groep. Gebruikt in plaats van de `groups` voor JWTs in de identiteitsclaim van de impliciete subsidie stromen als de volledige groepen beweren zou uitbreiden tot de URI fragment de grenzen URL lengte (momenteel 6 of meer groepen). Geeft aan dat de client de grafiek gebruiken moet om te bepalen van de groepen (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | Groepen overschot Indicator | Voor token aanvragen die niet door de beperkte lengte (Zie `hasgroups` hierboven), maar nog steeds te groot is voor het token, een koppeling naar de groepslijst met volledig voor de gebruiker worden opgenomen. Voor JWTs als gedistribueerde claim voor SAML als een nieuwe aanvraag in plaats van de `groups` claimen. <br><br> **Voorbeeldwaarde SAML**: <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **Voorbeeldwaarde JWT**: <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
+| `groups` |Groepen |Biedt de object-id's die de groepslidmaatschappen van de certificaathouder vertegenwoordigen. Deze waarden zijn uniek (Zie de Object-ID) en veilig kunnen worden gebruikt voor het beheren van toegang tot, zoals het afdwingen van de autorisatie voor toegang tot een resource. De groepen die zijn opgenomen in de claim groepen zijn geconfigureerd op basis van per toepassing, via de eigenschap 'groupMembershipClaims' van het toepassingsmanifest. Een waarde van null alle groepen uitsluit, een waarde van 'Beveiligingsgroep' bevat alleen uitgevoerd voor Active Directory-beveiligingsgroep lidmaatschappen en een waarde 'Alle' wordt beveiligingsgroepen en distributielijsten van Office 365. <br><br> **Opmerkingen bij de**: <br> Zie de `hasgroups` claim hieronder voor meer informatie over het gebruik van de `groups` claim met de impliciete verlenen. <br> Voor andere stromen als het aantal groepen die de gebruiker heeft wordt via een limiet (150 voor SAML, 200 voor JWT) en vervolgens een overschrijding claim toegevoegd de claim bronnen op het eindpunt van de grafiek bevat de lijst met groepen voor de gebruiker aan te wijzen. (in. <br><br> **Voorbeeldwaarde SAML**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Voorbeeldwaarde JWT**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+|`hasgroups` | Overschrijding Indicator van JWT impliciete stroom groepen| Indien aanwezig, altijd `true`, die aangeeft van de gebruiker zich in ten minste één groep. Gebruikt in plaats van de `groups` claim voor JWTs in impliciete grant stroomt als de volledige groepen claim zou de URI-fragment buiten de limieten voor de URL-lengte (momenteel 6 of meer groepen) uitbreiden. Hiermee wordt aangegeven dat de client de grafiek gebruiken moet om te bepalen van de gebruikersgroepen (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
+| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | Overschrijding Indicator van groepen | Voor aanvragen voor beveiligingstokens die niet beperkt de lengte (Zie `hasgroups` hierboven), maar nog steeds te groot is voor het token, een koppeling naar de volledige lijst voor de gebruiker worden opgenomen. Voor JWTs als gedistribueerde claim voor SAML als een nieuwe claim in plaats van de `groups` claim. <br><br> **Voorbeeldwaarde SAML**: <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **Voorbeeldwaarde JWT**: <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
 | `idp` |Id-provider |Registreert de id-provider die het onderwerp van het token wordt geverifieerd. Deze waarde is gelijk aan de waarde van de verlener claim tenzij het gebruikersaccount bevindt zich in een andere tenant dan de verlener. <br><br> **Voorbeeldwaarde SAML**: <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **Voorbeeldwaarde JWT**: <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |Slaat de tijd waarop het token is uitgegeven. Dit wordt vaak gebruikt voor het meten van token versheid. <br><br> **Voorbeeldwaarde SAML**: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **Voorbeeldwaarde JWT**: <br> `"iat": 1390234181` |
 | `iss` |Certificaatverlener |Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token. In de tokens die Azure AD retourneert, wordt de verlener sts.windows.net. De GUID in de claimwaarde van de verlener is de tenant-ID van de Azure AD-directory. De tenant-ID is een niet-wijzigbaar en betrouwbare id van de map. <br><br> **Voorbeeldwaarde SAML**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Voorbeeldwaarde JWT**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
@@ -113,7 +113,8 @@ Tokens die zijn uitgegeven door Azure AD bent aangemeld met behulp van de branch
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
@@ -129,12 +130,13 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > Probeer deze URL in een browser.
-> 
-> 
 
 Dit metagegevensdocument is een nuttig stukjes informatie, zoals de locatie van de verschillende eindpunten vereist voor het OpenID Connect verificatie uitvoeren met JSON-object. 
 
 Dit omvat ook een `jwks_uri`, waardoor de locatie van de set van openbare sleutels die worden gebruikt voor het ondertekenen van tokens. Het JSON-document vinden op de `jwks_uri` bevat alle gegevens van de openbare sleutel in gebruik op dat moment bepaald. Uw app kunt gebruiken de `kid` claim in de header JWT te selecteren welke openbare sleutel in dit document is gebruikt voor het ondertekenen van een bepaalde token. Validatie van handtekening met behulp van de juiste openbare sleutel en het opgegeven algoritme kan vervolgens uitvoeren.
+
+> [!NOTE]
+> Het eindpunt v1.0 retourneert zowel de `x5t` en `kid` claims. De `x5t` claim ontbreekt in v2.0-tokens. Het v2.0-eindpunt reageert met de `kid` claim. Voortaan, wordt u aangeraden de `kid` claim uw token valideren.
 
 Het valideren van de handtekening is buiten het bereik van dit document: Er zijn veel open-source bibliotheken beschikbaar voor u doen indien nodig te helpen.
 
@@ -148,7 +150,7 @@ Wanneer uw app een token (een id_token bij het aanmelden van gebruiker of een to
 * De **Nonce** : als u wilt een token replay-aanval te verhelpen.
 * en nog veel meer...
 
-Voor een volledige lijst van de claim validaties uw app moet worden uitgevoerd voor de ID-Tokens, raadpleegt u de [specificatie van het OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Details van de verwachte waarden voor deze argumenten worden opgenomen in de voorafgaande [id_token](#id-tokens) sectie.
+Voor een volledige lijst van de claim validaties uw app moet worden uitgevoerd voor de ID-Tokens, raadpleegt u de [specificatie van het OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Details van de verwachte waarden voor deze claims worden opgenomen in de voorgaande [id_token](#id-tokens) sectie.
 
 ## <a name="token-revocation"></a>Token intrekken
 

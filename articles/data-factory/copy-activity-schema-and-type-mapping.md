@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: dbfbafccc1bc735927535a5ee0f8d232be355dca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e3c4ec0062b6a155d0f4b11da1c699a0906c442
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618620"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318225"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schematoewijzing in de kopieerbewerking
 Dit artikel wordt beschreven hoe Azure Data Factory kopieeractiviteit schematoewijzing en gegevenstypetoewijzing van brongegevens opvangen gegevens gaat uitvoeren wanneer de gegevens opnieuw te kopiëren.
@@ -128,11 +128,18 @@ De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen v
         "translator":
         {
             "type": "TabularTranslator",
-            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+            "columnMappings": 
+            {
+                "UserId": "MyUserId",
+                "Group": "MyGroup",
+                "Name": "MyName"
+            }
         }
     }
 }
 ```
+
+Als u de syntaxis van `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` om op te geven kolomtoewijzing, wordt nog steeds ondersteund als-is.
 
 **Stroom van de toewijzing van kolom:**
 
@@ -155,8 +162,8 @@ Data Factory ondersteunt de volgende tussentijdse gegevenstypen: U kunt ondersta
 * Boole-waarde
 * Datum en tijd
 * Datetimeoffset
-* Decimale
-* dubbele
+* decimale
+* Double
 * GUID
 * Int16
 * Int32

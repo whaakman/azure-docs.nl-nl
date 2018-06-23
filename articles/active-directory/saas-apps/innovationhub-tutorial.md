@@ -1,0 +1,244 @@
+---
+title: 'Zelfstudie: Azure Active Directory-integratie met innovatie Hub | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en innovatie Hub.
+services: active-directory
+documentationCenter: na
+author: jeevansd
+manager: femila
+ms.reviewer: joflore
+ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/20/2018
+ms.author: jeedes
+ms.openlocfilehash: 612cce99b1a510dfb53ec4a6c1e2a40185367db1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320749"
+---
+# <a name="tutorial-azure-active-directory-integration-with-innovation-hub"></a>Zelfstudie: Azure Active Directory-integratie met innovatie Hub
+
+In deze zelfstudie leert u hoe innovatie Hub integreren met Azure Active Directory (Azure AD).
+
+Innovatie Hub integreren met Azure AD biedt de volgende voordelen:
+
+- U kunt beheren in Azure AD die toegang tot innovatie Hub heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij de Hub innovatie (Single Sign-On) inschakelen met hun Azure AD-accounts.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+
+## <a name="prerequisites"></a>Vereisten
+
+Voor het configureren van Azure AD-integratie met innovatie Hub, moet u de volgende items:
+
+- Een Azure AD-abonnement
+- Een Hub innovatie eenmalige aanmelding ingeschakeld abonnement
+
+> [!NOTE]
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+
+- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Scenariobeschrijving
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+
+1. Innovatie Hub uit de galerie toevoegen
+2. Configureren en testen van Azure AD eenmalige aanmelding
+
+## <a name="adding-innovation-hub-from-the-gallery"></a>Innovatie Hub uit de galerie toevoegen
+Voor het configureren van de integratie van innovatie Hub in Azure AD, moet u innovatie Hub uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+
+**Als u wilt toevoegen innovatie Hub uit de galerie, moet u de volgende stappen uitvoeren:**
+
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+
+    ![De Azure Active Directory-knop][1]
+
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+
+    ![De blade Enterprise-toepassingen][2]
+    
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+
+    ![De knop Nieuw toepassing][3]
+
+4. Typ in het zoekvak **innovatie Hub**, selecteer **innovatie Hub** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+
+    ![Innovatie Hub in de lijst met resultaten](./media/innovationhub-tutorial/tutorial_innovationhub_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+
+In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met innovatie Hub op basis van een testgebruiker 'Britta Simon' genoemd.
+
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in innovatie Hub is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in innovatie Hub tot stand worden gebracht.
+
+Om te configureren en testen van Azure AD eenmalige aanmelding met innovatie Hub, moet u de volgende bouwstenen voltooien:
+
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een testgebruiker innovatie Hub](#create-an-innovation-hub-test-user)**  - innovatie-Hub die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing innovatie Hub.
+
+**Voor het configureren van Azure AD eenmalige aanmelding met innovatie Hub, kunt u de volgende stappen uitvoeren:**
+
+1. In de Azure-portal op de **innovatie Hub** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+
+    ![Koppeling voor eenmalige aanmelding configureren][4]
+
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+ 
+    ![Dialoogvenster voor eenmalige aanmelding](./media/innovationhub-tutorial/tutorial_innovationhub_samlbase.png)
+
+3. Op de **innovatie Hub domein en de URL's** sectie, voert u de volgende stappen uit:
+
+    ![URL's en innovatie Hub domein eenmalige aanmelding informatie](./media/innovationhub-tutorial/tutorial_innovationhub_url.png)
+
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<domainname>.innohb.com/auth/saml2/login`
+
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<domainname>.innohb.com`
+
+    > [!NOTE]
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [innovatie Hub Client ondersteuningsteam](mailto:support@readify.net) ophalen van deze waarden.
+
+4. De SAML-asserties verwacht innovatie Hub toepassing in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+
+    ![Eenmalige aanmelding configureren](./media/innovationhub-tutorial/attribute.png)
+
+5. Klik op **weergeven en bewerken van alle andere gebruikerskenmerken** selectievakje in de **gebruikerskenmerken** sectie uit te breiden, de kenmerken. Voer de volgende stappen uit op elk van de kenmerken weergegeven-
+
+    | Naam kenmerk | Waarde kenmerk | Namespace-waarde|
+    | ---------------| --------------- |----------------|
+    | weergavenaam | User.userPrincipalName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | | |
+
+    a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
+
+    ![Eenmalige aanmelding configureren](./media/innovationhub-tutorial/tutorial_attribute_04.png)
+
+    ![Eenmalige aanmelding configureren](./media/innovationhub-tutorial/tutorial_attribute_05.png)
+
+    b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
+
+    c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+
+    d. Van de **Namespace-waarde** lijst, typ de naamruimtewaarde die wordt weergegeven voor die rij.
+
+    e. Klik op **OK**.
+
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+
+    ![De downloadkoppeling certificaat](./media/innovationhub-tutorial/tutorial_innovationhub_certificate.png)
+
+5. Klik op **opslaan** knop.
+
+    ![Knop Single Sign-On opslaan configureren](./media/innovationhub-tutorial/tutorial_general_400.png)
+
+6. Eenmalige aanmelding configureren op **innovatie Hub** zijde, moet u de gekopieerde verzenden **Url voor federatieve metagegevens** naar [innovatie Hub ondersteuningsteam](mailto:support@readify.net). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+
+   ![Een Azure AD-testgebruiker maken][100]
+
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+
+    ![De Azure Active Directory-knop](./media/innovationhub-tutorial/create_aaduser_01.png)
+
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/innovationhub-tutorial/create_aaduser_02.png)
+
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+
+    ![De knop toevoegen](./media/innovationhub-tutorial/create_aaduser_03.png)
+
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+
+    ![Het dialoogvenster gebruiker](./media/innovationhub-tutorial/create_aaduser_04.png)
+
+    a. In de **naam** in het vak **BrittaSimon**.
+
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+
+    d. Klik op **Create**.
+ 
+### <a name="create-an-innovation-hub-test-user"></a>Een testgebruiker innovatie Hub maken
+
+Het doel van deze sectie is het maken van een gebruiker Britta Simon in innovatie Hub genoemd. Innovatie Hub biedt ondersteuning voor just-in-time-inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot innovatie Hub als deze nog niet bestaat.
+>[!Note]
+>Als u maken van een gebruiker handmatig wilt, neem dan contact op met [innovatie Hub ondersteuningsteam](mailto:support@readify.net).
+
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+
+In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan innovatie Hub.
+
+![Toewijzen van de gebruikersrol][200] 
+
+**Als u wilt toewijzen Britta Simon op innovatie Hub, kunt u de volgende stappen uitvoeren:**
+
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+
+    ![Gebruiker toewijzen][201] 
+
+2. Selecteer in de lijst met toepassingen **innovatie Hub**.
+
+    ![De koppeling innovatie Hub in de lijst met toepassingen](./media/innovationhub-tutorial/tutorial_innovationhub_app.png)  
+
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+
+    ![De koppeling 'Gebruikers en groepen'][202]
+
+4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+
+    ![Het deelvenster toewijzing toevoegen][203]
+
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+
+6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+
+7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+
+Als u op de tegel innovatie Hub in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing innovatie Hub.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Aanvullende resources
+
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+<!--Image references-->
+
+[1]: ./media/innovationhub-tutorial/tutorial_general_01.png
+[2]: ./media/innovationhub-tutorial/tutorial_general_02.png
+[3]: ./media/innovationhub-tutorial/tutorial_general_03.png
+[4]: ./media/innovationhub-tutorial/tutorial_general_04.png
+
+[100]: ./media/innovationhub-tutorial/tutorial_general_100.png
+
+[200]: ./media/innovationhub-tutorial/tutorial_general_200.png
+[201]: ./media/innovationhub-tutorial/tutorial_general_201.png
+[202]: ./media/innovationhub-tutorial/tutorial_general_202.png
+[203]: ./media/innovationhub-tutorial/tutorial_general_203.png
+

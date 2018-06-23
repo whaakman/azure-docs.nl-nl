@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232361"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335054"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory-Veelgestelde vragen over rapportage
 
@@ -72,7 +72,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 **V: hoe veel records die ik vanuit Azure-portal kunt downloaden?**
 
-**A:** u kunt maximaal 5000 records downloaden van de Azure-portal. De records worden gesorteerd op *meest recente* en standaard krijgt u de meest recente 5000 records. Kies uw filtervoorwaarden voor record grootte van meer dan 5000, en klik vervolgens op de *Script* knop op de Azure-portal. Hiermee wordt een PowerShell-script kan worden uitgevoerd voor het genereren van een CSV-bestand van alle records die overeenkomen met uw filtercriteria gedownload. U moet het PowerShell-script uitvoeren *beheerdersmodus*. Zie voor meer informatie [aanmelden activiteiten downloaden](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
+**A:** u kunt maximaal 5000 records downloaden van de Azure-portal. De records worden gesorteerd op *meest recente* en standaard krijgt u de meest recente 5000 records.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Kopiëren van gegevens uit QuickBooks met behulp van Azure Data Factory (bèta) | Microsoft Docs
+title: Kopiëren van gegevens uit QuickBooks met behulp van Azure Data Factory (Preview) | Microsoft Docs
 description: Ontdek hoe u gegevens uit QuickBooks naar gegevensarchieven ondersteunde sink kopiëren met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: db9b57ed64485882a9b0e0bb020392131f4c5d62
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d0c7557c400be36fed59e48fc346afb0fa5b198b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619174"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337938"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Kopiëren van gegevens uit QuickBooks met behulp van Azure Data Factory (bèta)
+# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Kopiëren van gegevens uit QuickBooks met behulp van Azure Data Factory (Preview)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit QuickBooks. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Deze connector is momenteel in de bètaversie. U kunt uit te proberen en ons feedback te geven. Gebruik deze niet in een productieomgeving.
+> Deze connector is momenteel in preview. U kunt uit te proberen en ons feedback te geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -40,7 +40,7 @@ Deze connector ondersteunen momenteel alleen 1.0a, wat betekent dat u moet een o
 
 ## <a name="getting-started"></a>Aan de slag
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met QuickBooks-connector.
 
@@ -51,8 +51,10 @@ De volgende eigenschappen worden ondersteund voor QuickBooks gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **QuickBooks** | Ja |
-| endpoint | Het eindpunt van de server QuickBooks. (dat wil zeggen, quickbooks.api.intuit.com)  | Ja |
+| eindpunt | Het eindpunt van de server QuickBooks. (dat wil zeggen, quickbooks.api.intuit.com)  | Ja |
 | companyId | De bedrijfs-ID van het bedrijf QuickBooks te autoriseren.  | Ja |
+| consumerKey | De consumentsleutel voor 1.0 OAuth-verificatie. | Ja |
+| consumerSecret | De consumentgeheim voor 1.0 OAuth-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessToken | Het toegangstoken voor verificatie van de OAuth-1.0. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessTokenSecret | Het access token geheim voor 1.0 OAuth-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Geeft aan of de eindpunten van de gegevensbron zijn versleuteld via HTTPS. De standaardwaarde is true.  | Nee |
@@ -67,6 +69,11 @@ De volgende eigenschappen worden ondersteund voor QuickBooks gekoppelde service:
         "typeProperties": {
             "endpoint" : "quickbooks.api.intuit.com",
             "companyId" : "<companyId>",
+            "consumerKey": "<consumerKey>",
+            "consumerSecret": {
+                "type": "SecureString",
+                "value": "<consumerSecret>"
+            },
             "accessToken": {
                  "type": "SecureString",
                  "value": "<accessToken>"

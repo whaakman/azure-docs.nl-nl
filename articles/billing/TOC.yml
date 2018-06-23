@@ -117,6 +117,22 @@
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Contact opnemen met ondersteuning
       href: ../azure-supportability/how-to-create-azure-support-request.md
+- name: Voorbeelden
+  items:
+    - name: REST-API
+      items:
+        - name: Enterprise-kosten beoordelen
+          href: billing-review-enterprise-billing.md
+        - name: Abonnementsgebruik beoordelen
+          href: billing-review-subscription-billing.md
+    - name: .NET-voorbeelden
+      items:
+        - name: Codevoorbeeld voor de API voor facturen
+          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
+        - name: Codevoorbeeld voor de API voor gebruik
+          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
+        - name: Codevoorbeeld voor de RateCard API
+          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
 - name: Naslaginformatie
   items:
     - name: Automatiseringsscenario's voor facturering
@@ -142,11 +158,3 @@
       items:
         - name: REST-API van Enterprise Reporting
           href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
-    - name: Codevoorbeelden voor facturering
-      items:
-        - name: Codevoorbeeld voor de API voor facturen
-          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-        - name: Codevoorbeeld voor de API voor gebruik
-          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-        - name: Codevoorbeeld voor de RateCard API
-          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'

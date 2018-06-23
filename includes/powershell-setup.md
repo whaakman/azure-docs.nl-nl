@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: be5089b825a873006696eb074ed4355f415e680b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "23886181"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319522"
 ---
 ## <a name="setting-up-powershell"></a>Instellen van PowerShell
 Voordat u Azure PowerShell gebruiken kunt, volg deze stappen.
@@ -56,7 +56,7 @@ Zie voor instructies en een koppeling naar de nieuwste versie [installeren en co
 ### <a name="set-your-azure-account-and-subscription"></a>Uw Azure-account en -abonnement instellen
 Als u nog geen Azure-abonnement hebt, kunt u activeren uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
-Open een Azure PowerShell-opdrachtprompt en meld u aan bij Azure met deze opdracht.
+Open een Azure PowerShell-opdrachtprompt en aanmelden bij Azure met deze opdracht.
 
     Add-AzureAccount
 

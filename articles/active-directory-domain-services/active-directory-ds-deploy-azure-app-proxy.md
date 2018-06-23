@@ -13,20 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 4ee07d8b9180c04c714476da845ceffaa4388bee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 43b43be154756838d8c130b2ec1a0dbc40405422
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229526"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332351"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD-toepassingsproxy op een beheerd domein van Azure AD Domain Services implementeren
 Toepassingsproxy van Azure Active Directory (AD) kunt u ondersteuning voor externe werknemers door het publiceren van on-premises toepassingen via internet worden geopend. U kunt nu lift-en-shift oudere toepassingen met lokale naar Azure Infrastructure Services met Azure AD Domain Services. Vervolgens kunt u deze toepassingen de Azure AD-toepassingsproxy gebruiken voor veilige externe toegang tot gebruikers in uw organisatie publiceren.
 
 Als u geen ervaring met de Azure AD-toepassingsproxy, meer informatie over deze functie met het volgende artikel: [het verstrekken van veilige externe toegang tot on-premises toepassingen](../active-directory/manage-apps/application-proxy.md).
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:

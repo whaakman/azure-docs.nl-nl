@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 85b8d4d0-3f6a-4913-b9d3-8cc327d8280d
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 8cae1e2670ba449c0db28209c54b740e927bbb73
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 02421ace226f42da58eb9864fe0ef2e1ca550391
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210374"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Zelfstudie: Azure Active Directory-integratie met SharePoint on-premises
 
@@ -74,7 +73,7 @@ Voor het configureren van de integratie van SharePoint lokale in Azure AD, moet 
 
 4. Typ in het zoekvak **SharePoint lokale**, selecteer **SharePoint lokale** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![SharePoint lokaal in de lijst met resultaten](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
+    ![SharePoint lokaal in de lijst met resultaten](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
@@ -102,11 +101,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
 
-    ![Dialoogvenster voor eenmalige aanmelding](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
+    ![Dialoogvenster voor eenmalige aanmelding](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
 3. Op de **SharePoint on-premises domein en URL's** sectie, voert u de volgende stappen uit:
 
-    ![Lokale domein en de URL's eenmalige aanmelding gegevens voor SharePoint](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
+    ![Lokale domein en de URL's eenmalige aanmelding gegevens voor SharePoint](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
     a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -117,15 +116,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op de computer met de extensie .cer. Kopieer en plak het volledige pad van het metagegevensbestand van de gedownloade in Kladblok.
 
-    ![De downloadkoppeling certificaat](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
+    ![De downloadkoppeling certificaat](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
 5. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/sharepoint-on-premises-tutorial/tutorial_general_400.png)
+    ![Knop Single Sign-On opslaan configureren](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
 6. Op de **SharePoint lokale configuratie** sectie, klikt u op **SharePoint configureren lokale** openen **eenmalige aanmelding configureren** venster. Kopieer de **Single Sign-On Service-URL** van de **Naslaggids punt.**
 
-    ![Configuratie van SharePoint on-premises](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
+    ![Configuratie van SharePoint on-premises](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > SharePoint On-Premises toepassing gebruikmaakt van SAML 1.1 token, zodat de Azure AD verwacht aanvraag WS Fed van SharePoint-server en na verificatie deze uitgeeft het SAML-1.1. token.
@@ -148,6 +147,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     $map = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
     $map2 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" -IncomingClaimTypeDisplayName "GivenName" -SameAsIncoming
     $map3 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" -IncomingClaimTypeDisplayName "SurName" -SameAsIncoming
+    $map4 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "Email" -SameAsIncoming
     $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "SharePoint secured by Azure AD" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map,$map2,$map3 -SignInUrl $wsfedurl -IdentifierClaim "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
     ```
 
@@ -163,7 +163,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     e. Klik op **OK**.
 
-    ![Uw provider voor verificatie configureren](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+    ![Uw provider voor verificatie configureren](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -175,19 +175,19 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-    ![De Azure Active Directory-knop](./media/sharepoint-on-premises-tutorial/create_aaduser_01.png)
+    ![De Azure Active Directory-knop](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
 2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/sharepoint-on-premises-tutorial/create_aaduser_02.png)
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
 3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
-    ![De knop toevoegen](./media/sharepoint-on-premises-tutorial/create_aaduser_03.png)
+    ![De knop toevoegen](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
 4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
 
-    ![Het dialoogvenster gebruiker](./media/sharepoint-on-premises-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster gebruiker](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
     a. In de **naam** in het vak **BrittaSimon**.
 
@@ -207,7 +207,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 4. Klik in het beleid voor webtoepassing **gebruikers toevoegen**.
 
-    ![Zoeken naar een gebruiker door hun naamclaim](./media/sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
+    ![Zoeken naar een gebruiker door hun naamclaim](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
 5. In de **gebruikers toevoegen** dialoogvenster vak, klikt u op de juiste zone in **Zones**, en klik vervolgens op **volgende**.
 
@@ -219,7 +219,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 9. Klik in machtigingen op **volledig beheer**.
 
-    ![Volledig beheer verlenen aan een claimgebruiker](./media/sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
+    ![Volledig beheer verlenen aan een claimgebruiker](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
 10. Klik op **voltooien**, en klik vervolgens op **OK**.
 
@@ -227,7 +227,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 Gebruikers kunnen zich nu aanmelden bij SharePoint 2016 met behulp van id's van Azure AD, maar er zijn nog steeds mogelijkheden voor verbetering van de gebruikerservaring. Zoeken naar een gebruiker geeft bijvoorbeeld meerdere zoekresultaten in de kiezer voor personen. Er is een zoekresultaat voor elk van de 3 claimtypen die zijn gemaakt in de claimtoewijzing. Als u een gebruiker met behulp van de personen selecteren, moet u precies typt u hun gebruikersnaam en kies de **naam** resultaat claim.
 
-![Claims zoekresultaten](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
+![Claims zoekresultaten](./media\sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
 Er is geen validatie van de waarden die u zoekt, wat tot typefouten leiden kan of gebruikers per ongeluk de verkeerde kiezen claimtype om toe te wijzen, zoals de **achternaam** claim. Dit kan voorkomen dat gebruikers wel toegang hebben tot bronnen.
 
@@ -237,7 +237,7 @@ Om te helpen bij dit scenario, is een open source oplossing aangeroepen [AzureCP
 
 In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot SharePoint on-premises.
 
-![Toewijzen van de gebruikersrol][200] 
+![Toewijzen van de gebruikersrol][200]
 
 **Als u wilt toewijzen Britta Simon met SharePoint on-premises, moet u de volgende stappen uitvoeren:**
 
@@ -247,7 +247,7 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
 2. Selecteer in de lijst met toepassingen **SharePoint lokale**.
 
-    ![De SharePoint-koppeling in de lijst met toepassingen](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
+    ![De SharePoint-koppeling in de lijst met toepassingen](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
@@ -275,17 +275,18 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
+
 <!--Image references-->
 
-[1]: ./media/sharepoint-on-premises-tutorial/tutorial_general_01.png
-[2]: ./media/sharepoint-on-premises-tutorial/tutorial_general_02.png
-[3]: ./media/sharepoint-on-premises-tutorial/tutorial_general_03.png
-[4]: ./media/sharepoint-on-premises-tutorial/tutorial_general_04.png
+[1]: ./media\sharepoint-on-premises-tutorial/tutorial_general_01.png
+[2]: ./media\sharepoint-on-premises-tutorial/tutorial_general_02.png
+[3]: ./media\sharepoint-on-premises-tutorial/tutorial_general_03.png
+[4]: ./media\sharepoint-on-premises-tutorial/tutorial_general_04.png
 
-[100]: ./media/sharepoint-on-premises-tutorial/tutorial_general_100.png
+[100]: ./media\sharepoint-on-premises-tutorial/tutorial_general_100.png
 
-[200]: ./media/sharepoint-on-premises-tutorial/tutorial_general_200.png
-[201]: ./media/sharepoint-on-premises-tutorial/tutorial_general_201.png
-[202]: ./media/sharepoint-on-premises-tutorial/tutorial_general_202.png
-[203]: ./media/sharepoint-on-premises-tutorial/tutorial_general_203.png
+[200]: ./media\sharepoint-on-premises-tutorial/tutorial_general_200.png
+[201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
+[202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
+[203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788751"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331517"
 ---
 # <a name="media-intelligence"></a>Mediagegevens
 
@@ -50,9 +50,9 @@ De uitvoer bevat een JSON-bestand (insights.json) met de inzichten die zijn gevo
 |Naam|Beschrijving|
 |---|---|
 |id|De regel-ID.|
-|Tekst|De tekst zelf.|
+|tekst|De tekst zelf.|
 |taal|De taal van de tekst. Bedoeld ter ondersteuning van de tekst waarbij elke regel een andere taal kan hebben.|
-|instanties|Een lijst met tijdsbereik waarop deze regel komt. Als de instantie een van de tekst is, wordt er slechts 1 exemplaar.|
+|exemplaren|Een lijst met tijdsbereik waarop deze regel komt. Als de instantie een van de tekst is, wordt er slechts 1 exemplaar.|
 
 Voorbeeld:
 
@@ -87,11 +87,11 @@ Voorbeeld:
 
 |Naam|Beschrijving|
 |---|---|
-|id|De OCR regel-id.|
-|Tekst|De tekst.|
-|vertrouwen|Het vertrouwen herkenning.|
+|id|De OCR regel-ID.|
+|tekst|De tekst.|
+|Vertrouwen|Het vertrouwen herkenning.|
 |taal|De OCR-taal.|
-|instanties|Een lijst met tijdsbereik waar deze OCR komt (de dezelfde OCR kan meerdere keren voorkomen).|
+|exemplaren|Een lijst met tijdsbereik waar deze OCR komt (de dezelfde OCR kan meerdere keren voorkomen).|
 
 ```json
 "ocr": [
@@ -126,15 +126,15 @@ Voorbeeld:
   ],
 ```
 
-### <a name="keywords"></a>Trefwoorden
+### <a name="keywords"></a>trefwoorden
 
 |Naam|Beschrijving|
 |---|---|
-|id|De id sleutelwoord.|
-|Tekst|De tekst sleutelwoord.|
-|vertrouwen|Het sleutelwoord erkenning vertrouwen.|
+|id|Het sleutelwoord-ID.|
+|tekst|De tekst sleutelwoord.|
+|Vertrouwen|Het sleutelwoord erkenning vertrouwen.|
 |taal|Het sleutelwoord-taal (wanneer vertaald).|
-|instanties|Een lijst met tijdsbereik waar dit sleutelwoord wordt weergegeven (een trefwoord kan meerdere keren voorkomen).|
+|exemplaren|Een lijst met tijdsbereik waar dit sleutelwoord wordt weergegeven (een trefwoord kan meerdere keren voorkomen).|
 
 ```json
 "keywords": [
@@ -174,21 +174,21 @@ Voorbeeld:
 
 ```
 
-### <a name="faces"></a>vlakken
+### <a name="faces"></a>Bespreekt
 
 |Naam|Beschrijving|
 |---|---|
-|id|De face-id.|
+|id|De face-ID.|
 |naam|De naam van pictogramtitel. 'Onbekende #0', een geïdentificeerde beroemdheden of een persoon met de klant kan zijn.|
-|vertrouwen|Het vertrouwen van face-identificatie.|
-|description|In geval van een beroemdheden, de beschrijving (' Satya Nadella is geboren op... '). |
+|Vertrouwen|Het vertrouwen van face-identificatie.|
+|beschrijving|In geval van een beroemdheden, de beschrijving. |
 |thumbnalId|De id van de miniatuur van die gezicht.|
-|knownPersonId|In geval van een bekende persoon, de interne id.|
-|ReferenceId|In geval van een beroemdheden Bing bijbehorende Bing-id.|
+|knownPersonId|In geval van een bekende persoon, de interne-ID.|
+|referenceId|In geval van een Bing beroemdheden, de Bing-ID.|
 |referenceType|Op dit moment alleen Bing.|
 |titel|In geval van een beroemdheden titel (bijvoorbeeld ' Microsoft CEO').|
 |imageUrl|In geval van een beroemdheden de afbeeldings-url.|
-|instanties|Dit zijn exemplaren van waar de face in het bereik van de opgegeven tijd komt. Elk exemplaar heeft ook een thumbnailsId. |
+|exemplaren|Dit zijn exemplaren van waar de face in het bereik van de opgegeven tijd komt. Elk exemplaar heeft ook een thumbnailsId. |
 
 ```json
 "faces": [{
@@ -219,14 +219,14 @@ Voorbeeld:
 }]
 ```
 
-### <a name="labels"></a>Labels
+### <a name="labels"></a>labels
 
 |Naam|Beschrijving|
 |---|---|
-|id|de label-id.|
+|id|De label-ID.|
 |naam|De labelnaam (bijvoorbeeld 'Computer', 'TV').|
 |taal|De taal met de label-naam (wanneer vertaald). BCP 47|
-|instanties|Een lijst met tijdsbereik waar dit label wordt weergegeven (een label kan meerdere keren voorkomen). Elk exemplaar heeft een veld vertrouwen. |
+|exemplaren|Een lijst met tijdsbereik waar dit label wordt weergegeven (een label kan meerdere keren voorkomen). Elk exemplaar heeft een veld vertrouwen. |
 
 
 ```json
@@ -282,9 +282,9 @@ Voorbeeld:
 
 |Naam|Beschrijving|
 |---|---|
-|id|De schermopname-id.|
-|keyFrames|Een lijst met keyframes in beeld (elk met een Id en een lijst met instanties tijdsbereik).|
-|instanties|Een lijst met tijdsbereiken van deze geschoten (schermafbeeldingen hebben slechts 1 exemplaar).|
+|id|De schermopname-ID.|
+|keyFrames|Een lijst met keyframes in beeld (elk met een ID en een lijst met instanties tijdsbereik).|
+|exemplaren|Een lijst met tijdsbereiken van deze geschoten (schermafbeeldingen hebben slechts 1 exemplaar).|
 
 ```json
 "Shots": [
@@ -331,33 +331,6 @@ Voorbeeld:
   ]
 ```
 
-### <a name="audioeffects"></a>audioEffects
-
-|Naam|Beschrijving|
-|---|---|
-|id|De audio-effect-ID.|
-|type|Het type audio-effect (bijvoorbeeld klappen, spraak, stilte).|
-|instanties|Een lijst met tijdsbereik waar deze audio-effect komt.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
-```
-
 
 ### <a name="sentiments"></a>Zie
 
@@ -367,7 +340,7 @@ Zie worden samengevoegd door hun sentimentType veld (neutrale-positieve/negatiev
 |---|---|
 |id|De gevoel-ID.|
 |averageScore |Het gemiddelde van alle scores van alle exemplaren van dat type gevoel - neutrale-positieve/negatieve|
-|instanties|Een lijst met tijdsbereik waar deze gevoel komt.|
+|exemplaren|Een lijst met tijdsbereik waar deze gevoel komt.|
 
 ```json
 "sentiments": [

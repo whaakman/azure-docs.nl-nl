@@ -13,20 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 6a4e25dd3f819ad4f0fee7846e87df2202f5227f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2ee5250147a82199057a3bf6f043627616e7443d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210615"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333683"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Een beheerd domein van Azure AD Domain Services beheren
 In dit artikel laat zien hoe een Azure Active Directory (AD) Domain Services beheerd domein beheren.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:
+Als u de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:
 
 1. Een geldige **Azure-abonnement**.
 2. Een **Azure AD-directory** -ofwel gesynchroniseerd met een on-premises adreslijst of een map alleen in de cloud.
@@ -37,7 +39,7 @@ Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u h
 <br>
 
 ## <a name="administrative-tasks-you-can-perform-on-a-managed-domain"></a>Administratieve taken die u op een beheerd domein uitvoeren kunt
-Leden van de groep 'AAD DC Administrators' krijgen bevoegdheden op het beheerde domein waarmee deze taken uit te voeren, zoals:
+Leden van de groep 'AAD DC Administrators' krijgen bevoegdheden op het beheerde domein waarmee deze taken uitvoeren, zoals:
 
 * Computers toevoegen aan het beheerde domein.
 * De ingebouwde GPO voor de containers 'AADDC Computers' en 'AADDC Users' in het beheerde domein configureren.
@@ -46,15 +48,15 @@ Leden van de groep 'AAD DC Administrators' krijgen bevoegdheden op het beheerde 
 * Beheerderstoegang verkrijgen tot computers die aan het beheerde domein zijn gekoppeld.
 
 ## <a name="administrative-privileges-you-do-not-have-on-a-managed-domain"></a>U niet op een beheerd domein hebt beheerdersbevoegdheden
-Het domein wordt beheerd door Microsoft, met inbegrip van activiteiten zoals patchen, bewaking en, back-ups maken. Daarom wordt het domein is vergrendeld en u bent niet bevoegd bepaalde beheertaken uitvoeren op het domein. Er zijn enkele voorbeelden van taken die u niet kunt uitvoeren onder.
+Het domein wordt beheerd door Microsoft, met inbegrip van activiteiten zoals patchen, bewaking en, voor het maken van back-ups. Het domein is vergrendeld en u bent niet bevoegd om te doen van bepaalde beheertaken uitvoeren op het domein. Er zijn enkele voorbeelden van taken die u kunt geen hieronder.
 
-* U domein- of Ondernemingsadministrator-bevoegdheden voor het beheerde domein niet krijgen.
+* U hebt geen domein- of Ondernemingsadministrator-bevoegdheden voor het beheerde domein.
 * U kunt het schema van het beheerde domein niet uitbreiden.
 * U kan geen verbinding met de domeincontrollers voor het beheerde domein met extern bureaublad.
 * U kunt domeincontrollers kan toevoegen aan het beheerde domein.
 
-## <a name="task-1---provision-a-domain-joined-windows-server-virtual-machine-to-remotely-administer-the-managed-domain"></a>Taak 1: een domein Windows Server-machine voor het extern beheren van het beheerde domein inrichten
-Azure AD Domain Services beheerde domeinen kunnen worden beheerd met vertrouwd Active Directory-beheerprogramma's zoals de Active Directory-beheercentrum (ADAC) of AD PowerShell. Tenantbeheerders hoeft geen bevoegdheden voor verbinding met domeincontrollers op het beheerde domein via Extern bureaublad. Leden van de groep 'AAD DC Administrators' beheren daarom beheerde domeinen op afstand met AD-beheerprogramma's van een Windows-Server /-client-computer die is toegevoegd aan het beheerde domein. AD-beheerprogramma's kunnen worden geïnstalleerd als onderdeel van het optionele onderdeel van Remote Server Administration Tools (RSAT) voor Windows Server en client-computers die zijn gekoppeld aan het beheerde domein.
+## <a name="task-1---create-a-domain-joined-windows-server-virtual-machine-to-remotely-administer-the-managed-domain"></a>Taak 1: het maken van een domein Windows Server virtuele machine voor het beheerde domein op afstand beheren
+Azure AD Domain Services beheerde domeinen kunnen worden beheerd met vertrouwd Active Directory-beheerprogramma's zoals de Active Directory-beheercentrum (ADAC) of AD PowerShell. Tenantbeheerders hoeft geen bevoegdheden voor verbinding met domeincontrollers op het beheerde domein via Extern bureaublad. Leden van de groep 'AAD DC Administrators' beheren beheerde domeinen op afstand met AD-beheerprogramma's van een Windows-Server /-client-computer die is toegevoegd aan het beheerde domein. AD-beheerprogramma's kunnen worden geïnstalleerd als onderdeel van het optionele onderdeel van Remote Server Administration Tools (RSAT) voor Windows Server en client-computers die zijn gekoppeld aan het beheerde domein.
 
 De eerste stap is het instellen van een virtuele machine van Windows Server die is toegevoegd aan het beheerde domein. Voor instructies raadpleegt u het artikel [virtuele machine met Windows Server toevoegen aan een beheerd domein van Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md).
 
@@ -64,13 +66,13 @@ De instructies in dit artikel gebruik een virtuele machine van Windows Server vo
 U kunt [Remote Server Administration Tools (RSAT) installeren](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) op een Windows-client virtuele machine door de instructies op TechNet.
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Taak 2 - Install Active Directory-beheerprogramma's op de virtuele machine
-Voer de volgende stappen voor het installeren van de Active Directory-beheerprogramma's op de virtuele machine van verbonden met het domein. Zie Technet voor meer [informatie over het installeren en gebruiken van Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx).
+De volgende stappen voor het installeren van de Active Directory-beheerprogramma's op de virtuele machine van verbonden met het domein. Zie Technet voor meer [informatie over het installeren en gebruiken van Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx).
 
 1. Navigeer naar de Azure-portal. Klik op **alle resources** in het deelvenster links. Zoek en klik op de virtuele machine die u in taak 1 hebt gemaakt.
 2. Klik op de **Connect** knop op het tabblad Overzicht. Een Remote Desktop Protocol (RDP)-bestand is gemaakt en gedownload.
 
     ![Verbinding maken met virtuele Windows-computer](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. Open het gedownloade RDP-bestand om verbinding met de VM te maken. Als u hierom wordt gevraagd, klikt u op **Verbinden**. Gebruik de referenties van een gebruiker van de ' AAD DC' beheerdersgroep bij de aanmeldingsprompt. Bijvoorbeeld, gebruiken we 'bob@domainservicespreview.onmicrosoft.com' in ons geval. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Klik op Ja of doorgaan om door te gaan met de verbinding.
+3. Open het gedownloade RDP-bestand om verbinding met de VM te maken. Als u hierom wordt gevraagd, klikt u op **Verbinden**. Gebruik de referenties van een gebruiker van de ' AAD DC' beheerdersgroep. Bijvoorbeeld 'bob@domainservicespreview.onmicrosoft.com'. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Klik op Ja of doorgaan om door te gaan met de verbinding.
 4. Open in het startscherm **Serverbeheer**. Klik op **functies en onderdelen toevoegen** in het centrale deelvenster van het venster Server Manager.
 
     ![Serverbeheer starten op de virtuele machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -83,7 +85,7 @@ Voer de volgende stappen voor het installeren van de Active Directory-beheerprog
 7. Op de **serverselectie** pagina, selecteert u de huidige virtuele machine uit de servergroep en klik op **volgende**.
 
     ![Pagina voor serverselectie](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. Op de **serverfuncties** pagina, klikt u op **volgende**. We overslaan deze pagina omdat er geen rollen niet op de server installeert.
+8. Op de **serverfuncties** pagina, klikt u op **volgende**.
 9. Op de **functies** pagina, vouw de **Remote Server Administration Tools** knooppunt en klik vervolgens op uit te breiden de **functiebeheer** knooppunt. Selecteer **AD DS en AD LDS-hulpprogramma** functie uit de lijst met hulpprogramma's voor functiebeheer.
 
     ![Pagina onderdelen](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)
@@ -92,7 +94,7 @@ Voer de volgende stappen voor het installeren van de Active Directory-beheerprog
     ![Bevestigingspagina](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-confirmation.png)
 
 ## <a name="task-3---connect-to-and-explore-the-managed-domain"></a>Taak 3: verbinding maken met en het beheerde domein verkennen
-Nu de AD-beheerprogramma's zijn geïnstalleerd op de virtuele machine van het domein, kunnen we deze hulpprogramma's gebruiken om te verkennen en beheren van het beheerde domein.
+Nu kunt u Windows Server AD-beheerprogramma's kunnen worden verkend en beheren van het beheerde domein.
 
 > [!NOTE]
 > U moet lid zijn van de groep 'AAD DC-beheerders' voor het beheer van het beheerde domein.

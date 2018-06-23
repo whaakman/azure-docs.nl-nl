@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d22720e71788493d3663524f2b70783ba26b84d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b5fb84f8d8fbed7e1d4112e96b00af3e460661a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218160"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317099"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Zelfstudie: Azure Active Directory-integratie met Fluxx Labs
 
@@ -67,7 +66,7 @@ Voor het configureren van de integratie van Fluxx Labs in Azure AD, moet u Fluxx
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
-    
+
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop Nieuw toepassing][3]
@@ -103,7 +102,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Dialoogvenster voor eenmalige aanmelding](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
 
 3. Op de **Fluxx Labs domein en de URL's** sectie, voert u de volgende stappen uit:
@@ -123,8 +122,8 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     |-------------|------------|
     | Productie | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Testfase vóór productie | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-        
-    > [!NOTE] 
+
+    > [!NOTE]
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Fluxx Labs ondersteuningsteam](mailto:travis@fluxxlabs.com) ophalen van deze waarden.
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
@@ -135,7 +134,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Knop Single Sign-On opslaan configureren](./media/fluxxlabs-tutorial/tutorial_general_400.png)
 
-6. Op de **Fluxx Labs configuratie** sectie, klikt u op **configureren Fluxx Labs** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op de **Fluxx Labs configuratie** sectie, klikt u op **configureren Fluxx Labs** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Fluxx Labs configuratie](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
 
@@ -148,9 +147,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 9. Selecteer in het deelvenster Beheer **invoegtoepassingen** > **integraties** en selecteer vervolgens **SAML SSO-(Disabled)**
 
     ![Fluxx Labs configuratie](./media/fluxxlabs-tutorial/config2.png)
-    
+
 10. Voer de volgende stappen uit in de sectie kenmerk:
-    
+
     ![Fluxx Labs configuratie](./media/fluxxlabs-tutorial/config3.png)
 
     a. Selecteer de **SAML SSO** selectievakje.
@@ -159,15 +158,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     c. In de **retouraanroep pad** textbox type **/auth/saml/callback**.
 
-    d. In de **Assertion Consumer Service Url(Single Sign-On URL)** textbox, plak de waarde van **SAML Single Sign-On Service-URL**, die u hebt gekopieerd uit de Azure portal.
+    d. In de **Assertion Consumer Service Url(Single Sign-On URL)** textbox, voer de **antwoord-URL** waarde, die u hebt ingevoerd in de Azure-portal.
 
-    e. In de **doelgroep (SP entiteit-ID)** textbox, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd uit de Azure portal.
+    e. In de **doelgroep (SP entiteit-ID)** textbox, voer de **id** waarde, die u hebt ingevoerd in de Azure-portal.
 
-    f. Open uw base-64 gecodeerde certificaat in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **Provider identiteitscertificaat** textbox.
+    f. In de **identiteit Provider SSO doel-URL** textbox, plak de **SAML Single Sign-On Service-URL** waarde, die u hebt gekopieerd uit de Azure portal.
 
-    g. In **naam-id indeling** textbox, voert u de waarde `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    g. Open uw base-64 gecodeerde certificaat in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **Provider identiteitscertificaat** textbox.
 
-    h. Klik op **Opslaan**.
+    h. In **naam-id indeling** textbox, voert u de waarde `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+
+    i. Klik op **Opslaan**.
 
     > [!NOTE]
     > Wanneer de inhoud die is opgeslagen, wordt het veld wordt weergegeven leeg laten voor beveiliging, maar de waarde in de configuratie is opgeslagen.
@@ -221,7 +222,7 @@ Om Azure AD-gebruikers zich aanmelden bij Fluxx Labs, moeten ze worden ingericht
     ![Fluxx Labs configuratie](./media/fluxxlabs-tutorial/config4.png)
 
 4. Op de **nieuwe mensen** sectie, voert u de volgende stappen uit:
-    
+
     ![Fluxx Labs configuratie](./media/fluxxlabs-tutorial/config5.png)
 
     a. Fluxx Labs e-mail gebruiken als de unieke id voor eenmalige aanmelding aanmeldingen. Vul de **SSO UID** veld met de e-mailadres van de gebruiker, die overeenkomt met het e-mailadres ze als aanmelding met eenmalige aanmelding gebruiken.
@@ -232,7 +233,7 @@ Om Azure AD-gebruikers zich aanmelden bij Fluxx Labs, moeten ze worden ingericht
 
 In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot Labs Fluxx.
 
-![Toewijzen van de gebruikersrol][200] 
+![Toewijzen van de gebruikersrol][200]
 
 **Britta Simon om aan te wijzen Fluxx Labs, moet u de volgende stappen uitvoeren:**
 
@@ -257,7 +258,7 @@ In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebru
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
-    
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.

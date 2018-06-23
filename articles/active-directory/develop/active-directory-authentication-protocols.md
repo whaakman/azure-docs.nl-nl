@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 71b12b848b1be309823bac46a219c0bb25e26092
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: f591898dbe40d2756d5797636ca529c359959f92
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156514"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317072"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory-verificatieprotocollen
 Azure Active Directory (Azure AD) ondersteunt verschillende van de meest gebruikte protocollen voor verificatie en autorisatie. De onderwerpen in deze sectie beschrijven de ondersteunde protocollen en de toepassing in Azure AD. De onderwerpen opgenomen van een overzicht van ondersteunde claimtypen, een inleiding tot het gebruik van federatiemetagegevens, gedetailleerde OAuth 2.0. en naslagdocumentatie SAML 2.0-protocol en een gedeelte voor probleemoplossing.

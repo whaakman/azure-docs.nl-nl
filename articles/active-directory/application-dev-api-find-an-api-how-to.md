@@ -3,22 +3,23 @@ title: Het zoeken van een specifieke API die nodig zijn voor een toepassing ontw
 description: Het configureren van de machtigingen die u nodig hebt voor toegang tot een bepaalde API in uw aangepaste ontwikkeld Azure AD-toepassing
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: e3d15db2e00c2cd5b52dd6c486f61ee88d922d79
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 94f3c68e9a1433d2a433e2a3bbe557b487e7bf75
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26613724"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332055"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Het zoeken van een specifieke API die nodig zijn voor een toepassing ontwikkelde aangepaste
 

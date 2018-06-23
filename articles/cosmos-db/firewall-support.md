@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 0407d3c58fa63a11c8391f069039f7c35a15ceb7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c55f90b944038a0e4ca216a357fc30f4cf6a6ddc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294734"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317283"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Ondersteuning van Azure DB Cosmos-firewall
 Als u wilt beveiligen gegevens die zijn opgeslagen in een databaseaccount Azure Cosmos DB, Azure Cosmos DB heeft biedt ondersteuning voor een geheim op basis van [autorisatie model](https://msdn.microsoft.com/library/azure/dn783368.aspx) die gebruikmaakt van een sterke Hash-based message authentication code (HMAC). Azure Cosmos DB ondersteunt nu, naast het model geheime gebaseerde autorisatie beleid IP gebaseerd toegangsbeheer voor binnenkomende firewallondersteuning aangestuurd. Dit model is vergelijkbaar met de firewallregels van een systeem van traditionele databases en biedt een extra beveiligingsniveau voor de account van de Azure DB die Cosmos-database. Met dit model, kunt u nu een databaseaccount Azure Cosmos DB om te worden alleen toegankelijk vanuit een goedgekeurde set machines en/of cloud services configureren. Toegang tot Azure Cosmos DB resources uit deze goedgekeurde sets met machines en services vereisen nog steeds de aanroeper om weer te geven van een geldige verificatietoken.
@@ -56,10 +56,10 @@ Toegang tot de Azure portal is standaard ingeschakeld wanneer u de Firewall-inst
 
 ![Schermopname die laat zien hoe u Azure portal-toegang](./media/firewall-support/enable-azure-portal.png)
 
-## <a name="connections-from-public-azure-datacenters-or-azure-paas-services"></a>Verbindingen van openbare Azure-datacenters of Azure PaaS-services
+## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Verbindingen van globale Azure-datacenters of Azure PaaS-services
 In Azure, PaaS-services zoals Azure Stream analytics, Azure Functions en Azure App Service gebruikt in combinatie met Azure Cosmos DB. Voor toegang tot Azure Cosmos DB databaseaccount van deze services met IP-adressen niet beschikbaar zijn IP-adres 0.0.0.0 toevoegen aan de lijst met toegestane IP-adressen die zijn gekoppeld aan uw Azure DB die Cosmos-databaseaccount programmatisch. 
 
-Toegang tot de verbindingen van binnen een openbare Azure-datacenters is standaard ingeschakeld wanneer u de Firewall-instellingen te wijzigen **netwerken geselecteerd** in de Azure portal. 
+Toegang tot de verbindingen van binnen globale datacenters van Azure is standaard ingeschakeld wanneer u de Firewall-instellingen te wijzigen **netwerken geselecteerd** in de Azure portal. 
 
 ![Schermopname die laat zien hoe u de Firewall-pagina in de Azure portal openen](./media/firewall-support/enable-azure-services.png)
 
@@ -72,14 +72,14 @@ Als u uw huidige IP selecteert **mijn huidige IP toevoegen**, die voor uw huidig
 ![Schermopname die laat zien hoe u een firewall-instellingen voor huidige IP-adres configureren](./media/firewall-support/enable-current-ip.png)
 
 ## <a name="connections-from-cloud-services"></a>Verbindingen met cloudservices
-Cloudservices zijn in Azure, een veelgebruikte manier voor het hosten van de middelste laag service logica met behulp van Azure Cosmos DB. Als u wilt toegang inschakelen voor een Azure DB die Cosmos-databaseaccount van een cloudservice, het openbare IP-adres van de cloudservice moet worden toegevoegd aan de lijst met toegestane IP-adressen die zijn gekoppeld aan uw Azure DB die Cosmos-databaseaccount door [configureren van de IP-beleid voor toegangsbeheer](#configure-ip-policy). Dit zorgt ervoor dat alle rolexemplaren van cloud-services toegang tot uw databaseaccount Azure Cosmos DB hebben. U kunt IP-adressen ophalen voor uw cloudservices in de Azure portal, zoals wordt weergegeven in de volgende schermafbeelding:
+Cloudservices zijn in Azure, een veelgebruikte manier voor het hosten van de middelste laag service logica met behulp van Azure Cosmos DB. Als u wilt toegang inschakelen voor een Azure DB die Cosmos-databaseaccount van een cloudservice, het openbare IP-adres van de cloudservice moet worden toegevoegd aan de lijst met toegestane IP-adressen die zijn gekoppeld aan uw Azure DB die Cosmos-databaseaccount door [configureren van de IP-toegang beleid beheren](#configure-ip-policy). Dit zorgt ervoor dat alle rolexemplaren van cloud-services toegang tot uw databaseaccount Azure Cosmos DB hebben. U kunt IP-adressen ophalen voor uw cloudservices in de Azure portal, zoals wordt weergegeven in de volgende schermafbeelding:
 
 ![Schermopname van het openbare IP-adres voor een cloudservice die wordt weergegeven in de Azure-portal](./media/firewall-support/public-ip-addresses.png)
 
 Wanneer u uw cloudservice uitbreiden door aanvullende rol exemplaren toe te voegen, hebben deze nieuwe exemplaren automatisch toegang tot het account van de Azure DB die Cosmos-database omdat ze deel van dezelfde cloudservice uitmaken.
 
 ## <a name="connections-from-virtual-machines"></a>Verbindingen van virtuele machines
-[Virtuele machines](https://azure.microsoft.com/services/virtual-machines/) of [virtuele-machineschaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) kan ook worden gebruikt voor het hosten van de middelste laag services met behulp van Azure Cosmos DB.  Voor het configureren van de account van de Azure DB die Cosmos-database voor toegang van virtuele machines, openbare IP-adressen van virtuele machine en/of de virtuele-machineschaalset moeten worden geconfigureerd als een van de toegestane IP-adressen voor het account van uw Azure DB die Cosmos-database door [configureren van de IP-beleid voor toegangsbeheer](#configure-ip-policy). U kunt IP-adressen voor virtuele machines in de Azure-portal ophalen, zoals wordt weergegeven in de volgende schermafbeelding.
+[Virtuele machines](https://azure.microsoft.com/services/virtual-machines/) of [virtuele-machineschaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) kan ook worden gebruikt voor het hosten van de middelste laag services met behulp van Azure Cosmos DB.  Voor het configureren van de account van de Azure DB die Cosmos-database voor toegang van virtuele machines, openbare IP-adressen van virtuele machine en/of de virtuele machine moet schaalset worden geconfigureerd als een van de toegestane IP-adressen voor het account van uw Azure DB die Cosmos-database door [configureren van de IP-beleid voor toegangsbeheer](#configure-ip-policy). U kunt IP-adressen voor virtuele machines in de Azure-portal ophalen, zoals wordt weergegeven in de volgende schermafbeelding.
 
 ![Schermopname van een openbaar IP-adres voor een virtuele machine weergegeven in de Azure-portal](./media/firewall-support/public-ip-addresses-dns.png)
 
@@ -87,6 +87,25 @@ Wanneer u aanvullende virtuele machines aan de groep toevoegt, worden ze automat
 
 ## <a name="connections-from-the-internet"></a>Clientverbindingen van het internet
 Wanneer u een databaseaccount Azure Cosmos DB vanaf een computer op het internet openen, moet de client-IP-adres of IP-adresbereik van de machine worden toegevoegd aan de lijst met toegestane IP-adres voor het account van de Azure DB die Cosmos-database. 
+
+## <a name="using-azure-resource-manager-template-to-set-up-the-ip-access-control"></a>Met behulp van Azure Resource Manager-sjabloon voor het instellen van het IP-toegangsbeheer
+
+De volgende JSON toevoegen aan de sjabloon voor het instellen van IP-toegangsbeheer. Resource Manager-sjabloon voor een account hebben ipRangeFilter kenmerk lijst met IP-adresbereiken, wilt plaatsen.
+
+```json
+   {
+     "apiVersion": "2015-04-08",
+     "type": "Microsoft.DocumentDB/databaseAccounts",
+     "kind": "GlobalDocumentDB",
+     "name": "[parameters('databaseAccountName')]",
+     "location": "[resourceGroup().location]",
+     "properties": {
+     "databaseAccountOfferType": "Standard",
+     "name": "[parameters('databaseAccountName')]",
+     "ipRangeFilter":"10.0.0.1,10.0.0.2,183.240.196.255"
+   }
+   }
+```
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Het oplossen van het IP-beleid voor toegangsbeheer
 ### <a name="portal-operations"></a>Portal-bewerkingen

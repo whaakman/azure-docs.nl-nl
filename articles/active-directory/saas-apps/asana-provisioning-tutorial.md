@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 2abd10f90d2e6d86d7f82aa43016a31bfdbd324b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8c3224a392e7e130b62e36019a1d180c6826d0ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231420"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332208"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Zelfstudie: Asana configureren voor het automatisch gebruikers inrichten
 
@@ -36,7 +36,7 @@ Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items
 *   Een gebruikersaccount in Asana met beheerdersmachtigingen 
 
 > [!NOTE] 
-> Azure AD integratie inrichting is afhankelijk van de [Asana API](https://app.asana.com/api/1.0/scim/Users), die voor Asana beschikbaar is.
+> Azure AD integratie inrichting is afhankelijk van de [Asana API](https://asana.com/developers/api-reference/users), die voor Asana beschikbaar is.
 
 ## <a name="assign-users-to-asana"></a>Gebruikers toewijzen aan Asana
 
@@ -99,7 +99,7 @@ Nu de initiële synchronisatie wordt uitgevoerd voor alle gebruikers die zijn to
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapporteren over automatische account gebruikersaanvragen](../active-directory-saas-provisioning-reporting.md).
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Account gebruikersinrichting voor zakelijke Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

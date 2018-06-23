@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 43a27b98d8b53523bee8694ed3071e65a03355a6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808720"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335870"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Gegevens kopiëren van MySQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,13 +38,9 @@ In het bijzonder MySQL biedt ondersteuning voor deze connector MySQL **versie 5.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van deze connector MySQL, moet u:
+Als uw MySQL-database is niet openbaar toegankelijk is, moet u voor het instellen van een Self-hosted integratie-Runtime. Zie voor meer informatie over host zichzelf integratie runtimes, [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel. De Runtime-integratie biedt een ingebouwd MySQL-stuurprogramma vanaf versie 3.7, dus u hoeft niet te eventuele stuurprogramma handmatig installeren.
 
-- Stel een Self-hosted integratie-Runtime. Zie [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
-- Installeer de [MySQL Connector/Net voor Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versie tussen 6.6.5 en 6.10.7 op de machine integratie Runtime. Deze 32-bits stuurprogramma is compatibel met 64-bits IR
-
-> [!TIP]
-> Als u raakt-fout bij het 'Verificatie is mislukt omdat de externe partij heeft gesloten het transport-stroom.', kunt u de Connector MySQL/Net upgraden naar hogere versie.
+Voor Self-hosted IR-versie lager is dan 3.7, moet u voor het installeren van de [MySQL Connector/Net voor Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versie tussen 6.6.5 en 6.10.7 op de machine integratie Runtime. Deze 32-bits stuurprogramma is compatibel met 64-bits IR
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -59,14 +55,40 @@ De volgende eigenschappen worden ondersteund voor MySQL gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **MySql** | Ja |
-| server | Naam van de MySQL-server. | Ja |
-| database | Naam van de MySQL-database. | Ja |
-| Schema | De naam van het schema in de database. | Nee |
-| gebruikersnaam | Geef de naam van de gebruiker verbinding maken met de MySQL-database. | Ja |
-| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
+| connectionString | Geef informatie op die nodig zijn voor de verbinding met de Azure-Database voor MySQL-exemplaar. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime (als uw gegevensarchief bevindt zich in een particulier netwerk) of Azure integratie-Runtime gebruiken. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+
+Een typische verbindingsreeks is `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Meer eigenschappen die u per uw aanvraag instellen kunt:
+
+| Eigenschap | Beschrijving | Opties | Vereist |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | Deze optie geeft aan of het stuurprogramma voor SSL-versleuteling en verificatie gebruikt bij het verbinden met MySQL. Bijvoorbeeld `SSLMode=<0/1/2/3/4>`| UITGESCHAKELD (0) / VOORKEUR (1) **(standaard)** / vereist (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Nee |
+| useSystemTrustStore | Deze optie geeft aan of gebruik een CA-certificaat uit het archief van de vertrouwensrelatie system of vanuit een opgegeven PEM-bestand. Bijvoorbeeld `UseSystemTrustStore=<0/1>;`| (1) ingeschakeld / uitgeschakeld (0) **(standaard)** | Nee |
 
 **Voorbeeld:**
+
+```json
+{
+    "name": "MySQLLinkedService",
+    "properties": {
+        "type": "MySql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Als u MySQL gekoppelde service met de nettolading van de volgende gebruikte, nog steeds wordt ondersteund als-is, terwijl u het gebruik van de nieuwe knop voortaan worden voorgesteld.
+
+**De nettolading van de vorige:**
 
 ```json
 {

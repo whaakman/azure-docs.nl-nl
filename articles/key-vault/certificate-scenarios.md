@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 5f3b8a7b9c7bf582ebc2fac2be8ff55134fbc6f2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333510"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Aan de slag met Sleutelkluis-certificaten
 De volgende scenario's worden enkele van de primaire vormen van gebruik van een van de Sleutelkluis certificate management-service met inbegrip van de extra stappen vereist voor het maken van uw eerste certificaat in de sleutelkluis.
@@ -82,8 +83,9 @@ Opmerking: dit proces via stap 3.1, is een eenmalige bewerking.
       -   Vernieuwingsinformatie - > ex. 90 dagen vóór de verloopdatum  
 
   - Een proces voor het maken van een certificaat is meestal een asynchroon proces en omvat polling van de sleutelkluis voor de status van de bewerking van het certificaat maken.  
-[De certificaatbewerking ophalen](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation) -Status: voltooid is, is mislukt met de informatie over de fout of, geannuleerd  
-            -Vanwege van de vertraging voor het maken, kan een annuleringsbewerking worden gestart. Het annuleren al dan niet is toegestaan.  
+[De certificaatbewerking ophalen](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   Status: voltooid, is mislukt met informatie over de fout of, geannuleerd  
+      -   Vanwege de vertraging voor het maken, kan een annuleringsbewerking worden gestart. Het annuleren al dan niet is toegestaan.  
 
 ## <a name="import-a-certificate"></a>Een certificaat importeren  
  U kunt ook: een certificaat kan worden geïmporteerd in Sleutelkluis – PFX of PEM.  

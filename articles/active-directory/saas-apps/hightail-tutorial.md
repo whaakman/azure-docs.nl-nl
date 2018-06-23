@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 6fe7cad2910bed2dc08180d28fdf1af1d6cffd9a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7267f8fa1ed900d1bac58b4fa61f076e5949d712
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223413"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Zelfstudie: Azure Active Directory-integratie met Hightail
 
@@ -105,31 +104,29 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. Op de **Hightail domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op de **Hightail domein en de URL's** sectie, voert u de volgende stappen uit als u wilt configureren, de toepassing in **IDP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_url.png)
 
-     In de **antwoord-URL** textbox, typ de URL als: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+    In de **antwoord-URL** textbox, typ de URL als: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
-    > [!NOTE] 
-    > De voorgaande waarde is geen echte waarde. U kunt de waarde wordt bijgewerkt met de werkelijke antwoord-URL, die verderop in de zelfstudie wordt beschreven.
- 
-4. Op de **Hightail domein en de URL's** sectie als u wilt configureren van de toepassing in **SP geïnitieerd modus**, voer de volgende stappen uit:
-    
+    > [!NOTE]
+    > De antwoord-URL-waarde is geen echte waarde. U kunt de antwoord-URL-waarde wordt bijgewerkt met de werkelijke antwoord-URL, die verderop in de zelfstudie wordt beschreven.
+
+4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+
     ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
-    a. Klik op de **weergeven geavanceerde instellingen voor URL**.
-
-    b. In de **aanmelding op URL** textbox, typ de URL als: `https://www.hightail.com/loginSSO`
+    In de **aanmelding op URL** textbox, typ de URL als: `https://www.hightail.com/loginSSO`
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. Hightail toepassing de SAML-asserties verwacht in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken van beheren de **'Atrribute'** tabblad van de toepassing. De volgende Schermafbeelding toont een voorbeeld voor deze. 
+5. Hightail toepassing de SAML-asserties verwacht in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken van beheren de **'Kenmerk'** tabblad van de toepassing. De volgende Schermafbeelding toont een voorbeeld voor deze. 
 
     ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
@@ -153,7 +150,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
 
     d. Laat de **Namespace** leeg.
-    
+
     e. Klik op **OK**.
 
 7. Klik op **opslaan** knop.
@@ -162,41 +159,32 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 8. Op de **Hightail configuratie** sectie, klikt u op **configureren Hightail** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
-    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_configure.png) 
+    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Voordat u configureert de eenmalige aanmelding op Hightail app, neemt u witte lijst uw e-maildomein met Hightail team, zodat alle gebruikers die dit domein functionaliteit voor eenmalige aanmelding kunnen gebruiken.
 
+9. Open in een ander browservenster de **Hightail** -beheerportal.
 
-9. Als u eenmalige aanmelding voor uw toepassing is geconfigureerd, moet u eenmalige aanmelding voor uw tenant Hightail als beheerder.
-   
-    a. Klik in het menu bovenaan op de **Account** tabblad en selecteer **SAML configureren**.
- 
-    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_001.png) 
+10. Klik op **pictogram gebruiker** in de rechterbovenhoek van de pagina. 
 
-    b. Schakel het selectievakje van **SAML-verificatie inschakelen**.
+    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/configure1.png)
 
-    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_002.png) 
+11. Klik op **weergave-beheerconsole** tabblad.
 
-    c. De base-64 gecodeerde certificaat openen in Kladblok van Azure portal hebt gedownload, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **handtekeningcertificaat van SAML-Token** textbox.
+    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/configure2.png)
 
-    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_003.png) 
+12. Klik in het menu bovenaan op de **SAML** tabblad en voer de volgende stappen uit:
 
-    d. In de **SAML-instantie (id-Provider)** textbox, plak de waarde van **SAML Single Sign-On Service-URL** gekopieerd vanuit Azure-portal.
+    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/configure3.png)
 
-    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_004.png)
+    a. In de **aanmeldings-URL** textbox, plak de waarde van **SAML Single Sign-On Service-URL** gekopieerd vanuit Azure-portal.
 
-    e. Als u wilt configureren van de toepassing in **IDP geïnitieerd modus** Selecteer **'Identiteitsprovider (IdP) geïnitieerd aanmelden'**. Als **SP geïnitieerd modus** Selecteer **'Serviceprovider (SP) geïnitieerd aanmelden'**.
+    b. De base-64 gecodeerde certificaat openen in Kladblok van Azure portal hebt gedownload, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **SAML certificaat** textbox.
 
-    ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_006.png)
+    c. Klik op **kopie** de SAML-consumer-URL voor uw exemplaar kopiëren en plakken in **antwoord-URL** textbox in **Hightail domein en de URL's** sectie op Azure-portal.
 
-    f. Kopieer de URL van de consument SAML voor uw exemplaar en plak deze in **antwoord-URL** textbox in **Hightail domein en de URL's** sectie op Azure-portal.
-    
-    g. Klik op **Opslaan**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Klik op **configuraties opslaan**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -256,7 +244,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![Gebruiker toewijzen][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
@@ -267,7 +255,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
-    
+
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
 Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
@@ -279,8 +267,6 @@ Als u op de tegel Hightail in het deelvenster toegang, u moet ophalen automatisc
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

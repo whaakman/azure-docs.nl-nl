@@ -13,12 +13,12 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 905cedd6ee781ca163731a6f71b083acfc11b5eb
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800734"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332368"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft-oplossingen voor hybride identiteit
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybride identiteitsoplossingen kunnen u on-premises mapobjecten synchroniseren met Azure AD tijdens nog steeds het beheren van uw gebruikers on-premises. De eerste beslissing die te maken bij het plannen van uw lokale Windows Server Active Directory synchroniseren met Azure AD is of u wilt gebruiken identiteit gesynchroniseerd of federatieve identiteit. Gesynchroniseerde identiteiten en, optioneel wachtwoord-hashes, kunnen uw gebruikers op hetzelfde wachtwoord voor toegang tot zowel on-premises en organisatie-cloudresources. Voor meer geavanceerde scenariovereisten op, zoals het eenmalige aanmelding (SSO) of lokale MFA, moet u Active Directory Federation Services (AD FS) voor het federeren van identiteiten implementeren. 
@@ -40,10 +40,10 @@ Voor de meeste organisaties die alleen willen hun gebruikers in staat aan te mel
 > [!TIP]
 > Wachtwoorden van gebruikers worden opgeslagen in de lokale Windows Server Active Directory in de vorm van een hashwaarde die het werkelijke gebruikerswachtwoord vertegenwoordigt. Een hash-waarde is een resultaat van een wiskundige eenrichtingsfunctie (hash-algoritme). Er is geen methode om het resultaat van een eenrichtingsfunctie naar de versie van de tekst zonder opmaak van een wachtwoord terug te zetten. U kunt een wachtwoord-hash niet gebruiken aan te melden bij uw on-premises netwerk. Wanneer u ervoor kiezen wachtwoorden synchroniseren, wordt Azure AD Connect wachtwoord-hashes geëxtraheerd uit de lokale Active Directory en van toepassing is extra beveiliging verwerking naar de wachtwoordhash voordat deze wordt gesynchroniseerd naar Azure AD. Wachtwoordsynchronisatie kan ook worden gebruikt samen met terugschrijven van wachtwoord selfservice wachtwoordherstel in Azure AD inschakelen. U kunt bovendien eenmalige aanmelding (SSO) inschakelen voor gebruikers in domein computers die zijn verbonden met het bedrijfsnetwerk. Met eenmalige aanmelding moeten ingeschakelde gebruikers alleen een gebruikersnaam voor veilige toegang tot cloud-bronnen invoeren. 
 
-## <a name="pass-through-authentication"></a>Pass Through-verificatie
+## <a name="pass-through-authentication"></a>Pass-through-verificatie
 [Azure AD Pass-through-verificatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) biedt een eenvoudig wachtwoord validatie-oplossing voor Azure AD gebaseerde services met behulp van uw lokale Active Directory. Als beveiliging en naleving van beleid voor uw organisatie niet is toegestaan voor het verzenden van wachtwoorden van gebruikers, zelfs in een formulier hash en u alleen hoeft te bureaublad SSO-ondersteuning voor apparaten die lid zijn van een domein, is het raadzaam dat u evalueren met behulp van Pass through-verificatie. Pass through-verificatie is niet vereist voor een implementatie in het Perimeternetwerk, waardoor de implementatie-infrastructuur met AD FS in vergelijking eenvoudiger. Wanneer gebruikers zich met behulp van Azure AD aanmelden, valideert deze verificatiemethode rechtstreeks op uw lokale Active Directory-wachtwoorden van gebruikers.
 
-![Pass Through-verificatie](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
+![Pass-through-verificatie](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
 
 Met Pass through-verificatie is niet nodig voor een complexe netwerkinfrastructuur en u hoeft niet te on-premises wachtwoorden opslaan in de cloud. In combinatie met eenmalige aanmelding Pass through-verificatie biedt een volledig geïntegreerde ervaring tijdens het aanmelden bij Azure AD of andere cloudservices.
 
@@ -53,7 +53,7 @@ Pass through-verificatie is geconfigureerd met Azure AD Connect, dat gebruikmaak
 - Gekoppeld aan een domein in het forest via welke gebruikers worden gevalideerd
 
 ## <a name="federated-identity-ad-fs"></a>Federatieve identiteiten (AD FS)
-Voor meer controle over hoe gebruikers toegang Office 365 en andere cloudservices tot, kunt u instellen van directorysynchronisatie met het gebruik van eenmalige aanmelding (SSO) [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). Federatie van uw gebruikers aanmeldingen met AD FS delegeert verificatie naar een lokale server te valideren en gebruikersreferenties. In dit model worden on-premises Active Directory-referenties nooit doorgegeven naar Azure AD.
+Voor meer controle over hoe gebruikers toegang Office 365 en andere cloudservices tot, kunt u instellen van directorysynchronisatie met het gebruik van eenmalige aanmelding (SSO) [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). Federatie van uw gebruikers aanmeldingen met AD FS delegeert verificatie naar een lokale server te valideren en gebruikersreferenties. In dit model worden on-premises Active Directory-referenties nooit doorgegeven naar Azure AD.
 
 ![Federatieve identiteiten](./media/choose-hybrid-identity-solution/federated-identity.png)
 

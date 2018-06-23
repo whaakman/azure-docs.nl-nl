@@ -3,22 +3,24 @@ title: Problemen met aanmelden bij een galerie van Azure AD-toepassing die is ge
 description: Probleemgebieden die richtlijnen bieden voor het oplossen van problemen met aanmelden bij de galerie van Azure AD-toepassingen die zijn geconfigureerd voor eenmalige aanmelding wachtwoord wordt beschreven
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: f13f9fa54af13dbbe435a846be35c9e06fe65455
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 020a5ec2a6cea2854e46d9da8aa0a178695deb86
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068755"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331902"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemen met aanmelden bij een galerie van Azure AD-toepassing die is geconfigureerd voor eenmalige aanmelding wachtwoord
 
@@ -81,7 +83,7 @@ Volg de zelfstudie [het implementeren van de uitbreiding van het Configuratiesch
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Problemen met het toegangsvenster in Internet Explorer
 
-Ga als volgt de [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) geleid voor toegang tot een diagnostische hulpprogramma's en stapsgewijze instructies over het configureren van de extensie voor IE.
+Ga als volgt de [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) geleid voor toegang tot een diagnostische hulpprogramma's en stapsgewijze instructies over het configureren van de extensie voor IE.
 
 ## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor de toepassing van een niet-galerie
 

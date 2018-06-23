@@ -17,12 +17,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 485e4c52751b390ebd440718e7a55de7b5b5ffd7
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: db529bf1e8ea4363c84cb365444ca367d428b162
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156905"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318417"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen
 Vandaag de dag ondersteunt Azure Active Directory voor eenmalige op met de meeste zakelijke toepassingen, met inbegrip van beide toepassingen die vooraf zijn geïntegreerd in de galerie van Azure AD-app, evenals aangepaste toepassingen. Wanneer een gebruiker wordt geverifieerd op een toepassing via Azure AD dat gebruikmaakt van het SAML 2.0-protocol, verzendt Azure AD een token naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in in plaats van naar een gebruikersnaam en wachtwoord wordt gevraagd. Deze tokens SAML bevatten stukjes informatie over de gebruiker bekend als 'claims'.
@@ -73,7 +73,7 @@ Bijvoorbeeld, moet u het verzenden van de afdeling die de gebruiker behoort binn
 > Als voor een bepaalde gebruiker er geen waarde voor een geselecteerd kenmerk opgeslagen, is er geen die claim in het token wordt uitgegeven.
 
 > [!TIP]
-> De **user.onpremisesecurityidentifier** en **user.onpremisesamaccountname** worden alleen ondersteund bij het synchroniseren van gebruikersgegevens van on-premises Active Directory met het [Azure AD Connect-hulpprogramma](../active-directory-aadconnect.md).
+> De **user.onpremisesecurityidentifier** en **user.onpremisesamaccountname** worden alleen ondersteund bij het synchroniseren van gebruikersgegevens van on-premises Active Directory met het [Azure AD Verbinding maken met hulpprogramma](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Beperkte claims
 

@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 06/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: ce442793a9917320b6b2b0a7014a20f885c3720c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 580ecc98913dc35e2d1e21f1dcfa19936bb59826
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337959"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementeren van meerdere exemplaren van een resource of eigenschap in Azure Resource Manager-sjablonen
 In dit artikel leest u het implementeren van voorwaardelijk een resource, en hoe u in uw Azure Resource Manager-sjabloon maken van meerdere exemplaren van een resource.
 
 ## <a name="conditionally-deploy-resource"></a>Voorwaardelijk resource implementeren
 
-Wanneer u bepalen tijdens de implementatie van moet één exemplaar of er zijn geen exemplaren van een resource te maken, gebruiken de `condition` element. De waarde voor dit element wordt omgezet in true of false. Wanneer de waarde true is, wordt de bron wordt geïmplementeerd. Wanneer de waarde false is, wordt de resource wordt niet geïmplementeerd. Bijvoorbeeld: als u wilt opgeven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruiken:
+Wanneer u bepalen tijdens de implementatie van moet één exemplaar of er zijn geen exemplaren van een resource te maken, gebruiken de `condition` element. De waarde voor dit element wordt omgezet in true of false. Wanneer de waarde true is, wordt de bron wordt geïmplementeerd. Wanneer de waarde false is, wordt de resource is niet geïmplementeerd. Bijvoorbeeld: als u wilt opgeven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruiken:
 
 ```json
 {
@@ -127,9 +128,9 @@ Deze namen maakt:
 * storagefabrikam
 * storagecoho
 
-Resource Manager maakt standaard de resources parallel. De volgorde waarin ze zijn gemaakt kan daarom niet worden gegarandeerd. Daarom is het raadzaam om op te geven dat de resources in volgorde worden geïmplementeerd. Bijvoorbeeld bij het bijwerken van een productieomgeving, u kunt dus spreiden van de updates alleen een bepaald aantal op elk gewenst moment worden bijgewerkt.
+Resource Manager maakt standaard de resources parallel. Daarom wordt niet de volgorde waarin ze worden gemaakt gegarandeerd. Daarom is het raadzaam om op te geven dat de resources in volgorde worden geïmplementeerd. Bijvoorbeeld bij het bijwerken van een productieomgeving, u kunt dus spreiden van de updates alleen een bepaald aantal op elk gewenst moment worden bijgewerkt.
 
-Als u wilt implementeren opeenvolgend meerdere exemplaren van een resource, instellen `mode` naar **seriële** en `batchSize` aan het aantal exemplaren moeten worden geïmplementeerd op een tijdstip. Seriële modus maakt Resource Manager met een afhankelijkheid voor eerdere exemplaren in de lus, zodat dit niet één batch gestart totdat de vorige batch is voltooid.
+Als u wilt implementeren opeenvolgend meerdere exemplaren van een resource, instellen `mode` naar **seriële** en `batchSize` aan het aantal exemplaren moeten worden geïmplementeerd op een tijdstip. Seriële modus maakt Resource Manager met een afhankelijkheid voor eerdere exemplaren in de lus, zodat deze niet één batch gestart totdat de vorige batch is voltooid.
 
 Bijvoorbeeld: als u wilt implementeren opeenvolgend opslagaccounts twee tegelijk, gebruiken:
 
@@ -191,7 +192,7 @@ Het volgende voorbeeld laat zien hoe om toe te passen `copy` voor de eigenschap 
       ...
 ```
 
-Merk op dat wanneer u `copyIndex` binnen de herhaling van een eigenschap, moet u de naam van de herhaling opgeven. U hebt niet de naam gebruikt in combinatie met herhaling van de resource op te geven.
+Merk op dat wanneer u `copyIndex` binnen de herhaling van een eigenschap, moet u de naam van de herhaling opgeven. U hoeft niet te geeft u de naam gebruikt in combinatie met resource herhaling.
 
 Resource Manager breidt de `copy` matrix tijdens de implementatie. De naam van de matrix, wordt de naam van de eigenschap. De invoerwaarden, worden de objecteigenschappen. De geïmplementeerde sjabloon als volgt uit:
 
@@ -220,6 +221,34 @@ Resource Manager breidt de `copy` matrix tijdens de implementatie. De naam van d
           }
       }],
       ...
+```
+
+Het element kopiëren is een matrix, zodat u kunt meer dan een eigenschap voor de bron opgeven. Toevoegen van een object voor elke eigenschap maken.
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
 ```
 
 U kunt resource en de eigenschap iteratie samen gebruiken. Verwijzing naar de herhaling van de eigenschap met de naam.
@@ -309,8 +338,29 @@ Gebruik voor het maken van meerdere exemplaren van een variabele de `copy` eleme
 }
 ```
 
+Het element kopiëren is een matrix met de methode zodat u kunt meer dan één variabele opgeven. Toevoegen van een object voor elke variabele maken.
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
+    }
+  },
+]
+```
+
 ## <a name="depend-on-resources-in-a-loop"></a>Afhankelijk zijn van bronnen in een lus
-U opgeven dat een resource na een andere resource wordt geïmplementeerd met behulp van de `dependsOn` element. Geef de naam van de lus kopie in het element dependsOn voor het implementeren van een resource die afhankelijk zijn van de verzameling van resources in een lus. Het volgende voorbeeld laat zien hoe drie storage-accounts te implementeren voordat u de virtuele Machine implementeert. De definitie van de volledige virtuele Machine niet wordt weergegeven. U ziet dat het element kopiëren naam ingesteld op `storagecopy` en het element dependsOn voor de virtuele Machines ook is ingesteld op `storagecopy`.
+U opgeven dat een resource na een andere resource wordt geïmplementeerd met behulp van de `dependsOn` element. Geef de naam van de lus kopie in het element dependsOn voor het implementeren van een resource die afhankelijk zijn van de verzameling van resources in een lus. Het volgende voorbeeld laat zien hoe drie storage-accounts te implementeren voordat u de virtuele Machine implementeert. De definitie van de volledige virtuele Machine wordt niet weergegeven. U ziet dat het element kopiëren naam ingesteld op `storagecopy` en het element dependsOn voor de virtuele Machines ook is ingesteld op `storagecopy`.
 
 ```json
 {
@@ -401,7 +451,7 @@ Het volgende voorbeeld ziet u de implementatie:
 
 De volgende voorbeelden tonen algemene scenario's voor het maken van meerdere resources of eigenschappen.
 
-|Template  |Beschrijving  |
+|Sjabloon  |Beschrijving  |
 |---------|---------|
 |[Opslag kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Meerdere opslagaccounts met indexnummer in de naam implementeert. |
 |[Opslagruimte voor de seriële](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Meerdere opslagaccounts één implementeert gelijktijdig. De naam bevat het indexnummer. |
@@ -409,7 +459,7 @@ De volgende voorbeelden tonen algemene scenario's voor het maken van meerdere re
 |[Virtuele machine met een nieuwe of bestaande virtuele netwerk, opslag- en openbare IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Voorwaardelijk implementeert nieuwe of bestaande resources met een virtuele machine. |
 |[Implementaties van virtuele machines met een variabele aantal gegevensschijven](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Meerdere gegevensschijven met een virtuele machine implementeert. |
 |[Variabelen kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Toont de verschillende manieren van het doorlopen van variabelen. |
-|[Meerdere regels](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Meerdere beveiligingsregels implementeert in een netwerkbeveiligingsgroep. Dit vormt de beveiligingsregels voor verbindingen van een parameter. |
+|[Meerdere regels](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Meerdere beveiligingsregels implementeert in een netwerkbeveiligingsgroep. Dit vormt de beveiligingsregels voor verbindingen van een parameter. Zie voor de parameter [meerdere NSG parameterbestand](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Volgende stappen
 * Als u wilt voor meer informatie over de secties van een sjabloon, Zie [Azure Resource Manager-sjablonen ontwerpen](resource-group-authoring-templates.md).

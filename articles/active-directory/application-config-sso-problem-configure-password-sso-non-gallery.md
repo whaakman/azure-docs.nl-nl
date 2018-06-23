@@ -3,22 +3,23 @@ title: Probleem wachtwoord eenmalige aanmelding voor een toepassing niet galerie
 description: Inzicht in het algemene problemen mensen vlak bij het configureren van wachtwoord eenmalige aanmelding voor aangepaste niet-galerie-toepassingen die niet worden weergegeven in de Azure AD-Toepassingsgalerie
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b671089bfac04b359717874928d6a342c44b3d4
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.author: barbkess
+ms.openlocfilehash: 69a2bf6e622cd2338d57e62ed82951cb2385edd6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34069671"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334904"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Probleem wachtwoord eenmalige aanmelding voor een toepassing niet galerie configureren
 
@@ -132,7 +133,7 @@ Enkele van de problemen die u tegenkomen kunt wanneer handmatige detectie niet w
 
 Controleer het volgende als u een van deze problemen optreden:
 
--   Zorg ervoor dat u de nieuwste versie van de uitbreiding voor toegang tot Configuratiescherm browser **geïnstalleerd** en **ingeschakeld** door de stappen in de [het installeren van de Browseruitbreiding toegang Configuratiescherm](#how-to-install-the-access-panel-browser-extension) sectie.
+-   Zorg ervoor dat u de nieuwste versie van de uitbreiding voor toegang tot Configuratiescherm browser **geïnstalleerd** en **ingeschakeld** door de stappen in de [de Browseruitbreiding van toegang Configuratiescherminstalleren](#how-to-install-the-access-panel-browser-extension) sectie.
 
 -   Zorg ervoor dat u het vastleggen niet probeert tijdens uw browser in **modus incognito, InPrivate- of persoonlijke**. De extensie van het Configuratiescherm toegang wordt niet ondersteund in deze modi.
 
@@ -142,7 +143,7 @@ Controleer het volgende als u een van deze problemen optreden:
 
 -   Als het handmatig vastleggen lijken vastlopen of niet van toepassing zijn op de aanmeldingspagina Alles (geval 3 hierboven), het handmatige vastleggen opnieuw proberen. Maar deze tijd na het voltooien van het proces, drukt u op de **F12** knop om uw browser developer-console te openen. Eenmaal, opent u de **console** en het type **window.location= '&lt;u hebt opgegeven bij het configureren van de app url invoeren&gt;'** en druk vervolgens op **Enter** . Dit zorgt ervoor dat de omleiding van een pagina die eindigt het vastleggen en slaat de velden die zijn vastgelegd.
 
-Als geen van deze benaderingen werkt, wordt ondersteuning kunt oplossen. Een ondersteuningsaanvraag openen met de details van wat u hebt geprobeerd, evenals de informatie die verzameld de [hoe ziet u de details van een portal melding](#i-cannot-manually-detect-sign-in-fields-for-my-application) en [help opvragen door gegevens meldingen verzenden naar een ondersteuningstechnicus](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) secties (indien van toepassing).
+Als geen van deze benaderingen werkt, wordt ondersteuning kunt oplossen. Een ondersteuningsaanvraag openen met de details van wat u hebt geprobeerd, evenals de informatie die verzameld de [hoe ziet u de details van een portal melding](#i-cannot-manually-detect-sign-in-fields-for-my-application) en [help opvragen door gegevens meldingen verzenden naar een ondersteuningstechnicus ](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) secties (indien van toepassing).
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Het installeren van de Browseruitbreiding toegang Configuratiescherm
 

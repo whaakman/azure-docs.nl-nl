@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 5cbed14553462d8aff16304e52b66da7ad2652e3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d9f4dc0883ced599dd13d0c5d52ff865e03b73ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217228"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332908"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Een virtuele Ubuntu-machine in Azure toevoegen aan een beheerd domein
 In dit artikel leest u hoe een virtuele Ubuntu Linux-machine toevoegen aan een beheerd domein van Azure AD Domain Services.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:  
@@ -122,17 +123,17 @@ Nu de vereiste pakketten zijn geïnstalleerd op de virtuele Linux-machine, de vo
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **Voor probleemoplossing:** als *realm detecteren* is niet gevonden uw beheerde domein:
      * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).
      * Controleer of de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
      * Controleer als u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.
    >
 
-2. Initialiseren van Kerberos. Typ de volgende opdracht in uw terminal SSH: 
+2. Initialiseren van Kerberos. Typ de volgende opdracht in uw terminal SSH:
 
-    > [!TIP] 
-    > * Zorg ervoor dat u een gebruiker die lid is van de groep 'AAD DC Administrators' opgeven. 
+    > [!TIP]
+    > * Zorg ervoor dat u een gebruiker die lid is van de groep 'AAD DC Administrators' opgeven.
     > * Geef de domeinnaam in hoofdletters, anders kinit mislukt.
     >
 
@@ -140,9 +141,9 @@ Nu de vereiste pakketten zijn geïnstalleerd op de virtuele Linux-machine, de vo
     kinit bob@CONTOSO100.COM
     ```
 
-3. De machine toevoegen aan het domein. Typ de volgende opdracht in uw terminal SSH: 
+3. De machine toevoegen aan het domein. Typ de volgende opdracht in uw terminal SSH:
 
-    > [!TIP] 
+    > [!TIP]
     > De dezelfde gebruikersaccount die u hebt opgegeven in de vorige stap (kinit) gebruiken.
     >
 
@@ -175,7 +176,7 @@ Typ de volgende opdrachten in de PuTTY terminal zodat het automatisch maken van 
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 Voeg de volgende regel in dit bestand onder de regel 'sessie optionele pam_sss.so' en sla het:
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077

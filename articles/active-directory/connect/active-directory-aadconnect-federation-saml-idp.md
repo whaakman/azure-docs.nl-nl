@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 74051ae8ad4ca7065561607feb13a2b98094fffc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801776"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333179"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Gebruik van SAML 2.0-identiteitsprovider (IdP) voor eenmalige aanmelding in
 
@@ -47,7 +47,7 @@ Dit document bevat gedetailleerde vereisten op het protocol en de berichtindelin
 
 Het is raadzaam dat u zorgen dat uw SAML 2.0-identiteitsprovider Uitvoerberichten worden als vergelijkbaar met de opgegeven voorbeeld traceringen mogelijk. Gebruik tevens specifieke kenmerkwaarden van de opgegeven Azure AD-metagegevens waar mogelijk. Wanneer u tevreden met uw Uitvoerberichten bent, kunt u testen met de Microsoft connectiviteit Analyzer zoals hieronder wordt beschreven.
 
-De metagegevens van de Azure AD kan worden gedownload vanaf deze URL: [ https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml ](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+De metagegevens van de Azure AD kan worden gedownload vanaf deze URL: [ https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml ](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
 Voor klanten in China via het China-specifieke exemplaar van Office 365, het volgende federation-eindpunt moet worden gebruikt: [ https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml ](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Vereisten voor SAML-protocol

@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: fc4e738e95799838c5761e8b1ee5973aefea7dc6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c6e25972b47edf67dac8557e1925bb44463f4d6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213835"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331026"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Kerberos-beperkte delegatie (KCD) configureren op een beheerd domein
 Veel toepassingen moeten toegang tot bronnen in de context van de gebruiker. Active Directory ondersteunt een mechanisme voor Kerberos-overdracht, waardoor deze gebruiksvoorbeeld. U kunt bovendien delegering beperken zodat alleen bepaalde resources kunnen worden geopend in de context van de gebruiker. Azure AD Domain Services beheerde domeinen zijn anders dan traditionele Active Directory-domeinen, omdat ze veiliger zijn vergrendeld.
 
 In dit artikel leest u hoe Kerberos-beperkte overdracht configureren op een beheerd domein van Azure AD Domain Services.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Kerberos-beperkte delegatie (KCD)
 Kerberos-overdracht kunt een account aan een andere beveiligings-principal (zoals een gebruiker) toegang tot bronnen te imiteren. U kunt een webtoepassing die toegang heeft tot een back-end-web-API in de context van een gebruiker. In dit voorbeeld wordt in de webtoepassing (uitgevoerd in de context van een serviceaccount of een computer/computeraccount) de gebruiker imiteert bij toegang tot de bron (back-end web-API). Kerberos-overdracht is niet veilig omdat deze wordt niet beperkt de imitatie account in de context van de gebruiker toegang heeft tot resources.

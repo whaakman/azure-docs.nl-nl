@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: b6b333937e7c88f566fc401967b26cbd31ca158b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301499"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333612"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding-Veelgestelde vragen
 
@@ -127,7 +127,9 @@ Als u wilt een app LUIS overbrengen naar een ander Azure-abonnement, de app LUIS
 Standaard wordt in uw app LUIS utterances registreert van gebruikers. Als u wilt een logboek van utterances die gebruikers naar uw app LUIS verzenden downloaden, gaat u naar **mijn Apps**, en klik op het weglatingsteken (***...*** ) in het overzicht voor uw app. Klik vervolgens op **exporteren eindpunt logboeken**. Het logboek is opgemaakt als een bestand met door komma's gescheiden waarden (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Hoe kan ik de logboekregistratie van utterances uitschakelen?
-U kunt de logboekregistratie van gebruiker utterances uitschakelen door in te stellen `log=false` in de eindpunt-URL die uw clienttoepassing voor query LUIS gebruikt. Het uitschakelen van logboekregistratie wordt de mogelijkheid van uw app LUIS utterances voorstellen of de prestaties die gebaseerd op gebruikersquery verbeteren uitgeschakeld. Als u instelt `log=false` vanwege de privacy van gegevens weergegeven, u kunt downloaden van een record van deze gebruiker utterances van LUIS of deze utterances gebruiken om uw app te verbeteren.
+U kunt de logboekregistratie van gebruiker utterances uitschakelen door in te stellen `log=false` in de eindpunt-URL die uw clienttoepassing voor query LUIS gebruikt. Het uitschakelen van logboekregistratie uitgeschakeld echter de mogelijkheid van uw app LUIS utterances voorstellen of verbeteren de prestaties die gebaseerd op [active learning](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Als u instelt `log=false` vanwege de privacy van gegevens weergegeven, u kunt downloaden van een record van deze gebruiker utterances van LUIS of deze utterances gebruiken om uw app te verbeteren.
+
+Logboekregistratie is de enige opslag van utterances. 
 
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Waarom niet ik wil dat alle mijn eindpunt utterances vastgelegd?
 Als u het logboek voor analyse van de voorspelling gebruikt, worden niet test utterances in het logboek worden vastgelegd.

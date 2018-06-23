@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851279"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333629"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor de overgang van OMS-portal naar Azure-portal voor gebruikers Log Analytics
 Een eigen portal aangeroepen OMS-portal logboekanalyse in eerste instantie gebruikt voor het beheren van de configuratie en verzamelde gegevens te analyseren.  Alle functionaliteit van deze portal is verplaatst naar de Azure portal waarin wordt voortgezet worden ontwikkeld.
@@ -39,7 +39,7 @@ Klik in de lijst met werkruimten in de Azure portal op **toevoegen** in de lijst
 ![Overzichtspagina](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Waar kan ik mijn overzichtspagina?
-Het startscherm in de OMS-portal weergegeven de tegels voor alle beheeroplossingen geïnstalleerd in uw werkruimte en aangepaste weergaven die u hebt gemaakt. In de Azure-portal, dit wordt aangeduid als de **overzicht** pagina. Uit uw werkruimte in de Azure portal, selecteer **overzicht** in het menu of klik op de **overzicht** knop op de hoofdpagina.
+Het startscherm in de OMS-portal weergegeven de tegels voor alle beheeroplossingen geïnstalleerd in uw werkruimte en aangepaste weergaven die u hebt gemaakt. Deze dezelfde weergave is beschikbaar in de Azure-portal. Selecteer in de werkruimte **werkruimte overzicht**.
 
 ![Overzichtspagina](media/log-analytics-new-portal/overview.png)
 
@@ -114,7 +114,7 @@ Regels voor waarschuwingen op basis van logboekanalyse query's worden nu beheerd
 ## <a name="how-do-i-check-my-usage"></a>Hoe kan ik mijn gebruik controleren?
 U kunt nu eenvoudig bekijken en beheren van uw gebruik en de kosten van logboekanalyse door te selecteren **gebruik en de geschatte kosten** in uw werkruimte.
 
-![Gebruik en geraamde kosten](media/log-analytics-new-portal/usage.png)
+![Gebruik en geschatte kosten](media/log-analytics-new-portal/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>Kan ik de klassieke portal toch gebruiken?

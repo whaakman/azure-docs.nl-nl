@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32178233"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335088"
 ---
 # <a name="what-is-appsource"></a>Wat is AppSource
 AppSource kunnen Microsoft-partners hun technologie en services kunnen worden gedetecteerd te maken voor klanten via een ondersteunde Microsoft online winkel. Als een publisher AppSource kunt u benaderen zakelijke gebruikers op AppSource om te zoeken, probeer en ophalen van de SaaS-line-of-business-toepassingen, evenals een van implementatieservices om te helpen station bedrijfsresultaten en tijdwaarde te verminderen: 
@@ -76,7 +76,7 @@ Sommige AppSource via toepassingen zijn vereist voor het integreren met Azure Ac
 | SaaS-Apps (voorheen Web-Apps) | Voorkeur | Azure AD is een aanbevolen procedure om te controleren of een naadloze klant ervaring en stations de hoogste kwaliteit leidt |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>Tabel: AppSource aanbiedingen waarvoor Azure Active Directory-integratie
 
-In eerste instantie wordt aangeraden dat **u een speciale abonnement instellen voor de publicatie van uw Azure Marketplace*** zodat u uw werk van uw andere initiatieven isoleren. Bovendien, als u de volgende hulpprogramma's nog niet hebt geïnstalleerd, raden klikt u vervolgens we dat de volgende hulpprogramma's worden toegevoegd aan uw ontwikkelomgeving: 
+In eerste instantie wordt aangeraden dat **u een speciale abonnement instellen voor de publicatie van uw Azure Marketplace** \* zodat u uw werk van uw andere initiatieven isoleren. Bovendien, als u de volgende hulpprogramma's nog niet hebt geïnstalleerd, raden klikt u vervolgens we dat de volgende hulpprogramma's worden toegevoegd aan uw ontwikkelomgeving: 
 *   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
 *   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
 *   Bekijk de beschikbare hulpprogramma's in de [Azure-hulpprogramma's voor ontwikkelaars](https://azure.microsoft.com/tools/ "Azure - hulpprogramma's voor ontwikkelaars") pagina

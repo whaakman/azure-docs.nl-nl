@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285753"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334870"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Shellscripts uitvoeren in uw Linux-VM met de opdracht uitvoeren
 
@@ -23,7 +23,7 @@ Opdracht maakt gebruik van de VM-agent om te worden uitgevoerd binnen een virtue
 
 Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Opdracht kunt u scripts uitvoeren op uw virtuele machines op afstand met behulp van de VM-agent. Opdracht kan worden gebruikt via de Azure-portal [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Deze functie is nuttig in alle scenario's waarbij u wilt uitvoeren van een script interactietypen een virtuele machines en is een van de enige manieren oplossen en het herstellen van een virtuele machine die niet het RDP of SSH-poort openen als gevolg van onjuiste netwerk of een gebruiker met beheerdersrechten de configuratie.
+Deze functie is nuttig in alle scenario's waarbij u een script binnen een virtuele machines wilt uitvoeren en is een van de enige manieren oplossen en het herstellen van een virtuele machine die niet het RDP of SSH-poort openen als gevolg van onjuiste netwerk of een gebruiker met beheerdersrechten de configuratie.
 
 ## <a name="restrictions"></a>Beperkingen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7dfdc4319e50e7a6c1c6032c27de5c76397e8de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603073"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334795"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Overzicht van de structuur en de syntaxis van Azure Resource Manager-sjablonen
 In dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Dit geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
@@ -45,8 +45,8 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 | contentVersion |Ja |De versie van de sjabloon (zoals 1.0.0.0). U kunt een waarde opgeven voor dit element. Deze waarde om belangrijke wijzigingen in het document te gebruiken in uw sjabloon. Bij het implementeren van resources met behulp van de sjabloon, kan deze waarde kan worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
 | parameters |Nee |De waarden die beschikbaar zijn wanneer de implementatie wordt uitgevoerd voor het aanpassen van de resource-implementatie. |
 | variabelen |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor sjabloontaalexpressies vereenvoudigen. |
-| functions |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
-| bronnen |Ja |Brontypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
+| functies |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
+| resources |Ja |Brontypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
 | uitvoer |Nee |De waarden die na de implementatie worden geretourneerd. |
 
 Elk element heeft de eigenschappen die u kunt instellen. Het volgende voorbeeld ziet u de volledige syntaxis voor een sjabloon:
@@ -214,6 +214,7 @@ U kunt uw eigen functies maken in uw sjabloon. Deze functies zijn beschikbaar vo
 Er zijn enkele beperkingen bij het definiëren van een gebruikersfunctie:
 
 * De functie heeft geen toegang tot variabelen.
+* De functie kan geen andere door de gebruiker gedefinieerde functies aanroepen.
 * De functie niet gebruiken de [verwijst naar functie](resource-group-template-functions-resource.md#reference).
 * Parameters voor de functie kunnen geen standaardwaarden hebben.
 
@@ -260,7 +261,7 @@ U kunt de functie met aanroepen:
 ]
 ```
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Bronnen
 In de bronnensectie definieert u de resources die worden geïmplementeerd of bijgewerkt. Deze sectie kunt krijgen ingewikkeld omdat de typen die u implementeert om de juiste waarden opgeven dat u begrijpt.
 
 ```json

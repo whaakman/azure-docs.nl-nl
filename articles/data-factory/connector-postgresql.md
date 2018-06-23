@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b75bd5987ccf89c77509d0f2b4d8def5583e928
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a4f300666d0ab5345274d69d9ad6ad6871ce85e3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617430"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334037"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Gegevens kopiëren van PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,10 +39,9 @@ In het bijzonder PostgreSQL biedt ondersteuning voor deze connector PostgreSQL *
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van deze connector PostgreSQL, moet u:
+Als uw PostgreSQL-database is niet openbaar toegankelijk is, moet u voor het instellen van een Self-hosted integratie-Runtime. Zie voor meer informatie over host zichzelf integratie runtimes, [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel. De Runtime-integratie biedt een ingebouwd PostgreSQL-stuurprogramma vanaf versie 3.7, dus u hoeft niet te eventuele stuurprogramma handmatig installeren.
 
-- Stel een Self-hosted integratie-Runtime. Zie [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
-- Installeer de [Ngpsql-gegevensprovider voor PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) met versie tussen 2.0.12 en punt 3.1.9 op de machine integratie Runtime.
+Voor Self-hosted IR-versie lager is dan 3.7, moet u voor het installeren van de [Ngpsql-gegevensprovider voor PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) met versie tussen 2.0.12 en punt 3.1.9 op de machine integratie Runtime.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -57,14 +56,36 @@ De volgende eigenschappen worden ondersteund voor PostgreSQL gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **PostgreSql** | Ja |
-| server | De naam van de PostgreSQL-server. |Ja |
-| database | De naam van de PostgreSQL-database. |Ja |
-| Schema | De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
-| gebruikersnaam | Geef de gebruikersnaam voor verbinding met de PostgreSQL-database. |Ja |
-| wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
+| connectionString | Een ODBC-verbindingsreeks verbinding maken met Azure-Database voor PostgreSQL. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+
+Een typische verbindingsreeks is `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Meer eigenschappen die u per uw aanvraag instellen kunt:
+
+| Eigenschap | Beschrijving | Opties | Vereist |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| De methode het stuurprogramma gebruikt voor het versleutelen van gegevens die tussen het stuurprogramma en de database-server verzonden. Bijvoorbeeld `ValidateServerCertificate=<0/1/6>;`| 0 (geen versleuteling) **(standaard)** / 1 (SSL) / 6 (RequestSSL) | Nee |
+| ValidateServerCertificate (VSC) | Hiermee wordt bepaald of het certificaat dat wordt verzonden door de database-server als SSL-versleuteling is ingeschakeld wordt gevalideerd door het stuurprogramma (versleutelingsmethode = 1). Bijvoorbeeld `ValidateServerCertificate=<0/1>;`| 0 (uitgeschakeld) **(standaard)** / 1 (ingeschakeld) | Nee |
 
 **Voorbeeld:**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+            }
+        }
+    }
+}
+```
+
+Als u PostgreSQL gekoppelde service met de nettolading van de volgende gebruikte, nog steeds wordt ondersteund als-is, terwijl u het gebruik van de nieuwe knop voortaan worden voorgesteld.
+
+**De nettolading van de vorige:**
 
 ```json
 {

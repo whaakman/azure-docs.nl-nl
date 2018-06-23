@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a929149f115d716bf7f9d850abe5ba97bd5a8189
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a79184a5e08aa43a4675194adf5f10b9807418db
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198091"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329549"
 ---
 ### <a name="gwipnoconnection"></a> Wijzigen van het lokale netwerk gateway IP-adres - er is geen gatewayverbinding
 
@@ -23,7 +23,7 @@ Gebruik het voorbeeld om een lokale netwerkgateway die geen gatewayverbinding he
 2. In de **IP-adres** wijzigt u het IP-adres.
 3. Klik op **Opslaan** om de instellingen op te slaan.
 
-### <a name="gwipwithconnection"></a>Het lokale netwerk gateway gateway IP-adres - gatewayverbinding bestaande wijzigen
+### <a name="gwipwithconnection"></a>Het lokale netwerk gateway IP-adres - gatewayverbinding bestaande wijzigen
 
 Voor het wijzigen van een lokale netwerkgateway een verbinding heeft, moet u eerst de verbinding verwijderen. Nadat de verbinding is verwijderd, kunt u het IP-adres van de gateway wijzigen en een nieuwe verbinding maken. U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u het IP-adres van de gateway wijzigt, hoeft u de VPN-gateway niet te verwijderen. U hoeft alleen de verbinding te verwijderen.
  

@@ -15,12 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: befdd7af0a91623af4c5ea0fd957141cad84eb53
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297866"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331169"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Toevoegen en het uitvoeren van aangepaste code voor logic apps via Azure Functions
 
@@ -35,7 +35,7 @@ Als u wilt uitvoeren aangepaste codefragmenten van C# of node.js in logic apps, 
 
 Het is raadzaam dat u een functie in de Azure Functions-portal vanuit maken de **Generic Webhook - knooppunt** of **Generic Webhook - C#** sjablonen. Het resultaat maakt een sjabloon die accepteert een door het automatisch ingevuld `application/json` van een logische app. Functies die u van deze sjablonen maakt worden automatisch gedetecteerd en worden weergegeven in de ontwerpfunctie Logic App onder **Azure Functions in mijn regio.**
 
-In de Azure-portal op de **integreren** deelvenster voor de functie, de sjabloon moet worden weergegeven die **modus** ingesteld op **Webhook** en **Webhook type** is ingesteld op **algemene JSON**. 
+In de Azure-portal op de **integreren** deelvenster voor de functie, de sjabloon moet worden weergegeven die **modus** ingesteld op **Webhook** en **Webhook type**is ingesteld op **algemene JSON**. 
 
 Webhook functies een aanvraag accepteren en doorgegeven aan de methode via een `data` variabele. U kunt toegang tot de eigenschappen van uw payload met puntnotatie zoals `data.function-name`. Bijvoorbeeld, lijkt een eenvoudige JavaScript-functie die een DateTime-waarde naar een datumtekenreeks converteert op het volgende voorbeeld:
 
@@ -62,7 +62,7 @@ U kunt een logische app van binnen een functie activeren. Zie [Logic apps als aa
 
 ### <a name="create-a-function-from-logic-app-designer"></a>Een functie maken vanuit Logic App-ontwerper
 
-U kunt ook een node.js-webhook-functie maken vanuit de designer. Selecteer eerst **Azure Functions in mijn regio** en kies vervolgens een container voor uw functie. Als u nog een container hebt, moet u maken vanuit de [Azure Functions-portal](https://functions.azure.com/signin). Selecteer vervolgens **nieuw**.  
+U kunt ook een node.js-webhook-functie maken vanuit de designer. Selecteer eerst **Azure Functions in mijn regio** en kies vervolgens een container voor uw functie. Als u nog een container hebt, moet u maken vanuit de [Azure Functions-portal](https://functions.azure.com/). Selecteer vervolgens **nieuw**.  
 
 Geef het contextobject dat u van plan bent om door te geven in een functie voor het genereren van een sjabloon op basis van de gegevens die u wilt berekenen. Dit object moet een JSON-object. Bijvoorbeeld, als u in inhoud van het bestand van een FTP-actie doorgeeft, de nettolading van de context ziet eruit als in dit voorbeeld:
 

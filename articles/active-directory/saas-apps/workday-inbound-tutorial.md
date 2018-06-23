@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: df1981443d8c55f07f86394967e357a599a7b3a3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213138"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334323"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -60,6 +60,8 @@ Deze oplossing inrichten Workday-gebruiker is op dit moment in de openbare previ
 * Organisaties waarvoor lid te worden verplaatst, en laat gebruikers worden gesynchroniseerd naar een of meer Active Directory-Forests en domeinen en organisatie-eenheden op alleen op basis van informatie over de gedetecteerd in de module Workday HCM wijzigen (Zie [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
 * Organisaties met behulp van Office 365 voor e-mail
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="planning-your-solution"></a>Plannen van uw oplossing
 
@@ -198,9 +200,9 @@ In deze stap maakt hebt u machtigingen domeinbeveiliging beleid voor de worker-g
 | ---------- | ---------- | 
 | Ophalen en plaatsen | Werknemersgegevens: Openbare Worker rapporten |
 | Ophalen en plaatsen | Werknemersgegevens: Neem contact op met werkgegevens |
-| Ophalen | Werknemersgegevens: Alle posities |
-| Ophalen | Werknemersgegevens: Huidige bezetting van informatie |
-| Ophalen | Werknemersgegevens: Functie in werknemersprofiel |
+| Get | Werknemersgegevens: Alle posities |
+| Get | Werknemersgegevens: Huidige bezetting van informatie |
+| Get | Werknemersgegevens: Functie in werknemersprofiel |
 
 
 ### <a name="activate-security-policy-changes"></a>Wijzigingen in het beveiligingsbeleid activeren
@@ -363,15 +365,15 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 | **UserID**    |  algemene naam    |   |   Geschreven op alleen maken |
 | **Join (' @ ', [gebruikersnaam] 'contoso.com')**   | userPrincipalName     |     | Geschreven op alleen maken 
 | **Vervang(Mid(Vervang(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Geschreven op alleen maken |
-| **Switch (\[Active\],, '0', 'True', '1')** |  AccountDisabled      |     | Maken en bijwerken |
+| **Switch (\[Active\],, '0', 'True', '1')** |  accountDisabled      |     | Maken en bijwerken |
 | **Voornaam**   | givenName       |     |    Maken en bijwerken |
 | **LastName**   |   SN   |     |  Maken en bijwerken |
 | **PreferredNameData**  |  displayName |     |   Maken en bijwerken |
-| **Bedrijf**         | Bedrijf   |     |  Maken en bijwerken |
+| **Bedrijf**         | bedrijf   |     |  Maken en bijwerken |
 | **SupervisoryOrganization**  | afdeling  |     |  Maken en bijwerken |
 | **ManagerReference**   | beheerder  |     |  Maken en bijwerken |
 | **BusinessTitle**   |  titel     |     |  Maken en bijwerken | 
-| **AddressLineData**    |  StreetAddress  |     |   Maken en bijwerken |
+| **AddressLineData**    |  streetAddress  |     |   Maken en bijwerken |
 | **Gemeente**   |   l   |     | Maken en bijwerken |
 | **CountryReferenceTwoLetter**      |   CO |     |   Maken en bijwerken |
 | **CountryReferenceTwoLetter**    |  c  |     |         Maken en bijwerken |
@@ -543,14 +545,13 @@ De volgende secties beschrijven instellen van een verbinding tussen Workday en A
 
    * Als de verbindingstest is geslaagd, klikt u op de **opslaan** bovenaan op de knop. Als dit mislukt, Controleer of de URL voor Workday en de referenties geldig zijn in Workday zijn.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Deel 2: Kenmerktoewijzingen configureren 
 
 In deze sectie configureert u hoe de gebruikersgegevens voor gebruikers alleen in de cloud uit Workday wordt loopt met Azure Active Directory.
 
-1.  Op het tabblad inrichten onder **toewijzingen**, klikt u op **werknemers synchroniseren naar Azure AD**.
+1. Op het tabblad inrichten onder **toewijzingen**, klikt u op **werknemers synchroniseren naar Azure AD**.
 
-2.   In de **bron objectbereik** veld, kunt u selecteren welke groepen gebruikers in Workday moet binnen het bereik van het inrichten van Azure AD, door het definiëren van een set van filters op basis van kenmerken. Het standaardbereik is 'alle gebruikers in Workday'. Voorbeeld van de filters:
+2. In de **bron objectbereik** veld, kunt u selecteren welke groepen gebruikers in Workday moet binnen het bereik van het inrichten van Azure AD, door het definiëren van een set van filters op basis van kenmerken. Het standaardbereik is 'alle gebruikers in Workday'. Voorbeeld van de filters:
 
    * Voorbeeld: Scope aan gebruikers met werknemer-id's tussen 1000000 en 2000000
 
@@ -566,9 +567,9 @@ In deze sectie configureert u hoe de gebruikersgegevens voor gebruikers alleen i
 
       * Operator: Niet NULL IS
 
-3.  In de **doel Objectacties** veld globaal kunt u filteren welke acties moeten worden uitgevoerd op Azure AD zijn toegestaan. **Maak** en **Update** meest voorkomende zijn.
+3. In de **doel Objectacties** veld globaal kunt u filteren welke acties moeten worden uitgevoerd op Azure AD zijn toegestaan. **Maak** en **Update** meest voorkomende zijn.
 
-4.  In de **kenmerktoewijzingen** sectie, kunt u definiëren hoe afzonderlijke Workday kenmerken worden toegewezen aan Active Directory-kenmerken.
+4. In de **kenmerktoewijzingen** sectie, kunt u definiëren hoe afzonderlijke Workday kenmerken worden toegewezen aan Active Directory-kenmerken.
 
 5. Klik op een bestaande kenmerktoewijzing bij te werken of klik op **toevoegen van nieuwe toewijzing** aan de onderkant van het scherm om toe te voegen nieuwe toewijzingen. De toewijzing van een individueel kenmerk ondersteunt deze eigenschappen:
 
@@ -602,7 +603,7 @@ In deze sectie configureert u hoe de gebruikersgegevens voor gebruikers alleen i
 ### <a name="part-3-start-the-service"></a>Deel 3: Start de service
 Zodra de onderdelen 1-2 zijn voltooid, kunt u de inrichting service starten.
 
-1.  In de **inrichten** tabblad, stelt u de **inrichting Status** naar **op**.
+1. In de **inrichten** tabblad, stelt u de **inrichting Status** naar **op**.
 
 2. Klik op **Opslaan**.
 
@@ -612,7 +613,6 @@ Zodra de onderdelen 1-2 zijn voltooid, kunt u de inrichting service starten.
 
 5. Een voltooid, wordt er een overzichtsrapport van de audit schrijven in de **inrichten** tabblad, zoals hieronder wordt weergegeven.
 
-
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Write-back van e-mailadressen aan Workday configureren
 Volg deze instructies voor het configureren van Write-back van gebruiker e-mailadressen van Azure Active Directory naar werkdag.
 
@@ -620,21 +620,21 @@ Volg deze instructies voor het configureren van Write-back van gebruiker e-maila
 
 **Werkdag configureren voor het inrichten van Active Directory:**
 
-1.  Ga naar <https://portal.azure.com>
+1. Ga naar <https://portal.azure.com>
 
-2.  Selecteer in de linkernavigatiebalk **Azure Active Directory**
+2. Selecteer in de linkernavigatiebalk **Azure Active Directory**
 
-3.  Selecteer **bedrijfstoepassingen**, klikt u vervolgens **alle toepassingen**.
+3. Selecteer **bedrijfstoepassingen**, klikt u vervolgens **alle toepassingen**.
 
-4.  Selecteer **een toepassing toevoegen**, selecteer vervolgens de **alle** categorie.
+4. Selecteer **een toepassing toevoegen**, selecteer vervolgens de **alle** categorie.
 
-5.  Zoeken naar **Write-back van Workday**, en die app uit de galerie toevoegt.
+5. Zoeken naar **Write-back van Workday**, en die app uit de galerie toevoegt.
 
-6.  Nadat de app is toegevoegd en het scherm app-informatie weergegeven, selecteert wordt **inrichten**
+6. Nadat de app is toegevoegd en het scherm app-informatie weergegeven, selecteert wordt **inrichten**
 
-7.  Wijzig de **inrichting** **modus** naar **automatische**
+7. Wijzig de **inrichting** **modus** naar **automatische**
 
-8.  Voltooi de **beheerdersreferenties** sectie als volgt:
+8. Voltooi de **beheerdersreferenties** sectie als volgt:
 
    * **Admin Username** – Geef de gebruikersnaam van het systeemaccount van Workday-integratie met de naam van de tenant-domein toegevoegd. Moet als volgt uitzien: username@contoso4
 
@@ -646,24 +646,22 @@ Volg deze instructies voor het configureren van Write-back van gebruiker e-maila
 
    * Klik op de **testverbinding** knop. Als de verbindingstest is geslaagd, klikt u op de **opslaan** bovenaan op de knop. Als dit mislukt, Controleer of de URL voor Workday en de referenties geldig zijn in Workday zijn.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Deel 2: Kenmerktoewijzingen configureren 
-
 
 In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Active Directory.
 
-1.  Op het tabblad inrichten onder **toewijzingen**, klikt u op **synchroniseren Azure AD-gebruikers Workday**.
+1. Op het tabblad inrichten onder **toewijzingen**, klikt u op **synchroniseren Azure AD-gebruikers Workday**.
 
-2.  In de **bron objectbereik** veld, kunt u eventueel filteren welke groepen gebruikers in Azure Active Directory moeten hebben hun e-mailadressen teruggeschreven naar werkdag. Het standaardbereik is 'alle gebruikers in Azure AD'. 
+2. In de **bron objectbereik** veld, kunt u eventueel filteren welke groepen gebruikers in Azure Active Directory moeten hebben hun e-mailadressen teruggeschreven naar werkdag. Het standaardbereik is 'alle gebruikers in Azure AD'. 
 
-3.  In de **kenmerktoewijzingen** sectie, kunt u definiëren hoe afzonderlijke Workday kenmerken worden toegewezen aan Active Directory-kenmerken. Er is een toewijzing voor het e-mailadres standaard. De overeenkomende ID moet echter worden bijgewerkt zodat deze overeenkomen met gebruikers in Azure AD met hun overeenkomstige vermeldingen in Workday. Een populaire overeenkomende methode is om te synchroniseren van de werkdag werknemer-ID of ID van de werknemer op extensionAttribute1 15 in Azure AD en vervolgens dit kenmerk in Azure AD gebruiken om gebruikers te vergelijken terug in Workday.
+3. In de **kenmerktoewijzingen** sectie, kunt u definiëren hoe afzonderlijke Workday kenmerken worden toegewezen aan Active Directory-kenmerken. Er is een toewijzing voor het e-mailadres standaard. De overeenkomende ID moet echter worden bijgewerkt zodat deze overeenkomen met gebruikers in Azure AD met hun overeenkomstige vermeldingen in Workday. Een populaire overeenkomende methode is om te synchroniseren van de werkdag werknemer-ID of ID van de werknemer op extensionAttribute1 15 in Azure AD en vervolgens dit kenmerk in Azure AD gebruiken om gebruikers te vergelijken terug in Workday.
 
-4.  Als u wilt uw toewijzingen opslaan, klikt u op **opslaan** boven aan de sectie toewijzing van kenmerken.
+4. Als u wilt uw toewijzingen opslaan, klikt u op **opslaan** boven aan de sectie toewijzing van kenmerken.
 
 ### <a name="part-3-start-the-service"></a>Deel 3: Start de service
 Zodra de onderdelen 1-2 zijn voltooid, kunt u de inrichting service starten.
 
-1.  In de **inrichten** tabblad, stelt u de **inrichting Status** naar **op**.
+1. In de **inrichten** tabblad, stelt u de **inrichting Status** naar **op**.
 
 2. Klik op **Opslaan**.
 
@@ -672,7 +670,6 @@ Zodra de onderdelen 1-2 zijn voltooid, kunt u de inrichting service starten.
 4. Afzonderlijke sync gebeurtenissen kunnen worden weergegeven de **controlelogboeken** tabblad. **[Raadpleeg de inrichting reporting guide voor gedetailleerde instructies voor het lezen van de controlelogboeken](../active-directory-saas-provisioning-reporting.md)**
 
 5. Een voltooid, wordt er een overzichtsrapport van de audit schrijven in de **inrichten** tabblad, zoals hieronder wordt weergegeven.
-
 
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>De lijst met gebruikerskenmerken Workday aanpassen
 De inrichting van apps voor Active Directory en Azure AD zowel een standaardlijst met gebruikerskenmerken Workday opnemen werkdag u kunt kiezen uit. Deze lijsten zijn echter niet uitgebreid. Werkdag ondersteunt honderden mogelijke gebruikerskenmerken, die kunnen standaard of uniek is voor uw Workday-tenant zijn. 
@@ -799,15 +796,9 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
 
 * Een vorige probleem met de controlelogboeken verschijnt niet in Azure AD-tenants die zich in de Europese Unie is opgelost. Aanvullende agentconfiguratie is echter vereist voor Azure AD-tenants in de EU. Zie voor meer informatie [deel 3: de lokale synchronisatie-agent configureren](#Part 3: Configure the on-premises synchronization agent)
 
-
 ## <a name="managing-personal-data"></a>Het beheren van persoonlijke gegevens
 
 De oplossing voor Active Directory provisioning werkdag vereist een synchronisatieagent moet worden geïnstalleerd op een domein-server en deze agent wordt logboeken gemaakt in het Windows-gebeurtenislogboek dat persoonlijke gegevens kan bevatten.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]  waar de... / verwijzingen die overeenkomt met de hiërarchische structuur van uw artikel
-
-> [!NOTE]
-> Als u geïnteresseerd bent in weergeven of verwijderen van persoonlijke gegevens, raadpleegt u de richtlijnen van Microsoft in de [Windows gegevens onderwerpnaam aanvragen voor de GDPR](https://review.docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows) site. Als u algemene informatie over GDPR zoekt, raadpleegt u de [GDPR sectie van de Portal vertrouwen](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="next-steps"></a>Volgende stappen
 

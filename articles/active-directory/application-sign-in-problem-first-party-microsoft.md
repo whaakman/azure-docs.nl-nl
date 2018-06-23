@@ -3,22 +3,24 @@ title: Problemen met aanmelden bij een Microsoft-toepassing | Microsoft Docs
 description: Algemene problemen geconfronteerd tijdens het aanmelden bij directe Microsoft Applications using Azure AD (zoals Office 365)
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 1dc727f46785d2896544d8ef9098259f9ab994d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 4053c272fe78647ac646e0feefa884cf014a6b72
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29384208"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334221"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
 
@@ -32,7 +34,7 @@ Er zijn drie manieren om een gebruiker krijgt toegang tot een toepassing die Mic
 
 -   Voor toepassingen die Microsoft of een 3rd Party publiceert vrijelijk voor iedereen, gebruikers kunnen ook toegang worden verleend via **beheerder toestemming**. Dit betekent dat een beheerder de toepassing kan worden gebruikt door iedereen in de organisatie, zodat ze zich bij de toepassing met een globale beheerdersaccount aanmelden en toegang aan iedereen in de organisatie verlenen heeft bepaald.
 
-Start voor het oplossen van het probleem met de [algemene probleemgebieden met toegang tot de toepassing in overweging moet nemen](#general-problem-areas-with-application-access-to-consider) en leest u de [Walkthrough: procedures voor het oplossen van Microsoft Application toegang](#walkthrough-steps-to-troubleshoot-microsoft-application-access) om naar de details.
+Start voor het oplossen van het probleem met de [algemene probleemgebieden met toegang tot de toepassing in overweging moet nemen](#general-problem-areas-with-application-access-to-consider) en leest u de [Walkthrough: procedures voor het oplossen van Microsoft Application toegang](#walkthrough-steps-to-troubleshoot-microsoft-application-access) om naar de meer informatie.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Algemene probleemgebieden met toegang tot de toepassing in overweging moet nemen
 
@@ -76,7 +78,7 @@ Hier volgen enkele veelvoorkomende problemen mensen uitgevoerd in hun gebruikers
 
    * Als de licentie is **toegewezen aan een** **dynamische groep**, zorg ervoor dat de **dynamische groepsregel correct is ingesteld**. [Controleer de criteria voor lidmaatschap van een dynamische groep](#check-a-dynamic-groups-membership-criteria)
 
-   * Als de licentie is **toegewezen aan een** **dynamische groep**, zorg ervoor dat de dynamische groep heeft **verwerkt** lidmaatschap en dat de **gebruiker lid is** (dit kan enige tijd duren). [Controleer de groepslidmaatschappen van een gebruiker](#check-a-users-group-memberships)
+   * Als de licentie is **toegewezen aan een** **dynamische groep**, zorg ervoor dat de dynamische groep heeft **verwerkt** lidmaatschap en dat de **gebruiker lid is**  (dit kan enige tijd duren). [Controleer de groepslidmaatschappen van een gebruiker](#check-a-users-group-memberships)
 
    *  Nadat u ervoor te zorgen dat de licentie is toegewezen, zorg ervoor dat de licentie is **niet verlopen**.
 
@@ -86,7 +88,7 @@ Hier volgen enkele veelvoorkomende problemen mensen uitgevoerd in hun gebruikers
 
    * Als de toepassing aanvraagt **op gebruikersniveau machtigingen** (bijvoorbeeld ' toegang tot deze gebruiker Postvak'), zorg ervoor dat de gebruiker is aangemeld bij de toepassing en heeft uitgevoerd een **op gebruikersniveau toestemming bewerking** zodat de toepassing toegang tot haar gegevens.
 
-   * Als de toepassing aanvraagt **administratormachtigingen** (bijvoorbeeld ' toegang tot postvakken van alle gebruikers'), zorg ervoor dat een globale beheerder is uitgevoerd. een **beheerdersniveau toestemming bewerking namens alle gebruikers** in de organisatie.
+   * Als de toepassing aanvraagt **administratormachtigingen** (bijvoorbeeld ' toegang tot postvakken van alle gebruikers'), zorg ervoor dat een globale beheerder is uitgevoerd. een **bewerking op beheerdersniveau toestemming andere gebruikers van alle gebruikers** in de organisatie.
 
 ## <a name="problems-with-the-users-account"></a>Problemen met het gebruikersaccount
 
@@ -509,7 +511,7 @@ Toegang tot toepassingen kan worden geblokkeerd omdat de juiste machtigingen toe
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>De bewerking beheerdersniveau toestemming voor elke toepassing uitvoeren
 
--   Voor **alleen de toepassingen die zijn ontwikkeld met behulp van het model van de toepassing V1**, kunt u dit niveau toestemming van de beheerder om te worden uitgevoerd door toe te voegen forceren '**? prompt = admin\_toestemming**' aan het einde van de aanmelding van een toepassing in een URL.
+-   Voor **alleen de toepassingen die zijn ontwikkeld met behulp van het model van de toepassing V1**, kunt u dit niveau toestemming van de beheerder om te worden uitgevoerd door toe te voegen forceren '**? prompt = admin\_toestemming**' aan het einde van een aanmelding van de toepassing in een URL.
 
 -   Voor **alle toepassingen die zijn ontwikkeld met het model van de toepassing V2**, kunt u deze beheerdersniveau toestemming om te worden uitgevoerd door de instructies volgen onder afdwingen de **de machtigingen aanvragen bij een directory-beheerder** sectie van [met behulp van het eindpunt beheerder toestemming](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
@@ -517,7 +519,7 @@ Toegang tot toepassingen kan worden geblokkeerd omdat de juiste machtigingen toe
 
 -   Voor **toepassingen voor één tenant** die aanvragen machtigingen (zoals die u ontwikkelt of in uw organisatie eigenaar), kunt u uitvoeren een **beheerniveau toestemming** bewerking namens alle gebruikers met aanmelden als globale beheerder en te klikken op de **machtigingen verlenen** knop aan de bovenkant van de **toepassingsregister -&gt; alle toepassingen -&gt; Selecteer een App -&gt; Vereiste machtigingen** deelvenster.
 
--   Voor **alle toepassingen die zijn ontwikkeld met de toepassingsmodel V1 of V2**, kunt u deze beheerdersniveau toestemming om te worden uitgevoerd door de instructies volgen onder afdwingen de **de machtigingen aanvragen bij een directory-beheerder** sectie van [met behulp van het eindpunt beheerder toestemming](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Voor **alle toepassingen die zijn ontwikkeld met de toepassingsmodel V1 of V2**, kunt u deze beheerdersniveau toestemming om te worden uitgevoerd door de instructies volgen onder afdwingen de **de machtigingen aanvragen bij een directory-beheerder**  sectie van [met behulp van het eindpunt beheerder toestemming](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Beheerdersniveau toestemming voor een multitenant-toepassing uitvoeren
 

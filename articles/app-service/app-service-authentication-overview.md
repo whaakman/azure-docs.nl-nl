@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: c180dcf5d769245f3fa2485ccee2cbc18ecf5f67
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 9220eb3800cd1b7b46e276bbda5bb88fc06d5e54
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763489"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337826"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 
@@ -33,7 +33,7 @@ Veilige authenticatie en autorisatie vereist grondige kennis van beveiliging, wa
 
 Zie voor informatie die specifiek zijn voor mobiele apps systeemeigen [verificatie en autorisatie voor mobiele apps met Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Hoe alles werkt
 
 De module voor verificatie en autorisatie wordt uitgevoerd in de sandbox van uw toepassingscode. Wanneer deze ingeschakeld, geeft elke inkomende HTTP-aanvraag via het voordat het wordt verwerkt door de toepassingscode.
 
@@ -79,11 +79,11 @@ App Service gebruikt [federatieve identiteit](https://en.wikipedia.org/wiki/Fede
 
 | Provider | Aanmelden-eindpunt |
 | - | - |
-| [Azure Active Directory](../active-directory/active-directory-whatis.md) | `/.auth/login/aad` |
+| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Microsoft-account](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoft` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
-| [Twitter](https://developer.twitter.com/docs/basics/authentication) | `/.auth/login/twitter` |
+| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
 Als u verificatie en autorisatie met een van deze providers inschakelt, is het eindpunt aanmelden beschikbaar voor verificatie van gebruiker en voor de validatie van verificatietokens van de provider. U kunt uw gebruikers met een willekeurig aantal deze opties aanmelden met gemak opgeven. U kunt ook integreren met een andere id-provider of [uw eigen aangepaste identiteitsoplossing][custom-auth].
 

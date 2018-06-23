@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284961"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332711"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell-scripts uitvoeren in uw Windows-VM met de opdracht uitvoeren
 
@@ -23,7 +23,7 @@ Opdracht maakt gebruik van de VM-agent om uit te voeren PowerShell-scripts in ee
 
 Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Opdracht kunt u scripts uitvoeren op uw virtuele machines op afstand met behulp van de VM-agent. Opdracht kan worden gebruikt via de Azure-portal [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Deze functie is nuttig in alle scenario's waarbij u wilt uitvoeren van een script interactietypen een virtuele machines en is een van de enige manieren oplossen en het herstellen van een virtuele machine die niet het RDP of SSH-poort openen als gevolg van onjuiste netwerk of een gebruiker met beheerdersrechten de configuratie.
+Deze functie is nuttig in alle scenario's waarbij u een script binnen een virtuele machines wilt uitvoeren en is een van de enige manieren oplossen en het herstellen van een virtuele machine die niet het RDP of SSH-poort openen als gevolg van onjuiste netwerk of een gebruiker met beheerdersrechten de configuratie.
 
 ## <a name="restrictions"></a>Beperkingen
 
@@ -33,9 +33,10 @@ De volgende beperkingen van toepassing wanneer de opdracht uitvoeren:
 * De minimale tijd voor het uitvoeren van een script is ongeveer 20 seconden
 * Scripts die op Windows worden uitgevoerd als systeem
 * Een script tegelijk kunt uitvoeren
-* Scripts die om informatie (interactieve modus vraagt) worden niet ondersteund.
 * U kunt een script wordt uitgevoerd niet annuleren.
 * De maximale tijdsduur dat een script kunt uitvoeren is 90 minuten, na waarin het time-out wordt
+
+**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
 
 ## <a name="run-a-command"></a>Een opdracht uitvoeren
 

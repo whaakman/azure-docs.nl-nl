@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a4a882781562ae71ad6c578577a9f9cd9096ef36
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868327"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331786"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -82,7 +82,7 @@ De NPS-server maakt verbinding met Azure Active Directory en verifieert de MFA-a
 1. Open op uw server, de **Wizard Functies toevoegen en onderdelen** in het menu Serverbeheer Quickstart.
 2. Kies **op basis van functie of onderdeel gebaseerde installatie** voor uw installatietype.
 3. Selecteer de **Network Policy and Access Services** serverfunctie. Een venster kan van de vereiste onderdelen voor het uitvoeren van deze rol weergegeven.
-4. Met de wizard worden voortgezet totdat de pagina bevestiging. Selecteer **installeren**.
+4. Met de wizard worden voortgezet totdat de pagina bevestiging. Selecteer **Installeren**.
 
 Nu dat u een aangewezen voor NPS-server hebt, moet u deze server voor het afhandelen van binnenkomende RADIUS-aanvragen van de VPN-oplossing ook configureren.
 
@@ -172,7 +172,7 @@ Deze sectie bevat overwegingen bij het ontwerpen en suggesties voor geslaagde im
 ### <a name="configuration-limitations"></a>Configuratie-beperkingen
 
 - De NPS-extensie voor Azure MFA omvat geen hulpprogramma's voor gebruikers en -instellingen van MFA-Server migreren naar de cloud. Daarom is het raadzaam met de extensie voor nieuwe implementaties in plaats van bestaande implementatie. Als u de uitbreiding van een bestaande implementatie gebruikt, worden uw gebruikers hebben om uit te voeren bewijs-up opnieuw uit om te vullen van de details van MFA in de cloud.  
-- De NPS-extensie gebruikt de UPN van de lokale Active directory voor het identificeren van de gebruiker op de Azure MFA voor het uitvoeren van de secundaire Auth. De extensie kan worden geconfigureerd voor het gebruik van een andere id zoals alternatieve aanmeldings-ID of aangepaste Active Directory-veld dan UPN. Zie [geavanceerde configuratieopties voor de NPS-extensie voor multi-factor Authentication](howto-mfaserver-nps-vpn.md) voor meer informatie.
+- De NPS-extensie gebruikt de UPN van de lokale Active directory voor het identificeren van de gebruiker op de Azure MFA voor het uitvoeren van de secundaire Auth. De extensie kan worden geconfigureerd voor het gebruik van een andere id zoals alternatieve aanmeldings-ID of aangepaste Active Directory-veld dan UPN. Zie [geavanceerde configuratieopties voor de NPS-extensie voor multi-factor Authentication](howto-mfa-nps-extension-advanced.md) voor meer informatie.
 - Niet alle versleuteling protocollen ondersteunen alle verificatiemethoden voor.
    - **PAP** ondersteunt telefoongesprek, eenzijdige SMS-bericht, mobiele-appmelding en verificatiecode mobiele app
    - **CHAPv2** en **EAP** ondersteuning voor telefoongesprekken en meldingen voor mobiele Apps
@@ -185,7 +185,7 @@ Als u MFA voor een RADIUS-client met behulp van de NPS-extensie inschakelen, wor
 
 Als u gebruikers die niet zijn geregistreerd voor MFA hebt, kunt u bepalen wat er gebeurt wanneer ze proberen te verifiëren. Gebruik de registerinstelling *REQUIRE_USER_MATCH* in het registerpad *HKLM\Software\Microsoft\AzureMFA* het gedrag van de functie te bepalen. Deze instelling heeft een configuratie voor één optie:
 
-| Sleutel | Waarde | Standaard |
+| Code | Waarde | Normaal |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | WAAR/ONWAAR | Niet ingesteld (equivalent op TRUE) |
 
@@ -193,7 +193,7 @@ Het doel van deze instelling is om te bepalen wat te doen wanneer een gebruiker 
 
 U kunt deze sleutel maken en ingesteld op FALSE terwijl uw gebruikers voorbereiding zijn en kunnen niet allemaal worden ingeschreven voor Azure MFA nog. Omdat de sleutel, gebruikers die niet zijn geregistreerd voor MFA kunnen aanmelden, moet u deze sleutel verwijderen voordat u doorgaat naar productie.
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Hoe kan ik controleren of het certificaat van de client is geïnstalleerd, zoals verwacht?
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.openlocfilehash: b297aab75212070aa435c58bf9024bf90e8ffec3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: asteen
+ms.openlocfilehash: 047679b52de1b095112948e869f35811346b846b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590151"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331620"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Het configureren van een toepassing toepassingsproxy
 
@@ -36,7 +36,7 @@ Zie voor meer informatie over het uploaden van certificaten en gebruiken van aan
 
 ## <a name="create-the-applicationsetting-the-urls"></a>De URL's voor de toepassingsinstelling maken
 
-Als u volgt de stappen in de [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md) documentatie en zijn voor het ophalen van een fout bij het maken van de toepassing, Zie de foutdetails voor informatie en suggesties voor het oplossen van de toepassing. De meeste foutberichten bevatten een voorgestelde oplossing. Controleer of algemene fouten te voorkomen:
+Als u volgt de stappen in de [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md) documentatie en zijn voor het ophalen van een fout bij het maken van de toepassing, Zie de foutdetails voor informatie en suggesties voor het oplossen van de de toepassing. De meeste foutberichten bevatten een voorgestelde oplossing. Controleer of algemene fouten te voorkomen:
 
 -   U bent een beheerder met een machtiging voor het maken van een toepassing toepassingsproxy
 

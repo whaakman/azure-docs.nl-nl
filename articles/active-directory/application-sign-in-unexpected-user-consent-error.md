@@ -3,22 +3,24 @@ title: Onverwachte fout bij het uitvoeren van toestemming voor een toepassing | 
 description: Fouten die tijdens het proces optreden kunnen van een toepassing en wat u kunt doen over ze ermee akkoord dat wordt beschreven
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 4fc71432707c981c0f3f12e74ad7c499d36a17d2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: bad508c59983f463aaa3247fa653064dfa03ab20
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231335"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331074"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Onverwachte fout bij het uitvoeren van toestemming voor een toepassing
 
@@ -46,7 +48,7 @@ Deze fout geeft aan dat er een probleem onregelmatige service aan de clientzijde
 ## <a name="resource-not-available-error"></a>Resource niet beschikbaar-fout
 * **AADSTS65005:** de app &lt;clientAppDisplayName&gt; aangevraagd machtigingen voor toegang tot een resource &lt;resourceAppDisplayName&gt; die is niet beschikbaar. 
 
-Neem contact op met de ontwikkelaar van toepassingen.
+Neem contact op met de ontwikkelaar van de toepassing.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>De resource is niet beschikbaar in de tenant-fout
 * **AADSTS65005:** &lt;clientAppDisplayName&gt; toegang tot een bron aanvraagt &lt;resourceAppDisplayName&gt; die is niet beschikbaar in uw organisatie &lt;tenantDisplayName &gt;. 

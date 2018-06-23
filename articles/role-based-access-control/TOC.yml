@@ -27,8 +27,6 @@
       href: role-definitions.md
     - name: Ingebouwde rollen
       href: built-in-roles.md
-    - name: Aangepaste rollen
-      href: custom-roles.md
     - name: Resourceproviderbewerkingen
       href: resource-provider-operations.md
     - name: PIM (Privileged Identity Management) voor RBAC
@@ -42,12 +40,21 @@
       items:
         - name: Portal
           href: role-assignments-portal.md
-        - name: Azure-CLI
-          href: role-assignments-cli.md
         - name: PowerShell
           href: role-assignments-powershell.md
-        - name: REST
+        - name: Azure-CLI
+          href: role-assignments-cli.md
+        - name: REST-API
           href: role-assignments-rest.md
+    - name: Aangepaste rollen
+      href: custom-roles.md
+      items:
+        - name: PowerShell
+          href: custom-roles-powershell.md
+        - name: Azure-CLI
+          href: custom-roles-cli.md
+        - name: REST-API
+          href: custom-roles-rest.md
     - name: Activiteitenlogboeken bekijken
       href: change-history-report.md
     - name: Toegangsrechten voor de globale beheerder uitbreiden

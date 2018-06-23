@@ -1,5 +1,5 @@
 ---
-title: Gegevens uit Xero met behulp van Azure Data Factory (bèta) kopiëren | Microsoft Docs
+title: Kopiëren van gegevens uit Xero met behulp van Azure Data Factory (Preview) | Microsoft Docs
 description: Informatie over het gegevens uit Xero kopiëren naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: fbfad00956faad49980a431504d991cfde22cafb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0d2b55384484932cb243ec6b15a6b4944c716471
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619368"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337651"
 ---
-# <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Gegevens uit Xero met behulp van Azure Data Factory (bèta) kopiëren
+# <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Gegevens uit Xero met behulp van Azure Data Factory (Preview) kopiëren
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit Xero. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Deze connector is momenteel in de bètaversie. U kunt uitproberen en feedback geven. Gebruik deze niet in een productieomgeving.
+> Deze connector is momenteel in preview. U kunt uitproberen en feedback geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -43,7 +43,7 @@ Azure Data Factory biedt een ingebouwde stuurprogramma's zodat connectiviteit, d
 
 ## <a name="getting-started"></a>Aan de slag
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Xero-connector.
 

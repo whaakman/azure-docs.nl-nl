@@ -3,7 +3,7 @@ title: Azure eenmalige van SAML-Protocol | Microsoft Docs
 description: Dit artikel wordt beschreven voor het één Sign-Out SAML-Protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
@@ -14,21 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 9ec99ffc64138cf1cd94e0f11077cdc5d86dbc57
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: c8373df67adbb93e25ab5a31a254efe70581d32d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155494"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317674"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Één afmelden SAML-Protocol
-Azure Active Directory (Azure AD) ondersteunt het SAML 2.0 web browser-profiel op één afmelding plaatsvindt. Voor één afmeldingen via correcte werking moet de **LogoutURL** voor de toepassing moet expliciet worden geregistreerd bij Azure AD tijdens de toepassingsregistratie. Azure AD gebruikt de LogoutURL om gebruikers te leiden nadat ze zich afgemeld.
 
-Dit diagram toont de werkstroom van de Azure AD enkel afmelden proces.
+Azure Active Directory (Azure AD) ondersteunt het SAML 2.0 web browser-profiel op één afmelding plaatsvindt. Voor één afmeldingen via correcte werking moet de **LogoutURL** voor de toepassing moet expliciet worden geregistreerd bij Azure AD tijdens de toepassingsregistratie. Azure AD gebruikt de LogoutURL om gebruikers te leiden nadat ze bent afgemeld.
 
-![Eenmalige aanmelding van de werkstroom](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
+Het volgende diagram toont de werkstroom van de Azure AD enkel afmelden proces.
+
+![Azure AD één werkstroom afmelden](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## <a name="logoutrequest"></a>LogoutRequest
 De cloud service verzendt een `LogoutRequest` bericht naar Azure AD om aan te geven dat een sessie is beëindigd. Het volgende fragment toont een voorbeeld van een `LogoutRequest` element.
@@ -43,9 +45,9 @@ De cloud service verzendt een `LogoutRequest` bericht naar Azure AD om aan te ge
 ### <a name="logoutrequest"></a>LogoutRequest
 De `LogoutRequest` element verzonden naar Azure AD vereist de volgende kenmerken:
 
-* `ID` : Hiermee wordt de afmelden aanvraag geïdentificeerd. De waarde van `ID` mogen niet beginnen met een getal. De gebruikelijke manier is om toe te voegen **id** als de tekenreeksweergave van een GUID.
-* `Version` : Stel de waarde van dit element kunt **2.0**. Deze waarde is verplicht.
-* `IssueInstant` : Dit is een `DateTime` tekenreeks met een waarde coördineren Universal Time (UTC) en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een waarde van dit type verwacht, maar worden niet afgedwongen.
+* `ID` -Dit identificeert de afmelden aanvraag. De waarde van `ID` mogen niet beginnen met een getal. De gebruikelijke manier is om toe te voegen **id** als de tekenreeksweergave van een GUID.
+* `Version` : Hiermee stelt u de waarde van dit element kunt **2.0**. Deze waarde is verplicht.
+* `IssueInstant` -Dit is een `DateTime` tekenreeks met een waarde coördineren Universal Time (UTC) en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een waarde van dit type verwacht, maar niet worden afgedwongen.
 
 ### <a name="issuer"></a>Certificaatverlener
 De `Issuer` -element in een `LogoutRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Normaal gesproken deze is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.

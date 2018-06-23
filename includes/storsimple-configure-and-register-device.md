@@ -16,7 +16,7 @@
 6. Typ de volgende opdracht:
    
      `Invoke-HcsSetupWizard` 
-7. Er wordt een instellingenwizard weergegeven om u te helpen bij het configureren van de netwerkinstellingen voor het apparaat. Geef de volgende informatie op: 
+7. Er wordt een instellingenwizard weergegeven om u te helpen bij het configureren van de netwerkinstellingen voor het apparaat. Geef de volgende gegevens: 
    
    * IP-adres voor de DATA 0-netwerkinterface
    * Subnetmasker

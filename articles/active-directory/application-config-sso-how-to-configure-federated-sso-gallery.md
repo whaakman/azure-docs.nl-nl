@@ -3,21 +3,23 @@ title: Het configureren van federatieve eenmalige aanmelding voor een galerie va
 description: Het configureren van federatieve eenmalige aanmelding voor een bestaande-galerie van Azure AD-toepassing en het gebruik zelfstudies snel aan de slag
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 47aab24702be966beeb41371201c6966497dc35a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: f74e614cd8709503afcbae8714732bbacf7c2ae2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331647"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Het configureren van federatieve eenmalige aanmelding voor een galerie van Azure AD-toepassing
 
@@ -165,7 +167,7 @@ Voor het downloaden van de metagegevens van de toepassing of het certificaat van
 
 8.  Ga naar **SAML-certificaat voor ondertekening van** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding vereist, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
 
-Azure AD biedt een URL als u de metagegevens niet. De metagegevens kan alleen worden opgehaald als een XML-bestand.
+Azure AD biedt ook een URL als u de metagegevens. Ga als volgt dit patroon voor het ophalen van de URL van de metagegevens die specifiek zijn voor de toepassing: https://login.microsoftonline.com/ <Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
 
 ## <a name="assign-users-to-the-application"></a>Gebruikers toewijzen aan de toepassing
 

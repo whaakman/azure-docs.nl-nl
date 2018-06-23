@@ -3,22 +3,24 @@ title: Probleem administrator-referenties opslaan bij het configureren van gebru
 description: Het oplossen van algemene problemen bij het configureren van gebruikers inrichten tot een toepassing die al in de Azure AD-Toepassingsgalerie
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: asmalser
-ms.openlocfilehash: 8b23ea72a898dc5725c1c82ee2a5cbc06730b5aa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.reviewer: asmalser
+ms.openlocfilehash: 1146df364a08128b5cd191ed1120198ae31b763e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292987"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337791"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Probleem bij het opslaan van referenties tijdens het configureren van gebruikers inrichten tot een galerie van Azure Active Directory-toepassing 
 
@@ -38,7 +40,7 @@ Alle geheime tokens, URI's melding e-mailadressen, gebruikersnamen en wachtwoord
 
 Er zijn twee mogelijke manieren vandaag de dag dit probleem omzeilen:
 
-1. **Galerie met twee exemplaren van een toepassing, één voor eenmalige aanmelding en één voor gebruikers inrichten gebruiken** -de galerie-toepassing duurt [LinkedIn bevoegdheden](active-directory-saas-linkedinelevate-tutorial.md) als voorbeeld, kunt u LinkedIn worden de bevoegdheden van de galerie toevoegen en configureren het is voor eenmalige aanmelding. Voor het inrichten, toevoegen van een ander exemplaar van het LinkedIn worden de bevoegdheden van de app-galerie van Azure AD en naam 'LinkedIn uitbreiden (inrichten)'. Voor deze tweede exemplaar configureren [inrichting](active-directory-saas-linkedinelevate-provisioning-tutorial.md), maar geen eenmalige aanmelding. Wanneer u deze tijdelijke oplossing, dezelfde gebruikers en groepen moeten [toegewezen](manage-apps/assign-user-or-group-access-portal.md) voor beide toepassingen. 
+1. **Galerie met twee exemplaren van een toepassing, één voor eenmalige aanmelding en één voor gebruikers inrichten gebruiken** -de galerie-toepassing duurt [LinkedIn bevoegdheden](saas-apps/linkedinelevate-tutorial.md) als voorbeeld, kunt u LinkedIn worden de bevoegdheden van de galerie toevoegen en configureren het is voor eenmalige aanmelding. Voor het inrichten, toevoegen van een ander exemplaar van het LinkedIn worden de bevoegdheden van de app-galerie van Azure AD en naam 'LinkedIn uitbreiden (inrichten)'. Voor deze tweede exemplaar configureren [inrichting](saas-apps/linkedinelevate-provisioning-tutorial.md), maar geen eenmalige aanmelding. Wanneer u deze tijdelijke oplossing, dezelfde gebruikers en groepen moeten [toegewezen](manage-apps/assign-user-or-group-access-portal.md) voor beide toepassingen. 
 
 2. **Verklein de hoeveelheid opgeslagen configuratiegegevens** -alle gegevens die zijn opgegeven in de [beheerdersreferenties](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) sectie van het tabblad voor inrichting is opgeslagen in dezelfde locatie als het SAML-certificaat. Hoewel het niet mogelijk om te beperken, de lengte van al deze gegevens, sommige velden optionele configuratie, zoals de **e-mailmelding** kan worden verwijderd.
 

@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: b970d01c586e016d47b0f0480d73f06211969814
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1cc8518e84bd9fe7a1f03a2f5d6ccdbac8fb78e3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294877"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330591"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Het toevoegen van een gebeurtenisbron IoT-Hub aan Time Series Insights-omgeving
 Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die gegevens uit een IoT-Hub in uw omgeving Time Series Insights leest toevoegen.
@@ -25,6 +25,22 @@ Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die g
 - Een IoT Hub maken. Zie voor meer informatie over IoT Hubs [een IoT Hub met de Azure portal maken](../iot-hub/iot-hub-create-through-portal.md)
 - De IoT-Hub moet actieve bericht gebeurtenissen worden verzonden in hebben.
 - Maak een speciale klantengroep in IoT Hub voor de omgeving Time Series inzicht gebruiken uit. Elke keer reeks Insights gebeurtenisbron moet beschikken over een eigen speciale klantengroep die niet wordt gedeeld met andere consumenten. Als meerdere lezers gebeurtenissen van de dezelfde consumergroep gebruiken, zijn alle lezers waarschijnlijk fouten. Zie voor meer informatie de [Ontwikkelaarshandleiding voor IoT Hub](../iot-hub/iot-hub-devguide.md).
+
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>Een consumergroep toevoegen aan uw IoT-Hub
+Consumer-groepen worden gebruikt door toepassingen voor het ophalen van gegevens uit Azure IoT Hubs. Geef een speciale klantengroep voor gebruik door deze Time Series Insights omgeving alleen betrouwbaar gegevens lezen uit uw IoT-Hub.
+
+Als u wilt een nieuwe consumergroep toevoegen aan uw IoT-Hub, de volgende stappen uit:
+1. Zoek in de Azure-portal en open uw IoT-Hub.
+
+2. Onder de **Messaging** kop, selecteer **eindpunten**. 
+
+   ![Een consumergroep toevoegen](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
+
+3. Selecteer de **gebeurtenissen** eindpunt, en de **eigenschappen** pagina wordt geopend.
+
+4. Onder de **consumergroepen** kop Geef een nieuwe unieke naam voor de consumergroep. Deze dezelfde naam in tijd reeks Insights omgeving gebruiken bij het maken van een nieuwe gebeurtenisbron.
+
+5. Selecteer **opslaan** om op te slaan van de nieuwe consumergroep.
 
 ## <a name="add-a-new-event-source"></a>Een nieuwe gebeurtenisbron toevoegen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -73,27 +89,13 @@ Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die g
    | Serialisatie-indeling voor gebeurtenissen | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
    | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens verzonden naar IoT Hub. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
-10. Selecteer **maken** om toe te voegen van de nieuwe gebeurtenisbron.
+10. Speciale TSI consumer naam van de groep die u hebt toegevoegd aan uw IoT-Hub toevoegen.
+
+11. Selecteer **maken** om toe te voegen van de nieuwe gebeurtenisbron.
 
    ![Klik op Maken](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
    Wanneer de gebeurtenisbron is gemaakt, begint Time Series Insights automatisch met het streamen van gegevens naar uw omgeving.
-
-### <a name="add-a-consumer-group-to-your-iot-hub"></a>Een consumergroep toevoegen aan uw IoT-Hub
-Consumer-groepen worden gebruikt door toepassingen voor het ophalen van gegevens uit Azure IoT Hubs. Geef een speciale klantengroep voor gebruik door deze Time Series Insights omgeving alleen betrouwbaar gegevens lezen uit uw IoT-Hub.
-
-Als u wilt een nieuwe consumergroep toevoegen aan uw IoT-Hub, de volgende stappen uit:
-1. Zoek in de Azure-portal en open uw IoT-Hub.
-
-2. Onder de **Messaging** kop, selecteer **eindpunten**. 
-
-   ![Een consumergroep toevoegen](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
-
-3. Selecteer de **gebeurtenissen** eindpunt, en de **eigenschappen** pagina wordt geopend.
-
-4. Onder de **consumergroepen** kop Geef een nieuwe unieke naam voor de consumergroep. Deze dezelfde naam in tijd reeks Insights omgeving gebruiken bij het maken van een nieuwe gebeurtenisbron.
-
-5. Selecteer **opslaan** om op te slaan van de nieuwe consumergroep.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Definieer gegevenstoegangsbeleid](time-series-insights-data-access.md) om de gegevens te beveiligen.

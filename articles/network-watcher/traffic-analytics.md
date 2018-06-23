@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: badd2d63ffaf8e88ff672087783f2bce150bc7c3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264987"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333391"
 ---
 # <a name="traffic-analytics"></a>Verkeersanalyse
 
@@ -61,7 +61,7 @@ U kunt traffic analytics gebruiken voor het nsg's in een van de volgende gebiede
 
 Uw account moet lid zijn van een van de volgende Azure [ingebouwde rollen](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
 
-|Implementatiemodel   | Rol                   |
+|Implementatiemodel   | Functie                   |
 |---------          |---------               |
 |Resource Manager   | Eigenaar                  |
 |                   | Inzender            |
@@ -267,9 +267,9 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
 
 **Zoeken**
 
-- Distributie van verkeer per subnet, topologie, bovenste bronnen van het verkeer naar het subnet van de bovenste rouge netwerken conversatie aan het subnet en top toepassingsprotocollen conversatie.
+- Verkeer distributie per subnet, topologie, bovenste bronnen van het verkeer naar het subnet van de conversatie aan het subnet en top toepassingsprotocollen conversatie bovenste rogue-netwerken.
     - Weten welke subnet is conversatie met welk subnet. Als er onverwachte uitwisselingen, kunt u uw configuratie corrigeren.
-    - Als rouge netwerken zijn conversatie met een subnet, bent u kunnen corrigeren door het NSG-regels voor het blokkeren van de rogue-netwerken configureren.
+    - Als een rogue-netwerken zijn conversatie met een subnet, bent u kunnen corrigeren door het NSG-regels voor het blokkeren van de rogue-netwerken configureren.
 - De topologie subnetten bevat het bovenste lint voor selectie van parameters zoals actief/inactief subnet, externe verbindingen, actieve gegevensoverdrachten en schadelijke stromen van het subnet.
 - De topologie Subnet toont de distributie van verkeer met een virtueel netwerk met betrekking tot stromen (toegestaan/geblokkeerd/Inkomend/uitgaand/Benign/kwaadaardig), het toepassingsprotocol en nsg's, bijvoorbeeld:
 
@@ -277,10 +277,10 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
 
 **Zoeken**
 
-Distributie van verkeer per toepassingsgateway & Load Balancer, topologie, bovenste bronnen van verkeer, bovenste rouge netwerken conversatie aan de toepassingsgateway & Load Balancer en top conversatie toepassingsprotocollen. 
+Distributie van verkeer per toepassingsgateway & Load Balancer, topologie, bovenste bronnen van verkeer, bovenste rogue netwerken conversatie aan de toepassingsgateway & Load Balancer en top conversatie toepassingsprotocollen. 
     
  - Weten welke subnet is conversatie waarvan de toepassingsgateway of Load Balancer. Als u onverwachte conversaties ziet, kunt u uw configuratie corrigeren.
- - Als rouge netwerken zijn conversatie met een toepassingsgateway of een Load Balancer, bent u kunnen corrigeren door het NSG-regels voor het blokkeren van de rogue-netwerken configureren. 
+ - Als een rogue-netwerken zijn conversatie met een toepassingsgateway of een Load Balancer, bent u kunnen corrigeren door het NSG-regels voor het blokkeren van de rogue-netwerken configureren. 
 
     ![subnet-Topology-showcasing-Traffic-Distribution-to-a-Application-Gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 

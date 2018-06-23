@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25601b01489b95de0e86b314b4b934d3cffd38c2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363686"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330737"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Next Generation Firewall toevoegen in Azure Security Center
 Azure Security Center kan aanbevelen next generation firewall (NGFW) toe te voegen uit een Microsoft-partner te verhogen uw beveiligingsinstellingen. Dit document vindt u via een voorbeeld van hoe u dit doet.
@@ -58,7 +58,7 @@ Ga terug naar de **aanbevelingen** blade. Een nieuwe vermelding is gegenereerd n
 Dit document hebt u geleerd hoe u implementeert de aanbeveling Security Center "Next Generation Firewall toevoegen". Zie de volgende onderwerpen voor meer informatie over NGFWs en de partneroplossing Check Point:
 
 * [Next Generation Firewall](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
-* [Check Point vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
+* [Check Point vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
