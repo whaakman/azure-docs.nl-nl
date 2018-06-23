@@ -70,7 +70,7 @@ Bekijk onze opslagplaats hier voor het implementeren van een steekproef virtuele
 
 Schakel diagnostische gegevens over opstarten op een bestaande virtuele machine door de volgende stappen uit:
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com), en selecteer vervolgens de virtuele machine.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en selecteer vervolgens de virtuele machine.
 2. In **ondersteuning + probleemoplossing**, selecteer **diagnostics opstarten** > **instellingen**, de status wijzigen in **op**, en vervolgens Selecteer een opslagaccount. 
 4. Zorg ervoor dat de optie opstarten diagnostics is geselecteerd en sla de wijziging.
 

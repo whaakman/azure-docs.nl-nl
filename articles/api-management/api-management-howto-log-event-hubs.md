@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2334aefdfb442054226ef6d7d55a8c097a433565
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969594"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316320"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Het registreren van gebeurtenissen voor Azure Event Hubs in Azure API Management
 Azure Event Hubs is een zeer schaalbare service voor inkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen, voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Event Hubs fungeert als de 'voordeur' van een gebeurtenispijplijn en zodra gegevens zijn verzameld in een event hub, kunnen worden omgezet en opgeslagen met een realtime-analyseprovider of batchverwerking/opslagadapters. Event Hubs koppelt de productie van een gebeurtenissenstroom los van het gebruik van deze gebeurtenissen, zodat de consumenten ervan toegang hebben tot de gebeurtenissen op basis van hun eigen planning.
@@ -79,7 +79,7 @@ Zodra uw berichtenlogboek in API Management is geconfigureerd, kunt u uw logboek
 1. Blader naar de APIM-instantie.
 2. Selecteer het tabblad API.
 3. Selecteer de API die u wilt toevoegen van het beleid. In dit voorbeeld wordt een beleid voor toevoegt de **Echo-API** in de **onbeperkt** product.
-4. Selecteer **alle bewerkingen**.
+4. Selecteer **Alle bewerkingen**.
 5. Selecteer het tabblad ontwerpen boven aan het scherm.
 6. Klik in het venster inkomende of uitgaande verwerking op de driehoek (naast de pen).
 7. Selecteer de Code-editor. Zie voor meer informatie [het instellen of beleidsregels bewerken](set-edit-policies.md).
@@ -105,7 +105,8 @@ Klik op **opslaan** de bijgewerkte beleidsconfiguratie opslaan. Het beleid actie
 * Meer informatie over de integratie van API Management en Event Hubs
   * [Entiteitsverwijzing berichtenlogboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [documentatie voor logboek-eventhub-beleid](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Uw API's met Azure API Management, Event Hubs en Runscope bewaken](api-management-log-to-eventhub-sample.md)    
+  * [Uw API's met Azure API Management, Event Hubs en Runscope bewaken](api-management-log-to-eventhub-sample.md)  
+* Meer informatie over [integratie met Azure Application Insights](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png

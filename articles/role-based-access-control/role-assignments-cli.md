@@ -1,6 +1,6 @@
 ---
 title: Beheren van toegang met RBAC en Azure CLI | Microsoft Docs
-description: Informatie over het beheren van toegang voor gebruikers, groepen en toepassingen met behulp van op rollen gebaseerde toegangsbeheer (RBAC) en Azure CLI. Dit omvat het weergeven van access, toegang te verlenen en toegang verwijderen.
+description: Informatie over het beheren van toegang voor gebruikers, groepen en toepassingen met behulp van op rollen gebaseerde toegangsbeheer (RBAC) en Azure CLI. Dit omvat het weergeven van access, toegang verlenen en toegang verwijderen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2018
+ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 16577339f1aa33fbd1a8b90f4beaef1ee4ce806c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294401"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316393"
 ---
 # <a name="manage-access-using-rbac-and-azure-cli"></a>Beheren van toegang met RBAC en Azure CLI
 
@@ -27,9 +27,10 @@ ms.locfileid: "36294401"
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u de Azure CLI wilt roltoewijzingen beheren, hebt u de volgende vereisten:
+Voor het beheren van toegang, hebt u het volgende nodig:
 
-* [Azure CLI](/cli/azure). U kunt deze in uw browser gebruiken met [Azure Cloud Shell](../cloud-shell/overview.md), of [installeren](/cli/azure/install-azure-cli) op macOS, Linux of Windows en uitvoeren vanaf de opdrachtregel.
+* [In de Azure-Cloud-Shell Bash](/azure/cloud-shell/overview)
+* [Azure-CLI](/cli/azure)
 
 ## <a name="list-roles"></a>Lijst met rollen
 
@@ -308,139 +309,7 @@ Het volgende voorbeeld verwijdert u de *lezer* functie uit de *Anne Mack Team* g
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="custom-roles"></a>Aangepaste rollen
-
-### <a name="list-custom-roles"></a>Lijst met aangepaste rollen
-
-U kunt de functies die beschikbaar voor toewijzing op een scope zijn gebruiken [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list).
-
-Beide van de volgende voorbeelden tonen de aangepaste rollen in het huidige abonnement:
-
-```azurecli
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
-```
-
-```azurecli
-az role definition list --output json | jq '.[] | if .roleType == "CustomRole" then {"roleName":.roleName, "roleType":.roleType} else empty end'
-```
-
-```Output
-{
-  "roleName": "My Management Contributor",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Operator Role",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Reader Role",
-  "type": "CustomRole"
-}
-
-...
-```
-
-### <a name="create-a-custom-role"></a>Een aangepaste beveiligingsrol maken
-
-Gebruik voor het maken van een aangepaste beveiligingsrol [az roldefinitie maken](/cli/azure/role/definition#az-role-definition-create). De roldefinitie mag een JSON-beschrijving of een pad naar een bestand met een JSON-beschrijving.
-
-```azurecli
-az role definition create --role-definition <role_definition>
-```
-
-Het volgende voorbeeld wordt een aangepaste beveiligingsrol met de naam *virtuele Machine Operator*. Deze aangepaste rol toegang toegewezen aan alle leesbewerkingen van *Microsoft.Compute*, *Microsoft.Storage*, en *Microsoft.Network* providers en wordt toegewezen toegang tot bedrijfsbronnen Als u wilt starten, start en virtuele machines bewaken. Deze aangepaste rol kan worden gebruikt in twee abonnementen. Dit voorbeeld wordt een JSON-bestand als invoer.
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition create --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="update-a-custom-role"></a>Bijwerken van een aangepaste rol
-
-Voor het bijwerken van een aangepaste rol voor het eerst gebruiken [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list) voor het ophalen van de functiedefinitie. Controleer vervolgens de gewenste wijzigingen aan de functiedefinitie. Gebruik tot slot [az rol definitie-update](/cli/azure/role/definition#az-role-definition-update) om op te slaan van de bijgewerkte roldefinitie.
-
-```azurecli
-az role definition update --role-definition <role_definition>
-```
-
-Het volgende voorbeeld wordt de *Microsoft.Insights/diagnosticSettings/* bewerking is de *acties* van de *virtuele Machine Operator* aangepaste rol.
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition update --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="delete-a-custom-role"></a>Een aangepaste rol verwijderen
-
-Gebruik voor het verwijderen van een aangepaste beveiligingsrol [az roldefinitie verwijderen](/cli/azure/role/definition#az-role-definition-delete). Om op te geven van de rol wilt verwijderen, gebruikt u de rolnaam van de of de rol-ID. Gebruiken om te bepalen van de rol-ID, [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list).
-
-```azurecli
-az role definition delete --name <role_name or role_id>
-```
-
-Het volgende voorbeeld wordt de *virtuele Machine Operator* aangepaste rol:
-
-```azurecli
-az role definition delete --name "Virtual Machine Operator"
-```
-
 ## <a name="next-steps"></a>Volgende stappen
 
-[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
+- [Zelfstudie: Een aangepaste beveiligingsrol met Azure CLI maken](tutorial-custom-role-cli.md)
+- [De Azure CLI gebruiken voor het beheren van Azure-resources en resourcegroepen](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
