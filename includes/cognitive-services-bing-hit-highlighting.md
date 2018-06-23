@@ -1,43 +1,43 @@
-Bing supports hit highlighting which marks query terms (or other terms that Bing finds relevant) in the display strings of some of the answers. For example, a webpage's `name`, `displayUrl`, and `snippet` fields may mark the query terms.
+Bing ondersteunt hit markeren die querytermen markeert (of andere voorwaarden die Bing vindt relevante) in de tekenreeksen voor weergave van een deel van de antwoorden. Bijvoorbeeld, een webpagina van `name`, `displayUrl`, en `snippet` velden kunnen de querytermen markeren.
 
-By default, Bing doesn't include highlighting markers in display strings. To include the markers, include the `textDecorations` query parameter in your request and set it to **true**. Bing marks the query terms using the E000 and E001 Unicode characters to mark the beginning and end of the term. For example, if the query term is Sailing Dinghy and either term exists in the field, the term is enclosed in hit highlighting characters as shown in the following example:  
+Standaard bevat Bing geen markeringen in weergavereeksen markeren. Zodanig dat de markeringen, omvatten de `textDecorations` queryparameter in uw aanvraag en wordt ingesteld op **true**. Bing markeert de querytermen markeert het begin en einde van de termijn met behulp van de E000 tot en E001 Unicode-tekens. Bijvoorbeeld, als de zoekterm Dinghy varen is en een van beide termen in het veld bestaat, is de term ingesloten in treffers markeren tekens zoals weergegeven in het volgende voorbeeld:  
   
-![Hit Highlighting](./media/cognitive-services-bing-hit-highlighting/bing-hit-highlighting.PNG) 
+![Markeren](./media/cognitive-services-bing-hit-highlighting/bing-hit-highlighting.PNG) 
 
-Before displaying the string in your user interface, you would replace the Unicode characters with characters that are appropriate for your display format. For example, if you're displaying the text as HTML, you might highlight the query term by replacing E000 with <b\> and E001 with </b\>. If you don't want to apply formatting, remove the markers from the string. 
+Voordat de tekenreeks in de gebruikersinterface wordt weergegeven, zou u de Unicode-tekens vervangen door de tekens die geschikt voor de weergave-indeling zijn. Bijvoorbeeld, als de tekst worden weergegeven als HTML, u mogelijk markeert de zoekterm door vervangen E000 tot met < b\> en E001 met < /b\>. Als u niet wilt opmaak toe te passen, verwijdert u de markeringen van de tekenreeks. 
 
-Bing provides the option of using Unicode characters or HTML tags as markers. To specify which markers to use, include the `textFormat` query parameter. To mark the content with Unicode characters, set `textFormat` to Raw (the default), and to mark the content with HTML tags, set `textFormat` to HTML. 
+Bing biedt de mogelijkheid van het gebruik van Unicode-tekens of HTML-codes als markeringen. Als u wilt opgeven welke markeringen te gebruiken, zijn de `textFormat` queryparameter. Als u de inhoud met Unicode-tekens, ingesteld `textFormat` in Raw (de standaardinstelling) en markeert de inhoud met HTML-codes ingesteld `textFormat` in HTML. 
   
-If `textDecorations` is **true**, Bing may include the following markers in display strings of answers. If there is no HTML equivalent, the HTML table cell is empty.
+Als `textDecorations` is **true**, Bing kan de volgende markeringen in weergavereeksen van antwoorden opnemen. Als er geen HTML-equivalent is, moet de HTML-tabelcel is leeg.
 
-|Unicode|HTML|Description
+|Unicode|HTML|Beschrijving
 |-|-|-
-|U+E000|\<b>|Marks the beginning of the query term (hit highlighting)
-|U+E001|\</b>|Marks the end of the query term
-|U+E002|\<i>|Marks the beginning of italicized content 
-|U+E003|\</i>|Marks the end of italicized content
-|U+E004|\<br/>|Marks a line break
-|U+E005||Marks the beginning of a phone number
-|U+E006||Marks the end of a phone number
-|U+E007||Marks the beginning of an address
-|U+E008||Marks the end of an address
-|U+E009|\&nbsp;|Marks a non-breaking space
-|U+E00C|\<strong>|Marks the beginning of bold content
-|U+E00D|\</strong>|Marks the end of bold content
-|U+E00E||Marks the beginning of content whose background should be lighter than its surrounding background
-|U+E00F||Marks the end of content whose background should be lighter than its surrounding background
-|U+E010||Marks the beginning of content whose background should be darker than its surrounding background
-|U+E011||Marks the end of content whose background should be darker than its surrounding background
-|U+E012|\<del>|Marks the beginning of content that should be struck through
-|U+E013|\</del>|Marks the end of content that should be struck through
-|U+E016|\<sub>|Marks the beginning of subscript content
-|U+E017|\</sub>|Marks the end of subscript content
-|U+E018|\<sup>|Marks the beginning of superscript content
-|U+E019|\</sup>|Marks the end of superscript content
+|U + E000 TOT|\<b >|Het markeert het begin van de zoekterm (treffers markering)
+|U + E001|\</b >|Het markeert het einde van de zoekterm
+|U + E002|\<ik >|Het markeert het begin van cursief inhoud 
+|U + E003|\</i >|Het markeert het einde van cursief inhoud
+|U + E004|\<br / >|Een regeleinde markeert
+|U + E005||Het markeert het begin van een telefoonnummer
+|U + E006||Het markeert het einde van een telefoonnummer
+|U + E007||Het markeert het begin van een adres
+|U + E008||Het markeert het einde van een adres
+|U + E009|\&nbsp;|Een vaste spatie markeert
+|U + E00C|\<strong >|Het markeert het begin van vet inhoud
+|U + E00D|\</ strong >|Het markeert het einde van vet inhoud
+|U + E00E||Het markeert het begin van de inhoud waarvan de achtergrond minder zijn dan de omringende achtergrond moet
+|U + E00F||Het markeert het einde van inhoud waarvan de achtergrond minder zijn dan de omringende achtergrond moet
+|U + E010||Het markeert het begin van de inhoud waarvan achtergrond dan de omringende achtergrond Donkere zijn mag
+|U + E011||Het markeert het einde van inhoud waarvan achtergrond dan de omringende achtergrond Donkere zijn mag
+|U + E012|\<DEL >|Het markeert het begin van de inhoud die moet worden gevonden door
+|U + E013|\</DEL >|Het markeert het einde van inhoud die moet worden gevonden door
+|U + E016|\<Sub >|Het markeert het begin van subscript inhoud
+|U + E017|\</ sub >|Het markeert het einde van subscript inhoud
+|U + E018|\<sup >|Het markeert het begin van superscript inhoud
+|U + E019|\</ sup >|Het markeert het einde van superscript inhoud
 
-The following example shows a `Computation` answer that contains subscript markers for a log(2) query term. The `expression` field contains the markers only if `textDecoration is **true**.
+Het volgende voorbeeld wordt een `Computation` antwoord dat subscript markeringen voor een zoekterm log(2) bevat. De `expression` veld bevat de markering alleen als `textDecoration` is **true**.
 
-![computation markers](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
+![berekening markeringen](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
 
-If the request did not request decorations, the expression would be log10(2). 
+Als de aanvraag orden niet hebt aangevraagd, kan de expressie log10(2) zou zijn. 
   
