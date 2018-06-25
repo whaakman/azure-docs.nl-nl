@@ -6,15 +6,16 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337945"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database beheerd exemplaar T-SQL-verschillen met SQL Server 
 
@@ -54,7 +55,7 @@ Zie voor meer informatie:
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql) 
 - [Controle](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)     
 
-### <a name="backup"></a>Back-up maken 
+### <a name="backup"></a>Backup 
 
 Beheerde exemplaar automatische back-ups en kunnen gebruikers volledige database maken `COPY_ONLY` back-ups. Differentiële, het logboek en bestand momentopnameback-ups worden niet ondersteund.  
 - Beheerde exemplaar kan back-up van een database alleen aan een Azure Blob Storage-account: 
@@ -206,6 +207,10 @@ Niet-gedocumenteerde DBCC-instructies die zijn ingeschakeld in SQL Server worden
 - `Trace Flags` worden niet ondersteund. Zie [Trace-vlaggen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - `DBCC TRACEOFF` wordt niet ondersteund. Zie [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - `DBCC TRACEON` wordt niet ondersteund. Zie [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
+
+### <a name="distributed-transactions"></a>Gedistribueerde transacties
+
+Geen van beide MSDTC noch [elastische transacties](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) worden momenteel ondersteund in Managed-exemplaar.
 
 ### <a name="extended-events"></a>Uitgebreide gebeurtenissen 
 
@@ -375,12 +380,10 @@ Zie voor meer informatie over het maken en wijzigen van tabellen [CREATE TABLE](
  
 De volgende variabelen, taken en weergaven retourneren andere resultaten:  
 - `SERVERPROPERTY('EngineEdition')` retourneert de waarde 8. Deze eigenschap is uniek exemplaar beheerd. Zie [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` retourneert de naam van het exemplaar van korte, bijvoorbeeld MijnServer. Zie [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` retourneert NULL, omdat het concept van een exemplaar als deze bestaat voor SQL Server is niet van toepassing met beheerde-exemplaar. Zie [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` retourneert volledige DNS-'koppelbaar' naam, bijvoorbeeld Mijn-managed-instance.wcus17662feb9ce98.database.windows.net. Zie [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` -retourneert volledige DNS-naam 'koppelbaar' zoals `myinstance.domain.database.windows.net` voor eigenschappen 'name' en 'data_source'. Zie [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVERNAME` retourneert 'koppelbaar' DNS-naam, zoals volledige `my-managed-instance.wcus17662feb9ce98.database.windows.net`. Zie [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
-- `SYS.SERVERS` -retourneert volledige DNS-naam 'koppelbaar' zoals `myinstance.domain.database.windows.net` voor eigenschappen 'name' en 'data_source'. Zie [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVICENAME` retourneert NULL, omdat het geen zin in exemplaar beheerde omgeving. Zie [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
+- `@@SERVICENAME` retourneert NULL, omdat het concept van een service die voor SQL Server niet van toepassing op beheerde exemplaar bestaat. Zie [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` wordt ondersteund. Retourneert NULL als AAD-aanmelding niet in sys.syslogins is. Zie [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` wordt niet ondersteund. Retourneert onjuiste gegevens (tijdelijke bekend probleem). Zie [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` en andere functies ingebouwde datum/tijd altijd retourneert tijd in UTC-tijdzone. Zie [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
