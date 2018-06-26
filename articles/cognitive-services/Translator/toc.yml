@@ -35,6 +35,62 @@
           href: quickstart-java-languages.md
         - name: Lengte van zinnen in tekst bepalen
           href: quickstart-java-sentences.md
+    - name: Node.js
+      items:
+        - name: Tekst vertalen
+          href: quickstart-nodejs-translate.md
+        - name: Tekstscript converteren
+          href: quickstart-nodejs-transliterate.md
+        - name: Taal bepalen op basis van tekst
+          href: quickstart-nodejs-detect.md
+        - name: Alternatieve vertalingen verkrijgen
+          href: quickstart-nodejs-dictionary.md
+        - name: Ondersteunde talen ophalen
+          href: quickstart-nodejs-languages.md
+        - name: Lengte van zinnen in tekst bepalen
+          href: quickstart-nodejs-sentences.md
+    - name: PHP
+      items:
+        - name: Tekst vertalen
+          href: quickstart-php-translate.md
+        - name: Tekstscript converteren
+          href: quickstart-php-transliterate.md
+        - name: Taal bepalen op basis van tekst
+          href: quickstart-php-detect.md
+        - name: Alternatieve vertalingen verkrijgen
+          href: quickstart-php-dictionary.md
+        - name: Ondersteunde talen ophalen
+          href: quickstart-php-languages.md
+        - name: Lengte van zinnen in tekst bepalen
+          href: quickstart-php-sentences.md
+    - name: Python
+      items:
+        - name: Tekst vertalen
+          href: quickstart-python-translate.md
+        - name: Tekstscript converteren
+          href: quickstart-python-transliterate.md
+        - name: Taal bepalen op basis van tekst
+          href: quickstart-python-detect.md
+        - name: Alternatieve vertalingen verkrijgen
+          href: quickstart-python-dictionary.md
+        - name: Ondersteunde talen ophalen
+          href: quickstart-python-languages.md
+        - name: Lengte van zinnen in tekst bepalen
+          href: quickstart-python-sentences.md
+    - name: Ruby
+      items:
+        - name: Tekst vertalen
+          href: quickstart-ruby-translate.md
+        - name: Tekstscript converteren
+          href: quickstart-ruby-transliterate.md
+        - name: Taal bepalen op basis van tekst
+          href: quickstart-ruby-detect.md
+        - name: Alternatieve vertalingen verkrijgen
+          href: quickstart-ruby-dictionary.md
+        - name: Ondersteunde talen ophalen
+          href: quickstart-ruby-languages.md
+        - name: Lengte van zinnen in tekst bepalen
+          href: quickstart-ruby-sentences.md
 - name: Concepten
   items:
     - name: Ondersteunde talen
@@ -55,18 +111,8 @@
       href: word-alignment.md
     - name: De dynamische woordenlijstfunctie gebruiken
       href: dynamic-dictionary.md
-    - name: Translator Text-API gebruiken
-      items:
-        - name: Node.js
-          href: quickstarts/nodejs.md
-        - name: PHP
-          href: quickstarts/php.md
-        - name: Python
-          href: quickstarts/python.md
-        - name: Ruby
-          href: quickstarts/ruby.md
-        - name: Een Translator Text-app maken met WPF
-          href: tutorial-wpf-translation-csharp.md
+    - name: Een Translator Text-app maken met WPF
+      href: tutorial-wpf-translation-csharp.md
 - name: Naslaginformatie
   items:
     - name: v3 Translator Text-API-verwijzing
