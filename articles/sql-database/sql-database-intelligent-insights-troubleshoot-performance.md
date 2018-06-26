@@ -10,12 +10,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 68ccf6f64f90200359322f35ca081aa6b53493f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcc33eb7e5050c991c89b7f0998eec3707f62ebb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648265"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751340"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Azure SQL Database prestatieproblemen met Intelligent Insights oplossen
 
@@ -235,7 +235,7 @@ Zie voor meer informatie [Inleiding tot tabellen geoptimaliseerd voor geheugen](
 
 Dit patroon waarneembaar prestaties geeft aan dat een verslechtering van de huidige database werkbelasting prestaties ten opzichte van de afgelopen zeven dagen basislijn. Het is vanwege het gebrek aan beschikbare dtu's in de elastische pool van uw abonnement. 
 
-Bronnen op de SQL-Database worden gewoonlijk aangeduid als [DTU-bronnen](sql-database-what-is-a-dtu.md), die bestaan uit een gecombineerde meting van CPU- en i/o (gegevens en transactie logboekregistratie i/o). [Azure elastische groep resources](sql-database-elastic-pool.md) worden gebruikt als een groep beschikbaar eDTU-resources die zijn gedeeld tussen meerdere databases voor het schalen van toepassing. Wanneer de beschikbare eDTU-resources in uw elastische pool niet voldoende voor de ondersteuning van alle databases in de groep, wordt een prestatieprobleem elastische pool DTU tekort gedetecteerd door het systeem.
+Bronnen op de SQL-Database worden gewoonlijk aangeduid als [DTU-bronnen](sql-database-service-tiers.md#what-are-database-transaction-units-dtus), die bestaan uit een gecombineerde meting van CPU- en i/o (gegevens en transactie logboekregistratie i/o). [Azure elastische groep resources](sql-database-elastic-pool.md) worden gebruikt als een groep beschikbaar eDTU-resources die zijn gedeeld tussen meerdere databases voor het schalen van toepassing. Wanneer de beschikbare eDTU-resources in uw elastische pool niet voldoende voor de ondersteuning van alle databases in de groep, wordt een prestatieprobleem elastische pool DTU tekort gedetecteerd door het systeem.
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 

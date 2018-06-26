@@ -9,24 +9,22 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e6aa0d477f94cd5ab087beface65e3a28e5094f5
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153656"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936969"
 ---
-# <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Het gebruik van Azure Managed Service-identiteit (openbare preview) in App Service en Azure Functions
+# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Het gebruik van Azure Managed Service-identiteit in App Service en Azure Functions
 
 > [!NOTE] 
-> Beheerde Service-identiteit voor App Service en Azure Functions is momenteel in preview. App-Service op Linux- en Web-App voor Containers worden momenteel niet ondersteund.
-
+> App-Service op Linux- en Web-App voor Containers ondersteunen momenteel geen Service-identiteit beheerd.
 
 > [!Important] 
-> Beheerde Service-identiteit voor App Service en Azure Functions wordt niet uitgevoerd zoals verwacht als uw app wordt gemigreerd in abonnementen/tenants. De app moet verkrijgen van een nieuwe identiteit en de identiteit van de bestaande goed zonder te verwijderen van de site zelf kan niet worden verwijderd. Uw app moet opnieuw worden gemaakt met een nieuwe identiteit en downstream resources moet toegangsbeleid bijgewerkt voor het gebruik van de nieuwe identiteit hebben.
-
+> Beheerde Service-identiteit voor App Service en Azure Functions wordt niet uitgevoerd zoals verwacht als uw app wordt gemigreerd in abonnementen/tenants. De app moet verkrijgen van een nieuwe id, die kan worden gedaan door uitschakelen en de functie opnieuw in te schakelen. Zie [verwijderen van een identiteit](#remove) hieronder. Downstream resources moet ook zijn bijgewerkt voor het gebruik van de identiteit van de nieuwe beleidsregels voor toegang.
 
 In dit onderwerp leest u hoe u de identiteit van een beheerde app voor toepassingen van App Service en Azure Functions maakt en het gebruik ervan voor toegang tot andere resources. Een beheerde service-identiteit van Azure Active Directory kan uw app eenvoudig toegang tot andere AAD beveiligde bronnen zoals Azure Sleutelkluis. De identiteit wordt beheerd door de Azure-platform en vereist niet dat u in te richten of geen geheimen draaien. Zie voor meer informatie over Service-identiteit beheerd, de [overzicht van de Service-identiteit beheerd](../active-directory/managed-service-identity/overview.md).
 
@@ -77,6 +75,31 @@ De volgende stappen wordt beschreven hoe u een web-app maken en toewijzen van ee
     az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
+### <a name="using-azure-powershell"></a>Azure PowerShell gebruiken
+
+De volgende stappen wordt beschreven hoe u een web-app maken en toewijzen van een identiteit met Azure PowerShell:
+
+1. Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Login-AzureRmAccount` uit om verbinding te maken met Azure.
+
+2. Maak een webtoepassing met Azure PowerShell. Zie voor meer voorbeelden van hoe u Azure PowerShell gebruiken met App Service [voorbeelden van App Service PowerShell](../app-service/app-service-powershell-samples.md):
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    
+    # Create an App Service plan in Free tier.
+    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    
+    # Create a web app.
+    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    ```
+
+3. Voer de `identity assign` opdracht voor het maken van de identiteit voor deze toepassing:
+
+    ```azurepowershell-interactive
+    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    ```
+
 ### <a name="using-an-azure-resource-manager-template"></a>Met behulp van een Azure Resource Manager-sjabloon
 
 Een Azure Resource Manager-sjabloon kan worden gebruikt voor het automatiseren van de implementatie van uw Azure-resources. Zie voor meer informatie over het implementeren van App Service en-functies, [automatiseren resources implementeren in App Service](../app-service/app-service-deploy-complex-application-predictably.md) en [automatiseren resources implementeren in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
@@ -121,7 +144,7 @@ Wanneer de site is gemaakt, heeft deze de volgende aanvullende eigenschappen:
 }
 ```
 
-Waar `<TENANTID>` en `<PRINCIPALID>` worden vervangen door de GUID's. De eigenschap tenantId identificeert welke de toepassing bij de behoort AAD-tenant. De principalId is een unieke id voor de nieuwe identiteit van de toepassing. In AAD heeft de toepassing dezelfde naam die u hebt gegeven tot uw App Service- of Azure Functions-exemplaar.
+Waar `<TENANTID>` en `<PRINCIPALID>` worden vervangen door de GUID's. De eigenschap tenantId identificeert welke AAD-tenant de identiteit van de behoort. De principalId is een unieke id voor de nieuwe identiteit van de toepassing. In AAD heeft de service-principal dezelfde naam die u hebt gegeven tot uw App Service- of Azure Functions-exemplaar.
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Het verkrijgen van tokens voor Azure-resources
 
@@ -161,17 +184,17 @@ Een app met een beheerde service-identiteit heeft twee omgevingsvariabelen gedef
 De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u een token voor een resource, moet u een HTTP GET-aanvraag aan dit eindpunt, met inbegrip van de volgende parameters:
 
 > [!div class="mx-tdBreakAll"]
-> |Parameternaam|in|Beschrijving|
+> |Parameternaam|In|Beschrijving|
 > |-----|-----|-----|
-> |Bron|Query’s uitvoeren|De AAD-bron-URI van de bron voor een token moet worden opgehaald.|
-> |API-versie|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie ondersteund.|
+> |Bron|Query|De AAD-bron-URI van de bron voor een token moet worden opgehaald.|
+> |API-versie|Query|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie ondersteund.|
 > |geheim|Koptekst|De waarde van de omgevingsvariabele MSI_SECRET.|
 
 
 Een geslaagde 200 OK reactie bevat een JSON-hoofdtekst met de volgende eigenschappen:
 
 > [!div class="mx-tdBreakAll"]
-> |De naam van eigenschap|Beschrijving|
+> |Naam van eigenschap|Beschrijving|
 > |-------------|----------|
 > |access_token|Het aangevraagde toegangstoken. De webservice aanroepen kunt dit token voor verificatie aan de ontvangende webservice gebruiken.|
 > |expires_on|De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache.|
@@ -240,9 +263,24 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SEC
 $accessToken = $tokenResponse.access_token
 ```
 
+## <a name="remove"></a>Verwijderen van een identiteit
+
+Een identiteit kan worden verwijderd door het uitschakelen van de functie met behulp van de portal, PowerShell of CLI op dezelfde manier waarop deze is gemaakt. In het protocol van de REST/ARM-sjabloon, wordt dit gedaan door het instellen van het type 'None':
+
+```json
+"identity": {
+    "type": "None"
+}    
+```
+
+Verwijderen van de identiteit op deze manier verwijdert u ook de principal van AAD. Identiteiten systeem toegewezen worden automatisch verwijderd van AAD als resource voor de app wordt verwijderd.
+
+> [!NOTE] 
+> Er is ook een toepassingsinstelling die kan worden ingesteld, WEBSITE_DISABLE_MSI, waardoor alleen de lokale beveiligingstokenservice is uitgeschakeld. Echter, laat u de identiteit in plaats en tooling worden nog steeds MSI als "on" of "ingeschakeld". Gebruik van deze instelling is daardoor niet aanbevolen.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Toegang tot SQL-Database veilig met managed service-identiteit](app-service-web-tutorial-connect-msi.md)
+> [Veilige toegang tot SQL Database met behulp van beheerde service-identiteit](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication verwijzing]: https://go.microsoft.com/fwlink/p/?linkid=862452

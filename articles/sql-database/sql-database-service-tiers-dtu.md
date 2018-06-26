@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 143bbde2da990c146e63b8f0216388c03ddd5852
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307754"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750421"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Een servicelaag met DTU prestatieniveau en opslagbronnen kiezen 
 
@@ -30,7 +30,7 @@ Het kiezen van een servicelaag is vooral afhankelijk van zakelijke continuïteit
 | :-- | --: |--:| --:| --:| 
 |Doel werkbelasting|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie||
 |SLA voor actieve tijdsduur|99,99%|99,99%|99,99%|N.V.T. in preview|
-|Retentie van back-ups|7 dagen|35 dagen|35 dagen|
+|Back-upretentie|7 dagen|35 dagen|35 dagen|
 |CPU|Laag|Laag, Gemiddeld, hoog|Gemiddeld, hoog|
 |I/o-doorvoer (bij benadering) |2.5 IOP's per DTU| 2.5 IOP's per DTU | 48 IOP's per DTU|
 |I/o-latentie (bij benadering)|5 ms (lezen), 10 ms (schrijven)|5 ms (lezen), 10 ms (schrijven)|2 ms (lezen/schrijven)|
@@ -40,7 +40,7 @@ Het kiezen van een servicelaag is vooral afhankelijk van zakelijke continuïteit
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Individuele database DTU en opslaglimieten
 
-Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Transaction Units) voor enkelvoudige databases en eDTU’s (eDTU’s: elastische DTU’s) voor elastische pools. Zie voor meer informatie over dtu's en edtu's [wat dtu's en edtu's zijn](sql-database-what-is-a-dtu.md)?
+Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Transaction Units) voor enkelvoudige databases en eDTU’s (eDTU’s: elastische DTU’s) voor elastische pools. Zie voor meer informatie over dtu's en edtu's [wat dtu's en edtu's zijn](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -60,7 +60,7 @@ Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Tran
 ||||||
 
 > [!IMPORTANT]
-> Meer dan 1 TB aan opslag in de laag Premium is momenteel beschikbaar in alle regio's, behalve het volgende: VK Noord, West-Centraal VS, UK South2, China Oost, USDoDCentral, Duitsland centraal, USDoDEast, VS Gov linksonder, ons Gov Zuid-centraal, Duitsland noordoosten, China Noord, Gov VS-Oost. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Meer dan 1 TB aan opslag in de laag Premium is momenteel beschikbaar in alle regio's, behalve het volgende: VK Noord, West-Centraal VS, UK South2, China Oost, USDoDCentral, Duitsland centraal, USDoDEast, VS Gov linksonder, ons Gov Zuid-centraal, Duitsland noordoosten, China Noord, Gov VS-Oost. In andere regio’s is de maximale opslagruimte in het Premium-niveau beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,25 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b54f60286e25c410b9d51de8be122c450080d3
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "23945882"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752772"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filters in weergaven Log Analytics
 Een **filter** in een [logboekanalyse weergeven](log-analytics-view-designer.md) kunnen gebruikers de gegevens in de weergave filteren op de waarde van een bepaalde eigenschap zonder dat de weergave zelf worden gewijzigd.  U zou bijvoorbeeld kunnen gebruikers van uw weergave filteren op de weergave voor alleen de gegevens van een bepaalde computer of verzameling computers.  U kunt meerdere filters maken op een enkele weergave zodat gebruikers kunnen filteren op meerdere eigenschappen.  Dit artikel wordt beschreven hoe u een filter en toevoegen aan een aangepaste weergave.
 
 ## <a name="using-a-filter"></a>Met behulp van een filter
-Klik op **Filter** om het filterdeelvenster voor een weergave te openen.  Hiermee kunt u een tijdsbereik en waarden voor alle filters die beschikbaar voor de weergave zijn te selecteren.  Wanneer u een filter selecteert, geeft een lijst met beschikbare waarden weer.  Selecteer een of meer waarden of typ de wachtwoorden in. De weergave wordt automatisch bijgewerkt om te filteren op de waarden die u opgeeft. 
+Klik op het tijdsbereik van de gegevens aan het begin van een weergave voor het openen van de vervolgkeuzelijst waar u het tijdsbereik van de gegevens voor de weergave kunt wijzigen.
 
-Als er geen waarde voor een filter is ingeschakeld, wordt niet naar de weergave met het filter toegepast.  Als u alle waarden voor een filter verwijdert, wordt het filter niet langer toegepast.
+![Voorbeeld van filter](media/log-analytics-view-designer/filters-example-time.png)
+
+Klik op de **+** een filter met behulp van aangepaste filters die zijn gedefinieerd voor de weergave toe te voegen. Selecteer een waarde voor het filter ofwel uit de vervolgkeuzelijst of typ een waarde. Blijven filters toevoegen door te klikken op de **+**. 
 
 
-![Voorbeeld van filter](media/log-analytics-view-designer/filters-example.png)
+![Voorbeeld van filter](media/log-analytics-view-designer/filters-example-custom.png)
+
+Als u alle waarden voor een filter verwijdert, wordt het filter niet langer toegepast.
 
 
 ## <a name="creating-a-filter"></a>Een filter maken
@@ -45,16 +49,16 @@ De volgende tabel beschrijft de instellingen voor een filter.
 |:---|:---|
 | Veldnaam | Naam van het veld dat wordt gebruikt voor het filteren.  Dit moet overeenkomen met het veld samenvatten in **Query voor waarden**. |
 | Query voor waarden | De query uit te voeren om het vullen van de vervolgkeuzelijst met filters voor de gebruiker.  Dit moet een gebruiken [samenvatten](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) of [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) unieke waarden opgeven voor een bepaald veld en moet overeenkomen met de **veldnaam**.  U kunt [sorteren](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) te sorteren van de waarden die worden weergegeven voor de gebruiker. |
-| Label | Naam voor het veld dat wordt gebruikt in query's ondersteunen het filter en wordt ook weergegeven voor de gebruiker. |
+| Tag | Naam voor het veld dat wordt gebruikt in query's ondersteunen het filter en wordt ook weergegeven voor de gebruiker. |
 
 ### <a name="examples"></a>Voorbeelden
 
 De volgende tabel staan enkele voorbeelden van algemene filters.  
 
-| Veldnaam | Query voor waarden | Label |
+| Veldnaam | Query voor waarden | Tag |
 |:--|:--|:--|
 | Computer   | Heartbeat &#124; distinct Computer &#124; sorteren op een Computer asc | Computers |
-| EventLevelName | Event &#124; distinct EventLevelName | Ernst |
+| EventLevelName | Gebeurtenis &#124; distinct EventLevelName | Ernst |
 | Foutcode | Syslog &#124; distinct foutcode | Ernst |
 | SvcChangeType | Configuratiewijziging &#124; distinct svcChangeType | ChangeType |
 

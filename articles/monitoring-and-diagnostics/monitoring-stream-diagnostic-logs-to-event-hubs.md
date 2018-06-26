@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18b385edc7efed20d940be96670b8c40ce66ddfd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 806ebe80ad49f2f908bf46549bb4abc533a6d516
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264320"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936697"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stroom Azure logboeken met diagnostische gegevens naar een event hub
 **[Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde optie voor 'Exporteren naar Event Hubs' in de Portal of doordat de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI 2.0.
@@ -75,7 +75,7 @@ De naamruimte van Event Hubs heeft geen zich in hetzelfde abonnement als de bron
 
    ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
 
-   De naamruimte die is geselecteerd, zijn waar de event hub is gemaakt (als dit de eerste keer streaming diagnoselogboeken is) of gestreamd naar (als er nog resources die zijn die categorie logboek naar deze naamruimte streaming), en het beleid bepaalt de machtigingen van het mechanisme voor streaming. Vandaag de dag vereist streaming naar een event hub machtigingen beheren, verzenden en luisteren. U kunt maken of wijzigen van Event Hubs naamruimte gedeeld toegangsbeleid in de portal onder het tabblad configureren voor de naamruimte. Voor het bijwerken van een van deze diagnostische instellingen, moet de client de machtiging ListKey hebben op de autorisatieregel Event Hubs. U kunt eventueel ook de naam van een event hub opgeven. Als u de naam van een event hub opgeeft, worden de logboeken worden gerouteerd naar die event hub, in plaats van naar een nieuwe event hub per categorie logboek.
+   De naamruimte die is geselecteerd, zijn waar de event hub is gemaakt (als dit de eerste keer streaming diagnoselogboeken is) of gestreamd naar (als er nog resources die zijn die categorie logboek naar deze naamruimte streaming), en het beleid bepaalt de machtigingen die de Streaming-mechanisme heeft. Vandaag de dag vereist streaming naar een event hub machtigingen beheren, verzenden en luisteren. U kunt maken of wijzigen van Event Hubs naamruimte gedeeld toegangsbeleid in de portal onder het tabblad configureren voor de naamruimte. Voor het bijwerken van een van deze diagnostische instellingen, moet de client de machtiging ListKey hebben op de autorisatieregel Event Hubs. U kunt eventueel ook de naam van een event hub opgeven. Als u de naam van een event hub opgeeft, worden de logboeken worden gerouteerd naar die event hub, in plaats van naar een nieuwe event hub per categorie logboek.
 
 4. Klik op **Opslaan**.
 
@@ -93,7 +93,7 @@ De Event Hub autorisatie regel-ID is een tekenreeks met deze indeling: `{Event H
 
 ### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
 
-Om in te schakelen streaming via de [Azure CLI 2.0](insights-cli-samples.md), kunt u de [az monitor diagnose-instellingen maken](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) opdracht.
+Om in te schakelen streaming via de [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), kunt u de [az monitor diagnose-instellingen maken](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) opdracht.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -183,7 +183,7 @@ Hier volgt een voorbeeld uitvoergegevens van Event Hubs:
 | tijd |Tijd waarop de gebeurtenis heeft plaatsgevonden. |
 | category |De categorie van het logboek voor deze gebeurtenis. |
 | resourceId |Bron-ID van de resource die deze gebeurtenis wordt gegenereerd. |
-| operationName |De naam van de bewerking. |
+| operationName |Naam van de bewerking. |
 | niveau |Optioneel. Geeft het niveau van de event log. |
 | properties |Eigenschappen van de gebeurtenis. |
 

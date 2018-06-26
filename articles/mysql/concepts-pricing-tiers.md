@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: c1597f16dda8544908bbefaf39e75e667d38b22c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 93665ab075de539f98eebe34c2229870bd5a1a6e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316465"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750235"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Prijscategorieën MySQL-Database
 
@@ -41,33 +41,33 @@ Nadat u een server hebt gemaakt, het aantal vCores, hardware generatie en prijze
 
 ## <a name="compute-generations-and-vcores"></a>COMPUTE generaties en vCores
 
-COMPUTE resources worden geleverd als vCores die de logische CPU van de onderliggende hardware vertegenwoordigen. U kunt op dit moment kunt kiezen uit twee compute generaties Gen 4 en 5 Gen. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell) 2,4 GHz-processors. Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2.3 GHz-processors. Gen 4 en 5 Gen zijn beschikbaar in de volgende regio's ('X' geeft beschikbaar). 
+COMPUTE resources worden geleverd als vCores die de logische CPU van de onderliggende hardware vertegenwoordigen. U kunt op dit moment kunt kiezen uit twee compute generaties Gen 4 en 5 Gen. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell) 2,4 GHz-processors. Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2.3 GHz-processors. Gen 4 en 5 Gen zijn beschikbaar in de volgende regio's ('X' geeft beschikbaar).
 
 | **Azure-regio** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| VS - midden | X |  |
+| VS - centraal | X |  |
 | VS - oost | X | X |
 | VS - oost 2 | X | X |
-| Noord-centraal VS | X | X |
-| Zuid-centraal VS | X | X |
+| VS - noord/centraal | X | X |
+| VS - zuid/centraal | X | X |
 | VS - west | X | X |
 | VS - west 2 |  | X |
-| Canada - midden | X | X |
+| Canada - centraal | X | X |
 | Canada - oost | X | X |
-| Brazilië - zuid | X | X |
+| Brazilië - Zuid | X | X |
 | Noord-Europa | X | X |
 | West-Europa |  | X |
-| Verenigd Koninkrijk West |  | X |
-| Verenigd Koninkrijk Zuid |  | X |
+| VK - west |  | X |
+| VK - zuid |  | X |
 | Oost-Azië | X | X |
 | Zuidoost-Azië | X | X |
 | Australië - oost |  | X |
 | Australië - zuidoost |  | X |
-| Centraal-India | X | X |
-| West-India | X | X |
-| Zuid-India |  | X |
-| Japan - oost | X | X |
-| Japan - west | X | X |
+| India - centraal | X | X |
+| India - west | X | X |
+| India - zuid |  | X |
+| Japan - Oost | X | X |
+| Japan - West | X | X |
 | Korea - centraal |  | X |
 | Korea - zuid |  | X |
 
@@ -80,7 +80,7 @@ De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar is voor u
 | Opslagtype | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 4 TB | 5 GB tot 4 TB |
 | Maximale grootte van de verhoging | 1 GB | 1 GB | 1 GB |
-| IOPS | Variabele |3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 7500 IOP 's | 3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 7500 IOP 's |
+| IOPS | Variabele |3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 6000 IOP 's | 3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 6000 IOP 's |
 
 U kunt extra opslagcapaciteit toevoegen tijdens en na het maken van de server. De laag Basic biedt geen garantie van een IOPS. In het algemeen en de geoptimaliseerd voor geheugen Prijscategorieën schalen het aantal IOPS dat met de opslaggrootte van de ingerichte in een ratio van 3:1.
 

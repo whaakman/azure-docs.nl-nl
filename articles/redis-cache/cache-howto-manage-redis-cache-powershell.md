@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fcadac344e2e05c3f6cdd9003b87b819d7933fba
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599319"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937431"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure Redis-Cache met Azure PowerShell beheren
 > [!div class="op_single_selector"]
@@ -98,7 +98,7 @@ of
 
 Voor het maken van een cache in de Azure China Cloud, gebruikt u een van de volgende locaties.
 
-* China East
+* China - oost
 * China - noord
 
 Zie voor meer informatie over de Azure-Cloud China [AzureChinaCloud voor Azure wordt beheerd door 21Vianet in China](http://www.windowsazure.cn/).
@@ -123,7 +123,7 @@ Zie voor meer informatie over Microsoft Azure Duitsland [Microsoft Azure Duitsla
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Eigenschappen die worden gebruikt voor Azure Redis-Cache PowerShell
 De volgende tabel bevat de eigenschappen en beschrijvingen voor vaak gebruikte parameters bij het maken en beheren van uw Azure Redis-Cache-exemplaren die gebruikmaken van Azure PowerShell.
 
-| Parameter | Beschrijving | Standaard |
+| Parameter | Beschrijving | Normaal |
 | --- | --- | --- |
 | Naam |Naam van de cache | |
 | Locatie |Locatie van de cache | |
@@ -132,7 +132,7 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor vaak gebruikte p
 | ShardCount |Het aantal shards maken bij het maken van een premium-cache met clustering is ingeschakeld. Geldige waarden zijn: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Hiermee geeft u de SKU van de cache. Geldige waarden zijn: Basic, Standard, Premium |Standard |
 | RedisConfiguration |Hiermee geeft u Redis-configuratie-instellingen. Voor meer informatie over iedere instelling, Zie de volgende [RedisConfiguration eigenschappen](#redisconfiguration-properties) tabel. | |
-| EnableNonSslPort |Hiermee wordt aangegeven of de poort zonder SSL-beveiliging is ingeschakeld. |False |
+| EnableNonSslPort |Hiermee wordt aangegeven of de poort zonder SSL-beveiliging is ingeschakeld. |Onwaar |
 | MaxMemoryPolicy |Deze parameter is afgeschaft - gebruik in plaats daarvan RedisConfiguration. | |
 | StaticIP |Bij het hosten van uw cache in een VNET, geeft een uniek IP-adres in het subnet voor de cache. Als niet wordt opgegeven, wordt een gekozen voor u van het subnet. | |
 | Subnet |Bij het hosten van uw cache in een VNET, geeft de naam van het subnet waarin de cache te implementeren. | |
@@ -337,7 +337,7 @@ De volgende opdracht werkt het maxmemory-beleid voor de Redis-Cache met de naam 
 > * U kunt geen schalen van een **Premium** omlaag naar de cache een **standaard** of een **Basic** cache.
 > * U kunt geen schalen van een **standaard** omlaag naar de cache een **Basic** cache.
 > * U kunt opschalen van een **Basic** in de cache op een **standaard** cache, maar de grootte niet wijzigen op hetzelfde moment. Als u een ander formaat nodig hebt, kunt u de volgende vergroten/verkleinen bewerking naar de gewenste grootte kunt doen.
-> * U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. Moet u de schaal van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** in een latere bewerking voor vergroten/verkleinen.
+> * U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. Moet u de schaal van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** bij een volgende schaal de bewerking.
 > * Kan niet worden geschaald uit een groter formaat omlaag naar de **C0 (250 MB)** grootte.
 > 
 > Zie voor meer informatie [How to Scale Azure Redis-Cache](cache-how-to-scale.md).
@@ -783,7 +783,7 @@ Zie de volgende bronnen voor meer informatie over het gebruik van Windows PowerS
 * [Azure Redis-Cache-cmdlet-documentatie op MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 * [Azure Resource Manager-Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): informatie over het gebruik van de cmdlets in de module Azure Resource Manager.
 * [Resourcegroepen gebruiken voor het beheren van uw Azure-resources](../azure-resource-manager/resource-group-template-deploy-portal.md): informatie over het maken en beheren van resourcegroepen in de Azure-portal.
-* [Azure-blog](http://blogs.msdn.com/windowsazure): meer informatie over nieuwe functies in Azure.
+* [Azure-blog](https://azure.microsoft.com/en-us/blog/): meer informatie over nieuwe functies in Azure.
 * [Windows PowerShell-blog](http://blogs.msdn.com/powershell): meer informatie over nieuwe functies in Windows PowerShell.
 * ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): echte tips en trucs ophalen uit de Windows PowerShell-community.
 

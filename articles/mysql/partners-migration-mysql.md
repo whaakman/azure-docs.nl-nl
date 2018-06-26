@@ -7,13 +7,13 @@ ms.author: jtoland
 manager: craigg
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 17a99a0bb166bee28238a182633aa480fbd0d8e2
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.date: 06/25/2018
+ms.openlocfilehash: 9181de4c7fd0ce1cb09abd7b4d9f79c1447eb1ac
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304561"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752884"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Azure-Database voor MySQL migratie partners
 Ter ondersteuning van grote schaal uw Azure-Database voor MySQL-oplossing, kiezen uit een groot aantal toonaangevende partners en hulpprogramma's. In dit artikel worden partnerbedrijven Microsoft gemarkeerd met de ondersteuning van Azure-Database voor MySQL oplossingen voor migratie.
@@ -21,7 +21,7 @@ Ter ondersteuning van grote schaal uw Azure-Database voor MySQL-oplossing, kieze
 ## <a name="migration-partners"></a>Migratie-partners
 | Partner | Beschrijving | Koppelingen | Video's |
 | --- | --- | --- | --- |
-| ![SNP technologieën][1] |**SNP technologieën**<br>SNP technologieën is een alleen-cloud serviceprovider, veilige en betrouwbare oplossingen voor bedrijven van de toekomst. Het bedrijf gelooft bij het genereren van de feitelijke waarde voor uw bedrijf. Van de manier om te worden uitgevoerd deelt SNP technologieën een algemene doel met clients hun investering in een voordeel inschakelen.|[OCP-catalogus][snp_ocp_catalog]<br>[Website][snp_website]<br>[Twitter][snp_twitter]<br>[Neem contact op met][snp_contact] | |
+| ![SNP technologieën][1] |**SNP technologieën**<br>SNP technologieën is een alleen-cloud serviceprovider, veilige en betrouwbare oplossingen voor bedrijven van de toekomst. Het bedrijf gelooft bij het genereren van de feitelijke waarde voor uw bedrijf. Van de manier om te worden uitgevoerd deelt SNP technologieën een algemene doel met clients hun investering in een voordeel inschakelen.|[Website][snp_website]<br>[Twitter][snp_twitter]<br>[Neem contact op met][snp_contact] | |
 | ![DB Best technologieën, LLC][2] |**DB Best technologieën, LLC**<br>Aanbevolen DB helpt klanten Haal het meeste uit een beheerde Azure-database-service. Het bedrijf biedt verschillende manieren om te beginnen, met inbegrip van [toekomstige status architectuurontwerp](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [Data Management optimalisatie voor Microsoft-gegevensplatform](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fdata-management-optimization-for-microsoft-data-platform%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261204561&sdata=DYF9EeMaMdKZP%2FJ9d3mw%2F67hUAxWmINcI1rMbEQZ1DM%3D&reserved=0), [Microsoft Azure Planning van desktopimplementatie](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fmicrosoft-azure-deployment-planning-services%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=Q%2FNJaHWXrrln6eXaVmU1iVb4tJCoKVgSA8cEBQiZaDk%3D&reserved=0), en [Training voor gereedheid van Azure Data Platform](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fazure-data-platform-readiness-training%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=dX%2BBGSCyq4x9ZPkTN74Y%2FUgHJ%2FqtsNgwEFDJft%2FTkc0%3D&reserved=0).|[Website][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Neem contact op met][dbbest_contact] | |
 | ![Pragmatic werkt][3] |**Pragmatic werkt**<br>Pragmatic Works is een training en advies bedrijf met grondige kennis in gegevensbeheer en prestaties, Business Intelligence Big Data, Power BI en Azure, gericht op de optimalisatie van gegevens en verbetert de efficiëntie van SQL Server-en cloud.|[Website][pragmatic-works_website]<br>[Twitter][pragmatic-works_twitter]<br>[YouTube][pragmatic-works_youtube]<br>[Neem contact op met][pragmatic-works_contact] | |
 | ![Infosys][4] |**Infosys**<br>Infosys is een globale wordt geplaatst in de meest recente digitale services en advies. Met meer dan drie tientallen jaren ervaring beheer van systemen van globale ondernemingen ossen Infosys vakkundig clients via hun digitale reis doordat organisaties met een core AI ingeschakeld om te bepalen van de uitvoering van de wijziging. Infosys biedt ook bedrijven met flexibele digitale op grote schaal ongekende niveaus qua prestaties en klanttevredenheid te leveren.|[Website][infosys_website]<br>[Twitter][infosys_twitter]<br>[YouTube][infosys_youtube]<br>[Neem contact op met][infosys_contact] | |
@@ -44,7 +44,6 @@ Zie voor meer informatie over een aantal andere partners van Microsoft, de [Micr
 <!--Get Started Links-->
 <!--Datasheet Links-->
 <!--Marketplace Links -->
-[snp_ocp_catalog]:https://msgtm.azurewebsites.net/en-US/Solutions/Solution/8272182d-e372-e711-80f1-3863bb3c06a0/c5ea0afd-84af-e711-80fb-3863bb3ce590
 
 <!--Press links-->
 

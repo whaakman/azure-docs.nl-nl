@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 5d800daa2589effe342cb2bf8b1d59d7bfce6d8c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 93cd4b6c4264c5905746b85f9fa46ce31ebd9e9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652835"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937666"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uitvoeren van een cluster Cassandra op Linux in Azure met behulp van Node.js
 
@@ -120,7 +120,7 @@ De volgende softwareversies worden gebruikt tijdens de implementatie:
 <tr><th>Software</th><th>Bron</th><th>Versie</th></tr>
 <tr><td>JAVA RUNTIME ENVIRONMENT    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 TNS</td></tr>
 </table>
 
@@ -143,7 +143,7 @@ Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #1:
 <tr><th>VELDNAAM              </td><td>       WAARDE VAN VELD               </td><td>         OPMERKINGEN                </td><tr>
 <tr><td>RELEASEDATUM VERSIE    </td><td> Selecteer een datum in de vervolgkeuzelijst omlaag</td><td></td><tr>
 <tr><td>NAAM VAN VIRTUELE MACHINE    </td><td> Cass-sjabloon                   </td><td> Dit is de hostnaam van de virtuele machine </td><tr>
-<tr><td>LAAG                     </td><td> STANDARD                           </td><td> Laat de standaardwaarde              </td><tr>
+<tr><td>LAAG                     </td><td> STANDAARD                           </td><td> Laat de standaardwaarde              </td><tr>
 <tr><td>GROOTTE                     </td><td> A1                              </td><td>Selecteer de virtuele machine op basis van de i/o-behoeften; Laat de standaardwaarde voor dit doel. </td><tr>
 <tr><td> NIEUWE GEBRUIKERSNAAM             </td><td> localadmin                       </td><td> 'admin' is een gereserveerde gebruikersnaam in Ubuntu 12. xx en na</td><tr>
 <tr><td> VERIFICATIE         </td><td> Klik op het selectievakje                 </td><td>Controleer of u wilt beveiligen met een SSH-sleutel </td><tr>
@@ -159,9 +159,9 @@ Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #2:
 <tr><td> CLOUDSERVICE    </td><td> Maak een nieuwe cloudservice    </td><td>Cloudservice is een container compute-bronnen zoals virtuele machines</td></tr>
 <tr><td> DNS-NAAM VAN CLOUD-SERVICE    </td><td>ubuntu-template.cloudapp.net    </td><td>Geef de naam van een machine agnostisch load balancer</td></tr>
 <tr><td> REGIO/AFFINITEITSGROEP/VIRTUEEL NETWERK </td><td>    VS - west    </td><td> Selecteer een regio van waaruit de toegang tot het cluster Cassandra van uw webtoepassingen</td></tr>
-<tr><td>OPSLAGACCOUNT </td><td>    Standaardwaarde gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
+<tr><td>OPSLAGACCOUNT </td><td>    Standaardinstelling gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
 <tr><td>BESCHIKBAARHEIDSSET </td><td>    Geen </td><td>    Laat dit veld leeg</td></tr>
-<tr><td>EINDPUNTEN    </td><td>Standaardwaarde gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
+<tr><td>EINDPUNTEN    </td><td>Standaardinstelling gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
 </table>
 
 Klik op de pijl naar rechts, de standaardinstellingen laten staan op het scherm #3. Klik op de knop 'controleren' voor het voltooien van het proces van de VM-inrichting. Na een paar minuten moet de virtuele machine met de naam 'ubuntu-sjabloon' status 'actief'.
@@ -426,7 +426,7 @@ Meld u aan bij een van de knooppunten (bijvoorbeeld hk-c1-west-us) en voer de vo
 Hier ziet u de weergave lijkt op de onderstaande voor een cluster met 8 knooppunten:
 
 <table>
-<tr><th>Status</th><th>Adres    </th><th>Belasting    </th><th>Tokens    </th><th>Eigenaar is van </th><th>Host-ID    </th><th>Rek</th></tr>
+<tr><th>Status</th><th>Adres    </th><th>Laden    </th><th>Tokens    </th><th>Eigenaar is van </th><th>Host-ID    </th><th>Rek</th></tr>
 <tr><th>ONGEDAAN MAKEN    </td><td>10.1.2.4     </td><td>87.81 KB    </td><td>256    </td><td>38.0%    </td><td>GUID (verwijderd)</td><td>rack1</td></tr>
 <tr><th>ONGEDAAN MAKEN    </td><td>10.1.2.5     </td><td>41.08 KB    </td><td>256    </td><td>68.9%    </td><td>GUID (verwijderd)</td><td>rack1</td></tr>
 <tr><th>ONGEDAAN MAKEN    </td><td>10.1.2.6     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (verwijderd)</td><td>rack2</td></tr>
@@ -511,7 +511,7 @@ Klik op GATEWAY maken voor het activeren van de VPN-gateway inrichtingsproces va
 De lokale netwerken ter vervanging van de IP-adres van de tijdelijke aanduiding voor gateway met het echte IP-adres van de zojuist ingerichte gateways bewerken. Gebruik de volgende toewijzing:
 
 <table>
-<tr><th>Lokale netwerk    </th><th>Gateway voor een virtueel netwerk</th></tr>
+<tr><th>Lokale netwerk    </th><th>Virtueel-netwerkgateway</th></tr>
 <tr><td>hk-lnet-map-to-east-us </td><td>De gateway van hk-vnet-west-ons</td></tr>
 <tr><td>hk-lnet-map-to-west-us </td><td>De gateway van hk-vnet-Oost-ons</td></tr>
 </table>
@@ -680,7 +680,7 @@ Met een van de virtuele Linux-machines in de laag 'web' eerder hebt gemaakt, uit
 ## <a name="conclusion"></a>Conclusie
 Microsoft Azure is een flexibel platform waarmee het uitvoeren van zowel Microsoft als open-sourcesoftware zoals blijkt uit deze oefening. Maximaal beschikbare Cassandra clusters kunnen worden geïmplementeerd op een enkele Datacenter via het spreiden van de clusterknooppunten over meerdere domeinen met fouten. Cassandra clusters kunnen ook worden geïmplementeerd in meerdere geografisch verafgelegen Azure-regio's voor noodherstel bewijs systemen. Azure en Cassandra samen kunnen de constructie van zeer schaalbaar, maximaal beschikbare en na noodgevallen herstelbare cloudservices die nodig is door de hedendaagse internet schalen services.  
 
-## <a name="references"></a>Verwijzingen
+## <a name="references"></a>Naslaginformatie
 * [http://cassandra.apache.org](http://cassandra.apache.org)
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)

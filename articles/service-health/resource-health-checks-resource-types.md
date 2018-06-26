@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 831383ffa3aa3464f3d62da4e1609cf3f1a4707e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: e37266f2438f9c6bc9de2d01624bda77f9d6ee8a
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309593"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945870"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Status van resourcetypen en controleert in Azure resourcestatus
 Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resourcestatus door resourcetypen.
@@ -62,13 +62,13 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Uitgevoerde controles|
 |---|
-|<ul><li>Kan gebruikers verzenden taken naar Data Lake Analytics in de regio?</li><li>Voer algemene taken uitvoeren en voltooid in de regio?</li><li>Kunnen lijst gebruikers catalogusitems in de regio?</li>|
+|<ul><li>Hebben gebruikers ervaren problemen bij het verzenden van of hun Data Lake Analytics-taken weergeven?</li><li>Data Lake Analytics-taken kan niet worden voltooid op fouten in het bestandssysteem zijn?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Uitgevoerde controles|
 |---|
-|<ul><li>Kunnen gebruikers gegevens uploaden naar Data Lake Store in de regio</li><li>Kunnen gebruikers gegevens in Data Lake Store in de regio downloaden?</li></ul>|
+|<ul><li>Hebben gebruikers ondervonden problemen met het uploaden van gegevens naar Data Lake Store?</li><li>Hebben gebruikers ondervonden problemen bij het downloaden van gegevens in Data Lake Store?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 

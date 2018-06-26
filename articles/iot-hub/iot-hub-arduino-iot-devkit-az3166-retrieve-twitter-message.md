@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 0c3df0642d36aa1c4471c433fe9c1d3fa3b0880d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631758"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752678"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Schud, schud voor een Tweet--ophalen van een Twitter-bericht met Azure Functions!
 
@@ -36,7 +36,7 @@ Een actief Azure-abonnement. Als u niet hebt, kunt u via een van de volgende man
 
 ### <a name="start-vs-code"></a>VS Code starten
 
-- Zorg ervoor dat uw DevKit **niet** aangesloten op uw computer.
+- Zorg ervoor dat uw DevKit op uw computer is aangesloten.
 - Start VS-Code.
 - De DevKit aansluiten op uw computer.
 
@@ -45,7 +45,10 @@ Een actief Azure-abonnement. Als u niet hebt, kunt u via een van de volgende man
 
 ### <a name="open-arduino-examples-folder"></a>Voorbeelden van Arduino-map openen
 
-Vouw de linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **ShakeShake**. Een nieuw venster van de Code van de VS met een projectmap in deze wordt geopend.
+Vouw de linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **ShakeShake**. Een nieuw venster van de Code van de VS met een projectmap in deze wordt geopend.  
+
+> [!NOTE]
+> Als u de sectie MXCHIP AZ3166 niet ziet, zorg ervoor dat het apparaat goed is aangesloten en Visual Studio Code opnieuw opstarten.  
 
 ![Mini solution-voorbeelden](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
@@ -135,7 +138,7 @@ Na de initialisatie van de app, klikt u op en een release vervolgens voorzichtig
 - Druk op de knop een opnieuw en klik vervolgens voor een nieuwe tweet schud.
 - Druk op de knop B door de rest van de tweet moeten schuiven.
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Het werkt als volgt
 
 ![Diagram](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 

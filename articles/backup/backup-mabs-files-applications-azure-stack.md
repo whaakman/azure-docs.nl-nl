@@ -1,5 +1,5 @@
 ---
-title: Back-up van Azure-Stack-bestanden en toepassingen
+title: Back-up van bestanden in de Azure-Stack VMs
 description: Azure Backup gebruiken voor back-up en herstellen van Azure-Stack-bestanden en toepassingen naar uw Azure-Stack-omgeving.
 services: backup
 author: adiganmsft
@@ -8,26 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 7baaa29d205c09daaeeebf44a4bad338913dcad9
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248857"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751701"
 ---
-# <a name="back-up-files-and-applications-on-azure-stack"></a>Back-up van bestanden en toepassingen op Azure-Stack
-U kunt Azure back-up beveiligen (of back-up) bestanden en toepassingen op Azure-Stack. Als u wilt back-up van bestanden en toepassingen, Microsoft Azure Backup-Server te installeren als een virtuele machine uitgevoerd op Azure-Stack. U kunt alle toepassingen, die op elke server Azure-Stack in hetzelfde virtuele netwerk kunt beveiligen. Eenmaal u Azure Backup-Server hebt geïnstalleerd, voegt Azure-schijven voor een verhoging van de lokale opslag beschikbaar voor back-upgegevens op korte termijn. Azure Backup-Server gebruikmaakt van Azure-opslag op lange termijn.
+# <a name="back-up-files-on-azure-stack"></a>Back-up van bestanden op Azure-Stack
+U kunt Azure back-up beveiligen (of back-up) bestanden en toepassingen op Azure-Stack. Als u wilt back-up van bestanden en toepassingen, Microsoft Azure Backup-Server te installeren als een virtuele machine uitgevoerd op Azure-Stack. U kunt de bestanden op elke server Azure-Stack in hetzelfde virtuele netwerk kunt beveiligen. Eenmaal u Azure Backup-Server hebt geïnstalleerd, voegt Azure-schijven voor een verhoging van de lokale opslag beschikbaar voor back-upgegevens op korte termijn. Azure Backup-Server gebruikmaakt van Azure-opslag op lange termijn.
 
 > [!NOTE]
 > Hoewel Azure Backup-Server en System Center Data Protection Manager (DPM) zijn vergelijkbaar, wordt DPM wordt niet ondersteund voor gebruik met Azure-Stack.
 >
 
-In dit artikel wordt niet uitgelegd voor het installeren van Azure Backup-Server in de Azure-Stack-omgeving. Zie het artikel voor informatie over het installeren van Azure Backup-Server op Azure-Stack [voorbereiden van de back-up van werkbelastingen met Azure Backup-Server](backup-mabs-install-azure-stack.md).
+In dit artikel wordt niet uitgelegd voor het installeren van Azure Backup-Server in de Azure-Stack-omgeving. Zie het artikel voor informatie over het installeren van Azure Backup-Server op Azure-Stack [Azure Backup-Server installeren](backup-mabs-install-azure-stack.md).
 
 
-## <a name="back-up-azure-stack-vm-file-data-to-azure"></a>Back-up van gegevens uit een bestand Stack van virtuele machine van Azure naar Azure
+## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Back-up van bestanden en mappen in Azure-Stack van virtuele machines naar Azure
 
-Open de console Azure Backup-Server voor het configureren van Azure Backup-Server om IaaS virtuele machines beveiligen. U gebruikt de console voor het configureren van beveiligingsgroepen en de gegevens op uw virtuele machines te beveiligen.
+Open de console Azure Backup-Server voor het configureren van Azure Backup-Server voor het beveiligen van bestanden in de Stack van virtuele machines van Azure virtuele machines. U gebruikt de console voor het configureren van beveiligingsgroepen en de gegevens op uw virtuele machines te beveiligen.
 
 1. Klik in de console Azure Backup-Server op **beveiliging** en klik op de werkbalk op **nieuw** openen de **nieuwe beveiligingsgroep maken** wizard.
 
@@ -49,13 +49,13 @@ Open de console Azure Backup-Server voor het configureren van Azure Backup-Serve
 
     ![Wizard nieuwe beveiligingsgroep wordt geopend](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft raadt u aan alle virtuele machines die een protection-beleid in een beveiligingsgroep delen plaatsen. Voor volledige informatie over het plannen en implementeren van beveiligingsgroepen, Zie het artikel System Center DPM [beveiligingsgroepen implementeren](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft raadt het plaatsen van alle gegevens die een protection-beleid in een beveiligingsgroep wordt delen. Voor volledige informatie over het plannen en implementeren van beveiligingsgroepen, Zie het artikel System Center DPM [beveiligingsgroepen implementeren](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. In de **methode voor gegevensbeveiliging selecteren** scherm, typ een naam voor de beveiligingsgroep. Schakel het selectievakje voor **ik wil kortetermijnbeveiliging met:** en **ik wil online beveiliging**. Klik op **Volgende**.
 
     ![Wizard nieuwe beveiligingsgroep wordt geopend](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Selecteer **ik wil online beveiliging**, moet u eerst selecteren **ik wil kortetermijnbeveiliging met:** schijf. Azure Backup-Server kan niet op tape, beveiligen, zodat de schijf is alleen de mogelijkheid voor beveiliging op korte termijn.
+    Selecteer **ik wil online beveiliging**, moet u eerst selecteren **ik wil kortetermijnbeveiliging met:** schijf. Azure Backup-Server biedt geen bescherming op tape, zodat de schijf is alleen de mogelijkheid voor beveiliging op korte termijn.
 
 5. In de **Kortetermijndoelen opgeven** scherm, kiest u hoe lang de herstelpunten die zijn opgeslagen op schijf en het opslaan van incrementele back-ups behouden. Klik op **Volgende**.
 
@@ -73,7 +73,7 @@ Open de console Azure Backup-Server voor het configureren van Azure Backup-Serve
 
     **Totale grootte van de gegevens** is de grootte van de gegevens die u back wilt-up en **schijfruimte om te worden ingericht** op Azure Backup-Server is de aanbevolen ruimte voor de beveiligingsgroep. Azure Backup-Server kiest de ideale back-volume, op basis van de instellingen. U kunt echter de back-upvolume keuzes in de details van de toewijzing van de schijf bewerken. Selecteer de gewenste opslag in het vervolgkeuzemenu voor de werkbelastingen. De waarden wijzigen voor de totale opslag en vrije opslagruimte op uw bewerkingen in het deelvenster beschikbaar schijfopslag. Underprovisioned ruimte is de hoeveelheid opslag stelt dat u toevoegen aan het volume om door te gaan met back-ups in de toekomst soepel voor Azure Backup-Server.
 
-7. In **methode voor het maken van replica selecteren**, selecteer de manier waarop u wilt de initiële volledige gegevensreplicatie verwerken. Als u besluit om te repliceren via het netwerk, raadt Azure dat u een tijdstip buiten de piekuren kiezen. Voor grote hoeveelheden gegevens of minder dan optimale netwerkomstandigheden, kunt u de gegevens offline met verwisselbare media te repliceren.
+7. In **methode voor het maken van replica selecteren**, selecteer de manier waarop u wilt de initiële volledige gegevensreplicatie verwerken. Als u besluit om te repliceren via het netwerk, raadt Azure dat u een tijdstip buiten de piekuren kiezen. Voor grote hoeveelheden gegevens of minder dan optimale netwerkomstandigheden, kunt u de gegevens met behulp van verwijderbare media repliceren.
 
 8. In **opties voor consistentiecontrole selecteren**, selecteer de manier waarop u wilt automatiseren consistentiecontroles. Schakel consistentiecontroles alleen wanneer gegevensreplicatie inconsistent wordt of volgens een schema uit te voeren. Als u niet dat automatische consistentiecontrole configureren wilt, moet u een handmatige controle uitvoeren op elk gewenst moment door:
     * In de **beveiliging** gebied van de console Azure Backup-Server met de rechtermuisknop op de beveiligingsgroep en selecteer **consistentiecontrole uitvoeren**.
@@ -87,8 +87,6 @@ Open de console Azure Backup-Server voor het configureren van Azure Backup-Serve
 11. In **onlinebewaarbeleid opgeven**, opgeven hoe de herstelpunten gemaakt op basis van de dagelijkse/wekelijks/maandelijks/jaarlijks back-ups blijven behouden in Azure.
 
 12. In **kiezen onlinereplicatie**, opgeven hoe de initiële volledige replicatie van gegevens plaatsvindt. 
-
-    U kunt repliceren via het netwerk of komen een offline back-up (offline seeding). Offline back-ups maakt gebruik van de [functie Azure Import](./backup-azure-backup-import-export.md).
 
 13. Op **samenvatting**, Controleer uw instellingen. Wanneer u klikt op **groep maken**, de initiële gegevensreplicatie optreedt. Wanneer de gegevensreplicatie is voltooid, op de **Status** pagina de beveiligingsstatus van de groep wordt weergegeven als **OK**. De eerste back-uptaak vindt plaats in overeenstemming met de beveiligingsgroepsinstellingen.
 
@@ -116,7 +114,6 @@ Back-upserver van Azure-console gebruiken om gegevens naar uw virtuele machine t
     * Voor **herstelgedrag voor bestaande versie**, selecteer **kopie maken**, **overslaan**, of **overschrijven**. Overschrijven is alleen beschikbaar wanneer naar de oorspronkelijke locatie herstellen.
     * Voor **beveiligingsinstellingen voor herstel**, kies **instellingen van de doelcomputer toepassen** of **de beveiligingsinstellingen van herstelpuntversie toepassen**.
     * Voor **netwerkbandbreedtegebruik**, klikt u op **wijzigen** netwerkbandbreedtegebruik inschakelen.
-    * Selecteer **herstel op basis van SAN inschakelen met behulp van hardwaremomentopnamen** hardwaremomentopnamen op basis van SAN te gebruiken voor sneller herstel. Deze optie is alleen geldig alleen wanneer u een SAN hebt waarin de functionaliteit van de hardware-momentopname is ingeschakeld. Om het herstelpunt beschrijfbaar, moet het SAN kunnen maken van een kloon en een kloon splitsen. De beveiligde virtuele machine en de Azure Backup-Server moet worden verbonden met dezelfde SAN.
     * **Melding** klikt u op **e-mail verzenden wanneer dit herstel is voltooid**, en geef de geadresseerden die de melding wordt ontvangen. Scheid de e-mailadressen met komma's.
     * Nadat u de geselecteerd, klikt u op **volgende**
 
@@ -132,16 +129,13 @@ Als u moderne back-up opslag (MB), wordt niet herstel door eindgebruikers voor F
 
 2. Op de **eigenschappen** menu, klikt u op **vorige versies** en kiest u de versie die u wilt herstellen.
 
-
-
-## <a name="register-azure-backup-server-with-a-vault"></a>Azure Backup-Server registreren met een kluis
-Bieden de stappen voor die laat zien hoe:
-
+## <a name="view-azure-backup-server-with-a-vault"></a>Weergave Azure Backup-Server met een kluis
+Als u wilt weergeven entiteiten van de Azure Backup-Server in Azure Portal, kunt u de volgende stappen uit:
 1. Open de Recovery Services-kluis.
 2. Klik op de back-upinfrastructuur.
 3. Weergave van back-beheerservers.
 
 ## <a name="see-also"></a>Zie ook
 Zie voor informatie over andere werkbelastingen beveiligen met behulp van Azure Backup-Server een van de volgende artikelen:
-- [Back-up van SharePoint-farm](backup-azure-backup-sharepoint-mabs.md)
-- [Back-up van SQL server](backup-azure-sql-mabs.md)
+- [Back-up van SharePoint-farm](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Back-up van SQL server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94312edaa97a5d9a7502eed4c0551151ce2a06cc
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: bc260c747d5c6f3c4e3f955b1bbd93d22f9234d1
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235274"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753333"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Gegevens kopiëren van Cassandra met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -138,7 +138,7 @@ Om gegevens te kopiëren van Cassandra, stelt u het brontype in de kopieerbewerk
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **CassandraSource** | Ja |
 | query |Gebruik de aangepaste query om gegevens te lezen. |SQL-92 query of CQL query. Zie [CQL verwijzing](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Wanneer u SQL-query gebruikt, geef **keyspace name.table naam** om weer te geven van de tabel die u wilt zoeken. |Nee (als 'tabelnaam' en 'keyspace' in de gegevensset zijn opgegeven). |
-| consistencyLevel |Het consistentieniveau van de geeft het aantal replica's moeten reageren op een leesaanvraag voor het retourneren van gegevens naar de clienttoepassing. Cassandra controleert het opgegeven aantal replica's voor gegevens om te voldoen aan de leesaanvraag. Zie [gegevensconsistentie configureren](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) voor meer informatie.<br/><br/>Toegestane waarden zijn: **één**, **twee**, **drie**, **QUORUM**, **alle**, **LOCAL_ QUORUM**, **EACH_QUORUM**, en **LOCAL_ONE**. |Nee (standaardwaarde is `ONE`) |
+| consistencyLevel |Het consistentieniveau van de geeft het aantal replica's moeten reageren op een leesaanvraag voor het retourneren van gegevens naar de clienttoepassing. Cassandra controleert het opgegeven aantal replica's voor gegevens om te voldoen aan de leesaanvraag. Zie [gegevensconsistentie configureren](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) voor meer informatie.<br/><br/>Toegestane waarden zijn: **één**, **twee**, **drie**, **QUORUM**, **alle**, **LOCAL_ QUORUM**, **EACH_QUORUM**, en **LOCAL_ONE**. |Nee (standaardwaarde is `ONE`) |
 
 **Voorbeeld:**
 
@@ -182,17 +182,17 @@ Bij het kopiëren van gegevens van Cassandra, worden de volgende toewijzingen va
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAANSE WAARDE |Boole-waarde |
-| DECIMALE |Decimale |
-| DOUBLE |dubbele |
+| DECIMALE |decimale |
+| DOUBLE |Double |
 | FLOAT |Enkelvoudig |
 | INET |Reeks |
 | INT |Int32 |
 | TEKST |Reeks |
-| TIJDSTEMPEL |DateTime |
+| TIJDSTEMPEL |Datum en tijd |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |Reeks |
-| VARINT |Decimale |
+| VARINT |decimale |
 
 > [!NOTE]
 > Voor de verzameling van typen (kaart, set, lijst, enzovoort), verwijzen naar [werken met Cassandra verzamelingtypen met behulp van de virtuele tabel](#work-with-collections-using-virtual-table) sectie.

@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show sign-off button
+        // Show sign-out button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -198,13 +198,13 @@ In de voorbeeldtoepassing die is gemaakt door deze handleiding worden de `callWe
 
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-off-the-user"></a>Toevoegen van een methode voor het ondertekenen van de gebruiker af
+## <a name="add-a-method-to-sign-out-the-user"></a>Een methode voor het ondertekenen van de gebruiker toevoegen
 
 Voeg de volgende code naar uw `app.js` bestand:
 
 ```javascript
 /**
- * Sign off the user
+ * Sign out the user
  */
 function signOut() {
     userAgentApplication.logout();

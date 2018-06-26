@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 7e3d1043-caa9-4472-96d3-832f4e2c91ee
 ms.service: vpn-gateway
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2d702ecdd5e1fca342e7c84c6e75339097f0bcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 037c1c7dd73f668bd8ad95568743b223b1e11c79
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750194"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Een VPN-Gateway-verbinding controleren
 
@@ -48,7 +49,7 @@ Om te controleren of een VPN-gatewayverbinding voor het Resource Manager-impleme
 
 ## <a name="powershell-classic"></a>PowerShell (klassiek)
 
-Om te controleren of uw VPN-gateway-verbinding voor het klassieke implementatiemodel met behulp van PowerShell, installeer de nieuwste versies van de Azure PowerShell-cmdlets. Zorg ervoor dat download en installeer de [Service Management](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0) module. Gebruik de Add-AzureAccount aan te melden het klassieke implementatiemodel.
+Om te controleren of uw VPN-gateway-verbinding voor het klassieke implementatiemodel met behulp van PowerShell, installeer de nieuwste versies van de Azure PowerShell-cmdlets. Zorg ervoor dat download en installeer de [Service Management](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) module. Gebruik de Add-AzureAccount aan te melden het klassieke implementatiemodel.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 

@@ -3,8 +3,8 @@ title: Serviceoverzicht configureren in Azure | Microsoft Docs
 description: Serviceoverzicht is een oplossing in Azure die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst. Dit artikel bevat informatie voor het Serviceoverzicht implementeren in uw omgeving en gebruiken in verschillende scenario's.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 872d5f05e4d607c9445d1af5cc9b9cb984c19e11
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204189"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752571"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers, zoals u ze--beschouwen als onderling verbonden systemen die essentiële services leveren. Service-kaart toont de verbindingen tussen servers, processen en poorten via een TCP-verbinding architectuur waarvoor geen configuratie vereist, behalve de installatie van een agent.
@@ -27,7 +27,7 @@ Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-
 Dit artikel worden de details van het Serviceoverzicht en voorbereiding agents configureren. Zie voor meer informatie over het gebruik van Serviceoverzicht [gebruik van de oplossing Serviceoverzicht in Azure]( monitoring-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Downloads agent voor afhankelijkheden
-| File | OS | Versie | SHA-256 |
+| Bestand | Besturingssysteem | Versie | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
@@ -49,7 +49,7 @@ In Windows, Microsoft Monitoring Agent (MMA) wordt gebruikt door zowel System Ce
 
 Op Linux, de OMS-Agent voor Linux Hiermee en verzendt het bewaken van gegevens met logboekanalyse. U kunt Serviceoverzicht gebruiken op servers met OMS Direct Agents of op servers die zijn gekoppeld aan logboekanalyse via System Center Operations Manager-beheergroepen.  
 
-In dit artikel, verwijzen we naar alle agents--of Linux- of Windows, of verbonden met een beheergroep van System Center Operations Manager of rechtstreeks met logboekanalyse--als de "OMS-Agent." We gebruiken de specifieke implementatienaam van de agent alleen als dat nodig is binnen de context.
+In dit artikel, verwijzen we naar alle agents--of Linux- of Windows, of verbonden met een beheergroep van System Center Operations Manager of rechtstreeks met logboekanalyse--als de *OMS-Agent*. We gebruiken de specifieke implementatienaam van de agent alleen als dat nodig is binnen de context.
 
 De agent Serviceoverzicht stuurt de gegevens zelf geen en vereist geen wijzigingen in de firewalls en poorten. De gegevens in het Serviceoverzicht worden altijd verzonden door de OMS-Agent met Log Analytics, rechtstreeks of via de OMS-Gateway.
 
@@ -60,7 +60,7 @@ Als u een klant System Center Operations Manager met een beheergroep die is verb
 - Als uw System Center Operations Manager-agents toegang krijgen het Internet verbinding maken met logboekanalyse tot kunnen, is geen aanvullende configuratie vereist.  
 - Als de System Center Operations Manager-agents geen logboekanalyse via het Internet openen, moet u de OMS-Gateway werkt met System Center Operations Manager configureren.
   
-Als u de directe OMS-Agent gebruikt, moet u de OMS-Agent zichzelf worden verbonden met logboekanalyse of met uw Gateway OMS configureren. De OMS-Gateway kan worden gedownload vanaf de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Als u de directe OMS-Agent gebruikt, moet u de OMS-Agent zichzelf worden verbonden met logboekanalyse of met uw Gateway OMS configureren. De OMS-Gateway kan worden gedownload vanaf de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666). Zie voor meer informatie over het implementeren en configureren van de Gateway OMS [verbinding maken met computers zonder toegang tot het Internet met behulp van de Gateway OMS](../log-analytics/log-analytics-oms-gateway.md).  
 
 ### <a name="management-packs"></a>Management packs
 Wanneer het Serviceoverzicht in een werkruimte voor logboekanalyse is geactiveerd, wordt een 300 KB management pack verzonden naar de Windows-servers in deze werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../log-analytics/log-analytics-om-agents.md), het Serviceoverzicht management pack van System Center Operations Manager is geïmplementeerd. Als de agents rechtstreeks verbonden zijn, levert Log Analytics het management pack.
@@ -75,7 +75,7 @@ De afhankelijkheid-Agent is geïnstalleerd op Windows-computers via InstallDepen
 
 Gebruik de volgende stappen voor het installeren van de Agent voor afhankelijkheden op elke Windows-computer:
 
-1.  De OMS-Agent installeren met behulp van de instructies op de [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agent.md).
+1.  De volgende op een van de methoden van OMS-Agent installeren [verzamelen gegevens van computers in uw omgeving met logboekanalyse](../log-analytics/log-analytics-concept-hybrid.md).
 2.  De Windows-agent downloaden en uitvoeren met behulp van de volgende opdracht: <br>`InstallDependencyAgent-Windows.exe`
 3.  Volg de wizard om de agent te installeren.
 4.  Als de agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Op Windows-agents is de logboekmap %Programfiles%\Microsoft Agent\logs afhankelijkheid. 
@@ -99,7 +99,7 @@ De agent voor afhankelijkheden wordt geïnstalleerd op Linux-computers via Insta
  
 Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke Linux-computer:
 
-1.  De OMS-Agent installeren met behulp van de instructies op de [verzamelen en beheren van gegevens van Linux-computers](https://technet.microsoft.com/library/mt622052.aspx).
+1.  De volgende op een van de methoden van OMS-Agent installeren [verzamelen gegevens van computers in uw omgeving met logboekanalyse](../log-analytics/log-analytics-concept-hybrid.md).
 2.  De afhankelijkheid van Linux-agent als hoofdmap installeren met behulp van de volgende opdracht:<br>`sh InstallDependencyAgent-Linux64.bin`
 3.  Als de agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Op Linux-agents is de logboekmap /var/opt/microsoft/dependency-agent/log.
 
@@ -143,6 +143,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 U kunt de Agent voor afhankelijkheden eenvoudig implementeren naar uw Azure VM's met een [Azure VM-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Met de Azure VM-extensie kunt u de Agent voor afhankelijkheden implementeren voor uw virtuele machines via een PowerShell-script of rechtstreeks in Azure Resource Manager-sjabloon voor de VM.  Er is een uitbreiding beschikbaar voor zowel Windows (DependencyAgentWindows)- als Linux (DependencyAgentLinux).  Als u via de Azure VM-extensie implementeert, kunnen de agents automatisch worden bijgewerkt naar de meest recente versies.
 
 Voor het implementeren van de Azure VM-extensie via PowerShell, kunt u het volgende voorbeeld:
+
 ```PowerShell
 #
 # Deploy the Dependency Agent to every VM in a Resource Group
@@ -169,7 +170,8 @@ ForEach-Object {
 }
 ```
 
-Een zeer eenvoudige wijze om te controleren of de Agent voor afhankelijkheden op elk van uw VM is om op te nemen van de agent in uw Azure Resource Manager-sjabloon.  Opmerking dat de Agent voor afhankelijkheden nog steeds gebruik van de OMS-Agent, zodat de [OMS-Agent VM-extensie](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) eerst moet worden geïmplementeerd.  Het volgende JSON-fragment kan worden toegevoegd aan de *resources* gedeelte van uw sjabloon.
+Een zeer eenvoudige wijze om te controleren of de Agent voor afhankelijkheden op elk van uw VM is om op te nemen van de agent in uw Azure Resource Manager-sjabloon.  Opmerking dat de Agent voor afhankelijkheden nog steeds gebruik van de OMS-Agent, zodat de [OMS-Agent VM-extensie](../virtual-machines/extensions/oms-linux.md) eerst moet worden geïmplementeerd.  Het volgende JSON-fragment kan worden toegevoegd aan de *resources* gedeelte van uw sjabloon.
+
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",
@@ -190,6 +192,7 @@ Een zeer eenvoudige wijze om te controleren of de Agent voor afhankelijkheden op
 
 ## <a name="desired-state-configuration"></a>Desired State Configuration
 Voor het implementeren van de agent voor afhankelijkheden via Desired State Configuration kunt u de module xPSDesiredStateConfiguration en een stukje code zoals dit gebruiken:
+
 ```
 configuration ServiceMap {
 
@@ -231,10 +234,13 @@ Een beheerder kan ook %Programfiles%\Microsoft Dependency Agent\Uninstall.exe ui
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>De agent voor afhankelijkheden verwijderen op Linux
 U kunt de Agent voor afhankelijkheden van Linux verwijderen met de volgende opdracht.
 <br>RHEL, CentOs of Oracle:
+
 ```
 sudo rpm -e dependency-agent
 ```
+
 Ubuntu:
+
 ```
 sudo apt -y purge dependency-agent
 ```
@@ -242,7 +248,7 @@ sudo apt -y purge dependency-agent
 Als er problemen installeren of uitvoeren Serviceoverzicht, kunt in deze sectie u. Als u uw probleem niet kunt oplossen, neem contact op met Microsoft Support.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemen tijdens de installatie van de afhankelijkheid Agent
-#### <a name="installer-asks-for-a-reboot"></a>Installatieprogramma vraagt om de computer opnieuw is opgestart
+#### <a name="installer-prompts-for-a-reboot"></a>Installatieprogramma wordt u gevraagd om een opnieuw opstarten
 De Agent voor afhankelijkheden *doorgaans* hoeft niet opnieuw worden opgestart na het installeren of verwijderen. In bepaalde zeldzame gevallen vereist Windows Server echter opnieuw opstarten om door te gaan met een installatie. Dit gebeurt wanneer een afhankelijkheid, meestal het herdistribueerbare Microsoft Visual C++ pakket, opnieuw worden opgestart vanwege een vergrendeld bestand moet.
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>Bericht ' kan niet voor het installeren van de Agent voor afhankelijkheden: installatie van Visual Studio-Runtime-bibliotheken is mislukt (code = [codenummer]) ' wordt weergegeven
@@ -255,7 +261,7 @@ Mogelijk handig voor het installeren van de [nieuwste runtimebibliotheken](https
 
 De volgende tabel bevat de code cijfers en voorgestelde oplossingen.
 
-| Code | Beschrijving | Oplossing |
+| Coderen | Beschrijving | Resolutie |
 |:--|:--|:--|
 | 0x17 | Het installatieprogramma bibliotheek vereist een Windows-update is niet geïnstalleerd. | Zoek in de meest recente bibliotheek installer-logboekbestand.<br><br>Als een verwijzing naar 'Windows8.1-KB2999226-x64.msu' wordt gevolgd door een regel ' fout 0x80240017: uitvoeren van MSU-pakket is mislukt "u hebt de vereisten voor het installeren van KB2999226. Volg de instructies in de sectie vereisten in [universeel C Runtime in Windows](https://support.microsoft.com/kb/2999226). Mogelijk moet u Windows Update uit te voeren en meerdere keren opstarten om de vereiste software installeren.<br><br>Voer het installatieprogramma van Microsoft afhankelijkheid Agent opnieuw uit. |
 
@@ -272,14 +278,14 @@ Als uw afhankelijkheid Agent-installatie is voltooid, maar uw server in de oplos
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt de OMS-Agent naar behoren werkt en communiceren met logboekanalyse. Als dit niet het geval is, controleert u de OMS-Agent op uw server: [OMS-Agent voor Windows probleemoplossing](https://support.microsoft.com/help/3126513/how-to-troubleshoot- monitoring-onboarding-issues) of [OMS-Agent voor het oplossen van Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt de OMS-Agent naar behoren werkt en communiceren met logboekanalyse. Als dit niet het geval is, controleert u de OMS-Agent op uw server: [OMS-Agent voor Windows probleemoplossing](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) of [OMS-Agent voor het oplossen van Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Server wordt weergegeven in het Serviceoverzicht, maar heeft geen processen
 Als u uw server in het Serviceoverzicht zien, maar geen gegevens verwerken of verbinding heeft, die aangeeft dat de afhankelijkheid-Agent geïnstalleerd en wordt uitgevoerd is, maar het kernelstuurprogramma niet geladen. 
 
 Controleer de C:\Program Files\Microsoft afhankelijkheid Agent\logs\wrapper.log-bestand (Windows) of /var/opt/microsoft/dependency-agent/log/service.log-bestand (Linux). De laatste regels van het bestand zou moeten aangeven waarom de kernel niet laden. Bijvoorbeeld, de kernel mogelijk niet ondersteund op Linux als u uw kernel bijgewerkt.
 
-## <a name="data-collection"></a>Gegevensverzameling
+## <a name="data-collection"></a>Gegevens verzamelen
 Elke agent voor het verzenden van ongeveer 25 MB per dag, afhankelijk van hoe complexe uw systeem-afhankelijkheden zijn, kunt u verwachten. Elke agent verzendt Serviceoverzicht afhankelijkheid elke 15 seconden.  
 
 De Agent voor afhankelijkheden verbruikt doorgaans 0,1 procent van het systeemgeheugen en 0,1 procent van CPU-systeem.
@@ -288,7 +294,7 @@ De Agent voor afhankelijkheden verbruikt doorgaans 0,1 procent van het systeemge
 Serviceoverzicht is momenteel beschikbaar in de volgende Azure-regio's:
 - VS - oost
 - West-Europa
-- West-centraal VS
+- VS - west/centraal
 - Zuidoost-Azië
 
 
@@ -301,7 +307,7 @@ In de volgende secties worden de ondersteunde besturingssystemen voor de agent v
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
-### <a name="windows-desktop"></a>Windows-bureaublad
+### <a name="windows-desktop"></a>Windows-desktop
 - Windows 10
 - Windows 8.1
 - Windows 8
@@ -347,7 +353,7 @@ In de volgende secties worden de ondersteunde besturingssystemen voor de agent v
 | 5.10 | 2.6.18-371 |
 | 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
-### <a name="ubuntu-server"></a>Ubuntu Server
+### <a name="ubuntu-server"></a>Ubuntu-server
 - Aangepaste kernels, met inbegrip van hercompilaties van standaardkernels, worden niet ondersteund.
 
 | Besturingssysteemversie | Kernelversie |

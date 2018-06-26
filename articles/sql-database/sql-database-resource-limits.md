@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 3cf78369a7177eb3b2e384af0cc81563f6806137
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6806b0c5b5e5ac5e1189f628786f0c8f9b223395
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309986"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750948"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Overzicht van Azure SQL Database limieten 
 
@@ -72,5 +72,5 @@ Wanneer zich voordoen tijdens een hoog gebruik van sessie- of worker, wordt een 
 
 - Zie [SQL Database Veelgestelde vragen over](sql-database-faq.md) voor antwoorden op veelgestelde vragen.
 - Zie voor meer informatie over de algemene Azure limieten [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md).
-- Zie voor meer informatie over dtu's en edtu's [dtu's en edtu's](sql-database-what-is-a-dtu.md).
+- Zie voor meer informatie over dtu's en edtu's [dtu's en edtu's](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Zie voor meer informatie over de maximale grootte tempdb https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c78138fa06da4d83774f9a2270263a48d404b17a
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294087"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751852"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -125,7 +125,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
         
         | Kenmerk letter | Kenmerk | Definitie |
         |:----------------:|-----------|------------|
-        | A | Archiveren | Hiermee wordt aangegeven dat het bestand moet een back-up door back-upsoftware. Dit kenmerk is altijd ingesteld, ongeacht of het bestand is gelaagd of volledig opgeslagen op schijf. |
+        | A | Archief | Hiermee wordt aangegeven dat het bestand moet een back-up door back-upsoftware. Dit kenmerk is altijd ingesteld, ongeacht of het bestand is gelaagd of volledig opgeslagen op schijf. |
         | P | Verspreid bestand | Geeft aan dat het bestand een sparse-bestand. Een sparse-bestand is een speciaal type bestand dat NTFS biedt voor efficiënt gebruik te maken als het bestand op de schijf stroom voornamelijk leeg is. Azure File-synchronisatie wordt gebruikgemaakt van verspreide bestanden omdat een bestand is gelaagd volledig of gedeeltelijk ingetrokken. De bestandsstroom is opgeslagen in een volledig gelaagde bestand in de cloud. In een gedeeltelijk teruggehaald bestand, die deel van het bestand al op schijf is. Als een bestand volledig is ingetrokken op schijf Azure bestand Sync geconverteerd van een sparse-bestand naar een reguliere-bestand. |
         | L | Reparsepunt | Hiermee wordt aangegeven dat het bestand een reparsepunt heeft. Een reparsepunt is een speciale aanwijzer voor gebruik door een bestandssysteemfilter. Azure File-synchronisatie reparsepunten gebruikt voor het definiëren van de Azure-bestand Sync bestandssysteemfilter (StorageSync.sys) de cloud-locatie waar het bestand is opgeslagen. Dit ondersteunt naadloze toegang. Gebruikers hoeft niet te weten dat Azure File-synchronisatie wordt gebruikt of hoe ze toegang krijgen tot het bestand in uw Azure-bestandsshare. Wanneer een bestand volledig worden teruggehaald, verwijdert Azure bestand Sync het reparsepunt uit het bestand. |
         | O | Offline | Hiermee wordt aangegeven dat bepaalde of alle inhoud van het bestand niet is opgeslagen op schijf. Wanneer een bestand volledig worden teruggehaald, verwijdert Azure bestand Sync dit kenmerk. |
@@ -227,7 +227,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 
 * <a id="data-compliance-policies"></a>
 **Welke gegevens nalevingsbeleid biedt ondersteuning voor Azure Files?**  
-   Azure Files wordt uitgevoerd boven op dezelfde opslagarchitectuur die wordt gebruikt in andere storage-services in Azure Storage. Azure Files is van toepassing de dezelfde nalevingsbeleid voor gegevens die worden gebruikt in andere Azure storage-services. Voor meer informatie over de naleving van Azure Storage-gegevens kunt u downloaden en verwijzen naar de [Microsoft Azure Data Protection document](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409), en Ga naar de [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+   Azure Files wordt uitgevoerd boven op dezelfde opslagarchitectuur die wordt gebruikt in andere storage-services in Azure Storage. Azure Files is van toepassing de dezelfde nalevingsbeleid voor gegevens die worden gebruikt in andere Azure storage-services. Voor meer informatie over de naleving van Azure Storage-gegevens kunt u downloaden en verwijzen naar de [Microsoft Azure Data Protection document](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409), en Ga naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Lokale toegang
 * <a id="expressroute-not-required"></a>
@@ -354,7 +354,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 
 * <a id="rest-rename"></a>
 **Is er een naamswijziging in de REST-API?**  
-    Momenteel niet.
+    Op dit moment niet.
 
 * <a id="nested-shares"></a>
 **Kan ik geneste shares instellen? Met andere woorden, een share onder een share?**  

@@ -2,19 +2,19 @@
 title: Aan de slag met Azure SQL database auditing | Microsoft Docs
 description: Met Azure SQL database auditing kunt bijhouden van databasegebeurtenissen naar een controlelogboek.
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 62c6e576a5ef7fa953618dcba4ddd158df131148
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644586"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751040"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 Azure SQL database auditing houdt databasegebeurtenissen en schrijft die deze naar een auditlogboek Meld u bij uw Azure storage-account. Ook controleren:
@@ -200,12 +200,17 @@ Zie voor een scriptvoorbeeld van een, [configureren van controle en detectie van
 
 **REST-API - Auditingfunctie voor blobs**:
 
-* [Maken of bijwerken van de Database Blob controlebeleid](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-* [Maken of bijwerken van de Server Blob controlebeleid](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-* [Database-Blob controlebeleid ophalen](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-* [Ophalen van Server Blob controlebeleid](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Maken of bijwerken van de Database Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Maken of bijwerken van de Server Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Database-Blob controlebeleid ophalen](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
+* [Ophalen van Server Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
 * [Ophalen van Server Blob die het resultaat van controle](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
+Uitgebreide beleid met waarin component voor het filteren van aanvullende ondersteunen:
+* [Maken of bijwerken van de Database *uitgebreid* Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Maken of bijwerken van de Server *uitgebreid* Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Ophalen van de Database *uitgebreid* Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Ophalen van Server *uitgebreid* Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

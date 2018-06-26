@@ -1,5 +1,5 @@
 ---
-title: Wat is de wat als hulpprogramma van voorwaardelijke toegang van Azure Active Directory? -preview | Microsoft Docs
+title: Wat is de wat als hulpprogramma van voorwaardelijke toegang van Azure Active Directory?
 description: Meer informatie over hoe u wat de gevolgen van uw beleid voor voorwaardelijke toegang van uw omgeving.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
@@ -17,26 +17,26 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232309"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750079"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>Wat is de wat als hulpprogramma van voorwaardelijke toegang van Azure Active Directory? -preview
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Wat is de wat als hulpprogramma van voorwaardelijke toegang van Azure Active Directory?
 
 [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md) is een functie van Azure Active Directory (Azure AD) dat u bepalen hoe kunt gemachtigde gebruikers toegang hebben uw cloud-apps. Hoe u weet wat ze kunnen verwachten formulier de beleidsregels voor voorwaardelijke toegang in uw omgeving? Als u wilt deze vraag te beantwoorden, kunt u de **voorwaardelijke toegang wat gebeurt er als hulpprogramma**.
 
 Dit artikel wordt uitgelegd hoe u dit hulpprogramma kunt gebruiken voor het testen van uw beleid voor voorwaardelijke toegang.
 
-## <a name="what-it-is"></a>Wat is het?
+## <a name="what-it-is"></a>Wat het is
 
 De **voorwaardelijke toegang tot wat als hulpprogramma beleid** kunt u het effect van uw beleid voor voorwaardelijke toegang van uw omgeving. In plaats van de test uw beleid aangedreven door meerdere aanmeldingen handmatig uit te voeren, kunt dit hulpprogramma u een gesimuleerde aanmelden van een gebruiker evalueren. De simulatie maakt een schatting van de impact dit aanmelden heeft op uw beleid en een simulatierapport genereert. Het rapport lijst bevat niet alleen de toegepaste voorwaardelijke toegangsbeleid maar ook [klassieke beleid](active-directory-conditional-access-migration.md#classic-policies) indien ze bestaan.    
 
 De wat bepalen als extra biedt ook een manier om snel de beleidsregels die van toepassing op een specifieke gebruiker. Kunt u de informatie, bijvoorbeeld, als u wilt een probleem op te lossen.  
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Het werkt als volgt
 
 In de **voorwaardelijke toegang wat gebeurt er als hulpprogramma**, moet u eerst de instellingen configureren van u wilt simuleren scenario. Deze instellingen omvatten:
 

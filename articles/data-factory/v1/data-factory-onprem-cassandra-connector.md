@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 01ac558ec032d2da8026ce48923d839bd05e85c1
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e0d7c2caecba22b30d3e0cf5f80fda5b203e867b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235461"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753469"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Verplaatsen van gegevens uit een on-premises Cassandra-database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Wanneer u de gateway installeert, installeert deze automatisch een verbinding ma
 U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens vanuit een on-premises Cassandra-gegevensopslag verplaatst met behulp van verschillende hulpprogramma's voor API's. 
 
 - De eenvoudigste manier om een pijplijn maken is met de **Wizard kopiëren**. Zie [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht over het maken van een pijplijn met de wizard kopiëren. 
-- U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
+- U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
 
 Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren:
 
@@ -99,7 +99,7 @@ Wanneer de bron is van het type **CassandraSource**, de volgende eigenschappen b
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
 | query |Gebruik de aangepaste query om gegevens te lezen. |SQL-92 query of CQL query. Zie [CQL verwijzing](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Wanneer u SQL-query gebruikt, geef **keyspace name.table naam** om weer te geven van de tabel die u wilt zoeken. |Nee (als tableName en keyspace op gegevensset zijn gedefinieerd). |
-| consistencyLevel |Het consistentieniveau van de geeft het aantal replica's moeten reageren op een leesaanvraag voor het retourneren van gegevens naar de clienttoepassing. Cassandra controleert het opgegeven aantal replica's voor gegevens om te voldoen aan de leesaanvraag. |EEN, TWEE, DRIE, QUORUM, ALL, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Zie [gegevensconsistentie configureren](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) voor meer informatie. |Nee. Standaardwaarde is een. |
+| consistencyLevel |Het consistentieniveau van de geeft het aantal replica's moeten reageren op een leesaanvraag voor het retourneren van gegevens naar de clienttoepassing. Cassandra controleert het opgegeven aantal replica's voor gegevens om te voldoen aan de leesaanvraag. |EEN, TWEE, DRIE, QUORUM, ALL, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Zie [gegevensconsistentie configureren](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) voor meer informatie. |Nee. Standaardwaarde is een. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON-voorbeeld: gegevens kopiëren van Cassandra naar Azure Blob
 In dit voorbeeld bevat definities van de voorbeeld-JSON die u een pijplijn maken kunt met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Er wordt weergegeven hoe gegevens uit een on-premises Cassandra database kopiëren naar een Azure Blob-opslag. Gegevens kunnen echter worden gekopieerd naar een van de PUT vermeld [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
@@ -267,17 +267,17 @@ Zie [RelationalSource type-eigenschappen](#copy-activity-properties) voor de lij
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAANSE WAARDE |Boole-waarde |
-| DECIMALE |Decimale |
-| DOUBLE |dubbele |
+| DECIMALE |decimale |
+| DOUBLE |Double |
 | FLOAT |Enkelvoudig |
 | INET |Reeks |
 | INT |Int32 |
 | TEKST |Reeks |
-| TIJDSTEMPEL |DateTime |
+| TIJDSTEMPEL |Datum en tijd |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |Reeks |
-| VARINT |Decimale |
+| VARINT |decimale |
 
 > [!NOTE]
 > Voor de verzameling van typen (kaart, set, lijst, enzovoort), verwijzen naar [werken met Cassandra verzamelingtypen met behulp van de virtuele tabel](#work-with-collections-using-virtual-table) sectie.

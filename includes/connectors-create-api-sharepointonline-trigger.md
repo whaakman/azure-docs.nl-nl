@@ -6,7 +6,7 @@ In dit voorbeeld leest u het gebruik van de **SharePoint Online - wanneer u een 
 > 
 
 1. Voer *sharepoint* in het zoekvak op de ontwerpfunctie van logic apps selecteert u vervolgens de **SharePoint Online - wanneer u een nieuw artikel maakt** trigger.  
-   ![Afbeelding van SharePoint online trigger](./media/connectors-create-api-sharepointonline/trigger-1.png)  
+   ![Afbeelding van SharePoint online trigger ](./media/connectors-create-api-sharepointonline/trigger-1.png)  
 2. De **wanneer een nieuw item wordt gemaakt** besturingselement wordt weergegeven.  
    ![SharePoint online triggerafbeelding 2](./media/connectors-create-api-sharepointonline/trigger-2.png)   
 3. Selecteer een **URL Site**. Dit is de SharePoint online site die u controleren op nieuwe items wilt voor het activeren van uw werkstroom.  

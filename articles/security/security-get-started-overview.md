@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 7cb6927b8de07566428050e06a981c8f3afabb05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227520"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752177"
 ---
 # <a name="azure-security-overview"></a>Overzicht van Azure-beveiliging
 
-De beveiligingsgegevens voor Microsoft Azure-website op Azure.com is de plaats voor technische antwoorden op uw vragen Azure-beveiliging. Als u geïnteresseerd in Azure compatibiliteit en hoe Azure de eigen infrastructuur beveiligt bent, gaat u naar de [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/).
+De beveiligingsgegevens voor Microsoft Azure-website op Azure.com is de plaats voor technische antwoorden op uw vragen Azure-beveiliging. Als u geïnteresseerd in Azure compatibiliteit en hoe Azure de eigen infrastructuur beveiligt bent, gaat u naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 We weten dat beveiliging taak in de cloud en hoe belangrijk is dat u tijdig en informatie over Azure-beveiliging vinden. Een van de beste redenen voor het gebruik van Azure voor uw toepassingen en services is om te profiteren van de grote verscheidenheid aan beveiligingsprogramma's en mogelijkheden die beschikbaar. Deze hulpprogramma's en mogelijkheden te maken het mogelijk om veilige oplossingen maken op de beveiligde Azure-platform.
 
@@ -37,11 +37,11 @@ Elke categorie bevat een van overzichtsartikel. Het doel van het artikel overzic
 
 De beveiligingsgegevens voor Azure-site adressen momenteel de volgende categorieën:
 
-* Resources
+* Bronnen
 * Netwerkbeveiliging
 * Opslagbeveiliging
 * Beveiliging van virtuele machines
-* Eindpuntbeveiliging
+* Endpoint Protection
 * Beveiligingsbeheer en -controle
 * Identiteitsbeheer
 * PaaS-services

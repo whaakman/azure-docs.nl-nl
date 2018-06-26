@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: b21b33a265d499136dbe3e72538923d8295e9876
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a47c0e2f655f51444dc586f696c26caa63ab6cac
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852231"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937579"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Het installeren en configureren van MongoDB op een Linux-VM
-[MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel leest u hoe installeren en configureren van MongoDB op een Linux-VM met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](install-mongodb-nodejs.md). Voorbeelden worden weergegeven dat detail hoe naar:
+[MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel leest u hoe installeren en configureren van MongoDB op een Linux-VM met de Azure CLI 2.0. Voorbeelden worden weergegeven dat detail hoe naar:
 
 * [Handmatig installeren en configureren van een eenvoudige MongoDB-exemplaar](#manually-install-and-configure-mongodb-on-a-vm)
 * [Een basic MongoDB-exemplaar met een Resource Manager-sjabloon maken](#create-basic-mongodb-instance-on-centos-using-a-template)
@@ -118,7 +118,7 @@ sudo chkconfig mongod on
 ## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Basic MongoDB-exemplaar op CentOS met een sjabloon maken
 U kunt een basic MongoDB-exemplaar maken op één CentOS VM van de volgende Azure quickstart-sjabloon vanuit GitHub. Deze sjabloon wordt de aangepaste scriptextensie voor Linux toe te voegen een **yum** opslagplaats naar de zojuist gemaakte CentOS VM en installeer MongoDB.
 
-* [Basic MongoDB-exemplaar op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+* [Basic MongoDB-exemplaar op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
 Voor het maken van deze omgeving, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login). Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
@@ -166,7 +166,7 @@ test
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Een complexe MongoDB Shard-Cluster op CentOS met een sjabloon maken
 U kunt een complexe MongoDB shard cluster met behulp van de volgende Azure quickstart-sjabloon vanuit GitHub maken. Deze sjabloon volgt de [MongoDB shard cluster aanbevolen procedures](https://docs.mongodb.com/manual/core/sharded-cluster-components/) voor redundantie en hoge beschikbaarheid. De sjabloon maakt twee shards met drie knooppunten replicaset. Een config server replicaset met drie knooppunten ook wordt gemaakt, plus twee **mongos** router servers om te voorzien in consistentie van toepassingen uit de shards.
 
-* [MongoDB Sharding-Cluster op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+* [MongoDB Sharding-Cluster op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
 > Dit complexe MongoDB shard-cluster moet de implementatie meer dan 20 kernen, dit is doorgaans de standaardinstelling core-telling per regio voor een abonnement. Open een aanvraag voor ondersteuning van Azure te verhogen van het aantal kernen.

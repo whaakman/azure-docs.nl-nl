@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9dd9185816670da1fdb59ef42f1f3ca37784eb35
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 10f5eb239fc6320e7597e5f1380f4df8873ab3b6
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36204934"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943433"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Aanmelden met Microsoft toevoegen aan een ASP.NET-web-app
 
 Deze handleiding wordt uitgelegd hoe aanmelden bij Microsoft met behulp van een ASP.NET MVC-oplossing met een traditioneel browser gebaseerde webtoepassing met OpenID Connect implementeren. 
 
-Aan het einde van deze handleiding, uw toepassing kan worden aanmelding modules van persoonlijke accounts (inclusief outlook.com, live.com en anderen), evenals werken accepteren en schoolaccounts zijn uit een bedrijf of organisatie die is geïntegreerd met Azure Active Directory. 
+Aan het einde van deze handleiding, uw toepassing kan worden aanmeldingen van persoonlijke accounts (inclusief outlook.com, live.com en anderen) te accepteren en werk- en schoolaccounts van een bedrijf of organisatie die is geïntegreerd met Azure Active Directory. 
 
 > Deze handleiding is Visual Studio 2015 Update 3 of Visual Studio 2017 vereist.  Hebt u geen deze?  [Visual Studio 2017 gratis downloaden](https://www.visualstudio.com/downloads/)
 

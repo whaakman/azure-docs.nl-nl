@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0bef8722ee51c916652e6964305f324341052341
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261981"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754549"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
@@ -38,19 +38,19 @@ Een opbouwfunctie kunt bijvoorbeeld een sjabloon van het apparaat voor een verbo
 Met deze sjabloon apparaat een operator kunt maken en verbinding maken met echte fan apparaten met namen, zoals **ventilator 1** en **ventilator 2**. Alle deze ventilatoren hebben metingen, instellingen en eigenschappen van regels en een dashboard dat gebruikers van uw toepassing kunnen bewaken en beheren.
 
 > [!NOTE]
-Alleen opbouwfuncties en beheerders kunnen maken, bewerken en verwijderen van apparaat-sjablonen. Elke gebruiker kan maken van apparaten in de **apparaat Explorer** pagina via bestaande sjablonen van het apparaat.
+> Alleen opbouwfuncties en beheerders kunnen maken, bewerken en verwijderen van apparaat-sjablonen. Elke gebruiker kan maken van apparaten in de **apparaat Explorer** pagina via bestaande sjablonen van het apparaat.
 
 ## <a name="create-a-new-device-template"></a>Een nieuwe apparaatsjabloon maken
 
 1. Navigeer naar de **toepassing Builder** pagina.
 
-1. Voor het maken van een lege sjabloon kiezen **apparaat sjabloon maken**, en kies vervolgens **aangepaste**.
+2. Voor het maken van een lege sjabloon kiezen **apparaat sjabloon maken**, en kies vervolgens **aangepaste**.
 
-1. Voer een naam voor de nieuwe sjabloon voor het apparaat en kies **maken**.
+3. Voer een naam voor de nieuwe sjabloon voor het apparaat en kies **maken**.
 
     ![De pagina details apparaat](./media/howto-set-up-template/devicedetailspage.png)
 
-1. Nu u gaat de **Apparaatdetails** pagina van een nieuw gesimuleerd apparaat. Een gesimuleerd apparaat wordt automatisch voor u gemaakt wanneer u een nieuwe apparaat-sjabloon maakt. Deze gegevens rapporten en net als bij een echte apparaat kan worden beheerd.
+4. Nu u gaat de **Apparaatdetails** pagina van een nieuw gesimuleerd apparaat. Een gesimuleerd apparaat wordt automatisch voor u gemaakt wanneer u een nieuwe apparaat-sjabloon maakt. Deze gegevens rapporten en net als bij een echte apparaat kan worden beheerd.
 
 Bekijk de tabbladen worden weergegeven op de **Apparaatdetails** pagina.
 
@@ -133,8 +133,7 @@ U kunt bijvoorbeeld een nieuwe ventilator snelheidsinstelling toevoegen:
 
 Nadat u hebt gekozen **opslaan**, wordt de **ventilatoren snelheid** instelling wordt weergegeven als een tegel en is gereed voor om te worden gebruikt voor het wijzigen van de snelheid van de ventilator van het apparaat.
 
-> [!NOTE]
-> Nadat u een nieuwe tegel hebt gemaakt, kunt u uw nieuwe instelling uitproberen. Eerst uitschakelen ontwerpmodus aan de bovenkant van het scherm:
+Nadat u een nieuwe tegel hebt gemaakt, kunt u uw nieuwe instelling uitproberen. Eerst uitschakelen ontwerpmodus aan de bovenkant van het scherm.
 
 ![Tegel instellingen](./media/howto-set-up-template/settingstile.png)
 
@@ -168,51 +167,70 @@ Er zijn twee soorten locatie-eigenschappen die u kunt toevoegen:
 - **Locatie als de eigenschap van een toepassing** die alleen in de toepassing worden opgeslagen. Het apparaat heeft geen informatie over de eigenschappen van toepassing.
 - **Locatie als een apparaateigenschap** die worden gerapporteerd door het apparaat.
 
-####<a name="adding-location-as-an-application-property"></a>Locatie als de eigenschap van een toepassing toe te voegen. 
+#### <a name="adding-location-as-an-application-property"></a>Locatie als de eigenschap van een toepassing toe te voegen. 
+
 Kunt u een locatie-eigenschap bevat als de eigenschap van een toepassing met behulp van Azure in uw Azure IoT centrale toepassing wordt toegewezen. U kunt bijvoorbeeld de installatie-adres van het apparaat toevoegen. 
 
 1. Navigeer naar het tabblad Apparaateigenschap. Zorg ervoor dat de dat ontwerpmodus is ingeschakeld.
 
-![Locatie-eigenschap](./media/howto-set-up-template/locationcloudproperty1.png)
+   ![Locatie-eigenschap](./media/howto-set-up-template/locationcloudproperty1.png)
 
 2. Klik op de locatie op het tabblad eigenschap.
 3. Weergavenaam, veldnaam en de oorspronkelijke waarde van de locatie eventueel configureren. 
 
-![Formulier voor locatie-eigenschap](./media/howto-set-up-template/locationcloudproperty2.png)
+   ![Formulier voor locatie-eigenschap](./media/howto-set-up-template/locationcloudproperty2.png)
 
-Er zijn twee ondersteunde indelingen voor het toevoegen van een locatie:
-- **Locatie als een adres**
-- **Locatie als coördinaten** 
+   Er zijn twee ondersteunde indelingen voor het toevoegen van een locatie:
+   - **Locatie als een adres**
+   - **Locatie als coördinaten** 
 
-4. Klik op opslaan. 
+4.  Klik op **Opslaan**. 
 
-![Het locatieveld-eigenschap](./media/howto-set-up-template/locationcloudproperty3.png)
+    ![Het locatieveld-eigenschap](./media/howto-set-up-template/locationcloudproperty3.png)
 
 Een operator kan nu de locatiewaarde in het veld locatie formulier bijwerken. 
 
-####<a name="adding-location-as-a-device-property"></a>Locatie toe te voegen als een apparaateigenschap 
+#### <a name="adding-location-as-a-device-property"></a>Locatie toe te voegen als een apparaateigenschap 
 
 U kunt een locatie-eigenschap maken als een apparaateigenschap die is gerapporteerd door het apparaat.
 Bijvoorbeeld, wilt u bijhouden van de locatie van het apparaat.
 
 1.  Navigeer naar het tabblad Apparaateigenschap. Zorg ervoor dat de dat ontwerpmodus is ingeschakeld.
+
 2.  Klik op de Apparaateigenschap uit de bibliotheek.
 
-![Het locatieveld-eigenschap](./media/howto-set-up-template/locationdeviceproperty1.png)
+    ![Het locatieveld-eigenschap](./media/howto-set-up-template/locationdeviceproperty1.png)
 
 3.  Weergavenaam, veldnaam, configureren, en kies 'locatie' als een gegevenstype. 
 
-> [!NOTE]
-De veldnaam moet exact overeenkomen op de naam van de eigenschap van het apparaat rapporten. 
+    > [!NOTE]
+    > De veldnaam moet exact overeenkomen op de naam van de eigenschap van het apparaat rapporten. 
 
-![Het locatieveld-eigenschap](./media/howto-set-up-template/locationdeviceproperty2.png)
+    ![Het locatieveld-eigenschap](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-![Locatie-eigenschap operator weergeven](./media/howto-set-up-template/locationdeviceproperty2.png)
+    ![Locatie-eigenschap operator weergeven](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Nu dat u de eigenschap location hebt geconfigureerd, kunt u zich kunt toevoegen van een kaart om de locatie in het Dashboard van het apparaat. Zie hoe [locatie toevoegen Azure kaart in Dashboard](howto-set-up-template.md).
+Nu dat u de eigenschap location hebt geconfigureerd, kunt u zich kunt toevoegen van een kaart om de locatie in het Dashboard van het apparaat. Zie hoe [locatie toevoegen Azure kaart in Dashboard](howto-set-up-template.md#add-location-azure-map-in-dashboard).
 
+## <a name="commands"></a>Opdrachten
 
+Opdrachten worden gebruikt om een apparaat extern kunt beheren. Ze inschakelen operators van uw toepassing direct uitvoeren van opdrachten op het apparaat. U kunt meerdere opdrachten toevoegen aan de sjabloon voor apparaten die worden weergegeven als tegels op de **opdrachten** tabblad voor operators te gebruiken. Als de opbouwfunctie voor het apparaat dat hebt u de flexibiliteit voor het definiëren van uw opdracht volgens uw vereisten.
 
+Hoe wordt een **opdracht** anders dan een **instelling**? 
+
+* Instelling: Is een configuratie die u wilt toepassen op een apparaat en u wilt dat het apparaat dat de configuratie bewaard totdat u deze te wijzigen. Bijvoorbeeld, u wilt de temperatuur van de vriezer instellen en u die instelling wilt, zelfs wanneer de vriesvaartuigen opnieuw gestart. 
+
+* Opdracht: U kunt opdrachten onmiddellijk een opdracht wordt uitgevoerd op het apparaat op afstand van IoTCentral, als een apparaat niet is verbonden en vervolgens de opdrachttime-out en mislukt. Bijvoorbeeld, u een apparaat opnieuw opstarten/reboot.  
+
+Opdrachten bij uitvoering kunnen zich in een van drie statussen, afhankelijk van of het apparaat de opdracht ontvangen. 
+
+U kunt bijvoorbeeld een nieuwe echo-opdracht toevoegen:
+
+![Opdrachten formulier](./media/howto-set-up-template/commandsecho.png)
+
+Nadat u hebt gekozen **opslaan**, wordt de **Echo** opdracht wordt weergegeven als een tegel en gereed is voor moeten worden gebruikt voor het apparaat Echo.
+
+Nadat u een nieuwe tegel hebt gemaakt, kunt u proberen uw nieuwe opdracht.
 
 ## <a name="rules"></a>Regels
 
@@ -234,28 +252,27 @@ Als een operator bekijkt het dashboard, kunnen ze nu deze tegel waarin de eigens
 
 ### <a name="add-location-azure-map-in-dashboard"></a>Locatie toevoegen Azure kaart in het Dashboard
 
-Als u een locatie-eigenschap, zoals in de stappen hebt geconfigureerd [maken van een locatie-eigenschap aangedreven door Azure Maps]((howto-set-up-template.md), is het mogelijk voor het visualiseren van de locatie met een kaart rechts in het dashboard van uw apparaat.
+Als u een locatie-eigenschap, zoals in de stappen hebt geconfigureerd [maakt u een locatie-eigenschap aangedreven door Azure Maps](howto-set-up-template.md), is het mogelijk voor het visualiseren van de locatie met een kaart rechts in het dashboard van uw apparaat.
 
 1.  Navigeer naar het tabblad Dashboard apparaat. Zorg ervoor dat de dat ontwerpmodus is ingeschakeld.
+
 2.  Selecteer de kaart in de bibliotheek op apparaat-Dashboard. 
 
-![Dashboard Azure locatiekaart selecteren](./media/howto-set-up-template/locationcloudproperty4map.png)
+    ![Dashboard Azure locatiekaart selecteren](./media/howto-set-up-template/locationcloudproperty4map.png)
 
 3.  Geef een titel en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
 
-![Dashboardlocatie Azure kaart configureren](./media/howto-set-up-template/locationcloudproperty5map.png)
+    ![Dashboardlocatie Azure kaart configureren](./media/howto-set-up-template/locationcloudproperty5map.png)
 
 4.  Opslaan en u ziet de kaart tegel weergeven van de locatie die u hebt geselecteerd. 
 
-![Dashboardlocatie Azure kaart visualiseren](./media/howto-set-up-template/locationcloudproperty6map.png) 
+    ![Dashboardlocatie Azure kaart visualiseren](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-U kunt zich vergroten of verkleinen van de kaart aan de gewenste grootte.
+    U kunt zich vergroten of verkleinen van de kaart aan de gewenste grootte.
 
-Als een operator bekijkt het dashboard, zien ze nu deze alle Dashboard tegels die u hebt geconfigureerd met inbegrip van een locatie kaart!
+    Als een operator bekijkt het dashboard, zien ze nu deze alle Dashboard tegels die u hebt geconfigureerd met inbegrip van een locatie kaart!
 
-![Dashboard locatie Azure kaart Dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
-
-
+    ![Dashboard locatie Azure kaart Dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 

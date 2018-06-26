@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796713"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751775"
 ---
 # <a name="understanding-policy-effects"></a>Informatie over de gevolgen van beleid
 
@@ -23,7 +23,7 @@ Elke beleidsdefinitie in Azure beleid heeft één effect die wat er gebeurt bepa
 Er zijn vijf effecten die worden ondersteund in een definitie voor:
 
 - Toevoegen
-- Controleren
+- Controle
 - AuditIfNotExists
 - Weigeren
 - DeployIfNotExists
@@ -90,7 +90,7 @@ Voorbeeld 3: Single **veld/waarde** koppelen met een [alias](policy-definition.m
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -123,7 +123,7 @@ Voorbeeld: Met behulp van het effect weigeren.
 }
 ```
 
-## <a name="audit"></a>Controleren
+## <a name="audit"></a>Controle
 
 Audit effect wordt gebruikt voor het maken van een waarschuwingsgebeurtenis in controlelogboek wanneer een niet-compatibele bron wordt geëvalueerd, maar de aanvraag niet stopt.
 
@@ -304,7 +304,7 @@ Voorbeeld: Evalueert SQL Server-databases om te bepalen of transparentDataEncryp
 
 ## <a name="layering-policies"></a>Beleid voor lagen
 
-Een resource wordt mogelijk beïnvloed door meerdere toewijzingen. Deze toewijzingen mogelijk op hetzelfde bereik (specifieke resource, resourcegroep, abonnement of beheergroep) of op verschillende bereiken. Elk van deze toewijzingen is waarschijnlijk ook een andere effect gedefinieerd. Ongeacht, wordt de voorwaarde en van kracht voor elk beleid (rechtstreeks of als onderdeel van een initiatief toegewezen) afzonderlijk geëvalueerd. Bijvoorbeeld, als beleid 1 bevat een voorwaarde die de locatie voor een abonnement worden gemaakt in 'westus' met de weigeren kracht en het beleid 2 waarmee bronnen in de resource beperkt groep B (die zich in een abonnement) worden gemaakt in 'eastus' met de controle effect zijn beide toegewezen, is het uiteindelijke resultaat zou:
+Een resource wordt mogelijk beïnvloed door meerdere toewijzingen. Deze toewijzingen mogelijk op hetzelfde bereik (specifieke resource, resourcegroep, abonnement of beheergroep) of op verschillende bereiken. Elk van deze toewijzingen is waarschijnlijk ook een andere effect gedefinieerd. Ongeacht, wordt de voorwaarde en van kracht voor elk beleid (rechtstreeks of als onderdeel van een initiatief toegewezen) afzonderlijk geëvalueerd. Bijvoorbeeld, als beleid 1 een voorwaarde waarmee wordt beperkt Resourcelocatie voor een abonnement bevat moet alleen worden gemaakt in 'westus' met het effect weigeren en beleid 2 heeft een voorwaarde waarmee wordt alleen Resourcelocatie voor resourcegroep B beperkt (die deel uitmaakt van abonnement A) om te worden beide gemaakt in 'eastus' met het effect van de audit zijn toegewezen, het resulterende resultaat zou zijn::
 
 - Een resource al in de resourcegroep B in 'eastus' is voldoen aan beleid 2, maar gemarkeerd als niet-compatibele aan het beleid 1.
 - Een resource al in de resourcegroep B niet in 'eastus' worden gemarkeerd als niet-compatibel beleid 2 en zou ook worden gemarkeerd als niet-compatibel op beleid 1 als dat niet 'westus'.
@@ -324,4 +324,4 @@ Omdat elke toewijzing wordt afzonderlijk geëvalueerd, is er geen gelegenheid vo
 
 Nu dat u een beter begrip van beleid definitie gevolgen hebt, controleert u de beleid-voorbeelden:
 
-- Bekijk meer voorbeelden op [Azure beleid voorbeelden](json-samples.md).
+- Bekijk meer voorbeelden op [Voorbeelden van Azure Policy](json-samples.md).

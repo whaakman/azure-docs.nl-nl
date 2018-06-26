@@ -9,18 +9,18 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b4fba492a57471df737896956e0b37e3da772cce
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 501e28cf3d01385d65a2308db06702d2db0d91ee
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262372"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937910"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 en hoger configuratieschema
 > [!NOTE]
 > De extensie Azure Diagnostics is het onderdeel dat wordt gebruikt voor het verzamelen van prestatiemeteritems en andere statistieken van:
 > - Azure Virtual Machines 
-> - Virtual Machine Scale Sets
+> - Schaalsets voor virtuele machines
 > - Service Fabric 
 > - Cloud Services 
 > - Netwerkbeveiligingsgroepen
@@ -362,7 +362,7 @@ De PublicConfig en PrivateConfig worden gescheiden omdat in de meeste gevallen v
  De volgende codes zijn ongeveer in volgorde weergegeven in het voorgaande voorbeeld.  Als u niet een volledige beschrijving waar u verwacht ziet, zoekt u de pagina voor het element of kenmerk.  
 
 ## <a name="common-attribute-types"></a>Algemene kenmerktypen  
- **scheduledTransferPeriod** kenmerk wordt weergegeven in verschillende elementen. Het interval tussen de geplande overdrachten naar opslag afgerond naar het dichtstbijzijnde aantal minuten is. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp)
+ **scheduledTransferPeriod** kenmerk wordt weergegeven in verschillende elementen. Het interval tussen de geplande overdrachten naar opslag afgerond naar het dichtstbijzijnde aantal minuten is. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp)
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration Element  
@@ -415,11 +415,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
 |**CrashDumps**|Zie de beschrijving ergens anders op deze pagina.|  
-|**DiagnosticInfrastructureLogs**|Inschakelen van verzamelen van logboeken die worden gegenereerd door Azure Diagnostics. De infrastructuur voor diagnostische logboeken zijn nuttig voor het oplossen van het systeem diagnostische gegevens zelf. Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -configureert u de minimale ernst van de logboeken die worden verzameld.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|Inschakelen van verzamelen van logboeken die worden gegenereerd door Azure Diagnostics. De infrastructuur voor diagnostische logboeken zijn nuttig voor het oplossen van het systeem diagnostische gegevens zelf. Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -configureert u de minimale ernst van de logboeken die worden verzameld.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**Mappen**|Zie de beschrijving ergens anders op deze pagina.|  
 |**EtwProviders**|Zie de beschrijving ergens anders op deze pagina.|  
 |**Metrische gegevens**|Zie de beschrijving ergens anders op deze pagina.|  
-|**performanceCounters**|Zie de beschrijving ergens anders op deze pagina.|  
+|**PerformanceCounters**|Zie de beschrijving ergens anders op deze pagina.|  
 |**WindowsEventLog**|Zie de beschrijving ergens anders op deze pagina.| 
 |**DockerSources**|Zie de beschrijving ergens anders op deze pagina. | 
 
@@ -488,8 +488,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Hiermee configureert u de verzameling van gebeurtenissen die worden gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Vereist kenmerk:<br /><br /> **provider** -de naam van de klasse van de gebeurtenis EventSource.<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -de minimum ernst om over te dragen naar uw opslagaccount.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|Vereist kenmerk:<br /><br /> **provider** -de GUID van de gebeurtenisprovider<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -de minimum ernst om over te dragen naar uw opslagaccount.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Hiermee configureert u de verzameling van gebeurtenissen die worden gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Vereist kenmerk:<br /><br /> **provider** -de naam van de klasse van de gebeurtenis EventSource.<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -de minimum ernst om over te dragen naar uw opslagaccount.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|Vereist kenmerk:<br /><br /> **provider** -de GUID van de gebeurtenisprovider<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -de minimum ernst om over te dragen naar uw opslagaccount.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
@@ -524,7 +524,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
-|**MetricAggregation**|Vereist kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**MetricAggregation**|Vereist kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
@@ -568,7 +568,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Optioneel. Hiermee geeft u de maximale hoeveelheid opslagruimte op het bestand systeem die beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
-|**scheduledTransferLogLevelFilterr**|**Tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritiek**.|  
+|**scheduledTransferLogLevelFilterr**|**Tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
 |**scheduledTransferPeriod**|**Duur**|Optioneel. Hiermee geeft u het interval tussen geplande de overdracht van gegevens, afgerond naar het dichtstbijzijnde aantal minuten.<br /><br /> De standaardwaarde is PT0S.|  
 |**sinks** toegevoegd in 1.5|**Tekenreeks**|Optioneel. Verwijst naar een locatie sink ook diagnostische gegevens verzenden. Bijvoorbeeld, Application Insights.|  
 
@@ -604,7 +604,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Element|Type|Beschrijving|  
 |-------------|----------|-----------------|  
 |**Application Insights**|tekenreeks|Alleen gebruikt wanneer het verzenden van gegevens naar Application Insights. De Instrumentatiesleutel voor een actieve Application Insights-account dat u toegang tot hebt bevatten.|  
-|**kanalen**|tekenreeks|Één voor elke extra filteren die u stream|  
+|**Kanalen**|tekenreeks|Één voor elke extra filteren die u stream|  
 
 ## <a name="channels-element"></a>Kanalen Element  
  *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanalen*
@@ -626,7 +626,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Kenmerken|Type|Beschrijving|  
 |----------------|----------|-----------------|  
-|**logLevel**|**Tekenreeks**|Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritiek**.|  
+|**logLevel**|**Tekenreeks**|Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritieke**.|  
 |**Naam**|**Tekenreeks**|Een unieke naam van het kanaal om te verwijzen naar|  
 
 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
-ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6da876a0e6c1e98683caa864a4a2bcf85195cd10
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866315"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753316"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Microsoft monitoring-vergelijking
-Dit artikel bevat een vergelijking tussen System Center Operations Manager (SCOM) en Log Analytics in Operations Management Suite (OMS) in termen van hun architectuur, de logica van hoe ze resources bewaken en hoe ze analyse van de gegevens die zij verzamelen uitvoeren.  Dit is om u te bieden een fundamenteel begrip van hun verschillen en relatieve sterke.  
+In dit artikel bevat een vergelijking tussen System Center Operations Manager (SCOM) en Log Analytics in Operations Management Suite (OMS) in termen van hun architectuur, de logica van hoe ze resources bewaken en hoe ze analyse van de gegevens die zij verzamelen uitvoeren .  Dit is om u te bieden een fundamenteel begrip van hun verschillen en relatieve sterke.  
 
 ## <a name="basic-architecture"></a>Basic-architectuur
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-Alle SCOM-onderdelen worden geïnstalleerd in uw datacenter.  [Agents zijn geïnstalleerd](http://technet.microsoft.com/library/hh551142.aspx) op Windows- en Linux-machines die worden beheerd door SCOM.  Agents die verbinding maken met [beheerservers](https://technet.microsoft.com/library/hh301922.aspx) die communiceren met de SCOM-database en het datawarehouse.  Agents zijn afhankelijk van domeinverificatie verbinding maken met beheerservers.  Die buiten een vertrouwd domein kunnen verificatie uitvoeren of verbinding maken met een [gatewayserver](https://technet.microsoft.com/library/hh212823.aspx).
+Alle SCOM-onderdelen worden geïnstalleerd in uw datacenter.  [Agents zijn geïnstalleerd](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console) op Windows- en Linux-machines die worden beheerd door SCOM.  Agents die verbinding maken met [beheerservers](https://technet.microsoft.com/library/hh301922.aspx) die communiceren met de SCOM-database en het datawarehouse.  Agents zijn afhankelijk van domeinverificatie verbinding maken met beheerservers.  Die buiten een vertrouwd domein kunnen verificatie uitvoeren of verbinding maken met een [gatewayserver](https://technet.microsoft.com/library/hh212823.aspx).
 
 SCOM vereist twee SQL-databases, één voor de operationele gegevens en een andere datawarehouse ter ondersteuning van rapportages en analyses.  Een [Reporting Server](https://technet.microsoft.com/library/hh298611.aspx) SQL Reporting Services voor het rapporteren van gegevens uit het datawarehouse wordt uitgevoerd. 
 
@@ -86,7 +86,7 @@ Terwijl SCOM veel gedetailleerde werkstromen die meestal specifieke criteria def
 #### <a name="solutions"></a>Oplossingen
 Oplossingen bieden aanvullende logica voor gegevens verzamelen en analyseren.  U kunt oplossingen om toe te voegen aan uw abonnement OMS uit de galerie oplossing selecteren.
 
-![Galerie met oplossingen](media/operations-management-suite-monitoring-product-comparison/log-analytics-solutiongallery.png)
+![Oplossingen](media/operations-management-suite-monitoring-product-comparison/log-analytics-solutiongallery.png)
 
 Oplossingen wordt voornamelijk uitgevoerd in de cloud biedt analyse van gebeurtenissen en prestatiemeteritems die worden verzameld in de OMS-opslagplaats.  Ze bepalen ook aanvullende gegevens moeten worden verzameld die kunnen worden geanalyseerd met logboek query's of door aanvullende gebruikersinterface van de oplossing in de OMS-dashboard. 
 
@@ -152,7 +152,7 @@ Management packs wordt doorgaans aangepaste rapporten geven voor een bepaalde to
 
 Hieronder volgt een voorbeeld prestatierapport uit gegevens die door de Active Directory Management Pack worden verzameld weergegeven.
 
-![Rapport](media/operations-management-suite-monitoring-product-comparison/scom-report.png)
+![Melden](media/operations-management-suite-monitoring-product-comparison/scom-report.png)
 
 ### <a name="log-analytics"></a>Log Analytics
 Log Analytics is een [querytaal](https://technet.microsoft.com/library/mt484120.aspx) waarmee u kunt analyses uitvoeren op gegevens uit meerdere toepassingen zonder de noodzaak om een aangepaste weergave of rapport te maken.  Omdat OMS is geïmplementeerd in de cloud, worden de prestaties van query's en analyse van gegevens vallen niet onder de hardwarebeperkingen en query's, met inbegrip van miljoenen records snel kunt analyseren. 

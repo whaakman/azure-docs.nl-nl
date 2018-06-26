@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 04fae653c72c127b22f994e89b050477dac6495d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5dc1a4bc1de3560338e1734e73ad04910535be5b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751299"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbookuitvoer en -berichten in Azure Automation
 De meeste Azure Automation-runbooks hebben een vorm van uitvoer, zoals een foutbericht voor de gebruiker of een complex object bedoeld om te worden verbruikt door een andere werkstroom. Windows PowerShell biedt [meerdere streams](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) voor het verzenden van uitvoer vanuit een script of een werkstroom. Azure Automation anders werkt met elk van deze stromen en u moet volgen aanbevolen procedures voor het gebruik van elk tijdens het maken van een runbook.
@@ -27,10 +28,10 @@ De volgende tabel bevat een korte beschrijving van elk van de stromen en hun ged
 | Fout |Foutbericht bedoeld voor de gebruiker. In tegenstelling tot een uitzondering blijft het runbook standaard na een foutbericht weergegeven. |Naar de taakgeschiedenis geschreven. |In het deelvenster Testuitvoer weergegeven. |
 | Uitgebreid |Berichten algemene of foutopsporing informatie opgeeft. |Naar Taakgeschiedenis geschreven als uitgebreide logboekregistratie is ingeschakeld voor het runbook. |In het deelvenster Testuitvoer weergegeven alleen als $VerbosePreference is ingesteld op Doorgaan in het runbook. |
 | Voortgang |Records automatisch worden gegenereerd voor en na elke activiteit in het runbook. Het runbook moet niet proberen te maken van een eigen voortgangsrecords omdat deze zijn bedoeld voor een interactieve gebruiker. |Naar de taakgeschiedenis geschreven als voortgangslogboekregistratie is ingeschakeld voor het runbook. |Niet weergegeven in het deelvenster Testuitvoer. |
-| Fouten opsporen |Berichten die zijn bedoeld voor een interactieve gebruiker. Mag niet worden gebruikt in runbooks. |Niet naar Taakgeschiedenis geschreven. |Niet naar het deelvenster Testuitvoer geschreven. |
+| Foutopsporing |Berichten die zijn bedoeld voor een interactieve gebruiker. Mag niet worden gebruikt in runbooks. |Niet naar Taakgeschiedenis geschreven. |Niet naar het deelvenster Testuitvoer geschreven. |
 
 ## <a name="output-stream"></a>Uitvoerstroom
-De uitvoerstroom is bedoeld voor de uitvoer van objecten die zijn gemaakt door een script of een werkstroom wanneer deze correct wordt uitgevoerd. In Azure Automation wordt deze stroom voornamelijk gebruikt voor objecten die zijn bedoeld om te worden verbruikt door [bovenliggende runbooks die het huidige runbook aanroepen](automation-child-runbooks.md). Wanneer u [een runbook inline aanroept](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) van een bovenliggend runbook, retourneert deze gegevens uit de uitvoerstroom naar de bovenliggende. Gebruik de uitvoerstroom alleen om te communiceren algemene informatie terug naar de gebruiker als u weet dat het runbook wordt nooit aangeroepen door een ander runbook. Als een best practice, echter, moet u doorgaans gebruiken de [uitgebreide stroom](#Verbose) om algemene informatie voor de gebruiker te communiceren.
+De uitvoerstroom is bedoeld voor de uitvoer van objecten die zijn gemaakt door een script of een werkstroom wanneer deze correct wordt uitgevoerd. In Azure Automation wordt deze stroom voornamelijk gebruikt voor objecten die zijn bedoeld om te worden verbruikt door [bovenliggende runbooks die het huidige runbook aanroepen](automation-child-runbooks.md). Wanneer u [een runbook inline aanroept](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) van een bovenliggend runbook, retourneert deze gegevens uit de uitvoerstroom naar de bovenliggende. Gebruik de uitvoerstroom alleen om te communiceren algemene informatie terug naar de gebruiker als u weet dat het runbook wordt nooit aangeroepen door een ander runbook. Als een best practice, echter, moet u doorgaans gebruiken de [uitgebreide stroom](#verbose-stream) om algemene informatie voor de gebruiker te communiceren.
 
 U kunt gegevens schrijven naar de uitvoer-stream via [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) of door het plaatsen van het object op een aparte regel in het runbook.
 
@@ -97,7 +98,7 @@ Workflow Test-Runbook
 
 Voor het declareren van een uitvoertype in grafisch of grafische PowerShell Workflow-runbooks, kunt u de **invoer en uitvoer** menuoptie en typ de naam van het uitvoertype. Het verdient aanbeveling om dat u de volledige naam van de .NET-klasse gebruiken om het gemakkelijk te identificeren wanneer verwijzen vanaf een bovenliggend runbook. Dit beschrijft de eigenschappen van die klasse naar de gegevensbus in het runbook en geeft veel flexibiliteit bij het gebruik ervan voor voorwaardelijke logica, logboekregistratie en het verwijzen naar als waarden voor andere activiteiten in het runbook.<br> ![Runbook-invoer en uitvoer-optie](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
-U hebt twee grafische runbooks ter illustratie van deze functie in het volgende voorbeeld. Als u de ontwerpmodel modulaire runbook toepast, hebt u een runbook dat als fungeert de *verificatie runbooksjabloon* verificatie beheren met Azure met behulp van het Run As-account. Ons runbook tweede, die normaal de corelogica voor het automatiseren van een bepaald scenario kunt uitvoeren, wordt in dit geval gaan om uit te voeren de *verificatie runbooksjabloon* en de resultaten weer te geven uw **Test** deelvenster Uitvoer. Onder normale omstandigheden hebt u dit runbook iets op basis van een resource die gebruik van de uitvoer van het onderliggende runbook doen.    
+U hebt twee grafische runbooks ter illustratie van deze functie in het volgende voorbeeld. Als u de ontwerpmodel modulaire runbook toepast, hebt u een runbook dat als fungeert de *verificatie runbooksjabloon* verificatie beheren met Azure met behulp van het Run As-account. Ons runbook tweede, die normaal de corelogica voor het automatiseren van een bepaald scenario kunt uitvoeren, wordt in dit geval gaan om uit te voeren de *verificatie runbooksjabloon* en geef de resultaten naar uw **Test** het deelvenster Uitvoer. Onder normale omstandigheden hebt u dit runbook iets op basis van een resource die gebruik van de uitvoer van het onderliggende runbook doen.    
 
 Hier volgt de basislogica van de **AuthenticateTo Azure** runbook.<br> ![Voorbeeld van de Runbook-sjabloon verifiëren](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
 
@@ -107,7 +108,7 @@ Dit runbook is rechtstreeks doorsturen, maar er is één configuratie-item aan t
 
 Voor het tweede runbook in dit voorbeeld met de naam *Test ChildOutputType*, hoeft u alleen twee activiteiten.<br> ![Voorbeeld van de onderliggende uitvoer Type Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
 
-Het aanroepen van de eerste activiteit de **AuthenticateTo Azure** runbook en de tweede activiteit wordt uitgevoerd de **Write-Verbose** cmdlet uit met de **gegevensbron** van **uitvoer van activiteit** en de waarde voor **pad naar veld** is **Context.Subscription.SubscriptionName**, die is opgeven van de uitvoer van de context van de **AuthenticateTo Azure** runbook.<br> ![Write-Verbose cmdlet Parameter-gegevensbron](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
+Het aanroepen van de eerste activiteit de **AuthenticateTo Azure** runbook en de tweede activiteit wordt uitgevoerd de **Write-Verbose** cmdlet uit met de **gegevensbron** van  **Uitvoer van activiteit** en de waarde voor **pad naar veld** is **Context.Subscription.SubscriptionName**, die is opgeven van de uitvoer van de context van de  **AuthenticateTo Azure** runbook.<br> ![Write-Verbose cmdlet Parameter-gegevensbron](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
 
 De resulterende uitvoer is de naam van het abonnement.<br> ![Test ChildOutputType Runbookresultaten](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
@@ -117,7 +118,7 @@ Een opmerking over het gedrag van het Type uitvoer-besturingselement. Wanneer u 
 In tegenstelling tot de uitvoerstroom zijn berichtstromen bedoeld om informatie naar de gebruiker te communiceren. Er zijn meerdere berichtstromen voor verschillende soorten informatie en elk wordt anders afgehandeld door Azure Automation.
 
 ### <a name="warning-and-error-streams"></a>Waarschuwings- en foutstromen
-De waarschuwings- en foutstromen zijn bedoeld om de problemen die optreden in een runbook te melden. Ze worden naar de taakgeschiedenis geschreven wanneer een runbook wordt uitgevoerd en zijn opgenomen in het deelvenster Testuitvoer in de Azure portal wanneer een runbook wordt getest. Standaard blijft het runbook uitvoering na een waarschuwing of fout. U kunt opgeven dat het runbook op een waarschuwing of fout moet worden onderbroken door een [voorkeursvariabele](#PreferenceVariables) in het runbook voordat het maken van het bericht. Bijvoorbeeld, als een runbook onderbreken bij een fout als een uitzondering, stelt **$ErrorActionPreference** om te stoppen.
+De waarschuwings- en foutstromen zijn bedoeld om de problemen die optreden in een runbook te melden. Ze worden naar de taakgeschiedenis geschreven wanneer een runbook wordt uitgevoerd en zijn opgenomen in het deelvenster Testuitvoer in de Azure portal wanneer een runbook wordt getest. Standaard blijft het runbook uitvoering na een waarschuwing of fout. U kunt opgeven dat het runbook op een waarschuwing of fout moet worden onderbroken door een [voorkeursvariabele](#preference-variables) in het runbook voordat het maken van het bericht. Bijvoorbeeld, als een runbook onderbreken bij een fout als een uitzondering, stelt **$ErrorActionPreference** om te stoppen.
 
 Maken van een waarschuwing of foutbericht met de [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) of [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) cmdlet. Activiteiten mogen ook naar deze stromen schrijven.
 
@@ -171,9 +172,9 @@ De volgende tabel geeft een lijst van het gedrag van de voorkeursvariabelewaarde
 
 ## <a name="retrieving-runbook-output-and-messages"></a>Runbookuitvoer en -berichten ophalen
 ### <a name="azure-portal"></a>Azure Portal
-U kunt de details van een runbooktaak weergeven in de Azure portal op het tabblad taken van een runbook. De samenvatting van de taak wordt weergegeven voor de invoerparameters en de [uitvoerstroom](#Output) naast algemene informatie over de taak en eventuele uitzonderingen als ze zich heeft voorgedaan. De geschiedenis bevat berichten van de [uitvoerstroom](#Output) en [waarschuwings- en Foutstromen](#WarningError) naast de [uitgebreide stroom](#Verbose) en [Voortgangsrecords](#Progress) als het runbook is geconfigureerd voor logboekregistratie van uitgebreide records en voortgangsrecords.
+U kunt de details van een runbooktaak weergeven in de Azure portal op het tabblad taken van een runbook. De samenvatting van de taak wordt weergegeven voor de invoerparameters en de [uitvoerstroom](#output-stream) naast algemene informatie over de taak en eventuele uitzonderingen als ze zich heeft voorgedaan. De geschiedenis bevat berichten van de [uitvoerstroom](#output-stream) en [waarschuwings- en Foutstromen](#warning-and-error-streams) naast de [uitgebreide stroom](#verbose-stream) en [Voortgangsrecords](#progress-records) als het runbook is geconfigureerd voor logboekregistratie van uitgebreide records en voortgangsrecords.
 
-### <a name="windows-powershell"></a>Windows Powershell
+### <a name="windows-powershell"></a>Windows PowerShell
 In Windows PowerShell, kunt u uitvoer en berichten ophalen vanuit een runbook met de [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) cmdlet. Deze cmdlet vereist de ID van de taak en heeft een parameter genaamd stroom waarin u opgeeft welke stroom moet worden geretourneerd. U kunt opgeven **eventuele** te retourneren van alle stromen voor de taak.
 
 Het volgende voorbeeld wordt een voorbeeldrunbook gestart en wordt er gewacht totdat deze is voltooid. Zodra het is voltooid, wordt de uitvoerstroom verzameld van de taak.

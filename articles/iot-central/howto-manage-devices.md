@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b0772e3186c86239c773222a2b2e8d602a46aa52
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300591"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937615"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Beheer van apparaten in uw Azure IoT centrale toepassing
 
@@ -96,7 +96,7 @@ Als u apparaten registreren met het starten van de import onder **niet-gekoppeld
 1. De geselecteerde apparaten zijn onder de sjabloon van het betreffende apparaat verplaatst.
 
  >   [!NOTE] 
-    Als een apparaat is gekoppeld aan een sjabloon kan niet worden gewijzigd of die zijn gekoppeld aan een andere sjabloon.
+    Als een apparaat is gekoppeld aan een sjabloon kan niet worden niet-gekoppelde of die zijn gekoppeld aan een andere sjabloon.
 
 ## <a name="export-devices"></a>Exporteren van apparaten
 

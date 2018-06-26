@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752918"
 ---
 # <a name="management-solutions-in-azure"></a>Oplossingen in Azure
 Beheeroplossingen gebruikmaken van services in Azure om meer inzicht in de werking van een bepaalde toepassing of service. Dit artikel bevat een kort overzicht van oplossingen in Azure en meer informatie over het gebruiken en ze installeren.
@@ -51,21 +52,17 @@ Klik op de naam van een oplossing voor het openen van de pagina overzicht. Deze 
 ![Eigenschappen van oplossing](media/monitoring-solutions/solution-properties.png)
 
 
-## <a name="find-management-solutions"></a>Oplossingen voor het beheer zoeken
-U kunt bladeren en het installeren van beschikbare oplossingen voor het beheer van Microsoft en partners in de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace). Voer een [zoeken naar *beheeroplossingen* ](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions) filteren voor oplossingen voor het beheer en klik vervolgens op een item voor meer informatie.
-
-![Marketplace](media/monitoring-solutions/marketplace.png)
 
 ## <a name="install-a-management-solution"></a>Een oplossing voor het beheer installeren
+Oplossingen voor het beheer van Microsoft en partners zijn beschikbaar via de [Azure Marketplace](https://azuremarketplace.microsoft.com). U kunt beschikbare oplossingen zoeken en installeren ze met de volgende procedure.
 
-### <a name="install-a-management-solution-from-the-azure-marketplace"></a>Installeren van een beheeroplossing vanuit Azure Marketplace
-U kunt een van de volgende methoden gebruiken om te zoeken en start de installatie van een oplossing.
+1. Van de [lijst met oplossingen voor uw abonnement](#list-installed-management-solutions), klikt u op **toevoegen**. 
+1. Aan de rechterkant van **beheeroplossingen**, klikt u op **meer**. 
+1. Zoek de beheeroplossing die u wilt gebruiken en lees de beschrijving.
+1. Klik op **maken** om het installatieproces te starten.
+1. Wanneer het installatieproces wordt gestart, wordt u gevraagd om vereiste configuratie die varieert voor elke oplossing. Deze moet u een werkruimte voor logboekanalyse selecteren waar de oplossing moet worden geïnstalleerd en waar de gegevens worden verzameld. 
 
-- Klik op **nu downloaden** op een beheeroplossing voor in de [Azure Marketplace](#find-management-solutions).
-- Van de [lijst met oplossingen voor uw abonnement](#list-installed-management-solutions), klikt u op **toevoegen**. Aan de rechterkant van **beheeroplossingen**, klikt u op **meer**. De beheeroplossing die u wilt en klikt u op zoek **maken**.
-- Selecteer in de Azure-portal **maken van een resource** > **bewaking + Management** > **alle**. Aan de rechterkant van **beheeroplossingen**, klikt u op **meer**. De beheeroplossing die u wilt en klikt u op zoek **maken**.
-
-Wanneer het installatieproces wordt gestart, wordt u gevraagd om vereiste configuratie die varieert voor elke oplossing. Deze moet u een werkruimte voor logboekanalyse selecteren waar de oplossing moet worden geïnstalleerd en waar de gegevens worden verzameld. U moet mogelijk ook [een Automation-account opgeven](#log-analytics-workspace-and-automation-account) als dit vereist door de oplossing.
+![Installeren van een oplossing](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Installeren van een oplossing van de community
 Leden van de community kunnen beheeroplossingen voor Azure-Snelstartsjablonen verzenden. U kunt deze oplossingen rechtstreeks installeren of downloaden van sjablonen later installeren.

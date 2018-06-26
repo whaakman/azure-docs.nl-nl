@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 3d4b93a604170cb3b8396562a15483923330f467
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771089"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754561"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -172,7 +172,7 @@ Het is essentieel niet alleen weten wie uw toepassingen wordt gebruikt, maar ook
 
 Zie voor meer informatie over aanbevolen procedures voor beveiliging in Azure, [Azure-beveiliging aanbevolen procedures en patronen](../../security/security-best-practices-and-patterns.md).
 
-### <a name="monitoring"></a>Bewaking
+### <a name="monitoring"></a>Controleren
 
 Met uw toepassing en worden uitgevoerd in Azure, moet u kunnen bijhouden van de prestaties, Bekijk voor problemen en Zie hoe klanten uw app gebruiken. Azure biedt verschillende opties voor controle.
 
@@ -205,7 +205,7 @@ Een van de voordelen van het gebruik van Azure is dat u uw toepassingen op versc
 
 Hoewel onwaarschijnlijk, is het niet onmogelijk voor een hele datacenter offline te gaan vanwege een gebeurtenis, zoals een natuurramp of Internet-fout. Het is een best practice om als host belangrijke zakelijke toepassingen in meer dan één datacenter voor maximale beschikbaarheid. Met behulp van meerdere regio's kan ook de latentie voor globale gebruikers te verminderen en bieden meer mogelijkheden voor flexibiliteit bij het bijwerken van toepassingen.
 
-Sommige services, zoals virtuele Machine en App-Services, gebruik [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) ondersteuning voor meerdere landen/regio met failover tussen regio's ter ondersteuning van hoge beschikbaarheid enterprise toepassingen inschakelen. Zie voor een voorbeeld [naslaginformatie over Azure-architectuur: webtoepassing met hoge beschikbaarheid](../../guidance/guidance-web-apps-multi-region.md).
+Sommige services, zoals virtuele Machine en App-Services, gebruik [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) ondersteuning voor meerdere landen/regio met failover tussen regio's ter ondersteuning van hoge beschikbaarheid enterprise toepassingen inschakelen. Zie voor een voorbeeld [naslaginformatie over Azure-architectuur: uitvoeren van een webtoepassing in meerdere regio's](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 >**Wanneer gebruikt u**: wanneer u een enterprise- en hoge beschikbaarheid toepassingen die van failover- en replicatie profiteren hebt.
 
@@ -225,7 +225,7 @@ Azure biedt twee manieren voor het beheren van uw toepassingen en services vanaf
 
 De Azure portal is een webtoepassing die u kunt maken, beheren en Azure-resources en services verwijderen. De Azure-portal bevindt zich op <https://portal.azure.com>. Het bevat een aangepast dashboard, hulpprogramma's voor het beheren van Azure-resources en de toegang tot de abonnementsinstellingen en factureringsgegevens. Zie voor meer informatie de [overzicht van Azure portal](../../azure-portal-overview.md).
 
-### <a name="rest-apis"></a>REST-API’s
+### <a name="rest-apis"></a>REST API's
 
 Azure is gebouwd op een set REST-API's die ondersteuning bieden voor de gebruikersinterface van de Azure portal. De meeste van deze REST-API's worden ook ondersteund zodat u programmatisch inrichten en beheren van uw Azure-resources en toepassingen vanaf elk apparaat toegang tot Internet hebben. Zie voor de volledige reeks REST API-documentatie, de [REST-SDK van Azure verwijzing](https://docs.microsoft.com/rest/api/).
 
@@ -263,9 +263,9 @@ Ontwikkelaars, die we graag rechts Duik in de code en probeer het aan de slag zo
 
 Om te kunnen maken of te werken met een Azure-abonnement, moet u een Azure-account hebben. Een Azure-account is gewoon een identiteit in Azure AD of in een map, zoals de organisatie van een werk- of schoolaccount, die wordt vertrouwd door Azure AD. Als u niet deel uit van een dergelijke organisatie, kunt u altijd een abonnement maken met behulp van uw Microsoft-Account wordt vertrouwd door Azure AD. Zie voor meer informatie over het lokale Windows Server Active Directory integreren met Azure AD, [uw on-premises identiteiten integreren met Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
 
-Voor elk Azure-abonnement is er een vertrouwensrelatie met een Azure AD-exemplaar. Dit betekent dat er op die directory wordt vertrouwd voor het verifiëren van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement vertrouwt slechts één directory. Zie voor meer informatie, [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](../../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Voor elk Azure-abonnement is er een vertrouwensrelatie met een Azure AD-exemplaar. Dit betekent dat er op die directory wordt vertrouwd voor het verifiëren van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement vertrouwt slechts één directory. Zie voor meer informatie, [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Naast het definiëren van afzonderlijke Azure account identiteiten, ook wel *gebruikers*, kunt u definiëren *groepen* in Azure AD. Gebruikersgroepen maken is een uitstekende manier voor het beheren van toegang tot bronnen in een abonnement met behulp van op rollen gebaseerde toegangsbeheer (RBAC). Zie voor meer informatie over hoe u groepen maakt, [een groep maken in Azure Active Directory-preview](../../active-directory/active-directory-groups-create-azure-portal.md). U kunt ook groepen maken en beheren door [met behulp van PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Naast het definiëren van afzonderlijke Azure account identiteiten, ook wel *gebruikers*, kunt u definiëren *groepen* in Azure AD. Gebruikersgroepen maken is een uitstekende manier voor het beheren van toegang tot bronnen in een abonnement met behulp van op rollen gebaseerde toegangsbeheer (RBAC). Zie voor meer informatie over hoe u groepen maakt, [een groep maken in Azure Active Directory-preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). U kunt ook groepen maken en beheren door [met behulp van PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Uw abonnementen beheren
 
@@ -307,7 +307,7 @@ Als u toegang tot Azure-resources toestaat, maar het is altijd een best practice
 
 Azure Resource Manager kunt u aangepaste labels toewijzen aan afzonderlijke resources. Labels die sleutel-waardeparen, kunnen nuttig zijn als u nodig hebt om resources voor facturering of bewaking te organiseren. Tags bieden een manier om bij te houden van bronnen tussen meerdere resourcegroepen. U kunt de labels in de portal in de Azure Resource Manager-sjabloon of programmatisch met behulp van de REST-API, de Azure CLI of PowerShell kunt toewijzen. U kunt meerdere labels toewijzen aan elke resource. Zie voor meer informatie, [met labels om uw Azure-resources te organiseren](../../resource-group-using-tags.md).
 
-### <a name="billing"></a>Billing
+### <a name="billing"></a>Facturering
 
 Zijn belangrijke problemen in het verplaatsen van on-premises computers tot de cloud gehoste services schatten gebruik van de service en gerelateerde kosten en bij te houden. Het is belangrijk om te schatten nieuwe resources kosten om uit te voeren op maandelijkse basis. U moet ook mogelijk om de weergave van de facturering voor een bepaalde maand op basis van de huidige uitgaven te projecteren.
 

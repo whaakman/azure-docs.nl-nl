@@ -1,6 +1,6 @@
 ---
-title: Veilige communicatie voor services in Azure Service Fabric Help | Microsoft Docs
-description: Overzicht van hoe u kunt beveiligde communicatie voor betrouwbare services die worden uitgevoerd in een Azure Service Fabric-cluster.
+title: Veilige communicatie van de service voor externe toegang met behulp van Java in Azure Service Fabric | Microsoft Docs
+description: Informatie over het beveiligen van de service voor externe toegang op basis van communicatie voor betrouwbare Java-services die worden uitgevoerd in een Azure Service Fabric-cluster.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 624d9d358145fb8b41013d686821cb157693d3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1843720b9700e66af8ee84766cf7d63ac62e6283
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207992"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749909"
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Veilige communicatie van de Help voor services in Azure Service Fabric
+# <a name="secure-service-remoting-communications-in-a-java-service"></a>Veilige communicatie van de service voor externe toegang in een Java-service
 > [!div class="op_single_selector"]
 > * [C# op Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java op Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Beveiligen van een service als u service voor externe toegang
-We gebruiken hiervoor een bestaande [voorbeeld](service-fabric-reliable-services-communication-remoting-java.md) waarin wordt uitgelegd hoe instellen van externe toegang voor betrouwbare services. Ter beveiliging van een service, wanneer u externe toegang de service de volgende stappen uit:
+Beveiliging is een van de belangrijkste aspecten van de communicatie. Het framework Reliable Services biedt enkele vooraf gedefinieerde communicatie stacks en hulpprogramma's die u gebruiken kunt om beveiliging te verbeteren. In dit artikel wordt beschreven hoe de beveiliging verbeteren wanneer u externe toegang de service in een Java-service. Dit is gebaseerd op een bestaande [voorbeeld](service-fabric-reliable-services-communication-remoting-java.md) waarin wordt uitgelegd hoe instellen van externe toegang voor betrouwbare services die zijn geschreven in Java. 
+
+Om te helpen beveiligen van een service wanneer u service voor externe toegang met Java-services, als volgt:
 
 1. Maken van een interface `HelloWorldStateless`, die definieert de methoden die beschikbaar zijn voor een externe procedureaanroep voor uw service. Uw service maakt gebruik van `FabricTransportServiceRemotingListener`, die is gedeclareerd in de `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` pakket. Dit is een `CommunicationListener` -implementatie mogelijkheden voor externe toegang biedt.
 
@@ -58,7 +59,7 @@ We gebruiken hiervoor een bestaande [voorbeeld](service-fabric-reliable-services
 
    1. Ze bieden met behulp van een [configuratiepakket](service-fabric-application-and-service-manifests.md):
 
-       Voeg een `TransportSettings` sectie in het bestand settings.xml.
+       Toevoegen van een benoemde `TransportSettings` sectie in het bestand settings.xml.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->

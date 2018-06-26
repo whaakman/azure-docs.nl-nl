@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: cawa
-ms.openlocfilehash: a606c8e7d8b730b67bd8481656e099900eb39fbc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 3ee2cc3ac5098ebf205331167faffa2b5f9b6d56
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23890836"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937554"
 ---
 # <a name="optimizing-your-azure-code"></a>Optimaliseren van uw Azure-Code
 Wanneer u apps die gebruikmaken van Microsoft Azure programmeren, zijn er enkele codering procedures die u volgen moet om te voorkomen dat u problemen met app-schaalbaarheid, werking en prestaties in een cloudomgeving. Microsoft biedt een analyseprogramma Azure Code die wordt herkend en identificeert diverse van deze problemen meestal aangetroffen en kunt u deze kunt oplossen. U kunt het hulpprogramma in Visual Studio via NuGet downloaden.
@@ -28,7 +28,7 @@ Wanneer u apps die gebruikmaken van Microsoft Azure programmeren, zijn er enkele
 Het hulpmiddel Azure Code maakt gebruik van de volgende regels automatisch uw Azure code markeren wanneer er bekende problemen met prestaties beïnvloeden. Gevonden problemen worden weergegeven als een waarschuwingen of compilatiefouten. Code-oplossingen of suggesties om op te lossen waarschuwingen of fouten zijn vaak door middel van een gloeilampje opgegeven.
 
 ## <a name="avoid-using-default-in-process-session-state-mode"></a>Vermijd het gebruik van standaard (in-process) sessiestatusmodus gebruiken
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP0000
 
 ### <a name="description"></a>Beschrijving
@@ -45,7 +45,7 @@ ASP.NET-sessiestatus ondersteunt verschillende verschillende opslagopties voor s
 Een aanbevolen methode is dat de sessiestatus wordt opgeslagen op een beheerde cacheservice. Informatie over het gebruik [Azure Session State-provider voor Redis](http://go.microsoft.com/fwlink/?LinkId=401521) voor het opslaan van de sessiestatus. U kunt de sessiestatus ook opslaan in andere locaties om te controleren of uw toepassing schaalbare in de cloud. Voor meer informatie over alternatieve oplossingen Lees [sessie status modi](https://msdn.microsoft.com/library/ms178586).
 
 ## <a name="run-method-should-not-be-async"></a>Voer methode mag geen asynchrone
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP1000
 
 ### <a name="description"></a>Beschrijving
@@ -90,7 +90,7 @@ public async Task RunAsync()
 ```
 
 ## <a name="use-service-bus-shared-access-signature-authentication"></a>Service Bus Shared Access Signature-verificatie gebruiken
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP2000
 
 ### <a name="description"></a>Beschrijving
@@ -99,7 +99,7 @@ Shared Access Signature (SAS) gebruiken voor verificatie. Access Control Service
 Deel uw ideeën en feedback op [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
 ### <a name="reason"></a>Reden
-Voor een betere beveiliging vervangt Azure Active Directory authentication ACS door de SAS-verificatie. Zie [Azure Active Directory is de toekomst van ACS](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx) voor meer informatie over het plan overgang.
+Voor een betere beveiliging vervangt Azure Active Directory authentication ACS door de SAS-verificatie. Zie [Azure Active Directory is de toekomst van ACS](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/) voor meer informatie over het plan overgang.
 
 ### <a name="solution"></a>Oplossing
 De SAS-verificatie gebruiken in uw apps. Het volgende voorbeeld ziet hoe u een bestaande SAS-token gebruikt voor toegang tot een service bus-naamruimte of entiteit.
@@ -117,7 +117,7 @@ Zie de volgende onderwerpen voor meer informatie.
 * Zie voor een voorbeeldproject [met behulp van Shared Access Signature (SAS)-verificatie met Service Bus-abonnementen](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
 
 ## <a name="consider-using-onmessage-method-to-avoid-receive-loop"></a>Overweeg het gebruik van OnMessage methode om te voorkomen dat 'ontvangen lus'
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP2002
 
 ### <a name="description"></a>Beschrijving
@@ -220,7 +220,7 @@ while (true)
 }
 ```
 ## <a name="consider-using-asynchronous-service-bus-methods"></a>Overweeg het gebruik van asynchrone Service Bus-methoden
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP2003
 
 ### <a name="description"></a>Beschrijving
@@ -237,7 +237,7 @@ Zie [QueueClient klasse (Microsoft.ServiceBus.Messaging)](https://msdn.microsoft
 Om te verbeteren de prestaties van de Azure messaging-infrastructuur, Zie het ontwerppatroon [asynchrone Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx).
 
 ## <a name="consider-partitioning-service-bus-queues-and-topics"></a>U kunt partitionering Service Bus-wachtrijen en onderwerpen
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP2004
 
 ### <a name="description"></a>Beschrijving
@@ -262,7 +262,7 @@ ns.CreateTopic(td);
 Zie voor meer informatie [gepartitioneerd Service Bus-wachtrijen en onderwerpen | Microsoft Azure-Blog](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) en bekijk de [Microsoft Azure Service Bus gepartitioneerd wachtrij](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f) voorbeeld.
 
 ## <a name="do-not-set-sharedaccessstarttime"></a>Stel geen SharedAccessStartTime
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP3001
 
 ### <a name="description"></a>Beschrijving
@@ -294,7 +294,7 @@ blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy(
 ```
 
 ## <a name="shared-access-policy-expiry-time-must-be-more-than-five-minutes"></a>Gedeeld toegangsbeleid verlooptijdstip meer dan vijf minuten moet
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP3002
 
 ### <a name="description"></a>Beschrijving
@@ -344,7 +344,7 @@ blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy(
 Zie voor meer informatie [maken en gebruiken van een Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
 ## <a name="use-cloudconfigurationmanager"></a>Gebruik CloudConfigurationManager
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP4000
 
 ### <a name="description"></a>Beschrijving
@@ -381,7 +381,7 @@ Hier volgt een voorbeeld van het opslaan van de configuratie-instelling in een A
 ```
 
 ## <a name="avoid-using-hard-coded-connection-strings"></a>Vermijd het gebruik van vastgelegde verbindingsreeksen
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP4001
 
 ### <a name="description"></a>Beschrijving
@@ -402,7 +402,7 @@ Verbindingsreeksen worden opgeslagen in configuratiebestanden of Azure-omgevinge
 Zie voor meer informatie over het gebruik van configuraties bestanden zoals web.config of app.config [ASP.NET Web configuratie-instructies](https://msdn.microsoft.com/library/vstudio/ff400235\(v=vs.100\).aspx). Zie voor informatie over hoe Azure-omgeving variabelen werken, [Azure websites: tekenreeksen van toepassingen en verbinding tekenreeksen werken](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Zie voor meer informatie over het opslaan van de verbindingsreeks in broncodebeheer [te voorkomen dat gevoelige informatie zoals verbindingsreeksen in bestanden die zijn opgeslagen in de bron code opslagplaats](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
 
 ## <a name="use-diagnostics-configuration-file"></a>Diagnostische gegevens configuratiebestand gebruiken
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP5000
 
 ### <a name="description"></a>Beschrijving
@@ -427,7 +427,7 @@ Gebruik de ontwerpfunctie van de configuratie van diagnostische gegevens te verp
    Zie [diagnostische gegevens configureren voor Azure Cloud Services en virtuele Machines](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) voor meer informatie.
 
 ## <a name="avoid-declaring-dbcontext-objects-as-static"></a>Vermijd DbContext-objecten als statische declareren
-### <a name="id"></a>Id
+### <a name="id"></a>ID
 AP6000
 
 ### <a name="description"></a>Beschrijving

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9e8c930acd12b5197238be48722947dac5380be6
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751408"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Verzamelen van Logboeken van de Azure-service en metrische gegevens voor gebruik in Log Analytics
 
@@ -31,32 +32,32 @@ Er zijn vier verschillende manieren van het verzamelen van Logboeken en metrisch
 4. Scripts voor het verzamelen en vervolgens postgegevens in logboekanalyse (lege cellen in de volgende tabel en voor services die niet worden weergegeven)
 
 
-| Service                 | Resourcetype                           | Logboeken        | Metrische gegevens     | Oplossing |
+| Service                 | Brontype                           | Logboeken        | Metrische gegevens     | Oplossing |
 | --- | --- | --- | --- | --- |
-| Toepassingsgateways    | Microsoft.Network/applicationGateways   | Diagnostiek | Diagnostiek | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Toepassingsgateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application Insights    |                                         | Connector   | Connector   | [Application Insights-Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Preview) |
-| Automation-accounts     | Microsoft.Automation/AutomationAccounts | Diagnostiek |             | [Meer informatie](../automation/automation-manage-send-joblogs-log-analytics.md)|
-| Batch-accounts          | Microsoft.Batch/batchAccounts           | Diagnostiek | Diagnostiek | |
+| Automation-accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [Meer informatie](../automation/automation-manage-send-joblogs-log-analytics.md)|
+| Batch-accounts          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
 | Klassieke cloudservices  |                                         | Storage     |             | [Meer informatie](log-analytics-azure-storage-iis-table.md) |
-| Cognitieve services      | Microsoft.CognitiveServices/accounts    |             | Diagnostiek | |
-| Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostiek |             | |
-| Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostiek |             | |
-| Event Hub-naamruimte     | Microsoft.EventHub/namespaces           | Diagnostiek | Diagnostiek | |
-| IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostiek | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostiek |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
-| Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostiek |             |  |
-| Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostiek | Diagnostiek | |
-| Netwerkbeveiligingsgroepen | Microsoft.Network/networksecuritygroups | Diagnostiek |             | [Netwerkbeveiligingsgroep Azure Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Cognitive Services      | Microsoft.CognitiveServices/accounts    |             | Diagnostics | |
+| Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostics |             | |
+| Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
+| Event Hub-naamruimte     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
+| IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
+| Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
+| Logische apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
+| Netwerkbeveiligingsgroepen | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Netwerkbeveiligingsgroep Azure Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Recovery kluizen         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services-Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
-| Services zoeken         | Microsoft.Search/searchServices         | Diagnostiek | Diagnostiek | |
-| Service Bus-naamruimte   | Microsoft.ServiceBus/namespaces         | Diagnostiek | Diagnostiek | [Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+| Services zoeken         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
+| Service Bus-naamruimte   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | [Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (Preview)](log-analytics-service-fabric.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostiek | [Azure SQL Analytics (Preview)](log-analytics-azure-sql.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (Preview)](log-analytics-azure-sql.md) |
 | Storage                 |                                         |             | Script      | [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
-| Virtuele machines        | Microsoft.Compute/virtualMachines       | Toestelnummer   | Toestelnummer <br> Diagnostiek  | |
-| Virtuele Machines-schaalsets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostiek | |
-| Webserver-farms        | Microsoft.Web/serverfarms               |             | Diagnostiek | |
-| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostiek | [Analytics met Azure-Web-Apps (Preview)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
+| Virtual Machines        | Microsoft.Compute/virtualMachines       | Extensie   | Extensie <br> Diagnostics  | |
+| Virtuele Machines-schaalsets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
+| Webserver-farms        | Microsoft.Web/serverfarms               |             | Diagnostics | |
+| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Analytics met Azure-Web-Apps (Preview)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]
@@ -70,7 +71,7 @@ Veel Azure-resources kunnen schrijven logboeken met diagnostische gegevens en me
 Azure-resources die ondersteuning bieden voor [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) hun logboeken en metrische gegevens rechtstreeks naar het Log Analytics kunt verzenden.
 
 > [!NOTE]
-> Log Analytics multidimensionale metrische gegevens verzenden via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
+> Het verzenden van multidimensionale metrische gegevens naar Log Analytics via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
 > *Een voorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Echter, wanneer geëxporteerd via diagnostische instellingen voor die de metriek wordt weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
 >
@@ -129,10 +130,10 @@ Voor het verzamelen van Logboeken van binnen enkele informatiebronnen die mogeli
 
 Log Analytics kunt u deze benadering gebruiken voor het verzamelen van diagnostische gegevens naar Azure storage voor de volgende bronnen en de logboeken:
 
-| Resource | Logboeken |
+| Bron | Logboeken |
 | --- | --- |
 | Service Fabric |ETWEvent <br> Operationele gebeurtenissen <br> Betrouwbare Actor-gebeurtenis <br> Betrouwbare Service gebeurtenis |
-| Virtuele machines |Linux Syslog <br> Windows-gebeurtenis <br> IIS-logboek <br> Windows ETWEvent |
+| Virtual Machines |Linux Syslog <br> Windows-gebeurtenis <br> IIS-logboek <br> Windows ETWEvent |
 | Web-rollen <br> Werkrollen |Linux Syslog <br> Windows-gebeurtenis <br> IIS-logboek <br> Windows ETWEvent |
 
 > [!NOTE]

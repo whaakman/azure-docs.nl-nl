@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: f4fe04b972cdd3d4f78a139ce5554ee7b6774d8a
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fc7a2316b5b006cbbf8a237c6a95a71b6489932b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319313"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753401"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Prijscategorieën PostgreSQL-Database
 
@@ -33,9 +33,9 @@ Gebruik de volgende tabel als uitgangspunt om een prijscategorie te selecteren.
 
 | Prijscategorie | Beoogde workloads |
 |:-------------|:-----------------|
-| Standaard | Werklasten die lichte berekenings- en i/o-prestaties vereisen. Voorbeelden zijn onder meer servers die worden gebruikt voor ontwikkeling of tests of kleinschalige, onregelmatig gebruikte toepassingen. |
-| Algemeen gebruik | De meeste zakelijke workloads waarvoor taakverdeling reken- en geheugencapaciteit met schaalbare i/o-doorvoer. Voorbeelden zijn onder meer servers voor het hosten van web- en mobiele apps en andere bedrijfstoepassingen.|
-| Geoptimaliseerd voor geheugen | Hoge prestaties database werklasten die in het geheugen prestaties zijn vereist voor een snellere verwerking van transacties en hogere gelijktijdigheid. Voorbeelden zijn onder meer servers voor de verwerking van realtime gegevens en high-performance transactionele of analytische apps.|
+| Basic | Werklasten die lichte berekenings- en i/o-prestaties vereisen. Voorbeelden zijn onder meer servers die worden gebruikt voor ontwikkeling of tests of kleinschalige, onregelmatig gebruikte toepassingen. |
+| Algemeen doel | De meeste zakelijke workloads waarvoor taakverdeling reken- en geheugencapaciteit met schaalbare i/o-doorvoer. Voorbeelden zijn onder meer servers voor het hosten van web- en mobiele apps en andere bedrijfstoepassingen.|
+| Geoptimaliseerd geheugen | Hoge prestaties database werklasten die in het geheugen prestaties zijn vereist voor een snellere verwerking van transacties en hogere gelijktijdigheid. Voorbeelden zijn onder meer servers voor de verwerking van realtime gegevens en high-performance transactionele of analytische apps.|
 
 Nadat u een server hebt gemaakt, het aantal vCores, hardware generatie en prijzen servicetier (met uitzondering van en naar Basic) kan worden gewijzigd omhoog of omlaag binnen enkele seconden. U kunt ook afzonderlijk de hoeveelheid opslag van en de back-up bewaarperiode omhoog of omlaag zonder uitvaltijd voor de toepassing aanpassen. U kunt het back-upopslag-type niet wijzigen nadat een server is gemaakt. Zie voor meer informatie de [schalen](#scale-resources) sectie.
 
@@ -46,31 +46,31 @@ COMPUTE resources worden geleverd als vCores die de logische CPU van de onderlig
 
 | **Azure-regio** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Centrale VS | X |  |
-| Oostelijke VS | X | X |
-| Oostelijke VS 2 | X | X |
-| Noordelijke centrale VS | X | X |
-| VS - zuiden (midden) | X | X |
-| VS - westen | X | X |
+| VS - centraal | X |  |
+| VS - oost | X | X |
+| VS - oost 2 | X | X |
+| VS - noord/centraal | X | X |
+| VS - zuid/centraal | X | X |
+| VS - west | X | X |
 | VS - west 2 |  | X |
-| Canada Centraal | X | X |
-| Canada Oost | X | X |
+| Canada - centraal | X | X |
+| Canada - oost | X | X |
 | Brazilië - Zuid | X | X |
-| Europa - noord | X | X |
-| Europa - west |  | X |
-| VK West |  | X |
-| VK Zuid |  | X |
-| Azië - oost | X | X |
+| Noord-Europa | X | X |
+| West-Europa |  | X |
+| VK - west |  | X |
+| VK - zuid |  | X |
+| Oost-Azië | X | X |
 | Zuidoost-Azië | X | X |
-| Australië - Oost |  | X |
-| Australië - Zuidoost |  | X |
-| Centraal-India | X | X |
-| West-India | X | X |
-| Zuid-India |  | X |
+| Australië - oost |  | X |
+| Australië - zuidoost |  | X |
+| India - centraal | X | X |
+| India - west | X | X |
+| India - zuid |  | X |
 | Japan - Oost | X | X |
 | Japan - West | X | X |
-| Korea Centraal |  | X |
-| Korea Zuid |  | X |
+| Korea - centraal |  | X |
+| Korea - zuid |  | X |
 
 ## <a name="storage"></a>Storage
 
@@ -81,13 +81,13 @@ De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar is voor u
 | Opslagtype | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 4 TB | 5 GB tot 4 TB |
 | Maximale grootte van de verhoging | 1 GB | 1 GB | 1 GB |
-| IOPS | Variabele |3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 7500 IOP 's | 3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 7500 IOP 's |
+| IOPS | Variabele |3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 6000 IOP 's | 3 IOPS/GB<br/>Min 100 IOP's<br/>Max. 6000 IOP 's |
 
 U kunt extra opslagcapaciteit toevoegen tijdens en na het maken van de server. De laag Basic biedt geen garantie van een IOPS. In het algemeen en de geoptimaliseerd voor geheugen Prijscategorieën schalen het aantal IOPS dat met de opslaggrootte van de ingerichte in een ratio van 3:1.
 
 U kunt uw i/o-verbruik in de Azure-portal of met behulp van Azure CLI-opdrachten kunt bewaken. De relevante meetgegevens voor het bewaken van zijn [opslaglimiet bereikt, opslagpercentage opslag gebruikt en i/o-procent](concepts-monitoring.md).
 
-### <a name="reaching-the-store-limit"></a>De store-limiet bereikt
+### <a name="reaching-the-storage-limit"></a>De opslaglimiet bereikt
 
 De server wordt gemarkeerd als alleen-lezen wanneer de hoeveelheid vrije opslagruimte op minder dan 5 GB of ingerichte opslag maar 5% bereikt, afhankelijk van wat is. Bijvoorbeeld, als u hebt ingericht, 100 GB aan opslagruimte en het werkelijke gebruik gaat over 95 GB, de server is gemarkeerd als alleen-lezen. U kunt ook als u 5 GB aan opslagruimte hebt ingericht, is de server gemarkeerd alleen-lezen wanneer de vrije opslagruimte op minder dan 250 MB bereikt.  
 
@@ -95,7 +95,7 @@ Wanneer de server is ingesteld op alleen-lezen, niet zijn verbonden met alle bes
 
 Vergroot de hoeveelheid ingerichte opslag met de server of een nieuwe sessie starten in de modus en -neerzetten gegevens lezen-schrijven om vrije opslagruimte vrij te maken. Met `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` Hiermee stelt u de huidige sessie om te lezen modus schrijven. Om te voorkomen dat gegevensbeschadiging, niet schrijfbewerkingen uitvoeren wanneer de server nog steeds in alleen-lezen is.
 
-## <a name="backup"></a>Back-up
+## <a name="backup"></a>Backup
 
 De service wordt automatisch een back-ups van uw server. De minimale bewaarperiode voor back-ups is zeven dagen. U kunt een bewaarperiode van maximaal 35 dagen instellen. De bewaarperiode kan worden aangepast op elk gewenst moment tijdens de levensduur van de server. U kunt kiezen tussen lokaal redundante en geografisch redundante back-ups. Geografisch redundante back-ups worden ook opgeslagen in de [regio geo gekoppeld](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) van de regio waar uw server wordt gemaakt. Dit biedt een niveau van bescherming in het geval van een noodgeval. Ook krijgt u de mogelijkheid uw server naar een andere Azure-regio waarin de service beschikbaar met geografisch redundante back-ups is herstellen. Het is niet mogelijk om te wijzigen tussen de twee opties voor back-upopslag nadat de server is gemaakt.
 

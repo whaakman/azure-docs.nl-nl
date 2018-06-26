@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 52c3914cc1b51bf7c2a6d0fbf28dc0bf7756e749
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517220"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751442"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Cross-resource logboek zoekopdrachten uit te voeren in Log Analytics  
 
 Eerder met Azure Log Analytics alleen analyseren gegevens vanuit de huidige werkruimte en het beperkt uw query over meerdere werkruimten die zijn gedefinieerd in uw abonnement.  Bovendien kunt u alleen telemetrie-items die zijn verzameld wordt van uw webtoepassing met Application Insights rechtstreeks in Application Insights of vanuit Visual Studio zoeken.  Dit ook dat het een challenge systeemeigen analyseren operationele en toepassingsgegevens samen.   
 
-U kunt nu een query niet alleen over meerdere Log Analytics-werkruimten, maar ook gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit biedt u een weergave van het hele systeem van uw gegevens.  U kunt alleen uitvoeren met deze typen query's in de [geavanceerde portal](log-analytics-log-search-portals.md#advanced-analytics-portal), niet in de Azure-portal.  
+U kunt nu een query niet alleen over meerdere Log Analytics-werkruimten, maar ook gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit biedt u een weergave van het hele systeem van uw gegevens.  U kunt alleen uitvoeren met deze typen query's in de [geavanceerde portal](log-analytics-log-search-portals.md#advanced-analytics-portal), niet in de Azure-portal. Het aantal resources (Log Analytics-werkruimten en Application Insights-app) die u in één query opnemen kunt is beperkt tot 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Uitvoeren van query's over Log Analytics-werkruimten en van Application Insights
 Om te verwijzen naar een andere werkruimte in de query, gebruiken de [ *werkruimte* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) -id, en gebruik voor een app in Application Insights de [ *app* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())id.  
@@ -50,7 +50,7 @@ Een werkruimte te identificeren, kan de uitgevoerde één van de verschillende m
     >Omdat Azure-abonnementnamen niet uniek zijn, kan deze id dubbelzinnig zijn. 
     >
 
-* werkruimte-ID - werkruimte-ID is de unieke, niet-wijzigbaar, id toegewezen aan elke werkruimte weergegeven als een globally unique identifier (GUID).
+* Werkruimte-ID - werkruimte-ID is de unieke, niet-wijzigbaar, id toegewezen aan elke werkruimte weergegeven als een globally unique identifier (GUID).
 
     `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
 

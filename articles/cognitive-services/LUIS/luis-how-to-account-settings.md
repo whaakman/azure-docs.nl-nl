@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 76300b307c8e87a3dd108fc53d3b30a53d3276dd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 1f22112a38bf32af03ffaf0493db16839b3fe794
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263921"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749960"
 ---
 # <a name="manage-your-luis-account"></a>Uw account LUIS beheren
 De twee belangrijkste stukjes informatie voor een account LUIS zijn het gebruikersaccount en de sleutel ontwerpen. Uw aanmeldingsgegevens wordt beheerd op [account.microsoft.com](https://account.microsoft.com). Uw ontwerp sleutel wordt beheerd vanaf de [LUIS][LUIS] website **instellingen** pagina. 
@@ -46,7 +46,9 @@ Eerst de gebruiker zich aanmeldt bij LUIS en ziet een pop-upvenster hoeven admin
 
 Ten tweede de tenantbeheerder zich aanmeldt bij LUIS en ziet een toestemming stroom pop-upvenster. Dit is het dialoogvenster dat de beheerder moet de machtiging voor de gebruiker. Zodra de beheerder de machtiging accepteert, kan de gebruiker om door te gaan met LUIS.
 
-Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [toestemming](https://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=65920ba3-ab61-4a9b-9b10-505e5ce61b58) voor LUIS. 
+Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [toestemming](https://account.activedirectory.windowsazure.com/r#/applications) voor LUIS. 
+
+![Azure active directory-machtigingen door app-website](./media/luis-how-to-account-settings/tenant-permissions.png)
 
 Als de tenantbeheerder wil dat alleen bepaalde gebruikers LUIS gebruiken, verwijzen naar dit [identiteit blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 

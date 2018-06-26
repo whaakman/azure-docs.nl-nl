@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0165de82850c0c80052564c5f31a5e5cf5effb11
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117534"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938305"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met Git
 
@@ -95,7 +95,7 @@ Als u eventuele fouten ontvangt, probeert u het wijzigen van uw `git clone` opdr
 git clone https://username:password@bugbashdev4.scm.azure-api.net/
 ```
 
-Als dit een fout biedt, kunt u URL-codering van het gedeelte van het wachtwoord van de opdracht. Een snelle manier om dit te doen is Visual Studio openen, en voert u de volgende opdracht in de **venster direct**. Openen van de **venster direct**, opent u een oplossing of project in Visual Studio (of maak een nieuwe lege console-toepassing), en kies **Windows**, **direct** van de **fouten opsporen in** menu.
+Als dit een fout biedt, kunt u URL-codering van het gedeelte van het wachtwoord van de opdracht. Een snelle manier om dit te doen is Visual Studio openen, en voert u de volgende opdracht in de **venster direct**. Openen van de **venster direct**, opent u een oplossing of project in Visual Studio (of maak een nieuwe lege console-toepassing), en kies **Windows**, **Immediate** van de **Debug** menu.
 
 ```
 ?System.NetWebUtility.UrlEncode("password from the Azure portal")
@@ -149,7 +149,7 @@ De bestanden en mappen in de lokale git-opslagplaats bevatten de configuratie-in
 
 | Item | Beschrijving |
 | --- | --- |
-| Hoofdmap voor de api-management |Op het hoogste niveau van de configuratie voor de service-exemplaar bevat |
+| hoofdmap voor de api-management |Op het hoogste niveau van de configuratie voor de service-exemplaar bevat |
 | map van de API 's |Bevat de configuratie voor de API's in het service-exemplaar |
 | map groepen |Bevat de configuratie voor de groepen in het service-exemplaar |
 | map beleid |Bevat de beleidsregels in het service-exemplaar |
@@ -161,8 +161,8 @@ Elke map kan een of meer bestanden bevatten en in sommige gevallen een of meer m
 
 | Bestandstype | Doel |
 | --- | --- |
-| json |Configuratie-informatie over de respectieve entiteit |
-| html |Beschrijvingen van de entiteit, vaak worden weergegeven in de portal voor ontwikkelaars |
+| JSON |Configuratie-informatie over de respectieve entiteit |
+| HTML |Beschrijvingen van de entiteit, vaak worden weergegeven in de portal voor ontwikkelaars |
 | xml |Beleidsinstructies |
 | CSS |Opmaakmodellen voor developer portal aanpassen |
 
@@ -219,41 +219,41 @@ De laatste instelling `$ref-policy`, toegewezen aan het bestand globaal beleid i
 ### <a name="apis-folder"></a>map van de API 's
 De `apis` een map voor elke API in het service-exemplaar waarin de volgende items bevat.
 
-* `apis\<api name>\configuration.json`-Dit is de configuratie voor de API en bevat informatie over de URL van de back-service en de bewerkingen. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen [ophalen van een specifieke API](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) met `export=true` in `application/json` indeling.
-* `apis\<api name>\api.description.html`-Dit is de beschrijving van de API en komt overeen met de `description` eigenschap van de [API entiteit](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\`-Deze map bevat `<operation name>.description.html` bestanden die zijn toegewezen aan de bewerkingen in de API. Elk bestand bevat de beschrijving van één bewerking in de API die wordt toegewezen aan de `description` eigenschap van de [bewerking entiteit](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) in de REST-API.
+* `apis\<api name>\configuration.json` -Dit is de configuratie voor de API en bevat informatie over de URL van de back-service en de bewerkingen. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen [ophalen van een specifieke API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) met `export=true` in `application/json` indeling.
+* `apis\<api name>\api.description.html` -Dit is de beschrijving van de API en komt overeen met de `description` eigenschap van de [API entiteit](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` -Deze map bevat `<operation name>.description.html` bestanden die zijn toegewezen aan de bewerkingen in de API. Elk bestand bevat de beschrijving van één bewerking in de API die wordt toegewezen aan de `description` eigenschap van de [bewerking entiteit](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) in de REST-API.
 
 ### <a name="groups-folder"></a>map groepen
 De `groups` een map voor elke groep die is gedefinieerd in het service-exemplaar bevat.
 
-* `groups\<group name>\configuration.json`-Dit is de configuratie voor de groep. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifieke groep](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) bewerking.
-* `groups\<group name>\description.html`-Dit is de beschrijving van de groep en komt overeen met de `description` eigenschap van de [groep entiteit](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\configuration.json` -Dit is de configuratie voor de groep. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifieke groep](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) bewerking.
+* `groups\<group name>\description.html` -Dit is de beschrijving van de groep en komt overeen met de `description` eigenschap van de [groep entiteit](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>map beleid
 De `policies` map bevat de instructies van het beleid voor uw service-exemplaar.
 
-* `policies\global.xml`-beleid is gedefinieerd op globaal bereik voor uw service-exemplaar bevat.
-* `policies\apis\<api name>\`-Als er beleid is gedefinieerd op API-scope, zijn opgenomen in deze map.
-* `policies\apis\<api name>\<operation name>\`map - als er beleid is gedefinieerd op bewerkingsbereik, zijn opgenomen in deze map in `<operation name>.xml` bestanden die zijn toegewezen aan de beleidsverklaringen voor elke bewerking.
-* `policies\products\`-Als er beleid is gedefinieerd op de product-scope, zijn opgenomen in deze map bevat `<product name>.xml` bestanden die zijn toegewezen aan de instructies van het beleid voor elk product.
+* `policies\global.xml` -beleid is gedefinieerd op globaal bereik voor uw service-exemplaar bevat.
+* `policies\apis\<api name>\` -Als er beleid is gedefinieerd op API-scope, zijn opgenomen in deze map.
+* `policies\apis\<api name>\<operation name>\` map - als er beleid is gedefinieerd op bewerkingsbereik, zijn opgenomen in deze map in `<operation name>.xml` bestanden die zijn toegewezen aan de beleidsverklaringen voor elke bewerking.
+* `policies\products\` -Als er beleid is gedefinieerd op de product-scope, zijn opgenomen in deze map bevat `<product name>.xml` bestanden die zijn toegewezen aan de instructies van het beleid voor elk product.
 
 ### <a name="portalstyles-folder"></a>portalStyles map
 De `portalStyles` map bevat configuratie- en opmaakmodellen developer portal aanpassingen voor service-exemplaar.
 
-* `portalStyles\configuration.json`-de namen bevat van de opmaakmodellen die wordt gebruikt door de portal voor ontwikkelaars
-* `portalStyles\<style name>.css`-elke `<style name>.css` bestand bevat stijlen voor de portal voor ontwikkelaars (`Preview.css` en `Production.css` standaard).
+* `portalStyles\configuration.json` -de namen bevat van de opmaakmodellen die wordt gebruikt door de portal voor ontwikkelaars
+* `portalStyles\<style name>.css` -elke `<style name>.css` bestand bevat stijlen voor de portal voor ontwikkelaars (`Preview.css` en `Production.css` standaard).
 
 ### <a name="products-folder"></a>map Products
 De `products` een map voor elk product dat is gedefinieerd in het service-exemplaar bevat.
 
-* `products\<product name>\configuration.json`-Dit is de configuratie voor het product. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifiek product](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) bewerking.
-* `products\<product name>\product.description.html`-Dit is de beschrijving van het product en komt overeen met de `description` eigenschap van de [product entiteit](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) in de REST-API.
+* `products\<product name>\configuration.json` -Dit is de configuratie voor het product. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen de [ophalen van een specifiek product](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) bewerking.
+* `products\<product name>\product.description.html` -Dit is de beschrijving van het product en komt overeen met de `description` eigenschap van de [product entiteit](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) in de REST-API.
 
 ### <a name="templates"></a>sjablonen
 De `templates` map bevat de configuratie voor de [e-mailsjablonen](api-management-howto-configure-notifications.md) van het service-exemplaar.
 
-* `<template name>\configuration.json`-Dit is de configuratie voor de e-mailsjabloon.
-* `<template name>\body.html`-Dit is de hoofdtekst van het e-mailsjabloon.
+* `<template name>\configuration.json` -Dit is de configuratie voor de e-mailsjabloon.
+* `<template name>\body.html` -Dit is de hoofdtekst van het e-mailsjabloon.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor informatie over andere manieren voor het beheren van uw service-exemplaar:

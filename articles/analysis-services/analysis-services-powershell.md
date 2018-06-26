@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 05/22/2018
+ms.date: 06/25/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4e819bdce971e92e4b2d99e68f51ddbf8a22182
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5c347a024af385e04bfdf3631ddcbaec89df4f40
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597464"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937361"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure analyseservices met PowerShell beheren
 
@@ -54,22 +54,22 @@ Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 
 ## <a name="database-operations"></a>Databasebewerkingen
 
-Azure Analysis Services-database-bewerkingen gebruik van dezelfde [SqlServer](https://www.powershellgallery.com/packages/SqlServer) module als SQL Server Analysis Services. Niet alle cmdlets worden echter ondersteund voor Azure Analysis Services. 
+Azure Analysis Services-database-bewerkingen gebruik van dezelfde [SqlServer module](https://www.powershellgallery.com/packages/SqlServer) als SQL Server Analysis Services. Niet alle cmdlets worden echter ondersteund voor Azure Analysis Services. Voor meer informatie over meer Zie [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
 
 De SQL Server-module bevat cmdlets voor het beheer van taak-specifieke database, evenals de algemene Invoke ASCmd cmdlet die een Tabellair Model Scripting Language (TMSL) query of script accepteert. De volgende cmdlets in de SQL Server-module worden ondersteund voor Azure Analysis Services.
 
   
 |Cmdlet|Beschrijving|
 |------------|-----------------| 
-|[Voeg RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Een lid toevoegen aan een databaserol.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Back-up van een Analysis Services-database.|  
-|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Een lid verwijderen uit een databaserol.|   
-|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Een script TMSL uitvoeren.|
-|[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Verwerken van een database.|  
-|[Aanroepen ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Verwerken van een partitie.| 
-|[Aanroepen ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Verwerken van een tabel.|  
-|[Samenvoegen partitie](https://msdn.microsoft.com/library/hh479576.aspx)|Samenvoegen van een partitie.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Een Analysis Services-database herstellen.| 
+|[Voeg RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Een lid toevoegen aan een databaserol.| 
+|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Back-up van een Analysis Services-database.|  
+|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Een lid verwijderen uit een databaserol.|   
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Een script TMSL uitvoeren.|
+|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Verwerken van een database.|  
+|[Aanroepen ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Verwerken van een partitie.| 
+|[Aanroepen ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Verwerken van een tabel.|  
+|[Samenvoegen partitie](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Samenvoegen van een partitie.|  
+|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Een Analysis Services-database herstellen.| 
   
 
 ## <a name="related-information"></a>Gerelateerde informatie

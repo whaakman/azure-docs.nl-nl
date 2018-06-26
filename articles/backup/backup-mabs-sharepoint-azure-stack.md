@@ -1,5 +1,5 @@
 ---
-title: Back-up van een SharePoint-farm op Azure-Stack naar Azure
+title: Back-up van een SharePoint-farm op Azure-Stack
 description: Azure Backup Server gebruiken om back-up en herstellen van uw SharePoint-gegevens op Azure-Stack. In dit artikel bevat de informatie voor het configureren van uw SharePoint-farm zodat de gewenste gegevens kunnen worden opgeslagen in Azure. U kunt beveiligde SharePoint-gegevens terugzetten vanaf schijf of Azure.
 services: backup
 author: pvrk
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: da8421441863c8d7f840630614f4f35c16f184d5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249289"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751894"
 ---
-# <a name="back-up-a-sharepoint-farm-on-azure-stack-to-azure"></a>Back-up van een SharePoint-farm op Azure-Stack naar Azure
+# <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Back-up van een SharePoint-farm op Azure-Stack
 U back-up een SharePoint-farm op Azure-Stack naar Microsoft Azure met behulp van Microsoft Azure Backup-Server (MABS) in ongeveer dezelfde manier als dat u back-up van andere gegevensbronnen. Azure Backup biedt flexibiliteit in het back-upschema maken het dagelijkse, wekelijkse, maandelijkse of jaarlijkse back-up verwijst en biedt u de bewaarperiode beleidsopties voor verschillende back-uppunten. Het biedt ook de mogelijkheid voor het opslaan van kopieën van de lokale schijf voor snelle doelstellingen voor hersteltijd (RTO) en voor het opslaan van kopieën naar Azure voor het bewaren van voordelige, op lange termijn.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint ondersteunde versies en gerelateerde beveiligingsscenario 's
-Azure Backup voor DPM ondersteunt de volgende scenario's:
+Azure Backup voor MABS ondersteunt de volgende scenario's:
 
 | Workload | Versie | SharePoint-implementatie | Beveiliging en herstel |
 | --- | --- | --- | --- | --- | --- |
@@ -41,9 +41,6 @@ Voor elke 10 miljoen items in de farm, moet er minstens 2 GB aan ruimte op het v
 Azure Backup-Server wordt uitgevoerd als lokale systeemaccount. Als u wilt back-up van SQL Server-databases, moet MABS sysadmin-machtigingen op dat account voor de server die SQL Server wordt uitgevoerd. NT AUTHORITY\SYSTEM ingesteld op *sysadmin* op de server waarop SQL Server wordt uitgevoerd voordat u een back-up.
 
 Als de SharePoint-farm SQL Server-databases die zijn geconfigureerd met SQL Server-aliassen, installeert u de SQL Server-clientonderdelen op de front-endwebserver die MABS beveiligt.
-
-### <a name="sharepoint-server"></a>SharePoint Server
-Terwijl de prestaties zijn afhankelijk van veel factoren zoals de grootte van de SharePoint-farm, algemene richtlijnen kunt één MABS beveiligen een SharePoint-farm 25 TB.
 
 ### <a name="whats-not-supported"></a>Wat wordt er niet ondersteund
 * MABS die een SharePoint-farm beveiligt biedt geen bescherming zoekindexen of toepassing-servicedatabases. U moet de beveiliging van deze databases afzonderlijk te configureren.

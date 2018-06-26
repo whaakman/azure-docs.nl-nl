@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 03/27/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b2686b4bb2b98d3f79d8087f6857c149cfdeb553
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0a439a2bb485829b863d6aa666938ab58c90c61f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711260"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750774"
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Azure Active Directory B2C: Threat management
 
@@ -29,4 +29,4 @@ Azure AD B2C maakt gebruik van detectie en risicobeperking technieken zoals SYN 
 
 Azure AD B2C heeft ook risicobeperking technieken voor wachtwoord aanvallen. Risicobeperking omvat aanvallen met brute kracht wachtwoord en woordenboekaanvallen wachtwoord. Wachtwoorden die zijn ingesteld door gebruikers zijn te redelijkerwijs ingewikkeld vereist. Azure AD B2C analyseert met behulp van verschillende signalen, de integriteit van aanvragen. Azure AD B2C is ontworpen om te onderscheiden op intelligente wijze beoogde gebruikers tegen hackers en botnets. Azure AD B2C biedt een strategie voor een geavanceerde aan accounts van vergrendeling op basis van de wachtwoorden die zijn ingevoerd, in de kans op een aanval.
 
-Voor meer informatie gaat u naar de [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/threatmanagement).
+Voor meer informatie gaat u naar de [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/default.aspx).

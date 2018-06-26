@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5c396ad047567799b7541c1a125de0c1c51c39e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 900c45713541825ea36fe0b2d8684863b8138507
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185991"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936639"
 ---
 # <a name="resize-a-linux-virtual-machine-using-cli-20"></a>Een virtuele Linux-machine met CLI 2.0 vergroten of verkleinen
 
-Nadat u een virtuele machine (VM) inricht, u kunt de virtuele machine omhoog of omlaag schalen door het wijzigen van de [VM-grootte][vm-sizes]. In sommige gevallen moet u eerst de VM ongedaan. U moet de VM ongedaan gemaakt als de gewenste grootte is niet beschikbaar op het cluster hardware die als host voor de virtuele machine fungeert. Dit artikel wordt uitgelegd hoe u dit moet een Linux-VM met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Nadat u een virtuele machine (VM) inricht, u kunt de virtuele machine omhoog of omlaag schalen door het wijzigen van de [VM-grootte][vm-sizes]. In sommige gevallen moet u eerst de VM ongedaan. U moet de VM ongedaan gemaakt als de gewenste grootte is niet beschikbaar op het cluster hardware die als host voor de virtuele machine fungeert. Dit artikel wordt uitgelegd hoe u dit moet een Linux-VM met de Azure CLI 2.0. 
 
-## <a name="resize-a-vm"></a>De grootte van een virtuele machine wijzigen
+## <a name="resize-a-vm"></a>De grootte van een VM wijzigen
 Als u een virtuele machine, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
 
 1. De lijst met beschikbare grootten voor virtuele machine weergeven op de hardware-cluster waarop de virtuele machine wordt gehost met [az vm-vm-formaat-opties voor](/cli/azure/vm#az_vm_list_vm_resize_options). Het volgende voorbeeld worden VM-grootten voor de virtuele machine met de naam `myVM` in de resourcegroep `myResourceGroup` regio:

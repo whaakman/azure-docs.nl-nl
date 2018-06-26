@@ -1,6 +1,6 @@
 ---
-title: Veilige communicatie van de service voor externe toegang in Azure Service Fabric | Microsoft Docs
-description: Informatie over het beveiligen van de service voor externe toegang op basis van communicatie voor betrouwbare services die worden uitgevoerd in een Azure Service Fabric-cluster.
+title: Veilige communicatie van de service voor externe toegang met C# in Azure Service Fabric | Microsoft Docs
+description: Informatie over het beveiligen van de service voor externe toegang op basis van communicatie voor C# betrouwbare services die worden uitgevoerd in een Azure Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: cd7211ecda61ab2cca0f97e292d9ce2c47ed6933
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d185be26633178d8b3f147453b4c48eb77d7e425
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210270"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753520"
 ---
-# <a name="secure-service-remoting-communications-for-a-service"></a>Veilige communicatie van de service voor externe toegang voor een service
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Veilige communicatie van de service voor externe toegang in een C#-service
 > [!div class="op_single_selector"]
 > * [C# op Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java op Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Beveiliging is een van de belangrijkste aspecten van de communicatie. Het framework Reliable Services biedt enkele vooraf gedefinieerde communicatie stacks en hulpprogramma's die u gebruiken kunt om beveiliging te verbeteren. In dit artikel wordt gesproken over het verbeteren van de beveiliging wanneer u externe toegang de service.
+Beveiliging is een van de belangrijkste aspecten van de communicatie. Het framework Reliable Services biedt enkele vooraf gedefinieerde communicatie stacks en hulpprogramma's die u gebruiken kunt om beveiliging te verbeteren. In dit artikel wordt beschreven hoe de beveiliging verbeteren wanneer u externe toegang de service in een C#-service. Dit is gebaseerd op een bestaande [voorbeeld](service-fabric-reliable-services-communication-remoting.md) waarin wordt uitgelegd hoe instellen van externe toegang voor betrouwbare services die zijn geschreven in C#. 
 
-We gebruiken een bestaande [voorbeeld](service-fabric-reliable-services-communication-remoting.md) waarin wordt uitgelegd hoe instellen van externe toegang voor betrouwbare services. Ter beveiliging van een service, wanneer u externe toegang de service de volgende stappen uit:
+Om te helpen beveiligen van een service wanneer u service voor externe toegang met C#-services, als volgt:
 
 1. Maken van een interface `IHelloWorldStateful`, die definieert de methoden die beschikbaar zijn voor een externe procedureaanroep voor uw service. Uw service maakt gebruik van `FabricTransportServiceRemotingListener`, die is gedeclareerd in de `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` naamruimte. Dit is een `ICommunicationListener` -implementatie mogelijkheden voor externe toegang biedt.
 
@@ -94,7 +94,7 @@ We gebruiken een bestaande [voorbeeld](service-fabric-reliable-services-communic
        ```
    2. Ze bieden met behulp van een [configuratiepakket](service-fabric-application-and-service-manifests.md):
 
-       Voeg een `TransportSettings` sectie in het bestand settings.xml.
+       Toevoegen van een benoemde `TransportSettings` sectie in het bestand settings.xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">

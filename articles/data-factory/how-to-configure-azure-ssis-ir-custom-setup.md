@@ -8,21 +8,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 06/21/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 76308bbb06d6bf1cdc9147258f7c26babae371a9
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268127"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750482"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de integratie van Azure SSIS runtime aanpassen
 
-De interface met aangepaste installatie voor de integratie van Azure SSIS Runtime biedt een interface voor het toevoegen van uw eigen instellingsstappen tijdens het inrichten of herconfiguratie van uw Azure-SSIS-IR Aangepaste installatie kunt u het standaardbesturingssysteem configuratie of omgeving (bijvoorbeeld aanvullende Windows-services starten) alter of extra onderdelen (bijvoorbeeld assembly's, stuurprogramma's of extensies) installeren op elk knooppunt van uw Azure-SSIS-IR
+De interface met aangepaste installatie voor de integratie van Azure SSIS Runtime biedt een interface voor het toevoegen van uw eigen instellingsstappen tijdens het inrichten of herconfiguratie van uw Azure-SSIS-IR Aangepaste installatie kunt u het standaardbesturingssysteem configuratie of omgeving (bijvoorbeeld aanvullende Windows-services starten of toegangsreferenties voor bestandsshares behouden) wijzigen of extra onderdelen (bijvoorbeeld assembly's, stuurprogramma's of extensies) installeren op elk knooppunt van uw Azure-SSIS-IR
 
 U configureren uw aangepaste instellingen door het voorbereiden van een script en de bijbehorende bestanden en uploadt naar een blobcontainer in uw Azure Storage-account. U kunt een Shared Access Signature (SAS) Uniform Resource Identifier (URI) voor de container opgeven wanneer u inrichten of opnieuw configureren van uw Azure-SSIS-IR Elk knooppunt van uw Azure-SSIS-IR vervolgens het script en de bijbehorende bestanden downloadt van de container en uw aangepaste installatie wordt uitgevoerd met verhoogde bevoegdheden. Wanneer met aangepaste installatie is voltooid, uploadt elk knooppunt de standaarduitvoer van de uitvoering en worden andere logboeken naar de container.
 
@@ -87,7 +87,10 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        ![De Shared Access Signature ophalen voor de container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
-    7.  De SAS-URI voor de container maken met een lang genoeg verlooptijd en lezen + schrijven + lijst machtigingen. U moet de SAS-URI te downloaden en uitvoeren van uw script met aangepaste installatie en de bijbehorende bestanden wanneer de installatiekopie van een knooppunt van uw Azure-SSIS-IR is hersteld. U hebt schrijfmachtigingen voor het uploaden van de logboekbestanden voor het uitvoeren van setup.
+    7.  De SAS-URI voor de container maken met een lang genoeg verlooptijd en lezen + schrijven + lijst machtigingen. U moet de SAS-URI te downloaden en uitvoeren van uw script met aangepaste installatie en de bijbehorende bestanden telkens wanneer een knooppunt van uw Azure-SSIS-IR hersteld met een installatiekopie/opnieuw gestart is. U hebt schrijfmachtigingen voor het uploaden van de logboekbestanden voor het uitvoeren van setup.
+
+        > [!IMPORTANT]
+        > Zorg ervoor dat de SAS-URI niet verloopt en aangepaste installatie bronnen altijd beschikbaar tijdens de hele levenscyclus van uw Azure-SSIS IR, van het maken van een verwijdering, zijn met name als u regelmatig stoppen en starten van uw Azure-SSIS-IR tijdens deze periode.
 
        ![De Shared Access Signature voor de container genereren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
 
@@ -124,7 +127,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
     c. Selecteer de verbonden openbare Preview-container en dubbelklikt u op de `CustomSetupScript` map. In deze map zijn de volgende items:
 
-       1. Een `Sample` map een aangepaste instellingen bevat voor het installeren van een eenvoudige taak op elk knooppunt van uw Azure-SSIS-IR De taak niet maar slaapstand enkele seconden. De map bevat ook een `gacutil` map `gacutil.exe`.
+       1. Een `Sample` map een aangepaste instellingen bevat voor het installeren van een eenvoudige taak op elk knooppunt van uw Azure-SSIS-IR De taak niet maar slaapstand enkele seconden. De map bevat ook een `gacutil` map `gacutil.exe`. Bovendien `main.cmd` bevat opmerkingen om te blijven behouden toegangsreferenties voor bestandsshares.
 
        2. Een `UserScenarios` map, die verschillende aangepaste instellingen voor scenario's met echte gebruiker bevat.
 
@@ -138,7 +141,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        3. Een `EXCEL` map een aangepaste instellingen bevat voor het installeren van de open source-assembly's (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, en `ExcelDataReader.dll`) op elk knooppunt van uw Azure-SSIS-IR
 
-       4. Een `MSDTC` map een aangepaste instellingen bevat voor het wijzigen van de netwerk- en configuraties voor het exemplaar Microsoft Distributed Transaction Coordinator (MSDTC) op elk knooppunt van uw Azure-SSIS-IR
+       4. Een `MSDTC` map een aangepaste instellingen bevat voor het wijzigen van de netwerk- en configuraties voor de service Microsoft Distributed Transaction Coordinator (MSDTC) op elk knooppunt van uw Azure-SSIS-IR Om ervoor te zorgen dat de MSDTC is gestart, voeg toe taak proces uitvoeren aan het begin van controlestroom in uw pakketten om de volgende opdracht: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        5. Een `ORACLE ENTERPRISE` map waarin u een script met aangepaste installatie (`main.cmd`) en een installatie zonder toezicht-configuratiebestand (`client.rsp`) voor het installeren van het OCI van Oracle-stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de Oracle-Verbindingsbeheer, de bron en bestemming gebruiken. Download de nieuwste Oracle-client - eerst bijvoorbeeld `winx64_12102_client.zip` - van [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) en uploadt u dit samen met `main.cmd` en `client.rsp` naar de container. Als u verbinding maken met Oracle TNS hebt gebruikt, moet u ook downloaden `tnsnames.ora`, bewerken en uploaden naar de container, zodat deze in de installatiemap van Oracle tijdens de installatie kan worden gekopieerd.
 

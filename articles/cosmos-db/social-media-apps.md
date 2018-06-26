@@ -1,7 +1,7 @@
 ---
 title: 'Azure DB Cosmos-ontwerppatroon: sociale media-apps | Microsoft Docs'
 description: Meer informatie over een ontwerppatroon voor sociale netwerken dankzij het gebruik van de flexibiliteit van de opslag van Azure DB die Cosmos en andere Azure-services.
-keywords: Sociale media-apps
+keywords: sociale media-apps
 services: cosmos-db
 author: ealsur
 manager: kfile
@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2017
 ms.author: maquaran
-ms.openlocfilehash: f03b2f3d295ed7d3986c45ecb80078190a2cd935
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 977ca57fdb2bcc0c9eaaa33eee06c1d8ae8e39ab
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613880"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754483"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Met Azure Cosmos DB sociale gaan
 Die in een samenleving massively onderling verbonden betekent dat op een bepaald moment in leven u deel van uitmaken een **sociale netwerken**. We gebruiken sociale netwerken om te communiceren vrienden, collega's, familie of soms onze passie delen met mensen met een gemeenschappelijke interesses.
@@ -150,7 +150,7 @@ We gaan gebruikersgegevens als een voorbeeld:
         "address":"742 Evergreen Terrace",
         "birthday":"1983-05-07",
         "email":"john@doe.com",
-        "twitterHandle":"@john",
+        "twitterHandle":"\@john",
         "username":"johndoe",
         "password":"some_encrypted_phrase",
         "totalPoints":100,
@@ -175,7 +175,7 @@ Waarom zouden we splitsen van de gebruiker en zelfs deze informatie op te slaan 
         "surname":"Doe",
         "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john"
+        "twitterHandle":"\@john"
     }
 
 En een Post eruit als:
@@ -212,7 +212,7 @@ Maar wat we meer? Een paar eenvoudige voorbeelden zijn [gevoel analysis](https:/
 
 Nu dat ik heb u aangesloten, zult u waarschijnlijk moet u enkele PhD in math wetenschap deze patronen en de informatie uit de eenvoudige databases en bestanden uitpakken, maar u zou verkeerde zien.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), deel uit van de [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), is het een volledig beheerde cloudservice waarmee u werkstromen met algoritmen in een eenvoudige interface voor het slepen en neerzetten maken uw eigen algoritmen in code [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) of u een aantal van de al zijn gemaakt en gereed voor gebruik van API's, zoals: [Tekstanalyse](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [inhoud beheerder](https://www.microsoft.com/moderator) of [aanbevelingen](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), deel uit van de [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), is een volledig beheerde cloudservice waarmee u het maken van werkstromen met algoritmen in een eenvoudige interface voor slepen en neerzetten, code van uw eigen algoritmen in [ R](https://en.wikipedia.org/wiki/R_\(programming_language\)) of u een aantal van de al zijn gemaakt en gereed voor gebruik van API's, zoals: [Tekstanalyse](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [inhoud beheerder](https://www.microsoft.com/moderator) of [aanbevelingen](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 Als u wilt bereiken van deze Machine Learning-scenario's, gebruiken we [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) voor het opnemen van de gegevens uit verschillende bronnen en gebruiken [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) voor het verwerken van de informatie en een uitvoer die kan worden gegenereerd door Azure Machine Learning worden verwerkt.
 

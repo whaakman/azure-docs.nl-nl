@@ -3,8 +3,8 @@ title: Het gebruik van een Serviceoverzicht oplossing in Azure | Microsoft Docs
 description: Serviceoverzicht is een oplossing in Azure die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst. Dit artikel bevat informatie voor het Serviceoverzicht implementeren in uw omgeving en gebruiken in verschillende scenario's.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
@@ -12,20 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887907"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751425"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Het gebruik van een Serviceoverzicht oplossing in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met het Serviceoverzicht, kunt u uw servers weergeven in de manier waarop u denkt ze dat: als onderling verbonden systemen die essentiële services leveren. Serviceoverzicht ziet u de verbindingen tussen servers, processen en poorten voor elke architectuur TCP-verbinding waarvoor geen configuratie nodig andere dan de installatie van een agent.
 
-Dit artikel worden de details van het gebruik van Serviceoverzicht. Zie voor meer informatie over het configureren van Serviceoverzicht en voorbereiding agents [oplossing Serviceoverzicht configureren in Azure]( monitoring-service-map-configure.md).
+Dit artikel worden de details van onboarding en met behulp van Serviceoverzicht. Zie voor meer informatie over het configureren van Serviceoverzicht en voorbereiding agents [oplossing Serviceoverzicht configureren in Azure]( monitoring-service-map-configure.md).
 
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+
+## <a name="enable-service-map"></a>Serviceoverzicht inschakelen
+1. Klik in de Azure-portal op **+ maken van een resource**.
+2. Typ in de zoekbalk **Serviceoverzicht** en druk op **Enter**.
+3. Selecteer in de marketplace zoekresultatenpagina **Serviceoverzicht** uit de lijst.<br><br> ![Selecteer Serviceoverzicht oplossing in zoekresultaten voor Azure Marketplace](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. Op de **Serviceoverzicht** overzichtsvenster, Controleer de oplossingdetails en klik vervolgens op **maken** om te beginnen met het voorbereidingsproces naar uw werkruimte voor logboekanalyse.<br><br> ![Ingebouwde de oplossing Serviceoverzicht](./media/monitoring-service-map/service-map-onboard.png).
+5. In de **configureren van een oplossing** deelvenster, selecteer een bestaande of maak een nieuwe werkruimte voor logboekanalyse.  Zie voor meer informatie over het maken van een nieuwe werkruimte [een Log Analytics-werkruimte maken in de Azure portal](../log-analytics/log-analytics-quick-create-workspace.md). Klik na het opgeven van de vereiste informatie op **maken**.  
+
+Hoewel de informatie is geverifieerd en de oplossing is geïmplementeerd, kunt u de voortgang onder bijhouden **meldingen** in het menu. 
+
+U access-Service Map in de Azure-portal van de werkruimte voor logboekanalyse en selecteer de optie **oplossingen** in het linkerdeelvenster.<br><br> ![Optie oplossingen in werkruimte](./media/monitoring-service-map/select-solution-from-workspace.png).<br> Selecteer in de lijst van oplossingen **ServiceMap(workspaceName)** en in het Serviceoverzicht oplossing overzicht pagina op op de tegel samenvatting van Serviceoverzicht.<br><br> ![Tegel samenvatting van Serviceoverzicht](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Gebruiksvoorbeelden: maken van uw IT-processen op de hoogte van afhankelijkheid
 
@@ -44,9 +57,10 @@ Als u van Azure Site Recovery gebruikmaakt en moet de herstel-reeks voor uw toep
 ### <a name="patch-management"></a>Patch management
 Uw gebruik van de Update-evaluatie System verbetert Serviceoverzicht door te tonen die andere teams en -servers hangen af van uw service, zodat u deze vooraf waarschuwen kunt voordat u uw systeem voor patch-doeleinden. Serviceoverzicht verbetert ook patch management door u of uw services beschikbaar en goed verbonden nadat zijn ze worden hersteld en opnieuw opgestart.
 
-
 ## <a name="mapping-overview"></a>Overzicht van de toewijzing
-Serviceoverzicht agents verzamelen van informatie over alle processen TCP-verbinding op de server waar ze worden geïnstalleerd en meer informatie over de binnenkomende en uitgaande verbindingen voor elk proces. U kunt computers of groepen met Serviceoverzicht agents voor het visualiseren van afhankelijkheden zijn gedurende een opgegeven tijdperiode selecteren in de lijst in het linkerdeelvenster. Afhankelijkheid van de machine wordt toegewezen focus op een specifieke computer en ze de machines die direct TCP-clients of servers van de desbetreffende computer zijn weergeven.  Groepstoewijzingen machine weergeven sets van servers en de bijbehorende afhankelijkheden.
+Serviceoverzicht agents verzamelen van informatie over alle processen TCP-verbinding op de server waar ze worden geïnstalleerd en meer informatie over de binnenkomende en uitgaande verbindingen voor elk proces.
+
+U kunt computers of groepen met Serviceoverzicht agents voor het visualiseren van afhankelijkheden zijn gedurende een opgegeven tijdperiode selecteren in de lijst in het linkerdeelvenster. Afhankelijkheid van de machine wordt toegewezen focus op een specifieke computer en ze de machines die direct TCP-clients of servers van de desbetreffende computer zijn weergeven.  Groepstoewijzingen machine weergeven sets van servers en de bijbehorende afhankelijkheden.
 
 ![Overzicht van het Serviceoverzicht](media/monitoring-service-map/service-map-overview.png)
 
@@ -187,16 +201,13 @@ De **overzicht** deelvenster biedt aanvullende informatie over het proces connec
 ![Deelvenster Overzicht van het proces](media/monitoring-service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>Waarschuwingen-integratie
-Serviceoverzicht kan worden geïntegreerd met waarschuwingen in logboekanalyse gestarte u waarschuwingen wilt weergeven voor de geselecteerde server in de geselecteerde periode. De server wordt een pictogram weergegeven als er huidige waarschuwingen en de **Machine waarschuwingen** deelvenster geeft een lijst van de waarschuwingen.
+Serviceoverzicht kan worden geïntegreerd met Azure waarschuwingen gestarte waarschuwingen weergeven voor de geselecteerde server in de geselecteerde periode. De server wordt een pictogram weergegeven als er huidige waarschuwingen en de **Machine waarschuwingen** deelvenster geeft een lijst van de waarschuwingen.
 
 ![Deelvenster waarschuwingen van de computer](media/monitoring-service-map/machine-alerts.png)
 
 Schakel Serviceoverzicht relevante waarschuwingen worden weergegeven door een waarschuwingsregel die wordt geactiveerd voor een specifieke computer te maken. Juiste om waarschuwingen te maken:
 - Een component aan groep opnemen door computer (bijvoorbeeld **met Computer interval 1 minuut**).
 - Kies een waarschuwing op basis van metrische meting.
-
-![Configuratie van waarschuwingen](media/monitoring-service-map/alert-configuration.png)
-
 
 ## <a name="log-events-integration"></a>Integratie van logboek-gebeurtenissen
 Serviceoverzicht integreert met logboek zoeken om een telling van alle beschikbare logboekgebeurtenissen voor de geselecteerde server tijdens de geselecteerde periode weer te geven. U kunt klikken op elke rij in de lijst van gebeurtenis tellingen springen naar logboek Search en de afzonderlijke gebeurtenissen bekijken.
@@ -224,7 +235,7 @@ De **Machine bijhouden** deelvenster geeft een lijst van alle wijzigingen, met d
 
 De volgende afbeelding bevat een gedetailleerde weergave van een configuratiewijziging gebeurtenis die u ziet nadat u hebt geselecteerd **weergeven in logboekanalyse**.
 
-![Configuratiewijziging gebeurtenis](media/monitoring-service-map/configuration-change-event.png)
+![Configuratiewijziging gebeurtenis](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## <a name="performance-integration"></a>Integratie van prestaties
@@ -255,7 +266,6 @@ De **Machine beveiliging** deelvenster bevat gegevens van de beveiligings- en Au
 
 ![Machine beveiliging deelvenster](media/monitoring-service-map/machine-security.png)
 
-
 ## <a name="updates-integration"></a>Integratie van updates
 Serviceoverzicht integratie met beheer van updates is automatisch als beide oplossingen zijn ingeschakeld en geconfigureerd in uw werkruimte logboek Anlaytics.
 
@@ -285,7 +295,7 @@ Records van het type *ServiceMapComputer_CL* inventarisgegevens voor servers met
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | De unieke id voor een computer in de werkruimte |
+| resourceId | De unieke id voor een computer in de werkruimte |
 | ResourceName_s | De unieke id voor een computer in de werkruimte |
 | ComputerName_s | De FQDN-naam van de computer |
 | Ipv4Addresses_s | Een lijst met de server IPv4-adressen |
@@ -312,7 +322,7 @@ Records van het type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | De unieke id voor een proces in de werkruimte |
+| resourceId | De unieke id voor een proces in de werkruimte |
 | ResourceName_s | De unieke id voor een proces binnen de computer waarop deze wordt uitgevoerd|
 | MachineResourceName_s | De naam van de resource van de machine |
 | ExecutableName_s | De naam van het uitvoerbare bestand van het proces |
@@ -364,11 +374,11 @@ ServiceMapProcess_CL | waar ExecutableName_s == "curl" | afzonderlijke ProductVe
 ServiceMapComputer_CL | waar OperatingSystemFullName_s contains_cs 'CentOS' | afzonderlijke ComputerName_s
 
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 Alle door de server-, proces- en afhankelijkheid gegevens in Serviceoverzicht beschikbaar via is de [REST-API van kaart](https://docs.microsoft.com/rest/api/servicemap/).
 
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostische gegevens en gebruiksgegevens
+## <a name="diagnostic-and-usage-data"></a>Diagnostische en gebruiksgegevens
 Microsoft verzamelt automatisch gebruiks- en via uw gebruik van de service Serviceoverzicht. Microsoft gebruikt deze gegevens te bieden en de kwaliteit, beveiliging en integriteit van de service Serviceoverzicht te verbeteren. De gegevens omvatten informatie over de configuratie van uw software, zoals het besturingssysteem en versie, IP-adres, DNS-naam en Werkstationnaam zodat nauwkeurige en efficiënte mogelijkheden voor probleemoplossing. Microsoft verzamelt geen namen, adressen of andere contactgegevens.
 
 Zie voor meer informatie over het verzamelen van gegevens en gebruiksgegevens het [privacyverklaring van Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

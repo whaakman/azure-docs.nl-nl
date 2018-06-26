@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 0aadfd809fefa73af6869d496f6d88d6dc9df59e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: cfbf4dc08ccea95f99216f6cc82c1ee56d65768a
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36269575"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943348"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Microsoft Graph API aanroepen vanuit een JavaScript-één pagina toepassing (SPA)
 
@@ -33,7 +33,7 @@ Deze handleiding wordt uitgelegd hoe een JavaScript één pagina toepassing (SPA
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
 
-De voorbeeldtoepassing die is gemaakt door deze handleiding kunt een SPA JavaScript query uitvoeren op de Microsoft Graph API of een Web-API die tokens van Azure Active Directory-v2-eindpunt accepteert. Voor dit scenario, nadat een gebruiker zich aanmeldt, wordt een toegangstoken aangevraagd en toegevoegd aan de HTTP-aanvragen via de autorisatie-header. Token verkrijgen en verlenging worden afgehandeld door de Microsoft Authentication Library (MSAL).
+De voorbeeldtoepassing die is gemaakt door deze handleiding kunt een SPA JavaScript query uitvoeren op de Microsoft Graph API of een Web-API die tokens van Azure Active Directory-v2-eindpunt accepteert. Voor dit scenario, nadat een gebruiker zich aanmeldt, is een toegangstoken aangevraagd en toegevoegd aan de HTTP-aanvragen via de autorisatie-header. Token verkrijgen en verlenging worden afgehandeld door de Microsoft Authentication Library (MSAL).
 
 <!--end-collapse-->
 

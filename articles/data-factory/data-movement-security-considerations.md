@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 80cec0bc8136142f30ea7b957de819379b1bb139
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9061e12ac9fe0b9d858690897e582acab5169e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619130"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754478"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor gegevensverplaatsing in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ In dit artikel beschrijft de infrastructuur van de basisprincipes van beveiligin
 
 In een Data Factory-oplossing maakt u een of meer gegevens[pijplijnen](concepts-pipelines-activities.md). Een pijplijn is een logische groep activiteiten die samen een taak uitvoeren. Deze pijplijnen zich bevinden in de regio waar de gegevensfactory is gemaakt. 
 
-Hoewel Data Factory is alleen beschikbaar in de VS-Oost, VS-Oost 2 en West-Europa regio's (preview versie 2), data movement service is beschikbaar [globaal in meerdere regio's](concepts-integration-runtime.md#azure-ir). Als data movement service nog niet is geïmplementeerd voor deze regio, wordt de Data Factory-service zorgt ervoor dat gegevens laat een geografisch gebied of regio tenzij u expliciet de opdracht de service geven moet gebruiken een andere regio. 
+Hoewel Data Factory alleen beschikbaar in enkele regio's is, is het data movement service [beschikbaar globaal](concepts-integration-runtime.md#integration-runtime-location) gegevens om compatibiliteit te garanderen, efficiëntie en minder netwerk uitgaande kosten. 
 
 Azure Data Factory slaat geen gegevens, met uitzondering van referenties van de gekoppelde service voor cloud-gegevensarchieven, die zijn gecodeerd met behulp van certificaten. Met Data Factory u gegevensgestuurde werkstromen maken voor het indelen van de verplaatsing van gegevens tussen [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats), en het verwerken van gegevens met behulp van [compute-services](compute-linked-services.md) in andere regio's of in een on-premises omgeving. U kunt ook bewaken en beheren van werkstromen met behulp van SDK's en Azure-Monitor.
 
@@ -42,7 +42,7 @@ Verplaatsing van gegevens met behulp van de Data Factory is gecertificeerd voor:
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
 -   [CSA STER](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
-Als u geïnteresseerd in Azure compatibiliteit en hoe Azure de eigen infrastructuur beveiligt bent, gaat u naar de [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
+Als u geïnteresseerd in Azure compatibiliteit en hoe Azure de eigen infrastructuur beveiligt bent, gaat u naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 In dit artikel controleert u beveiligingsoverwegingen in de volgende twee data movement scenario's: 
 
@@ -83,7 +83,7 @@ Amazon S3 ondersteunt zowel client als server versleuteling van gegevens in rust
 #### <a name="amazon-redshift"></a>Amazon Redshift
 Amazon Redshift ondersteunt cluster versleuteling voor gegevens in rust. Zie voor meer informatie [Amazon Redshift Databaseversleuteling](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
-#### <a name="salesforce"></a>SalesForce
+#### <a name="salesforce"></a>Salesforce
 SalesForce ondersteunt Shield Platform versleuteling waarmee versleuteling van alle bestanden, bijlagen en aangepaste velden. Zie voor meer informatie [inzicht in de Web Server OAuth-verificatie stromen](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Hybride scenario 's
@@ -121,7 +121,7 @@ Azure-netwerk is een logische representatie van uw netwerk in de cloud. U kunt e
 
 De volgende tabel geeft een overzicht van het netwerk en aanbevelingen voor de configuratie van host zichzelf integratie runtime op basis van verschillende combinaties van de bron en bestemming locaties voor hybride gegevensverplaatsing.
 
-| Bron      | Doel                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
+| Bron      | Bestemming                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec VPN (punt-naar-site of site-naar-site) | De runtime host zichzelf integratie kan worden on-premises geïnstalleerd of op een virtuele machine van Azure in een virtueel netwerk. |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (privépeering)           | De runtime host zichzelf integratie kan worden on-premises geïnstalleerd of op een virtuele machine van Azure in een virtueel netwerk. |

@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure back-up. VM-agent; Verbinding met het netwerk;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606355"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754482"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup-fout oplossen: problemen met de agent of de extensie
 
@@ -84,15 +84,15 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 ### <a name="the-vm-has-no-internet-access"></a>De virtuele machine heeft geen toegang tot internet
 De virtuele machine geen toegang tot internet, per de implementatievereiste. Of het beperkingen die voorkomen toegang tot de Azure-infrastructuur dat hebt.
 
-Voor een juiste werking van de Backup-extensie is verbinding naar Azure openbare IP-adressen vereist. De extensie stuurt opdrachten naar een Azure-opslag-eindpunt (http-URL) voor het beheren van de momentopnamen van de virtuele machine. Als de extensie heeft geen toegang tot het openbare internet, wordt uiteindelijk de back-up mislukt.
+Voor een juiste werking van de Backup-extensie is verbinding naar Azure openbare IP-adressen vereist. De extensie stuurt opdrachten naar een Azure-opslag-eindpunt (HTTPs-URL) voor het beheren van de momentopnamen van de virtuele machine. Als de extensie heeft geen toegang tot het openbare internet, wordt uiteindelijk de back-up mislukt.
 
-Deze het mogelijk voor het implementeren van een proxyserver om de VM-verkeer te routeren.
-##### <a name="create-a-path-for-http-traffic"></a>Een pad voor HTTP-verkeer maken
+Het is mogelijk voor het implementeren van een proxyserver om de VM-verkeer te routeren.
+##### <a name="create-a-path-for-https-traffic"></a>Een pad voor HTTPs-verkeer maken
 
 1. Als u beschikken over netwerkbeperkingen (bijvoorbeeld een netwerkbeveiligingsgroep), implementeert u een HTTP-proxyserver om het verkeer te routeren.
-2. Als u wilt toegang tot het internet toestaat vanaf de HTTP-proxyserver, regels toevoegen aan de netwerkbeveiligingsgroep als er een.
+2. Voor toegang tot het internet van de proxyserver HTTPs, regels toevoegen aan de netwerkbeveiligingsgroep als er een.
 
-Zie voor meer informatie over het instellen van een HTTP-proxy voor VM-back-ups, [voorbereiden van uw back-up van virtuele machines in Azure-omgeving](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+Zie voor meer informatie over het instellen van een HTTPs-proxy voor VM-back-ups, [voorbereiden van uw back-up van virtuele machines in Azure-omgeving](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 De back-up VM of de proxy-server waarmee het verkeer wordt gerouteerd vereist toegang tot Azure openbare IP-adressen
 
@@ -121,7 +121,7 @@ De VM-agent is beschadigd of de service is gestopt. De VM-agent opnieuw te insta
 2. Als de service Windows Guest Agent niet worden weergegeven in de services in het Configuratiescherm, gaat u naar **programma's en onderdelen** om te bepalen of de service Windows Guest-Agent is geïnstalleerd.
 4. Als de Windows Guest-Agent wordt weergegeven in **programma's en onderdelen**, verwijdert u de Windows Guest-Agent.
 5. Download en installeer de [meest recente versie van de agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet beheerdersrechten om de installatie te voltooien.
-6. Controleer of de Gast-Agent voor Windows-services wordt weergegeven in de services.
+6. Controleer of de Gast-Agent voor Windows-services worden weergegeven in de services.
 7. Een back-up van op aanvraag uitvoeren: 
     * Selecteer in de portal **back-up nu**.
 

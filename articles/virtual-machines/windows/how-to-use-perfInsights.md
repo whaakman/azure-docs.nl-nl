@@ -3,7 +3,7 @@ title: Het gebruik van PerfInsights in Microsoft Azure | Microsoft Docs
 description: Leert PerfInsights gebruiken voor het oplossen van prestatieproblemen met virtuele machine van Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
-author: genlin
+author: anandhms
 manager: cshepard
 editor: na
 tags: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160655"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946487"
 ---
-# <a name="how-to-use-perfinsights"></a>Het gebruik van PerfInsights 
+# <a name="how-to-use-perfinsights"></a>Het gebruik van PerfInsights
 
 [PerfInsights](http://aka.ms/perfinsightsdownload) is een hulpprogramma van zelfhulp diagnostische gegevens die worden verzameld en analyseert de diagnostische gegevens en biedt een rapport voor het oplossen van problemen met Windows virtuele machine de prestaties in Azure. PerfInsights kan worden uitgevoerd op virtuele machines als een zelfstandig hulpprogramma of rechtstreeks vanuit de portal door installeren [Azure prestaties diagnostische VM-extensie](performance-diagnostics-vm-extension.md).
 
@@ -31,7 +31,7 @@ Als u prestatieproblemen met virtuele machines, voordat u contact op met onderst
 
 PerfInsights kunt verzamelen en analyseren van verschillende soorten gegevens. Algemene scenario's hebben betrekking op de volgende secties.
 
-### <a name="collect-basic-configuration"></a>Basisconfiguratie verzamelen 
+### <a name="quick-performance-analysis"></a>Snelle prestatieanalyse
 
 Dit scenario verzamelt configuratie van de schijf en andere belangrijke informatie, waaronder:
 
@@ -64,11 +64,11 @@ Dit scenario wordt uitgevoerd de [Diskspd](https://github.com/Microsoft/diskspd)
 > Dit scenario kan invloed hebben op het systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsvenster om eventuele problemen te voorkomen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test kan een nadelige invloed heeft op de prestaties van uw virtuele machine.
 >
 
-### <a name="slow-vm-analysis"></a>Analyse van trage VM 
+### <a name="slow-vm-analysis"></a>Analyse van trage VM
 
 Dit scenario wordt uitgevoerd een [prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) traceren met behulp van de items die zijn opgegeven in het bestand RuleEngineConfig.json. Als de virtuele machine wordt geïdentificeerd als een server waarop SQL Server wordt uitgevoerd, wordt een teller prestatietracering wordt uitgevoerd. Dit gebeurt met behulp van de items die zijn gevonden in het bestand RuleEngineConfig.json. Dit scenario omvat ook de prestatiegegevens van de diagnostische gegevens.
 
-### <a name="azure-files-analysis"></a>Azure bestanden analyse 
+### <a name="azure-files-analysis"></a>Azure Files analyse
 
 Dit scenario voert een speciale prestaties teller vastleggen samen met een netwerktracering maken. Het vastleggen omvat alle Server Message Block (SMB) client shares prestatiemeteritems. Hier volgen enkele belangrijke SMB-share clientprestatietellers die deel van het vastleggen uitmaken:
 
@@ -90,9 +90,9 @@ Dit scenario voert een speciale prestaties teller vastleggen samen met een netwe
 |              | Gem. Wachtrijlengte voor schrijven       |
 |              | Gem. Wachtrijlengte van gegevens        |
 
-### <a name="custom-slow-vm-analysis"></a>Aangepaste analyse van trage VM 
+### <a name="advanced-slow-vm-analysis"></a>Geavanceerde analyse van trage VM
 
-Als u een aangepaste trage VM-analyse uitvoeren, selecteert u traceringen tegelijkertijd worden uitgevoerd. Als u wilt, kunt u ze op alle (prestatiemeteritem, Xperf, netwerk en StorPort) uitvoeren.  
+Als u een geavanceerde analyse van trage VM uitvoert, selecteert u traceringen tegelijkertijd worden uitgevoerd. Als u wilt, kunt u ze op alle (prestatiemeteritem, Xperf, netwerk en StorPort) uitvoeren.  
 
 > [!Note]
 > Dit scenario kan invloed hebben op het systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsvenster om eventuele problemen te voorkomen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test kan een nadelige invloed heeft op de prestaties van uw virtuele machine.
@@ -104,7 +104,7 @@ Registreert informatie over de virtuele machine van Windows, schijven of groepen
 
 |Gegevens die worden verzameld                              |  |  | Scenario's voor prestaties |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Basisconfiguratie verzamelen | Benchmarking | Analyse van trage VM | Azure bestanden analyse | Aangepaste analyse van trage VM |
+|                               | Snelle prestatieanalyse | Benchmarking | Analyse van trage VM | Azure Files analyse | Geavanceerde analyse van trage VM |
 | Gegevens van gebeurtenislogboeken       | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Informatie over het bestandssysteem                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Volume-kaart                        | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
@@ -171,9 +171,9 @@ Diskspd i/o-werkbelasting tests (Besturingssysteemschijf [schrijven] en groep st
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Mogelijke problemen wanneer u het hulpprogramma voor productie-virtuele machines uitvoeren
 
--  Voor het scenario benchmarking of het 'Aangepaste trage VM analysis'-scenario dat is geconfigureerd voor gebruik van Xperf of Diskspd, het hulpprogramma mogelijk nadelige invloed heeft op de prestaties van de virtuele machine. Deze scenario's moeten niet worden uitgevoerd in een werkende productieomgeving.
+-  Voor het scenario benchmarking of het 'Advanced trage VM Analysis'-scenario dat is geconfigureerd voor gebruik van Xperf of Diskspd, het hulpprogramma mogelijk nadelige invloed heeft op de prestaties van de virtuele machine. Deze scenario's moeten niet worden uitgevoerd in een werkende productieomgeving.
 
--  Zorg ervoor dat er geen andere activiteit op de achtergrond de i/o-werkbelasting verstoort voor het scenario benchmarking of het 'Aangepaste trage VM analysis'-scenario dat is geconfigureerd voor gebruik van Diskspd.
+-  Zorg ervoor dat er geen andere activiteit op de achtergrond de i/o-werkbelasting verstoort voor het scenario benchmarking of het 'Advanced trage VM Analysis'-scenario dat is geconfigureerd voor gebruik van Diskspd.
 
 -  Het hulpprogramma maakt standaard gebruik van het station voor tijdelijke opslag om gegevens te verzamelen. Als u tracering blijft ingeschakeld gedurende een langere periode, kan de hoeveelheid gegevens die worden verzameld relevant zijn. Dit verkleint de beschikbaarheid van de tijdelijke schijfruimte en kan daarom van invloed op alle toepassingen die afhankelijk van dit station is.
 
@@ -218,10 +218,16 @@ Voor het uitvoeren van het hulpprogramma PerfInsights, de volgende stappen uit:
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Het volgende voorbeeld kunt u het aangepaste scenario met Xperf en prestaties van de teller traceringen, 5 minuten worden uitgevoerd:
+    Het volgende voorbeeld kunt u de geavanceerde scenario met Xperf en prestaties van de teller traceringen, 5 minuten worden uitgevoerd:
     
     ```
-    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
+
+    U kunt het onderstaande voorbeeld trage VM scenario voor 5 minuten worden uitgevoerd en het resultaat zip-bestand uploaden naar het storage-account:
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
     U de beschikbare scenario's en opties kunt opzoeken met behulp van de **/lijst** opdracht:
@@ -237,7 +243,7 @@ Voor het uitvoeren van het hulpprogramma PerfInsights, de volgende stappen uit:
     >
     >Standaard probeert PerfInsights zichzelf bijwerken naar de nieuwste versie, indien beschikbaar. Gebruik **/SkipAutoUpdate** of **/sau** -parameter voor het overslaan van automatische updates.  
     >
-    >Als de duur overschakelt **/d** niet is opgegeven, PerfInsights wordt u gevraagd om te reproduceren het probleem tijdens het uitvoeren van aangepaste scenario's, azurefiles en vmslow. 
+    >Als de duur overschakelt **/d** niet is opgegeven, PerfInsights wordt u gevraagd om te reproduceren het probleem tijdens het uitvoeren van vmslow, azurefiles en geavanceerde scenario's. 
 
 Wanneer de traceringen of bewerkingen zijn voltooid, verschijnt er een nieuw bestand in dezelfde map als PerfInsights. De naam van het bestand is **CollectedData\_jjjj-MM-dd\_hh mm-ss fff.zip.** U kunt dit bestand naar de agent ondersteuning voor analyse sturen of opent u het rapport in het zip-bestand om te controleren bevindingen en aanbevelingen.
 
@@ -251,9 +257,9 @@ Selecteer de **bevindingen** tabblad.
 ![schermopname van rapport PerfInsights](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> Bevindingen gecategoriseerd als kritiek zijn bekende problemen die prestatieproblemen kunnen veroorzaken. Bevindingen geclassificeerd als belangrijk vertegenwoordigen niet optimaal configuraties die niet noodzakelijkerwijs prestatieproblemen veroorzaken. Bevindingen aangemerkt als informatief zijn alleen informatief instructies.
+> Bevindingen gecategoriseerd als hoog zijn bekende problemen die prestatieproblemen kunnen veroorzaken. Bevindingen gecategoriseerd als Gemiddeld vertegenwoordigen niet optimaal configuraties die niet noodzakelijkerwijs prestatieproblemen veroorzaken. Bevindingen aangemerkt als lage zijn alleen informatief instructies.
 
-Bekijk de aanbevelingen en koppelingen voor alle essentiële en belangrijke bevindingen. Meer informatie over hoe ze invloed hebben op prestaties en over best practices voor optimale prestaties van configuraties.
+Bekijk de aanbevelingen en koppelingen naar alle hoge en gemiddelde bevindingen. Meer informatie over hoe ze invloed hebben op prestaties en over best practices voor optimale prestaties van configuraties.
 
 ### <a name="storage-tab"></a>Tabblad opslag
 

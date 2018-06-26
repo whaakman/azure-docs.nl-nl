@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 5541a2fff6bb54f5d62518e7edf54fb9150e3109
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249285"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751794"
 ---
-# <a name="back-up-sql-server-on-azure-stack"></a>Back-up van SQL Server op Azure-Stack
+# <a name="back-up-sql-server-on-stack"></a>Back-up van SQL Server op de Stack
 Gebruik dit artikel voor het configureren van Microsoft Azure Backup Server (MABS) ter bescherming van SQL Server-databases op Azure-Stack.
 
 Het beheer van SQL Server-database back-up naar Azure en herstel van Azure omvat drie stappen:
 
-1. Maak een back-upbeleid ter bescherming van SQL Server-databases naar Azure.
-2. Maken van back-ups op aanvraag naar Azure.
-3. Herstel de database uit Azure.
+1. Maak een back-upbeleid ter bescherming van SQL Server-databases
+2. Back-ups op aanvraag maken
+3. De database herstellen van schijven en naar Azure
 
 ## <a name="before-you-start"></a>Voordat u begint
 
@@ -63,12 +63,6 @@ Het beheer van SQL Server-database back-up naar Azure en herstel van Azure omvat
    >
 
 7. Op de **Controleer toegewezen schijfruimte** scherm, controleert u of de totale opslagruimte beschikbaar is en de potentiële schijfruimte. Klik op **Volgende**.
-
-    ![Toegewezen schijfruimte](./media/backup-azure-backup-sql/pg-storage.png)
-
-    Azure Backup-Server maakt standaard één volume per gegevensbron (SQL Server-database) dat wordt gebruikt voor de eerste back-up. Met deze benadering beperkt de Logical Disk Manager (LDM) Azure Backup-beveiliging met 300 gegevensbronnen (SQL Server-databases). U kunt deze beperking omzeilen, selecteer **dezelfde gegevens in de DPM-opslaggroep plaatsen**. Azure Backup-Server één volume gebruikt voor meerdere gegevensbronnen en maximaal 2000 databases van SQL Server kunt beveiligen met CO-locatie.
-
-    Als u selecteert **volumes automatisch vergroten**, Azure Backup-Server voor het toegenomen volume voor back-accounts wanneer productiegegevens groeit. Als u de optie niet selecteert, beperkt Azure Backup-Server de back-upopslag gebruikt voor de gegevensbronnen in de beveiligingsgroep.
 
 8. In de **methode voor maken van selecteren Replica**, kiest u het eerste herstelpunt maken. U kunt de eerste back-up handmatig (uit netwerk) overdragen om overbelasting van de bandbreedte te voorkomen of via het netwerk. Als u wachten om over te dragen van de eerste back-up wilt, kunt u de tijd voor de eerste overdracht opgeven. Klik op **Volgende**.
 
@@ -111,12 +105,7 @@ Het beheer van SQL Server-database back-up naar Azure en herstel van Azure omvat
     * De back-up elke zaterdag om 12:00 uur 104 weken wordt bewaard
     * De back-up op de laatste zaterdag om 12:00 uur 60 maanden bewaard
     * De back-up op de laatste zaterdag maart om 12:00 uur tien jaar worden bewaard
-13. Klik op **volgende** en selecteer de relevante optie voor het overdragen van de eerste back-up naar Azure. U kunt kiezen **automatisch via het netwerk** of **Offline back-up**.
-
-    * **Automatisch via het netwerk** worden de back-upgegevens naar Azure volgens het schema voor back-up is gekozen.
-    * **Offline back-ups** wordt uitgelegd op [Offlineback-upwerkstroom in Azure Backup](backup-azure-backup-import-export.md).
-
-    Kies de relevante gegevensoverdrachtmechanisme voor het verzenden van de eerste back-up naar Azure, klik op **volgende**.
+13. Klik op **volgende** en selecteer de relevante optie voor het overdragen van de eerste back-up naar Azure. U kunt kiezen **automatisch via het netwerk**
 
 14. Zodra u de details van het beleid in controleren de **samenvatting** scherm, klikt u op **groep maken** om de werkstroom te voltooien. U kunt klikken op **sluiten** en voortgang van de taak in de werkruimte bewaking.
 
@@ -147,11 +136,11 @@ De volgende stappen zijn vereist voor het herstellen van een beveiligde entiteit
 2. Met de rechtermuisknop op de naam van de database en klik op **herstellen**.
 
     ![Herstellen van Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM geeft de details van het herstelpunt. Klik op **Volgende**. Voor het overschrijven van de database, selecteert u het hersteltype **herstellen naar oorspronkelijk exemplaar van SQL Server**. Klik op **Volgende**.
+3. MABS bevat de details van het herstelpunt. Klik op **Volgende**. Voor het overschrijven van de database, selecteert u het hersteltype **herstellen naar oorspronkelijk exemplaar van SQL Server**. Klik op **Volgende**.
 
     ![Herstellen naar oorspronkelijke locatie](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    In dit voorbeeld herstelt DPM de database naar een ander exemplaar van SQL Server of naar een netwerkmap zelfstandige.
+    In dit voorbeeld wordt de database naar een ander exemplaar van SQL Server of naar een netwerkmap zelfstandige met MABS hersteld.
 
 4. In de **herstelopties opgeven** scherm kunt u de opties voor Systeemherstel zoals netwerkbandbreedtegebruik de bandbreedte die wordt gebruikt door de herstelbewerking beperken. Klik op **Volgende**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 50338e05241be9ce573ff3dd3bb99711cbf15b28
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248534"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938006"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor voorspeld onderhoud oplossingen
 
@@ -230,7 +230,7 @@ Technische specificaties van de apparatuur zoals datum van vervaardiging, modeln
 
 De gegevens voorbereiding inspanningen besproken tot nu toe mag leiden tot de gegevens worden geordend zoals hieronder wordt weergegeven. Training, test en validatie van gegevens, moet deze logische schema (in dit voorbeeld laat zien in eenheden van dagen) hebben.
 
-| Activa-id | Time | <Feature Columns> | Label |
+| Activa-id | Tijd | <Feature Columns> | Label |
 | ---- | ---- | --- | --- |
 | A123 |1 dag | . . . | . |
 | A123 |Dag 2 | . . . | . |
@@ -255,7 +255,7 @@ Deze sectie worden de belangrijkste modelleringstechnieken voor PdM problemen, s
 > De keuze van de labels voor de gevallen mislukt en de strategie voor de labels  
 > moet in overleg met het domein deskundige worden bepaald.
 
-### <a name="binary-classification"></a>binaire classificatie
+### <a name="binary-classification"></a>Binaire classificatie
 Binaire classificatie wordt gebruikt voor _de kans dat een apparaat is mislukt binnen een toekomstige periode te voorspellen_ - opgeroepen de _toekomstige horizon periode X_. X wordt bepaald door het zakelijke probleem en de gegevens bij de hand in overleg met het domein deskundige. Voorbeelden zijn:
 - _minimale doorlooptijd_ vereist voor het vervangen van onderdelen, onderhoud resources implementeren, uitvoeren van onderhoud om een probleem dat zeer waarschijnlijk zal optreden in die periode te voorkomen.
 - _minimum aantal gebeurtenissen dat_ dat kan gebeuren voordat er een probleem optreedt.
@@ -350,7 +350,7 @@ In de problemen met de classificatie, als er meer voorbeelden van een klasse dan
 Veel PdM problemen hebben dergelijke imbalanced gegevenssets heeft, waarbij één klasse ernstig is underrepresented vergeleken met de andere klasse of klassen te maken. In sommige gevallen kan de klasse minderheid alleen 0,001% van de totale gegevenspunten vormen. Klasse onbalans is niet uniek is voor PdM. Andere domeinen waar storingen en afwijkingen zeldzame instanties zijn hebben een soortgelijk probleem, voor voorbeelden, fraude te detecteren en inbraakdetectie netwerk te maken. Deze fouten vormen in de voorbeelden van de klasse minderheid.
 
 Met de klasse verstoord gegevens, prestaties van de meeste standaard learning-algoritmen ermee is geknoeid, omdat ze zijn bedoeld om u te minimaliseren, de frequentie van algemene fouten. Voor een gegevensset met 99% negatieve en positieve voorbeelden 1% kan een model voor 99% nauwkeurigheid hebben die door alle exemplaren negatief labels worden weergegeven. Maar het model wordt niet alle positieve voorbeelden; classificeren dus zelfs als de nauwkeurigheid hoog is, wordt de algoritme niet een handig is. Als gevolg daarvan kan conventionele evaluatie metrische gegevens zoals _algehele nauwkeurigheid van de frequentie van fouten_ ontoereikend zijn voor imbalanced learning. Als u bijvoorbeeld imbalanced gegevenssets, worden andere metrische gegevens worden gebruikt voor evaluatie van het model:
-- precisie
+- Precisie
 - Terughalen
 - F1 scores
 - Kosten aangepast ROC (ontvanger operationele kenmerken)
@@ -434,7 +434,7 @@ Microsoft Azure biedt gratis inhoud en training voor algemene AI-concepten en pr
 |:-------------------|--------------|
 | [AI-ontwikkelaar in Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Openbaar |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Openbaar |
-| [Azure AI leren van GitHub](http://azure.github.io/learnanalytics/public) | Openbaar |
+| [Azure AI leren van GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Openbaar |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Openbaar |
 | [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Openbaar |
 | [Microsoft AI weergeven](http://channel9.msdn.com/Shows/AI-Show) | Openbaar |

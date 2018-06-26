@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: bc24465fa0efc9c473a78503d18200ea5b361920
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8e260b8dabb4c6823d59374a7b8661e024f1b3d
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644603"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752268"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Bewaken en beheren van de prestaties van Azure SQL-databases en opslaggroepen in een multitenant SaaS-app
 
 In deze zelfstudie worden de verschillende prestatie scenario's voor beheer in de SaaS-toepassingen gebruikt verkend. Met behulp van een load-generator om te simuleren activiteit voor alle databases van de tenant, worden de ingebouwde bewaking en waarschuwingen van de functies van SQL-Database en elastische pools gedemonstreerd.
 
-De app Wingtip Tickets SaaS Database Per Tenant gebruikmaakt van een één-tenant-gegevensmodel waar elke locatie vast (tenant) hun eigen database heeft. Net als bij veel andere SaaS-toepassingen, is het verwachte tenantworkloadpatroon onvoorspelbaar en sporadisch. Met andere woorden, kaartverkoop kan op ieder moment plaatsvinden. Tenantdatabases worden geïmplementeerd in pools voor Elastic Database om te profiteren van dit typerende patroon voor databasegebruik. Elastische pools verlagen de kosten van een oplossing door resources over veel databases te verdelen. Bij dit type patroon is het belangrijk om het gebruik van database- en poolresources te controleren om ervoor te zorgen dat loads goed over pools zijn verdeeld. Ook moet u ervoor zorgen dat individuele databases voldoende resources hebben en dat pools niet hun [eDTU](sql-database-what-is-a-dtu.md)-limieten overschrijden. In deze zelfstudie worden manieren toegelicht om databases en pools te controleren en beheren. Ook wordt uitgelegd hoe u corrigerende maatregelen kunt nemen als reactie op wisselingen in de workload.
+De app Wingtip Tickets SaaS Database Per Tenant gebruikmaakt van een één-tenant-gegevensmodel waar elke locatie vast (tenant) hun eigen database heeft. Net als bij veel andere SaaS-toepassingen, is het verwachte tenantworkloadpatroon onvoorspelbaar en sporadisch. Met andere woorden, kaartverkoop kan op ieder moment plaatsvinden. Tenantdatabases worden geïmplementeerd in pools voor Elastic Database om te profiteren van dit typerende patroon voor databasegebruik. Elastische pools verlagen de kosten van een oplossing door resources over veel databases te verdelen. Bij dit type patroon is het belangrijk om het gebruik van database- en poolresources te controleren om ervoor te zorgen dat loads goed over pools zijn verdeeld. Ook moet u ervoor zorgen dat individuele databases voldoende resources hebben en dat pools niet hun [eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)-limieten overschrijden. In deze zelfstudie worden manieren toegelicht om databases en pools te controleren en beheren. Ook wordt uitgelegd hoe u corrigerende maatregelen kunt nemen als reactie op wisselingen in de workload.
 
 In deze zelfstudie leert u het volgende:
 
@@ -73,7 +73,7 @@ Als u al een batch van tenants in een eerdere zelfstudie voorzien, gaat u naar d
 
 Het script implementeert 17 tenants in minder dan vijf minuten.
 
-De *nieuw TenantBatch* script maakt gebruik van een geneste of gekoppelde set [Resource Manager](../azure-resource-manager/index.md) sjablonen die een batch-tenants, die standaard kopieert u de database maken **basetenantdb** op de catalogusserver de nieuwe tenant om databases te maken, klikt u vervolgens registreert deze in de catalogus, en ten slotte als wordt geïnitialiseerd met de tenant naam en u wilt. Dit komt overeen met de manier waarop die de app voorziet in een nieuwe tenant. Wijzigingen in *basetenantdb* worden toegepast op alle nieuwe tenants daarna ingericht. Zie de [Schemabeheer zelfstudie](saas-tenancy-schema-management.md) om te zien hoe u wijzigingen in het schema voor *bestaande* tenant-databases (inclusief de *basetenantdb* database).
+De *nieuw TenantBatch* script maakt gebruik van een geneste of gekoppelde set [Resource Manager](../azure-resource-manager/index.md) sjablonen die een batch-tenants, die standaard kopieert u de database maken **basetenantdb**op de catalogusserver de nieuwe tenant om databases te maken, klikt u vervolgens registreert deze in de catalogus, en ten slotte als wordt geïnitialiseerd met de tenant naam en u wilt. Dit komt overeen met de manier waarop die de app voorziet in een nieuwe tenant. Wijzigingen in *basetenantdb* worden toegepast op alle nieuwe tenants daarna ingericht. Zie de [Schemabeheer zelfstudie](saas-tenancy-schema-management.md) om te zien hoe u wijzigingen in het schema voor *bestaande* tenant-databases (inclusief de *basetenantdb* database).
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Gebruik simuleren op alle tenantdatabases
 
@@ -240,7 +240,7 @@ In deze zelfstudie leert u het volgende:
 [Zelfstudie Een individuele tenant herstellen](saas-dbpertenant-restore-single-tenant.md)
 
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * Aanvullende [zelfstudies waarin voort op de toepassingsimplementatie Wingtip Tickets SaaS Database Per Tenant bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastische SQL-pools](sql-database-elastic-pool.md)

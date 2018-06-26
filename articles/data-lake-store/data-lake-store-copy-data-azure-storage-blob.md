@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7422c84851c766b608bc5951ec0472c8976e7ec0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 19657030c69d9d62fbbe0a8058e50238b2afa67f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624264"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750113"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Gegevens kopiëren van Azure Storage Blob naar Data Lake Store
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 ## <a name="syntax-of-the-adlcopy-tool"></a>Syntaxis van het hulpprogramma AdlCopy
 Gebruik de volgende syntaxis om te werken met het hulpprogramma AdlCopy
 
-    AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Unit <Number of Analytics units> /Pattern
+    AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Units <Number of Analytics units> /Pattern
 
 De parameters in de syntaxis worden hieronder beschreven:
 
@@ -137,7 +137,7 @@ Voor het gebruik van uw Data Lake Analytics-account met AdlCopy om van een Azure
 
 Voer de volgende opdracht uit een Azure Storage-blob kopiëren naar een Data Lake Store-account met behulp van Data Lake Analytics-account:
 
-    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Unit <number_of_data_lake_analytics_units_to_be_used>
+    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 
 Bijvoorbeeld:
 
@@ -163,7 +163,7 @@ In dit gedeelte vindt u informatie over het gebruik van AdlCopy om gegevens te k
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 * Als u het hulpprogramma AdlCopy als zelfstandige wordt u gefactureerd voor uitgaande kosten voor het verplaatsen van gegevens, als de bron van Azure Storage-account zich niet in dezelfde regio bevinden als de Data Lake Store.
 * Als u het hulpprogramma AdlCopy met uw Data Lake Analytics gebruiken-account standaard [Data Lake Analytics facturering tarieven](https://azure.microsoft.com/pricing/details/data-lake-analytics/) wordt toegepast.
 

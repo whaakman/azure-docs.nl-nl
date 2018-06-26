@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 0b38054ec623dc34daa3d18612e3356475655f35
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dda37600dffaf1e8e1c85c9757696f2d8219febb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331322"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751667"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database aanschaffen van modellen en resources 
 
@@ -30,7 +30,7 @@ De volgende tabel en grafiek vergelijken en contrast van deze twee aankopen mode
 
 |**Aankoopmodel**|**Beschrijving**|**Bij beste voor**|
 |---|---|---|
-|Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van de berekenings-, opslag- en i/o-resources. Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Transaction Units) voor enkelvoudige databases en eDTU’s (eDTU’s: elastische DTU’s) voor elastische pools. Zie voor meer informatie over dtu's en edtu's [wat dtu's en edtu's zijn](sql-database-what-is-a-dtu.md)?|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.| 
+|Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van de berekenings-, opslag- en i/o-resources. Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Transaction Units) voor enkelvoudige databases en eDTU’s (eDTU’s: elastische DTU’s) voor elastische pools. Zie voor meer informatie over dtu's en edtu's [wat dtu's en edtu's zijn](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.| 
 |Model op basis van vCore|Dit model kunt u de berekenings-en opslagbronnen onafhankelijk van elkaar schalen. Ook kunt u Azure hybride voordeel voor SQL Server gebruiken om te krijgen van kosten te besparen.|Bij beste voor flexibiliteit, controle en transparantie value-klanten.|
 ||||  
 
@@ -124,7 +124,7 @@ De werkbelasting bestaat uit negen transactietypen, zoals weergegeven in de onde
 | Zware bijwerken |UPDATE; meestal niet in het geheugen; lezen / schrijven |
 | INSERT Lite |INSERT; in het geheugen; lezen / schrijven |
 | Zware invoegen |INSERT; meestal niet in het geheugen; lezen / schrijven |
-| Delete |VERWIJDEREN; combinatie van in het geheugen en niet in het geheugen; lezen / schrijven |
+| Verwijderen |VERWIJDEREN; combinatie van in het geheugen en niet in het geheugen; lezen / schrijven |
 | CPU-zware |SELECTEER; in het geheugen; relatief intensief CPU-belasting; alleen-lezen |
 
 ### <a name="workload-mix"></a>Combinatie van de werkbelasting
@@ -139,7 +139,7 @@ Transacties worden willekeurig geselecteerd uit een gewogen distributiepunt met 
 | Zware bijwerken |3 |
 | INSERT Lite |3 |
 | Zware invoegen |2 |
-| Delete |2 |
+| Verwijderen |2 |
 | CPU-zware |10 |
 
 ### <a name="users-and-pacing"></a>Gebruikers- en pacing
@@ -162,9 +162,9 @@ Bijvoorbeeld, een scale-factor van 500 (SF = 500)-database heeft 100 gebruikers 
 
 De onderstaande tabel ziet het aantal gebruikers daadwerkelijk aanhoudend voor elke prijscategorie en prestatieniveau serviceniveau.
 
-| Servicelaag (prestatieniveau) | Gebruikers | Databasegrootte |
+| Servicelaag (prestatieniveau) | Gebruikers | Databaseomvang |
 | --- | --- | --- |
-| Standaard |5 |720 MB |
+| Basic |5 |720 MB |
 | Standard (S0) |10 |1 GB |
 | Standard (S1) |20 |2.1 GB |
 | Standard (S2) |50 |7.1 GB |
@@ -175,7 +175,7 @@ De onderstaande tabel ziet het aantal gebruikers daadwerkelijk aanhoudend voor e
 ### <a name="measurement-duration"></a>Duur van de meting
 Een geldig benchmark uitvoeren vereist een actieve status meting duur van ten minste één uur.
 
-### <a name="metrics"></a>Waarden
+### <a name="metrics"></a>Metrische gegevens
 De belangrijkste metrische gegevens in de benchmark zijn doorvoer en reactietijd.
 
 * Doorvoer is de essentiële prestatiemeting die in de benchmark. Doorvoer wordt vermeld in transacties per eenheid-van-time, waarbij alle transactietypen wordt geteld.
@@ -184,8 +184,8 @@ De belangrijkste metrische gegevens in de benchmark zijn doorvoer en reactietijd
 | Klasse van Service | Doorvoer meting | Antwoord tijd vergt |
 | --- | --- | --- |
 | Premium |Transacties per seconde |95e percentiel op 0,5 seconden |
-| Standaard |Transacties per minuut |90 percentiel op 1,0 seconden |
-| Standaard |Transacties per uur |80e percentiel op 2.0 seconden |
+| Standard |Transacties per minuut |90 percentiel op 1,0 seconden |
+| Basic |Transacties per uur |80e percentiel op 2.0 seconden |
 
 ## <a name="next-steps"></a>Volgende stappen
 

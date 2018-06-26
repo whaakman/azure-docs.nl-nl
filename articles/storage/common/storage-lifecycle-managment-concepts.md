@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248466"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752789"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Het beheren van de levenscyclus van de Azure Blob Storage (Preview)
 
@@ -93,7 +93,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 > [!NOTE]
 Als u firewallregels voor uw opslagaccount inschakelt, worden de levenscyclus van management-aanvragen geblokkeerd. U kunt deze blokkering opheffen door te geven van uitzonderingen. Zie voor meer informatie de sectie uitzonderingen op [configureren van firewalls en virtuele netwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-## <a name="policies"></a>Beleidsregels
+## <a name="policies"></a>Beleid
 
 Een levenscyclus management-beleid is een verzameling van regels in een JSON-document:
 
@@ -186,7 +186,7 @@ Acties worden toegepast op de gefilterde blobs wanneer de uitvoering voorwaarde 
 
 In de preview ondersteunt levenscyclusbeheer in lagen en verwijderen van blob en het verwijderen van blob-momentopnamen. Elke regel moet ten minste één actie gedefinieerd op blobs of blob momentopnamen hebben.
 
-| Bewerking        | Base Blob                                   | Momentopname      |
+| Actie        | Base Blob                                   | Momentopname      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Ondersteuning voor blobs dat zich momenteel in de Hot-laag         | Niet ondersteund |
 | tierToArchive | Ondersteuning voor blobs dat zich momenteel in de Hot of Cool laag | Niet ondersteund |
@@ -265,7 +265,7 @@ Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn op
 
 ### <a name="expire-data-based-on-age"></a>Gegevens op basis van de leeftijd verlopen
 
-Sommige gegevens wordt verloopt dagen of maanden na het maken van een kosten te verlagen of voldoen aan wettelijke voorschriften verwacht. Een levenscyclus management-beleid kan worden ingesteld om te verlopen datum door verwijdering op basis van de leeftijd van gegevens. Het volgende voorbeeld ziet een beleid dat Hiermee verwijdert u alle blok-blobs (met geen voorvoegsel opgegeven) ouder zijn dan 365 dagen.
+Sommige gegevens wordt verloopt dagen of maanden na het maken van een kosten te verlagen of voldoen aan wettelijke voorschriften verwacht. Een levenscyclus management-beleid kan verloopt gegevens worden ingesteld door verwijdering op basis van de leeftijd van gegevens. Het volgende voorbeeld ziet een beleid dat Hiermee verwijdert u alle blok-blobs (met geen voorvoegsel opgegeven) ouder zijn dan 365 dagen.
 
 ```json
 {

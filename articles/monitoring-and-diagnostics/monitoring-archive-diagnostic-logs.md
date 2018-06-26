@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d1282fa005d609394dacc818c2cb729f580bc3fc
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d48828c8d2ec439f389fe4eddabb59599cc1680b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263487"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752823"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure logboeken met diagnostische gegevens archiveren
 
@@ -69,7 +69,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| ResourceId |Ja |Bron-ID van de resource waarop u wilt geen diagnostische instellen. |
+| resourceId |Ja |Bron-ID van de resource waarop u wilt geen diagnostische instellen. |
 | StorageAccountId |Nee |Resource-ID van het Opslagaccount waarin u de logboeken met diagnostische gegevens worden opgeslagen. |
 | Categorieën |Nee |Door komma's gescheiden lijst met categorieën logboek om in te schakelen. |
 | Ingeschakeld |Ja |Een Boolean die aangeeft of diagnostische gegevens zijn ingeschakeld of uitgeschakeld op deze resource. |
@@ -100,7 +100,7 @@ De `--resource-group` -argument is alleen vereist als `--storage-account` is nie
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Diagnostische logboeken archief via de REST-API
 
-[Dit document](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) voor meer informatie over hoe u een diagnostische instelling met de REST-API van Azure Monitor kunt instellen.
+[Dit document](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) voor meer informatie over hoe u een diagnostische instelling met de REST-API van Azure Monitor kunt instellen.
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Schema van diagnostische logboeken in de storage-account
 

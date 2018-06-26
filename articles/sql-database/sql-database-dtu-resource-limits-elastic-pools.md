@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: adf0cd8fb8511b01d2c8e773444b0af128102ad1
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 08dabf1ad66f69c5e0f55aedbc2a4d0bb265a0bd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309867"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752228"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limieten voor elastische pools met behulp van het DTU-aankoopmodel resources 
 
@@ -38,7 +38,7 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 | Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Maximaal aantal databases per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 |30.000 | 30.000 | 30.000 | 30.000 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Opties voor min-edtu's per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Opties van de Max edtu's per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Maximale opslag per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
@@ -53,7 +53,7 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 | Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | 
 | Maximaal aantal databases per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opties voor min-edtu's per database | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Opties van de Max edtu's per database | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
 | Maximale opslag per database (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
@@ -68,7 +68,7 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 | Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N/A | N/A | N/A | N/A | N/A | 
 | Maximaal aantal databases per pool | 500 | 500 | 500 | 500 | 500 | 
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 | 30000 | 
 | Opties voor min-edtu's per database | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Opties van de Max edtu's per database | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
 | Maximum aantal opslagopties per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 
@@ -83,7 +83,7 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 | Maximum aantal In het geheugen OLTP-opslag per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
 | Maximaal aantal databases per pool | 50 | 100 | 100 | 100 | 100 | 
 | Maximaal aantal gelijktijdige werknemers per pool (aanvragen) | 200 | 400 | 800 | 1600 | 2400 | 
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 | 30000 | 
 | Minimaal aantal eDTU’s per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
 | Maximaal aantal eDTU’s per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
 | Maximale opslag per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 
@@ -98,14 +98,14 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 | Maximum aantal In het geheugen OLTP-opslag per pool (GB) | 16 | 20 | 24 | 28 | 32 |
 | Maximaal aantal databases per pool | 100 | 100 | 100 | 100 | 100 | 
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 | 30000 | 
 | Opties voor min-edtu's per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | Opties van de Max edtu's per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | Maximale opslag per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
 > [!IMPORTANT]
-> Meer dan 1 TB aan opslag in de laag Premium is momenteel beschikbaar in alle regio's, behalve het volgende: VK Noord, West-Centraal VS, UK South2, China Oost, USDoDCentral, Duitsland centraal, USDoDEast, VS Gov linksonder, ons Gov Zuid-centraal, Duitsland noordoosten, China Noord, Gov VS-Oost. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Meer dan 1 TB aan opslag in de laag Premium is momenteel beschikbaar in alle regio's, behalve het volgende: VK Noord, West-Centraal VS, UK South2, China Oost, USDoDCentral, Duitsland centraal, USDoDEast, VS Gov linksonder, ons Gov Zuid-centraal, Duitsland noordoosten, China Noord, Gov VS-Oost. In andere regio’s is de maximale opslagruimte in het Premium-niveau beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Als alle DTU's van een elastische groep zijn gebruikt, ontvangt elke database in de groep een gelijke hoeveelheid resources om query's te verwerken. De service SQL Database verdeelt resources eerlijk over databases door gelijke hoeveelheden rekentijd te garanderen. Gelijke verdeling van resources in een elastische groep vindt plaats naast een bepaalde hoeveelheid resources die sowieso voor elke database wordt gegarandeerd wanneer het aantal DTU's per database is ingesteld op een andere waarde dan nul.
 
@@ -126,5 +126,5 @@ De volgende tabel beschrijft de eigenschappen voor gegroepeerde databases.
 
 - Zie [SQL Database Veelgestelde vragen over](sql-database-faq.md) voor antwoorden op veelgestelde vragen.
 - Zie voor meer informatie over de algemene Azure limieten [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md).
-- Zie voor meer informatie over dtu's en edtu's [dtu's en edtu's](sql-database-what-is-a-dtu.md).
+- Zie voor meer informatie over dtu's en edtu's [dtu's en edtu's](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Zie voor meer informatie over de maximale grootte tempdb https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

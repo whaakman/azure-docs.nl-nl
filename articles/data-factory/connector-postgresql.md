@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: a4f300666d0ab5345274d69d9ad6ad6871ce85e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 436725e54e197e021f088e0fd0cd75fc944983a3
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334037"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751374"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Gegevens kopiëren van PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ De volgende eigenschappen worden ondersteund voor PostgreSQL gekoppelde service:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **PostgreSql** | Ja |
 | connectionString | Een ODBC-verbindingsreeks verbinding maken met Azure-Database voor PostgreSQL. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
 Een typische verbindingsreeks is `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Meer eigenschappen die u per uw aanvraag instellen kunt:
 
@@ -78,6 +78,10 @@ Een typische verbindingsreeks is `Server=<server>;Database=<database>;Port=<port
                  "type": "SecureString",
                  "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -191,47 +195,51 @@ Bij het kopiëren van gegevens uit een PostgreSQL, worden de volgende toewijzing
 
 | PostgreSQL-gegevenstype | PostgresSQL aliassen | Data factory tussentijdse gegevenstype |
 |:--- |:--- |:--- |
-| `abstime` | |`Datetime` | &nbsp;
+| `abstime` |&nbsp; |`String` |
 | `bigint` | `int8` | `Int64` |
 | `bigserial` | `serial8` | `Int64` |
-| `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | ' varbit |Byte [] tekenreeks ' |
+| `bit [1]` |&nbsp; | `Boolean` |
+| `bit [(n)], n>1` |&nbsp; | `Byte[]` |
+| `bit varying [(n)]` | `varbit` |`Byte[]` |
 | `boolean` | `bool` | `Boolean` |
-| `box` | | `Byte[], String` | &nbsp;
-| `bytea` | | `Byte[], String` |&nbsp;
-| `character [ (n) ]` | `char [ (n) ]` | `String` |
-| `character varying [ (n) ]` | `varchar [ (n) ]` | `String` |
-| `cid` | | `String` |&nbsp;
-| `cidr` | | `String` |&nbsp;
-| `circle` | |`Byte[], String` |&nbsp;
-| `date` | |`Datetime` |&nbsp;
-| `daterange` | |`String` |&nbsp;
+| `box` |&nbsp; | `String` |
+| `bytea` |&nbsp; | `Byte[], String` |
+| `character [(n)]` | `char [(n)]` | `String` |
+| `character varying [(n)]` | `varchar [(n)]` | `String` |
+| `cid` |&nbsp; | `Int32` |
+| `cidr` |&nbsp; | `String` |
+| `circle` |&nbsp; |` String` |
+| `date` |&nbsp; |`Datetime` |
+| `daterange` |&nbsp; |`String` |
 | `double precision` |`float8` |`Double` |
-| `inet` | |`Byte[], String` |&nbsp;
-| `intarry` | |`String` |&nbsp;
-| `int4range` | |`String` |&nbsp;
-| `int8range` | |`String` |&nbsp;
-| `integer` | ' int, int4 |Int32` |
-| `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
-| `json` | | `String` |&nbsp;
-| `jsonb` | | `Byte[]` |&nbsp;
-| `line` | | `Byte[], String` |&nbsp;
-| `lseg` | | `Byte[], String` |&nbsp;
-| `macaddr` | | `Byte[], String` |&nbsp;
-| `money` | | `Decimal` |&nbsp;
-| `numeric [ (p, s) ]`|`decimal [ (p, s) ]` |`Decimal` |
-| `numrange` | |`String` |&nbsp;
-| `oid` | |`Int32` |&nbsp;
-| `path` | |`Byte[], String` |&nbsp;
-| `pg_lsn` | |`Int64` |&nbsp;
-| `point` | |`Byte[], String` |&nbsp;
-| `polygon` | |`Byte[], String` |&nbsp;
+| `inet` |&nbsp; |`String` |
+| `intarray` |&nbsp; |`String` |
+| `int4range` |&nbsp; |`String` |
+| `int8range` |&nbsp; |`String` |
+| `integer` | `int, int4` |`Int32` |
+| `interval [fields] [(p)]` | | `String` |
+| `json` |&nbsp; | `String` |
+| `jsonb` |&nbsp; | `Byte[]` |
+| `line` |&nbsp; | `Byte[], String` |
+| `lseg` |&nbsp; | `String` |
+| `macaddr` |&nbsp; | `String` |
+| `money` |&nbsp; | `String` |
+| `numeric [(p, s)]`|`decimal [(p, s)]` |`String` |
+| `numrange` |&nbsp; |`String` |
+| `oid` |&nbsp; |`Int32` |
+| `path` |&nbsp; |`String` |
+| `pg_lsn` |&nbsp; |`Int64` |
+| `point` |&nbsp; |`String` |
+| `polygon` |&nbsp; |`String` |
 | `real` |`float4` |`Single` |
 | `smallint` |`int2` |`Int16` |
 | `smallserial` |`serial2` |`Int16` |
 | `serial` |`serial4` |`Int32` |
-| `text` | |`String` |&nbsp;
-
+| `text` |&nbsp; |`String` |
+| `timewithtimezone` |&nbsp; |`String` |
+| `timewithouttimezone` |&nbsp; |`String` |
+| `timestampwithtimezone` |&nbsp; |`String` |
+| `xid` |&nbsp; |`Int32` |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

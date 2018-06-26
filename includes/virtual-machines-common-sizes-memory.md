@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dba5a094ce4dfd55efd892c268e903d89fff90a9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 15f21fd03b0373c189f3b6c4972280d128024217
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36269592"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943518"
 ---
 Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geheugen voor CPU die zijn ideaal voor relationele database-servers, middelgrote tot grote caches en in het geheugen analytics. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
@@ -32,7 +32,7 @@ Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geh
 
 ACU: 160-190 <sup>1</sup>
 
-Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0 en maken gebruik van Premium Storage. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
+Instanties van de ESv3-serie die zijn gebaseerd op de 2,3GHz Intel XEON ® E5-2673 v4-processor (Broadwell), kunnen maar liefst 3,5 GHz bereiken door Intel Turbo Boost Technology 2.0 en gebruiken premium-opslag. Exemplaren uit de Ev3-reeks zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
 
 | Grootte             | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
@@ -129,7 +129,7 @@ ACU: 180-240 <sup>1</sup>
 
 <br>
 
-## <a name="g-series"></a>G-serie
+## <a name="g-series"></a>G-reeks
 
 ACU: 180 - 240
 
@@ -145,7 +145,7 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series"></a>DSv2-serie 
+## <a name="dsv2-series-11-15"></a>11-15 DSv2-serie
 
 ACU: 210-250 <sup>1</sup>
 
@@ -168,7 +168,7 @@ ACU: 210-250 <sup>1</sup>
 
 <br>
 
-## <a name="dv2-series"></a>Dv2-serie
+## <a name="dv2-series-11-15"></a>11-15 Dv2-serie
 
 ACU: 210 - 250
 

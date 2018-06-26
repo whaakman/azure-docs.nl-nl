@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84734b89aeb95745d237c062e5654afc4d49f966
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711141"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754481"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: De Azure AD B2C-gebruikersinterface (UI) aanpassen
 
 Gebruikerservaring is uitermate belangrijk in een klantgerichte toepassing.  Uw klant base vergroten door gebruikerservaringen met het uiterlijk van uw merk. Azure Active Directory B2C (Azure AD B2C) kunt u aanpassen registreren, aanmelden, profiel bewerken en wachtwoord opnieuw instellen van pagina's met pixel perfect besturingselement.
 
 > [!NOTE]
-> De pagina UI aanpassing-functie beschreven in dit artikel geldt niet voor het enige beleid aanmelden, het bijbehorende wachtwoord opnieuw instellen van pagina- en verificatiestappen e-mailberichten.  Deze functies gebruiken de [functie huisstijl](../active-directory/customize-branding.md) in plaats daarvan.
+> De pagina UI aanpassing-functie beschreven in dit artikel geldt niet voor het enige beleid aanmelden, het bijbehorende wachtwoord opnieuw instellen van pagina- en verificatiestappen e-mailberichten.  Deze functies gebruiken de [functie huisstijl](../active-directory/fundamentals/customize-branding.md) in plaats daarvan.
 >
-> Op dezelfde manier als een gebruiker intiates een beleid van het profiel bewerken *voordat* aangemeld, de gebruiker wordt omgeleid naar een pagina die kan worden aangepast met behulp van de [functie huisstijl](../active-directory/customize-branding.md).
+> Op dezelfde manier als een gebruiker intiates een beleid van het profiel bewerken *voordat* aangemeld, de gebruiker wordt omgeleid naar een pagina die kan worden aangepast met behulp van de [functie huisstijl](../active-directory/fundamentals/customize-branding.md).
 
 In dit artikel bevat informatie over de volgende onderwerpen:
 
@@ -214,7 +214,7 @@ Deze pagina bevat een formulier voor het lokale account aanmelding op basis van 
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragment ingevoegd in de '' sociale account aanmeldpagina'
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragment ingevoegd in de 'sociale account aanmeldpagina'
 
 Deze pagina kan worden weergegeven wanneer u zich aanmeldt met een bestaand account van een identiteitsprovider van sociale zoals Facebook of Google +.  Wordt gebruikt wanneer u aanvullende informatie moet worden verzameld van de eindgebruiker via een aanmeldingsformulier hebt ingevuld. Deze pagina is vergelijkbaar met de lokale account aanmeldpagina (weergegeven in de vorige sectie) met uitzondering van de invoervelden wachtwoord.
 
@@ -315,7 +315,7 @@ Gebruikers kunnen hun telefoonnummers (met behulp van de tekst of stem) verifië
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>Fragment ingevoegd in de '' foutpagina'
+### <a name="fragment-inserted-into-the-error-page"></a>Fragment ingevoegd op de pagina' fout'
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">

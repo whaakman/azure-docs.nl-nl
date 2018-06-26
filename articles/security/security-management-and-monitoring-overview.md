@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 1e48131ff784ba5bb8d5a7dfffe8afb5ce8bb4c1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9e538ac39af5b6df44860a4a70b0fd1e058c060c
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364366"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752285"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure-beveiligingsbeheer en controle-overzicht
 Azure biedt beveiligingsmethoden om u te helpen bij het beheren en controleren van de Azure-cloudservices en virtuele machines (VM's). Dit artikel bevat een overzicht van deze core beveiligingsfuncties en -services. Vindt u koppelingen naar artikelen met meer informatie over elk doorgegeven, zodat u meer informatie.
@@ -39,7 +39,7 @@ Op rollen gebaseerde toegangsbeheer (RBAC) biedt gedetailleerde toegangsbeheer v
 
 Meer informatie:
 
-* [Active Directory-teamblog van RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
+* [Active Directory-teamblog van RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Op rollen gebaseerde toegangsbeheer van Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware
@@ -117,7 +117,7 @@ Meer informatie:
 * [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
 * [Channel 9: Azure AD en Identity weergeven: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-## <a name="security-center"></a>Security Center
+## <a name="security-center"></a>Beveiligingscentrum
 Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op bedreigingen. Security Center biedt u grotere zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen. Helpt het detecteren van bedreigingen die anders onopgemerkt en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
 
 Security Center helpt u te optimaliseren en de beveiliging van uw Azure-resources door te controleren:

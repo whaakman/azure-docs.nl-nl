@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: 9220eb3800cd1b7b46e276bbda5bb88fc06d5e54
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6b536ba7792e66fe09ba2cc8a631dc5e934faaea
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337826"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937972"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 
@@ -33,7 +33,7 @@ Veilige authenticatie en autorisatie vereist grondige kennis van beveiliging, wa
 
 Zie voor informatie die specifiek zijn voor mobiele apps systeemeigen [verificatie en autorisatie voor mobiele apps met Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
-## <a name="how-it-works"></a>Hoe alles werkt
+## <a name="how-it-works"></a>Het werkt als volgt
 
 De module voor verificatie en autorisatie wordt uitgevoerd in de sandbox van uw toepassingscode. Wanneer deze ingeschakeld, geeft elke inkomende HTTP-aanvraag via het voordat het wordt verwerkt door de toepassingscode.
 
@@ -80,7 +80,7 @@ App Service gebruikt [federatieve identiteit](https://en.wikipedia.org/wiki/Fede
 | Provider | Aanmelden-eindpunt |
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Microsoft-account](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoft` |
+| [Microsoft-account](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |

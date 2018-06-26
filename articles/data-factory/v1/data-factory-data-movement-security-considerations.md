@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: cad363309b6086197ced1a5d1c1793995db11228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ca39490174047d83968561da98409ade2832253
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621610"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752612"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor gegevensverplaatsing
 
@@ -40,7 +40,7 @@ Verplaatsing van gegevens met behulp van Azure Data Factory is **gecertificeerd*
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [CSA STER](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
-Als u geïnteresseerd in Azure compatibiliteit en hoe Azure de eigen infrastructuur beveiligt bent, gaat u naar de [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
+Als u geïnteresseerd in Azure compatibiliteit en hoe Azure de eigen infrastructuur beveiligt bent, gaat u naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
 In dit artikel controleert u beveiligingsoverwegingen in de volgende twee data movement scenario's: 
 
@@ -78,7 +78,7 @@ Amazon S3 ondersteunt zowel client als server versleuteling van gegevens in rust
 #### <a name="amazon-redshift"></a>Amazon Redshift
 Amazon Redshift ondersteunt cluster versleuteling voor gegevens in rust. Zie voor meer informatie [Amazon Redshift Databaseversleuteling](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Data Factory biedt momenteel geen ondersteuning voor Amazon Redshift binnen een VPC. 
 
-#### <a name="salesforce"></a>SalesForce
+#### <a name="salesforce"></a>Salesforce
 SalesForce ondersteunt Shield Platform versleuteling waarmee versleuteling van bestanden, bijlagen en aangepaste velden. Zie voor meer informatie [inzicht in de Web Server OAuth-verificatie stromen](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>Hybride scenario's (met behulp van Data Management Gateway)
@@ -126,7 +126,7 @@ Virtueel netwerk is een logische representatie van uw netwerk in de cloud. U kun
 
 De volgende tabel geeft een overzicht van de netwerk- en gateway aanbevelingen voor de configuratie op basis van verschillende combinaties van bron- en doellocaties voor hybride gegevensverplaatsing.
 
-| Bron | Doel | Netwerkconfiguratie | Gatewayinstallatie |
+| Bron | Bestemming | Netwerkconfiguratie | Gatewayinstallatie |
 | ------ | ----------- | --------------------- | ------------- | 
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec VPN (punt-naar-site of site-naar-site) | Gateway kan worden geïnstalleerd van on-premises of in een Azure virtuele machine u (VM) in VNet | 
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (Privépeering) | Gateway kan worden on-premises geïnstalleerd of op een virtuele machine van Azure in VNet | 

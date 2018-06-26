@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 223829df11bb1c9add811b40b55e47ee1fbb1fe4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301368"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751835"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele betaling verwerken
 
@@ -124,15 +124,15 @@ Deze oplossing gebruikt de volgende Azure-services. Details van de architectuur 
 >- Log Analytics
 >- Azure Key Vault
 >- Netwerkbeveiligingsgroepen
->- Azure SQL Database
+>- Azure SQL DB
 >- Azure Load Balancer
 >- Application Insights
->- Azure Security Center
+>- Azure Beveiligingscentrum
 >- Azure Web App
 >- Azure Automation
 >- Azure Automation-Runbooks
 >- Azure DNS
->- Azure Virtual Network
+>- Virtual Network van Azure
 >- Azure Virtual Machine
 >- Azure-resourcegroep en beleidsregels
 >- Azure Blob Storage
@@ -204,8 +204,8 @@ Het exemplaar van Azure SQL Database maakt gebruik van de volgende veiligheidsma
 
 [Meld u Analytics](https://azure.microsoft.com/services/log-analytics) kan de Contoso Webstore voorzien van uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit, kaarthouder gegevensregistratie bevatten. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. 
 
-- **Activiteitenlogboeken:**[activiteitenlogboeken](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.
-- **Diagnostische logboeken:**[diagnostische logboeken](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource. Deze logboeken zijn Windows-gebeurtenislogboeken system Azure Blob storage, tabellen en logboeken van de wachtrij.
+- **Activiteitenlogboeken:**[activiteitenlogboeken](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.  
+- **Diagnostische logboeken:**[diagnostische logboeken](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource.   Deze logboeken zijn Windows-gebeurtenislogboeken system Azure Blob storage, tabellen en logboeken van de wachtrij.
 - **Firewall-logboeken:** de toepassingsgateway biedt volledige diagnostische en toegang tot logboeken. Firewall logboeken zijn beschikbaar voor Application Gateway-resources met WAF ingeschakeld een.
 - **Logboek archiveren:** alle diagnostische logboeken zijn geconfigureerd om te schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering met een gedefinieerde bewaarperiode (2 dagen). Logboeken zijn verbonden met Azure Log Analytics voor verwerken, opslaan en dashboarding. [Meld u Analytics](https://azure.microsoft.com/services/log-analytics) is een service waarmee verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in uw cloud en on-premises omgevingen.
 
@@ -298,7 +298,7 @@ Standaardimplementatie is bedoeld om een basislijn met security center aanbeveli
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
-De onderdelen voor het implementeren van deze oplossing zijn beschikbaar in de [PCI blauwdruk code opslagplaats] [-code-opslagplaats]. De implementatie van de fundamentele architectuur moet verschillende stappen uitgevoerd via Microsoft PowerShell v5. Voor verbinding met de website, moet u een aangepaste domeinnaam (zoals contoso.com) opgeven. Hiermee wordt opgegeven met de `-customHostName` in stap 2-switch. Zie voor meer informatie [aanschaffen van een aangepaste domeinnaam voor Azure-Web-Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Een aangepaste domeinnaam is niet met succes implementeren en uitvoeren van de oplossing vereist, maar u zult geen verbinding maken met de website voor demonstratiedoeleinden.
+De onderdelen voor implementatie van deze oplossing zijn beschikbaar in de [PCI blauwdruk code opslagplaats](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). De implementatie van de fundamentele architectuur moet verschillende stappen uitgevoerd via Microsoft PowerShell v5. Voor verbinding met de website, moet u een aangepaste domeinnaam (zoals contoso.com) opgeven. Hiermee wordt opgegeven via een begeleide gebruikersvraag in het primaire implementatiescript in stap 2. Zie voor meer informatie [aanschaffen van een aangepaste domeinnaam voor Azure-Web-Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Een aangepaste domeinnaam is niet met succes implementeren en uitvoeren van de oplossing vereist, maar u zult geen verbinding maken met de website voor demonstratiedoeleinden.
 
 De scripts toevoegen domeingebruikers aan de Azure AD-tenant die u opgeeft. We raden u aan te maken van een nieuwe Azure AD-tenant te gebruiken als test.
 
@@ -323,19 +323,17 @@ Het is raadzaam dat een schone installatie van PowerShell worden gebruikt voor h
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    Zie voor instructies over het gebruik van gedetailleerde, [Script instructies - implementeren en configureren van de Azure-Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+    Zie voor instructies over het gebruik van gedetailleerde, [Script instructies - implementeren en configureren van de Azure-Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Dit script kan worden gebruikt voor ondersteuning van de Contoso-webwinkel demo of testen van de eerste stappen voor het implementeren van een omgeving voor het ondersteunen van PCI-naleving. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    Zie voor gedetailleerde informatie over het gebruiksinstructies voor het ondersteunen van de Contoso-webwinkel demo-implementatie [instructies in de Script - Contoso Web Store Demo Azure-Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md). Dit script kan worden gebruikt voor het implementeren van de Contoso-webwinkel demo-infrastructuur. 
+    
+    Deze scripts zijn bedoeld om onafhankelijk van elkaar worden gebruikt. Om de oplossing beste te begrijpen, het verdient aanbeveling om de demo-implementatie voor het identificeren van de benodigde Azure-resources nodig zijn voor de ondersteuning van de oplossing te vervolledigen. 
     
 3. Logboekregistratie en controle. Zodra de oplossing is geïmplementeerd, een werkruimte voor logboekanalyse kan worden geopend en de voorbeeldsjablonen die is opgegeven in de opslagplaats oplossing kunnen worden gebruikt om te laten zien hoe een dashboard controle kan worden geconfigureerd. Voor de voorbeeldsjablonen naar verwijzen de [omsDashboards map](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Houd er rekening mee dat de gegevens moeten worden verzameld in Log Analytics voor sjablonen voor het implementeren van correct. Dit kan duren een uur of langer, afhankelijk van de activiteiten op websites.
  

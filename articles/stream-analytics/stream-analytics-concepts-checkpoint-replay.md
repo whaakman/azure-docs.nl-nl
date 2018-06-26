@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 1a7cb6c5d9c3383b127ce38ae21bb2dc811e1f2e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529483"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936714"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Controlepunt- en replayaanvallen concepten in Azure Stream Analytics-taken
 In dit artikel beschrijft de interne controlepunt- en replayaanvallen concepten in Azure Stream Analytics en de impact die hebben op het herstel van de taak. Telkens wanneer wordt een Stream Analytics-taak wordt uitgevoerd, informatie over de status bijgehouden intern. Deze informatie over de status wordt opgeslagen in een controlepunt regelmatig. De informatie van het controlepunt wordt gebruikt voor herstel van de taak in bepaalde situaties, als een taak is mislukt of upgrade optreedt. In andere gevallen kan het controlepunt kan niet worden gebruikt voor herstel en een replay nodig is.
@@ -48,7 +48,7 @@ Microsoft worden af en toe bijgewerkt van de binaire bestanden voor dat de Strea
 
 De indeling van de controlepunt herstel is op dit moment niet behouden tussen upgrades. De status van de streaming-query moet als gevolg hiervan worden hersteld met volledig replay-techniek. Als u wilt toestaan dat de Stream Analytics-taken voor de replay van de exacte dezelfde invoer vanaf voordat het is belangrijk om in te stellen het bewaarbeleid voor de brongegevens ten minste het venster groottes in uw query. Niet doet, kan leiden tot onjuiste of gedeeltelijke resultaten tijdens de upgrade van de service, omdat de brongegevens worden niet genoeg ver vastgehouden mogelijk zodanig dat de volledige venstergrootte.
 
-De hoeveelheid replay nodig is in het algemeen evenredig aan de grootte van het venster vermenigvuldigd met het gemiddelde snelheid van gebeurtenissen. Als voorbeeld voor een taak met een invoer tarief van 1000 gebeurtenissen per seconde, venster groter is dan een uur wordt beschouwd als een grote replay-grootte hebben. Voor query's met een grootte van de grote replay waarnemen u vertraagde uitvoer (geen uitvoer) gedurende een langere periode. 
+De hoeveelheid replay nodig is in het algemeen evenredig aan de grootte van het venster vermenigvuldigd met het gemiddelde snelheid van gebeurtenissen. Als voorbeeld voor een taak met een invoer tarief van 1000 gebeurtenissen per seconde, venster groter is dan een uur wordt beschouwd als een grote replay-grootte hebben. Maximaal een uur van gegevens moet mogelijk worden opnieuw verwerkt voor het initialiseren van de status zodat het volledige produceren kunt en het juiste resultaten, wat kunnen leiden tot vertraging in de uitvoer (geen uitvoer) gedurende een langere periode. Query's met geen windows- of andere tijdelijke operators, zoals `JOIN` of `LAG`, nul replay zou hebben.
 
 ## <a name="estimate-replay-catch-up-time"></a>Schatting replay achterstallige tijd
 U kunt deze techniek volgen voor een schatting van de lengte van de vertraging veroorzaakt door een service-upgrade:

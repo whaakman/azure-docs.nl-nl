@@ -1,6 +1,6 @@
 ---
 title: Plannen van de schaal van uw omgeving Azure Time Series Insights | Microsoft Docs
-description: In dit artikel wordt beschreven hoe Volg de aanbevolen procedures bij het plannen van een Azure Time Series Insights-omgeving, inclusief opslagcapaciteit, Gegevensretentie, inkomend capaciteit en bewaking.
+description: In dit artikel wordt beschreven hoe Volg de aanbevolen procedures bij het plannen van een Azure Time Series Insights-omgeving, inclusief opslagcapaciteit, Gegevensretentie, inkomend capaciteit, bewaking en herstel na noodgevallen voor bedrijven (BCDR).
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 49842f971645f97d954451ff6755294dc3c5a40f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f0f414e43231fc6d873d639902fd4f71e48f1002
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293261"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751166"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Uw omgeving Azure Time Series Insights plannen
 
@@ -94,8 +94,18 @@ Een gegevensset verwijzing is een verzameling van items die verbeteren van de ge
 
 Houd er rekening mee referentiegegevens met terugwerkende kracht niet is toegevoegd. Dit betekent dat alleen de gegevens van de huidige en toekomstige inkomend komt overeen met en gekoppeld aan de verwijzing naar datum is ingesteld, zodra deze is geconfigureerd en geüpload.  Als u van plan bent te veel van historische gegevens verzenden naar TSI en niet uploaden of referentiegegevens eerst in TSI maken en vervolgens u wellicht opnieuw doen van uw werk (hint, niet leuke).  
 
-Voor meer informatie over het maken en beheren van uw referentiegegevens TSI uploaden, Ga naar onze *referentiegegevens* documentatie [documentatie] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Voor meer informatie over het maken en beheren van uw referentiegegevens TSI uploaden, Ga naar onze *referentiegegevens* documentatie [documentatie](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
+## <a name="business-disaster-recovery"></a>Noodherstel voor bedrijven
+Een Azure-service biedt Time Series Insights redundantie op het niveau van de Azure-regio, zonder extra werk vereist voor de oplossing met hoge beschikbaarheid (HA). Het Microsoft Azure-platform omvat ook functies waarmee u oplossingen bouwen met herstelfuncties van noodherstel (DR) of de regio-overschrijdende beschikbaarheid. Als u wilt bieden globale, hoge beschikbaarheid van de regio-overschrijdende voor apparaten of gebruikers profiteren van deze Azure DR-functies. Het artikel [Azure zakelijke continuïteit technische richtlijnen](../resiliency/resiliency-technical-guidance.md) beschrijving van de ingebouwde functies in Azure voor bedrijfscontinuïteit en Noodherstel. [Herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen] [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen] papier biedt architectuurrichtlijnen op strategieën voor het Azure-toepassingen om HA en Noodherstel te bereiken.
+
+Time Series Insights heeft geen ingebouwde business noodherstel (BCDR).  Klanten die BCDR vereisen kunnen echter nog steeds een herstelstrategie implementeren. Een tweede keer reeks Insights-omgeving in een Azure-regio van de back-up maken en gebeurtenissen verzenden naar deze secundaire omgeving van de primaire gegevensbron voor gebruik van een tweede speciale klantengroep en die gebeurtenisbron BCDR-richtlijnen.  
+
+1.  Omgeving maken in de tweede regio.  Meer informatie over het maken van een omgeving Time Series Insights [hier](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
+2.  Maak een tweede speciale klantengroep voor de gebeurtenisbron en die gebeurtenisbron verbinding met de nieuwe omgeving.  Zorg ervoor dat de tweede, speciale klantengroep aanwijzen.  U meer informatie over deze door een [IoT Hub-documentatie](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) of [Event hub-documentatie](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+3.  Als uw primaire regio omlaag gaan tijdens een incident na noodgevallen, overschakelen via bewerkingen op de back-up Time Series Insights-omgeving.  
+
+Ga voor meer informatie over IoT-Hub BCDR-beleid, [hier](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  Ga voor meer informatie over het beleid van de Event hub BCDR [hier](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Het toevoegen van een gebeurtenisbron Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md)

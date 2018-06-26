@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 22a3c5b2c7c4676c9c05c7cc67f30108a5dfbe5b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644678"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753440"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Bewaken en beheren van de prestaties van shard multitenant Azure SQL database in een multitenant SaaS-app
 
 In deze zelfstudie worden de verschillende prestatie scenario's voor beheer in de SaaS-toepassingen gebruikt verkend. Met een load-generator te simuleren van activiteit in de shard multitenant-databases, worden de ingebouwde bewaking en waarschuwingen van de functies van SQL Database gedemonstreerd.
 
-De app Wingtip Tickets SaaS multitenant Database maakt gebruik van een gedeelde multitenant-gegevens, waar u wilt (tenant) gegevens door tenant-ID is verdeeld over mogelijk meerdere databases. Net als bij veel andere SaaS-toepassingen, is het verwachte tenantworkloadpatroon onvoorspelbaar en sporadisch. Met andere woorden, kaartverkoop kan op ieder moment plaatsvinden. Als u wilt profiteren van dit patroon voor het gebruik van typische database, kunnen de databases omhoog en omlaag worden uitgebreid voor het optimaliseren van de kosten van een oplossing. Met dit type patroon is het belangrijk dat het Resourcegebruik van de database om ervoor te zorgen dat belasting redelijkerwijs verdeeld zijn over mogelijk meerdere databases bewaken. Ook moet u ervoor zorgen dat afzonderlijke databases voldoende bronnen en zijn niet kunt u door hun [DTU](sql-database-what-is-a-dtu.md) limieten. Deze zelfstudie behandelt manieren om te controleren en beheren van databases en hoe u corrigerende maatregelen nemen in reactie op de verschillen in de werkbelasting.
+De app Wingtip Tickets SaaS multitenant Database maakt gebruik van een gedeelde multitenant-gegevens, waar u wilt (tenant) gegevens door tenant-ID is verdeeld over mogelijk meerdere databases. Net als bij veel andere SaaS-toepassingen, is het verwachte tenantworkloadpatroon onvoorspelbaar en sporadisch. Met andere woorden, kaartverkoop kan op ieder moment plaatsvinden. Als u wilt profiteren van dit patroon voor het gebruik van typische database, kunnen de databases omhoog en omlaag worden uitgebreid voor het optimaliseren van de kosten van een oplossing. Met dit type patroon is het belangrijk dat het Resourcegebruik van de database om ervoor te zorgen dat belasting redelijkerwijs verdeeld zijn over mogelijk meerdere databases bewaken. Ook moet u ervoor zorgen dat afzonderlijke databases voldoende bronnen en zijn niet kunt u door hun [DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) limieten. Deze zelfstudie behandelt manieren om te controleren en beheren van databases en hoe u corrigerende maatregelen nemen in reactie op de verschillen in de werkbelasting.
 
 In deze zelfstudie leert u het volgende:
 
@@ -192,7 +192,7 @@ In deze zelfstudie leert u het volgende:
 > * De database in reactie op de belasting van de hogere database opschalen
 > * Een tenant in te richten in een één-tenant-database
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 <!--* [Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 * [Azure Automation](../automation/automation-intro.md)

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2255c8fd7cd873ae9b6511e1a7b9e2ac13f9fb66
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423235"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936765"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Koppelpunt Azure File storage in virtuele Linux-machines met SMB
 
-In dit artikel leest u hoe de Azure File storage-service op een Linux-VM te gebruiken met behulp van een SMB-koppelen met de Azure CLI 2.0. Azure File storage biedt bestandsshares in de cloud met behulp van het standaard SMB-protocol. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md). De vereisten zijn:
+In dit artikel leest u hoe de Azure File storage-service op een Linux-VM te gebruiken met behulp van een SMB-koppelen met de Azure CLI 2.0. Azure File storage biedt bestandsshares in de cloud met behulp van het standaard SMB-protocol. De vereisten zijn:
 
 - [een Azure-account.](https://azure.microsoft.com/pricing/free-trial/)
 - [bestanden voor openbare en persoonlijke SSH-sleutels](mac-create-ssh-keys.md)

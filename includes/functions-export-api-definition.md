@@ -10,7 +10,7 @@ U hebt een definitie van een OpenAPI voor de functie van [maken voor een functie
 
 1. Klik op **exporteren naar PowerApps + stroom**.
 
-    ![API-definitie-bron](media/functions-export-api-definition/export-api-1.png)
+    ![Bron van API-definitie](media/functions-export-api-definition/export-api-1.png)
 
 1. Gebruik de instellingen die zijn opgegeven in de tabel in het rechterdeelvenster.
 

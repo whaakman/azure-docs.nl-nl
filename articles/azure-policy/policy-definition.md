@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260478"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937329"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -25,9 +25,9 @@ JSON kunt u een beleidsdefinitie maken. De beleidsdefinitie bevat-elementen voor
 
 - modus
 - parameters
-- Weergavenaam
-- description
-- Beleidsregel
+- weergavenaam
+- beschrijving
+- beleidsregel
   - logische evaluatie
   - effect
 
@@ -66,7 +66,7 @@ De volgende JSON ziet u bijvoorbeeld een beleid dat wordt beperkt welke resource
 
 Alle Azure-beleid-voorbeelden zijn op [beleid voorbeelden](json-samples.md).
 
-## <a name="mode"></a>Modus
+## <a name="mode"></a>modus
 
 De **modus** bepaalt welke resourcetypen wordt geëvalueerd voor een beleid. De ondersteunde modi zijn:
 
@@ -192,7 +192,8 @@ Een voorwaarde wordt geëvalueerd of een **veld** aan bepaalde criteria voldoet.
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Wanneer u de **zoals** en **notLike** voorwaarden, kunt u een jokerteken opgeven (*) in de waarde. De waarde mag niet meer dan 1 het jokerteken (*).
+Wanneer u de **zoals** en **notLike** voorwaarden, kunt u een jokerteken opgeven `*` in de waarde.
+De waarde mag niet meer dan één jokerteken `*`.
 
 Wanneer u de **overeen met** en **notMatch** voorwaarden bieden `#` vertegenwoordigt een cijfer `?` voor een letter en een ander teken dat werkelijke teken vertegenwoordigt. Zie voor voorbeelden [toestaan meerdere bestandsnaampatronen](scripts/allow-multiple-name-patterns.md).
 
@@ -299,7 +300,7 @@ De lijst met aliassen groeit altijd. Om te detecteren welke aliassen worden mome
   $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
   ```
 
-- Azure-CLI
+- Azure CLI
 
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell
@@ -316,7 +317,7 @@ De lijst met aliassen groeit altijd. Om te detecteren welke aliassen worden mome
 
 ## <a name="initiatives"></a>Initiatieven
 
-Initiatieven inschakelen u diverse groeperen gerelateerd beleidsdefinities toewijzingen en het beheer vereenvoudigen omdat u met een groep als één item werkt. U kunt bijvoorbeeld alle gerelateerde tagging beleidsdefinities in een enkel initiatief groeperen. In plaats van elk beleid afzonderlijk toewijst, moet u het initiatief toepassen.
+Initiatieven kunnen u voor het groeperen van diverse verwante beleidsdefinities toewijzingen en het beheer vereenvoudigen omdat u met een groep als één item werkt. U kunt bijvoorbeeld alle gerelateerde tagging beleidsdefinities in een enkel initiatief groeperen. In plaats van elk beleid afzonderlijk toewijst, moet u het initiatief toepassen.
 
 Het volgende voorbeeld wordt het maken van een initiatief voor het verwerken van twee tags: `costCenter` en `productName`. Deze twee ingebouwde beleidsregels toe te passen, de standaardwaarde van de tag gebruikt.
 
@@ -394,4 +395,4 @@ Het volgende voorbeeld wordt het maken van een initiatief voor het verwerken van
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk meer voorbeelden op [Azure beleid voorbeelden](json-samples.md).
+- Bekijk meer voorbeelden op [Voorbeelden van Azure Policy](json-samples.md).

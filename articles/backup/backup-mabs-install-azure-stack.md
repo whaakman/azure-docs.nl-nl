@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248891"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753350"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Backup Server installeren op Azure Stack
 
@@ -42,18 +42,9 @@ Azure Backup-Server beveiligt de volgende Stack Azure VM-werkbelastingen.
 | SQL Server 2016 | Database |
 | SQL Server 2014 | Database |
 | SQL Server 2012 SP1 | Database |
+| SharePoint 2016 | Farm, database, frontend, webserver |
 | SharePoint 2013 | Farm, database, frontend, webserver |
 | SharePoint 2010 | Farm, database, frontend, webserver |
-
-
-### <a name="host-vs-guest-backup"></a>Host tegenover Gast back-up
-
-Azure Backup-Server voert host- of gastniveau back-ups van virtuele machines. Azure backup-agent is geïnstalleerd op de virtuele machine of het cluster en beveiligt de volledige virtuele machine en de gegevensbestanden worden opgeslagen op de host wordt uitgevoerd op het hostniveau van de. Op het gastniveau Azure backup-agent is geïnstalleerd op elke virtuele machine en de werkbelasting aanwezig is op deze computer beveiligt.
-
-Beide methoden hebben hun voordelen en nadelen:
-
-   * Back-ups op hostniveau te werken, ongeacht het besturingssysteem op de gastcomputers en de Azure Backup-agent moet worden geïnstalleerd op elke virtuele machine niet nodig. Als u back-ups op hostniveau implementeert herstellen u een volledige virtuele machine of de bestanden en mappen (herstel op itemniveau).
-   * Gastniveau back-up is nuttig voor het beveiligen van specifieke werkbelasting die wordt uitgevoerd op een virtuele machine. Op hostniveau, kunt u een volledige virtuele machine of specifieke bestanden herstellen, maar deze gegevens in de context van een specifieke toepassing niet herstellen. Bijvoorbeeld, om de specifieke SharePoint-bestanden herstellen vanuit een beveiligde virtuele machine, moet u de virtuele machine op gastniveau beveiligen. Als u beveiligen van gegevens die zijn opgeslagen op de passthrough-schijven wilt, moet u gastniveau back-up. Passthrough kan de virtuele machine rechtstreeks toegang krijgen tot het opslagapparaat en worden virtuele volumegegevens niet opgeslagen in een VHD-bestand.
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Vereisten voor de back-upserver van Azure-omgeving
 
@@ -84,13 +75,10 @@ Back-upgegevens opslaan in Azure, vermindert back-upinfrastructuur op Azure-Stac
 
 Als u wilt back-gegevens opslaat in Azure, maken of gebruiken van een Recovery Services-kluis. Bij het voorbereiden van de back-up van de werkbelasting van de Azure Backup-Server, u [configureren van de Recovery Services-kluis](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Na de configuratie, elke keer die een back-uptaak wordt uitgevoerd, wordt er een herstelpunt gemaakt in de kluis. Elke Recovery Services-kluis bevat tot 9999 herstelpunten. Afhankelijk van het aantal herstelpunten die zijn gemaakt en hoe lang ze blijven behouden, kunt u back-upgegevens jaren behouden. U kan bijvoorbeeld maandelijks herstelpunten maken en deze gedurende vijf jaar te handhaven.
  
-### <a name="using-sql-server"></a>Met behulp van SQL Server
-Als u een externe SQL Server gebruikt voor de Azure Backup-Server-database wilt, selecteert u alleen een Stack van virtuele machine van Azure met SQL Server.
-
 ### <a name="scaling-deployment"></a>Implementatie schalen
 Als u schalen van uw implementatie wilt, hebt u de volgende opties:
   - Opschalen: verhoog de grootte van de virtuele machine Azure Backup-Server op D-reeks uit een reeks en verhogen van de lokale opslag [per de instructies van de virtuele machine Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Gegevens overdragen: verzend oudere gegevens naar Azure Backup-Server en bewaar alleen de nieuwste gegevens op de opslag die is gekoppeld aan de Azure Backup-Server.
+  - Gegevens overdragen: verzend oudere gegevens naar Azure en bewaar alleen de nieuwste gegevens op de opslag die is gekoppeld aan de Azure Backup-Server.
   - Uitschalen - toevoegen van meer back-up van Azure-Servers om de werkbelastingen te beveiligen.
 
 ### <a name="net-framework"></a>.NET framework
@@ -216,7 +204,7 @@ In de vorige stap die u hebt geklikt **voltooien** afsluiten van de extractie-fa
 
 ![Back-installatiewizard voor Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Azure Backup-Server deelt code met Data Protection Manager. Hier ziet u verwijzingen naar Data Protection Manager en DPM in het installatieprogramma van Azure Backup-Server. Hoewel Azure Backup-Server en Data Protection Manager afzonderlijke producten zijn, worden deze producten nauw verwante. In de documentatie van Azure Backup-Server toepassing alle verwijzingen naar Data Protection Manager en DPM op Azure Backup-Server.
+Azure Backup-Server deelt code met Data Protection Manager. Hier ziet u verwijzingen naar Data Protection Manager en DPM in het installatieprogramma van Azure Backup-Server. Hoewel Azure Backup-Server en Data Protection Manager afzonderlijke producten zijn, worden deze producten nauw verwante.
 
 1. Start de wizard setup, klikt u op **Microsoft Azure Backup-Server**.
 
@@ -322,7 +310,7 @@ Azure Backup-Server deelt code met Data Protection Manager. Hier ziet u verwijzi
 
 ## <a name="add-backup-storage"></a>Back-upopslag toevoegen
 
-De eerste back-up wordt opgeslagen op opslag die is gekoppeld aan de Azure Backup-Server-machine. Zie voor meer informatie over het toevoegen van schijven [Configureer de opslaggroepen en schijfruimte](https://technet.microsoft.com/library/hh758075.aspx).
+De eerste back-up wordt opgeslagen op opslag die is gekoppeld aan de Azure Backup-Server-machine. Zie voor meer informatie over het toevoegen van schijven [opslag toevoegen moderne back-up](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > U moet back-upopslag toevoegen, zelfs als u van plan bent om gegevens te verzenden naar Azure. In de architectuur van de Azure Backup-Server, de Recovery Services-kluis bevat de *tweede* kopie van de gegevens bij de lokale opslag bevat de eerste (en verplichte) back-up.
@@ -340,11 +328,11 @@ Zodra u de status van de Azure-connectiviteit en het Azure-abonnement hebt, kunt
 | Status connectiviteit | Azure-abonnement | Back-up naar Azure | Back-up op schijf | Herstellen van Azure | Herstellen van de schijf |
 | --- | --- | --- | --- | --- | --- |
 | Verbonden |Actief |Toegestaan |Toegestaan |Toegestaan |Toegestaan |
-| Verbonden |Verlopen |Gestopt |Gestopt |Toegestaan |Toegestaan |
-| Verbonden |Gemaakt |Gestopt |Gestopt |Gestopt en Azure herstelpunten verwijderd |Gestopt |
-| Verloren connectiviteit > 15 dagen |Actief |Gestopt |Gestopt |Toegestaan |Toegestaan |
-| Verloren connectiviteit > 15 dagen |Verlopen |Gestopt |Gestopt |Toegestaan |Toegestaan |
-| Verloren connectiviteit > 15 dagen |Gemaakt |Gestopt |Gestopt |Gestopt en Azure herstelpunten verwijderd |Gestopt |
+| Verbonden |Verlopen |Stopped |Stopped |Toegestaan |Toegestaan |
+| Verbonden |Gemaakt |Stopped |Stopped |Gestopt en Azure herstelpunten verwijderd |Stopped |
+| Verloren connectiviteit > 15 dagen |Actief |Stopped |Stopped |Toegestaan |Toegestaan |
+| Verloren connectiviteit > 15 dagen |Verlopen |Stopped |Stopped |Toegestaan |Toegestaan |
+| Verloren connectiviteit > 15 dagen |Gemaakt |Stopped |Stopped |Gestopt en Azure herstelpunten verwijderd |Stopped |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Herstellen van het verlies van verbinding
 
@@ -372,10 +360,10 @@ U kunt ook verwijzen naar [Azure Backup gerelateerde Veelgestelde vragen](backup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Het artikel [uw omgeving voorbereiden voor DPM](https://technet.microsoft.com/library/hh758176.aspx), bevat informatie over ondersteunde configuraties voor Azure Backup-Server.
+Het artikel [uw omgeving voorbereiden voor DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), bevat informatie over ondersteunde configuraties voor Azure Backup-Server.
 
 De volgende artikelen kunt u een beter begrip van werkbelastingsbescherming met Microsoft Azure Backup-Server te krijgen.
 
-- [Back-up van SQL Server](backup-azure-backup-sql.md)
-- [Back-up van SharePoint server](backup-azure-backup-sharepoint.md)
+- [Back-up van SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Back-up van SharePoint server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Alternatieve server back-up](backup-azure-alternate-dpm-server.md)

@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 8f666bc352dc1706da4812590f85adc7695e2f13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5a81279726e5c221d9ae4734466a04ae5912af6
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647659"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936799"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database-beheerd instantie
 
@@ -78,7 +78,6 @@ Beheerde exemplaar ondersteunt de volgende migratie-opties voor database is (dez
 
 - Azure migratie databaseservice - migratie met vrijwel geen uitvaltijd
 - Systeemeigen herstel van de URL - systeemeigen back-ups van SQL Server gebruikt en sommige te worden stilgelegd
-- Migreren met behulp van Bacpac-bestand - Bacpac-bestand van SQL Server of SQL-Database wordt gebruikt en sommige te worden stilgelegd
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
@@ -107,10 +106,6 @@ De volgende tabel biedt meer informatie over de methode die u kunt gebruiken, af
 > Herstel van systeemdatabases wordt niet ondersteund. Exemplaar niveau om objecten te migreren (opgeslagen in master of msdb-databases), wordt aangeraden script deze en T-SQL-scripts uitvoeren op de doel-exemplaar.
 
 Zie voor een volledige zelfstudie waarin de back-up van een database herstellen naar een exemplaar beheerd met behulp van een SAS-referentie [back-up terugzetten naar een exemplaar beheerd](sql-database-managed-instance-restore-from-backup-tutorial.md).
-
-### <a name="migrate-using-bacpac-file"></a>Migreren met behulp van Bacpac-bestand
-
-U kunt importeren in Azure SQL Database en beheerde exemplaar van een maken een kopie van de oorspronkelijke database, met de gegevens, in een Bacpac-bestand. Zie [een Bacpac-bestand importeren in een nieuwe Azure SQL Database](sql-database-import.md).
 
 ## <a name="monitor-applications"></a>Toepassingen bewaken
 

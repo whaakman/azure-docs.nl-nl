@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: a8866385c682e86e889ddf171cc640fe0bb8252d
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 1e2c2dc45f2cb91ca225bf183ddde5fa2d1123c4
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737466"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936986"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>De Azure CLI 1.0 gebruiken met Azure Storage
 
@@ -41,9 +41,9 @@ Deze handleiding wordt ervan uitgegaan dat u de basisconcepten van Azure Storage
 ## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Aan de slag met Azure Storage en Azure CLI in vijf minuten
 Deze handleiding gebruikt Ubuntu voor voorbeelden, maar andere platforms OS moeten op dezelfde manier worden uitgevoerd.
 
-**Nieuwe naar Azure:** ophalen van een Microsoft Azure-abonnement en een Microsoft-account die is gekoppeld aan dat abonnement. Zie voor informatie over Azure-Aankoopopties, [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/), [kopen opties](https://azure.microsoft.com/pricing/purchase-options/), en [lid biedt](https://azure.microsoft.com/pricing/member-offers/) (voor leden van MSDN, Microsoft Partner Network BizSpark en andere Microsoft-programma's).
+**Nieuwe naar Azure:** ophalen van een Microsoft Azure-abonnement en een Microsoft-account die is gekoppeld aan dat abonnement. Zie voor informatie over Azure-Aankoopopties, [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/), [kopen opties](https://azure.microsoft.com/pricing/purchase-options/), en [lid biedt](https://azure.microsoft.com/pricing/member-offers/) (voor leden van MSDN en Microsoft Partner Network BizSpark, en andere Microsoft-programma's).
 
-Zie [beheerdersrollen toewijzen in Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx) voor meer informatie over Azure-abonnementen.
+Zie [beheerdersrollen toewijzen in Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) voor meer informatie over Azure-abonnementen.
 
 **Na het maken van een Microsoft Azure-abonnement en -account:**
 
@@ -138,7 +138,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Er zijn drie niveaus van anonieme toegang voor lezen: **uit**, **Blob**, en **Container**. Als u wilt voorkomen dat anonieme toegang tot blobs, stelt u de machtiging-parameter in op **uit**. Standaard worden de nieuwe container privé is en kan alleen worden geopend door de eigenaar van het account. Anonieme toegang toestaan openbare leestoegang tot blob-bronnen, maar niet aan de metagegevens van de container of aan de lijst met blobs in de container, stelt u de parameter machtiging op **Blob**. Stel de parameter machtiging op wilt toestaan volledige openbare leestoegang tot de blob-bronnen, container metagegevens en de lijst met blobs in de container, **Container**. Zie voor meer informatie [anonieme leestoegang tot containers en blobs beheren](../blobs/storage-manage-access-to-resources.md).
+> Er zijn drie niveaus van anonieme toegang voor lezen: **uit**, **Blob**, en **Container**. Als u wilt voorkomen dat anonieme toegang tot blobs, stelt u de machtiging-parameter in op **uit**. Standaard worden de nieuwe container privé is en kan alleen worden geopend door de eigenaar van het account. Anonieme toegang toestaan openbare leestoegang tot blob-bronnen, maar niet aan de metagegevens van de container of aan de lijst met blobs in de container, stelt u de parameter machtiging op **Blob**. Stel de parameter machtiging op wilt toestaan volledige openbare leestoegang tot de blob-bronnen, container metagegevens en de lijst met blobs in de container, **Container**. Zie [Anonieme leestoegang tot containers en blobs beheren](../blobs/storage-manage-access-to-resources.md) voor meer informatie.
 >
 >
 

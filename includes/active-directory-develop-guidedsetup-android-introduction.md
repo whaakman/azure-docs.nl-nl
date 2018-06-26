@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: e25c8d97698d7a61501094a457174202322d146f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 23b7ca44b72b8840579f369954f41f554d4c8852
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297946"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943416"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Gebruikers aanmelden en de Microsoft Graph-API-aanroep van een Android-app
+# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Meld u aan gebruikers en de Microsoft Graph-API aanroepen vanuit een Android-app
 
 Deze handleiding wordt uitgelegd hoe een systeemeigen Android-toepassing kunt ophalen van een toegangstoken en bel de Microsoft Graph API of andere API's waarvoor toegangstokens van het Azure Active Directory-v2-eindpunt.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: b65888ced67ba3c236c31678cf452d40489bf028
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ba2325272552a13d6e464797b1fb523415393100
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631775"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945935"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>IoT DevKit AZ3166 met Azure-functie en cognitieve Services gebruiken om te maken van een vertaler taal
 
@@ -38,13 +38,16 @@ Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van deze
 
 ### <a name="a-start-vs-code"></a>A. VS Code starten
 
-- Zorg ervoor dat uw DevKit niet is verbonden met uw PC.
+- Zorg ervoor dat uw DevKit is verbonden met uw PC.
 - VS Code starten
 - De DevKit aansluiten op uw computer.
 
 ### <a name="b-open-the-arduino-examples-folder"></a>B. Open de map Arduino-voorbeelden
 
-Vouw de linkerkant **ARDUINO voorbeelden > Voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **DevKitTranslator**. Er wordt een nieuw venster van de VS Code geopend met de projectmap DEVKITTRANSLATOR in het.
+Vouw de linkerkant **ARDUINO voorbeelden > Voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **DevKitTranslator**. Er wordt een nieuw venster van de VS Code geopend met de projectmap DEVKITTRANSLATOR in het.  
+
+> [!NOTE]
+> Als u de voorbeelden voor MXCHIP AZ3166 gedeelte niet ziet, zorg ervoor dat het apparaat goed is aangesloten en Visual Studio Code opnieuw opstarten.  
 
 ![Voorbeelden van IoT DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
@@ -106,7 +109,7 @@ U kunt op het scherm voor het resultaat van de vertaling van:
 - Druk op de knop A en B om te bladeren en selecteer de taal van de bron.
 - Druk op B om te communiceren, om de stem verzenden en krijgt u de Vertalingtekst van release
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Het werkt als volgt
 
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 

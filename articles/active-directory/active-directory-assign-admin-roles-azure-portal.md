@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1de2482b7795bbed82874b6eea29f89f1ff52560
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260410"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938413"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -29,12 +29,18 @@ Met Azure Active Directory (Azure AD), kunt u afzonderlijke beheerders verschill
 De globale beheerder heeft toegang tot alle beheerfuncties. Standaard is de rol globale beheerder voor de map worden toegewezen door de persoon die zich voor een Azure-abonnement aanmeldt. Alleen globale beheerders kunnen andere beheerdersrollen toewijzen.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Toewijzen of verwijderen van beheerdersrollen
-Zie voor meer informatie over beheerdersrollen toewijzen aan een gebruiker in Azure Active Directory, [een gebruiker toewijzen aan beheerdersrollen in Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+Zie voor meer informatie over beheerdersrollen toewijzen aan een gebruiker in Azure Active Directory, [een gebruiker toewijzen aan beheerdersrollen in Azure Active Directory](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Beschikbare rollen
 De volgende beheerdersrollen zijn beschikbaar:
 
+* **Toepassingsbeheerder**: gebruikers met deze rol kunnen maken en beheren van alle aspecten van bedrijfstoepassingen, registraties van de toepassing en proxy-instellingen van toepassing. Deze rol wordt ook de mogelijkheid om toestemming te gedelegeerde machtigingen, met uitzondering van Microsoft Graph en Azure AD Graph-toepassing worden machtigingen verleent. Leden van deze rol zijn niet toegevoegd als eigenaars bij het maken van nieuwe registraties van de toepassing of bedrijfstoepassingen.
+
+* **Toepassingsontwikkelaar**: gebruikers met deze rol registraties van toepassing kunnen maken wanneer de 'Gebruikers kunnen zich registreren toepassingen' is ingesteld op Nee. Deze rol kan ook leden toe te staan hun eigen namens wanneer de 'Gebruikers kunnen instemmen met apps die toegang tot bedrijfsgegevens namens hen' is ingesteld op Nee. Leden van deze rol worden toegevoegd als eigenaars bij het maken van nieuwe registraties van de toepassing of bedrijfstoepassingen.
+
 * **Financieel medewerker**: doet aankopen, beheert abonnementen, beheert ondersteuningstickets en bewaakt de servicestatus.
+
+* **De beheerder van de cloud**: gebruikers met deze rol hebben dezelfde machtigingen als de rol beheerder van de toepassing, met uitzondering van de mogelijkheid voor het beheren van toepassingsproxy. Deze functie hebben de mogelijkheid maken en beheren van alle aspecten van bedrijfstoepassingen en -registraties van toepassing. Deze rol wordt ook de mogelijkheid om toestemming te gedelegeerde machtigingen, met uitzondering van Microsoft Graph en Azure AD Graph-toepassing worden machtigingen verleent. Leden van deze rol zijn niet toegevoegd als eigenaars bij het maken van nieuwe registraties van de toepassing of bedrijfstoepassingen.
 
 * **Naleving beheerder**: gebruikers met deze functie hebben beheermachtigingen binnen in de Office 365-beveiliging & Compliancecentrum en Exchange-beheercentrum. Meer informatie op '[over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). "
 
@@ -107,11 +113,29 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 ## <a name="administrator-permissions"></a>Administrator-machtigingen
 
+### <a name="application-administrator"></a>Toepassingsbeheerder
+
+| Kan doen | Is niet mogelijk |
+| --- | --- |
+| Lezen van alle directorygegevens<br>Registraties van de toepassing maken<br>Toepassingseigenschappen registratie bijwerken<br>Verkrijgen van bedrijfstoepassingen<br>Registratie-toepassing worden machtigingen beheren<br>Registraties van toepassing verwijderen<br>Enterprise eenmalige aanmelding Toepassingsinstellingen beheren<br>Instellingen voor het inrichten bedrijfstoepassing beheren<br>Enterprise selfservice Toepassingsinstellingen beheren<br>Enterprise machtiging Toepassingsinstellingen beheren<br>Toegang tot toepassingen beheren<br>De configuratie-instellingen beheren<br>Enterprise-toepassingen verwijderen<br>Toestemming namens iedereen voor alle machtigingsaanvragen van gedelegeerde<br>Toestemming namens iedereen voor alle aanvragen van toepassing machtiging, behalve in Azure AD Graph of Microsoft Graph<br>Application proxy-instellingen beheren<br>Toegangsinstellingen voor services<br>Status van de service monitor<br>Ondersteuningstickets beheren<br>Groepslidmaatschap voor lezen, verborgen | Maken, bewerken en verwijderen van groepen<br>Gebruikerslicenties beheren<br>Adreslijstsynchronisatie gebruiken<br>Aanmelden rapporten weergeven en controlelogboeken | 
+
+### <a name="application-developer"></a>Toepassingsontwikkelaar
+
+| Kan doen | Is niet mogelijk |
+| --- | --- |
+| Lezen van alle directorygegevens<br>Registraties van de toepassing maken<br>Toestemming namens self | Aanmelden weergeven en controlelogboeken<br>Groepslidmaatschap voor lezen, verborgen |
+
 ### <a name="billing-administrator"></a>Factureringsbeheerder
 
 | Kan doen | Is niet mogelijk |
 | --- | --- |
-|<p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Factuur- en bewerkingen voor Office-producten</p> |<p>Gebruikerswachtwoorden opnieuw instellen</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Auditlogboeken weergeven</p>|
+|<p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Factuur- en bewerkingen voor Office-producten</p> |<p>Gebruikerswachtwoorden opnieuw instellen</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Auditlogboeken weergeven</p> |
+
+### <a name="cloud-application-administrator"></a>Beheerder van de cloudtoepassing
+
+| Kan doen | Is niet mogelijk |
+| --- | --- |
+| Lezen van alle directorygegevens<br>Registraties van de toepassing maken<br>Toepassingseigenschappen registratie bijwerken<br>Verkrijgen van bedrijfstoepassingen<br>Registratie-toepassing worden machtigingen beheren<br>Registraties van toepassing verwijderen<br>Enterprise eenmalige aanmelding Toepassingsinstellingen beheren<br>Instellingen voor het inrichten bedrijfstoepassing beheren<br>Enterprise selfservice Toepassingsinstellingen beheren<br>Enterprise machtiging Toepassingsinstellingen beheren<br>Toegang tot toepassingen beheren<br>De configuratie-instellingen beheren<br>Enterprise-toepassingen verwijderen<br>Toestemming namens iedereen voor alle machtigingsaanvragen van gedelegeerde<br>Toestemming namens iedereen voor alle aanvragen van toepassing machtiging, behalve in Azure AD Graph of Microsoft Graph<br>Toegangsinstellingen voor services<br>Status van de service monitor<br>Ondersteuningstickets beheren<br>Groepslidmaatschap voor lezen, verborgen | Application proxy-instellingen beheren<br>Maken, bewerken en verwijderen van groepen<br>Gebruikerslicenties beheren<br>Adreslijstsynchronisatie gebruiken<br>Aanmelden rapporten weergeven en controlelogboeken |
 
 ### <a name="conditional-access-administrator"></a>Voorwaardelijke toegang beheerder
 
@@ -169,17 +193,19 @@ Weergave Azure AD-aanmeldingspagina rapporten en controlelogboeken<br>Gegevens v
 
    ![Azure AD-beheercentrum te openen](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
-2. Selecteer **gebruikers en groepen &gt; alle gebruikers**
+2. Selecteer **gebruikers** > **alle gebruikers**.
 
-3. De gebruiker die u wilt aanwijzen als globale beheerder en open de blade voor die gebruiker niet vinden.
+3. Open de pagina voor de gebruiker die u wilt aanwijzen als globale beheerder.
 
-4. Selecteer op de blade gebruiker **functie Directory**.
- 
-5. Selecteer op de blade van de rol directory de **hoofdbeheerder** rol, en op te slaan.
+4. Selecteer op de opdrachtbalk **functie Directory**.
+
+5. Selecteer **functie toevoegen**.
+
+6. Selecteer op de directorypagina-rol de **hoofdbeheerder** rol en klik vervolgens op **Selecteer** om op te slaan.
 
 ## <a name="deprecated-roles"></a>Afgeschafte functies
 
-De volgende rollen moeten niet worden gebruikt. Ze zijn gedeprecieerd en wordt verwijderd uit in de toekomst Azure AD.
+De volgende rollen moeten niet worden gebruikt. Ze zijn afgeschaft en wordt verwijderd uit in de toekomst Azure AD.
 
 * Ad-hoclicentiebeheerder
 * Maker van via e-mail geverifieerde gebruikers
@@ -190,9 +216,9 @@ De volgende rollen moeten niet worden gebruikt. Ze zijn gedeprecieerd en wordt v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Als u meer wilt weten over het wijzigen van de beheerders van een Azure-abonnement, ziet u [Azure-beheerdersrollen toevoegen of wijzigen](../billing-add-change-azure-subscription-administrator.md)
+* Zie voor meer informatie over het wijzigen van de beheerders voor een Azure-abonnement, [toevoegen of wijzigen beheerders van Azure-abonnement](../billing-add-change-azure-subscription-administrator.md)
 * Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Zie voor meer informatie over hoe Azure Active Directory is gekoppeld aan uw Azure-abonnement, [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* Zie voor meer informatie over hoe Azure Active Directory is gekoppeld aan uw Azure-abonnement, [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Gebruikers beheren](active-directory-create-users.md)
 * [Wachtwoorden beheren](active-directory-manage-passwords.md)
-* [Groepen beheren](active-directory-manage-groups.md)
+* [Groepen beheren](fundamentals/active-directory-manage-groups.md)

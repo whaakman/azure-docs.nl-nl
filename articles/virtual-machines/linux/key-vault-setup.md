@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: 6bd039225062ac6010d432b930f601fe4678ed2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: eca03a221014aafe89f07842b5ba9cfed0176faf
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907148"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936506"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Het instellen van de Sleutelkluis voor virtuele machines met de Azure CLI 2.0
 
-In de Azure Resource Manager-stack zijn geheimen/certificaten gemodelleerd als resources die worden geleverd door de Sleutelkluis. Zie voor meer informatie over Azure Sleutelkluis, [wat is Azure Sleutelkluis?](../../key-vault/key-vault-whatis.md) In de volgorde voor Sleutelkluis moet worden gebruikt met Azure Resource Manager virtuele machines, de *EnabledForDeployment* eigenschap voor Sleutelkluis moet zijn ingesteld op true. In dit artikel leest u hoe Sleutelkluis instellen voor gebruik met virtuele Azure-machines (VM's) met behulp van de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+In de Azure Resource Manager-stack zijn geheimen/certificaten gemodelleerd als resources die worden geleverd door de Sleutelkluis. Zie voor meer informatie over Azure Sleutelkluis, [wat is Azure Sleutelkluis?](../../key-vault/key-vault-whatis.md) In de volgorde voor Sleutelkluis moet worden gebruikt met Azure Resource Manager virtuele machines, de *EnabledForDeployment* eigenschap voor Sleutelkluis moet zijn ingesteld op true. In dit artikel leest u hoe Sleutelkluis instellen voor gebruik met virtuele Azure-machines (VM's) met behulp van de Azure CLI 2.0. 
 
 Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
 

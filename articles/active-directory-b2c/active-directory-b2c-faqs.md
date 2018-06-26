@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b56cdd119bac28eec819dbf38afcd2be5aaf907
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710729"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938392"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -56,7 +56,7 @@ Nee, kunt u uw toepassing overal (in de cloud of on-premises) hosten. Alle moet 
 Voordat u opent 'Azure AD B2C' in het menu links van de Azure portal, moet u overschakelen naar de map die u wilt beheren.  Overschakelen van mappen door te klikken op uw identiteit in de rechterbovenhoek van de Azure-portal en kies vervolgens een map in de vervolgkeuzelijst wordt weergegeven.  Zie voor stapsgewijze met afbeeldingen, [navigeren naar Azure AD B2C-instellingen](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hoe aanpassen bevestigingsmails (de inhoud en de ' uit: ' veld) die door Azure AD B2C verzonden?
-U kunt de [functie huisstijl](../active-directory/customize-branding.md) voor het aanpassen van de inhoud van de verificatie-e-mailberichten. In het bijzonder kunnen deze twee elementen van de e-mail worden aangepast:
+U kunt de [functie huisstijl](../active-directory/fundamentals/customize-branding.md) voor het aanpassen van de inhoud van de verificatie-e-mailberichten. In het bijzonder kunnen deze twee elementen van de e-mail worden aangepast:
 
 * **Logo banner**: weergegeven in de rechterbenedenhoek.
 * **De achtergrondkleur**: weergegeven aan de bovenkant.
@@ -89,7 +89,7 @@ Nee, uit veiligheidsoverwegingen Azure AD B2C-pagina's niet openen binnen een iF
 Integratie met Microsoft Dynamics 365 Portal is beschikbaar.  Zie [Dynamics 365-Portal configureren voor Azure AD B2C verificatie](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C komt met SharePoint on-premises 2016 werk- of eerdere?
-Azure AD B2C is niet bedoeld voor het SharePoint externe partner delen scenario; Zie [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) in plaats daarvan.
+Azure AD B2C is niet bedoeld voor het SharePoint externe partner delen scenario; Zie [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/) in plaats daarvan.
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Moet ik Azure AD B2C of B2B gebruiken om externe identiteiten te beheren?
 Lees dit artikel over [externe identiteiten](../active-directory/active-directory-b2b-compare-external-identities.md) voor meer informatie over het toepassen van de desbetreffende functies op uw scenario's voor externe identiteit.

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: eeda0fa6ad8faa05baf0a9344e958d298fb80d8e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294156"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936680"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Problemen met analyses in Application Insights oplossen
 Problemen met [Application Insights Analytics](app-insights-analytics.md)? Begin hier. Analytics is een krachtige zoekprogramma van Azure Application Insights.
 
-## <a name="limits"></a>Limieten
+## <a name="limits"></a>Beperkingen
 * Queryresultaten zijn momenteel beperkt tot alleen via een week van afgelopen gegevens.
 * We testen op browsers: meest recente edities van Chrome, rand en Internet Explorer.
 
@@ -57,7 +57,7 @@ Er is een fout opgetreden die te maken heeft met het verificatieproces (tijdens 
 4. Open een andere (gewone) browservenster en gaat u naar [Azure](https://portal.azure.com). Meld u af. Open vervolgens de koppeling en meld u met de juiste referenties aan.
 5. Gebruikers van Edge en Internet Explorer kunnen deze fout ook krijgen als instellingen voor vertrouwde zones niet worden ondersteund.
    
-    Controleer of beide [Analytics-portal](https://analytics.applicationinsights.io) en [Azure Active Directory-portal](https://portal.azure.com) zijn in de zone met dezelfde beveiliging:
+    Controleer of beide [Analytics-portal](https://portal.azure.com) en [Azure Active Directory-portal](https://portal.azure.com) zijn in de zone met dezelfde beveiliging:
    
    * Open in Internet Explorer, **Internetopties**, **beveiliging**, **vertrouwde websites**, **Sites**:
      

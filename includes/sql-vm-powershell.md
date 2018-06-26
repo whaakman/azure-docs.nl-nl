@@ -7,7 +7,7 @@ U moet eerst de meest recente hebben [Azure PowerShell](http://msdn.microsoft.co
 > 
 > 
 
-Voer de [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet en u krijgt een teken in het scherm uw referenties in te voeren. Gebruik de referenties waarmee u zich aanmeldt bij de Azure-portal.
+Voer de [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet en u krijgt een aanmeldingsscherm uw referenties in te voeren. Gebruik de referenties waarmee u zich aanmeldt bij de Azure-portal.
 
     Connect-AzureRmAccount
 

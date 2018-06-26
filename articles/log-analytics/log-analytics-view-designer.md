@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91d4efcd7fabc2f284078d752ea68778a9bd8d86
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29939866"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752036"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Aangepaste weergaven maken met behulp van de ontwerpfunctie voor weergaven in Log Analytics
 Met behulp van de ontwerpfunctie voor weergaven in [Azure Log Analytics](log-analytics-overview.md), kunt u tal van aangepaste weergaven maken in de Azure-portal kunt u gegevens in de werkruimte voor logboekanalyse visualiseren. Dit artikel biedt een overzicht van Designer bekijken en procedures voor het maken en bewerken van aangepaste weergaven.
@@ -54,14 +54,15 @@ De opties worden in de volgende tabel beschreven:
 | Optie | Beschrijving |
 |:--|:--|
 | Vernieuwen   | Hiermee vernieuwt u de weergave met de meest recente gegevens. | 
-| Analytische gegevens | Hiermee opent u de [Advanced Analytics-portal](log-analytics-log-search-portals.md#advanced-analytics-portal) voor het analyseren van gegevens met logboek zoekopdrachten. |
-| Filteren    | Hiermee stelt u een tijdfilter voor de gegevens die opgenomen in de weergave. |
-| Bewerken      | Hiermee opent u de weergave in de Designer bekijken om te bewerken van de inhoud en configuratie.  |
-| Kloon     | Een nieuwe weergave maakt en geopend in de ontwerpfunctie voor weergaven. De naam van de nieuwe weergave is hetzelfde als de oorspronkelijke naam, maar met *kopie* hieraan toegevoegd. |
+| Analyse | Hiermee opent u de [Advanced Analytics-portal](log-analytics-log-search-portals.md#advanced-analytics-portal) voor het analyseren van gegevens met logboek zoekopdrachten. |
+| Bewerken       | Hiermee opent u de weergave in de Designer bekijken om te bewerken van de inhoud en configuratie.  |
+| Kloon      | Een nieuwe weergave maakt en geopend in de ontwerpfunctie voor weergaven. De naam van de nieuwe weergave is hetzelfde als de oorspronkelijke naam, maar met *kopie* hieraan toegevoegd. |
+| Datumbereik | De datum en tijd bereikfilter instellen voor de gegevens die zijn opgenomen in de weergave. |
+| +          | Een aangepast filter dat gedefinieerd voor de weergave definiëren. |
 
 
 ## <a name="create-a-new-view"></a>Een nieuwe weergave maken
-U kunt een nieuwe weergave maken in Designer bekijken door het selecteren van de **ontwerper** tegel op de **overzicht** pagina van de werkruimte voor logboekanalyse.
+U kunt een nieuwe weergave maken in Designer bekijken door te selecteren **ontwerper** in het menu van de werkruimte voor logboekanalyse.
 
 ![Designer-venster weergeven](media/log-analytics-view-designer/view-designer-tile.png)
 
@@ -104,7 +105,6 @@ De opties voor het werken met weergaven in de bewerkingsmodus zijn beschreven in
 | Exporteren      | De weergave exporteert een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) die u kunt importeren in een andere werkruimte. De naam van het bestand is de naam van de weergave en hieraan een *omsview* extensie. |
 | Importeren      | Invoer de *omsview* -bestand dat u hebt geëxporteerd uit een andere werkruimte. Deze actie wordt de configuratie van de bestaande weergave overschreven. |
 | Kloon       | Een nieuwe weergave maakt en geopend in de ontwerpfunctie voor weergaven. De naam van de nieuwe weergave is hetzelfde als de oorspronkelijke naam, maar met *kopie* hieraan toegevoegd. |
-| Publiceren     | De weergave exporteert naar een JSON-bestand dat u kunt invoegen in een [beheeroplossing](../operations-management-suite/operations-management-suite-solutions-resources-views.md). De bestandsnaam is hetzelfde als de naam van de weergave, maar met een *json* extensie. Een tweede bestand, dat is gemaakt met een *resjson* -extensie, bevat de waarden voor de resources die zijn gedefinieerd in het JSON-bestand.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Voeg [tegels](log-analytics-view-designer-tiles.md) aan uw aangepaste weergave.

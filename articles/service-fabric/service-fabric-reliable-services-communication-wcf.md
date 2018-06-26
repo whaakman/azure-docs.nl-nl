@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: f5ca579b446e5d3608d53cea73fa9392cd00db06
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4c45bc76c176ce9f2476f6a666afda1daf4cd9c5
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212221"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749926"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-communicatiestack voor Reliable Services
 Het framework Reliable Services kan auteurs in service kiezen van de communicatiestack die ze willen gebruiken voor hun service. Ze kunnen plug-in de communicatiestack van hun keuze via de **ICommunicationListener** geretourneerd door de [CreateServiceReplicaListeners of CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methoden. Het framework biedt een implementatie van de communicatiestack gebaseerd op Windows Communication Foundation (WCF) voor service-auteurs die u wilt gebruiken, WCF-communicatie.
@@ -91,7 +91,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Clientcode kunt gebruiken de **WcfCommunicationClientFactory** samen met de **WcfCommunicationClient** welke implements **ServicePartitionClient** om te bepalen van het service-eindpunt en communiceren met de service.
+Clientcode kunt gebruiken de **WcfCommunicationClientFactory** samen met de **WcfCommunicationClient** welke implements **ServicePartitionClient** om te bepalen de service-eindpunt en communiceren met de service.
 
 ```csharp
 // Create binding
@@ -126,5 +126,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 ## <a name="next-steps"></a>Volgende stappen
 * [Externe procedureaanroep met Reliable Services voor externe toegang](service-fabric-reliable-services-communication-remoting.md)
 * [Web-API met OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [Beveiligen van communicatie voor Reliable Services](service-fabric-reliable-services-secure-communication.md)
+* [Beveiligen van communicatie voor Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
 

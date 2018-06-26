@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 604af54d034b6b51a96ff098827e2352a163be18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 693996595f1a1b963c96e5f59e72fe4c9ca80ff0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23884550"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753037"
 ---
-# <a name="reset-a-vpn-gateway"></a>Een VPN-gateway opnieuw instellen
+# <a name="reset-a-vpn-gateway"></a>Een VPN Gateway opnieuw instellen
 
 Het opnieuw instellen van een Azure VPN-gateway is handig als u cross-premises VPN-connectiviteit verliest in een of meer Site-to-Site VPN-tunnels. In een dergelijke situatie functioneren al uw on-premises VPN-apparaten naar behoren, maar kunnen ze geen IPSec-tunnels tot stand brengen met de Azure VPN-gateways. In dit artikel helpt u bij uw VPN-gateway opnieuw instellen.
 
@@ -75,7 +75,7 @@ Wanneer u een resultaat geretourneerd ontvangt, kunt u aannemen opnieuw instelle
 
 ### <a name="resetclassic"></a>Klassieke implementatiemodel
 
-De cmdlet voor het opnieuw instellen van een gateway is **Reset-AzureVNetGateway**. Voordat u een reset uitvoert, zorg ervoor dat de nieuwste versie van de [Service Management (SM) PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). Het volgende voorbeeld wordt de gateway voor een virtueel netwerk met de naam 'ContosoVNet':
+De cmdlet voor het opnieuw instellen van een gateway is **Reset-AzureVNetGateway**. Voordat u een reset uitvoert, zorg ervoor dat de nieuwste versie van de [Service Management (SM) PowerShell-cmdlets](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Het volgende voorbeeld wordt de gateway voor een virtueel netwerk met de naam 'ContosoVNet':
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

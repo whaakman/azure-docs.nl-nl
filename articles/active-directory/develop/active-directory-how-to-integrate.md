@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b59d86ddb8422108ece66eb1a7bbea808620d063
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319539"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937135"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Er zijn verschillende manieren om uw toepassing uit te integreren met Azure AD. 
 
 **Azure AD om te bepalen wie toegang tot uw toepassing heeft gebruikt.**  Beheerders en eigenaren van de toepassing in Azure AD kunnen access toewijzen aan specifieke gebruikers en groepen van toepassingen. De Graph API gebruikt, kunt u deze lijst lezen en gebruiken om te bepalen de inrichting en de inrichting van resources en toegang in uw toepassing.
 
-**Gebruik Azure AD voor rollen gebaseerd toegangsbeheer.**  Beheerders en eigenaren van de toepassing kunnen gebruikers en groepen toewijzen aan rollen die u definiëren wanneer u uw toepassing in Azure AD registreren. Rol informatie wordt verzonden naar uw toepassing in tokens aanmelden en kan ook worden gelezen met de Graph API. Meer informatie over [gebruikmaken van Azure AD voor autorisatie](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
+**Gebruik Azure AD voor rollen gebaseerd toegangsbeheer.**  Beheerders en eigenaren van de toepassing kunnen gebruikers en groepen toewijzen aan rollen die u definiëren wanneer u uw toepassing in Azure AD registreren. Rol informatie wordt verzonden naar uw toepassing in tokens aanmelden en kan ook worden gelezen met de Graph API. Meer informatie over [gebruikmaken van Azure AD voor autorisatie](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Toegang krijgen tot het gebruikersprofiel, agenda, E-mail, contactpersonen, bestanden en meer
 **Azure AD is de server van de autorisatie voor Office 365 en andere zakelijke services van Microsoft.**  Als u Azure AD voor aanmelden bij uw toepassing of ondersteuning van uw huidige gebruikersaccounts te koppelen aan Azure AD-gebruikersaccounts met behulp van OAuth 2.0 ondersteunt, kunt u lees- en schrijftoegang tot het profiel van een gebruiker, agenda, e-mail, contactpersonen, bestanden en andere informatie vragen. U kunt naadloos gebeurtenissen schrijven naar de agenda van gebruiker, en lezen of schrijven van bestanden naar hun OneDrive. Meer informatie over [toegang tot de Office 365-API](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).

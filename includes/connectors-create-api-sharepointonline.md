@@ -2,7 +2,7 @@
 
 Om verbinding te kunnen **SharePoint Online**, moet u uw identiteit (gebruikersnaam en wachtwoord, smart card-referenties, enz.) bieden tot SharePoint Online. Zodra u hebt geverifieerd, kunt u doorgaan met het gebruik van de SharePoint Online connector in uw logische app. 
 
-Volg deze stappen voor aanmelding bij SharePoint maken terwijl op de ontwerper van uw logische app, de **verbinding** voor gebruik in uw logische app:
+Volg deze stappen aan te melden bij SharePoint maken terwijl u op de ontwerper van uw logische app, de **verbinding** voor gebruik in uw logische app:
 
 1. Voer SharePoint in het zoekvak en wacht totdat de zoekopdracht om te retourneren van alle triggers en acties met betrekking tot SharePoint Online:   
    ![SharePoint configureren][1]  

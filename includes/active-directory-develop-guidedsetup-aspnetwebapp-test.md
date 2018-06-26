@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c10a6367f07bf66f7a0a8968022881b3c616fb74
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: bfdc89d9bc5d5a07c04e857c1a46e4b988c125ab
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205600"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943552"
 ---
 ## <a name="test-your-code"></a>Testen van uw code
 
@@ -44,7 +44,7 @@ Nadat u de weergave controller bladert, ziet u een tabel met de belangrijkste ei
 |Eigenschap |Waarde |Beschrijving |
 |---|---|---|
 |**Naam** |Volledige naam van gebruiker | De gebruiker eerst de- en achternaam.
-|**Gebruikersnaam** |Gebruiker<span>@domain.com</span> | De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren.
+|**Gebruikersnaam** |gebruiker<span>@domain.com</span> | De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren.
 |**Onderwerp** |Onderwerp |Een tekenreeks die een unieke identificatie van de gebruiker op het web.|
 |**Tenant-ID** |GUID | Een **guid** die Azure AD-organisatie van de gebruiker een unieke vertegenwoordigt.|
 
@@ -71,7 +71,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Beperken die zich aanmelden bij uw toepassing
-Standaard bij het samenstellen van de toepassing gemaakt door deze handleiding uw toepassing accepteert de aanmelding modules van persoonlijke accounts (inclusief outlook.com, live.com en anderen), evenals werken en schoolaccounts zijn uit een bedrijf of organisatie die is geïntegreerd met Azure Active Directory. Dit is een aanbevolen optie voor SaaS-toepassingen.
+Standaard bij het samenstellen van de toepassing gemaakt door deze handleiding uw toepassing accepteert de aanmeldingen van persoonlijke accounts (inclusief outlook.com, live.com en anderen) en werk en schoolaccounts zijn uit een bedrijf of organisatie die is geïntegreerd met Azure Active Directory. Dit is een aanbevolen optie voor SaaS-toepassingen.
 
 Gebruiker aanmelden om toegang te beperken voor uw toepassing, zijn meerdere opties zijn beschikbaar:
 

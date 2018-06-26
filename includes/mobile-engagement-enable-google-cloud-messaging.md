@@ -5,7 +5,7 @@
 > 
 > 
 
-1. Navigeer naar [Firebase Console](https://console.firebase.google.com/) en meld u aan met de referenties voor uw Google-account.
+1. Navigeer naar de [Firebase Console](https://console.firebase.google.com/) en meld u aan met de referenties van uw Google-account.
 2. Klik op de knop **Nieuw project maken** om een nieuw project te maken. U kunt ook op **Google-project importeren** klikken om een bestaand project te importeren. 
 3. Als u hebt gekozen voor het maken van een nieuw project, geeft u een **projectnaam** op en kiest u een **land/regio**.
 4. Klik linksboven op de projectpagina op het tandwiel voor **Instellingen**. Klik in het menu op **Projectinstellingen**.  

@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6cc5ff1c532d67c48beac1a2a10d034f5d9d7501
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 32dd295132e26e46d64b01b194b557cae26575ad
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345831"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750791"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Aan de slag met de SDK spraak-apparaten
 
@@ -41,7 +41,7 @@ Verzamel de informatie en software die u nodig hebt voordat u begint ontwikkelin
 
 * Als u gebruiken van de service spraak opzet herkenning wilt, zich abonneren op de [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) en [ophalen van een abonnementssleutel](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
 
-    U kunt [een eenvoudige LUIS model maken](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) of gebruik het voorbeeld LUIS model `LUIS-example.json`, beschikbaar is via de SDK van de apparaten spraak [downloaden van de site](https://shares.datatransfer.microsoft.com/). Uploaden van uw model-JSON-bestand naar de [LUIS portal](https://www.lui.ai/applications) door te klikken op **importeren nieuwe app** en het kiezen van het JSON-bestand.
+    U kunt [een eenvoudige LUIS model maken](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) of gebruik het voorbeeld LUIS model `LUIS-example.json`, beschikbaar is via de SDK van de apparaten spraak [downloaden van de site](https://shares.datatransfer.microsoft.com/). Uploaden van uw model-JSON-bestand naar de [LUIS portal](https://www.luis.ai/home) door te klikken op **importeren nieuwe app** en het kiezen van het JSON-bestand.
 
 ## <a name="set-up-the-development-kit"></a>Instellen van de development kit
 
@@ -178,7 +178,7 @@ De Roobo tests uitvoeren en de instellingen van uw development kit valideren, bo
 
 1. Uitproberen rond!
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Als u certificaat fouten krijgt bij het gebruik van de service spraak, zorg er dan voor dat het apparaat heeft de juiste datum en tijd.
 

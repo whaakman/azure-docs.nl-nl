@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 552e93e9bd1b17c73fb1638fbae2ac30b051c261
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29957546"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943467"
 ---
 1. Open in uw browser de [Azure Marketplace-installatiekopie voor Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
@@ -33,7 +33,7 @@ ms.locfileid: "29957546"
 1. In de **basisbeginselen** tabblad, geeft u de volgende waarden:
 
     - **Naam** -Voer `Jenkins`.
-    - **Gebruikersnaam** -Geef de gebruikersnaam op voor gebruik bij het aanmelden bij de virtuele machine waarop Jenkins wordt uitgevoerd. De gebruikersnaam moet voldoen aan [specifieke vereisten](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+    - **Gebruikersnaam** -Geef de gebruikersnaam moet worden gebruikt bij het aanmelden bij de virtuele machine waarop Jenkins wordt uitgevoerd. De gebruikersnaam moet voldoen aan [specifieke vereisten](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
     - **Verificatietype** : Selecteer **openbare SSH-sleutel**.
     - **Openbare SSH-sleutel** -kopiëren en plakken een openbare RSA-sleutel in de indeling van één regel (beginnen met `ssh-rsa`) of meerdere regels PEM-indeling. U kunt met behulp van ssh-keygen in Linux en Mac OS of PuTTYGen in Windows SSH-sleutels genereren. Zie het artikel voor meer informatie over de SSH-sleutels en Azure [hoe SSH gebruiken sleutels met Windows in Azure](/azure/virtual-machines/linux/ssh-from-windows).
     - **Abonnement** -het Azure-abonnement waaraan u wilt installeren Jenkins selecteren.

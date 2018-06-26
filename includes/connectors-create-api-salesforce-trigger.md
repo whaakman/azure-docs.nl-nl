@@ -1,7 +1,7 @@
 In deze procedure leert u hoe u de **Salesforce - wanneer een object wordt gemaakt** trigger een logic app-werkstroom starten wanneer een nieuwe lead in uw Salesforce-wordt gemaakt.
 
 > [!NOTE]
-> U wordt om aan te melden bij uw Salesforce-account als u nog geen hebt gemaakt wordt gevraagd een *verbinding* bij Salesforce.  
+> U wordt aan te melden bij uw Salesforce-account als u nog geen hebt gemaakt wordt gevraagd een *verbinding* bij Salesforce.  
 > 
 > 
 

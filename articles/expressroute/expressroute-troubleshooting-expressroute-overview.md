@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185977"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753439"
 ---
-# <a name="verifying-expressroute-connectivity"></a>ExpressRoute-verbinding controleren
+# <a name="verifying-expressroute-connectivity"></a>Connectiviteit ExpressRoute controleren
 ExpressRoute, die een uitbreiding is een on-premises netwerk via een persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider in de Microsoft cloud, omvat de volgende drie afzonderlijke netwerkzones:
 
 -   Klantnetwerk
 -   Serviceprovider-netwerk
--   Microsoft Datacenter
+-   Microsoft-datacentrum
 
 Het doel van dit document is zodat de gebruiker om te bepalen waar u (of zelfs als) een verbindingsprobleem bestaat en in welke zone, waardoor te zoeken naar Help-informatie van het juiste team om het probleem te verhelpen. Als Microsoft ondersteuning nodig is een probleem op te lossen, opent u een ondersteuningsticket met [Microsoft Support][Support].
 
@@ -169,12 +169,12 @@ Om te bevestigen of een ExpressRoute-circuit operationele speciale aandacht best
 >
 
 ## <a name="validate-peering-configuration"></a>Peeringconfiguratie valideren
-Nadat de serviceprovider is voltooid de inrichting van het ExpressRoute-circuit, kan een routeringsconfiguratie worden gemaakt via de ExpressRoute-circuit tussen de MSEE-PRs (4) en de msee's (5). Elk ExpressRoute-circuit kan hebben een, twee of drie routing-contexten ingeschakeld: Azure persoonlijke peering (verkeer naar persoonlijke virtuele netwerken in Azure), Azure openbare peering (verkeer naar openbare IP-adressen in Azure) en Microsoft peering (verkeer met Office 365 en Dynamics 365). Raadpleeg het artikel voor meer informatie over het maken en beheren van routeringsconfiguratie [maken en wijzigen van routering voor een ExpressRoute-circuit][CreatePeering].
+Nadat de serviceprovider is voltooid de inrichting van het ExpressRoute-circuit, kan een routeringsconfiguratie worden gemaakt via de ExpressRoute-circuit tussen de MSEE-PRs (4) en de msee's (5). Elk ExpressRoute-circuit kan hebben een, twee of drie routing-contexten ingeschakeld: persoonlijke Azure-peering (verkeer naar persoonlijke virtuele netwerken in Azure), openbare Azure-peering (verkeer naar openbare IP-adressen in Azure) en Microsoft-peering (het verkeer naar Office 365 en Dynamics 365). Raadpleeg het artikel voor meer informatie over het maken en beheren van routeringsconfiguratie [maken en wijzigen van routering voor een ExpressRoute-circuit][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Verificatie via de Azure-portal
 
 >[!NOTE]
->Als laag 3 wordt geleverd door de provider en de peerings leeg in de portal zijn, moet u de Circuit-configuratie met de knop Vernieuwen op de protal vernieuwen. Deze bewerking geldt de configuratie van de juiste routering op uw circuit. 
+>Als de laag 3 wordt geleverd door de provider en de peerings zijn leeg in de portal, vernieuwt u de configuratie van het Circuit met de knop Vernieuwen op de portal. Deze bewerking geldt de configuratie van de juiste routering op uw circuit. 
 >
 >
 
@@ -301,7 +301,7 @@ Een voorbeeld van antwoord voor de opdracht in het scenario voor geslaagd:
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-Op deze manier kunt u de ARP-tabel van de MSEE in controleren de *primaire*/*secundaire* pad voor *persoonlijke*/*openbare*/*Microsoft* peerings.
+Op deze manier kunt u de ARP-tabel van de MSEE in controleren de *primaire*/*secundaire* pad voor *persoonlijke*/*openbare*  / *Microsoft* peerings.
 
 Het volgende voorbeeld ziet dat het antwoord van de opdracht voor een peering bestaat niet.
 
@@ -359,7 +359,7 @@ Er is een voorbeeld van de goede afloop voor de opdracht:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-Op deze manier kunt u de routeringstabel van de MSEE in controleren de *primaire*/*secundaire* pad voor *persoonlijke*/*openbare*/*Microsoft* een peering context.
+Op deze manier kunt u de routeringstabel van de MSEE in controleren de *primaire*/*secundaire* pad voor *persoonlijke* /  *Openbare*/*Microsoft* een peering context.
 
 Het volgende voorbeeld ziet u dat het antwoord van de opdracht voor een peering bestaat niet:
 

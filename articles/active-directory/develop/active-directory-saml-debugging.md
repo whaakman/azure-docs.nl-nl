@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: d0c006b21e00693fe6c8b35237d4ce55f67c0f75
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320595"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751391"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Foutopsporing op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory
 
@@ -45,6 +45,9 @@ Testen op basis van SAML eenmalige aanmelding tussen AAD en een doeltoepassing:
 3.  Klik op de toepassing die u wilt testen eenmalige aanmelding en klik vervolgens in de opties in het linkerdeelvenster klikt u op uit de lijst van zakelijke toepassingen, **eenmalige aanmelding**.
 4.  De SAML-gebaseerde één aanmelding testen ervaring openen in de **domein en de URL's** sectie Klik **Test SAML instelling**. Als de knop testen SAML-instelling wordt grijs, moet u eerst vult u af en sla de vereiste kenmerken.
 5.  In de **Test eenmalige aanmelding** blade gebruik van uw zakelijke referenties aanmelden bij de doeltoepassing. U kunt zich aanmelden als de huidige gebruiker of een andere gebruiker. Als u zich als een andere gebruiker aanmelden, wordt een prompt u gevraagd te verifiëren.
+
+    ![SAML testpagina](media/active-directory-saml-debugging/testing.png)
+
 
 Als u bent aangemeld, wordt de test is geslaagd. Azure AD uitgegeven in dit geval een SAML-token antwoord voor de toepassing. De toepassing gebruikt het SAML-token is om u te registreren.
 

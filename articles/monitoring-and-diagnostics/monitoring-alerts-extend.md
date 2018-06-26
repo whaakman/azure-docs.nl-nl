@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: c01f986bfe3e6a3162988056a268423e07f429bf
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6484142eafa8388117c1e96ab31eefeab188e488
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301147"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750269"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Log Analytics waarschuwingen uitbreiden naar Azure-waarschuwingen
-Tot voor kort opgenomen Azure Log Analytics eigen waarschuwing-functionaliteit kunt u voorwaarden op basis van gegevens van logboekanalyse proactief waarschuwen. Beheerd van regels voor waarschuwingen in de [Microsoft Operations Management Suite-portal](../operations-management-suite/operations-management-suite-overview.md). De nieuwe waarschuwingen is nu geïntegreerd waarschuwingen in verschillende services in Microsoft Azure. Deze optie is beschikbaar als **waarschuwingen** onder Azure Monitor in de Azure portal en biedt ondersteuning voor waarschuwingen van activiteitenlogboeken, metrische gegevens, en registreert van logboekanalyse zowel Azure Application Insights. 
+Tot voor kort opgenomen Azure Log Analytics eigen waarschuwing-functionaliteit kunt u voorwaarden op basis van gegevens van logboekanalyse proactief waarschuwen. Regels voor waarschuwingen in de Microsoft Operations Management Suite-portal worden beheerd. De nieuwe waarschuwingen is nu geïntegreerd waarschuwingen in verschillende services in Microsoft Azure. Deze optie is beschikbaar als **waarschuwingen** onder Azure Monitor in de Azure portal en biedt ondersteuning voor waarschuwingen van activiteitenlogboeken, metrische gegevens, en registreert van logboekanalyse zowel Azure Application Insights. 
 
 ## <a name="benefits-of-extending-your-alerts"></a>Voordelen van het uitbreiden van uw waarschuwingen
 Er zijn enkele voordelen van het maken en het beheren van waarschuwingen in de Azure portal, zoals:
