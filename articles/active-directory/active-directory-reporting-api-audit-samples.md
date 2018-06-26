@@ -1,46 +1,46 @@
 ---
-title: Rapportage van Azure Active Directory controleren API samples | Microsoft Docs
-description: Hoe u aan de slag met de Azure Active Directory rapportage-API
+title: Voorbeelden van de controle-API voor Azure Active Directory-rapportage | Microsoft Docs
+description: Aan de slag gaan met de rapportage-API van Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/30/2018
-ms.author: dhanyahk;rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 77ecb1f0c4b3614c9692715edae21a09f261b277
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 240095b64f4b7b37a71f84ce8d7a3521e0ab7c03
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588161"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36223882"
 ---
-# <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory-rapportage audit API-voorbeelden
-In dit artikel maakt deel uit van een verzameling van artikelen over de Azure Active Directory rapportage-API.  
-Rapportage van Azure AD biedt u een API waarmee u toegang krijgt tot controlegegevens met code of gerelateerde hulpprogramma's.
-Het bereik van dit artikel is om te voorzien van voorbeeldcode voor de **audit API**.
+# <a name="azure-active-directory-reporting-audit-api-samples"></a>Voorbeelden van de controle-API voor Azure Active Directory-rapportage
+Dit artikel maakt onderdeel uit van een verzameling artikelen over de rapportage-API van Azure Active Directory.  
+Azure AD-rapportage biedt een API waarmee u toegang krijgt tot controlegegevens met behulp van code of gerelateerde hulpprogramma’s.
+De bedoeling van dit artikel is om u voorbeeldcode te bieden voor de **controle-API**.
 
 Zie:
 
-* [Controlelogboeken](active-directory-reporting-azure-portal.md#activity-reports) voor meer conceptuele informatie
-* [Aan de slag met Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) voor meer informatie over de rapportage-API.
+* [Auditlogboeken](active-directory-reporting-azure-portal.md#activity-reports) voor meer conceptuele informatie
+* [Aan de slag met de rapportage-API van Azure Active Directory](active-directory-reporting-api-getting-started.md) voor meer informatie over de rapportage-API.
 
-Voor vragen, problemen of feedback, neem contact op met [AAD rapportage Help](mailto:aadreportinghelp@microsoft.com).
+Neem contact op met [Help voor AAD-rapportage](mailto:aadreportinghelp@microsoft.com) als u vragen, problemen of feedback hebt.
 
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u de voorbeelden in dit artikel kunt, u moet voltooien de [vereisten voor toegang tot de Azure AD rapportage-API](active-directory-reporting-api-prerequisites.md).  
+Voordat u de voorbeelden in dit artikel kunt gebruiken, moet u voldoen aan de [vereisten voor toegang tot de rapportage-API van Azure AD](active-directory-reporting-api-prerequisites.md).  
 
-## <a name="known-issue"></a>Bekende problemen
-App-verificatie werkt niet als uw tenant in het gebied EU is. Gebruik gebruikersverificatie voor het openen van de Audit-API als tijdelijke oplossing totdat het probleem worden opgelost. 
+## <a name="known-issue"></a>Bekend probleem
+App-verificatie werkt niet als de tenant zich in de regio EU bevindt. Gebruik als tijdelijke oplossing Gebruikersverificatie voor toegang tot de controle-API, totdat het probleem is opgelost. 
 
 ## <a name="powershell-script"></a>PowerShell-script
 
@@ -95,16 +95,16 @@ if ($oauth.access_token -ne $null) {
 ```
 
 ### <a name="executing-the-powershell-script"></a>Het PowerShell-script uitvoeren
-Zodra u klaar bent met het script bewerken, uitvoeren en controleren of de verwachte gegevens van de Audit rapport Logboeken wordt geretourneerd.
+Zodra u klaar bent met het bewerken van het script, voert u het uit en controleert u of de verwachte gegevens uit het rapport voor de auditlogboeken worden geretourneerd.
 
-Het script retourneert de uitvoer van het auditrapport in JSON-indeling. Maakt ook een `Audits.json` bestand met dezelfde uitvoer. U kunt experimenteren door het script als u gegevens van andere rapporten en uitcommentarieer de output-indelingen u niet hoeft wilt wijzigen.
+Met het script worden uitvoergegevens uit het controlerapport geretourneerd in de JSON-indeling. Er wordt ook een `Audits.json`-bestand gemaakt met dezelfde uitvoergegevens. U kunt experimenteren door het script te wijzigen zodat gegevens uit andere rapporten worden geretourneerd, en onnodige uitvoergegevens vervolgens uitcommentariëren.
 
 
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Wilt u de voorbeelden in dit artikel aanpassen? Bekijk de [Azure Active Directory-audit API-referentiemateriaal](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit). 
-* Als u wilt dat een volledig overzicht van het gebruik van de Azure Active Directory rapportage-API. Raadpleeg [aan de slag met de Azure Active Directory-rapportage API](active-directory-reporting-api-getting-started.md).
-* Als u meer informatie over Azure Active Directory-rapportage wilt, raadpleegt u de [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
+* Wilt u de voorbeelden in dit artikel aanpassen? Raadpleeg het [referentiemateriaal voor de controle-API voor Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit). 
+* Zie [Aan de slag met de rapportage-API van Azure Active Directory](active-directory-reporting-api-getting-started.md) voor een volledig overzicht van het gebruik van de rapportage-API van Azure Active Directory.
+* Zie de [handleiding voor Azure Active Directory-rapportage](active-directory-reporting-guide.md) voor meer informatie over Azure Active Directory-rapportage.  
 

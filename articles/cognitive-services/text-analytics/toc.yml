@@ -1,0 +1,69 @@
+- name: Documentatie voor de Text Analytics API
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Text Analytics-API?
+      href: overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Zelfstudies
+  items:
+    - name: Text Analytics met Power BI
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Tekstanalyse in Power Apps
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
+- name: Handleidingen
+  items:
+    - name: Aanmelden
+      href: How-tos/text-analytics-how-to-signup.md
+    - name: Een toegangssleutel opvragen
+      href: How-tos/text-analytics-how-to-access-key.md
+    - name: De Tekstanalyse-API aanroepen
+      href: How-tos/text-analytics-how-to-call-api.md
+    - name: Taal detecteren
+      href: How-tos/text-analytics-how-to-language-detection.md
+    - name: Stemming analyseren
+      href: How-tos/text-analytics-how-to-sentiment-analysis.md
+    - name: Belangrijke woordgroepen herkennen
+      href: How-tos/text-analytics-how-to-keyword-extraction.md
+    - name: Gekoppelde entiteiten herkennen
+      href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: Werken met Visual Studio
+      items:
+        - name: De verbonden service Text Analytics gebruiken
+          href: vs-text-connected-service.md
+- name: Naslaginformatie
+  items:
+    - name: Tekstanalyse-API
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: text-analytics-resource-faq.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: Ondersteunde talen
+      href: text-analytics-supported-languages.md
+    - name: Abonnementssleutel
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=text-analytics'
+    - name: Externe en community-inhoud
+      href: text-analytics-resource-external-community.md
+    - name: Probeer het nu!
+      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'

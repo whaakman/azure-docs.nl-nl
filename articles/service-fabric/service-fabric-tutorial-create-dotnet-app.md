@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: a1197277b97c14e95bdab67f7c3d00b75a841f22
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312692"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267571"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
 Deze zelfstudie is deel één van een serie.  U leert hoe u een Azure Service Fabric-toepassing met een front-end van ASP.NET Core web-API en een stateful back-endservice maakt voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](#walkthrough_anchor).  Als u dat liever doet, kunt u ook een [video](https://channel9.msdn.com/Events/Connect/2017/E100) van deze zelfstudie bekijken.
@@ -74,9 +74,21 @@ Maak eerst de webfront-end van de stemtoepassing met behulp van ASP.NET Core. AS
    ![Solution Explorer na het maken van de toepassing met de ASP.NET Core web-API-service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>AngularJS toevoegen aan de VotingWeb-service
-Voeg [AngularJS](http://angularjs.org/) toe aan uw service met behulp van [Bower-ondersteuning](/aspnet/core/client-side/bower). Voeg eerst een Bower-configuratiebestand toe aan het project.  Klik in Solution Explorer met de rechtermuisknop op **VotingWeb** en selecteer **Add->New Item**. Selecteer **Web** en vervolgens **Bower Configuration File**.  Het bestand *bower.json* wordt gemaakt.
+Voeg [AngularJS](http://angularjs.org/) toe aan uw service met behulp van [Bower-ondersteuning](/aspnet/core/client-side/bower). Voeg eerst een *.bowerrc*-configuratiebestand toe aan het project.  Klik in Solution Explorer met de rechtermuisknop op **VotingWeb** en selecteer **Add->New Item**. Selecteer **C#** en vervolgens **JSON-bestand**.  Voer **.bowerrc** in het veld *Naam* in en klik op **Toevoegen**.
 
-Open *bower.json* en voeg vermeldingen toe voor angular en angular-bootstrap en sla vervolgens uw wijzigingen op.
+Open *.bowerrc* en vervang de inhoud door het volgende, waarin wordt aangegeven dat de pakketactiva moeten worden geïnstalleerd in de directory *wwwroot/lib*.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+Sla de wijzigingen in *.bowerrc* op.  Hiermee wordt een *.bowerrc*-bestand gemaakt in uw project.  
+
+Voeg vervolgens een Bower-configuratiebestand toe aan het project.  Klik in Solution Explorer met de rechtermuisknop op **VotingWeb** en selecteer **Add->New Item**. Selecteer **C#** en vervolgens **JSON-bestand**.  Voer **bower./json** in het veld *Naam* in en klik op **Toevoegen**.
+
+Open *bower.json*, vervang de inhoud door de volgende items voor angular en angular-bootstrap, en sla vervolgens uw wijzigingen op.
 
 ```json
 {
@@ -92,7 +104,8 @@ Open *bower.json* en voeg vermeldingen toe voor angular en angular-bootstrap en 
   }
 }
 ```
-Bij het opslaan van het bestand *bower.json*, wordt Angular geïnstalleerd in de map *wwwroot/lib* van uw project. Het wordt ook vermeld in de map *Dependencies/Bower*.
+
+Na het opslaan van het bestand *bower.json*, wordt Angular door de Bower-ondersteuning van Visual Studio geïnstallleerd in de map *wwwroot/lib* van uw project. Het wordt ook vermeld in de map *Dependencies/Bower*.
 
 ### <a name="update-the-sitejs-file"></a>Het bestand site.js bijwerken
 Open het bestand *wwwroot/js/site.js*.  Vervang de inhoud ervan door het JavaScript dat wordt gebruikt door de beginweergaven:

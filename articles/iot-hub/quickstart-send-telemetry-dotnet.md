@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3fe783f8b5a7955ebe117df02edcdc6aafeff4f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbb4ce971e6504f33de82e31cf289a42a1640952
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636848"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293166"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Snelstartgids: Telemetrie vanaf een apparaat verzenden naar een IoT-hub en de telemetrie lezen van de hub met een back-endtoepassing (C#)
 
@@ -60,7 +60,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
     Als u een andere naam voor het apparaat kiest, werkt u de apparaatnaam bij in de voorbeeldtoepassingen voordat u ze uitvoert.
 
-1. Voer de volgende opdracht uit om de _apparaatverbindingsreeks_ op te halen voor het apparaat dat u zojuist hebt geregistreerd:
+2. Voer de volgende opdracht uit om de _apparaatverbindingsreeks_ op te halen voor het apparaat dat u zojuist hebt geregistreerd:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -68,7 +68,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
     Noteer de apparaatverbindingsreeks, die er ongeveer zo uitziet: `Hostname=...=`. U gebruikt deze waarde verderop in de snelstartgids.
 
-1. U hebt ook het _Event Hubs-compatibele eindpunt_, het _Event Hubs-compatibele pad_ en de _primaire sleutel iothubowner_ van uw IoT-hub nodig om de back-endtoepassing in staat te stellen verbinding te maken met uw IoT-hub en de berichten op te halen. Met de volgende opdrachten worden deze waarden opgehaald voor uw IoT-hub:
+3. U hebt ook het _Event Hubs-compatibele eindpunt_, het _Event Hubs-compatibele pad_ en de _primaire sleutel iothubowner_ van uw IoT-hub nodig om de back-endtoepassing in staat te stellen verbinding te maken met uw IoT-hub en de berichten op te halen. Met de volgende opdrachten worden deze waarden opgehaald voor uw IoT-hub:
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -86,17 +86,17 @@ De toepassing voor het gesimuleerde apparaat maakt verbinding met een apparaatsp
 
 1. Navigeer in een terminalvenster naar de hoofdmap van het voorbeeldproject in C#. Navigeer vervolgens naar de map **iot-hub\Quickstarts\simulated-device**.
 
-1. Open het bestand **SimulatedDevice.cs** in een teksteditor van uw keuze.
+2. Open het bestand **SimulatedDevice.cs** in een teksteditor van uw keuze.
 
     Vervang de waarde van de variabele `connectionString` door de apparaatverbindingsreeks die u eerder hebt genoteerd. Sla ten slotte de wijzigingen in **SimulatedDevice.cs** op.
 
-1. Voer in het terminalvenster de volgende opdrachten uit om de vereiste pakketten te installeren voor de toepassing voor het gesimuleerde apparaat:
+3. Voer in het terminalvenster de volgende opdrachten uit om de vereiste pakketten te installeren voor de toepassing voor het gesimuleerde apparaat:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Voer in het terminalvenster de volgende opdracht uit om de toepassing voor het gesimuleerde apparaat te compileren en uit te voeren:
+4. Voer in het terminalvenster de volgende opdracht uit om de toepassing voor het gesimuleerde apparaat te compileren en uit te voeren:
 
     ```cmd/sh
     dotnet run
@@ -112,21 +112,21 @@ De back-endtoepassing maakt verbinding met het eindpunt **Events** aan de servic
 
 1. Navigeer in een ander terminalvenster naar de hoofdmap van het voorbeeldproject in C#. Navigeer vervolgens naar de map **iot-hub\Quickstarts\read-d2c-messages**.
 
-1. Open het bestand **ReadDeviceToCloudMessages.cs** in een teksteditor van uw keuze.
+2. Open het bestand **ReadDeviceToCloudMessages.cs** in een teksteditor van uw keuze. Werk de volgende variabelen bij en sla de wijzigingen in het bestand op.
 
-    Vervang de waarde van de variabele `eventHubsCompatibleEndpoint` door het Event Hub-compatibele eindpunt dat u eerder hebt genoteerd.
+    | Variabele | Waarde |
+    | -------- | ----------- |
+    | `eventHubsCompatibleEndpoint` | Vervang de waarde van de variabele door het met Event Hubs compatibele eindpunt dat u eerder hebt genoteerd. |
+    | `eventHubsCompatiblePath`     | Vervang de waarde van de variabele door het met Event Hubs compatibele pad dat u eerder hebt genoteerd. |
+    | `iotHubSasKey`                | Vervang de waarde van de variabele door de primaire sleutel iothubowner die u eerder hebt genoteerd. |
 
-    Vervang de waarde van de variabele `eventHubsCompatiblePath` door het Event Hub-compatibele pad dat u eerder hebt genoteerd.
-
-    Vervang de waarde van de variabele `iotHubSasKey` door de primaire sleutel iothubowner die u eerder hebt genoteerd. Sla de wijzigingen in het bestand **ReadDeviceToCloudMessages.cs** op.
-
-1. Voer in het terminalvenster de volgende opdrachten uit om de vereiste bibliotheken voor de back-endtoepassing te installeren:
+3. Voer in het terminalvenster de volgende opdrachten uit om de vereiste bibliotheken voor de back-endtoepassing te installeren:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Voer in het terminalvenster de volgende opdrachten uit om de back-endtoepassing te bouwen en uit te voeren:
+4. Voer in het terminalvenster de volgende opdrachten uit om de back-endtoepassing te bouwen en uit te voeren:
 
     ```cmd/sh
     dotnet run
@@ -138,9 +138,7 @@ De back-endtoepassing maakt verbinding met het eindpunt **Events** aan de servic
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u van plan bent om de volgende snelstartgids uit te voeren, hebt u de resourcegroep en IoT-hub nog nodig.
-
-Als u de IoT-hub niet langer nodig hebt, verwijdert u deze en de resourcegroep in de portal. Dit doet u door de resourcegroep **qs-iot-hub-rg** met de IoT-hub te selecteren en op **Verwijderen** te klikken.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

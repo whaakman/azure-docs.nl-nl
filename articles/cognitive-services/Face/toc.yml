@@ -1,0 +1,87 @@
+- name: Documentatie voor Face-API
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Face-API?
+      href: Overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: 'C#'
+      href: QuickStarts/CSharp.md
+    - name: cURL
+      href: QuickStarts/curl.md
+    - name: Aan de slag
+      href: QuickStarts/go.md
+    - name: Java
+      href: QuickStarts/Java.md
+    - name: Javascript
+      href: QuickStarts/JavaScript.md
+    - name: Node.js
+      href: QuickStarts/node.md
+    - name: PHP
+      href: QuickStarts/PHP.md
+    - name: Python
+      href: QuickStarts/Python.md
+    - name: Ruby
+      href: QuickStarts/Ruby.md
+- name: Handleidingen
+  items:
+    - name: Eerste Face-API-apps
+      items:
+        - name: 'C#'
+          href: Tutorials/FaceAPIinCSharpTutorial.md
+        - name: Java voor Android
+          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+        - name: Python
+          href: Tutorials/FaceAPIinPythonTutorial.md
+    - name: Gezichten in een afbeelding detecteren
+      href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+    - name: Gezichten in een afbeelding identificeren
+      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
+    - name: Gezichten toevoegen
+      href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: De functie Grootschalig gebruiken
+      href: Face-API-How-to-Topics/how-to-use-large-scale.md
+    - name: Video's in realtime analyseren
+      href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
+    - name: Werken met Visual Studio
+      items:
+        - name: De verbonden service Face-API gebruiken
+          href: vs-face-connected-service.md
+- name: Naslaginformatie
+  items:
+    - name: Face-API
+      href: APIReference.md
+    - name: SDK's
+      items:
+        - name: Aan de slag
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules'
+        - name: Python
+          href: 'https://github.com/Microsoft/Cognitive-Face-Python'
+        - name: Windows
+          href: 'https://github.com/Microsoft/Cognitive-Face-Windows'
+        - name: Android
+          href: 'https://github.com/Microsoft/Cognitive-Face-Android'
+        - name: iOS
+          href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
+- name: Resources
+  items:
+    - name: Voorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
+    - name: Veelgestelde vragen
+      href: FAQ.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/430315-face-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Woordenlijst
+      href: Glossary.md
+    - name: Releaseopmerkingen
+      href: ReleaseNotes.md

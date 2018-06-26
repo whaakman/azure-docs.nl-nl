@@ -1,0 +1,91 @@
+- name: Documentatie voor Bing Nieuws zoeken
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Bing Nieuws zoeken?
+      href: search-the-web.md
+- name: Snelstarts voor REST API
+  expanded: true
+  items:
+    - name: Aan de slag
+      href: quickstart.md
+    - name: 'C#'
+      href: csharp.md
+    - name: Java
+      href: java.md
+    - name: Node.js
+      href: nodejs.md
+    - name: PHP
+      href: php.md
+    - name: Python
+      href: python.md
+    - name: Ruby
+      href: ruby.md
+- name: Snelstarts voor SDK
+  items:
+    - name: Overzicht van SDK-voorbeelden
+      href: sdk.md
+    - name: 'C#-snelstart voor Nieuws zoeken SDK'
+      href: news-search-sdk-quickstart.md
+    - name: Node.js-snelstart voor Nieuws zoeken SDK
+      href: news-search-sdk-node-quickstart.md
+    - name: Python-snelstart voor Nieuws zoeken SDK
+      href: news-sdk-python-quickstart.md
+    - name: Java-snelstart voor Nieuws zoeken SDK
+      href: news-sdk-java-quickstart.md
+- name: Zelfstudies
+  items:
+    - name: Web-app van één pagina
+      href: tutorial-bing-news-search-single-page-app.md
+    - name: Web-app van één pagina (broncode)
+      href: tutorial-bing-news-search-single-page-app-source.md
+- name: Voorbeelden
+  items:
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
+- name: Handleidingen
+  items:
+    - name: Vereisten voor gebruik en weergave
+      href: UseAndDisplayRequirements.md
+    - name: Markering van treffers afhandelen
+      href: hit-highlighting.md
+    - name: Bladeren door nieuws
+      href: paging-news.md
+    - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
+      href: resize-and-crop-thumbnails.md
+    - name: Upgrade uitvoeren van v5 naar v7
+      href: bing-news-upgrade-guide-v5-to-v7.md
+    - name: Werken met Visual Studio
+      items:
+        - name: De verbonden service Bing Nieuws zoeken gebruiken
+          href: vs-bing-news-search-connected-service.md
+- name: Naslaginformatie
+  items:
+    - name: Bing Nieuws zoeken-API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+    - name: Bing Nieuws zoeken-API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+- name: Resources
+  items:
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+news+search'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API-sleutel ophalen
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api'
+    - name: Probeer het nu!
+      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
+    - name: Bing Nieuws zoeken-eindpunten
+      href: endpoint-news.md
+    - name: Ondersteunde landen en markten
+      href: supported-countries-markets.md
+    - name: Analytische gegevens voor Bing Nieuws zoeken-API
+      href: bing-news-stats.md

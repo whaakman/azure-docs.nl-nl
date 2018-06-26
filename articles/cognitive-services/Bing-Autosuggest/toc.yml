@@ -1,0 +1,65 @@
+- name: Documentatie voor Bing Automatische suggesties
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Bing Automatische suggesties?
+      href: get-suggested-search-terms.md
+- name: Snelstarts voor REST API
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Zelfstudies
+  items:
+    - name: Web-app van één pagina
+      href: tutorials/autosuggest.md
+    - name: Web-app van één pagina (broncode)
+      href: tutorials/autosuggest-source.md
+- name: Handleidingen
+  items:
+    - name: Vereisten voor gebruik en weergave
+      href: UseAndDisplayRequirements.md
+    - name: Upgrade uitvoeren van v5 naar v7
+      href: bing-autosuggest-upgrade-guide-v5-to-v7.md
+- name: Naslaginformatie
+  items:
+    - name: Bing Automatische suggesties-API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+    - name: Bing Automatische suggesties-API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: bing-autosuggest-resource-faq.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+autosuggest'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API-sleutel ophalen
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api'
+    - name: Probeer het nu!
+      href: 'https://azure.microsoft.com/services/cognitive-services/autosuggest/'
+    - name: Bing Automatische suggesties-eindpunt
+      href: autosuggest-endpoint.md
+    - name: Ondersteunde talen
+      href: bing-autosuggest-supported-languages.md
+    - name: Analytische gegevens voor Automatische suggestie-API voor Bing
+      href: bing-autosuggest-stats.md

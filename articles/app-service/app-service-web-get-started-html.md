@@ -3,8 +3,8 @@ title: Een statische HTML-web-app maken in Azure | Microsoft Docs
 description: Ontdek hoe eenvoudig het is om web-apps uit te voeren in App Service door een voorbeeld van een statische HTML-app te implementeren.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -12,91 +12,97 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/26/2017
-ms.author: cephalin
+ms.date: 06/15/2018
+ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: bca5757c971f15279ed6ee9b41f415cd347d91b3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9002d0636a5abaf24cc2bcd1e531f38ec5c8d2eb
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28918774"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294009"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Een statische HTML-web-app maken in Azure
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een eenvoudige HTML+CSS-site naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en u gebruikt Git om HTML-voorbeeldinhoud in de web-app te implementeren.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een eenvoudige HTML+CSS-site naar Azure Web Apps implementeert. U gaat deze Quickstart in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Startpagina van voorbeeld-app](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Vanaf het moment dat de vereiste onderdelen zijn geïnstalleerd, duurt het ongeveer vijf minuten om de stappen uit te voeren.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Vereisten
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+## <a name="install-web-app-extension-for-cloud-shell"></a>Web-appuitbreiding voor Cloud Shell installeren
 
-- <a href="https://git-scm.com/" target="_blank">Git installeren</a>
+Om deze Quickstart te kunnen doen, installeert u de web-appuitbreiding met [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Als de extensie al is geïnstalleerd, moet u deze bijwerken naar de nieuwste versie. U kunt de web-appuitbreiding bijwerken door `az extension update -n webapp` te typen.
+
+Voer de volgende opdracht uit om het web-appuitbreiding te installeren:
+
+```bash
+az extension add -n webapp
+```
+
+Wanneer de uitbreiding is geïnstalleerd, toont de Cloud Shell gegevens voor het volgend voorbeeld:
+
+```bash
+The installed extension 'webapp' is in preview.
+```
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Voer in een terminalvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
+Maak een map 'quickstart' in de Cloud Shell en ga er vervolgens naartoe.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Voer vervolgens de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen naar de map 'quickstart'.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-Ga naar de map die de voorbeeldcode bevat.
+## <a name="create-a-web-app"></a>Een webtoepassing maken
+
+Ga naar de map die de voorbeeldcode bevat en voer de opdracht `az webapp up` uit.
+
+Vervang in de volgende opdracht <app-naam> door een unieke app-naam.
 
 ```bash
 cd html-docs-hello-world
+
+az webapp up -n <app_name>
 ```
 
-## <a name="view-the-html"></a>De HTML weergeven
+Met de opdracht `az webapp up` worden de volgende acties uitgevoerd:
 
-Ga naar de map die de voorbeeld-HTML bevat. Open het bestand *index.html* in uw browser.
+- Er wordt een standaardresourcegroep gemaakt.
 
-![Startpagina van voorbeeld-app](media/app-service-web-get-started-html/hello-world-in-browser.png)
+- Er wordt een standaardserviceplan voor de app gemaakt.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Er wordt een app met de opgegeven naam gemaakt.
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+- Er worden via zip bestanden van de huidige werkmap naar de web-app [geïmplementeerd](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip).
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+Het kan enkele minuten duren voor deze opdracht is uitgevoerd. De opdracht geeft informatie weer die lijkt op het volgende voorbeeld:
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
-
-![Lege pagina van web-app](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
-
-```bash
-Counting objects: 13, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (11/11), done.
-Writing objects: 100% (13/13), 2.07 KiB | 0 bytes/s, done.
-Total 13 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'cc39b1e4cb'.
-remote: Generating deployment script.
-remote: Generating deployment script for Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
-remote: Deleting file: 'hostingstart.html'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+```json
+{
+  "app_url": "https://<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Windows",
+  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
+  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "sku": "FREE",
+  "src_path": "/home/username/quickstart/html-docs-hello-world ",
+  < JSON data removed for brevity. >
+}
 ```
+
+Noteer de waarde van `resourceGroup`. U hebt deze waarde nodig voor de sectie [Resources opschonen](#clean-up-resources).
 
 ## <a name="browse-to-the-app"></a>Bladeren naar de app
 
@@ -110,16 +116,19 @@ De pagina wordt als een web-app uitgevoerd in Azure App Service.
 
 ## <a name="update-and-redeploy-the-app"></a>De app bijwerken en opnieuw implementeren
 
-Open het bestand de *index.html* in een teksteditor en wijzig wat code. Wijzig bijvoorbeeld de tekst van de H1-kop 'Azure App Service - Sample Static HTML Site' in 'Azure App Service'.
+Typ `nano index.html` in de Cloud Shell om de nano-teksteditor te openen. Wijzig in de H1-kop 'Azure App Service - Sample Static HTML Site' in 'Azure App Service', zoals hieronder wordt weergegeven.
 
-Leg in het lokale terminalvenster uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
+![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
+
+Sla uw wijzigingen op en sluit nano af. Sla op met de opdracht `^O` en sluit af met `^X`.
+
+U gaat de app nu opnieuw implementeren met dezelfde opdracht `az webapp up`.
 
 ```bash
-git commit -am "updated HTML"
-git push azure master
+az webapp up -n <app_name>
 ```
 
-Als de implementatie is voltooid, vernieuwt u uw browser om de wijzigingen te bekijken.
+Wanneer de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap **Bladeren naar de app** en vernieuwt u de pagina.
 
 ![Bijgewerkte startpagina van voorbeeld-app](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
@@ -131,13 +140,21 @@ Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-a
 
 ![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-html/portal1.png)
 
-De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. 
+De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen.
 
 ![App Service-blade in Azure Portal](./media/app-service-web-get-started-html/portal2.png)
 
-Het linkermenu bevat een aantal pagina's voor het configureren van uw app. 
+Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Resources opschonen
+
+In de voorgaande stappen hebt u Azure-resources in een resourcegroep gemaakt. Als u deze resources niet meer nodig denkt te hebben, verwijdert u de resourcegroep door de volgende opdracht in Cloud Shell uit te voeren. De naam van de resourcegroep is automatisch gegenereerd in de stap [Een web-app maken](#create-a-web-app).
+
+```bash
+az group delete --name appsvc_rg_Windows_CentralUS
+```
+
+Het kan een minuut duren voordat deze opdracht is uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

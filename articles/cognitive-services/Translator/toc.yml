@@ -1,0 +1,111 @@
+- name: Documentatie voor Translator Text-API
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is de Translator Text-API?
+      href: translator-info-overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: 'C#'
+      items:
+        - name: Tekst vertalen
+          href: quickstart-csharp-translate.md
+        - name: Tekstscript converteren
+          href: quickstart-csharp-transliterate.md
+        - name: Taal bepalen op basis van tekst
+          href: quickstart-csharp-detect.md
+        - name: Alternatieve vertalingen verkrijgen
+          href: quickstart-csharp-dictionary.md
+        - name: Ondersteunde talen ophalen
+          href: quickstart-csharp-languages.md
+        - name: Lengte van zinnen in tekst bepalen
+          href: quickstart-csharp-sentences.md
+    - name: Java
+      items:
+        - name: Tekst vertalen
+          href: quickstart-java-translate.md
+        - name: Tekstscript converteren
+          href: quickstart-java-transliterate.md
+        - name: Taal bepalen op basis van tekst
+          href: quickstart-java-detect.md
+        - name: Alternatieve vertalingen verkrijgen
+          href: quickstart-java-dictionary.md
+        - name: Ondersteunde talen ophalen
+          href: quickstart-java-languages.md
+        - name: Lengte van zinnen in tekst bepalen
+          href: quickstart-java-sentences.md
+- name: Concepten
+  items:
+    - name: Ondersteunde talen
+      href: languages.md
+    - name: Tekstvertaling aanpassen en verbeteren
+      href: customization.md
+    - name: Hoe tekens door de API worden geteld
+      href: character-counts.md
+- name: Handleidingen
+  items:
+    - name: Aanmelden voor Translator Text-API
+      href: translator-text-how-to-signup.md
+    - name: Migreren naar V3 Text-API
+      href: migrate-to-v3.md
+    - name: Filteren op grof taalgebruik toevoegen
+      href: profanity-filtering.md
+    - name: Gegevens over woorduitlijning ontvangen
+      href: word-alignment.md
+    - name: De dynamische woordenlijstfunctie gebruiken
+      href: dynamic-dictionary.md
+    - name: Translator Text-API gebruiken
+      items:
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+        - name: Een Translator Text-app maken met WPF
+          href: tutorial-wpf-translation-csharp.md
+- name: Naslaginformatie
+  items:
+    - name: v3 Translator Text-API-verwijzing
+      href: reference/v3-0-reference.md
+      items:
+        - name: Talen
+          href: reference/v3-0-languages.md
+        - name: Vertalen
+          href: reference/v3-0-translate.md
+        - name: Transcriberen
+          href: reference/v3-0-transliterate.md
+        - name: Detecteren
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: Opzoeken in woordenlijst
+          href: reference/v3-0-dictionary-lookup.md
+        - name: Voorbeelden in woordenlijst
+          href: reference/v3-0-dictionary-examples.md
+    - name: v2 Translator Text-API-verwijzing (afgeschaft)
+      href: reference/v2-0-reference.md
+      items:
+        - name: Tekst transformeren
+          href: transform-text.md
+        - name: CTF-rapportage (Collaborative Translation Framework) gebruiken
+          href: ctf-reporting.md
+        - name: N beste vertalingen retourneren
+          href: return-n-best-translations.md
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: 'https://www.microsoft.com/translator/faq.aspx'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+    - name: Codevoorbeelden op GitHub
+      href: 'https://aka.ms/TranslatorGitHub'

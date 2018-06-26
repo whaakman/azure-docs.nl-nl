@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751493"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportageopties voor Azure AD-wachtwoordbeheer
 
@@ -22,7 +23,7 @@ Na de implementatie veel organisaties willen weten hoe of als selfservice voor w
 
 ![Rapportage][Reporting]
 
-De volgende vragen kunnen worden beantwoord door de rapporten die in het ([Azure portal voorkomen]https://portal.azure.com/):
+De volgende vragen kunnen worden beantwoord door de rapporten die zijn opgenomen in het () [Azure portal]https://portal.azure.com/):
 
 > [!NOTE]
 > U moet [een globale beheerder](../active-directory-assign-admin-roles-azure-portal.md), en u moet aanmelden voor deze gegevens worden verzameld namens uw organisatie. Als u wilt deelnemen, moet u bezoekt de **rapportage** aanmelden ten minste eenmaal tabblad of de controle. Tot die tijd worden geen gegevens verzameld voor uw organisatie.
@@ -53,25 +54,6 @@ In de Azure portal ervaring hebben we een verbeterde de manier waarop u wachtwoo
 6. Selecteer dit om weergave te filteren om alleen het wachtwoord opnieuw instellen van gerelateerde gebeurtenissen te bekijken, de **Filter** knop aan de bovenkant van het deelvenster.
 7. Van de **Filter** selecteert u de **categorie** vervolgkeuzelijst weergeven en wijzigen in de **Self-service wachtwoordbeheer** categorietype.
 8. Eventueel verder filter de lijst op de specifieke kiezen **activiteit** u geïnteresseerd bent in.
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Het ophalen van gebeurtenissen voor wachtwoord van de Azure AD-rapporten en gebeurtenissen API
-
-De Azure AD-rapporten en gebeurtenissen API biedt ondersteuning voor het ophalen van de gegevens die zijn opgenomen in het wachtwoord opnieuw instellen en rapporten voor registratie voor wachtwoord opnieuw instellen. U kunt met behulp van deze API afzonderlijke wachtwoord opnieuw instellen en het wachtwoord opnieuw instellen van inschrijving gebeurtenissen downloaden en de rapportage-technologie van uw keuze integreren.
-
-> [!IMPORTANT]
-> Op dit moment wordt de Azure AD-rapporten en gebeurtenissen API haalt maximaal *75.000 afzonderlijke gebeurtenissen* van de [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) en [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) typen. De API omvat de afgelopen 30 dagen.
-> 
-> Als u wilt ophalen of gegevens buiten dit venster opslaan, het is raadzaam persistent maken in een externe database met behulp van de API om op te vragen van de delta's die het resultaat. Het is raadzaam dat u begint met het ophalen van deze gegevens wanneer u begint met behulp van SSPR in uw organisatie. Extern behouden en vervolgens doorgaan met het bijhouden van de delta's vanaf dat moment.
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>Hoe u aan de slag met de rapportage-API
-
-Toegang tot deze gegevens, moet u een kleine toepassing of het script voor het ophalen van onze servers schrijven. Zie voor meer informatie [aan de slag met Azure AD rapportage-API](../active-directory-reporting-api-getting-started-azure-portal.md).
-
-Nadat u een werkscript hebt, moet u de wachtwoord opnieuw instellen en registratie gebeurtenissen onderzoeken die u ophalen kunt om te voldoen aan uw scenario's:
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): geeft een lijst van de beschikbare kolommen voor wachtwoord opnieuw instellen voor gebeurtenissen.
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): geeft een lijst van de beschikbare kolommen voor gebeurtenissen van de registratie voor wachtwoord opnieuw instellen.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beschrijving van de rapportkolommen in de Azure portal
 

@@ -1,0 +1,99 @@
+- name: Documentatie voor Speech Service-API
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Speech Service?
+      href: overview.md
+      expanded: true
+- name: Snelstartgidsen
+  items:
+    - name: Speech Service gratis uitproberen
+      href: get-started.md
+    - name: 'Spraak herkennen in C#'
+      href: quickstart-csharp-windows.md
+    - name: Spraak herkennen in C++ voor Windows
+      href: cpp-windows.md
+    - name: Spraak herkennen in C++ voor Linux
+      href: cpp-linux.md
+    - name: Aan de slag met Speech Devices SDK
+      href: speech-devices-sdk-qsg.md
+- name: Handleidingen
+  items:
+    - name: Spraak herkennen
+      href: how-to-speech-to-text.md
+    - name: Aangepaste spraakmodellen
+      href: how-to-customize-speech-models.md
+    - name: Spraaksynthese
+      href: how-to-text-to-speech.md
+    - name: Spraakstijlen aanpassen
+      href: how-to-customize-voice-font.md
+    - name: Spraak vertalen
+      href: how-to-translate-speech.md
+    - name: Transcripties voorbereiden
+      href: prepare-transcription.md
+    - name: Aangepaste audiostromen gebruiken
+      href: how-to-use-audio-input-streams.md
+    - name: De Speech Devices SDK ophalen
+      href: get-speech-devices-sdk.md
+    - name: Ontwaakwoord van apparaat aanpassen
+      href: speech-devices-sdk-create-kws.md
+    - name: Batchtranscriptie (callcenters)
+      href: batch-transcription.md
+- name: Voorbeelden
+  items:
+    - name: Voorbeelden downloaden
+      href: samples.md
+    - name: Spraakherkenning
+      href: speech-to-text-sample.md
+    - name: Intentieherkenning
+      href: intent.md
+    - name: Omzetting
+      href: translation.md
+- name: Concepten
+  items:
+    - name: Spraak naar tekst
+      href: speech-to-text.md
+    - name: Tekst naar spraak
+      href: text-to-speech.md
+    - name: Spraakomzetting
+      href: speech-translation.md
+    - name: Speech-SDK
+      href: speech-sdk.md
+    - name: Speech Devices SDK
+      href: speech-devices-sdk.md
+- name: Naslaginformatie
+  items:
+    - name: Ondersteunde talen
+      href: supported-languages.md
+    - name: REST-API’s
+      href: rest-apis.md
+    - name: Speech-SDK-API
+      href: speech-sdk-reference.md
+    - name: Spraaksyntheseaantekeningen
+      href: speech-synthesis-markup.md
+- name: Resources
+  items:
+    - name: Veelgestelde vragen over spraak naar tekst
+      href: faq-stt.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/912208-speech-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Privacy en cookies
+      href: 'https://privacy.microsoft.com/privacystatement'
+    - name: Problemen oplossen
+      href: troubleshooting.md
+    - name: Uw toepassing verzenden
+      href: ship-application.md
+    - name: Releaseopmerkingen
+      href: releasenotes.md
+    - name: Speech-SDK-licentie
+      href: license.md
+    - name: Speech Devices SDK-licentie
+      href: speech-devices-sdk-license.md
+    - name: Mededelingen van derden
+      href: third-party-notices.md

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 5c6ff5ac909e2dc6918f85d39beb781952ee6dd0
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e0146be345215701cf1afe86345afc286933d51b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593093"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750965"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Offlinesynchronisatie voor uw mobiele app voor Xamarin.Android inschakelen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -30,10 +30,10 @@ Zodra het apparaat weer online is, worden deze wijzigingen gesynchroniseerd met 
 
 In deze zelfstudie maakt u het clientproject van de zelfstudie bijwerken [een Xamarin.android-app maken] ter ondersteuning van de offline functies van Azure Mobile Apps. Als u het gedownloade quick start-serverproject niet gebruikt, moet u de data access-extensiepakketten toevoegen aan uw project. Zie voor meer informatie over server extensiepakketten [werken met de .NET-back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Zie het onderwerp voor meer informatie over de functie offlinesynchronisatie [Offline synchroniseren van gegevens in Azure Mobile Apps].
+Zie het onderwerp voor meer informatie over de functie offlinesynchronisatie [Offlinesynchronisatie van gegevens in Azure Mobile Apps].
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>De clientapp ter ondersteuning van offlinefuncties bijwerken
-Azure Mobile App offline functies kunt u communiceren met een lokale database als u zich in een offline-scenario. Als u deze functies in uw app, die u initialiseren een [SyncContext] naar een lokale opslag. Vervolgens verwijzen naar de tabel via de interface [IMobileServiceSyncTable] [IMobileServiceSyncTable]. SQLite wordt gebruikt als het lokale archief van het apparaat.
+Azure Mobile App offline functies kunt u communiceren met een lokale database als u zich in een offline-scenario. Als u deze functies in uw app, die u initialiseren een [SyncContext] naar een lokale opslag. Vervolgens verwijzen naar de tabel via de [IMobileServiceSyncTable](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet) interface. SQLite wordt gebruikt als het lokale archief van het apparaat.
 
 1. Open in Visual Studio de NuGet package manager in het project dat u voltooid in de [een Xamarin.android-app maken] zelfstudie.  Zoek en installeer de **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet-pakket.
 2. Open het bestand ToDoActivity.cs en opmerkingen bij de `#define OFFLINE_SYNC_ENABLED` definitie.
@@ -61,10 +61,10 @@ In deze sectie opnieuw verbinding worden de back-end voor de mobiele app met de 
 3. (Optioneel) De bijgewerkte gegevens met behulp van SQL Server Object Explorer of een REST-hulpprogramma zoals Fiddler weergeven. U ziet de gegevens is gesynchroniseerd tussen de database van de back-end voor mobiele Apps van Azure en het lokale archief.
 4. Klik in de app op het selectievakje naast enkele items uit te voeren in het lokale archief.
 
-   `CheckItem`aanroepen `SyncAsync` op synchronisatie elke voltooid object met de back-end voor de mobiele App. `SyncAsync`Zowel push als pull-aanroepen. **Wanneer u een pull op basis van een tabel die de client heeft wijzigingen aangebracht in uitvoert, een push altijd automatisch wordt uitgevoerd**. Hierdoor worden dat alle tabellen in het lokale archief samen met relaties consistent blijven. Dit gedrag kan resulteren in een onverwachte push. Zie voor meer informatie over dit gedrag [Offline synchroniseren van gegevens in Azure Mobile Apps].
+   `CheckItem` aanroepen `SyncAsync` op synchronisatie elke voltooid object met de back-end voor de mobiele App. `SyncAsync` Zowel push als pull-aanroepen. **Wanneer u een pull op basis van een tabel die de client heeft wijzigingen aangebracht in uitvoert, een push altijd automatisch wordt uitgevoerd**. Hierdoor worden dat alle tabellen in het lokale archief samen met relaties consistent blijven. Dit gedrag kan resulteren in een onverwachte push. Zie voor meer informatie over dit gedrag [Offlinesynchronisatie van gegevens in Azure Mobile Apps].
 
 ## <a name="review-the-client-sync-code"></a>Bekijk de clientcode voor synchronisatie
-De Xamarin-client-project dat u hebt gedownload wanneer u de zelfstudie voltooid [een Xamarin.android-app maken] bevat al de code die offline synchronisatie met een lokale SQLite-database ondersteunt. Hier volgt een kort overzicht van wat al in de zelfstudie code opgenomen is. Zie voor een conceptueel overzicht van de functie [Offline synchroniseren van gegevens in Azure Mobile Apps].
+De Xamarin-client-project dat u hebt gedownload wanneer u de zelfstudie voltooid [een Xamarin.android-app maken] bevat al de code die offline synchronisatie met een lokale SQLite-database ondersteunt. Hier volgt een kort overzicht van wat al in de zelfstudie code opgenomen is. Zie voor een conceptueel overzicht van de functie [Offlinesynchronisatie van gegevens in Azure Mobile Apps].
 
 * Voordat u tabelbewerkingen kunnen uitvoeren, moet het lokale archief worden geïnitialiseerd. De database van het lokale archief is geïnitialiseerd als `ToDoActivity.OnCreate()` voert `ToDoActivity.InitLocalStoreAsync()`. Deze methode maakt u een lokale SQLite database met de `MobileServiceSQLiteStore` klasse geleverd door de client-SDK van Azure Mobile Apps.
 
@@ -96,7 +96,7 @@ De Xamarin-client-project dat u hebt gedownload wanneer u de zelfstudie voltooid
 
     De opgegeven code aanroepen `ToDoActivity.SyncAsync()` om te synchroniseren wanneer de lijst met taken wordt vernieuwd of een todoitem is toegevoegd of voltooid. De code wordt gesynchroniseerd na elke wijziging van de lokale.
 
-    In de opgegeven code alle records in de externe `TodoItem` tabel worden opgevraagd, maar het is ook mogelijk records filteren op het doorgeven van een query-id en opvragen voor `PushAsync`. Zie voor meer informatie de sectie *incrementele synchronisatie* in [Offline synchroniseren van gegevens in Azure Mobile Apps].
+    In de opgegeven code alle records in de externe `TodoItem` tabel worden opgevraagd, maar het is ook mogelijk records filteren op het doorgeven van een query-id en opvragen voor `PushAsync`. Zie voor meer informatie de sectie *incrementele synchronisatie* in [Offlinesynchronisatie van gegevens in Azure Mobile Apps].
 
         // ToDoActivity.cs
         private async Task SyncAsync()
@@ -111,13 +111,13 @@ De Xamarin-client-project dat u hebt gedownload wanneer u de zelfstudie voltooid
             }
         }
 
-## <a name="additional-resources"></a>Aanvullende resources
-* [Offline synchroniseren van gegevens in Azure Mobile Apps]
+## <a name="additional-resources"></a>Aanvullende bronnen
+* [Offlinesynchronisatie van gegevens in Azure Mobile Apps]
 * [Azure Mobile Apps .NET SDK procedure][8]
 
 <!-- URLs. -->
-[een Xamarin.android-app maken]: ../app-service-mobile-xamarin-android-get-started.md
-[Offline synchroniseren van gegevens in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
+[Een Xamarin.android-app maken]: ../app-service-mobile-xamarin-android-get-started.md
+[Offlinesynchronisatie van gegevens in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
 
 <!-- Images -->
 

@@ -1,0 +1,84 @@
+- name: Documentatie voor Bing Aangepaste zoekopdrachten
+  href: index.yml
+- name: Overzicht
+  expanded: true
+  items:
+    - name: Wat is Bing Aangepaste zoekopdrachten?
+      href: overview.md
+- name: Snelstarts voor REST API
+  expanded: true
+  items:
+    - name: Eerste exemplaar maken
+      href: quick-start.md
+    - name: 'C#'
+      href: call-endpoint-csharp.md
+    - name: Java
+      href: call-endpoint-java.md
+    - name: Node.js
+      href: call-endpoint-nodejs.md
+    - name: Python
+      href: call-endpoint-python.md
+- name: Snelstarts voor SDK
+  items:
+    - name: Overzicht van SDK-voorbeelden
+      href: sdk.md
+    - name: 'C#-snelstart voor Aangepaste zoekopdrachten SDK'
+      href: custom-search-sdk-quickstart.md
+- name: Zelfstudies
+  items:
+    - name: Een Aangepaste zoekopdrachten-webpagina bouwen
+      href: ./tutorials/custom-search-web-page.md
+- name: Voorbeelden
+  items:
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search'
+- name: Handleidingen
+  items:
+    - name: Aangepaste zoekervaring configureren
+      href: define-your-custom-view.md
+    - name: Aangepaste zoekopdrachten aanroepen
+      href: search-your-custom-view.md
+    - name: Gehoste UI-ervaring configureren
+      href: hosted-ui.md
+    - name: Aangepaste zoekopdrachten delen
+      href: share-your-custom-search.md
+    - name: Aangepaste ervaring voor automatische suggesties configureren
+      href: define-custom-suggestions.md
+    - name: Aangepaste suggesties ophalen
+      href: get-custom-suggestions.md
+    - name: Markering van treffers afhandelen
+      href: hit-highlighting.md
+    - name: Bladeren door webpagina's
+      href: page-webpages.md
+- name: Naslaginformatie
+  items:
+    - name: Bing Automatische suggesties-API-verwijzing
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference'
+    - name: Bing Aangepast zoeken voor afbeeldingen-API-verwijzing
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference'
+    - name: Bing Aangepaste zoekopdrachten-API-verwijzing
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference'
+    - name: Vereisten voor gebruik en weergave van Bing Zoeken-API's
+      href: use-and-display-requirements.md
+- name: Resources
+  items:
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598147-bing-custom-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+custom+search'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API-sleutel ophalen
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api'
+    - name: Probeer het nu!
+      href: 'https://aka.ms/bingcustomsearchtryit'
+    - name: Bing Aangepaste zoekopdrachten-eindpunt
+      href: endpoint-custom.md
+    - name: Ondersteunde landen en markten
+      href: supported-countries-markets.md

@@ -1,0 +1,303 @@
+- name: LUIS-documentatie
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Informatie over Language Understanding
+      href: Home.md
+    - name: Ondersteunde talen
+      href: luis-supported-languages.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: App-model bouwen
+      items:
+        - name: Vooraf gemaakt domein gebruiken
+          href: luis-get-started-create-app.md
+        - name: Aangepast domein gebruiken
+          href: luis-quickstart-intents-only.md
+- name: Zelfstudies
+  items:
+    - name: Vooraf gemaakte intenties en entiteiten toevoegen
+      href: luis-tutorial-prebuilt-intents-entities.md
+    - name: Gegevens ophalen uit entiteit
+      items:
+        - name: Eenvoudige entiteit
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: Hiërarchische entiteit
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: Lijstentiteit
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: Reguliere-expressie-entiteit
+          href: luis-quickstart-intents-regex-entity.md
+        - name: KeyPhrase-entiteit
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: Sentimentanalyse
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Voorspelling verbeteren
+      items:
+        - name: Met patronen
+          href: luis-tutorial-pattern.md
+        - name: Met een frasenlijst
+          href: luis-tutorial-interchangeable-phrase-list.md
+    - name: API's gebruiken
+      items:
+        - name: Uitingsvoorspelling verkrijgen met eindpuntquery
+          items:
+            - name: 'C#'
+              href: luis-get-started-cs-get-intent.md
+            - name: Java
+              href: luis-get-started-java-get-intent.md
+            - name: Javascript
+              href: luis-get-started-js-get-intent.md
+            - name: Node.js
+              href: luis-get-started-node-get-intent.md
+            - name: Python
+              href: luis-get-started-python-get-intent.md
+            - name: PHP
+              href: luis-get-started-php-get-intent.md
+            - name: Ruby
+              href: luis-get-started-ruby-get-intent.md
+        - name: Uiting toevoegen aan intentie en app trainen
+          items:
+            - name: 'C#'
+              href: luis-get-started-cs-add-utterance.md
+            - name: Java
+              href: luis-get-started-java-add-utterance.md
+            - name: Javascript
+              href: luis-get-started-javascript-add-utterance.md
+            - name: Node.js
+              href: luis-get-started-node-add-utterance.md
+            - name: Python
+              href: luis-get-started-python-add-utterance.md
+            - name: PHP
+              href: luis-get-started-php-add-utterance.md
+            - name: Ruby
+              href: luis-get-started-ruby-add-utterance.md
+- name: Voorbeelden
+  items:
+    - name: Codevoorbeelden
+      href: 'https://github.com/Microsoft/LUIS-Samples'
+- name: Concepten
+  items:
+    - name: Aanbevolen procedures
+      href: luis-concept-best-practices.md
+    - name: Author-app
+      items:
+        - name: Ontwerpcyclus
+          href: luis-concept-app-iteration.md
+        - name: Samenwerking
+          href: luis-concept-collaborator.md
+        - name: Versiebeheer
+          href: luis-concept-version.md
+    - name: Ontwerpmodel
+      items:
+        - name: Intents
+          href: luis-concept-intent.md
+        - name: Entiteiten
+          href: luis-concept-entity-types.md
+        - name: Utterances
+          href: luis-concept-utterance.md
+        - name: Rollen
+          href: luis-concept-roles.md
+    - name: App-prestaties verbeteren
+      items:
+        - name: Voorspellingsscore
+          href: luis-concept-prediction-score.md
+        - name: Eindpuntuitingen controleren
+          href: luis-concept-review-endpoint-utterances.md
+        - name: Frasenlijsten
+          href: luis-concept-feature.md
+        - name: Patronen
+          href: luis-concept-patterns.md
+    - name: Gegevensbeheer
+      items:
+        - name: Gegevens wijzigen
+          href: luis-concept-data-alteration.md
+        - name: Gegevens converteren
+          href: luis-concept-data-conversion.md
+        - name: Gegevens uitpakken
+          href: luis-concept-data-extraction.md
+        - name: Gegevensopslag
+          href: luis-concept-data-storage.md
+    - name: Testen
+      items:
+        - name: Interactief testen
+          href: luis-concept-test.md
+        - name: Batchgewijs testen
+          href: luis-concept-batch-test.md
+    - name: Enterprise
+      items:
+        - name: Ontwerpstrategieën
+          href: luis-concept-enterprise.md
+    - name: Beveiliging
+      items:
+        - name: App-toegang
+          href: luis-concept-security.md
+        - name: Ontwerp- en eindpuntsleutels
+          href: luis-concept-keys.md
+- name: Handleidingen
+  items:
+    - name: Uw app plannen
+      href: Plan-your-app.md
+    - name: Een nieuwe app starten
+      href: Create-new-app.md
+    - name: Build-model
+      items:
+        - name: Intents toevoegen
+          href: luis-how-to-add-intents.md
+        - name: Utterances toevoegen
+          href: luis-how-to-add-example-utterances.md
+        - name: Entiteiten toevoegen
+          href: luis-how-to-add-entities.md
+        - name: Samengestelde entiteit gebruiken om gegroepeerde gegevens te extraheren
+          href: luis-tutorial-composite-entity.md
+        - name: Lijstentiteit gebruiken om bijbehorende exacte tekst te zoeken met behulp van Node.js
+          href: luis-tutorial-list-entity.md
+        - name: App bouwen met behulp van Node.js
+          href: luis-tutorial-node-import-utterances-csv.md
+    - name: Integreren
+      items:
+        - name: Juiste spelling met Bing Spellingcontrole-API v7
+          href: luis-tutorial-bing-spellcheck.md
+        - name: Met spraakservice
+          href: luis-tutorial-speech-to-intent.md
+        - name: Met een bot
+          items:
+            - name: Web-app-bot
+              items:
+                - name: Node.js
+                  href: luis-nodejs-tutorial-build-bot-framework-sample.md
+                - name: 'C#'
+                  href: luis-csharp-tutorial-build-bot-framework-sample.md
+            - name: Application Insights
+              items:
+                - name: Node.js
+                  href: luis-tutorial-function-appinsights.md
+                - name: 'C#'
+                  href: luis-tutorial-bot-csharp-appinsights.md
+    - name: Nauwkeurigheid van voorspelling verbeteren
+      items:
+        - name: Eindpuntuitingen controleren
+          href: Label-Suggested-Utterances.md
+        - name: Frasenlijst toevoegen
+          href: luis-how-to-add-features.md
+        - name: Patronen toevoegen
+          href: luis-how-to-model-intent-pattern.md
+    - name: Trainen
+      href: luis-how-to-train.md
+    - name: Testen
+      items:
+        - name: Interactief testen
+          href: interactive-test.md
+        - name: Batchgewijs testen
+          href: luis-how-to-batch-test.md
+        - name: Nauwkeurigheid verbeteren met batchgewijs testen
+          href: luis-tutorial-batch-testing.md
+    - name: Uw app publiceren
+      href: PublishApp.md
+    - name: Vooraf gemaakte modellen gebruiken
+      items:
+        - name: Vooraf gemaakte entiteiten gebruiken
+          href: Pre-builtEntities.md
+        - name: Vooraf gemaakte domeinen gebruiken
+          href: luis-how-to-use-prebuilt-domains.md
+        - name: De vooraf gemaakte Cortana-app gebruiken
+          href: Cortana-Prebuilt-App.md
+    - name: Uw LUIS-app beheren
+      items:
+        - name: Het dashboard gebruiken
+          href: luis-how-to-use-dashboard.md
+        - name: Sleutels maken
+          href: luis-how-to-azure-subscription.md
+        - name: Sleutels toevoegen in LUIS
+          href: Manage-Keys.md
+        - name: Eindpuntgebruik weergeven met PowerShell
+          href: luis-how-to-manage-from-cloud-shell.md
+        - name: Versies beheren
+          href: luis-how-to-manage-versions.md
+        - name: Met andere auteurs samenwerken
+          href: luis-how-to-collaborate.md
+        - name: Eindpuntquota over sleutels verdelen met Traffic Manager
+          href: traffic-manager.md
+    - name: Uw LUIS-account beheren
+      href: luis-how-to-account-settings.md
+    - name: Migreren naar V2-API
+      href: migration-v1-to-v2.md
+    - name: Regio zoeken via programma
+      items:
+        - name: 'C# gebruiken'
+          href: find-region-csharp.md
+        - name: Node.js gebruiken
+          href: find-region-nodejs.md
+- name: Naslaginformatie
+  items:
+    - name: Gebruikersprivacy
+      href: luis-reference-gdpr.md
+    - name: Regio's
+      href: luis-reference-regions.md
+    - name: Grenzen
+      href: luis-boundaries.md
+    - name: Vooraf gemaakte entiteitsverwijzing
+      href: luis-reference-prebuilt-entities.md
+    - name: Vooraf gemaakte domeinverwijzing
+      href: luis-reference-prebuilt-domains.md
+    - name: Verwijzing naar vooraf gemaakte Cortana-app
+      href: luis-reference-cortana-prebuilt.md
+    - name: V2-API's ontwerpen
+      href: 'https://aka.ms/luis-authoring-apis'
+    - name: Eindpunt V2-API
+      href: 'https://aka.ms/luis-endpoint-apis'
+    - name: HTTP-codes
+      href: luis-reference-response-codes.md
+    - name: Azure CLI 2.0
+      href: 'https://aka.ms/az-cli-cognitiveservices'
+    - name: PowerShell voor Azure RM
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: SDK's
+      items:
+        - name: Android
+          href: 'https://github.com/Microsoft/Cognitive-LUIS-Android'
+        - name: Node.js
+          href: 'https://github.com/Microsoft/Cognitive-LUIS-Node.js'
+        - name: Python
+          href: 'https://github.com/Microsoft/Cognitive-LUIS-Python'
+        - name: .NET Endpoint SDK
+          href: 'https://aka.ms/luis-endpoint-sdk'
+        - name: .NET Authoring SDK
+          href: 'https://aka.ms/luis-authoring-sdk'
+- name: Verwant
+  items:
+    - name: Bot Framework
+      href: 'https://dev.botframework.com/'
+    - name: 'Bot Builder 3.x SDK C#'
+      href: 'https://github.com/Microsoft/BotBuilder'
+    - name: 'Bot Builder 4.x SDK C#'
+      href: 'https://github.com/Microsoft/botbuilder-dotnet'
+    - name: QnA Maker
+      href: 'https://qnamaker.ai/'
+    - name: Spraak-API voor Bing
+      href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
+    - name: Bing Spell Check-API
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: Tekstanalyse
+      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://aka.ms/luis-roadmap'
+    - name: Woordenlijst
+      href: luis-glossary.md
+    - name: Veelgestelde vragen
+      href: luis-resources-faq.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/LUIS'
+    - name: UserVoice
+      href: 'https://aka.ms/luis-uservoice-forum'
+    - name: Search
+      href: 'https://docs.microsoft.com/en-us/search/index?search=LUIS'
+    - name: Blog
+      href: 'https://blog.botframework.com/category/luis/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service'

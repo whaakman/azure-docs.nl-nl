@@ -2,17 +2,17 @@
 title: Een Azure Time Series Insights-omgeving maken
 description: Leer hoe u een Time Series Insights-omgeving kunt maken, gevuld met gegevens van gesimuleerde apparaten.
 services: time-series-insights
-author: BryanLa
+author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: bryanla
-ms.openlocfilehash: 434f9f7890b909746fd1a0f72a2dea5d7bb27e92
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b57e688b5f830c8c7d34315a68be94e4e4c99466
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301351"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295844"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Zelfstudie: Een Azure Time Series Insights-omgeving maken
 
@@ -230,9 +230,9 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een apparaatsimulatie uitvoeren om gegevens naar de TSI-omgeving te streamen
 > * De gesimuleerde telemetrie-gegevens verifiëren
 
-Nu u weet hoe u uw eigen TSI-omgeving kunt maken, kunt u meer te weten komen over het planningsproces door naar het volgende artikel te gaan:
+U weet nu hoe u uw eigen TSI-omgeving maakt. De volgende stap is het bouwen van een webtoepassing die gegevens uit die TSI-omgeving:
 
 > [!div class="nextstepaction"]
-> [Uw Azure Time Series Insights-omgeving plannen](time-series-insights-environment-planning.md)
+> [Een web-app van Azure Time Series Insights met één pagina maken](tutorial-create-tsi-sample-spa.md)
 
 

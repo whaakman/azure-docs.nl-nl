@@ -2,83 +2,137 @@
 title: Kennismaking met Azure Kubernetes Service
 description: Met Azure Kubernetes Service kunt u eenvoudig toepassingen op basis van containers implementeren en beheren in Azure.
 services: container-service
-author: gabrtv
+author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 11/13/2017
-ms.author: gamonroy
+ms.date: 06/13/2018
+ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4a36809b0f6a041ac4d9250624495aeaf1e397e9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4b2294d7816a92dccb14caaadc09a2797edeafe6
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36237394"
 ---
-# <a name="introduction-to-azure-kubernetes-service-aks-preview"></a>Kennismaking met de preview van Azure Kubernetes Service (AKS)
+# <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
-Met Azure Kubernetes Service (AKS) kunt u eenvoudig een cluster met virtuele machines maken, configureren en beheren die vooraf zijn geconfigureerd voor het uitvoeren van toepassingen in een container. U kunt hierbij dan uitgaan van uw eigen vaardigheden of gebruikmaken van een grote en groeiende groep community experts om toepassingen op basis van containers te implementeren en beheren in Microsoft Azure.
+Azure Kubernetes Service (AKS) maakt het eenvoudig om een ​​beheerd Kubernetes-cluster in Azure te implementeren. AKS verkleint de complexiteit en de operationele overhead die gepaard gaan met het beheer van Kubernetes door veel van deze taken naar Azure over te hevelen. Azure handelt als een gehoste Kubernetes-service cruciale taken voor u af zoals statuscontrole en onderhoud. Bovendien is de service gratis; u betaalt alleen voor de agentknooppunten binnen uw clusters, niet voor de masters.
 
-Met AKS profiteert u van de hoogwaardige functies van Azure en behoudt u draagbaarheid van toepassingen via Kubernetes en het Docker-installatiekopieformaat.
+Dit document biedt een overzicht van de functies van Azure Kubernetes Service (AKS).
 
-> [!IMPORTANT]
-> AKS (Azure Kubernetes Service) is momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
->
+## <a name="flexible-deployment-options"></a>Flexibele implementatieopties
 
-## <a name="managed-kubernetes-in-azure"></a>Managed Kubernetes in Azure
+Azure Kubernetes Service biedt portal-, opdrachtregel- en sjabloongestuurde implementatie-opties (Resource Manager-sjablonen en Terraform). Bij de implementatie van een AKS-cluster worden de Kubernetes-master en alle knooppunten voor u geïmplementeerd en geconfigureerd. Extra functies zoals geavanceerd netwerken, Azure Active Directory-integratie en bewaking kunnen ook tijdens het implementatieproces worden geconfigureerd.
 
-AKS verkleind de complexiteit en de operationele overhead die gepaard gaan met het beheer van een Kubernetes-cluster door veel van deze taken naar Azure over te hevelen. Azure handelt als een gehoste Kubernetes-service cruciale taken voor u af zoals statuscontrole en onderhoud. Bovendien betaalt u alleen voor de agentknooppunten binnen uw clusters, niet voor de hoofdknooppunten. Als een beheerde Kubernetes-service heeft AKS het volgende te bieden:
+Zie voor meer informatie zowel de [AKS-portal-snelstart][aks-portal] en de [AKS CLI-snelstart][aks-cli].
 
-> [!div class="checklist"]
-> * Geautomatiseerd upgraden van Kubernetes-versies en patching
-> * Eenvoudige schaalmogelijkheden voor clusters
-> * Zelfherstellende gehoste controlelaag (hoofdknooppunten)
-> * Kostenbesparingen: betaal alleen voor actieve agentknooppunten in de groep
+## <a name="identity-and-security-management"></a>Identiteits- en beveiligingsbeheer
 
-Omdat Azure het beheer van de knooppunten in uw AKS-cluster afhandelt, hoeft u veel taken niet meer handmatig uit te voeren, zoals het upgraden van clusters. Omdat Azure deze cruciale onderhoudstaken voor u uitvoert, hebt u via AKS geen directe toegang (zoals met SSH) tot het cluster.
+AKS-clusters ondersteunen [RBAC (op rollen gebaseerd toegangsbeheer)][kubernetes-rbac]. Een AKS-cluster kan ook worden geconfigureerd om te worden geïntegreerd met Azure Active Directory. In deze configuratie kan Kubernetes-toegang worden geconfigureerd op basis van Azure Active Directory-identiteit en groepslidmaatschap.
 
-## <a name="using-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) gebruiken
-AKS is bedoeld om een hostomgeving voor containers te bieden door gebruik te maken van de open source tools en technologieën die tegenwoordig populair zijn onder onze klanten. Om dit te bereiken, maken we de standaard API-eindpunten van Kubernetes beschikbaar. Met behulp van deze standaard eindpunten kunt u gebruikmaken van alle software die geschikt is voor communicatie met een Kubernetes-cluster. U kunt bijvoorbeeld [kubectl][kubectl-overview], [helm][helm] of [draft][draft] gebruiken.
+Zie voor meer informatie [Azure Active Directory integreren met AKS][aks-aad].
 
-## <a name="creating-a-kubernetes-cluster-using-azure-kubernetes-service-aks"></a>Een Kubernetes-cluster maken met Azure Kubernetes Service (AKS)
-Als u AKS wilt gebruiken, implementeert u eerst een AKS-cluster met behulp van [Azure CLI][aks-quickstart] of via de portal (zoek in Marketplace op **Azure Kubernetes Service**). Gebruik, als u een ervaren gebruiker bent en meer controle wilt over de Azure Resource Manager-sjablonen, het open source [acs-engine][acs-engine]-project om uw eigen aangepaste Kubernetes-cluster te bouwen en dit te implementeren via de `az` CLI.
+## <a name="integrated-logging-and-monitoring"></a>Geïntegreerde logboekregistratie en bewaking
 
-### <a name="using-kubernetes"></a>Kubernetes gebruiken
-Kubernetes automatiseert het implementeren, schalen en beheren van toepassingen in containers. De applicatie bevat een uitgebreide set functies, zoals:
-* Automatische binpacking
-* Automatisch herstel
-* Horizontaal schalen
-* Servicedetectie en taakverdeling
-* Geautomatiseerde implementaties en terugdraaiacties
-* Geheimen- en configuratiebeheer
-* Opslagindeling
-* Batchuitvoering
+Containerstatus geeft u inzicht in prestaties door metrische van geheugen- en processorgegevens te verzamelen van containers, knooppunten en controllers. Er worden ook containerlogboeken verzameld. Deze gegevens worden opgeslagen in uw Log Analytics-werkruimte en zijn beschikbaar via Azure Portal, Azure CLI of een REST-eindpunt.
 
-## <a name="videos"></a>Video's
+Zie [Containerstatus van Azure Kubernetes Service bewaken][container-health] voor meer informatie.
 
-Azure Kubernetes Service (AKS) - Azure Friday, oktober 2017:
+## <a name="cluster-node-scaling"></a>Clusterknooppunten schalen
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Container-Orchestration-Simplified-with-Managed-Kubernetes-in-Azure-Container-Service-AKS/player]
->
->
+Naarmate de vraag naar resources toeneemt, kunnen de knooppunten van een AKS-cluster dienovereenkomstig worden geschaald. Als de resourcevraag daalt, kunnen knooppunten worden verwijderd door het cluster in te schalen. AKS-schaalbewerkingen kunnen worden uitgevoerd met behulp van Azure Portal of de Azure-CLI.
 
-Hulpprogramma's voor het ontwikkelen en implementeren van toepassingen in Kubernetes (Azure OpenDev, juni 2017):
+Zie [Een Azure Kubernetes Service-cluster (AKS) schalen][aks-scale] voor meer informatie.
 
-> [!VIDEO https://channel9.msdn.com/Events/AzureOpenDev/June2017/Tools-for-Developing-and-Deploying-Applications-on-Kubernetes/player]
->
->
+## <a name="cluster-node-upgrades"></a>Clusterknooppuntupgrades
+
+Azure Kubernetes Service biedt meerdere Kubernetes versies. Wanneer nieuwe versies beschikbaar komen in AKS, kan uw cluster worden bijgewerkt met behulp van Azure Portal of Azure-CLI. Tijdens het upgradeproces worden knooppunten zorgvuldig afgebakend en geleegd om onderbreking van actieve toepassingen te minimaliseren.
+
+Zie [Een Azure Kubernetes Service-cluster (AKS) upgraden][aks-upgrade] voor meer informatie.
+
+## <a name="http-application-routing"></a>HTTP-toepassingsroutering
+
+De HTTP-toepassingsrouteringsoplossing maakt het eenvoudig om toegang te krijgen tot in uw AKS-cluster geïmplementeerde toepassingen. Indien ingeschakeld, configureert de HTTP-toepassingsrouteringsoplossing een ingangscontroller in uw AKS-cluster. Wanneer er toepassingen worden geïmplementeerd, worden automatisch openbaar toegankelijke DNS-namen geconfigureerd.
+
+Zie voor meer informatie [HTTP-toepassingsroutering][aks-http-routing].
+
+## <a name="gpu-enabled-nodes"></a>GPU-knooppunten
+
+AKS ondersteunt het maken van GPU-knooppuntpools. Azure biedt momenteel VM’s met een of meerdere GPU’s. GPU-VM's zijn ontworpen voor rekenintensieve, grafisch-intensieve en visualisatiewerkbelastingen.
+
+Zie [GPU's gebruiken op AKS][aks-gpu] voor meer informatie.
+
+## <a name="development-tooling-integration"></a>Integratie van ontwikkelingshulpprogramma’s
+
+Kubernetes heeft een uitgebreid ecosysteem van hulpprogramma’s voor ontwikkeling en beheer, zoals Helm, Draft en de Kubernetes-extensie voor Visual Studio Code. Deze hulpprogramma's werken naadloos samen met Azure Kuberntees Service.
+
+Bovendien biedt Azure Dev Spaces een snelle, iteratieve Kubernetes-ontwikkelervaring voor teams. Met minimale configuratie kunt u rechtstreeks in Azure Kubernetes Service (AKS) herhaaldelijk containers uitvoeren en fouten hierin opsporen.
+
+Zie [Azure Dev Spaces][azure-dev-spaces] voor meer informatie.
+
+Azure DevOps-project biedt een eenvoudige oplossing voor het overbrengen van bestaande code en Git-opslagplaatsen naar Azure. Het DevOps-project maakt automatisch Azure-resources zoals AKS, een release-pijplijn in VSTS met een builddefinitie voor CI, stelt een releasedefinitie in voor CD en maakt vervolgens een Azure Application Insights-resource voor bewaking.
+
+Zie [Azure DevOps-project][azure-devops] voor meer informatie.
+
+## <a name="virtual-network-integration"></a>Integratie van virtueel netwerk
+
+Een AKS-cluster kan worden geïmplementeerd in een bestaand VNet. In deze configuratie krijgt elke pod in het cluster een IP-adres toegewezen in het VNet en kan deze direct communiceren met andere pods in het cluster en met andere knooppunten in het VNet. Pods kunnen ook verbinding maken met andere services in een peering-VNet en met lokale netwerken via ExpressRoute en site-to-site (S2S) VPN-verbindingen.
+
+Bekijk het [AKS-netwerkoverzicht][aks-networking] voor meer informatie.
+
+## <a name="private-container-registry"></a>Privécontainerregister
+
+Integreer met Azure Container Registry (ACR) voor privéopslag van uw Docker-installatiekopieën.
+
+Zie voor meer informatie [Azure Container Registry (ACR)][acr-docs].
+
+## <a name="storage-volume-support"></a>Opslagvolumeondersteuning
+
+Azure Kubernetes Service (AKS) ondersteunt het koppelen van opslagvolumes voor persistente gegevens. AKS-clusters worden gemaakt met ondersteuning voor Azure Files en Azure Disks.
+
+Zie [Azure Files][azure-files] en [Azure Disks][azure-disk]voor meer informatie.
+
+## <a name="docker-image-support"></a>Ondersteuning voor Docker-installatiekopieën
+
+Azure Kubernetes Service (AKS) ondersteunt de bestandsindeling voor Docker-installatiekopieën.
+
+## <a name="kubernetes-certification"></a>Kubernetes-certificering
+
+De Azure Kubernetes Service (AKS) is door de CNCF gecertificeerd als compatibel met Kubernetes.
+
+## <a name="regulatory-compliance"></a>Naleving van regelgeving
+
+Azure Kubernetes Service (AKS) voldoet aan SOC en ISO/HIPPA/HITRUST.
+
+## <a name="next-steps"></a>Volgende stappen
 
 U vindt meer informatie over het implementeren en beheren van AKS in de bijbehorende Quick Start van AKS.
 
 > [!div class="nextstepaction"]
-> [AKS-zelfstudie][aks-quickstart]
+> [AKS-snelstart][aks-cli]
 
 <!-- LINKS - external -->
 [acs-engine]: https://github.com/Azure/acs-engine
 [draft]: https://github.com/Azure/draft
 [helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
+[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./kubernetes-walkthrough.md
+[acr-docs]: ../container-registry/container-registry-intro.md
+[aks-aad]: ./aad-integration.md
+[aks-cli]: ./kubernetes-walkthrough.md
+[aks-gpu]: ./gpu-cluster.md
+[aks-http-routing]: ./http-application-routing.md
+[aks-networking]: ./networking-overview.md
+[aks-portal]: ./kubernetes-walkthrough-portal.md
+[aks-scale]: ./scale-cluster.md
+[aks-upgrade]: ./upgrade-cluster.md
+[azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
+[azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
+[azure-disk]: ./azure-disks-dynamic-pv.md
+[azure-files]: ./azure-files-dynamic-pv.md
+[container-health]: ../monitoring/monitoring-container-health.md
 

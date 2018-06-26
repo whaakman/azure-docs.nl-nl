@@ -16,12 +16,12 @@ ms.topic: hero-article
 ms.date: 03/23/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 26d336c9d896859d8012b1eaad1a16d0cbd9b628
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ed0103b8ad8f23cd45a3a9ee94e01ce69e1e45b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596206"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287254"
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant verkrijgen
 
@@ -36,7 +36,7 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij uw toepassing, moet
 Veel ontwikkelaars hebben al tenants via services of abonnementen die zijn gekoppeld aan Azure AD-tenants, zoals via Office 365- of Azure-abonnementen. Om te zien of u al een tenant hebt, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com) met het account dat u wilt gebruiken voor het beheren van uw toepassing en kijken wat er in de rechterbovenhoek wordt weergegeven over uw account. Als u een tenant hebt, wordt u automatisch aangemeld bij deze tenant en ziet u de naam van de tenant direct onder de accountnaam. Als u de muisaanwijzer op uw accountnaam houdt rechtsboven op de Azure Portal, ziet u uw naam, uw e-mailadres, directory en tenant-id (een GUID), en uw domein. Als uw account is gekoppeld aan meerdere tenants, kunt u de accountnaam selecteren om een menu te openen waarmee u kunt schakelen tussen de tenants. Elke tenant heeft zijn eigen tenant-id.
 
 > [!TIP]
-> Als u de tenant-id wilt, kunt u deze informatie op meerdere manieren vinden. U kunt de accountnaam aanwijzen om de tenant-id te zien of u kunt **Azure Active Directory > Eigenschappen > Map-id** op de Azure Portal selecteren.
+> Als u de tenant-id wilt, kunt u deze informatie op meerdere manieren vinden. U kunt de muisaanwijzer over de accountnaam bewegen om de tenant-id te zien of u kunt **Azure Active Directory > Eigenschappen > Map-id** in Azure Portal selecteren.
 
 Als er geen bestaande tenant is gekoppeld aan uw account, ziet u een GUID onder de accountnaam. U moet dan eerst [een nieuwe tenant maken](#create-a-new-azure-ad-tenant) voordat u bewerkingen kunt uitvoeren zoals het registreren van apps.
 

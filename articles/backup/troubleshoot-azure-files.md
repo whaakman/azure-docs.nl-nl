@@ -8,31 +8,29 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: bdb35cf47b339ff2089b3849283a71aa9d8fbc3d
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 797637fbaaeb0577d0437f32d4ce244a738be84b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807411"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287323"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Problemen bij het maken van back-ups van Azure-bestanden oplossen
 U kunt met behulp van de informatie in de volgende tabellen problemen en fouten oplossen die optreden tijdens het maken van back-ups van Azure-bestandsshares.
 
-## <a name="preview-boundaries"></a>Beperkingen van preview
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Beperkingen voor het maken van back-ups van Azure-bestandsshares in de preview-versie
 Back-up voor Azure-bestandsshares is in preview. De volgende back-upscenario's worden niet ondersteund voor Azure-bestandsshares:
-- Azure-bestandsshares beveiligen in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
-- Azure-bestandshares beveiligen in opslagaccounts waarvoor virtuele netwerken zijn of een firewall is ingeschakeld.
-- Back-ups maken van Azure-bestandsshares met PowerShell of CLI.
+- U kunt Azure-bestandsshares niet beveiligen in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
+- U kunt Azure-bestandsshares niet beveiligen in opslagaccounts waarvoor virtuele netwerken zijn of een firewall is ingeschakeld.
+- Er is geen PowerShell of CLI beschikbaar voor het beveiligen van Azure Files met behulp van Azure Backup.
+- Het maximumaantal geplande back-ups per dag is één.
+- Het maximumaantal on-demand back-ups per dag is vier.
+- Gebruik [resourcevergrendelingen](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) voor het opslagaccount om per ongeluk verwijderen van back-ups uit de Recovery Services-kluis te voorkomen.
+- Verwijder geen momentopnamen die met Azure Backup zijn gemaakt. Het verwijderen van momentopnamen kan leiden tot het verlies van herstelpunten en/of herstelfouten.
 
 \*Azure-bestandsshares in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS) werken als GRS en hiervoor worden GRS-prijzen in rekening gebracht
 
 Back-up voor Azure-bestandsshares in opslagaccounts met replicatie via [zone-redundante opslag](../storage/common/storage-redundancy-zrs.md) (ZRS) is momenteel alleen beschikbaar in US - centraal en US - oost 2
-
-### <a name="limitations"></a>Beperkingen
-- Maximum aantal geplande back-ups per dag is 1.
-- Maximum aantal back-ups op verzoek per dag is 4.
-- Gebruik resourcevergrendelingen voor het Storage-account om abusievelijk verwijderen van back-ups uit de Recovery Services-kluis te voorkomen.
-- Verwijder geen momentopnamen die met Azure Backup zijn gemaakt. Het verwijderen van momentopnamen kan leiden tot het verlies van herstelpunten en/of herstelfouten
 
 ## <a name="configuring-backup"></a>Back-up configureren
 De volgende tabel is bedoeld voor het configureren van de back-up:
@@ -64,7 +62,7 @@ De volgende tabel is bedoeld voor het configureren van de back-up:
 | Er is een hersteltaak actief met hetzelfde doel. | <ul><li>Back-ups van bestandsshares ondersteunen geen parallel herstel naar dezelfde doelbestandsshare. <li>Wacht tot de bestaande hersteltaak is voltooid en probeer het opnieuw. Als u geen hersteltaak in de Recovery Services-kluis kunt vinden, controleert u andere Recovery Services-kluizen in hetzelfde abonnement. |
 | Herstelbewerking mislukt omdat de doelbestandsshare vol is. | Vergroot het quotum voor grootte van de doelbestandsshare om ruimte te bieden voor de herstelgegevens en probeer het opnieuw. |
 | Herstel is mislukt omdat er een fout is opgetreden tijdens het uitvoeren van pre-herstelbewerkingen op aan de doelbestandsshare gekoppelde bestandssynchronisatieserviceresources. | Probeer het later opnieuw. Neem contact op met Microsoft ondersteuning als het probleem zich blijft voordoen. |
-| Een of meer bestanden kunnen niet worden hersteld. Controleer de lijst met mislukte bestanden in het pad hierboven voor meer informatie. | <ul> <li> Oorzaken voor het mislukken van de hersteltaak worden in het bestand vermeld (pad staat in de taakgegevens). Los de oorzaken op en voer de herstelbewerking alleen voor de mislukte bestanden opnieuw uit. <li> Veelvoorkomende oorzaken voor fouten bij bestand terugzetten: <br/> -Controleer of de mislukte bestanden niet op dit moment in gebruik zijn. <br/> -Er bestaat een map met dezelfde naam als het mislukte bestand in de bovenliggende map. |
+| Een of meer bestanden kunnen niet worden hersteld. Controleer de lijst met mislukte bestanden in het pad hierboven voor meer informatie. | <ul> <li> Oorzaken voor het mislukken van de hersteltaak worden in het bestand vermeld (pad staat in de taakgegevens). Los de oorzaken op en voer de herstelbewerking alleen voor de mislukte bestanden opnieuw uit. <li> Veelvoorkomende oorzaken voor fouten bij bestand terugzetten: <br/> -Controleer of de mislukte bestanden niet in gebruik zijn op dit moment. <br/> -Er bestaat een map met dezelfde naam als het mislukte bestand in de bovenliggende map. |
 
 ## <a name="see-also"></a>Zie ook
 Voor meer informatie over het maken van back-ups van Azure-bestandsshares raadpleegt u de volgende artikelen:

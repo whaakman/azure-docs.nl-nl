@@ -1,0 +1,118 @@
+- name: Wat is QnA Maker?
+  href: Overview/overview.md
+- name: Overzicht
+  items:
+    - name: Ondersteunde talen
+      href: Overview/languages-supported.md
+- name: Snelstartgidsen
+  items:
+    - name: Een knowledge base maken
+      items:
+        - name: 'C#'
+          href: Quickstarts/create-new-kb-csharp.md
+        - name: Java
+          href: Quickstarts/create-new-kb-java.md
+        - name: Aan de slag
+          href: Quickstarts/create-new-kb-go.md
+        - name: Node.js
+          href: Quickstarts/create-new-kb-nodejs.md
+        - name: Python
+          href: Quickstarts/create-new-kb-python.md
+    - name: Een kennisdatabase bijwerken
+      items:
+        - name: 'C#'
+          href: Quickstarts/update-kb-csharp.md
+        - name: Java
+          href: Quickstarts/update-kb-java.md
+        - name: Aan de slag
+          href: Quickstarts/update-kb-go.md
+        - name: Node.js
+          href: Quickstarts/update-kb-nodejs.md
+        - name: Python
+          href: Quickstarts/update-kb-python.md
+- name: Concepten
+  items:
+    - name: Knowledge base
+      href: Concepts/knowledge-base.md
+    - name: Levenscyclus van een knowledge base-ontwikkeling
+      href: Concepts/development-lifecycle-knowledge-base.md
+    - name: Betrouwbaarheidsscore
+      href: Concepts/confidence-score.md
+    - name: Ondersteunde gegevensbronnen
+      href: Concepts/data-sources-supported.md
+- name: Handleidingen
+  items:
+    - name: Een QnA Maker-service instellen
+      href: How-To/set-up-qnamaker-service-azure.md
+    - name: Een knowledge base maken
+      href: Quickstarts/create-publish-knowledge-base.md
+    - name: Een kennisdatabase maken
+      href: How-To/create-knowledge-base.md
+    - name: Metagegevens gebruiken met GenerateAnswer-API
+      href: How-To/metadata-generateanswer-usage.md
+    - name: Een knowledge base migreren uit preview
+      href: Tutorials/migrate-knowledge-base.md
+    - name: Een knowledge base bewerken
+      href: How-To/edit-knowledge-base.md
+    - name: Samenwerken aan een knowledge base
+      href: How-To/collaborate-knowledge-base.md
+    - name: Een knowledge base testen
+      href: How-To/test-knowledge-base.md
+    - name: Een kennisdatabase publiceren
+      href: How-To/publish-knowledge-base.md
+    - name: Analytische gegevens verkrijgen voor uw knowledge base
+      href: How-To/get-analytics-knowledge-base.md
+    - name: Sleutels beheren
+      href: How-To/key-management.md
+    - name: Een knowledge base maken in een andere taal
+      href: How-To/language-knowledge-base.md
+    - name: Een QnA-bot maken met Azure Bot Service
+      href: Tutorials/create-qna-bot.md
+    - name: QnA Maker en LUIS integreren
+      href: Tutorials/integrate-qnamaker-luis.md
+    - name: Een bedrijfscontinuïteitsplan maken voor QnA Maker
+      href: How-To/business-continuity-plan.md
+    - name: Capaciteit kiezen voor de implementatie van QnA Maker
+      href: Tutorials/choosing-capacity-qnamaker-deployment.md
+    - name: Een upgrade uw QnA Maker-service uitvoeren
+      href: How-To/upgrade-qnamaker-service.md
+    - name: Problemen oplossen en QnAMaker-runtime bijwerken
+      href: How-To/troubleshooting-runtime.md
+    - name: QnA Maker-API gebruiken
+      items:
+        - name: 'C#'
+          href: Quickstarts/csharp.md
+        - name: Java
+          href: Quickstarts/java.md
+        - name: Node.js
+          href: Quickstarts/nodejs.md
+        - name: Python
+          href: Quickstarts/python.md
+        - name: Aan de slag
+          href: Quickstarts/go.md
+- name: Naslaginformatie
+  items:
+    - name: API-naslaginformatie
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff'
+    - name: Veelgestelde vragen
+      href: faqs.md
+    - name: Beste praktijken
+      href: Concepts/best-practices.md
+    - name: Limieten
+      href: limits.md
+    - name: Woordenlijst
+      href: glossary.md
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prijzen
+      href: 'https://aka.ms/qnamaker-pricing'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
+    - name: UserVoice
+      href: 'https://aka.ms/qnamaker-uservoice'
+    - name: Search
+      href: 'https://docs.microsoft.com/en-us/search/index?search=QnAMaker'
+    - name: Blog
+      href: 'https://blog.botframework.com/category/QnAMaker/'

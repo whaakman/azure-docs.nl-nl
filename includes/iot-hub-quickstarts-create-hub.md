@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7987ee8c9a127c7a41ec2cd1f726450c771d527f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34666959"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36288039"
 ---
 De eerste stap is Azure Portal te gebruiken om een IoT-hub te maken in uw abonnement. Met de IoT-hub kunt u grote hoeveelheden telemetrie naar de cloud opnemen vanaf een groot aantal apparaten. De hub stelt één of meerdere back-end diensten in de cloud in staat om die telemetrie te lezen en te verwerken.
 
@@ -27,7 +27,7 @@ De eerste stap is Azure Portal te gebruiken om een IoT-hub te maken in uw abonne
 
    * **Abonnement**: kies het abonnement dat u wilt gebruiken om deze IoT-hub te maken.
 
-   * **Resourcegroep**: maak een resourcegroep voor het hosten van de IoT-hub of gebruik een bestaande. Raadpleeg voor meer informatie [Resourcegroepen gebruiken om Azure-resources te beheren][lnk-resource-groups].
+   * **Resourcegroep**: maak een resourcegroep voor het hosten van de IoT-hub of gebruik een bestaande. Door alle gerelateerde resources in een groep te plaatsen, kunt u ze samen beheren. Als u bijvoorbeeld de resourcegroep verwijdert, worden alle resources verwijderd die deze groep bevat. Raadpleeg voor meer informatie [Resourcegroepen gebruiken om Azure-resources te beheren][lnk-resource-groups].
 
    * **Regio**: selecteer de locatie die het dichtst bij u in de buurt is.
 

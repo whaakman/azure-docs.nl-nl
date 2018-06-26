@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5ac1e4c62242c088a0ac84fffc0211baf442b53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 34a5e223dfc8ff51ce03a973e88a962643c71202
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595196"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36212669"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Active Directory Federation Services in Azure implementeren
 AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige webaanmelding (SSO of Single Sign-on). Federatie met Azure AD of O365 biedt gebruikers de mogelijkheid om zich te verifiëren met on-premises referenties en toegang te krijgen tot alle bronnen in de cloud. Daarom is het echter wel heel belangrijk dat u beschikt over een maximaal beschikbare AD FS-infrastructuur voor toegang tot zowel on-premises resources als resources in de cloud. De implementatie van AD FS in Azure kan helpen met minimale inspanningen de vereiste hoge beschikbaarheid te bewerkstelligen.
@@ -305,7 +305,7 @@ De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon
 
 1. Voer onderstaande cmdlet met PowerShell uit op de AD FS-server om deze in te schakelen.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. Van elke toegang vanaf externe computers https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. Ga vanaf een externe computer naar https:\////adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx.  
 3. De volgende AD FS-pagina moet worden weergegeven:
 
 ![Aanmeldingspagina testen](./media/active-directory-aadconnect-azure-adfs/test1.png)

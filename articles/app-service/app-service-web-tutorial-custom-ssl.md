@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ec58b5ef2b9095ba420a4518b84c4e2e6200abc3
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714575"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293326"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Zelfstudie: een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden
 
@@ -32,9 +32,11 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * De prijscategorie van uw app upgraden
-> * Uw aangepaste SSL-certificaat met App Service binden
-> * HTTPS voor uw app afdwingen
-> * Binden van SSL-certificaat automatiseren met scripts
+> * Uw aangepaste certificaat met App Service binden
+> * Certificaten vernieuwen
+> * HTTPS afdwingen
+> * TLS 1.1/1.2 afdwingen
+> * TLS-beheer automatiseren met scripts
 
 > [!NOTE]
 > Als u een aangepast SSL-certificaat nodig hebt, kunt u er een rechtstreeks in Azure Portal ophalen en met uw web-app binden. Volg de [zelfstudie voor App Service Certificates](web-sites-purchase-ssl-web-site.md).
@@ -213,6 +215,14 @@ Nu hoeft u alleen nog maar te controleren of HTTPS werkt voor uw aangepaste dome
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>Certificaten vernieuwen
+
+Uw inkomende IP-adres kan wijzigen wanneer u een binding verwijdert, zelfs als die binding IP-gebaseerd is. Dit is vooral belangrijk wanneer u een certificaat vernieuwt dat zich al in een IP-gebaseerde binding bevindt. Als u een wijziging in het IP-adres van uw app wilt voorkomen, volgt u in volgorde de volgende stappen:
+
+1. Upload het nieuwe certificaat.
+2. Verbind het nieuwe certificaat aan het aangepaste domein dat u wilt, zonder het oude certificaat te verwijderen. Met deze actie wordt de oude binding vervangen en niet verwijderd.
+3. Verwijder het oude certificaat. 
+
 ## <a name="enforce-https"></a>HTTPS afdwingen
 
 Standaard heeft iedereen nog steeds toegang tot uw web-app via HTTP. U kunt alle HTTP-aanvragen omleiden naar de HTTPS-poort.
@@ -236,14 +246,6 @@ Selecteer in het linkernavigatievenster van de web-app-pagina **SSL-instellingen
 ![TLS 1.1 of 1.2 afdwingen](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 Als de bewerking is voltooid, worden in de app alle verbindingen met lagere TLS-versies geweigerd.
-
-## <a name="renew-certificates"></a>Certificaten vernieuwen
-
-Uw inkomende IP-adres kan wijzigen wanneer u een binding verwijdert, zelfs als die binding IP-gebaseerd is. Dit is vooral belangrijk wanneer u een certificaat vernieuwt dat zich al in een IP-gebaseerde binding bevindt. Als u een wijziging in het IP-adres van uw app wilt voorkomen, volgt u in volgorde de volgende stappen:
-
-1. Upload het nieuwe certificaat.
-2. Verbind het nieuwe certificaat aan het aangepaste domein dat u wilt, zonder het oude certificaat te verwijderen. Met deze actie wordt de oude binding vervangen en niet verwijderd.
-3. Verwijder het oude certificaat. 
 
 ## <a name="automate-with-scripts"></a>Automatiseren met scripts
 
@@ -273,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+Met de volgende opdracht wordt een minimale TLS-versie van TLS 1.2 afgedwongen.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Met de volgende opdracht wordt een geëxporteerd PFX-bestand geüpload en een op SNI gebaseerde SSL-binding toegevoegd.
@@ -297,9 +308,11 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * De prijscategorie van uw app upgraden
-> * Uw aangepaste SSL-certificaat met App Service binden
-> * HTTPS voor uw app afdwingen
-> * Binden van SSL-certificaat automatiseren met scripts
+> * Uw aangepaste certificaat met App Service binden
+> * Certificaten vernieuwen
+> * HTTPS afdwingen
+> * TLS 1.1/1.2 afdwingen
+> * TLS-beheer automatiseren met scripts
 
 Ga naar de volgende zelfstudie voor meer informatie over het gebruik van Azure Content Delivery Network.
 

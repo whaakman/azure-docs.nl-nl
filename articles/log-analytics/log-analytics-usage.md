@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 2ceb350883bc6f2b40d88d5cf595b06b074013d1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802048"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36209813"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, vanuit welke bronnen de gegevens zijn verzonden, en de verschillende typen gegevens die zijn verzonden.  Gebruik het **Log Analytics-gebruiksdashboard** om het gegevensgebruik te controleren en analyseren. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
@@ -59,7 +59,9 @@ In deze sectie wordt beschreven hoe u een waarschuwing instelt als:
 - Het gegevensvolume groter is dan een opgegeven hoeveelheid.
 - Het gegevensvolume naar verwachting een opgegeven hoeveelheid gaat overschrijden.
 
-[Waarschuwingen](log-analytics-alerts-creating.md) van Log Analytics maken gebruik van zoekquery’s. De volgende query geeft een resultaat wanneer er meer dan 100 GB aan gegevens in de afgelopen 24 uur is verzameld:
+Azure-waarschuwingen bieden ondersteuning voor [logboekwaarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) die gebruikmaken van zoekquery’s. 
+
+De volgende query geeft een resultaat wanneer er meer dan 100 GB aan gegevens in de afgelopen 24 uur is verzameld:
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
@@ -69,27 +71,35 @@ De volgende query gebruikt een eenvoudige formule om te voorspellen wanneer meer
 
 Als u een waarschuwing wilt instellen bij een ander gegevensvolume, wijzigt u 100 in de query's in het aantal GB waarbij u een waarschuwing wilt.
 
-Gebruik de stappen in [Een waarschuwingsregel maken](log-analytics-alerts-creating.md#create-an-alert-rule) om een melding te krijgen als de hoeveelheid verzamelde gegevens groter is dan verwacht.
+Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) om een melding te krijgen wanneer de hoeveelheid verzamelde gegevens groter is dan verwacht.
 
 Bij het instellen van de waarschuwing voor de eerste query - wanneer er meer dan 100 GB aan gegevens in 24 uur, stelt u het volgende in:  
-- **Naam** op *Gegevensvolume groter dan 100 GB in 24 uur*  
-- **Ernst** op *Waarschuwing*  
-- **Zoekquery** op `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
-- **Tijdvenster** op *24 uur*.
-- **Waarschuwingsfrequentie** op één uur omdat de gebruiksgegevens slechts één keer per uur worden bijgewerkt.
-- **Waarschuwingen genereren op basis van** op het *aantal resultaten*
-- **Aantal resultaten** op *Groter dan 0*
 
-Gebruik de stappen in [Acties toevoegen aan waarschuwingsregels](log-analytics-alerts-actions.md) om een e-mail-, webhook- of runbookactie te configureren voor een waarschuwingsregel.
+- **Waarschuwingsvoorwaarde definiëren** - geef uw Log Analytics-werkruimte op als het resourcedoel.
+- **Waarschuwingscriteria** - geef het volgende op:
+   - **Signaalnaam** - selecteer **Aangepast zoeken in logboeken**
+   - **Zoekquery** op `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Waarschuwingslogica** is **Gebaseerd op** het *aantal resultaten*, en **Voorwaarde** is *Groter dan* een **Drempelwaarde** van *0*
+   - **Tijdsperiode** van *1440* minuten en **Waarschuwingsfrequentie** van elke *60* minuten, omdat de gebruiksgegevens maar één keer per uur worden bijgewerkt.
+- **Waarschuwingsdetails definiëren** - geef het volgende op:
+   - **Naam** op *Gegevensvolume groter dan 100 GB in 24 uur*
+   - **Ernst** op *Waarschuwing*
+
+Maak een nieuwe [Actiegroep](../monitoring-and-diagnostics/monitoring-action-groups.md) of geef een bestaande op, zodat u een melding ontvangt wanneer aan de criteria voor een logboekwaarschuwing wordt voldaan.
 
 Bij het maken van de waarschuwing voor de tweede query - wanneer wordt voorspeld dat er meer dan 100 GB aan gegevens in 24 uur zal zijn, stelt u het volgende in:
-- **Naam** op *Gegevensvolume naar verwachting groter dan 100 GB in 24 uur*
-- **Ernst** op *Waarschuwing*
-- **Zoekquery** op `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
-- **Tijdvenster** op *3 uur*.
-- **Waarschuwingsfrequentie** op één uur omdat de gebruiksgegevens slechts één keer per uur worden bijgewerkt.
-- **Waarschuwingen genereren op basis van** op het *aantal resultaten*
-- **Aantal resultaten** op *Groter dan 0*
+
+- **Waarschuwingsvoorwaarde definiëren** - geef uw Log Analytics-werkruimte op als het resourcedoel.
+- **Waarschuwingscriteria** - geef het volgende op:
+   - **Signaalnaam** - selecteer **Aangepast zoeken in logboeken**
+   - **Zoekquery** op `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Waarschuwingslogica** is **Gebaseerd op** het *aantal resultaten*, en **Voorwaarde** is *Groter dan* een **Drempelwaarde** van *0*
+   - **Tijdsperiode** van *180* minuten en **Waarschuwingsfrequentie** van elke *60* minuten, omdat de gebruiksgegevens maar één keer per uur worden bijgewerkt.
+- **Waarschuwingsdetails definiëren** - geef het volgende op:
+   - **Naam** op *Gegevensvolume naar verwachting groter dan 100 GB in 24 uur*
+   - **Ernst** op *Waarschuwing*
+
+Maak een nieuwe [Actiegroep](../monitoring-and-diagnostics/monitoring-action-groups.md) of geef een bestaande op, zodat u een melding ontvangt wanneer aan de criteria voor een logboekwaarschuwing wordt voldaan.
 
 Wanneer u een waarschuwing ontvangt, gebruikt u de stappen in de volgende sectie om te bepalen waarom het-gebruik is hoger dan verwacht.
 
@@ -155,12 +165,11 @@ Klik op **Alles weergeven...**  om de volledige lijst met computers die gegevens
 
 Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 
-
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-log-searches.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
-* Gebruik de stappen in [Een waarschuwingsregel maken](log-analytics-alerts-creating.md#create-an-alert-rule) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan
-* Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om alleen van de vereiste groepen computers gegevens te verzamelen
+* Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan.
+* Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 * Lees [Filterbeleid van Azure Security Center](../security-center/security-center-enable-data-collection.md) om een effectief beleid voor het verzamelen van beveiligingsgebeurtenissen te configureren.
-* Wijzig de [prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md)
-* Lees [Gebeurtenislogboekconfiguratie](log-analytics-data-sources-windows-events.md) om uw instellingen voor het verzamelen van gebeurtenissen te wijzigen.
-* Lees [syslog-configuratie](log-analytics-data-sources-syslog.md) om uw instellingen voor het verzamelen van gebeurtenissen te wijzigen.
+* Wijzig de [prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md).
+* Bekijk de [configuratie van gebeurtenislogboek](log-analytics-data-sources-windows-events.md) om de instellingen voor het verzamelen van gebeurtenissen te wijzigen.
+* Bekijk [syslog-configuratie](log-analytics-data-sources-syslog.md) om de instellingen voor syslog-verzamelingen te wijzigen.

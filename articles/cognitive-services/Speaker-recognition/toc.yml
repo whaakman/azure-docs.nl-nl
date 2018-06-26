@@ -1,0 +1,20 @@
+- name: Documentatie voor Sprekerherkenning
+- name: Overzicht
+  items:
+    - name: Meer informatie over Sprekerherkenning
+      href: Home.md
+- name: Naslaginformatie
+  items:
+    - name: API-naslaginformatie
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797'
+      items:
+        - name: SDK's
+          items:
+            - name: Android
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android'
+            - name: Windows
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows'
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'

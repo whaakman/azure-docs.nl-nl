@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cda313085d197558e969309eaed928421b0b1924
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194685"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752901"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 in Microsoft Azure Service Bus: aanvraag-antwoord-bewerkingen
 
 In dit artikel definieert de lijst met Microsoft Azure Service Bus-aanvraag/antwoord-bewerkingen. Deze informatie is gebaseerd op het concept van de werkende AMQP Management versie 1.0.  
   
-Zie voor een gedetailleerde wire-niveau AMQP 1.0-protocol handleiding, waarin wordt uitgelegd hoe Service Bus implementeert en bouwt voort op de technische OASIS AMQP-specificatie, de [AMQP 1.0 in Azure Service Bus en Event Hubs protocol handleiding][AMQP 1.0-protocolhandleiding].  
+Zie voor een gedetailleerde wire-niveau AMQP 1.0-protocol handleiding, waarin wordt uitgelegd hoe Service Bus implementeert en bouwt voort op de technische OASIS AMQP-specificatie, de [AMQP 1.0 in Azure Service Bus en Event Hubs protocol handleiding][amqp 1.0-protocolhandleiding].  
   
 ## <a name="concepts"></a>Concepten  
   
@@ -118,8 +118,8 @@ Service Bus-entiteiten moeten worden aangepakt als volgt:
   
 |Entiteitstype|Adres|Voorbeeld|  
 |-----------------|-------------|-------------|  
-|Wachtrij|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
-|Onderwerp|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
+|wachtrij|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
+|onderwerp|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
 |abonnement|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
   
 ## <a name="message-operations"></a>Berichtbewerkingen  
@@ -150,7 +150,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt.|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit de sectie van een amqp-waarde met een map met de volgende items:  
   
@@ -175,7 +175,7 @@ De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|lang|Ja|Het volgnummer van waaruit peek gestart.|  
+|`from-sequence-number`|lengte|Ja|Het volgnummer van waaruit peek gestart.|  
 |`message-count`|int|Ja|Maximum aantal berichten te inspecteren.|  
   
 #### <a name="response"></a>Antwoord  
@@ -185,7 +185,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – heeft geen berichten meer<br /><br /> 0xcc: Er is geen inhoud – geen berichten meer|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
@@ -197,7 +197,7 @@ De kaart die vertegenwoordigt een bericht moet de volgende vermeldingen bevatten
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|message|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="schedule-message"></a>Schema-bericht  
 
@@ -226,7 +226,7 @@ De kaart die vertegenwoordigt een bericht moet de volgende vermeldingen bevatten
 |sessie-id|tekenreeks|Nee|`amqpMessage.Properties.GroupId as string`|  
 |Partitiesleutel|tekenreeks|Nee|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
 |via de partitiesleutel|tekenreeks|Nee|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
-|message|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 #### <a name="response"></a>Antwoord  
 
@@ -235,7 +235,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt.|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
   
@@ -269,7 +269,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt.|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
   
@@ -305,7 +305,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – heeft geen berichten meer<br /><br /> 0xcc: Er is geen inhoud – geen berichten meer|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
   
@@ -330,7 +330,7 @@ De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|uit de volgnummer|lang|Ja|Het volgnummer van waaruit peek gestart.|  
+|uit de volgnummer|lengte|Ja|Het volgnummer van waaruit peek gestart.|  
 |aantal berichten|int|Ja|Maximum aantal berichten te inspecteren.|  
 |sessie-id|tekenreeks|Ja|Sessie-ID.|  
   
@@ -341,7 +341,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – heeft geen berichten meer<br /><br /> 0xcc: Er is geen inhoud – geen berichten meer|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een map met de volgende items:  
   
@@ -353,7 +353,7 @@ De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|message|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="set-session-state"></a>Set-sessiestatus  
 
@@ -382,7 +382,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 ### <a name="get-session-state"></a>Get-sessiestatus  
 
@@ -410,7 +410,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
@@ -436,7 +436,7 @@ De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |laatste-bijgewerkt-time|tijdstempel|Ja|Alleen sessies bijgewerkt na een bepaald moment gefilterd.|  
-|Overslaan|int|Ja|Een aantal sessies overslaan.|  
+|overslaan|int|Ja|Een aantal sessies overslaan.|  
 |Boven|int|Ja|Maximum aantal sessies.|  
   
 #### <a name="response"></a>Antwoord  
@@ -446,14 +446,14 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – heeft geen berichten meer<br /><br /> 0xcc: Er is geen inhoud – geen berichten meer|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|Overslaan|int|Ja|Aantal overgeslagen sessies als statuscode 200.|  
-|sessies-id 's|Matrix van tekenreeksen|Ja|Matrix van sessie-id's als statuscode 200.|  
+|overslaan|int|Ja|Aantal overgeslagen sessies als statuscode 200.|  
+|sessies-id 's|matrix van tekenreeksen|Ja|Matrix van sessie-id's als statuscode 200.|  
   
 ## <a name="rule-operations"></a>Bewerkingen voor regel  
   
@@ -495,9 +495,9 @@ De **correlatie-filter** kaart moet ten minste één van de volgende vermeldinge
 |---------|----------------|--------------|--------------------|  
 |correlatie-id|tekenreeks|Nee||  
 |bericht-id|tekenreeks|Nee||  
-|tot|tekenreeks|Nee||  
+|aan|tekenreeks|Nee||  
 |antwoord aan|tekenreeks|Nee||  
-|Label|tekenreeks|Nee||  
+|label|tekenreeks|Nee||  
 |sessie-id|tekenreeks|Nee||  
 |antwoord-naar-sessie-id|tekenreeks|Nee||  
 |type inhoud|tekenreeks|Nee||  
@@ -516,7 +516,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 ### <a name="remove-rule"></a>Regel verwijderen  
   
@@ -542,7 +542,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 ### <a name="get-rules"></a>-Regels ophalen
 
@@ -560,7 +560,7 @@ De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |Boven|int|Ja|Het aantal regels op te halen op de pagina.|  
-|Overslaan|int|Ja|Het aantal regels over te slaan. De startIndex (+ 1) definieert op de lijst met regels. | 
+|overslaan|int|Ja|Het aantal regels over te slaan. De startIndex (+ 1) definieert op de lijst met regels. | 
 
 #### <a name="response"></a>Antwoord
 
@@ -605,8 +605,8 @@ Elke toewijzingsvermelding in de matrix bevat de volgende eigenschappen:
 |Index (indien aanwezig)|Waardetype|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 | 0 | tekenreeks | Correlatie-id |
-| 1 | tekenreeks | Bericht-ID |
-| 2 | tekenreeks | Handeling |
+| 1 | tekenreeks | Bericht-id |
+| 2 | tekenreeks | Tot |
 | 3 | tekenreeks | Antwoorden op |
 | 4 | tekenreeks | Label |
 | 5 | tekenreeks | Sessie-id |
@@ -652,7 +652,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
 De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
   
@@ -665,7 +665,7 @@ De kaart die vertegenwoordigt een bericht moet de volgende vermeldingen bevatten
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |LOCK-token|UUID|Ja|Vergrendeling token als `receiver-settle-mode` is 1.|  
-|message|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="update-disposition-status"></a>Status van de toestand bijwerken  
 
@@ -684,7 +684,7 @@ De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|toestand-status|tekenreeks|Ja|Voltooid<br /><br /> Afgebroken<br /><br /> Onderbroken|  
+|toestand-status|tekenreeks|Ja|voltooid<br /><br /> afgebroken<br /><br /> onderbroken|  
 |LOCK-tokens|matrix van uuid|Ja|Bericht vergrendeling tokens disposition status bij te werken.|  
 |wachtrij voor onbestelbare reden|tekenreeks|Nee|Kan worden ingesteld als bestemming status wordt ingesteld op **onderbroken**.|  
 |Beschrijving van de wachtrij voor onbestelbare|tekenreeks|Nee|Kan worden ingesteld als bestemming status wordt ingesteld op **onderbroken**.|  
@@ -697,7 +697,7 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
-|StatusDescription|tekenreeks|Nee|Beschrijving van de status.|
+|statusDescription|tekenreeks|Nee|Beschrijving van de status.|
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -709,4 +709,4 @@ Ga naar de volgende koppelingen voor meer informatie over AMQP en Service Bus:
 
 [Service Bus AMQP-overzicht]: service-bus-amqp-overview.md
 [AMQP 1.0-protocolhandleiding]: service-bus-amqp-protocol-guide.md
-[AMQP in WindowsServer-Servicebus]: https://msdn.microsoft.com/library/dn574799.asp
+[AMQP in WindowsServer-Servicebus]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

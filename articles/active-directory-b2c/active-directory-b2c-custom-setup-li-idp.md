@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: LinkedIn toevoegen als een OAuth2-id-provider met behulp van aangepaste beleid'
-description: Een artikel instructies over het instellen van een toepassing LinkedIn met behulp van de OAuth2-protocol en het aangepaste beleid
+title: LinkedIn toevoegen als een OAuth2-id-provider met behulp van aangepast beleid in Azure Active Directory B2C | Microsoft Docs
+description: Een artikel instructies over het instellen van een toepassing LinkedIn met behulp van de OAuth2-protocol en aangepaste beleidsregels.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 889264dc06d1a6f10713ff5fcd7ff644c113bb45
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752313"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: LinkedIn toevoegen als een id-provider met behulp van aangepaste beleid
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -26,7 +26,7 @@ Dit artikel laat zien hoe u aanmelden voor gebruikers van een account LinkedIn i
 Voer de stappen in de [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md) artikel.
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Stap 1: Een toepassing LinkedIn-account maken
-LinkedIn gebruiken als een id-provider in Azure Active Directory B2C (Azure AD B2C) heeft, moet u een LinkedIn-toepassing maken en deze met de juiste parameters opgeven. U kunt een toepassing LinkedIn registreren door te gaan naar de [LinkedIn aanmeldingspagina](https://LinkedIn.com/signup).
+LinkedIn gebruiken als een id-provider in Azure Active Directory B2C (Azure AD B2C) heeft, moet u een LinkedIn-toepassing maken en deze met de juiste parameters opgeven. U kunt een toepassing LinkedIn registreren door te gaan naar de [LinkedIn aanmeldingspagina](https://www.linkedin.com/start/join).
 
 1. Ga naar de [LinkedIn Toepassingsbeheer](https://www.linkedin.com/secure/developer?newapp=) website, meld u aan met de referenties van uw account LinkedIn en selecteer vervolgens **toepassing maken**.
 

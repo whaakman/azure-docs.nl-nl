@@ -5,38 +5,39 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c706474018bd0751872381c6d28f0ad579ba772b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737102"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286576"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure
 
-[Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps actief blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
+In dit artikel laten we zien hoe u herstelanalyse kunt uitvoeren voor on-premises machines naar Azure, met behulp van een failovertest. Tijdens een dergelijke analyse wordt uw replicatiestrategie gevalideerd zonder dat er kans op gegevensverlies is.
 
-- Dit is de vierde zelfstudie in een reeks waarin u ziet hoe u herstel naar Azure na een noodgeval kunt instellen voor on-premises VMware-VM’s. Er wordt van uitgegaan dat u de eerste twee zelfstudies hebt voltooid:
+Dit is de vierde zelfstudie in een reeks waarin u ziet hoe u herstel naar Azure na een noodgeval kunt instellen voor on-premises VMware-VM’s.
+
+In deze zelfstudie wordt aangenomen dat u de eerste drie zelfstudies hebt voltooid: 
     - In de [eerste zelfstudie](tutorial-prepare-azure.md) hebben we de Azure-onderdelen ingesteld die nodig zijn voor VMware-noodherstel.
     - In de [tweede zelfstudie](vmware-azure-tutorial-prepare-on-premises.md) hebben we on-premises onderdelen voor noodherstel voorbereid en de vereisten bekeken.
     - In de [derde zelfstudie](vmware-azure-tutorial.md) hebben we replicatie ingesteld en ingeschakeld voor de on-premises VMware-VM.
-- In deze zelfstudies ziet u steeds het eenvoudigste implementatiepad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. 
+- In deze zelfstudies ziet u steeds het eenvoudigste implementatiepad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. In alle zelfstudies wordt Site Recovery ingesteld met de meest eenvoudige instellingen, en indien van toepassing met gebruik van standaardopties. Lees de [handleiding](site-recovery-test-failover-to-azure.md) als u meer wilt leren over de stappen van een testfailover.
 
-
-In dit artikel laten we zien hoe u herstelanalyse kunt uitvoeren voor on-premises machines naar Azure, met behulp van een failovertest. Tijdens een dergelijke analyse wordt uw replicatiestrategie gevalideerd zonder dat er kans op gegevensverlies is. Leer hoe u het volgende doet:
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een geïsoleerd netwerk instellen voor de failovertest
 > * Voorbereiden om verbinding te maken met de virtuele Azure-machine na de failover
 > * Een failovertest uitvoeren voor één machine
 
-In deze zelfstudie wordt VMware-noodherstel naar Azure ingesteld met de meest eenvoudige instellingen. Lees de [handleiding](site-recovery-test-failover-to-azure.md) als u meer wilt leren over de stappen van een testfailover.
+Deze zelfstudie
 
 ## <a name="verify-vm-properties"></a>VM-eigenschappen verifiëren
 
-Voordat u een failovertest uitvoert, controleert u de eigenschappen van de VMware-VM en zorgt u ervoor dat de VM met Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], [de VM met VMware of de fysieke server](vmware-physical-azure-support-matrix.md#replicated-machines) voldoet aan de Azure-vereisten.
+Voordat u een failovertest uitvoert, controleert u de eigenschappen van de VMware-VM en zorgt u ervoor dat de [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) of [VMware VM/fysieke server](vmware-physical-azure-support-matrix.md#replicated-machines) voldoet aan de Azure-vereisten.
 
 1. Klik in **Beveiligde items** op **Gerepliceerde items** > en de VM.
 2. In het deelvenster **Gerepliceerd item** bevindt zich een overzicht van VM-informatie, status, en de laatste beschikbare herstelpunten. Klik op **Eigenschappen** om meer details te bekijken.

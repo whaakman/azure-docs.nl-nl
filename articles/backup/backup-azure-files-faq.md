@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f6dcaee1ac328a9bafce0561f421b772b7e1d119
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605165"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286397"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Vragen over het maken back-ups van Azure-bestanden
 In dit artikel vindt u antwoorden op veelgestelde vragen over het maken back-ups van Azure-bestanden. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -23,7 +23,7 @@ Als u kort de secties in dit artikel wilt bekijken, gebruikt u de koppelingen aa
 ## <a name="configuring-the-backup-job-for-azure-files"></a>De back-uptaak configureren voor Azure-bestanden
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>Waarom zie ik een aantal van de opslagaccounts niet die ik wil beveiligen, hoewel ze geldige Azure-bestandsshares bevatten? <br/>
-Tijdens de preview-fase worden niet alle typen opslagaccounts ondersteund bij het maken van back-ups voor Azure-bestandsshares. Raadpleeg [deze](troubleshoot-azure-files.md#preview-boundaries) lijst met ondersteunde opslagaccounts. Het is ook mogelijk dat het opslagaccount dat u zoekt al is beveiligd of bij een andere kluis is geregistreerd. [Hef](troubleshoot-azure-files.md#configuring-backup) de registratie van de kluis op om het opslagaccount in andere beveiligingskluizen te detecteren.
+Tijdens de preview-fase worden niet alle typen opslagaccounts ondersteund bij het maken van back-ups voor Azure-bestandsshares. Raadpleeg [deze](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview) lijst met ondersteunde opslagaccounts. Het is ook mogelijk dat het opslagaccount dat u zoekt al is beveiligd of bij een andere kluis is geregistreerd. [Hef](troubleshoot-azure-files.md#configuring-backup) de registratie van de kluis op om het opslagaccount in andere beveiligingskluizen te detecteren.
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Waarom zie ik een aantal van mijn Azure-bestandsshares in het opslagaccount niet als ik mijn back-up configureer? <br/>
 Controleer of de Azure-bestandsshare al in dezelfde Recovery Services-kluis wordt beveiligd en of de bestandsshare onlangs wellicht is verwijderd.
@@ -39,13 +39,13 @@ Ja. U moet echter wel de [beveiliging stoppen](backup-azure-files.md#stop-protec
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In welke geografische gebieden kan ik back-ups maken van Azure-bestandsshares? <br/>
 Het maken van back-ups van Azure-bestandsshares is momenteel in de preview-fase en is alleen beschikbaar in de volgende geografische gebieden: 
--   Australië - zuidoost (ASE) 
+-   Australië - oost (AE) 
+- Australië - zuidoost (ASE) 
 - Brazilië - zuid (BRS)
 - Canada centraal (CNC)
 -   Canada - oost (CE)
 -   VS - centraal (CUS)
 -   Oost-Azië (EA)
--   Oost-Australië (AE) 
 -   VS - oost (EUS)
 -   VS - oost 2 (EUS2)
 - Japan - oost (JPE)

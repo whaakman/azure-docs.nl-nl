@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Language Understanding (LUIS)
+metadata:
+  document_id: 
+  title: Language Understanding (LUIS) - Zelfstudies, snelstarts, API-naslag
+  description: Informatie over hoe u de service LUIS gebruikt om uw toepassing in staat te stellen te begrijpen wat een persoon in zijn eigen woorden wil zeggen.
+  author: Kaiqb
+  manager: carolz
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/25/2018
+  ms.author: kamrani
+  ms.openlocfilehash: 7d529825733025335f27ce0fe477c117aeaf5c41
+  ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 06/08/2018
+  ms.locfileid: "35357458"
+abstract:
+  description: Met de service LUIS kunt u uw toepassing in staat stellen te begrijpen wat een persoon in zijn eigen woorden wil zeggen. Met behulp van machine learning geeft LUIS ontwikkelaars de mogelijkheid om toepassingen te ontwikkelen die gebruikersinvoer in een natuurlijke taal ontvangen en hieraan betekenis geven.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="luis-get-started-create-app.md">Apps maken voor een vooraf gedefinieerd domein</a>
+    - html: <a href="luis-quickstart-intents-only.md">Apps maken voor een aangepast domein</a>
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Berichtgegevens uit een uiting halen met behulp van de eenvoudige entiteit</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">KB-artikelnummers uit een uiting halen met behulp van de reguliere-expressie-entiteit</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Informatie voor een bestelling van een drankje uit een uiting halen met behulp van de lijstentiteit</a>
+    - html: <a href="luis-tutorial-pattern">De nauwkeurigheid van intentie- en entiteitsvoorspelling verbeteren met patronen</a>
+    - html: <a href="luis-tutorial-interchangeable-phrase-list">Woordsignificatie verbeteren met een frasenlijst</a>
+    - html: <a href="luis-get-started-cs-get-intent">Een uiting verzenden naar LUIS en de eindpuntvoorspelling als antwoord ontvangen - C#</a>
+    - html: <a href="luis-get-started-cs-add-utterance">Een voorbeelduiting toevoegen aan een intentie en de app LUIS trainen - C#</a>
+- title: Video's
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" > Azure Friday op Build 2018 - Cognitive Services - Taal (LUIS)</a>
+    - html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" > Build 2018 AI-demonstratie - Nieuw in Language Understanding Service (LUIS)</a>
+    - html: <a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Build 2018-sessie - Bot-intelligentie, spraakmogelijkheden en aanbevolen NLU-procedures</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API's v2
+      html: <p><a href="https://aka.ms/luis-endpoint-apis"> Endpoint-API</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Authoring-API</a></p>
+    - title: SDK's
+      html: <p><a href="https://aka.ms/luis-endpoint-sdk"> .NET Endpoint SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Authoring SDK</a></p>
+    - title: Codevoorbeelden
+      html: <p><a href="https://aka.ms/luis-code-samples"> Codevoorbeelden</a></p>

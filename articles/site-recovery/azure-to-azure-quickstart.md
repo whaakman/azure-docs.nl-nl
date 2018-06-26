@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d52691dbec932a3515c90e757863be01ade086cc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: aa6f3560d3939eb448c4193e3b3301073c601904
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715952"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284034"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Een Azure-VM repliceren naar een andere Azure-regio
 
@@ -45,7 +45,7 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
 ## <a name="verify-settings"></a>Instellingen controleren
 
-Nadat de replicatietaak is voltooid, kunt u de replicatiestatus controleren, replicatie-instellingen wijzigen en de implementatie testen.
+Nadat de replicatietaak is voltooid, kunt u de replicatiestatus controleren, de replicatie-instellingen wijzigen en de implementatie testen.
 
 1. Klik in het VM-menu op **Herstel na noodgeval**.
 2. U kunt de replicatiestatus, gemaakte herstelpunten en bron- en doelregio's op de kaart controleren.

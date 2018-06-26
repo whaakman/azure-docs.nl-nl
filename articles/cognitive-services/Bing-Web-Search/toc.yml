@@ -1,0 +1,98 @@
+- name: Documentatie voor Bing Entiteiten zoeken
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Bing Entiteiten zoeken?
+      href: overview.md
+- name: Snelstarts voor REST API
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Aan de slag
+      href: quickstarts/go.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Snelstarts voor SDK
+  items:
+    - name: Overzicht van SDK-voorbeelden
+      href: sdk.md
+    - name: 'C#-snelstart voor Webzoekopdracht SDK'
+      href: web-search-sdk-quickstart.md
+    - name: Node.js-snelstart voor Webzoekopdracht SDK
+      href: web-search-sdk-node-quickstart.md
+    - name: Python-snelstart voor Webzoekopdracht SDK
+      href: web-sdk-python-quickstart.md
+    - name: Java-snelstart voor Webzoekopdracht SDK
+      href: web-sdk-java-quickstart.md
+- name: Zelfstudies
+  items:
+    - name: Web-app van één pagina
+      href: tutorial-bing-web-search-single-page-app.md
+    - name: Web-app van één pagina (broncode)
+      href: tutorial-bing-web-search-single-page-app-source.md
+    - name: Mobiele Visual Search-app
+      href: computer-vision-web-search-tutorial.md
+    - name: Mobiele Visual Search-app (Visual Studio-oplossing)
+      href: 'https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/'
+      maintainContext: true
+- name: Voorbeelden
+  items:
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search'
+- name: Handleidingen
+  items:
+    - name: Vereisten voor gebruik en weergave
+      href: UseAndDisplayRequirements.md
+    - name: Antwoorden filteren
+      href: filter-answers.md
+    - name: Resultaten rangschikken
+      href: rank-results.md
+    - name: Markering van treffers afhandelen
+      href: hit-highlighting.md
+    - name: Bladeren door de resultaten
+      href: paging-webpages.md
+    - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
+      href: resize-and-crop-thumbnails.md
+    - name: Upgrade uitvoeren van v5 naar v7
+      href: bing-web-upgrade-guide-v5-to-v7.md
+- name: Naslaginformatie
+  items:
+    - name: Bing Webzoekopdrachten-API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference'
+    - name: Bing Webzoekopdrachten-API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference'
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: bing-web-search-resource-faq.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-web-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+web+search'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API-sleutel ophalen
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+    - name: Probeer het nu!
+      href: 'https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/'
+    - name: Bing Webzoekopdrachten-eindpunt
+      href: web-search-endpoints.md
+    - name: Ondersteunde landen en markten
+      href: supported-countries-markets.md
+    - name: Analytische gegevens voor Bing Webzoekopdrachten-API
+      href: bing-web-stats.md

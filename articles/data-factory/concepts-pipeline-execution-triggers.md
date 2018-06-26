@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715034"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293476"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ Triggers zijn een andere manier om een pijplijnuitvoering te starten. Triggers z
 
 - Tumblingvenstertrigger: een trigger die volgens een periodiek interval werkt terwijl de status behouden blijft. Azure Data Factory ondersteunt momenteel geen triggers op basis van gebeurtenissen. Bijvoorbeeld de trigger voor een pijplijnuitvoering die reageert op een gebeurtenis waarbij een bestand arriveert, wordt niet ondersteunt.
 
+- Trigger op basis van gebeurtenissen: een trigger die reageert op een gebeurtenis.
+
 Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen één pijplijn starten en één trigger kan meerdere pijplijnen starten. In de volgende triggerdefinitie verwijst de eigenschap **pijplijnen** naar een lijst met pijplijnen die worden geactiveerd door de bijbehorende trigger. In de definitie van de eigenschap zijn waarden opgenomen voor de pijplijnparameters.
 
 ### <a name="basic-trigger-definition"></a>Basisdefinitie voor trigger
@@ -175,11 +177,6 @@ Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen
 Schematriggers voeren pijplijnen uit volgens een wandklokschema. De trigger ondersteunt periodieke en geavanceerde kalenderopties. De trigger ondersteunt bijvoorbeeld intervallen als 'wekelijks' of 'maandag om 17:00 uur en donderdag om 21:00 uur'. De schematrigger is flexibel omdat het patroon van de gegevensset agnostisch is, dat wil zeggen dat de trigger geen onderscheid maakt tussen gegevens in tijdreeksen en niet-tijdreeksen.
 
 Zie [Schematriggers maken](how-to-create-schedule-trigger.md) voor meer informatie over schematriggers en voorbeelden.
-
-## <a name="tumbling-window-trigger"></a>Tumblingvenstertrigger
-Tumblingvenstertriggers zijn triggers die vanaf een opgegeven begintijd worden geactiveerd met een periodiek tijdsinterval en die hun status behouden. Tumblingvensters bestaan uit een reeks niet-overlappende en aaneengesloten tijdsintervallen van vaste duur.
-
-Zie [Tumblingvenstertriggers maken](how-to-create-tumbling-window-trigger.md) voor meer informatie over tumblingvenstertriggers en voorbeelden.
 
 ## <a name="schedule-trigger-definition"></a>Schematrigger: definitie
 Wanneer u een schematrigger maakt, geeft u het schema en een terugkeerpatroon op met behulp van een JSON-definitie. 
@@ -322,6 +319,17 @@ In de volgende tabel worden de **schedule**-elementen in detail beschreven:
 | **weekDays** | Dagen van de week waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een weekfrequentie.|<br />- maandag<br />- dinsdag<br />- woensdag<br />- donderdag<br />- vrijdag<br />- zaterdag<br />- zondag<br />- Matrix met dagwaarden (maximale grootte van de matrix is 7)<br /><br />Dagwaarden zijn niet hoofdlettergevoelig|
 | **monthlyOccurrences** | Dagen van de maand waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een maandfrequentie. |- Matrix met **monthlyOccurence**-objecten: `{ "day": day,  "occurrence": occurence }`<br />- Het attribuut **day** is de dag van de week waarop de trigger wordt uitgevoerd. Zo betekent de eigenschap **monthlyOccurrences** met een waarde **day** van `{Sunday}` dat er elke zondag van de maand een uitvoering is. Het attribuut **day** is verplicht.<br />- Het attribuut **occurrence** slaat op het uitvoeren van de trigger op de opgegeven dag, **day**, tijdens de maand. Zo betekent de eigenschap **monthlyOccurrences** met de waarden **day** en **occurrence** van `{Sunday, -1}` dat er elke laatste zondag van de maand een uitvoering is. Het attribuut **occurrence** is optioneel.|
 | **monthDays** | Dagen van de maand waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een maandfrequentie. |- Alle waarden < = -1 en > =-31<br />- Alle waarden > = 1 en < =31<br />- Matrix met waarden|
+
+## <a name="tumbling-window-trigger"></a>Tumblingvenstertrigger
+Tumblingvenstertriggers zijn triggers die vanaf een opgegeven begintijd worden geactiveerd met een periodiek tijdsinterval en die hun status behouden. Tumblingvensters bestaan uit een reeks niet-overlappende en aaneengesloten tijdsintervallen van vaste duur.
+
+Zie [Tumblingvenstertriggers maken](how-to-create-tumbling-window-trigger.md) voor meer informatie over tumblingvenstertriggers en voorbeelden.
+
+## <a name="event-based-trigger"></a>Trigger op basis van gebeurtenissen
+
+Een trigger op basis van gebeurtenissen start pijplijnen in reactie op een gebeurtenis, zoals het binnenkomen van een bestand of het verwijderen van een bestand, in Azure Blob Storage.
+
+Zie [Een trigger maken die een pijplijn uitvoert in reactie op een gebeurtenis](how-to-create-event-trigger.md) voor meer informatie over triggers op basis van gebeurtenissen.
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Voorbeelden van schema's voor uitvoeringen van triggers
 Dit gedeelte bevat voorbeelden van schema's met terugkeerpatronen. Dit artikel gaat over het **schedule**-object en de bijbehorende elementen.

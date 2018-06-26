@@ -12,147 +12,167 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 8fea445a4cd02da3cf3c3239a119b491327abf54
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2919ce1d7c57b7a92420ac11b61503caa1fdd3b0
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234114"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267554"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
-Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties gegevens kunnen presenteren aan eindgebruikers.  Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen.
+Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure AD Gebruiksrechtovereenkomst.
 
-Voor het weergeven van inhoud maakt Azure AD Gebruiksrechtovereenkomst gebruik van de PDF-indeling.   De PDF kan van alles bevatten, zoals bestaande contracten, zodat u tijdens het aanmelden van gebruikers eindgebruikersovereenkomsten kunt verzamelen.  U kunt de gebruiksrechtovereenkomst gebruiken voor toepassingen, groepen gebruikers en als u voor verschillende doeleinden verschillende gebruiksrechtovereenkomsten hanteert.
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-In het vervolg van dit document wordt beschreven hoe u aan de slag gaat met Azure AD Gebruiksrechtovereenkomst.  
-
-## <a name="why-use-azure-ad-terms-of-use"></a>Waarom Azure AD Gebruiksrechtovereenkomst gebruiken
-Vindt u het lastig om werknemers of gasten zover te krijgen dat ze akkoord gaan met uw gebruiksrechtovereenkomst voordat ze toegang krijgen? Hebt u hulp nodig om uit te zoeken wie de gebruiksrechtovereenkomst van uw bedrijf nog niet heeft geaccepteerd?  Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties gegevens kunnen presenteren aan eindgebruikers.  Deze presentatie zorgt ervoor dat ze relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen.
-
-Azure AD Gebruiksrechtovereenkomst kan in de volgende scenario's worden gebruikt:
--   Algemene gebruiksrechtovereenkomst voor alle gebruikers in uw organisatie.
--   Specifieke gebruiksvoorwaarden gebaseerd op gebruikerskenmerken (bijvoorbeeld artsen versus verpleegkundigen of binnenlandse werknemers versus werknemers in het buitenland, wat gebeurt met [dynamische groepen](https://azure.microsoft.com/updates/azure-active-directory-dynamic-membership-for-groups)).
--   Specifieke gebruiksrechtovereenkomst op basis van de toegang tot apps die een grote bedrijfsimpact hebben, zoals Salesforce.
-
+## <a name="what-can-i-do-with-terms-of-use"></a>Wat kan ik doen met Gebruiksrechtovereenkomst?
+Met Azure AD Gebruiksrechtovereenkomst kunt u het volgende doen:
+- Werknemers of gasten dwingen akkoord te gaan met uw gebruiksrechtovereenkomst voordat ze toegang krijgen.
+- Algemene gebruiksrechtovereenkomst presenteren voor alle gebruikers in uw organisatie.
+- Specifieke gebruiksvoorwaarden presenteren op basis van gebruikerskenmerken (bijvoorbeeld artsen versus verpleegkundigen of binnenlandse werknemers versus werknemers in het buitenland) met behulp van [dynamische groepen](active-directory-groups-dynamic-membership-azure-portal.md).
+- Specifieke gebruiksrechtovereenkomsten presenteren bij toegang tot toepassingen met grote bedrijfsimpact, zoals Salesforce.
+- Aanwezig gebruiksvoorwaarden presenteren in verschillende talen.
+- Een lijst maken met personen die wel of niet akkoord zijn gegaan met uw Gebruiksrechtovereenkomst.
+- Een controlelogboek weergeven van Gebruiksrechtovereenkomst-activiteiten.
 
 ## <a name="prerequisites"></a>Vereisten
-Gebruik de volgende stappen voor het configureren van Azure AD Gebruiksrechtovereenkomst:
+U moet over het volgende beschikken om Azure AD Gebruiksrechtovereenkomst te gebruiken en te configureren:
 
-1. Meld u bij Azure AD aan als hoofdbeheerder, beveiligingsbeheerder of beheerder met voorwaardelijke toegang tot de directory waarvoor u Azure AD Gebruiksrechtovereenkomst wilt configureren.
-2. Zorg ervoor dat de directory een Azure AD Premium P1-, P2-, EMS E3- of EMS E5-abonnement heeft.  Als dat niet het geval is, [schaft u Azure AD Premium aan](active-directory-get-started-premium.md) of [start u een proefversie](https://azure.microsoft.com/trial/get-started-active-directory/).
-3. Bekijk het dashboard Azure AD Gebruiksrechtovereenkomst op [https://aka.ms/catou](https://aka.ms/catou).
+- Abonnement op Azure AD Premium P1, P2, EMS E3 of EMS E5.
+    - Als u niet over een van deze abonnementen beschikt, kunt u [Azure AD Premium downloaden](fundamentals/active-directory-get-started-premium.md) of [Azure AD Premium uitproberen](https://azure.microsoft.com/trial/get-started-active-directory/).
+- Een van de volgende beheerdersaccounts voor de directory die u wilt configureren:
+    - Globale beheerder
+    - Beveiligingsbeheerder
+    - Voorwaardelijke-toegangsbeheerder
 
->[!IMPORTANT]
->Controlemechanismen voor het beleid voor voorwaardelijk toegang (waaronder de gebruiksvoorwaarden) bieden geen ondersteuning voor handhaving op serviceaccounts.  Het is raadzaam om alle serviceaccounts uit te sluiten van het beleid voor voorwaardelijke toegang.
+## <a name="terms-of-use-document"></a>Document met gebruiksrechtovereenkomst
 
-## <a name="add-company-terms-of-use"></a>Gebruiksrechtovereenkomst voor een bedrijf toevoegen
-Wanneer u uw gebruiksrechtovereenkomst hebt voltooid, gebruikt u de volgende procedure om deze toe te voegen.
+Voor het weergeven van inhoud maakt Azure AD Gebruiksrechtovereenkomst gebruik van de PDF-indeling. Het PDF-bestand kan van alles bevatten, zoals bestaande contracten, zodat u tijdens het aanmelden van gebruikers eindgebruikersovereenkomsten kunt verzamelen. De aanbevolen tekengrootte voor de PDF is 24.
 
-### <a name="to-add-terms-of-use"></a>Gebruiksrechtovereenkomst toevoegen
-1. Ga naar het dashboard op [https://aka.ms/catou](https://aka.ms/catou)
-2. Klik op Toevoegen.</br>
-![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/tou12.png)
-3. Voer de **Naam** in voor de gebruiksrechtovereenkomst
-4. Voer de **Weergavenaam** in.  Gebruikers krijgen de koptekst te zien wanneer ze zich aanmelden.
-5. **Blader** naar de PDF met uw voltooide gebruiksrechtovereenkomst en selecteer deze.  De aanbevolen tekengrootte is 24.
-6. **Selecteer** een taal voor de gebruiksvoorwaarden.  Via de taaloptie kunt u meerdere gebruiksvoorwaarden uploaden, elk met een andere taal.  Welke versie van de gebruiksvoorwaarden aan een eindgebruiker wordt weergegeven, is gebaseerd op de browservoorkeuren.
-7. Schakel de optie **Gebruikers verplichten de gebruiksvoorwaarden uit te vouwen** in of uit.  Als deze instelling is ingeschakeld, moeten eindgebruikers de gebruiksvoorwaarden bekijken alvorens ze deze accepteren.
-8. In **Voorwaardelijke toegang** kunt u de geüploade gebruiksrechtovereenkomst **afdwingen** door in de vervolgkeuzelijst een sjabloon of beleid voor aangepaste voorwaardelijke toegang te selecteren.  Met een beleid voor aangepaste voorwaardelijke toegang kunt u een gedetailleerde gebruiksrechtovereenkomst opgeven voor een specifieke cloudtoepassing of groep gebruikers.  Zie [Een voorwaardelijk toegangsbeleid configureren](active-directory-conditional-access-best-practices.md) voor meer informatie
-9. Klik op **Create**.
-10. Als u een sjabloon voor aangepaste voorwaardelijke toegang hebt geselecteerd, kunt u in een volgend scherm het CA-beleid aanpassen.
-11. Nu wordt uw nieuwe gebruiksrechtovereenkomst weergegeven.</br>
+## <a name="add-terms-of-use"></a>Gebruiksrechtovereenkomst toevoegen
+Wanneer u uw gebruiksrechtovereenkomstdocument hebt voltooid, gebruikt u de volgende procedure om deze toe te voegen.
 
-![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/tou3.png)
+1. Meld u aan bij Azure als globale beheerder, beveiligingsbeheerder of voorwaardelijke-toegangsbeheerder.
+
+1. Navigeer naar **Gebruiksrechtovereenkomst** op [https://aka.ms/catou](https://aka.ms/catou).
+
+    ![Gebruiksrechtovereenkomst-blade](media/active-directory-tou/tou-blade.png)
+
+1. Klik op **Nieuwe voorwaarden**.
+
+    ![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/new-tou.png)
+
+1. Voer de **Naam** in voor de gebruiksrechtovereenkomst
+
+2. Voer de **Weergavenaam** in.  Dit is de koptekst die gebruikers te zien krijgen wanneer ze zich aanmelden.
+
+3. **Blader** naar de PDF met uw voltooide gebruiksrechtovereenkomst en selecteer deze.
+
+4. **Selecteer** een taal voor de Gebruiksrechtovereenkomst.  Via de taaloptie kunt u meerdere gebruiksvoorwaarden uploaden, elk met een andere taal.  Welke versie van de gebruiksvoorwaarden aan een eindgebruiker wordt weergegeven, is gebaseerd op de browservoorkeuren.
+
+5. Selecteer Aan of Uit bij de optie **Gebruikers verplichten de gebruiksvoorwaarden uit te vouwen**.  Als deze instelling Aan staat, moeten eindgebruikers de gebruiksrechtovereenkomst bekijken alvorens ze deze accepteren.
+
+6. Onder **Voorwaardelijke toegang** kunt u de geüploade gebruiksrechtovereenkomst **afdwingen** door in de vervolgkeuzelijst een sjabloon of beleid voor aangepaste voorwaardelijke toegang te selecteren.  Met een beleid voor aangepaste voorwaardelijke toegang kunt u een gedetailleerde gebruiksrechtovereenkomst opgeven voor een specifieke cloudtoepassing of groep gebruikers.  Zie [Een voorwaardelijk toegangsbeleid configureren](active-directory-conditional-access-best-practices.md) voor meer informatie.
+
+    >[!IMPORTANT]
+    >Controlemechanismen voor het beleid voor voorwaardelijk toegang (waaronder Gebruiksrechtovereenkomst) bieden geen ondersteuning voor handhaving op serviceaccounts.  Het is raadzaam om alle serviceaccounts uit te sluiten van het beleid voor voorwaardelijke toegang.
+
+7. Klik op **Create**.
+
+8. Als u een sjabloon voor aangepaste voorwaardelijke toegang hebt geselecteerd, kunt u in een volgend scherm het beleid voor voorwaardelijke toegang aanpassen.
+
+    Nu wordt uw nieuwe gebruiksrechtovereenkomst weergegeven.
+
+    ![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/create-tou.png)
+
+## <a name="view-who-has-accepted-and-declined"></a>Bekijken wie hebben geaccepteerd en geweigerd
+In de Gebruiksrechtovereenkomst-blade ziet u de aantallen gebruikers die al dan niet hebben geaccepteerd. Deze aantallen en wie hebben geaccepteerd/geweigerd worden opgeslagen voor de duur van de gebruiksrechtovereenkomst.
+
+1. Meld u aan bij Azure en navigeer naar **Gebruiksrechtovereenkomst** op [https://aka.ms/catou](https://aka.ms/catou).
+
+    ![Controlegebeurtenis](media/active-directory-tou/view-tou.png)
+
+1. Klik op de getallen onder **Geaccepteerd** of **Geweigerd** om de huidige status van gebruikers te zien.
+
+    ![Controlegebeurtenis](media/active-directory-tou/accepted-tou.png)
+
+## <a name="view-audit-logs"></a>Auditlogboeken weergeven
+Als u aanvullende activiteiten wilt bekijken, bevat Azure AD Gebruiksrechtovereenkomst auditlogboeken. Elke toestemming van een gebruiker activeert een gebeurtenis in de controlelogboeken die gedurende 30 dagen worden opgeslagen. U kunt deze logboeken bekijken in de portal of downloaden als CSV-bestand.
+
+Gebruik de volgende procedure om aan de slag te gaan met controlelogboeken:
+
+1. Meld u aan bij Azure en navigeer naar **Gebruiksrechtovereenkomst** op [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Klik op **Auditlogboeken weergeven**.
+
+    ![Controlegebeurtenis](media/active-directory-tou/audit-tou.png)
+
+1. In het scherm Azure AD-auditlogboeken kunt u de informatie met behulp van de beschikbare keuzelijsten filteren om specifieke auditlogboekinformatie weer te geven.
+
+    ![Controlegebeurtenis](media/active-directory-tou/audit-logs-tou.png)
+
+1. U kunt ook op **Downloaden** klikken om de informatie te downloaden naar een CSV-bestand voor lokaal gebruik.
+
+## <a name="what-terms-of-use-looks-like-for-users"></a>Hoe Gebruiksrechtovereenkomst eruitziet voor gebruikers
+Zodra een gebruiksrechtovereenkomst is gemaakt en wordt afgedwongen, zien gebruikers die binnen het bereik vallen het volgende scherm tijdens het inloggen.
+
+![Controlegebeurtenis](media/active-directory-tou/user-tou.png)
+
+Het volgende scherm laat zien hoe Gebruiksrechtovereenkomst eruitziet op mobiele apparaten.
+
+![Controlegebeurtenis](media/active-directory-tou/mobile-tou.png)
+
+### <a name="how-users-can-review-their-terms-of-use"></a>Hoe gebruikers hun gebruiksvoorwaarden kunnen bekijken
+Gebruikers kunnen de gebruiksvoorwaarden die ze hebben geaccepteerd, controleren en inzien met behulp van de volgende procedure.
+
+1. Meld u aan bij [https://myapps.microsoft.com](https://myapps.microsoft.com).
+
+1. Klik in de rechterbovenhoek op uw naam en selecteer **Profiel** in de vervolgkeuzelijst.
+
+    ![Profiel](media/active-directory-tou/tou14.png)
+
+1. Klik in uw profielpagina op **Gebruiksvoorwaarden controleren**.
+
+    ![Controlegebeurtenis](media/active-directory-tou/tou13a.png)
+
+1. Van hieruit kunt u de gebruiksrechtovereenkomst bekijken die u hebt geaccepteerd. 
 
 ## <a name="delete-terms-of-use"></a>Gebruiksrechtovereenkomst verwijderen
-Met de volgende procedure kunt u een oude gebruiksrechtovereenkomst verwijderen:
+Met de volgende procedure kunt u een oude gebruiksrechtovereenkomst verwijderen.
 
-### <a name="to-delete-terms-of-use"></a>Gebruiksrechtovereenkomst verwijderen
-1. Ga naar het dashboard op [https://aka.ms/catou](https://aka.ms/catou)
-2. Selecteer de gebruiksrechtovereenkomst die u wilt verwijderen.
-3. Klik op **Verwijderen**.
-4. Nu wordt uw nieuwe gebruiksrechtovereenkomst niet meer weergegeven.
+1. Meld u aan bij Azure en navigeer naar **Gebruiksrechtovereenkomst** op [https://aka.ms/catou](https://aka.ms/catou).
 
+1. Selecteer de gebruiksrechtovereenkomst die u wilt verwijderen.
 
-## <a name="viewing-current-user-status"></a>Huidige gebruikersstatus weergeven
-In de gebruiksrechtovereenkomst ziet u de aantallen gebruikers die hebben al dan niet hebben geaccepteerd.
+1. Klik op **Gebruiksvoorwaarden verwijderen**.
 
-![Controlegebeurtenis](media/active-directory-tou/tou15.png)
+1. Klik in het bericht waarin u wordt gevraagd of u wilt doorgaan op **Ja**.
 
-Klik op de getallen onder **geaccepteerd** of **geweigerd** om de huidige status van de gebruikers te zien.
+    ![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/delete-tou.png)
 
-![Controlegebeurtenis](media/active-directory-tou/tou16.png)
+    Nu wordt uw gebruiksrechtovereenkomst niet meer weergegeven.
 
-## <a name="audit-terms-of-use"></a>Gebruiksrechtovereenkomst controleren
-Als u ook acceptaties en weigeringen uit het verleden wilt zien, biedt Azure AD Gebruiksrechtovereenkomst een gebruiksvriendelijke controlemogelijkheid.  Met deze controle kunt u zien wie de gebruiksrechtovereenkomst heeft geaccepteerd en wanneer.  
+## <a name="deleted-users-and-active-terms-of-use"></a>Verwijderde gebruikers en actieve gebruiksrechtovereenkomst
+Standaard blijft een verwijderde gebruiker gedurende 30 dagen in Azure AD aanwezig met de status Verwijderd. In deze periode kan de gebruiker eventueel door een beheerder worden teruggezet.  Na dertig dagen wordt die gebruiker definitief verwijderd.  Daarnaast kan een globale beheerder via de Azure Active Directory-portal expliciet [een recentelijk verwijderde gebruiker definitief verwijderen](fundamentals/active-directory-users-restore.md) voordat de dertig dagen zijn verstreken.  Als een gebruiker definitief is verwijderd, worden latere gegevens over die gebruiker uit de actieve gebruiksrechtovereenkomst verwijderd.  Controle-informatie over verwijderde gebruikers blijft in het auditlogboek aanwezig.
 
-Er zijn twee manieren waarop u deze controle kunt gebruiken, afhankelijk van wat u momenteel wilt doen.  
-
-
-Gebruik de volgende procedure om de controle te starten:
-
-### <a name="to-audit-terms-of-use"></a>Gebruiksrechtovereenkomst controleren
-1. Ga naar het dashboard op [https://aka.ms/catou](https://aka.ms/catou)
-2. Klik op Auditlogboeken weergeven.</br>
-![Controlegebeurtenis](media/active-directory-tou/tou8.png)
-3.  In het scherm Azure AD-auditlogboeken kunt u de informatie met behulp van de beschikbare keuzelijsten filteren om specifieke auditlogboekinformatie weer te geven.
-[Controlegebeurtenis](media/active-directory-tou/tou9.png)
-4.  U kunt de informatie ook downloaden naar een CSV-bestand voor lokaal gebruik.
-
-## 
-
-## <a name="what-users-see"></a>Wat gebruikers te zien krijgen
-Gebruikers binnen het bereik krijgen het volgende te zien op het moment dat een gebruiksrechtovereenkomst is gemaakt en afgedwongen.  Tijdens de aanmelding worden deze schermen weergegeven.
--   Het wordt aangeraden om in de PDF een lettertype met tekengrootte 24 te gebruiken.
-![Controlegebeurtenis](media/active-directory-tou/tou10.png)
--   Op een mobiele telefoon wordt dit scherm weergegeven</br></br>
-![Controlegebeurtenis](media/active-directory-tou/tou11.png)
-
-### <a name="review-terms-of-use"></a>Gebruiksvoorwaarden controleren
-Gebruikers kunnen de gebruiksvoorwaarden die ze hebben geaccepteerd, controleren en inzien.  Gebruik de volgende procedure om de gebruiksrechtovereenkomst te controleren:
-
-1. Ga naar [https://myapps.microsoft.com](https://myapps.microsoft.com) en meld u aan.
-2. Klik in de rechterbovenhoek op uw naam en selecteer **Profiel** in de vervolgkeuzelijst.
-![Profiel](media/active-directory-tou/tou14.png)
-
-3. Klik in uw profiel op **Gebruiksvoorwaarden controleren**.
-![Controlegebeurtenis](media/active-directory-tou/tou13a.png)
-
-4.  Vanaf hier kunt u de gebruiksrechtovereenkomst bekijken die u hebt geaccepteerd. 
-
-## <a name="removing-users-from-an-active-terms-of-use"></a>Gebruikers verwijderen uit een actieve gebruiksrechtovereenkomst
-
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
-
-Standaard geldt dat een verwijderde gebruiker gedurende dertig dagen in Azure AD aanwezig blijft met de status Verwijderd. In deze periode kan de gebruiker eventueel door een beheerder worden teruggezet.  Na dertig dagen wordt die gebruiker definitief verwijderd.  Daarnaast kan een hoofdbeheerder via de Azure Active Directory-portal expliciet [een recentelijk verwijderde gebruiker definitief verwijderen](active-directory-users-restore.md) voordat de dertig dagen zijn verstreken.  Als een gebruiker definitief is verwijderd, worden gegevens over die gebruiker vervolgens uit de gebruiksrechtovereenkomst verwijderd.  Controle-informatie over verwijderde gebruikers blijft in het auditlogboek aanwezig.
-
-
-
-## <a name="additional-information"></a>Aanvullende informatie
-Hier volgt informatie waarvan u zich bewust moet zijn en die nuttig kan zijn bij het gebruik van een gebruiksrechtovereenkomst.
+## <a name="policy-changes"></a>Beleidswijzigingen
+Beleid voor voorwaardelijke toegang wordt onmiddellijk van kracht. Als dit gebeurt, krijgt de beheerder 'verdrietige clouds' of 'problemen met Azure AD-tokens' te zien. De beheerder moet zich afmelden en zich vervolgens opnieuw aanmelden om te voldoen aan het nieuwe beleid.
 
 >[!IMPORTANT]
 > Gebruikers in het bereik moeten zich af- en aanmelden om te voldoen aan een nieuw beleid:
-> - als een beleid voor voorwaardelijke toegang is ingeschakeld in een gebruiksrechtovereenkomst
-> - of als er een tweede gebruiksrechtovereenkomst is gemaakt
->
->Beleid voor voorwaardelijke toegang wordt onmiddellijk van kracht. Als dit gebeurt, krijgt de beheerder 'verdrietige clouds' of 'problemen met Azure AD-tokens' te zien. De beheerder moet zich afmelden en zich vervolgens opnieuw aanmelden om te voldoen aan het nieuwe beleid.
-
-
-
-
+> - als een beleid voor voorwaardelijke toegang wordt ingeschakeld voor een gebruiksrechtovereenkomst
+> - of als er een tweede gebruiksrechtovereenkomst wordt gemaakt
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 **V: Hoe kan ik zien wanneer/of een gebruiker een gebruiksrechtovereenkomst heeft geaccepteerd?**</br>
-A: Klik op het nummer onder geaccepteerd naast de gebruiksrechtovereenkomst.  Zie [Huidige gebruikersstatus weergeven](#viewing-current-user-status) voor meer informatie.  En als een gebruiker de gebruiksrechtovereenkomst heeft geaccepteerd, wordt dit in het auditlogboek opgenomen. U kunt het auditlogboek van Azure AD doorzoeken om de resultaten te bekijken.  
+A: Klik op het getal onder geaccepteerd naast de gebruiksrechtovereenkomst.  Zie voor meer informatie [Bekijken wie hebben geaccepteerd en geweigerd](#view-who-has-accepted-and-declined).  Als een gebruiker de gebruiksrechtovereenkomst heeft geaccepteerd, wordt dit ook in het auditlogboek opgenomen. U kunt het auditlogboek van Azure AD doorzoeken om de resultaten te bekijken.  
 
 **V: Als de gebruiksrechtovereenkomst wordt gewijzigd, moeten gebruikers deze dan opnieuw accepteren?**</br>
 A: Ja, een beheerder kan de voorwaarden van de gebruiksrechtovereenkomst wijzigen. In dat geval moeten de nieuwe voorwaarden opnieuw worden geaccepteerd.
 
-**V: Wordt een gebruiksrechtovereenkomst ondersteund in meerdere talen?**</br>
+**V: Wordt een gebruiksrechtovereenkomst in meerdere talen ondersteund?**</br>
 A: Ja.  Er zijn momenteel 18 verschillende talen die een beheerder voor één gebruiksrechtovereenkomst kan configureren. 
 
 **V: Wanneer wordt de gebruiksrechtovereenkomst geactiveerd?**</br>
@@ -161,8 +181,11 @@ A: De gebruiksrechtovereenkomst wordt geactiveerd tijdens het aanmelden.
 **V: Voor welke toepassingen kan ik een gebruiksrechtovereenkomst implementeren?**</br>
 A: U kunt u een beleid voor voorwaardelijke toegang maken voor bedrijfstoepassingen die gebruikmaken van moderne verificatie.  Zie [Bedrijfstoepassingen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal) voor meer informatie.
 
-**V: Kan ik meerdere gebruiksrechtovereenkomsten toevoegen aan een bepaalde gebruiker of app?**</br>
-A: Ja. Dit doet u door voor deze groepen of apps een afzonderlijk beleid voor voorwaardelijke toegang te maken. Als gebruikers binnen het bereik van meerdere gebruiksrechtovereenkomsten vallen, gaan ze akkoord met één gebruiksrechtovereenkomst tegelijk.
+**V: Kan ik meerdere gebruiksrechtovereenkomsten toevoegen voor een bepaalde gebruiker of app?**</br>
+A: Ja. Dit doet u door voor deze groepen of toepassingen een afzonderlijk beleid voor voorwaardelijke toegang te maken. Als gebruikers binnen het bereik van meerdere gebruiksrechtovereenkomsten vallen, gaan ze akkoord met één gebruiksrechtovereenkomst tegelijk.
  
 **V: Wat gebeurt er als een gebruiker de gebruiksrechtovereenkomst afwijst?**</br>
 A: De gebruiker krijgt dan geen toegang tot de toepassing. De gebruiker moet zich opnieuw aanmelden en de gebruiksrechtovereenkomst accepteren om toegang te krijgen.
+ 
+**V: hoe lang worden gegevens opgeslagen?**</br>
+A: De aantallen gebruikers en wie hebben geaccepteerd/geweigerd worden opgeslagen voor de duur van de gebruiksrechtovereenkomst. De auditlogboeken worden 30 dagen bewaard.

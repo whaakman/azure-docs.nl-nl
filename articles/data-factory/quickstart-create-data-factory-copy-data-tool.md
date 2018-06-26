@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: aea76544f244adba8368a1d8fbe268746060b5a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 23d4afffbe108d439dd53d95ed81f7d9fc4246ef
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30169822"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284570"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Het hulpprogramma Copy Data gebruiken om gegevens te kopiëren 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -71,69 +71,73 @@ In deze snelstart gebruikt u Azure Portal voor het maken van een data factory. G
 1. Selecteer op de pagina **Aan de slag** de tegel **Copy Data** om het hulpprogramma Copy Data te starten. 
 
    ![Tegel Copy Data](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-tile.png)
-2. Op de pagina **Eigenschappen** van het hulpprogramma Copy Data selecteert u **Volgende**. Op deze pagina kunt u een naam voor de pijplijn met een beschrijving opgeven. 
+
+2. Op de pagina **Eigenschappen** van het hulpprogramma Copy Data, kunt u een naam en beschrijving opgeven voor de pijplijn. Selecteer vervolgens **Volgende**. 
 
    ![Pagina Eigenschappen](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
-3. Selecteer op de pagina **Brongegevensarchief** de optie **Azure Blob Storage** en selecteer vervolgens **Volgende**.
+3. Voltooi op de pagina **Brongegevensarchief** de volgende stappen:
 
-   ![Pagina Brongegevensarchief](./media/quickstart-create-data-factory-copy-data-tool/source-data-store-page.png)
-4. Selecteer op de pagina **Azure Blob Storage-account opgeven** uw opslagaccount in de lijst **Naam van opslagaccount** en selecteer **Volgende**. 
+    a. Klik op **+ Nieuwe verbinding maken** om een verbinding toe te voegen.
 
-   ![Pagina Azure Blob Storage-account opgeven](./media/quickstart-create-data-factory-copy-data-tool/specify-blob-storage-account.png)
-5. Voltooi op de pagina **Invoerbestand of invoermap kiezen** de volgende stappen:
+    ![Pagina Brongegevensarchief](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
 
-   a. Blader naar de map **adftutorial/input**.
+    b. Selecteer in de galerie de optie **Azure Blob Storage**. Selecteer vervolgens **Volgende**.
 
-   b. Selecteer het bestand **emp.txt**.
+    ![Blob-opslag selecteren in de galerie](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-   c. Selecteer **Kiezen**. U kunt dubbelklikken op **emp.txt** om deze stap over te slaan.
+    c. Selecteer op de pagina **Azure Blob Storage-account opgeven** uw opslagaccount in de lijst **Naam van opslagaccount** en selecteer **Volgende**. 
 
-   d. Selecteer **Volgende**. 
+   ![Het nieuwe Azure Blob Storage-account configureren](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
-   ![Pagina Invoerbestand of invoermap kiezen](./media/quickstart-create-data-factory-copy-data-tool/choose-input-file-folder.png)
-6. Op de pagina **Instellingen bestandsindelingen**, ziet u dat het hulpprogramma automatisch de scheidingstekens voor kolommen en rijen detecteert. Selecteer **Volgende**. U kunt ook een voorbeeld van gegevens en schema's van de ingevoerde gegevens op deze pagina bekijken. 
+   d. Selecteer de zojuist gemaakte gekoppelde service als bron. Klik vervolgens op **Volgende**.
 
-   ![Pagina Instellingen bestandsindelingen](./media/quickstart-create-data-factory-copy-data-tool/file-format-settings-page.png)
-7. Selecteer op de pagina **Doelgegevensarchief** de optie **Azure Blob Storage** en selecteer **Volgende**. 
+   ![Aan de bron gekoppelde service selecteren](./media/quickstart-create-data-factory-copy-data-tool/select-source-linked-service.png)
 
-   ![Pagina Doelgegevensarchief](./media/quickstart-create-data-factory-copy-data-tool/destination-data-store-page.png)    
-8. Selecteer op de pagina **Azure Blob Storage-account opgeven** uw Azure Blob Storage-account en selecteer **Volgende**. 
 
-   ![Pagina Azure Blob Storage-account opgeven](./media/quickstart-create-data-factory-copy-data-tool/specify-sink-blob-storage-account.png)
-9. Voltooi op de pagina **Uitvoerbestand of uitvoermap kiezen** de volgende stappen: 
+4. Voltooi op de pagina **Invoerbestand of invoermap kiezen** de volgende stappen:
 
-   a. Voer **adftutorial/output** in voor het mappad.
+   a. Klik op **Bladeren** om naar de map **adftutorial/input** te gaan en selecteer het bestand **emp.txt**. Klik vervolgens op **Kiezen**. 
 
-   b. Voer **emp.txt** in voor de bestandsnaam.
+   ![Pagina Invoerbestand of invoermap kiezen](./media/quickstart-create-data-factory-copy-data-tool/configure-source-path.png)
 
-   c. Selecteer **Volgende**. 
+   d. Schakel de optie **Binair exemplaar** in om het bestand as-is te kopiëren. Selecteer vervolgens **Volgende**. 
 
-   ![Pagina Uitvoerbestand of uitvoermap kiezen](./media/quickstart-create-data-factory-copy-data-tool/choose-output-file-folder.png) 
-10. Selecteer op de pagina **Instellingen Bestandsindelingen** de optie **Volgende**. 
+   ![Pagina Invoerbestand of invoermap kiezen](./media/quickstart-create-data-factory-copy-data-tool/select-binary-copy.png)
 
-    ![Pagina Instellingen bestandsindelingen](./media/quickstart-create-data-factory-copy-data-tool/file-format-settings-output-page.png)
-11. Selecteer op de pagina **Instellingen** de optie **Volgende**. 
 
-    ![Pagina Instellingen](./media/quickstart-create-data-factory-copy-data-tool/advanced-settings-page.png)
-12. Controleer de instellingen op de pagina **Samenvatting** en selecteer **Volgende**. 
+5. Selecteer op de pagina **Doelgegevensarchief** de gekoppelde **Azure Blob Storage**-service die u zojuist hebt gemaakt. Selecteer vervolgens **Volgende**. 
+
+   ![Pagina Doelgegevensarchief](./media/quickstart-create-data-factory-copy-data-tool/select-sink-linked-service.png)
+
+6. Voer op de pagina **Uitvoerbestand of uitvoermap kiezen** voor het mappad in: **adftutorial/output**. Selecteer vervolgens **Volgende**. 
+
+   ![Pagina Uitvoerbestand of uitvoermap kiezen](./media/quickstart-create-data-factory-copy-data-tool/configure-sink-path.png) 
+
+7. Selecteer op de pagina **Instellingen** de optie **Volgende** om de standaardconfiguraties te gebruiken. 
+
+8. Controleer op de pagina **Overzicht** alle instellingen. Selecteer vervolgens **Volgende**. 
 
     ![Pagina Overzicht](./media/quickstart-create-data-factory-copy-data-tool/summary-page.png)
-13. Selecteer op de pagina **Implementatie voltooid** de optie **Controleren** om de pijplijn of taak die u hebt gemaakt, te controleren. 
+
+9. Selecteer op de pagina **Implementatie voltooid** de optie **Controleren** om de pijplijn of taak die u hebt gemaakt, te controleren. 
 
     ![Pagina Implementatie voltooid](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
-14. De toepassing wordt overgeschakeld naar het **Monitor**-tabblad. U ziet de status van de pijplijn op dit tabblad. Selecteer **Vernieuwen** om de lijst te vernieuwen. 
+
+10. De toepassing wordt overgeschakeld naar het **Monitor**-tabblad. U ziet de status van de pijplijn op dit tabblad. Selecteer **Vernieuwen** om de lijst te vernieuwen. 
     
-    ![Tabblad voor het controleren van pijplijnuitvoeringen met knop Vernieuwen](./media/quickstart-create-data-factory-copy-data-tool/monitor-pipeline-runs-page.png)
-15. Selecteer de koppeling **Uitvoeringen van activiteit weergeven** in de kolom **Acties**. De pijplijn heeft slechts één activiteit van het type **Kopiëren**. 
+    ![De uitvoering van de pijplijn controleren](./media/quickstart-create-data-factory-copy-data-tool/pipeline-monitoring.png)
 
-    ![Lijst met uitvoeringen van activiteit](./media/quickstart-create-data-factory-copy-data-tool/activity-runs.png)
-16. Selecteer de koppeling **Details** (afbeelding van een bril) in de kolom **Acties** om details over de kopieerbewerking weer te geven. Zie [Overzicht van kopieeractiviteit](copy-activity-overview.md) voor meer informatie over de eigenschappen. 
+11. Selecteer de koppeling **Uitvoeringen van activiteit weergeven** in de kolom **Acties**. De pijplijn heeft slechts één activiteit van het type **Kopiëren**. 
 
-    ![Details van de kopieerbewerking](./media/quickstart-create-data-factory-copy-data-tool/copy-operation-details.png)
-17. Controleer of er een **emp.txt**- bestand is gemaakt in de **uitvoermap** van de container **adftutorial**. Als de uitvoermap niet bestaat, wordt deze automatisch aangemaakt in de Data Factory-service. 
-18. Schakel over naar het tabblad **Bewerken** zodat u gekoppelde services, gegevenssets en pijplijnen kunt bewerken. Zie [Een gegevensfactory maken in Azure Portal](quickstart-create-data-factory-portal.md) voor meer informatie over het bewerken hiervan in de gebruikersinterface van Data Factory.
+    ![Uitvoering van activiteiten controleren](./media/quickstart-create-data-factory-copy-data-tool/activity-monitoring.png)
+    
+12. Selecteer de koppeling **Details** (afbeelding van een bril) in de kolom **Acties** om details over de kopieerbewerking weer te geven. Zie [Overzicht van kopieeractiviteit](copy-activity-overview.md) voor meer informatie over de eigenschappen.
 
-    ![Tabblad Bewerken](./media/quickstart-create-data-factory-copy-data-tool/edit-tab.png)
+    ![Details van de kopieerbewerking](./media/quickstart-create-data-factory-copy-data-tool/activity-execution-details.png)
+
+13. Controleer of er een **emp.txt**- bestand is gemaakt in de **uitvoermap** van de container **adftutorial**. Als de uitvoermap niet bestaat, wordt deze automatisch aangemaakt in de Data Factory-service. 
+
+14. Schakel over naar het tabblad **Auteur** boven het tabblad **Monitor** op het linkerpaneel, zodat u de gekoppelde services, gegevenssets en pijplijnen kunt bewerken. Zie [Een gegevensfactory maken in Azure Portal](quickstart-create-data-factory-portal.md) voor meer informatie over het bewerken hiervan in de gebruikersinterface van Data Factory.
 
 ## <a name="next-steps"></a>Volgende stappen
 Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in Azure Blob Storage. Doorloop de [zelfstudies](tutorial-copy-data-portal.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's. 

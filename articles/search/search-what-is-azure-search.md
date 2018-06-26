@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/10/2017
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 0957ca2b6ce58249531ca0b8e3f26bc16cabb5d5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: ad5831309ff9e4cc420e777dc06815a5e6b79f91
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802422"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217650"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
 Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen.
@@ -26,7 +26,8 @@ Functionaliteit wordt beschikbaar gemaakt via een eenvoudige [REST API](/rest/ap
 
 | Category | Functies |
 |----------|----------|
-|Zoeken in volledige tekst en tekstanalyse | [Zoeken in volledige tekst](search-lucene-query-architecture.md) is een primair gebruiksvoorbeeld voor de meeste op zoekopdrachten gebaseerde apps. Query’s kunnen worden geformuleerd met behulp van een ondersteunde syntaxis. <br/><br/>[**Eenvoudige querysyntaxis**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) biedt logische operators, zoekoperators voor woordgroepen, operators voor achtervoegsels, operators voor bewerkingsvolgorde.<br/><br/>[**Lucene-querysyntaxis**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) omvat alle bewerkingen in eenvoudige syntaxis, met uitbreidingen voor zoeken bij benadering, zoeken op nabijheid, termenverbetering en reguliere expressies.| 
+|Zoeken in volledige tekst en tekstanalyse | [Zoeken in volledige tekst](search-lucene-query-architecture.md) is een primair gebruiksvoorbeeld voor de meeste op zoekopdrachten gebaseerde apps. Query’s kunnen worden geformuleerd met behulp van een ondersteunde syntaxis. <br/><br/>[**Eenvoudige querysyntaxis**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) biedt logische operators, zoekoperators voor woordgroepen, operators voor achtervoegsels, operators voor bewerkingsvolgorde.<br/><br/>[**Lucene-querysyntaxis**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) omvat alle bewerkingen in eenvoudige syntaxis, met uitbreidingen voor zoeken bij benadering, zoeken op nabijheid, termenverbetering en reguliere expressies.|
+|Cognitief zoeken (preview) | [Algoritmen op basis van AI](cognitive-search-concept-intro.md) voor analyse van afbeeldingen en tekst kan worden toegepast op een pijplijn voor indexeren om tekstinformatie te extraheren uit onbewerkte inhoud. Enkele voorbeelden van [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) zijn: optische tekenherkenning (waardoor gescande JPEG-bestanden doorzoekbaar worden), herkenning van entiteiten (waarmee een organisatie, naam of locatie kan worden geïdentificeerd), en herkenning van sleuteltermen. U kunt ook [aangepaste vaardigheden coderen](cognitive-search-create-custom-skill-example.md) om ze te koppelen aan een pijplijn. |
 | Gegevensintegratie | Azure Search-indexen accepteren gegevens uit elke willekeurige bron, mits ze zijn verzonden in een JSON-gegevensstructuur. <br/><br/> Voor ondersteunde gegevensbronnen in Azure kunt u optioneel gebruikmaken van [**indexeerfuncties**](search-indexer-overview.md) voor het automatisch verkennen van [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) of [ Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) om de inhoud van uw zoekindex te synchroniseren met de primaire gegevensopslag. Azure Blob-indexeerfuncties kunnen *documenten kraken* om [grote bestandsindelingen te indexeren](search-howto-indexing-azure-blob-storage.md), zoals Microsoft Office, PDF en HTML-bestanden. |
 | Taalkundige analyse | Analysefuncties zijn onderdelen die worden gebruikt om tekst te verwerken tijdens het indexeren en zoeken. Er zijn twee typen. <br/><br/>[**Aangepaste lexicale analysefuncties**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) worden gebruikt voor complexe zoekquery’s met behulp van fonetische overeenkomsten en reguliere expressies. <br/><br/>[**Taalanalysefuncties**](https://docs.microsoft.com/rest/api/searchservice/language-support) van Lucene of Microsoft worden gebruikt voor het intelligent verwerken van taalspecifieke taalkundige aspecten, zoals werkwoordtijden, geslacht, afwijkende meervoudsvormen voor zelfstandige naamwoorden, het opsplitsen van woorden, het afbreken van woorden (voor talen zonder spaties), en meer. |
 | Op geografische locaties zoeken | Met Azure Search worden geografische locaties verwerkt, gefilterd en weergegeven. Zo worden gebruikers in staat gesteld om gegevens te verkennen op basis van de afstand van een zoekresultaat tot een fysieke locatie. [Bekijk deze video ](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) of [dit voorbeeld](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) voor meer informatie. |

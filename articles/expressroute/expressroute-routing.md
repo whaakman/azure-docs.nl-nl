@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9542eedecaf8dc6d689bf6192f74eee15287ae99
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178752"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295423"
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -67,6 +67,7 @@ U moet voor het instellen van de BGP-sessies openbare IP-adressen gebruiken waar
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>IP-adressen die worden gebruikt voor Microsoft-peering
 U moet voor het instellen van de BGP-sessies openbare IP-adressen gebruiken waarvan u eigenaar bent. Microsoft moet het eigenaarschap van de IP-adressen kunnen verifiëren via Routing Internet Registries en Internet Routing Registries.
 
+* De IP-adressen die in de portal worden weergegeven voor geadverteerde openbare voorvoegsels voor Microsoft-Peering maken toegangsbeheerlijsten voor de Microsoft-corerouters die binnenkomend verkeer van deze IP-adressen toestaan. 
 * U moet een uniek /29-subnet (IPv4) of /125-subnet (IPv6), of twee /30-subnetten (IPv4) of /126-subnetten (IPv6) gebruiken om de BGP-peering voor elke peering per ExpressRoute-circuit (als u er meer dan één hebt) in te stellen.
 * Als er een /29-subnet wordt gebruikt, wordt dit verdeeld in twee /30-subnetten.
 * Het eerste /30-subnet wordt gebruikt voor de primaire koppeling en het tweede /30-subnet voor de secundaire koppeling.

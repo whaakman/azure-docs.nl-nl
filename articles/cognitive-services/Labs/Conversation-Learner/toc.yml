@@ -1,0 +1,68 @@
+- name: Documentatie voor Conversatiecursist
+- name: Overzicht
+  expanded: true
+  items:
+    - name: Wat is Conversatiecursist?
+      href: overview.md
+    - name: Ondersteunde talen
+      href: languages-supported.md
+- name: Concepten
+  items:
+    - name: Controlestroom
+      href: control-flow.md
+    - name: Standaardwaarden en -grenzen
+      href: cl-values-and-boundaries.md
+- name: Handleidingen
+  items:
+    - name: Aan de slag met Conversatiecursist
+      href: quickstart.md
+    - name: Hallo wereld
+      href: tutorials/1-hello-world.md
+    - name: Wachten- versus niet-wachten-acties
+      href: tutorials/2-wait-vs-nonwait-actions.md
+    - name: Kennismaking met entiteiten
+      href: tutorials/3-introduction-to-entities.md
+    - name: Verwachte entiteit
+      href: tutorials/4-expected-entity.md
+    - name: Niet-ontkrachtbare entiteiten
+      href: tutorials/5-negatable-entities.md
+    - name: Entiteiten met meerdere waarden
+      href: tutorials/6-multi-value-entities.md
+    - name: Ingebouwde entiteiten
+      href: tutorials/7-built-in-entities.md
+    - name: Alternatieve invoer
+      href: tutorials/8-alternative-inputs.md
+    - name: Logboekdialoogvensters
+      href: tutorials/9-log-dialogs.md
+    - name: Entiteitdetectieretouraanroep
+      href: tutorials/10-entity-detection-callback.md
+    - name: Sessie-retouraanroepen
+      href: tutorials/11-session-callbacks.md
+    - name: API-aanroepen
+      href: tutorials/12-api-calls.md
+    - name: 'Kaarten, deel 1'
+      href: tutorials/13-cards-1.md
+    - name: 'Kaarten, deel 2'
+      href: tutorials/14-cards-2.md
+    - name: Vertakking en ongedaan maken
+      href: tutorials/15-branching-and-undo.md
+    - name: Versiebeheer en taggen
+      href: tutorials/16-versioning-and-tagging.md
+    - name: Demo - Wachtwoord opnieuw instellen
+      href: tutorials/demo-password-reset.md
+    - name: Demo - Pizzabestelling
+      href: tutorials/demo-pizza-order.md
+    - name: Demo - Startprogramma voor VR-apps
+      href: tutorials/demo-vr-app-launcher.md
+    - name: Een Conversatiecursist-bot implementeren
+      href: deploy-to-bf.md
+    - name: Lesgeven met Conversatiecursist
+      href: how-to-teach-cl.md
+    - name: Gebruikersgegevens beheren
+      href: managing-data.md
+- name: Resources
+  items:
+    - name: Voorbeeld van een Conversatiecursist-bot
+      href: 'https://github.com/Microsoft/ConversationLearner-Samples'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: de8b53756c64867c9b24bcd609e5b994e870da9f
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31514540"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285580"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snelstartgids: Uw eerste Batch-taak uitvoeren in Azure Portal
 
@@ -32,7 +32,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 Volg deze stappen om een Batch-voorbeeldaccount te maken voor testdoeleinden. U hebt een Batch-account nodig om pools en taken te maken. Zoals hier wordt getoond, kunt u een Azure-opslagaccount aan het Batch-account koppelen. Hoewel dit niet is vereist voor deze snelstartgids, is een opslagaccount handig voor het implementeren van toepassingen, en voor het opslaan van invoer- en uitvoergegevens voor de meeste workloads uit de praktijk.
 
 
-1. Klik op **Nieuw** > **Berekenen** > **Batch-service**. 
+1. Selecteer **Resource maken** > **Compute** > **Batch-service**. 
 
   ![Batch in de Marketplace][marketplace_portal]
 
@@ -40,7 +40,7 @@ Volg deze stappen om een Batch-voorbeeldaccount te maken voor testdoeleinden. U 
 
 3. Selecteer in **Opslagaccount** een bestaand opslagaccount of maak een nieuw opslagaccount.
 
-4. Laat de overige instellingen op de standaardwaarden staan, en klik op **Maken** om het account te maken.
+4. Laat de overige instellingen op de standaardwaarden staan, en selecteer **Maken** om het account te maken.
 
   ![Batch-account maken][account_portal]  
 
@@ -51,7 +51,7 @@ Wanneer het bericht **Implementatie is voltooid** wordt weergegeven, gaat u naar
 Nu u beschikt over een Batch-account, maakt u een voorbeeldpool met Windows-rekenknooppunten voor testdoeleinden. De pool in dit snelle voorbeeld bestaat uit 2 knooppunten waarop een Windows Server 2012 R2-installatiekopie wordt uitgevoerd vanuit Azure Marketplace.
 
 
-1. Klik in het Batch-account op **Pools** > **Toevoegen**.
+1. Selecteer in het Batch-account **Pools** > **Toevoegen**.
 
 2. Voer een **Pool-id** in met de naam *mypool*. 
 
@@ -75,21 +75,21 @@ Nu u beschikt over een Batch-account, maakt u een voorbeeldpool met Windows-reke
 
   ![Een poolgrootte selecteren][pool_size] 
 
-5. Laat de overige instellingen op de standaardwaarden staan, en klik op **OK** om de pool te maken.
+5. Laat de overige instellingen op de standaardwaarden staan en selecteer **OK** om de pool te maken.
 
 De pool wordt onmiddellijk gemaakt in Batch, maar het duurt enkele minuten voordat de rekenknooppunten zijn toegewezen en gestart. Gedurende deze minuten is de **Toewijzingsstatus** van de pool ingesteld op **Grootte wordt gewijzigd**. U kunt doorgaan met het maken van een taak terwijl de grootte van de pool wordt gewijzigd. 
 
 ![Pool met de status Grootte wordt gewijzigd][pool_resizing]
 
-Na enkele minuten is de status van de pool **Onveranderlijk** en worden de knooppunten gestart. Klik op **Knooppunten** om de status van de knooppunten te controleren. Wanneer de status van een knooppunt **Inactief** is, kunt u taken op een knooppunt uitvoeren. 
+Na enkele minuten is de status van de pool **Onveranderlijk** en worden de knooppunten gestart. Selecteer **Knooppunten** om de status van de knooppunten te controleren. Wanneer de status van een knooppunt **Inactief** is, kunt u taken op een knooppunt uitvoeren. 
 
 ## <a name="create-a-job"></a>Een taak maken
 
 Nu u beschikt over een pool, kunt u een Batch-taak maken om uit te voeren op deze pool. Een Batch-taak is een logische groep met een of meer taken. Een Batch-taak omvat instellingen die gemeenschappelijk zijn voor de taken, zoals prioriteit en de pool waarop taken moeten worden uitgevoerd. De Batch-taak heeft in eerste instantie geen taken. 
 
-1. Klik in de weergave Batch-account op **Taken** > **Toevoegen**. 
+1. Selecteer in de weergave Batch-account **Taken** > **Toevoegen**. 
 
-2. Voer een **taak-id** in met naam *myjob*. Selecteer *mypool* bij **Pool**. Laat de overige instellingen op de standaardwaarden staan, en klik op **OK**.
+2. Voer een **taak-id** in met naam *myjob*. Selecteer *mypool* bij **Pool**. Behoud de standaardwaarden voor de overige instellingen en selecteer **OK**.
 
   ![Een taak maken][job_create]
 
@@ -103,11 +103,11 @@ Wanneer u Batch gebruikt, geeft u uw app of script op de opdrachtregel op. Batch
 
 De eerste taak maken:
 
-1. Klik op **Add**.
+1. Selecteer **Toevoegen**.
 
 2. Voer een **Taak-id** in met de naam *mytask*. 
 
-3. Voer `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"` in bij **Opdrachtregel**. Laat de overige instellingen op de standaardwaarden staan, en klik op **OK**.
+3. Voer `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"` in bij **Opdrachtregel**. Behoud de standaardwaarden voor de overige instellingen en selecteer **OK**.
 
   ![Een taak maken][task_create]
 
@@ -117,7 +117,7 @@ Ga terug naar stap 1 om een tweede taak te maken. Voer een andere **Taak-id** in
 
 ## <a name="view-task-output"></a>Taakuitvoer weergeven
 
-De voorgaande taakvoorbeelden zijn in enkele minuten voltooid. Als u de uitvoergegevens van een voltooide taak wilt weergeven, klikt u op **Bestanden op knooppunt** en selecteert u vervolgens het bestand `stdout.txt`. Dit bestand bevat de standaarduitvoer van de taak. De inhoud ziet er ongeveer als volgt uit:
+De voorgaande taakvoorbeelden zijn in enkele minuten voltooid. Als u de uitvoergegevens van een voltooide taak wilt weergeven, selecteert u **Bestanden op knooppunt** en selecteert u vervolgens het bestand `stdout.txt`. Dit bestand bevat de standaarduitvoer van de taak. De inhoud ziet er ongeveer als volgt uit:
 
 ![Taakuitvoer weergeven][task_output]
 
@@ -127,9 +127,9 @@ De inhoud geeft de variabelen voor de Azure Batch-omgeving weer die zijn ingeste
 
 Als u wilt doorgaan met Batch-zelfstudies en -voorbeelden, gebruikt u het Batch-account en het gekoppelde opslagaccount dat in deze snelstartgids is gemaakt. Voor het Batch-account zelf worden geen kosten in rekening gebracht.
 
-Er worden kosten berekend voor de pool zolang de knooppunten actief zijn, zelfs als er geen taken zijn gepland. Verwijder de pool wanneer u deze niet meer nodig hebt. Klik in de accountweergave op **Pools** en op de naam van de pool. Klik vervolgens op **Verwijderen**.  Wanneer u de pool verwijdert, wordt ook alle taakuitvoer op de knooppunten verwijderd. 
+Er worden kosten berekend voor de pool zolang de knooppunten actief zijn, zelfs als er geen taken zijn gepland. Verwijder de pool wanneer u deze niet meer nodig hebt. Selecteer in de accountweergave **Pools** en de naam van de pool. Selecteer vervolgens **Verwijderen**.  Wanneer u de pool verwijdert, wordt ook alle taakuitvoer op de knooppunten verwijderd. 
 
-Verwijder de resourcegroep, het Batch-account en alle gerelateerde resources, wanneer u deze niet meer nodig hebt. Hiervoor selecteert u de resourcegroep voor het Batch-account en klikt u op **Resourcegroep verwijderen**.
+Verwijder de resourcegroep, het Batch-account en alle gerelateerde resources, wanneer u deze niet meer nodig hebt. Hiervoor selecteert u de resourcegroep voor het Batch-account en selecteert u **Resourcegroep verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
