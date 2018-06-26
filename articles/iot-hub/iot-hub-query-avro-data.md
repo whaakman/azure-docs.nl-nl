@@ -1,6 +1,6 @@
 ---
-title: Opvragen van Avro-gegevens met Azure Data Lake Analytics | Microsoft Docs
-description: Hoofdtekst berichteigenschappen om telemetriegegevens route blob-opslag en opvragen van de Avro-indeling gegevens geschreven naar de blob storage gebruiken.
+title: Avro-gegevens opvragen met behulp van Azure Data Lake Analytics | Microsoft Docs
+description: Eigenschappen van de hoofdtekst van bericht apparaattelemetrie doorgestuurd naar Blob storage en opvragen van de gegevens van de Avro-indeling die geschreven naar Blob storage gebruiken.
 services: iot-hub
 documentationcenter: ''
 author: ksaye
@@ -9,55 +9,57 @@ ms.service: iot-hub
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: Kevin.Saye
-ms.openlocfilehash: 98a30155c73a937042b4bea6568543fb5152d748
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 08aed809184cbb65d632e1fb6f4b9bd25747e349
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34727739"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751071"
 ---
-# <a name="query-avro-data-using-azure-data-lake-analytics"></a>Avro-gegevens opvragen met Azure Data Lake Analytics
+# <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Avro-gegevens opvragen met behulp van Azure Data Lake Analytics
 
-Dit artikel is over het Avro-gegevens opvragen voor het efficiënt doorsturen van berichten van Azure IoT Hub tot Azure-services. Na de blogberichtaankondiging:[Azure IoT Hub berichtroutering: nu met de routering op berichttekst], IoT-Hub ondersteunt routering op eigenschappen of de berichttekst. Zie ook [routering op de berichttekst][Routing on message bodies]. 
+In dit artikel wordt beschreven hoe een query over gegevens van de Avro om efficiënt routeren van berichten uit Azure IoT Hub tot Azure-services. Als er in het blogbericht aangekondigd [Azure IoT Hub berichtroutering: nu met de routering op berichttekst], IoT-Hub ondersteunt routering op eigenschappen of de berichttekst. Zie voor meer informatie [routering op de berichttekst][Routing on message bodies]. 
 
-IoT Hub schrijft dat de uitdaging is dat wanneer Azure IoT Hub berichten routeert naar de blob storage, de inhoud in de Avro-indeling berichttekst en eigenschappen van berichten heeft. Houd er rekening mee dat IoT Hub biedt alleen ondersteuning voor schrijven van gegevens naar de blob storage in de indeling van het Avro-gegevens en deze indeling niet voor alle andere eindpunten gebruikt wordt. Zie [bij gebruik van Azure Storage-containers][When using Azure storage containers]. Hoewel de Avro-indeling ideaal voor het behoud van gegevens/bericht is, is het lastig voor query's in de gegevens. Ter vergelijking: JSON- of CSV-indeling, het is veel eenvoudiger is voor het opvragen van gegevens.
+De uitdaging is dat wanneer Azure IoT Hub berichten worden doorgestuurd naar Azure Blob-opslag, schrijft IoT Hub de inhoud in de Avro-indeling zowel een eigenschap van de hoofdtekst van bericht en een berichteigenschap heeft. IoT Hub het schrijven van gegevens naar Blob storage ondersteunt alleen in de indeling van het Avro-gegevens en deze indeling wordt niet gebruikt voor alle andere eindpunten. Zie voor meer informatie [bij gebruik van Azure Storage-containers][When using Azure storage containers]. Hoewel de Avro-indeling ideaal voor het behoud van gegevens en het bericht is, is een challenge gebruiken om te gegevens opvragen. Ter vergelijking: JSON- of CSV-indeling, het is veel eenvoudiger is voor het opvragen van gegevens.
 
-U verhelpt dit, kunt u veel van de big data-patronen voor zowel transformeren en schalen van gegevens voor het oplossen van niet-relationele big data-behoeften en indelingen. Een van de patronen, een 'betaalde per query'-patroon, is Azure Data Lake Analytics (ADLA). De focus van dit artikel is. Hoewel de query kan eenvoudig worden uitgevoerd in Hadoop of andere oplossingen, wordt ADLA vaak beter geschikt voor deze benadering 'betalen per query'. Er is een zelfstandig 'uitpakken' voor Avro in U-SQL. Zie [U-SQL Avro-voorbeeld].
+Voor niet-relationele big data-behoeften en indelingen op te lossen en deze uitdaging ondervangen, kunt u veel van de big data-patronen voor zowel transformeren en schalen van gegevens. Een van de patronen 'betalen per query' is Azure Data Lake Analytics, de focus van dit artikel. Hoewel eenvoudig u de query in Hadoop of andere oplossingen uitvoeren kunt, is het Data Lake Analytics vaak beter geschikt voor deze benadering 'betalen per query'. 
+
+Er is een zelfstandig 'uitpakken' voor Avro in U-SQL. Zie voor meer informatie [U-SQL-Avro-voorbeeld].
 
 ## <a name="query-and-export-avro-data-to-a-csv-file"></a>Vragen en Avro-gegevens exporteren naar een CSV-bestand
-De sectie leidt u door de Avro-gegevens opvragen en te exporteren naar een CSV-bestand in Azure Blob Storage, hoewel u eenvoudig de gegevens in andere winkels-opslagplaatsen of gegevens kan plaatsen.
+In deze sectie Avro-gegevens opvragen en exporteren naar een CSV-bestand in Azure Blob storage, hoewel u eenvoudig de gegevens in andere winkels-opslagplaatsen of gegevens kan plaatsen.
 
-1. Instellen van Azure IoT Hub gegevens routeren naar een Azure Blob Storage-eindpunt met een eigenschap in de berichttekst berichten te selecteren.
+1. Instellen van Azure IoT Hub gegevens routeren naar een Azure Blob storage-eindpunt met behulp van een eigenschap in de berichttekst berichten te selecteren.
 
-    ![Schermopname voor stap 1a][img-query-avro-data-1a]
+    ![De sectie 'Aangepaste eindpunten'][img-query-avro-data-1a]
 
-    ![Schermopname voor stap 1b][img-query-avro-data-1b]
+    ![De opdracht Routes][img-query-avro-data-1b]
 
-2. Zorg ervoor dat uw apparaat heeft de codering, het type inhoud en de benodigde gegevens in de eigenschappen of de hoofdtekst van het bericht waarnaar wordt verwezen in de productdocumentatie. Wanneer in apparaat Explorer (Zie hieronder) bekeken, kunt u controleren of deze kenmerken juist zijn ingesteld.
+2. Zorg ervoor dat uw apparaat de codering, type inhoud en benodigde gegevens in de eigenschappen of de hoofdtekst van het bericht waarnaar wordt verwezen in de productdocumentatie heeft. Wanneer u deze kenmerken in Verkenner apparaat weergeven zoals hier wordt weergegeven, kunt u controleren of ze juist zijn ingesteld.
 
-    ![Schermopname voor stap 2][img-query-avro-data-2]
+    ![Het deelvenster Event Hub-gegevens][img-query-avro-data-2]
 
-3. Een Azure Data Lake Store (ADLS) en een Azure Data Lake Analytics-instantie instellen. Terwijl Azure IoT Hub niet naar een Azure Data Lake Store doorsturen, is een ADLA vereist.
+3. Instellen van een Azure Data Lake Store-exemplaar en een exemplaar van Data Lake Analytics. Azure IoT Hub geen routering naar een Data Lake Store-exemplaar, maar een exemplaar van Data Lake Analytics is een vereist.
 
-    ![Schermopname voor stap 3][img-query-avro-data-3]
+    ![Data Lake Store- en Data Lake Analytics-instanties][img-query-avro-data-3]
 
-4. In ADLA, configureert u de Azure Blob Storage als een extra store, dezelfde Blob-opslag waarmee gegevens naar Azure IoT Hub worden doorgestuurd.
+4. In Data Lake Analytics Azure Blob-opslag te configureren als een extra store, dezelfde Blob-opslag waarmee gegevens naar Azure IoT Hub worden doorgestuurd.
 
-    ![Schermopname voor stap 4][img-query-avro-data-4]
+    ![Het deelvenster 'Gegevensbronnen'][img-query-avro-data-4]
  
-5. Zoals beschreven in [U-SQL Avro-voorbeeld], er zijn 4 dll-bestanden die nodig zijn.  Deze bestanden uploaden naar een locatie in uw ADLS.
+5. Zoals beschreven in [U-SQL-Avro-voorbeeld], moet u vier dll-bestanden. Deze bestanden uploaden naar een locatie in uw exemplaar van Data Lake Store.
 
-    ![Schermopname voor stap 5][img-query-avro-data-5] 
+    ![Vier geladen DLL-bestanden][img-query-avro-data-5] 
 
-6. Maak in Visual Studio een U-SQL-Project
+6. Maak een U-SQL-project in Visual Studio.
  
-    ![Schermopname voor stap 6][img-query-avro-data-6]
+    ![Een U-SQL-project maken][img-query-avro-data-6]
 
-7. De inhoud van het volgende script Kopieer en plak deze in de zojuist gemaakte bestand. Wijzigen van de 3 gemarkeerde secties: uw account ADLA, de bijbehorende dll paden en het juiste pad voor uw Opslagaccount.
+7. Plak de inhoud van het volgende script in de zojuist gemaakte bestand. Wijzigen van de drie secties van de gemarkeerde: uw Data Lake Analytics-account, de bijbehorende DLL-bestandspaden en het juiste pad voor uw opslagaccount.
     
-    ![Schermopname voor stap 7][img-query-avro-data-7a]
+    ![De drie secties worden gewijzigd][img-query-avro-data-7a]
 
-    Het werkelijke U-SQL-script voor eenvoudige uitvoer naar CSV:
+    Het werkelijke U-SQL-script voor eenvoudige uitvoer naar een CSV-bestand:
     
     ```sql
         DROP ASSEMBLY IF EXISTS [Avro];
@@ -121,16 +123,15 @@ De sectie leidt u door de Avro-gegevens opvragen en te exporteren naar een CSV-b
         OUTPUT @cnt TO @output_file USING Outputters.Text(); 
     ```    
 
-    Het onderstaande script wordt uitgevoerd, ADLA 5 minuten duurde wanneer tot 10 analytische eenheden beperkt en 177 bestanden verwerkt, samenvatting van de uitvoer naar een CSV-bestand.
+    Het Data Lake Analytics heeft vijf minuten om uit te voeren van het volgende script dat is beperkt tot 10 analytische eenheden en 177 bestanden verwerkt. Het resultaat wordt weergegeven in de uitvoer van de CSV-bestand die wordt weergegeven in de volgende afbeelding:
     
-    ![Schermopname voor stap 7 ter][img-query-avro-data-7b]
+    ![Resultaten van de uitvoer naar CSV-bestand][img-query-avro-data-7b]
 
-    De uitvoer bekijkt, ziet u dat de Avro-inhoud is geconverteerd naar een CSV-bestand. Doorgaan naar stap 8 als u wilt de JSON parseren.
-    
-    ![Schermopname voor stap 7c][img-query-avro-data-7c]
+    ![Uitvoer geconverteerd naar een CSV-bestand][img-query-avro-data-7c]
 
+    Voor het parseren van de JSON, Ga naar stap 8.
     
-8. De meeste IoT berichten zijn in JSON-indeling.  De volgende regels toe te voegen, kunt u parseren het bericht naar JSON, zodat u kunt de component WHERE toevoegen en uitvoer alleen de benodigde gegevens.
+8. De meeste IoT berichten zijn in JSON-bestandsindeling. U kunt het bericht in een JSON-bestand waarmee u de component WHERE toevoegen en de uitvoer van alleen de benodigde gegevens parseren door de volgende regels toe te voegen.
 
     ```sql
        @jsonify = SELECT Microsoft.Analytics.Samples.Formats.Json.JsonFunctions.JsonTuple(Encoding.UTF8.GetString(Body)) AS message FROM @rs;
@@ -154,12 +155,12 @@ De sectie leidt u door de Avro-gegevens opvragen en te exporteren naar een CSV-b
         OUTPUT @cnt TO @output_file USING Outputters.Text();
     ```
 
-9. De uitvoer bekijkt, ziet u nu kolommen voor elk item in de select-opdracht. 
+    De uitvoer geeft aan een kolom voor elk item in de `SELECT` opdracht. 
     
-    ![Schermopname voor stap 8][img-query-avro-data-8]
+    ![Uitvoer kolommen voor elk item weergeven][img-query-avro-data-8]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe Avro-gegevens voor het doorsturen van berichten van Azure IoT Hub tot Azure-services efficiënt opvragen.
+In deze zelfstudie hebt u geleerd hoe u een query over gegevens van de Avro om efficiënt routeren van berichten uit Azure IoT Hub tot Azure-services.
 
 Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [oplossingsverbetering Azure IoT externe controle][lnk-iot-sa-land].
 
@@ -186,7 +187,7 @@ Zie voor meer informatie over het routeren van berichten van IoT-Hub, [berichten
 [Routing on message bodies]: iot-hub-devguide-query-language.md#routing-on-message-bodies
 [When using Azure storage containers]:iot-hub-devguide-endpoints.md#when-using-azure-storage-containers
 
-[U-SQL Avro-voorbeeld]:https://github.com/Azure/usql/tree/master/Examples/AvroExamples
+[U-SQL-Avro-voorbeeld]:https://github.com/Azure/usql/tree/master/Examples/AvroExamples
 
 [lnk-iot-sa-land]: ../iot-accelerators/index.md
 [Ontwikkelaarshandleiding voor IoT Hub]: iot-hub-devguide.md
