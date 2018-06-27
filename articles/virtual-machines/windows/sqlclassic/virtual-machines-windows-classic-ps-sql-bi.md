@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c8204e204978a9fd7cda2e9c02be0c70722b01bb
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425609"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021357"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Virtual Machines van Azure
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Er zijn twee manieren aan licentie SQL Server in Microsoft Azure Virtual Machine
 1. License mobility voordelen die deel van de Software Assurance uitmaken. Zie voor meer informatie [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/).
 2. Betalen verwerkingssnelheid per uur van Azure Virtual Machines waarop SQL Server is geïnstalleerd. Zie de sectie 'SQL Server' in [prijzen van virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-Zie voor meer informatie over licentieverlening en huidige tarieven [virtuele Machines Veelgestelde vragen over licenties](https://azure.microsoft.com/pricing/licensing-faq/%20/).
+Zie voor meer informatie over licentieverlening en huidige tarieven [virtuele Machines Veelgestelde vragen over licenties](https://azure.microsoft.com/pricing/licensing-faq/).
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>SQL Server-installatiekopieën beschikbaar in Azure virtuele Machine-galerie
 De virtuele Machine in Microsoft Azure-galerie bevat diverse installatiekopieën met Microsoft SQL Server. De software is geïnstalleerd op de installatiekopieën van virtuele machines varieert op basis van de versie van het besturingssysteem en de versie van SQL Server. De lijst met afbeeldingen die beschikbaar zijn in de virtuele machine van Azure-galerie vaak wordt gewijzigd.
@@ -255,7 +255,7 @@ De volgende tabel ziet u enkele van de opties die beschikbaar zijn voor het publ
 Voer de wizard setup van SQL server voor het installeren van aanvullende SQL Server-services, zoals Analysis Services in de modus tabellair. De setup-bestanden zijn op de lokale schijf van de virtuele machine.
 
 1. Klik op **Start** en klik vervolgens op **alle programma's**.
-2. Klik op **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** of **Microsoft SQL Server 2012** en klik vervolgens op **configuratiehulpprogramma's**.
+2. Klik op **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** of **Microsoft SQL Server 2012** en klik vervolgens op **configuratiehulpprogramma's** .
 3. Klik op **Installatiecentrum van SQL Server**.
 
 C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe of C:\SQLServer_11.0_full\setup.exe of starten
@@ -282,7 +282,7 @@ De stappen in deze sectie **samenvatten** de installatie van de modus tabellair 
 3. Op de **installatietype** pagina **voert u een nieuwe installatie van SQL Server** en klik op **volgende**.
 4. Op de **Setup-rol** pagina, klikt u op **installatie van SQL Server-functies**.
 5. Op de **Functieselectie** pagina, klikt u op **Analysis Services**.
-6. Op de **Exemplaarconfiguratie** pagina, typ een beschrijvende naam, zoals **tabelvorm** in **exemplaar met de naam** en **exemplaar-Id** tekstvakken.
+6. Op de **Exemplaarconfiguratie** pagina, typ een beschrijvende naam, zoals **tabelvorm** in **exemplaar met de naam** en **exemplaar-Id** tekstvakken .
 7. Op de **configuratie van Analysis Services** pagina **Tabellair**. De huidige gebruiker toevoegen aan de lijst met beheerdersmachtigingen.
 8. Voltooien en sluit de installatiewizard van SQL Server.
 

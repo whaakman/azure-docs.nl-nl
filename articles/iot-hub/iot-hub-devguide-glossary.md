@@ -1,24 +1,19 @@
 ---
 title: Azure IoT Hub verklarende woordenlijst van termen | Microsoft Docs
 description: Handleiding voor ontwikkelaars - een verklarende woordenlijst van algemene termen met betrekking tot Azure IoT Hub.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69bc7d71e804ca33b984699ee30a44774542803f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960488"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst van IoT-Hub
 In dit artikel vindt u enkele van de algemene termen die in de artikelen IoT Hub.
@@ -110,11 +105,8 @@ Verwijst naar apparaat staat informatie, zoals de methode connectiviteit die mom
 ## <a name="device-data"></a>Apparaatgegevens
 Apparaatgegevens verwijst naar de gegevens per apparaat is opgeslagen in de IoT-Hub [identiteitsregister](#identity-registry). Het is mogelijk om te importeren en exporteren van deze gegevens.
 
-## <a name="device-explorer"></a>Apparaat explorer
+## <a name="device-explorer"></a>Apparatenverkenner
 De [apparaat explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) is een hulpprogramma dat wordt uitgevoerd op Windows en kunt u uw apparaten beheren in de [identiteitsregister](#identity-registry). Het hulpprogramma kan ook verzenden en ontvangen van berichten op uw apparaten.
-
-## <a name="device-identities-rest-api"></a>REST-API voor apparaatidentiteiten
-De [apparaat identiteiten REST-API](https://docs.microsoft.com/rest/api/iothub/iothubresource) kunt u voor het beheren van uw apparaten geregistreerd in de [identiteitsregister](#identity-registry) met behulp van een REST-API. Normaal gesproken moet u een van de bovenliggende [service-SDK's](#azure-iot-service-sdks) zoals weergegeven in de zelfstudies IoT Hub.
 
 ## <a name="device-identity"></a>Apparaat-id
 De apparaat-id is de unieke id die is toegewezen aan elk apparaat dat is geregistreerd in de [identiteitsregister](#identity-registry).
@@ -128,8 +120,8 @@ Beheer van apparaten omvat de volledige levenscyclus die zijn gekoppeld aan het 
 ## <a name="device-management-patterns"></a>Patronen voor apparaatbeheer
 [IoT-hub](#iot-hub) kunnen algemene apparaat management patronen, zoals opnieuw op te starten, uitvoeren van de fabrieksinstellingen herstellen en firmware-updates uitvoeren op uw apparaten.
 
-## <a name="device-messaging-rest-api"></a>REST-API voor apparaatmessaging
-U kunt de [apparaat Messaging REST-API](https://docs.microsoft.com/rest/api/iothub/httpruntime) van een apparaat apparaat-naar-cloud-berichten naar een IoT-hub te verzenden en ontvangen [cloud-naar-apparaat](#cloud-to-device) berichten van een IoT-hub. Normaal gesproken moet u een van de bovenliggende [apparaat-SKD's](#azure-iot-device-sdks) zoals weergegeven in de zelfstudies IoT Hub.
+## <a name="device-rest-api"></a>Apparaat REST-API
+U kunt de [apparaat REST-API](https://docs.microsoft.com/rest/api/iothub/device/device) van een apparaat apparaat-naar-cloud-berichten naar een IoT-hub te verzenden en ontvangen [cloud-naar-apparaat](#cloud-to-device) berichten van een IoT-hub. Normaal gesproken moet u een van de bovenliggende [apparaat-SKD's](#azure-iot-device-sdks) zoals weergegeven in de zelfstudies IoT Hub.
 
 ## <a name="device-provisioning"></a>Mobiele apparaten inrichten
 Mobiele apparaten inrichten is het proces van het toevoegen van de eerste [apparaatgegevens](#device-data) naar de winkels in uw oplossing. Om in te schakelen op een nieuw apparaat verbinding maken met uw hub, moet u een apparaat-ID en sleutels toevoegen aan de IoT-Hub [identiteitsregister](#identity-registry). Als onderdeel van het proces van inrichting moet u mogelijk apparaatspecifieke gegevens in andere archieven oplossing initialiseren.
@@ -141,10 +133,7 @@ Een [apparaat twin](iot-hub-devguide-device-twins.md) JSON-document dat apparaat
 Net als bij twin apparaat, is een module-twin JSON-document waarin gegevens van de module status zoals metagegevens, configuraties en voorwaarden worden opgeslagen. IoT Hub persistente een module-twin voor elke module-id die u in uw IoT-hub onder een apparaat-id inrichten. Module horende kunnen u voorwaarden van de module en configuraties tussen de module en de back-end oplossing te synchroniseren. U kunt query module horende naar specifieke modules en de status van langlopende bewerkingen niet opvragen.
 
 ## <a name="twin-queries"></a>Dubbele query 's
-[Query's voor apparaat en de module twin](iot-hub-devguide-query-language.md) de SQL-achtige IoT Hub-querytaal gebruiken voor het ophalen van informatie van uw apparaat horende of module horende. U kunt de dezelfde IoT Hub-querytaal informatie ophalen over [taken](#job) uitgevoerd in uw IoT-hub.
-
-## <a name="device-twin-rest-api"></a>Apparaat Twin REST-API
-U kunt de [apparaat Twin REST-API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) van de oplossing voor back-end voor het beheren van uw apparaat horende. De API kunt u ophalen en bijwerken van [apparaat twin](#device-twin) eigenschappen en oproepen [methoden directe](#direct-method). Normaal gesproken moet u een van de bovenliggende [service-SDK's](#azure-iot-service-sdks) zoals weergegeven in de zelfstudies IoT Hub.
+[Query's voor apparaat en de module twin](iot-hub-devguide-query-language.md) de SQL-achtige IoT Hub-querytaal gebruiken voor het ophalen van informatie van uw apparaat horende of module horende. U kunt de dezelfde IoT Hub-querytaal informatie ophalen over [ ](#job) uitgevoerd in uw IoT-hub.
 
 ## <a name="twin-synchronization"></a>Synchronisatie van Twin
 Twin synchronisatie gebruikt de [gewenst eigenschappen](#desired-properties) in uw apparaat horende of module horende configureren van uw apparaten of modules en ophalen van [eigenschappen gerapporteerd](#reported-properties) van deze op te slaan in de twin.
@@ -185,22 +174,19 @@ IoT Hub is een volledig beheerde Azure-service die stabiele en veilige tweericht
 [IoT Hub metrische gegevens](iot-hub-metrics.md) bieden u de gegevens over de status van de IoT-hubs in uw [Azure-abonnement](#subscription). IoT Hub metrische gegevens kunt u de algemene status van de service en de apparaten die zijn verbonden met het beoordelen. IoT Hub metrische gegevens kunt u zien wat er gebeurt met uw IoT-hub en hoofdoorzaak problemen onderzoeken zonder contact opnemen met ondersteuning van Azure.
 
 ## <a name="iot-hub-query-language"></a>IoT Hub-querytaal
-De [IoT Hub-querytaal](iot-hub-devguide-query-language.md) is een SQL-achtige taal waarmee u query uw [taken](#job) en horende apparaten.
+De [IoT Hub-querytaal](iot-hub-devguide-query-language.md) is een SQL-achtige taal waarmee u query uw [ ](#job) en horende apparaten.
 
-## <a name="iot-hub-resource-provider-rest-api"></a>Resourceprovider IoT-Hub REST-API
-U kunt de [IoT Hub Resource Provider REST-API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) voor het beheren van de IoT-hubs in uw [Azure-abonnement](#subscription) uitvoeren van bewerkingen zoals het maken, bijwerken en verwijderen van hubs.
+## <a name="iot-hub-resource-rest-api"></a>Resource-IoT-Hub REST-API
+U kunt de [IoT Hub Resource REST-API](https://docs.microsoft.com/rest/api/iothub/iothubresource) voor het beheren van de IoT-hubs in uw [Azure-abonnement](#subscription) uitvoeren van bewerkingen zoals het maken, bijwerken en verwijderen van hubs.
 
-## <a name="iot-solution-accelerators"></a>IoT-oplossing accelerators
-Azure IoT-oplossing accelerators pakket samen meerdere Azure-services in oplossingen. Deze oplossingen kunnen u snel aan de slag met end-to-end-implementaties van algemene IoT-scenario's. Zie voor meer informatie [wat Azure IoT-oplossing accelerators zijn?](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>IoT-oplossingsversnellers
+Azure IoT-oplossing accelerators pakket samen meerdere Azure-services in oplossingen. Deze oplossingen kunnen u snel aan de slag met end-to-end-implementaties van algemene IoT-scenario's. Zie voor meer informatie [wat Azure IoT-oplossing accelerators zijn?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>De IoT-extensie voor Azure CLI 2.0
 [De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is een platformoverschrijdende, opdrachtregel-hulpprogramma. Het hulpprogramma kunt u uw apparaten beheren in de [identiteitsregister](#identity-registry), verzenden en ontvangen van berichten en bestanden van uw apparaten en uw IoT hub-bewerkingen te controleren.
 
 ## <a name="job"></a>Job
-De back-end van uw oplossing kunt [taken](iot-hub-devguide-jobs.md) plannen en bijhouden van activiteiten op een reeks apparaten die zijn geregistreerd bij uw IoT-hub. Activiteiten omvatten apparaat twin bijwerken [gewenst eigenschappen](#desired-properties), bijwerken apparaat twin [labels](#tags), en het aanroepen van [methoden directe](#direct-method). [IoT Hub](#iot-hub) wordt ook gebruikgemaakt van taken naar [om te importeren en exporteren](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) van de [identiteitsregister](#identity-registry).
-
-## <a name="jobs-rest-api"></a>Taken REST-API
-De [taken REST-API](https://docs.microsoft.com/rest/api/iothub/jobapi) kunt u beheren [taken](#job) uitgevoerd in uw IoT-hub.
+De back-end van uw oplossing kunt [taken](iot-hub-devguide-jobs.md) plannen en bijhouden van activiteiten op een reeks apparaten die zijn geregistreerd bij uw IoT-hub. Activiteiten omvatten apparaat twin bijwerken [gewenst eigenschappen](#desired-properties), bijwerken apparaat twin [labels](#tags), en het aanroepen van [methoden directe](#direct-method). [IoT Hub](#iot-hub) gebruikt om [om te importeren en exporteren](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) van de [identiteitsregister](#identity-registry).
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) is een van de messaging-protocollen die [IoT Hub](#iot-hub) ondersteunt om te communiceren met apparaten. Zie voor meer informatie over de messaging-protocollen die IoT Hub ondersteunt [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
@@ -233,12 +219,15 @@ In de context van een [apparaat twin](iot-hub-devguide-device-twins.md), gerappo
 Gebruik van een beleid voor opnieuw proberen voor de verwerking [tijdelijke fouten](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) wanneer u verbinding maakt met een cloudservice.
 
 ## <a name="routing-rules"></a>Regels voor het doorsturen
-U configureert [routeringsregels](iot-hub-devguide-messages-read-custom.md) in uw iothub voor het routeren van apparaat-naar-cloud-berichten naar een [ingebouwd eindpunt](#built-in-endpoints) of [aangepaste eindpunten](#custom-endpoints) voor verwerking door de back-end van uw oplossing.
+U configureert [routeringsregels](iot-hub-devguide-messages-read-custom.md) in uw iothub voor het routeren van apparaat-naar-cloud-berichten naar een [ingebouwd eindpunt](#built-in-endpoints) of [aangepaste eindpunten](#custom-endpoints) voor verwerking door de back-end van uw oplossing .
 
 ## <a name="sasl-plain"></a>SASL ZONDER OPMAAK
 SASL zonder opmaak is een protocol dat de [AMQP](#advanced-message-queue-protocol) protocol gebruikt voor het overzetten van beveiligingstokens.
 
-## <a name="shared-access-signature"></a>Shared access signature voor
+## <a name="service-rest-api"></a>Service REST API
+U kunt de [REST-API van](https://docs.microsoft.com/rest/api/iothub/service/service) van de oplossing voor back-end om uw apparaten te beheren. De API kunt u ophalen en bijwerken van [apparaat twin](#device-twin) eigenschappen aanroepen [methoden directe](#direct-method), en schema [taken](#job). Normaal gesproken moet u een van de bovenliggende [service-SDK's](#azure-iot-service-sdks) zoals weergegeven in de zelfstudies IoT Hub.
+
+## <a name="shared-access-signature"></a>Shared Access Signature
 Shared Access Signatures (SAS) zijn een verificatiemethode op basis van beveiligde SHA-256-hashes of URI's. SAS verificatie bestaat uit twee onderdelen: een _beleid voor gedeelde toegang_ en een _Shared Access Signature_ (vaak een token genoemd). SAS wordt gebruikt voor verificatie met een IoT-hub van een apparaat. [Back-end apps](#back-end-app) SAS ook gebruiken voor verificatie met de service gerichte-eindpunten op een IoT-hub. Normaal gesproken het opnemen van de SAS-token in de [verbindingsreeks](#connection-string) dat een app gebruikmaakt van een verbinding maken met een IoT-hub.
 
 ## <a name="shared-access-policy"></a>Beleid voor gedeelde toegang
