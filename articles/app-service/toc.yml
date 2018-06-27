@@ -168,6 +168,8 @@
           href: app-service-configure-premium-tier.md
         - name: Uitschalen naar meerdere exemplaren
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+        - name: Hosting met hoge dichtheid
+          href: app-service-high-density-hosting.md
     - name: App controleren
       items:
         - name: Quota & waarschuwingen
