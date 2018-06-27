@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overzicht
   items:
-    - name: Informatie over Language Understanding
+    - name: Wat is Language Understanding?
       href: Home.md
     - name: Ondersteunde talen
       href: luis-supported-languages.md
@@ -25,10 +25,10 @@
           href: luis-quickstart-primary-and-secondary-data.md
         - name: Hiërarchische entiteit
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: Lijstentiteit
-          href: luis-quickstart-intent-and-list-entity.md
         - name: Reguliere-expressie-entiteit
           href: luis-quickstart-intents-regex-entity.md
+        - name: Lijstentiteit
+          href: luis-quickstart-intent-and-list-entity.md
         - name: KeyPhrase-entiteit
           href: luis-quickstart-intent-and-key-phrase.md
         - name: Sentimentanalyse
@@ -238,7 +238,33 @@
     - name: Grenzen
       href: luis-boundaries.md
     - name: Vooraf gemaakte entiteitsverwijzing
-      href: luis-reference-prebuilt-entities.md
+      items:
+        - name: Entiteiten per cultuur
+          href: luis-reference-prebuilt-entities.md
+        - name: Leeftijdsentiteit
+          href: luis-reference-prebuilt-age.md
+        - name: Valuta-entiteit
+          href: luis-reference-prebuilt-currency.md
+        - name: DatetimeV2-entiteit
+          href: luis-reference-prebuilt-datetimev2.md
+        - name: Dimensie-entiteit
+          href: luis-reference-prebuilt-dimension.md
+        - name: Afgeschafte entiteiten
+          href: luis-reference-prebuilt-deprecated.md
+        - name: E-mailentiteit
+          href: luis-reference-prebuilt-email.md
+        - name: Cijferentiteit
+          href: luis-reference-prebuilt-number.md
+        - name: Rangtelwoordentiteit
+          href: luis-reference-prebuilt-ordinal.md
+        - name: Percentage-entiteit
+          href: luis-reference-prebuilt-percentage.md
+        - name: Telefoonnummerentiteit
+          href: luis-reference-prebuilt-phonenumber.md
+        - name: Temperatuurentiteit
+          href: luis-reference-prebuilt-temperature.md
+        - name: URL-entiteit
+          href: luis-reference-prebuilt-url.md
     - name: Vooraf gemaakte domeinverwijzing
       href: luis-reference-prebuilt-domains.md
     - name: Verwijzing naar vooraf gemaakte Cortana-app

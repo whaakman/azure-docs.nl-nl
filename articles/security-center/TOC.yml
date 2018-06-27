@@ -48,6 +48,8 @@
           href: security-center-customize-os-security-config.md
         - name: Beveiligingsbeleid op basis van Azure-beleid
           href: security-center-azure-policy.md
+        - name: Tenant-brede zichtbaarheid
+          href: security-center-management-groups.md
     - name: Aanbevelingen voor beveiliging implementeren
       href: security-center-recommendations.md
     - name: Beveiligingsstatus controleren

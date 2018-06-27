@@ -333,6 +333,8 @@
       href: storage-custom-domain-name.md
     - name: Blob-opslag doorzoeken met Azure Search
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Een statische website hosten
+      href: storage-blob-static-website.md
     - name: Gegevens overdragen
       items:
         - name: AzCopy in Windows

@@ -250,7 +250,7 @@
 #### [Geavanceerde certificaatondertekening voor SAML-apps](manage-apps/certificate-signing-options.md)
 #### [Een toepassing verbergen voor een gebruiker](manage-apps/hide-application-from-user-portal.md)
 ### [Automatisch versnellen van aanmelding configureren met behulp van HRD-beleid](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [AD FS-apps migreren naar Azure AD](migrate-adfs-apps-to-azure.md) 
+### [AD FS-apps migreren naar Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [Toegang tot apps beheren](manage-apps/what-is-access-management.md)
 #### [Toegang via eenmalige aanmelding](manage-apps/what-is-single-sign-on.md)
 #### [Certificaten voor SSO](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## Toegang tot resources delegeren
 ### [Beheerdersrollen](active-directory-assign-admin-roles-azure-portal.md)
-#### [Een beheerdersrol toewijzen aan een gebruiker](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [Gebruikersmachtigingen voor leden en voor gasten vergelijken](fundamentals/users-default-permissions.md) 
-### [Uitgebreide toegang beveiligen](admin-roles-best-practices.md)  
-### [Beheerdersaccounts voor noodtoegang maken](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [Standaard gebruikersmachtigingen](fundamentals/users-default-permissions.md)
+#### [Een beheerdersrol toewijzen aan een gebruiker](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [Gebruikersmachtigingen voor leden en voor gasten vergelijken](fundamentals/users-default-permissions.md)
+### [Beheerdersrollen beveiligen](admin-roles-best-practices.md)  
+#### [Beheerdersaccounts voor noodtoegang maken](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Beheereenheden](active-directory-administrative-units-management.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 ### [Bevoorrechte rollen beveiligen](admin-roles-best-practices.md)

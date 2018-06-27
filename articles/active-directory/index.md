@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: ac13d584c3312918e06139035da1f777c0030895
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b2853729296d158fee77d96a807972bd4f92e5
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594139"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946037"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentatie voor Azure Active Directory
 
@@ -131,7 +131,7 @@ Azure Active Directory (Azure AD) is een multi-tenant directory- en identiteitsb
                         <h3>Apps</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-enable-sso-scenario">App-beheer</a><br/>
-                        <a href="/azure/active-directory/cloudappdiscovery-get-started">App-detectie</a><br/>
+                        <a href="/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure">App-migratie</a><br/>
                         <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Enterprise-apps</a><br/>
                         <a href="/azure/active-directory/active-directory-managing-access-to-apps">Toegang tot apps</a>
                         </p>

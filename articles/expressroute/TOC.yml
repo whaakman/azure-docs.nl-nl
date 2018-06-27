@@ -89,6 +89,8 @@
       href: expressroute-howto-move-arm.md
     - name: Gekoppelde virtuele netwerken van het klassieke model naar Resource Manager migreren
       href: expressroute-migration-classic-resource-manager.md
+    - name: Een zone-redundante VNet-gateway in Azure Availabilty Zones maken
+      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Een router voor ExpressRoute configureren
       items:
         - name: Een router configureren

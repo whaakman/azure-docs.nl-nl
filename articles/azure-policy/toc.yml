@@ -20,9 +20,158 @@
     - name: Azure-beleid verkennen (praktijksessies)
       href: 'https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Voorbeelden
+  href: json-samples.md
   items:
-    - name: Voorbeelden van Azure-beleid
-      href: json-samples.md
+    - name: Algemeen
+      items:
+        - name: Naamgeving
+          items:
+            - name: Meerdere naampatronen toestaan
+              href: scripts/allow-multiple-name-patterns.md
+            - name: Like-patroon vereisen
+              href: scripts/enforce-like-pattern.md
+            - name: Match-patroon vereisen
+              href: scripts/enforce-match-pattern.md
+            - name: Tag-match-patroon vereisen
+              href: scripts/enforce-tag-match-pattern.md
+        - name: Tags
+          items:
+            - name: Tag met standaardwaarde toepassen
+              href: scripts/apply-tag-def-val.md
+            - name: Factureringstagbeleidinitiatief
+              href: scripts/billing-tags-policy-init.md
+            - name: Tag en waarde afdwingen
+              href: scripts/enforce-tag-val.md
+            - name: Tag en de waarde ervan afdwingen in brongroepen
+              href: scripts/enforce-tag-rg.md
+        - name: Locaties
+          items:
+            - name: Toegestane locaties
+              href: scripts/allowed-locs.md
+        - name: Resourcetypen
+          items:
+            - name: Toegestane brontypen
+              href: scripts/allowed-res-types.md
+            - name: Niet toegestane brontypen
+              href: scripts/not-allowed-res-type.md
+    - name: Compute
+      items:
+        - name: Virtuele machines
+          items:
+            - name: Aangepaste VM-installatiekopie van een resourcegroep toestaan
+              href: scripts/allow-custom-vm-image.md
+            - name: Toegestane SKU's voor opslagaccounts en virtuele machines
+              href: scripts/allowed-skus-storage.md
+            - name: Goedgekeurde VM-installatiekopieën
+              href: scripts/allowed-custom-images.md
+            - name: Controleert of uitbreiding bestaat
+              href: scripts/audit-ext-not-exist.md
+            - name: Niet-toegestane VM-extensies
+              href: scripts/not-allowed-vm-ext.md
+        - name: Virtuele-machineschaalsets
+          items:
+            - name: Controle of VM geen beheerde schijf gebruikt
+              href: scripts/create-vm-managed-disk.md
+            - name: Virtuele machine met beheerde schijf maken
+              href: scripts/use-managed-disk-vm.md
+            - name: Azure hybrid use benefit weigeren
+              href: scripts/deny-hybrid-use.md
+            - name: Alleen een bepaalde VM-platforminstallatiekopie toestaan
+              href: scripts/allow-certain-vm-image.md
+    - name: Data Lake
+      items:
+        - name: Data Lake Store-versleuteling vereisen
+          href: scripts/enforce-datalakestore-encryption.md
+    - name: Bewaking
+      items:
+        - name: Diagnostische instelling voor controleren
+          href: scripts/audit-diag-setting.md
+    - name: Netwerk
+      items:
+        - name: Netwerkinterfaces
+          items:
+            - name: NSG X op elke NIC
+              href: scripts/nsg-on-nic.md
+            - name: Goedgekeurd subnet gebruiken voor VM-netwerkinterfaces
+              href: scripts/use-approved-subnet-vm-nics.md
+            - name: Goedgekeurd vNet gebruiken voor VM-netwerkinterfaces
+              href: scripts/use-approved-vnet-vm-nics.md
+        - name: Virtuele netwerken
+          items:
+            - name: Toegestane application gateway-SKU’s
+              href: scripts/allowed-app-gate-sku.md
+            - name: Geen netwerkpeering naar ER-netwerk
+              href: scripts/no-peering-er-net.md
+            - name: Geen door de gebruiker gedefinieerde routetabellen
+              href: scripts/no-user-def-route-table.md
+            - name: NSG X in elk subnet
+              href: scripts/nsg-on-subnet.md
+            - name: Goedgekeurd subnet gebruiken voor VM-netwerkinterfaces
+              href: scripts/use-approved-subnet-vm-nics.md
+            - name: Goedgekeurd vNet gebruiken voor VM-netwerkinterfaces
+              href: scripts/use-approved-vnet-vm-nics.md
+        - name: Netwerkbeveiligingsgroepen
+          items:
+            - name: NSG X op elke NIC
+              href: scripts/nsg-on-nic.md
+            - name: NSG X in elk subnet
+              href: scripts/nsg-on-subnet.md
+        - name: ExpressRoutes
+          items:
+            - name: Toegestane Express Route-bandbreedten
+              href: scripts/allowed-er-band.md
+            - name: Toegestane Express Route-SKU 's
+              href: scripts/allowed-er-skus.md
+            - name: Toegestane peeringlocatie voor Express Route
+              href: scripts/allowed-peering-er.md
+        - name: Network Watchers
+          items:
+            - name: Controleren of Network Watcher is ingeschakeld voor de regio
+              href: scripts/net-watch-not-enabled.md
+        - name: Toepassingsgateways
+          items:
+            - name: Toegestane application gateway-SKU’s
+              href: scripts/allowed-app-gate-sku.md
+    - name: SQL
+      items:
+        - name: SQL-servers
+          items:
+            - name: Op een Azure Active Directory-beheerder controleren
+              href: scripts/audit-no-aad-admin.md
+            - name: Instelling dreigingsdetectieniveau server controleren
+              href: scripts/audit-sql-ser-threat-det-setting.md
+            - name: Auditinstellingen SQL Server controleren
+              href: scripts/sql-server-audit.md
+            - name: Auditinstellingsniveau SQL Server controleren
+              href: scripts/audit-sql-ser-leve-audit-setting.md
+            - name: SQL Server-versie 12.0 vereisen
+              href: scripts/req-sql-12.md
+        - name: SQL Databases
+          items:
+            - name: Toegestane SQL DB-SKU's
+              href: scripts/allowed-sql-db-skus.md
+            - name: Instelling dreigingsdetectieniveau SQL DB controleren
+              href: scripts/audit-db-threat-det-setting.md
+            - name: Versleuteling van SQL DB controleren
+              href: scripts/sql-database-encryption-audit.md
+            - name: Auditinstellingsniveau SQL DB controleren
+              href: scripts/audit-sql-db-audit-setting.md
+            - name: Controlestatus van transparante gegevensversleuteling
+              href: scripts/audit-trans-data-enc-status.md
+    - name: Storage
+      items:
+        - name: Toegestane SKU's voor opslagaccount en virtuele machines
+          href: scripts/allowed-skus-storage.md
+        - name: Toegestane opslagaccount-SKU's
+          href: scripts/allowed-stor-acct-skus.md
+        - name: Statische toegangslaag voor opslagaccounts weigeren
+          href: scripts/deny-cool-access-tiering.md
+        - name: HTTPs-verkeer voor opslagaccounts vereisen
+          href: scripts/ensure-https-stor-acct.md
+        - name: Opslagbestandsversleuteling vereisen
+          href: scripts/ensure-store-file-enc.md
+        - name: Opslagaccountversleutelingsvereisen
+          href: scripts/req-store-acct-enc.md
 - name: Concepten
   items:
     - name: Structuur van Azure-beleidsdefinities

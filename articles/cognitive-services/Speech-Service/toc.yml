@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Speech Service?
+    - name: Wat is de Speech-service?
       href: overview.md
       expanded: true
 - name: Snelstartgidsen
@@ -12,31 +12,33 @@
     - name: 'Spraak herkennen in C#'
       href: quickstart-csharp-windows.md
     - name: Spraak herkennen in C++ voor Windows
-      href: cpp-windows.md
+      href: quickstart-cpp-windows.md
     - name: Spraak herkennen in C++ voor Linux
-      href: cpp-linux.md
+      href: quickstart-cpp-linux.md
     - name: Aan de slag met Speech Devices SDK
       href: speech-devices-sdk-qsg.md
-- name: Handleidingen
+- name: Aanpassing
   items:
-    - name: Spraak herkennen
-      href: how-to-speech-to-text.md
     - name: Aangepaste spraakmodellen
       href: how-to-customize-speech-models.md
-    - name: Spraaksynthese
-      href: how-to-text-to-speech.md
     - name: Spraakstijlen aanpassen
       href: how-to-customize-voice-font.md
-    - name: Spraak vertalen
-      href: how-to-translate-speech.md
     - name: Transcripties voorbereiden
       href: prepare-transcription.md
     - name: Aangepaste audiostromen gebruiken
       href: how-to-use-audio-input-streams.md
+    - name: Ontwaakwoord van apparaat aanpassen (Devices SDK)
+      href: speech-devices-sdk-create-kws.md
+- name: Handleidingen
+  items:
+    - name: Spraak herkennen
+      href: how-to-speech-to-text.md
+    - name: Spraaksynthese
+      href: how-to-text-to-speech.md
+    - name: Spraak vertalen
+      href: how-to-translate-speech.md
     - name: De Speech Devices SDK ophalen
       href: get-speech-devices-sdk.md
-    - name: Ontwaakwoord van apparaat aanpassen
-      href: speech-devices-sdk-create-kws.md
     - name: Batchtranscriptie (callcenters)
       href: batch-transcription.md
 - name: Voorbeelden
@@ -73,8 +75,14 @@
       href: speech-synthesis-markup.md
 - name: Resources
   items:
-    - name: Veelgestelde vragen over spraak naar tekst
-      href: faq-stt.md
+    - name: Veelgestelde vragen
+      items:
+        - name: Veelgestelde vragen over spraak naar tekst
+          href: faq-stt.md
+        - name: Veelgestelde vragen over tekst naar spraak
+          href: faq-text-to-speech.md
+        - name: Veelgestelde vragen over vertalen
+          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

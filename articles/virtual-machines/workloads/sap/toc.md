@@ -3,6 +3,7 @@
 ## [Certificering](sap-certifications.md)
 # SAP HANA op Azure (grote exemplaren)
 ## [Overzicht en architectuur](hana-overview-architecture.md)
+### [Scenario's met HLI-ondersteuning](hana-supported-scenario.md)
 ## [Infrastructuur en connectiviteit](hana-overview-infrastructure-connectivity.md)
 ## [SAP HANA installeren](hana-installation.md)
 ## [Hoge beschikbaarheid en herstel na noodgevallen](hana-overview-high-availability-disaster-recovery.md)

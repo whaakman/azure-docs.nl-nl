@@ -49,8 +49,8 @@
       href: functions-openapi-definition.md
     - name: Het formaat van afbeeldingen wijzigen met Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Een webtoepassing zonder server maken met functies als de API
-      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
+    - name: Een serverloze web-app maken
+      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
     - name: Functions in Linux
       items:
         - name: Aangepaste installatiekopie

@@ -74,9 +74,9 @@
       href: sql-database-powershell-samples.md
 - name: Concepten
   items:
-    - name: Servicelagen en resources
+    - name: Modellen en resources kopen
       items:
-        - name: Servicelagen
+        - name: Modellen kopen
           href: sql-database-service-tiers.md
         - name: Model op basis van vCore
           href: sql-database-service-tiers-vcore.md

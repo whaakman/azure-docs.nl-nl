@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentatie voor Speech Service (preview)
 metadata:
   title: Documentatie voor Speech Service - Snelstarts, zelfstudies, API-naslag - Cognitive Services | Microsoft Docs
-  meta.description: Speech SDK provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
+  meta.description: The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -15,19 +15,19 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/01/2018
   ms.author: nolachar
-  ms.openlocfilehash: ae9c5a62dd4f1b83f4d1317b54e5766b80d14245
-  ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+  ms.openlocfilehash: 98e254d3a993c5d02091be9535eb685ecd987a09
+  ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 06/11/2018
-  ms.locfileid: "35357498"
+  ms.lasthandoff: 06/25/2018
+  ms.locfileid: "36937853"
 abstract:
-  description: Met Microsoft Speech Service en SDK kunnen ontwikkelaars op eenvoudige wijze krachtige functies met spraakmogelijkheden in hun toepassingen maken, zoals spraakopdrachtbesturing, transcriptie en dicteren. Cortana, Microsoft Office en andere services maken gebruik van dezelfde technologie. Een belangrijk onderscheid in Microsoft Speech Service is dat u de akoestische en taalmodellen van <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">spraak naar tekst</a> kunt aanpassen om rekening te houden met gespecialiseerde vocabulaire, lawaaierige omgevingen en verschillende manieren van spreken. In feite zijn ook aangepaste <a href="http://aka.ms/customvoice">tekst-naar-spraak</a> en <a href="http://aka.ms/customtranslator">spraakvertaling</a> beschikbaar.<br/><br/>Onze Speech SDK is beschikbaar op meerdere platformen in diverse programmeertalen, zodat u kunt inspelen op live microfoonbeheer, realtime streaming of batchgewijze bestandscommunicatie, afhankelijk van uw toepassingsbehoeften.
+  description: Met Microsoft Speech Service en SDK kunnen ontwikkelaars op eenvoudige wijze krachtige functies met spraakmogelijkheden aan hun toepassingen toevoegen, zoals spraakopdrachtbesturing, transcriptie, dicteren en vertalen met behulp van een <a href="rest-apis">REST API</a> of een <a href="speech-sdk">C#-, C++- of Java-SDK</a>.<p>Met de Speech-service kunt u modellen voor omzetting van <a href="how-to-customize-speech-models">spraak naar tekst</a> aanpassen om rekening te houden met gespecialiseerde vocabulaires, lawaaierige omgevingen en verschillende manieren van spreken. Ook zijn er aangepaste versies van <a href="https://cris.ai/Home/customvoice">Tekst-naar-spraak</a> en <a href="https://www.microsoft.com/translator/customization.aspx">Spraakomzetting</a> beschikbaar.<p>Raadpleeg voor meer informatie <a href="overview">Wat is de Speech-service?</a>
 sections:
-- title: Snelstarts van tien minuten - Nieuwe SDK's
+- title: Snelstartgidsen van tien minuten
   items:
   - type: paragraph
-    text: 'Meer informatie zonder onze snelstarts over hoe u de Speech SDK installeert en gebruikt:'
+    text: 'Meer informatie over het installeren van en werken met de Speech-SDK:'
   - type: table
     style: dataMatrix
     columns:
@@ -41,12 +41,12 @@ sections:
     - title: Windows
       values:
       - href: quickstart-csharp-windows
-      - href: cpp-windows
+      - href: quickstart-cpp-windows
       - href: 
     - title: Linux
       values:
       - href: 
-      - href: cpp-linux
+      - href: quickstart-cpp-linux
       - href: 
     - title: Devices SDK (Android)
       values:
@@ -62,128 +62,10 @@ sections:
     - title: Voorbeelden
       html: <ul><li><a href="speech-to-text-sample.md">Spraakherkenning</a></li><li><a href="intent.md">Intentieherkenning</a></li><li><a href="translation.md">Omzetting</a></li></ul>
     - title: API-naslaginformatie
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C#-API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++-API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java-API (Devices SDK)</a></li></ul>
-- title: Spraak naar tekst
-  items:
-  - type: paragraph
-    text: Onze Speech SDK biedt ondersteuning voor <b>spraak naar tekst</b> (STT) of spraakherkenning.  De Speech SDK transcribeert audiostromen naar tekst die uw toepassing als invoer kan accepteren. Uw toepassing kan de tekst dan bijvoorbeeld in een document invoeren of als een opdracht interpreteren.
-  - type: paragraph
-    text: 'Hieronder vindt u algemene gebruiksvoorbeelden voor <b>spraak naar tekst</b> via de Speech SDK:'
-  - type: list
-    style: unordered
-    items:
-    - text: Een korte uiting, zoals een opdracht, herkennen zonder tussentijdse resultaten.
-    - text: Een lange, eerder opgenomen uiting, zoals een voicemailbericht, transcriberen.
-    - text: Streaming spraak in realtime transcriberen met gedeeltelijke resultaten, voor dicteren.
-    - text: Bepalen wat gebruikers willen doen op basis van een aanvraag in natuurlijk gesproken taal.
-  - type: paragraph
-    text: De Speech SDK ondersteunt interactieve spraaktranscriptie met realtime en onafgebroken <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">spraak naar tekst</a> en tussentijdse resultaten. De SDK ondersteunt ook de detectie van het einde van de spraak, optioneel automatisch hoofdlettergebruik, maskering van grof taalgebruik, en tekstnormalisatie.
-  - type: paragraph
-    text: Een belangrijk onderscheid in Microsoft Speech Service is dat u de akoestische en taalmodellen van <a href="http://aka.ms/customspeech">spraak naar tekst</a> kunt aanpassen om rekening te houden met gespecialiseerde vocabulaire, lawaaierige omgevingen en verschillende manieren van spreken.
-- title: Spraakomzetting
-  items:
-  - type: paragraph
-    text: De Speech SDK kan ook worden gebruikt voor <a href="https://azure.microsoft.com/services/cognitive-services/speech-translation">spraakomzetting</a>.  Met streaming <b>spraakomzetting</b> via de Speech SDK stuurt de service tussentijdse resultaten die aan de gebruiker worden getoond om de voortgang van de omzetting aan te geven. De resultaten kunnen worden geretourneerd als tekst of als spraak.
-  - type: paragraph
-    text: 'Gebruiksvoorbeelden voor <b>spraakomzetting</b> via Speech SDK:'
-  - type: list
-    style: unordered
-    items:
-    - text: Een mobiele app of apparaat voor reizigers implementeren om gesprekken te vertalen.
-    - text: Automatische vertaling van ondertiteling bij audio- en video-opnamen.
-  - type: paragraph
-    text: <b>Spraakomzetting</b>smodellen kunnen ook worden <a href="http://aka.ms/customtranslator">aangepast</a>.
-- title: Tekst naar spraak
-  items:
-  - type: paragraph
-    text: Op dit moment wordt <a href="https://azure.microsoft.com/services/cognitive-services/text-to-speech">tekst naar spraak</a> (TTS) of spraaksynthese ondersteund via een REST API die platte tekst converteert naar natuurlijke klinkende spraak die in een audiobestand wordt doorgegeven aan uw toepassing. Meerdere stemmen, variërend in geslacht of accent, zijn beschikbaar voor veel talen.
-  - type: paragraph
-    text: Onze Speech SDK biedt toegang tot spraak naar tekst en spraakomzetting. Voor tekst naar spraak wordt gebruikgemaakt van REST POST-aanroepen via HTTP.
-  - type: paragraph
-    text: De REST API van <b>tekst naar spraak</b> ondersteunt <b>SSML</b>-labels (Speech-Synthesis-Markup-Language oftewel spraaksynthesemarkeringstaal). Hiermee kunt u de exacte fonetische uitspraak voor lastige woorden opgeven. Met SSML kunt u direct vanuit de tekst ook spraakkenmerken aangeven, waaronder nadruk, tempo, volume, geslacht en toonhoogte.
-  - type: paragraph
-    text: Als u een niet-ondersteund dialect of een unieke stem voor uw toepassing wilt, kunt u vanuit uw eigen spraakvoorbeelden <a href="http://aka.ms/customvoice">aangepaste spraakstijlen</a> maken.
-  - type: paragraph
-    text: 'Hieronder vindt u algemene gebruiksvoorbeelden voor de REST API van <b>tekst naar spraak</b>:'
-  - type: list
-    style: unordered
-    items:
-    - text: Spraakuitvoer als een alternatieve schermuitvoer voor gebruikers met een beperkt gezichtsvermogen.
-    - text: Spraakmenu's voor voertuigtoepassingen, zoals navigatie.
-    - text: Gebruikersinterfaces voor gesprekken tijdens concerten met de <b>spraak naar tekst</b>-API.
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C#-API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++-API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java-API (Speech Devices SDK)</a></li></ul>
 - title: Speech Devices SDK
   items:
   - type: paragraph
     text: 'Met de introductie van de geïntegreerde Speech Service bieden Microsoft en haar partners nu een geïntegreerd hardware-/softwareplatform dat is geoptimaliseerd voor het ontwikkelen van apparaten met spraakmogelijkheden: de <b>Speech Devices SDK</b>. Deze SDK is geschikt voor het ontwikkelen van slimme apparaten met spraakmogelijkheden voor alle toepassingstypen.'
   - type: paragraph
     text: Met de <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> kunt u uw eigen omgevingsapparaten maken met een aangepast ontwaakwoord dat uniek is voor uw merk om het vastleggen van audio te activeren. De SDK bevat ook audioverwerking van superieure kwaliteit van audio uit meerkanaals bronnen, voor nauwkeurigere spraakherkenning, waaronder ruisonderdrukking, 'far-field' spraak en golfvorming.
-- title: Oudere SDK's
-  items:
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/uwp.jpg
-    - image:
-        src: media/index/logo_java.jpg
-    - image:
-        src: media/index/logo_objc.jpg
-    - image:
-        src: media/index/logo_js.svg
-    - image:
-        src: media/index/logo_rest_sr.svg
-    - image:
-        src: media/index/logo_rest_tts.svg
-    rows:
-    - title: Windows
-      values:
-      - href: https://docs.microsoft.com/windows/uwp/design/input/speech-recognition
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-    - title: Android
-      values:
-      - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjavaandroid
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-    - title: iOS
-      values:
-      - href: 
-      - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/get-started-objectivec-ios
-      - href: 
-      - href: 
-      - href: 
-    - title: Web
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
-- title: SDK's in overweging
-  items:
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/logo_python.svg
-    - image:
-        src: media/index/logo_swift.jpg
-    - image:
-        src: media/index/logo_gopher.svg
-    - image:
-        src: media/index/c.jpg
-    rows:
-    - title: SDK
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
