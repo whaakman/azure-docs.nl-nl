@@ -35,7 +35,7 @@ Bij het maken van een virtuele machine in de [Azure Management Portal](http://go
      Als u een MSDN-abonnee met een abonnement van de Visual Studio-niveau, kunt u een vooraf gemaakte virtuele machine van Azure met Visual Studio, evenals enkele andere afbeeldingen. Zie voor meer informatie [een virtuele Machine maken in Visual Studio door de installatiekopie met behulp van installatiekopieën van Visual Studio 2013-galerie voor MSDN-abonnees](http://visualstudio2013msdngalleryimage.azurewebsites.net) en [MSDN-abonnement](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
 5. Op de **basisinstellingen van de virtuele Machine** pagina, Geef een computernaam op en voeg vervolgens de specificaties voor de virtuele machine, met inbegrip van de grootte en een gebruikersnaam en wachtwoord. Wanneer u bent klaar, klikt u op **volgende**.
    
-    Gebruikt u de nieuwe naam en het wachtwoord aan te melden bij de computer met behulp van extern bureaublad, dus is het een goed idee om schrijf ze op als u vergeet. Nadat u een virtuele machine van Azure in Visual Studio hebt gemaakt, kunt u de grootte en andere instellingen in de [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
+    U gebruikt de nieuwe naam en het wachtwoord aan te melden bij de machine met behulp van extern bureaublad, dus is het een goed idee om schrijf ze op als u vergeet. Nadat u een virtuele machine van Azure in Visual Studio hebt gemaakt, kunt u de grootte en andere instellingen in de [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
    
    > [!NOTE]
    > Als u een groter formaat voor de virtuele machine kiest, kunnen extra kosten toepassen. Zie [prijsinformatie voor virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/) voor meer informatie.
@@ -68,7 +68,7 @@ Bij het maken van een virtuele machine in de [Azure Management Portal](http://go
     
      ![Activiteitenlogboek van virtuele machine - voltooid.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
     
-     Als de bewerking voltooid is, wordt de nieuwe virtuele machine weergegeven onder de **virtuele Machines** knooppunt in Server Explorer. U kunt zich aanmelden bij deze door te klikken op de **verbinding maken met behulp van extern bureaublad** snelkoppeling.
+     Als de bewerking voltooid is, wordt de nieuwe virtuele machine weergegeven onder de **virtuele Machines** knooppunt in Server Explorer. U kunt aanmelden bij deze door te klikken op de **verbinding maken met behulp van extern bureaublad** snelkoppeling.
     
      ![Virtuele machine wordt weergegeven in Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 

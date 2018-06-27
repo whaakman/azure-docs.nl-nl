@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942408"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018535"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen voor Azure Media Services geven een overzicht van wijzigingen van vorige versies en bekende problemen.
 
 > [!NOTE]
-> Wij willen graag van onze klanten, zodat we ons richten kunnen op het oplossen van problemen die gevolgen hebben voor u. Als u een probleem melden of vragen hebt, verzenden de [Azure Media Services MSDN-Forum].
+> Wij willen graag van onze klanten, zodat we ons richten kunnen op het oplossen van problemen die gevolgen hebben voor u. Als u een probleem melden of vragen hebt, verzenden de [Azure Media Services MSDN Forum].
 > 
 > 
 
@@ -44,9 +44,9 @@ Deze releaseopmerkingen voor Azure Media Services geven een overzicht van wijzig
 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Versiegeschiedenis van REST-API
-Zie voor informatie over de geschiedenis van de REST-API voor Media Services-versie, de [naslaginformatie over REST API van Azure Media Services].
+Zie voor informatie over de geschiedenis van de REST-API voor Media Services-versie, de [Naslaginformatie over Azure Media Services REST-API].
 
-## <a name="may-2018"></a>2018 mei 
+## <a name="may-2018"></a>Mei 2018 
 
 Vanaf 12 mei 2018, live kanalen wordt niet langer ondersteuning voor de RTP/MPEG-2-transportstroom opnameprotocol. Migreer van RTP/MPEG-2 RTMP of gefragmenteerde MP4 (Smooth Streaming) opnemen-protocollen.
 
@@ -170,7 +170,6 @@ Het team van Azure SDK gepubliceerd een nieuwe versie van de [Azure SDK voor PHP
 
 Zie voor meer informatie:
 
-* De [Media Services SDK voor PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) blog.
 * De volgende [codevoorbeelden](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) kunt u snel aan de slag:
   * **vodworkflow_aes.php**: deze PHP-bestand laat zien hoe u dynamische versleuteling AES-128 en de sleutellevering-service. Deze gebaseerd op het .NET-voorbeeld uitgelegd in [dynamisch gebruiken AES-128-versleuteling en de service sleutellevering](media-services-protect-with-aes128.md).
   * **vodworkflow_aes.php**: deze PHP-bestand laat zien hoe u dynamische versleuteling PlayReady en de service voor het leveren van licenties. Deze gebaseerd op het .NET-voorbeeld uitgelegd in [gebruik PlayReady en/of Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md).
@@ -209,9 +208,7 @@ Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/azure-medi
 
 ## <a id="august_changes_15"></a>Augustus 2015-release
 * De Media Services SDK voor Java-versie 0.8.0 en nieuwe samples zijn nu beschikbaar. Zie voor meer informatie:
-  
-  * [Dit blogbericht](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-  * [De opslagplaats van Java-voorbeelden](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    
 * De Azure Media Player is bijgewerkt met ondersteuning voor meerdere audiostroom. Zie voor meer informatie [dit blogbericht](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>Release van juli 2015
@@ -310,7 +307,7 @@ De [Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediaser
 
 ## <a id="october_changes_14"></a>Release van oktober 2014
 ### <a id="new_encoder_release"></a>Media Services-Encoder release
- De nieuwe versie van de Media Services Azure Media Encoder is aangekondigd. Met de meest recente Media Encoder, u kunt alleen in rekening gebracht uitvoer in GB's. Anders wordt de nieuwe encoder functie compatibel met de vorige encoder. Zie voor meer informatie [Media Services pricing details].
+ De nieuwe versie van de Media Services Azure Media Encoder is aangekondigd. Met de meest recente Media Encoder, u kunt alleen in rekening gebracht uitvoer in GB's. Anders wordt de nieuwe encoder functie compatibel met de vorige encoder. Zie voor meer informatie [Details over de prijzen van Media Services].
 
 ### <a id="oct_sdk"></a>Media Services .NET SDK
 De Media Services SDK voor .NET-extensies is nu versie 2.0.0.3.
@@ -355,11 +352,11 @@ De Media Services SDK voor .NET is nu versie 3.0.0.7
 * Dynamische AES-versleuteling. Zie voor meer informatie [dynamisch gebruiken AES-128-versleuteling en de service sleutellevering](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * PlayReady-service voor het leveren van licenties. 
 * Dynamische PlayReady-versleuteling. 
-* Media Services PlayReady licentie-sjabloon. Zie voor meer informatie de [Media Services PlayReady licentie sjabloon overzicht].
+* Media Services PlayReady licentie-sjabloon. Zie voor meer informatie de [Overzicht van sjablonen voor Media Services PlayReady-licentie].
 * Stroom opslag versleuteld activa. Zie voor meer informatie [opslag versleutelde inhoud streamen](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
 ## <a id="august_changes_14"></a>Augustus 2014-release
-Wanneer u een asset coderen, wordt een uitvoerasset geproduceerd zodra de coderingstaak is voltooid. Tot deze release is de Media Services-Encoder metagegevens over activa uitvoer geproduceerd. Vanaf deze release, produceert het coderingsprogramma ook metagegevens over invoer activa. Zie voor meer informatie [invoer metagegevens] en [uitvoer metagegevens].
+Wanneer u een asset coderen, wordt een uitvoerasset geproduceerd zodra de coderingstaak is voltooid. Tot deze release is de Media Services-Encoder metagegevens over activa uitvoer geproduceerd. Vanaf deze release, produceert het coderingsprogramma ook metagegevens over invoer activa. Zie voor meer informatie [Invoermetagegevens] en [Uitvoermetagegevens].
 
 ## <a id="july_changes_14"></a>Release van juli 2014
 De volgende correcties zijn aangebracht voor de Azure Media Services Packager en Codeerder:
@@ -544,11 +541,11 @@ De volgende functionaliteit is nieuw in de release van November van de SDK:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Azure Media Services MSDN-Forum]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
-[naslaginformatie over REST API van Azure Media Services]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Media Services pricing details]: http://azure.microsoft.com/pricing/details/media-services/
-[invoer metagegevens]: http://msdn.microsoft.com/library/azure/dn783120.aspx
-[uitvoer metagegevens]: http://msdn.microsoft.com/library/azure/dn783217.aspx
+[Azure Media Services MSDN Forum]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Naslaginformatie over Azure Media Services REST-API]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
+[Details over de prijzen van Media Services]: http://azure.microsoft.com/pricing/details/media-services/
+[Invoermetagegevens]: http://msdn.microsoft.com/library/azure/dn783120.aspx
+[Uitvoermetagegevens]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Index media files with the Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
@@ -556,14 +553,14 @@ De volgende functionaliteit is nieuw in de release van November van de SDK:
 [Use AES-128 dynamic encryption and the key delivery service]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [Use PlayReady dynamic encryption and the license delivery service]: http://msdn.microsoft.com/library/azure/dn783467.aspx
 [Preview features]: http://azure.microsoft.com/services/preview/
-[Media Services PlayReady licentie sjabloon overzicht]: http://msdn.microsoft.com/library/azure/dn783459.aspx
+[Overzicht van sjablonen voor Media Services PlayReady-licentie]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Stream storage-encrypted content]: http://msdn.microsoft.com/library/azure/dn783451.aspx
 [Azure portal]: https://portal.azure.com
 [Dynamische pakketten]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
 [Pogingslogica in de Media Services SDK voor .NET]: http://msdn.microsoft.com/library/azure/dn745650.aspx
-[gras Valley kondigt EDIUS 7 streaming via de cloud]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Gras Valley kondigt EDIUS 7 streaming via de cloud]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: http://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: http://msdn.microsoft.com/library/azure/dn640504.aspx

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5426c9c5727d76d401c00b6e7338688b8f064ad0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261365"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021234"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Analytische gegevens weergeven voor de metrische gegevens over alle resources in uw Azure-Web-App
 
@@ -57,8 +57,7 @@ In tegenstelling tot de meeste andere Log Analytics-oplossingen, is niet gegeven
 
 Voer de volgende stappen uit voor het configureren van de Azure Web Apps Analytics-oplossing voor uw werkruimten.
 
-1. Inschakelen van de Azure Web Apps Analytics-oplossing van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
-2. [Inschakelen van logboekregistratie van Azure-resource metrische gegevens met behulp van PowerShell-logboekanalyse](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+1. [Inschakelen van logboekregistratie van Azure-resource metrische gegevens met behulp van PowerShell-logboekanalyse](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 De Azure Web Apps Analytics-oplossing worden verzameld van twee sets van metrische gegevens van Azure:
 
@@ -89,7 +88,7 @@ Wanneer u de Azure Web Apps Analytics-oplossing aan uw werkruimte toevoegt de **
 
 ### <a name="view-azure-web-apps-analytics-information"></a>Azure Web Apps Analytics informatie weergeven
 
-Klik op de **Azure Web Apps Analytics** tegel openen de **Azure Web Apps Analytics** dashboard. Het dashboard bevat de blades in de volgende tabel. Elke blade bevat maximaal tien items die overeenkomen met de criteria die blade voor het opgegeven bereik en tijdsbereik. U kunt een logboek-zoekquery waarmee alle records door te klikken op uitvoeren **alle** aan de onderkant van de blade of door te klikken op de blade-header.
+Klik op de **Azure Web Apps Analytics** tegel openen de **Azure Web Apps Analytics** dashboard. Het dashboard bevat de blades in de volgende tabel. Elke blade bevat maximaal tien items die overeenkomen met de criteria die blade voor het opgegeven bereik en tijdsbereik. U kunt zoeken in logboeken waarmee alle records worden geretourneerd door onderaan in de blade te klikken op **Alles bekijken** of door te klikken op de koptekst van de blade.
 
 
 | Kolom | Beschrijving |
@@ -120,7 +119,7 @@ Een primaire reden voor het weergeven van die gegevens is zodat u kunt een Web-A
 
 In de volgende logboek zoeken voorbeeldafbeelding, kunt u zien dat de *anugup3* web-app heeft een veel hoger reactietijd dan de web-apps.
 
-![Voorbeeld van logboek zoeken](./media/log-analytics-azure-web-apps-analytics/web-app-search-example.png)
+![voorbeeld van zoeken in logboek](./media/log-analytics-azure-web-apps-analytics/web-app-search-example.png)
 
 ### <a name="app-service-plans"></a>App Service-abonnementen
 

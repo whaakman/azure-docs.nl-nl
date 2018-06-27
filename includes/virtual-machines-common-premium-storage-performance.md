@@ -162,7 +162,7 @@ Wanneer u begint met het ontwerpen van een toepassing, is een van de eerste ding
 
 Maximale schaal VM's zijn beschikbaar in verschillende grootten met een verschillend aantal CPU-kernen, geheugen, OS en grootte van de tijdelijke schijf. Elk VM-grootte heeft ook het maximum aantal gegevensschijven die u aan de virtuele machine koppelen kunt. Daarom de gekozen VM-grootte van invloed is op hoeveel bewerkingen, geheugen, en de opslagcapaciteit is beschikbaar voor uw toepassing. Dit ook van invloed op de berekening en opslag kosten. Hieronder ziet u bijvoorbeeld de specificaties van de grootste VM-grootte in een DS-serie, DSv2 reeks en een GS-serie:
 
-| VM-grootte | CPU-kernen | Geheugen | Schijfgrootten VM | Met maximaal Gegevensschijven | Cachegrootte | IOPS | Bandbreedtelimieten i/o-Cache |
+| VM-grootte | CPU-kernen | Geheugen | Schijfgrootten VM | Met maximaal gegevensschijven | Cachegrootte | IOPS | Bandbreedtelimieten i/o-Cache |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokale SSD = 224 GB |32 |576 GB |50.000 IOP 'S <br> 512 MB per seconde |4000 IOPS en 33 MB per seconde |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokale SSD = 896 GB |64 |4224 GB |80.000 IOP 'S <br> 2.000 MB per seconde |5000 IOP's en 50 MB per seconde |
@@ -239,14 +239,14 @@ Het is belangrijk om in te schakelen van cache op de juiste set met schijven. Of
 | **Schijftype** | **Standaardinstelling voor Cache** |
 | --- | --- |
 | Besturingssysteemschijf |ReadWrite |
-| Gegevensschijf |Geen |
+| Gegevensschijf |Alleen-lezen |
 
 Hieronder vindt u de aangeraden schijfruimte cache-instellingen voor gegevensschijven,
 
 | **Instelling van de schijfcache** | **Aanbeveling op wanneer deze instelling te gebruiken** |
 | --- | --- |
 | Geen |Host-cache configureren als geen voor de alleen-schrijven en schrijven zware schijven. |
-| ReadOnly |Host-cache configureren als alleen-lezen voor alleen-lezen en alleen-lezen-schijven. |
+| Alleen-lezen |Host-cache configureren als alleen-lezen voor alleen-lezen en alleen-lezen-schijven. |
 | ReadWrite |Host-cache configureren als ReadWrite alleen als uw toepassing op correcte wijze schrijven van gegevens in de cache met permanente schijven wanneer deze nodig is. |
 
 *Alleen-lezen*  

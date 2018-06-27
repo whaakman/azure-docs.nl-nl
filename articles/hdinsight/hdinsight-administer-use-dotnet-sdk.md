@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0feb1e344d70207d48e4ef07f5b45790425727ad
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200313"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017934"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hadoop-clusters in HDInsight beheren met behulp van de .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Informatie over het beheren van HDInsight-clusters met [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx).
+Informatie over het beheren van HDInsight-clusters met [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Vereisten**
 
@@ -271,7 +271,7 @@ Zie [Oozie gebruiken met Hadoop om te definiëren en uitvoeren van een werkstroo
 Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Zie ook
-* [HDInsight .NET SDK-documentatie](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK-documentatie](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [HDInsight beheren met behulp van de Azure-portal][hdinsight-admin-portal]
 * [HDInsight met behulp van een opdrachtregelinterface beheren][hdinsight-admin-cli]
 * [HDInsight-clusters maken][hdinsight-provision]

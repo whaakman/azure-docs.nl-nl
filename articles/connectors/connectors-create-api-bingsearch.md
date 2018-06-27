@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 87045d5dbbc1221a770e44bd9e9cf2451a9ac522
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8ac67f9df0e5baccc668c2aeb70f65d96e574df5
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295533"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021282"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Nieuws met Bing-zoekopdracht en Azure Logic Apps zoeken 
 
@@ -84,7 +84,7 @@ In Azure Logic Apps een [actie](../logic-apps/logic-apps-overview.md#logic-app-c
 
    In dit voorbeeld wordt deze trigger: **Bing zoeken - op nieuwe nieuwsbericht**
 
-   ![actie toevoegen](./media/connectors-create-api-bing-search/add-action.png)
+   ![Actie toevoegen](./media/connectors-create-api-bing-search/add-action.png)
 
    Als u een actie tussen bestaande stappen toevoegen, wilt u de muisaanwijzer over de verbindende pijl. 
    Kies het plusteken (**+**) die wordt weergegeven, en kies vervolgens **een actie toevoegen**.
@@ -102,7 +102,7 @@ Selecteer de actie die u wilt in de lijst van acties.
 
    | Eigenschap | Vereist | Waarde | Beschrijving | 
    |----------|----------|-------|-------------| 
-   | Zoekquery | Ja | <*zoeken-expressie*> | Voer een expressie voor de trigger queryresultaten. U kunt selecteren van de velden om de lijst met dynamische inhoud, of maken van een expressie met de opbouwfunctie. |
+   | Zoekquery | Ja | <*zoeken-expressie*> | Voer een expressie voor de trigger queryresultaten. U kunt selecteren van de velden in de lijst met dynamische inhoud of een expressie maken met de opbouwfunctie voor expressies. |
    | Market | Ja | <*Landinstellingen*> | De landinstelling zoeken. De standaardwaarde is 'en-US', maar kunt u een andere waarde. | 
    | Veilig zoeken | Ja | <*zoeken op gebruikersniveau*> | Het filterniveau voor het uitsluiten van inhoud voor volwassenen. De standaardwaarde is 'Gemiddeld', maar u een ander niveau selecteren. | 
    | Count | Nee | <*aantal resultaten*> | Het opgegeven aantal resultaten retourneren. De standaardwaarde is 20, maar u kunt een andere waarde opgeven. Het werkelijke aantal geretourneerde resultaten mogelijk minder dan het opgegeven aantal. | 

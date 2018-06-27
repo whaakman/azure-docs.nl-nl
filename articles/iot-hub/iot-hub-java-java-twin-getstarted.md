@@ -1,23 +1,20 @@
 ---
 title: Aan de slag met Azure IoT Hub apparaat horende (Java) | Microsoft Docs
 description: Het gebruik van Azure IoT Hub apparaat horende labels toevoegen en vervolgens met de query voor een IoT Hub. U kunt het Azure-IoT-apparaat-SDK voor Java gebruiken voor het implementeren van de app voor apparaat en de Azure IoT service SDK voor Java voor het implementeren van een service-app die de labels worden toegevoegd en de IoT Hub-query wordt uitgevoerd.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016696"
 ---
 # <a name="get-started-with-device-twins-java"></a>Aan de slag met apparaat horende (Java)
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 05/07/2018
 In deze zelfstudie maakt maken u twee console Java-apps:
 
 * **toevoegen-tags-query**, een Java-back-end-app die labels toegevoegd en wordt opgevraagd horende apparaten.
-* **simulated-device**, een Java-apparaat app dat verbinding maakt met uw IoT-hub en rapporteert de connectiviteit van de voorwaarde gebruik van een eigenschap gemeld.
+* **simulated-device**, een Java-apparaat-app die verbinding maakt met uw IoT-hub en rapporteert de connectiviteit voorwaarde gebruik van een eigenschap gemeld.
 
 > [!NOTE]
 > Het artikel [Azure IoT SDK's](iot-hub-devguide-sdks.md) bevat informatie over de Azure IoT SDK's dat u gebruiken kunt om zowel apparaatgegevens als back-end-apps te bouwen.

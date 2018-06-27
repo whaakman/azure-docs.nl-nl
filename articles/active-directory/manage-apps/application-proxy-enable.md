@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 0ac14f792c63ea06a484eb5b522c4d33958538ed
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158418"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025784"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Aan de slag met Application Proxy en installeer de connector
 Dit artikel beschrijft de stappen die nodig zijn om Microsoft Azure AD-toepassingsproxy in te schakelen voor uw clouddirectory in Azure AD.
@@ -30,7 +30,7 @@ Als u niet bent nog op de hoogte van de voordelen van beveiliging en productivit
 ## <a name="application-proxy-prerequisites"></a>Vereisten voor toepassingsproxy
 Voordat u de services voor toepassingsproxy kunt inschakelen en gebruiken, moet u over het volgende beschikken:
 
-* Een [basis- of premiumabonnement op Microsoft Azure AD](../active-directory-whatis.md) en een Azure AD-directory waarvan u een globale beheerder bent.
+* Een [basis- of premiumabonnement op Microsoft Azure AD](../fundamentals/active-directory-whatis.md) en een Azure AD-directory waarvan u een globale beheerder bent.
 * Een server met Windows Server 2012 R2 of 2016, waarop u de Connector voor toepassingsproxy kunt installeren. De server moet verbinding maken met de services voor toepassingsproxy in de cloud en de on-premises toepassingen die u wilt publiceren.
   * Voor eenmalige aanmelding voor uw gepubliceerde toepassingen met behulp van Kerberos-beperkte overdracht, moet deze machine worden domein in hetzelfde AD-domein als de toepassingen die u wilt publiceren. Zie voor informatie [KCD voor eenmalige aanmelding met toepassingsproxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
@@ -64,7 +64,6 @@ Als u uw omgeving voorbereiden voor Azure AD-toepassingsproxy, moet u eerst de c
 
 4. De connector moet toegang tot login.windows.net en login.microsoftonline.com voor het registratieproces.
 
-5. Gebruik de [Azure AD Application Proxy Connector poorten hulpprogramma Test](https://aadap-portcheck.connectorporttest.msappproxy.net/) om te controleren of de connector de service voor toepassingsproxy kan bereiken. Ten minste Zorg ervoor dat de regio VS-midden en de regio die het dichtst bij u alle een groen vinkje. Daarna betekent meer een groen vinkje groter tolerantie.
 
 ## <a name="install-and-register-a-connector"></a>Installeren en registreren van een connector
 1. Meld u aan als een beheerder in de [Azure-portal](https://portal.azure.com/).

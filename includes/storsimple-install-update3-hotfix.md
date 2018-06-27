@@ -25,7 +25,7 @@ Voer de volgende stappen uit om de software-update te downloaden uit de Microsof
 Voer de volgende stappen uit om hotfixes in de normale modus te installeren en te controleren. Als u al deze met de Azure Portal geïnstalleerd, gaat u verder met [installeren en testen van onderhoud modus hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. U installeert de hotfixes door de Windows PowerShell-interface op de seriële console van het StorSimple-apparaat te openen. Volg de gedetailleerde instructies in [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Druk op de opdrachtregel op **Enter**.
-2. Selecteer **Optie 1** als u zich met volledige toegang wilt aanmelden bij het apparaat. U wordt geadviseerd om de hotfix eerst op de passieve controller te installeren.
+2. Selecteer optie 1, **aanmelden met volledige toegang**. U wordt geadviseerd om de hotfix eerst op de passieve controller te installeren.
 3. Installeer de hotfix door achter de opdrachtprompt het volgende te typen:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -151,7 +151,7 @@ Volg onderstaande instructies om de updates van de schijffirmware te installeren
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Bewaak de installatievoortgang met de opdracht `Get-HcsUpdateStatus`. De update is voltooid als de `RunInProgress` verandert in `False`.
-4. Wanneer de installatie is voltooid, wordt de controller waarop de hotfix van de onderhoudsmodus is geïnstalleerd, opnieuw opstart. Meld u aan als in optie 1 met volledige toegang en controleer de versie van de schijffirmware. Type:
+4. Wanneer de installatie is voltooid, wordt de controller waarop de hotfix van de onderhoudsmodus is geïnstalleerd, opnieuw opstart. Meld u aan met de optie 1, **aanmelden met volledige toegang**, en controleer of de schijf firmware-versie. Type:
    
    `Get-HcsFirmwareVersion`
    

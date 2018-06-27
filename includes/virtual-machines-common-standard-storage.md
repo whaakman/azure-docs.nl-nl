@@ -1,22 +1,39 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806295"
+---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Rendabele standaardopslag en niet-beheerde en beheerde Azure VM-schijven
 
-Azure Standard-opslag biedt ondersteuning voor betrouwbare, goedkope schijven voor virtuele machines waarop niet latentie gevoelig werkbelastingen worden uitgevoerd. Het ondersteunt ook blobs, tabellen, wachtrijen en -bestanden. De gegevens worden opgeslagen met de Standard-opslag op de harde schijven (HDD's). Als u werkt met virtuele machines, kunt u standaardopslag schijven voor ontwikkel-/ Testscenario's en minder kritieke werkbelastingen en premium-schijven voor opslag voor essentiële productietoepassingen. Standard-opslag is beschikbaar in alle Azure-regio's. 
+Azure Standard-opslag biedt ondersteuning voor betrouwbare, goedkope schijven voor virtuele machines waarop niet latentie gevoelig werkbelastingen worden uitgevoerd. Het ondersteunt ook blobs, tabellen, wachtrijen en -bestanden. De gegevens worden opgeslagen met de Standard-opslag op de harde schijven (HDD's). Als u werkt met virtuele machines, kunt u standaard SSD en HDD-schijven voor ontwikkel-/ Testscenario's en minder kritieke werkbelastingen en premium-SSD-schijven voor essentiële productietoepassingen. Standard-opslag is beschikbaar in alle Azure-regio's. 
 
-Dit artikel is gericht op het gebruik van de standard-opslag voor VM-schijven. Raadpleeg voor meer informatie over het gebruik van opslag met blobs, tabellen, wachtrijen en -bestanden, de [Inleiding tot Storage](../articles/storage/common/storage-introduction.md).
+Dit artikel is gericht op het gebruik van standaard SSD en HDD-schijven. Zie voor meer informatie over het gebruik van opslag met blobs, tabellen, wachtrijen en bestanden [Inleiding tot Storage](../articles/storage/common/storage-introduction.md).
 
 ## <a name="disk-types"></a>Schijftypen
 
 Er zijn twee manieren standaardschijven maken voor Azure virtuele machines:
 
-**Schijven zonder begeleiding**: dit is de oorspronkelijke methode waar u de storage-accounts gebruikt voor het opslaan van de VHD-bestanden die met de VM-schijven overeenkomen kunt beheren. VHD-bestanden worden opgeslagen als pagina-blobs in opslagaccounts. Niet-beheerde schijven kunnen worden gekoppeld aan een Azure VM-grootte, met inbegrip van de virtuele machines die voornamelijk Premium-opslag, zoals de DSv2 en GS-serie gebruikt. Virtuele machines in Azure ondersteuning voor het koppelen van verschillende standaardschijven toestaan maximaal 256 TB aan opslag per VM.
+**Schijven zonder begeleiding**: dit type schijf is de oorspronkelijke methode waar u de storage-accounts gebruikt voor het opslaan van de VHD-bestanden die met de VM-schijven overeenkomen kunt beheren. VHD-bestanden worden opgeslagen als pagina-blobs in opslagaccounts. Niet-beheerde schijven kunnen worden gekoppeld aan een Azure VM-grootte, met inbegrip van de virtuele machines die voornamelijk Premium-opslag, zoals de DSv2 en GS-serie gebruikt. Virtuele machines in Azure ondersteuning voor het koppelen van verschillende standaardschijven toestaan maximaal 256 TB aan opslag per VM.
 
-[**Azure-beheerde schijven**](../articles/virtual-machines/windows/managed-disks-overview.md): deze functie de storage-accounts gebruikt voor de VM-schijven voor u beheert. U geeft het type (Premium of standaard) en de grootte van de schijf moet u en Azure maken en beheren van de schijf voor u. U hoeft te hoeven maken over de schijven tussen meerdere opslagaccounts plaatsen om ervoor te zorgen binnen de limieten voor schaalbaarheid voor de storage-accounts te blijven--Azure verwerkt die voor u.
+[**Azure-beheerde schijven**](../articles/virtual-machines/windows/managed-disks-overview.md): deze functie de storage-accounts gebruikt voor de VM-schijven voor u beheert. U geeft het type (Premium-SSD, standaard SSD of standaard harde schijven) en de grootte van de schijf moet u en Azure maken en beheren van de schijf voor u. U hoeft te hoeven maken over de schijven tussen meerdere opslagaccounts plaatsen om ervoor te zorgen binnen de limieten voor schaalbaarheid voor de storage-accounts te blijven--Azure verwerkt die voor u.
 
 Hoewel beide typen schijven beschikbaar zijn, wordt u aangeraden beheerd schijven om te profiteren van veel functies.
 
 Om aan de slag met Azure Standard-opslag, gaat u naar [gratis aan de slag](https://azure.microsoft.com/pricing/free-trial/). 
 
-Raadpleeg een van de volgende artikelen voor meer informatie over het maken van een virtuele machine met schijven beheerd.
+Zie een van de volgende artikelen voor meer informatie over het maken van een virtuele machine met schijven beheerd.
 
 * [Een virtuele machine maken met behulp van Resource Manager en PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 * [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
@@ -27,7 +44,9 @@ U gaat nu een overzicht van enkele van de functies van de Standard-opslag. Zie v
 
 **Standard-opslag**: Azure Standard-opslag biedt ondersteuning voor schijven van Azure, Azure Blobs, Azure-bestanden, Azure-tabellen en wachtrijen in Azure. Standard-opslag om services te gebruiken, beginnen met [maken van een Azure Storage-account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Standard-opslag-schijven:** standaardopslag schijven kunnen worden gekoppeld aan alle Azure-machines, met inbegrip van grootte-serie virtuele machines gebruikt met Premium-opslag, zoals de DSv2 en GS-serie. Een standard-opslag-schijf kan alleen worden gekoppeld aan één virtuele machine. U kunt echter een of meer van deze schijven koppelen aan een VM, tot aan het maximale aantal schijven voor de gedefinieerd voor deze VM-grootte. De specificaties in meer detail worden beschreven in de volgende sectie op standaard Storage Scalability and Performance Targets. 
+**Standaardschijven SSD:** standaard SSD-schijven meer betrouwbare prestaties dan standaard harde schijven bieden en zijn momenteel in preview beschikbaar. Zie voor meer informatie over de beschikbaarheid van de regio van standaard SSD-schijven [beschikbaarheid in regio's standaard SSD-schijven (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+
+**Standaardschijven HDD:** standaard harde schijven kunnen worden gekoppeld aan alle Azure-machines, met inbegrip van grootte-serie virtuele machines gebruikt met Premium-opslag, zoals de DSv2 en GS-serie. Een standaard harde schijf kan alleen worden gekoppeld aan één virtuele machine. U kunt echter een of meer van deze schijven koppelen aan een VM, tot aan het maximale aantal schijven voor de gedefinieerd voor deze VM-grootte. De specificaties in meer detail worden beschreven in de volgende sectie op standaard Storage Scalability and Performance Targets.
 
 **Standaard pagina-blob**: standaard pagina-blobs worden gebruikt om permanente schijven voor virtuele machines en kan ook rechtstreeks via REST net als andere soorten Azure Blobs worden geopend. [Pagina-blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) zijn van een verzameling 512-byte-'s die zijn geoptimaliseerd voor willekeurige lees- en schrijfbewerkingen. 
 
@@ -122,7 +141,7 @@ U kunt ook de Azure Backup-service met beheerd schijven gebruiken een back-uptaa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Inleiding tot Azure Storage](../articles/storage/common/storage-introduction.md)
+* [Kennismaking met Azure Storage](../articles/storage/common/storage-introduction.md)
 
 * [Een opslagaccount maken](../articles/storage/common/storage-create-storage-account.md)
 

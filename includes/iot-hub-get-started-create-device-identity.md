@@ -6,7 +6,7 @@ In deze sectie gebruikt u een Node.js-hulpprogramma aangeroepen [iothub explorer
 
     `npm install -g iothub-explorer@latest`
 
-1. Voer de volgende opdracht om aan te melden met uw hub. Vervang `{iot hub connection string}` met de IoT Hub-verbindingsreeks die u eerder hebt gekopieerd:
+1. Voer de volgende opdracht aan te melden bij uw hub. Vervang `{iot hub connection string}` met de IoT Hub-verbindingsreeks die u eerder hebt gekopieerd:
 
     `iothub-explorer login "{iot hub connection string}"`
 

@@ -1,9 +1,25 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: storage
+author: luywang
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: luywang
+ms.custom: include file
+ms.openlocfilehash: 03db1bf84e200d8b66f0395cbd96813e2248eefe
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806363"
+---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Back-up en herstel na noodgevallen voor Azure IaaS-schijven
 
 In dit artikel wordt uitgelegd hoe om te plannen voor back-up en herstel na noodgevallen (DR) van IaaS virtuele machines (VM's) en schijven in Azure. Dit document bevat informatie over beheerde en onbeheerde schijven.
 
-We eerst betrekking op de mogelijkheden voor ingebouwde fouttolerantie in de Azure-platform die beschermt tegen fouten in de lokale. Vervolgens bespreken we de scenario's niet volledig wordt gedekt door de ingebouwde mogelijkheden voor noodherstel. Dit is het belangrijkste onderwerp behandeld in dit document. We zien ook enkele voorbeelden van werkbelasting scenario's waarbij andere back-up en Noodherstel overwegingen kunnen toepassen. Vervolgens bespreken we mogelijke oplossingen voor de DR van IaaS-schijven. 
+We eerst betrekking op de mogelijkheden voor ingebouwde fouttolerantie in de Azure-platform die beschermt tegen fouten in de lokale. Vervolgens bespreken we de scenario's niet volledig wordt gedekt door de ingebouwde mogelijkheden voor noodherstel. We zien ook enkele voorbeelden van werkbelasting scenario's waarbij andere back-up en Noodherstel overwegingen kunnen toepassen. Vervolgens bespreken we mogelijke oplossingen voor de DR van IaaS-schijven. 
 
 ## <a name="introduction"></a>Inleiding
 
@@ -23,7 +39,7 @@ Voordat we back-up en Noodherstel opties kijken, samenvatting gaan we een aantal
 
 Een virtuele machine bestaat voornamelijk uit twee delen: een compute-server en de permanente schijven. Beide invloed op de fouttolerantie van een virtuele machine.
 
-Als de Azure compute-hostserver met uw virtuele machine te maken een hardwarefout opgetreden die niet vaak voorkomt krijgt, wordt Azure is ontworpen voor het automatisch herstelt de virtuele machine op een andere server. Als dit gebeurt, wordt uw computer opnieuw wordt opgestart, en de virtuele machine weer later opnieuw. Azure dergelijke hardwarefouten detecteert automatisch en wordt uitgevoerd herstelbewerkingen om ervoor te zorgen dat de klant VM zo spoedig mogelijk beschikbaar is.
+Als de Azure compute-hostserver met uw virtuele machine te maken een hardwarefout opgetreden die niet vaak voorkomt krijgt, wordt Azure is ontworpen voor het automatisch herstelt de virtuele machine op een andere server. Als dit scenario, uw computer opnieuw wordt opgestart en de virtuele machine weer later opnieuw. Azure dergelijke hardwarefouten detecteert automatisch en wordt uitgevoerd herstelbewerkingen om ervoor te zorgen dat de klant VM zo spoedig mogelijk beschikbaar is.
 
 Met betrekking tot IaaS-schijven, zijn de duurzaamheid van gegevens is essentieel voor een platform voor permanente opslag. Azure-klanten belangrijke zakelijke toepassingen die worden uitgevoerd op IaaS hebben en ze afhankelijk van de persistentie van de gegevens. De beveiliging van de Azure-ontwerpen voor deze IaaS-schijven, met drie kopieën van de gegevens die lokaal wordt opgeslagen. Deze kopieën bieden voor maximale duurzaamheid tegen fouten in de lokale. Als een van de hardwareonderdelen van de schijf uitvalt, wordt uw virtuele machine niet beïnvloed omdat er twee extra kopieën ter ondersteuning van schijfaanvragen. Dit werkt goed, zelfs als twee verschillende hardware-onderdelen die ondersteuning bieden voor een schijf niet op hetzelfde moment (dit is zeldzame). 
 
@@ -31,7 +47,7 @@ Om ervoor te zorgen dat u altijd drie replica's moet onderhouden, een nieuw exem
 
 Vanwege deze architectuur Azure consistent bedrijfsniveau heeft geleverd duurzaamheid voor IaaS-schijven, met een toonaangevende nul procent [per jaar Faalpercentage](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
-Gelokaliseerde hardwarefouten in de berekening hosten of in de opslag-platform kunnen soms resultaat in van de tijdelijke onbeschikbaarheid van de virtuele machine die wordt gedekt door de [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) voor beschikbaarheid van de virtuele machine. Azure biedt ook een toonaangevende SLA voor één VM-exemplaren die gebruikmaken van Azure Premium-opslag-schijven.
+Gelokaliseerde hardwarefouten in de berekening hosten of in de opslag-platform kunnen soms resultaat in van de tijdelijke onbeschikbaarheid van de virtuele machine die wordt gedekt door de [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) voor beschikbaarheid van de virtuele machine. Azure biedt ook een toonaangevende SLA voor één VM-exemplaren die gebruikmaken van Azure Premium-SSD-schijven.
 
 Ter bescherming van toepassingsworkloads van downtime als gevolg van het tijdelijke ontbreken van een schijf of de VM, kunnen klanten gebruiken [beschikbaarheidssets](../articles/virtual-machines/windows/manage-availability.md). Twee of meer virtuele machines in een beschikbaarheidsset redundantie voor de toepassing. Azure maakt vervolgens deze virtuele machines en de schijven in afzonderlijke foutdomeinen met verschillende voeding, netwerk- en server-onderdelen. 
 
@@ -39,15 +55,15 @@ Vanwege deze afzonderlijke foutdomeinen gelokaliseerde hardwarefouten doorgaans 
 
 ### <a name="backup-and-disaster-recovery"></a>Back-up en herstel na noodgevallen
 
-Herstel na noodgevallen is de mogelijkheid van zeldzame, maar belangrijke, incidenten wilt herstellen. Dit omvat tijdelijke, schaal fouten, zoals onderbreking van de service die gevolgen heeft voor een hele regio. Herstel na noodgevallen omvat gegevensback-up en te archiveren, en bevat mogelijk handmatige interventie, zoals het terugzetten van een database van een back-up.
+Herstel na noodgevallen is de mogelijkheid van zeldzame, maar belangrijke, incidenten wilt herstellen. Deze incidenten bevatten tijdelijke, schaal fouten, zoals onderbreking van de service die gevolgen heeft voor een hele regio. Herstel na noodgevallen omvat gegevensback-up en te archiveren, en bevat mogelijk handmatige interventie, zoals het terugzetten van een database van een back-up.
 
-Geïntegreerde beveiliging van de Azure-platform tegen gelokaliseerde fouten mogelijk niet volledig te beveiligen de virtuele machines/schijven als een noodgeval grootschalige storingen veroorzaakt. Dit omvat onherstelbare gebeurtenissen, zoals als een datacenter is bereikt, wordt door een orkaan, aardbeving, fire, of als er is een grootschalige eenheid hardwarefouten. U kunt bovendien storingen als gevolg van de toepassing of problemen tegenkomen.
+Geïntegreerde beveiliging van de Azure-platform tegen gelokaliseerde fouten mogelijk niet volledig te beveiligen de virtuele machines/schijven als een noodgeval grootschalige storingen veroorzaakt. Deze grootschalige uitval onherstelbare gebeurtenissen zoals worden opgenomen als een datacenter is bereikt, wordt door een orkaan, aardbeving, fire, of als er is een grootschalige hardwarefout eenheid. U kunt bovendien storingen als gevolg van de toepassing of problemen tegenkomen.
 
-Om te beschermen de werkbelasting van uw IaaS tegen storingen, moet u plannen voor redundantie en back-ups herstellen hebben. Voor herstel na noodgevallen, een back-up in een andere geografische locatie van de primaire site. Dit zorgt ervoor dat uw back-up wordt niet beïnvloed door de dezelfde gebeurtenis die oorspronkelijk van invloed op de virtuele machine of de schijven. Zie voor meer informatie [herstel na noodgevallen voor Azure-toepassingen](/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Om te beschermen de werkbelasting van uw IaaS tegen storingen, moet u plannen voor redundantie en back-ups herstellen hebben. Voor herstel na noodgevallen, een back-up in een andere geografische locatie van de primaire site. Deze aanpak zorgt ervoor dat de back-up wordt niet beïnvloed door de dezelfde gebeurtenis die oorspronkelijk van invloed op de virtuele machine of de schijven. Zie voor meer informatie [herstel na noodgevallen voor Azure-toepassingen](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 Uw DR-overwegingen zijn onder andere de volgende aspecten:
 
-- Hoge beschikbaarheid: de mogelijkheid van de toepassing om te blijven uitvoeren in een foutloze toestand bevindt, zonder aanzienlijke uitvaltijd. Door *status in orde*, bedoelen we de toepassing reageert en kunnen gebruikers verbinding maken met de toepassing en ermee. Het is mogelijk dat bepaalde bedrijfskritieke toepassingen en databases vereist moet altijd beschikbaar, zelfs als er fouten van het platform zijn. Voor deze werkbelastingen moet u mogelijk de redundantie voor de toepassing, evenals de gegevens van plan bent.
+- Hoge beschikbaarheid: de mogelijkheid van de toepassing om te blijven uitvoeren in een foutloze toestand bevindt, zonder aanzienlijke uitvaltijd. Door *status in orde*, deze status betekent dat de toepassing reageert en gebruikers kunnen verbinding maken met de toepassing en ermee. Het is mogelijk dat bepaalde bedrijfskritieke toepassingen en databases vereist moet altijd beschikbaar, zelfs als er fouten van het platform zijn. Voor deze werkbelastingen moet u mogelijk de redundantie voor de toepassing, evenals de gegevens van plan bent.
 
 - Gegevens duurzaamheid: In sommige gevallen kan de belangrijkste overweging is ervoor te zorgen dat de gegevens behouden blijven als een noodgeval gebeurt. Daarom moet u mogelijk een back-up van uw gegevens in een andere site. Voor deze werkbelastingen moet u mogelijk niet volledig redundantie voor de toepassing, maar alleen een reguliere-up van de schijven.
 
@@ -72,7 +88,7 @@ U kunt een werkbelasting die wordt verwerkt door een cluster van virtuele machin
 
 ### <a name="scenario-3-iaas-application-workload"></a>Scenario 3: IaaS toepassing werklast
 
-Bekijk de IaaS toepassing werklast. Bijvoorbeeld, dit wordt mogelijk een standaard productie-werkbelasting die wordt uitgevoerd op een Azure VM. Het is mogelijk een webserver of bestandsserver die de inhoud en andere bronnen van een site. Het kan ook een op maat gemaakte business-toepassing uitgevoerd op een virtuele machine die de gegevens, bronnen en de status van toepassing zijn opgeslagen op de VM-schijven zijn. In dit geval is het belangrijk om ervoor te zorgen dat u rekening houden met back-ups regelmatig. Back-upfrequentie moet worden gebaseerd op de aard van de virtuele machine-werkbelasting. Bijvoorbeeld, als de toepassing wordt dagelijks uitgevoerd en gegevens worden gewijzigd, moet klikt u vervolgens de back-up worden gehouden om het uur.
+Bekijk de IaaS toepassing werklast. Deze toepassing is bijvoorbeeld mogelijk een standaard productie-werkbelasting die wordt uitgevoerd op een Azure VM. Het is mogelijk een webserver of bestandsserver die de inhoud en andere bronnen van een site. Het kan ook een op maat gemaakte business-toepassing uitgevoerd op een virtuele machine die de gegevens, bronnen en de status van toepassing zijn opgeslagen op de VM-schijven zijn. In dit geval is het belangrijk om ervoor te zorgen dat u rekening houden met back-ups regelmatig. Back-upfrequentie moet worden gebaseerd op de aard van de virtuele machine-werkbelasting. Bijvoorbeeld, als de toepassing wordt dagelijks uitgevoerd en gegevens worden gewijzigd, moet klikt u vervolgens de back-up worden gehouden om het uur.
 
 Een ander voorbeeld is een rapportserver die gegevens ophaalt uit andere bronnen en genereert cumulatieve rapporten. Het verlies van deze virtuele machine of de schijven kan leiden tot verlies van de rapporten. Echter, het is mogelijk opnieuw uitvoeren van het proces voor rapportage en opnieuw genereren van de uitvoer. In dat geval niet echt is geïnfecteerd met een verlies van gegevens, zelfs als de rapportserver is bereikt, wordt met een noodgeval. Als gevolg hiervan moet u wellicht een hoger niveau van tolerantie voor verliezen deel van de gegevens op de rapportserver. In dat geval zijn minder frequente back-ups een optie om kosten te verlagen.
 
@@ -84,7 +100,7 @@ Problemen met de toepassing IaaS zijn mogelijk. U kunt een toepassing die wordt 
 
 [Azure Backup](https://azure.microsoft.com/services/backup/) wordt gebruikt voor back-ups en Noodherstel, en dit proces werkt met [schijven die worden beheerd](../articles/virtual-machines/windows/managed-disks-overview.md) , evenals [zonder begeleiding schijven](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). U kunt een back-uptaak maken met back-ups op basis van tijd eenvoudig herstel van de virtuele machine en back-up bewaarbeleid. 
 
-Als u [Premium-opslag schijven](../articles/virtual-machines/windows/premium-storage.md), [schijven die worden beheerd](../articles/virtual-machines/windows/managed-disks-overview.md), of andere schijftypen met de [lokaal redundante opslag](../articles/storage/common/storage-redundancy-lrs.md) optie, is het belangrijk om ervoor te periodieke DR back-ups. Azure Backup slaat de gegevens in de recovery services-kluis op lange termijn. Kies de [geografisch redundante opslag](../articles/storage/common/storage-redundancy-grs.md) optie voor de back-up herstellen services-kluis. Deze optie zorgt ervoor dat de back-ups worden gerepliceerd naar een andere Azure-regio voor de beveiliging van regionale noodsituaties.
+Als u [Premium-SSD-schijven](../articles/virtual-machines/windows/premium-storage.md), [schijven die worden beheerd](../articles/virtual-machines/windows/managed-disks-overview.md), of andere schijftypen met de [lokaal redundante opslag](../articles/storage/common/storage-redundancy-lrs.md) optie, is het belangrijk om ervoor te periodieke DR back-ups. Azure Backup slaat de gegevens in de recovery services-kluis op lange termijn. Kies de [geografisch redundante opslag](../articles/storage/common/storage-redundancy-grs.md) optie voor de back-up herstellen services-kluis. Deze optie zorgt ervoor dat de back-ups worden gerepliceerd naar een andere Azure-regio voor de beveiliging van regionale noodsituaties.
 
 Voor [zonder begeleiding schijven](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), kunt u het type lokaal redundante opslag gebruiken voor IaaS-schijven, maar zorg ervoor dat de Azure Backup is ingeschakeld met de optie geografisch redundante opslag voor de recovery services-kluis.
 
@@ -95,7 +111,7 @@ Voor [zonder begeleiding schijven](../articles/virtual-machines/windows/about-di
 
 | Scenario | Automatische replicatie | Oplossing voor Noodherstel |
 | --- | --- | --- |
-| Premium-opslag-schijven | Lokale ([lokaal redundante opslag](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Premium-SSD-schijven | Lokale ([lokaal redundante opslag](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Managed Disks | Lokale ([lokaal redundante opslag](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Niet-beheerde schijven met lokaal redundante opslag | Lokale ([lokaal redundante opslag](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Geografisch redundante opslag met niet-beheerde schijven | Cross-regio ([geografisch redundante opslag](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Toepassingsconsistente momentopnamen](#alternative-solution-consistent-snapshots) |
@@ -132,7 +148,7 @@ Gebruik de volgende stappen om in te schakelen van back-ups van uw virtuele mach
 
     b. Op de **Recovery Services-kluizen** menu, klikt u op **toevoegen** en volg de stappen voor het maken van een nieuwe kluis in dezelfde regio bevinden als de virtuele machine. Bijvoorbeeld, als uw virtuele machine zich in de regio VS-West, VS-West voor verzamelen de kluis.
 
-2.  Controleer of de storage-replicatie voor de nieuwe kluis. Toegang tot de kluis onder **Recovery Services-kluizen** en Ga naar **instellingen** > **back-upconfiguratie**. Zorg ervoor dat de **geografisch redundante opslag** optie is standaard geselecteerd. Dit zorgt ervoor dat uw kluis automatisch wordt gerepliceerd naar een secundair datacenter. Uw kluis in VS-West is bijvoorbeeld automatisch gerepliceerd naar VS-Oost.
+2.  Controleer of de storage-replicatie voor de nieuwe kluis. Toegang tot de kluis onder **Recovery Services-kluizen** en Ga naar **instellingen** > **back-upconfiguratie**. Zorg ervoor dat de **geografisch redundante opslag** optie is standaard geselecteerd. Deze optie zorgt ervoor dat uw kluis automatisch wordt gerepliceerd naar een secundair datacenter. Uw kluis in VS-West is bijvoorbeeld automatisch gerepliceerd naar VS-Oost.
 
 3.  Het back-beleid configureren en selecteer de virtuele machine in dezelfde gebruikersinterface.
 
@@ -166,7 +182,7 @@ Een momentopname is een weergave van een object op een bepaald punt in tijd. Fac
 
 ### <a name="create-snapshots-while-the-vm-is-running"></a>Maken van momentopnamen terwijl de virtuele machine wordt uitgevoerd
 
-Hoewel u een momentopname op elk gewenst moment uitvoeren kunt als de virtuele machine wordt uitgevoerd, er zijn nog steeds gegevens worden gestreamd naar de schijven en de momentopnamen bevatten mogelijk gedeeltelijk bewerkingen die tijdens de vlucht zijn. Als er meerdere schijven die zijn betrokken zijn, kunnen er ook de momentopnamen van verschillende schijven zijn opgetreden op verschillende tijdstippen. Dit betekent dat deze momentopnamen kunnen niet worden gecoördineerd. Dit is vooral problematisch voor striped volumes waarvan de bestanden is mogelijk beschadigd als wijzigingen tijdens de back-up wordt gemaakt.
+Hoewel u een momentopname op elk gewenst moment uitvoeren kunt als de virtuele machine wordt uitgevoerd, zijn er nog steeds gegevens worden gestreamd naar de schijven. De momentopnamen bevatten mogelijk gedeeltelijk bewerkingen die tijdens de vlucht zijn. Als er meerdere schijven die zijn betrokken zijn, kunnen er ook de momentopnamen van verschillende schijven zijn opgetreden op verschillende tijdstippen. Deze scenario's mogelijk aan de momentopnamen worden ongecoördineerde. Dit gebrek aan coördinatie is met name problemen opleveren voor striped volumes waarvan de bestanden is mogelijk beschadigd als wijzigingen tijdens de back-up wordt gemaakt.
 
 Om deze situatie te voorkomen, moet het back-upproces implementeren de volgende stappen uit:
 
@@ -176,7 +192,7 @@ Om deze situatie te voorkomen, moet het back-upproces implementeren de volgende 
 
 3.  [Momentopname maken van een blob](../articles/storage/blobs/storage-blob-snapshots.md) voor alle schijven.
 
-Sommige Windows-toepassingen zoals SQL Server bieden een gecoördineerde back-mechanisme via een volume shadow service toepassingsconsistente back-ups maken. Op Linux, kunt u een hulpprogramma zoals fsfreeze voor de coördinatie van de schijven. Dit hulpprogramma biedt bestandsconsistente back-ups, maar niet toepassingsconsistente momentopnamen. Dit proces is complex, dus moet u overwegen [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) of een back-upoplossing van derden die al deze procedure wordt geïmplementeerd.
+Sommige Windows-toepassingen zoals SQL Server bieden een gecoördineerde back-mechanisme via een volume shadow service toepassingsconsistente back-ups maken. Op Linux, kunt u een hulpprogramma zoals *fsfreeze* voor de coördinatie van de schijven. Dit hulpprogramma biedt bestandsconsistente back-ups, maar niet toepassingsconsistente momentopnamen. Dit proces is complex, dus moet u overwegen [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) of een back-upoplossing van derden die al deze procedure wordt geïmplementeerd.
 
 Het vorige proces resulteert in een verzameling van gecoördineerde momentopnamen voor alle van de VM-schijven voor een bepaald punt in tijd weergave van de virtuele machine. Dit is een herstelpunt voor back-up voor de virtuele machine. U kunt het proces herhalen met regelmatige tussenpozen periodiek back-ups maken. Zie [kopiëren van de back-ups naar een andere regio](#copy-the-snapshots-to-another-region) voor stappen voor het kopiëren van de momentopnamen voor een andere regio voor herstel na Noodgevallen.
 
@@ -219,11 +235,11 @@ Voor virtuele machines met meerdere schijven, moet u de momentopnamen die deel v
 
 ### <a name="sql-server"></a>SQL Server
 
-SQL Server wordt uitgevoerd op een virtuele machine heeft een eigen ingebouwde mogelijkheden voor delen maakt u een back-up van uw SQL Server-database naar Azure Blob-opslag of een bestand. Als het opslagaccount geografisch redundante opslag of geografisch redundante opslag met leestoegang is, kunt u deze back-ups in het opslagaccount secundair datacenter er in een noodsituatie openen met de dezelfde beperkingen, zoals eerder besproken. Zie voor meer informatie [Back-up en herstel voor SQL Server op Azure virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). In aanvulling op back-up en herstellen, [SQL Server AlwaysOn-beschikbaarheidsgroepen](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) secundaire replica's van databases kunt onderhouden. Dit vermindert aanzienlijk de hersteltijd na noodgevallen.
+SQL Server wordt uitgevoerd op een virtuele machine heeft een eigen ingebouwde mogelijkheden voor delen maakt u een back-up van uw SQL Server-database naar Azure Blob-opslag of een bestand. Als het opslagaccount geografisch redundante opslag of geografisch redundante opslag met leestoegang is, kunt u deze back-ups in het opslagaccount secundair datacenter er in een noodsituatie openen met de dezelfde beperkingen, zoals eerder besproken. Zie voor meer informatie [Back-up en herstel voor SQL Server op Azure virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). In aanvulling op back-up en herstellen, [SQL Server AlwaysOn-beschikbaarheidsgroepen](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) secundaire replica's van databases kunt onderhouden. Deze mogelijkheid vermindert aanzienlijk de hersteltijd na noodgevallen.
 
 ## <a name="other-considerations"></a>Andere overwegingen
 
-In dit artikel is besproken hoe u back-up of momentopnamen van uw virtuele machines en hun schijven voor de ondersteuning van herstel na noodgevallen en hoe u die uw gegevens te herstellen. Met het Azure Resource Manager-model veel mensen sjablonen gebruiken hun virtuele machines en andere infrastructuren maken in Azure. Een sjabloon kunt u een virtuele machine met dezelfde configuratie elke keer maken. Als u aangepaste installatiekopieën gebruikt voor het maken van uw virtuele machines, moet u zorgen dat uw afbeeldingen met behulp van een account geografisch redundante opslag met leestoegang voor het opslaan van deze zijn beschermd.
+In dit artikel is beschreven hoe u back-up of het nemen van momentopnamen van uw virtuele machines en hun schijven ter ondersteuning van herstel na noodgevallen en het gebruik van deze back-ups of momentopnamen van uw gegevens te herstellen. Met het Azure Resource Manager-model veel mensen sjablonen gebruiken hun virtuele machines en andere infrastructuren maken in Azure. Een sjabloon kunt u een virtuele machine met dezelfde configuratie elke keer maken. Als u aangepaste installatiekopieën gebruikt voor het maken van uw virtuele machines, moet u zorgen dat uw afbeeldingen met behulp van een account geografisch redundante opslag met leestoegang voor het opslaan van deze zijn beschermd.
 
 Uw back-upproces kan als gevolg daarvan kan een combinatie van twee dingen zijn:
 
@@ -236,7 +252,7 @@ Mogelijk moet u de back-up van zowel de gegevens en de configuratie te verwerken
 
 Voor de storage-accounts in Azure, er zijn drie typen van de redundantie van de gegevens die u met betrekking tot herstel na noodgevallen overwegen moet: lokaal redundante geografisch redundante of geografisch redundante met leestoegang. 
 
-Lokaal redundante opslag behoudt drie kopieën van de gegevens in hetzelfde datacenter. Wanneer de gegevens voor de virtuele machine wordt geschreven, worden alle drie kopieën worden bijgewerkt voordat succes aan de aanroeper wordt geretourneerd, zodat u weet dat ze identiek zijn. De schijf is beveiligd tegen lokale stroomstoringen, omdat het is zeer onwaarschijnlijk dat alle drie kopieën op hetzelfde moment worden beïnvloed. In het geval van een lokaal redundante opslag is er geen geografische redundantie, zodat de schijf niet is beveiligd tegen kritieke fouten optreden die een datacenter of opslag eenheid kunnen beïnvloeden.
+Lokaal redundante opslag behoudt drie kopieën van de gegevens in hetzelfde datacenter. Wanneer de gegevens voor de virtuele machine wordt geschreven, worden alle drie kopieën worden bijgewerkt voordat succes aan de aanroeper wordt geretourneerd, zodat u weet dat ze identiek zijn. De schijf is beveiligd tegen lokale stroomstoringen, omdat het onwaarschijnlijk dat alle drie kopieën op hetzelfde moment worden beïnvloed. In het geval van een lokaal redundante opslag is er geen geografische redundantie, zodat de schijf niet is beveiligd tegen kritieke fouten optreden die een datacenter of opslag eenheid kunnen beïnvloeden.
 
 Met geografisch redundante opslag en geografisch redundante opslag met leestoegang worden drie kopieën van uw gegevens in de primaire regio die wordt geselecteerd door u worden bewaard. Drie extra kopieën van uw gegevens worden bewaard in een bijbehorende secundaire regio die door Azure is ingesteld. Bijvoorbeeld, als u gegevens in VS-West opslaat, wordt de gegevens gerepliceerd naar VS-Oost. Kopie bewaren asynchroon wordt uitgevoerd en er is een kleine vertraging optreden tussen de updates naar de primaire en secundaire sites. Replica's van de schijven op de secundaire site zijn consistent op basis van per schijf (met de vertraging), maar de replica's van meerdere actieve schijven mogelijk niet synchroon met elkaar. Toepassingsconsistente momentopnamen zijn om een consistente replica's maken over meerdere schijven, nodig.
 

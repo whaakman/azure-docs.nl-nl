@@ -64,8 +64,6 @@
           href: app-service-app-service-environment-network-architecture-overview.md
         - name: Een web-app maken in ASEv1
           href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-        - name: Hosting met hoge dichtheid
-          href: app-service-high-density-hosting.md
         - name: Verbinding maken met een back-end
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: ExpressRoute configureren

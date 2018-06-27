@@ -10,24 +10,21 @@ ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
+ms.date: 06/26/2018
 ms.author: omidm
-ms.openlocfilehash: 6c5e32f0ed39ce2e8c1e412dcfc6c04fb0f8bd7a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3fd3a4b8982fe2170726df03bdc884e658d0b0c2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715255"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019485"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Een inleiding tot Hadoop-beveiliging met HDInsight-clusters domein
 
 Tot nu toe werd in Azure HDInsight alleen ondersteuning geboden voor één lokale beheerder voor gebruikers. Dit werkte heel goed voor kleinere toepassingsteams of afdelingen. Hadoop op basis van werkbelastingen die is opgedaan meer populariteit in de enterprise-sector, de noodzaak van enterprise hoogwaardige mogelijkheden, zoals active directory-verificatie, ondersteuning voor meerdere gebruikers en rollen gebaseerd toegangsbeheer is geworden steeds belangrijker. Als u gebruikmaakt van aan een domein gekoppelde HDInsight-clusters, kunt u een HDInsight-cluster maken dat is gekoppeld aan een Active Directory-domein, en een lijst met werknemers uit het bedrijf configureren die zich kunnen verifiëren via Azure Active Directory om zich aan te melden bij het HDInsight-cluster. Mensen van buiten het bedrijf kunnen zich niet aanmelden bij het HDInsight-cluster en hebben er geen toegang toe. Toegangsbeheer op basis van rollen voor het gebruik van Hive-beveiliging kunt configureren dat de ondernemingsbeheerder [Apache Zwerver](http://hortonworks.com/apache/ranger/), dus beperken van toegang tot gegevens alleen zoveel nodig. Daarnaast kan de beheerder de toegang tot gegevens controleren voor werknemers en zien wanneer er wijzigingen worden aangebracht aan het toegangscontrolebeleid. Dit zorgt voor een hoge mate van beheer van de bedrijfsresources.
 
 > [!NOTE]
-> De nieuwe functies beschreven in dit artikel zijn beschikbaar in preview alleen op de volgende clustertypen: Hadoop, Spark en interactieve Query.
-
-> [!IMPORTANT]
-> Oozie is niet ingeschakeld op HDInsight domein.
+> De nieuwe functies beschreven in dit artikel zijn beschikbaar in preview alleen op de volgende clustertypen: Hadoop, Spark en interactieve Query. Oozie is nu ingeschakeld voor domein-clusters. Voor toegang tot de gebruikersinterface van webgebruikers moeten inschakelen Oozie [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="benefits"></a>Voordelen
 Bedrijfsbeveiliging bevat vier belangrijke stijlen: beveiliging, verificatie, autorisatie en versleuteling.

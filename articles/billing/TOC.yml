@@ -41,12 +41,6 @@
           href: billing-understand-reserved-instance-usage-ea.md
         - name: Gereserveerde instanties beheren
           href: billing-manage-reserved-vm-instance.md
-    - name: REST-voorbeelden
-      items:
-        - name: Enterprise-kosten beoordelen
-          href: billing-review-enterprise-billing.md
-        - name: Abonnementsgebruik beoordelen
-          href: billing-review-subscription-billing.md
 - name: Account beheren
   items:
     - name: Gratis account

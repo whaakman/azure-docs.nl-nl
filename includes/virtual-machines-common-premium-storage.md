@@ -1,3 +1,20 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: storage
+author: ramankumarlive
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: ramankum
+ms.custom: include file
+ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806380"
+---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Premium-opslag voor hoge prestaties en beheerde schijven voor virtuele machines
 Azure Premium-opslag biedt ondersteuning voor hoge prestaties, lage latentie schijven voor virtuele machines (VM's) met input/output (I/O)-intensieve werkbelastingen. VM-schijven die gebruikmaken van Premium-opslag opslaan gegevens op de SSD-schijven (SSD's). Als u wilt profiteren van de snelheid en prestaties van schijven met opslagruimte premium, kunt u bestaande VM-schijven kunt migreren naar Premium-opslag.
 
@@ -61,7 +78,7 @@ Hier volgen enkele van de functies van Premium-opslag:
 
 ## <a name="supported-vms"></a>Ondersteunde virtuele machines
 
-Premium-opslag biedt ondersteuning voor B-serie, DS-serie DSv2-serie, DSv3-serie GS-serie, Ls-serie, M-serie en virtuele machines Fs-serie. Met deze VM-typen kunt u schijven standard en premium storage. U niet premium-opslag-schijven gebruiken met VM-reeks die geen Premium-opslag-compatibel.
+Premium-opslag biedt ondersteuning voor B-serie, DS-serie DSv2-serie, DSv3-serie Esv3-serie, GS-serie Ls-serie, M-serie en virtuele machines Fs-serie. Met deze VM-typen kunt u schijven standard en premium storage. U niet premium-opslag-schijven gebruiken met VM-reeks die geen Premium-opslag-compatibel.
 
 
 Zie [Grootten voor virtuele Windows-machines](../articles/virtual-machines/windows/sizes.md) voor informatie over de VM-typen en -grootten in Azure voor Windows. Zie [Grootten voor virtuele Linux-machines](../articles/virtual-machines/linux/sizes.md) voor informatie over de VM-typen en -grootten in Azure voor Linux.
@@ -241,7 +258,7 @@ De volgende Linux-distributies zijn gevalideerd voor Azure Premium-opslag. Voor 
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
 | Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| SUSE-sles-12-prioriteit-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12| 3.12.36-38.1+| SUSE-sles-12-prioriteit-v20150213 <br> SUSE-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 vereist](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in het volgende gedeelte* |
