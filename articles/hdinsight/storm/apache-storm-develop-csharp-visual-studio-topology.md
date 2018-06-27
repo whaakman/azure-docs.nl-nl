@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e35d795fb65c837f7a4152920f701da5bf8f506
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7eae8aa25546fb94bbf7d006063f44f3b6e51a15
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31421427"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018792"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>C#-topologieën ontwikkelen voor Apache Storm met behulp van het Data Lake tools voor Visual Studio
 
@@ -47,9 +47,9 @@ Als u wilt gebruiken een C#-topologie met een cluster op basis van Linux, moet u
 
 U kunt de C#-topologieën met SCP.NET ontwikkelen met behulp van een van de volgende versies van Visual Studio:
 
-* Visual Studio 2012 met [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+* Visual Studio 2012 met Update 4
 
-* Visual Studio 2013 met [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) of [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 met Update 4 of [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 of [Visual Studio 2015-Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
@@ -534,14 +534,14 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 Recente versies van SCP.NET ondersteuning pakketupgrade via NuGet. Wanneer een nieuwe update beschikbaar is, ontvangt u een upgrade melding. U kunt handmatig controleren voor een upgrade door de volgende stappen uit:
 
-1. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer **NuGet-pakketten beheren**.
+1. Klik in **Solution Explorer** met de rechtermuisknop op het project en klik op **NuGet-pakketten beheren**.
 
 2. Selecteer in de Pakketbeheer **Updates**. Als een update beschikbaar is, wordt het weergegeven. Klik op **Update** voor het pakket te installeren.
 
 > [!IMPORTANT]
 > Als uw project is gemaakt met een eerdere versie van SCP.NET die NuGet niet gebruikt, moet u de volgende stappen uit om bij te werken naar een nieuwere versie uitvoeren:
 >
-> 1. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer **NuGet-pakketten beheren**.
+> 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en klik op **NuGet-pakketten beheren**.
 > 2. Met behulp van de **Search** veld, zoeken en vervolgens toevoegt, **Microsoft.SCP.Net.SDK** aan het project.
 
 ## <a name="troubleshoot-common-issues-with-topologies"></a>Algemene problemen met topologieën

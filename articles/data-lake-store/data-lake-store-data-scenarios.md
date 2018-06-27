@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 86b6d05538171fcf0e259e2761316529deb4fb37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc48bf011d95b3e60a78d2102d88dc188155ddc1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625318"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017365"
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Met behulp van Azure Data Lake Store voor big data-vereisten
 Er zijn vier belangrijke fasen in grote gegevensverwerking:
@@ -65,7 +65,7 @@ Dit type dataset wordt specifiek genoemd, omdat analyse van de logboekgegevens v
 * [Azure Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
-Voor het uploaden van web server-logboekgegevens, en ook voor andere soorten gegevens (bijvoorbeeld sociale patronen gegevens) uploaden, is het een goede benadering van uw eigen aangepaste scripts/toepassingen schrijven omdat dit biedt u de flexibiliteit om op te nemen van uw gegevens uploaden onderdeel als onderdeel van uw groter big data-toepassing. In sommige gevallen kan deze code kan duren voordat de vorm van een script of een eenvoudig opdrachtregelprogramma. In andere gevallen kan de code big gegevensverwerking integreren in een zakelijke toepassing of oplossing worden gebruikt.
+Voor het uploaden van web server-logboekgegevens, en ook voor andere soorten gegevens (bijvoorbeeld sociale patronen gegevens) uploaden, is een goede benadering van uw eigen aangepaste scripts/toepassingen schrijven omdat dit biedt u de flexibiliteit om op te nemen van uw gegevens onderdeel als onderdeel van het uploaden uw groter big data-toepassing. In sommige gevallen kan deze code kan duren voordat de vorm van een script of een eenvoudig opdrachtregelprogramma. In andere gevallen kan de code big gegevensverwerking integreren in een zakelijke toepassing of oplossing worden gebruikt.
 
 ### <a name="data-associated-with-azure-hdinsight-clusters"></a>Gegevens die zijn gekoppeld aan Azure HDInsight-clusters
 De meeste HDInsight-clustertypen (Hadoop, HBase, Storm) ondersteuning voor Data Lake Store als een gegevens-opslagplaats. HDInsight-clusters toegang tot gegevens uit Azure Storage BLOB's (WASB). Voor betere prestaties kunt u de gegevens uit WASB kopiëren naar een Data Lake Store-account die is gekoppeld aan het cluster. U kunt de volgende hulpprogramma's gebruiken om de gegevens te kopiëren.

@@ -2,19 +2,19 @@
 title: Aanvraageenheden en het schatten van de doorvoer - Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over het begrijpen en vereisten voor aanvraag-eenheid in Azure Cosmos DB schatten opgeven.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 9021d0c3f650d64480f2881508d456ce98beab2a
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823720"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961946"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos-DB
 
@@ -111,7 +111,7 @@ Het hulpprogramma te gebruiken:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Gebruik de antwoordheader van Azure DB die Cosmos aanvraag kosten
-Elke reactie van de service Azure Cosmos DB bestaat uit een aangepaste header (`x-ms-request-charge`) die de aanvraageenheden dat is gebruikt voor een bepaalde aanvraag bevat. U kunt deze header ook openen via de Azure Cosmos DB SDK's. In de .NET SDK, **RequestCharge** is een eigenschap van de **ResourceResponse** object. Azure Cosmos DB Data Explorer in de Azure portal biedt voor query's, kosten aanvraaggegevens voor uitgevoerde query's.
+Elke reactie van de service Azure Cosmos DB bestaat uit een aangepaste header (`x-ms-request-charge`) die de aanvraageenheden dat is gebruikt voor een bepaalde aanvraag bevat. U kunt deze header ook openen via de Azure Cosmos DB SDK's. In de .NET SDK, **RequestCharge** is een eigenschap van de **ResourceResponse** object. Azure Cosmos DB Data Explorer in de Azure portal biedt voor query's, kosten aanvraaggegevens voor uitgevoerde query's. Voor meer informatie over het ophalen en set-doorvoer met behulp van verschillende modellen API Zie [ingesteld en ophalen van doorvoer in Azure Cosmos DB](set-throughput.md) artikel.
 
 Er is een methode voor het schatten van de hoeveelheid gereserveerde doorvoer vereist door uw toepassing om vast te leggen van de aanvraag eenheid kosten die zijn gekoppeld aan met het normale bewerkingen uitvoeren in een representatieve-item dat wordt gebruikt door uw toepassing. Vervolgens schatting maken van het aantal bewerkingen die om uit te voeren per seconde wordt verwacht. Zorg ervoor dat ook meten en opnemen van typische query's en het gebruik van Azure DB die Cosmos-script.
 

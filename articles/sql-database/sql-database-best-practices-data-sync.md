@@ -1,25 +1,25 @@
 ---
-title: Aanbevolen procedures voor het synchroniseren van Azure SQL gegevens (Preview) | Microsoft Docs
-description: Meer informatie over aanbevolen procedures voor het configureren en synchroniseren van Azure SQL gegevens (Preview) wordt uitgevoerd.
+title: Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens | Microsoft Docs
+description: Meer informatie over aanbevolen procedures voor het configureren en synchroniseren van Azure SQL-gegevens wordt uitgevoerd.
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 683cf1426f01b3ab495b2380612dbf37342fc27a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646004"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025743"
 ---
-# <a name="best-practices-for-sql-data-sync-preview"></a>Aanbevolen procedures voor het synchroniseren van de SQL-gegevens (Preview) 
+# <a name="best-practices-for-sql-data-sync"></a>Aanbevolen procedures voor SQL Data Sync 
 
-In dit artikel beschrijft aanbevolen procedures voor Azure SQL-gegevenssynchronisatie (Preview).
+In dit artikel beschrijft aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens.
 
-Zie voor een overzicht van het synchroniseren van de SQL-gegevens (Preview) [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-sync-data.md).
+Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a> Beveiliging en betrouwbaarheid
 
@@ -50,10 +50,10 @@ Azure SQL Database ondersteunt slechts één set referenties. Houd rekening met 
 
 #### <a name="sql-database-instance-size"></a>De grootte van de SQL-Database-exemplaar
 
-Wanneer u een nieuw exemplaar van SQL-Database maakt, de maximale grootte zo instellen dat het altijd groter is dan de database die u implementeert. Als u niet de maximale grootte op groter is dan de geïmplementeerde database instellen, mislukt de synchronisatie. Hoewel het synchroniseren van de SQL-gegevens (Preview) biedt geen automatische groei bieden, kunt u uitvoeren de `ALTER DATABASE` opdracht om de grootte van de database nadat deze is gemaakt. Zorg ervoor dat u altijd binnen de maximale grootte van SQL Database-exemplaar.
+Wanneer u een nieuw exemplaar van SQL-Database maakt, de maximale grootte zo instellen dat het altijd groter is dan de database die u implementeert. Als u niet de maximale grootte op groter is dan de geïmplementeerde database instellen, mislukt de synchronisatie. Hoewel het synchroniseren van de SQL-gegevens niet automatische groei biedt, kunt u uitvoeren de `ALTER DATABASE` opdracht om de grootte van de database nadat deze is gemaakt. Zorg ervoor dat u altijd binnen de maximale grootte van SQL Database-exemplaar.
 
 > [!IMPORTANT]
-> Synchroniseren van de SQL-gegevens (Preview) slaat aanvullende metagegevens met elke database. Zorg ervoor dat u rekening houden met deze metagegevens wanneer u de benodigde ruimte berekenen. De hoeveelheid toegevoegd overhead is gerelateerd aan de breedte van de tabellen (bijvoorbeeld smalle tabellen meer overhead vereist) en de hoeveelheid verkeer.
+> Synchroniseren van de SQL-gegevens worden extra metagegevens met elke database opgeslagen. Zorg ervoor dat u rekening houden met deze metagegevens wanneer u de benodigde ruimte berekenen. De hoeveelheid toegevoegd overhead is gerelateerd aan de breedte van de tabellen (bijvoorbeeld smalle tabellen meer overhead vereist) en de hoeveelheid verkeer.
 
 ### <a name="table-considerations-and-constraints"></a> Tabel overwegingen en beperkingen
 
@@ -63,19 +63,19 @@ U hoeft niet te omvatten alle tabellen die zich in een database in een groep voo
 
 #### <a name="primary-keys"></a>Primaire sleutels
 
-Elke tabel in een groep voor synchronisatie moet een primaire sleutel hebben. Een tabel die geen primaire sleutel kan niet worden gesynchroniseerd met de service SQL synchroniseren van gegevens (Preview).
+Elke tabel in een groep voor synchronisatie moet een primaire sleutel hebben. Een tabel die geen primaire sleutel kan niet worden gesynchroniseerd met het synchroniseren van gegevens van SQL-service.
 
-Voordat u SQL synchroniseren van gegevens (Preview) in productie, test u de prestaties van de initiële en lopende synchronisatie.
+Voordat u SQL-gegevenssynchronisatie in productie, test u de prestaties van de initiële en lopende synchronisatie.
 
 ### <a name="provisioning-destination-databases"></a> Bestemming databases inrichten
 
-Synchroniseren van de SQL-gegevens (Preview) Preview biedt basisfuncties voor database autoprovisioning.
+Synchroniseren van de SQL-gegevens biedt basisfuncties voor database autoprovisioning.
 
-Deze sectie worden de beperkingen van het inrichten in synchroniseren van de SQL-gegevens (Preview) beschreven.
+Dit gedeelte worden de beperkingen van het in SQL-gegevenssynchronisatie inrichting besproken.
 
 #### <a name="autoprovisioning-limitations"></a>Autoprovisioning beperkingen
 
-Synchroniseren van de SQL-gegevens (Preview) heeft de volgende beperkingen op autoprovisioning:
+Synchroniseren van de SQL-gegevens heeft de volgende beperkingen op autoprovisioning:
 
 -   Selecteer alleen de kolommen die zijn gemaakt in de doeltabel.  
     Kolommen die geen deel uitmaken van de groep voor synchronisatie zijn niet in de doeltabellen ingericht.
@@ -88,7 +88,7 @@ Synchroniseren van de SQL-gegevens (Preview) heeft de volgende beperkingen op au
 
 #### <a name="recommendations"></a>Aanbevelingen
 
--   Het synchroniseren van de SQL-gegevens (Preview) autoprovisioning functionaliteit alleen gebruiken wanneer u probeert de service uit.  
+-   De mogelijkheid van de autoprovisioning synchroniseren van de SQL-gegevens alleen gebruiken wanneer u probeert de service uit.  
 -   Voor de productie inrichten schema van de database.
 
 ### <a name="locate-hub"></a> Waar u de database hub
@@ -114,7 +114,7 @@ In deze sectie bespreken we de eerste synchronisatie uit een groep voor synchron
 
 #### <a name="how-initial-sync-works"></a>Hoe initiële synchronisatie werkt
 
-Wanneer u een groep voor synchronisatie maakt, kunt u beginnen met gegevens in slechts één database. Als u gegevens in meerdere databases hebt, wordt elke rij in synchroniseren van de SQL-gegevens (Preview) beschouwd als een conflict dat moet worden omgezet. Deze conflictoplossing zorgt ervoor dat de eerste synchronisatie langzaam gaan. Als u gegevens in meerdere databases hebt, duurt initiële synchronisatie tussen verschillende dagen en enkele maanden duren, afhankelijk van de databasegrootte.
+Wanneer u een groep voor synchronisatie maakt, kunt u beginnen met gegevens in slechts één database. Als u gegevens in meerdere databases hebt, wordt elke rij in SQL-gegevenssynchronisatie beschouwd als een conflict dat moet worden omgezet. Deze conflictoplossing zorgt ervoor dat de eerste synchronisatie langzaam gaan. Als u gegevens in meerdere databases hebt, duurt initiële synchronisatie tussen verschillende dagen en enkele maanden duren, afhankelijk van de databasegrootte.
 
 Als de databases bevinden zich in verschillende datacenters, moet elke rij reizen tussen verschillende datacenters. Dit verhoogt de kosten van een initiële synchronisatie.
 
@@ -209,16 +209,16 @@ Eerst verwijderen in plaats daarvan een database uit een groep voor synchronisat
 Als u probeert te verwijderen van een database en bewerk vervolgens een groep voor synchronisatie zonder eerste implementatie een van de wijzigingen, worden een of de andere bewerking is mislukt. De interface van de portal mogelijk inconsistent worden. Als dit gebeurt, vernieuw de pagina voor het herstellen van de juiste status.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het synchroniseren van de SQL-gegevens (Preview):
+Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
--   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-sync-data.md)
--   [Instellen van Azure SQL-gegevenssynchronisatie (Preview)](sql-database-get-started-sql-data-sync.md)
--   [Monitor voor Azure SQL synchroniseren van gegevens (Preview) met logboekanalyse](sql-database-sync-monitor-oms.md)
--   [Problemen oplossen met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-troubleshoot-data-sync.md)  
--   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens (Preview) te configureren:  
+-   [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync (Preview)](sql-database-sync-data.md)
+-   [Azure SQL Data Sync instellen](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL Data Sync bewaken met Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Problemen oplossen met Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)  
+-   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:  
     -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Het synchroniseren van de SQL-gegevens (Preview) REST-API-documentatie downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
+-   [De documentatie over de REST-API van SQL Data Sync downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Zie voor meer informatie over SQL-Database:
 

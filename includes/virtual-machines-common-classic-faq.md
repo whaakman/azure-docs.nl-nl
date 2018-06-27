@@ -48,7 +48,7 @@ Voor virtuele machines die zijn gemaakt in het klassieke implementatiemodel kunt
 Op het moment dat u de virtuele machine maakt, moet u het netwerk opgeven waarvan de virtuele machine deel moet uitmaken. Het is niet mogelijk om een bestaande virtuele machine te koppelen aan een virtueel netwerk. U dit probleem omzeilen door de virtuele harde schijf (VHD) los te koppelen van de bestaande virtuele machine en de schijf vervolgens gebruiken om een nieuwe virtuele machine te maken met de gewenste netwerkconfiguratie.
 
 ## <a name="how-can-i-access--my-virtual-machine"></a>Hoe krijg ik toegang tot mijn virtuele machine?
-U moet een externe verbinding tot stand brengen om u aan te melden bij de virtuele machine. Dit kan met de functie Verbinding met extern bureaublad voor een virtuele machine van Windows of via een Secure Shell (SSH) voor een VM van Linux. Instructies vindt u hier:
+U moet geen externe verbinding aan te melden bij de virtuele machine via Extern bureaublad-verbinding voor een virtuele machine van Windows of een "Secure Shell" (SSH) voor een Linux-VM. Instructies vindt u hier:
 
 * [Aanmelden bij een virtuele machine met Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Er worden maximaal twee gelijktijdige verbindingen ondersteund, tenzij de server is geconfigureerd als een host voor sessies van Extern bureaublad-services.  
 * [Aanmelden bij een virtuele machine met Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). SSH biedt standaard ondersteuning voor maximaal tien gelijktijdige verbindingen. U kunt dit aantal verhogen door het configuratiebestand te bewerken.
@@ -78,7 +78,7 @@ De term 'upgraden' betekent meestal overstappen naar een recentere versie van he
 Zie [Functies en onderdelen migreren in Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940) voor algemene informatie over de hulpprogramma's en processen voor het migreren van een computer met Windows Server.
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Welke gebruikersnaam en welk wachtwoord worden standaard gebruikt op een virtuele machine?
-De installatiekopieën die worden verstrekt door Azure bevatten geen vooraf geconfigureerde gebruikersnaam en wachtwoord. Wanneer u met behulp van een van deze installatiekopieën een virtuele machine maakt, moet u een gebruikersnaam en wachtwoord opgeven, die u daarna gebruikt om u aan te melden bij de virtuele machine.
+De installatiekopieën die worden verstrekt door Azure bevatten geen vooraf geconfigureerde gebruikersnaam en wachtwoord. Wanneer u een virtuele machine met een van deze installatiekopieën maakt, moet u een gebruikersnaam en wachtwoord dat u aan te melden bij de virtuele machine.
 
 Als u de gebruikersnaam of het wachtwoord bent vergeten en u de VM-agent hebt geïnstalleerd, kunt u de extensie [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) installeren en gebruiken om het probleem op te lossen.
 

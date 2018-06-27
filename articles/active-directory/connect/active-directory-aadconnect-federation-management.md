@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 719506e35e6abe5ac573c7ceedc1668fd2704bd4
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590851"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961686"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Beheren en aanpassen van Active Directory Federation Services met behulp van Azure AD Connect
 Dit artikel wordt beschreven hoe u kunt beheren en aanpassen van Active Directory Federation Services (AD FS) met behulp van Azure Active Directory (Azure AD) verbinding maken. Dit omvat ook andere algemene AD FS-taken die u moet doen voor een volledige configuratie van een AD FS-farm.
@@ -246,31 +246,8 @@ In deze regel, bent u gewoon de tijdelijke vlag controleren **idflag**. U beslis
 > De volgorde van deze regels is belangrijk.
 
 ### <a name="sso-with-a-subdomain-upn"></a>Eenmalige aanmelding met een subdomein UPN
-U kunt meer dan één domein dat gefedereerd met behulp van Azure AD Connect, zoals beschreven in toevoegen [toevoegen van een nieuwe federatieve domein](active-directory-aadconnect-federation-management.md#addfeddomain). U moet de UPN (User Principal Name) Gebruikersclaim wijzigen zodat de uitgevers-ID komt met het hoofddomein en niet het subdomein overeen, omdat het federatieve hoofddomein ook de onderliggende vallen.
 
-De claimregel voor uitgevers-ID is standaard ingesteld als:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Standaard uitgever-ID claim](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-De standaardregel gewoon duurt het UPN-achtervoegsel en wordt gebruikt in de claim uitgever-ID. Bijvoorbeeld: John is een gebruiker in sub.contoso.com en contoso.com is gefedereerd met Azure AD. John voert john@sub.contoso.com als de gebruikersnaam tijdens het aanmelden bij Azure AD. De claimregel standaard uitgever-ID in AD FS afhandelt op de volgende manier:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**De waarde van de claim:**  http://sub.contoso.com/adfs/services/trust/
-
-Als u alleen het hoofddomein in de claimwaarde van de certificaatverlener wilt weergeven, wijzigen de claimregel zodat deze overeenkomt met het volgende:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+U kunt meer dan één domein dat gefedereerd met behulp van Azure AD Connect, zoals beschreven in toevoegen [toevoegen van een nieuwe federatieve domein](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect versie 1.1.553.0 en de meest recente maakt automatisch de juiste claimregel voor issuerID. Als u Azure AD Connect versie 1.1.553.0 niet gebruiken of de meest recente, verdient het aanbeveling om [Claimregels voor Azure AD Rapportkoptekst](https://aka.ms/aadrptclaimrules) hulpprogramma wordt gebruikt voor het genereren en stel de juiste claimregels voor de relying party trust van Azure AD.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [opties aanmelden gebruiker](active-directory-aadconnect-user-signin.md).

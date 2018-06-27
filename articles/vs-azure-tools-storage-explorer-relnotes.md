@@ -12,28 +12,120 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2017
+ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 2878fb737f5daa875b91aefc77c6b8bc495f917e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59415941172fab06b3e86ef4d34d464cf359ce8f
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657567"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025762"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
-Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 release, evenals de releaseopmerkingen voor eerdere versies.
+Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.2.0 release, evenals de releaseopmerkingen voor eerdere versies.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
 
+## <a name="version-120"></a>Versie 1.2.0
+12-06/2018
+
+### <a name="download-azure-storage-explorer-120"></a>Azure Storage Explorer 1.2.0 downloaden
+- [Azure Opslagverkenner 1.2.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Opslagverkenner 1.2.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Opslagverkenner 1.2.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nieuw
+* Als Opslagverkenner niet laden van de abonnementen uit alleen een subset van uw tenants, worden geladen abonnementen weergegeven samen met een foutbericht specifiek voor de tenants die niet zijn geslaagd. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
+* Op Windows, wanneer een update beschikbaar is, is kunt nu u naar 'Bijwerken bij sluiten'. Wanneer deze optie is verzameld, wordt het installatieprogramma voor de update wordt uitgevoerd nadat u Opslagverkenner sluiten. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
+* Herstellen van momentopname is toegevoegd aan het contextmenu van de editor van het bestandsshare wanneer u een momentopname van een share bekijkt. [#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
+* De knop wissen wachtrij is nu altijd ingeschakeld. [#135](https://github.com/Microsoft/AzureStorageExplorer/issues/135)
+* Ondersteuning voor het aanmelden bij Azure-Stack ADFS is al opnieuw worden ingeschakeld. Azure Stack 1804 of hoger is vereist. [#150](https://github.com/Microsoft/AzureStorageExplorer/issues/150)
+
+### <a name="fixes"></a>Oplossingen
+* Als u momentopnamen voor een bestandsshare waarvan de naam een voorvoegsel van een andere bestandsshare in hetzelfde opslagaccount is weergegeven, worden klikt u vervolgens de momentopnamen voor de bestandsshare ook vermeld. Dit probleem is opgelost. [#255](https://github.com/Microsoft/AzureStorageExplorer/issues/255)
+* Wanneer koppelen via SAS wordt zou een bestand terugzetten vanuit een momentopname van een share leiden tot een fout opgetreden. Dit probleem is opgelost. [#211](https://github.com/Microsoft/AzureStorageExplorer/issues/211)
+* Tijdens het weergeven van momentopnamen voor een blob, wordt de actie promoveren momentopname is ingeschakeld als de basis blob en één momentopname zijn geselecteerd. De actie is nu alleen ingeschakeld als één momentopname is geselecteerd. [#230](https://github.com/Microsoft/AzureStorageExplorer/issues/230)
+* Als een enkele taak (zoals het downloaden van een blob) is gestart en later is mislukt, zou het niet automatisch opnieuw totdat u een andere taak van hetzelfde type gestart. Alle taken moeten nu automatisch opnieuw proberen, ongeacht hoeveel taken u hebt in de wachtrij.
+* Editors geopend voor de zojuist gemaakte blob-containers in GPV2 en Blob Storage-accounts heeft geen een Toegangslaag-kolom. Dit probleem is opgelost. [109 #](https://github.com/Microsoft/AzureStorageExplorer/issues/109)
+* Een kolom van de Toegangslaag soms niet zouden worden weergegeven wanneer een opslagaccount of blob-container via SAS is gekoppeld. De kolom worden altijd nu weergegeven, maar met een lege waarde als er geen Toegangslaag ingesteld is. [#160](https://github.com/Microsoft/AzureStorageExplorer/issues/160)
+* Instellen van de Toegangslaag van een recent geüploade blok-blob is uitgeschakeld. Dit probleem is opgelost. [#171](https://github.com/Microsoft/AzureStorageExplorer/issues/171)
+* Als de knop 'Houden tabblad openen' is aangeroepen met toetsenbord, zou toetsenbordfocus verloren zijn. Nu wordt de focus verplaatst naar het tabblad dat openen is aangehouden. [#163](https://github.com/Microsoft/AzureStorageExplorer/issues/163)
+* Voice-over is niet een bruikbaar beschrijving van de huidige operator geeft voor een query in de opbouwfunctie voor Query's. Het is nu meer beschrijvende. [#207](https://github.com/Microsoft/AzureStorageExplorer/issues/207)
+* Er zijn geen paginering koppelingen voor de verschillende editors beschrijvende. Ze zijn om de meer beschrijvende worden gewijzigd. [#205](https://github.com/Microsoft/AzureStorageExplorer/issues/205)
+* In het dialoogvenster entiteit toevoegen is Voice-over niet aangekondigd welke kolom een invoerelement deel uitmaakte van. De naam van de huidige kolom is nu opgenomen in de beschrijving van het element. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Keuzerondjes en selectievakjes heeft geen een zichtbare rand wanneer gericht. Dit probleem is opgelost. [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
+
+### <a name="known-issues"></a>Bekende problemen
+* Wanneer u emulators, zoals Azure-Opslagemulator of Azurite, moet u ze luisteren naar verbindingen op hun standaardpoorten. Anders Opslagverkenner kan niet worden verbinding te maken met.
+* Als u tegenover voor Mac gebruiken en ooit een aangepaste AAD-configuratie hebt gemaakt, is het wellicht niet mogelijk om aan te melden. Verwijder de inhoud van het probleem te verhelpen, ~ /. IdentityService/AadConfigurations. Als u in dat geval heeft niet de blokkering opheffen u, stuur een reactie op [dit probleem](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite is nog niet volledig geïmplementeerd alle Storage-API's. Als gevolg hiervan kunnen er onverwachte fouten of gedrag Azurite voor ontwikkeling opslag gebruikt.
+* In zeldzame gevallen kan de focus structuur ophalen achtergebleven op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
+* Uploaden van de map OneDrive werkt niet vanwege een fout in NodeJS. De fout is opgelost, maar nog niet is geïntegreerd in Electron.
+* Wanneer u ontwikkelt voor Azure-Stack, mislukken uploaden van bepaalde bestanden zoals toevoeg-blobs.
+* Wanneer u op 'Annuleren' voor een taak, duurt het even voor die taak te annuleren. Dit is omdat we de annuleren filter tijdelijke oplossing gebruiken [hier](https://github.com/Azure/azure-storage-node/issues/317).
+* Als u de verkeerde PINCODE/smartcardcertificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Naam van de BLOB's (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam te wijzigen.
+* Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde Azure-Stack storage-account.
+* De Electron shell die wordt gebruikt door Opslagverkenner heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Opslagverkenner is leeg (leeg) hoofdvenster weer te geven, kunt u proberen Storage Explorer te starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door het toevoegen van de `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Voor Linux-gebruikers, moet u installeren [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is up-to-date - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* U moet installeren GConf voor gebruikers op Ubuntu 17.04 - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
+
+
+
+
+
+
+## <a name="previous-releases"></a>Eerdere versies
+
+* [Versie 1.1.0](#version-110)
+* [Versie 1.0.0](#version-100)
+* [Versie 0.9.6](#version-096)
+* [Versie 0.9.5](#version-095)
+* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
+* [Versie 0.9.2](#version-092)
+* [Versie 0.9.1 en 0.9.0](#version-091-and-090)
+* [Versie 0.8.16](#version-0816)
+* [Versie 0.8.14](#version-0814)
+* [Versie 0.8.13](#version-0813)
+* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
+* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
+* [Versie 0.8.7](#version-087)
+* [Versie 0.8.6](#version-086)
+* [Versie 0.8.5](#version-085)
+* [Versie 0.8.4](#version-084)
+* [Versie 0.8.3](#version-083)
+* [Versie 0.8.2](#version-082)
+* [Versie 0.8.0](#version-080)
+* [Versie 0.7.20160509.0](#version-07201605090)
+* [Versie 0.7.20160325.0](#version-07201603250)
+* [Versie 0.7.20160129.1](#version-07201601291)
+* [Versie 0.7.20160105.0](#version-07201601050)
+* [Versie 0.7.20151116.0](#version-07201511160)
+
+
 ## <a name="version-110"></a>Versie 1.1.0
 09-05/2018
-
-### <a name="download-azure-storage-explorer-110"></a>Azure Storage Explorer 1.1.0 downloaden
-- [Azure Opslagverkenner 1.1.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Opslagverkenner 1.1.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Opslagverkenner 1.1.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nieuw
 * Opslagverkenner ondersteunt nu het gebruik van Azurite. Opmerking: de verbinding met Azurite is vastgelegd op de Standaardeindpunten voor ontwikkeling.
@@ -60,7 +152,7 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
 * In zeldzame gevallen kan de focus structuur ophalen achtergebleven op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
 * Uploaden van de map OneDrive werkt niet vanwege een fout in NodeJS. De fout is opgelost, maar nog niet is geïntegreerd in Electron.
 * Wanneer u ontwikkelt voor Azure-Stack, mislukken uploaden van bepaalde bestanden zoals toevoeg-blobs.
-* Wanneer u op 'Annuleren' voor een taak, duurt het even voor die taak te annuleren. Dit is omdat we de annuleren filter tijdelijke oplossing gebruiken [hier](https://github.com/Azure/azure-storage-node/issues/317). 
+* Wanneer u op 'Annuleren' voor een taak, duurt het even voor die taak te annuleren. Dit is omdat we de annuleren filter tijdelijke oplossing gebruiken [hier](https://github.com/Azure/azure-storage-node/issues/317).
 * Als u de verkeerde PINCODE/smartcardcertificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
 * Naam van de BLOB's (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam te wijzigen.
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde Azure-Stack storage-account.
@@ -86,39 +178,9 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>Eerdere versies
-
-* [Versie 1.0.0](#version-100)
-* [Versie 0.9.6](#version-096)
-* [Versie 0.9.5](#version-095)
-* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
-* [Versie 0.9.2](#version-092)
-* [Versie 0.9.1 en 0.9.0](#version-091-and-090)
-* [Versie 0.8.16](#version-0816)
-* [Versie 0.8.14](#version-0814)
-* [Versie 0.8.13](#version-0813)
-* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
-* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
-* [Versie 0.8.7](#version-087)
-* [Versie 0.8.6](#version-086)
-* [Versie 0.8.5](#version-085)
-* [Versie 0.8.4](#version-084)
-* [Versie 0.8.3](#version-083)
-* [Versie 0.8.2](#version-082)
-* [Versie 0.8.0](#version-080)
-* [Versie 0.7.20160509.0](#version-07201605090)
-* [Versie 0.7.20160325.0](#version-07201603250)
-* [Versie 0.7.20160129.1](#version-07201601291)
-* [Versie 0.7.20160105.0](#version-07201601050)
-* [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-100"></a>Versie 1.0.0
 16-04/2018
-
-### <a name="download-azure-storage-explorer-100"></a>Azure Storage Explorer 1.0.0 downloaden
-- [Azure Opslagverkenner 1.0.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Opslagverkenner 1.0.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Opslagverkenner 1.0.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nieuw
 * Verbeterde verificatie waarmee Opslagverkenner de store te gebruiken hetzelfde account als Visual Studio 2017. Deze functie wilt gebruiken, moet u aanmelding aan uw accounts en uw gefilterde abonnementen opnieuw instellen.
@@ -136,7 +198,7 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
 
 ### <a name="fixes"></a>Oplossingen
 * Sommige gebruikers achter proxy's zou hebben groep blob uploads of downloads onderbroken door een 'kan niet omzetten' foutbericht. Dit probleem is opgelost.
-* Als het aanmelden is vereist, terwijl met behulp van een directe koppeling te klikken op de prompt Sign In zou pop-updialoogvenster een leeg. Dit probleem is opgelost.
+* Als het aanmelden is vereist tijdens het gebruik van een directe koppeling te klikken op de prompt 'Sign-In-zou pop-updialoogvenster een leeg. Dit probleem is opgelost.
 * Op Linux, als Opslagverkenner kan niet starten vanwege het vastlopen van een proces GPU ontvangt u nu een bericht van de crash, adviseert gebruik van de '--uitschakelen gpu' switch- en Storage Explorer wordt vervolgens automatisch opnieuw opgestart met de schakeloptie ingeschakeld.
 * Ongeldige toegangsbeleid zijn moeilijk te identiteit in het dialoogvenster toegangsbeleid. Ongeldige toegangsbeleid id's worden nu in rood voor meer zichtbaarheid beschreven.
 * Het activiteitenlogboek moet soms grote gebieden met witruimte tussen de verschillende onderdelen van een activiteit. Dit probleem is opgelost.
@@ -156,7 +218,7 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
 ### <a name="known-issues"></a>Bekende problemen
 * In zeldzame gevallen kan de focus structuur ophalen achtergebleven op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
 * Wanneer u ontwikkelt voor Azure-Stack, mislukken uploaden van bepaalde bestanden zoals toevoeg-blobs.
-* Wanneer u op 'Annuleren' voor een taak, duurt het even voor die taak te annuleren. Dit is omdat we de annuleren filter tijdelijke oplossing hier gebruiken. 
+* Wanneer u op 'Annuleren' voor een taak, duurt het even voor die taak te annuleren. Dit is omdat we de annuleren filter tijdelijke oplossing hier gebruiken.
 * Als u de verkeerde PINCODE/smartcardcertificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
 * Naam van de BLOB's (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam te wijzigen.
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde Azure-Stack storage-account.
@@ -184,11 +246,6 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
 
 ## <a name="version-096"></a>Versie 0.9.6
 28-02/2018
-
-### <a name="download-azure-storage-explorer-096-preview"></a>Azure Storage Explorer 0.9.6 (Preview) downloaden
-- [Azure Opslagverkenner (Preview) 0.9.6 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Opslagverkenner (Preview) 0.9.6 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Opslagverkenner (Preview) 0.9.6 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="fixes"></a>Oplossingen
 * Een probleem niet wordt vermeld in de editor verwachte blobs en-bestanden. Dit probleem is opgelost.
@@ -225,11 +282,6 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
 
 ## <a name="version-095"></a>Versie 0.9.5
 06-02/2018
-
-### <a name="download-azure-storage-explorer-095-preview"></a>Azure Storage Explorer 0.9.5 (Preview) downloaden
-- [Azure Opslagverkenner (Preview) 0.9.5 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Opslagverkenner (Preview) 0.9.5 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Opslagverkenner (Preview) 0.9.5 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nieuw
 
@@ -280,11 +332,6 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
 ## <a name="version-094-and-093"></a>Versie 0.9.4 en 0.9.3
 01/21/2018
 
-### <a name="download-azure-storage-explorer-094-preview"></a>Azure Storage Explorer 0.9.4 (Preview) downloaden
-* [Download de Azure Opslagverkenner (Preview) 0.9.4 voor Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download de Azure Opslagverkenner (Preview) 0.9.4 voor Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Azure Opslagverkenner (Preview) 0.9.4 voor Linux downloaden](https://go.microsoft.com/fwlink/?LinkId=809308)
-
 ### <a name="new"></a>Nieuw
 * Uw bestaande Storage Explorer-venster wordt niet opnieuw worden gebruikt wanneer:
     * Directe koppelingen gegenereerd in Opslagverkenner openen.
@@ -295,9 +342,9 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
     * Voor Mac is er een optie 'Nieuw venster' onder App-Menu.
 
 ### <a name="fixes"></a>Oplossingen
-* Een beveiligingsprobleem opgelost. Upgrade naar 0.9.4 op vroegste gemak.
+* Een beveiligingsprobleem opgelost. Upgrade naar 0.9.4 zo snel mogelijk.
 * Oude activiteiten zijn niet op de juiste wijze worden opgeruimd. Dit van invloed op de prestaties van langdurige taken. Ze worden nu wordt opgeschoond correct.
-* Acties met betrekking tot groot aantal bestanden en mappen, zou soms Opslagverkenner blokkeren. Aanvragen voor Azure voor bestandsshares zijn nu trottled system resource gebruik beperken.
+* Acties met betrekking tot groot aantal bestanden en mappen, zou soms Opslagverkenner blokkeren. Aanvragen naar Azure voor bestandsshares zijn nu om te beperken systeemgebruik resource beperkt.
 
 ### <a name="known-issues"></a>Bekende problemen
 * Opslagverkenner biedt geen ondersteuning voor AD FS-accounts.
@@ -343,7 +390,7 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
     * Databases en verzamelingen maken
     * Gegevens bewerken
     * Een query, maken of verwijderen van documenten
-    * Opgeslagen procedures, door de gebruiker gedefinieerde functies of triggers bijwerken
+    * Opgeslagen procedures, de gebruiker gedefinieerde functies of triggers bijwerken
     * Gebruik verbindingsreeksen met verbinding maken met en beheren van uw databases
 * Verbetert de prestaties van veel kleine blobs uploaden/downloaden.
 * Een 'Opnieuw alle' actie toegevoegd als er fouten in een blob uploaden groep of blob downloaden.
@@ -397,7 +444,7 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
     * Databases en verzamelingen maken
     * Gegevens bewerken
     * Een query, maken of verwijderen van documenten
-    * Opgeslagen procedures, door de gebruiker gedefinieerde functies of triggers bijwerken
+    * Opgeslagen procedures, de gebruiker gedefinieerde functies of triggers bijwerken
     * Gebruik verbindingsreeksen met verbinding maken met en beheren van uw databases
 * Verbetert de prestaties van veel kleine blobs uploaden/downloaden.
 * Een 'Opnieuw alle' actie toegevoegd als er fouten in een blob uploaden groep of blob downloaden.
@@ -521,7 +568,7 @@ Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 releas
 #### <a name="fixes"></a>Oplossingen
 
 * Vaste: Uploaden bestand heeft een hoog risico dat een out-of geheugenfout
-* Vaste: U kunt nu aanmelden met PINCODE/Smartcard
+* Vaste: U kunt nu aanmelden met een PINCODE/Smartcard
 * Vaste: Open in de Portal nu werkt met Azure China, Duitse Azure, Azure US Government en Azure-Stack
 * Vaste: Tijdens het uploaden van een map naar een blob-container, 'Ongeldige bewerking' zou soms treedt er een fout
 * Vaste: Alles selecteren is uitgeschakeld terwijl het beheer van momentopnamen

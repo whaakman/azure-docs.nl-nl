@@ -9,19 +9,19 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 64a5c4e761653748c4328e310f9a399fe62f9149
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0e7d3991b195a83a8b87e306b3b34fbed2098581
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344745"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018023"
 ---
 # <a name="emotion-api-java-for-android-quick-start"></a>Emotion-API Java voor Android snel starten
 
 > [!IMPORTANT]
 > Video API Preview eindigt op 30 oktober 2017. Het nieuwe [Video indexeerfunctie API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten extraheren van video's en ervaringen van inhoud, zoals de lijst met zoekresultaten verbeteren doordat gesproken woorden, vlakken tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
-In dit artikel vindt u informatie en een voorbeeld van code kunt u snel aan de slag met de [Emotion herkennen methode](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) in de Emotion-API Android clientbibliotheek. Het voorbeeld laat zien hoe u Java kunt gebruiken voor het herkennen van de emoties uitgedrukt door mensen. 
+In dit artikel vindt u informatie en een voorbeeld van code kunt u snel aan de slag met de [Emotion herkennen methode](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) in de Emotion-API Android clientbibliotheek. Het voorbeeld laat zien hoe u Java kunt gebruiken voor het herkennen van de emoties uitgedrukt door mensen. 
 
 ## <a name="prerequisites"></a>Vereisten
 * Ophalen van de Java Emotion-API voor Android SDK [hier](https://github.com/Microsoft/Cognitive-emotion-android)

@@ -8,14 +8,14 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 6f2bf2ae454d5af1bba0c176940db1820268a129
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b8a2c0dbadb0124b9250849a0260f5b34d38a5c3
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266274"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021660"
 ---
 # <a name="integrate-speech-service"></a>Spraak service integreren
 De [spraak service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u met één aanvraag ontvangen van audio en LUIS voorspelling JSON-objecten retourneren.
@@ -23,6 +23,9 @@ De [spraak service](https://docs.microsoft.com/azure/cognitive-services/Speech-S
 In dit artikel die u kunt downloaden en gebruiken van een C#-project in Visual Studio een utterance in een microfoon spreken en LUIS voorspelling informatie ontvangen. Het project maakt gebruik van de spraak [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) pakket, al als een verwijzing zijn opgenomen. 
 
 Voor dit artikel, moet u een gratis [LUIS] [ LUIS] website-account om te importeren van de toepassing.
+
+## <a name="create-luis-endpoint-key"></a>LUIS eindpuntsleutel maken
+In de Azure portal [maken](luis-how-to-azure-subscription.md#create-luis-endpoint-key) een **Language Understanding** (LUIS)-sleutel. 
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS importeren app
 De intents en utterances voor dit artikel zijn van de app LUIS Human Resources beschikbaar is via de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-opslagplaats. Download de [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) bestand opslaan met de extensie *.json en [importeren](create-new-app.md#import-new-app) in LUIS. 
@@ -40,11 +43,22 @@ Do I have any paid time off?
 Na het importeren van de app, selecteer **entiteiten**, klikt u vervolgens **vooraf gemaakte entiteiten beheren**. Voeg de **KeyPhrase** entiteit. De entiteit KeyPhrase haalt sleutel onderwerp uit de utterance.
 
 ## <a name="train-and-publish-the-app"></a>Trainen en publiceer de app
-Trainen en publiceer de app. Op de **publiceren** pagina, het verzamelen van de app-ID, het publiceren van regio en abonnements-ID. U moet de code voor het gebruik van deze waarden verderop in dit artikel te wijzigen. 
+1. Selecteer in de bovenste, rechts navigatiebalk de **trainen** knop voor het trainen van de app LUIS.
 
-Deze waarden zijn opgenomen in de eindpunt-URL aan de onderkant van de **publiceren** pagina. 
+2. Selecteer **publiceren** naar de pagina publiceren. 
 
-https://**regio**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? abonnement sleutel =**LUISKEY**& q =
+3. Aan de onderkant van de **publiceren** pagina, voegt de LUIS sleutel gemaakt in de [eindpuntsleutel maken LUIS](#create-luis-endpoint-key) sectie.
+
+4. De app LUIS publiceren door het selecteren van de **publiceren** knop aan de rechterkant van de sleuf publiceren. 
+
+  Op de **publiceren** pagina, het verzamelen van de app-ID, het publiceren van regio en abonnements-ID van de LUIS sleutel gemaakt in de [eindpuntsleutel maken LUIS](#create-luis-endpoint-key) sectie. U moet de code voor het gebruik van deze waarden verderop in dit artikel te wijzigen. 
+
+  Deze waarden zijn opgenomen in de eindpunt-URL aan de onderkant van de **publiceren** pagina voor de sleutel die u hebt gemaakt. Voer **niet** gratis starter-toets gebruiken voor deze oefening. 
+
+  https://**regio**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? abonnement sleutel =**LUISKEY**& q =
+
+## <a name="audio-device"></a>Audio-apparaat
+Dit artikel wordt het audioapparaat op uw computer. Die een hoofdtelefoon met microfoon of een ingebouwde audioapparaat kan zijn. Controleer de audio-invoer niveaus om te zien als u harder dan u gewend bent als u wilt dat uw spraak gedetecteerd door het audioapparaat moet spreken. 
 
 ## <a name="download-the-luis-sample-project"></a>Het project LUIS Sample downloaden
  Klonen of downloaden de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) opslagplaats. Open de [spraak aan opzet project](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) met Visual Studio en de NuGet-pakketten te herstellen. Het oplossingsbestand tegenover is.\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
@@ -108,7 +122,7 @@ Recognition done. Your Choice:
 
 ```
 
-De juiste bedoeling **GetEmployeeOrgChart**, is gevonden met een betrouwbaarheid 61%. De entiteit keyphrase is geretourneerd. 
+De juiste bedoeling **GetEmployeeOrgChart**, is gevonden met een betrouwbaarheid 61%. De entiteit keyPhrase is geretourneerd. 
 
 De SDK spraak retourneert het gehele LUIS-antwoord. 
 

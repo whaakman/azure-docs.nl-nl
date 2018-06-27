@@ -2,7 +2,7 @@
 
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>De StorSimple-Adapter installeren voor SharePoint
 1. Het installatieprogramma kopiëren naar de webserver van de front-end (WFE) die ook is geconfigureerd voor het uitvoeren van de webtoepassing SharePoint Centraal beheer. 
-2. Gebruik een account met administrator-bevoegdheden aan te melden op de WFE-server.
+2. Gebruik een account met administrator-bevoegdheden aan te melden bij de WFE-server.
 3. Dubbelklik op het installatieprogramma. De StorSimple-Adapter voor SharePoint-installatiewizard wordt gestart. Klik op **volgende** om de installatie te starten.
    
     ![Startpagina van StorSimple adapter setup](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)

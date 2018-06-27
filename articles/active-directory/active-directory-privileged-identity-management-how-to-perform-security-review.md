@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: protection
-ms.date: 06/06/2017
+ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 885c7a144a2ac588e1f1b32fb03b7ed72d058e94
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 7c536a4e7f93a2f1ef42b7600513994dd80826a0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233448"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020867"
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Het uitvoeren van een onderzoek toegang in Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management vereenvoudigt de manier waarop bedrijven bevoorrechte toegang tot resources in Azure AD en andere Microsoft online services zoals Office 365 of Microsoft Intune beheert.  
 
 Als u zijn toegewezen aan een administratieve rol, kan u regelmatig bevestigen dat u nog die rol bij uw werk moet door beheerder met bevoorrechte rol van uw organisatie vragen. Krijgt u mogelijk een e-mailbericht een koppeling bevat of u kunt dan direct door naar de [Azure-portal](https://portal.azure.com). Volg de stappen in dit artikel om uit te voeren met een zelf controleren van de toegewezen rollen.
 
-Als u een beheerder met bevoorrechte rol geïnteresseerd in toegang revisies, vraag meer details op [starten een onderzoek toegang](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Als u een beheerder met bevoorrechte rol of de globale beheerdersrol geïnteresseerd in toegang revisies, vraag meer details op [starten een onderzoek toegang](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 ## <a name="add-the-privileged-identity-management-application"></a>De Privileged Identity Management-toepassing toevoegen
 U kunt de toepassing Azure AD Privileged Identity Management (PIM) in de [Azure-portal](https://portal.azure.com/) om uit te voeren van uw beoordeling.  Als u niet de Azure AD Privileged Identity Management-toepassing op uw portal hebt, als volgt te werk om te beginnen.

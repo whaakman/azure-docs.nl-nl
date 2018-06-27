@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628120"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017506"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>De oplossing voor externe controle accelerator met behulp van de CLI implementeren
 
@@ -68,7 +68,7 @@ Wanneer u een eenvoudige oplossing leidt ertoe dat de volgende Azure-services in
 | Count | Resource                       | Type         | Gebruikt voor |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Virtuele Linux-Machine](https://azure.microsoft.com/services/virtual-machines/) | Standaard D1 V2  | Hosting microservices |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1: basisstaffel | Apparaatbeheer en communicatie |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1: Standard-laag | Apparaatbeheer en communicatie |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Het opslaan van configuratiegegevens en telemetriegegevens, zoals regels, waarschuwingen en berichten |  
 | 1     | [Azure Storage-Account](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Opslag voor virtuele machine en de controlepunten streaming |
 | 1     | [Webtoepassing](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting-front-endwebtoepassing |
@@ -82,7 +82,7 @@ Maken van een standaardoplossing leidt ertoe dat de volgende Azure-services in u
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Virtuele Linux-machines](https://azure.microsoft.com/services/virtual-machines/)   | Standaard D2 V2  | 1 master en 3 agents voor het hosten van microservices met redundantie |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
-| 1     | [Azure IoT Hub] [https://azure.microsoft.com/services/iot-hub/]                     | S1: basisstaffel | Beheer van apparaten, de opdracht en controle |
+| 1     | [Azure IoT Hub] [https://azure.microsoft.com/services/iot-hub/]                     | S2 – Standard-laag | Beheer van apparaten, de opdracht en controle |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Het opslaan van configuratiegegevens en telemetriegegevens, zoals regels, waarschuwingen en berichten |
 | 5     | [Azure Storage-Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 voor VM-opslag en 1 voor de streaming controlepunten |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Toepassingsgateway via SSL |

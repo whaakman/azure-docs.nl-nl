@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: f0241278343ba4383caef5bb52bc4f1ece2bec7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 53ccd4dc40136ada30a0e230d526414b567919c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790529"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960454"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Aan de slag met het leveren van inhoud on demand met REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -267,11 +267,9 @@ Een SAS-URL heeft de volgende indeling:
 
 Hierbij geldt het volgende:
 
-* Er kan niet meer dan vijf unieke Locators die tegelijk zijn gekoppeld aan een bepaalde Asset. Zie voor meer informatie Locator.
+* Er kan niet meer dan vijf unieke Locators die tegelijk zijn gekoppeld aan een bepaalde Asset. 
 * Als u uw bestanden direct te uploaden wilt, stelt u de waarde StartTime tot vijf minuten vóór de huidige tijd. Dit is omdat er mogelijk klok scheeftrekken tussen uw client-computer en de Media Services. De waarde StartTime moet ook zijn in de volgende datum/tijd-indeling: jjjj-MM-ssZ (bijvoorbeeld ' 2014-05-23T17:53:50Z ').    
-* Er is mogelijk een tweede 30 tot 40 vertraging nadat een Locator wordt gemaakt tot wanneer deze beschikbaar voor gebruik is. Dit probleem geldt voor zowel de SAS-URL en de oorsprong Locators.
-
-Zie voor meer informatie over SAS locators [dit](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+* Er is mogelijk een tweede 30 tot 40 vertraging nadat een Locator wordt gemaakt tot wanneer deze beschikbaar voor gebruik is. Dit probleem geldt zowel [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) en oorsprong Locators.
 
 Het volgende voorbeeld ziet het maken van een SAS-URL-Locator, zoals gedefinieerd door de eigenschap Type in de aanvraagtekst ('1' voor een SAS-locator) en '2' voor een On-Demand oorsprong-locator. De **pad** die wordt geretourneerd, bevat de URL die u gebruiken moet om uw bestand te uploaden.
 
@@ -694,7 +692,7 @@ De volgende code toont hoe u kunt de uitvoerasset id aanvragen
 
 ## <a id="publish_get_urls"></a>De asset publiceren en get streamen en progressief downloaden van URL's met de REST-API
 
-Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS, of Smooth Streaming) en SAS-locators (Shared Access Signature), voor het downloaden van media-bestanden. Zie voor meer informatie over SAS locators [dit](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS, of Smooth Streaming) en SAS-locators (Shared Access Signature), voor het downloaden van media-bestanden. 
 
 Als u de locators hebt gemaakt, kunt u de URL's die worden gebruikt om te streamen of downloaden van uw bestanden te maken.
 

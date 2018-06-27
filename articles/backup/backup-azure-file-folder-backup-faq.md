@@ -7,14 +7,14 @@ manager: shreeshd
 keywords: back-up en herstel na noodgeval; Backup-service
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 6/25/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605528"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016484"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Vragen over de Azure Backup-agent
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van de Azure Backup-agent. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -58,7 +58,7 @@ Absoluut. Azure Backup biedt back-ups op VM-niveau voor de virtuele machines van
 Ja. Installeer de Azure Backup-agent op het Windows-gastbesturingssysteem en maak back-ups van bestanden en mappen naar de tijdelijke opslag. Houd er rekening mee dat back-ups mislukken als de tijdelijke opslaggegevens worden gewist. Bovendien kunt u alleen herstelbewerkingen naar een niet-vluchtige opslag uitvoeren als de tijdelijke opslaggegevens zijn verwijderd.
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Wat is de vereiste minimumgrootte voor de cachemap? <br/>
-De grootte van de cachemap bepaalt de hoeveelheid gegevens waarvan u een back-up maakt. Uw cachemap moet 5% van de benodigde ruimte voor de opslag van gegevens zijn.
+De grootte van de cachemap bepaalt de hoeveelheid gegevens waarvan u een back-up maakt. Het volume van de cachemap moet ten minste 5-10% vrije ruimte, in vergelijking met de totale grootte van de back-upgegevens. Als het volume minder dan 5 heeft % vrije ruimte, vergroot de grootte van het volume of [verplaatsen van de cachemap op een volume met voldoende vrije ruimte](backup-azure-file-folder-backup-faq.md#backup).
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Hoe kan ik mijn server bij een ander datacenter registreren?<br/>
 De back-upgegevens worden verzonden naar het datacenter van de kluis waarbij de server is geregistreerd. De eenvoudigste manier om het datacenter te wijzigen, is de agent te verwijderen en opnieuw te installeren en u vervolgens te registreren bij een nieuwe kluis die behoort bij het gewenste datacenter.

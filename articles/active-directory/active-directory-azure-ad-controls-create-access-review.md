@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234070"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020403"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Maken van een beoordeling toegang van de leden van beveiligingsgroep of toegang tot toepassingen met Azure AD
 
@@ -26,7 +26,7 @@ Toewijzingen Access verouderd ' ' wanneer gebruikers toegang die ze niet meer no
 
 ## <a name="create-an-access-review"></a>Een toegangsbeoordeling maken
 
-1. Als een globale beheerder bent, gaat u naar de [toegang controleert pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), en selecteer **programma's**.
+1. Als een globale beheerder of gebruiker accountbeheerder, gaat u naar de [toegang controleert pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), en selecteer **programma's**.
 
 2. Selecteer het programma waarin het toegangsbeheer controleren dat u wilt maken. **Standaardprogramma** is altijd aanwezig is, of u kunt een ander programma maken. Bijvoorbeeld, u kunt een programma voor elke initiative naleving of zakelijke doel.
 
@@ -38,7 +38,7 @@ Toewijzingen Access verouderd ' ' wanneer gebruikers toegang die ze niet meer no
 
 6. De frequentie van één keer te wijzigen, wekelijks, maandelijks, per kwartaal of jaarlijks zodat toegang controleren terugkerende en gebruik de schuifregelaar of in het tekstvak voor het definiëren van hoeveel dagen elke beoordeling van de reeks terugkerende worden geopend voor invoer van revisoren. De maximumduur voor u kunt instellen voor is een maandelijkse beoordeling bijvoorbeeld 27 dagen om te voorkomen dat er overlappende beoordelingen. 
 
-7.  De reeks terugkerende toegang controleren op 3 manieren kunt beëindigen: wordt continu uitgevoerd voor het starten van de beoordelingen voor onbepaalde tijd, tot een bepaalde datum of na een opgegeven aantal exemplaren is voltooid. U of een andere globale beheerder kunt stoppen de reeks na het maken door de datum in de instellingen wijzigen zodat deze wordt beëindigd op die datum.
+7.  De reeks terugkerende toegang controleren op 3 manieren kunt beëindigen: wordt continu uitgevoerd voor het starten van de beoordelingen voor onbepaalde tijd, tot een bepaalde datum of na een opgegeven aantal exemplaren is voltooid. U, de beheerder van een andere gebruiker of een andere globale beheerder kunt stoppen de reeks na het maken door de datum in de instellingen wijzigen zodat deze wordt beëindigd op die datum.
 
 8. Toegang beoordelingen kunnen zijn voor de leden van een groep of gebruikers die zijn toegewezen aan een toepassing. U kunt de toegang verder bereik bekijken om te bekijken alleen de gastgebruikers die lid zijn (of toegewezen aan de app), in plaats van de hand van de gebruikers die lid zijn of die toegang tot de toepassing hebben.
 

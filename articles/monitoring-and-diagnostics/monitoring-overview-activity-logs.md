@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6fc4fefe6eaaf48061ea05bdbc087288ada35838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b6639ecc6fbd36df29458532d555b68b50b0a19c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264565"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018974"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitor abonnement activiteit met de Azure Activity Log
 
@@ -55,7 +55,7 @@ Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor voll
 ## <a name="what-you-can-do-with-the-activity-log"></a>Wat u kunt doen met het activiteitenlogboek
 Hier volgen enkele dingen die u met het activiteitenlogboek doen kunt:
 
-![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+![Azure-activiteitenlogboek](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
 * Vragen en deze bekijken in de **Azure-portal**.
@@ -136,7 +136,7 @@ Get-AzureRmLogProfile
 #### <a name="add-a-log-profile"></a>Een profiel van het logboek toevoegen
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | Eigenschap | Vereist | Beschrijving |
@@ -144,9 +144,9 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Naam |Ja |Naam van uw logboek-profiel. |
 | StorageAccountId |Nee |Resource-ID van het Opslagaccount waarin het activiteitenlogboek moet worden opgeslagen. |
 | serviceBusRuleId |Nee |Service Bus regel-ID voor de Service Bus-naamruimte die u hebben van event hubs gemaakt wilt in. Is een tekenreeks met deze indeling: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. |
+| Locatie |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. |
 | RetentionInDays |Ja |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
-| Categorieën |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
+| Category |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
 
 #### <a name="remove-a-log-profile"></a>Een logboek-profiel verwijderen
 ```

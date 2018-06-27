@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: d5df67021e997df3a6344701f50be4871a11386d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406027"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018378"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Scripts actie te ontwikkelen met HDInsight
 
 Informatie over het aanpassen van uw HDInsight-cluster met behulp van Bash-scripts. Scriptacties zijn een manier om aan te passen HDInsight tijdens of na het maken van het cluster.
 
 > [!IMPORTANT]
-> De stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="what-are-script-actions"></a>Wat zijn scriptacties
 
@@ -377,5 +377,5 @@ Vervang `INFILE` met het bestand met de stuklijst. `OUTFILE` moet u een nieuwe b
 ## <a name="seeAlso"></a>Volgende stappen
 
 * Meer informatie over hoe [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster-linux.md)
-* Gebruik de [HDInsight .NET SDK-naslaginformatie](https://msdn.microsoft.com/library/mt271028.aspx) voor meer informatie over het maken van .NET-toepassingen die HDInsight beheren
+* Gebruik de [HDInsight .NET SDK-naslaginformatie](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) voor meer informatie over het maken van .NET-toepassingen die HDInsight beheren
 * Gebruik de [HDInsight REST-API](https://msdn.microsoft.com/library/azure/mt622197.aspx) voor meer informatie over het gebruik van REST beheeracties uitvoeren op HDInsight-clusters.

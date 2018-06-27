@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2017
+ms.date: 06/25/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 493fb0295c1d760bb7de13ae1b703b3636750612
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29180033"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018710"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing voor System Center Operations Manager Health controleren (Preview)
 
@@ -44,7 +44,7 @@ Nadat u de oplossing hebt toegevoegd en een beoordeling uitgevoerd, samenvattend
 
 De oplossing werkt met Microsoft System Operations Manager 2012 Service Pack (SP) 1 en 2012 R2.
 
-Gebruik de volgende informatie om te installeren en configureren van de oplossing.
+Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
  - Voordat u de oplossing Serverstatus controleren in Log Analytics gebruiken kunt, moet u de oplossing geïnstalleerd hebben. Installeren van de oplossing van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
@@ -212,14 +212,14 @@ Elke aanbeveling bevat richtlijnen over waarom het belangrijk is. Deze aanwijzin
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Gebruik health focus gebied aanbevelingen controleren
 
-Voordat u een oplossing voor het controleren van health in Log Analytics gebruiken kunt, moet u de oplossing geïnstalleerd hebben. Voor meer informatie over het installeren van oplossingen, Zie [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md). Nadat deze is geïnstalleerd, kunt u de samenvatting van aanbevelingen weergeven met behulp van de tegel System Center Operations Manager Health controleren op de pagina overzicht in de OMS-portal.
+Voordat u een oplossing voor het controleren van health in Log Analytics gebruiken kunt, moet u de oplossing geïnstalleerd hebben. Voor meer informatie over het installeren van oplossingen, Zie [installeren van een beheeroplossing](log-analytics-add-solutions.md). Nadat deze is geïnstalleerd, kunt u de samenvatting van aanbevelingen weergeven met behulp van de tegel System Center Operations Manager Health controleren op de **overzicht** pagina voor uw werkruimte in de Azure portal.
 
 De beoordelingen samengevatte compatibiliteit voor uw infrastructuur en inzoomen in aanbevelingen weergeven.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een focusgebied bekijken en corrigerende actie ondernemen
-1. Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+1. Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com).
 2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
-3. Selecteer een werkruimte in het deelvenster abonnementen van logboekanalyse en klik vervolgens op de **OMS-Portal** tegel.  
+3. Selecteer een werkruimte in het deelvenster abonnementen van logboekanalyse en klik vervolgens op de **werkruimte Samenvatting** menu-item.  
 4. Op de **overzicht** pagina, klikt u op de **System Center Operations Manager Health controleren** tegel.
 5. Op de **System Center Operations Manager Health controleren** pagina, Controleer de overzichtsgegevens in een van de focus gebied blades en klik op een om aanbevelingen voor het desbetreffende focusgebied weer te geven.
 6. Op een van de focus gebiedspagina's, kunt u de prioriteit aanbevelingen voor uw omgeving weergeven. Klik op een aanbeveling onder **objecten van invloed op een** voor meer informatie over waarom de aanbeveling is gemaakt.<br><br> ![focusgebied](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -232,7 +232,7 @@ Als u hebt de aanbevelingen die u wilt negeren, kunt u een tekstbestand dat Log 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Voor het identificeren van de aanbevelingen die u wilt negeren
-1. Klik in de Azure-portal op de pagina van de werkruimte Log Analytics voor de geselecteerde werkruimte op het **logboek zoeken** tegel.
+1. Klik in de Azure-portal op de pagina van de werkruimte Log Analytics voor de geselecteerde werkruimte op het **logboek zoeken** menu-item.
 2. Gebruik de volgende query uit om de lijst met aanbevelingen die zijn mislukt voor computers in uw omgeving.
 
     ```

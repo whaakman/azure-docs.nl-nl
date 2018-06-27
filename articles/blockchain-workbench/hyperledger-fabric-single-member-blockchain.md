@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7b60c086896506e5883607db48a64d2a2efbd967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28561f5f94044d19cfd07e99d7f7a736ec470cf1
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654939"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960352"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger enkel lid infrastructuurnetwerk
 
@@ -89,7 +89,7 @@ Vervolgens onder **grootte en de prestaties,** ingangen voor de grootte van het 
 Parameternaam| Beschrijving| Toegestane waarden|Standaardwaarde
 ---|---|---|---
 **Aantal knooppunten dat lidmaatschap**|Het aantal knooppunten die de lidmaatschapsservice wordt uitgevoerd. Bekijk voor meer informatie over de lidmaatschapsservice beveiliging & Lidmaatschapsservices onder de Hyperledger [documentatie](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf).<br /><br />Deze waarde is momenteel beperkt tot 1 knooppunt, maar we zullen ter ondersteuning van scale-out via clustering in de volgende revisie.|1| 1
-**Aantal besteller knooppunten** |Het aantal knooppunten dat volgorde (organiseren) transacties naar een blok.--> deze instructie is lang en verwarrend zijn. Ga voor meer informatie over de bestellen service naar de Hyperledger [documentatie](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html).<br /><br />Deze waarde is momenteel beperkt tot 1 knooppunt. |1 |1
+**Aantal besteller knooppunten** |Het aantal knooppunten dat volgorde (organiseren) transacties naar een blok.--> deze instructie is lang en verwarrend zijn. Ga voor meer informatie over de bestellen service naar de Hyperledger [documentatie](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html).<br /><br />Deze waarde is momenteel beperkt tot 1 knooppunt. |1 |1
 **Aantal Peer knooppunten**| Knooppunten die eigendom zijn van consortium leden die transacties worden uitgevoerd en onderhouden van de status en een kopie van het grootboek.<br /><br />Ga voor meer informatie over de bestellen service naar de Hyperledger [documentatie](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
 **Prestaties van de opslag**|Het type opslag dat een back-up elk van de geïmplementeerde knooppunten. Voor meer informatie over opslag, gaat u naar [Inleiding tot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) en [Premium-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard- of Premium|Standard
 **Grootte van virtuele machine** |De grootte van de virtuele machine die wordt gebruikt voor alle knooppunten in het netwerk|Standard A<br />Standaard D<br />Standaard D-v2<br />Standaard F-serie<br />Standaard DS<br />en standaard FS|Standaard D1_v2

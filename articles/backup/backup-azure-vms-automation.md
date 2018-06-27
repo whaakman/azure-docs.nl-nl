@@ -6,15 +6,15 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 6/26/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d3c0d08b2a34313c10ab89f2972894ffabe19d2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 977413b700dace3e38874d7a41cbc1e16ae0bec4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606236"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018808"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup-cmdlets gebruiken om back-up van virtuele machines
 
@@ -291,7 +291,7 @@ De volgende afbeelding ziet de objecthiërarchie van de RecoveryServicesVault om
 Identificeer het artikel back-up en het herstelpunt dat de punt in tijd gegevens bevat voor het herstellen van back-upgegevens. Gebruik de **[terugzetten AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** cmdlet voor het terugzetten van gegevens uit de kluis aan het account van de klant.
 
 ### <a name="select-the-vm"></a>Selecteer de virtuele machine
-Als u het PowerShell-object waarmee de juiste back-artikel, start vanuit de container in de kluis en werk van de object-hiërarchie. Gebruik om te selecteren in de container waarin de VM vertegenwoordigt, de **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet en doorsluizen die u wilt de **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet.
+Als u het PowerShell-object waarmee de juiste back-artikel, start vanuit de container in de kluis en werk van de object-hiërarchie. Gebruik om te selecteren in de container waarin de VM vertegenwoordigt, de **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet en doorsluizen die u wilt de **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
@@ -503,6 +503,7 @@ Nadat u de schijven hebt teruggezet, volg deze stappen voor het maken en configu
     PS C:\> $nicName="p1234"
     PS C:\> $pip = New-AzureRmPublicIpAddress -Name $nicName -ResourceGroupName "test" -Location "WestUS" -AllocationMethod Dynamic
     PS C:\> $vnet = Get-AzureRmVirtualNetwork -Name "testvNET" -ResourceGroupName "test"
+    PS C:\> $subnetindex=0
     PS C:\> $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
     PS C:\> $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
     ```
@@ -526,7 +527,7 @@ De basisstappen voor het terugzetten van een bestand van de virtuele machine van
 
 
 ### <a name="select-the-vm"></a>Selecteer de virtuele machine
-Als u het PowerShell-object waarmee de juiste back-artikel, start vanuit de container in de kluis en werk van de object-hiërarchie. Gebruik om te selecteren in de container waarin de VM vertegenwoordigt, de **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet en doorsluizen die u wilt de **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet.
+Als u het PowerShell-object waarmee de juiste back-artikel, start vanuit de container in de kluis en werk van de object-hiërarchie. Gebruik om te selecteren in de container waarin de VM vertegenwoordigt, de **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet en doorsluizen die u wilt de **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"

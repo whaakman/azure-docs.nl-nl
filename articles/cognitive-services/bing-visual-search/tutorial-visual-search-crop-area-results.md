@@ -9,12 +9,12 @@ ms.component: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: fed9bb396d72f140235a2743c1447076606bb87c
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 9bc3c180f108025f442343d8c5356982a83826a6
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939453"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958400"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Zelfstudie: Gebied van Bing Visual Search SDK afbeelding bijsnijden en resultaten
 De visuele Search SDK bevat een optie te selecteren van een gebied van een installatiekopie en online installatiekopieën die vergelijkbaar met het gebied van de grote afbeelding bijsnijden zijn te vinden.  In dit voorbeeld geeft gebied bijsnijden één persoon van een afbeelding met verschillende personen bevat die wordt weergegeven.  De code verzendt gebied bijsnijden en de URL van de grote afbeelding en Bing zoeken-URL's en van soortgelijke afbeeldingen gevonden online omvatten de resultaten geretourneerd.
@@ -43,8 +43,8 @@ De volgende afbeelding toont de senior leiding van Microsoft.  Met behulp van de
 In dit voorbeeld wordt een gebied bijsnijden van de vorige afbeelding die links bovenste geeft en het juiste coördinaten verlagen door percentage van de volledige afbeelding.  De volgende code maakt een `ImageInfo` object in het gebied bijsnijden en laadt de `ImageInfo` -object in een `VisualSearchRequest`.  De `ImageInfo` object bevat ook de URL van de afbeelding online.
 
 ```
-CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.25, left: (float)0.01, right: (float)0.2);
-string imageURL = "http://windowsgeek.lk/wp-content/uploads/2016/04/cxc.png";
+CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
+string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg;
 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
@@ -125,10 +125,10 @@ namespace VisualSearchFeatures
 
             try
             {
-                CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.25, left: (float)0.01, right: (float)0.2);
+                CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
                 
                 // The ImageInfo struct specifies the crop area in the image and the URL of the larger image. 
-                string imageURL = "http://windowsgeek.lk/wp-content/uploads/2016/04/cxc.png";
+                string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
                 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
                 
                 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);

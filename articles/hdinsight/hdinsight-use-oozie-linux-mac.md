@@ -2,24 +2,22 @@
 title: Gebruik van Hadoop Oozie werkstromen in Azure HDInsight op basis van Linux | Microsoft Docs
 description: Gebruik Hadoop Oozie in HDInsight op basis van Linux. Informatie over het definiëren van een werkstroom Oozie en het verzenden van een Oozie-taak.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8a25507ab076c4eecccea4e8a503d68ff1441ae5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/26/2018
+ms.author: omidm
+ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179075"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019269"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitgevoerd op Azure HDInsight op basis van Linux
 
@@ -37,15 +35,13 @@ U kunt ook Oozie taken plannen die specifiek voor een systeem, zoals Java-progra
 > [!NOTE]
 > Een andere optie voor het definiëren van werkstromen met HDInsight is het gebruik van Azure Data Factory. Zie voor meer informatie over Data Factory, [Use Pig en Hive met Data Factory][azure-data-factory-pig-hive].
 
-> [!IMPORTANT]
-> Oozie is niet ingeschakeld op HDInsight domein.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een HDInsight-cluster**: Zie [aan de slag met HDInsight op Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
-> De stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="example-workflow"></a>Van de voorbeeldwerkstroom
 
@@ -78,7 +74,7 @@ Oozie verwacht u alle resources die vereist zijn voor een taak in dezelfde map o
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    Vervang `sshuser` met de SSH-gebruikersnaam voor het cluster. Vervang `clustername` met de naam van het cluster. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+    Vervang `sshuser` door de SSH-gebruikersnaam voor het cluster. Vervang `clustername` met de naam van het cluster. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 2. Gebruik de volgende opdracht voor het maken van de map:
 
@@ -240,7 +236,7 @@ Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-da
 ### <a name="create-the-table"></a>De tabel maken
 
 > [!NOTE]
-> Er zijn veel manieren om te verbinden met SQL Database om een tabel te maken. De volgende stappen uitvoeren om [FreeTDS](http://www.freetds.org/) van het HDInsight-cluster.
+> Er zijn veel manieren om te verbinden met SQL Database om een tabel te maken. In de volgende stappen wordt [FreeTDS](http://www.freetds.org/) gebruikt vanuit het HDInsight-cluster.
 
 
 1. Gebruik de volgende opdracht FreeTDS installeren op het HDInsight-cluster:
@@ -263,7 +259,7 @@ Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-da
         Default database being set to oozietest
         1>
 
-3. Op de `1>` vragen, voer de volgende regels:
+3. Voer de volgende regels in bij de prompt `1>`:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](
@@ -274,7 +270,7 @@ Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-da
     GO
     ```
 
-    Wanneer de `GO` instructie wordt ingevoerd, worden de vorige instructies geëvalueerd. Een tabel met de naam van deze instructies maken **mobiledata**, dat wordt gebruikt door de werkstroom.
+    Wanneer u de instructie `GO` invoert, worden de vorige instructies geëvalueerd. Een tabel met de naam van deze instructies maken **mobiledata**, dat wordt gebruikt door de werkstroom.
 
     Om te bevestigen dat de tabel is gemaakt, gebruikt u de volgende opdrachten:
 
@@ -535,7 +531,7 @@ Voor toegang tot de webgebruikersinterface Oozie, moet u de volgende stappen uit
 
 3. Selecteer in de linkerkant van de pagina **Oozie** > **snelkoppelingen** > **Oozie-Webgebruikersinterface**.
 
-    ![afbeelding van de menu 's](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![Afbeelding van de menu 's](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
 4. De Oozie-webgebruikersinterface standaard om de werkstroomtaken weer te geven. Selecteer de werkstroomtaken vindt **alle taken**.
 

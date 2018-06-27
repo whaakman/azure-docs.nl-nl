@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593709"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960124"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Twitter-gegevens met Hive in HDInsight analyseren
 Sociale websites zijn een van de belangrijke drijvende kracht voor big data acceptatie. Openbare API's die worden geleverd door sites zoals Twitter zijn nuttig gegevensbron voor het analyseren en kennis van populaire trends.
@@ -68,7 +68,7 @@ In deze zelfstudie gebruikt u de [Twitter streaming-API's][twitter-streaming-api
 > [!NOTE]
 > Een bestand met 10.000 tweets en het Hive-scriptbestand (behandeld in de volgende sectie) zijn geüpload in een openbare Blob-container. Als u wilt de geüploade bestanden gebruiken, kunt u deze sectie overslaan.
 
-[Tweets gegevens](https://dev.twitter.com/docs/platform-objects/tweets) wordt opgeslagen in de notatie JSON (JavaScript Object)-indeling die een complexe geneste structuur bevat. In plaats van een groot aantal regels code schrijven met behulp van een conventionele programmeertaal, kunt u deze geneste structuur in een Hive-tabel transformeren zodat deze kan worden doorzocht door een Structured Query Language (SQL)-taal genaamd HiveQL, zoals.
+Tweets gegevens worden opgeslagen in de notatie JSON (JavaScript Object)-indeling die een complexe geneste structuur bevat. In plaats van een groot aantal regels code schrijven met behulp van een conventionele programmeertaal, kunt u deze geneste structuur in een Hive-tabel transformeren zodat deze kan worden doorzocht door een Structured Query Language (SQL)-taal genaamd HiveQL, zoals.
 
 Twitter maakt gebruik van OAuth voor geautoriseerde toegang tot de API. OAuth is een authenticatieprotocol dat Hiermee gebruikers toepassingen kunnen te handelen namens hen zonder het delen van hun wachtwoord goedkeuren. Meer informatie kunt vinden op [oauth.net](http://oauth.net/) of in de uitstekende [basisinformatie over OAuth](http://hueniverse.com/oauth/) van Hueniverse.
 
@@ -536,7 +536,7 @@ Write-Host "==================================" -ForegroundColor Green
 > [!NOTE]
 > De Hive-tabel gebruikt \001 als het veldscheidingsteken. Het scheidingsteken is niet zichtbaar in de uitvoer.
 
-Nadat de resultaten van de analyse in Azure Blob-opslag zijn geplaatst, kunt u de gegevens exporteren naar een Azure SQL database/SQL-server, de gegevens exporteren naar Excel via Power Query of verbinding maken met uw toepassing uit om de gegevens met behulp van het Hive ODBC-stuurprogramma. Zie voor meer informatie [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop], [vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-delay-data], [Excel verbinding naar HDInsight met Power Query][hdinsight-power-query], en [Excel verbinding naar HDInsight met het stuurprogramma Microsoft Hive ODBC][hdinsight-hive-odbc].
+Nadat de resultaten van de analyse in Azure Blob-opslag zijn geplaatst, kunt u de gegevens exporteren naar een Azure SQL database/SQL-server, de gegevens exporteren naar Excel via Power Query of verbinding maken met uw toepassing uit om de gegevens met behulp van het Hive ODBC-stuurprogramma. Zie voor meer informatie [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop], [vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-delay-data], [ Excel verbinden met HDInsight met Power Query][hdinsight-power-query], en [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma][hdinsight-hive-odbc].
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebben we gezien hoe u een niet-gestructureerde JSON-gegevensset transformeren naar een gestructureerde Hive-tabel om te zoeken, verkennen en analyseren van gegevens van Twitter met behulp van HDInsight op Azure. Voor meer informatie zie:
@@ -545,7 +545,7 @@ In deze zelfstudie hebben we gezien hoe u een niet-gestructureerde JSON-gegevens
 * [Vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-delay-data]
 * [Excel verbinden met HDInsight met Power Query][hdinsight-power-query]
 * [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma][hdinsight-hive-odbc]
-* [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
+* [Sqoop gebruiken met Hadoop][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html

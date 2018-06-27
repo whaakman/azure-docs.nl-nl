@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425330"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961928"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële console van de virtuele machine (preview) 
 
@@ -32,6 +32,7 @@ De seriële console van de virtuele machine in Azure biedt toegang tot een op te
 
 ## <a name="prerequisites"></a>Vereisten 
 
+* U moet gebruikmaken van de resource management-implementatiemodel. Klassieke implementaties worden niet ondersteund. 
 * Virtuele machine [opstarten diagnostics](boot-diagnostics.md) ingeschakeld 
 * Het account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor de virtuele machine en de [opstarten diagnostics](boot-diagnostics.md) storage-account. 
 * Zie voor specifieke instellingen voor Linux distro, [openen van de seriële console voor Linux](#accessing-serial-console-for-linux)
@@ -90,8 +91,8 @@ Interactie met bootloader | Toegang WORMGATEN/BCD via de seriële console | Linu
 ## <a name="accessing-serial-console-for-linux"></a>Toegang tot de seriële console voor Linux
 Seriële console goed te laten functioneren als het gastbesturingssysteem worden geconfigureerd om te lezen en schrijven van consoleberichten naar de seriële poort. De meeste [goedgekeurde Azure Linux-distributies](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) hebben van de seriële console standaard geconfigureerd. Door te klikken in de portal in de sectie van de seriële console biedt toegang tot de console. 
 
-### <a name="access-for-redhat"></a>Toegang voor RedHat 
-RedHat installatiekopieën beschikbaar zijn op Azure hebben toegang tot de console standaard ingeschakeld. Modus voor één gebruiker in Red Hat vereist hoofdgebruiker worden ingeschakeld, is standaard uitgeschakeld. Als u een nodig om in te schakelen van modus voor één gebruiker hebt, gebruikt u de volgende instructies:
+### <a name="access-for-red-hat"></a>Toegang voor Red Hat 
+Red Hat installatiekopieën beschikbaar zijn op Azure hebben toegang tot de console standaard ingeschakeld. Modus voor één gebruiker in Red Hat vereist hoofdgebruiker worden ingeschakeld, is standaard uitgeschakeld. Als u een nodig om in te schakelen van modus voor één gebruiker hebt, gebruikt u de volgende instructies:
 
 1. Aanmelden bij het systeem Red Hat via SSH
 2. Wachtwoord voor de hoofdgebruiker inschakelen 

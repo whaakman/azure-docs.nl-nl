@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: fc7a2316b5b006cbbf8a237c6a95a71b6489932b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753401"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018336"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Prijscategorieën PostgreSQL-Database
 
@@ -46,29 +46,30 @@ COMPUTE resources worden geleverd als vCores die de logische CPU van de onderlig
 
 | **Azure-regio** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| VS - centraal | X |  |
+| VS - midden | X |  |
 | VS - oost | X | X |
 | VS - oost 2 | X | X |
-| VS - noord/centraal | X | X |
-| VS - zuid/centraal | X | X |
+| Noord-centraal VS | X | X |
+| Zuid-centraal VS | X | X |
 | VS - west | X | X |
 | VS - west 2 |  | X |
-| Canada - centraal | X | X |
+| Canada - midden | X | X |
 | Canada - oost | X | X |
-| Brazilië - Zuid | X | X |
+| Brazilië - zuid | X | X |
 | Noord-Europa | X | X |
 | West-Europa |  | X |
-| VK - west |  | X |
-| VK - zuid |  | X |
+| Frankrijk - centraal |  | X |
+| Verenigd Koninkrijk West |  | X |
+| Verenigd Koninkrijk Zuid |  | X |
 | Oost-Azië | X | X |
 | Zuidoost-Azië | X | X |
 | Australië - oost |  | X |
 | Australië - zuidoost |  | X |
-| India - centraal | X | X |
-| India - west | X | X |
-| India - zuid |  | X |
-| Japan - Oost | X | X |
-| Japan - West | X | X |
+| Centraal-India | X | X |
+| West-India | X | X |
+| Zuid-India |  | X |
+| Japan - oost | X | X |
+| Japan - west | X | X |
 | Korea - centraal |  | X |
 | Korea - zuid |  | X |
 

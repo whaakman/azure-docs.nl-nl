@@ -11,15 +11,15 @@ ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 89c5ff86b6c59223e0580860e14fdffdaef2472c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f48aa68838ff8cac0119f66f168fce6008d388bc
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166103"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959019"
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Twitter-gegevens met Hive en Hadoop op HDInsight analyseren
 
@@ -32,7 +32,7 @@ Informatie over het gebruik van Apache Hive om gegevens van Twitter te verwerken
 
 ## <a name="get-the-data"></a>De gegevens ophalen
 
-Twitter kunt u voor het ophalen van de [gegevens voor elke tweet](https://dev.twitter.com/docs/platform-objects/tweets) als een document notatie JSON (JavaScript Object) via een REST-API. [OAuth](http://oauth.net) is vereist voor verificatie van de API.
+Twitter kunt u de gegevens voor elke tweet ophalen als een document notatie JSON (JavaScript Object) via een REST-API. [OAuth](http://oauth.net) is vereist voor verificatie van de API.
 
 ### <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 
@@ -337,5 +337,4 @@ U hebt geleerd hoe u een niet-gestructureerde JSON-gegevensset transformeren naa
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter

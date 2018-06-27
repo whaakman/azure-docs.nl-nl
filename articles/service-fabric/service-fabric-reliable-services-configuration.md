@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3e058242840a3fa8b86c9ae9d5a0940cc02f04d2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209998"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020386"
 ---
 # <a name="configure-stateful-reliable-services"></a>Stateful betrouwbare services configureren
 Er zijn twee sets van configuratie-instellingen voor betrouwbare services. Er is één set globale voor alle betrouwbare services in het cluster terwijl de andere set specifiek voor een bepaalde betrouwbare service is.
@@ -82,6 +82,11 @@ Standaard wordt met de Azure Service Fabric-runtime gezocht naar vooraf gedefini
 
 ### <a name="replicator-security-configuration"></a>Replicator Beveiligingsconfiguratie
 Beveilig het communicatiekanaal dat wordt gebruikt tijdens de replicatie worden beveiligingsconfiguraties Replicator gebruikt. Dit betekent dat services niet mogelijk om te zien van elkaars replicatieverkeer, waarbij u ervoor zorgt dat de gegevens die maximaal beschikbaar is ook beveiligd is. Standaard wordt een lege beveiligingsconfiguratiesectie voorkomen dat replicatiebeveiliging.
+
+> [!IMPORTANT]
+> Op Linux-knooppunten moet certificaten PEM-indeling. Zie voor meer informatie over het zoeken naar en het configureren van certificaten voor Linux [certificaten configureren op Linux](./service-fabric-configure-certificates-linux.md). 
+> 
+> 
 
 ### <a name="default-section-name"></a>De naam van de standaard-sectie
 ReplicatorSecurityConfig

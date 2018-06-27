@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2018
+ms.date: 06/26/2018
 ms.author: asmalser
-ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c7a18132a797bd7411487c233fc41647cc20dfb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293293"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025765"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker inrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
@@ -50,7 +50,6 @@ Sommige algemene motivaties voor het gebruik van deze functie zijn onder andere:
 * Eenvoudig een groot aantal gebruikers in een bepaalde SaaS-toepassing of het systeem importeren.
 * Om te profiteren van een enkele set beleidsregels om te bepalen die is ingericht en die zich aanmelden bij een app hebben.
 
-
 ## <a name="how-does-automatic-provisioning-work"></a>Hoe automatische inrichting werkt?
     
 De **Azure AD-inrichtingsservice** gebruikers SaaS-apps en andere systemen, bepalingen door verbinding te maken met beheer-API-eindpunten gebruiker geleverd door de leverancier van elke toepassing. Deze gebruiker management API-eindpunten kunnen Azure AD via een programma maken, bijwerken en verwijderen van gebruikers. Voor de geselecteerde toepassingen die kunt ook de inrichting service maken, bijwerken en verwijderen van aanvullende identity-gerelateerde objecten, zoals rollen en groepen. 
@@ -69,15 +68,17 @@ De **Azure AD-inrichtingsservice** gebruikers SaaS-apps en andere systemen, bepa
 
 Azure AD-functies geïntegreerde vooraf ondersteuning voor een groot aantal populaire SaaS-apps en human resources-systemen, evenals algemene ondersteuning voor apps die specifieke onderdelen van de standaard SCIM 2.0 implementeren.
 
-Zie voor een lijst van alle toepassingen waarvoor Azure AD een vooraf geïntegreerde inrichting connector ondersteunt, de [lijst met zelfstudies bij de toepassing voor gebruikers inrichten](active-directory-saas-tutorial-list.md).
+### <a name="pre-integrated-applications"></a>Vooraf geïntegreerde toepassingen
+Zie voor een lijst van alle toepassingen waarvoor Azure AD een vooraf geïntegreerde inrichting connector ondersteunt, de [lijst met zelfstudies bij de toepassing voor gebruikers inrichten](saas-apps/tutorial-list.md).
 
-Zie voor meer informatie over het toevoegen van ondersteuning voor Azure AD-gebruikers inrichten tot een toepassing [SCIM gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory naar toepassingen](manage-apps/use-scim-to-provision-users-and-groups.md).
-
-Neem contact op met de Azure AD technisch team om aan te vragen van de inrichting ondersteuning voor aanvullende toepassingen indienen om een bericht via de [forum met feedback van Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
+Neem contact op met de Azure AD technisch team om aan te vragen van de inrichting ondersteuning voor aanvullende toepassingen indienen om een bericht via de [forum met feedback van Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
 
 > [!NOTE]
 > In de volgorde voor een toepassing voor de ondersteuning van geautomatiseerde gebruikersinrichting, moet deze eerst de benodigde Gebruikersbeheer API's voor het externe programma's voor het automatiseren van het maken, het onderhoud en de verwijdering van gebruikers opgeven. Er zijn daarom niet alle SaaS-apps compatibel met deze functie. Voor apps die ondersteuning voor gebruikersbeheer API's bieden, het technische team van Azure AD zijn vervolgens een inrichting connector voor deze apps bouwen en deze taak is geplaatst door de vereisten van de huidige en potentiële klanten. 
-    
+
+### <a name="connecting-applications-that-support-scim-20"></a>Het verbinden van toepassingen die ondersteuning bieden voor SCIM 2.0
+Voor meer informatie over het algemeen verbinding geïmplementeerd SCIM 2.0 - gebaseerde Gebruikersbeheer API's, Zie [SCIM gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory naar toepassingen](manage-apps/use-scim-to-provision-users-and-groups.md).
+
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Hoe stel ik automatische inrichting tot een toepassing?
 
@@ -85,7 +86,7 @@ Neem contact op met de Azure AD technisch team om aan te vragen van de inrichtin
 
 Configuratie van de Azure AD-service inricht voor een geselecteerde toepassing wordt gestart in de  **[Azure-portal](https://portal.azure.com)**. In de **Azure Active Directory > bedrijfstoepassingen** sectie **toevoegen**, klikt u vervolgens **alle**, en voeg vervolgens een van de volgende, afhankelijk van uw scenario:
 
-* Alle toepassingen in de **toepassingen aanbevolen** sectie ondersteuning automatische inrichting. Zie de [lijst met zelfstudies bij de toepassing voor gebruikers inrichten](active-directory-saas-tutorial-list.md) voor andere toevoegen.
+* Alle toepassingen in de **toepassingen aanbevolen** sectie ondersteuning automatische inrichting. Zie de [lijst met zelfstudies bij de toepassing voor gebruikers inrichten](saas-apps/tutorial-list.md) voor andere toevoegen.
 
 * De optie 'niet galerie application' gebruiken voor aangepaste ontwikkelde SCIM integraties
 
@@ -152,7 +153,7 @@ Na de eerste synchronisatie worden alle volgende synchronisaties:
 >[!NOTE]
 > U kunt eventueel de create, update of delete-bewerkingen uitschakelen met behulp van de **Objectacties gericht** selectievakjes in de [kenmerktoewijzingen](active-directory-saas-customizing-attribute-mappings.md) sectie. De logica voor het uitschakelen van een gebruiker tijdens een update is tevens worden beheerd via een kenmerk wordt toegewezen uit een veld zoals 'accountEnabled'.
 
-De inrichting service blijft actief back to back incrementele synchronisaties voor onbepaalde tijd intervallen gedefinieerd in de [zelfstudie die specifiek zijn voor elke toepassing](active-directory-saas-tutorial-list.md), totdat een van de volgende gebeurtenissen zich voordoet:
+De inrichting service blijft actief back to back incrementele synchronisaties voor onbepaalde tijd intervallen gedefinieerd in de [zelfstudie die specifiek zijn voor elke toepassing](saas-apps/tutorial-list.md), totdat een van de volgende gebeurtenissen zich voordoet:
 
 * De service is handmatig gestopt met behulp van de Azure-portal of met de juiste Graph API-opdracht 
 * Een nieuwe initiële synchronisatie is geactiveerd met behulp van de **status wissen en opnieuw opstarten** optie in de Azure portal of met de juiste Graph API-opdracht. Hierdoor worden gewist van elke opgeslagen watermerk en wordt alle bronobjecten moet opnieuw worden geëvalueerd.
@@ -216,33 +217,31 @@ Samenvatting van de factoren die van invloed op de tijd die nodig is om een **in
 * Aanvraag frequentielimieten en beperking geïmplementeerd door het doelsysteem. Sommige doelsystemen aanvraag frequentielimieten en de beperking die kunnen invloed hebben op prestaties bij grote synchronisatiebewerkingen geïmplementeerd. In deze omstandigheden kan een app die te veel aanvragen te snel ontvangt de respons vertragen of de verbinding niet sluiten. Om prestaties te verbeteren, moet de connector aanpassen door te sturen de app-aanvragen niet sneller dan de app kan verwerken. Gebouwd door Microsoft met inrichting connectors kunt deze aanpassing. 
 
 * Het aantal en grootte van de toegewezen groepen. Toegewezen groepen synchroniseren duurt langer dan het synchroniseren van gebruikers. Het nummer en de grootte van de prestaties van de impact toegewezen groepen. Als een toepassing [toewijzingen ingeschakeld voor groep object sync](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings)en eigenschappen van de groep, zoals namen groeperen lidmaatschappen naast gebruikers worden gesynchroniseerd. Deze extra synchronisaties duurt langer dan alleen gebruikersobjecten worden gesynchroniseerd.
- 
 
-## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-**Hoe kan ik de voortgang van de inrichtingstaak van de huidige bijhouden**
+##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Hoe kan ik zien als gebruikers juist worden ingericht
 
-Zie de [inrichting rapportagegids](active-directory-saas-provisioning-reporting.md).
+Alle bewerkingen die worden uitgevoerd door de gebruiker-service inricht worden vastgelegd in de Azure AD controlelogboeken. Dit omvat alle lees- en schrijfbewerkingen die zijn aangebracht in de bron en doel-systemen, alsmede welke gebruikersgegevens is gelezen of geschreven tijdens elke bewerking.
 
-**Hoe weet ik als gebruikers geen goed ophalen ingericht?**
+Zie voor informatie over hoe de lees de auditlogboeken in de Azure portal, de [inrichting rapportagegids](active-directory-saas-provisioning-reporting.md).
 
-Alle fouten worden vastgelegd in de Azure AD controlelogboeken. Zie voor meer informatie de [inrichting rapportagegids](active-directory-saas-provisioning-reporting.md).
 
-**Hoe kan ik een toepassing die geschikt is voor de inrichting service maken?**
+##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Hoe los ik problemen met gebruikers inrichten
 
-Zie [SCIM gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory naar toepassingen](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
+Zie voor instructies over het oplossen van problemen met Automatische gebruikersaanvragen scenario's gebaseerde [problemen bij het configureren en inrichten van gebruikers van een toepassing](active-directory-application-provisioning-content-map.md).
 
-**Hoe kan ik feedback aan het technische team?**
 
-Contact met ons opnemen via de [forum met feedback van Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Wat zijn de best practices voor het implementeren van Automatische gebruikersaanvragen?
+
+> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
+
+Zie voor een voorbeeld van stapsgewijze implementatieplan voor uitgaande gebruikers inrichten tot een toepassing, de [identiteit Deployment Guide voor gebruikers inrichten](https://aka.ms/userprovisioningdeploymentplan)/
 
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* [Lijst met zelfstudies over het integreren van SaaS-Apps](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps](saas-apps/tutorial-list.md)
 * [Kenmerktoewijzingen voor gebruikers inrichten aanpassen](active-directory-saas-customizing-attribute-mappings.md)
 * [Expressies voor kenmerktoewijzingen schrijven](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Bereikfilters voor gebruikers inrichten](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
 * [Overzicht van Azure AD-synchronisatie API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
-* [Plan voor uitgaande gebruikers inrichten van een toepassing de stapsgewijze implementatie](https://aka.ms/userprovisioningdeploymentplan)
-

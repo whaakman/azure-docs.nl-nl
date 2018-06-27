@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 1c131c2c9ca12556c1d2cd52e7976d2f4272a0c8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767943"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021622"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processen kunnen worden geconfigureerd op basis van drempelwaarden regels in Azure Stream Analytics
 In dit artikel wordt beschreven hoe een meldingsoplossing die gebruikmaakt van de configureerbare regels op basis van drempelwaarden in Azure Stream Analytics kunt gebruiken voor referentiegegevens.
@@ -45,7 +45,7 @@ De referentiegegevens voor dit voorbeeld ziet u hoe een regel op basis van dremp
 - De voorbeeldregel wordt gebruikt voor een aanpasbare waarschuwing wanneer CPU overschrijdt (gemiddelde is groter dan of gelijk aan) de waarde `90` procent. De `value` veld configureerbare zo nodig is.
 - Let op de regel bevat een **operator** veld dat wordt dynamisch geïnterpreteerd in de querysyntaxis later op `AVGGREATEROREQUAL`. 
 - De regel filtert u de gegevens op een bepaalde dimensie sleutel `2` met waarde `C1`. Andere velden zijn leeg, waarmee wordt aangegeven dat niet de invoerstroom door deze velden gebeurtenis filteren. U kan regels instellen om extra CPU voor het filteren van andere overeenkomende velden indien nodig.
-- Niet alle kolommen moeten worden opgenomen in de uitvoer waarschuwing gebeurtenis. In dit geval `includedDim` sleutel nummer `2` is ingeschakeld `TRUE` om aan te duiden dat gebeurtenissen dat Veldnummer 2 van de gegevens van gebeurtenissen in de stroom worden opgenomen in de in aanmerking komende uitvoer. De andere velden worden niet opgenomen in de uitvoer van de waarschuwing, maar de lijst met velden kan worden aangepast.
+- Niet alle kolommen moeten worden opgenomen in de uitvoer waarschuwing gebeurtenis. In dit geval `includedDim` sleutel nummer `2` is ingeschakeld `TRUE` om aan te duiden dat Veldnummer 2 van de gegevens van gebeurtenissen in de stroom worden opgenomen in de uitvoergebeurtenissen die in aanmerking komen. De andere velden worden niet opgenomen in de uitvoer van de waarschuwing, maar de lijst met velden kan worden aangepast.
 
 
 ```json

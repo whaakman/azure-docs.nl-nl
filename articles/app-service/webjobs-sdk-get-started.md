@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234513"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018452"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs SDK voor gebeurtenisafhankelijke achtergrondverwerking
 
@@ -66,6 +66,9 @@ In dit artikel wordt ervan uitgegaan dat u hebt [een Azure-account](https://azur
 2. Selecteer **Classic Windows Desktop > Console-App (.NET Framework)**.
 
    Selecteer voor het maken van een project 3.x **.NET Core > Console-App (.NET Core)**.
+   
+   > [!NOTE]
+   > 3.x is nog in preview en nog in ontwikkeling. De 3.x-instructies in dit artikel zijn onvolledig. Zie de GitHub-problemen aan de onderkant van de pagina voor de meest recente informatie.
 
 3. Noem het project *WebJobsSDKSample*, en selecteer vervolgens **OK**.
 
@@ -320,7 +323,7 @@ In deze sectie kunt u de volgende taken voor het instellen van Application Insig
 
 4. In de **verbindingsreeksen** Voeg de volgende vermelding.
 
-   |Naam  |Verbindingsreeks  |Databasetype|
+   |Naam  |Tekenreeks voor verbinding  |Databasetype|
    |---------|---------|------|
    |AzureWebJobsStorage | {de verbindingsreeks voor opslag die u eerder hebt gekopieerd}|Aangepast telefoonnummer|
    

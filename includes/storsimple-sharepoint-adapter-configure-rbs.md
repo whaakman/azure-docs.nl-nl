@@ -38,7 +38,7 @@
 
 4. Controleer of de configuratie:
    
-   1. Meld u aan bij de website Centraal beheer van SharePoint en blader naar de **StorSimple-Adapter configureren** pagina.
+   1. Aanmelden bij de website Centraal beheer van SharePoint en blader naar de **StorSimple-Adapter configureren** pagina.
    2. Controleer de configuratiedetails om ervoor te zorgen dat ze overeenkomen met de instellingen die u hebt ingevoerd. 
 5. Controleer of Resourcestructuur correct werkt:
    

@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84facb99b2264b48ede7306ae87a79605e6e8bed
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f5a8c33f2bd3c89b1049435f15d7bf2020248afa
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597085"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019310"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Maven gebruiken voor het ontwikkelen van Java-toepassingen die gebruikmaken van HBase met HDInsight (Hadoop) op basis van Windows
 Meer informatie over het maken en bouwen van een [Apache HBase](http://hbase.apache.org/) toepassing in Java met behulp van Apache Maven. Gebruik vervolgens de toepassing met Azure HDInsight (Hadoop).
 
-[Maven](http://maven.apache.org/) is een software-project management en begrip hulpprogramma waarmee u software, documentatie en rapporten voor Java-projecten bouwen. Informatie over het maken van een eenvoudige Java-toepassing die die wordt gemaakt, query's en wordt verwijderd van een HBase-tabel in een Azure HDInsight-cluster in dit artikel.
+[Maven](http://maven.apache.org/) is een software-project management en begrip hulpprogramma waarmee u software, documentatie en rapporten voor Java-projecten bouwen. In dit artikel leert u hoe u met het maken van een eenvoudige Java-toepassing die wordt gemaakt, query's en een HBase-tabel in een Azure HDInsight-cluster worden verwijderd.
 
 > [!IMPORTANT]
 > De stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Windows. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -135,7 +135,7 @@ Meer informatie over het maken en bouwen van een [Apache HBase](http://hbase.apa
     Dit `<plugins>` sectie configureert u de [Maven-Compiler-invoegtoepassing](http://maven.apache.org/plugins/maven-compiler-plugin/) en [Maven grijs-invoegtoepassing](http://maven.apache.org/plugins/maven-shade-plugin/). De invoegtoepassing compiler wordt gebruikt voor het compileren van de topologie. De tint van de invoegtoepassing wordt gebruikt om te voorkomen dat de licentie duplicatie in het JAR-pakket dat wordt gebouwd door Maven. De reden dat deze wordt gebruikt, is de dubbele licentiebestanden veroorzaakt een fout tijdens de uitvoering van het HDInsight-cluster. Met behulp van maven-schaduw-invoegtoepassing met de `ApacheLicenseResourceTransformer` implementatie wordt voorkomen dat deze fout.
 
     Maven-schaduw-invoegtoepassing ook produceert een uber jar (of fat jar) die de afhankelijkheden die zijn vereist voor de toepassing bevat.
-4. Sla de **pom.xml** bestand.
+4. Sla het bestand **pom.xml** op.
 5. Maak een nieuwe map met de naam **conf** in de **hbaseapp** directory. In de **conf** directory, maakt u een bestand met de naam **hbase-site.xml**. Gebruik de volgende als de inhoud van het bestand:
 
         <?xml version="1.0"?>

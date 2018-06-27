@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: aaab69f452db9d4f11af2b5cfd2cd9ff6ac79954
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: c1fdf3e95fe0026dcb1b47dd6537008921d461fe
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103673"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017531"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows-client in Azure gebruiken voor scenario's ontwikkelen en testen
 U kunt Windows 7, Windows 8 of Windows 10 Enterprise (x64) in Azure voor ontwikkel-/ Testscenario's geleverde dat een juiste Visual Studio (voorheen MSDN)-abonnement hebt. In dit artikel bevat een overzicht van de vereisten in aanmerking komt voor het uitvoeren van Windows 7, Windows 8.1, Windows 10 Enterprise in Azure en het gebruik van de volgende afbeeldingen in de galerie van Azure.
@@ -48,7 +48,7 @@ De volgende tabel ziet de id's die in aanmerking komen voor het implementeren va
 | [Visual Studio Premium met MSDN (voordeel)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Abonnees van Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Abonnees van Visual Studio Enterprise (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Enterprise Dev/Test](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Enterprise ontwikkelen en testen](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Controleer uw Azure-abonnement
 Als u uw aanbieding-ID niet weet, kunt u deze kunt verkrijgen via de Azure portal op een van deze twee manieren:  

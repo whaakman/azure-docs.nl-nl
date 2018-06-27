@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c7e31f9da2b2f9fe7a3a7c64cd6927224cb9fa1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213109"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017892"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors--ReliableDictionaryActorStateProvider configureren
 U kunt de standaardconfiguratie van ReliableDictionaryActorStateProvider wijzigen door het settings.xml-bestand voor de opgegeven actor gegenereerd in de hoofdmap van het Visual Studio-pakket onder de map Config wordt gewijzigd.
@@ -68,6 +68,10 @@ SharedLogSizeInMB geeft de hoeveelheid schijfruimte toe te wijzen voor het stand
 ## <a name="replicator-security-configuration"></a>Replicator Beveiligingsconfiguratie
 Beveilig het communicatiekanaal dat wordt gebruikt tijdens de replicatie worden beveiligingsconfiguraties Replicator gebruikt. Dit betekent dat services elkaars replicatieverkeer, zodat de gegevens die maximaal beschikbaar is, is ook veilig kunnen niet zien.
 Standaard wordt een lege beveiligingsconfiguratiesectie voorkomen dat replicatiebeveiliging.
+
+> [!IMPORTANT]
+> Op Linux-knooppunten moet certificaten PEM-indeling. Zie voor meer informatie over het zoeken naar en het configureren van certificaten voor Linux [certificaten configureren op Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### <a name="section-name"></a>Sectienaam
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig

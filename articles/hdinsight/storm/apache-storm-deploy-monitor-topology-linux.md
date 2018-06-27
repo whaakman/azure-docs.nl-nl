@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b4584e9ccd17eba385f2068709f5bbaea6df20b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31417033"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019953"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implementeren en beheren van Apache Storm-topologieën op HDInsight
 
@@ -40,9 +40,9 @@ Informatie over de basisprincipes van beheer en controle van Storm-topologieën 
 
     Een van de volgende versies van Visual Studio:
 
-  * Visual Studio 2012 met [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 met Update 4
 
-  * Visual Studio 2013 met [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) of [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 met Update 4 of [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (alle versies)
@@ -64,7 +64,7 @@ De HDInsight Tools kan worden gebruikt om in te dienen C# of hybride topologieë
 
 3. In de **nieuw Project** dialoogvenster Vouw **geïnstalleerde** > **sjablonen**, en selecteer vervolgens **HDInsight**. Selecteer in de lijst met sjablonen **Storm voorbeeld**. Typ een naam voor de toepassing aan de onderkant van het dialoogvenster.
 
-    ![Afbeelding](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![installatiekopie](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 
 4. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer **indienen Storm op HDInsight**.
 
@@ -103,7 +103,7 @@ Wanneer een topologie wordt ingediend met Visual Studio de **Storm-topologieën*
 ![monitor voor Visual studio](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
 
 > [!NOTE]
-> U kunt ook weergeven **Storm-topologieën** van **Server Explorer** door het uitbreiden van **Azure** > **HDInsight**, en klik vervolgens met de rechtermuisknop op een Storm op HDInsight-cluster en het selecteren van **weergave Storm-topologieën**.
+> U kunt ook weergeven **Storm-topologieën** van **Server Explorer** door het uitbreiden van **Azure** > **HDInsight**, en vervolgens met de rechtermuisknop op een Storm op HDInsight-cluster en het selecteren van **weergave Storm-topologieën**.
 
 Selecteer de vorm voor de spouts of bolts om informatie over deze onderdelen weer te geven. Er wordt een nieuw venster geopend voor elk item geselecteerd.
 

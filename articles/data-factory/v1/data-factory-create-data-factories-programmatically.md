@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25bb16ebda29722fc8200ece525e870f6c85ef7d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dcfd24d3d0122f664655f6085bbd58bc0bfe9718
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621952"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018485"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Maken, bewaken en beheren van Azure data Factory met Azure Data Factory .NET SDK
 > [!NOTE]
@@ -154,8 +154,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
     ```
-6. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse **DataPipelineManagementClient** te maken.
- U gebruikt dit object om een gegevensfactory, een gekoppelde service, gegevenssets voor invoer en uitvoer, en een pijplijn te maken. U gebruikt dit object ook om segmenten van een gegevensset te bewaken tijdens runtime.
+6. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse **DataPipelineManagementClient** te maken. U gebruikt dit object om een gegevensfactory, een gekoppelde service, gegevenssets voor invoer en uitvoer, en een pijplijn te maken. U gebruikt dit object ook om segmenten van een gegevensset te bewaken tijdens runtime.
 
     ```csharp
     // create data factory management client

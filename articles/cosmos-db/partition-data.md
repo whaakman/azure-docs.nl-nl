@@ -2,7 +2,7 @@
 title: Partitionering en horizontaal schalen in Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over hoe partitionering werkt in Azure Cosmos DB, partitie-sleutels en configureren met het partitioneren en het kiezen van de juiste partitiesleutel voor uw toepassing.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d083181b379301ae80e6577ccc3ac8f142767db3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 046e45978d401e05d0ab8154aff994052f5d7717
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261076"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960369"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitie en schalen in Azure Cosmos-DB
 
@@ -56,7 +56,7 @@ De semantiek voor partitiesleutels zijn enigszins verschillen overeenkomen met d
 | API | Partitiesleutel | Rijsleutel |
 | --- | --- | --- |
 | SQL | Aangepaste partitie sleutelpad | Probleem met `id` opgelost | 
-| MongoDB | aangepaste shard-sleutel  | Probleem met `_id` opgelost | 
+| MongoDB | Aangepaste shard-sleutel  | Probleem met `_id` opgelost | 
 | Gremlin | Aangepaste partitie sleuteleigenschap | Probleem met `id` opgelost | 
 | Tabel | Probleem met `PartitionKey` opgelost | Probleem met `RowKey` opgelost | 
 

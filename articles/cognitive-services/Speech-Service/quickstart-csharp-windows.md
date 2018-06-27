@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 9f37547b4b183594410b4e16b872645407ff4a6f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 64281215d139731b61365936bc1b837798ad8fbf
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35349992"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016831"
 ---
 # <a name="quickstart-recognize-speech-using-the-cognitive-services-speech-c-sdk"></a>Snelstartgids: Herkennen spraak met behulp van de cognitieve Services spraak C# SDK
 
@@ -33,7 +33,7 @@ In dit artikel leert u hoe een C#-consoletoepassing maken in Windows met behulp 
 
     ![Visual C#-consoletoepassing maken (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png "Visual C#-consoletoepassing maken")
 
-2. Installeer en verwijzen naar het Speech SDK NuGet-pakket. Klik in Solution Explorer met de rechtermuisknop op de oplossing en selecteer **NuGet-pakketten beheren voor oplossing**.
+2. Installeren en verwijzen naar de [spraak SDK NuGet-pakket](https://aka.ms/csspeech/nuget). Klik in Solution Explorer met de rechtermuisknop op de oplossing en selecteer **NuGet-pakketten beheren voor oplossing**.
 
     ![Klik met de rechtermuisknop NuGet-pakketten beheren voor oplossing](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png "NuGet-pakketten beheren voor oplossing")
 

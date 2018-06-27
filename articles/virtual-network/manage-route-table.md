@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726445"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960005"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
@@ -95,7 +95,7 @@ Een subnet kan nul of één routetabel gekoppeld hebben. Een routetabel kan word
 4. Selecteer het subnet dat u wilt de routetabel te koppelen.
 5. Selecteer **routetabel**, selecteert u de routetabel die u wilt koppelen aan het subnet en selecteer vervolgens **opslaan**.
 
-Als het virtuele netwerk is verbonden met een Azure VPN-gateway, koppel geen een routetabel aan de [gatewaysubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) die een route met bestemming 0.0.0.0/0 bevat. In dat geval kan voorkomen dat de gateway niet goed werken. Zie voor meer informatie over het gebruik van 0.0.0.0/0 in een route [virtuele netwerk voor verkeersroutering](virtual-networks-udr-overview.md#default-route).
+Als uw virtuele netwerk is verbonden met een Azure VPN-gateway, koppelt u geen routetabel aan het [gatewaysubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) met een route die als bestemming heeft: 0.0.0.0/0. Als u dit wel doet, functioneert de gateway mogelijk niet juist. Zie voor meer informatie over het gebruik van 0.0.0.0/0 in een route [virtuele netwerk voor verkeersroutering](virtual-networks-udr-overview.md#default-route).
 
 **Opdrachten**
 
@@ -213,7 +213,7 @@ De effectieve routes voor elke netwerkinterface die is gekoppeld aan een virtuel
 **Opdrachten**
 
 - Azure CLI: [az netwerk nic-ingang-route-tabel weergeven](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Routering tussen de twee eindpunten valideren
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240221"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959379"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Schalen van Azure Redis-Cache
 Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van de cachegrootte en -functies bieden. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. In dit artikel leest u hoe de cache met behulp van de Azure-portal en hulpprogramma's zoals Azure PowerShell en Azure CLI schalen.
@@ -154,7 +154,7 @@ Standaard- en Premium-caches hebben een SLA met 99,9% voor beschikbaarheid, maar
 * **Basic** caches zijn offline tijdens het schalen van bewerkingen die een verschillende grootte. Basic caches beschikbaar blijven tijdens het schalen van **Basic** naar **standaard** maar een kleine verbinding blip kunnen optreden. Als er een verbinding blip optreedt, kunnen redis-clients opnieuw verbinding tot stand brengen hun onmiddellijk moeten mogelijk.
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>Beperkingen in de Geo-relication schalen
+### <a name="scaling-limitations-with-geo-replication"></a>Schalen van beperkingen in de Geo-replicatie
 
 Nadat u een koppeling Geo-replicatie tussen de twee caches hebt toegevoegd, kunt u zich niet langer een vergroten/verkleinen bewerking geïnitieerd of wijzig het aantal shards in een cluster. U kunt de cache voor het uitgeven van deze opdrachten moet ontkoppelen. Zie voor meer informatie [Geo-replicatie configureren](cache-how-to-geo-replication.md).
 

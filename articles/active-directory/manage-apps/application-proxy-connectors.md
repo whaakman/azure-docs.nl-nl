@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dfbabb3bc2702e7c6ab5d0ba5c809a1bd04d0bbc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293004"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025747"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD-toepassingsproxy connectors begrijpen
 
@@ -92,7 +92,6 @@ Connectors alleen verzenden uitgaande aanvragen. Het uitgaande verkeer wordt ver
 
 Zie voor meer informatie over het configureren van uitgaande firewallregels [werken met bestaande lokale proxyservers](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Gebruik de [Azure AD Application Proxy Connector poorten hulpprogramma Test](https://aadap-portcheck.connectorporttest.msappproxy.net/) om te controleren of de connector de service voor toepassingsproxy kan bereiken. Ten minste Zorg ervoor dat de regio VS-midden en de regio die het dichtst bij u alle een groen vinkje. Daarna betekent meer een groen vinkje groter tolerantie. 
 
 ## <a name="performance-and-scalability"></a>Prestaties en schaalbaarheid
 
@@ -104,7 +103,7 @@ De connectorprestaties is gebonden aan CPU- en netwerken. CPU-prestaties is vere
 
 Daarentegen is geheugen kleiner van een probleem voor connectors. De onlineservice zorgt voor veel van de verwerking en alle niet-geverifieerd verkeer. Alles die kan worden uitgevoerd in de cloud wordt uitgevoerd in de cloud. 
 
-De taakverdeling gebeurt tussen connectors van een gegeven connector-groep. We doen een variant van een round robin om te bepalen welke connector in de groep fungeert een bepaald verzoek. Nadat u hebt gekozen een de connector onderhouden we een sessie affiniteit tussen gebruiker en de toepassing voor de duur van de sessie. Als voor een of andere reden connector of de machine niet beschikbaar, gaat het verkeer naar een andere connector in de groep. Deze tolerantie is ook waarom kunt het beste meerdere connectors.
+De taakverdeling gebeurt tussen connectors van een gegeven connector-groep. We doen een variant van een round robin om te bepalen welke connector in de groep fungeert een bepaald verzoek. Als voor een of andere reden dat connector of de machine niet meer beschikbaar is, het verkeer naar een andere connector in de groep gaat. Deze tolerantie is ook waarom kunt het beste meerdere connectors.
 
 Een andere factor die van invloed op prestaties wordt de kwaliteit van het netwerk tussen de connectors, inclusief: 
 

@@ -3,19 +3,19 @@ title: Apache Spark verbinden met Azure Cosmos DB | Microsoft Docs
 description: Gebruik deze handleiding voor meer informatie over de Azure Cosmos DB Spark-connector die u kunt verbinding maken Apache Spark op Azure Cosmos DB gedistribueerde aggregaties en gegevens sciences globaal uitvoeren op de multitenant gedistribueerde databasesysteem van Microsoft die ontworpen voor de cloud.
 keywords: Apache spark
 services: cosmos-db
-author: dennyglee
+author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
-ms.author: denlee
-ms.openlocfilehash: 3502a5af5de546de0b66521e29c37f5edfdbc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: ramkris
+ms.openlocfilehash: 47abd2f3534a0f3418bc09e19a61e222093e7099
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612619"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960471"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Versnellen realtime big data-analyses met de Spark op Azure DB die Cosmos-connector
 
@@ -111,7 +111,7 @@ client = document_client.DocumentClient(host, {'masterKey': masterKey}, connecti
 Zoals vermeld in het codefragment:
 
 * De Azure-SDK voor Python Cosmos DB (`pyDocumentDB`) bevat de alle benodigde verbindingsparameters. De parameter voorkeur locaties kiest bijvoorbeeld de lezen volgorde van de replica en prioriteit.
-*  Importeer de benodigde bibliotheken en configureer uw **hoofdsleutel** en **host** voor het maken van de Cosmos Azure DB *client* (**pydocumentdb.document_client**).
+*  Importeer de benodigde bibliotheken en configureer uw **hoofdsleutel** en **host** voor het maken van de Cosmos Azure DB *client* (**pydocumentdb.document_client** ).
 
 
 ### <a name="execute-spark-queries-via-pydocumentdb"></a>Spark-query's uitvoeren via pyDocumentDB

@@ -2,24 +2,23 @@
 title: Wat is er nieuw in Azure Data Catalog | Microsoft Docs
 description: Dit artikel bevat een overzicht van nieuwe mogelijkheden toegevoegd aan Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025745"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Wat is er nieuw in Azure Data Catalog
 Updates voor de **Azure Data Catalog** regelmatig worden vrijgegeven. Niet elke versie bevat nieuwe gebruikersgerichte functies, zoals sommige versies zijn gericht op de mogelijkheden van de back-end-service. Deze pagina licht nieuwe gebruikersgerichte mogelijkheden toegevoegd aan de service Azure Data Catalog.
@@ -99,7 +98,7 @@ De volgende mogelijkheden hebt vanaf januari 2017 toegevoegd aan Azure Data Cata
 
 ## <a name="whats-new-for-december-2016"></a>Wat is er nieuw voor December 2016
 Vanaf December 2016, hebben de volgende mogelijkheden toegevoegd aan Azure Data Catalog:
-*   Azure Data Catalog is nu [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) en [Modelbepalingen EU](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses) compatibel.
+*   Azure Data Catalog is nu [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) en [Modelbepalingen EU](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) compatibel.
 *   Ondersteuning voor het bewerken van informatie van de gegevensbronverbinding. Eigenaren van asset en beheerders van Data Catalog kunnen u nu de verbindingsgegevens voor de geregistreerde gegevensbronnen bewerken zonder de gegevensbronnen opnieuw te registreren.
 *   Ondersteuning voor Salesforce.com-gegevensbronnen. Gebruikers kunnen nu registreren en Salesforce-objecten te detecteren.
 
@@ -246,7 +245,7 @@ Vanaf September 2015, zijn de volgende mogelijkheden toegevoegd aan Azure Data C
 * Een nieuwe 'aan de slag' gegevensbron detectie ervaring in de portal voor Azure Data Catalog. Wanneer gebruikers op de pagina 'detecteren' van de portal voor Azure Data Catalog invoeren zonder een zoekterm invoert, worden ze weergegeven met een overzicht van de inhoud van de catalogus met inbegrip van de meest gebruikte labels, deskundigen, gegevensbrontypen en objecttypen.
 * Ondersteuning voor het registreren en detectie van Azure SQL Data Warehouse-objecten en -databases. Zie voor meer informatie over Azure SQL Data Warehouse [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Ondersteuning voor het registreren en detectie van SQL Server Analysis Services-modellen en SQL Server Reporting Services-servers als containers. Bij het registreren van SSAS en SSRS objecten maakt Azure Data Catalog een vermelding voor de SSAS-model en de SSRS-server, en voor de rapporten en andere objecten. De containers kunnen worden gedetecteerd en aangetekend met de Azure Data Catalog-portal. Gebruikers kunnen ook zoeken en filteren van de inhoud van een model of de server naast zoeken en filteren van de inhoud van de catalogus.
-* Ondersteuning voor het registreren en het detecteren van SQL Server Analysis Services-objecten via HTTP/HTTPS. Gebruikers kunnen nu verbinding maken met de SSAS-servers met een URL (zoals https://servername/olap/msmdpump.dll) in plaats van een servernaam en basisverificatie en anonieme verbindingen naast Windows-verificatie kunnen gebruiken. Zie voor meer informatie over HTTP/HTTPS-verbindingen met SSAS [HTTP-toegang tot Analysis Services configureren](https://msdn.microsoft.com/library/gg492140.aspx).
+* Ondersteuning voor het registreren en het detecteren van SQL Server Analysis Services-objecten via HTTP/HTTPS. Gebruikers kunnen nu verbinding met SSAS-servers met een URL (zoals https://servername/olap/msmdpump.dll) in plaats van een server een naam en basisverificatie en anonieme verbindingen naast Windows-verificatie kunt gebruiken. Zie voor meer informatie over HTTP/HTTPS-verbindingen met SSAS [HTTP-toegang tot Analysis Services configureren](https://msdn.microsoft.com/library/gg492140.aspx).
 * Ondersteuning voor de gegevensbronnen Hive in HDInsight. Gebruikers kunnen nu worden geregistreerd en het detecteren van Hive-tabellen voor Apache Hive in Hadoop op HDInsight-gegevensbronnen. Zie voor meer informatie over Hive in HDInsight, het [HDInsight-documentatiecentrum](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Ondersteuning voor het registreren en Oracle-databases en clusters van HDFS als containers detecteren. Bij het registreren van Oracle-tabellen en weergaven of HDFS, wordt een vermelding voor de database, tabellen en weergaven gemaakt in Azure Data Catalog. De database kan worden gedetecteerd en van aantekeningen voorzien met het Azure Data Catalog-portal. Gebruikers kunnen ook zoeken en filteren van de inhoud van een database of het cluster naast zoeken en filteren van de inhoud van de catalogus.
 * Ondersteuning voor onbekende typen gegevensbronnen handmatig registreren. Gebruikers kunnen de informatie van gegevensbron met behulp van de portal voor Azure Data Catalog, zodat de gegevensbronnen niet expliciet worden ondersteund door het registratiehulpprogramma van gegevensbronnen kunnen worden aangetekend en gedetecteerd handmatig invoeren.

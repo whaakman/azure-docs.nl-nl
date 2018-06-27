@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c01bcfecea8d79784b764e715f077c76e7d4be45
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208257"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017644"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors--KVSActorStateProvider configureren
 U kunt de standaardconfiguratie van KVSActorStateProvider wijzigen door het bestand settings.xml die wordt gegenereerd in de hoofdmap van het pakket Microsoft Visual Studio onder de map configuratie voor de opgegeven actor wordt gewijzigd.
@@ -34,6 +34,10 @@ De Azure Service Fabric-runtime gezocht naar vooraf gedefinieerde sectienamen in
 ## <a name="replicator-security-configuration"></a>Replicator Beveiligingsconfiguratie
 Beveilig het communicatiekanaal dat wordt gebruikt tijdens de replicatie worden beveiligingsconfiguraties Replicator gebruikt. Dit betekent dat services elkaars replicatieverkeer, om te garanderen dat de gegevens die maximaal beschikbaar is ook beveiligde kunnen niet zien.
 Standaard wordt een lege beveiligingsconfiguratiesectie voorkomen dat replicatiebeveiliging.
+
+> [!IMPORTANT]
+> Op Linux-knooppunten moet certificaten PEM-indeling. Zie voor meer informatie over het zoeken naar en het configureren van certificaten voor Linux [certificaten configureren op Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### <a name="section-name"></a>Sectienaam
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig

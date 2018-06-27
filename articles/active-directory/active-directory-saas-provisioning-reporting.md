@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: faccaa4496eb1deda23bbfcf335088a023d229d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e2ab7efdec326a7f1a2c7f3e7b7d0f379efa8606
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293174"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025742"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Zelfstudie: Rapportage over automatische gebruikers account inrichten
 
 
-Azure Active Directory bevat een [gebruikersaccount-service inricht](active-directory-saas-app-provisioning.md) die helpt om de inrichting ongedaan inrichting van gebruikersaccounts in de SaaS-apps en andere systemen, omwille van de levenscyclus van end-to-end identiteitsbeheer automatiseren. Azure AD biedt ondersteuning voor vooraf geïntegreerde gebruikers inrichten van connectors voor alle toepassingen en systemen in de sectie 'Aanbevolen' van de [Azure AD-toepassingsgalerie](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+Azure Active Directory bevat een [gebruikersaccount-service inricht](active-directory-saas-app-provisioning.md) die helpt om de inrichting ongedaan inrichting van gebruikersaccounts in de SaaS-apps en andere systemen, omwille van de end-to-end-identity lifecycle automatiseren beheer. Azure AD biedt ondersteuning voor vooraf geïntegreerde gebruikers inrichten van connectors voor alle toepassingen en systemen in de sectie 'Aanbevolen' van de [Azure AD-toepassingsgalerie](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
 Dit artikel wordt beschreven hoe u controleert de status van het inrichten nadat ze zijn ingesteld en het oplossen van de inrichting van afzonderlijke gebruikers en groepen.
 
 ## <a name="overview"></a>Overzicht
 
-Inrichting connectors zijn voornamelijk ingesteld en geconfigureerd met behulp van de [Azure-beheerportal](https://portal.azure.com), door de [documentatie opgegeven](active-directory-saas-tutorial-list.md) voor de toepassing waarin het inrichten van het account vereist is. Zodra de geconfigureerde en actieve worden inrichten voor een toepassing gerapporteerd over het gebruik van een van twee methoden:
+Inrichting connectors zijn ingesteld en geconfigureerd met behulp van de [Azure-portal](https://portal.azure.com), door de [documentatie opgegeven](saas-apps/tutorial-list.md) voor de ondersteunde toepassing. Zodra een geconfigureerd en actief, worden inrichten gerapporteerd over het gebruik van een van twee methoden:
 
-* **Azure-beheerportal** -in dit artikel beschrijft voornamelijk bij het ophalen van rapportgegevens uit de [Azure-beheerportal](https://portal.azure.com), waarmee u zowel een overzichtsrapport voor inrichting, evenals gedetailleerde inrichting audit Logboeken voor een bepaalde toepassing.
+* **Azure-beheerportal** -in dit artikel beschrijft voornamelijk bij het ophalen van rapportgegevens uit de [Azure-portal](https://portal.azure.com), waarmee u zowel een overzichtsrapport inrichten als gedetailleerde inrichting controlelogboeken voor een bepaalde toepassing.
 
 * **Audit API** -Azure Active Directory biedt ook een Audit-API die basisfunctionaliteit voor programmatische voor het ophalen van de gedetailleerde inrichting controlelogboeken. Zie [Azure Active Directory-audit API-referentiemateriaal](active-directory-reporting-api-audit-reference.md) voor documentatie over het gebruik van deze API. Terwijl dit artikel het gebruik van de API niet specifiek omvat, dit de typen gebeurtenissen die zijn vastgelegd in het controlelogboek inrichting toegelicht.
 
@@ -54,28 +54,28 @@ Voor het ophalen van rapportgegevens voor een bepaalde toepassing inrichten, sta
 Hier kunt u toegang hebt tot het overzichtsrapport voor het inrichten en de inrichting controlelogboeken, beide die hieronder worden beschreven.
 
 
-### <a name="provisioning-summary-report"></a>Het overzichtsrapport voor inrichting
+## <a name="provisioning-summary-report"></a>Het overzichtsrapport voor inrichting
 
-Het overzichtsrapport voor inrichting is zichtbaar in de **inrichten** tabblad voor de opgegeven toepassing. Bevindt het zich in de sectie synchronisatiedetails onder **instellingen**, en biedt de volgende informatie:
+Het overzichtsrapport voor inrichting is zichtbaar in de **inrichten** tabblad voor de opgegeven toepassing. Bevindt het zich in de **synchronisatiedetails** onder sectie **instellingen**, en biedt de volgende informatie:
 
-* Het totale aantal gebruikers en groepen op die zijn gesynchroniseerd en zijn momenteel in het bereik voor het inrichten van tussen de bron en het doelsysteem.
+* Het totale aantal gebruikers en groepen op die zijn gesynchroniseerd en zijn momenteel in het bereik voor het inrichten van tussen de bron en het doelsysteem
 
-* De laatste keer dat de synchronisatie is uitgevoerd. Synchronisaties optreden doorgaans elke 20-40 minuten nadat een volledige synchronisatie is voltooid.
+* De laatste keer dat de synchronisatie is uitgevoerd. Synchronisaties doen zich gewoonlijk voor elke 20-40 minuten na een [initiële synchronisatie](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) is voltooid.
 
-* Of er een initiële volledige synchronisatie is voltooid.
+* Al dan niet een [initiële synchronisatie](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) is voltooid
 
-* Wel of niet tijdens het inrichtingsproces in quarantaine zijn geplaatst en wat de oorzaak van de quarantaine-status is bijvoorbeeld (kan niet communiceren met het doelsysteem vanwege ongeldige Administrator-referenties)
+* Wel of niet tijdens het inrichtingsproces in quarantaine zijn geplaatst en wat is de reden voor de quarantaine-status (bijvoorbeeld, kan niet communiceren met het doelsysteem vanwege ongeldige Administrator-referenties)
 
 Het overzichtsrapport voor de inrichting, moet de eerste plaats admins uiterlijk bij het controleren van de operationele status van de taak.
 
  ![Samenvattend rapport](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### <a name="provisioning-audit-logs"></a>Inrichting controlelogboeken
+## <a name="provisioning-audit-logs"></a>Inrichting controlelogboeken
 Alle activiteiten die worden uitgevoerd door de inrichting-service worden geregistreerd in de Azure AD-auditlogboeken kunnen worden weergegeven in de **controlelogboeken** tabblad onder de **Account inrichten** categorie. Geregistreerde activiteit gebeurtenistypen zijn onder andere:
 
 * **Gebeurtenissen importeren** -een 'import' gebeurtenis vastgelegd elke keer dat de Azure AD-service inricht informatie over een afzonderlijke gebruiker of groep van een bronsysteem of het doelsysteem haalt. Tijdens de synchronisatie worden gebruikers opgehaald uit het bronsysteem eerst met de resultaten die zijn vastgelegd als 'importeren' gebeurtenissen. De overeenkomende id's van de opgehaalde gebruikers worden vervolgens een query uitgevoerd op het doelsysteem om te controleren of ze bestaan, met de resultaten ook als 'importeren' gebeurtenissen vastgelegd. Deze gebeurtenissen opnemen alle toegewezen gebruikerskenmerken en hun waarden die zichtbaar zijn voor de Azure AD-service op het moment van de gebeurtenis inricht. 
 
-* **Synchronisatie regel gebeurtenissen** - deze gebeurtenissen rapporteren over de resultaten van de toewijzingsregels kenmerk en een bereik filters geconfigureerd nadat gebruikersgegevens is geïmporteerd en geëvalueerd op basis van de bron en doel-systemen. Bijvoorbeeld, als een gebruiker in een bronsysteem wordt geacht binnen het bereik van de inrichting en dat niet bestaat in het doelsysteem aangenomen en vervolgens deze gebeurtenis die registreert wordt de gebruiker ingericht in het doelsysteem. 
+* **Synchronisatie regel gebeurtenissen** - deze gebeurtenissen rapporteren over de resultaten van de regels voor toewijzing van kenmerken en een bereik filters geconfigureerd nadat gebruikersgegevens is geïmporteerd en geëvalueerd op basis van de bron en doel-systemen. Bijvoorbeeld, als een gebruiker in een bronsysteem wordt geacht binnen het bereik van de inrichting en dat niet bestaat in het doelsysteem aangenomen en vervolgens deze gebeurtenis die registreert wordt de gebruiker ingericht in het doelsysteem. 
 
 * **Gebeurtenissen exporteren** -een "export" gebeurtenis vastgelegd elke keer dat de Azure AD-service inricht schrijft een account of groep van een gebruikersobject voor het doelsysteem. Deze gebeurtenissen opnemen alle gebruikerskenmerken en de waarden die zijn geschreven door de Azure AD-service op het moment van de gebeurtenis inricht. Als er een fout opgetreden is tijdens het schrijven van het gebruikersobject-account of groep naar het doelsysteem, wordt deze hier weergegeven.
 
@@ -87,9 +87,9 @@ Bij het onderzoeken van de inrichting van gebeurtenissen voor een afzonderlijke 
 
 2. Importeren van gebeurtenis: doelsysteem om te controleren op de aanwezigheid van de opgehaalde gebruiker wordt gevraagd.
 
-3. Regel synchronisatiegebeurtenis: gebruikersgegevens van de bron en doel-systemen worden geëvalueerd op basis van het geconfigureerde kenmerk mapping regels en bereikfilters om te bepalen welke actie, indien van toepassing, moet worden uitgevoerd.
+3. Regel synchronisatiegebeurtenis: gebruikersgegevens van de bron en doel-systemen worden geëvalueerd op basis van de geconfigureerde kenmerk toewijzingsregels en bereik filters om te bepalen welke actie, indien van toepassing, moet worden uitgevoerd.
 
-4. Gebeurtenis exporteren: als de regel synchronisatiegebeurtenis bepaald dat een actie moet worden uitgevoerd (bijvoorbeeld toevoegen, bijwerken, verwijderen), en vervolgens de resultaten van de actie in een Export-gebeurtenis worden vastgelegd.
+4. Gebeurtenis exporteren: als de regel synchronisatiegebeurtenis bepaald dat een actie moet worden uitgevoerd (toevoegen, bijwerken, verwijderen), en vervolgens de resultaten van de actie in een Export-gebeurtenis worden vastgelegd.
 
 ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
@@ -104,7 +104,7 @@ De meest voorkomende gebruiksvoorbeeld voor de inrichting controlelogboeken is o
 
 3. In de **datumbereik** menu, selecteer het datumbereik dat u zoeken wilt,
 
-4. In de **Search** balk, voert u de gebruikers-ID van de gebruiker die u wilt zoeken. De indeling van de id-waarde moet overeenkomen met wat u hebt geselecteerd als de primaire overeenkomende ID in de configuratie van de toewijzing (bijvoorbeeld userPrincipalName of werknemer-ID-nummer). De waarde van de ID die vereist zijn zichtbaar in de kolom doel(en).
+4. In de **Search** balk, voert u de gebruikers-ID van de gebruiker die u wilt zoeken. De indeling van de id-waarde moet overeenkomen met wat u hebt geselecteerd als de primaire overeenkomende ID in de configuratie van de toewijzing van kenmerken (bijvoorbeeld, userPrincipalName of werknemer-ID-nummer). De waarde van de ID die vereist zijn zichtbaar in de kolom doel(en).
 
 5. Druk op Enter om te zoeken. De meest recente gebeurtenissen in de inrichting eerst geretourneerd.
 

@@ -6,7 +6,7 @@ Wanneer u onderhoud modus updates op StorSimple-apparaat toepassen, worden alle 
 > * Controleer voordat u de onderhoudsmodus invoert, of beide apparaatcontrollers goed in de Azure portal. Als de domeincontroller is niet in orde, [contact opnemen met Microsoft ondersteuning](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) voor de volgende stappen.
 > * Wanneer u in de onderhoudsmodus bevindt bent, moet u eerst één domeincontroller en vervolgens de andere controller bijwerken.
 
-1. PuTTY gebruiken om verbinding maken met de seriële console. Volg de gedetailleerde instructies in [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Druk op de opdrachtregel op **Enter**. Selecteer optie 1 om aan te melden op het apparaat met volledige toegang.
+1. PuTTY gebruiken om verbinding maken met de seriële console. Volg de gedetailleerde instructies in [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Druk op de opdrachtregel op **Enter**. Selecteer optie 1 **aanmelden met volledige toegang**.
 
 2. Als u wilt de controller in onderhoudsmodus te plaatsen, typt u:
     
@@ -20,7 +20,7 @@ Wanneer u onderhoud modus updates op StorSimple-apparaat toepassen, worden alle 
 
     U wordt gevraagd om bevestiging. Nadat u de updates hebt gecontroleerd, moeten ze worden geïnstalleerd op de domeincontroller die u momenteel gebruikmaken van. Nadat de updates zijn geïnstalleerd, wordt de domeincontroller opnieuw wordt opgestart.
 
-4. De status van de updates bewaken. Meld u aan bij de peer-controller omdat de huidige controller worden bijgewerkt en kan geen andere opdrachten verwerken. Type:
+4. De status van de updates bewaken. Meld u aan de peer-controller omdat de huidige controller worden bijgewerkt en kan geen andere opdrachten verwerken. Type:
 
     `Get-HcsUpdateStatus`
 
@@ -30,7 +30,7 @@ Wanneer u onderhoud modus updates op StorSimple-apparaat toepassen, worden alle 
 
     `Get-HcsFirmwareVersion`
    
-    De verwachte schijf-firmware-versies zijn:`XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
+    De verwachte schijf-firmware-versies zijn:  `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
 
 6. De onderhoudsmodus af te sluiten. Typ de volgende opdracht voor elke domeincontroller apparaat:
 

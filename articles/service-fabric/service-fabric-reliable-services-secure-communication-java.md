@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 1843720b9700e66af8ee84766cf7d63ac62e6283
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: cbefb3ede6d0d1fe21065b49c84db9f4db5dd39c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749909"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020810"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>Veilige communicatie van de service voor externe toegang in een Java-service
 > [!div class="op_single_selector"]
@@ -55,7 +55,9 @@ Om te helpen beveiligen van een service wanneer u service voor externe toegang m
     ```
 2. Instellingen voor listener en beveiligingsreferenties toevoegen.
 
-    Zorg ervoor dat het certificaat dat u wilt gebruiken om te helpen beveiligen van uw servicecommunicatie is geïnstalleerd op alle knooppunten in het cluster. Er zijn twee manieren waarop u instellingen voor listener en beveiligingsreferenties kunt opgeven:
+    Zorg ervoor dat het certificaat dat u wilt gebruiken om te helpen beveiligen van uw servicecommunicatie is geïnstalleerd op alle knooppunten in het cluster. Voor services die worden uitgevoerd op Linux, moet het certificaat beschikbaar als een bestand PEM formmatted; ofwel een `.pem` -bestand dat het certificaat en de persoonlijke sleutel bevat of een `.crt` -bestand met het certificaat en een `.key` -bestand dat de persoonlijke sleutel bevat. Zie voor meer informatie, [locatie en indeling van het X.509-certificaten op Linux-knooppunten](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    
+    Er zijn twee manieren waarop u instellingen voor listener en beveiligingsreferenties kunt opgeven:
 
    1. Ze bieden met behulp van een [configuratiepakket](service-fabric-application-and-service-manifests.md):
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8558b3b1f5a9036f1134ddce3302211b41f57c05
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025788"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld om specifieke informatie van de Azure-logboekanalyse als aanvulling op de informatie op te geven [Azure Vertrouwenscentrum](../security/security-microsoft-trust-center.md).  
@@ -27,16 +28,16 @@ Dit artikel wordt uitgelegd hoe gegevens verzameld, verwerkt en beveiligd door l
 
 De Log Analytics-service beheert uw cloud-gebaseerde gegevens veilig met behulp van de volgende methoden:
 
-* gegevensscheiding
+* Gegevensscheiding
 * Bewaartijd van gegevens
 * Fysieke beveiliging
 * Incidentbeheer
 * Naleving
-* standaarden veiligheidscertificaten
+* Standaarden veiligheidscertificaten
 
 Neem contact met ons met eventuele vragen, suggesties of problemen met betrekking tot een van de volgende informatie, met inbegrip van ons beveiligingsbeleid op [Azure ondersteuningsopties](http://azure.microsoft.com/support/options/).
 
-## <a name="data-segregation"></a>gegevensscheiding
+## <a name="data-segregation"></a>Gegevensscheiding
 Nadat uw gegevens wordt ingenomen door de Log Analytics-service, is de gegevens geïsoleerd logisch op elk onderdeel in de service. Alle gegevens per werkruimte is gecodeerd. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service. Uw gegevens worden opgeslagen in een specifieke database in het cluster in de regio die u hebt geselecteerd.
 
 ## <a name="data-retention"></a>Bewaartijd van gegevens
@@ -62,12 +63,12 @@ De volgende tabel ziet u voorbeelden van gegevenstypen:
 | Waarschuwing |Waarschuwing naam, beschrijving van de waarschuwing, BaseManagedEntityId, probleem-ID, IsMonitorAlert, RuleId, oplossingsstatus, prioriteit, ernst, categorie, eigenaar, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configuratie |CustomerID, AgentID, id van de entiteit, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | Gebeurtenis |Gebeurtenis-id, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, getal, categorie, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Opmerking:** wanneer u gebeurtenissen met aangepaste velden in het Windows-gebeurtenislogboek schrijft, OMS ze verzamelt. |
-| Metagegevens |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IP-adres, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP-adres, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, primaire naam, OffsetInMinuteFromGreenwichTime |
+| Metagegevens |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IP-adres, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP- Adres, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, primaire naam, OffsetInMinuteFromGreenwichTime |
 | Prestaties |Objectnaam, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fysieke beveiliging
-De Log Analytics-service wordt beheerd door medewerkers van Microsoft en alle activiteiten die worden geregistreerd en kunnen worden gecontroleerd. Log Analytics wordt beheerd als een Azure-Service en voldoet aan alle vereisten voor Azure-compatibiliteit en beveiliging. U kunt meer informatie over de fysieke beveiliging van Azure activa weergeven op pagina 18 van de [beveiligingsoverzicht van Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysieke toegangsrechten voor het beveiligen van gebieden worden gewijzigd binnen één werkdag voor iedereen die verantwoordelijk is voor de OMS-service, inclusief overdracht en beëindiging beschikt niet langer over. U kunt meer informatie over globale fysieke infrastructuur gebruiken we op [Microsoft-Datacenters](https://www.microsoft.com/server-cloud/cloud-os/global-datacenters.aspx).
+De Log Analytics-service wordt beheerd door medewerkers van Microsoft en alle activiteiten die worden geregistreerd en kunnen worden gecontroleerd. Log Analytics wordt beheerd als een Azure-Service en voldoet aan alle vereisten voor Azure-compatibiliteit en beveiliging. U kunt meer informatie over de fysieke beveiliging van Azure activa weergeven op pagina 18 van de [beveiligingsoverzicht van Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysieke toegangsrechten voor het beveiligen van gebieden worden gewijzigd binnen één werkdag voor iedereen die verantwoordelijk is voor de OMS-service, inclusief overdracht en beëindiging beschikt niet langer over. U kunt meer informatie over globale fysieke infrastructuur gebruiken we op [Microsoft-Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
 
 ## <a name="incident-management"></a>Incidentbeheer
 OMS heeft een incidentbeheerproces die voor alle Microsoft-services worden aangehouden. Samengevat: we:
@@ -91,10 +92,10 @@ OMS heeft een incidentbeheerproces die voor alle Microsoft-services worden aange
 
 Als het verlies van enige klantgegevens optreedt, wordt elke klant melden binnen één dag. Klant-gegevensverlies is echter nooit opgetreden met de service. 
 
-Zie voor meer informatie over hoe Microsoft moet op beveiligingsincidenten reageren [reactie van Microsoft Azure-beveiliging in de Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf).
+Zie voor meer informatie over hoe Microsoft moet op beveiligingsincidenten reageren [reactie van Microsoft Azure-beveiliging in de Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 
 ## <a name="compliance"></a>Naleving
-Log Analytics software ontwikkelings- en service van het team informatie beveiliging en beheeracties programma ondersteunt de zakelijke vereisten en voldoet aan regelgeving zoals beschreven op [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) en [ Microsoft Trust Center naleving](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Hoe logboekanalyse beveiligingsvereisten vaststelt, identificeert beveiligingsmechanismen beheert en bewaakt de risico's worden er ook beschreven. Jaarlijks, wij controleren beleidsregels, standaarden, procedures en richtlijnen.
+Log Analytics software ontwikkelings- en service van het team informatie beveiliging en beheeracties programma ondersteunt de zakelijke vereisten en voldoet aan regelgeving zoals beschreven op [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) en [ Microsoft Trust Center naleving](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). Hoe logboekanalyse beveiligingsvereisten vaststelt, identificeert beveiligingsmechanismen beheert en bewaakt de risico's worden er ook beschreven. Jaarlijks, wij controleren beleidsregels, standaarden, procedures en richtlijnen.
 
 Elk teamlid ontwikkeling ontvangt beveiligingstraining formele toepassing. We gebruiken een versiebeheersysteem intern voor softwareontwikkeling. Elk software-project wordt beveiligd door het versiebeheersysteem.
 
@@ -112,10 +113,10 @@ Azure Log Analytics voldoet aan de volgende vereisten:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Payment Card Industry (PCI compatibele) gegevens beveiligingsstandaard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) door de PCI Security Standards Raad.
 * [Type service organisatie besturingselementen (SOC) 1 1 en SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) compatibel
-* [HIPAA en HITECH](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) voor bedrijven die een HIPAA-overeenkomst voor het koppelen van bedrijven hebben
+* [HIPAA en HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) voor bedrijven die een HIPAA-overeenkomst voor het koppelen van bedrijven hebben
 * Windows gemeenschappelijke Engineering Criteria
 * Microsoft Trustworthy Computing
-* Als een Azure-service voldoen de onderdelen die gebruikmaakt van logboekanalyse aan nalevingsvereisten van Azure. U vindt meer op [Microsoft Trust Center naleving](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
+* Als een Azure-service voldoen de onderdelen die gebruikmaakt van logboekanalyse aan nalevingsvereisten van Azure. U vindt meer op [Microsoft Trust Center naleving](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).
 
 > [!NOTE]
 > In sommige certificeringen/verklaringen Log Analytics wordt vermeld onder de oude naam van *Operational Insights*.
@@ -130,8 +131,8 @@ Het volgende diagram toont een cloud-beveiligingsarchitectuur als de stroom van 
 ## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Aanmelden voor logboekanalyse en gegevens verzamelen
 Voor uw organisatie gegevens verzenden naar Log Analytics, moet u een Windows- of Linux-agent uitgevoerd op virtuele machines in Azure of op virtuele of fysieke computers in uw omgeving of andere cloudprovider configureren.  Als u Operations Manager gebruikt, uit de beheergroep u Operations Manager-agent. Gebruikers (dit is mogelijk u afzonderlijke gebruikers of een groep personen) een of meer Log Analytics-werkruimten maken en registreren van agents met een van de volgende accounts:
 
-* [Organisatie-ID](../active-directory/sign-up-organization.md)
-* [Microsoft-Account - Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
+* [Organisatie-ID](../active-directory/fundamentals/sign-up-organization.md)
+* [Microsoft-Account - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
 Een werkruimte voor logboekanalyse is de gegevens wordt verzameld, samengevoegd, geanalyseerd en gepresenteerd. Een werkruimte wordt voornamelijk gebruikt om partitiegegevens te en elke werkruimte uniek is. U wilt bijvoorbeeld uw productiegegevens die worden beheerd door een werkruimte en uw testgegevens die worden beheerd door een andere werkruimte. Een beheerder gebruikerstoegang helpen werkruimten ook bij de gegevens. Elke werkruimte kan meerdere gebruikersaccounts die zijn gekoppeld, en elke gebruikersaccount hebben toegang tot meerdere Log Analytics-werkruimten. U maakt op basis van regio datacenter werkruimten. Elke werkruimte wordt gerepliceerd naar andere datacentra in de regio, hoofdzakelijk voor beschikbaarheid van Log Analytics-service.
 

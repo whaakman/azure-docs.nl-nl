@@ -39,7 +39,7 @@ Deze stap wordt uitgevoerd in de Windows PowerShell voor StorSimple-interface op
 Als u de seriële console van het apparaat verbinding maken met de Windows PowerShell-interface gebruikt, moet u de volgende stappen uitvoeren.
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>Starten van service data encryption key wijzigen
-1. Selecteer optie 1 om aan te melden met volledige toegang.
+1. Selecteer optie 1, **aanmelden met volledige toegang**.
 2. Typ het volgende achter de opdrachtprompt:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
@@ -60,7 +60,7 @@ Deze stappen moeten worden uitgevoerd in de Windows PowerShell-interface van uw 
 Voer de volgende stappen uit voor het bijwerken van de versleuteling van de service-gegevens op uw apparaat.
 
 #### <a name="to-update-the-service-data-encryption-key"></a>Bijwerken van de gegevensversleutelingssleutel van service
-1. Windows PowerShell voor StorSimple gebruiken voor het verbinding maken met de console. Selecteer optie 1 om aan te melden met volledige toegang.
+1. Windows PowerShell voor StorSimple gebruiken voor het verbinding maken met de console. Selecteer optie 1, **aanmelden met volledige toegang**.
 2. Typ het volgende achter de opdrachtprompt:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`

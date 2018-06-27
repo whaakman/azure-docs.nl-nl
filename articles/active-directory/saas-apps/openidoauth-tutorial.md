@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 176af41197810059a17daf5ab09d29e0169e9640
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 69e9d66458409bbc744416a58ceb508349418a76
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225004"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019550"
 ---
 # <a name="steps-to-configure-an-openidoauth-application-from-azure-ad-app-gallery"></a>Stappen voor het configureren van een toepassing OpenID/OAuth vanuit Azure AD-App-galerie
 
@@ -42,7 +42,7 @@ ms.locfileid: "36225004"
     ![Toepassing toevoegen](./media/openidoauth-tutorial/addfromgallery.png)
 
     > [!NOTE]
-    > Knop is standaard uitgeschakeld voor Open ID Connect en OAuth apps toevoegen. Hier de tenantbeheerder klikt op de **aanmelding** knop en geef de toestemming voor de toepassing. Tenant, hoeft u niet expliciet toevoegen en de configuraties komen met die dat de toepassing ophalen toegevoegd in de klant.
+    > Knop is standaard uitgeschakeld voor Open ID Connect en OAuth apps toevoegen. Hier de tenantbeheerder klikt op de **aanmelding** knop en geef de toestemming voor de toepassing. Met die de toepassing wordt in de tenant van de klant, niet nodig om toe te voegen expliciet zijn toegevoegd en de configuraties komen.
 
     ![Knop Toevoegen](./media/openidoauth-tutorial/addbutton.png)
 
@@ -70,7 +70,7 @@ Azure AD-team standaard bijdraagt aan meerdere tenants toepassing als die gemakk
 
 Het framework van Azure AD toestemming kunt eenvoudig ontwikkelen van multitenant-web- en native client-toepassingen. Deze toepassingen kunnen aanmelden door gebruikersaccounts van een Azure AD-tenant, verschilt van de waar de toepassing is geregistreerd. Ze kunnen ook toegang nodig tot web-API's zoals de Microsoft Graph-API (voor toegang tot Azure Active Directory, Intune en services in Office 365) en andere Microsoft-services-API's, naast uw eigen web-API's. Het framework is gebaseerd op een gebruiker of beheerder toestemming verlenen tot een toepassing waarin u wordt gevraagd om te worden geregistreerd in de directory, waarbij toegang tot Active directory-gegevens. Nadat toestemming is opgegeven, is de clienttoepassing worden kunnen de Microsoft Graph-API aanroepen namens de gebruiker en gebruik de informatie, indien nodig.
 
-De [Microsoft Graph API](https://graph.microsoft.io/) biedt toegang tot gegevens in Office 365 (zoals agenda's en berichten van Exchange, sites en lijsten van SharePoint, documenten van OneDrive, OneNote-notitieblokken, taken van de Planner, werkmappen van Excel, enz.) en de gebruikers en groepen van Azure AD en andere gegevensobjecten van meer Microsoft-cloudservices.
+De [Microsoft Graph API](https://graph.microsoft.io/) biedt toegang tot gegevens in Office 365 (zoals agenda's en berichten van Exchange, sites en lijsten van SharePoint, documenten van OneDrive, taken van de Planner werkmappen van Excel, OneNote-notitieblokken etc.), evenals de gebruikers en groepen van Azure AD en andere gegevensobjecten van meer Microsoft-cloudservices.
 
 De volgende stappen ziet u hoe de toestemming ondervinden werkt voor de ontwikkelaar van toepassingen en de gebruiker.
 

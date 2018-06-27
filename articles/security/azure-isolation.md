@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018407"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie van opslagprestaties in de openbare Azure-Cloud
 ##  <a name="introduction"></a>Inleiding
@@ -120,7 +121,7 @@ Zakelijke services met gecontroleerde certificeringen zoals ISO/IEC 27001 regelm
 
 Als u geen gegevens verwijdert, worden de gegevens, inclusief alle kopieën in de cache of back-up in Microsoft Azure verwijderd. Voor de services-scope, die verwijdering binnen 90 dagen na het einde van de bewaarperiode vallen. (In de scope-services zijn gedefinieerd in de sectie gegevensverwerking voorwaarden van onze [Online Services-voorwaarden](http://aka.ms/Online-Services-Terms).)
 
-Als een schijf die wordt gebruikt voor de opslag van een hardware storing, is het veilig [verwijderd of vernietigd](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) voordat Microsoft terug naar de fabrikant voor vervanging of herstel. Om ervoor te zorgen dat de gegevens kunnen niet worden hersteld door middel van de gegevens op de schijf overschreven.
+Als een schijf die wordt gebruikt voor de opslag van een hardware storing, is het veilig [verwijderd of vernietigd](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) voordat Microsoft terug naar de fabrikant voor vervanging of herstel. Om ervoor te zorgen dat de gegevens kunnen niet worden hersteld door middel van de gegevens op de schijf overschreven.
 
 ## <a name="compute-isolation"></a>COMPUTE isolatie
 Microsoft Azure biedt verschillende cloud-gebaseerde computers onder meer services als een groot aantal compute-exemplaren en services die kunnen worden geschaald omhoog en omlaag automatisch om te voldoen aan de behoeften van uw toepassing of enterprise. Deze compute-exemplaar en de service bieden isolatie op meerdere niveaus om gegevens te beveiligen zonder verlies van de flexibiliteit in de configuratie die vraag van klanten.

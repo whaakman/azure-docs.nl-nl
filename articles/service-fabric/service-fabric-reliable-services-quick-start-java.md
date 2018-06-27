@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208298"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019692"
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -116,10 +116,10 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-In deze zelfstudie we richten op de `runAsync()` entry point-methode. Dit is waar u kunt onmiddellijk starten uitvoeren van uw code.
+Deze zelfstudie richt zich op de `runAsync()` entry point-methode. Dit is waar u kunt onmiddellijk starten uitvoeren van uw code.
 
 ### <a name="runasync"></a>RunAsync
-Het platform roept deze methode wanneer een exemplaar van een service is geplaatst en kan worden uitgevoerd. Voor een stateless service betekent dat gewoon wanneer het service-exemplaar wordt geopend. Een token annulering is opgegeven voor het coördineren van wanneer uw service-exemplaar moet worden gesloten. Deze cyclus openen en sluiten van een service-exemplaar kan vaak gedurende de levensduur van de service in Service Fabric optreden als geheel. Dit kan gebeuren om verschillende redenen, waaronder:
+Het platform roept deze methode wanneer een exemplaar van een service is geplaatst en kan worden uitgevoerd. Voor een stateless service betekent dat wanneer het service-exemplaar wordt geopend. Een token annulering is opgegeven voor het coördineren van wanneer uw service-exemplaar moet worden gesloten. Deze cyclus openen en sluiten van een service-exemplaar kan vaak gedurende de levensduur van de service in Service Fabric optreden als geheel. Dit kan gebeuren om verschillende redenen, waaronder:
 
 * Het systeem wordt uw service-exemplaren voor resourceverdeling verplaatst.
 * Fouten die voorkomen in uw code.
@@ -201,16 +201,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) is een dictionary-implementatie die u gebruiken kunt om op te slaan op betrouwbare wijze staat in de service. Met Service Fabric en betrouwbare Hashmaps, kunt u gegevens opslaan rechtstreeks in uw service zonder de noodzaak van een externe permanente archief. Betrouwbare Hashmaps uw gegevens maximaal beschikbaar maken. Service Fabric bewerkstelligt dit door het maken en beheren van meerdere *replica's* van uw service voor u. Het bevat ook een API die weg de complexiteit isoleert van het beheren van deze replica's en hun statusovergangen.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) is een dictionary-implementatie die u gebruiken kunt om op te slaan op betrouwbare wijze staat in de service. Met Service Fabric en betrouwbare HashMaps, kunt u gegevens opslaan rechtstreeks in uw service zonder de noodzaak van een externe permanente archief. Betrouwbare HashMaps uw gegevens maximaal beschikbaar maken. Service Fabric bewerkstelligt dit door het maken en beheren van meerdere *replica's* van uw service voor u. Het bevat ook een API die weg de complexiteit isoleert van het beheren van deze replica's en hun statusovergangen.
 
 Betrouwbare verzamelingen kunnen elk type Java, met inbegrip van uw aangepaste typen, met een aantal aanvullende opmerkingen worden opgeslagen.
 
-* Service Fabric worden uw status maximaal beschikbaar door *repliceren* staat tussen knooppunten en betrouwbare Hashmap worden de gegevens naar de lokale schijf opgeslagen op elke replica. Dit betekent dat alles dat is opgeslagen in betrouwbare Hashmaps moet *serialiseerbaar*. 
-* Objecten worden gerepliceerd voor hoge beschikbaarheid, wanneer u transacties op betrouwbare Hashmaps doorvoert. Objecten die zijn opgeslagen in betrouwbare Hashmaps worden opgeslagen in het lokale geheugen van uw service. Dit betekent dat u een lokale verwijzing naar het object hebt.
+* Service Fabric worden uw status maximaal beschikbaar door *repliceren* staat tussen knooppunten en betrouwbare HashMap worden de gegevens naar de lokale schijf opgeslagen op elke replica. Dit betekent dat alles dat is opgeslagen in betrouwbare HashMaps moet *serialiseerbaar*. 
+* Objecten worden gerepliceerd voor hoge beschikbaarheid, wanneer u transacties op betrouwbare HashMaps doorvoert. Objecten die zijn opgeslagen in betrouwbare HashMaps worden opgeslagen in het lokale geheugen van uw service. Dit betekent dat u een lokale verwijzing naar het object hebt.
   
-   Het is belangrijk dat u geen lokale exemplaren van deze objecten muteren zonder dat u een updatebewerking op de verzameling betrouwbare uitvoert in een transactie. Dit is omdat wijzigingen in de lokale exemplaren van objecten worden niet automatisch worden gerepliceerd. U moet het object opnieuw weer in de woordenlijst invoegen of gebruik een van de *bijwerken* methoden in de woordenlijst.
+   Het is belangrijk dat u geen lokale exemplaren van deze objecten muteren zonder dat u een updatebewerking op de verzameling betrouwbare uitvoert in een transactie. Dit is omdat wijzigingen in de lokale exemplaren van objecten worden niet automatisch worden gerepliceerd. U moet het object weer in de woordenlijst opnieuw of gebruik een van de *bijwerken* methoden in de woordenlijst.
 
-Statusbeheer voor het betrouwbare beheert betrouwbare Hashmaps voor u. U kunt gewoon vragen statusbeheer voor het betrouwbare voor een betrouwbare verzameling met de naam op elk gewenst moment en op een willekeurige plaats in uw service. Statusbeheer voor het betrouwbare zorgt ervoor dat u een verwijzing terug. Wordt niet aanbevolen verwijzingen naar betrouwbare verzameling exemplaren te slaan in klasselid variabelen of eigenschappen. Speciale aandacht moet worden uitgevoerd om ervoor te zorgen dat de verwijzing naar een exemplaar te allen tijde in de levenscyclus van de service is ingesteld. Statusbeheer voor het betrouwbare dit werk voor u verwerkt en geoptimaliseerd voor herhaaldelijk bezoeken.
+Statusbeheer voor het betrouwbare beheert betrouwbare HashMaps voor u. U kunt vragen statusbeheer voor het betrouwbare voor een betrouwbare verzameling met de naam op elk gewenst moment en op een willekeurige plaats in uw service. Statusbeheer voor het betrouwbare zorgt ervoor dat u een verwijzing terug. Niet aanbevolen dat u verwijzingen naar betrouwbare verzameling exemplaren opslaan in de Klassenlidvariabelen of eigenschappen. Speciale aandacht moet worden uitgevoerd om ervoor te zorgen dat de verwijzing naar een exemplaar te allen tijde in de levenscyclus van de service is ingesteld. Statusbeheer voor het betrouwbare dit werk voor u verwerkt en geoptimaliseerd voor herhaaldelijk bezoeken.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>Transactionele en asynchrone bewerkingen
@@ -231,12 +231,12 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-Bewerkingen op betrouwbare Hashmaps zijn asynchroon. Dit is omdat schrijfbewerkingen met betrouwbare verzamelingen i/o-bewerkingen als u wilt repliceren en de gegevens naar schijf te behouden.
+Bewerkingen op betrouwbare HashMaps zijn asynchroon. Dit is omdat schrijfbewerkingen met betrouwbare verzamelingen i/o-bewerkingen als u wilt repliceren en de gegevens naar schijf te behouden.
 
-Bewerkingen voor betrouwbare Hashmap zijn *transactionele*, zodat u status consistent voor meerdere betrouwbare Hashmaps en bewerkingen houden kunt. U kunt bijvoorbeeld ophalen van een werkitem van een betrouwbare woordenboek, een bewerking uitvoeren op deze en opslaan van het resultaat in anoter betrouwbare Hashmap, alle binnen een transactie. Dit wordt beschouwd als een atomic-bewerking en dit zorgt ervoor dat de hele bewerking slaagt of de hele bewerking wordt teruggedraaid. Als een fout optreedt nadat u het item in wachtrij, maar voordat u het resultaat opslaat, wordt de hele transactie wordt teruggedraaid en blijft het item in de wachtrij voor verwerking.
+Bewerkingen voor betrouwbare HashMap zijn *transactionele*, zodat u status consistent voor meerdere betrouwbare HashMaps en bewerkingen houden kunt. U kunt bijvoorbeeld ophalen van een werkitem van een betrouwbare woordenboek, een bewerking uitvoeren op deze en het resultaat opslaan in een andere betrouwbare HashMap alle binnen een transactie. Dit wordt beschouwd als een atomic-bewerking en dit zorgt ervoor dat de hele bewerking slaagt of de hele bewerking wordt teruggedraaid. Als een fout optreedt nadat u het item in wachtrij, maar voordat u het resultaat opslaat, wordt de hele transactie wordt teruggedraaid en blijft het item in de wachtrij voor verwerking.
 
 
-## <a name="run-the-application"></a>De toepassing uitvoeren
+## <a name="build-the-application"></a>De toepassing bouwen
 
 De Yeoman steigers bevat een script gradle voor het bouwen van de toepassing en bash-scripts voor het implementeren en de toepassing verwijderen. Om de toepassing uitvoert, moet u eerst de toepassing met gradle bouwen:
 
@@ -246,13 +246,31 @@ $ gradle
 
 Dit resulteert in een Service Fabric-toepassingspakket dat kan worden geïmplementeerd met behulp van Service Fabric CLI.
 
-### <a name="deploy-with-service-fabric-cli"></a>Met Service Fabric CLI implementeren
+## <a name="deploy-the-application"></a>De toepassing implementeren
 
-Het script install.sh bevat de benodigde Service Fabric CLI-opdrachten voor het implementeren van het toepassingspakket. Voer het script install.sh voor het implementeren van de toepassing.
+Nadat de toepassing is gemaakt, kunt u deze implementeren in het lokale cluster.
 
-```bash
-$ ./install.sh
-```
+1. Maak verbinding met het lokale cluster van Service Fabric.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Voer het installatiescript uit dat is opgegeven in de sjabloon om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
+
+    ```bash
+    ./install.sh
+    ```
+
+De implementatie van de gemaakte toepassing werkt hetzelfde als van andere Service Fabric-toepassingen. Zie de documentatie over het [beheren van een Service Fabric-toepassing met de Service Fabric-CLI](service-fabric-application-lifecycle-sfctl.md) voor gedetailleerde instructies.
+
+Parameters voor deze opdrachten vindt u in de gegenereerde manifesten binnen het toepassingspakket.
+
+Nadat de toepassing is geïmplementeerd, opent u een browser en gaat u naar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) op [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Vouw vervolgens het knooppunt **Toepassingen** uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
+
+> [!IMPORTANT]
+> Als u wilt de toepassing implementeert op een veilige Linux-cluster in Azure, moet u een certificaat voor het valideren van uw toepassing met de Service Fabric-runtime configureren. In dat geval kunnen uw services Reliable Services om te communiceren met de onderliggende API's van de Service Fabric-runtime. Zie voor meer informatie, [configureren van een app Reliable Services uit te voeren op Linux-clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
 
 ## <a name="next-steps"></a>Volgende stappen
 

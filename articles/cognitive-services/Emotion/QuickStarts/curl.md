@@ -9,19 +9,19 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: d36a191d3589702d676e694715f34ea1c924e2d3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a7ca2cac718797462bb4dc889b3f1361b252435e
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344742"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021095"
 ---
 # <a name="emotion-api-curl-quick-start"></a>Emotion-API cURL snel starten
 
 > [!IMPORTANT]
 > Video API Preview eindigt op 30 oktober 2017. Het nieuwe [Video indexeerfunctie API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten extraheren van video's en ervaringen van inhoud, zoals de lijst met zoekresultaten verbeteren doordat gesproken woorden, vlakken tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
-In dit artikel vindt u informatie en codevoorbeelden kunt u snel aan de slag met de [Emotion-API herkennen methode](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) met cURL de emoties uitgedrukt in een of meer personen in een installatiekopie kan herkennen. 
+In dit artikel vindt u informatie en codevoorbeelden kunt u snel aan de slag met de [Emotion-API herkennen methode](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) met cURL de emoties uitgedrukt in een of meer personen in een installatiekopie kan herkennen. 
 
 ## <a name="prerequisite"></a>Vereiste
 * Sleutel voor gratis abonnement ophalen [hier](https://azure.microsoft.com/try/cognitive-services/)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4377e9902696a4ee3b5bbb5fcb44d972ec14f822
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31389709"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958722"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health-bewerkingen
 Dit onderwerp beschrijft de verschillende bewerkingen die u uitvoeren kunt met behulp van Azure Active Directory (Azure AD) Connect Health.
@@ -101,7 +101,7 @@ Azure AD Connect Health ondersteunt de volgende ingebouwde rollen:
 
 | Rol | Machtigingen |
 | --- | --- |
-| Eigenaar |Eigenaars kunnen *toegang beheren* (bijvoorbeeld een rol toewijzen aan een gebruiker of groep), *alle informatie bekijken* (bijvoorbeeld waarschuwingen weergeven) vanuit de portal en *instellingen wijzigen* (bijvoorbeeld e-mailmeldingen) in Azure AD Connect Health. <br>Standaard globale beheerders van Azure AD aan deze rol zijn toegewezen, en dit kan niet worden gewijzigd. |
+| Eigenaar |Eigenaars kunnen *toegang beheren* (bijvoorbeeld een rol toewijzen aan een gebruiker of groep), *alle informatie bekijken* (bijvoorbeeld waarschuwingen weergeven) vanuit de portal en *instellingen wijzigen* (voor bijvoorbeeld, het e-mailmeldingen) in Azure AD Connect Health. <br>Standaard globale beheerders van Azure AD aan deze rol zijn toegewezen, en dit kan niet worden gewijzigd. |
 | Inzender |Inzenders kunnen *alle informatie bekijken* (bijvoorbeeld waarschuwingen weergeven) vanuit de portal en *instellingen wijzigen* (bijvoorbeeld e-mailmeldingen) in Azure AD Connect Health. |
 | Lezer |Lezers kunnen *alle informatie bekijken* (bijvoorbeeld waarschuwingen weergeven) vanuit de portal in Azure AD Connect Health. |
 
@@ -122,7 +122,7 @@ Voor een gebruikerstoegang op de *alle service-exemplaren* niveau binnen de Azur
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Stap 2: Gebruikers en groepen toevoegen en toewijzen van rollen
 1. Van de **configureren** sectie, klikt u op **gebruikers**.<br>
-   ![Schermopname van Azure AD Connect Health RBAC hoofdblade, met gebruikers die zijn gemarkeerd](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Schermopname van Azure AD Connect Health resource zijbalk](./media/active-directory-aadconnect-health/startRBAC.png)
 2. Selecteer **Toevoegen**.
 3. In de **Selecteer een rol** deelvenster een rol selecteren (bijvoorbeeld **eigenaar**).<br>
    ![Schermopname van Azure AD Connect Health RBAC gebruikers venster](./media/active-directory-aadconnect-health/RBAC_add.png)

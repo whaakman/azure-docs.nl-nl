@@ -1,26 +1,26 @@
 ---
-title: Azure SQL van het synchroniseren van gegevens (Preview) met logboekanalyse bewaken | Microsoft Docs
-description: Meer informatie over het bewaken van Azure SQL-gegevenssynchronisatie (Preview) met behulp van logboekanalyse
+title: Synchroniseren van Azure SQL-gegevens met logboekanalyse bewaken | Microsoft Docs
+description: Informatie over het synchroniseren van Azure SQL-gegevens met behulp van logboekanalyse bewaken
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650244"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025759"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Controleprogramma SQL synchroniseren van gegevens (Preview) met logboekanalyse 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Controleprogramma SQL gegevens synchroniseren met logboekanalyse 
 
 Controleer het activiteitenlogboek synchroniseren van de SQL-gegevens en fouten en waarschuwingen te detecteren, voorheen moest u handmatig synchroniseren van de SQL-gegevens controleren in de Azure portal of PowerShell of de REST-API gebruiken. Volg de stappen in dit artikel voor het configureren van een aangepaste oplossing waarmee het synchroniseren van gegevens implementatiebewakingservaring worden verbeterd. U kunt deze oplossing aanpassen aan uw scenario.
 
-Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync (Preview)](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
+Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard voor uw synchronisatiegroepen controle 
 

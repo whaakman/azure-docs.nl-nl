@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2dbe14f6c7f8f9f1dcfaf733dc884df5adf919aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f721c371687addfe48d753e7289df78c2be1f3c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593168"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36957997"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect sync-service-functies
 De synchronisatiefunctie van Azure AD Connect bestaat uit twee onderdelen:
@@ -58,7 +58,8 @@ De volgende instellingen zijn geconfigureerd voor Azure AD Connect en kan niet w
 | DeviceWriteback |[Azure AD Connect: Apparaat terugschrijven inschakelen](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect-synchronisatie: Directory-uitbreidingen](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Hiermee kunt een kenmerk in quarantaine geplaatst wanneer dit is een duplicaat van een ander object in plaats van het gehele object mislukt tijdens het exporteren. |
-| PasswordSync |[Implementatie van synchronisatie van wachtwoordhash met Azure AD Connect-synchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| Wachtwoordhashsynchronisatie |[Implementatie van synchronisatie van wachtwoordhash met Azure AD Connect-synchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+|Pass-through-verificatie|[Gebruiker aanmelden met Azure Active Directory Pass-through-verificatie](active-directory-aadconnect-pass-through-authentication.md)|
 | UnifiedGroupWriteback |[Voorbeeld: Groep terugschrijven](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Momenteel niet ondersteund. |
 

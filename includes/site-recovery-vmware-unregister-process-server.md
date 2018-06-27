@@ -12,7 +12,7 @@ De stappen om de registratie van een processerver ongedaan te maken, verschillen
 > [!WARNING]
 > Volg onderstaande stappen als het niet lukt om de virtuele machine te reactiveren waarop de processerver is geïnstalleerd.
 
-1. Meld u bij uw configuratieserver aan als beheerder.
+1. Meld u aan met uw configuratieserver als beheerder.
 2. Open een beheeropdrachtprompt en blader naar de map `%ProgramData%\ASR\home\svsystems\bin`.
 3. Voer nu de opdracht uit.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 59dbc4134ee11999e54d2eba51804939e7e14229
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28030691"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020727"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Aangepaste velden in Log Analytics
 De **aangepaste velden** functie van Log Analytics kunt u bestaande records in logboekanalyse uitbreiden door uw eigen doorzoekbare velden toe te voegen.  Aangepaste velden worden automatisch ingevuld van gegevens van andere eigenschappen in dezelfde record hebt uitgepakt.
@@ -79,7 +79,7 @@ U kunt een lijst van alle aangepaste velden weergeven in uw beheergroep vanuit d
 ## <a name="removing-a-custom-field"></a>Een aangepast veld verwijderen
 Er zijn twee manieren om te verwijderen van een aangepast veld.  De eerste is de **verwijderen** optie voor elk veld wanneer de volledige lijst bekijken, zoals hierboven is beschreven.  De andere methode is het ophalen van een record en klik op de knop aan de linkerkant van het veld.  Het menu wordt een optie voor het verwijderen van het aangepaste veld hebben.
 
-## <a name="sample-walkthrough"></a>Voorbeeld-overzicht
+## <a name="sample-walkthrough"></a>Walkthrough voor voorbeeld
 De volgende sectie wordt uitgelegd een compleet voorbeeld van het maken van een aangepast veld.  Dit voorbeeld wordt opgehaald met de servicenaam van de in Windows-gebeurtenissen die duiden op een service de status wordt gewijzigd.  Dit is afhankelijk van gebeurtenissen die zijn gemaakt door de Service Control Manager in het systeemlogboek op Windows-computers.  Als u dit voorbeeld volgt wilt, moet u [verzamelen van gebeurtenissen voor het systeemlogboek](log-analytics-data-sources-windows-events.md).
 
 We voert u de volgende query om te retourneren van alle gebeurtenissen van Service Control Manager met een gebeurtenis-ID van 7036 die de gebeurtenis die aangeeft van een service starten of stoppen.
@@ -96,7 +96,7 @@ We willen dat de naam van de service die wordt weergegeven in de **RenderedDescr
 
 De **veld extractie Wizard** wordt geopend, en de **EventLog** en **EventID** velden zijn geselecteerd in de **Main voorbeeld** kolom.  Hiermee wordt aangegeven dat het aangepaste veld voor gebeurtenissen van het logboek met een gebeurtenis-ID van 7036 worden gedefinieerd.  Dit is voldoende dus moeten we er geen andere velden selecteren.
 
-![Voorbeeld van de belangrijkste](media/log-analytics-custom-fields/main-example.png)
+![Belangrijkste voorbeeld](media/log-analytics-custom-fields/main-example.png)
 
 Selecteren we de naam van de service in de **RenderedDescription** eigenschap en gebruik **Service** om de servicenaam te identificeren.  Het aangepaste veld moet worden aangeroepen **Service_CF**.
 
@@ -130,7 +130,7 @@ We zien die **Service_CF** is gemaakt, maar nog niet is toegevoegd aan alle reco
 
 ![Oorspronkelijke aantal](media/log-analytics-custom-fields/initial-count.png)
 
-Na enige tijd is verstreken, zodat nieuwe gebeurtenissen worden verzameld, zien we dat die de **Service_CF** veld is nu toegevoegd aan de records die overeenkomen met de criteria.
+Na enige tijd is verstreken, zodat nieuwe gebeurtenissen worden verzameld, zien we dat de **Service_CF** veld is nu toegevoegd aan de records die overeenkomen met de criteria.
 
 ![Definitieve resultaten](media/log-analytics-custom-fields/final-results.png)
 

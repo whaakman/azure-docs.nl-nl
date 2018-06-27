@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: d185be26633178d8b3f147453b4c48eb77d7e425
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: be5dab7b9714f13a4bd30e6ab33a5a0e2016212d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753520"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020016"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Veilige communicatie van de service voor externe toegang in een C#-service
 > [!div class="op_single_selector"]
@@ -57,7 +57,12 @@ Om te helpen beveiligen van een service wanneer u service voor externe toegang m
     ```
 2. Instellingen voor listener en beveiligingsreferenties toevoegen.
 
-    Zorg ervoor dat het certificaat dat u wilt gebruiken om te helpen beveiligen van uw servicecommunicatie is geïnstalleerd op alle knooppunten in het cluster. Er zijn twee manieren waarop u instellingen voor listener en beveiligingsreferenties kunt opgeven:
+    Zorg ervoor dat het certificaat dat u wilt gebruiken om te helpen beveiligen van uw servicecommunicatie is geïnstalleerd op alle knooppunten in het cluster. 
+    
+    > [!NOTE]
+    > Op Linux-knooppunten het certificaat moet aanwezig zijn als bestanden PEM-indeling in de */var/lib/sfcerts* directory. Zie voor meer informatie, [locatie en indeling van het X.509-certificaten op Linux-knooppunten](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+
+    Er zijn twee manieren waarop u instellingen voor listener en beveiligingsreferenties kunt opgeven:
 
    1. Ze bieden rechtstreeks in de servicecode:
 
@@ -202,5 +207,6 @@ Om te helpen beveiligen van een service wanneer u service voor externe toegang m
     string message = await client.GetHelloWorld();
 
     ```
+
 
 Een volgende stap lezen [Web-API met OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).

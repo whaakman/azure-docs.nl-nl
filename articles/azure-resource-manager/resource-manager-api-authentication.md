@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
 ms.author: dugill
-ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359859"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018643"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager authenticatie-API aan abonnementen, toegang
 ## <a name="introduction"></a>Inleiding
@@ -88,7 +88,7 @@ De resultaten bevatten de AppId, u moet bij het verifiëren van de toepassing.
 ### <a name="optional-configuration---certificate-credential"></a>Optionele configuratie - certificaat-referentie
 Daarnaast ondersteunt Azure AD referenties van het computercertificaat voor toepassingen: maken van een zelfondertekend certificaat, blijven de persoonlijke sleutel en de openbare sleutel toevoegen aan de registratie van uw Azure AD-toepassing. Uw toepassing een kleine nettolading verzendt naar Azure AD zijn ondertekend met de persoonlijke sleutel voor verificatie en Azure AD valideert de handtekening met de openbare sleutel die u hebt geregistreerd.
 
-Zie voor meer informatie over het maken van een AD-app met een certificaat [gebruik Azure PowerShell voor het maken van een service-principal voor toegang tot bronnen](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) of [gebruik Azure CLI voor het maken van een service-principal voor toegang tot bronnen](resource-group-authenticate-service-principal-cli.md).
+Zie voor meer informatie over het maken van een AD-app met een certificaat [gebruik Azure PowerShell voor het maken van een service-principal voor toegang tot bronnen](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) of [gebruik Azure CLI voor het maken van een service-principal voor toegang tot bronnen](resource-group-authenticate-service-principal-cli.md) .
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Tenant-ID ophalen van abonnement-ID
 Uw toepassing moet de tenant-ID van de Azure AD-tenant die als host fungeert voor het Azure-abonnement hebt voor het aanvragen van een token dat kan worden gebruikt voor het aanroepen van Resource Manager. Zeer waarschijnlijk dat uw gebruikers weten hun abonnement-id's, maar ze mogelijk niet op de hoogte van de tenant id's voor Azure Active Directory. Als u de tenant-ID van de gebruiker, vraagt u de gebruiker voor de abonnements-ID. Dat abonnement bieden bij het verzenden van een aanvraag over het abonnement-ID:
@@ -204,7 +204,7 @@ Er is een voorbeeld van het antwoord van de gebruiker machtigingen voor abonneme
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-De machtigingen API retourneert meerdere machtigingen. Elke machtiging omvat toegestane acties (**acties**) en niet-toegestane acties (**notactions**). Als een actie in de toegestane acties van een andere machtiging aanwezig en niet aanwezig in de niet-toegestane acties van deze machtiging is, wordt de gebruiker mag deze actie uit te voeren. **Microsoft.Authorization/RoleAssignments/Write** is de actie dat die toegang rights management verleent. Uw toepassing moet parseren van het resultaat van de machtigingen om te zoeken naar een overeenkomst regex op deze tekenreeks actie in de **acties** en **notactions** van elke machtiging.
+De machtigingen API retourneert meerdere machtigingen. Elke machtiging omvat toegestane acties (**acties**) en niet-toegestane acties (**notactions**). Als een actie in de toegestane acties van een andere machtiging aanwezig en niet aanwezig in de niet-toegestane acties van deze machtiging is, wordt de gebruiker mag deze actie uit te voeren. **Microsoft.Authorization/RoleAssignments/Write** is de actie of verleent toegang de rights management tot. Uw toepassing moet parseren van het resultaat van de machtigingen om te zoeken naar een overeenkomst regex op deze tekenreeks actie in de **acties** en **notactions** van elke machtiging.
 
 ## <a name="get-app-only-access-token"></a>App-lezentoegang-token ophalen
 Nu weet u als de gebruiker toegang aan het Azure-abonnement toewijzen kunt. De volgende stappen zijn:

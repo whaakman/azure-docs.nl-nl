@@ -1,28 +1,28 @@
 ---
-title: Instellen van Azure SQL-gegevenssynchronisatie (Preview) | Microsoft Docs
-description: Deze zelfstudie ziet u het instellen van Azure SQL-gegevenssynchronisatie (Preview)
+title: Synchroniseren van Azure SQL-gegevens instellen | Microsoft Docs
+description: Deze zelfstudie ziet u het instellen van het synchroniseren van Azure SQL-gegevens
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7598484a20d2d719c84e1789664ac2b40c2d0639
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df7ca91d403374e8d320822f5fa384a866fac0ae
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647847"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025787"
 ---
-# <a name="set-up-sql-data-sync-preview"></a>Instellen van het synchroniseren van de SQL-gegevens (Preview)
+# <a name="set-up-sql-data-sync"></a>Synchroniseren van de SQL-gegevens instellen
 In deze zelfstudie leert u het instellen van het synchroniseren van Azure SQL-gegevens door te maken van een hybride-groep voor synchronisatie met Azure SQL Database- en SQL Server-exemplaren. De nieuwe groep voor synchronisatie is volledig geconfigureerd en gesynchroniseerd volgens de planning die u instelt.
 
 Deze zelfstudie wordt ervan uitgegaan dat er ten minste enige ervaring met SQL-Database en SQL Server. 
 
-Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync (Preview)](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
+Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie](sql-database-sync-data.md).
 
 Voor volledige PowerShell voorbeelden van het synchroniseren van de SQL-gegevens configureren, Zie de volgende artikelen:
 -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -199,7 +199,7 @@ De minimale frequentie is om de vijf minuten.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL gegevenssynchronisatie volledig maken en inrichten van tabellen?
 
-Als de synchronisatie-schema-tabellen worden niet in de doeldatabase zijn gemaakt, wordt deze door synchroniseren van de SQL-gegevens (Preview) maken met de kolommen die u hebt geselecteerd. Echter, dit gedrag resulteert niet in een schema volledige fidelity om de volgende redenen:
+Als de synchronisatie-schema-tabellen worden niet in de doeldatabase zijn gemaakt, wordt deze door synchroniseren van gegevens van SQL maken met de kolommen die u hebt geselecteerd. Echter, dit gedrag resulteert niet in een schema volledige fidelity om de volgende redenen:
 
 -   Alleen de kolommen die u hebt geselecteerd, worden gemaakt in de doeltabel. Als sommige kolommen in de brontabellen geen deel uit van de groep voor synchronisatie maken, worden deze kolommen in de doeltabellen niet ingericht.
 
@@ -215,7 +215,7 @@ Als de synchronisatie-schema-tabellen worden niet in de doeldatabase zijn gemaak
 
 Vanwege deze beperkingen raden we aan de volgende zaken:
 -   Voor productieomgevingen, richt het schema volledig gehandhaafd zelf.
--   Voor het uitproberen van de service, wordt de functie automatisch inrichten van het synchroniseren van de SQL-gegevens (Preview) goed werkt.
+-   Voor het uitproberen van de service, wordt de functie automatisch inrichten van het synchroniseren van de SQL-gegevens goed werkt.
 
 ### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Waarom zie ik tabellen die ik niet hebt gemaakt?  
 Synchroniseren van gegevens maakt aan tabellen in de database voor het bijhouden. Deze niet verwijderen of werkt niet meer synchroniseren van gegevens.
@@ -246,7 +246,7 @@ Na het exporteren van een database als een `.bacpac` bestand en importeer het be
 
 ### <a name="why-do-i-need-a-client-agent"></a>Waarom moet ik een clientagent
 
-Het synchroniseren van de SQL-gegevens (Preview)-service communiceert met SQL Server-databases via de clientagent. Deze beveiligingsfunctie voorkomt dat directe communicatie met databases achter een firewall. Wanneer het synchroniseren van de SQL-gegevens (Preview)-service communiceert met de agent wordt uitgevoerd met behulp van versleutelde verbindingen en -token van een unieke of *agentcode*. De SQL Server-databases verifiëren de agent met de tekenreeks en agent verbindingssleutel. Dit ontwerp biedt een hoog niveau van beveiliging voor uw gegevens.
+Het synchroniseren van gegevens van SQL-service communiceert met SQL Server-databases via de clientagent. Deze beveiligingsfunctie voorkomt dat directe communicatie met databases achter een firewall. Wanneer het synchroniseren van gegevens van SQL-service communiceert met de agent wordt uitgevoerd met behulp van versleutelde verbindingen en -token van een unieke of *agentcode*. De SQL Server-databases verifiëren de agent met de tekenreeks en agent verbindingssleutel. Dit ontwerp biedt een hoog niveau van beveiliging voor uw gegevens.
 
 ### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Hoeveel exemplaren van de lokale agent UI kan worden uitgevoerd?
 
@@ -258,7 +258,7 @@ Nadat u een clientagent hebt geïnstalleerd, is de enige manier om de serviceacc
 
 ### <a name="how-do-i-change-my-agent-key"></a>Hoe kan ik mijn agentcode wijzigen?
 
-Een sleutel van de agent kan slechts eenmaal worden gebruikt door een agent. Deze kan niet opnieuw worden gebruikt wanneer u verwijderen en opnieuw installeren van een nieuwe agent, en kunnen worden gebruikt door meerdere agents. Als u een nieuwe sleutel maken voor een bestaande agent moet, moet u ervoor dat dezelfde sleutel wordt geregistreerd met de clientagent en met de service SQL synchroniseren van gegevens (Preview) zijn.
+Een sleutel van de agent kan slechts eenmaal worden gebruikt door een agent. Deze kan niet opnieuw worden gebruikt wanneer u verwijderen en opnieuw installeren van een nieuwe agent, en kunnen worden gebruikt door meerdere agents. Als u een nieuwe sleutel maken voor een bestaande agent moet, moet u ervoor dat dezelfde sleutel wordt geregistreerd met de clientagent en met het synchroniseren van gegevens van SQL-service zijn.
 
 ### <a name="how-do-i-retire-a-client-agent"></a>Hoe ik een clientagent wilt intrekken?
 
@@ -270,7 +270,7 @@ Als u de lokale agent uitvoeren vanaf een andere computer wilt dan de momenteel 
 
 1. Installeer de agent op de gewenste computer.
 
-2. Aanmelden bij de portal voor het synchroniseren van de SQL-gegevens (Preview) en een agent-sleutel opnieuw genereren voor de nieuwe agent.
+2. Aanmelden bij de portal voor het synchroniseren van de SQL-gegevens en een agent-sleutel opnieuw genereren voor de nieuwe agent.
 
 3. De nieuwe agent UI gebruikt voor het verzenden van de nieuwe sleutel van de agent.
 

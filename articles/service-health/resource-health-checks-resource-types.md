@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: e37266f2438f9c6bc9de2d01624bda77f9d6ee8a
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 35eedb170e1c79f4d282f71608b456a271c4d59b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945870"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018215"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Status van resourcetypen en controleert in Azure resourcestatus
 Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resourcestatus door resourcetypen.
@@ -80,6 +80,11 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 |Uitgevoerde controles|
 |---|
 |<ul><li>Er is een database of een verzameling aanvragen niet worden geleverd vanwege een Cosmos-DB Azure-service niet beschikbaar zijn?</li><li>Er zijn aanvragen-document niet worden geleverd vanwege een Cosmos-DB Azure-service niet beschikbaar zijn?</li></ul>|
+
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+|Uitgevoerde controles|
+|---|
+|<ul><li>Aanvragen voor sleutelkluis mislukken vanwege problemen met het Azure KeyVault-platform?</li><li>Worden de aanvragen voor sleutelkluis wordt beperkt vanwege te veel aanvragen door de klant ondernomen?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Uitgevoerde controles|

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 88baa1385bfd64cab08299bc31a6f003f6b87e48
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257676"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019300"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 
@@ -80,7 +80,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
 ```
 
-Kunt u het script te maken van de verbindingsasset omdat wanneer u uw Automation-account maakt, wordt automatisch meerdere globale modules standaard samen met het verbindingstype bevat **AzurServicePrincipal** maken de **AzureRunAsConnection** verbindingstype-asset.  Dit is belangrijk rekening te houden, als u probeert te maken van een nieuwe verbindingsasset verbinding maken met een service of toepassing met een andere verificatiemethode, mislukken zal omdat het verbindingstype is niet gedefinieerd in uw Automation-account.  Voor meer informatie over het maken van uw eigen verbindingstype voor uw aangepaste of de module op basis van de [PowerShell Gallery](https://www.powershellgallery.com), Zie [integratiemodules](automation-integration-modules.md)
+Kunt u het script te maken van de verbindingsasset omdat wanneer u uw Automation-account maakt, wordt automatisch meerdere globale modules standaard samen met het verbindingstype bevat **AzureServicePrincipal** naar Maak de **AzureRunAsConnection** verbindingstype-asset.  Dit is belangrijk rekening te houden, als u probeert te maken van een nieuwe verbindingsasset verbinding maken met een service of toepassing met een andere verificatiemethode, mislukken zal omdat het verbindingstype is niet gedefinieerd in uw Automation-account.  Voor meer informatie over het maken van uw eigen verbindingstype voor uw aangepaste of de module op basis van de [PowerShell Gallery](https://www.powershellgallery.com), Zie [integratiemodules](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Met behulp van een verbinding in een runbook of de DSC-configuratie
 

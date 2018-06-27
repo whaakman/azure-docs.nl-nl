@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 16c99c2c5524a321616ac9f0975f0c9b4255ca94
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215851"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020438"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Uw eerste betrouwbare Service Fabric Java-actortoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -219,6 +219,10 @@ Parameters voor deze opdrachten vindt u in de gegenereerde manifesten binnen het
 Nadat de toepassing is geïmplementeerd, opent u een browser en gaat u naar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) op [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
 Vouw vervolgens het knooppunt **Toepassingen** uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
 
+> [!IMPORTANT]
+> Als u wilt de toepassing implementeert op een veilige Linux-cluster in Azure, moet u een certificaat voor het valideren van uw toepassing met de Service Fabric-runtime configureren. In dat geval kunnen uw Reliable Actors services om te communiceren met de onderliggende API's van de Service Fabric-runtime. Zie voor meer informatie, [configureren van een app Reliable Services uit te voeren op Linux-clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
+
 ## <a name="start-the-test-client-and-perform-a-failover"></a>De testclient starten en een failover uitvoeren
 Actoren doen niets uit zichzelf, ze hebben een andere service of client nodig die hen berichten stuurt. De actorsjabloon bevat een eenvoudig testscript dat u kunt gebruiken om te communiceren met de actorservice.
 
@@ -226,6 +230,14 @@ Actoren doen niets uit zichzelf, ze hebben een andere service of client nodig di
 > De testclient gebruikt de ActorProxy-klasse om te communiceren met actoren die moeten worden uitgevoerd in hetzelfde cluster als de service actor of delen van dezelfde IP-adresruimte.  U kunt de testclient uitvoeren op dezelfde computer als de lokaal ontwikkelcluster.  Om te communiceren met actoren in een RAS-cluster, moet u echter een gateway op het cluster die verantwoordelijk is voor externe communicatie met de actoren implementeren.
 
 1. Voer het script uit met behulp van het controleprogramma om de uitvoer van de actorservice te bekijken.  Via het testscript wordt de methode `setCountAsync()` op de actor aangeroepen om een teller te verhogen, wordt de methode `getCountAsync()` op de actor aangeroepen om de nieuwe tellerwaarde op te halen en wordt deze waarde weergegeven op de console.
+
+   In geval van MAC OS X moet u de map HelloWorldTestClient kopiëren naar de enige locatie in de container met de volgende aanvullende opdrachten.    
+    
+    ```bash
+     docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
+     docker exec -it [first-four-digits-of-container-ID] /bin/bash
+     cd /home
+     ```
 
     ```bash
     cd HelloWorldActorTestClient
@@ -257,8 +269,8 @@ Ondersteuning voor betrouwbare actoren in Service Fabric voor uw toepassing.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -267,7 +279,7 @@ Ondersteuning voor betrouwbare actoren in Service Fabric voor uw toepassing.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -278,8 +290,8 @@ Ondersteuning van Reliable Services in Service Fabric voor uw toepassing.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -288,7 +300,7 @@ Ondersteuning van Reliable Services in Service Fabric voor uw toepassing.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -300,8 +312,8 @@ Ondersteuning van transportlaag voor Service Fabric Java-toepassing. U hoeft dez
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -310,7 +322,7 @@ Ondersteuning van transportlaag voor Service Fabric Java-toepassing. U hoeft dez
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -321,8 +333,8 @@ Ondersteuning op systeemniveau voor Service Fabric, dat communiceert met native 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -331,7 +343,7 @@ Ondersteuning op systeemniveau voor Service Fabric, dat communiceert met native 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
 

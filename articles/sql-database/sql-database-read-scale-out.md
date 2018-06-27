@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: sashan
-ms.openlocfilehash: 8de70c01f4c04d6df85c2f5acfe9efe18ff59c0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fb6e8f4420b739b5ac84f1d5c185fddc740c551a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649683"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018510"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Gebruik alleen-lezen partities laden werklast alleen-lezen-query (preview)
 
@@ -65,6 +65,7 @@ U kunt controleren of u met de replica van een alleen-lezen verbonden bent door 
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
+
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Inschakelen en uitschakelen lezen Scale-Out Azure PowerShell gebruiken
 
 Lees Scale-Out in Azure PowerShell beheren vereist dat de 2016 December release van Azure PowerShell of hoger. Zie voor de nieuwste versie van de PowerShell [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
@@ -106,6 +107,14 @@ Body:
 ```
 
 Zie voor meer informatie [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate).
+
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Met behulp van lezen scale-out met geogerepliceerde databases
+
+Als u gebruik lezen scale-out voor het laden van alleen-lezen workloads verdelen voor een database die is geogerepliceerde (bijvoorbeeld als een lid van een failover-groep), zorg ervoor dat lezen scale-out is ingeschakeld op zowel de primaire als de geo-replicatie secundaire databases. Hierdoor worden hetzelfde effect taakverdeling wanneer uw toepassing verbinding met de nieuwe primaire na een failover maakt. Als u verbinding met de secundaire geo-replicatie-database met lees-schaal ingeschakeld maakt, uw sessies met `ApplicationIntent=ReadOnly` worden doorgestuurd naar een van de replica's dezelfde manier als we routeren verbindingen op de primaire database.  De sessies zonder `ApplicationIntent=ReadOnly` worden doorgestuurd naar de primaire replica van de secundaire geo-replicatie die ook is alleen-lezen. 
+
+> [!NOTE]
+> Tijdens de preview, we geen round robin wordt uitgevoerd of een andere met gelijke taakverdeling routering tussen de lokale replica's van de secundaire database. 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 64e8a20f72d451908c12751c0f8062bf4ae86370
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e9ed70de6d72026b8e3469417c53d6923a8a85e
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021471"
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Gegevens kopiëren van lokale Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +42,7 @@ U kunt gegevens kopiëren van de volgende gegevensarchieven **met een Oracle-dat
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-Data Factory ondersteunt verbindingen met lokale Oracle bronnen met behulp van Data Management Gateway. Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie over Data Management Gateway en [gegevens verplaatsen van on-premises naar cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor stapsgewijze instructies over het instellen van de gateway een gegevens-pijplijn om gegevens te verplaatsen.
+Data Factory ondersteunt verbindingen met lokale Oracle bronnen met behulp van Data Management Gateway. Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie over Data Management Gateway en [gegevens verplaatsen van on-premises naar cloud](data-factory-move-data-between-onprem-and-cloud.md) voor stapsgewijze instructies voor het instellen van de gateway een pijplijn gegevens voor het artikel gegevens verplaatsen.
 
 Gateway is vereist, zelfs als de Oracle wordt gehost in een Azure IaaS VM. U kunt de gateway installeren op de dezelfde IaaS VM als gegevensopslag of op een andere virtuele machine, zolang de gateway verbinding met de database maken kan.
 
@@ -57,6 +58,9 @@ Twee versies van stuurprogramma's bieden ondersteuning voor deze connector Oracl
     - Oracle 10g R1, R2 (10.1, 10.2)
     - Oracle 9i R1, R2 (9.0.1, 9.2)
     - Oracle 8i R3 (8.1.7)
+
+> [!NOTE]
+> Oracle-proxyserver wordt niet ondersteund.
 
 > [!IMPORTANT]
 > Microsoft-stuurprogramma voor Oracle ondersteunt momenteel alleen kopiëren van gegevens uit Oracle, maar niet schrijven naar Oracle. En noteer dat de mogelijkheid van de verbinding test in het tabblad Data Management Gateway diagnostische gegevens biedt geen ondersteuning voor dit stuurprogramma. U kunt ook de wizard kopiëren gebruiken voor het valideren van de connectiviteit.
@@ -75,7 +79,7 @@ U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens uit een lok
 
 De eenvoudigste manier om een pijplijn maken is met de **Wizard kopiëren**. Zie [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht over het maken van een pijplijn met de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren:
 
@@ -96,7 +100,7 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesOracle** |Ja |
 | driverType | Geef op welke stuurprogramma moet worden gebruikt om gegevens te kopiëren van/naar Oracle-Database. Toegestane waarden zijn **Microsoft** of **ODP** (standaard). Zie [ondersteunde versie en installatieopties](#supported-versions-and-installation) gedeelte stuurprogrammagegevens. | Nee |
 | connectionString | Geef informatie op die nodig zijn voor het verbinding maken met de Oracle-Database-exemplaar voor de eigenschap connectionString. | Ja |
-| gatewayName | Naam van de gateway die die wordt gebruikt voor verbinding met de lokale Oracle-server |Ja |
+| gatewayName | Naam van de gateway die wordt gebruikt voor verbinding met de lokale Oracle-server |Ja |
 
 **Voorbeeld: met behulp van het stuurprogramma Microsoft:**
 ```json
@@ -573,27 +577,27 @@ Bij het verplaatsen van gegevens uit Oracle, worden de volgende toewijzingen geb
 | --- | --- |
 | BBESTAND |Byte[] |
 | BLOB |Byte[]<br/>(alleen ondersteund voor Oracle 10g en hoger als met Microsoft-stuurprogramma) |
-| CHAR |Tekenreeks |
-| CLOB |Tekenreeks |
+| CHAR |Reeks |
+| CLOB |Reeks |
 | DATE |DateTime |
 | FLOAT |Decimaal, tekenreeks (als precision > 28) |
 | GEHEEL GETAL |Decimaal, tekenreeks (als precision > 28) |
 | INTERVAL JAAR, MAAND |Int32 |
 | TWEEDE INTERVAL DAG |TimeSpan |
-| LANG |Tekenreeks |
+| LANG |Reeks |
 | LANGE ONBEWERKTE |Byte[] |
-| NCHAR |Tekenreeks |
-| NCLOB |Tekenreeks |
+| NCHAR |Reeks |
+| NCLOB |Reeks |
 | AANTAL |Decimaal, tekenreeks (als precision > 28) |
-| NVARCHAR2 |Tekenreeks |
-| RAW |Byte[] |
-| ROWID |Tekenreeks |
+| NVARCHAR2 |Reeks |
+| ONBEWERKTE |Byte[] |
+| ROWID |Reeks |
 | TIJDSTEMPEL |DateTime |
 | TIJDSTEMPEL MET DE LOKALE TIJDZONE |DateTime |
 | TIJDSTEMPEL MET TIJDZONE |DateTime |
 | NIET-ONDERTEKEND GEHEEL GETAL |Aantal |
-| VARCHAR2 |Tekenreeks |
-| XML |Tekenreeks |
+| VARCHAR2 |Reeks |
+| XML |Reeks |
 
 > [!NOTE]
 > Gegevenstype **INTERVAL aan maand** en **INTERVAL dag naar tweede** worden niet ondersteund bij gebruik van Microsoft-stuurprogramma.

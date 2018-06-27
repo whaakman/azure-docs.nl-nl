@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a4a882781562ae71ad6c578577a9f9cd9096ef36
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b08c3adb0c638cdfa0ccd9ae4c5beacac822eb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331786"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018295"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -185,7 +185,7 @@ Als u MFA voor een RADIUS-client met behulp van de NPS-extensie inschakelen, wor
 
 Als u gebruikers die niet zijn geregistreerd voor MFA hebt, kunt u bepalen wat er gebeurt wanneer ze proberen te verifiëren. Gebruik de registerinstelling *REQUIRE_USER_MATCH* in het registerpad *HKLM\Software\Microsoft\AzureMFA* het gedrag van de functie te bepalen. Deze instelling heeft een configuratie voor één optie:
 
-| Code | Waarde | Normaal |
+| Sleutel | Waarde | Standaard |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | WAAR/ONWAAR | Niet ingesteld (equivalent op TRUE) |
 
@@ -193,7 +193,7 @@ Het doel van deze instelling is om te bepalen wat te doen wanneer een gebruiker 
 
 U kunt deze sleutel maken en ingesteld op FALSE terwijl uw gebruikers voorbereiding zijn en kunnen niet allemaal worden ingeschreven voor Azure MFA nog. Omdat de sleutel, gebruikers die niet zijn geregistreerd voor MFA kunnen aanmelden, moet u deze sleutel verwijderen voordat u doorgaat naar productie.
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Hoe kan ik controleren of het certificaat van de client is geïnstalleerd, zoals verwacht?
 
@@ -222,7 +222,7 @@ Geldige-van en geldig-totdat tijdstempels die in leesbaar zijn, kunnen worden ge
 Deze fout kan worden veroorzaakt door een bepaalde reden. Volg deze stappen om op te lossen:
 
 1. De NPS-server opnieuw.
-2. Controleer of dat die cert client is geïnstalleerd, zoals verwacht.
+2. Controleer of dat deze client-certificaat is geïnstalleerd, zoals verwacht.
 3. Controleer of het certificaat is gekoppeld aan uw tenant op Azure AD.
 4. Controleer https://login.microsoftonline.com/ toegankelijk is vanaf de server met de extensie.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c07cc3e434a178a5f6a1ea10f7dc630c3d0d548d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775108"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019276"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview)-oplossing in Log Analytics
 
@@ -33,7 +33,7 @@ De oplossing VMware bewaking in Log Analytics is een oplossing waarmee u een cen
 De oplossing maakt gebruik van systeemeigen syslog-functionaliteit van de ESXi-host om gegevens te pushen naar een doel-virtuele machine, met OMS-Agent. De oplossing schrijven niet echter bestanden in syslog binnen een virtuele machine. De OMS-agent wordt poort 1514 geopend en luistert naar dit. Wanneer deze de gegevens ontvangt, stuurt de OMS-agent de gegevens in logboekanalyse.
 
 ## <a name="install-and-configure-the-solution"></a>Installeren en configureren van de oplossing
-Gebruik de volgende informatie om te installeren en configureren van de oplossing.
+Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
 * De oplossing VMware bewaking toevoegen aan uw abonnement met behulp van de procedure beschreven in [toevoegen van een beheeroplossing](log-analytics-add-solutions.md#add-a-management-solution).
 
@@ -54,7 +54,7 @@ Maak een Linux-besturingssysteem VM alle syslog-gegevens ontvangen van de ESXi-h
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
-4. Controleer de vSphere-Console om te controleren die syslog correct is ingesteld. Bevestig op de host ESXI die poort **1514** is geconfigureerd.
+4. Controleer de vSphere-Console om te controleren dat die syslog correct is ingesteld. Bevestig op de host ESXI die poort **1514** is geconfigureerd.
 5. Download en installeer de OMS-Agent voor Linux op de Linux-server. Zie voor meer informatie de [documentatie voor de OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
 6. Nadat de OMS-Agent voor Linux is geïnstalleerd, gaat u naar de map /etc/opt/microsoft/omsagent/sysconf/omsagent.d en het vmware_esxi.conf-bestand kopiëren naar de map /etc/opt/microsoft/omsagent/conf/omsagent.d en de wijziging van de eigenaar of groep en machtigingen van het bestand. Bijvoorbeeld:
 
@@ -87,14 +87,14 @@ De volgende tabel bevat de methoden van de collectie en andere informatie over h
 
 De volgende tabel ziet u voorbeelden van gegevensvelden verzameld door de bewaking van de VMware-oplossing:
 
-| Veldnaam | description |
+| veldnaam | description |
 | --- | --- |
 | Device_s |VMware-opslagapparaten |
 | ESXIFailure_s |Fout-typen |
 | EventTime_t |tijd waarop de gebeurtenis heeft plaatsgevonden |
 | HostName_s |ESXi-hostnaam |
 | Operation_s |virtuele machine maken of verwijderen van de virtuele machine |
-| ProcessName_s |De naam van gebeurtenis |
+| ProcessName_s |de naam van gebeurtenis |
 | ResourceId_s |naam van de VMware-host |
 | ResourceLocation_s |VMware |
 | ResourceName_s |VMware |
@@ -111,7 +111,7 @@ De volgende tabel ziet u voorbeelden van gegevensvelden verzameld door de bewaki
 ## <a name="vmware-monitoring-solution-overview"></a>Overzicht van de bewaking van de VMware-oplossing
 De VMware-tegel wordt weergegeven in de werkruimte voor logboekanalyse. Het bevat een overzichtsweergave van storingen. Wanneer u op de tegel klikt, gaat u in een dashboardweergave.
 
-![Tegel](./media/log-analytics-vmware/tile.png)
+![tegel](./media/log-analytics-vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>De dashboardweergave navigeren
 In de **VMware** dashboardweergave blades zijn gerangschikt op:

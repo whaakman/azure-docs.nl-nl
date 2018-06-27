@@ -7,7 +7,7 @@
 3. U wordt gevraagd de taal te kiezen die u voor uw apparaat wilt instellen. Geef de taal op en druk op Enter. 
    
     ![Apparaat 1 configureren en registreren met StorSimple](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice1-include.png)
-4. Kies in het weergegeven menu van de seriële console optie 1 om u aan te melden met volledige toegang. 
+4. In het menu van de seriële console wordt weergegeven, kies optie 1, **aanmelden met volledige toegang**. 
    
     ![Apparaat 2 registreren met StorSimple](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice2-include.png)
    
