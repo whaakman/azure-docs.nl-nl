@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777471"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028996"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Chrome-apps met Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "33777471"
 Deze zelfstudie laat zien u hoe u een Notification Hub maakt en pushmeldingen naar een Google Chrome-voorbeeldapp verzendt met behulp van [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). De Chrome-app wordt uitgevoerd in de context van een Google Chrome-browser en wordt geregistreerd bij de Notification Hub. 
 
 > [!NOTE]
-> Pushmeldingen in een Chrome-app zijn geen algemene meldingen in de browser. Ze zijn specifiek voor het uitbreidbaarheidsmodel van de browser (Zie [Overzicht van Chrome-apps] voor meer informatie). Chrome-apps kunnen niet alleen op de pc worden gebruikt, maar ook op mobiele apparaten (Android en iOS) via Apache Cordova. Zie [Chrome Apps on Mobile] (Chrome-apps op mobiele apparaten) voor meer informatie.
+> Pushmeldingen in een Chrome-app zijn geen algemene meldingen in de browser. Ze zijn specifiek voor het uitbreidbaarheidsmodel van de browser (Zie [Overzicht van Chrome-apps] voor meer informatie). Chrome-apps kunnen niet alleen op de pc worden gebruikt, maar ook op mobiele apparaten (Android en iOS) via Apache Cordova. Zie [Chrome-apps op mobiele apparaten] (Chrome-apps op mobiele apparaten) voor meer informatie.
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -400,7 +400,7 @@ Voor testdoeleinden verzenden we Chrome-pushmeldingen met een .NET-consoletoepas
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   Hiermee wordt automatisch een verwijzing naar de Azure Service Bus-SDK met het <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet-pakket</a> toegevoegd.
+   Hiermee wordt automatisch een verwijzing naar de Azure Service Bus-SDK met het <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet-pakket</a> toegevoegd.
 4. Open `Program.cs` en voeg de volgende `using` instructie toe:
    
         using Microsoft.Azure.NotificationHubs;
@@ -467,7 +467,7 @@ In deze zelfstudie hebt u meldingen verzonden naar alle clients die zijn geregis
 [Overzicht van Chrome-apps]: https://developer.chrome.com/apps/about_apps
 [Chrome App GCM-voorbeeld]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
-[Chrome Apps on Mobile]: https://developer.chrome.com/apps/chrome_apps_on_mobile
+[Chrome-apps op mobiele apparaten]: https://developer.chrome.com/apps/chrome_apps_on_mobile
 [REST-API maken voor de registratie van NH]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [crypto-js library]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
