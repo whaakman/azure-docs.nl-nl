@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: kumud
-ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a4093926ea2ea2bb0e477372a1ceb2dfbf22e8f0
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264469"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330965"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Een interne load balancer maken met Azure CLI 2.0 om taken te verdelen over VM's
 
@@ -43,11 +43,11 @@ In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupIL
 ```
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Maak met [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) een virtueel netwerk met de naam *myVnet* met een subnet met de naam *mySubnet* in *myResourceGroup*.
+Maak met [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) in *myResourceGroup* een virtueel netwerk met de naam *myVnet* met een subnet met de naam *mySubnet*.
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -106,10 +106,10 @@ Een load balancer-regel definieert de front-end-IP-configuratie voor het binnenk
 
 ## <a name="create-servers-for-the-backend-address-pool"></a>Servers voor de back-end-adresgroep maken
 
-Voordat u enkele VM's implementeert om uw load balancer te testen, maakt u de ondersteunende virtuele-netwerkbronnen.
+Voordat u enkele VM's implementeert en uw load balancer test, maakt u de ondersteunende virtuele-netwerkbronnen.
 
 ###  <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
-Maak een netwerkbeveiligingsgroep om de binnenkomende verbindingen met uw virtuele netwerk te definiëren.
+Maak een netwerkbeveiligingsgroep om binnenkomende verbindingen met uw virtuele netwerk te definiëren.
 
 ```azurecli-interactive
   az network nsg create \
@@ -131,7 +131,7 @@ Maak een regel voor de netwerkbeveiligingsgroep om binnenkomende verbindingen vi
     --source-address-prefix '*' \
     --source-port-range '*' \
     --destination-address-prefix '*' \
-    --destination-port-range 22 \
+    --destination-port-range 80 \
     --access allow \
     --priority 300
 ```
@@ -168,7 +168,7 @@ Een beschikbaarheidsset maken met [az vm availabilityset create](/cli/azure/netw
 
 ### <a name="create-two-virtual-machines"></a>Twee virtuele machines maken
 
-U kunt een cloud-init-configuratiebestand maken om NGINX te installeren en een Node.js-app 'Hello World' uit te voeren op een virtuele Linux-machine. Maak in uw huidige shell een bestand met de naam cloud-init.txt en plak de volgende configuratie in de shell. Zorg ervoor dat u het hele cloud-init-bestand correct kopieert, met name de eerste regel:
+U kunt een cloud-init-configuratiebestand maken om NGINX te installeren en een 'Hallo wereld' Node.js-app uit te voeren op een virtuele Linux-machine. Maak in uw huidige shell een bestand met de naam cloud-init.txt en plak de volgende configuratie in de shell. Zorg ervoor dat u het hele cloud-init-bestand correct kopieert, met name de eerste regel:
 
 ```yaml
 #cloud-config
@@ -249,7 +249,7 @@ Gebruik [az network lb show](/cli/azure/network/public-ip##az-network-lb-show) o
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![Load balancer testen](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)

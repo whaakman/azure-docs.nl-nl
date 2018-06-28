@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 07c41bb02863cc32372722cbcbac4be2c5071860
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7f8e8d920884c611965ff760bb0369e08163356e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611463"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029601"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: hulpprogramma voor gegevensmigratie
 
@@ -222,7 +222,7 @@ De indeling van de verbindingsreeks voor Azure Table Storage is:
 > 
 > 
 
-Voer de naam in van de Azure-tabel van waaruit u wilt importeren. U kunt eventueel een [filter](https://msdn.microsoft.com/library/azure/ff683669.aspx) opgeven.
+Voer de naam in van de Azure-tabel van waaruit u wilt importeren. U kunt eventueel een [filter](../vs-azure-tools-table-designer-construct-filter-strings.md) opgeven.
 
 De importoptie voor Azure Table Storage-bron heeft de volgende aanvullende opties:
 

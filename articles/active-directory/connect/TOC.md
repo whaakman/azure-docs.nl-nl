@@ -47,7 +47,6 @@
 ##### [Huidige beperkingen](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Hoe werkt het?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
 ##### [Preview-agents bijwerken](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
-##### [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Veelgestelde vragen](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Problemen oplossen](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Grondig onderzoek van beveiliging](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 688f8da809a40f333aeb7b4ef959deb69ff94121
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 02ce774f30cd03b7520f482196629bf4b7ec9ae5
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808376"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318565"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Inleiding tot Azure App Service Environments #
  
@@ -73,7 +73,7 @@ Een AS-omgeving kan internetgericht zijn met een openbaar IP-adres of intern met
 
 Met [netwerkbeveiligingsgroepen][NSGs] wordt de binnenkomende netwerkcommunicatie beperkt tot het subnet waarin een AS-omgeving zich bevindt. U kunt NSG’s (netwerkbeveiligingsgroepen) gebruiken om apps achter upstream-apparaten, en services zoals WAF’s en SaaS-netwerkproviders uit te voeren.
 
-Apps hebben ook vaak toegang nodig tot bedrijfsresources zoals interne databases en webservices. Als u de AS-omgeving implementeert in een virtueel netwerk met een VPN-verbinding naar het on-premises netwerk, krijgen de apps in de AS-omgeving toegang tot on-premises resources. Dit gebeurt altijd, ongeacht of het VPN van het type [site-naar-site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) of [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) is.
+Apps hebben ook vaak toegang nodig tot bedrijfsresources zoals interne databases en webservices. Als u de AS-omgeving implementeert in een virtueel netwerk met een VPN-verbinding naar het on-premises netwerk, krijgen de apps in de AS-omgeving toegang tot on-premises resources. Dit gebeurt altijd, ongeacht of het VPN van het type [site-naar-site](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site) of [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) is.
 
 Zie [App Service Environment network considerations][ASENetwork] (Overwegingen voor App Service Environment-netwerken) voor meer informatie over hoe AS-omgevingen werken met virtuele netwerken en on-premises netwerken.
 

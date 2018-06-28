@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dcfb43003e81bb51574b401c21202925b16305f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 458d01d61872d13cee735c7098cce5dcc905c31c
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26614410"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960403"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Azure AD Connect Health gebruiken met AD DS
 De volgende documentatie is specifiek voor het controleren van Active Directory Domain Services met Azure AD Connect Health. De ondersteunde versies van AD DS zijn: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016.
 
 Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor meer informatie over het controleren van AD FS met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) voor informatie over het controleren van AD Connect (Sync) met Azure AD Connect Health.
 
-![Azure AD Connect Health voor AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
+![Azure AD Connect Health voor AD DS](./media/active-directory-aadconnect-health-adds/domainservicesnapshot.PNG)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-ad-ds"></a>Waarschuwingen voor Azure AD Connect Health voor AD DS
 De sectie waarschuwingen in Azure AD Connect Health voor AD DS biedt u een lijst met actieve en opgeloste waarschuwingen die betrekking hebben op uw domeincontrollers. Bij het selecteren van een actieve of opgeloste waarschuwing wordt een nieuwe blade geopend met aanvullende informatie, samen met stappen om het probleem op te lossen en koppelingen naar ondersteunende documentatie. Elk type waarschuwing kan een of meer exemplaren hebben die overeenstemmen met elk van de domeincontrollers die betrekking hebben op die waarschuwing. Onderaan de waarschuwingsblade kunt u dubbelklikken op een betrokken domeincontroller om een nieuwe blade te openen met aanvullende informatie over het waarschuwingsexemplaar.

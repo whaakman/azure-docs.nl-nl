@@ -106,7 +106,7 @@
       items:
         - name: Azure PowerShell
           href: vpn-gateway-activeactive-rm-powershell.md
-    - name: Een zone-redundante VNet-gateway in Azure Availabilty Zones maken
+    - name: Een zone-redundante VNet-gateway maken in Azure-beschikbaarheidszones
       href: create-zone-redundant-vnet-gateway.md
     - name: 'Routering, BGP en VNet-Peering'
       items:

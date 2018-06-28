@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: af2619a403046bd4f064b958df225e4d42a205f4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 41319ba446994da1669e58e33008a943e74ab417
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776828"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331387"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Aan de slag met Azure Notification Hubs voor Kindle-apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,7 +42,7 @@ In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te vo
 ## <a name="prerequisites"></a>Vereisten
 
 * Download de Android-SDK (als u Eclipse gebruikt) van de <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android-site</a>.
-* Volg de stappen in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Uw ontwikkelingsomgeving instellen</a> om uw ontwikkelingsomgeving voor Kindle in te stellen.
+* Volg de stappen in <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">Uw ontwikkelingsomgeving instellen</a> om uw ontwikkelingsomgeving voor Kindle in te stellen.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Een nieuwe app toevoegen aan de portal voor ontwikkelaars
 1. Maak een app in de [Amazon-portal voor ontwikkelaars].

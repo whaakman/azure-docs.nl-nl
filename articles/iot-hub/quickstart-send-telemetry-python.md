@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: a6bece43f003ed5ddd2db2b03f12c02c1ccaa28e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7d4d29b7502f081de8385c7d88687ece4905b02b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636270"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334510"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Snelstartgids: Telemetrie vanaf een apparaat verzenden naar een IoT-hub en de telemetrie lezen uit de hub met een back-endtoepassing (Python)
 
@@ -136,9 +136,7 @@ In de volgende schermafbeelding ziet u de uitvoer op het moment dat het hulpprog
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u van plan bent om de volgende snelstartgids uit te voeren, hebt u de resourcegroep en IoT-hub nog nodig.
-
-Als u de IoT-hub niet langer nodig hebt, verwijdert u deze en de resourcegroep in de portal. Dit doet u door de resourcegroep **qs-iot-hub-rg** met de IoT-hub te selecteren en op **Verwijderen** te klikken.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

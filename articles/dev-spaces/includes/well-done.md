@@ -10,18 +10,18 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 5aee9a96270b4bcafb4ee696c0cbf6a424515cb1
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: abb7b3bbdbf16760db8595261ea8e543b6ed05f2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825510"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939167"
 ---
 ## <a name="well-done"></a>Dat is dus gelukt.
 U hebt de introductiehandleiding voltooid! U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Een Kubernetes-omgeving maakt in Azure die is geoptimaliseerd voor ontwikkeling - een _dev-ruimte_.
+> * Azure Dev Spaces instellen met een beheerd Kubernetes-cluster in Azure.
 > * Iteratief code ontwikkelt in containers met behulp van VS Code en de opdrachtregel.
 > * Twee afzonderlijke services ontwikkelen en de DNS-servicedetectie van Kubernetes gebruiken om een andere service aan te roepen.
 > * Uw code op een productieve manier ontwikkelen en testen in een teamomgeving.

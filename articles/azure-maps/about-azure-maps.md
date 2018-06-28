@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 239134e7665b80ef78b6a3df12c14156bff9ae29
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600058"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317055"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Een inleiding tot Azure Maps
 Azure Maps is een portfolio met georuimtelijke services die onder andere service-API's omvat voor kaarten, zoeken, routes, verkeer en tijdzones. Met behulp van de portfolio met services kunt u gebruikmaken van vertrouwde hulpprogramma's om snel oplossingen te ontwikkelen en schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Azure Maps biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, vol nieuwe kaartgegevens die onmisbaar zijn om mobiele applicaties en webapplicaties te voorzien van geografische context. Azure Maps bestaat uit een set REST API's en een webgebaseerd JavaScript-besturingselement die ontwikkeltaken voor meerdere mediums gemakkelijk, flexibel en mobiel maken. 
@@ -77,27 +77,9 @@ De Azure Maps-API is in sommige landen niet beschikbaar. Controleer uw huidige I
 * Pakistan
 * Zuid-Korea
 
-## <a name="relationship-with-bing-maps"></a>Relatie met Bing Kaarten
-De kaarten die worden beschreven in dit document, verschillen van de kaarten van Bing Kaarten. Hoewel veel van de functies overeenkomen, zijn beide services verschillend en niet aan elkaar gerelateerd. Deze Azure-service heeft geen gevolgen voor het productaanbod of wegenkaarten van Bing Kaarten.
-
-Het doel van Microsoft is om de ontwikkelaarscommunity keuze te bieden op het gebied van locatieserviceaanbiedingen. De volgende tabel bevat richtlijnen voor ontwikkelaars voor het kiezen van de juiste service: 
-
-| Scenario | Gebruik Azure Maps wanneer... | Gebruik Bing Kaarten wanneer... |
-| ------------- | ------------- | ------------- |
-| Ontwikkelomgeving | Bouwen in of coördinatie met andere Azure-services | Een cloud van derden of andere ontwikkelomgeving gebruiken |
-| Ontwikkelingsfase  | Azure Maps is geoptimaliseerd voor vroege testdoeleinden en Testen-van-concept-ontwikkeling | Voor een productieomgeving is een SLA op zakelijk niveau vereist |
-| Prijsopties | Voorlopige prijsopties voor ontwikkelaars zijn voldoende | Voor zakelijk gebruik zijn aangepaste prijzen vereist |
-| Caseomgeving gebruiken | In-vehicle-gebruik is vereist | In-vehicle-gebruik is niet vereist |
-| Geografische dekking | India, China, Japan en Zuid-Korea zijn niet vereist | Kaarten voor India, China, Japan en Zuid-Korea zijn vereist |
-| Inhoud toewijzen | Standaardkaarten van Surface zijn toereikend | Satelliet- en straatbeelden zijn vereist |
-| Onderliggende kaartbron | TomTom-kaartgegevens hebben de voorkeur | HERE-kaartgegevens hebben de voorkeur |
-
-Meld u vandaag nog aan voor een [Azure Maps-account](http://aka.ms/azurelbsportal).
-
 ## <a name="next-steps"></a>Volgende stappen
 
 U hebt nu een algemeen beeld van Azure Maps. De volgende stap is een voorbeeld-app met de service uitproberen.
 
 > [!div class="nextstepaction"]
 > [Demo van interactief zoeken naar kaarten starten](quick-demo-map-app.md)
-
