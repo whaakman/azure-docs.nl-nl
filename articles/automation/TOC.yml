@@ -195,10 +195,16 @@
           href: automation-migrate-account-subscription.md
     - name: Problemen oplossen
       items:
-        - name: Veelvoorkomende problemen oplossen
-          href: automation-troubleshooting-automation-errors.md
-        - name: Problemen met Hybrid Runbook Worker oplossen
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+        - name: Onboarding
+          href: troubleshoot/onboarding.md
+        - name: Runbooks
+          href: troubleshoot/runbooks.md
+        - name: Desired State Configuration (DSC)
+          href: troubleshoot/desired-state-configuration.md
+        - name: Hybrid Runbook Worker
+          href: troubleshoot/hybrid-runbook-worker.md
+        - name: Updatebeheer
+          href: troubleshoot/update-management.md
 - name: Naslaginformatie
   items:
     - name: Azure PowerShell
