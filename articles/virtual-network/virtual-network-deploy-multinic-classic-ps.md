@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
+ms.date: 05/22/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09c85a9badaad45816a9160d09cb3c4a726426e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34658771"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Een virtuele machine (klassiek) maken met meerdere NIC's met behulp van PowerShell
 
@@ -198,4 +199,10 @@ Nu dat u hebt gedownload en gewijzigd het script op basis van uw behoeften runt 
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Stap 5: Configureer routering in het besturingssysteem van de VM
 
-Azure DHCP toegewezen standaardgateway aan de eerste (primaire) netwerkinterface gekoppeld aan de virtuele machine. Azure wijst geen standaardgateway toe aan extra (secundaire) netwerkinterfaces die zijn gekoppeld aan een virtuele machine. Daarom kunt u standaard niet communiceren met resources buiten het subnet waarin een secundaire netwerkinterface zich bevindt. Secundaire netwerkinterfaces kunnen echter communiceren met bronnen buiten hun subnet. Zie configureren van routering voor secundaire netwerkinterfaces [routering binnen een besturingssysteem van de virtuele machine met meerdere netwerkinterfaces](virtual-network-network-interface-vm.md).
+Azure DHCP toegewezen standaardgateway aan de eerste (primaire) netwerkinterface gekoppeld aan de virtuele machine. Azure wijst geen standaardgateway toe aan extra (secundaire) netwerkinterfaces die zijn gekoppeld aan een virtuele machine. Daarom kunt u standaard niet communiceren met resources buiten het subnet waarin een secundaire netwerkinterface zich bevindt. Secundaire netwerkinterfaces kunnen echter communiceren met bronnen buiten hun subnet. Als routering wilt configureren voor secundaire netwerkinterfaces, Zie de volgende artikelen:
+
+- [Configureren van een virtuele machine van Windows voor meerdere NIC 's](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
+)
+
+- [Configureren van een Linux-VM voor meerdere NIC 's](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
+)

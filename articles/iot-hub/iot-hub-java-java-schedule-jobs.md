@@ -1,23 +1,20 @@
 ---
 title: Plannen van taken met Azure IoT Hub (Java) | Microsoft Docs
 description: Klik hier voor meer informatie over het plannen van een taak Azure IoT Hub is een directe methode aangeroepen en een gewenste eigenschap instellen op meerdere apparaten. U kunt het Azure-IoT-apparaat-SDK voor Java gebruiken voor het implementeren van het gesimuleerde apparaat-apps en de service Azure IoT SDK voor Java voor het implementeren van een service-app als de taak wilt uitvoeren.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: b8b0742054b0348ded39b6357d00f6eac3449f99
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cb25ae0e90189f0c808f561b20e45f08b49df0d6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34633754"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Planning en broadcast-taken (Java)
 

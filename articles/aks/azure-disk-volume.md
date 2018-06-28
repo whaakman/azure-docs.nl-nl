@@ -6,14 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b790213e19b9f2aaef74a3f670c89246f54fd6d7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4af4620ff7a17cae76c4d5f2cf1a30ce4a3dccd8
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34597064"
 ---
 # <a name="volumes-with-azure-disks"></a>Volumes met Azure-schijven
 
@@ -23,34 +24,27 @@ Zie voor meer informatie over Kubernetes volumes [Kubernetes volumes][kubernetes
 
 ## <a name="create-an-azure-disk"></a>Een Azure-schijf maken
 
-Voordat het koppelen van een Azure beheerd schijf als een volume Kubernetes de schijf moet aanwezig zijn in dezelfde resourcegroep bevinden als de clusterbronnen AKS. Als deze resourcegroep zoekt, volgt u de [az groepslijst] [ az-group-list] opdracht.
+Voordat het koppelen van een beheerde Azure-schijf als een volume Kubernetes de schijf moet aanwezig zijn in de AKS **knooppunt** resourcegroep. Ophalen van de naam van de resourcegroep met de [az resource weergeven] [ az-resource-show] opdracht.
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-Zoekt u naar een resourcegroep met een naam die lijkt op `MC_clustername_clustername_locaton`, waarbij clustername de naam van uw cluster AKS en locatie van de Azure-regio waar het cluster is geïmplementeerd.
-
-```console
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Gebruik de [az schijf maken] [ az-disk-create] opdracht voor het maken van de schijf van Azure.
 
-Het volgende voorbeeld bijwerken `--resource-group` met de naam van de resourcegroep en `--name` in een naam van uw keuze.
+Update `--resource-group` verzameld met de naam van de resourcegroep in de laatste stap en `--name` in een naam van uw keuze.
 
 ```azurecli-interactive
 az disk create \
-  --resource-group MC_myAKSCluster_myAKSCluster_eastus \
+  --resource-group MC_myResourceGroup_myAKSCluster_eastus \
   --name myAKSDisk  \
   --size-gb 20 \
   --query id --output tsv
 ```
 
-Als de schijf is gemaakt, ziet u uitvoer ziet er als volgt. Deze waarde is de schijf-ID wordt gebruikt bij het koppelen van de schijf naar een schil Kubernetes.
+Als de schijf is gemaakt, ziet u uitvoer ziet er als volgt. Deze waarde is de schijf-ID wordt gebruikt bij het koppelen van de schijf.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
@@ -60,7 +54,7 @@ Als de schijf is gemaakt, ziet u uitvoer ziet er als volgt. Deze waarde is de sc
 
 Koppel de Azure-schijf in uw schil door het configureren van het volume in de container-specificaties.
 
-Maak een nieuw bestand met de naam `azure-disk-pod.yaml` met de volgende inhoud. Update `diskName` met de naam van de nieuwe schijf en `diskURI` met de id van de schijf. Let ook op de `mountPath`, dit is het pad waar de Azure-schijf is gekoppeld in de schil.
+Maak een nieuw bestand met de naam `azure-disk-pod.yaml` met de volgende inhoud. Update `diskName` met de naam van de nieuwe schijf en `diskURI` met de id van de schijf. Let ook op de `mountPath`, dit is het pad waar de schijf van Azure in schil is gekoppeld.
 
 ```yaml
 apiVersion: v1
@@ -105,3 +99,4 @@ Meer informatie over Kubernetes volumes met behulp van Azure-schijven.
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show

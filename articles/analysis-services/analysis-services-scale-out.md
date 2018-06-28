@@ -3,16 +3,17 @@ title: Azure Analysis Services scale-out | Microsoft Docs
 description: Azure Analysis Services-servers met scale-out repliceren
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 05/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5d1d55a1cf29d6dc3574099cd468c42ccfc72f5b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34597124"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services scale-out
 
@@ -33,6 +34,22 @@ Wanneer bewerkingen zijn voltooid, moet u een synchronisatie uitgevoerd tussen d
 
 > [!NOTE]
 > Scale-out vergroot de hoeveelheid beschikbaar geheugen voor de server niet. Om geheugen te maken, moet u uw abonnement upgraden.
+
+## <a name="region-limits"></a>Limieten voor de regio
+
+Het aantal query-replica's die u kunt configureren, worden beperkt door de regio die uw server is in. De volgende beperkingen gelden:
+
+|Regio  |Maximumaantal replica 's  |
+|---------|---------|
+|VS - oost 2    |    7     |
+|West-centraal VS     |    7     |
+|West-Europa     |    7     |
+|VS - west     |     7    |
+|VS - midden     |     3    |
+|Zuidoost-Azië    |     3    |
+|Alle andere regio 's  |   1    |
+
+
 
 ## <a name="monitor-qpu-usage"></a>Monitor QPU gebruik
 

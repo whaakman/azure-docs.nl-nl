@@ -16,20 +16,22 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34656438"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
 
 Vind antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure.
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Veelgestelde vragen over schaalsets boven
+
 **V:** Hoeveel virtuele machines kan een schaalset bevatten?
 
-**A:** Een schaalset kan 0 tot 1000 virtuele machines bevatten op basis van platforminstallatiekopieën, of 0 tot 300 virtuele machines op basis van aangepaste installatiekopieën. 
+**A:** Een schaalset kan 0 tot 1000 virtuele machines bevatten op basis van platforminstallatiekopieën, of 0 tot 300 virtuele machines op basis van aangepaste installatiekopieën.
 
 **V:** Worden gegevensschijven binnen schaalsets ondersteund?
 
@@ -47,7 +49,7 @@ Vind antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure.
 
 **V:** Hoe maak ik een schaalset met behulp van een aangepaste installatiekopie?
 
-**A:** Maak een beheerde schijf op basis van uw aangepaste installatiekopie-VHD en verwijs ernaar in de sjabloon van de schaalset. [Hier volgt een voorbeeld](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+**A:** Maken en vastleggen van een VM-installatiekopie, waarna die als bron voor uw scale set gebruiken. Voor een zelfstudie over het maken en gebruiken van een aangepaste VM-installatiekopie, kunt u de [Azure CLI 2.0](tutorial-use-custom-image-cli.md) of [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **V:** Als ik de capaciteit van mijn schaalset verlaag van 20 naar 15, welke virtuele machines worden er dan verwijderd?
 
@@ -119,7 +121,7 @@ Dit voorbeeld worden de hostniveau CPU metrische gegevens en een aantal bericht 
 
 U kunt waarschuwingen maken op de metrische gegevens voor de virtuele-machineschaalsets via PowerShell of Azure CLI. Zie voor meer informatie [Azure Monitor PowerShell Quick Start-voorbeelden](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) en [Azure Monitor platformoverschrijdende CLI Quick Start-voorbeelden](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
-De TargetResourceId van de virtuele-machineschaalset ziet er als volgt: 
+De TargetResourceId van de virtuele-machineschaalset ziet er als volgt:
 
 /Subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.COMPUTE/virtualMachineScaleSets/yourvmssname
 
@@ -127,8 +129,12 @@ U kunt elk prestatiemeteritem VM als de metriek in te stellen van een waarschuwi
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Hoe stel ik automatisch schalen op een virtuele-machineschaalset ingesteld met behulp van PowerShell
 
-Als u wilt instellen op een virtuele-machineschaalset ingesteld met behulp van PowerShell voor automatisch schalen, Zie het blogbericht [automatisch schalen toevoegen aan een virtuele machine van Azure-schaalset](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/).
+Als u wilt instellen op een virtuele-machineschaalset ingesteld met behulp van PowerShell voor automatisch schalen, Zie [automatisch schalen van een virtuele-machineschaalset](tutorial-autoscale-powershell.md). U kunt ook configureren voor automatisch schalen met de [Azure CLI 2.0](tutorial-autoscale-cli.md) en [Azure-sjablonen](tutorial-autoscale-template.md)
 
+
+### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Als ik hebt gestopt (toewijzing ongedaan gemaakt) een virtuele machine, wordt die VM gestart als onderdeel van een bewerking voor automatisch schalen?
+
+Nee. Als regels voor automatisch schalen extra exemplaren van de virtuele machine als onderdeel van een schaalset vereist, wordt een nieuw exemplaar van de virtuele machine gemaakt. VM-exemplaren die zijn gestopt (toewijzing opgeheven) worden niet gestart als onderdeel van een gebeurtenis met automatisch schalen. Deze gestopt (toewijzing ongedaan gemaakt) VMs kunnen echter worden verwijderd als onderdeel van een gebeurtenis met automatisch schalen die kan worden geschaald in het aantal exemplaren, dezelfde manier als dat een VM-instantie mogelijk worden verwijderd op basis van de orde van grootte VM-instantie-id.
 
 
 
@@ -263,8 +269,8 @@ Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opma
 linuxConfiguration elementnaam | Vereist | Type | Beschrijving
 --- | --- | --- | --- |  ---
 SSH | Nee | Verzameling | Hiermee geeft u de belangrijkste SSH-configuratie voor een Linux-besturingssysteem
-pad | Ja | Tekenreeks | Hiermee geeft u het pad van het Linux waar de SSH-sleutels of het certificaat moet zich bevinden
-keyData | Ja | Tekenreeks | Hiermee geeft u een base64-gecodeerd openbare SSH-sleutel
+pad | Ja | Reeks | Hiermee geeft u het pad van het Linux waar de SSH-sleutels of het certificaat moet zich bevinden
+keyData | Ja | Reeks | Hiermee geeft u een base64-gecodeerd openbare SSH-sleutel
 
 Zie voor een voorbeeld [de 101-vm-SSH-sleutelbestand GitHub Quick Start-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 

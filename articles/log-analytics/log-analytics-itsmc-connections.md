@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 18398094dfff03739a3d3d44d2c9c58149271123
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34638633"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM producten/services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM producten, services en de IT-Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
@@ -85,7 +86,7 @@ Gebruik de volgende procedure verbinding maken met uw exemplaar van System Cente
 - U kunt incidenten maken van logboekanalyse waarschuwingen of logboekrecords of waarschuwingen van Azure in dit exemplaar van de Service Manager.
 
 
-Meer informatie: [werkitems ITSM maken voor logboekanalyse waarschuwingen](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [ITSM maken werkitems van logboekanalyse logboeken](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) en [werkitems ITSM maken van waarschuwingen van Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Meer informatie: [werkitems ITSM maken van waarschuwingen van Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Maken en implementeren van Service Manager web-app service
 
@@ -238,7 +239,7 @@ Gebruik de volgende procedure om een ServiceNow-verbinding te maken:
 
 - U kunt incidenten maken van logboekanalyse waarschuwingen of logboekrecords of waarschuwingen in deze ServiceNow-exemplaar van Azure.
 
-Meer informatie: [werkitems ITSM maken voor logboekanalyse waarschuwingen](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [ITSM maken werkitems van logboekanalyse logboeken](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) en [werkitems ITSM maken van waarschuwingen van Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Meer informatie: [werkitems ITSM maken van waarschuwingen van Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Integratie-gebruikersrol in ServiceNow-app maken
 
@@ -329,7 +330,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 
 - U kunt incidenten maken van logboekanalyse waarschuwingen of logboekrecords of waarschuwingen van Azure in dit exemplaar Provance.
 
-Meer informatie: [werkitems ITSM maken voor logboekanalyse waarschuwingen](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [ITSM maken werkitems van logboekanalyse logboeken](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) en [werkitems ITSM maken van waarschuwingen van Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Meer informatie: [werkitems ITSM maken van waarschuwingen van Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Verbinding maken met Cherwell IT Service Management-Connector in Azure
 
@@ -381,7 +382,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 
 - U kunt incidenten maken van logboekanalyse waarschuwingen of logboekrecords of waarschuwingen van Azure in dit exemplaar Cherwell.
 
-Meer informatie: [werkitems ITSM maken voor logboekanalyse waarschuwingen](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [ITSM maken werkitems van logboekanalyse logboeken](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) en [werkitems ITSM maken van waarschuwingen van Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Meer informatie: [werkitems ITSM maken van waarschuwingen van Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Client-ID voor Cherwell genereren
 
@@ -395,6 +396,4 @@ Als de client-ID/sleutel gegenereerd voor Cherwell, gebruikt u de volgende proce
 
 
 ## <a name="next-steps"></a>Volgende stappen
- - [Werkitems ITSM voor logboekanalyse waarschuwingen maken](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
- - [ITSM werkitems uit logboekanalyse logboek records logboekbestanden maken](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Werkitems ITSM van waarschuwingen van Azure maken](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

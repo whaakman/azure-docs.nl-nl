@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34592405"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacy van gebruikers en Azure AD naadloze eenmalige aanmelding
 
@@ -27,11 +29,11 @@ ms.lasthandoff: 04/28/2018
 ## <a name="overview"></a>Overzicht
 
 
-Azure AD naadloze eenmalige aanmelding wordt gemaakt van de volgende Logboektype die EUII kan bevatten:
+Azure AD naadloze eenmalige aanmelding wordt gemaakt van de volgende Logboektype dat persoonlijke gegevens kan bevatten: 
 
 - Azure AD Connect logboekbestanden voor tracering.
 
-Privacy gebruikerscompatibiliteit voor naadloze eenmalige aanmelding kan worden bereikt op twee manieren:
+De privacy van gebruikers voor naadloze eenmalige aanmelding op twee manieren:
 
 1.  Gegevens ophalen voor een persoon op verzoek en gegevens van die persoon de installaties verwijderen.
 2.  Zorg ervoor dat er geen gegevens behouden blijven na 48 uur.
