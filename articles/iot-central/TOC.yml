@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: Zelfstudies
   items:
-    - name: Opbouwfunctie
-      items:
-        - name: 1 - Een nieuw apparaattype definiëren
-          href: tutorial-define-device-type.md
-        - name: 2 - Regels configureren
-          href: tutorial-configure-rules.md
-        - name: 3 - De weergave van de operator aanpassen
-          href: tutorial-customize-operator.md
-    - name: Operator
-      items:
-        - name: 4 - Uw apparaten controleren
-          href: tutorial-monitor-devices.md
-        - name: 5 - Een apparaat toevoegen
-          href: tutorial-add-device.md
+    - name: 1 - Een nieuw apparaattype definiëren
+      href: tutorial-define-device-type.md
+    - name: 2 - Regels configureren
+      href: tutorial-configure-rules.md
+    - name: 3 - De weergave van de operator aanpassen
+      href: tutorial-customize-operator.md
+    - name: 4 - Uw apparaten controleren
+      href: tutorial-monitor-devices.md
+    - name: 5 - Een apparaat toevoegen
+      href: tutorial-add-device.md
 - name: Concepten
   items:
     - name: Architectuur
