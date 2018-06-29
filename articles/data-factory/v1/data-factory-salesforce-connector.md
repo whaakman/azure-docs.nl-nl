@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dddb29d2a796449d6a2c9b68e01e94f32d3022e4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 98f7494c87683eda858da5970e12073ce2204303
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621986"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048284"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Gegevens verplaatsen van Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-salesforce-connector.md)
-> * [Versie 2 - Preview](../connector-salesforce.md)
+> * [Versie 1](data-factory-salesforce-connector.md)
+> * [Versie 2 (huidige versie)](../connector-salesforce.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [Salesforce-connector in V2](../connector-salesforce.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Salesforce-connector in V2](../connector-salesforce.md).
 
 
 In dit artikel bevat een overzicht van hoe u kunt Kopieeractiviteit in een Azure data factory om gegevens van Salesforce kopiëren naar een gegevensopslag die wordt vermeld onder de Sink-kolom in de [ondersteunde gegevensbronnen en put](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. In dit artikel is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, waarin Kopieeractiviteit en combinaties van ondersteunde gegevens store een algemeen overzicht van de verplaatsing van gegevens biedt.
@@ -54,7 +54,7 @@ U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens worden verp
 
 De eenvoudigste manier om een pijplijn maken is met de **Wizard kopiëren**. Zie [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht over het maken van een pijplijn met de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
+U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
 
 Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren: 
 
@@ -289,15 +289,15 @@ Zie [RelationalSource type-eigenschappen](#copy-activity-properties) voor de lij
 | --- | --- |
 | Automatische getal |Reeks |
 | Selectievakje |Boole-waarde |
-| Valuta |dubbele |
+| Valuta |Double |
 | Date |DateTime |
 | Datum/tijd |DateTime |
 | Email |Reeks |
 | Id |Reeks |
 | Opzoekrelatie |Reeks |
 | Meervoudige selectie selectielijst |Reeks |
-| Aantal |dubbele |
-| Procent |dubbele |
+| Aantal |Double |
+| Procent |Double |
 | Telefoon |Reeks |
 | Selectielijst |Reeks |
 | Tekst |Reeks |

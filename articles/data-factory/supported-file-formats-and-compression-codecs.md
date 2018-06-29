@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: c96d8b273a0e74ced5b121d19e1c3e5343a754b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 534df0dfef1f69297c5728ed892a5457944e4468
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621816"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052287"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde bestandsindelingen en compressiecodecs in Azure Data Factory
 
@@ -27,9 +27,6 @@ Als u wilt **kopiëren van bestanden als-is** overslaan tussen bestandsgebaseerd
 * [Avro-indeling](#avro-format)
 * [ORC-indeling](#orc-format)
 * [Parquet-indeling](#parquet-format)
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [bestands- en compressie indelingen ondersteund in de Data Factory version1 gedefinieerd](v1//data-factory-supported-file-and-compression-formats.md).
 
 > [!TIP]
 > Meer informatie over hoe de kopieerbewerking de brongegevens opvangen van toegewezen [schematoewijzing in kopieeractiviteit](copy-activity-schema-and-type-mapping.md), met inbegrip van hoe de metagegevens wordt bepaald op basis van uw bestandsindelingsinstellingen en tips over opgeven de [gegevensset `structure` ](concepts-datasets-linked-services.md#dataset-structure) sectie.
@@ -459,8 +456,8 @@ Houd rekening met de volgende punten:
 | Int64 | Lang |
 | UInt64 | Reeks |
 | Enkelvoudig | Float |
-| dubbele | dubbele |
-| Decimale | Decimale |
+| Double | Double |
+| decimale | decimale |
 | Reeks | Reeks |
 | DateTime | Timestamp |
 | DateTimeOffset | Timestamp |
@@ -494,17 +491,17 @@ Houd rekening met de volgende punten:
 | Data factory tussentijdse gegevenstype | Parketvloeren primitief Type | Oorspronkelijke Type parketvloeren (deserialiseren) | Oorspronkelijke Type parketvloeren (serialiseren) |
 |:--- |:--- |:--- |:--- |
 | Boole-waarde | Boole-waarde | N/A | N/A |
-| SByte | Int32 | int8 | int8 |
+| SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
 | UInt16 | Int32 | UInt16 | Int32 |
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/binair | UInt64 | Decimale |
+| UInt64 | Int64/binair | UInt64 | decimale |
 | Enkelvoudig | Float | N/A | N/A |
-| dubbele | dubbele | N/A | N/A |
-| Decimale | Binair bestand | Decimale | Decimale |
+| Double | Double | N/A | N/A |
+| decimale | Binair bestand | decimale | decimale |
 | Reeks | Binair bestand | Utf8 | Utf8 |
 | DateTime | Int96 | N/A | N/A |
 | TimeSpan | Int96 | N/A | N/A |

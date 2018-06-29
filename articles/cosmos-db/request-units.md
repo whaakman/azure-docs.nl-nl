@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 9021d0c3f650d64480f2881508d456ce98beab2a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961946"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053324"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos-DB
 
@@ -41,7 +41,7 @@ Azure Cosmos DB biedt snelle, voorspelbare prestaties door te reserveren bronnen
 
 Met Azure Cosmos DB worden gereserveerde doorvoer is opgegeven in termen van aanvraag eenheid per seconde verwerkt. U kunt aanvraageenheden beschouwen als valuta doorvoer. U reserveren een aantal aanvraageenheden moet beschikbaar zijn voor uw toepassing per seconde op basis van een gegarandeerde. Elke bewerking in Azure Cosmos DB, met inbegrip van schrijven van een document, een query uitvoeren en bijwerken van een document maakt gebruik van CPU, geheugen en IOPS. Dat wil zeggen, elke bewerking leidt ertoe dat de kosten van een aanvraag, uitgedrukt in aanvraageenheden. Als u de factoren die van invloed zijn op aanvraag eenheid kosten en vereisten van uw toepassing doorvoer begrijpt, kunt u uw toepassing uitvoeren als kosten-effectief mogelijk. 
 
-Als u aan de slag wilt, worden Azure Cosmos DB Program Manager Andrew Liu aanvraageenheden in de volgende video: <br /><br />
+Als u aan de slag wilt, Azure Cosmos DB Program Manager Andrew Liu komen aan bod aanvraageenheden in de volgende video (Er is een kleine typefout gemaakt in het voorbeeld van de aanvraag eenheden van de video. Wanneer 1 KB gegevens met 100.000 records wordt gebruikt, is de totale opslagruimte 100 MB en niet 100 GB): <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 

@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 5d9061e12ac9fe0b9d858690897e582acab5169e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754478"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053252"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor gegevensverplaatsing in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-data-movement-security-considerations.md)
-> * [Versie 2 - Preview](data-movement-security-considerations.md)
+> * [Versie 1](v1/data-factory-data-movement-security-considerations.md)
+> * [Huidige versie](data-movement-security-considerations.md)
 
 In dit artikel beschrijft de infrastructuur van de basisprincipes van beveiliging die services voor gegevensverplaatsing in Azure Data Factory gebruiken om u te helpen beveiligen uw gegevens. Data Factory-management-resources zijn gebouwd op Azure beveiligingsinfrastructuur en alle mogelijke veiligheidsmaatregelen, die worden aangeboden door Azure gebruiken.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service is algemeen beschikbaar (GA), Zie [Data movement beveiligingsoverwegingen voor Data Factory versie 1](v1/data-factory-data-movement-security-considerations.md).
 
 In een Data Factory-oplossing maakt u een of meer gegevens[pijplijnen](concepts-pipelines-activities.md). Een pijplijn is een logische groep activiteiten die samen een taak uitvoeren. Deze pijplijnen zich bevinden in de regio waar de gegevensfactory is gemaakt. 
 
@@ -83,7 +80,7 @@ Amazon S3 ondersteunt zowel client als server versleuteling van gegevens in rust
 #### <a name="amazon-redshift"></a>Amazon Redshift
 Amazon Redshift ondersteunt cluster versleuteling voor gegevens in rust. Zie voor meer informatie [Amazon Redshift Databaseversleuteling](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
-#### <a name="salesforce"></a>Salesforce
+#### <a name="salesforce"></a>SalesForce
 SalesForce ondersteunt Shield Platform versleuteling waarmee versleuteling van alle bestanden, bijlagen en aangepaste velden. Zie voor meer informatie [inzicht in de Web Server OAuth-verificatie stromen](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Hybride scenario 's
@@ -121,7 +118,7 @@ Azure-netwerk is een logische representatie van uw netwerk in de cloud. U kunt e
 
 De volgende tabel geeft een overzicht van het netwerk en aanbevelingen voor de configuratie van host zichzelf integratie runtime op basis van verschillende combinaties van de bron en bestemming locaties voor hybride gegevensverplaatsing.
 
-| Bron      | Bestemming                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
+| Bron      | Doel                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec VPN (punt-naar-site of site-naar-site) | De runtime host zichzelf integratie kan worden on-premises geïnstalleerd of op een virtuele machine van Azure in een virtueel netwerk. |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (privépeering)           | De runtime host zichzelf integratie kan worden on-premises geïnstalleerd of op een virtuele machine van Azure in een virtueel netwerk. |

@@ -1,26 +1,23 @@
 ---
-title: De opdrachtregelinterface van Azure 2.0 gebruiken om aan de slag te gaan met Azure Data Lake Store | Microsoft Docs
+title: Azure opdrachtregelprogramma 2.0 gebruikersinterface aan de slag met Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Een Data Lake Store-account maken en basisbewerkingen uitvoeren met de platformoverschrijdende opdrachtregelinterface van Azure 2.0
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 4ffa0f4a-1cca-46ac-803d-1fc8538c685b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: b93b9a801b3e5e1fd869cda7f3d67554e2d03195
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: HT
+ms.openlocfilehash: acd1182fdc66374e9abbc4964207417a7de3aadb
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035966"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Aan de slag met Azure Data Lake Store met Azure CLI 2.0
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Aan de slag met Azure Data Lake Storage Gen1 met Azure CLI 2.0
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,7 +25,9 @@ ms.lasthandoff: 03/09/2018
 >
 > 
 
-Ontdek hoe u met de Azure CLI 2.0 een Azure Data Lake Store-account maakt en basisbewerkingen uitvoert, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account enzovoort. Zie [Overzicht van Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake Store.
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Ontdek hoe u met de Azure CLI 2.0 een Azure Data Lake Store-account maakt en basisbewerkingen uitvoert, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account enzovoort. Zie voor meer informatie over Data Lake Store [overzicht van Data Lake Storage Gen1](data-lake-store-overview.md).
 
 De Azure CLI 2.0 is de nieuwe opdrachtregelervaring van Azure voor het beheer van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Zie [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure) (Overzicht van Azure CLI 2.0) voor meer informatie. U kunt ook zoeken in de [Naslaggegevens van Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls), voor een volledige lijst met opdrachten en syntaxis.
 
@@ -53,7 +52,7 @@ In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store ge
     az login
     ```
 
-    U ontvangt een code die u in de volgende stap nodig hebt. Gebruik een webbrowser om de pagina https://aka.ms/devicelogin te openen en voer de code in voor verificatie. U wordt gevraagd om u aan te melden met uw referenties.
+    U ontvangt een code die u in de volgende stap nodig hebt. Een webbrowser gebruiken om de pagina te openen https://aka.ms/devicelogin en voer de code te verifiëren. U wordt gevraagd om u aan te melden met uw referenties.
 
 2. Wanneer u bent aangemeld, wordt er een venster weergegeven met alle Azure-abonnementen die aan uw account zijn gekoppeld. Gebruik de volgende opdracht als u een specifiek abonnement wilt gebruiken.
    

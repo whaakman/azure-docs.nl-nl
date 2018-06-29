@@ -13,18 +13,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ffe65260e73aa2daa4ab63840a00076000f8e6a8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264902"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054718"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de activiteit SSIS-pakket niet uitvoeren in Azure Data Factory
 Dit artikel wordt beschreven hoe u een SSIS-pakket uitvoert in een Azure Data Factory-pijplijn met behulp van een activiteit SSIS-pakket niet uitvoeren. 
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. De activiteit uitvoeren van SSIS-pakket is niet beschikbaar in versie 1 van de Data Factory-service (GA) is algemeen beschikbaar is. Zie voor een alternatieve methode voor het uitvoeren van SSIS-pakket met versie 1 van de Data Factory-service, [uitvoeren SSIS-pakketten met behulp van de activiteit opgeslagen procedure in versie 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -59,7 +56,7 @@ Eerste stap is het maken van een gegevensfactory met behulp van de Azure-portal.
       - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
          
     Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-4. Selecteer **V2 (Preview)** als de **versie**.
+4. Selecteer **V2** voor de **versie**.
 5. Selecteer de **locatie** voor de gegevensfactory. In de vervolgkeuzelijst ziet u alleen locaties die worden ondersteund in Data Factory. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich op andere locaties bevinden.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.
@@ -177,7 +174,7 @@ Houd rekening met de volgende punten:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen **Inzender** of **Eigenaar**, of moet dit een **beheerder** van het Azure-abonnement zijn.
-* Op dit moment kunt Gegevensfactory versie 2 u data Factory alleen maken in de VS-Oost, Oost-US2, West-Europa en Zuidoost-Azië regio's. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+* Data Factory op dit moment kunt u data Factory alleen maken in de VS-Oost, Oost-US2, West-Europa en Zuidoost-Azië regio's. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>Een pijplijn maken met een SSIS-activiteit 
 In deze stap maakt u een pijplijn met een SSIS-activiteit. De activiteit actief SSIS-pakket. 

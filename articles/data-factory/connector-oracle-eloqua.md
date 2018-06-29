@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory (Preview) | Microsoft Docs
+title: Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory | Microsoft Docs
 description: Ontdek hoe u gegevens kopiëren van Oracle Eloqua naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 8edab4a27966a0bdb278007c0d030fe43a126a35
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 821e345933ba52ed2c71251bab3ba159e5412568
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320602"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048370"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory (Preview)
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory"></a>Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens van Oracle Eloqua kopiëren. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Deze connector is momenteel in preview. U kunt uitproberen en feedback geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
@@ -49,7 +46,7 @@ De volgende eigenschappen worden ondersteund voor Oracle Eloqua gekoppelde servi
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Eloqua** | Ja |
-| eindpunt | Het eindpunt van de server Eloqua. Eloqua ondersteunt meerdere datacenters, om te bepalen van uw eindpunt, meld u aan bij https://login.eloqua.com met uw referenties, Kopieer de **basis-URL** gedeelte van de omgeleide URL met het patroon van `xxx.xxx.eloqua.com`. | Ja |
+| endpoint | Het eindpunt van de server Eloqua. Eloqua ondersteunt meerdere datacenters, om te bepalen van uw eindpunt, meld u aan bij https://login.eloqua.com met uw referenties, Kopieer de **basis-URL** gedeelte van de omgeleide URL met het patroon van `xxx.xxx.eloqua.com`. | Ja |
 | gebruikersnaam | De sitenaam en de gebruikersnaam van uw account Eloqua in het formulier: `SiteName\Username` bijvoorbeeld `Eloqua\Alice`.  | Ja |
 | wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Geeft aan of de eindpunten van de gegevensbron zijn versleuteld via HTTPS. De standaardwaarde is true.  | Nee |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234838"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030152"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack PKI-certificaatvereisten
 
@@ -76,20 +76,6 @@ Voor uw implementatie, het [regio] en [externalfqdn] waarden moeten overeenkomen
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Queue Storage | wachtrij. &lt;regio >. &lt;fqdn > |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Key Vault | kluis. &lt;regio >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault. &lt;regio >. &lt;fqdn ><br>(Wildcard-SSL-certificaat) |  Interne Keyvault |  adminvault. &lt;regio >. &lt;fqdn > |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Voor Azure-Stack-omgeving op Pre-1803 versies
-
-|Implementatiemap|Vereiste certificaatonderwerp en de alternatieve namen voor onderwerp (SAN)|Bereik (per regio)|Subdomein naamruimte|
-|-----|-----|-----|-----|
-|Openbare-Portal|portal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
-|Beheerportal|adminportal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
-|Openbare Azure Resource Manager|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager-beheerder|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Een multi-subdomein jokertekencertificaat met alternatieve namen voor:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>de tabel.  *&lt;regio >.&lt; FQDN-naam >*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Wildcard-SSL-certificaat)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Wildcard-SSL-certificaat)|Interne Keyvault|adminvault.  *&lt;regio >.&lt; FQDN-naam >*|
-|
-<sup>1</sup> drie jokertekens SAN's op één certificaat vereist dat de ACS-certificaat. Meerdere jokertekens SAN's op één certificaat kan niet worden ondersteund door alle openbare certificeringsinstanties. 
 
 Als u Azure-Stack in de modus Azure AD-implementatie implementeert, hoeft u alleen de certificaten die worden vermeld in de vorige tabel aanvragen. Als u Azure-Stack in de modus van de implementatie van AD FS implementeert, moet u echter ook de certificaten in de volgende tabel beschreven aanvragen:
 

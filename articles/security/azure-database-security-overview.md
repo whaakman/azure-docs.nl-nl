@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 44abf7a4fc24893146179b34d3357f54450decab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365141"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051522"
 ---
 # <a name="azure-database-security-overview"></a>Overzicht van Azure-database-beveiliging
 
@@ -69,7 +69,7 @@ U kunt enkele voorzorgsmaatregelen nemen om de database beveiligen. Bijvoorbeeld
 
 Er is een oplossing voor het versleutelen van de gevoelige gegevens in de database en bescherming van de sleutels die worden gebruikt voor het versleutelen van de gegevens met een certificaat. Deze oplossing wordt voorkomen dat iemand anders zonder de sleutels met behulp van de gegevens, maar dit soort bescherming moet worden gepland.
 
-Voor het oplossen van dit probleem, SQL Server en SQL-Database ondersteuning [transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/securityrecryption/transparent-data-encryption-tde). Transparent data encryption voor versleutelt SQL Server en SQL Database-gegevensbestanden, bekend als van Versleutelingsgegevens in rust.
+Voor het oplossen van dit probleem, SQL Server en SQL-Database ondersteuning [transparante gegevensversleuteling](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Transparent data encryption voor versleutelt SQL Server en SQL Database-gegevensbestanden, bekend als van Versleutelingsgegevens in rust.
 
 Transparante gegevensversleuteling beschermt tegen de dreiging van schadelijke activiteiten. Hiermee realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust worden uitgevoerd zonder dat wijzigingen in de toepassing.  
 

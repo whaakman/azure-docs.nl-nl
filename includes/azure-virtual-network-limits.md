@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 326da32f91b263bbd09a4c6f521c9ec72094820c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297963"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066064"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over hoe [weergeven van het actuele Resourcegebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Virtueel netwerk peerings per virtueel netwerk |10 |50 |
 | DNS-servers per virtueel netwerk |9 |25 |
 | Privé-IP-adressen per virtueel netwerk |16384 ** |16384 |
-| Privé-IP-adressen per netwerkinterface |256 |1024 |
+| Privé-IP-adressen per netwerkinterface |256 |256 |
 | Gelijktijdige TCP of UDP loopt per NIC van een virtuele machine of rolinstantie |500.000 |500.000 |
 | Netwerkinterfaces (NIC) |24000 ** |24000 |
 | Netwerkbeveiligingsgroepen (NSG's) |100 |5000 |

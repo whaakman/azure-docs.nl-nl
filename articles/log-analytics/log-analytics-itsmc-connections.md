@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 18398094dfff03739a3d3d44d2c9c58149271123
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 1c1c294a877a996dc0e6cb916b038dc0ca27ed5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "34638633"
+ms.locfileid: "37061706"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM producten/services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM producten, services en de IT-Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
@@ -191,7 +191,7 @@ Zorg ervoor dat de volgende vereisten wordt voldaan:
 **De volgende items in hun ServiceNow-exemplaar moet doen door ServiceNow Admins**:
 - Client-ID en clientgeheim voor het product ServiceNow genereren. Zie de volgende informatie zoals vereist voor informatie over het maken van de client-ID en geheim:
 
-    - [OAuth voor Kingston instellen](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
+    - [OAuth voor Kingston instellen](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Instellen van OAuth voor ondersteuning](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth voor Istanboel instellen](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth voor Helsinki instellen](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

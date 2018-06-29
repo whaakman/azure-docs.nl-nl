@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 06fd2f3ef4a17c5626afc95ed8ae5999778ebda6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293157"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035937"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies voor kenmerktoewijzingen schrijven in Azure Active Directory
 Wanneer u configureert het inrichten van een SaaS-toepassing, is een van de soorten kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Hiervoor moet u een script-achtige expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -37,7 +37,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 * Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: ' Bedrijfsnaam: \"Contoso\"'
 
 ## <a name="list-of-functions"></a>Lijst met functies
-[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
+[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Toevoegen
@@ -53,7 +53,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 | **suffix** |Vereist |Reeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
 
 - - -
-### <a name="formatdatetime"></a>formatDateTime
+### <a name="formatdatetime"></a>FormatDateTime
 **Functie:**<br> FormatDateTime (bron, inputFormat, outputFormat)
 
 **Beschrijving:**<br> Een tekenreeks van de datum van de ene indeling en converteert naar een andere indeling.
@@ -96,7 +96,19 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 | **lengte** |Vereist |geheel getal |Lengte van de subtekenreeks. Als de lengte buiten eindigt de **bron** tekenreeks, functie substring van resultaat **start** index tot het einde van **bron** tekenreeks. |
 
 - - -
-### <a name="not"></a>niet
+### <a name="normalizediacritics"></a>NormalizeDiacritics
+**Functie:**<br> NormalizeDiacritics(source)
+
+**Beschrijving:**<br> Vereist een tekenreeksargument. Retourneert de tekenreeks, maar met diakritische tekens die is vervangen door gelijkwaardige niet diakritische tekens. Meestal gebruikt voor het omzetten van namen van de eerste en laatste met diakritische tekens (accenttekens) in de geldige waarden die kunnen worden gebruikt in verschillende gebruiker-id's zoals UPN-namen, SAM-accountnamen en e-mailadressen.
+
+**Parameters:**<br> 
+
+| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| --- | --- | --- | --- |
+| **Bron** |Vereist |Reeks | Meestal de naam van een eerste of laatste name-kenmerk |
+
+- - -
+### <a name="not"></a>Niet
 **Functie:**<br> NOT(Source)
 
 **Beschrijving:**<br> Gespiegeld de Boole-waarde van de **bron**. Als **bron** waarde is '*True*', retourneert '*False*'. Anders retourneert '*True*'.
@@ -129,7 +141,6 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
   * Als **bron** een waarde heeft, gebruikt de **regexPattern** en **regexGroupName** vervangende waarde ophalen uit de eigenschap met **replacementPropertyName** . Vervangende waarde wordt geretourneerd als resultaat
 
 **Parameters:**<br> 
-
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
@@ -144,7 +155,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Functie:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Beschrijving:**<br> Retourneert een enkele appRoleAssignment uit de lijst met alle appRoleAssignments toegewezen aan een gebruiker voor een bepaalde toepassing. Deze functie is vereist voor het object appRoleAssignments converteren naar een tekenreeks met één functie. Houd er rekening mee dat de aanbevolen procedure is om ervoor te zorgen slechts één appRoleAssignment is toegewezen aan één gebruiker op een tijdstip en als er meerdere rollen zijn toegewezen rol-tekenreeks geretourneerd mogelijk niet voorspelbaar.
+**Beschrijving:**<br> Vereist een tekenreeksargument. Retourneert de tekenreeks, maar met een luiden diakritische tekens met gelijkwaardige niet diakritische tekens.
 
 **Parameters:**<br> 
 
@@ -162,7 +173,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |**Bron** waarde om te werken. |
+| **Bron** |Vereist |Reeks |**bron** waarde om te werken. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -215,16 +226,16 @@ U moet een gebruiker alias genereren door middel van eerste 3 letters van de voo
 * **INVOER** (voornaam): 'De Vries'
 * **UITVOER**: 'JohDoe'
 
-### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Diakritische tekens verwijderen uit een tekenreeks en converteren naar kleine letters
-Moet u speciale tekens verwijderen uit een tekenreeks en omzetten van hoofdletters in kleine letters.
+### <a name="remove-diacritics-from-a-string"></a>Diakritische tekens verwijderen uit een tekenreeks
+U moet de tekens, accenttekens met gelijkwaardige tekens die geen accenttekens bevatten met vervangen.
 
 **Expressie:** <br>
-`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+NormalizeDiacritics([givenName])
 
 **I/o-voorbeeld:** <br>
 
 * **INVOER** (givenName): 'Zoë'
-* **UITVOER**: 'zoe'
+* **UITVOER**: 'Zoe'
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Uitvoerdatum als een tekenreeks in een bepaalde indeling
 Wilt u datums verzenden naar een SaaS-toepassing in een bepaalde indeling. <br>
@@ -259,5 +270,5 @@ Als de status code komt niet met de vooraf gedefinieerde opties overeen, gebruik
 * [Bereikfilters voor gebruikers inrichten](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
 * [Meldingen inrichten van een account](active-directory-saas-account-provisioning-notifications.md)
-* [Lijst met zelfstudies over het integreren van SaaS-Apps](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps](saas-apps/tutorial-list.md)
 

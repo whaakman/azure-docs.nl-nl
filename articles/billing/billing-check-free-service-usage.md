@@ -1,5 +1,5 @@
 ---
-title: Bewaken en bijhouden gebruik van de gratis services - Azure | Microsoft Docs
+title: Bewaken en bijhouden gebruik van de gratis Azure-services | Microsoft Docs
 description: Informatie over het gebruik van de gratis services controleren. Gebruik van Azure portal en gebruik van csv.
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 560137d92491da46fda950dec84a0a7caa3ed720
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205887"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061313"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Controleer gebruik van de beschikbare services in uw gratis Azure-account 
 

@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: aa96356b01d63aa21c55f1b2e6998e65f9d617f6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a232787793f9f4992a4dece821ae0bcc9059afc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058919"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1: algemeen verkrijgbaar](v1/data-factory-onprem-oracle-connector.md)
-> * [Versie 2 - Preview](connector-oracle.md)
+> * [Versie 1](v1/data-factory-onprem-oracle-connector.md)
+> * [Huidige versie](connector-oracle.md)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar een Oracle-database. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory, die in het algemeen beschikbaar is, Zie [Oracle-connector in versie 1](v1/data-factory-onprem-oracle-connector.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -40,6 +38,9 @@ In het bijzonder ondersteunt deze Oracle-connector de volgende versies van een O
 - Oracle 10g R1, R2 (10.1, 10.2)
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
+
+> [!Note]
+> Oracle-proxyserver wordt niet ondersteund.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -58,7 +59,7 @@ De volgende eigenschappen worden ondersteund voor de Oracle gekoppelde service.
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **Oracle**. | Ja |
-| connectionString | Hiermee geeft u de benodigde informatie om verbinding maken met de Oracle-Database-exemplaar. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Verbindingstype ondersteund**: kunt u **Oracle SID** of **Oracle-servicenaam** voor het identificeren van de database:<br>-Als u de SID gebruikt: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Als u de naam van de Service gebruikt: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Ja |
+| connectionString | Hiermee geeft u de benodigde informatie om verbinding maken met de Oracle-Database-exemplaar. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Verbindingstype ondersteund**: kunt u **Oracle SID** of **Oracle-servicenaam** voor het identificeren van de database:<br>-Als u de SID gebruikt: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Als u de naam van de Service gebruikt: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
 | connectVia | De [integratie runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
 **Voorbeeld:**
@@ -209,25 +210,25 @@ Wanneer u gegevens van en naar Oracle kopiëren, worden de volgende toewijzingen
 |:--- |:--- |
 | BBESTAND |Byte[] |
 | BLOB |Byte[]<br/>(alleen ondersteund voor Oracle 10g en hoger) |
-| CHAR |Tekenreeks |
-| CLOB |Tekenreeks |
+| CHAR |Reeks |
+| CLOB |Reeks |
 | DATE |DateTime |
 | FLOAT |Decimaal, tekenreeks (als precision > 28) |
 | GEHEEL GETAL |Decimaal, tekenreeks (als precision > 28) |
-| LANG |Tekenreeks |
+| LANG |Reeks |
 | LANGE ONBEWERKTE |Byte[] |
-| NCHAR |Tekenreeks |
-| NCLOB |Tekenreeks |
+| NCHAR |Reeks |
+| NCLOB |Reeks |
 | AANTAL |Decimaal, tekenreeks (als precision > 28) |
-| NVARCHAR2 |Tekenreeks |
-| RAW |Byte[] |
-| ROWID |Tekenreeks |
+| NVARCHAR2 |Reeks |
+| ONBEWERKTE |Byte[] |
+| ROWID |Reeks |
 | TIJDSTEMPEL |DateTime |
-| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Tekenreeks |
-| TIJDSTEMPEL MET TIJDZONE |Tekenreeks |
+| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Reeks |
+| TIJDSTEMPEL MET TIJDZONE |Reeks |
 | NIET-ONDERTEKEND GEHEEL GETAL |Aantal |
-| VARCHAR2 |Tekenreeks |
-| XML |Tekenreeks |
+| VARCHAR2 |Reeks |
+| XML |Reeks |
 
 > [!NOTE]
 > De gegevenstypen INTERVAL jaar aan maand en het INTERVAL dag naar worden niet het tweede ondersteund.

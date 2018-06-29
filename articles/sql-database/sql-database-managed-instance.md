@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
-ms.translationtype: MT
+ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215521"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054650"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
@@ -66,7 +66,7 @@ De volgende tabel ziet u enkele eigenschappen, toegankelijk via de Transact-SQL 
 |**Beveiliging en naleving** | **Management**|
 |Geïsoleerde omgeving (VNet-integratie, één tenant-service, speciale berekenings- en <br>Versleuteling van de gegevens onderweg <br>Azure AD-verificatie, ondersteuning voor eenmalige aanmelding <br>Voldoet aan de nalevingsstandaards dezelfde als de Azure SQL database <br>Controleren voor SQL <br>Detectie van bedreigingen |Azure Resource Manager-API voor het automatiseren van de service-inrichting en schalen <br>Azure portal-functionaliteit voor handmatige service inrichten en schalen <br>Service voor migratie van gegevens 
 
-![Eenmalige aanmelding](./media/sql-database-managed-instance/sso.png) 
+![eenmalige aanmelding](./media/sql-database-managed-instance/sso.png) 
 
 ## <a name="vcore-based-purchasing-model-preview"></a>op basis van vCore aankoopmodel (preview)
 
@@ -210,7 +210,8 @@ Beheerde exemplaar voordelen van wordt altijd-up-to-date in de cloud, betekent d
 - Beheerde exemplaar kan geen volledige fysieke paden opgeven zodat alle bijbehorende scenario's moeten anders worden ondersteund: RESTORE DB biedt geen ondersteuning voor het verplaatsen met, DB maken mag geen fysieke paden, BULK INSERT werkt met Azure Blobs alleen, enzovoort. 
 - Beheerde exemplaar ondersteunt [Azure AD authentication](sql-database-aad-authentication.md) als cloud alternatief voor het Windows-verificatie. 
 - Beheerde exemplaar beheert automatisch de XTP-bestandsgroep en bestanden voor databases met In-geheugen OLTP-objecten
- 
+- Beheerde exemplaar ondersteunt SQL Server Integration Services (SSIS) en host SSIS-catalogus (SSISDB) die worden opgeslagen SSIS-pakketten kunnen, maar ze worden uitgevoerd op een beheerde Azure-SSIS integratie Runtime (IR) in Azure Data Factory (ADF), Zie [maken Azure-SSIS-IR in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+
 ### <a name="managed-instance-administration-features"></a>Beheerde exemplaar-beheerfuncties  
 
 Beheerde exemplaar inschakelen systeembeheerder om zich te richten op wat belangrijk de meest voor bedrijven is. Veel systeembeheerder/DBA activiteiten zijn niet vereist of ze zijn eenvoudige. Bijvoorbeeld, OS / RDBMS-installatie en patchen, dynamische exemplaar vergroten of verkleinen en configuratie, back-ups van databasereplicatie (inclusief systeemdatabases), configuratie voor hoge beschikbaarheid en configuratie van de status en prestaties bewaken van gegevens stromen. 

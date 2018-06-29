@@ -8,29 +8,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f33b24544373bc778f27ef3da18da8d62407a639
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: MT
+ms.openlocfilehash: 85450119b9ab25b6f812cbf8c6c64174dd6f322c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751633"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061723"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Maken van de runtime Azure SSIS-integratie in Azure Data Factory
-Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) implementeren en uitvoeren van SQL Server Integration Services (SSIS) pakketten in deze runtime in Azure. 
+Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SSDT (SQL Server Data Tools) of SSMS (SQL Server Management Studio) gebruiken om SSIS-pakketten (SQL Server Integration Services) te implementeren en uit te voeren in deze runtime van Azure. 
 
 De zelfstudie [zelfstudie: pakketten van SQL Server Integration Services (SSIS) implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md) ziet u hoe u een Azure-SSIS integratie Runtime (IR) maken met behulp van Azure SQL Database voor het hosten van de SSIS-catalogus. Dit artikel wordt op de zelfstudie wordt uitgebreid en ziet u hoe u het volgende doen: 
 
-- Optioneel gebruik Azure SQL Database met een virtueel netwerk service-eindpunten/beheerde exemplaar (Preview) als de databaseserver voor het hosten van de catalogus SSIS (SSISDB-database). Als een vereiste, moet u uw Azure-SSIS-IR toevoegen aan een virtueel netwerk en virtueel Netwerkmachtigingen en instellingen configureren als nodig, Zie [Join Azure SSIS IR met een virtueel netwerk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+- Optioneel gebruik Azure SQL Database met een virtueel netwerk service-eindpunten/beheerde exemplaar (Preview) als de databaseserver voor het hosten van de catalogus SSIS (SSISDB-database). Zie voor richtlijnen bij het kiezen van het type van de database-server op host SSISDB [vergelijken van de SQL-Database en beheerd exemplaar (Preview)](create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview). Als een vereiste moet u uw Azure-SSIS-IR toevoegen aan een virtueel netwerk en virtueel Netwerkmachtigingen en instellingen configureren indien nodig. Zie [Azure SSIS-IR koppelen aan een virtueel netwerk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
 - Optioneel gebruik Azure Active Directory (AAD) verificatie met uw Azure Data Factory beheerde Service identiteit (MSI) voor Azure SSIS-IR verbinding maken met de databaseserver. Als een vereiste, moet u uw Data Factory-MSI toevoegen aan een AAD-groep met machtigingen voor toegang tot de databaseserver, Zie [inschakelen AAD-verificatie voor Azure SSIS-IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md). 
 
 ## <a name="overview"></a>Overzicht
 In dit artikel bevat verschillende manieren voor het leveren van een Azure-SSIS-IR: 
@@ -65,7 +62,7 @@ U kunt een Azure-SSIS-IR maken in de volgende regio's: VS - oost, VS - oost 2, V
 
 De volgende tabel vergelijkt bepaalde functies van SQL-Database en beheerd exemplaar (Preview) die betrekking heeft op de Azure-SSIR IR:
 
-| Functie | SQL Database | Managed Instance |
+| Functie | SQL Database | Beheerd exemplaar |
 |---------|--------------|------------------|
 | **Plannen** | SQL Server Agent is niet beschikbaar.<br/><br/>Zie [plannen van een pakket als onderdeel van een Azure Data Factory-pijplijn](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages.md#activity).| SQL Server Agent is beschikbaar. |
 | **Verificatie** | U kunt een database maken met een ingesloten database-gebruikersaccount dat vertegenwoordigt een Azure Active Directory-gebruiker in de **dbmanager** rol.<br/><br/>Zie [inschakelen van Azure AD op Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | U kunt een database maken met een ingesloten database-gebruikersaccount dat staat voor een Azure Active Directory-gebruiker dan een Azure AD-beheerder. <br/><br/>Zie [inschakelen van Azure AD op beheerde Azure SQL Database-instantie](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
@@ -77,7 +74,7 @@ De volgende tabel vergelijkt bepaalde functies van SQL-Database en beheerd exemp
 ## <a name="azure-portal"></a>Azure Portal
 In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinterface gebruiken voor het maken van een Azure-SSIS-IR 
 
-### <a name="create-a-data-factory"></a>Gegevensfactory maken 
+### <a name="create-a-data-factory"></a>Een gegevensfactory maken 
 1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome. 
 2. Meld u aan bij [Azure Portal](https://portal.azure.com/). 
 3. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
@@ -100,7 +97,7 @@ In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinte
 
    Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie. 
 
-7. Selecteer **V2 (Preview)** als de **versie**. 
+7. Selecteer **V2** voor de **versie**. 
 8. Selecteer de **locatie** voor de gegevensfactory. In de lijst zie u alleen locaties die worden ondersteund voor het maken van gegevensfactory’s. 
 9. Selecteer **Vastmaken aan dashboard**. 
 10. Klik op **Create**. 
@@ -123,19 +120,19 @@ In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinte
 
    ![Algemene instellingen](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
-    a. Voor **naam**, voer de naam van uw integratie-runtime. 
+    a. Voer bij **Naam** de naam van de integratieruntime in. 
 
-    b. Voor **beschrijving**, geef de beschrijving van uw integratie-runtime. 
+    b. Voer bij **beschrijving** de beschrijving van de integratieruntime in. 
 
-    c. Voor **locatie**, selecteer de locatie van uw integratie-runtime. Alleen ondersteunde locaties worden weergegeven. Het is raadzaam dat u dezelfde locatie van uw database-server op host SSISDB selecteert. 
+    c. Selecteer bij **Locatie** de locatie voor de integratieruntime. Alleen ondersteunde locaties worden weergegeven. We raden u aan dezelfde locatie van uw databaseserver te selecteren voor het hosten van SSISDB. 
 
-    d. Voor **Knooppuntgrootte**, selecteer de grootte van knooppunt in het cluster integratie-runtime. Alleen ondersteunde knooppuntgrootten worden weergegeven. Selecteer een grote knooppuntgrootte (opschaling van) als u wilt uitvoeren van veel compute/geheugen – intensieve pakketten. 
+    d. Selecteer bij **Knooppuntgrootte** de grootte van knooppunt in het integratieruntimecluster. Alleen ondersteunde knooppuntgrootten worden weergegeven. Selecteer een grote knooppuntgrootte (omhoog schalen) als u veel reken-/geheugenintensieve pakketten wilt uitvoeren. 
 
-    e. Voor **knooppuntnummer**, selecteert u het aantal knooppunten in uw integratie runtime-cluster. Alleen ondersteunde knooppunt getallen worden weergegeven. Selecteer een grote cluster met veel knooppunten (scale-out), als u wilt veel pakketten parallel worden uitgevoerd. 
+    e. Selecteer bij **Aantal knooppunten** het aantal knooppunten in het integratieruntimecluster. Alleen ondersteunde knooppuntaantallen worden weergegeven. Selecteer een groot cluster met veel knooppunten (uitschalen), als u veel pakketten parallel wilt uitvoeren. 
 
-    f. Voor **licentieEdition/**, selecteert u SQL Server-editie/licentie voor uw integratie runtime: Standard of Enterprise. Selecteer Enterprise, als u wilt gebruiken van geavanceerde/premium-functies op uw integratie-runtime. 
+    f. Selecteer bij **Editie/licentie** de SQL Server-editie/licentie voor uw integratie runtime: Standard of Enterprise. Selecteer Enterprise als u geavanceerde/premium functies in de integratieruntime wilt gebruiken. 
 
-    g. Voor **opslaan geld**, selecteert u de optie Azure hybride voordeel (AHB) voor uw integratie runtime: Ja of Nee. Selecteer Ja als u uw eigen SQL Server-licentie met Software Assurance wilt profiteren van de kostenbesparingen met hybride gebruik brengen. 
+    g. Selecteer bij **Geld besparen** de Azure Hybrid Benefit (AHB)-optie voor uw integratieruntime: Ja of Nee. Selecteer Ja als u uw eigen SQL Server-licentie met Software Assurance wilt gebruiken om te profiteren van de kostenbesparingen met hybride gebruik. 
 
     h. Klik op **Volgende**. 
 
@@ -143,29 +140,29 @@ In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinte
 
    ![SQL-instellingen](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
 
-    a. Voor **abonnement**, selecteer de Azure-abonnement met uw database-server op host SSISDB. 
+    a. Selecteer bij **Abonnement** het Azure-abonnement dat uw databaseserver heeft voor het hosten van SSISDB. 
 
-    b. Voor **locatie**, selecteer de locatie van uw database-server op host SSISDB. Het is raadzaam dat u dezelfde locatie van de runtime van uw integratie selecteert. 
+    b. Selecteer bij **Locatie** de locatie van uw databaseserver voor het hosten van SSISDB. We raden u aan dezelfde locatie van uw integratieruntime te selecteren. 
 
-    c. Voor **catalogus Database servereindpunt**, selecteert u het eindpunt van uw database-server op host SSISDB. Op basis van de geselecteerde database-server, SSISDB kan worden gemaakt op uw naam als een individuele database deel uitmaakt van een elastische Pool of in een beheerde-exemplaar (Preview) is en toegankelijk is in openbaar netwerk of door het toevoegen van een virtueel netwerk. 
+    c. Selecteer bij het **Eindpunt voor de Catalog-databaseserver** het eindpunt van uw databaseserver voor het hosten van SSISDB. Op basis van de geselecteerde database-server, SSISDB kan worden gemaakt op uw naam als een individuele database deel uitmaakt van een elastische Pool of in een beheerde-exemplaar (Preview) is en toegankelijk is in openbaar netwerk of door het toevoegen van een virtueel netwerk. 
 
     d. Op **gebruik AAD-verificaties...**  selectievakje, selecteer de verificatiemethode voor de databaseserver host SSISDB: SQL- of Azure Active Directory (AAD) met uw Azure Data Factory beheerde Service identiteit (MSI). Als u dit selectievakje inschakelt, moet u uw Data Factory-MSI toevoegen aan een AAD-groep met machtigingen voor toegang tot de databaseserver, Zie [inschakelen AAD-verificatie voor Azure SSIS-IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
-    e. Voor **Admin Username**, geef gebruikersnaam voor SQL-verificatie voor uw database-server als host SSISDB. 
+    e. Voer bij **Gebruikersnaam van beheerder** de gebruikersnaam voor SQL-verificatie voor uw databaseserver voor het hosten van SSISDB in. 
 
-    f. Voor **beheerderswachtwoord**, Geef wachtwoord voor SQL-verificatie voor uw database-server als host SSISDB. 
+    f. Voer bij **Beheerderswachtwoord** het wachtwoord voor SQL-verificatie voor uw databaseserver voor het hosten van SSISDB in. 
 
-    g. Voor **catalogus Database servicelaag**, selecteert u de servicetier voor uw database-server op host SSISDB: Standard-Basic/Premium-laag of de naam van de elastische groep. 
+    g. Selecteer bij de **servicelaag van de Catalog-database** de servicelaag voor uw databaseserver voor het hosten van SSISDB: Basic-/Standard-/Premium-laag of de naam van de elastische pool. 
 
-    h. Klik op **testverbinding** en als dit lukt, klikt u op **volgende**. 
+    h. Klik op **Verbinding testen**. Als dit lukt, klikt u op **Volgende**. 
 
-4.  Op de **geavanceerde instellingen** pagina, de volgende stappen uit: 
+4.  Voer op de pagina **Geavanceerde instellingen** de volgende stappen uit: 
 
     ![Geavanceerde instellingen](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-    a. Voor **maximale parallelle uitvoeringen Per knooppunt**, selecteert u het maximum aantal pakketten gelijktijdig uitvoeren per knooppunt in het cluster integratie-runtime. Alleen ondersteund pakket getallen worden weergegeven. Selecteer een lage waarde als u meer dan één kern gebruiken wilt voor het uitvoeren van een afzonderlijk groot/zware-gewicht-pakket dat is compute/geheugen-intensief. Selecteer een groot aantal als u wilt uitvoeren van een of meer kleine/lichte pakketten in één kern. 
+    a. Selecteer bij het **maximale aantal parallelle uitvoeringen per knooppunt** het maximum aantal pakketten dat gelijktijdig per knooppunt kan worden uitgevoerd in het integratieruntimecluster. Alleen ondersteunde pakketaantallen worden weergegeven. Selecteer een lage waarde als u meer dan één kern gebruiken wilt voor het uitvoeren van een afzonderlijk groot/zware-gewicht-pakket dat is compute/geheugen-intensief. Selecteer een groot aantal als u een of meer kleine/lichte pakketten in één kern wilt uitvoeren. 
 
-    b. Voor **aangepaste Setup Container SAS URI**, eventueel Shared Access Signature (SAS) id URI (Uniform Resource) van uw Azure Storage-Blob-container opgeven waar het setup-script en de bijbehorende bestanden zijn opgeslagen, Zie [Aangepaste installatie voor Azure SSIS-IR](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). 
+    b. Bij **SAS URI aangepaste installatie container**  voert u desgewenst de SAS (Shared Access Signature) URI (Uniform Resource Identifier) van uw Azure Storage Blob-container in waar uw installatiescript en de bijbehorende bestanden zijn opgeslagen. Zie [Aangepaste installatie voor Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). 
 
 5. Op **een virtueel netwerk selecteert...**  uit, schakel of u wilt deelnemen aan uw runtime integratie met een virtueel netwerk. Als u met Azure SQL Database met een virtueel netwerk service-eindpunten/beheerde exemplaar (Preview) SSISDB hosten of toegang tot on-premises gegevens; vereisen controleren dat wil zeggen, u hebt lokale gegevens bronnen/bestemmingen in uw SSIS-pakketten, Zie [Azure SSIS-IR koppelen aan een virtueel netwerk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Als u dit selectievakje inschakelt, kunt u de volgende stappen: 
 
@@ -218,12 +215,12 @@ In deze sectie kunt u Azure PowerShell gebruiken voor het maken van een Azure-SS
 Definieer variabelen voor gebruik in het script in deze zelfstudie:
 
 ```powershell
-### Azure Data Factory version 2 information 
+### Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$".
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
@@ -231,9 +228,9 @@ $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
 # You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
-# In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
+# Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"
-# In public preview, only 1-10 nodes are supported.
+# Only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
 $AzureSSISEdition = "" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
@@ -322,7 +319,7 @@ Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview
 New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
-### <a name="create-a-data-factory"></a>Gegevensfactory maken
+### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 Voer de volgende opdracht uit om een data factory te maken.
 
 ```powershell
@@ -390,12 +387,12 @@ Het duurt **20-30 minuten** voordat deze opdracht is voltooid.
 Hier is de volledige-script dat wordt gemaakt van een Azure-SSIS-integratie-runtime. 
 
 ```powershell
-### Azure Data Factory version 2 information 
+### Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$".
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
@@ -403,9 +400,9 @@ $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
 # You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
-# In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
+# Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"
-# In public preview, only 1-10 nodes are supported.
+# Only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
 $AzureSSISEdition = "" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR

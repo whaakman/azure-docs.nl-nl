@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167886"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063888"
 ---
 # <a name="understanding-cost-management-reports"></a>Understanding kosten-rapporten
 
@@ -145,7 +145,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     De resolutie gebruiken de resolutie tijd binnen het geselecteerde datumbereik selecteren. Uw oplossing tijd bepaalt hoe eenheden worden weergegeven in het rapport en kunnen:
     - Dagelijks
-    - Wekelijks
+    - Per week
     - Maandelijks
     - Per kwartaal
     - Jaarlijks
@@ -162,7 +162,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     De optie weergeven/verbergen heeft geen invloed in rapporten.
 
-12.   **weergave-indelingen**
+12.   **Weergave-indelingen**
 
     Gebruik de weergave-indelingen verschillende grafiek of tabel weergaven selecteren.
 
@@ -175,6 +175,10 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 14. **Acties**
 
     Gebruik acties wilt opslaan, exporteren of het rapport plant.
+
+15. **Beleid**
+
+    Hoewel het niet wordt weergegeven, bevatten sommige rapporten een beleid voor het berekenen van geschatte kosten. In deze rapporten de **geconsolideerde** beleid bevat aanbevelingen voor alle accounts en -abonnementen onder de huidige entiteit zoals Microsoft inschrijving of AWS betaler. De **zelfstandige** beleid bevat aanbevelingen voor een account of abonnement alsof er geen andere abonnementen bestaan. Het beleid dat u selecteert, varieert op de optimalisatie-strategie door uw organisatie gebruikt. Kosten projecties zijn gebaseerd op de laatste 30 dagen van het gebruik van.
 
 ## <a name="save-and-schedule-reports"></a>Opslaan en rapporten plannen
 
@@ -199,4 +203,5 @@ Wanneer u rapporten weergeeft, klikt u op **acties** en selecteer vervolgens **a
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u nog niet de eerste zelfstudie hebt voltooid voor het beheer van kosten, leest u op het [gebruik en kosten bekijken](tutorial-review-usage.md).
+- Meer informatie over de rapporten die zijn opgenomen in Cloudyn op [kostenbeheer gebruik rapporten](use-reports.md).
+- Meer informatie over het gebruik van rapporten maken [dashboards](dashboards.md).

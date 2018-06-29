@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 5a7ee7862e102093efa2c203eac2497b025af4e5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 42ffdbf117b3f522e27e6e46628231ddb8221018
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337819"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051624"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Versie 1: GA](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> * [Versie 2: Preview](connector-azure-sql-data-warehouse.md)
+> * [Version1 gedefinieerd ](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Huidige versie](connector-azure-sql-data-warehouse.md)
 
 In dit artikel wordt uitgelegd hoe gebruiken Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren naar of van Azure SQL Data Warehouse. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
-
-> [!NOTE]
-> In dit artikel is van toepassing op versie 2 van de Data Factory momenteel in preview. Als u versie 1 van de Data Factory-service is algemeen beschikbaar (GA), Zie [Azure SQL Data Warehouse-connector in V1](v1/data-factory-azure-sql-data-warehouse-connector.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -555,11 +552,11 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopiëren, worden de vol
 |:--- |:--- |
 | bigint | Int64 |
 | Binaire | Byte[] |
-| bits | Booleaanse waarde |
+| bits | Boole-waarde |
 | CHAR | Tekenreeks, Char] |
-| datum | Datum en tijd |
-| Datum en tijd | Datum en tijd |
-| datetime2 | Datum en tijd |
+| datum | DateTime |
+| Datum en tijd | DateTime |
+| datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
 | decimale | decimale |
 | FILESTREAM-kenmerk (varbinary(max)) | Byte[] |
@@ -571,9 +568,9 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopiëren, worden de vol
 | ntext | Tekenreeks, Char] |
 | numerieke | decimale |
 | nvarchar | Tekenreeks, Char] |
-| echte | Enkel |
+| echte | Enkelvoudig |
 | ROWVERSION | Byte[] |
-| smalldatetime | Datum en tijd |
+| smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | decimale |
 | sql_variant | Object * |

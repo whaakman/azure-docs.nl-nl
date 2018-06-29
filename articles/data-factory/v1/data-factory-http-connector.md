@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29281843dc1b375182eb3dafe95ad86c89217671
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621609"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052270"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Gegevens verplaatsen van een HTTP-bron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-http-connector.md)
-> * [Versie 2 - Preview](../connector-http.md)
+> * [Versie 1](data-factory-http-connector.md)
+> * [Versie 2 (huidige versie)](../connector-http.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [HTTP-connector in V2](../connector-http.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [HTTP-connector in V2](../connector-http.md).
 
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een on-premises/cloudtoepassing HTTP-eindpunt met een ondersteunde sink-gegevensarchief. In dit artikel is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel met daarin een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit en de lijst met gegevensarchieven ondersteund als bronnen/Put.
@@ -34,7 +34,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 Data factory ondersteunt momenteel alleen zwevend gegevens van een HTTP-bron naar andere gegevensarchieven, maar niet verplaatsen van gegevens van andere gegevens worden opgeslagen op een HTTP-doel.
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Ondersteunde scenario's en verificatietypen
-U kunt deze connector HTTP-gegevens ophalen van **zowel cloud als on-premises HTTP/s-eindpunt** met behulp van HTTP **ophalen** of **POST** methode. De volgende verificatietypen worden ondersteund: **anoniem**, **Basic**, **Digest**, **Windows**, en **ClientCertificate**. Noteer het verschil tussen deze connector en de [Web tabel connector](data-factory-web-table-connector.md) is: de laatste tabelinhoud ophalen uit webpagina HTML wordt gebruikt.
+U kunt deze connector HTTP-gegevens ophalen van **zowel cloud als on-premises HTTP/s-eindpunt** met behulp van HTTP **ophalen** of **POST** methode. De volgende verificatietypen worden ondersteund: **anoniem**, **Basic**, **Digest**, **Windows**, en  **ClientCertificate**. Noteer het verschil tussen deze connector en de [Web tabel connector](data-factory-web-table-connector.md) is: de laatste tabelinhoud ophalen uit webpagina HTML wordt gebruikt.
 
 Bij het kopiëren van gegevens uit een lokale HTTP-eindpunt, moet u een Data Management Gateway installeren in de lokale omgeving/Azure VM. Zie [verplaatsen van gegevens tussen lokale locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor meer informatie over Data Management Gateway en stapsgewijze instructies over het instellen van de gateway.
 
@@ -43,7 +43,7 @@ U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens van een HTT
 
 - De eenvoudigste manier om een pijplijn maken is met de **Wizard kopiëren**. Zie [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht over het maken van een pijplijn met de wizard kopiëren.
 
-- U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. Zie voor voorbeelden van JSON gegevens van HTTP-bron kopiëren naar Azure Blob Storage, [JSON voorbeelden](#json-examples) sectie van dit artikel.
+- U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. Zie voor voorbeelden van JSON gegevens van HTTP-bron kopiëren naar Azure Blob Storage, [JSON voorbeelden](#json-examples) sectie van dit artikel.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel bevat de beschrijving voor JSON-elementen die specifiek zijn voor HTTP gekoppelde service.
@@ -157,8 +157,8 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 | requestMethod | HTTP-methode. Toegestane waarden zijn **ophalen** of **POST**. | Nee. De standaardwaarde is `GET`. |
 | additionalHeaders | Aanvullende HTTP-aanvraagheaders. | Nee |
 | requestBody | Instantie voor HTTP-aanvraag. | Nee |
-| Indeling | Als u gewoon wilt **gegevens ophalen van HTTP-eindpunt als-is** overslaan zonder deze parseren, deze instellingen. <br><br> Als u de inhoud van het HTTP-antwoord geparseerd tijdens het kopiëren wilt, de volgende indelingstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Zie voor meer informatie [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [parketvloeren indeling](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. |Nee |
-| Compressie | Geef het type en de compressie van de gegevens. Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus: **optimale** en **snelst**. Zie voor meer informatie [bestands- en compressie-notaties in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
+| Indeling | Als u gewoon wilt **gegevens ophalen van HTTP-eindpunt als-is** overslaan zonder deze parseren, deze instellingen. <br><br> Als u de inhoud van het HTTP-antwoord geparseerd tijdens het kopiëren wilt, de volgende indelingstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Zie voor meer informatie [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [parketvloeren indeling](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. |Nee |
+| compressie | Geef het type en de compressie van de gegevens. Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus: **optimale** en **snelst**. Zie voor meer informatie [bestands- en compressie-notaties in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
 
 ### <a name="example-using-the-get-default-method"></a>Voorbeeld: met behulp van de methode GET (standaard)
 

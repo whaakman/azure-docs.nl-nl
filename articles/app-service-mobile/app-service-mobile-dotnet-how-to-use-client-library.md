@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: crdun
-ms.openlocfilehash: 10ce9058fca0ec56640e9bedabcc82683046fe9f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f0f28d4b6573e4e6fecf0e6dd84814d4fc66cd60
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598450"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050487"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>De beheerde client gebruiken voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met behulp van de beheerde client-bibliotheek voor Azure App Service Mobile Apps voor Windows en Xamarin-apps uitvoeren. Als u niet bekend met Mobile Apps bent, moet u eerst voltooien van de [Azure Mobile Apps Quick Start] [ 1] zelfstudie. In deze handleiding richten we op de beheerde client-side '-SDK. Zie voor meer informatie over de serverzijde SDK's voor mobiele Apps, de documentatie voor de [.NET Server SDK] [ 2] of de [Node.js Server SDK][3].
+Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met behulp van de beheerde client-bibliotheek voor Azure App Service Mobile Apps voor Windows en Xamarin-apps uitvoeren. Als u niet bekend met Mobile Apps bent, moet u eerst voltooien van de [Azure Mobile Apps Quick Start] [ 1] zelfstudie. In deze handleiding richten we op de beheerde client-side '-SDK. Zie voor meer informatie over de serverzijde SDK's voor mobiele Apps, de documentatie voor de [.NET Server SDK] [ 2] of de [Node.js Server SDK] [ 3].
 
 ## <a name="reference-documentation"></a>Referentiedocumentatie
 De documentatie bij de client-SDK bevindt zich hier: [referentie voor Azure Mobile Apps .NET client][4].
@@ -36,7 +36,7 @@ De .NET-Platform ondersteunt de volgende platforms:
 
 * Xamarin Android-versies voor API-19 tot en met 24 (KitKat via deze)
 * Xamarin iOS-versies voor iOS 8.0 en hoger
-* Universele Windows-Platform
+* Universeel Windows-platform
 * Windows Phone 8.1
 * Windows Phone 8.0, met uitzondering van Silverlight-toepassingen
 
@@ -1118,15 +1118,15 @@ public class MyHandler : DelegatingHandler
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
 [nemen]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
 [Selecteren]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
-[Overslaan]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
+[overslaan]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[waar]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[Waar]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Azure Portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
-[Windows-ontwikkelaarscentrum]: https://dev.windows.com/en-us/overview
+[Windows-ontwikkelaarscentrum]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [Windows Live SDK]: https://msdn.microsoft.com/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx

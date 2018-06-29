@@ -4,18 +4,18 @@ description: Meer informatie over hoe modules ophalen geïmplementeerd op de edg
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f64e6db576b7b1605cc070948a021184fc6ee8ad
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725323"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029257"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Rand van de IoT-implementaties voor één apparaten of op grote schaal begrijpen - voorbeeld
+# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Rand van de IoT-implementaties voor één apparaten of op grote schaal begrijpen
 
 De randapparaten van Azure IoT Volg een [levenscyclus van apparaten] [ lnk-lifecycle] die gelijk is aan andere typen van IoT-apparaten:
 
@@ -23,7 +23,7 @@ De randapparaten van Azure IoT Volg een [levenscyclus van apparaten] [ lnk-lifec
 1. De apparaten zijn geconfigureerd om uit te voeren [IoT rand modules][lnk-modules], en vervolgens health gecontroleerd. 
 1. Ten slotte apparaten mogelijk buiten gebruik worden gesteld wanneer ze worden vervangen of verouderd raken.  
 
-Azure IoT Edge biedt twee manieren voor het configureren van de modules mogen worden uitgevoerd op de IoT Edge-apparaten: één voor ontwikkeling en snelle iteraties op één apparaat (die u hebt gebruikt in de zelfstudies voor Azure IoT Edge) en één voor het beheer van grote wagenparken van IoT Edge-apparaten. Deze beide benaderingen zijn beschikbaar in de Azure-Portal en programmatisch.
+Azure IoT Edge biedt twee manieren voor het configureren van de modules mogen worden uitgevoerd op de IoT Edge-apparaten: één voor ontwikkeling en snelle iteraties op één apparaat (u gebruikt deze methode in de zelfstudies voor Azure IoT Edge) en één voor het beheer van grote wagenparken van IoT Edge-apparaten. Deze beide benaderingen zijn beschikbaar in de Azure-portal en programmatisch.
 
 Dit artikel is gericht op de configuratie en bewaking van de fasen voor wagenparken van apparaten, gezamenlijk worden aangeduid als IoT rand automatische implementaties. De algemene implementatiestappen zijn als volgt:   
 
@@ -32,15 +32,15 @@ Dit artikel is gericht op de configuratie en bewaking van de fasen voor wagenpar
 1. De IoT Hub-service wordt de status opgehaald van de rand van de IoT-apparaten en geeft weer die voor de operator om te controleren.  Bijvoorbeeld, ziet een operator wanneer een Edge-apparaat is niet correct geconfigureerd of als een module is mislukt tijdens runtime. 
 1. Nieuwe IoT Edge-apparaten die voldoen aan de doelitems voorwaarden zijn op elk gewenst moment geconfigureerd voor de implementatie. Bijvoorbeeld configureert een implementatie die gericht is op alle rand van de IoT-apparaten in de staat Washington automatisch een nieuwe IoT-randapparaat nadat deze is ingericht en toegevoegd aan de groep van de staat Washington apparaat. 
  
-Dit artikel begeleidt bij elk onderdeel is betrokken bij het configureren en controleren van een implementatie. Zie voor een overzicht van het maken en bijwerken van een implementatie [implementeren en controleren van de rand van de IoT-modules op grote schaal][lnk-howto].
+Dit artikel wordt beschreven voor elk onderdeel is betrokken bij het configureren en controleren van een implementatie. Zie voor een overzicht van het maken en bijwerken van een implementatie [implementeren en controleren van de rand van de IoT-modules op grote schaal][lnk-howto].
 
 ## <a name="deployment"></a>Implementatie
 
-Een automatische implementatie van de rand van de IoT toegewezen IoT rand module installatiekopieën uit te voeren als de exemplaren van een bepaalde reeks IoT Edge-apparaten. Hierbij worden voor het configureren van een manifest voor de implementatie van IoT Edge zodanig dat die een lijst met modules met de overeenkomstige initialisatieparameters. Een implementatie kan worden toegewezen aan één apparaat (meestal op basis van apparaat-Id) of op een groep apparaten (op basis van labels). Zodra een IoT-randapparaat een manifest voor implementatie ontvangt, downloadt en installeert de installatiekopieën van de module-container van de betreffende container-opslagplaatsen, en configureert deze ze dienovereenkomstig. Zodra een implementatie is gemaakt, kunt de status van de implementatie om te zien of de betreffende apparaten correct zijn geconfigureerd door een operator bewaken.   
+Een automatische implementatie van de rand van de IoT toegewezen IoT rand module installatiekopieën uit te voeren als de exemplaren van een bepaalde reeks IoT Edge-apparaten. Hierbij worden voor het configureren van een manifest voor de implementatie van IoT Edge zodanig dat die een lijst met modules met de overeenkomstige initialisatieparameters. Een implementatie kan worden toegewezen aan één apparaat (op basis van apparaat-ID) of op een groep apparaten (op basis van labels). Zodra een IoT-randapparaat een manifest voor implementatie ontvangt, downloadt en installeert de installatiekopieën van de module-container van de betreffende container-opslagplaatsen, en configureert deze ze dienovereenkomstig. Zodra een implementatie is gemaakt, kunt de status van de implementatie om te zien of de betreffende apparaten correct zijn geconfigureerd door een operator bewaken.   
 
-Apparaten moeten worden ingericht als Edge van de IoT-apparaten worden geconfigureerd met een implementatie. De volgende vereisten en worden niet opgenomen in de implementatie:
+Apparaten moeten worden ingericht als Edge van de IoT-apparaten worden geconfigureerd met een implementatie. De volgende vereisten moet op het apparaat voordat het de implementatie kan ontvangen:
 * Het basisbesturingssysteem
-* Docker 
+* Een container management-systeem, zoals Moby of Docker
 * Het inrichten van de rand van de IoT-runtime 
 
 ### <a name="deployment-manifest"></a>Manifest voor implementatie
@@ -52,12 +52,16 @@ De metagegevens van de configuratie voor elke module omvat:
 * Type 
 * Status (bijvoorbeeld wordt uitgevoerd of gestopt) 
 * Beleid voor opnieuw starten 
-* Afbeelding en de container-opslagplaats 
+* Afbeelding en de container register
 * Routes voor gegevens invoer en uitvoer 
+
+Als de module-installatiekopie is opgeslagen in een register privé-container, bevat de rand van de IoT-agent de Register-referenties. 
 
 ### <a name="target-condition"></a>Doelvoorwaarden
 
-De doelvoorwaarden wordt continu op te nemen van nieuwe apparaten die voldoen aan de vereisten of verwijderen van apparaten die niet langer via de levensduur van de implementatie geëvalueerd. De implementatie wordt opnieuw worden geactiveerd als de service wordt gedetecteerd door elke wijziging van de doel-voorwaarde. Bijvoorbeeld, u een implementatie met een doel voorwaarde tags.environment A hebt = de prod'. Wanneer u ere van de implementatie, zijn er 10 prod-apparaten. De modules zijn geïnstalleerd in deze 10-apparaten. De Agent-Status van de IoT-rand wordt weergegeven als totaal aantal apparaten 10, 10 is antwoorden, 0 mislukte reacties en 0 in behandeling antwoorden. Nu u 5 meer apparaten met tags.environment toevoegen = de prod'. Detecteert de wijziging van de service en de Agent-Status van de IoT-rand wordt 15 totaal aantal apparaten, 10 is antwoorden, 0 mislukte reacties en 5 in behandeling antwoorden bij een poging te implementeren op de vijf nieuwe apparaten.
+De doelvoorwaarden wordt continu op te nemen van nieuwe apparaten die voldoen aan de vereisten of verwijderen van apparaten die niet langer via de levensduur van de implementatie geëvalueerd. De implementatie wordt opnieuw worden geactiveerd als de service wordt gedetecteerd door elke wijziging van de doel-voorwaarde. 
+
+Bijvoorbeeld, u een implementatie hebt A met een doel voorwaarde tags.environment = de prod'. Wanneer u ere van de implementatie, zijn er tien productieapparaten. De modules zijn in deze tien apparaten geïnstalleerd. De Agent-Status van de IoT-rand wordt weergegeven als het totaal aantal apparaten 10, 10 geslaagde antwoorden, 0 mislukte reacties en 0 in behandeling antwoorden. Nu u vijf meer apparaten met tags.environment toevoegen = de prod'. Detecteert de wijziging van de service en wordt de Agent-Status van de IoT-rand 15 totaal aantal apparaten, 10 geslaagde antwoorden, 0 mislukte reacties en 5 in behandeling antwoorden bij een poging te implementeren op de vijf nieuwe apparaten.
 
 Gebruik een Boole-voorwaarde op apparaat horende tags of de apparaat-id selecteren de doelapparaten. Als u voorwaarde gebruiken met labels wilt, moet u 'labels' toevoegen:{} sectie in de apparaat-twin onder hetzelfde niveau als eigenschappen. [Meer informatie over labels in de apparaat-twin](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -73,7 +77,7 @@ Hier volgen enkele beperkingen wanneer u een doel-voorwaarde maken:
 * In de apparaat-twin, kunt u alleen een doelvoorwaarden met tags of de apparaat-id maken.
 * Dubbele aanhalingstekens zijn niet toegestaan in een gedeelte van de doel-voorwaarde. Gebruik tussen enkele aanhalingstekens.
 * Enkele aanhalingstekens vertegenwoordigen de waarden van de doel-voorwaarde. Daarom moet u de enkel aanhalingsteken met een andere enkel aanhalingsteken escape als deze deel uitmaakt van de naam van het apparaat. Bijvoorbeeld, de voorwaarde voor doel: operator'sDevice zou moeten worden geschreven als de apparaat-id ='operator '' sDevice'.
-* Cijfers, letters en de volgende tekens zijn toegestaan in de doel-voorwaarde values:-:.+%_#*? (),=@;$
+* Getallen, letters en de volgende tekens zijn toegestaan in de doel-conditiewaarden: `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Prioriteit
 

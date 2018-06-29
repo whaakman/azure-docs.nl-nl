@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c6ec168332d8a655d78c3deffe89f51f7d75a840
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: MT
+ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751877"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063507"
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -151,7 +151,7 @@ Toegevoegde Linux-agents weergeven status **bijgewerkt** nadat een beoordeling i
 
 Om te bevestigen dat een Operations Manager-beheergroep met Log Analytics communiceert, Zie [valideren Operations Manager-integration met logboekanalyse](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
-## <a name="data-collection"></a>Gegevens verzamelen
+## <a name="data-collection"></a>Gegevensverzameling
 
 ### <a name="supported-agents"></a>Ondersteunde agents
 
@@ -228,7 +228,7 @@ De volgende tabellen worden de updateclassificaties in het beheer van bijwerken 
 |Essentiële updates     | Een update voor een specifiek probleem die zijn gericht op een kritieke fout niet gerelateerd.        |
 |Beveiligingsupdates     | Een update voor een productspecifiek en beveiligingsgerelateerd probleem.        |
 |Updatepakketten     | Een volledige reeks van hotfixes die samen zijn verpakt voor een gemakkelijke implementatie.        |
-|Feature Ppacks     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
+|Functiepakketten     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
 |Servicepacks     | Een volledige reeks van hotfixes die op een toepassing worden toegepast.        |
 |Definitie-updates     | Een update voor antivirus- of andere definitiebestanden.        |
 |Hulpprogramma's     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
@@ -239,7 +239,7 @@ De volgende tabellen worden de updateclassificaties in het beheer van bijwerken 
 |Classificatie  |Beschrijving  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een productspecifiek en beveiligingsgerelateerd probleem.         |
-|Andere updates     | Alle overige updates die niet essentieel zijn in aard of beveiligingsupdates niet.        |
+|Andere Updates     | Alle overige updates die niet essentieel zijn in aard of beveiligingsupdates niet.        |
 
 Voor Linux-updatebeheer kunnen worden onderscheiden essentiële updates en beveiligingsupdates in de cloud terwijl beoordelingsgegevens vanwege gegevens verrijking wordt weergegeven in de cloud. Voor patch-doeleinden, updatebeheer gebruikgemaakt van classificatie gegevens beschikbaar op de computer. In tegenstelling tot andere distributies CentOS heeft geen deze informatie beschikbaar is buiten het vak. Als er CentOS-machines die zijn geconfigureerd op een manier om beveiligingsgegevens voor de volgende opdracht te retourneren, zich updatebeheer bij patch op basis van classificaties.
 
@@ -505,39 +505,9 @@ Update Management mogelijk nog steeds rapporteert echter dat de machine als niet
 
 Implementeren van updates door updateclassificatie werkt niet op CentOS gebruiksklaar. Voor SUSE, selecteren *alleen* 'andere updates, zoals de classificatie tot enige vorm van beveiliging leiden kan updates ook worden geïnstalleerd als beveiligingsupdates met betrekking tot zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit is een beperking van zypper. In sommige gevallen kunt u opnieuw uitvoeren om te controleren of de update-implementatie vereist Raadpleeg het logboek voor update.
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshoot"></a>Problemen oplossen
 
-Deze sectie bevat informatie over het oplossen van problemen met het beheersysteem voor Update.
-
-### <a name="windows"></a>Windows
-
-Als u problemen ondervindt wanneer u om vrij te geven de oplossing of een virtuele machine probeert, controleert u de **toepassingen en Services Logs\Operations Manager** gebeurtenislogboek op de lokale computer op gebeurtenissen die gebeurtenis-ID 4502 event en-berichten bevatten **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. De volgende tabel illustreert specifieke foutberichten en een mogelijke oplossing voor elk:
-
-| Bericht | Reden | Oplossing |
-|----------|----------|----------|
-| Kan de machine niet registreren voor patchbeheer,<br/>Registratie is mislukt met uitzondering<br/>System.InvalidOperationException: {"Message":"Machine is al<br/>geregistreerd bij een ander account. "} | Computer is al vrijgegeven aan een andere werkruimte om updates te beheren. | Voer het opruimen van de oude artefacten door [verwijderen van de groep hybride Runbook](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group).|
-| Kan geen Machine te registreren voor patchbeheer, de registratie is mislukt met uitzondering<br/>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---><br/>System.Net.WebException: De onderliggende verbinding<br/>is gesloten: Er is een onverwachte fout<br/>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:<br/>De client en server kunnen niet communiceren,<br/>omdat ze geen gemeenschappelijk algoritme hebben | Gateway-proxy/firewall blokkeert communicatie. | [Bekijk de netwerkvereisten](automation-hybrid-runbook-worker.md#network-planning).|
-| Kan de machine niet registreren voor patchbeheer,<br/>Registratie is mislukt met uitzondering<br/>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Gateway-proxy/firewall blokkeert communicatie. | [Bekijk de netwerkvereisten](automation-hybrid-runbook-worker.md#network-planning).|
-| Het certificaat dat is doorgegeven door de service \<wsid\>. oms.opinsights.azure.com<br/>is niet uitgegeven door een certificeringsinstantie<br/>die wordt gebruikt voor Microsoft-services. Contact<br/>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee<br/>TLS/SSL-communicatie wordt onderschept. |Gateway-proxy/firewall blokkeert communicatie. | [Bekijk de netwerkvereisten](automation-hybrid-runbook-worker.md#network-planning).|
-| Kan de machine niet registreren voor patchbeheer,<br/>Registratie is mislukt met uitzondering<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>Maken van een zelfondertekend certificaat is mislukt. ---><br/>System.UnauthorizedAccessException: Toegang is geweigerd. | Fout bij het genereren van het zelfondertekend certificaat. | Controleer of het systeemaccount<br/>leestoegang heeft tot de map:<br/>**C:\ProgramData\Microsoft\**<br/>** Crypto\RSA**|
-
-### <a name="linux"></a>Linux
-
-Als update-uitvoeringen niet worden gestart op een Linux-machine, maakt u een kopie van het volgende logboekbestand en voor het oplossen van problemen worden bewaard:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/worker.log
-```
-
-Als er fouten optreden tijdens een update uitgevoerd nadat deze is gestart met succes op Linux, Controleer de uitvoer van de geïnfecteerde computer in de taak. Misschien vindt u specifieke foutberichten van uw machine Pakketbeheer die u kunt onderzoeken en actie ondernemen. Updatebeheer is vereist voor de package manager gezond voor geslaagde update-implementaties.
-
-In sommige gevallen kunnen updates pakket bijwerken Management zo wordt voorkomen dat een update-implementatie voltooid verstoren. Als dat wordt weergegeven, hebt u deze pakketten uitsluiten van toekomstige update wordt uitgevoerd of ze handmatig installeren zelf.
-
-Als u een probleem met een patch niet kunt oplossen, maakt u een kopie van het volgende logboekbestand en handhaven **voordat** de implementatie van de volgende update voor het oplossen van problemen wordt gestart:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
-```
+Zie voor meer informatie over het oplossen van uw updatebeheer, [updatebeheer probleemoplossing](troubleshoot/update-management.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

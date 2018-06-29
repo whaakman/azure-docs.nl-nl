@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620476"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046983"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Gegevenssets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-create-datasets.md)
-> * [Versie 2 - Preview](../concepts-datasets-linked-services.md)
+> * [Versie 1](data-factory-create-datasets.md)
+> * [Versie 2 (huidige versie)](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [gegevenssets in V2](../concepts-datasets-linked-services.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [gegevenssets in V2](../concepts-datasets-linked-services.md).
 
 In dit artikel wordt beschreven welke gegevenssets zijn, hoe ze worden gedefinieerd in JSON-indeling, en hoe ze worden gebruikt Azure Data Factory-pijplijnen. Het biedt details over elke sectie (bijvoorbeeld, structuur, beschikbaarheid en beleid) in de JSON-definitie van de gegevensset. Het artikel bevat ook voorbeelden voor het gebruik van de **offset**, **anchorDateTime**, en **stijl** eigenschappen in de JSON-definitie van een dataset.
 
@@ -197,7 +197,7 @@ Elke kolom in de structuur bevat de volgende eigenschappen:
 | --- | --- | --- |
 | naam |De naam van de kolom. |Ja |
 | type |Het gegevenstype van de kolom.  |Nee |
-| Cultuur |. NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. |Nee |
+| cultuur |. NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. |Nee |
 | Indeling |Indeling van tekenreeks moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. |Nee |
 
 De volgende richtlijnen te bepalen wanneer gegevens van de structuur en wat u wilt opnemen de **structuur** sectie.

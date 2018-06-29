@@ -5,18 +5,20 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/07/2017
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 941568f697ca507ce190bab1b06eb0d426672fa1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: be52a57f10f286bded9a31d84b36a49717b94006
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630711"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029754"
 ---
-# <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementeren en bewaken van de rand van de IoT-modules op grote schaal - voorbeeld
+# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementeren en controleren van de rand van de IoT-modules op grote schaal met behulp van de Azure-portal
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
 Azure IoT-rand kunt u analytics verplaatsen naar de rand en biedt een interface voor de cloud zodat u kunt beheren en controleren van uw IoT-randapparaten zonder fysieke toegang tot elkaar. De mogelijkheid tot extern kunt beheren apparaten wordt steeds belangrijker naarmate Internet der dingen oplossingen grotere en complexere groeien. Azure IoT-rand is ontworpen ter ondersteuning van uw zakelijke doelstellingen, ongeacht hoeveel apparaten die u toevoegt.
 
@@ -42,14 +44,14 @@ Zie voor meer informatie over apparaat horende en labels [Understand and gebruik
 ## <a name="create-a-deployment"></a>Een implementatie maken
 
 1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
-1. Selecteer **IoT rand (preview)**.
+1. Selecteer **IoT rand**.
 1. Selecteer **IoT rand implementatie toevoegen**.
 
 Er zijn vijf stappen voor het maken van een implementatie. De volgende secties helpt bij elkaar. 
 
 ### <a name="step-1-name-and-label"></a>Stap 1: Naam en een Label
 
-1. Een unieke naam voor uw implementatie geven. Vermijd spaties en de volgende ongeldige tekens: `& ^ [ ] { } \ | " < > /`.
+1. Geef uw implementatie een unieke naam die maximaal 128 kleine letters. Vermijd spaties en de volgende ongeldige tekens: `& ^ [ ] { } \ | " < > /`.
 1. Labels voor het bijhouden van uw implementaties toevoegen. Labels zijn **naam**, **waarde** paren met een beschrijving van uw implementatie. Bijvoorbeeld: `HostPlatform, Linux` of `Version, 3.0.1`.
 1. Selecteer **volgende** verplaatsen naar stap 2. 
 
@@ -57,20 +59,24 @@ Er zijn vijf stappen voor het maken van een implementatie. De volgende secties h
 
 Er zijn twee typen modules die u aan een implementatie toevoegen kunt. De eerste is een module die is gebaseerd op een Azure-service, zoals Storage-Account of Stream Analytics. De tweede is een module die is gebaseerd op uw eigen code. U kunt meerdere modules van beide typen toevoegen aan een implementatie. 
 
-Als u een implementatie met geen modules maakt, worden eventuele bestaande modules van de apparaten verwijderd. 
+Als u een implementatie met geen modules maakt, verwijdert deze geen huidige modules van de apparaten. 
 
 >[!NOTE]
 >De implementatie van geautomatiseerde Azure-service nog ondersteund niet door Azure Machine Learning en Azure Functions. De aangepaste module-implementatie gebruiken die services handmatig toevoegen aan uw implementatie. 
 
 Als u wilt een module van Azure Stream Analytics toevoegt, de volgende stappen uit:
-1. Selecteer **module importeren Azure Stream Analytics IoT rand**.
-1. Gebruik de vervolgkeuzemenu's te selecteren van de Azure-service-exemplaren die u wilt implementeren.
+1. In de **implementatie Modules** sectie van de pagina, klikt u op **toevoegen**.
+1. Selecteer **Azure Stream Analytics-module**.
+1. Kies uw **abonnement** uit de vervolgkeuzelijst.
+1. Kies uw **rand taak** uit de vervolgkeuzelijst.
 1. Selecteer **opslaan** uw module toevoegen aan de implementatie. 
 
 Aangepaste code toevoegen als een module of een Azure-service-module handmatig toevoegen Volg deze stappen:
-1. Select **Toevoegen aan IoT Edge-module**.
+1. In de **registerinstellingen** sectie van de pagina bieden u de namen en referenties voor elke registers privé-container met de module afbeeldingen voor deze implementatie. De Edge-Agent rapporteert fout 500 als er geen de Register-referentie contrainer voor een docker-installatiekopie gevonden.
+1. In de **implementatie Modules** sectie van de pagina, klikt u op **toevoegen**.
+1. Selecteer **IoT rand Module**.
 1. Geef uw module een **naam**.
-1. Voor de **installatiekopie URI** veld, voert u de installatiekopie van het Docker-container voor uw module. 
+1. Voor de **installatiekopie URI** veld, voert u de installatiekopie van de container voor uw module. 
 1. Geef een **Container maken opties** die moet worden doorgegeven aan de container. Zie voor meer informatie [docker maken][lnk-docker-create].
 1. Gebruik de vervolgkeuzelijst om te selecteren een **beleid opnieuw opstarten**. Kies uit de volgende opties: 
    * **Altijd** -de module wordt altijd opnieuw opgestart als deze wordt afgesloten om een bepaalde reden.
@@ -81,22 +87,26 @@ Aangepaste code toevoegen als een module of een Azure-service-module handmatig t
    * **Met** -dit is de standaardoptie. De module wordt gestart onmiddellijk na de implementatie wordt uitgevoerd.
    * **Gestopt** -na de implementatie, de module wordt inactief totdat opgeroepen door u of een andere module op te starten.
 1. Selecteer **inschakelen** als u wilt deze tags of het gewenste eigenschappen toevoegen aan de module-twin. 
+1. Voer **omgevingsvariabelen** voor deze module. Omgevingsvariabelen bevatten supplement informatie aan een module om het configuratieproces te vergemakkelijken.
 1. Selecteer **opslaan** uw module toevoegen aan de implementatie. 
 
 Zodra u de modules voor een implementatie die is geconfigureerd hebt, selecteer **volgende** verplaatsen naar stap 3.
 
 ### <a name="step-3-specify-routes-optional"></a>Stap 3: Geef de Routes (optioneel)
 
-Routes definiëren hoe modules met elkaar communiceren binnen een implementatie. Geef alle routes op voor uw implementatie en selecteer vervolgens **volgende** verplaatsen naar stap 4. 
+Routes definiëren hoe modules met elkaar communiceren binnen een implementatie. Standaard de wizard u kunt een route aangeroepen **route** en zijn gedefinieerd als **FROM /* in $stroomopwaarts **, wat betekent dat alle berichten die door alle modules uitvoer naar uw IoT-hub worden verzonden.  
+
+Toevoegen of bijwerken van de routes met informatie uit [declareren routes](module-composition.md#declare-routes), selecteer daarna **volgende** om door te gaan naar de sectie controleren.
+
 
 ### <a name="step-4-target-devices"></a>Stap 4: Doelapparaten
 
 Gebruik de eigenschap labels van uw apparaten toe te passen van de specifieke apparaten die deze implementatie ontvangt. 
 
-Omdat meerdere implementaties zijn op hetzelfde apparaat gericht kunnen, moet u elke implementatie een getal prioriteit geven. Als er een conflict optreedt is, wordt de implementatie met de hoogste prioriteit wins. Als twee implementaties de dezelfde prioriteitsnummer hebt, wordt het account waarmee de meeste is gemaakt onlangs wins. 
+Omdat meerdere implementaties zijn op hetzelfde apparaat gericht kunnen, moet u elke implementatie een getal prioriteit geven. Als er een conflict optreedt is, wordt de implementatie met de hoogste prioriteit (hogere waarden geven hogere prioriteit) wins. Als twee implementaties de dezelfde prioriteitsnummer hebt, wordt het account waarmee de meeste is gemaakt onlangs wins. 
 
-1. Voer een positief geheel getal voor de implementatie **prioriteit**.
-1. Voer een **doel voorwaarde** om te bepalen welke apparaten moeten worden toegepast met deze implementatie. De voorwaarde is gebaseerd op het apparaat twin tags en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld `tags.environment='test'`. 
+1. Voer een positief geheel getal voor de implementatie **prioriteit**. In het geval dat twee of meer implementaties zijn gericht op hetzelfde apparaat, gelden de implementatie met de hoogste numerieke waarde voor de prioriteit.
+1. Voer een **doel voorwaarde** om te bepalen welke apparaten moeten worden toegepast met deze implementatie. De voorwaarde is gebaseerd op het apparaat twin tags of apparaat twin gewenst eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld: `tags.environment='test'` of `properties.desired.devicemodel='4000x'`. 
 1. Selecteer **volgende** om door te gaan naar de laatste stap.
 
 ### <a name="step-5-review-template"></a>Stap 5: Controleer sjabloon
@@ -108,7 +118,7 @@ Lees de informatie van uw implementatie en selecteer vervolgens **indienen**.
 De details van een implementatie bekijken en controleren van de apparaten waarop deze wordt uitgevoerd, gebruik de volgende stappen:
 
 1. Aanmelden bij de [Azure-portal] [ lnk-portal] en navigeer naar uw IoT-hub. 
-1. Selecteer **IoT rand (preview)**.
+1. Selecteer **IoT rand**.
 1. Selecteer **IoT rand implementaties**. 
 
    ![Implementaties van IoT rand weergeven][1]
@@ -117,16 +127,11 @@ De details van een implementatie bekijken en controleren van de apparaten waarop
    * **ID** -de naam van de implementatie.
    * **Doel voorwaarde** -de code die wordt gebruikt voor het definiëren van de betreffende apparaten.
    * **Prioriteit** -het getal prioriteit is toegewezen aan de implementatie.
-   * **IoT-rand agentstatus** -het aantal apparaten dat de implementatie en hun status health ontvangen. 
-   * **Slechte modules** -het aantal modules in de implementatie die fouten rapporteren. 
+   * **Systeem metrische gegevens** - **doel** geeft het aantal apparaten horende in IoT-Hub die overeenkomen met de doelitems voorwaarde en **toegepast** geeft het aantal apparaten waarvoor heeft de implementatie-inhoud toegepast op hun horende module in IoT-Hub. 
+   * **Apparaat metrische gegevens** -het aantal apparaten in de implementatie is geslaagd of fouten in de runtime van de client IoT rand reporting rand.
    * **Aanmaaktijd** -de tijdstempel van wanneer de implementatie is gemaakt. Dit tijdstempel wordt gebruikt voor het opsplitsen ties wanneer twee implementaties dezelfde prioriteit hebben. 
-1. Selecteer de implementatie die u wilt bewaken.  
-1. Controleer de details van de implementatie. U kunt tabbladen gebruiken om specifieke details over de apparaten waarop de implementatie ontvangen weer te geven: 
-   * **Gericht** -de randapparaten die overeenkomen met de doel-voorwaarde. 
-   * **Toegepast** : de beoogde Edge-apparaten die niet door een andere implementatie van een hogere prioriteit zijn gericht. Dit zijn de apparaten die de implementatie daadwerkelijk ontvangen. 
-   * **Bevestiging** : de toegepast randapparaten die gerapporteerd terug naar de service dat de modules die zijn geïmplementeerd. 
-   * **Fout Reporting** : de toegepaste randapparaten die gemeld aan de service die een of meer modules zijn niet geïmplementeerd. Voor verder onderzoek de fout, moet u extern verbinding maken met die apparaten en de logboekbestanden weergeven. 
-   * **Slechte modules Reporting** : de toegepaste randapparaten die gemeld aan de service die een of meer modules zijn geïmplementeerd, maar nu fouten rapporteren. 
+2. Selecteer de implementatie die u wilt bewaken.  
+3. Controleer de details van de implementatie. Tabbladen kunt u de details van de implementatie controleren.
 
 ## <a name="modify-a-deployment"></a>Een implementatie wijzigen
 
@@ -140,7 +145,7 @@ Als u de doelvoorwaarden bijwerkt, gebeuren de volgende updates:
 Gebruik de volgende stappen voor het wijzigen van een implementatie: 
 
 1. Aanmelden bij de [Azure-portal] [ lnk-portal] en navigeer naar uw IoT-hub. 
-1. Selecteer **IoT rand (preview)**.
+1. Selecteer **IoT rand**.
 1. Selecteer **IoT rand implementaties**. 
 
    ![Implementaties van IoT rand weergeven][1]
@@ -158,14 +163,14 @@ Gebruik de volgende stappen voor het wijzigen van een implementatie:
 Wanneer u een implementatie hebt verwijderd, krijgen alle apparaten hun volgende hoogste prioriteit-implementatie. Als uw apparaten niet voldoen aan de voorwaarde van het doel van andere implementaties, worden klikt u vervolgens de modules niet verwijderd wanneer de implementatie is verwijderd. 
 
 1. Aanmelden bij de [Azure-portal] [ lnk-portal] en navigeer naar uw IoT-hub. 
-1. Selecteer **IoT rand (preview)**.
+1. Selecteer **IoT rand**.
 1. Selecteer **IoT rand implementaties**. 
 
    ![Implementaties van IoT rand weergeven][1]
 
 1. Gebruik het selectievakje in om de implementatie die u wilt verwijderen. 
 1. Selecteer **Verwijderen**.
-1. Een prompt wordt laten u weten dat deze actie verwijdert u deze implementatie en naar de vorige status voor alle apparaten terugkeren.  Dit betekent dat van toepassing is een implementatie met een lagere prioriteit.  Als geen andere implementatie is gericht, wordt er geen modules verwijderd. Als klanten dit doen wilt, moeten deze een implementatie met nul modules maken en deze implementeren in de dezelfde apparaten. Selecteer **Ja** als u wilt doorgaan. 
+1. Een prompt wordt laten u weten dat deze actie verwijdert u deze implementatie en naar de vorige status voor alle apparaten terugkeren.  Dit betekent dat van toepassing is een implementatie met een lagere prioriteit.  Als geen andere implementatie is gericht, wordt er geen modules verwijderd. Als u wilt verwijderen van alle modules van uw apparaat, een implementatie met nul modules en deze implementeren in de dezelfde apparaten. Selecteer **Ja** om door te gaan. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

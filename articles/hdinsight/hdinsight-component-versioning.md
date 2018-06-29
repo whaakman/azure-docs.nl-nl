@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 170d1d9bca8ffa788560c6a015f41062dd4ed40f
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3ac3df7f7861b8a12778190072e5554927706e08
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018660"
+ms.locfileid: "37061416"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de onderdelen en versies die beschikbaar met HDInsight?
 
@@ -53,12 +53,13 @@ De onderdeel-versies die zijn gekoppeld aan de versies van HDInsight-cluster wor
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0, 2.2.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (alleen Windows) |-|-|
+| Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (alleen Windows) |-|-|
 | Apache Livy |0.4 |0,3 |0,3 |0.2 |-|-|-|
-| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
+| Apache schuifregelaar | 0.92.0 |-|-|-|-|-|-|
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Controleren op huidige Hadoop component versie-informatie
 
@@ -234,7 +235,7 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
 
 * Alle ondersteunde regio's, behalve Brazilië-Zuid en Japan-West:
 
-  | Clustertype | Hadoop | HBase | Interactive Query | Storm | Spark | R Server |
+  | Clustertype | Hadoop | HBase | Interactive Query | Storm | Spark | ML-Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: standaard VM-grootte |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
   | HEAD: aanbevolen VM-grootten |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
@@ -246,7 +247,7 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
   | Rand: aanbevolen VM-grootte | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brazilië-Zuid en Japan-West alleen (geen grootten v2):
 
-  | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | R Server |
+  | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | ML-Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: standaard VM-grootte |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | HEAD: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

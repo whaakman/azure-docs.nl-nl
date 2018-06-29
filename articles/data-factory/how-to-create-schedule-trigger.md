@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618919"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054347"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Een trigger die volgens een schema uitgevoerd van een pijplijn maken
 Dit artikel bevat informatie over de trigger schema en de stappen voor het maken, start en controleren van een schema-trigger. Zie voor andere soorten triggers [Pipeline-uitvoering en triggers](concepts-pipeline-execution-triggers.md).
 
 Wanneer u de trigger van een planning maakt, u een planning opgeven (de begindatum, terugkeerpatroon, einddatum enz.) voor de trigger en koppelen met een pipeline. Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen één pijplijn activeren. Eén trigger kan meerdere pijplijnen activeren.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u Azure Data Factory versie 1, die algemeen beschikbaar (GA), Zie [aan de slag met Azure Data Factory versie 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 De volgende secties bieden stappen voor het maken van een schema-trigger op verschillende manieren. 
 
@@ -249,7 +246,7 @@ Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd
 Een Azure Resource Manager-sjabloon kunt u geen trigger maken. Zie voor stapsgewijze instructies [maken van een Azure data factory met Resource Manager-sjabloon](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>De begintijd van de trigger doorgeven aan een pijplijn
-Azure Data Factory versie 1 ondersteunt lezen of schrijven van gepartitioneerde gegevens met behulp van de systeemvariabelen: **SliceStart**, **SliceEnd**, **WindowStart**, en **WindowEnd**. U kunt dit gedrag bereiken met behulp van de parameter van een pijplijn in Azure Data Factory versie 2. De begintijd en de geplande tijd voor de trigger worden ingesteld als de waarde voor de pipeline-parameter. In het volgende voorbeeld wordt de geplande tijd voor de trigger is doorgegeven als een waarde voor de pijplijn **scheduledRunTime** parameter:
+Azure Data Factory versie 1 ondersteunt lezen of schrijven van gepartitioneerde gegevens met behulp van de systeemvariabelen: **SliceStart**, **SliceEnd**, **WindowStart**, en **WindowEnd**. U kunt dit gedrag met behulp van een pipeline-parameter bereiken in de huidige versie van Azure Data Factory. De begintijd en de geplande tijd voor de trigger worden ingesteld als de waarde voor de pipeline-parameter. In het volgende voorbeeld wordt de geplande tijd voor de trigger is doorgegeven als een waarde voor de pijplijn **scheduledRunTime** parameter:
 
 ```json
 "parameters": {

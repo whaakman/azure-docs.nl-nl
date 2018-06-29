@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5731e4249c94e77846f07870e4bba28aab70682e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ece34809734478ddb52c12d5dbd92291231f439
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619521"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045684"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Verplaatsen van gegevens vanaf Amazon Redshift, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-amazon-redshift-connector.md)
-> * [Versie 2 - Preview](../connector-amazon-redshift.md)
+> * [Versie 1](data-factory-amazon-redshift-connector.md)
+> * [Versie 2 (huidige versie)](../connector-amazon-redshift.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [Redshift Amazon-connector in V2](../connector-amazon-redshift.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Redshift Amazon-connector in V2](../connector-amazon-redshift.md).
 
 In dit artikel wordt uitgelegd hoe de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van Amazon Redshift gebruiken. Het artikel is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont. 
 
@@ -65,10 +65,10 @@ De volgende tabel bevat beschrijvingen van de JSON-elementen die specifiek voor 
 | --- | --- | --- |
 | **type** |Deze eigenschap moet worden ingesteld op **AmazonRedshift**. |Ja |
 | **server** |Het IP-adres of de hostnaam naam van de Amazon Redshift-server. |Ja |
-| **Poort** |Het nummer van de TCP-poort die de Amazon Redshift-server gebruikt om te luisteren naar verbindingen van clients. |Nee (de standaardwaarde is 5439) |
+| **poort** |Het nummer van de TCP-poort die de Amazon Redshift-server gebruikt om te luisteren naar verbindingen van clients. |Nee (de standaardwaarde is 5439) |
 | **database** |De naam van de Amazon Redshift-database. |Ja |
-| **Gebruikersnaam** |De naam van de gebruiker die toegang tot de database heeft. |Ja |
-| **Wachtwoord** |Het wachtwoord voor het gebruikersaccount. |Ja |
+| **gebruikersnaam** |De naam van de gebruiker die toegang tot de database heeft. |Ja |
+| **wachtwoord** |Het wachtwoord voor het gebruikersaccount. |Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
@@ -78,7 +78,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| **TableName** |De naam van de tabel in de Amazon Redshift database waarnaar de gekoppelde service verwijst. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
+| **tableName** |De naam van de tabel in de Amazon Redshift database waarnaar de gekoppelde service verwijst. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
 
@@ -88,7 +88,7 @@ Voor de Kopieeractiviteit, wanneer de bron van het type **AmazonRedshiftSource**
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| **query** | Gebruik de aangepaste query om de gegevens te lezen. |Nee (als de **tableName** eigenschap van een dataset is opgegeven) |
+| **Query** | Gebruik de aangepaste query om de gegevens te lezen. |Nee (als de **tableName** eigenschap van een dataset is opgegeven) |
 | **redshiftUnloadSettings** | Bevat de eigenschappengroep bij gebruik van de Redshift **UNLOAD** opdracht. | Nee |
 | **s3LinkedServiceName** | De Amazon S3 om te gebruiken als een tussentijdse store. De gekoppelde service wordt opgegeven met behulp van een Azure Data Factory-naam van het type **AwsAccessKey**. | Vereist bij gebruik van de **redshiftUnloadSettings** eigenschap |
 | **bucketName** | Hiermee geeft u de Amazon S3-bucket te gebruiken voor het opslaan van de tijdelijke gegevens. Als deze eigenschap niet is opgegeven, Kopieeractiviteit auto-genereert een bucket. | Vereist bij gebruik van de **redshiftUnloadSettings** eigenschap |
@@ -97,7 +97,7 @@ U kunt ook de **RelationalSource** type, waaronder Redshift Amazon, met de volge
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| **query** |Gebruik de aangepaste query om de gegevens te lezen. | Nee (als de **tableName** eigenschap van een dataset is opgegeven) |
+| **Query** |Gebruik de aangepaste query om de gegevens te lezen. | Nee (als de **tableName** eigenschap van een dataset is opgegeven) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>UNLOAD gebruiken om gegevens van Amazon Redshift kopiëren
 
@@ -334,9 +334,9 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | SMALLINT |Int16 |
 | GEHEEL GETAL |Int32 |
 | BIGINT |Int64 |
-| DECIMALE |Decimale |
+| DECIMALE |decimale |
 | ECHTE |Enkelvoudig |
-| DUBBELE PRECISIE |dubbele |
+| DUBBELE PRECISIE |Double |
 | BOOLEAANSE WAARDE |Reeks |
 | CHAR |Reeks |
 | VARCHAR |Reeks |

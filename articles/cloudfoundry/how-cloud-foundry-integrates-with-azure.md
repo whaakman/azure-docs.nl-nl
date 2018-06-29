@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 1f4afbe1849210c55c392d014449224f2fe97b04
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654943"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062203"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry integreren met Azure
 
@@ -81,7 +81,7 @@ Hoewel dit zijn vaak F en VM D-reeks voor belangrijke Cloud Foundry-productieomg
 #### <a name="managed-standard-disk"></a>Standard-beheerde schijven: 
 Premium-schijven zijn aanbevolen voor betrouwbare prestaties in productie.  Met [beheerd schijf](https://azure.microsoft.com/services/managed-disks/), standard-opslag kan ook vergelijkbare betrouwbaarheid, met verschillende prestaties leveren. Voor de werkbelasting die geen prestatie-intensieve, zoals ontwikkelen en testen of niet-kritieke omgeving bieden beheerde standaardschijven een alternatief met lagere kosten.  
 ### <a name="cost-saving-in-general"></a>Opslaan in het algemeen kosten 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Aanzienlijke VM kostenbesparende met gereserveerde exemplaren: 
+#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Aanzienlijke VM kosten opslaan met gereserveerde exemplaren: 
 Vandaag die alle CF VM's met 'on-demand' prijzen, hoewel de omgevingen doorgaans voor onbepaalde tijd blijven worden gefactureerd. U kunt nu het reserveren van VM-capaciteit op een term 1 of 3 jaar en kortingen van 45 65% krijgen. Kortingen zijn toegepast in het factureringssysteem, zonder wijzigingen in uw omgeving. Zie voor meer informatie [hoe gereserveerde exemplaren works](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Premium-schijf met kleinere beheerd: 
 Schijven ondersteuning kleinere schijf beschikken, bijvoorbeeld P4(32 GB) en P6(64 GB) voor premium en standard schijven beheerd. Als u een kleine werkbelastingen hebt, kunt u kosten opslaan bij het migreren van standaard premium-schijven aan beheerde premium-schijven.

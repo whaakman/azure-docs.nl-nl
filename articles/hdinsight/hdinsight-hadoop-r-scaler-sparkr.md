@@ -1,6 +1,6 @@
 ---
 title: ScaleR en SparkR gebruiken met Azure HDInsight | Microsoft Docs
-description: Gebruik ScaleR en SparkR met R Server en HDInsight
+description: Gebruik ScaleR en SparkR met ML-Services op HDInsight
 services: hdinsight
 documentationcenter: ''
 author: bradsev
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4306f265bf7f52f9bc307def2256dd62e94e004f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 34d923cdf2dd96412996c766632ae42aac576e8c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399963"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061475"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Een combinatie van ScaleR en SparkR in HDInsight
 
 Dit document wordt beschreven hoe voorspellen aankomst vertragingen met behulp van een **ScaleR** logistic regressiemodel. Het voorbeeld wordt met vertraging en het weer vluchtgegevens, gekoppeld door middel van **SparkR**.
 
-Hoewel beide pakketten worden uitgevoerd op de engine voor het uitvoeren van Hadoop Spark, hebben ze geen toegang tot gegevens in het geheugen delen als ze elk hun eigen respectieve Spark-sessies vereist. Totdat dit probleem is opgelost in een toekomstige versie van R Server, wordt de tijdelijke oplossing is het niet-overlappende Spark sessies onderhouden en voor het uitwisselen van gegevens door middel van tussenliggende bestanden. De volgende instructies weergeven dat deze vereisten eenvoudig zijn te bereiken.
+Hoewel beide pakketten worden uitgevoerd op de engine voor het uitvoeren van Hadoop Spark, hebben ze geen toegang tot gegevens in het geheugen delen als ze elk hun eigen respectieve Spark-sessies vereist. Totdat dit probleem is opgelost in een toekomstige versie van ML-Server, wordt de tijdelijke oplossing is het niet-overlappende Spark sessies onderhouden en voor het uitwisselen van gegevens door middel van tussenliggende bestanden. De volgende instructies weergeven dat deze vereisten eenvoudig zijn te bereiken.
 
 In dit voorbeeld is in eerste instantie in een Neem contact op lagen 2016 gedeeld door Mario Inchiosa en Roni Burd. U vindt deze bespreking op [bouwen van een schaalbare Platform voor wetenschap met R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
-De code oorspronkelijk is geschreven voor R Server op Spark uitgevoerd in een HDInsight-cluster in Azure. Maar het concept van een combinatie van het gebruik van SparkR en ScaleR in één script is ook geldig in de context van on-premises omgevingen. 
+De code oorspronkelijk is geschreven voor ML-Server in een HDInsight-cluster in Azure op Spark is uitgevoerd. Maar het concept van een combinatie van het gebruik van SparkR en ScaleR in één script is ook geldig in de context van on-premises omgevingen.
 
-De stappen in dit document wordt ervan uitgegaan dat u een tussenliggende niveau van de kennis van R en zijn hebt de [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotheek van R Server. U hebt kennisgemaakt met [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) tijdens het doorlopen van dit scenario.
+De stappen in dit document wordt ervan uitgegaan dat u een tussenliggende niveau van de kennis van R en zijn hebt de [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotheek van ML-Server. U hebt kennisgemaakt met [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) tijdens het doorlopen van dit scenario.
 
 ## <a name="the-airline-and-weather-datasets"></a>De gegevenssets luchtvaartmaatschappij en weer
 
@@ -200,7 +200,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importeren van de gegevens luchtvaartmaatschappij en weer in Spark DataFrames
 
-Nu we de SparkR gebruiken [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) functie voor het importeren van de gegevens weer en luchtvaartmaatschappij naar Spark DataFrames. Deze functie, zoals veel andere methoden Spark uitgevoerd vertraagd, wat betekent dat ze in de wachtrij voor uitvoering maar niet uitgevoerd totdat vereist.
+Nu we de SparkR gebruiken [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) functie voor het importeren van de gegevens weer en luchtvaartmaatschappij naar Spark DataFrames. Deze functie, zoals veel andere methoden Spark uitgevoerd vertraagd, wat betekent dat ze in de wachtrij voor uitvoering maar niet uitgevoerd totdat vereist.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -360,7 +360,7 @@ Het CSV-bestand van de gekoppelde luchtvaartmaatschappij en de weergegevens als 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
 
-# set the Spark compute context for R Server 
+# set the Spark compute context for ML Services 
 rxSetComputeContext(sparkCC)
 rxGetComputeContext()
 
@@ -537,15 +537,15 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebben we zien hoe het is mogelijk gebruik van SparkR voor gegevensmanipulatie met ScaleR voor model-ontwikkeling in Hadoop Spark combineren. Dit scenario vereist onderhouden afzonderlijke Spark-sessies, met slechts één sessie op een tijdstip en uitwisselen van gegevens via de CSV-bestanden. Hoewel eenvoudige, moet dit proces nog gemakkelijker in een toekomstige release R Server bij SparkR en ScaleR delen van een Spark-sessie en dus Spark DataFrames delen.
+In dit artikel hebben we zien hoe het is mogelijk gebruik van SparkR voor gegevensmanipulatie met ScaleR voor model-ontwikkeling in Hadoop Spark combineren. Dit scenario vereist onderhouden afzonderlijke Spark-sessies, met slechts één sessie op een tijdstip en uitwisselen van gegevens via de CSV-bestanden. Hoewel eenvoudige, moet dit proces nog gemakkelijker in een toekomstige release ML-Services bij SparkR en ScaleR delen van een Spark-sessie en dus Spark DataFrames delen.
 
 ## <a name="next-steps-and-more-information"></a>Volgende stappen en meer informatie
 
-- Zie voor meer informatie over het gebruik van R Server op Spark, de [aan de slag-gids op MSDN](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Zie voor meer informatie over gebruik van ML-Server op Spark de [handleiding aan de slag](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
-- Raadpleeg voor algemene informatie op R Server de [aan de slag met R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artikel.
+- Raadpleeg voor algemene informatie over het ML-Server de [aan de slag met R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artikel.
 
-- Zie voor informatie over op HDInsight R Server, [R Server op Azure HDInsight overzicht](r-server/r-server-overview.md) en [op Azure HDInsight R Server](r-server/r-server-get-started.md).
+- Zie voor informatie over het ML-Services op HDInsight, [overzicht van ML-Services op HDInsight](r-server/r-server-overview.md) en [aan de slag met ML-Services in Azure HDInsight](r-server/r-server-get-started.md).
 
 Zie voor meer informatie over gebruik van SparkR:
 

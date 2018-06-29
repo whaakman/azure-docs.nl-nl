@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: dcfd24d3d0122f664655f6085bbd58bc0bfe9718
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: de892afee57b9a39b841f6cfc93f8470d831c2a6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018485"
+ms.locfileid: "37045929"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Maken, bewaken en beheren van Azure data Factory met Azure Data Factory .NET SDK
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service gebruikt, welke nog een preview is, raadpleegt u de [zelfstudie kopieeractiviteit in de documentatie voor versie 2](../quickstart-create-data-factory-dot-net.md). 
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [kopie activiteit zelfstudie](../quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="overview"></a>Overzicht
 U kunt maken, bewaken en beheren van Azure data factory's programmatisch met behulp van Data Factory .NET SDK. Dit artikel bevat een overzicht die u volgen kunt om een .NET-console voorbeeldtoepassing die u maakt en bewaakt een gegevensfactory maken. 

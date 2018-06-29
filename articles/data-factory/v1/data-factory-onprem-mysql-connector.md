@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9075c774d0b56b6609616205e30b5a7d484fa031
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 34de57188dffb7375889ed9ed89a759238b035ac
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808091"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046881"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Verplaatsen van gegevens van MySQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-onprem-mysql-connector.md)
-> * [Versie 2 - Preview](../connector-mysql.md)
+> * [Versie 1](data-factory-onprem-mysql-connector.md)
+> * [Versie 2 (huidige versie)](../connector-mysql.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [MySQL-connector in V2](../connector-mysql.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [MySQL-connector in V2](../connector-mysql.md).
 
 
 In dit artikel wordt uitgelegd hoe de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een lokale MySQL-database gebruiken. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont.
@@ -52,7 +52,7 @@ Voor de Data Management Gateway verbinding maken met de MySQL-Database, moet u v
 U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens vanuit een on-premises Cassandra-gegevensopslag verplaatst met behulp van verschillende hulpprogramma's voor API's. 
 
 - De eenvoudigste manier om een pijplijn maken is met de **Wizard kopiëren**. Zie [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht over het maken van een pijplijn met de wizard kopiëren. 
-- U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
+- U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
 
 Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren:
 
@@ -302,17 +302,17 @@ Wanneer u gegevens naar MySQL verplaatst, worden de volgende toewijzingen van My
 
 | Type MySQL-Database | .NET framework-type |
 | --- | --- |
-| niet-ondertekende bigint |Decimale |
+| niet-ondertekende bigint |decimale |
 | bigint |Int64 |
-| bits |Decimale |
+| bits |decimale |
 | blob |Byte[] |
 | BOOL |Boole-waarde |
 | CHAR |Reeks |
 | datum |Datum en tijd |
 | datum/tijd |Datum en tijd |
-| Decimale |Decimale |
-| dubbele precisie |dubbele |
-| double |dubbele |
+| decimale |decimale |
+| dubbele precisie |Double |
+| double |Double |
 | Enum |Reeks |
 | drijvend |Enkelvoudig |
 | niet-ondertekende int |Int64 |
@@ -327,8 +327,8 @@ Wanneer u gegevens naar MySQL verplaatst, worden de volgende toewijzingen van My
 | niet-ondertekende mediumint |Int64 |
 | mediumint |Int32 |
 | mediumtext |Reeks |
-| numerieke |Decimale |
-| echte |dubbele |
+| numerieke |decimale |
+| echte |Double |
 | instellen |Reeks |
 | niet-ondertekende smallint |Int32 |
 | smallint |Int16 |

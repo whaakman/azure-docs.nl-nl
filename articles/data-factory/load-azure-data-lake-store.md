@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfb35b0e1c52ad2aad164a38ae308f9142880a6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619623"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058885"
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Gegevens laden in Azure Data Lake Store met behulp van Azure Data Factory
 
@@ -35,9 +35,6 @@ Dit artikel laat zien hoe u de gegevens kopiëren van Data Factory-hulpprogramma
 
 > [!NOTE]
 > Zie voor meer informatie [kopiëren van gegevens of naar Azure Data Lake Store met behulp van Azure Data Factory](connector-azure-data-lake-store.md).
->
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service is algemeen beschikbaar (GA), Zie [Kopieeractiviteit in Azure Data Factory versie 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>Vereisten
 
 * Azure-abonnement: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -56,7 +53,7 @@ Dit artikel laat zien hoe u de gegevens kopiëren van Data Factory-hulpprogramma
     * **Naam**: Voer een globaal unieke naam voor uw Azure data factory. Als u de foutmelding "naam gegevensfactory \"LoadADLSDemo\" is niet beschikbaar ' Voer een andere naam voor de data factory. Bijvoorbeeld, u kunt de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de gegevensfactory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement in te maken van de gegevensfactory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst, of Selecteer de **nieuw** optie en typ de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-    * **Versie**: Selecteer **V2 (Preview)**.
+    * **Versie**: Selecteer **V2**.
     * **Locatie**: Selecteer de locatie voor de gegevensfactory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevens worden opgeslagen die worden gebruikt door data factory kunnen zich in andere locaties en regio's. Deze gegevensarchieven bevatten Azure Data Lake Store, Azure Storage en Azure SQL Database.
 
 3. Selecteer **Maken**.
@@ -74,35 +71,45 @@ Dit artikel laat zien hoe u de gegevens kopiëren van Data Factory-hulpprogramma
 2. In de **eigenschappen** pagina **CopyFromAmazonS3ToADLS** voor de **taaknaam** veld en selecteert u een **volgende**:
 
     ![De pagina Eigenschappen](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. In de **brongegevensarchief** pagina **Amazon S3**, en selecteer **volgende**:
+3. In de **brongegevensarchief** pagina, klikt u op **+ nieuwe verbinding maken**:
 
     ![De pagina Brongegevensarchief](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+    
+    Selecteer **Amazon S3**, en selecteer **doorgaan**
+    
+    ![Bronpagina data store s3](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
+    
 4. In de **Geef Amazon S3 verbinding** pagina, voert u de volgende stappen uit: 
    1. Geef de **toegangssleutel-ID** waarde.
    2. Geef de **geheime toegangssleutel** waarde.
-   3. Selecteer **Volgende**.
+   3. Selecteer **Voltooien**.
    
    ![Amazon S3-account opgeven](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+   
+   4. Hier ziet u een nieuwe verbinding. Selecteer **Volgende**.
+   
+   ![Amazon S3-account opgeven](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   
 5. In de **het invoerbestand of de invoermap kiezen** pagina, blader naar de map en het bestand dat u wilt worden overschreven. Selecteer de map/bestand, selecteer **Kies**, en selecteer vervolgens **volgende**:
 
     ![Het invoerbestand of de invoermap kiezen](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. In de **doelgegevensopslagplaats** pagina **Azure Data Lake Store**, en selecteer **volgende**:
-
-    ![De pagina Doelgegevensarchief](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
-
-7. Kies soorten gedrag kopiëren door het selecteren van de **bestanden kopiëren recursief** en **binaire kopiëren** (kopiëren van bestanden als-is) opties. Selecteer **volgende**:
+6. Kies soorten gedrag kopiëren door het selecteren van de **bestanden kopiëren recursief** en **binaire kopiëren** (kopiëren van bestanden als-is) opties. Selecteer **volgende**:
 
     ![Geef de map voor uitvoer](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+    
+7. In de **doelgegevensopslagplaats** pagina, klikt u op **+ nieuwe verbinding maken**, en selecteer vervolgens **Azure Data Lake Store**, en selecteer **doorgaan**:
+
+    ![De pagina Doelgegevensarchief](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
 8. In de **Geef Data Lake Store verbinding** pagina, voert u de volgende stappen uit: 
 
    1. Selecteer uw Data Lake Store voor de **Data Lake Store-accountnaam**.
-   2. Geef de gegevens van de service-principal: **Tenant**, **Service-principal-ID**, en **principal servicesleutel**.
+   2. Geef de **Tenant**, en selecteer voltooien.
    3. Selecteer **Volgende**.
    
    > [!IMPORTANT]
-   > In dit scenario maakt u een _service-principal_ voor verificatie van uw Data Lake Store. Zorg ervoor dat de service-principal de juiste machtigingen in Azure Data Lake Store verlenen, gevolgd door [deze instructies](connector-azure-data-lake-store.md#using-service-principal-authentication).
+   > In dit scenario maakt u een _beheerde service-identiteit_ voor verificatie van uw Data Lake Store. Zorg ervoor dat de service-principal de juiste machtigingen in Azure Data Lake Store verlenen, gevolgd door [deze instructies](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Azure Data Lake Store-account opgeven](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. In de **het uitvoerbestand of de invoermap kiezen** pagina **copyfroms3** als de naam van de map uitvoer en selecteer **volgende**: 

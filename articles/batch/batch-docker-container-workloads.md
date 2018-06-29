@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801112"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060514"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Containertoepassingen worden uitgevoerd op Azure Batch
 
@@ -229,7 +229,13 @@ Gebruik de `ContainerSettings` eigenschap van de klassen van de taak voor het co
 
 Als u taken op de container-installatiekopieën uitvoeren, de [cloud taak](/dotnet/api/microsoft.azure.batch.cloudtask) en [jobbeheertaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) container-instellingen voor vereisen. Echter, de [begintaak](/dotnet/api/microsoft.azure.batch.starttask), [jobvoorbereidingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), en [jobvrijgevingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) vereisen geen instellingen van de container (dat wil zeggen, kunnen ze worden uitgevoerd binnen de context van een container of rechtstreeks op het knooppunt).
 
-Wanneer u de instellingen van de container, alle mappen recursief onderstaande configureert de `AZ_BATCH_NODE_ROOT_DIR` (de hoofdmap van Azure Batch-mappen op het knooppunt) worden toegewezen aan de container, alle taak omgeving variabelen worden toegewezen aan de container en de opdrachtregel van de taak wordt uitgevoerd in de container.
+De opdrachtregel voor een Azure Batch-container-taak wordt uitgevoerd in een werkmap in de container die is vergelijkbaar met de Batch heeft ingesteld voor een normale (niet-container) taak omgeving:
+
+* Alle mappen recursief hieronder de `AZ_BATCH_NODE_ROOT_DIR` (de hoofdmap van Azure Batch-mappen op het knooppunt) worden toegewezen aan de container
+* Alle taak omgevingsvariabelen worden toegewezen aan de container
+* De werkmap voor de toepassing is ingesteld hetzelfde als voor een normale taak zodat u functies zoals toepassingspakketten en bronbestanden kunt gebruiken
+
+Omdat de Batch verandert de standaardwerkmap in de container, de taak wordt uitgevoerd op een locatie die verschilt van het toegangspunt typische container (bijvoorbeeld `c:\` standaard op een Windows-container of `/` op Linux). Zorg ervoor dat uw taak vanaf de opdrachtregel of de container toegangspunt Hiermee geeft u een absoluut pad als deze al op deze manier is niet geconfigureerd.
 
 Het volgende Python-fragment toont een basic opdrachtregel die wordt uitgevoerd in een Ubuntu-container die is opgehaald uit de Docker-Hub. De container uitvoeren-opties zijn extra argumenten voor de `docker create` opdracht die de taak wordt uitgevoerd. Hier de `--rm` optie wordt de container verwijderd nadat de taak is voltooid.
 
@@ -240,7 +246,7 @@ task_container_settings = batch.models.TaskContainerSettings(
     container_run_options='--rm')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='echo hello',
+    command_line='/bin/echo hello',
     container_settings=task_container_settings
 )
 
@@ -251,7 +257,7 @@ De volgende C#-voorbeeld toont basic container-instellingen voor een cloud-taak:
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",

@@ -11,29 +11,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: c5ec07603088edd3f95f08f12b6982022b396d05
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e34b0823b7f10455ac0b66fb0614d3946f2382e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618484"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058957"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
 ## <a name="overview"></a>Overzicht
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-data-movement-activities.md)
-> * [Versie 2 - Preview](copy-activity-overview.md)
+> * [Versie 1](v1/data-factory-data-movement-activities.md)
+> * [Huidige versie](copy-activity-overview.md)
 
 U kunt in Azure Data Factory Kopieeractiviteit gebruiken om gegevens tussen gegevens winkels zich lokaal en in de cloud te kopiëren. Nadat de gegevens worden gekopieerd, worden deze verder getransformeerd en geanalyseerd. U kunt ook Kopieeractiviteit gebruiken om de transformatie en analyseresultaten voor business intelligence (BI) en het verbruik van de toepassing te publiceren.
 
 ![Rol van kopieerbewerking](media/copy-activity-overview/copy-activity.png)
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 Kopieeractiviteit wordt uitgevoerd op een [integratie Runtime](concepts-integration-runtime.md). Voor het scenario voor het kopiëren van gegevens op verschillende kan andere versie van de Runtime-integratie worden gebruikt:
 
@@ -114,7 +111,7 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
                 "type": "TabularTranslator",
                 "columnMappings": "<column mapping>"
             },
-            "cloudDataMovementUnits": <number>,
+            "dataIntegrationUnits": <number>,
             "parallelCopies": <number>,
             "enableStaging": true/false,
             "stagingSettings": {
@@ -138,10 +135,10 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 | uitvoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de sink-gegevens. Kopieeractiviteit ondersteunt slechts één uitvoer. | Ja |
 | typeProperties | Een groep met eigenschappen voor het configureren van de kopieeractiviteit. | Ja |
 | source | Het brontype van het exemplaar en de bijbehorende eigenschappen opgeven voor het ophalen van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
-| sink | Geef het exemplaar sink-type en de bijbehorende eigenschappen op het schrijven van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
+| Sink | Geef het exemplaar sink-type en de bijbehorende eigenschappen op het schrijven van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
 | Translator | Geef expliciete kolomtoewijzingen van bron opvangen. Wanneer u het standaardgedrag voor het exemplaar kan niet voldoen aan uw behoeften past.<br/><br/>Meer informatie over de details van [Schema en de gegevens Typetoewijzing](copy-activity-schema-and-type-mapping.md). | Nee |
-| cloudDataMovementUnits | Geef de powerfulness van [Azure integratie Runtime](concepts-integration-runtime.md) zorgen dat gegevens opnieuw te kopiëren.<br/><br/>Meer informatie over de details van [Cloud data movement eenheden](copy-activity-performance.md). | Nee |
-| parallelCopies | Geef de parallelle uitvoering die u wilt dat de Kopieeractiviteit sink gebruikt bij het lezen van gegevens van de bron- en schrijven van gegevens.<br/><br/>Meer informatie over de details van [kopie parallelle](copy-activity-performance.md#parallel-copy). | Nee |
+| dataIntegrationUnits | Geef de powerfulness van [Azure integratie Runtime](concepts-integration-runtime.md) zorgen dat gegevens opnieuw te kopiëren. Voorheen bekend als cloud Data Movement eenheden (DMU). <br/><br/>Meer informatie over de details van [Data integratie Units](copy-activity-performance.md#data-integration-units). | Nee |
+| ParallelCopies | Geef de parallelle uitvoering die u wilt dat de Kopieeractiviteit sink gebruikt bij het lezen van gegevens van de bron- en schrijven van gegevens.<br/><br/>Meer informatie over de details van [kopie parallelle](copy-activity-performance.md#parallel-copy). | Nee |
 | enableStaging<br/>stagingSettings | Kies fase van de tijdelijke gegevens in aa blob storage in plaats van rechtstreeks gegevens kopiëren van bron opvangen.<br/><br/>Informatie over de nuttig scenario's en de configuratiedetails van [kopie gefaseerde](copy-activity-performance.md#staged-copy). | Nee |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Kies hoe niet-compatibele rijen verwerkt bij het kopiëren van gegevens van bron opvangen.<br/><br/>Meer informatie over de details van [fouttolerantie](copy-activity-fault-tolerance.md). | Nee |
 
@@ -185,7 +182,7 @@ De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken zijn ook geret
 | redshiftUnload | Als uit het geheugen laden wordt gebruikt bij het kopiëren van gegevens van Redshift. | Boole-waarde |
 | hdfsDistcp | Als DistCp wordt gebruikt bij het kopiëren van gegevens uit HDFS. | Boole-waarde |
 | effectiveIntegrationRuntime | Kunt u zien welk integratie Runtime(s) wordt gebruikt om te zorgen dat de activiteit die wordt uitgevoerd in de indeling van `<IR name> (<region if it's Azure IR>)`. | Tekst (tekenreeks) |
-| usedCloudDataMovementUnits | De effectieve cloud data movement eenheden tijdens het kopiëren van. | Int32-waarde |
+| usedDataIntegrationUnits | De effectieve gegevens integratie eenheden tijdens het kopiëren. | Int32-waarde |
 | usedParallelCopies | De effectieve parallelCopies tijdens het kopiëren. | Int32-waarde|
 | redirectRowPath | Pad naar het logboek van overgeslagen incompatibel rijen in de blobopslag die u onder 'redirectIncompatibleRowSettings configureert'. Zie onderstaand voorbeeld. | Tekst (tekenreeks) |
 | executionDetails | Meer informatie over de kopieeractiviteit doorloopt, fasen en de bijbehorende stappen, duur, gebruikte configuraties, enzovoort. Het is niet raadzaam deze sectie parseren aangezien kunnen worden gewijzigd. | Matrix |
@@ -200,7 +197,7 @@ De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken zijn ook geret
     "throughput": 467707.344,
     "errors": [],
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
-    "usedCloudDataMovementUnits": 32,
+    "usedDataIntegrationUnits": 32,
     "usedParallelCopies": 8,
     "executionDetails": [
         {
@@ -213,7 +210,7 @@ De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken zijn ook geret
             "status": "Succeeded",
             "start": "2018-01-17T15:13:00.3515165Z",
             "duration": 221,
-            "usedCloudDataMovementUnits": 32,
+            "usedDataIntegrationUnits": 32,
             "usedParallelCopies": 8,
             "detailedDurations": {
                 "queuingDuration": 2,
@@ -237,10 +234,10 @@ Standaard kopieeractiviteit stopt met het kopiëren van gegevens en retourneert 
 Zie de [Kopieeractiviteit prestaties en prestatieafstemming handleiding](copy-activity-performance.md), waarin belangrijke factoren die van invloed op de prestaties van de verplaatsing van gegevens (Kopieeractiviteit) in Azure Data Factory wordt beschreven. Ook hier worden de waargenomen prestaties tijdens interne tests en worden verschillende manieren om te optimaliseren van de prestaties van de Kopieeractiviteit besproken.
 
 ## <a name="incremental-copy"></a>Incrementele kopie 
-Data Factory versie 2 ondersteunt scenario's voor het kopiëren van deltagegevens stapsgewijs uit een gegevensopslag van bron naar een doelgegevensopslagplaats. Zie [zelfstudie: gegevens stapsgewijs kopiëren](tutorial-incremental-copy-overview.md). 
+Data Factory ondersteunt scenario's voor het kopiëren van deltagegevens stapsgewijs uit een gegevensopslag van bron naar een doelgegevensopslagplaats. Zie [zelfstudie: gegevens stapsgewijs kopiëren](tutorial-incremental-copy-overview.md). 
 
 ## <a name="read-and-write-partitioned-data"></a>Gepartitioneerde gegevens lezen en schrijven
-Azure Data Factory ondersteund in versie 1, lezen of schrijven van gepartitioneerde gegevens met behulp van de SliceStart/SliceEnd/WindowStart/WindowEnd systeemvariabelen. In versie 2, kunt u dit gedrag kunt bereiken met behulp van een pipeline-parameter en van de trigger geplande tijd/begintijd als een waarde van de parameter. Zie voor meer informatie [het lezen of schrijven gepartitioneerd gegevens](how-to-read-write-partitioned-data.md).
+Azure Data Factory ondersteund in versie 1, lezen of schrijven van gepartitioneerde gegevens met behulp van de SliceStart/SliceEnd/WindowStart/WindowEnd systeemvariabelen. U kunt dit gedrag met behulp van een pipeline-parameter en van de trigger geplande tijd/begintijd als een waarde van de parameter bereiken in de huidige versie. Zie voor meer informatie [het lezen of schrijven gepartitioneerd gegevens](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende snelstartgidsen, zelfstudies en voorbeelden:

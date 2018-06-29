@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18b6aaf7396c16714370435d2ee6d3a4960ecf21
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337973"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063677"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Overzicht van de SAP HANA (grote exemplaren) en architectuur op Azure
 
@@ -394,13 +394,15 @@ Mogelijk moet u meer opslagruimte. U kunt opslag toevoegen door het aanschaffen 
 
 Voor hersteldoeleinden back-up en herstel en noodherstel kunt u opslag-momentopnamen. Zie voor meer informatie [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
+Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor opslag lay-informatie voor uw scenario.
+
 ### <a name="encryption-of-data-at-rest"></a>Versleuteling van data-at-rest
 Opslagruimte wordt gebruikt voor grote exemplaar HANA kan een transparante codering van de gegevens, zoals deze wordt opgeslagen op de schijven. Wanneer een grote exemplaar HANA-eenheid wordt geïmplementeerd, kunt u dit soort versleuteling inschakelen. U kunt ook wijzigen met versleutelde volumes nadat de implementatie plaatsgevonden heeft. De overgang van niet-versleutelde naar versleutelde volumes is transparant en geen downtime nodig. 
 
 Met het Type klasse ik van SKU's, de LUN wordt opgeslagen op opstarten van het volume is versleuteld. Voor de klasse Type II van SKU's van HANA grote exemplaar moet u voor het versleutelen van het bestand Boot.ini LUN met OS-methoden. Voor meer informatie contact op met het beheer van de Service Microsoft-team.
 
 
-## <a name="networking"></a>Netwerk
+## <a name="networking"></a>Netwerken
 
 De architectuur van het netwerk van Azure services is een belangrijk onderdeel van de geslaagde implementatie van SAP-toepassingen op grote HANA-exemplaar. SAP HANA in implementaties van Azure (grote exemplaren) hebben doorgaans een groter SAP Liggend met verschillende andere SAP-oplossingen met verschillende grootten van databases, verbruik van CPU en geheugengebruik. Is het waarschijnlijk dat niet alle die SAP-systemen zijn gebaseerd op SAP HANA. Uw SAP-liggend is waarschijnlijk een hybride die gebruikmaakt van:
 

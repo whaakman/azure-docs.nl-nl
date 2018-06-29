@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6826d87e5613ce4892e9fd839c66ec26282ad188
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e8d3b83c8508ae5913975edcbf89f4e70a8b08be
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622122"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050845"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformeer gegevens met Hive-activiteit in Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622122"
 > * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [transformatie van gegevens met behulp van Hive-activiteit in de Data Factory versie 2](../transform-data-using-hadoop-hive.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [transformatie van gegevens met behulp van Hive-activiteit in de Data Factory](../transform-data-using-hadoop-hive.md).
 
 De HDInsight Hive-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) Hive-query's uitvoert op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont.
 
@@ -82,7 +82,7 @@ De HDInsight Hive-activiteit in een Data Factory [pijplijn](data-factory-create-
 | invoer |Invoer gebruikt door het Hive-activiteit |Nee |
 | uitvoer |Uitvoer geproduceerd door de Hive-activiteit |Ja |
 | linkedServiceName |Verwijzing naar het HDInsight-cluster dat is geregistreerd als een gekoppelde service in de Data Factory |Ja |
-| Script |Geef de inline Hive-script |Nee |
+| script |Geef de inline Hive-script |Nee |
 | scriptpad |Het Hive-script opslaat in Azure blob storage en geef het pad naar het bestand. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
 | Hiermee worden gedefinieerd |Geef parameters op als sleutel-waardeparen voor verwijzende binnen het Hive-script met behulp van 'hiveconf' |Nee |
 

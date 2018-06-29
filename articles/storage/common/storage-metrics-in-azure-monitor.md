@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: b1d82f9b527a62109e0301907b87bd683f9912af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035892"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -38,7 +39,7 @@ U kunt metrische gegevens controleren na verloop van tijd in de Azure portal. He
 
 ![Schermafbeelding van de toegang tot metrische gegevens in de Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Voor de metrische gegevens voor ondersteuning van dimensies, moet u met de waarde van de gewenste dimensie filteren. Het volgende voorbeeld laat zien hoe om weer te geven **transacties** op niveau van een account met **geslaagd** antwoordtype.
+Voor de metrische gegevens voor ondersteuning van dimensies, kunt u metrische waarde met de waarde van de gewenste dimensie filteren. Het volgende voorbeeld laat zien hoe om weer te geven **transacties** op het niveau van de account voor een specifieke bewerking door het selecteren van waarden voor **API-naam** dimensie.
 
 ![Schermafbeelding van de toegang tot metrische gegevens met dimensie in de Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -317,7 +318,7 @@ Hieronder ziet u de indeling voor het opgeven van de Resource-ID voor elk van de
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * Resource-ID File-service `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Bron-ID in Azure Monitor REST-API
@@ -402,6 +403,12 @@ Voor de metrische gegevens ondersteunende dimensies moet u de dimensiewaarde om 
 ## <a name="service-continuity-of-legacy-metrics"></a>Continuïteit van de service van verouderde metrische gegevens
 
 Verouderde metrische gegevens zijn parallel met Azure Monitor beheerd metrische gegevens beschikbaar. De ondersteuning blijft hetzelfde tot Azure Storage is beëindigd door de service op verouderde metrische gegevens.
+
+## <a name="faq"></a>Veelgestelde vragen
+
+**Biedt Azure Storage ondersteuning voor de metrische gegevens voor schijven beheerd of onbeheerd schijven?**
+
+Nee, Azure Compute ondersteunt de metrische gegevens op schijven. Zie [artikel](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

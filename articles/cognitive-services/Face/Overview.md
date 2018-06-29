@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: bb3ee9431f24a51dfd3877f1c4d621f7ba633b96
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb1d14ff80bf53adc3008d79cc998739ffffde1b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344771"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048666"
 ---
 # <a name="what-is-face-api"></a>Wat is Face-API?
 
@@ -85,6 +85,8 @@ De volgende zelfstudies demonstreren de basic Face-API-functies en processen voo
 
 Bekijk deze voorbeeldtoepassingen die gebruik maken van Face-API.
 
+- [Microsoft Face-API: De bibliotheek voor Windows-Client & voorbeeld](https://github.com/Microsoft/Cognitive-Face-Windows)
+  - WPF voorbeeld-app die u laat zien van verschillende scenario's voor Face-detectie, analyse en identificatie.
 - [FamilyNotes UWP-app](https://github.com/Microsoft/Windows-appsample-familynotes)
   - Universal Windows Platform (UWP) voorbeeld-app waarin informatie over het gebruik van spraak, Cortana inkt en camera via een serie Opmerking delen scenario.
 - [Voorbeeld van video Frame-analyse](https://github.com/microsoft/cognitive-samples-videoframeanalysis)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 4e1963e97a7458db8badb63e28dbc3d215ad88b2
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309627"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060380"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
@@ -60,7 +60,7 @@ De zone redundant versie van de architectuur van hoge beschikbaarheid wordt door
 ![hoge beschikbaarheid architectuur zoneredundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Scale-out lezen
-Zoals wordt beschreven, service Premium en Business-kritische (preview) lagen hefboomwerking quorum-stelt en altijd op technologie voor hoge beschikbaarheid in één zone en zone redundant configuraties. Een van de voordelen van AlwasyON is de replica's zijn altijd de transactioneel consistent is. Omdat de replica's hetzelfde prestatieniveau als het primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen-query's zijn geïsoleerd van de belangrijkste lezen-schrijven werkbelasting en niet van invloed op de prestaties. Lees de functie scale-out is bedoeld voor de toepassingen die logisch zijn alleen-lezen werkbelastingen zoals analytics gescheiden en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding met de primaire. 
+Zoals wordt beschreven, service Premium en Business-kritische (preview) lagen hefboomwerking quorum-stelt en altijd op technologie voor hoge beschikbaarheid in één zone en zone redundant configuraties. Een van de voordelen van AlwaysOn is dat de replica's altijd de transactioneel consistent is zijn. Omdat de replica's hetzelfde prestatieniveau als het primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen-query's zijn geïsoleerd van de belangrijkste lezen-schrijven werkbelasting en niet van invloed op de prestaties. Lees de functie scale-out is bedoeld voor de toepassingen die logisch zijn alleen-lezen werkbelastingen zoals analytics gescheiden en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding met de primaire. 
 
 Als u wilt de lezen Scale-Out-functie met een bepaalde database gebruiken, moet u expliciet deze activeren bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door aan te roepen de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp van de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode.
 

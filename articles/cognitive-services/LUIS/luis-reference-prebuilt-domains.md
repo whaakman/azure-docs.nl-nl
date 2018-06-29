@@ -10,15 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: 8e04853e0044e045158642fea51c225378eb3ad6
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319051"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061961"
 ---
-# <a name="prebuilt-domain-reference"></a>Overzicht van vooraf gedefinieerde domain
-Deze verwijzing bevat informatie over de vooraf gedefinieerde domeinen zijn vooraf gedefinieerde verzamelingen van intents en entiteiten die LUIS biedt.
+# <a name="prebuilt-domain-reference"></a>Vooraf gemaakte domeinverwijzing
+Deze verwijzing bevat informatie over de [vooraf gedefinieerde domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gedefinieerde verzamelingen van intents en entiteiten die LUIS biedt.
+
+[Aangepaste domeinen](create-new-app.md), daarentegen starten zonder intents en modellen. U kunt alle vooraf gedefinieerde domein intents en entiteiten toevoegen aan een aangepaste model.
 
 ## <a name="list-of-prebuilt-domains"></a>Lijst met vooraf gedefinieerde domeinen
 LUIS biedt 20 vooraf gedefinieerde domeinen. 
@@ -58,9 +60,9 @@ Het domein van de kalender biedt intents en entiteiten die zijn gerelateerd aan 
 | ---------------- |-----------------------|----|
 | Toevoegen | Een nieuw eenmalige item toevoegen aan de kalender.| Een afspraak met ties om 2 uur op zondag maken <br/><br/>Ik wil een vergadering plannen<br/><br/>Ik wil een vergadering instellen|
 | CheckAvailability | Beschikbaarheid voor een afspraak of vergadering kalender van de gebruiker of een andere persoon kalender niet vinden.| Wanneer is beschikbaar om te voldoen aan Jim? <br/><br/>Weergeven wanneer de Carola morgen beschikbaar is<br/><br/>Chris vrij is op zaterdag?|
-| Delete | Verzoek voor het verwijderen van een agenda-item.| Mijn afspraak met Carola annuleren. <br/><br/>Verwijderen van mijn vergadering 9: 00 uur<br/>|
+| Verwijderen | Verzoek voor het verwijderen van een agenda-item.| Mijn afspraak met Carola annuleren. <br/><br/>Verwijderen van mijn vergadering 9: 00 uur<br/>|
 | Bewerken | Verzoek voor het wijzigen van een bestaande vergadering of een agenda-item.| Verplaats mijn vergadering 9: 00 uur tot 10 uur.<br/><br/>Ik wil mijn schema bijwerken.<br/><br/>Reschdule Mijn vergadering met Ryan.|
-| Zoeken | Mijn wekelijkse agenda weergeven.| Zoek de tandarts afspraak bekijken. <br/><br/>Mijn agenda weergeven<br/>|
+| Find | Mijn wekelijkse agenda weergeven.| Zoek de tandarts afspraak bekijken. <br/><br/>Mijn agenda weergeven<br/>|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
@@ -100,7 +102,7 @@ Het domein communicatie biedt intents en entiteiten die betrekking hebben op e-m
 | AssignContactNickname| Een bijnaam een contactpersoon.|Pa Isaac wijzigen <br/>De Jim bijnaam bewerken<br/>Bijnaam aan Patti Owens toevoegen|
 | CallVoiceMail| Verbinding maken met de voicemail van de gebruiker.|Verbinding maken met mijn voicemail-vak <br/>voicemail<br/>voicemail oproepen|
 | CheckIMStatus| Controleer de status van een contactpersoon in Skype.|Is de onlinestatus van Jim ingesteld op Opslaan? <br/>Carola chatten met beschikbaar is?|
-| Gereed| Bevestig de actie.|Ja<br/>OK<br/>OK<br/>Bevestig ik dat ik wil deze e-mail verzenden.<br/>|
+| Bevestigen| Bevestig de actie.|Ja<br/>OK<br/>OK<br/>Bevestig ik dat ik wil deze e-mail verzenden.<br/>|
 | inbelverbinding| Een telefoongesprek.|Aanroep Jim<br/>Neem 311 kiezen<br/>|
 | FindContact| Contactgegevens zoeken op naam.|Carola getal zoeken<br/>Carola nummer weergeven<br/>|
 | FindSpeedDial| Zoek de speedial nummer een telefoonnummer in dat is ingesteld op en vice versa.|Wat is mijn telefoonnummer 5?<br/>Heb ik snelheid set kiezen?<br/>Wat is het telefoonnummer van 941-5555-333?|
@@ -112,7 +114,7 @@ Het domein communicatie biedt intents en entiteiten die betrekking hebben op e-m
 | ReadAloud| Een bericht of e-mail lezen voor de gebruiker.|Lees de tekst.<br/>Wat ze zeggen in het bericht?|
 | TurnForwardingOff| Een telefoongesprek.|<br/><br/>|
 | opnieuw kiezen| Kiezen of een nummer bellen opnieuw.|Kies opnieuw.<br/>Kies de laatste aanroep opnieuw.|
-| Weigeren| Een binnenkomende oproep afwijzen.|Gesprek weigeren<br/>Kan nu niet beantwoorden<br/>Niet beschikbaar op het moment dat en zullen terugbellen later.|
+| Afwijzen| Een binnenkomende oproep afwijzen.|Gesprek weigeren<br/>Kan nu niet beantwoorden<br/>Niet beschikbaar op het moment dat en zullen terugbellen later.|
 | EmailVerzenden| Een e-mail sturen. Dit doel is van toepassing op e-mailadres, maar geen SMS-berichten.|E-mail Mike Waters: Mike, dat diner afgelopen week schitterende is.<br/>Een e-mailbericht verzenden naar Bob<br/>|
 | SendMessage| Een SMS-bericht of een chatbericht verzenden.|Tekst verzenden naar Chris en Carola|
 | SetSpeedDial| Een snelkoppeling snelheid-op-verzoek voor een Contacttelefoonnummer instellen.|Snelkiezen een voor Carola instellen.<br/>Snelkiezen voor mom instellen.|
@@ -128,14 +130,14 @@ Het domein communicatie biedt intents en entiteiten die betrekking hebben op e-m
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AudioDeviceType | Type audioapparaat (spreker, hoofdtelefoon, microfoon, enzovoort).| Spreker<br/>Handsfree<br/>Bluetooth|
-| Categorie | De categorie van een bericht of e-mail.| Belangrijk<br/>Hoge prioriteit|
+| Category | De categorie van een bericht of e-mail.| Belangrijk<br/>Hoge prioriteit|
 | ContactAttribute | Een kenmerk van het contact op met de gebruiker query's over.| Verjaardagen<br/>Adres<br/>Telefoonnummer|
 | Contactpersoon | De naam van een ontvanger of neem contact op met het bericht.| Carola<br/>Jim<br/>Chris|
 | EmailSubject | De tekst die wordt gebruikt als de onderwerpregel voor een e-mailbericht.| RE: interessante verhaal|
 | Regel | De regel van de gebruiker wil gebruiken om te bellen of een e-mail tekst/uit.| Werk regel<br/>Brits cel<br/>Skype|
 | Bericht | Het bericht te verzenden als een e-mailadres of de tekst.| Goede vandaag ziens was. Gauw!|
-| MessageType | De naam van een ontvanger of neem contact op met het bericht.| Tekst<br/>E-mailadres|
-| OrderReference | De rangtelwoord of relatieve positie in een lijst, het identificeren van een item ophalen. Bijvoorbeeld 'laatste' of 'recente' in 'Wat is het laatste bericht dat ik verzonden?'| Last<br/>Recent|
+| MessageType | De naam van een ontvanger of neem contact op met het bericht.| Tekst<br/>Email|
+| OrderReference | De rangtelwoord of relatieve positie in een lijst, het identificeren van een item ophalen. Bijvoorbeeld 'laatste' of 'recente' in 'Wat is het laatste bericht dat ik verzonden?'| Laatste<br/>Recent|
 | SenderName | De naam van de afzender.| Patti Owens|
 
 ## <a name="entertainment"></a>Entertainment  
@@ -144,7 +146,7 @@ Het domein biedt intents en entiteiten die zijn gerelateerd aan het zoeken naar 
 ### <a name="intents"></a>Intents
 | De naam van de opzet | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Zoeken| Zoeken naar films, muziek, apps, games en TV bevat.|Zoek in de store voor Halo.<br/>Zoeken naar Avatar.|
+| Search| Zoeken naar films, muziek, apps, games en TV bevat.|Zoek in de store voor Halo.<br/>Zoeken naar Avatar.|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteiten | Beschrijving | Voorbeelden |
@@ -152,13 +154,13 @@ Het domein biedt intents en entiteiten die zijn gerelateerd aan het zoeken naar 
 | ContentRating | Media inhoudsrestricties zoals G of R voor films.|Video van kinderen.<br/>PG geclassificeerd.|
 | Genre | Het genre van een film, de game, de app of het nummer.|Comedies<br/>Dramas<br/>Grappige|
 | Sleutelwoord| Een algemene trefwoord opgeven van een kenmerk de bestaat niet in de specifiekere media sleuven.|Soundtracks<br/>Verplichte maan<br/>Amelia Earhart|
-| Taal | Media inhoudsrestricties zoals G of R voor films.|Frans<br/>Engels<br/>Koreaans|
+| Taal | Media inhoudsrestricties zoals G of R voor films.|Frans<br/>Nederlands<br/>Koreaans|
 | MediaFormat | De aanvullende speciale technische type waarin het medium is geformatteerd.|HD films<br/>3D-films<br/>Downloadbare|
 | MediaSource | De store of marketplace voor het ophalen van de media.|NetFlix<br/>Prime|
 | MediaSubTypes| Kleiner dan films en games mediatypen.|Demo 's<br/>De DLC<br/>Aanhangwagens|
 | Nationaliteit| Het land waar een film, weergeven of nummer is gemaakt.|Frans<br/>Duits<br/>Koreaans|
 | Person| De acteur, directeur, producent, muzikant of artiest die zijn gekoppeld aan een film, app, game of tv-programma.|Madonna<br/>Stanley Kubrick|
-| Functie| Rol van een persoon bij het maken van media.|Sings<br/>Omgeleid door<br/>Door|
+| Rol| Rol van een persoon bij het maken van media.|Sings<br/>Omgeleid door<br/>Door|
 | Titel| De naam van een film app, game, tv-programma of nummer.|Vrienden<br/>Minecraft|
 | Type| Het type of media-indeling van een film app, game, tv-programma of nummer.|Music<br/>MovieTV <br/>toont|
 | UserRating| Gebruiker ster of duim classificatie.|5 sterren<br/>3 sterren<br/>4 sterren|
@@ -178,7 +180,7 @@ Het domein van gebeurtenissen biedt intents en entiteiten die zijn gerelateerd a
 | Adres | Locatie van de gebeurtenis of het adres. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
 | Naam | De naam van een gebeurtenis.|Shakespeare in de Park|
 | PlaceName| De naam van de gebeurtenis-locatie.|Louvre<br/>Opera huis<br/>Gewijzigd in Broadway|
-| PlaceType | Het type van de locatie van de gebeurtenis worden ondergebracht in.|Cafe<br/>OK<br/>Tapewisselaar|
+| PlaceType | Het type van de locatie van de gebeurtenis worden ondergebracht in.|Cafe<br/>OK<br/>Bibliotheek|
 | Type | Het type van een gebeurtenis.|Energieverbruikoptimalisatie tegelijk<br/>Sport game|
 
 ## <a name="fitness"></a>Geschiktheid 
@@ -195,12 +197,12 @@ Het domein geschiktheid biedt intents en entiteiten voor het bijhouden van gesch
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteiten | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| ActivityType | Het type activiteit om bij te houden. |Uitvoeren<br/>Walk<br/>Swim<br/>Cyclus |
+| ActivityType | Het type activiteit om bij te houden. |Voer<br/>Walk<br/>Swim<br/>Cyclus |
 | Voedsel | Een type voeding om bij te houden in een app geschiktheid. |Banana<br/>Zalm<br/>Schud eiwit|
 | MealType| Het type maaltijd om bij te houden in een status- of geschiktheid app.|Ontbijt<br/>Diner<br/>Lunch<br/>Supper|
 | Meting| Een type afmetingen voor de tijd, afstand of het gewicht voor gebruik in een app geschiktheid of status.|Kilometers<br/>Miles<br/>Minuten<br/>Kilogram|
 | Aantal | Een numerieke hoeveelheid voor gebruik in een app geschiktheid of status.|19<br/>drie<br/>200<br/>één|
-| StatType | Een type statistiek op geaggregeerde gegevens, voor gebruik in een app geschiktheid of status.|Som<br/>Gemiddelde<br/>Maximum<br/>Minimum|
+| StatType | Een type statistiek op geaggregeerde gegevens, voor gebruik in een app geschiktheid of status.|Sum<br/>Gemiddeld<br/>Maximum<br/>Minimum|
 
 ## <a name="gaming"></a>Gaming 
 Het domein games biedt intents en entiteiten die zijn gerelateerd aan een game partij in een spel te beheren.
@@ -307,9 +309,9 @@ Remove all items from my vacation list
 | AddToNote | Gegevens aan een opmerking toevoegen.|Toevoegen aan mijn boodschappen Opmerking Sla tomaten brood koffie<br/>Toevoegen aan mijn takenlijst<br/>Cakejes gebruiken toevoegen aan mijn Wunderlist|
 | CheckOffItem | Controleer de items van een bestaande notitie af.|Schakel bananen uit mijn boodschappenlijst<br/>Kaas taart op Mijn vakantie winkelen lijst als voltooid markeren|
 | Wissen | Alle items uit een bestaande opmerking verwijderen.|Alle items verwijderen uit de lijst van Mijn vakantie<br/>Alles wissen uit de lijst van mijn lezen|
-| Gereed | Een actie met betrekking tot een notitie bevestigen.|Het is geen probleem door mij<br/>ja<br/>Ik ben bevestigen zorgt ervoor dat alle items op lijsten|
+| Bevestigen | Een actie met betrekking tot een notitie bevestigen.|Het is geen probleem door mij<br/>ja<br/>Ik ben bevestigen zorgt ervoor dat alle items op lijsten|
 | Maken | Een nieuwe notitie maken. | Een lijst maken<br/>Om te herinneren dat Jason is in de stad eerste week van mei|
-| Delete | Een volledige Opmerking verwijderen. |Mijn vakantie lijst verwijderen <br/>Mijn boodschappen Opmerking verwijderen|
+| Verwijderen | Een volledige Opmerking verwijderen. |Mijn vakantie lijst verwijderen <br/>Mijn boodschappen Opmerking verwijderen|
 | DeleteNoteItem | Items verwijderen uit een bestaande opmerking.| Chips uit mijn boodschappenlijst verwijderen<br/>Pennen uit mijn school winkelen lijst verwijderen|
 | ReadAloud | Een lijst hardop lezen.|Lees dit het eerste beheerpunt<br/>De details lezen|
 | ShowNext | Zie het volgende item in een lijst van notities.|De volgende gateway weergeven<br/>Volgende pagina<br/>Volgende|
@@ -341,7 +343,7 @@ Can you make the screen brighter?
 |CloseApplication|Sluit de apparaattoepassing.|Sluit-speler|
 |FileBug|Het bestand een bug op het apparaat.|Geef een bug bestand<br/>Kunt u een bug indienen voor mij?<br/>Ik wil deze fout rapporteren|
 |GoBack|Vraag om één stap teruggaan of Ga terug naar de vorige stap.|Ga terug<br/>Ga naar het vorige scherm<br/>Ga terug stoppen luisteren|
-|Help| Hulp vragen.|Neem Help<br/>Hallo<br/>Wat kunt u doen?<br/>Ik heb nodig hulp| 
+|Help| Hulp vragen.|Neem Help<br/>Hallo!<br/>Wat kunt u doen?<br/>Ik heb nodig hulp| 
 |LocateDevice|Zoek het apparaat.|U kunt vinden mijn telefoon<br/>Vinden van de aangepaste iphone<br/>Mijn telefoon zoeken|
 |Aanmelding|Aanmelden bij een service met het apparaat.|Aanmelding Neem<br/>Facebook aanmelden<br/>Meld u aan bij LinkedIn|
 |Afmelden|Afmelding van een service met het apparaat.|Mijn telefoon afmelden<br/>Meld u aan bij twitter<br/>Afmelden|
@@ -371,7 +373,7 @@ Can you make the screen brighter?
 | AppName | Naam van een toepassing op het apparaat.|SoundCloud<br/>YouTube|
 | BrightnessLevel | Het helderheidsniveau van de ingesteld op het apparaat.|100 procent<br/>Vijftig<br/>40%|
 | Contactpersoon | De naam van een contactpersoon op het apparaat.|Paul<br/>Marlen Max|
-| DeviceType | Het type apparaat. |Telefoonnummer<br/>Kindle<br/>Laptop|
+| DeviceType | Het type apparaat. |Telefoon<br/>Kindle<br/>Laptop|
 | MediaType | Het mediatype is verwerkt door het apparaat.|Music<br/>Film<br/>Tv-programma 's|
 | Settingtype hebben | Een type instelling of het paneel met toepassingsinstellingen die de gebruiker wil bewerken.|Wi-Fi<br/>Draadloos netwerk<br/>Kleurenschema<br/>Meldingencentrum|
 
@@ -393,7 +395,7 @@ At what time does Safeway close?
 |CheckAreaTraffic|Controleer het verkeer voor een algemene gedeelte of snelweg niet op een opgegeven route.|Verkeer in Haarlem<br/>Wat is het verkeer zoals in Haarlem?|
 |CheckIntoPlace|Controleer een plaats met behulp van sociale media.|Me inchecken op Foursquare<br/>Schakel dit selectievakje|
 |CheckRouteTraffic| Controleer het verkeer van een specifieke route die is opgegeven door de gebruiker.|Hoe wordt het verkeer naar Mashiko?<br/>De traffice naar Kirkland weergeven<br/>Hoe wordt het verkeer naar Seattle?| 
-|Gereed|Controleer een actie met betrekking tot een plaats.|Bevestig de reservering van mijn restaurant.|
+|Bevestigen|Controleer een actie met betrekking tot een plaats.|Bevestig de reservering van mijn restaurant.|
 |Afsluiten|Actie om af te sluiten van een taak met betrekking tot een plaats.|Neem afsluiten<br/>Sluit geeft mij richtingen|
 |FindPlace|Zoeken naar een locatie (business, instelling, restaurant, openbare ruimte, adres).|Waar bevindt zich de dichtstbijzijnde bibliotheek?<br/>Mij een goede Italiaanse restaurant vinden in Mountain weergeven|
 |GetAddress| Vragen voor het adres van een plaats.|Het adres van Guu in Robson straat weergeven<br/>Wat is het adres van de dichtstbijzijnde Starbucks?| 
@@ -434,7 +436,7 @@ opnieuw opstarten|
 | MealType | Type maaltijd zoals ontbijt of lunch. |Ontbijt<br/>Diner<br/>Lunch<br/>Supper|
 | OpenStatus | Hiermee wordt aangegeven of een plaats open of closed is.|Open<br/>gesloten<br/>openen|
 | PlaceName | De naam van een plaats.|Cheesecake Factory|
-| PlaceType | Het type van een plaats.|Cafe<br/>OK<br/>Tapewisselaar|
+| PlaceType | Het type van een plaats.|Cafe<br/>OK<br/>Bibliotheek|
 | PreferredRoute | De route die de voorkeur is opgegeven door de gebruiker. | 101 <br/>202 <br/>Route 401|
 | Product | Het product die worden aangeboden door een plaats. | Kleding<br/>ASR digitale camera 's<br/>Nieuwe vis | 
 | PublicTransportationRoute | De naam van de openbare vervoer route die naar de gebruiker zoekt. | De trein noordoosten bandbreedte<br/>Bus route 3 X |
@@ -459,8 +461,8 @@ Can you check if I have a reminder about Christine's birthday?
 | ---------------- |-----------------------|----|
 | Wijzigen| Een herinnering wijzigen.|Mijn gesprek 9: 00 uur morgen wijzigen<br/>Mijn herinnering toewijzing aan morgen verplaatsen|
 | Maken| Maak een nieuwe herinnering.|een herinnering maken<br/>Herinnering voor melk kopen<br/>Ik wil onthouden om aan te roepen Rebecca wanneer ik thuis ben|
-| Delete | Een herinnering verwijderen.|Mijn herinnering afbeelding verwijderen<br/>Deze herinnering verwijderen|
-| Zoeken | Een herinnering vinden.|Heb ik een herinnering over mijn verjaardag?<br/>Kunt u controleren als ik een herinnering over van Christine geboren?|
+| Verwijderen | Een herinnering verwijderen.|Mijn herinnering afbeelding verwijderen<br/>Deze herinnering verwijderen|
+| Find | Een herinnering vinden.|Heb ik een herinnering over mijn verjaardag?<br/>Kunt u controleren als ik een herinnering over van Christine geboren?|
 
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
@@ -584,7 +586,7 @@ Repeat last question please
 | De naam van de opzet | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Annuleren | Een actie annuleren.|Annuleer het bericht<br/>Ik wil niet meer het e-mailbericht verzenden|
-| Gereed | Bevestig de actie.|Ja bevestigen geselecteerd ik<br/>Ik ben goed bevestigen<br/>Ik ben bevestigen OK|
+| Bevestigen | Bevestig de actie.|Ja bevestigen geselecteerd ik<br/>Ik ben goed bevestigen<br/>Ik ben bevestigen OK|
 | FinishTask | Een taak gestart voor de gebruiker voltooien.|Ik ben klaar<br/>Ik ben klaar met<br/>Het is voltooid|
 | GoBack | Ga terug naar stap of Ga terug naar de vorige stap.|Ga terug naar Twitter<br/>Een stap terug<br/>Terug|
 | Help | Aanvraag voor hulp.|Help<br/>help openen<br/>Help|

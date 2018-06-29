@@ -4,18 +4,18 @@ description: Meer informatie over de Azure IoT Edge-runtime en hoe deze uw randa
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632071"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030376"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur - voorbeeld
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur
 
 De rand van de IoT-runtime is een verzameling van programma's die moeten worden geïnstalleerd op een apparaat om te worden beschouwd als een Edge van de IoT-apparaat. Gezamenlijk de onderdelen van de rand van de IoT-runtime rand van de IoT-apparaten ontvangen code om uit te voeren aan de rand inschakelen en kennis van de resultaten. 
 
@@ -90,9 +90,9 @@ Om te beginnen met het uitvoeren van de Edge-agent, voer de azure-iot-edge-runti
 
 Elk item in de woordenlijst modules bevat specifieke informatie over een module en door de agent rand wordt gebruikt voor het beheren van de levenscyclus van de module. Enkele van de interessanter eigenschappen zijn: 
 
-* **Settings.Image** – de container-installatiekopie die gebruikmaakt van de Edge-agent starten van de module. De Edge-agent moet worden geconfigureerd met de referenties voor het register van de container als de installatiekopie is beveiligd met een wachtwoord. Gebruik de volgende opdracht voor het configureren van de Edge-agent: `azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image** – de container-installatiekopie die gebruikmaakt van de Edge-agent starten van de module. De Edge-agent moet worden geconfigureerd met de referenties voor het register van de container als de installatiekopie is beveiligd met een wachtwoord. Voor het configureren van de Edge-agent bijwerken de `config.yaml` bestand. In Linux, gebruikt u de volgende opdracht: `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions** : een tekenreeks die rechtstreeks aan de Docker-daemon wordt doorgegeven bij het starten van een module-container. Toevoegen van Docker-opties in deze eigenschap kunt u geavanceerde opties zoals poort doorsturen of koppelen van volumes in een module-container.  
-* **status** – de status waarin de Edge-agent de module plaatst. Deze waarde wordt meestal ingesteld op *met* zoals de meeste mensen wilt gebruiken voor de agent van de rand om direct te starten alle modules op het apparaat. U kan echter opgeven dat de oorspronkelijke status van een module die u wilt stoppen en wachten op een later tijdstip aan de rand agent starten van een module. De agent rand meldt de status van elke module terug naar de cloud in de eigenschappen van gemeld. Een verschil tussen de gewenste eigenschappen en de gerapporteerde is een indicator of een apparaat zorgt. De ondersteunde statussen zijn:
+* **status** – de status waarin de Edge-agent de module plaatst. Deze waarde wordt meestal ingesteld op *met* zoals de meeste mensen wilt gebruiken voor de agent van de rand om direct te starten alle modules op het apparaat. U kan echter opgeven dat de oorspronkelijke status van een module die u wilt stoppen en wachten op een later tijdstip aan de rand agent starten van een module. De agent rand meldt de status van elke module terug naar de cloud in de eigenschappen van gemeld. Een verschil tussen de gewenste eigenschappen en de gerapporteerde is een indicator van een apparaat zorgt. De ondersteunde statussen zijn:
    * Downloaden
    * In uitvoering
    * Niet in orde
@@ -104,7 +104,7 @@ Elk item in de woordenlijst modules bevat specifieke informatie over een module 
    * Niet in orde - als de module vastloopt of geacht beschadigd, de Edge-agent start deze opnieuw op.
    * Altijd - als de module is vastgelopen, wordt geacht slecht of op een manier is afgesloten, de Edge-agent opnieuw worden opgestart. 
 
-Rand van de IoT-agent verzendt runtime-antwoord naar IoT Hub. Hier volgt een lijst met mogelijke reacties:
+De rand van de IoT-agent verzendt runtime-antwoord naar IoT Hub. Hier volgt een lijst met mogelijke reacties:
   * 200 - OK
   * 400 - configuratie van de implementatie is onjuist gevormd of ongeldig.
   * 417 - het apparaat heeft geen een implementatieconfiguratie ingesteld.
@@ -114,7 +114,7 @@ Rand van de IoT-agent verzendt runtime-antwoord naar IoT Hub. Hier volgt een lij
 
 ### <a name="security"></a>Beveiliging
 
-De agent IoT rand speelt een cruciale rol in de beveiliging van een Edge van de IoT-apparaat. Bijvoorbeeld, voert acties zoals het controleren van de installatiekopie van een module voordat u deze uit. Deze functies worden algemene beschikbaarheid van V2-functies toegevoegd. 
+De agent IoT rand speelt een cruciale rol in de beveiliging van een Edge van de IoT-apparaat. Bijvoorbeeld, voert acties zoals het controleren van de installatiekopie van een module voordat u deze uit. Deze functies worden algemene beschikbaarheid toegevoegd. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

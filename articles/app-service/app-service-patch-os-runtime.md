@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030050"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- en runtime patchen in Azure App Service
 
@@ -73,31 +74,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### <a name="deprecated-versions"></a>Afgeschafte versies
+### <a name="deprecated-versions"></a>Afgeschafte versies  
 
 Wanneer een oudere versie is afgeschaft, wordt de datum van verwijdering aangekondigd zodat u de upgrade van uw runtime versie Hiermee rekening kan houden. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Hoe kan ik updatestatus OS- en runtime opvragen op mijn exemplaren?
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Hoe kan ik updatestatus OS- en runtime opvragen op mijn exemplaren?  
 
 Terwijl essentiële OS-informatie van de toegang is vergrendeld (Zie [besturingssysteemfunctionaliteit op Azure App Service](web-sites-available-operating-system-functionality.md)), wordt de [Kudu-console](https://github.com/projectkudu/kudu/wiki/Kudu-console) kunt u een query uitvoeren op uw App Service-exemplaar met betrekking tot het besturingssysteem versie en runtime-versies. 
 
 De volgende tabel toont hoe u de versies van Windows en van de taal die uw toepassingen worden uitgevoerd:
 
-| Informatie | Waar vind ik het |
+| Informatie | Waar vind ik het | 
 |-|-|
 | Windows-versie | Zie `https://<appname>.scm.azurewebsites.net/Env.cshtml` (onder Systeeminfo) |
 | .NET-versie | Op `https://<appname>.scm.azurewebsites.net/DebugConsole`, voer de volgende opdracht in de opdrachtprompt: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | Versie van .NET core | Op `https://<appname>.scm.azurewebsites.net/DebugConsole`, voer de volgende opdracht in de opdrachtprompt: <br> `dotnet --version` |
 | PHP-versie | Op `https://<appname>.scm.azurewebsites.net/DebugConsole`, voer de volgende opdracht in de opdrachtprompt: <br> `php --version` |
 | Standaardversie van Node.js | In de [Cloud Shell](../cloud-shell/overview.md), voer de volgende opdracht: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Python-versie | Op `https://<appname>.scm.azurewebsites.net/DebugConsole`, voer de volgende opdracht in de opdrachtprompt: <br> `python --version` |
+| Python-versie | Op `https://<appname>.scm.azurewebsites.net/DebugConsole`, voer de volgende opdracht in de opdrachtprompt: <br> `python --version` |  
 
-> [!NOTE]
+> [!NOTE]  
 > Toegang tot registerlocatie `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, waarbij informatie over ['KB' patches]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) zijn opgeslagen, is vergrendeld.
 >
 >
 
 ## <a name="more-resources"></a>Meer bronnen
 
-[Vertrouwenscentrum: beveiliging](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[Vertrouwenscentrum: beveiliging](https://www.microsoft.com/en-us/trustcenter/security)  
 [64-bits ASP.NET Core op Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

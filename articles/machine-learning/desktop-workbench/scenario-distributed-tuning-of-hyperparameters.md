@@ -4,19 +4,19 @@ description: Dit scenario wordt beschreven hoe u gedistribueerde afstemming van 
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: c6eccda4329572a181b6a7e7e3870ace4bfac13b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832744"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035926"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Afstemming van hyperparameters met behulp van Azure Machine Learning Workbench gedistribueerd
 
@@ -157,9 +157,9 @@ Hierna is gegevensset container in de lijst selecteren en klik op de knop upload
 
 Uploaden van de bestanden duurt enkele minuten, afhankelijk van uw internetverbinding. 
 
-In onze code gebruiken we [Azure-opslag-SDK](https://azure-storage.readthedocs.io/en/latest/) voor het downloaden van de gegevensset van blob-opslag naar de huidige uitvoeringsomgeving. De download wordt uitgevoerd in load\_of data() functie uit load_data.py-bestand. Als u wilt de volgende code gebruiken, moet u vervangen < accountnaam > en < ACCOUNT_KEY > met de naam en de primaire sleutel van uw opslagaccount die als host fungeert voor de gegevensset. Hier ziet u de accountnaam van de in de linkerbovenhoek van uw storage-account Azure-pagina. Ophalen van account key, selecteer toegangstoetsen in Azure storage-pagina (Zie de eerste schermafbeelding in de sectie gegevensopname) en kopieer de lange tekenreeks in de eerste rij van de sleutelkolom:
+In onze code gebruiken we [Azure-opslag-SDK](https://docs.microsoft.com/en-us/python/azure/) voor het downloaden van de gegevensset van blob-opslag naar de huidige uitvoeringsomgeving. De download wordt uitgevoerd in load\_of data() functie uit load_data.py-bestand. Als u wilt de volgende code gebruiken, moet u vervangen < accountnaam > en < ACCOUNT_KEY > met de naam en de primaire sleutel van uw opslagaccount die als host fungeert voor de gegevensset. Hier ziet u de accountnaam van de in de linkerbovenhoek van uw storage-account Azure-pagina. Ophalen van account key, selecteer toegangstoetsen in Azure storage-pagina (Zie de eerste schermafbeelding in de sectie gegevensopname) en kopieer de lange tekenreeks in de eerste rij van de sleutelkolom:
  
-![Toegangstoets](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
+![toegangstoets](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
 De volgende code van de functie load_data() downloads één bestand:
 
@@ -213,7 +213,7 @@ Xgboost heeft acht hyperparameters, beschreven [hier](https://github.com/dmlc/xg
 * learning_rate
 * colsample\_by_level
 * deelsteekproef
-* Doelstelling  
+* doelstelling  
  
 In eerste instantie we gebruiken van externe DSVM en afstemmen hyperparameters van een klein raster van candidate waarden:
 

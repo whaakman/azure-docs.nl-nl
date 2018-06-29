@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404957"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046676"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight
 
@@ -38,7 +38,7 @@ Knooppunten in een HDInsight-cluster worden geïmplementeerd met behulp van Azur
 > [!NOTE]
 > Niet alle knooppunttypen worden gebruikt voor het type van een cluster. Een Hadoop-clustertype heeft bijvoorbeeld geen eventuele Nimbus-knooppunten. Voor meer informatie over de knooppunten die door HDInsight-clustertypen gebruikt, Zie de sectie van de typen Cluster van de [maken Linux gebaseerde Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
 
-### <a name="head-nodes"></a>HEAD-knooppunten
+### <a name="head-nodes"></a>Hoofdknooppunten
 
 HDInsight biedt hoge beschikbaarheid van Hadoop-services, zodat twee hoofdknooppunten. Beide hoofdknooppunten zijn tegelijkertijd actief en wordt uitgevoerd binnen het HDInsight-cluster. Sommige services, zoals HDFS of YARN, zijn alleen op elk moment 'active' op één hoofdknooppunt. Andere services zoals HiveServer2 of Hive-MetaStore zijn actief op beide head knooppunten op hetzelfde moment.
 
@@ -51,7 +51,7 @@ HEAD-knooppunten (en andere knooppunten in HDInsight) hebben een numerieke waard
 
 Nimbus-knooppunten zijn beschikbaar met Storm-clusters. De Nimbus-knooppunten bieden vergelijkbare functionaliteit aan de Hadoop JobTracker met distributie en verwerking bewaking over worker-knooppunten. HDInsight biedt twee Nimbus-knooppunten voor Storm-clusters
 
-### <a name="zookeeper-nodes"></a>Zookeeper-knooppunten
+### <a name="zookeeper-nodes"></a>ZooKeeper-knooppunten
 
 [ZooKeeper](http://zookeeper.apache.org/) knooppunten worden gebruikt voor de keuze opvulteken master services op hoofdknooppunten. Ze worden ook gebruikt om ervoor te zorgen dat services, gegevensknooppunten (worker) en gateways weten welke hoofdknooppunt een master-service actief is op. HDInsight biedt standaard drie ZooKeeper-knooppunten.
 
@@ -63,9 +63,9 @@ Worker-knooppunten analyse van de werkelijke gegevens als een taak wordt verzond
 
 Een edge-knooppunt deelneemt niet actief aan analyse van gegevens binnen het cluster. Deze wordt gebruikt door ontwikkelaars of gegevenswetenschappers bij het werken met Hadoop. Het edge-knooppunt woont in het hetzelfde virtuele Azure-netwerk als de andere knooppunten in het cluster en rechtstreeks toegang tot alle andere knooppunten. Het edge-knooppunt kan worden gebruikt zonder resources verlaten kritieke Hadoop-services of analyse taken.
 
-Op HDInsight R Server is momenteel het enige clustertype dat een edge-knooppunt standaard biedt. Voor op HDInsight R Server, het edge-knooppunt wordt gebruikt test R code lokaal op het knooppunt alvorens deze aan het cluster voor gedistribueerde verwerking.
+ML-Services op HDInsight is momenteel het enige clustertype dat een edge-knooppunt standaard biedt. Voor Services ML op HDInsight, het edge-knooppunt wordt gebruikt test R code lokaal op het knooppunt alvorens deze aan het cluster voor gedistribueerde verwerking.
 
-Zie voor meer informatie over het gebruik van een edge-knooppunt met clustertypen dan R Server de [edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md) document.
+Zie voor meer informatie over het gebruik van een edge-knooppunt met andere clustertypen de [edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md) document.
 
 ## <a name="accessing-the-nodes"></a>Toegang tot de knooppunten
 

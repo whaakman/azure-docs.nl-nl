@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: rayne
-ms.openlocfilehash: 95a33c80b1aeef7fbf8bea0ab760bbd66babdac8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b16f495a21ff0b3da415390877777650a9fbb82
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426992"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048200"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Problemen met Hyper-V tot Azure-replicatie en failover
 
@@ -58,7 +58,7 @@ Problemen oplossen met initiële en lopende replicatie als volgt:
 5. Controleer of de Hyper-V-hosts verbinding met de Azure-opslag-blob-URL maken kunnen. Om dit te doen, selecteert en Controleer **cbengine.exe**. Weergave **TCP-verbindingen** om te controleren of de verbinding van de host naar de Azure storage-blob.
 6. Controleer prestatieproblemen, zoals hieronder wordt beschreven.
     
-### <a name="performance-issues"></a>prestatieproblemen
+### <a name="performance-issues"></a>Prestatieproblemen
 
 Netwerk-bandbreedtebeperkingen kunnen invloed hebben op replicatie. Oplossen van problemen als volgt:
 
@@ -116,7 +116,7 @@ Een app-consistente momentopname is een momentopname van een punt in tijd van de
         - Teller: ' Bytes schrijven per seconde '</br>
         - Het verloop van deze gegevens wordt verhoogd of op een hoog niveau, afhankelijk van hoeveel de virtuele machine of de apps zich blijven.
         - Het gemiddelde bron schijf-gegevensverloop is 2 MB/s voor standard-opslag voor siteherstel. [Meer informatie](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Bovendien kunt u [schaalbaarheidsdoelen van opslag controleren](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets.md#scalability-targets-for-a-storage-account).
+    - Bovendien kunt u [schaalbaarheidsdoelen van opslag controleren](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
 8. Voer de [implementatie Planner](hyper-v-deployment-planner-run.md).
 9. Bekijk de aanbevelingen voor [netwerk](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) en [opslag](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

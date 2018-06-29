@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 2a0a411d5f2b19eda844cba160429ecfe958c45e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309610"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061641"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud: uw database in Azure SQL Database beheren
 
@@ -170,7 +170,7 @@ Express Route kunt u burst tot 2 x de Bandbreedtelimiet die u voor zonder extra 
 - [Werkstromen](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL-Database voldoen aan eventuele voorschriften is en hoe helpt die bij de naleving van mijn eigen organisatie?
-SQL-Database is compatibel met een bereik van de regelgeving conformiteit. Als u wilt weergeven van de meest recente set conformiteit die wordt voldaan, gaat u naar de [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings) en inzoomen op de conformiteit die belangrijk voor uw organisatie om te zien zijn als de SQL-Database is opgenomen onder de compatibele Azure-services. Het is belangrijk te weten dat Hoewel SQL-Database kan worden goedgekeurd als een compatibele service, het helpt de compatibiliteit van uw organisatie service, maar kan deze niet automatisch garanderen.
+SQL-Database is compatibel met een bereik van de regelgeving conformiteit. Als u wilt weergeven van de meest recente set conformiteit die wordt voldaan, gaat u naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) en inzoomen op de conformiteit die belangrijk voor uw organisatie om te zien zijn als de SQL-Database is opgenomen onder de compatibele Azure-services. Het is belangrijk te weten dat Hoewel SQL-Database kan worden goedgekeurd als een compatibele service, het helpt de compatibiliteit van uw organisatie service, maar kan deze niet automatisch garanderen.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Intelligent database bewaking en het onderhoud na migratie
 
@@ -245,11 +245,11 @@ SQL-Database maakt gebruik van sommige smart technieken die toe te staan om bepa
 
 - **Exporteren**: U kunt uw Azure SQL database exporteren als een Bacpac-bestand van de Azure-portal
 
-   ![Database wordt geëxporteerd](./media/sql-database-export/database-export.png)
+   ![database wordt geëxporteerd](./media/sql-database-export/database-export.png)
 
 - **Importeren**: U kunt ook gegevens als een Bacpac-bestand importeren in de database met de Azure portal.
 
-   ![De database wordt geïmporteerd](./media/sql-database-import/import.png)
+   ![de database wordt geïmporteerd](./media/sql-database-import/import.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Hoe ik gegevens tussen de SQL-Database en SQL Server synchroniseren?
 Er zijn verschillende manieren om dit te bereiken: 

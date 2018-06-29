@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: d90ac726ae689cf299ee41d4e7ff4c17769e7455
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074827"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060444"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gastbesturingssystemen die worden ondersteund op Azure-Stack
 
@@ -40,7 +40,7 @@ Azure-Stack ondersteunt de Windows-gastbesturingssystemen die worden vermeld in 
 | Windows Server 2008 SP2 | 64-bits |  Breng uw eigen installatiekopie |
 | Windows 10 *(Zie Opmerking 1)* | 64-bits, Pro en Enterprise | Breng uw eigen installatiekopie |
 
-***Opmerking 1:*** *Windows 10-client om besturingssystemen te implementeren op Azure-Stack, hebt u [Windows per gebruiker-licentieverlening](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) of aanschaffen via een gekwalificeerde Multitenant Hoster ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+***Opmerking 1:*** *Windows 10-client om besturingssystemen te implementeren op Azure-Stack, hebt u [Windows per gebruiker-licentieverlening](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) of aanschaffen via een gekwalificeerde Multitenant Hoster ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
 
 Marketplace-installatiekopieën zijn beschikbaar voor betaalde-als-gebruik of BYOL (EA/SPLA)-licentieverlening. Gebruik van beide op één Azure-Stack-exemplaar wordt niet ondersteund. Tijdens de implementatie van injects Azure-Stack een geschikte versie van de gastagent in de afbeelding.
 

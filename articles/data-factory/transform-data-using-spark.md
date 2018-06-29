@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 525ad1c83a1982ae5b954b900c5a6c7086544c66
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: abe2fabc505f94f19d4b15a406fc59bf6d6e7ac1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700533"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050332"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformeer gegevens met behulp van de activiteit Spark in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-spark.md)
-> * [Versie 2 - Preview](transform-data-using-spark.md)
+> * [Versie 1](v1/data-factory-spark.md)
+> * [Huidige versie](transform-data-using-spark.md)
 
 De Spark-activiteit in een Data Factory [pijplijn](concepts-pipelines-activities.md) Hiermee voert u een Spark-programma op [uw eigen](compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont. Wanneer u een gekoppelde Spark-service op aanvraag, wordt Data Factory maakt automatisch een Spark-cluster voor u just-in-time om de gegevens te verwerken en vervolgens het cluster wordt verwijderd zodra de verwerking voltooid is. 
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Spark-activiteit in V1](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
 > Spark activiteit biedt geen ondersteuning voor HDInsight Spark-clusters die gebruikmaken van een Azure Data Lake Store als primaire opslag.
@@ -74,7 +71,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie:
 | rootPath              | De Azure Blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. Raadpleeg de mapstructuur sectie (volgende sectie) voor meer informatie over de structuur van deze map. | Ja      |
 | entryFilePath         | Relatief pad naar de hoofdmap van het Spark/codepakket. De post-bestand moet een Python-bestand of een JAR-bestand. | Ja      |
 | className             | Belangrijkste Java/Spark-klasse van de toepassing      | Nee       |
-| Argumenten             | Een lijst met opdrachtregelargumenten aan het programma Spark. | Nee       |
+| argumenten             | Een lijst met opdrachtregelargumenten aan het programma Spark. | Nee       |
 | proxyUser             | De account van de gebruiker te imiteren voor het uitvoeren van het Spark-programma | Nee       |
 | sparkConfig           | Geef waarden voor Spark configuratie-eigenschappen die worden vermeld in het onderwerp: [Spark-configuratie - eigenschappen van Application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee       |
 | getDebugInfo          | Geeft aan wanneer de Spark-logboekbestanden worden gekopieerd naar de Azure-opslag door HDInsight-cluster gebruikt (of) opgegeven door sparkJobLinkedService. Toegestane waarden: None, altijd of fout. Standaardwaarde: geen. | Nee       |

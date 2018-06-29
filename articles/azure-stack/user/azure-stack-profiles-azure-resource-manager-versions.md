@@ -10,14 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054378"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versies ondersteund door de profielen in Azure-Stack
 
@@ -25,7 +26,7 @@ U vindt de resourceprovider en versienummers voor elk profiel API wordt gebruikt
 
 De API-profiel maakt gebruik van drie naamgevingsregels:
  - meest recente
- - Jjjj-mm-dd-hybride
+ - jjjj-mm-dd-hybride
  - jjjj-mm-dd-profiel
 
 Zie voor een uitleg van de API-profielen en versie release uitgebracht voor Azure-Stack [versie-profielen API beheren in Azure-Stack](azure-stack-version-profiles.md).
@@ -83,13 +84,13 @@ Zie voor meer een lijst van de versies voor elk resourcetype voor de providers i
 
 Toegangsbeheer op basis van rollen kunt u de acties die gebruikers in uw organisatie op resources uitvoeren kunnen kunt beheren. Deze reeks bewerkingen kunt u rollen definiëren, rollen toewijzen aan gebruikers of groepen en het verkrijgen van informatie over machtigingen. Zie voor meer informatie [autorisatie](https://docs.microsoft.com/rest/api/authorization/).
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |---------------------|--------------------|
 | Vergrendelingen | 2017-04-01 |
 | Bewerkingen | 2015-07-01 |
 | Machtigingen | 2015-07-01 |
 | Beleidstoewijzingen | 2016-12-01 (2017-06-01-preview) |
-| Beleidsdefinities | 2016-12-01 |
+| Definities voor beleid | 2016-12-01 |
 | Bewerkingen van de provider | 2015-07-01-preview |
 | Roltoewijzingen | 2015-07-01 |
 | Roldefinities | 2015-07-01 |
@@ -141,22 +142,25 @@ De Azure Compute-API's bieden u programmatische toegang tot virtuele machines en
 
 ### <a name="microsoftinsights"></a>Microsoft.Insights
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |--------------------|--------------------|
-| Waarschuwingsregels | 2016-03-01 |
-| Gebeurteniscategorieën | 2017-03-01-preview |
-| Evenementcategorieën | 2017-03-01-preview |
-| Metrische definities | 2016-03-01 |
 | Bewerkingen | 2015-04-01 |
+| Evenementcategorieën | 2015-04-01 |
+| Gebeurteniscategorieën | 2015-04-01 |
+| Metrische definities | 2018-01-01 |
+| Metrische gegevens | 2018-01-01 |
+| Diagnostische instellingen | 2017-05-01-preview |
+| Diagnostische instellingen voor categorieën | 2017-05-01-preview |
+
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 Het beheren van uw sleutel en de sleutels, geheimen en certificaten binnen uw sleutelkluizen kluizen. Zie voor meer informatie [naslaginformatie over REST API van Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/).
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |-------------------------|--------------|
 | Bewerkingen | 2016-10-01 |
-| Kluizen | 2016-10-01 |
+| kluizen | 2016-10-01 |
 | Kluizen / toegangsbeleid | 2016-10-01 |
 | Kluizen/geheimen | 2016-10-01 |
 
@@ -164,7 +168,7 @@ Het beheren van uw sleutel en de sleutels, geheimen en certificaten binnen uw sl
 
 Bewerkingen aanroep resultaat is een weergave van de lijst beschikbare netwerk cloud-bewerkingen. Zie voor meer informatie [bewerking REST-API](https://docs.microsoft.com/rest/api/operation/).
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |---------------------------|--------------|
 | Verbindingen | 2015-06-15 |
 | DNS-Zones | 2016-04-01 |
@@ -186,7 +190,7 @@ Bewerkingen aanroep resultaat is een weergave van de lijst beschikbare netwerk c
 
 Azure Resource Manager kunt u de infrastructuur voor uw Azure-oplossingen implementeren en beheren. U verwante resources in resourcegroepen ordenen en implementeren van uw resources met JSON-sjablonen. Zie voor een inleiding tot het implementeren en beheren van resources met Resource Manager, [overzicht van Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |-----------------------------------------|-------------------|
 | Registraties van toepassing | 2015-01-01 |
 | Resourcenaam controleren | 2015-012016-09-01 |
@@ -218,7 +222,7 @@ Azure Resource Manager kunt u de infrastructuur voor uw Azure-oplossingen implem
 
 Storage Resource Provider (SRP) kunt u uw opslagaccount en sleutels programmatisch te beheren. Zie voor meer informatie [Azure Storage Resource Provider REST API-verwijzing](https://docs.microsoft.com/rest/api/storagerp/).
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |-------------------------|--------------|
 | Beschikbaarheid van de naam controleren | 2016-01-01 |
 | Locaties | 2016-01-01 |
@@ -231,13 +235,13 @@ Storage Resource Provider (SRP) kunt u uw opslagaccount en sleutels programmatis
 
 ### <a name="microsoft-authorization"></a>Microsoft-autorisatie
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |---------------------|---------------------------------|
 | Vergrendelingen | 2017-04-01 |
 | Bewerkingen | 2015-07-01 |
 | Machtigingen | 2015-07-01 |
 | Beleidstoewijzingen | 2016-12-01 (2017-06-01-preview) |
-| Beleidsdefinities | 2016-12-01 |
+| Definities voor beleid | 2016-12-01 |
 | Bewerkingen van de provider | 2015-07-01-preview |
 | Roltoewijzingen | 2015-07-01 |
 | Roldefinities | 2015-07-01 |
@@ -263,7 +267,7 @@ Storage Resource Provider (SRP) kunt u uw opslagaccount en sleutels programmatis
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |---------------------------|--------------|
 | Verbindingen | 2015-06-15 |
 | DNS-Zones | 2016-04-01 |
@@ -283,7 +287,7 @@ Storage Resource Provider (SRP) kunt u uw opslagaccount en sleutels programmatis
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |-----------------------------------------|--------------|
 | Registraties van toepassing | 2015-01-01 |
 | Resourcenaam controleren | 2016-09-01 |
@@ -313,7 +317,7 @@ Storage Resource Provider (SRP) kunt u uw opslagaccount en sleutels programmatis
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
 
-| Brontypen | API-versies |
+| Resourcetypen | API-versies |
 |-------------------------|--------------|
 | Beschikbaarheid van de naam controleren | 2016-01-01 |
 | Locaties | 2016-01-01 |

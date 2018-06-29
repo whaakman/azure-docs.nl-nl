@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658312"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062238"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA grote exemplaren hoge beschikbaarheid en herstel na noodgevallen in Azure 
 
@@ -44,10 +44,12 @@ De volgende tabel ziet u de combinaties van ondersteunde hoge beschikbaarheid en
 | In grote exemplaren HANA ondersteund scenario | Optie voor hoge beschikbaarheid | De hersteloptie na noodgevallen | Opmerkingen |
 | --- | --- | --- | --- |
 | Eén knooppunt | Niet beschikbaar. | Speciale DR-instellingen.<br /> Multipurpose DR-instellingen. | |
-| Automatische failover hosten: N + m<br /> met inbegrip van 1 + 1 | Mogelijk met het maken van de functie active stand-by.<br /> HANA Hiermee bepaalt u de functie switch. | Speciale DR-instellingen.<br /> Multipurpose DR-instellingen.<br /> DR-synchronisatie met behulp van storage-replicatie. | HANA volumesets zijn gekoppeld aan alle knooppunten (n + m).<br /> DR-site moet hetzelfde aantal knooppunten hebben. |
+| Automatische failover hosten: Scale-out (met of zonder stand-by)<br /> met inbegrip van 1 + 1 | Mogelijk met het maken van de functie active stand-by.<br /> HANA Hiermee bepaalt u de functie switch. | Speciale DR-instellingen.<br /> Multipurpose DR-instellingen.<br /> DR-synchronisatie met behulp van storage-replicatie. | HANA volumesets zijn gekoppeld aan alle knooppunten.<br /> DR-site moet hetzelfde aantal knooppunten hebben. |
 | HANA system replicatie | Mogelijk met de primaire of secundaire installatie.<br /> Secundaire verplaatst naar de primaire rol in het geval van een failover.<br /> Beheer de failover HANA system replicatie- en OS. | Speciale DR-instellingen.<br /> Multipurpose DR-instellingen.<br /> DR-synchronisatie met behulp van storage-replicatie.<br /> DR met behulp van HANA system replicatie is nog niet mogelijk zonder onderdelen van derden. | Afzonderlijke set volumes op schijven zijn gekoppeld aan elk knooppunt.<br /> Alleen volumes op schijven van de secundaire replica in de productiesite worden gerepliceerd naar de locatie voor Noodherstel.<br /> Een set van volumes is vereist op de DR-site. | 
 
 Een speciale DR-setup is waar de eenheid HANA grote exemplaar in de DR-site niet wordt gebruikt voor het uitvoeren van een andere workload of niet-productieomgeving. De eenheid passief is en is geïmplementeerd alleen als er een ramp failover wordt uitgevoerd. Deze instelling is echter niet een uitstekende keuze is voor veel klanten.
+
+Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor meer informatie over opslag lay-out en Ethernet-details voor uw architectuur.
 
 > [!NOTE]
 > [Implementaties voor SAP HANA MCOD](https://launchpad.support.sap.com/#/notes/1681092) (meerdere HANA exemplaren in één eenheid) zoals keer scenario's werken met de HA en Noodherstel methoden in de tabel. Een uitzondering is het gebruik van HANA System replicatie met een automatische failover-cluster op basis van pacemaker heeft. Dergelijke gevallen ondersteunt slechts één HANA exemplaar per eenheid. Voor [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) implementaties, alleen niet-opslag-methoden op basis van HA en Noodherstel werken als meer dan één tenant wordt geïmplementeerd. Met een tenant wordt geïmplementeerd, zijn alle methoden die geldig.  
@@ -60,7 +62,7 @@ U vindt meer informatie over maximale beschikbaarheid voor SAP HANA in de volgen
 - [Technisch document SAP HANA hoge beschikbaarheid](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [Handleiding voor SAP HANA-beheer](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [SAP HANA Academy Video voor SAP HANA System replicatie](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [SAP-notitie ondersteuning #1999880: veelgestelde vragen over SAP HANA System Replication](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
+- [SAP-notitie ondersteuning #1999880: veelgestelde vragen over SAP HANA System Replication](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP ondersteuning Opmerking #2165547 – SAP HANA Back-en herstel binnen replicatieomgeving voor SAP HANA-systeem](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP-notitie ondersteuning #1984882 – met SAP HANA System replicatie voor Hardware-uitwisseling met minimale/Zero Downtime](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 

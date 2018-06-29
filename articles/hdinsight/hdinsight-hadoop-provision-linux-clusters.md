@@ -1,6 +1,6 @@
 ---
-title: Configuratie van een cluster voor Hadoop, Spark, HBase, Kafka of R Server - Azure HDInsight | Microsoft Docs
-description: Stel Hadoop, Kafka, Spark, HBase, R Server of Storm-clusters voor HDInsight vanuit een browser, de Azure CLI, Azure PowerShell, REST of SDK.
+title: Configuratie van een cluster voor Hadoop, Spark, HBase, Kafka of ML-Services - Azure HDInsight | Microsoft Docs
+description: Stel Hadoop, Kafka, Spark, HBase, ML-Services of Storm-clusters voor HDInsight vanuit een browser, de Azure CLI, Azure PowerShell, REST of SDK.
 keywords: setup van hadoop-cluster, kafka configuratie van een cluster, spark-cluster setup, wat is hadoop-cluster
 services: hdinsight
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 2afe1e91465c92c6f6cba00c4383456ef78d225c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eddbd3f171cee9df9ff306368df47501ff9dcfca
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200194"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051590"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Clusters in HDInsight met Hadoop, Spark en Kafka instellen
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Informatie over het instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, interactieve Query, HBase, R Server of Storm. Ook informatie over het aanpassen van clusters en beveiliging toevoegen door ze te verbinden met een domein.
+Informatie over het instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, interactieve Query, HBase, ML-Services of Storm. Ook informatie over het aanpassen van clusters en beveiliging toevoegen door ze te verbinden met een domein.
 
 Een Hadoop-cluster bestaat uit meerdere virtuele machines (knooppunten) die worden gebruikt voor gedistribueerde verwerking van taken. Azure HDInsight verwerkt implementatiegegevens van de installatie en configuratie van afzonderlijke knooppunten, hoeft u alleen om algemene configuratie-informatie te geven. 
 
@@ -81,9 +81,9 @@ Azure HDInsight biedt momenteel de volgende clustertypen, elk met een reeks onde
 | [HBase](hbase/apache-hbase-overview.md) |Voor grote hoeveelheden schemaloos, NoSQL-gegevens verwerken |
 | [Interactieve Query](./interactive-query/apache-interactive-query-get-started.md) |In-memory caching voor interactieve en sneller Hive-query 's |
 | [Kafka](kafka/apache-kafka-introduction.md) | Een gedistribueerde streaming-platform die kan worden gebruikt voor het bouwen van realtime streaming gegevenspijplijnen en toepassingen |
-| [R Server](r-server/r-server-overview.md) |Diverse big data-statistieken, voorspellende modellen en machine learning-mogelijkheden |
+| [ML-Services](r-server/r-server-overview.md) |Diverse big data-statistieken, voorspellende modellen en machine learning-mogelijkheden |
 | [Spark](spark/apache-spark-overview.md) |In-memory verwerking, interactieve query's micro batch stroom verwerken |
-| [storm](storm/apache-storm-overview.md) |Gebeurtenissen in realtime verwerken |
+| [Storm](storm/apache-storm-overview.md) |Gebeurtenissen in realtime verwerken |
 
 
 ### <a name="hdinsight-version"></a>HDInsight-versie

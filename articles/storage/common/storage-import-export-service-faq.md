@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
-ms.openlocfilehash: ed928452946b871ee9192bda82fcbf205b96e6e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d324025a50346415de8232af4adc487a5d907331
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660810"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031393"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-service: veelgestelde vragen 
 Hieronder vindt u vragen en antwoorden die u hebt wanneer u uw Azure Import/Export-service gebruikt mag gegevens overdragen naar Azure storage. Vragen en antwoorden worden gerangschikt in de volgende categorieën:
@@ -135,7 +135,7 @@ Azure Import/Export-service maakt standaard gebruik van AES-128 bitlocker-versle
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```
-- Als u [WAImportExport V2](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) opgeven 'AlreadyEncrypted' en de sleutel in de driveset CSV opgeven.
+- Als u [WAImportExport V2](https://www.microsoft.com/en-us/download/details.aspx?id=55280) opgeven 'AlreadyEncrypted' en de sleutel in de driveset CSV opgeven.
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |

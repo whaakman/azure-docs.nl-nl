@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 2078fd3d23891a471d34de89b8e068ae896f8eb2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2c7e7d5a8f359eb811f67a7502f5fc11c05baba
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332300"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047323"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (algemene gegevensservice) of Dynamics CRM met behulp van Azure Data Factory
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar Microsoft Dynamics 365 of Microsoft Dynamics CRM. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory, die in het algemeen beschikbaar is, Zie [Kopieeractiviteit in versie 1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -326,7 +323,7 @@ Configureer het bijbehorende Data Factory-gegevenstype in de gegevenssetstructuu
 | Het gegevenstype Dynamics | Data Factory tussentijdse gegevenstype | Ondersteund als bron | Als sink ondersteund |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lang | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Booleaanse waarde | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boole-waarde | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | Datum en tijd | ✓ | ✓ |
 | AttributeType.Decimal | decimale | ✓ | ✓ |
@@ -334,7 +331,7 @@ Configureer het bijbehorende Data Factory-gegevenstype in de gegevenssetstructuu
 | AttributeType.EntityName | Reeks | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ |
-| AttributeType.ManagedProperty | Booleaanse waarde | ✓ | |
+| AttributeType.ManagedProperty | Boole-waarde | ✓ | |
 | AttributeType.Memo | Reeks | ✓ | ✓ |
 | AttributeType.Money | decimale | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | |

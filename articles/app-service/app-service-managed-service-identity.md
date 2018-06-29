@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: e6aa0d477f94cd5ab087beface65e3a28e5094f5
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936969"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061434"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Het gebruik van Azure Managed Service-identiteit in App Service en Azure Functions
 
@@ -186,8 +186,8 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 > [!div class="mx-tdBreakAll"]
 > |Parameternaam|In|Beschrijving|
 > |-----|-----|-----|
-> |Bron|Query|De AAD-bron-URI van de bron voor een token moet worden opgehaald.|
-> |API-versie|Query|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie ondersteund.|
+> |Bron|Query’s uitvoeren|De AAD-bron-URI van de bron voor een token moet worden opgehaald.|
+> |API-versie|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie ondersteund.|
 > |geheim|Koptekst|De waarde van de omgevingsvariabele MSI_SECRET.|
 
 
@@ -228,7 +228,7 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Codevoorbeelden
-Om deze aanvraag in C#:
+<a name="token-csharp"></a>Om deze aanvraag in C#:
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -239,7 +239,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 > [!TIP]
 > Voor .NET-talen, kunt u ook gebruiken [Microsoft.Azure.Services.AppAuthentication](#asal) aanvragen in plaats van het samenstellen van dit zelf.
 
-In Node.JS:
+<a name="token-js"></a>In Node.JS:
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -254,7 +254,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-In PowerShell:
+<a name="token-powershell"></a>In PowerShell:
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"

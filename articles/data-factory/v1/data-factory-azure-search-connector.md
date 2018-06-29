@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e30cffa836beb2086e3bc4e94bf60be94136d3a0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f68e1077ebc26245b25eae3b0310db74b6d1357e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620619"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046442"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Push-gegevens naar een Azure Search-index met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-azure-search-connector.md)
-> * [Versie 2 - Preview](../connector-azure-search.md)
+> * [Versie 1](data-factory-azure-search-connector.md)
+> * [Versie 2 (huidige versie)](../connector-azure-search.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [Azure Search-connector in V2](../connector-azure-search.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Azure Search-connector in V2](../connector-azure-search.md).
 
 In dit artikel wordt beschreven hoe de Kopieeractiviteit gebruiken om gegevens te pushen van een gegevensarchief ondersteunde bron voor Azure Search-index. Ondersteunde bron gegevensarchieven worden vermeld in de kolom bron van de [ondersteunde gegevensbronnen en put](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. In dit artikel is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, waarin Kopieeractiviteit en combinaties van ondersteunde gegevens store een algemeen overzicht van de verplaatsing van gegevens biedt.
 
@@ -41,7 +41,7 @@ U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens uit een geg
 
 De eenvoudigste manier om een pijplijn maken is met de **Wizard kopiëren**. Zie [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht over het maken van een pijplijn met de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
+U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
 
 Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren: 
 
@@ -80,8 +80,8 @@ Voor de Kopieeractiviteit, wanneer de sink van het type is **AzureSearchIndexSin
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Geeft aan of samenvoegen of wanneer een document al in de index bestaat te vervangen. Zie de [WriteBehavior eigenschap](#writebehavior-property).| samenvoegen (standaard)<br/>Uploaden| Nee |
-| writeBatchSize | Gegevens geüpload naar de Azure Search-index wanneer de buffergrootte writeBatchSize bereikt. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie. | 1-1000. Standaardwaarde is 1000. | Nee |
+| WriteBehavior | Geeft aan of samenvoegen of wanneer een document al in de index bestaat te vervangen. Zie de [WriteBehavior eigenschap](#writebehavior-property).| Samenvoegen (standaard)<br/>Uploaden| Nee |
+| WriteBatchSize | Gegevens geüpload naar de Azure Search-index wanneer de buffergrootte writeBatchSize bereikt. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie. | 1-1000. Standaardwaarde is 1000. | Nee |
 
 ### <a name="writebehavior-property"></a>De eigenschap WriteBehavior
 AzureSearchSink upserts bij het schrijven van gegevens. Bij het schrijven van een document, als de documentsleutel al in de Azure Search-index bestaat, updates Azure Search met andere woorden, het bestaande document in plaats van er een conflict uitzondering is opgetreden.
@@ -104,7 +104,7 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 | Reeks | J |
 | Int32 | J |
 | Int64 | J |
-| dubbele | J |
+| Double | J |
 | Boole-waarde | J |
 | DataTimeOffset | J |
 | Tekenreeksmatrix | N |

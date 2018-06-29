@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: b966ed4f1a9a8e659fbce185a807573d5321b251
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801650"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063849"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -46,6 +46,35 @@ Hier volgen enkele voorbeeld logboek typen die worden verzameld:
 *   **ETW-Logboeken**
 
 Deze bestanden worden verzameld en opgeslagen in een share Trace-collector. De **Get-AzureStackLog** PowerShell-cmdlet kan vervolgens worden gebruikt voor het verzamelen van deze indien nodig.
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Voor het uitvoeren van Get-AzureStackLog op Azure-Stack geïntegreerd systemen 
+Het hulpprogramma log verzameling op een geïntegreerd systeem uitgevoerd, moet u beschikken over naar de bevoorrechte eindpunt (PEP). Hier volgt een voorbeeldscript dat u kunt uitvoeren met behulp van de PEP voor het verzamelen van Logboeken op een geïntegreerde systeem:
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- De parameters **OutputSharePath** en **OutputShareCredential** worden gebruikt voor het uploaden van logboeken naar een externe gedeelde map.
+- Zoals weergegeven in het vorige voorbeeld de **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Dit kan erg handig scenario's zoals het verzamelen van Logboeken nadat een updatepakket zijn toegepast op een geïntegreerde systeem.
+
+
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Voor het uitvoeren van Get-AzureStackLog op een systeem Azure Stack Development Kit (ASDK)
 1. Meld u aan als **AzureStack\CloudAdmin** op de host.
@@ -78,65 +107,6 @@ Deze bestanden worden verzameld en opgeslagen in een share Trace-collector. De *
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Voor het uitvoeren van Get-AzureStackLog op Azure-Stack geïntegreerd systemen versie 1804 en hoger
-
-Het hulpprogramma log verzameling op een geïntegreerd systeem uitgevoerd, moet u beschikken over naar de bevoorrechte eindpunt (PEP). Hier volgt een voorbeeldscript dat u kunt uitvoeren met behulp van de PEP voor het verzamelen van Logboeken op een geïntegreerde systeem:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- De parameters **OutputSharePath** en **OutputShareCredential** worden gebruikt voor het uploaden van logboeken naar een externe gedeelde map.
-- Zoals weergegeven in het vorige voorbeeld de **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Dit kan erg handig scenario's zoals het verzamelen van Logboeken nadat een updatepakket zijn toegepast op een geïntegreerde systeem.
-
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Voor het uitvoeren van Get-AzureStackLog op Azure-Stack geïntegreerd systemen versie 1803 en lager
-
-Het hulpprogramma log verzameling op een geïntegreerd systeem uitgevoerd, moet u beschikken over naar de bevoorrechte eindpunt (PEP). Hier volgt een voorbeeldscript dat u kunt uitvoeren met behulp van de PEP voor het verzamelen van Logboeken op een geïntegreerde systeem:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Wanneer u de logboeken van de PEP verzameld, geeft u de **OutputPath** parameter moet een locatie op de machine Hardware Lifecycle Host (HLH). Zorg er ook voor dat de locatie is versleuteld.
-- De parameters **OutputSharePath** en **OutputShareCredential** zijn optioneel en worden gebruikt wanneer u logboeken naar een externe gedeelde map uploadt. Deze parameters gebruiken *bovendien* naar **OutputPath**. Als **OutputPath** niet is opgegeven, het hulpprogramma log verzameling maakt gebruik van het systeemstation van de VM PEP voor opslag. Hierdoor kan het script is mislukt, omdat de schijfruimte beperkt is.
-- Zoals weergegeven in het vorige voorbeeld de **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Dit kan erg handig scenario's zoals het verzamelen van Logboeken nadat een updatepakket zijn toegepast op een geïntegreerde systeem.
-
-
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>De parameter-overwegingen voor zowel ASDK en geïntegreerde systemen
 
 - Als de **FromDate** en **ToDate** parameters niet zijn opgegeven, logboeken worden standaard verzameld voor de afgelopen vier uur.
@@ -165,7 +135,7 @@ if($s)
    | BareMetal              | InfraServiceController           | TraceCollector             |
    | BRP                    | Infrastructuur                   | URP                        |
    | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
-   | Cloud                  | KeyVaultControlPlane             | Virtuele machines            |
+   | Cloud                  | KeyVaultControlPlane             | virtuele machines            |
    | Cluster                | KeyVaultDataPlane                | IS                        |
    | Compute                | KeyVaultInternalControlPlane     | WASBootstrap               |
    | KPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: c2beb67a27b667d31402b903f38dbf116e9425d0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bace90021d5a786f0b014e617bd0ae8e6043bb36
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301072"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060124"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-ondersteuning voor Azure App Service op Linux
 
@@ -113,13 +113,13 @@ Om te beginnen, moet u eerst installeren [Azure CLI](/cli/azure/install-azure-cl
 De meest recente App Service-extensie toevoegen door te voeren [az-extensie toevoegen](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
 
 ```azurecli-interactive
-az extension add -–name webapp
+az extension add --name webapp
 ```
 
 Als u al hebt uitgevoerd `az extension add` voordat, uitvoert [az extensie update](/cli/azure/extension?view=azure-cli-latest#az-extension-update) in plaats daarvan:
 
 ```azurecli-interactive
-az extension update -–name webapp
+az extension update --name webapp
 ```
 
 Open een externe verbinding met uw app met de [az webapp-verbinding met extern maken](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) opdracht. Geef  _\<groep\_name >_ en \_< app\_name > _ voor uw app en vervang \<poort > met een lokale poortnummer.

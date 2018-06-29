@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 85c854e697e7178bbdb3429c5384d67731770117
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d31859a2af0402789b03447510d510a9658961de
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335509"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051005"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Gegevens kopiëren naar een Azure Search-index met behulp van Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-azure-search-connector.md)
-> * [Versie 2 - Preview](connector-azure-search.md)
+> * [Versie 1](v1/data-factory-azure-search-connector.md)
+> * [Huidige versie](connector-azure-search.md)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren naar Azure Search-index. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Azure Search-connector in V1](v1/data-factory-azure-search-connector.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -177,7 +174,7 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 | Int32 | J |
 | Int64 | J |
 | Double | J |
-| Booleaanse waarde | J |
+| Boole-waarde | J |
 | DataTimeOffset | J |
 | Tekenreeksmatrix | N |
 | GeographyPoint | N |

@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: b8a2c0dbadb0124b9250849a0260f5b34d38a5c3
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b681598f953d217ca636fb5c0adc3de4ddbebd60
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021660"
+ms.locfileid: "37031784"
 ---
 # <a name="integrate-speech-service"></a>Spraak service integreren
 De [spraak service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u met één aanvraag ontvangen van audio en LUIS voorspelling JSON-objecten retourneren.
@@ -53,7 +53,9 @@ Na het importeren van de app, selecteer **entiteiten**, klikt u vervolgens **voo
 
   Op de **publiceren** pagina, het verzamelen van de app-ID, het publiceren van regio en abonnements-ID van de LUIS sleutel gemaakt in de [eindpuntsleutel maken LUIS](#create-luis-endpoint-key) sectie. U moet de code voor het gebruik van deze waarden verderop in dit artikel te wijzigen. 
 
-  Deze waarden zijn opgenomen in de eindpunt-URL aan de onderkant van de **publiceren** pagina voor de sleutel die u hebt gemaakt. Voer **niet** gratis starter-toets gebruiken voor deze oefening. 
+  Deze waarden zijn opgenomen in de eindpunt-URL aan de onderkant van de **publiceren** pagina voor de sleutel die u hebt gemaakt. 
+  
+  Voer **niet** gratis starter-toets gebruiken voor deze oefening. Alleen een **Language Understanding** sleutel in de Azure portal gemaakt voor deze oefening werkt. 
 
   https://**regio**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? abonnement sleutel =**LUISKEY**& q =
 
@@ -84,22 +86,13 @@ Het bestand heeft al het Human Resources intents toegewezen.
 
 Ontwikkel en voer de app. 
 
-![Schermopname van het programma uitvoeren vanaf de opdrachtregel](./media/luis-tutorial-speech-to-intent/cmdline-1.png)
-
 ## <a name="test-code-with-utterance"></a>Code met utterance testen
-Selecteer **8** en spreek in de microfoon 'Die is de manager van John Smith'.
+Selecteer **1** en spreek in de microfoon 'Die is de manager van John Smith'.
 
 ```cmd
-1. Speech recognition with microphone input.
-2. Speech recognition in the specified language.
-3. Speech recognition with file input.
-4. Speech recognition using customized model.
-5. Speech continuous recognition using events.
-6. Translation with microphone input.
-7. Translation with file input.
-8. Speech recognition of LUIS intent.
+1. Speech recognition of LUIS intent.
 0. Stop.
-Your choice: 8
+Your choice: 1
 LUIS...
 Say something...
 ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
@@ -127,7 +120,7 @@ De juiste bedoeling **GetEmployeeOrgChart**, is gevonden met een betrouwbaarheid
 De SDK spraak retourneert het gehele LUIS-antwoord. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer deze niet langer nodig is, verwijdert u de app LUIS HumanResources. Om dit te doen, selecteert u het menu drie punt (...) rechts van de naam van de app in de lijst met Apps, selecteer **verwijderen**. In het pop-updialoogvenster **app verwijderen?**, selecteer **Ok**.
+Wanneer deze niet langer nodig is, verwijdert u de app LUIS HumanResources. Selecteer hiervoor het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 Houd er rekening mee te verwijderen van de map LUIS-Samples wanneer u klaar bent met de voorbeeldcode.
 

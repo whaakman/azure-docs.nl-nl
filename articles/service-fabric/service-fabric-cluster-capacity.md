@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: a5046a5e3771e95d76bb6edc7987a1e3176abeb0
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309412"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061555"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen bij capaciteitsplanning
 Voor productie-implementatie is capaciteitsplanning een belangrijke stap. Hier zijn enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -27,6 +27,10 @@ Voor productie-implementatie is capaciteitsplanning een belangrijke stap. Hier z
 * Het nummer van uw cluster beginnen moet met knooppunttypen
 * De eigenschappen van elk knooppunttype (grootte, primair, internetgericht, aantal virtuele machines, enz.)
 * De betrouwbaarheid en duurzaamheid van de clusterkenmerken
+
+> [!NOTE]
+> Neem alle minimaal **niet toegestaan** beleidswaarden upgrade tijdens de planning. Dit is om ervoor te zorgen dat de waarden op de juiste wijze is ingesteld en te verhelpen branden af van uw cluster later vanwege onveranderbaar system configuratie-instellingen. 
+> 
 
 Laat het ons kort Bekijk elk van deze items.
 

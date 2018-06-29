@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 700569684888428032997dd81c10023c6fd5a7d8
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f293aab67fb5e952dc32e20a6370d45cded682b5
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823302"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "35761994"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Pig-taken uitvoeren vanaf een extern bureaublad-verbinding
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -78,6 +78,7 @@ Extern bureaublad inschakelen voor het HDInsight-cluster en vervolgens verbindin
     <td>RESULTAAT = volgorde FREQUENTIES door aantal desc;</td><td>Hiermee worden de logboekniveaus gerangschikt op het aantal (aflopend) en opgeslagen in het resultaat</td>
     </tr>
 </table>
+
 6. U kunt ook de resultaten van een transformatie opslaan met behulp van de `STORE` instructie. Bijvoorbeeld de volgende opdracht slaat de `RESULT` naar de **/example/data/pigout** map in de standaard storage-container voor uw cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'
@@ -86,6 +87,7 @@ Extern bureaublad inschakelen voor het HDInsight-cluster en vervolgens verbindin
    > De gegevens worden opgeslagen in de opgegeven map in bestanden met de naam **onderdeel nnnnn**. Als de map al bestaat, ontvangt u een foutbericht weergegeven.
    >
    >
+   
 7. Voer de volgende instructie de prompt knorvis om af te sluiten.
 
         QUIT;

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 37239a45cffe18478b8302ccf1ee95c8edd0423a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b36014057eb1713b2b056cd203a099c59d9b5d4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592157"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031767"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Gebruiker aanmelden met Azure Active Directory Pass-through-verificatie
 
@@ -49,7 +49,7 @@ U kunt combineren Pass through-verificatie met de [naadloze eenmalige aanmelding
 - *Beveiligen*
   - On-premises wachtwoorden worden nooit opgeslagen in de cloud in een formulier.
   - De agent maakt alleen uitgaande verbindingen van binnen uw netwerk. Daarom is er geen vereiste voor het installeren van de agent in een perimeternetwerk, ook wel een DMZ genoemd.
-  - Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijk toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA) en door [wachtwoord beveiligingsaanvallen uitgefilterd](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijk toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA) en door [wachtwoord beveiligingsaanvallen uitgefilterd](../authentication/howto-password-smart-lockout.md).
 - *Maximaal beschikbare*
   - Extra agents kunnen worden geïnstalleerd op meerdere lokale servers voor maximale beschikbaarheid van aanmeldingsaanvragen.
 
@@ -64,12 +64,12 @@ U kunt combineren Pass through-verificatie met de [naadloze eenmalige aanmelding
 - Kan worden ingeschakeld via [Azure AD Connect](active-directory-aadconnect.md).
 - Een lichtgewicht lokale agent die luistert naar en reageert op aanvragen van wachtwoord validatie wordt gebruikt.
 - Installatie van meerdere agents biedt hoge beschikbaarheid van aanmeldingsaanvragen.
-- Deze [beveiligt](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) uw lokale accounts tegen brute force-aanvallen wachtwoord in de cloud.
+- Deze [beveiligt](../authentication/howto-password-smart-lockout.md) uw lokale accounts tegen brute force-aanvallen wachtwoord in de cloud.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [**Snel starten** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) - laten en Azure AD Pass-through-verificatie wordt uitgevoerd.
-- [**Vergrendelen van smartcard** ](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) -mogelijkheid slimme accountvergrendeling configureren op uw tenant gebruikersaccounts te beveiligen.
+- [**Vergrendelen van smartcard** ](../authentication/howto-password-smart-lockout.md) -mogelijkheid slimme accountvergrendeling configureren op uw tenant gebruikersaccounts te beveiligen.
 - [**Huidige beperkingen** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) -welke scenario's worden ondersteund en welke worden niet meer.
 - [**Technische diepgaand** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -begrijpen hoe deze functie werkt.
 - [**Veelgestelde vragen** ](active-directory-aadconnect-pass-through-authentication-faq.md) -antwoorden op veelgestelde vragen.

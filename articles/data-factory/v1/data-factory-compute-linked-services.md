@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621748"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053651"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [Compute-gekoppelde services in versie 2](../compute-linked-services.md).
+> In dit artikel is van toepassing op versie 1 van Azure Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Compute gekoppelde services gevonden in](../compute-linked-services.md).
 
 Dit artikel wordt uitgelegd van de compute-omgevingen die u kunt gegevens verwerken of transformatie. Bovendien wordt informatie over verschillende configuraties (op aanvraag versus bring your own) dat Data Factory ondersteunt bij het configureren van gekoppelde services die deze koppeling-omgevingen aan een Azure data factory COMPUTE.
 
@@ -66,7 +66,7 @@ Na 31 juli 2018:
 - Als u van een gekoppelde HDInsight-service op aanvraag gebruikmaakt voor het uitvoeren van de Data Factory versie 1 DotNet aangepaste activiteit, update de DotNet aangepaste activiteit JSON-definitie te gebruiken in plaats daarvan een Azure-Batch gekoppelde service. Zie voor meer informatie [aangepaste activiteiten gebruiken in een Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> Als u uw bestaande, bring your own cluster HDInsight gekoppeld apparaat in de Data Factory versie 1 of een bring your own en on-demand gekoppelde HDInsight-service in Azure Data Factory versie 2, hoeft u geen actie is vereist. In deze scenario's, is het meest recente versie ondersteuningsbeleid van HDInsight-clusters al afgedwongen. 
+> Als u uw bestaande, bring your own cluster HDInsight gekoppeld apparaat in de Data Factory-versie 1 of een bring your own en on-demand gekoppelde HDInsight-service in Azure Data Factory, hoeft u geen actie is vereist. In deze scenario's, is het meest recente versie ondersteuningsbeleid van HDInsight-clusters al afgedwongen. 
 >
 > 
 

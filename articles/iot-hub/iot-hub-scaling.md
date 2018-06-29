@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: b7751bd1b309333d5ef40530b0fa499a42a57cd1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752245"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030434"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -43,7 +43,7 @@ Wanneer u uw IoT-hub maakt u een upgrade kunt uitvoeren via de laag basic naar d
 | [Controle en diagnostische gegevens](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Messaging-cloud-naar-apparaat](iot-hub-devguide-c2d-guidance.md) |   | Ja |
 | [Apparaat horende](iot-hub-devguide-device-twins.md), [Module horende](iot-hub-devguide-module-twins.md) en [Apparaatbeheer](iot-hub-device-management-overview.md) |   | Ja |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Ja |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
 
 IoT Hub biedt ook een gratis laag die is bedoeld voor testen en evalueren. De mogelijkheden van de standard-laag, maar beperkt messaging rechten heeft. U upgraden niet van de laag gratis naar basis of standaard. 
 
@@ -59,9 +59,9 @@ Het verschil in ondersteunde mogelijkheden tussen de lagen van IoT Hub, basis en
 | Module ophalen | Ja | Ja |
 | [Register statistieken opvragen](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Ja | Ja |
 | [Ophalen van de statistieken van services](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Ja | Ja |
-| [Apparaat plaatsen](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Ja | Ja |
+| [Maken of bijwerken van apparaat](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Ja | Ja |
 | Module plaatsen | Ja | Ja |
-| [Query-apparaten](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Ja | Ja |
+| [Query-IoT-Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Ja | Ja |
 | Query-modules | Ja | Ja |
 | [Bestand uploaden SAS-URI maken](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Ja | Ja |
 | [Apparaat gebonden ontvangen](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Ja | Ja |

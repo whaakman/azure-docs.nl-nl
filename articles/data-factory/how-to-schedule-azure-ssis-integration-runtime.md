@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 84d81dd9e1ef51a2a1705210cd7002a685bdf8fb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266818"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050604"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Het starten en stoppen van de integratie van Azure SSIS runtime volgens een schema
 Dit artikel wordt beschreven hoe u plant starten en stoppen van een Azure-SSIS-integratie runtime (IR) met behulp van Azure Automation en Azure Data Factory. Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (IR) een kosten die gekoppeld. Daarom wilt u waarschijnlijk de IR alleen uitvoeren als u wilt uitvoeren van SSIS-pakketten in Azure, en de IR stoppen wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)).
@@ -34,10 +34,6 @@ Hier volgen de stappen op hoog niveau beschreven in dit artikel:
 3. **Maken van twee webhooks voor het runbook**, één voor het opnieuw starten en de andere voor de bewerking uit te stoppen. U kunt de URL's van deze webhooks gebruiken bij het configureren van webactiviteiten in een Data Factory-pijplijn. 
 4. **Maken van een Data Factory-pijplijn**. De pijplijn die u maakt, bestaat uit drie activiteiten. De eerste **Web** activiteit roept de eerste webhook voor het starten van de Azure SSIS-IR De **opgeslagen Procedure** activiteit wordt uitgevoerd voor een SQL-script dat wordt uitgevoerd het SSIS-pakket. De tweede **Web** activiteit stopt de SSIS-IR van Azure Zie voor meer informatie over het aanroepen van een SSIS-pakket van een Data Factory-pijplijn met behulp van de activiteit opgeslagen Procedure [aanroepen van een pakket SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Vervolgens maakt u een schema-trigger voor het plannen van de pijplijn om uit te voeren met de frequentie die u opgeeft.
 
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [aanroepen SSIS-pakketten met behulp van de activiteit opgeslagen procedure in versie 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
-
- 
 ## <a name="prerequisites"></a>Vereisten
 Als u dit nog niet hebt al een Azure-SSIS-integratie runtime ingericht, ingericht door de instructies te volgen in de [zelfstudie](tutorial-create-azure-ssis-runtime-portal.md). 
 
@@ -254,7 +250,7 @@ Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning make
       - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
          
       Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-4. Selecteer **V2 (Preview)** als de **versie**.
+4. Selecteer **V2** voor de **versie**.
 5. Selecteer de **locatie** voor de gegevensfactory. In de lijst zie u alleen locaties die worden ondersteund voor het maken van gegevensfactory’s.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.

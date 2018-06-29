@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2e0b448b5ab48e7be3429d3d3b5b898b6bf22115
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e51061dc781e4ec6e822cde9cc450887ff3b1368
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261845"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061182"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI-element
 Een Selectiebesturingselement met een rij van de beschikbare opties.
@@ -44,7 +44,8 @@ Een Selectiebesturingselement met een rij van de beschikbare opties.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
@@ -53,8 +54,7 @@ Een Selectiebesturingselement met een rij van de beschikbare opties.
 ## <a name="remarks"></a>Opmerkingen
 - Het label voor `constraints.allowedValues` is de tekst weergeven voor een item en de waarde is de uitvoerwaarde van het element als geselecteerd.
 - Indien opgegeven, de standaardwaarde moet een label aanwezig is in `constraints.allowedValues`. Als niet wordt opgegeven, het eerste item in `constraints.allowedValues` is standaard geselecteerd. De standaardwaarde is **null**.
-- `constraints.allowedValues` moet ten minste één item bevatten.
-- Dit element biedt geen ondersteuning voor de `constraints.required` eigenschap; een item moet worden geselecteerd om te worden gevalideerd.
+- `constraints.allowedValues` moet ten minste één item hebben.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 ```json

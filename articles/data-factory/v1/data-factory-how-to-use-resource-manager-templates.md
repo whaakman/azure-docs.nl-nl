@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0a03bb836f789a2a1cb58705a6758000c07036d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3419f8718396bfb4ec894310e545f6a8a5b8f718
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621306"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049261"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Sjablonen gebruiken voor het maken van Azure Data Factory-entiteiten
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. 
+> In dit artikel is van toepassing op versie 1 van de Data Factory. 
 
 ## <a name="overview"></a>Overzicht
 Tijdens het gebruik van Azure Data Factory voor uw behoeften van de integratie gegevens u zult zien hergebruiken van hetzelfde patroon tussen verschillende omgevingen of dezelfde taak binnen dezelfde oplossing herhaaldelijk implementeren. Sjablonen te implementeren en beheren van deze scenario's in een eenvoudige manier. Sjablonen in Azure Data Factory zijn ideaal voor scenario's voor hergebruik en herhaling.
@@ -33,7 +33,7 @@ Houd rekening met de situatie waarin een organisatie 10 fabrieken over de hele w
 
 In dit geval wordt moet een taak worden herhaald in dezelfde omgeving maar met verschillende waarden voor de 10 gegevensfactory's voor elke fabriek. In feite **herhaling** aanwezig is. Templating kunnen de abstrahering van deze algemene stroom (dat wil zeggen, pijplijnen met dezelfde activiteiten in elke gegevensfactory), maar een afzonderlijke parameter-bestand wordt gebruikt voor elke fabriek.
 
-Bovendien, als de organisatie wil deze 10 gegevensfactory meerdere keren implementeren in verschillende omgevingen, sjablonen kunnen deze gebruiken **hergebruik** door het gebruik van afzonderlijke parameterbestanden voor ontwikkeling, testen en productie-omgevingen.
+Bovendien, als de organisatie wil deze 10 gegevensfactory meerdere keren implementeren in verschillende omgevingen, sjablonen kunnen deze gebruiken **hergebruik** door het gebruik van afzonderlijke parameterbestanden voor ontwikkeling, testen, en productieomgevingen.
 
 ## <a name="templating-with-azure-resource-manager"></a>Templating met Azure Resource Manager
 [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-overview.md#template-deployment) vormen een uitstekende manier om te bereiken templating in Azure Data Factory. Resource Manager-sjablonen worden de infrastructuur en configuratie van uw Azure-oplossing via een JSON-bestand definieert. Omdat Azure Resource Manager-sjablonen met alle/meeste Azure-services werkt, kan het veel voor het beheren van eenvoudig alle resources van uw Azure activa gebruikt. Zie [Azure Resource Manager-sjablonen samenstellen](../../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over de Resource Manager-sjablonen in het algemeen.
@@ -237,7 +237,7 @@ Zie voor aanbevolen procedures op parameters voorzien [aanbevolen procedures voo
 * Instellingen variëren door omgeving (voorbeeld: ontwikkeling, testen en productie)
 * Geheimen (zoals wachtwoorden)
 
-Als u nodig hebt voor het ophalen van geheimen van [Azure Key Vault](../../key-vault/key-vault-get-started.md) bij het implementeren van Azure Data Factory-entiteiten met behulp van sjablonen, geef de **sleutelkluis** en **geheime naam** zoals weergegeven in het volgende voorbeeld:
+Als u nodig hebt voor het ophalen van geheimen van [Azure Key Vault](../../key-vault/key-vault-get-started.md) bij het implementeren van Azure Data Factory-entiteiten met behulp van sjablonen, geef de **sleutelkluis** en **geheime naam** zoals weergegeven in de bijvoorbeeld:
 
 ```JSON
 "parameters": {

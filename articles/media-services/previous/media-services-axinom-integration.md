@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 0aaf0eea0414d234c9a24f707df5eed491a61c08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81247863eb86752113989f6e48e79f5c8bc75505
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788793"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061151"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom gebruiken om Widevine-licenties te leveren aan Azure Media Services
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Zie [genereren van JWT-tokens](media-services-axinom-integration.md#jwt-token-ge
 
 ## <a name="azure-media-player-preparation"></a>Azure Media Player voorbereiding
 AMP v1.4.0 ondersteunt het afspelen van inhoud van het AMS die dynamisch wordt verpakt met PlayReady en Widevine DRM.
-Als de licentieserver Widevine tokenverificatie niet vereist, zijn er geen extra dat u moet doen om de inhoud van een streepje beveiligd met Widevine testen. Voor een voorbeeld het team AMP biedt een eenvoudige [voorbeeld](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), waar u deze in de werkt rand en IE11 met PlayReady en Chrome met Widevine kunt zien.
+Als de licentieserver Widevine tokenverificatie niet vereist, zijn er geen extra dat u moet doen om de inhoud van een streepje beveiligd met Widevine testen. Voor een voorbeeld het team AMP biedt een eenvoudige [voorbeeld](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html), waar u deze in de werkt rand en IE11 met PlayReady en Chrome met Widevine kunt zien.
 De Widevine-licentie geleverd door Axinom JWT-token is verificatie vereist. De JWT-token moet worden verzonden met licentieaanvraag via een HTTP-header 'X AxDRM bericht'. Hiertoe moet u de volgende javascript toevoegen op de webpagina die als host fungeert AMP voordat u de bron:
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>

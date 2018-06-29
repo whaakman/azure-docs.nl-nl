@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814795"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066081"
 ---
 # <a name="internet-of-things-security-architecture"></a>Internet der dingen-beveiligingsarchitectuur
 
@@ -29,7 +29,7 @@ Veel ontwikkelteams doen een uitstekende taak voor het vastleggen van de functio
 
 ### <a name="when-to-threat-model"></a>Wanneer dreiging model
 
-[Risicomodel](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) biedt de grootste waarde wanneer u deze in de ontwerpfase opnemen. Wanneer u ontwerpt, hebt u de grootste flexibiliteit te wijzigen om te elimineren bedreigingen. Bedreigingen bespaard omdat niet met opzet, is het gewenste resultaat. Het is veel eenvoudiger dan beperkingen toe te voegen, deze testen en blijven ze actueel blijven en bovendien die verwijdering is niet altijd mogelijk. Wordt het moeilijker te elimineren bedreigingen, zoals een product meer volwassen wordt en op zijn beurt uiteindelijk vereist meer werk en veel moeilijker voor-en nadelen dan threat modeling vroeg stadium in de ontwikkeling.
+[Risicomodel](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) biedt de grootste waarde wanneer u deze in de ontwerpfase opnemen. Wanneer u ontwerpt, hebt u de grootste flexibiliteit te wijzigen om te elimineren bedreigingen. Bedreigingen bespaard omdat niet met opzet, is het gewenste resultaat. Het is veel eenvoudiger dan beperkingen toe te voegen, deze testen en blijven ze actueel blijven en bovendien die verwijdering is niet altijd mogelijk. Wordt het moeilijker te elimineren bedreigingen, zoals een product meer volwassen wordt en op zijn beurt uiteindelijk vereist meer werk en veel moeilijker voor-en nadelen dan threat modeling vroeg stadium in de ontwikkeling.
 
 ### <a name="what-to-threat-model"></a>Wat u moet een risicomodel
 
@@ -103,7 +103,7 @@ De volgende secties worden besproken standaardonderdelen gewoonlijk in deze zone
 
 ### <a name="the-device-zone"></a>De apparaat-Zone
 
-De apparaat-omgeving is de onmiddellijke fysieke ruimte rond het apparaat, waar fysieke toegang en/of 'lokale netwerk' peer-to-peer digitale toegang tot het apparaat is mogelijk. 'Lokale netwerk' wordt ervan uitgegaan dat een netwerk dat is uniek en geïsoleerd van – maar bevat beperkt bereik draadloze radio-technologie waarmee peer-to-peer-communicatie van apparaten mogelijk met – het openbare Internet overbrugd. Dit gebeurt *niet* bevatten netwerk virtualisatietechnologie de illusie van een lokaal netwerk maken en ook bevat geen openbare operator netwerken waarvoor geen twee apparaten communiceren via openbaar netwerk ruimte alsof ze een peer-to-peer-communicatie relatie invoeren.
+De apparaat-omgeving is de onmiddellijke fysieke ruimte rond het apparaat, waar fysieke toegang en/of 'lokale netwerk' peer-to-peer digitale toegang tot het apparaat is mogelijk. 'Lokale netwerk' wordt ervan uitgegaan dat een netwerk dat is uniek en geïsoleerd van – maar bevat beperkt bereik draadloze radio-technologie waarmee peer-to-peer-communicatie van apparaten mogelijk met – het openbare Internet overbrugd. Dit gebeurt *niet* bevatten netwerk virtualisatietechnologie de illusie van een lokaal netwerk maken en deze ook bevat geen openbare operator netwerken waarvoor geen twee apparaten communiceren via openbaar netwerk ruimte als ze zijn om in te voeren van de relatie van een peer-to-peer-communicatie.
 
 ### <a name="the-field-gateway-zone"></a>De Zone van de Gateway veld
 
@@ -250,13 +250,13 @@ Elk gateway-apparaat en het veld heeft een vorm van opslag (tijdelijke voor queu
 
 ### <a name="device-and-event-processingcloud-gateway-zone"></a>Apparaat- en gebeurtenis verwerking/cloud gateway zone
 
-Een cloudgateway is een systeem dat Hiermee kunt externe communicatie van en naar de apparaten of veld gateways uit diverse verschillende sites op openbaar netwerk ruimte, meestal naar een cloud-gebaseerd beheer en het systeem voor analyse, een federatieve van dergelijke systemen. In sommige gevallen kan vergemakkelijken een cloudgateway onmiddellijk toegang voor apparaten voor speciale doeleinden van aansluitingen zoals tablets en telefoons. In de context die hier worden besproken, 'cloud' is bedoeld om te verwijzen naar een specifieke gegevensverwerkingssysteem die niet is gekoppeld aan dezelfde site als de gekoppelde apparaten of veld gateways en waar operationele maatregelen te voorkomen dat fysieke toegang gericht, maar is niet noodzakelijkerwijs een 'openbare cloud'-infrastructuur. Een cloudgateway kan mogelijk worden toegewezen in een netwerkvirtualisatie-overlay naar de cloudgateway en alle gekoppelde apparaten of het veld gateways van ander netwerkverkeer kastje. De cloudgateway zelf is niet een controlesysteem apparaat of een verwerking of opslagfaciliteit voor gegevens van apparaten; deze interface met de cloudgateway van de. De gateway cloud zone bevat de cloudgateway zelf samen met alle veld gateways en apparaten direct of indirect gekoppeld.
+Een cloudgateway is een systeem dat Hiermee kunt externe communicatie van en naar de apparaten of veld gateways uit diverse verschillende sites op openbaar netwerk ruimte, meestal naar een cloud-gebaseerd beheer en het systeem voor analyse, een federatieve van dergelijke systemen. In sommige gevallen kan vergemakkelijken een cloudgateway onmiddellijk toegang voor apparaten voor speciale doeleinden van aansluitingen zoals tablets en telefoons. In de context besproken hier 'cloud' is bedoeld om te verwijzen naar een specifieke gegevensverwerkingssysteem die niet is gebonden aan dezelfde site als de gekoppelde apparaten of veld gateways en waar operationele maatregelen te voorkomen dat bepaalde fysieke toegang, maar niet per se op een ' infrastructuur voor openbare cloud'. Een cloudgateway kan mogelijk worden toegewezen in een netwerkvirtualisatie-overlay naar de cloudgateway en alle gekoppelde apparaten of het veld gateways van ander netwerkverkeer kastje. De cloudgateway zelf is niet een controlesysteem apparaat of een verwerking of opslagfaciliteit voor gegevens van apparaten; deze interface met de cloudgateway van de. De gateway cloud zone bevat de cloudgateway zelf samen met alle veld gateways en apparaten direct of indirect gekoppeld.
 
 Cloudgateway is voornamelijk aangepaste ingebouwde stukje software uitgevoerd als een service met blootgestelde eindpunten waarmee veldgateway en apparaten verbinding maken. Het moet als zodanig ontworpen beveiligd zijn. Ga als volgt [SDL](http://www.microsoft.com/sdl) processen voor het ontwerpen en bouwen van deze service.
 
 #### <a name="services-zone"></a>Services-zone
 
-Een besturingssysteem (of een domeincontroller) is een oplossing voor software die is gekoppeld aan een apparaat of een veldgateway of cloudgateway omwille van een of meerdere apparaten beheren en/of voor het verzamelen en/of opslaan en/of apparaatgegevens voor presentatie of latere controledoeleinden analyseren. Besturingssystemen zijn de enige entiteiten in het bereik van deze discussie die onmiddellijk interactie met mensen vergemakkelijken. De uitzonderingen zijn tussenliggende fysieke besturingselement verwerkingsinformatie op apparaten, zoals een switch waarmee een gebruiker het apparaat uitschakelen of andere eigenschappen wijzigen en waarvoor er geen functioneel equivalent die digitaal toegankelijk is.
+Een besturingssysteem (of domeincontroller) is een oplossing voor software die is gekoppeld aan een apparaat of een veldgateway of cloudgateway omwille van een of meerdere apparaten beheren en/of voor het verzamelen en/of opslaan en/of analyseren van gegevens met een apparaat voor presentatie, of daaropvolgende controledoeleinden. Besturingssystemen zijn de enige entiteiten in het bereik van deze discussie die onmiddellijk interactie met mensen vergemakkelijken. De uitzonderingen zijn tussenliggende fysieke besturingselement verwerkingsinformatie op apparaten, zoals een switch waarmee een gebruiker het apparaat uitschakelen of andere eigenschappen wijzigen en waarvoor er geen functioneel equivalent die digitaal toegankelijk is.
 
 Tussenliggende fysieke besturingselement verwerkingsinformatie zijn deze waar de functie van de fysieke oppervlak van bestuur logica handtekeningcertificaatsleutel zodat een equivalente functie extern kan worden gestart of invoer conflicten met externe invoer kunnen worden vermeden – zoals intermediated besturingselement verwerkingsinformatie zijn conceptueel aan een lokale controlesysteem die gebruikmaakt van dezelfde onderliggende functionaliteit als elk ander systeem beheer op afstand die het apparaat kan worden gekoppeld aan parallel gekoppeld. Bovenste bedreigingen voor de cloud computing kunnen worden gelezen als [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) pagina.
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 982c6112a19654e268c9c50fec35d65fbc1766c2
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656360"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062017"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Hoge beschikbaarheid in SUSE met behulp van de STONITH instellen
 Dit document bevat de gedetailleerde stapsgewijze instructies voor het instellen van de hoge beschikbaarheid op SUSE-besturingssysteem met behulp van het apparaat STONITH.
@@ -538,6 +538,6 @@ Na de vorige oplossing ophalen Knooppunt2 toegevoegd aan het cluster
 U vindt meer informatie over SUSE HA setup in de volgende artikelen: 
 
 - [Scenario voor optimale SAP HANA SR prestaties](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
-- [Hekwerk op basis van opslag](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)
+- [Hekwerk op basis van opslag](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
 - [Blog - pacemaker heeft Cluster gebruikt voor SAP HANA - deel 1](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
 - [Blog - pacemaker heeft Cluster gebruikt voor SAP HANA - deel 2](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

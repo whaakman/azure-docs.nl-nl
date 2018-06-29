@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895630"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061538"
 ---
 # <a name="azure-network-security"></a>Azure-netwerkbeveiliging
 
@@ -27,7 +27,7 @@ We weten dat beveiliging taak in de cloud en hoe belangrijk is dat u tijdig en i
 
 Microsoft Azure biedt vertrouwelijkheid, integriteit en beschikbaarheid van klantgegevens, maar ook transparante accountability. Als u wilt, kunt u beter inzicht in de verzameling van netwerk-beveiligingsmechanismen geïmplementeerd in Microsoft Azure vanuit het perspectief van de klant van is dit artikel 'Azure Network Security' geschreven om een uitgebreid overzicht van het netwerk beveiligingsmechanismen beschikbaar met Microsoft Azure.
 
-Dit artikel is bedoeld om u te informeren over de breed scala aan netwerk-besturingselementen die u configureren kunt voor het verbeteren van de beveiliging van de oplossingen die u in Azure implementeren. Als u geïnteresseerd bent in Microsoft biedt voor het beveiligen van de infrastructuur van het netwerk van het Azure-platform zelf, Zie de sectie van de Azure-beveiliging in de [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
+Dit artikel is bedoeld om u te informeren over de breed scala aan netwerk-besturingselementen die u configureren kunt voor het verbeteren van de beveiliging van de oplossingen die u in Azure implementeren. Als u geïnteresseerd bent in Microsoft biedt voor het beveiligen van de infrastructuur van het netwerk van het Azure-platform zelf, Zie de sectie van de Azure-beveiliging in de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure).
 
 ## <a name="azure-platform"></a>Azure-platform
 
@@ -537,7 +537,7 @@ Netwerk-Watcher [variabele pakketopname](https://docs.microsoft.com/azure/networ
 
 Pakketopname is een uitbreiding van virtuele machine die op afstand via het netwerk-Watcher wordt gestart. Deze mogelijkheid kan de werkbelasting van een pakketopname handmatig worden uitgevoerd op de gewenste virtuele machine, die kostbare tijd bespaart vergemakkelijken. Pakketopname kan worden geactiveerd via de portal, PowerShell, CLI of REST-API. Er is een voorbeeld van hoe pakketopname kan worden geactiveerd met waarschuwingen van de virtuele Machine.
 
-#### <a name="ip-flow-verify"></a>IP-stroom controleren
+#### <a name="ip-flow-verify"></a>IP-stroomverificatie
 
 [IP-stromen controleren](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) controleert of een pakket wordt toegestaan of geweigerd naar of van een virtuele machine op basis van 5-tuple informatie. Deze informatie bestaat uit de richting, protocol, lokaal IP-, externe IP-, lokale poort en externe poort. Als het pakket wordt geweigerd door een beveiligingsgroep, wordt de naam van de regel die het pakket geweigerd geretourneerd. Terwijl de IP-bron- of doelserver kan worden gekozen, is deze functie kan beheerders een Analyseer snel problemen met de netwerkverbinding van of met het internet en van of naar de on-premises omgeving.
 
@@ -549,7 +549,7 @@ Bepaalt de [volgende hop](https://docs.microsoft.com/azure/network-watcher/netwo
 
 Volgende hop retourneert ook de routetabel die zijn gekoppeld aan de volgende hop. Tijdens het opvragen van een volgende hop als de route is gedefinieerd als een gebruiker gedefinieerde route worden die route geretourneerd. Anders retourneert de volgende hop 'Systeemroute'.
 
-#### <a name="security-group-view"></a>beveiliging groep weergeven
+#### <a name="security-group-view"></a>Beveiliging groep weergeven
 
 Hiermee haalt u de effectieve en toegepaste beveiligingsregels voor verbindingen die worden toegepast op een virtuele machine. Netwerkbeveiligingsgroepen zijn gekoppeld op het subnetniveau van een of een NIC-niveau. Als gekoppeld op het subnetniveau van een, geldt dit voor alle VM-instanties in het subnet. Netwerk [beveiligingsgroep weergave](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) retourneert de geconfigureerde nsg's en regels die zijn gekoppeld aan een NIC en het subnetmasker niveau hebben voor een virtuele machine biedt meer informatie over de configuratie. Bovendien worden de regels voor een effectieve beveiligingsmethode voor elk van de NIC's in een virtuele machine geretourneerd. Met behulp van de Netwerkbeveiligingsgroep weergeven, kunt u een virtuele machine op netwerk beveiligingsproblemen zoals open poorten beoordelen. U kunt ook valideren als de Netwerkbeveiligingsgroep werkt zoals verwacht op basis van een [vergelijking tussen de geconfigureerde en de regels voor een effectieve beveiligingsmethode](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 

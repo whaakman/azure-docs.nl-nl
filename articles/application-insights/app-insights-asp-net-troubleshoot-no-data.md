@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: cdfc3ceb1ce94c4653a710658c1df991d9ca2c30
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8253dfb6525496c78515a9382778a767f7da0771
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294442"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063575"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Sommige van mijn telemetrie ontbreekt
@@ -41,7 +41,7 @@ ms.locfileid: "35294442"
 *Wanneer ik een bestaand project in Solution Explorer met de rechtermuisknop, wordt geen Application Insights-opties niet weergegeven.*
 
 * Niet alle soorten .NET project worden ondersteund door de hulpprogramma's. Web- en WCF-projecten worden ondersteund. U kunt ook voor andere projecttypen zoals toepassingen voor desktop- of [handmatig een Application Insights-SDK toevoegen aan uw project](app-insights-windows-desktop.md).
-* Zorg ervoor dat u hebt [Visual Studio 2013 Update 3 of hoger](http://go.microsoft.com/fwlink/?LinkId=397827). Het is voorgeïnstalleerd met ontwikkelaars hulpprogramma's voor webanalyse, waarmee de Application Insights-SDK.
+* Zorg ervoor dat u hebt [Visual Studio 2013 Update 3 of hoger](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2013-update3-rtm-vs). Het is voorgeïnstalleerd met ontwikkelaars hulpprogramma's voor webanalyse, waarmee de Application Insights-SDK.
 * Selecteer **extra**, **uitbreidingen en Updates** en controleert u of **Analytics hulpprogramma's voor ontwikkelaars** is geïnstalleerd en ingeschakeld. Als dit het geval is, klikt u op **Updates** om te zien of er een update beschikbaar is.
 * Open het dialoogvenster New Project en kiest u ASP.NET-webtoepassing. Als u de optie van de Application Insights ziet, worden de hulpprogramma's geïnstalleerd. Als dat niet het geval is, probeer te verwijderen en vervolgens opnieuw de Application Insights Tools te installeren.
 

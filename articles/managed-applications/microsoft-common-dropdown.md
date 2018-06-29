@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: c8966c70fba1cbb17d377223ed5348075ebb7adc
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f953e1dc15e12c37c30a86ebd7536b1126bf18f7
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266894"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061997"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI-element
 Een Selectiebesturingselement met een vervolgkeuzelijst.
@@ -31,8 +31,8 @@ Een Selectiebesturingselement met een vervolgkeuzelijst.
 {
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
-  "label": "Some drop down",
-  "defaultValue": "my value",
+  "label": "Example drop down",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -44,21 +44,23 @@ Een Selectiebesturingselement met een vervolgkeuzelijst.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
 ```
 
 ## <a name="remarks"></a>Opmerkingen
+
 - Het label voor `constraints.allowedValues` is de tekst weergeven voor een item en de waarde is de uitvoerwaarde van het element als geselecteerd.
 - Indien opgegeven, de standaardwaarde moet een label aanwezig is in `constraints.allowedValues`. Als niet wordt opgegeven, het eerste item in `constraints.allowedValues` is geselecteerd. De standaardwaarde is **null**.
-- `constraints.allowedValues` moet ten minste één item bevatten.
-- Dit element biedt geen ondersteuning voor de `constraints.required` eigenschap. Om te emuleren, Voeg een item met een label en de waarde van `""` (lege tekenreeks) om te `constraints.allowedValues`.
+- `constraints.allowedValues` moet ten minste één item hebben.
+- Om te emuleren een waarde niet vereist, Voeg een item met een label en de waarde van `""` (lege tekenreeks) om te `constraints.allowedValues`.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 ```json
-"Bar"
+"two"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

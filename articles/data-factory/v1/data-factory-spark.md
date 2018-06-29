@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622275"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046459"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Spark-programma's van Azure Data Factory-pijplijnen aanroepen
 
@@ -37,7 +37,7 @@ ms.locfileid: "34622275"
 > * [.NET aangepaste activiteit](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [gegevens transformeren met behulp van de activiteit Apache Spark in Data Factory versie 2](../transform-data-using-spark.md).
+> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u de huidige versie van de Data Factory-service gebruikt, Zie [gegevens transformeren met behulp van de activiteit Apache Spark in Data Factory](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Inleiding
 De Spark-activiteit is een van de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) ondersteund door Data Factory. Deze activiteit wordt het opgegeven Spark-programma uitgevoerd op uw Spark-cluster in Azure HDInsight. 
@@ -268,8 +268,7 @@ In deze stap maakt u een pijplijn met een HDInsightSpark-activiteit. Op dit mome
 
     ![Jupyter-queryresultaten](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Zie de sectie voor gedetailleerde instructies [een Spark SQL-query uitvoeren](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Zie de sectie voor gedetailleerde instructies [een Spark SQL-query uitvoeren](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 Omdat u getDebugInfo ingesteld op **altijd**, ziet u een submap van het logboek in de map pyFiles in uw blobcontainer. Het logboekbestand in de logboekmap bevat aanvullende informatie. Dit logboekbestand is vooral nuttig wanneer er een fout optreedt. In een productieomgeving raadzaam worden ingesteld op **fout**.
@@ -337,7 +336,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie.
 | rootPath | De blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. | Ja |
 | entryFilePath | Relatief pad naar de hoofdmap van het Spark/codepakket. | Ja |
 | className | Java/Spark belangrijkste-klasse van de toepassing. | Nee |
-| Argumenten | Een lijst met opdrachtregelargumenten aan het programma Spark. | Nee |
+| argumenten | Een lijst met opdrachtregelargumenten aan het programma Spark. | Nee |
 | proxyUser | Het gebruikersaccount te imiteren voor het uitvoeren van het programma Spark. | Nee |
 | sparkConfig | Geef waarden op voor de Spark-configuratie-eigenschappen die worden vermeld in [Spark-configuratie: toepassingseigenschappen](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee |
 | getDebugInfo | Geeft aan wanneer de Spark-logboekbestanden worden gekopieerd naar de opslag die wordt gebruikt door het HDInsight-cluster (of) opgegeven door sparkJobLinkedService. Toegestane waarden zijn geen, altijd of fout. De standaardwaarde is geen. | Nee |

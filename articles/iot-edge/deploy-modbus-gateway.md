@@ -6,16 +6,16 @@ manager: timlt
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: d6e831cdd7cd18305beb617693ee1026bb6429e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9e69faf1b07af0e60cfd21cd6eb9f00e211ab91e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631460"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031750"
 ---
-# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway---preview"></a>Modbus TCP-apparaten verbinden via een IoT Edge-apparaatgateway - Preview
+# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Modbus TCP apparaten verbinden via een gateway aan de rand van de IoT-apparaat
 
 Als u IoT-apparaten die gebruikmaken van Modbus TCP- of RTU-protocollen wilt verbinden met een Azure IoT-hub, gebruik dan een IoT Edge-apparaat als een gateway. Het gatewayapparaat leest de gegevens van uw Modbus-apparaten en geeft deze gegevens met behulp van een ondersteund protocol door aan de cloud. 
 
@@ -26,7 +26,7 @@ Dit artikel gaat over hoe u uw eigen containerinstallatiekopie maakt voor een Mo
 In dit artikel wordt ervan uitgegaan dat u het Modbus-protocol TCP gebruikt. Voor meer informatie over hoe u de module configureert ter ondersteuning van Modbus RTU raadpleegt u het project [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) op Github. 
 
 ## <a name="prerequisites"></a>Vereisten
-* Een Azure IoT Edge-apparaat. Voor een overzicht van hoe u er een instelt, raadpleegt u [Deploy Azure IoT Edge on a simulated device in Windows](tutorial-simulate-device-windows.md) (Azure IoT Edge implementeren op een gesimuleerd apparaat in Windows) of [Linux](tutorial-simulate-device-linux.md). 
+* Een Azure IoT Edge-apparaat. Voor een overzicht van hoe u er een instelt, raadpleegt u [Deploy Azure IoT Edge on a simulated device in Windows](quickstart.md) (Azure IoT Edge implementeren op een gesimuleerd apparaat in Windows) of [Linux](quickstart-linux.md). 
 * De verbindingsreeks van de primaire sleutel voor het IoT Edge-apparaat.
 * Een fysiek of gesimuleerd Modbus-apparaat dat Modbus TCP ondersteunt.
 
@@ -43,10 +43,10 @@ Als u uw eigen module wilt maken en deze wilt aanpassen voor uw omgeving, bestaa
 
 ## <a name="run-the-solution"></a>De oplossing uitvoeren
 1. Ga in de [Azure-portal](https://portal.azure.com/) naar uw IoT-hub.
-2. Ga naar **IoT Edge (Preview)** en selecteer uw IoT Edge-apparaat.
+2. Ga naar **IoT rand** en klik op het apparaat aan uw IoT-rand.
 3. Selecteer **Modules instellen**.
 4. Voeg als volgt de Modbus-module toe:
-   1. Select **Toevoegen aan IoT Edge-module**.
+   1. Klik op **toevoegen** en selecteer **IoT rand module**.
    2. Typ 'modbus' in het veld **Naam**.
    3. Voer in het veld **Installatiekopie** de URI in naar de installatiekopie van de voorbeeldcontainer: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
    4. Schakel het selectievakje **Inschakelen** in om de gewenst eigenschappen van de moduledubbel bij te werken.
@@ -87,8 +87,8 @@ Als u uw eigen module wilt maken en deze wilt aanpassen voor uw omgeving, bestaa
    ```
 
 8. Selecteer **Volgende**. 
-9. Selecteer in de stap **Sjabloon controleren** de optie **Indienen**. 
-10. Ga terug naar de detailpagina van het apparaat en selecteer **Vernieuwen**. U ziet nu de nieuwe **modbus** die samen met de runtime van IoT Edge wordt uitgevoerd.
+9. In de **revisie implementatie** stap, selecteer **indienen**. 
+10. Ga terug naar de detailpagina van het apparaat en selecteer **Vernieuwen**. U ziet nu de nieuwe **modbus** module uitgevoerd samen met de rand van de IoT-runtime.
 
 ## <a name="view-data"></a>Gegevens weergeven
 U bekijkt als volgt de gegevens die via de modbus-module lopen:
@@ -100,5 +100,8 @@ Met behulp van de [IoT Hub-verkenner](https://github.com/azure/iothub-explorer) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voor meer informatie over hoe IoT Edge-apparaten als gateways kunnen fungeren, raadpleegt u [Create an IoT Edge device that acts as a transparent gateway](how-to-create-transparent-gateway.md) (Een IoT Edge-apparaat maken dat als een transparante gateway fungeert)
+- Zie voor meer informatie over hoe de rand van de IoT-apparaten als gateways fungeren kunnen, [een IoT-randapparaat die als een transparante gateway fungeert maken][lnk-transparent-gateway-linux]
 - Voor meer informatie over de werking van IoT Edge-modules raadpleegt u [Azure IoT Edge-modules](iot-edge-modules.md)
+
+<!-- Links -->
+[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

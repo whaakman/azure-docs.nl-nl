@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 06/27/2018
 ms.author: maheshu
-ms.openlocfilehash: 4263034408de059880b91e8106f6832ccacc6085
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 5838dbefab9f7100ed4776eebef7a1d07d2db1a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300965"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061042"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 
@@ -48,7 +48,7 @@ Om veilige LDAP, moet u de volgende configuratiestappen uitvoeren:
 4. Beveiligde LDAP-toegang tot uw beheerde domein is standaard uitgeschakeld. Wisselknop **beveiligde LDAP** naar **inschakelen**.
 
     ![Beveiligde LDAP inschakelen](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. Beveiligde LDAP-toegang tot uw beheerde domein via internet is standaard uitgeschakeld. Wisselknop **beveiligde LDAP toegang via internet toestaan** naar **inschakelen**, indien gewenst. 
+5. Beveiligde LDAP-toegang tot uw beheerde domein via internet is standaard uitgeschakeld. Wisselknop **beveiligde LDAP toegang via internet toestaan** naar **inschakelen**, indien gewenst.
 
     > [!WARNING]
     > Wanneer u beveiligde LDAP toegang via internet inschakelt, is uw domein is vatbaar voor wachtwoord gewelddadige aanvallen via internet. Daarom raden we instellen van een NSG toegang tot de vereiste bron-IP-adresbereiken vergrendelen. Zie de instructies voor het [vergrendelen LDAPS toegang tot uw beheerde domein via internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
@@ -111,6 +111,23 @@ De volgende tabel ziet u een voorbeeld van een NSG die u configureren kunt, als 
 
 <br>
 
+## <a name="bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Binden aan het beheerde domein via LDAP met LDP.exe
+U kunt het hulpprogramma LDP.exe die is opgenomen in het pakket Remote Server Administration tools te binden en zoek via LDAP gebruiken.
+
+Eerst LDP te openen en verbinding maken met het beheerde domein. Klik op **verbinding** en klik op **verbinden...**  in het menu. Geef de DNS-domeinnaam van het beheerde domein. Geef de poort moet worden gebruikt voor verbindingen. Gebruik poort 389 voor LDAP-verbindingen. Voor LDAPS verbindingen gebruikt poort 636. Klik op **OK** knop verbinding maken met het beheerde domein.
+
+Vervolgens worden gebonden aan het beheerde domein. Klik op **verbinding** en klik op **binden...**  in het menu. Geef de referenties van een gebruikersaccount van de ' AAD DC' beheerdersgroep.
+
+Selecteer **weergave**, en selecteer vervolgens **structuur** in het menu. De Base DN-veld leeg laat, en klik op OK. Navigeer naar de container die u wilt zoeken, met de rechtermuisknop op de container en selecteer zoeken.
+
+> [!TIP]
+> - Gebruikers en groepen die zijn gesynchroniseerd vanuit Azure AD worden opgeslagen in de **AADDC gebruikers** container. Het zoekpad voor deze container ziet eruit als ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
+> - Computeraccounts voor computers die zijn gekoppeld aan het beheerde domein worden opgeslagen in de **AADDC Computers** container. Het zoekpad voor deze container ziet eruit als ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+>
+>
+
+Meer informatie - [basisbeginselen van LDAP-query](https://technet.microsoft.com/library/aa996205.aspx)
+
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als u problemen ondervindt bij het verbinding maken met het beheerde domein met behulp van beveiligde LDAP, voert u de volgende stappen:
@@ -129,6 +146,7 @@ Als u nog steeds problemen ondervindt verbinding te maken met het beheerde domei
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Azure AD Domain Services - handleiding aan de slag](active-directory-ds-getting-started.md)
 * [Een beheerd domein van Azure AD Domain Services beheren](active-directory-ds-admin-guide-administer-domain.md)
+* [Basisprincipes van LDAP-query](https://technet.microsoft.com/library/aa996205.aspx)
 * [Groepsbeleid voor een Azure AD Domain Services beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md)
 * [Een Netwerkbeveiligingsgroep maken](../virtual-network/tutorial-filter-network-traffic.md)

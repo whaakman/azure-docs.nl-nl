@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7d31a434d4ead6dd8f8a13a08d368389904b5b4a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ffba386ae6b1e1e5d18f92803bc8cb74b2ff89e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364230"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061296"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Overzicht van de beveiliging Azure virtuele Machines
 Virtuele Machines van Azure kunt u een breed scala aan computing oplossingen implementeren in een flexibele manier. De service ondersteunt Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP en Azure BizTalk Services. U kunt dus elke werkbelasting en een andere taal op bijna elk besturingssysteem implementeren.
@@ -142,5 +142,5 @@ Virtuele Machines in Azure is gecertificeerd voor FISMA, FedRAMP HIPAA, PCI DSS-
 
 Meer informatie:
 
-* [Microsoft Trust Center: naleving](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+* [Microsoft Trust Center: naleving](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Vertrouwde Cloud: Microsoft Azure-beveiliging, Privacy en naleving](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)

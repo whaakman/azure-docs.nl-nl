@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: cfb1e6810285886da13aa0bf69faee9c65e2b222
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: af113ae76d81c82ff6c4ced1569aa16f3a9ee27c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738224"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063850"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Overzicht van momentopnamen van de share voor Azure-bestanden 
 Azure Files biedt de mogelijkheid om te delen momentopnamen van bestandsshares. Vastleggen van momentopnamen van de status van de share op dat moment delen. In dit artikel wordt beschreven welke mogelijkheden share momentopnamen bieden en hoe kunt u profiteren van deze in uw aangepaste gebruiksvoorbeeld.
@@ -46,7 +46,7 @@ Share Snapshots wordt op niveau van de bestandsshare aangeboden. Ophalen is op a
 
 Een momentopname van het delen van een bestandsshare is identiek aan de basis-bestandsshare. Het enige verschil is dat een **DateTime** waarde wordt toegevoegd aan de share URI om aan te geven van de tijd waarop de momentopname van de share. Bijvoorbeeld, als een bestandsshare-URI is http://storagesample.core.file.windows.net/myshare, de share momentopname URI vergelijkbaar met is:
 ```
-http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Share momentopnamen bewaard totdat ze expliciet worden verwijderd. Een momentopname van een bestandsshare kan niet de base bestandsshare outlive. U kunt de momentopnamen die zijn gekoppeld aan de basis bestandsshare voor het bijhouden van uw huidige momentopnamen opsommen. 

@@ -1,5 +1,5 @@
 ---
-title: Gebruik Azure gereserveerde exemplaar voor uw abonnement op gebruiksbasis - Azure-facturering begrijpen | Microsoft Docs
+title: Gebruik Azure gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen | Microsoft Docs
 description: Informatie over het lezen van uw gebruik om te begrijpen hoe de Azure gereserveerde VM-instantie voor uw abonnement op gebruiksbasis wordt toegepast.
 services: billing
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 7bf4aea86d4d430c15d60a8d73365705ace18b5a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7e303f3e5ce0e618d941be4190f6fadb40f2e09d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063854"
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen
 
@@ -26,9 +27,9 @@ Het gebruik van een exemplaar van Azure gereserveerde VM begrijpen met behulp va
 
 
 >[!NOTE]
->In dit artikel geldt niet voor EA klanten. Als u een klant EA, Zie [gebruiksgegevens voor uw Enterprise enrollment gereserveerde exemplaar begrijpen.](billing-understand-reserved-instance-usage-ea.md) In dit artikel wordt ervan uitgegaan dat gereserveerde exemplaar wordt toegepast op één abonnement. Als het gereserveerde exemplaar wordt toegepast op meer dan één abonnement, kan gereserveerde exemplaar voordeel meerdere informatie over het gebruik van csv-bestanden omvatten. 
+>In dit artikel geldt niet voor EA klanten. Als u een klant EA, Zie [gebruiksgegevens voor uw Enterprise enrollment gereserveerde exemplaar begrijpen.](billing-understand-reserved-instance-usage-ea.md) In dit artikel wordt ervan uitgegaan dat het gereserveerde exemplaar wordt toegepast op één abonnement. Als het gereserveerde exemplaar wordt toegepast op meer dan één abonnement, kan gereserveerde exemplaar voordeel meerdere informatie over het gebruik van csv-bestanden omvatten. 
 
-Voor de volgende sectie wordt ervan uitgegaan dat u een Standard_DS1_v2 Windows VM in de regio VS-Oost en uw gereserveerde exemplaar informatie ziet als in de volgende tabel eruit worden uitgevoerd:
+Voor de volgende sectie wordt ervan uitgegaan dat u een virtuele machine Standard_DS1_v2 van Windows worden uitgevoerd in de regio VS-Oost en uw gereserveerde exemplaar informatie ziet er als uit de volgende tabel:
 
 | Veld | Waarde |
 |---| :---: |
@@ -60,9 +61,9 @@ Filteren op aanvullende informatie en typt u in uw **Reserverings-ID**. De volge
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over gereserveerde exemplaren, de volgende artikelen:
 
-- [Geld besparen op virtuele machines met gereserveerde exemplaren van Azure](billing-save-compute-costs-reservations.md)
-- [Vooruitbetalen voor virtuele Machines met gereserveerde exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gereserveerde exemplaren beheren](billing-manage-reserved-vm-instance.md)
+- [Wat zijn gereserveerd VM-exemplaren van Azure?](billing-save-compute-costs-reservations.md)
+- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gereserveerde exemplaren in Azure beheren](billing-manage-reserved-vm-instance.md)
 - [Begrijpen hoe de gereserveerde exemplaar korting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](billing-understand-reserved-instance-usage-ea.md)
 - [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](billing-reserved-instance-windows-software-costs.md)

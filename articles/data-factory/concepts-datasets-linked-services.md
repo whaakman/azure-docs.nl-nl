@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616002"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044973"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Gegevenssets en gekoppelde services in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-create-datasets.md)
-> * [Versie 2 - Preview](concepts-datasets-linked-services.md)
+> * [Versie 1](v1/data-factory-create-datasets.md)
+> * [Huidige versie](concepts-datasets-linked-services.md)
 
-In dit artikel wordt beschreven welke gegevenssets zijn, hoe ze worden gedefinieerd in JSON-indeling, en hoe ze worden gebruikt Azure Data Factory V2 pijplijnen. 
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [gegevenssets in de Data Factory V1](v1/data-factory-create-datasets.md).
+In dit artikel wordt beschreven welke gegevenssets zijn, hoe ze worden gedefinieerd in JSON-indeling, en hoe ze worden gebruikt Azure Data Factory-pijplijnen. 
 
 Als u niet bekend met Data Factory bent, Zie [Inleiding tot Azure Data Factory](introduction.md) voor een overzicht. 
 
@@ -193,7 +190,7 @@ Eigenschap | Beschrijving | Vereist
 -------- | ----------- | --------
 naam | De naam van de kolom. | Ja
 type | Het gegevenstype van de kolom. Data Factory ondersteunt de volgende tussentijdse gegevenstypen als toegestane waarden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], Booleaanse waarde, String, Guid, Datetime, Datetimeoffset en Timespan** | Nee
-Cultuur | . NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee
+cultuur | . NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee
 Indeling | Indeling van tekenreeks moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd-indeling tekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee
 
 ### <a name="example"></a>Voorbeeld
@@ -220,13 +217,13 @@ De volgende richtlijnen te begrijpen wanneer structuur informatie op te nemen en
 ## <a name="create-datasets"></a>Gegevenssets maken
 U kunt de gegevenssets maken met behulp van een van deze hulpprogramma's of de SDK's: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST-API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager-sjabloon en de Azure-portal
 
-## <a name="v1-vs-v2-datasets"></a>V1-tegenover. V2-gegevenssets
+## <a name="current-version-vs-version-1-datasets"></a>Huidige versie vergeleken met versie 1 gegevenssets
 
-Hier volgen een aantal verschillen tussen de Data Factory-v1- en v2-gegevenssets: 
+Hier volgen een aantal verschillen tussen de Data Factory en in de Data Factory versie 1 gegevenssets: 
 
-- De eigenschap external wordt niet ondersteund in v2. Deze vervangen door een [trigger](concepts-pipeline-execution-triggers.md).
-- De beschikbaarheid en beleid-eigenschappen worden niet ondersteund in V2. Afhankelijk van de begintijd voor een pijplijn [triggers](concepts-pipeline-execution-triggers.md).
-- Bereik gegevenssets (gegevenssets die zijn gedefinieerd in een pijplijn) worden niet ondersteund in V2. 
+- De eigenschap external wordt niet ondersteund in de huidige versie. Deze vervangen door een [trigger](concepts-pipeline-execution-triggers.md).
+- De beschikbaarheid en beleid-eigenschappen worden niet ondersteund in de huidige versie. Afhankelijk van de begintijd voor een pijplijn [triggers](concepts-pipeline-execution-triggers.md).
+- Bereik gegevenssets (gegevenssets die zijn gedefinieerd in een pijplijn) worden niet ondersteund in de huidige versie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende zelfstudie voor stapsgewijze instructies voor het maken van de pijplijnen en gegevenssets met behulp van een van deze hulpprogramma's of de SDK's. 

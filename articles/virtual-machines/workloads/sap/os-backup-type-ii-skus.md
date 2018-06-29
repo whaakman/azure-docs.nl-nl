@@ -11,24 +11,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d5caf5836b96555e01b55d408e51f3df2407d35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657601"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063271"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>OS-back-up en herstel voor Type II SKU 's
 
-Dit document beschrijft de stappen voor het uitvoeren van een besturingssysteem back-up en herstel voor de **Type II SKU's** van de grote HANA-exemplaren. 
+Dit document beschrijft de stappen voor het uitvoeren van een besturingssysteem niveau back-up en herstel voor de **Type II SKU's** van de grote HANA-exemplaren. 
 
 >[!NOTE]
 >De back-OS-scripts maakt gebruik van de software achterzijde, die vooraf worden geïnstalleerd op de server.  
 
-Nadat het inrichten voltooid door het beheer van de Service Microsoft-team standaard is wordt de server is geconfigureerd met twee back-ups plannen voor back-up van het volledige besturingssysteem. U kunt de planning van de back-uptaak controleren met behulp van de volgende opdracht:
+Nadat het inrichten voltooid door het beheer van de Service Microsoft-team standaard is de server is geconfigureerd met twee back-ups plannen voor back-up van het bestandssysteem niveau back-up van het besturingssysteem. U kunt de planning van de back-uptaak controleren met behulp van de volgende opdracht:
 ```
 #crontab –l
 ```
@@ -38,14 +38,14 @@ U kunt het back-upschema op elk gewenst moment met de volgende opdracht wijzigen
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Hoe kan ik een handmatige back-up maken?
 
-De back-up van het besturingssysteem is gepland met een **cron taak** al. U kunt echter de besturingssysteem back-up ook handmatig uitvoeren. Als u een handmatige back-up, voer de volgende opdracht:
+Het besturingssysteem bestandssysteemback-up is gepland met een **cron taak** al. U kunt echter de besturingssysteem bestand niveau back-up ook handmatig uitvoeren. Als u een handmatige back-up, voer de volgende opdracht:
 
 ```
 #rear -v mkbackup
 ```
 Voorbeeld voor een handmatige back-up ziet u het volgende scherm weergeven:
 
-![Hoe](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![hoe](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
 ## <a name="how-to-restore-a-backup"></a>Hoe kan ik een back-up terugzetten?

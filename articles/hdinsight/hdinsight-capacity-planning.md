@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: ce8764e79d24d36eb3b162fb5f3f688b3e9fab3f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a8344388e9d31846770d5989d1ddd43fbe15336
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401999"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047476"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -114,5 +114,5 @@ Echter, er zijn enkele beperkingen vaste quota, bijvoorbeeld één Azure-abonnem
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Instellen van clusters in HDInsight met Hadoop, Spark en Kafka](hdinsight-hadoop-provision-linux-clusters.md): informatie over het instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, interactieve Hive, HBase, R Server of Storm.
+* [Instellen van clusters in HDInsight met Hadoop, Spark en Kafka](hdinsight-hadoop-provision-linux-clusters.md): informatie over het instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, interactieve Hive, HBase, ML-Services of Storm.
 * [Prestaties van het cluster controleren](hdinsight-key-scenarios-to-monitor.md): meer informatie over belangrijke scenario's om te controleren op uw HDInsight-cluster die invloed kan zijn op de capaciteit van uw cluster.

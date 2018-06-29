@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 27d74ce2cf8fdc4434c48c36dd0c0751dbbab232
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622309"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054289"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Prestaties van de activiteit en prestatieafstemming handleiding kopiëren
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-copy-activity-performance.md)
-> * [Versie 2 - Preview](../copy-activity-performance.md)
+> * [Versie 1](data-factory-copy-activity-performance.md)
+> * [Versie 2 (huidige versie)](../copy-activity-performance.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [kopiëren van de prestaties van de activiteit en prestatieafstemming guide voor Data Factory versie 2](../copy-activity-performance.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [kopiëren van de prestaties van de activiteit en prestatieafstemming guide voor Data Factory](../copy-activity-performance.md).
 
 Azure Data Factory-Kopieeractiviteit biedt een uitstekende gegevens veilig, betrouwbaar en hoge prestaties bij het laden van oplossing. Deze Hiermee kunt u voor het kopiëren van tientallen terabytes aan gegevens elke dag op uitgebreide tal van cloud en het on-premises gegevensopslagexemplaren. Razendsnelle snel gegevens laden van prestaties is sleutel zodat u zich kunt richten op het probleem van core 'big data': bouwen van oplossingen voor geavanceerde analyses om inzichten te verkrijgen grondige van die gegevens.
 
@@ -133,7 +133,7 @@ Om deze standaardinstelling negeren, Geef een waarde op voor de **cloudDataMovem
 > Als u meer cloud DMUs voor een hogere doorvoer moet, neem dan contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/). Instellen van 8 en hoger momenteel werkt alleen als u **meerdere bestanden kopiëren van Blob-opslag/Data Lake Store/Amazon S3/cloud FTP-/ cloud SFTP naar Blob storage/Data Lake Store/Azure SQL Database**.
 >
 
-### <a name="parallelcopies"></a>parallelCopies
+### <a name="parallelcopies"></a>ParallelCopies
 U kunt de **parallelCopies** eigenschap om aan te geven van de parallelle uitvoering die u wilt dat de Kopieeractiviteit gebruiken. U kunt deze eigenschap zien als het maximum aantal threads in de Kopieeractiviteit die kunnen lezen uit de bron- of schrijven naar uw gegevensarchieven sink parallel.
 
 Data Factory bepaalt voor elke kopie-activiteit is uitgevoerd, het aantal parallelle exemplaren te gebruiken om gegevens te kopiëren van de bron gegevens opgeslagen en wordt opgeslagen in de doelgegevens. Het aantal parallelle exemplaren die worden gebruikt, hangt af van het type van de bron en sink die u gebruikt.  
@@ -268,7 +268,7 @@ We raden aan dat u deze stappen nemen om afstemmen van de prestaties van uw Data
    * [Bron](#considerations-for-the-source)
    * [Sink](#considerations-for-the-sink)
    * [Serialisatie en deserialisatie](#considerations-for-serialization-and-deserialization)
-   * [Compressie](#considerations-for-compression)
+   * [compressie](#considerations-for-compression)
    * [Kolomtoewijzing](#considerations-for-column-mapping)
    * [Andere overwegingen](#other-considerations)
 3. **Vouw de configuratie op uw volledige gegevensset**. Wanneer u tevreden met de prestaties en resultaten bent, kunt u de definitie en de actieve periode van de pijplijn voor uw volledige gegevensset uitvouwen.

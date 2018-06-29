@@ -4,8 +4,6 @@ description: Haal de tekst uit-bestanden in een Azure Search verrijking-pijplijn
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640367"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058963"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR cognitieve kwalificatie
 
@@ -38,14 +36,14 @@ Parameters zijn hoofdlettergevoelig.
 | Parameternaam     | Beschrijving |
 |--------------------|-------------|
 | detectOrientation | Hiermee kunt automatische detectie van afdrukstand. <br/> Geldige waarden: true / false.|
-|defaultLanguageCode |  Taalcode van de ingevoerde tekst. Ondersteunde talen zijn onder andere: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  Als de taalcode niet opgegeven of null is, is de taal autodetected.|
+|defaultLanguageCode | <p>  Taalcode van de ingevoerde tekst. Enkele ondersteunde talen: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Tsjechisch) <br/>da (Denemarken) <br/>NL (Nederlands) <br/>NL (Engels) <br/>Fi (Fins)  <br/>FR (Frans) <br/>  de (Duits) <br/>EL (Grieks) <br/> hu (Hongaars) <br/> Deze (Italiaans) <br/>  Japan (Japans) <br/> Ko (Koreaans) <br/> NB (Noors) <br/>   PL (Pools) <br/> PT (Portugees) <br/>  RU (Russisch) <br/>  ES (Spaans) <br/>  SV (Zweeds) <br/>  TR (Turks) <br/> ar (Arabisch) <br/> ro (Roemeens) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Slowaaks). <br/>  UNK (onbekend) <br/><br/> Als de taalcode niet opgegeven of null is, is de taal autodetected. </p> |
 | textExtractionAlgorithm | 'afgedrukt' of 'geschreven'. De tekst 'geschreven' erkenning OCR-algoritme is momenteel in preview en alleen ondersteund in het Engels. |
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
 | Voer een naam      | Beschrijving                                          |
 |---------------|------------------------------------------------------|
-| Afbeelding         | Complex Type. Momenteel wordt alleen werkt met '/ document/normalized_images' veld, die wordt geproduceerd door de Azure Blob-indexeerfunctie wanneer ```imageAction``` is ingesteld op ```generateNormalizedImages```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
+| installatiekopie         | Complex Type. Momenteel wordt alleen werkt met '/ document/normalized_images' veld, die wordt geproduceerd door de Azure Blob-indexeerfunctie wanneer ```imageAction``` is ingesteld op ```generateNormalizedImages```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
 
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer

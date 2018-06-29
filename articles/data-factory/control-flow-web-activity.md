@@ -11,20 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/14/2018
 ms.author: shlo
-ms.openlocfilehash: 6d14d84610d97e487e3bf4286267623681c4eb75
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 71e89828645cadbbbf60527fca9968fd8ed568ff
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619232"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058972"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webactiviteit in Azure Data Factory
 De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit. 
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -69,10 +66,10 @@ Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 naam | Naam van de webactiviteit | Reeks | Ja
 type | Moet worden ingesteld op **WebActivity**. | Reeks | Ja
-method | Rest-API-methode voor het doel-eindpunt. | De tekenreeks. <br/><br/>Ondersteunde typen: 'GET', 'Posten', 'PUT' | Ja
+method | Rest-API-methode voor het doel-eindpunt. | tekenreeks. <br/><br/>Ondersteunde typen: 'GET', 'Posten', 'PUT' | Ja
 url | Doel-eindpunt en het pad | Tekenreeks (of een expressie met een resultType van een tekenreeks). De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt. | Ja
 headers | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, om de taal en type ingesteld op een aanvraag: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Tekenreeks (of een expressie met een resultType van een tekenreeks) | Ja, de header Content-type is vereist. `"headers":{ "Content-Type":"application/json"}`
-hoofdtekst | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. Vereist voor de methoden POST/PUT.  | Tekenreeks (of een expressie met een resultType van een tekenreeks). <br/><br/>Zie het schema van de nettolading van de aanvraag in [aanvraag nettolading schema](#request-payload-schema) sectie. | Nee
+hoofdtekst | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt.  | Tekenreeks (of een expressie met een resultType van een tekenreeks). <br/><br/>Zie het schema van de nettolading van de aanvraag in [aanvraag nettolading schema](#request-payload-schema) sectie. | Vereist voor de methoden POST/PUT.
 verificatie | De verificatiemethode die wordt gebruikt voor het aanroepen van het eindpunt. Ondersteunde typen zijn "Basic of ClientCertificate." Zie voor meer informatie [verificatie](#authentication) sectie. Als verificatie niet vereist is, sluit u deze eigenschap. | Tekenreeks (of een expressie met een resultType van een tekenreeks) | Nee
 Gegevenssets | Lijst met gegevenssets doorgegeven aan het eindpunt. | Matrix van verwijzingen van de gegevensset. Een lege matrix kan zijn. | Ja
 linkedServices | Lijst met gekoppelde services doorgegeven aan eindpunt. | Matrix van verwijzingen van de gekoppelde service. Een lege matrix kan zijn. | Ja

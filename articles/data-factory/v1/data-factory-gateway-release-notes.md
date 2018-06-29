@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620558"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048611"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Releaseopmerkingen voor Data Management Gateway
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [zelf gehost integratie runtime in V2](../create-self-hosted-integration-runtime.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [zelf gehost integratie runtime in V2](../create-self-hosted-integration-runtime.md).
 
 Een van de uitdagingen voor moderne gegevensintegratie is om gegevens te verplaatsen naar en van on-premises naar cloud. Data Factory maakt deze integratie met Data Management Gateway, een agent die u wordt on-premises naar het inschakelen van hybride gegevensverplaatsing kunt installeren.
 
@@ -127,16 +127,16 @@ Niet meer onderhouden we de Release-opmerkingen. Ophalen van de meest recente re
 
     *  Ingedeeld en vereenvoudigd besturingselementen.
 
-    *  Gegevens kunnen worden gekopieerd vanuit een opslaggroep met de [code gratis exemplaar voorbeeldfunctie](data-factory-copy-data-wizard-tutorial.md). Zie [kopie gefaseerde](data-factory-copy-activity-performance.md#staged-copy) voor meer informatie over deze functie in het algemeen.
+    *  U kunt gegevens kopiëren vanuit een opslaggroep met de [hulpprogramma voor kopiëren code gratis](data-factory-copy-data-wizard-tutorial.md). Zie [kopie gefaseerde](data-factory-copy-activity-performance.md#staged-copy) voor meer informatie over deze functie in het algemeen.
 *  U kunt Data Management Gateway naar inkomende gegevens rechtstreeks vanuit een on-premises SQL Server database in Azure Machine Learning.
 
 *  Verbeterde prestaties
 
-    * De prestaties weergeven/Preview-schemaversie op basis van SQL Server in code gratis exemplaar voorbeeldfunctie verbeteren.
+    * De prestaties weergeven/Preview-schemaversie op basis van SQL Server in het hulpprogramma voor kopiëren code gratis verbeteren.
 
 ## <a name="11259531"></a>1.12.5953.1
 
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ## <a name="11159181"></a>1.11.5918.1
 
@@ -150,13 +150,13 @@ Niet meer onderhouden we de Release-opmerkingen. Ophalen van de meest recente re
 
     * De prestaties voor het laden van grote tabellen van de lokale server in een scenario zonder code kopiëren verbeteren.
 
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ## <a name="11058921"></a>1.10.5892.1
 
 *  Verbeterde prestaties
 
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ## <a name="1958652"></a>1.9.5865.2
 
@@ -167,34 +167,34 @@ Niet meer onderhouden we de Release-opmerkingen. Ophalen van de meest recente re
 *  PowerShell-script voor het uitschakelen van automatische updates in-of uitschakelen
 *  Ondersteuning voor JSON-indeling  
 *  Verbeterde prestaties
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Probleemoplossing-ervaring te verbeteren
 *  Verbeterde prestaties
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1757951"></a>1.7.5795.1
 
 *  Verbeterde prestaties
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1757641"></a>1.7.5764.1
 
 *  Verbeterde prestaties
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Ondersteuning voor on-premises HDFS bron/Sink
 *  Verbeterde prestaties
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1656961"></a>1.6.5696.1
 
 *  Verbeterde prestaties
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1656761"></a>1.6.5676.1
 
@@ -205,40 +205,40 @@ Niet meer onderhouden we de Release-opmerkingen. Ophalen van de meest recente re
 *  Ondersteuning voor CopyBehavior – MergeFiles PreserveHierarchy en FlattenHierarchy in BlobSink en FileSink met binaire kopie voor Azure Data Factory
 *  Ondersteuning voor Kopieeractiviteit rapportage voor Azure Data Factory
 *  Ondersteuning voor bron connectiviteit gegevensvalidatie voor Azure Data Factory
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Naam van de tabel ondersteuning voor ODBC-gegevensbron voor Azure Data Factory
 *  Verbeterde prestaties
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1656581"></a>1.6.5658.1
 
 *  Ondersteuningsbestand van de Sink voor Azure Data Factory
 *  Ondersteuning voor het behouden van hiërarchie in binaire kopie voor Azure Data Factory
 *  Kopiëren activiteit Idempotency ondersteuning voor Azure Data Factory
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1656401"></a>1.6.5640.1
 
 *  Ondersteuning voor 3 meer gegevensbronnen voor Azure Data Factory (ODBC, OData, HDFS)
 *  Aanhalingsteken in CSV-parser ondersteuning voor Azure Data Factory
 *  Compressieondersteuning (BZip2)
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1556121"></a>1.5.5612.1
 
 *  Ondersteuning voor relationele databases van vijf voor Azure Data Factory (MySQL, PostgreSQL DB2, Teradata en Sybase)
 *  Compressieondersteuning (Gzip en Deflate)
 *  Verbeterde prestaties
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Oracle data source-ondersteuning voor Azure Data Factory toevoegen
 *  Verbeterde prestaties
-*  Oplossingen voor problemen
+*  Opgeloste fouten
 
 ### <a name="1454921"></a>1.4.5492.1
 

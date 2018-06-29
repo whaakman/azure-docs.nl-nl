@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 66e6725dd4e23eeaf0c8d0dcff6e5d26e3743218
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624281"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047561"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Problemen oplossen met behulp van Data Management Gateway
 In dit artikel bevat informatie over het oplossen van problemen met het gebruik van Data Management Gateway.
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [zelf gehost integratie runtime in Gegevensfactory versie 2](../create-self-hosted-integration-runtime.md).
+> In dit artikel is van toepassing op versie 1 van Azure Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [integratie runtime in Data Factory zelf de hosting](../create-self-hosted-integration-runtime.md).
 
 Zie de [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie over de gateway. Zie de [gegevens verplaatsen tussen on-premises en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor een overzicht van de gegevens uit een on-premises SQL Server database verplaatsen naar Microsoft Azure Blob-opslag met behulp van de gateway.
 

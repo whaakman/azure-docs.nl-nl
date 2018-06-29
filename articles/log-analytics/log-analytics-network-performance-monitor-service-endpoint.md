@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 05abd943d85fcdd709143bf7fce221dcdfb86011
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215096"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030706"
 ---
-# <a name="service-endpoint-monitor"></a>Monitor voor service-eindpunt
+# <a name="service-connectivity-monitor"></a>Bewaking van serviceverbinding
 
-Kunt u de mogelijkheid van de Monitor voor Service-eindpunt in [netwerk Prestatiemeter](log-analytics-network-performance-monitor.md) voor het bewaken van de netwerkverbinding met een willekeurig eindpunt met een open TCP-poort. Dergelijke eindpunten zijn websites, SaaS-toepassingen, PaaS-toepassingen en SQL-databases. 
+Kunt u de mogelijkheid van de Service verbinding Monitor in [netwerk Prestatiemeter](log-analytics-network-performance-monitor.md) voor het bewaken van de netwerkverbinding met een willekeurig eindpunt met een open TCP-poort. Dergelijke eindpunten zijn websites, SaaS-toepassingen, PaaS-toepassingen en SQL-databases. 
 
-U kunt de volgende functies met Monitor voor Service-eindpunt kunt uitvoeren: 
+U kunt de volgende functies met de Service verbinding Monitor uitvoeren: 
 
 - Controleer de netwerkverbinding met uw toepassingen en de netwerkservices van meerdere filialen of locaties. Toepassingen en netwerkservices bevatten Office 365, Dynamics CRM, interne line-of-business-toepassingen en SQL-databases.
 - Gebruik de ingebouwde tests voor het bewaken van de netwerkverbinding met Office 365 en Dynamics 365 eindpunten. 
@@ -34,7 +34,7 @@ U kunt de volgende functies met Monitor voor Service-eindpunt kunt uitvoeren:
 - Identificeer hotspots op het netwerk die slechte prestaties veroorzaakt mogelijk door de latentie die is bijgedragen door elke hop op een topologiekaart weer te geven.
 
 
-![Monitor voor service-eindpunt](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Bewaking van serviceverbinding](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuratie 
@@ -55,11 +55,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-endpoint-monitor-tests"></a>Monitor voor Service-eindpunt tests maken 
+### <a name="create-service-connectivity-monitor-tests"></a>Maken van de Service verbinding Monitor tests 
 
 Beginnen met het maken van uw tests uit om te controleren van de netwerkverbinding met de service-eindpunten.
 
-1. Selecteer de **Monitor voor Service-eindpunt** tabblad.
+1. Selecteer de **Service connectiviteit Monitor** tabblad.
 2. Selecteer **toevoegen testen**, en voer de naam van test en de beschrijving. 
 3. Selecteer het type van test:<br>
 
@@ -84,7 +84,7 @@ Beginnen met het maken van uw tests uit om te controleren van de netwerkverbindi
 
 ## <a name="walkthrough"></a>Walkthrough 
 
-Ga naar de dashboardweergave voor netwerk-Prestatiemeter. Als u een samenvatting van de status van de verschillende tests die u hebt gemaakt, bekijk de **Monitor voor Service-eindpunt** pagina. 
+Ga naar de dashboardweergave voor netwerk-Prestatiemeter. Als u een samenvatting van de status van de verschillende tests die u hebt gemaakt, bekijk de **Service connectiviteit Monitor** pagina. 
 
 ![Monitor voor service-eindpunt pagina](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

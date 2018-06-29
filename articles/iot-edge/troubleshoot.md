@@ -4,16 +4,16 @@ description: Veelvoorkomende problemen oplossen en informatie over probleemoplos
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ad22b0cd1457c1d4146a75047ff18e916c0c7ccd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: efe3e31a1a92e21f2c3a3461deba248d2a8c97fa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633533"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029438"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -23,36 +23,135 @@ Als u problemen hebt met het uitvoeren van Azure IoT Edge in uw omgeving, kunt u
 
 Wanneer u een probleem ondervindt, kunt u meer informatie verzamelen over de status van uw Azure IoT Edge-apparaat aan de hand van de containerlogboeken en -berichten die naar en van het apparaat worden doorgegeven. Gebruik de opdrachten en hulpprogramma's in deze sectie om informatie te verzamelen. 
 
-* Bekijk de logboeken van de Docker-containers om problemen te detecteren. Begin met uw geïmplementeerde containers en kijk vervolgens naar de containers die gezamenlijk de IoT Edge-runtime vormen: Edge Agent en Edge Hub. De Edge Agent-logboeken bieden doorgaans informatie over de levenscyclus van elke container. De Edge Hub-logboeken bieden informatie over berichten en routering. 
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Controleer de status van de beveiligingsinstellingen van de IoT-rand en de logboeken:
 
-   ```cmd
-   docker logs <container name>
+Op Linux:
+- De status van de beveiligingsinstellingen van IoT-rand weergeven:
+
+   ```bash
+   sudo systemctl status iotedge
    ```
 
-* Bekijk de berichten die via Edge Hub gaan en verzamel inzichten over updates van apparaateigenschappen met uitgebreide logboeken uit de runtimecontainers.
+- De logboeken van de beveiligingsinstellingen van IoT-rand weergeven:
 
-   ```cmd
-   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
-   ```
+    ```bash
+    sudo journalctl -u iotedge -f
+    ```
+
+- Gedetailleerdere logboeken van de beveiligingsinstellingen van IoT-rand weergeven:
+
+   - De iotedge daemon-instellingen bewerken:
+
+      ```bash
+      sudo systemctl edit iotedge.service
+      ```
    
-* Uitgebreide logboeken bekijken met behulp van iotedgectl-opdrachten:
+   - Update de volgende regels:
+    
+      ```
+      [Service]
+      Environment=IOTEDGE_LOG=edgelet=debug
+      ```
+    
+   - Start opnieuw op de rand van de IoT-Daemon beveiliging:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
 
-   ```cmd
-   iotedgectl --verbose DEBUG <command>
+In Windows:
+- De status van de beveiligingsinstellingen van IoT-rand weergeven:
+
+   ```powershell
+   Get-Service iotedge
    ```
 
-* Als u verbindingsproblemen ondervindt, controleert u de omgevingsvariabelen van uw Edge-apparaat, zoals de apparaatverbindingsreeks:
+- De logboeken van de beveiligingsinstellingen van IoT-rand weergeven:
+
+   ```powershell
+   # Displays logs from today, newest at the bottom.
+ 
+   Get-WinEvent -ea SilentlyContinue `
+   -FilterHashtable @{ProviderName= "iotedged";
+     LogName = "application"; StartTime = [datetime]::Today} |
+   select TimeCreated, Message |
+   sort-object @{Expression="TimeCreated";Descending=$false}
+   ```
+
+### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Als de beveiligingsinstellingen van de IoT-rand wordt niet uitgevoerd, controleert u of uw yaml-configuratiebestand
+
+> [!WARNING]
+> YAML bestanden mogen geen tabs als inspringing. Gebruik in plaats daarvan 2 spaties.
+
+Op Linux:
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+In Windows:
 
    ```cmd
-   docker exec edgeAgent printenv
+   notepad C:\ProgramData\iotedge\config.yaml
+   ```
+
+### <a name="check-container-logs-for-issues"></a>Controleer de logboeken van de container voor problemen
+
+Zodra de IoT rand Security-Daemon wordt uitgevoerd, bekijkt u de logboeken van de containers voor het detecteren van problemen. Begin met uw geïmplementeerde containers en kijk vervolgens naar de containers die gezamenlijk de IoT Edge-runtime vormen: Edge Agent en Edge Hub. De Edge Agent-logboeken bieden doorgaans informatie over de levenscyclus van elke container. De Edge Hub-logboeken bieden informatie over berichten en routering. 
+
+   ```cmd
+   iotedge logs <container name>
+   ```
+
+### <a name="view-the-messages-going-through-the-edge-hub"></a>De berichten gaan via de Edge-hub weergeven
+
+De berichten gaan via de Edge-hub kunt weergeven en inzichten op Eigenschappen apparaatupdates met uitgebreide logboeken verzamelen van de runtime edgeAgent en edgeHub containers. Om in te schakelen uitgebreide logboeken op deze containers, stel de `RuntimeLogLevel` omgevingsvariabele: 
+
+Op Linux:
+    
+   ```cmd
+   export RuntimeLogLevel="debug"
+   ```
+    
+In Windows:
+    
+   ```powershell
+   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
    ```
 
 U kunt ook de berichten controleren die worden verzonden tussen IoT Hub en de IoT Edge-apparaten. Bekijk deze berichten met behulp van de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)-extensie voor Visual Studio Code. Zie [Handig hulpprogramma bij het ontwikkelen met Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) voor meer richtlijnen.
 
-Nadat u de logboeken en berichten hebt onderzocht voor meer informatie, kunt u ook proberen de Azure IoT Edge-runtime opnieuw te starten:
+### <a name="restart-containers"></a>Opnieuw opstarten van containers
+Na het onderzoeken van de logboeken en berichten voor meer informatie, kunt u proberen opnieuw te starten containers:
+
+```
+iotedge restart <container name>
+```
+
+Start opnieuw op de rand van de IoT-runtime-containers:
+
+```
+iotedge restart edgeAgent && iotedge restart edgeHub
+```
+
+### <a name="restart-the-iot-edge-security-manager"></a>Opnieuw opstarten van de rand van de IoT security manager
+
+Als het probleem nog steeds in de persistent maken, kunt u proberen opnieuw starten van de rand van de IoT security manager.
+
+Op Linux:
 
    ```cmd
-   iotedgectl restart
+   sudo systemctl restart iotedge
+   ```
+
+In Windows:
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   sleep 5
+   Start-Service iotedge
    ```
 
 ## <a name="edge-agent-stops-after-about-a-minute"></a>Edge Agent stopt na ongeveer een minuut
@@ -100,29 +199,11 @@ Een container kan niet worden uitgevoerd en in de logboeken van de Edge Agent wo
 De Edge Agent beschikt niet over machtigingen voor toegang tot de installatiekopie van een module. 
 
 ### <a name="resolution"></a>Oplossing
-Probeer de opdracht `iotedgectl login` opnieuw uit te voeren.
+Zorg ervoor dat uw referenties register correct zijn opgegeven in uw deployment manifest
 
-## <a name="iotedgectl-cant-find-docker"></a>iotedgectl can't find Docker
+## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IoT-rand security-daemon is mislukt met een ongeldige hostnaam
 
-De opdrachten `iotedgectl setup` of `iotedgectl start` mislukken en afdrukken van het volgende bericht naar de logboeken:
-```output
-File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
-  info = self._client.info()
-File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
-  return self.api.info(*args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
-  return self._result(self._get(self._url("/info")), True)
-```
-
-### <a name="root-cause"></a>Hoofdoorzaak
-iotedgectl can't find Docker, which is a pre-requisite.
-
-### <a name="resolution"></a>Oplossing
-Docker installeren, controleren of het programma actief is en het nogmaals proberen.
-
-## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>iotedgectl installatie mislukt met een ongeldige hostnaam
-
-De opdracht `iotedgectl setup` mislukt en wordt het volgende bericht: 
+De opdracht `sudo journalctl -u iotedge` mislukt en wordt het volgende bericht: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -143,9 +224,17 @@ Wanneer u deze fout ziet, kunt u deze kunt oplossen door de DNS-naam van uw virt
 4. Kopiëren van de nieuwe DNS-naam, de indeling moet  **\<DNSnamelabel\>.\< VM-locatie\>. cloudapp.azure.com**.
 5. Gebruik de volgende opdracht voor het instellen van de rand van de IoT-runtime met uw DNS-naam in de virtuele machine:
 
-   ```input
-   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
-   ```
+   - Op Linux:
+
+      ```bash
+      sudo nano /etc/iotedge/config.yaml
+      ```
+
+   - In Windows:
+
+      ```cmd
+      notepad C:\ProgramData\iotedge\config.yaml
+      ```
 
 ## <a name="next-steps"></a>Volgende stappen
 Denkt u dat u een fout op het IoT Edge-platform hebt gevonden? [Verzend een probleem](https://github.com/Azure/iot-edge/issues) zodat we het product verder kunnen blijven verbeteren. 

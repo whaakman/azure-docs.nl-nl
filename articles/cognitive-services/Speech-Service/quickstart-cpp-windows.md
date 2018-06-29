@@ -10,19 +10,19 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 37228ca2f887f0993f707a2b10a2b5dcd888b1b9
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0bcdc3c4357cb8985fad16c607957bffad4a2b8c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753656"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049227"
 ---
 # <a name="quickstart-for-c-and-windows"></a>Quick Start voor C++ en Windows
 
 De huidige versie van de cognitieve Services spraak SDK is `0.4.0`.
 
 Er wordt beschreven hoe een consoletoepassing op basis van C++-maken voor Windows-bureaublad die gebruik maakt van de SDK-spraak.
-De toepassing is op basis van de [Microsoft cognitieve Services SDK NuGet-pakket](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) en Microsoft VisualStudio 2017.
+De toepassing is op basis van de [Microsoft cognitieve Services SDK NuGet-pakket](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) en Microsoft Visual Studio 2017.
 
 > [!NOTE]
 > Als u een Quick Start voor C++- en Linux zoekt, gaat u [hier](quickstart-cpp-linux.md).<br>

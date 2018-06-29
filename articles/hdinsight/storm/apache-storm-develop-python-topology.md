@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 0a8930da2d44714573155477d791dd9cb78d872a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 9ad6ab9e280762fbdb04ba0c1790cd6d01526556
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311689"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063439"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Apache Storm-topologieën op HDInsight met behulp van Python ontwikkelen
 
@@ -38,7 +38,7 @@ De code voor dit project is beschikbaar op [ https://github.com/Azure-Samples/hd
 
 * Maven 3
 
-* (Optioneel) Een lokale Storm-ontwikkelomgeving. Een lokale Storm-omgeving is alleen nodig als u wilt de topologie lokaal uitvoeren. Zie voor meer informatie [een ontwikkelomgeving instellen](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html).
+* (Optioneel) Een lokale Storm-ontwikkelomgeving. Een lokale Storm-omgeving is alleen nodig als u wilt de topologie lokaal uitvoeren. Zie voor meer informatie [een ontwikkelomgeving instellen](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
 ## <a name="storm-multi-language-support"></a>Storm-ondersteuning voor meerdere talen
 
@@ -97,7 +97,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> Deze opdracht moet een lokale Storm-ontwikkelomgeving. Zie voor meer informatie [een ontwikkelomgeving instellen](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html)
+> Deze opdracht moet een lokale Storm-ontwikkelomgeving. Zie voor meer informatie [een ontwikkelomgeving instellen](http://storm.apache.org/releases/1.0.6/Setting-up-development-environment.html)
 
 Eenmaal de topologie wordt gestart, het verzendt gegevens naar de lokale console vergelijkbaar met de volgende tekst:
 

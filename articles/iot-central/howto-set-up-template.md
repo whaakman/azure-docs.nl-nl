@@ -1,6 +1,6 @@
 ---
 title: Een sjabloon van het apparaat in een Azure IoT centrale toepassing instellen | Microsoft Docs
-description: Informatie over het instellen van een sjabloon van het apparaat met metingen, instellingen, eigenschappen, regels en dashboard.
+description: Informatie over het instellen van een sjabloon van het apparaat met metingen, instellingen, eigenschappen, regels en een dashboard.
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0bef8722ee51c916652e6964305f324341052341
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f71d4c7dc94fedfd598ab87c51366ba9fb1f184a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754549"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063032"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
 Een apparaat-sjabloon is een blauwdruk die de kenmerken en het gedrag van een type apparaat dat verbinding met een Microsoft Azure IoT centrale toepassing maakt definieert.
 
-Een opbouwfunctie kunt bijvoorbeeld een sjabloon van het apparaat voor een verbonden IoT-ventilator met maken:
+Een opbouwfunctie kunt bijvoorbeeld een sjabloon van het apparaat voor een IoT verbonden ventilator met maken:
 
 - Temperatuur telemetrie meting
 
@@ -33,93 +33,93 @@ Een opbouwfunctie kunt bijvoorbeeld een sjabloon van het apparaat voor een verbo
 
 - Regels die waarschuwingen verzenden
 
-- Dashboard waarmee u een alles weergave over het apparaat
+- Dashboard waarmee u een algemeen overzicht van het apparaat
 
-Met deze sjabloon apparaat een operator kunt maken en verbinding maken met echte fan apparaten met namen, zoals **ventilator 1** en **ventilator 2**. Alle deze ventilatoren hebben metingen, instellingen en eigenschappen van regels en een dashboard dat gebruikers van uw toepassing kunnen bewaken en beheren.
+Met deze sjabloon apparaat een operator kunt maken en verbinding maken met echte fan apparaten met namen, zoals **ventilator 1** en **ventilator 2**. Alle deze ventilatoren hebben metingen, instellingen, eigenschappen, regels en een dashboard dat gebruikers van uw toepassing kunnen bewaken en beheren.
 
 > [!NOTE]
-> Alleen opbouwfuncties en beheerders kunnen maken, bewerken en verwijderen van apparaat-sjablonen. Elke gebruiker kan maken van apparaten in de **apparaat Explorer** pagina via bestaande sjablonen van het apparaat.
+> Alleen opbouwfuncties en beheerders kunnen maken, bewerken en verwijderen van apparaat-sjablonen. Elke gebruiker apparaten kunt maken op de **apparaat Explorer** pagina via bestaande sjablonen van het apparaat.
 
-## <a name="create-a-new-device-template"></a>Een nieuwe apparaatsjabloon maken
+## <a name="create-a-device-template"></a>Een apparaat-sjabloon maken
 
-1. Navigeer naar de **toepassing Builder** pagina.
+1. Ga naar de **toepassing Builder** pagina.
 
-2. Voor het maken van een lege sjabloon kiezen **apparaat sjabloon maken**, en kies vervolgens **aangepaste**.
+2. U maakt een lege sjabloon selecteren **apparaat sjabloon maken**, en selecteer vervolgens **aangepaste**.
 
-3. Voer een naam voor de nieuwe sjabloon voor het apparaat en kies **maken**.
+3. Voer een naam voor de nieuwe sjabloon voor het apparaat en selecteer **maken**.
 
-    ![De pagina details apparaat](./media/howto-set-up-template/devicedetailspage.png)
+   ![De detailpagina apparaat met 'Koelkast' als naam van de sjabloon](./media/howto-set-up-template/devicedetailspage.png)
 
-4. Nu u gaat de **Apparaatdetails** pagina van een nieuw gesimuleerd apparaat. Een gesimuleerd apparaat wordt automatisch voor u gemaakt wanneer u een nieuwe apparaat-sjabloon maakt. Deze gegevens rapporten en net als bij een echte apparaat kan worden beheerd.
+4. Nu u gaat de **Apparaatdetails** pagina van een nieuw gesimuleerd apparaat. Een gesimuleerd apparaat wordt automatisch voor u gemaakt wanneer u een apparaat-sjabloon maken. Deze gegevens rapporten en net als bij een echte apparaat kan worden beheerd.
 
 Bekijk de tabbladen worden weergegeven op de **Apparaatdetails** pagina.
 
 ## <a name="measurements"></a>Metingen
 
-Metingen zijn de gegevens die afkomstig zijn van uw apparaat. U kunt meerdere metingen toevoegen aan uw sjabloon apparaat overeenkomen met de mogelijkheden van uw apparaat. Telemetrie- en gebeurtenis zijn momenteel de soorten ondersteunde metingen.
+Metingen zijn de gegevens die afkomstig zijn van uw apparaat. U kunt meerdere metingen toevoegen aan uw sjabloon apparaat overeenkomen met de mogelijkheden van uw apparaat.
 
-- **Telemetrie** metingen zijn de numerieke gegevenspunten uw apparaat worden gedurende een periode worden verzameld en worden vertegenwoordigd een continue stroom. Bijvoorbeeld: temperatuur.
-- **Gebeurtenis** metingen zijn de punt in tijd-gegevens die iets significante op het apparaat vertegenwoordigen. Gebeurtenissen hebben die zijn gekoppeld aan deze ernst die het belang van de gebeurtenis vertegenwoordigt. Bijvoorbeeld ventilatoren motor fout
-- **Status** metingen vertegenwoordigen de status van het apparaat of de bijbehorende onderdelen gedurende een periode. Bijvoorbeeld ventilatoren modus die kan worden gedefinieerd als bestanden met het besturingssysteem en als de twee mogelijke statussen zijn gestopt.
+- **Telemetrie** metingen zijn de numerieke gegevenspunten die het apparaat gedurende een periode worden verzameld. Ze wordt weergegeven als een continue stroom. Een voorbeeld is temperatuur.
+- **Gebeurtenis** metingen zijn de punt in tijd-gegevens die verwijst naar iets anders significante op het apparaat. Een urgentieniveau vertegenwoordigt het belang van een gebeurtenis. Een voorbeeld is een motor ventilator-fout.
+- **Status** metingen vertegenwoordigen de status van het apparaat of de bijbehorende onderdelen gedurende een periode. Bijvoorbeeld, een ventilator-modus kan worden gedefinieerd als bestanden met **besturingssysteem** en **gestopt** als de twee mogelijke statussen.
 
 ### <a name="create-a-telemetry-measurement"></a>Maak een meting telemetrie
-Als u wilt een nieuwe telemetrie meting toevoegen, klikt u op **+ nieuwe meting** knop waarmee een formulier met opties te selecteren van het type meting wordt geopend. Selecteer **telemetrie** en voer de details op de **telemetrie maken** formulier.
+Selecteer om een nieuwe telemetrie meting toe de **+ nieuwe meting** knop. Selecteer **telemetrie** als de meting, te typen en de details op de **telemetrie maken** formulier.
 
 > [!NOTE]
-> Wanneer een echte apparaat verbonden, betaalde aandacht op de naam van de meting is wordt het apparaat rapporteert. De naam moet exact overeenkomen met de **veldnaam** van een meting.
+> Wanneer een echte apparaat is verbonden, moet u aandacht schenken aan de naam van de meting die het apparaat rapporteert. De naam moet exact overeenkomen met de **veldnaam** vermelding voor een meting.
 
 U kunt bijvoorbeeld een nieuwe temperatuur telemetrie meting toevoegen:
 
-![Metingen formulier](./media/howto-set-up-template/measurementsform.png)
+![Formulier met details voor de temperatuurmeting 'Telemetrie maken'](./media/howto-set-up-template/measurementsform.png)
 
-Nadat u hebt gekozen **opslaan**, wordt de **temperatuur** meting wordt weergegeven in de lijst met metingen en een operator de visualisatie van de temperatuur gegevens van het apparaat verzamelen kunt zien.
+Nadat u hebt geselecteerd **opslaan**, wordt de **temperatuur** meting wordt weergegeven in de lijst met metingen. Een operator ziet de visualisatie van de gegevens temperatuur die het apparaat wordt verzameld.
 
-![Metingen grafiek](./media/howto-set-up-template/measurementsgraph.png)
+![Grafiek van de meting](./media/howto-set-up-template/measurementsgraph.png)
 
 ### <a name="create-an-event-measurement"></a>Maak een meting gebeurtenis
-Als u wilt een nieuwe gebeurtenis meting toevoegen, klikt u op **+ nieuwe meting** knop waarmee een formulier met opties te selecteren van het type meting wordt geopend. Selecteer **gebeurtenis** en voer de details op de **maken gebeurtenis** formulier.
+Selecteer om een nieuwe gebeurtenis meting toe de **+ nieuwe meting** knop. Selecteer **gebeurtenis** als de meting, te typen en de details op de **maken gebeurtenis** formulier.
 
-Op dit formulier bieden de **weergavenaam**, **veldnaam**, en de **ernst** van de gebeurtenis. U kunt kiezen uit de drie beschikbare niveaus van de ernst: **fout**, **waarschuwing**, en **informatie**.  
+Geef de **weergavenaam**, **veldnaam**, en **ernst** details voor de gebeurtenis. U kunt kiezen uit de drie beschikbare niveaus van ernst: **fout**, **waarschuwing**, en **informatie**.  
 
-U kunt bijvoorbeeld een nieuwe 'Ventilator Motor fout' gebeurtenis toevoegen.
+Bijvoorbeeld, u een nieuwe kunt toevoegen **ventilator Motor fout** gebeurtenis.
 
-![Gebeurtenis metingen formulier](./media/howto-set-up-template/eventmeasurementsform.png)
+![Formulier met details voor een ventilator motor gebeurtenis 'Gebeurtenis maken'](./media/howto-set-up-template/eventmeasurementsform.png)
 
-Nadat u hebt gekozen **opslaan**, wordt de **ventilator Motor fout** meting wordt weergegeven in de lijst met metingen en een operator de visualisatie van de gegevens van de gebeurtenis die het verzenden van het apparaat kunt zien.
+Nadat u hebt geselecteerd **opslaan**, wordt de **ventilator Motor fout** meting wordt weergegeven in de lijst met metingen. Een operator ziet de visualisatie van de gegevens van de gebeurtenis voor het verzenden van het apparaat.
 
-![Omvang van de gebeurtenis](./media/howto-set-up-template/eventmeasurementschart.png)
+![Gebeurtenis meting grafiek](./media/howto-set-up-template/eventmeasurementschart.png)
 
-Voor aanvullende details over de gebeurtenis bekijken, klikt u op het pictogram gebeurtenis in de grafiek:
+Als u meer details over de gebeurtenis, selecteer het pictogram gebeurtenis in het diagram:
 
-![Gebeurtenisdetails metingen](./media/howto-set-up-template/eventmeasurementsdetail.png)
+![Details voor de gebeurtenis "Ventilator Motor Error"](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
 
 ### <a name="create-a-state-measurement"></a>Maak een meting status
-Als u wilt een nieuwe status meting toevoegen, klikt u op **+ nieuwe meting** knop waarmee een formulier met opties te selecteren van het type meting wordt geopend. Selecteer **status** en voer de details op de **maken status** formulier.
+Selecteer om een nieuwe status meting toe de **+ nieuwe meting** knop. Selecteer **status** als de meting, te typen en de details op de **maken status** formulier.
 
-Op dit formulier bieden de **weergavenaam**, **veldnaam**, en de mogelijke **waarden** van de status. Elke **waarde** kan ook een weergavenaam die wordt gebruikt wanneer de waarde weergegeven op de tabellen en grafieken hebben.
+Geef de details voor **weergavenaam**, **veldnaam**, en **waarden** van de status. Elke waarde kan ook een weergavenaam die wordt gebruikt wanneer de waarde wordt weergegeven in de grafieken en tabellen hebben.
 
-U kunt bijvoorbeeld een nieuwe ventilator-modus staat die twee mogelijke waarden die het apparaat verzenden heeft kan, toevoegen **besturingssysteem** en **gestopt**.
+Bijvoorbeeld, u een nieuwe kunt toevoegen **ventilator modus** status die twee mogelijke waarden die het apparaat verzenden heeft kunt, **besturingssysteem** en **gestopt**.
 
-![Status metingen formulier](./media/howto-set-up-template/statemeasurementsform.png)
+!['Bewerkstatus' formulier met details voor de modus ventilator](./media/howto-set-up-template/statemeasurementsform.png)
 
-Nadat u hebt gekozen **opslaan**, wordt de **ventilator modus** status meting wordt weergegeven in de lijst met metingen en de operator de weergave van de statusgegevens van het verzenden van het apparaat kunt zien.
+Nadat u hebt geselecteerd **opslaan**, wordt de **ventilator modus** status meting wordt weergegeven in de lijst met metingen. De operator ziet de visualisatie van de van statusgegevens die het verzenden van het apparaat.
 
-![Metingen Statusgrafiek](./media/howto-set-up-template/statemeasurementschart.png)
+![Status meting grafiek](./media/howto-set-up-template/statemeasurementschart.png)
 
-Als er binnen een korte tijdsduur te veel gegevenspunten door het apparaat worden verzonden, wordt de statusmeting weergegeven met een andere visualisatie, zoals hieronder weergegeven. Als u op het diagram klikt, worden alle gegevenspunten binnen die periode in chronologische volgorde weergegeven. U kunt ook het tijdsbereik voor een overzicht van de meting in de grafiek getekend afbakenen.
+Als het apparaat te veel gegevenspunten in een kleine duur verzendt, is de meting status wordt weergegeven met een andere visuele zoals weergegeven in de volgende schermafbeelding. Als u op de grafiek klikt, worden alle gegevenspunten binnen deze periode in chronologische volgorde weergegeven. U kunt ook het tijdsbereik voor een overzicht van de meting in de grafiek getekend afbakenen.
 
-![Details van status metingen](./media/howto-set-up-template/statemeasurementsdetail.png)
+![Details voor de meting van de status 'Statische modus' voor de ventilator](./media/howto-set-up-template/statemeasurementsdetail.png)
 
 
 ## <a name="settings"></a>Instellingen
 
-Instellingen beheren voor een apparaat. Ze inschakelen operators van uw toepassing informatie invoeren voor het apparaat. U kunt meerdere instellingen toevoegen aan de sjabloon voor apparaten die worden weergegeven als tegels op de **instellingen** tabblad voor operators te gebruiken. Er zijn zes soorten instellingen die u kunt toevoegen: getal, tekst, datum, in-of uitschakelen, selectielijst en sectielabel.
+Instellingen beheren voor een apparaat. Ze inschakelen operators van uw toepassing informatie invoeren voor het apparaat. U kunt meerdere instellingen toevoegen aan de sjabloon voor apparaten die worden weergegeven als tegels op de **instellingen** tabblad voor operators te gebruiken. U kunt de zes soorten instellingen toevoegen: getal, tekst, datum, in-of uitschakelen, selectielijst en sectielabel.
 
 > [!NOTE]
-> Wanneer een echte apparaat is verbonden, moet u aandacht schenken aan de naam van de instelling voor de apparaat-rapporten. De naam moet exact overeenkomen met de **veldnaam** van een instelling.
+> Wanneer een echte apparaat is verbonden, Let op de naam van de instelling die het apparaat rapporteert. De naam moet exact overeenkomen met de **veldnaam** vermelding voor een instelling.
 
-Instellingen kunnen worden gebruikt in een van drie statussen. Deze statussen worden gemeld door het apparaat.
+Instellingen kunnen worden gebruikt in een van drie statussen. Het apparaat meldt deze statussen.
 
 - **Gesynchroniseerd**: het apparaat is gewijzigd om de waarde van de instelling weer te geven.
 
@@ -129,154 +129,147 @@ Instellingen kunnen worden gebruikt in een van drie statussen. Deze statussen wo
 
 U kunt bijvoorbeeld een nieuwe ventilator snelheidsinstelling toevoegen:
 
-![Formulier instellingen](./media/howto-set-up-template/settingsform.png)
+!['Het aantal configureren' formulier met details voor snelheid](./media/howto-set-up-template/settingsform.png)
 
-Nadat u hebt gekozen **opslaan**, wordt de **ventilatoren snelheid** instelling wordt weergegeven als een tegel en is gereed voor om te worden gebruikt voor het wijzigen van de snelheid van de ventilator van het apparaat.
+Nadat u hebt geselecteerd **opslaan**, wordt de **ventilatorsnelheid** instelling wordt weergegeven als een tegel en is gereed om te worden gebruikt voor het wijzigen van de snelheid van de ventilator van het apparaat.
 
-Nadat u een nieuwe tegel hebt gemaakt, kunt u uw nieuwe instelling uitproberen. Eerst uitschakelen ontwerpmodus aan de bovenkant van het scherm.
+Nadat u een tegel hebt gemaakt, kunt u uw nieuwe instelling uitproberen. Eerst uitschakelen ontwerpmodus op de rechterbovenhoek van het scherm.
 
-![Tegel instellingen](./media/howto-set-up-template/settingstile.png)
+![Tabblad 'Instellingen' met de schakeloptie 'ontwerpmodus' voor de tegel](./media/howto-set-up-template/settingstile.png)
 
 ## <a name="properties"></a>Eigenschappen
 
-Eigenschappen zijn de metagegevens van apparaten die zijn gekoppeld aan het apparaat, zoals de locatie van het apparaat en het serienummer. U kunt meerdere eigenschappen toevoegen aan uw apparaat-sjabloon als tegels worden weergegeven op de **eigenschappen** tabblad. Een operator kunt de waarden voor eigenschappen opgeven wanneer ze een nieuw apparaat maken en deze waarden op elk gewenst moment kunnen bewerken. Er zijn zes typen eigenschappen die u kunt toevoegen: getal, tekst, datum, in-of uitschakelen, apparaateigenschap en label.
+Eigenschappen zijn de metagegevens van apparaten die is gekoppeld aan het apparaat, zoals de locatie van het apparaat en het serienummer. U kunt meerdere eigenschappen toevoegen aan de sjabloon voor apparaten die worden weergegeven als tegels op de **eigenschappen** tabblad. Een operator kunt de waarden voor eigenschappen opgeven wanneer ze een apparaat maken en deze waarden op elk gewenst moment kunnen bewerken. U kunt de zes typen eigenschappen toevoegen: getal, tekst, datum, in-of uitschakelen, apparaateigenschap en label.
 
 Er zijn twee soorten eigenschappen:
 
-- **Apparaateigenschappen** eigenschappen worden gerapporteerd door het apparaat.
-- **Toepassingseigenschappen** zijn opgeslagen in de toepassing alleen eigenschappen. Het apparaat heeft geen informatie over de eigenschappen van toepassing.
+- **Apparaat** eigenschappen die het apparaat rapporteert.
+- **Toepassing** eigenschappen die alleen in de toepassing worden opgeslagen. Het apparaat niet wordt herkend door de toepassingseigenschappen van de.
 
 > [!NOTE]
-> Voor apparaateigenschappen, wanneer een echte apparaat verbonden, betaalde aandacht op de naam van de eigenschap is rapporteert het apparaat. De naam moet exact overeenkomen met de **veldnaam** van de eigenschap. Voor toepassingseigenschappen mag de veldnaam alles wat die u wilt, zolang de naam uniek zijn in de sjabloon van het apparaat is.
+> Voor apparaateigenschappen, wanneer een echte apparaat is verbonden, Let op de naam van de eigenschap die het apparaat rapporteert. De naam moet exact overeenkomen met de **veldnaam** vermelding voor de eigenschap. Voor toepassingseigenschappen mag de veldnaam alles wat die u wilt, zolang de naam uniek zijn in de sjabloon van het apparaat is.
 
 U kunt bijvoorbeeld de locatie van het apparaat toevoegen als een nieuwe eigenschap:
 
-![Formulier Eigenschappen](./media/howto-set-up-template/propertiesform.png)
+![Formulier 'Configureren tekst' op het tabblad 'Eigenschappen'](./media/howto-set-up-template/propertiesform.png)
 
-Nadat u hebt gekozen **opslaan**, locatie van het apparaat wordt weergegeven als een tegel:
+Nadat u hebt geselecteerd **opslaan**, locatie van het apparaat wordt weergegeven als een tegel:
 
-![Tegel eigenschappen](./media/howto-set-up-template/propertiestile.png)
+![Locatie-tegel](./media/howto-set-up-template/propertiestile.png)
 
-> [!NOTE]
-> Na het maken van een nieuwe tegel, kunt u de waarde van eigenschap. Eerst uitschakelen ontwerpmodus aan de bovenkant van het scherm.
+Nadat u een tegel hebt gemaakt, kunt u de waarde van eigenschap kunt wijzigen. Eerst uitschakelen ontwerpmodus in de rechterbovenhoek van het scherm.
 
-### <a name="create-a-location-property-powered-by-azure-maps"></a>Maak een locatie-eigenschap aangedreven door Azure Maps
-U kunt geografische context geven tot uw locatiegegevens in Azure IoT centrale en eventuele breedtegraad en lengtegraad coördinaten van een Straatadres, of gewoon breedtegraad en lengtegraad coördinaten worden toegewezen. Deze mogelijkheid In Azure IoT Central wordt aangedreven door Azure Maps.
+### <a name="create-a-location-property-through-azure-maps"></a>Maak een locatie-eigenschap via Azure Maps
+U kunt geografische context geven tot uw locatiegegevens in Azure IoT centrale en eventuele coördinaten breedtegraad en lengtegraad van een adres worden toegewezen. Of u kunt gewoon breedtegraad en lengtegraad kaartcoördinaten. Azure-kaarten kunnen deze mogelijkheid in IoT centraal.
 
-Er zijn twee soorten locatie-eigenschappen die u kunt toevoegen:
-- **Locatie als de eigenschap van een toepassing** die alleen in de toepassing worden opgeslagen. Het apparaat heeft geen informatie over de eigenschappen van toepassing.
-- **Locatie als een apparaateigenschap** die worden gerapporteerd door het apparaat.
+U kunt twee soorten locatie eigenschappen toevoegen:
+- **Locatie als de eigenschap van een toepassing**, dat alleen in de toepassing wordt opgeslagen. Het apparaat niet wordt herkend door de toepassingseigenschappen van de.
+- **Locatie als een apparaateigenschap**, dat het apparaat rapporteert.
 
-#### <a name="adding-location-as-an-application-property"></a>Locatie als de eigenschap van een toepassing toe te voegen. 
+#### <a name="add-location-as-an-application-property"></a>Locatie als de eigenschap van een toepassing toevoegen 
+U kunt locatie-eigenschap als een eigenschap van een toepassing maken met behulp van Azure Maps in uw toepassing IoT centraal. U kunt bijvoorbeeld de installatie-adres van het apparaat toevoegen. 
 
-Kunt u een locatie-eigenschap bevat als de eigenschap van een toepassing met behulp van Azure in uw Azure IoT centrale toepassing wordt toegewezen. U kunt bijvoorbeeld de installatie-adres van het apparaat toevoegen. 
+1. Op de **eigenschappen** tabblad, zorg ervoor dat **ontwerpmodus** is **op**.
 
-1. Navigeer naar het tabblad Apparaateigenschap. Zorg ervoor dat de dat ontwerpmodus is ingeschakeld.
+   ![Tabblad 'Eigenschappen' met ontwerpmodus ingeschakeld](./media/howto-set-up-template/locationcloudproperty1.png)
 
-   ![Locatie-eigenschap](./media/howto-set-up-template/locationcloudproperty1.png)
+2. Selecteer in de bibliotheek **locatie**.
+3. Configureer **weergavenaam**, **veldnaam**, en (optioneel) **beginwaarde** voor de locatie. 
 
-2. Klik op de locatie op het tabblad eigenschap.
-3. Weergavenaam, veldnaam en de oorspronkelijke waarde van de locatie eventueel configureren. 
-
-   ![Formulier voor locatie-eigenschap](./media/howto-set-up-template/locationcloudproperty2.png)
+   ![Formulier met details voor de locatie van "Locatie configureren"](./media/howto-set-up-template/locationcloudproperty2.png)
 
    Er zijn twee ondersteunde indelingen voor het toevoegen van een locatie:
    - **Locatie als een adres**
    - **Locatie als coördinaten** 
 
-4.  Klik op **Opslaan**. 
+4. Selecteer **Opslaan**. 
 
-    ![Het locatieveld-eigenschap](./media/howto-set-up-template/locationcloudproperty3.png)
+   ![De eigenschap Location met installatie-adres toegevoegd](./media/howto-set-up-template/locationcloudproperty3.png)
 
 Een operator kan nu de locatiewaarde in het veld locatie formulier bijwerken. 
 
-#### <a name="adding-location-as-a-device-property"></a>Locatie toe te voegen als een apparaateigenschap 
+#### <a name="add-location-as-a-device-property"></a>Locatie als de apparaateigenschap van een toevoegen 
 
-U kunt een locatie-eigenschap maken als een apparaateigenschap die is gerapporteerd door het apparaat.
-Bijvoorbeeld, wilt u bijhouden van de locatie van het apparaat.
+U kunt een locatie-eigenschap maken als een apparaateigenschap die het apparaat rapporteert. Bijvoorbeeld, als u wilt bijhouden van de locatie van het apparaat:
 
-1.  Navigeer naar het tabblad Apparaateigenschap. Zorg ervoor dat de dat ontwerpmodus is ingeschakeld.
+1. Op de **eigenschappen** tabblad, zorg ervoor dat **ontwerpmodus** is **op**.
 
-2.  Klik op de Apparaateigenschap uit de bibliotheek.
+   ![Tabblad 'Eigenschappen' met ontwerpmodus ingeschakeld](./media/howto-set-up-template/locationdeviceproperty1.png)
 
-    ![Het locatieveld-eigenschap](./media/howto-set-up-template/locationdeviceproperty1.png)
+2. Selecteer **Apparaateigenschap** uit de bibliotheek.
+3. Configureer de weergavenaam en de veldnaam en selecteer **locatie** als gegevenstype. 
 
-3.  Weergavenaam, veldnaam, configureren, en kies 'locatie' als een gegevenstype. 
+   > [!NOTE]
+   > De veldnaam moet exact overeenkomen met de naam van de eigenschap die het apparaat rapporteert. 
 
-    > [!NOTE]
-    > De veldnaam moet exact overeenkomen op de naam van de eigenschap van het apparaat rapporten. 
+   ![Formulier met details voor de locatie 'Apparaateigenschappen configureren'](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-    ![Het locatieveld-eigenschap](./media/howto-set-up-template/locationdeviceproperty2.png)
-
-    ![Locatie-eigenschap operator weergeven](./media/howto-set-up-template/locationdeviceproperty2.png)
-
-Nu dat u de eigenschap location hebt geconfigureerd, kunt u zich kunt toevoegen van een kaart om de locatie in het Dashboard van het apparaat. Zie hoe [locatie toevoegen Azure kaart in Dashboard](howto-set-up-template.md#add-location-azure-map-in-dashboard).
+Nu dat u de eigenschap location hebt geconfigureerd, kunt u [toevoegen van een kaart om de locatie in het dashboard apparaat](#add-an-azure-maps-location-in-the-dashboard).
 
 ## <a name="commands"></a>Opdrachten
 
-Opdrachten worden gebruikt om een apparaat extern kunt beheren. Ze inschakelen operators van uw toepassing direct uitvoeren van opdrachten op het apparaat. U kunt meerdere opdrachten toevoegen aan de sjabloon voor apparaten die worden weergegeven als tegels op de **opdrachten** tabblad voor operators te gebruiken. Als de opbouwfunctie voor het apparaat dat hebt u de flexibiliteit voor het definiëren van uw opdracht volgens uw vereisten.
+Opdrachten worden gebruikt om een apparaat extern kunt beheren. Ze inschakelen operators van uw toepassing direct uitvoeren van opdrachten op het apparaat. U kunt meerdere opdrachten toevoegen aan de sjabloon voor apparaten die worden weergegeven als tegels op de **opdrachten** tabblad voor operators te gebruiken. Als de opbouwfunctie voor van het apparaat hebt u de flexibiliteit voor het definiëren van opdrachten volgens uw vereisten.
 
-Hoe wordt een **opdracht** anders dan een **instelling**? 
+Hoe wordt een opdracht van een instelling? 
 
-* Instelling: Is een configuratie die u wilt toepassen op een apparaat en u wilt dat het apparaat dat de configuratie bewaard totdat u deze te wijzigen. Bijvoorbeeld, u wilt de temperatuur van de vriezer instellen en u die instelling wilt, zelfs wanneer de vriesvaartuigen opnieuw gestart. 
+* **Instelling**: een is een configuratie die u wilt toepassen op een apparaat, en u wilt dat de configuratie bewaard totdat u het wijzigen van het apparaat. Bijvoorbeeld, u wilt de temperatuur van de vriezer instellen en u wilt dat deze instelling zelfs wanneer de vriesvaartuigen opnieuw opstart. 
 
-* Opdracht: U kunt opdrachten onmiddellijk een opdracht wordt uitgevoerd op het apparaat op afstand van IoTCentral, als een apparaat niet is verbonden en vervolgens de opdrachttime-out en mislukt. Bijvoorbeeld, u een apparaat opnieuw opstarten/reboot.  
+* **Opdracht**: U opdrachten kunt onmiddellijk een opdracht wordt uitgevoerd op het apparaat op afstand van IoT centraal. Als een apparaat niet is verbonden, wordt de opdracht een time-out optreedt en mislukt. U wilt bijvoorbeeld een apparaat opnieuw opstarten.  
 
-Opdrachten bij uitvoering kunnen zich in een van drie statussen, afhankelijk van of het apparaat de opdracht ontvangen. 
+Wanneer u een opdracht uitvoert, kan deze zich in een van drie statussen, afhankelijk van of het apparaat de opdracht ontvangen. 
 
-U kunt bijvoorbeeld een nieuwe echo-opdracht toevoegen:
+Bijvoorbeeld, u een nieuwe kunt toevoegen **Echo** opdracht:
 
-![Opdrachten formulier](./media/howto-set-up-template/commandsecho.png)
+![Formulier met details voor de echo '-opdracht configureren'](./media/howto-set-up-template/commandsecho.png)
 
-Nadat u hebt gekozen **opslaan**, wordt de **Echo** opdracht wordt weergegeven als een tegel en gereed is voor moeten worden gebruikt voor het apparaat Echo.
+Nadat u hebt geselecteerd **opslaan**, wordt de **Echo** opdracht wordt weergegeven als een tegel en is gereed om te worden gebruikt voor het apparaat echo.
 
-Nadat u een nieuwe tegel hebt gemaakt, kunt u proberen uw nieuwe opdracht.
+Nadat u een tegel hebt gemaakt, kunt u proberen uw nieuwe opdracht.
 
 ## <a name="rules"></a>Regels
 
-Regels inschakelen operators voor het bewaken van apparaten in bijna realtime. Regels automatisch aanroepen **acties** zoals een e-mailbericht verzenden wanneer de regel wordt geactiveerd. Er is een type regel beschikbaar vandaag:
+Regels inschakelen operators voor het bewaken van apparaten in bijna realtime. Regels aanroepen automatisch acties zoals een e-mailbericht verzenden wanneer de regel wordt geactiveerd. Een type regel is vandaag beschikbaar:
 
-- **Telemetrie-regel:** een regel telemetrie wordt geactiveerd wanneer de telemetrie van het geselecteerde apparaat een opgegeven drempelwaarde overschrijdt. Meer informatie over [telemetrie regels](howto-create-telemetry-rules.md).
+- **Telemetrie-regel**, die wordt geactiveerd wanneer de telemetrie van het geselecteerde apparaat een opgegeven drempelwaarde overschrijdt. [Meer informatie over de regels voor telemetrie](howto-create-telemetry-rules.md).
 
 ## <a name="dashboard"></a>Dashboard
 
-Het dashboard is waar een operator voor informatie over een apparaat kunt gaan. U kunt als een opbouwfunctie tegels toevoegen aan deze pagina die u helpen begrijpen hoe het apparaat is gedragen operators. U kunt meerdere dashboard tegels toevoegen aan de sjabloon voor het apparaat. Er zijn zes typen dashboard tegels die u kunt toevoegen: image en label grafiek, staafdiagram, KPI, instellingen en eigenschappen.
+Het dashboard is waar een operator voor informatie over een apparaat kunt gaan. U kunt de tegels op deze pagina om te begrijpen hoe het apparaat is gedragen operators toevoegen als een opbouwfunctie. U kunt meerdere dashboard tegels toevoegen aan de sjabloon voor het apparaat. U kunt de zes soorten dashboard tegels toevoegen: image en label grafiek, staafdiagram, KPI, instellingen en eigenschappen.
 
 U kunt bijvoorbeeld toevoegen een **instellingen en eigenschappen** tegel om een selectie van de huidige waarden van instellingen en eigenschappen weer te geven:
 
-![Dashboard apparaat formulier](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![Formulier met details voor de instellingen en eigenschappen 'Apparaatdetails configureren'](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
 
 Als een operator bekijkt het dashboard, kunnen ze nu deze tegel waarin de eigenschappen en instellingen van het apparaat zien:
 
-![Dashboardtegel](./media/howto-set-up-template/dashboardtile.png)
+![Tabblad met de weergegeven instellingen en eigenschappen voor de tegel 'Dashboard'](./media/howto-set-up-template/dashboardtile.png)
 
-### <a name="add-location-azure-map-in-dashboard"></a>Locatie toevoegen Azure kaart in het Dashboard
+### <a name="add-an-azure-maps-location-in-the-dashboard"></a>Een Azure-Maps-locatie toevoegen in het dashboard
 
-Als u een locatie-eigenschap, zoals in de stappen hebt geconfigureerd [maakt u een locatie-eigenschap aangedreven door Azure Maps](howto-set-up-template.md), is het mogelijk voor het visualiseren van de locatie met een kaart rechts in het dashboard van uw apparaat.
+Als u een locatie-eigenschap eerder in geconfigureerd [maakt u een locatie-eigenschap via Azure Maps](#create-a-location-property-through-azure-maps), kunt u de locatie visualiseren met behulp van een kaart in het dashboard van uw apparaat.
 
-1.  Navigeer naar het tabblad Dashboard apparaat. Zorg ervoor dat de dat ontwerpmodus is ingeschakeld.
+1. Op de **Dashboard** tabblad, zorg ervoor dat **ontwerpmodus** is **op**.
 
-2.  Selecteer de kaart in de bibliotheek op apparaat-Dashboard. 
+   ![Tabblad met ontwerpmodus 'Dashboard' ingeschakeld](./media/howto-set-up-template/locationcloudproperty4map.png)
 
-    ![Dashboard Azure locatiekaart selecteren](./media/howto-set-up-template/locationcloudproperty4map.png)
+2. Selecteer op het dashboard apparaat **kaart** uit de bibliotheek. 
+3. Geef een titel en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de apparaateigenschappen van uw.
 
-3.  Geef een titel en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
+   ![Formulier met details voor de titel en de eigenschappen 'Kaart configureren'](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-    ![Dashboardlocatie Azure kaart configureren](./media/howto-set-up-template/locationcloudproperty5map.png)
+4. Selecteer **Opslaan**. De tegel kaart toont nu de locatie die u hebt geselecteerd. 
 
-4.  Opslaan en u ziet de kaart tegel weergeven van de locatie die u hebt geselecteerd. 
+   ![Tegel met de geselecteerde locatie worden toegewezen](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-    ![Dashboardlocatie Azure kaart visualiseren](./media/howto-set-up-template/locationcloudproperty6map.png) 
+U kunt de grootte van de kaart van het gewenste formaat.
 
-    U kunt zich vergroten of verkleinen van de kaart aan de gewenste grootte.
+Als een operator bekijkt het dashboard, kunnen ze nu alle dashboard tegels die u hebt geconfigureerd, inclusief een locatiekaart zien.
 
-    Als een operator bekijkt het dashboard, zien ze nu deze alle Dashboard tegels die u hebt geconfigureerd met inbegrip van een locatie kaart!
-
-    ![Dashboard locatie Azure kaart Dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
+![Tegels op het dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u een sjabloon van het apparaat in uw Azure IoT centrale toepassing instelt, wordt hier de voorgestelde volgende stap:
+Nu dat u hebt geleerd hoe u een sjabloon van het apparaat in uw Azure IoT centrale toepassing instelt, kunt u het volgende doen:
 
 > [!div class="nextstepaction"]
 > [Maak een nieuwe versie van de apparaat-sjabloon](howto-version-devicetemplate.md)

@@ -13,28 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 8754e550f396c90504ed0fdaf1131173a10923ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619096"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058884"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Fouttolerantie van de kopieeractiviteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Versie 2 - Preview](copy-activity-fault-tolerance.md)
+> * [Versie 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Huidige versie](copy-activity-fault-tolerance.md)
 
 De kopieeractiviteit in Azure Data Factory biedt twee manieren om af te handelen incompatibel rijen bij het kopiëren van gegevens tussen de bron- en sink gegevensarchieven:
 
 - U kunt afbreken en mislukt de kopie activiteit als niet-compatibele gegevens aangetroffen (standaardinstelling).
 - U kunt doorgaan met het kopiëren alle gegevens door toe te voegen fouttolerantie en niet-compatibele gegevensrijen wordt overgeslagen. Bovendien kunt u de niet-compatibele rijen registreren in Azure Blob storage of Azure Data Lake Store. Bekijk vervolgens het logboek voor meer informatie over de oorzaak van de fout, los van de gegevens op de gegevensbron en probeer het opnieuw met de kopieerbewerking.
 
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [activiteit fouttolerantie in V1 kopiëren](v1/data-factory-copy-activity-fault-tolerance.md).
-
-
- ## <a name="supported-scenarios"></a>Ondersteunde scenario's
+## <a name="supported-scenarios"></a>Ondersteunde scenario's
 Kopieeractiviteit ondersteunt drie scenario's voor het detecteren, wordt overgeslagen en logboekregistratie incompatibel gegevens:
 
 - **Incompatibiliteit tussen het gegevensbrontype en het systeemeigen type sink**. 

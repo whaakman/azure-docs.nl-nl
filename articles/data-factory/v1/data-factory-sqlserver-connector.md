@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 67a91f8b61c1a0783d2075a13cc8cf2701496c88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4038ea5a450f32a46f24a306d1ee30bd61308a5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622377"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054582"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Verplaatsen van gegevens naar en van SQL Server on-premises of op IaaS (Azure VM) met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-sqlserver-connector.md)
-> * [Versie 2 - Preview](../connector-sql-server.md)
+> * [Versie 1](data-factory-sqlserver-connector.md)
+> * [Versie 2 (huidige versie)](../connector-sql-server.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [SQL Server-connector in V2](../connector-sql-server.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [SQL Server-connector in V2](../connector-sql-server.md).
 
 Dit artikel wordt uitgelegd dat het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens uit een on-premises SQL Server database te verplaatsen. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont. 
 
@@ -55,7 +55,7 @@ U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens uit een on-
 
 De eenvoudigste manier om een pijplijn maken is met de **Wizard kopiëren**. Zie [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht over het maken van een pijplijn met de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
+U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
 
 Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren: 
 
@@ -662,21 +662,21 @@ De toewijzing is hetzelfde als de SQL Server gegevenstypetoewijzing voor ADO.NET
 | Datum en tijd |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| Decimale |Decimale |
+| decimale |decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |dubbele |
-| Afbeelding |Byte[] |
+| Float |Double |
+| installatiekopie |Byte[] |
 | int |Int32 |
-| Money |Decimale |
+| Money |decimale |
 | nchar |Tekenreeks, Char] |
 | ntext |Tekenreeks, Char] |
-| numerieke |Decimale |
+| numerieke |decimale |
 | nvarchar |Tekenreeks, Char] |
 | echte |Enkelvoudig |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimale |
+| smallmoney |decimale |
 | sql_variant |Object * |
 | tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |

@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: aca67ceff2650a5470b1c08b20c21d71f00bae62
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: eae350f751788eb09271e70f71f79b12e27c4e16
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751527"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061398"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk
 Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk in de volgende scenario's: 
@@ -27,10 +27,7 @@ Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk in de
 
 - Als u beheert de catalogusdatabase van de SQL Server Integration Services (SSIS)-in Azure SQL Database met een virtueel netwerk service-eindpunten/beheerde exemplaar (Preview). 
 
- Azure Data Factory versie 2 (Preview) kunt u uw Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk gemaakt met behulp van het klassieke implementatiemodel of het Azure Resource Manager-implementatiemodel. 
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u gebruikmaakt van versie 1 van de Data Factory-service is in het algemeen beschikbaarheid (GA), raadpleegt u de [Data Factory-documentatie voor versie 1](v1/data-factory-introduction.md). 
+ Azure Data Factory kunt u uw Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk gemaakt met behulp van het klassieke implementatiemodel of het Azure Resource Manager-implementatiemodel. 
 
 ## <a name="access-to-on-premises-data-stores"></a>Toegang tot on-premises gegevensopslagexemplaren
 Als SSIS-pakketten toegang krijgen de gegevensarchieven alleen openbare cloud tot, moet u niet de Azure-SSIS-IR toevoegen aan een virtueel netwerk. Als SSIS-pakketten toegang on-premises gegevensopslagexemplaren tot, moet u de Azure-SSIS-IR toevoegen aan een virtueel netwerk dat is verbonden met de on-premises netwerk. 
@@ -91,7 +88,7 @@ Zie voor meer informatie [naamomzetting die gebruikmaakt van uw eigen DNS-server
 ### <a name="nsg"></a> Netwerkbeveiligingsgroep
 Als u nodig hebt voor het implementeren van een netwerkbeveiligingsgroep (NSG) in een virtueel netwerk die worden toegevoegd door de runtime van uw Azure-SSIS-integratie, kunt u binnenkomend en uitgaand verkeer via de volgende poorten: 
 
-| Richting | Protocol-transport | Bron | Poortbereik van bron | Bestemming | Poortbereik van doel | Opmerkingen |
+| Richting | Protocol-transport | Bron | Poortbereik van bron | Doel | Poortbereik van doel | Opmerkingen |
 |---|---|---|---|---|---|---|
 | Inkomend | TCP | Internet | * | VirtualNetwork | 29876, 29877 (als u de IR aan een virtueel netwerk van Azure Resource Manager koppelt) <br/><br/>10100, 20100, 30100 (als u de IR aan een klassiek virtueel netwerk koppelt)| De Data Factory-service gebruikt deze poorten om te communiceren met de knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk. <br/><br/> Of u een NSG of niet opgeeft, Data Factory altijd configureert u een NSG op het niveau van de netwerkinterfacekaarten (NIC's) gekoppeld aan de virtuele machines die als host fungeren van de Azure-SSIS-IR Alleen inkomend verkeer van Data Factory-IP-adressen is toegestaan. Zelfs als u deze poorten om internetverkeer te openen, is het verkeer van IP-adressen die geen Data Factory-IP-adressen op het niveau van de NIC geblokkeerd. |
 | Uitgaand | TCP | VirtualNetwork | * | Internet | 443 | De knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk deze poort gebruiken voor toegang tot Azure-services, zoals Azure Storage en Azure Event Hubs. |
@@ -114,7 +111,10 @@ Als u zich zorgen maakt over de mogelijkheid te verliezen uitgaand internetverke
 Zie [dit PowerShell-script](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) voor een voorbeeld. U moet uitvoeren van het script wekelijks up-to-date te houden de lijst met Azure data center IP-adres. 
 
 ### <a name="resource-group"></a> Vereisten voor resourcegroep
-De Azure-SSIS-IR moet maken van bepaalde netwerkbronnen onder dezelfde resourcegroep bevinden als het virtuele netwerk, met inbegrip van een Azure load balancer, een Azure openbare IP-adres en een netwerkbeveiligingsgroep voor werk. 
+-   De Azure-SSIS-IR moet bepaalde netwerkbronnen onder dezelfde resourcegroep bevinden als het virtuele netwerk maken. Deze resources omvatten het volgende:
+    -   Een Azure load balancer met de naam  *<Guid>- azurebatch cloudserviceloadbalancer*.
+    -   Een Azure openbare IP-adres, met de naam  *<Guid>- azurebatch cloudservicepublicip*.
+    -   Een werk netwerkbeveiligingsgroep, met de naam  *<Guid>- azurebatch cloudservicenetworksecuritygroup*. 
 
 -   Zorg ervoor dat er geen vergrendeling resource van de resourcegroep of abonnement waartoe het virtuele netwerk behoort. Als u een vergrendeling van alleen-lezen of een vergrendeling verwijderen configureert, kunnen starten en stoppen van de IR mislukken of vastlopen. 
 

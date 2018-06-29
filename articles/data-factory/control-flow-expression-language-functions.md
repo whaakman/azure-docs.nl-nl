@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: ea612f0c58b92e37d405f9a57611610fa187f7db
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81392cc8b6225302d6835cdb3d23e9bab7d9c930
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619317"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058966"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressies en functies in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-functions-variables.md)
-> * [Versie 2 - Preview](control-flow-expression-language-functions.md)
+> * [Versie 1](v1/data-factory-functions-variables.md)
+> * [Huidige versie](control-flow-expression-language-functions.md)
 
-In dit artikel bevat informatie over expressies en functies worden ondersteund door Azure Data Factory (versie 2). 
+In dit artikel bevat informatie over expressies en functies worden ondersteund door Azure Data Factory. 
 
 ## <a name="introduction"></a>Inleiding
 JSON-waarden in de definitie mag letterlijke waarde of expressies die worden beoordeeld tijdens runtime. Bijvoorbeeld:  
@@ -40,19 +40,14 @@ JSON-waarden in de definitie mag letterlijke waarde of expressies die worden beo
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [functies en variabelen in de Data Factory V1](v1/data-factory-functions-variables.md).
-
-
 ## <a name="expressions"></a>Expressies  
-Expressies kunnen overal voorkomen in een string-waarde van JSON en altijd resulteren in een andere JSON-waarde. Als een JSON-waarde een expressie is, de hoofdtekst van de expressie wordt opgehaald door het verwijderen van het apenstaartje (@). Als een letterlijke tekenreeks is vereist dat met begint @, doorsluizen met behulp van@. De volgende voorbeelden ziet hoe expressies worden geëvalueerd.  
+Expressies kunnen overal voorkomen in een string-waarde van JSON en altijd resulteren in een andere JSON-waarde. Als een JSON-waarde een expressie is, de hoofdtekst van de expressie wordt opgehaald door het verwijderen van het apenstaartje (\@). Als een letterlijke tekenreeks is vereist dat met begint @, doorsluizen met behulp van@. De volgende voorbeelden ziet hoe expressies worden geëvalueerd.  
   
 |JSON-waarde|Resultaat|  
 |----------------|------------|  
 |'parameters'|De tekens 'parameters' worden geretourneerd.|  
 |'[1] parameters'|De tekens 'parameters [1]' worden geretourneerd.|  
-|"\@\@"|Een tekenreeks 1 teken ' @' wordt geretourneerd.|  
+|"\@@"|Een tekenreeks 1 teken ' @' wordt geretourneerd.|  
 |" \@"|Een tekenreeks 2 teken ' @' wordt geretourneerd.|  
   
  Expressies kan ook worden weergegeven binnen tekenreeksen, met de functie aangeroepen *interpolatie string* waar expressies zijn samengevoegd in `@{ ... }`. Bijvoorbeeld: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
@@ -61,13 +56,13 @@ Expressies kunnen overal voorkomen in een string-waarde van JSON en altijd resul
   
 |JSON-waarde|Resultaat|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| Retourneert `foo` als een tekenreeks.|  
-|"@{pipeline ()-.parameters.myString}"| Retourneert `foo` als een tekenreeks.|  
-|"@pipeline().parameters.myNumber"| Retourneert `42` als een *nummer*.|  
-|"@{pipeline ()-.parameters.myNumber}"| Retourneert `42` als een *tekenreeks*.|  
+|'\@pipeline.parameters.myString () '| Retourneert `foo` als een tekenreeks.|  
+|"\@{pipeline ()-.parameters.myString}"| Retourneert `foo` als een tekenreeks.|  
+|'\@pipeline.parameters.myNumber () '| Retourneert `42` als een *nummer*.|  
+|"\@{pipeline ()-.parameters.myNumber}"| Retourneert `42` als een *tekenreeks*.|  
 |"Antwoord is: @{pipeline ()-.parameters.myNumber}"| Retourneert de tekenreeks `Answer is: 42`.|  
-|'@concat(' Antwoord is: ', string(pipeline().parameters.myNumber)) '| Retourneert de tekenreeks `Answer is: 42`|  
-|"Antwoord: @@ {pipeline ()-.parameters.myNumber}"| Retourneert de tekenreeks `Answer is: @{pipeline().parameters.myNumber}`.|  
+|'\@concat (' antwoord is: ', string(pipeline().parameters.myNumber)) '| Retourneert de tekenreeks `Answer is: 42`|  
+|"Antwoord: \@@{pipeline ()-.parameters.myNumber}"| Retourneert de tekenreeks `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Voorbeelden
 
@@ -178,9 +173,9 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |snijpunt|Retourneert een matrix of object met de standaardelementen tussen de matrices of objecten die zijn doorgegeven. Bijvoorbeeld: deze functie retourneert `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> De parameters voor de functie kunnen een set van objecten of een set van matrices (niet een combinatie daarvan) zijn. Als er twee objecten met dezelfde naam, is het laatste object met deze naam wordt weergegeven in het definitieve-object.<br /><br /> **Parameternummer**: 1... *n*<br /><br /> **Naam**: verzameling *n*<br /><br /> **Beschrijving**: vereist. De verzamelingen om te evalueren. Een object moet zich in alle verzamelingen die zijn doorgegeven aan in het resultaat verschijnen.|  
 |Union|Retourneert een matrix of object met alle van de elementen die worden in de matrix of object doorgegeven. Bijvoorbeeld, retourneert deze functie `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> De parameters voor de functie kunnen een set van objecten of een set van matrices (niet een combinatie daarvan) zijn. Als er twee objecten met dezelfde naam in de uiteindelijke uitvoer, is het laatste object met deze naam wordt weergegeven in het definitieve-object.<br /><br /> **Parameternummer**: 1... *n*<br /><br /> **Naam**: verzameling *n*<br /><br /> **Beschrijving**: vereist. De verzamelingen om te evalueren. Een object dat wordt weergegeven in een van de verzamelingen wordt weergegeven in het resultaat.|  
 |eerste|Retourneert het eerste element in de matrix of tekenreeks doorgegeven. Bijvoorbeeld: deze functie retourneert `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling te laten worden van het eerste-object.|  
-|laatste|Retourneert het laatste element in de matrix of tekenreeks doorgegeven. Bijvoorbeeld: deze functie retourneert `3`:<br /><br /> `last('0123')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling te laten worden van het laatste-object.|  
+|Laatste|Retourneert het laatste element in de matrix of tekenreeks doorgegeven. Bijvoorbeeld: deze functie retourneert `3`:<br /><br /> `last('0123')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling te laten worden van het laatste-object.|  
 |duren|Retourneert de eerste **aantal** elementen van de matrix of tekenreeks ingevoerd, bijvoorbeeld deze functie retourneert `[1, 2]`:  `take([1, 2, 3, 4], 2)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling te nemen van de eerste **aantal** objecten uit.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: aantal<br /><br /> **Beschrijving**: vereist. Het aantal objecten uit de **verzameling**. Moet een positief geheel getal zijn.|  
-|Overslaan|Retourneert de elementen in de matrix die begint bij index **aantal**, bijvoorbeeld deze functie retourneert `[3, 4]`:<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling overslaan van de eerste **aantal** objecten uit.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: aantal<br /><br /> **Beschrijving**: vereist. Het aantal objecten verwijderen uit de voorgrond van **verzameling**. Moet een positief geheel getal zijn.|  
+|overslaan|Retourneert de elementen in de matrix die begint bij index **aantal**, bijvoorbeeld deze functie retourneert `[3, 4]`:<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling overslaan van de eerste **aantal** objecten uit.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: aantal<br /><br /> **Beschrijving**: vereist. Het aantal objecten verwijderen uit de voorgrond van **verzameling**. Moet een positief geheel getal zijn.|  
   
 ## <a name="logical-functions"></a>Logische functies  
  Deze functies zijn nuttig in voorwaarden, ze kunnen worden gebruikt om te evalueren van elk type logica.  
@@ -208,7 +203,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
   
 -   booleaans  
   
--   Matrices  
+-   matrices  
   
 -   woordenlijsten  
   
@@ -219,7 +214,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |json|De parameter niet converteren naar een JSON-type-waarde. Het is het tegenovergestelde van string(). Bijvoorbeeld de volgende expressie retourneert `[1,2,3]` als een matrix in plaats van een tekenreeks:<br /><br /> `json('[1,2,3]')`<br /><br /> U kunt ook een tekenreeks converteren naar een object. Bijvoorbeeld: `json('{"bar" : "baz"}')` geretourneerd:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De tekenreeks die wordt geconverteerd naar een systeemeigen type-waarde.<br /><br /> De json-functie ondersteunt ook XML-invoer. Bijvoorbeeld, de parameterwaarde van:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> wordt geconverteerd naar de volgende json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |drijvend|Het parameterargument niet converteren naar een getal met drijvende komma. Bijvoorbeeld de volgende expressie retourneert `10.333`:  `float('10.333')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een getal met drijvende komma.|  
 |BOOL|De parameter niet converteren naar een Booleaanse waarde. Bijvoorbeeld de volgende expressie retourneert `false`:  `bool(0)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een Booleaanse waarde.|  
-|Coalesce|Retourneert het eerste niet-null-object in de doorgegeven argumenten. Opmerking: een lege tekenreeks is niet null. Bijvoorbeeld, als parameters 1 en 2 niet zijn gedefinieerd, dit retourneert `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameternummer**: 1... *n*<br /><br /> **Naam**: Object*n*<br /><br /> **Beschrijving**: vereist. De objecten om te controleren of `null`.|  
+|coalesce|Retourneert het eerste niet-null-object in de doorgegeven argumenten. Opmerking: een lege tekenreeks is niet null. Bijvoorbeeld, als parameters 1 en 2 niet zijn gedefinieerd, dit retourneert `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameternummer**: 1... *n*<br /><br /> **Naam**: Object*n*<br /><br /> **Beschrijving**: vereist. De objecten om te controleren of `null`.|  
 |Base64|Retourneert de base64-weergave van de invoertekenreeks. Bijvoorbeeld de volgende expressie retourneert `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: String 1<br /><br /> **Beschrijving**: vereist. De tekenreeks voor het coderen naar base64-weergave.|  
 |base64ToBinary|Retourneert een binaire voorstelling van een base64-gecodeerde tekenreeks. Bijvoorbeeld de volgende expressie de binaire voorstelling van sommige tekenreeks geretourneerd: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De met base64 gecodeerde tekenreeks.|  
 |base64ToString|Retourneert een string-weergave van een based64 gecodeerde tekenreeks. Bijvoorbeeld de volgende expressie retourneert een tekenreeks: `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De met base64 gecodeerde tekenreeks.|  
@@ -263,7 +258,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |addminutes|Een geheel getal aantal minuten toegevoegd aan de tijdstempel van een tekenreeks doorgegeven. Het aantal minuten kan positief of negatief zijn. Het resultaat is een tekenreeks in de ISO 8601-notatie ("o") standaard, tenzij een indelingsopgave is opgegeven. Bijvoorbeeld: `2015-03-15T14:00:36Z`:<br /><br /> `addminutes('2015-03-15T13:27:36Z', 33)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Timestamp<br /><br /> **Beschrijving**: vereist. Een tekenreeks waarin de tijd.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: minuten<br /><br /> **Beschrijving**: vereist. Het aantal minuten om toe te voegen. Kan niet negatief moet worden afgetrokken minuten zijn.<br /><br /> **Parameternummer**: 3<br /><br /> **Naam**: indeling<br /><br /> **Beschrijving**: optioneel. Ofwel een [enkel indeling aanduiding teken](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) of een [aangepaste indeling patroon](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) die aangeeft dat de waarde van dit tijdstempel opmaken. Als indeling niet opgegeven is, wordt de ISO 8601-notatie ("o") wordt gebruikt.|  
 |addhours|Voegt een geheel getal van uur aan de tijdstempel van een tekenreeks doorgegeven. Het aantal uren kan positief of negatief zijn. Het resultaat is een tekenreeks in de ISO 8601-notatie ("o") standaard, tenzij een indelingsopgave is opgegeven. Bijvoorbeeld `2015-03-16T01:27:36Z`:<br /><br /> `addhours('2015-03-15T13:27:36Z', 12)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Timestamp<br /><br /> **Beschrijving**: vereist. Een tekenreeks waarin de tijd.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: uren<br /><br /> **Beschrijving**: vereist. Het aantal uren om toe te voegen. Mogelijk moet worden afgetrokken uren negatief zijn.<br /><br /> **Parameternummer**: 3<br /><br /> **Naam**: indeling<br /><br /> **Beschrijving**: optioneel. Ofwel een [enkel indeling aanduiding teken](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) of een [aangepaste indeling patroon](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) die aangeeft dat de waarde van dit tijdstempel opmaken. Als indeling niet opgegeven is, wordt de ISO 8601-notatie ("o") wordt gebruikt.|  
 |addDays|Een geheel getal aantal dagen toegevoegd aan de tijdstempel van een tekenreeks doorgegeven. Het aantal dagen kan positief of negatief zijn. Het resultaat is een tekenreeks in de ISO 8601-notatie ("o") standaard, tenzij een indelingsopgave is opgegeven. Bijvoorbeeld `2015-02-23T13:27:36Z`:<br /><br /> `adddays('2015-03-15T13:27:36Z', -20)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Timestamp<br /><br /> **Beschrijving**: vereist. Een tekenreeks waarin de tijd.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: dagen<br /><br /> **Beschrijving**: vereist. Het aantal dagen om toe te voegen. Mogelijk moet worden afgetrokken dagen negatief zijn.<br /><br /> **Parameternummer**: 3<br /><br /> **Naam**: indeling<br /><br /> **Beschrijving**: optioneel. Ofwel een [enkel indeling aanduiding teken](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) of een [aangepaste indeling patroon](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) die aangeeft dat de waarde van dit tijdstempel opmaken. Als indeling niet opgegeven is, wordt de ISO 8601-notatie ("o") wordt gebruikt.|  
-|formatDateTime|Retourneert een tekenreeks in datumnotatie. Het resultaat is een tekenreeks in de ISO 8601-notatie ("o") standaard, tenzij een indelingsopgave is opgegeven. Bijvoorbeeld `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: datum<br /><br /> **Beschrijving**: vereist. Een tekenreeks met de datum.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: indeling<br /><br /> **Beschrijving**: optioneel. Ofwel een [enkel indeling aanduiding teken](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) of een [aangepaste indeling patroon](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) die aangeeft dat de waarde van dit tijdstempel opmaken. Als indeling niet opgegeven is, wordt de ISO 8601-notatie ("o") wordt gebruikt.|  
+|FormatDateTime|Retourneert een tekenreeks in datumnotatie. Het resultaat is een tekenreeks in de ISO 8601-notatie ("o") standaard, tenzij een indelingsopgave is opgegeven. Bijvoorbeeld `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: datum<br /><br /> **Beschrijving**: vereist. Een tekenreeks met de datum.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: indeling<br /><br /> **Beschrijving**: optioneel. Ofwel een [enkel indeling aanduiding teken](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) of een [aangepaste indeling patroon](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) die aangeeft dat de waarde van dit tijdstempel opmaken. Als indeling niet opgegeven is, wordt de ISO 8601-notatie ("o") wordt gebruikt.|  
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst van systeemvariabelen die u in expressies gebruiken kunt [systeemvariabelen](control-flow-system-variables.md).

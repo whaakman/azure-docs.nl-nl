@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232384"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028945"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn toegangsbeheer in Azure Active Directory voorwaardelijke toegang? 
 
@@ -77,7 +77,7 @@ Met multi-factor authentication voorkomt bronnen worden geopend door onbevoegde 
 
 ### <a name="compliant-device"></a>Compatibel apparaat
 
-U kunt beleid voor voorwaardelijke toegang op basis van het apparaat configureren. Het doel van een beleid voor voorwaardelijke toegang op basis van apparaten is om toegang te verlenen tot de geconfigureerde resources alleen via [beheerde apparaten](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Vereisen van een compatibel apparaat is een optie die u hebt om te definiëren welke een beheerd apparaat is. Als deze optie is geselecteerd, uw beleid voor voorwaardelijke toegang verleent toegang aan toegangspogingen met apparaten die zijn aangebracht [geregistreerd](device-management-introduction.md) naar uw Azure Active Directory en zijn gemarkeerd als compatibel met uw MDM-oplossing.
+U kunt beleid voor voorwaardelijke toegang op basis van het apparaat configureren. Het doel van een beleid voor voorwaardelijke toegang op basis van apparaten is om toegang te verlenen tot de geconfigureerde resources alleen via [beheerde apparaten](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Vereisen van een compatibel apparaat is een optie die u hebt om te definiëren welke een beheerd apparaat is. Als deze optie is geselecteerd, uw beleid voor voorwaardelijke toegang verleent toegang aan toegangspogingen met apparaten die zijn aangebracht [geregistreerd](device-management-introduction.md) naar uw Azure Active Directory en zijn gemarkeerd als compatibel met Intune (voor elk apparaat OS) of met uw MDM-systeem van derden voor Windows 10-apparaten. MDM-systemen van derden voor apparaattypen besturingssysteem dan Windows 10 worden niet ondersteund.
 
 Zie voor meer informatie [Azure Active Directory-beleid voor voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md).
 

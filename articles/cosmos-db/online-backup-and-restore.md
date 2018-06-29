@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: dddb3311ff5db964494697d76967f74c863d84e1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 19f61893eb9250fbd5bbf930e98aa89ac74fd0c3
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615033"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028733"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatische online back-up en herstel met Azure Cosmos-DB
 Azure Cosmos-database wordt automatisch back-ups van al uw gegevens met regelmatige tussenpozen. De automatische back-ups worden gemaakt zonder de prestaties of beschikbaarheid van uw databasebewerkingen. Uw back-ups apart zijn opgeslagen in een andere storage-service en deze back-ups globaal voor tolerantie tegen regionale noodsituaties worden gerepliceerd. De automatische back-ups zijn bedoeld voor scenario's wanneer u uw Cosmos-DB-container per ongeluk verwijdert en later nodig hebt voor herstel van gegevens of een noodherstel.  
@@ -23,7 +23,7 @@ Azure Cosmos-database wordt automatisch back-ups van al uw gegevens met regelmat
 Dit artikel begint met een snelle samenvatting van de gegevensredundantie en beschikbaarheid in een Cosmos-database en vervolgens back-ups besproken. 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Hoge beschikbaarheid met Cosmos-DB - een samenvatting
-Cosmos DB is ontworpen om te worden [globaal gedistribueerde](distribute-data-globally.md) – Hiermee kunt u de schaal van doorvoer voor meerdere Azure-regio's samen met aangestuurd transparante multihoming API's en failover-beleid. Biedt Azure Cosmos DB [99,99% beschikbaarheid serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/cosmos-db) voor alle accounts voor één regio en alle meerdere landen/regio-accounts met versoepeld consistentie en 99,999% beschikbaarheid voor alle accounts voor meerdere landen/regio-database lezen. Alle schrijfbewerkingen in Azure Cosmos DB zijn blijvend doorgevoerd naar lokale schijven door een quorum van replica's binnen een lokale datacentrum voordat naar de client zijn bevestigd. Houd er rekening mee dat de hoge beschikbaarheid van de Cosmos-DB is afhankelijk van de lokale opslag, en is niet afhankelijk van een externe opslagtechnologieën. Als de databaseaccount gekoppeld aan meer dan één Azure-regio is, worden uw schrijfbewerkingen bovendien gerepliceerd in andere regio's ook. Als u wilt schalen de doorvoer en toegang tot gegevens op lage latenties, kunt u hebben zoals veel gebieden die zijn gekoppeld aan uw databaseaccount als u wilt lezen. In elke regio lezen, wordt de (gerepliceerde) gegevens blijvend vastgehouden in een replicaset.  
+Cosmos DB is ontworpen om te worden [globaal gedistribueerde](distribute-data-globally.md) – Hiermee kunt u de schaal van doorvoer voor meerdere Azure-regio's samen met aangestuurd transparante multihoming API's en failover-beleid. Biedt Azure Cosmos DB [99,99% beschikbaarheid serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/cosmos-db) voor alle accounts voor één regio en alle meerdere landen/regio-accounts met versoepeld consistentie en 99,999% beschikbaarheid voor alle accounts voor meerdere landen/regio-database lezen. Alle schrijfbewerkingen in Azure Cosmos DB zijn blijvend doorgevoerd naar lokale schijven door een quorum van replica's binnen een lokale datacentrum voordat naar de client zijn bevestigd. De maximale beschikbaarheid van de Cosmos-DB is afhankelijk van de lokale opslag en is niet afhankelijk van een externe opslagtechnologieën. Als de databaseaccount gekoppeld aan meer dan één Azure-regio is, worden uw schrijfbewerkingen bovendien gerepliceerd in andere regio's ook. Als u wilt schalen de doorvoer en toegang tot gegevens op lage latenties, kunt u hebben zoals veel gebieden die zijn gekoppeld aan uw databaseaccount als u wilt lezen. In elke regio lezen, wordt de (gerepliceerde) gegevens blijvend vastgehouden in een replicaset.  
 
 Zoals weergegeven in het volgende diagram, is het een enkele container van de Cosmos-DB [horizontaal gepartitioneerde](partition-data.md). Een 'partitie' wordt aangeduid met een cirkel in het volgende diagram en elke partitie is maximaal beschikbaar is via een replicaset is gemaakt. Dit is de lokale distributiepunten binnen (aangeduid met de X-as) één Azure-regio. Elke partitie (met de bijbehorende replica is ingesteld) wordt verder dan globaal gedistribueerd over meerdere regio's die zijn gekoppeld aan uw databaseaccount (bijvoorbeeld in deze afbeelding de drie regio's: VS-Oost, VS-West en centrale India). Het 'instellen voor partitie' is een wereldwijd gedistribueerde entiteit die bestaat uit meerdere exemplaren van uw gegevens in elke regio (aangeduid met de Y-as). U kunt de prioriteit toewijzen aan de regio's die zijn gekoppeld aan uw databaseaccount en Cosmos DB wordt transparante failover naar de volgende regio in geval van noodsituaties. U kunt ook handmatig failover wilt testen, de beschikbaarheid van de end-to-end van uw toepassing simuleren.  
 
@@ -45,19 +45,31 @@ De volgende afbeelding ziet u periodieke volledige back-ups van alle Cosmos DB e
 ![Periodieke volledige back-ups van alle Cosmos DB entiteiten in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="backup-retention-period"></a>Back-up bewaarperiode
-Zoals hierboven wordt beschreven, duurt Azure Cosmos DB momentopnamen van uw gegevens om de vier uur op het niveau van de partitie. Op elk gewenst worden alleen de laatste twee momentopnamen bewaard. Echter, als de verzamelingdatabase wordt verwijderd, behouden we de bestaande momentopnamen voor alle van de verwijderde partities binnen de opgegeven verzamelingdatabase voor 30 dagen.
+Zoals hierboven wordt beschreven, duurt Azure Cosmos DB momentopnamen van uw gegevens om de vier uur op het niveau van de partitie. Op elk gewenst worden alleen de laatste twee momentopnamen bewaard. Echter, als de verzamelingdatabase wordt verwijderd, behoudt Azure Cosmos DB de bestaande momentopnamen voor alle van de verwijderde partities binnen de opgegeven verzamelingdatabase voor 30 dagen.
 
 Voor SQL-API als u wilt behouden van uw eigen momentopnamen, kunt u het exporteren naar een JSON-optie in de database van de Cosmos Azure [hulpprogramma voor gegevensmigratie](import-data.md#export-to-json-file) aanvullende back-ups plannen.
 
 > [!NOTE]
-> Als u 'Inrichten doorvoer voor een set van containers op het niveau van de Database' – Houd er rekening mee wordt het terugzetten van gebeurt op niveau van de account volledige Database. Ook moet u ervoor zorgen dat binnen de 8 uur tot onze support bereiken als u per ongeluk uw container - tabel/verzameling/grafiek verwijderd als u deze nieuwe mogelijkheid gebruikt. 
+> Als u 'Inrichten doorvoer voor een set van containers op het niveau van de Database' – Houd er rekening mee wordt het terugzetten van gebeurt op niveau van de account volledige Database. Ook moet u ervoor zorgen dat binnen de 8 uur naar het ondersteuningsteam als u per ongeluk uw container - tabel/verzameling/grafiek verwijderd als u deze nieuwe mogelijkheid bereiken. 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Een database terugzetten vanuit een online back-up
-Als u de database of een verzameling per ongeluk verwijdert, kunt u [bestand een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) of [contact op met ondersteuning voor Azure](https://azure.microsoft.com/support/options/) de gegevens van de laatste automatische back-up wilt terugzetten. Azure-ondersteuning is beschikbaar voor de geselecteerde abonnementen alleen zoals Standard, Developer, ondersteuning niet beschikbaar is voor basis-plan. Zie voor meer informatie over de verschillende ondersteuningsplannen, [Azure-ondersteuningsplannen](https://azure.microsoft.com/en-us/support/plans/) pagina. Als u wilt uw database terugzetten vanwege beschadigingsprobleem gegevens (inclusief gevallen waar de documenten binnen een verzameling worden verwijderd), Zie [afhandeling van gegevensbeschadiging](#handling-data-corruption) als nodig is voor extra stappen ondernemen om te voorkomen dat de beschadigde gegevens de bestaande back-ups overschrijven. Voor een specifieke momentopname van de back-up moet worden hersteld, vereist Cosmos DB dat de gegevens voor de duur van de back-cyclus voor het die momentopname beschikbaar is.
+
+Als u de database of een verzameling per ongeluk verwijdert, kunt u [bestand een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) of [contact op met ondersteuning voor Azure](https://azure.microsoft.com/support/options/) de gegevens van de laatste automatische back-up wilt terugzetten. Azure-ondersteuning is beschikbaar voor de geselecteerde abonnementen alleen zoals Standard, Developer, ondersteuning niet beschikbaar is voor basis-plan. Zie voor meer informatie over de verschillende ondersteuningsplannen, [Azure-ondersteuningsplannen](https://azure.microsoft.com/support/plans/) pagina. 
+
+Als u wilt uw database terugzetten vanwege beschadigingsprobleem gegevens (inclusief gevallen waar de documenten binnen een verzameling worden verwijderd), Zie [afhandeling van gegevensbeschadiging](#handling-data-corruption) als nodig is voor extra stappen ondernemen om te voorkomen dat de beschadigde gegevens de bestaande back-ups overschrijven. Voor een specifieke momentopname van de back-up moet worden hersteld, vereist Cosmos DB dat de gegevens voor de duur van de back-cyclus voor het die momentopname beschikbaar is.
 
 ## <a name="handling-data-corruption"></a>Beschadigde gegevens verwerken
-Azure Cosmos DB behoudt de laatste twee back-ups van elke partitie in de databaseaccount. Dit model is geschikt als een container (verzameling van documenten, grafiek, tabel) of een database per ongeluk worden verwijderd omdat een van de laatste versies kan worden hersteld. Echter, in het geval wanneer gebruikers leiden een probleem met de gegevens beschadigd tot kunnen en is het mogelijk de beschadiging van de bestaande back-ups mogelijk hebben overschreven Azure Cosmos DB mogelijk niet bewust zijn van de beschadigde gegevens. Zo snel is beschadigd, moet de gebruiker de beschadigde container (graph-verzameling/tabelnaam) verwijderen zodat back-ups worden beveiligd met beschadigde gegevens wordt overschreven.
+
+Azure Cosmos DB behoudt de laatste twee back-ups van elke partitie in de databaseaccount. Dit model is geschikt als een container (verzameling van documenten, grafiek, tabel) of een database per ongeluk worden verwijderd omdat een van de laatste versies kan worden hersteld. Echter, in het geval wanneer gebruikers leiden een probleem met de gegevens beschadigd tot kunnen en is het mogelijk de beschadiging van de bestaande back-ups mogelijk hebben overschreven Azure Cosmos DB mogelijk niet bewust zijn van de beschadigde gegevens. 
+
+Zo snel is beschadigd, bereiken met gegevens en verzameling met bij benadering de tijd van beschadiging customer support. Een andere actie voor de gebruiker kan doen in het geval van beschadigd (gegevens verwijderen/bijwerken van) de gebruiker de beschadigde container (graph-verzameling/tabelnaam) moet verwijderen, zodat back-ups worden beveiligd met beschadigde gegevens wordt overschreven.  
+
+De volgende afbeelding ziet u het maken van de aanvraag ondersteuning voor container(collection/graph/table) herstellen via de Azure-portal voor de per ongeluk verwijderen of bijwerken van gegevens binnen een container
+
+![Een verzameling voor de onjuiste update herstellen of verwijderen van gegevens in Cosmos-DB](./media/online-backup-and-restore/backup-restore-support.png)
+
+Als het herstel is voltooid voor dit soort scenario's - gegevens worden teruggezet op een ander account (en het achtervoegsel '-hersteld ') en verzameling. Deze terugzetten is niet uitgevoerd om de kans te bieden aan de klant valideren van de gegevens gaan doen en waar nodig de gegevens verplaatsen. De herstelde verzameling is in dezelfde regio met dezelfde RUs en het beleid voor indexering. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

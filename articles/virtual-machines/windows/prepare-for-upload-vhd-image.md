@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 038a9be813367d130dd8bb02b24879d1e2e573b5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d7ee7050f430efea64d9988adf4f5a603128de2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072246"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053446"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows-VHD of VHDX uploaden naar Azure voorbereiden
 Voordat u een virtuele Windows-machines (VM) on-premises met Microsoft Azure uploaden, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt alleen generatie 1 virtuele machines die in de VHD-indeling en een schijf met vaste grootte hebben. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM van de VHDX-bestandssysteem VHD en naar een vaste grootte en dynamisch uitbreidbare schijf converteren. Maar als u de generatie van een virtuele machine niet wijzigen. Zie voor meer informatie [maak ik een generatie 1 of 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -367,7 +367,7 @@ Als u in plaats daarvan wilt slechts aan één virtuele machine maken van een sc
 Zie voor meer informatie over het maken van een virtuele machine vanaf een speciale schijf:
 
 - [Een virtuele machine vanaf een speciale schijf maken](create-vm-specialized.md)
-- [Een virtuele machine vanaf een speciale VHD-schijf maken](https://azure.microsoft.com/resources/templates/201-vm-specialized-vhd/)
+- [Een virtuele machine vanaf een speciale VHD-schijf maken](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Als u maken van een algemene installatiekopie wilt, moet u sysprep niet uitvoeren. Zie voor meer informatie over Sysprep [hoe gebruik Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx). 
 
@@ -381,7 +381,7 @@ Ondersteunt deze generaliseren niet elke rol of de toepassing die op een Windows
 1. Aanmelden bij de Windows-VM.
 2. Voer **opdrachtprompt** als beheerder. 
 3. Wijzig de map in: **%windir%\system32\sysprep**, en voer vervolgens **sysprep.exe**.
-3. In de **hulpprogramma voor systeemvoorbereiding** dialoogvenster, **System Voer Out-of-Box Experience (OOBE)**, en zorg ervoor dat de **Generalize** selectievakje is ingeschakeld.
+3. In het dialoogvenster **Hulpprogramma voor systeemvoorbereiding** selecteert u **OOBE (Out-of-Box Experience) van systeem starten** en zorgt u dat het selectievakje **Generaliseren** is ingeschakeld.
 
     ![Hulpprogramma voor systeemvoorbereiding](media/prepare-for-upload-vhd-image/syspre.png)
 4. In **afsluitopties**, selecteer **afsluiten**.

@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 94c94d949874dcf3b48a7ecf2d8ec63da056aec5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c67f6c14dc396367e0179fe5bdb4663fcb7725da
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334272"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045963"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Gegevens kopiëren van Azure Data Factory met ServiceNow
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van ServiceNow. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -46,7 +43,7 @@ De volgende eigenschappen worden ondersteund voor ServiceNow gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **ServiceNow** | Ja |
-| eindpunt | Het eindpunt van de server ServiceNow (`http://<instance>.service-now.com`).  | Ja |
+| endpoint | Het eindpunt van de server ServiceNow (`http://<instance>.service-now.com`).  | Ja |
 | authenticationType | Het verificatietype dat moet worden gebruikt. <br/>Toegestane waarden zijn: **Basic**, **OAuth2** | Ja |
 | gebruikersnaam | De gebruikersnaam voor verbinding met de server ServiceNow voor Basic en OAuth2-verificatie gebruikt.  | Ja |
 | wachtwoord | Het wachtwoord dat overeenkomt met de gebruikersnaam voor de verificatie Basic en OAuth2. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |

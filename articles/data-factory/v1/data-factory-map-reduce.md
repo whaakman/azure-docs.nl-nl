@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6bddb3d5beca57852ef62361b278ec1fa8961f45
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: edbef08eaa100248368d7f0b23171f15b52ec56a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621255"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050944"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Aanroepen van MapReduce-programma's uit Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34621255"
 > * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [transformatie van gegevens met behulp van MapReduce-activiteit in de Data Factory versie 2](../transform-data-using-hadoop-map-reduce.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [transformatie van gegevens met behulp van MapReduce-activiteit in de Data Factory](../transform-data-using-hadoop-map-reduce.md).
 
 
 De HDInsight MapReduce-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) MapReduce-programma's worden uitgevoerd op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont.
@@ -189,7 +189,7 @@ De pijplijn in dit voorbeeld heeft slechts één activiteit die is van het type:
 | className |Naam van de klasse is: **wordcount** |
 | jarFilePath |Pad naar het jar-bestand met de klasse. Vergeet niet de naam van het cluster wijzigen als kopiëren en plakken van de volgende code. |
 | jarLinkedService |Gekoppelde Azure Storage-service die het jar-bestand bevat. Deze gekoppelde service verwijst naar de opslag die is gekoppeld aan het HDInsight-cluster. |
-| Argumenten |Het programma wordcount heeft twee argumenten, invoer en uitvoer. Het invoerbestand is het bestand davinci.txt. |
+| argumenten |Het programma wordcount heeft twee argumenten, invoer en uitvoer. Het invoerbestand is het bestand davinci.txt. |
 | frequency/interval |De waarden voor deze eigenschappen overeen met de uitvoergegevensset. |
 | linkedServiceName |verwijst naar de gekoppelde HDInsight-service die u eerder hebt gemaakt. |
 

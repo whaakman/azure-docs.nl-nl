@@ -1,5 +1,5 @@
 ---
-title: Inzicht in uw factuur voor Azure
+title: Inzicht in uw factuur voor Azure | Microsoft Docs
 description: Meer informatie over het gelezen en begrepen gebruiks- en factuur voor uw Azure-abonnement
 services: ''
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: f3e0e3eeab88ad8ad0c4a21eb69a6340dbbe0441
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204887"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063887"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Meer informatie over uw factuur voor Microsoft Azure
 Voor inzicht in uw Azure-factuur, Vergelijk uw factuur met de gedetailleerde dagelijks gebruik-bestand en de kosten-rapporten in de Azure portal.
@@ -101,6 +101,40 @@ Als u [betaalde door facturering](billing-how-to-pay-by-invoice.md), uw betaling
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Hoe kan ik de status van een betaling van creditcard controleren?
 
 [Maak een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om de status van uw betaling te vragen. 
+
+## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>Zijn er verschillende Azure-klanten typen? Hoe weet ik welke-type klant ik ben?
+Er zijn verschillende soorten Azure-klanten. Zie voor meer informatie over de prijzen en -factuur, de volgende beschrijvingen van het type van de klant.
+
+- **Enterprise**: Enterprise-klanten zich hebben geregistreerd voor een Enterprise Agreement met Azure onderhandelde monetaire toezeggingen en toegang krijgen tot de aangepaste prijzen voor Azure-resources.
+- **Web-Direct**: Web Direct klanten niet alle aangepaste overeenkomst met Azure hebben ondertekend. Deze klanten hebt aangemeld voor Azure via azure.com en krijg openbare gerichte prijzen voor alle Azure-resources.
+- **Cloud Service Provider**: Cloudserviceproviders zijn meestal bedrijven die door een end-klant hebben ingehuurd om oplossingen boven op Azure te maken.
+
+## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>Waarom zie ik niet de kosten van de resource die ik in mijn factuur gemaakt heb?
+Azure heeft niet de factuur direct op basis van resourcekosten. Facturering gebeurt op basis uit een of meer meters die worden gebruikt voor het bijhouden van gebruik tijdens de levensduur van een resource. Deze meters worden vervolgens gebruikt voor het berekenen van de factuur. Zie voor meer informatie over Azure softwarelicentiecontrole hieronder.
+
+## <a name="how-does-azure-charge-metering-work"></a>Hoe Azure kosten in rekening gebracht softwarelicentiecontrole werk?
+Wanneer u van één Azure resource, zoals een virtuele machine ronddraaien, is er een of meerdere meter exemplaren ook worden gemaakt. Deze meters worden gebruikt voor het gebruik van de resource gedurende een periode bijhouden. Elke meter verzendt gebruiksrecords die worden gebruikt door Azure in onze meetsysteem kosten voor het berekenen van de factuur. 
+
+Eén virtuele machine in Azure gemaakt kan bijvoorbeeld de volgende meters gemaakt voor het bijhouden van het gebruik ervan:
+
+- Rekenuren
+- Uren IP-adres
+- Inkomende gegevensoverdracht
+- Uitgaande gegevensoverdracht
+- Standard-beheerde schijven
+- Bewerkingen voor Standard-beheerde schijven
+- Standaard-IO-schijf
+- Standaard-IO-blok-Blob lezen
+- Schrijven van de standaard-IO-blok-Blob
+- Standaard-IO-blok-Blob verwijderen
+
+Zodra de virtuele machine is gemaakt, begint elk criterium van de bovenstaande meters tekensetcodering gebruiksrecords. Dit gebruik wordt vervolgens gebruikt in Azure meetsysteem samen met de meter prijs om te bepalen hoeveel van de klant in rekening wordt gebracht.
+
+> [!Note]
+> Het bovenstaande voorbeeld-meters mogelijk alleen een subset van de meter gemaakt van een virtuele machine die wordt gemaakt.
+
+## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Wat is het verschil tussen Azure 1e derden kosten en Azure Marketplace-kosten?
+Azure 1e derden kosten zijn voor resources die rechtstreeks zijn ontwikkeld en die worden aangeboden door Azure. Azure Marketplace-kosten zijn voor resources die zijn gemaakt door de leveranciers van derden die beschikbaar voor gebruik via de Azure marketplace zijn. Bijvoorbeeld, is een Firewall Barracuda een Azure marketplace-resource die worden aangeboden door een derde partij. Alle kosten voor de firewall en de bijbehorende meters wordt weergegeven als marketplace-kosten. 
 
 ## <a name="tips-for-cost-management"></a>Tips voor het kostenbeheer van
 - Kosten schatten met behulp van de [prijscategorie Rekenmachine](https://azure.microsoft.com/pricing/calculator/) en [totale kosten van eigendom Rekenmachine](https://aka.ms/azure-tco-calculator), en de [gedetailleerde prijsinformatie voor elke service](https://azure.microsoft.com/pricing/).

@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642645"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062276"
 ---
+# <a name="description-of-the-different-upgrade-policies"></a>Beschrijving van de verschillende Upgradebeleid
+
+- **Dynamische** – wijzigingen in de configuratie van een dynamische zorgen niet voor elk proces opnieuw opstarten van de Service Fabric-processen of uw service host wordt verwerkt. 
+- **Statische** – wijzigingen in de configuratie van een statische, wordt het Service Fabric-knooppunt opnieuw op te starten om de wijziging in beslag nemen. Services op de knooppunten wordt opnieuw gestart.
+- **NotAllowed** – deze instellingen kunnen niet worden gewijzigd. Het wijzigen van deze instellingen vereist dat het cluster worden vernietigd en een nieuw cluster gemaakt. 
+
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
 Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
 
@@ -80,7 +86,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
-|MinReplicaSetSize|Int, de standaardwaarde is 0|Statisch|De MinReplicaSetSize voor BackupRestoreService |
+|MinReplicaSetSize|int, standaard is 0|Statisch|De MinReplicaSetSize voor BackupRestoreService |
 |PlacementConstraints|wstring, standaard is L""|Statisch| De PlacementConstraints voor BackupRestore service |
 |SecretEncryptionCertThumbprint|wstring, standaard is L""|Dynamisch|Vingerafdruk van het geheim versleutelingscertificaat X509 |
 |SecretEncryptionCertX509StoreName|wstring, standaard is L "Mijn"|  Dynamisch|    Dit geeft aan het certificaat moet worden gebruikt voor versleuteling en ontsleuteling van referenties naam van het X.509-certificaatarchief die wordt gebruikt voor het versleutelen van decoderen referenties voor gegevensopslag wordt gebruikt door service back-up terugzetten |
@@ -207,9 +213,9 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 |BuildReplicaTimeLimit|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(3600)|Dynamisch|Geef de interval in seconden. De tijdslimiet voor het bouwen van een stateful replica; waarna een statusrapport van de waarschuwing wordt gestart |
-|ClusterPauseThreshold|Int, de standaardwaarde is 1|Dynamisch|Als het aantal knooppunten in het systeem onder deze waarde wordt de plaatsing gaat; taakverdeling; en failover is gestopt. |
+|ClusterPauseThreshold|int, standaard is 1|Dynamisch|Als het aantal knooppunten in het systeem onder deze waarde wordt de plaatsing gaat; taakverdeling; en failover is gestopt. |
 |CreateInstanceTimeLimit|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(300)|Dynamisch|Geef de interval in seconden. De tijdslimiet voor het maken van een staatloze exemplaar; waarna een statusrapport van de waarschuwing wordt gestart |
-|ExpectedClusterSize|Int, de standaardwaarde is 1|Dynamisch|Als het cluster in eerste instantie wordt gestart de FM wacht tot dit veel knooppunten uit om te rapporteren zelf voordat deze begint met het plaatsen van andere services; met inbegrip van de systeemservices zoals naming. Deze waarde verhoogt, worden de tijd die nodig is een cluster te starten; maar wordt voorkomen dat de vroege knooppunten van steeds overbelast en ook het extra verplaatsingen nodig naarmate meer knooppunten online komen. Deze waarde moet in het algemeen worden ingesteld op een klein deel van de eerste clustergrootte. |
+|ExpectedClusterSize|int, standaard is 1|Dynamisch|Als het cluster in eerste instantie wordt gestart de FM wacht tot dit veel knooppunten uit om te rapporteren zelf voordat deze begint met het plaatsen van andere services; met inbegrip van de systeemservices zoals naming. Deze waarde verhoogt, worden de tijd die nodig is een cluster te starten; maar wordt voorkomen dat de vroege knooppunten van steeds overbelast en ook het extra verplaatsingen nodig naarmate meer knooppunten online komen. Deze waarde moet in het algemeen worden ingesteld op een klein deel van de eerste clustergrootte. |
 |ExpectedNodeDeactivationDuration|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisch|Geef de interval in seconden. Dit is de verwachte duur van een knooppunt deactivering in voltooid. |
 |ExpectedNodeFabricUpgradeDuration|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisch|Geef de interval in seconden. Dit is de verwachte duur van een knooppunt moet worden bijgewerkt tijdens de upgrade van Windows Fabric. |
 |ExpectedReplicaUpgradeDuration|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisch|Geef de interval in seconden. Dit is de verwachte duur voor alle replica's op een knooppunt wordt bijgewerkt tijdens de upgrade van de toepassing. |
@@ -231,7 +237,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | --- | --- | --- | --- |
 |CompletedActionKeepDurationInSeconds | Int, de standaardwaarde is 604800 |Statisch| Dit is ongeveer hoe lang zodat acties die zich in een definitieve status. Dit is ook afhankelijk StoredActionCleanupIntervalInSeconds; Aangezien het werk op te schonen wordt alleen uitgevoerd op dat interval. 604800 is 7 dagen. |
 |DataLossCheckPollIntervalInSeconds|int, standaard is 5|Statisch|Dit is de tijd tussen de controles van die het systeem wordt uitgevoerd tijdens het wachten tot verlies van gegevens gebeurt. Het aantal keren dat het nummer van de gegevens verloren gaan, wordt gecontroleerd per interne herhaling is DataLossCheckWaitDurationInSeconds/deze. |
-|DataLossCheckWaitDurationInSeconds|Int, de standaardwaarde is 25|Statisch|De totale hoeveelheid tijd; (in seconden); dat het systeem tot verlies van gegevens wacht gebeurt. Dit wordt intern gebruikt wanneer de StartPartitionDataLossAsync()-api wordt aangeroepen. |
+|DataLossCheckWaitDurationInSeconds|int, de standaardwaarde is 25|Statisch|De totale hoeveelheid tijd; (in seconden); dat het systeem tot verlies van gegevens wacht gebeurt. Dit wordt intern gebruikt wanneer de StartPartitionDataLossAsync()-api wordt aangeroepen. |
 |MinReplicaSetSize |Int, de standaardwaarde is 0 |Statisch|De MinReplicaSetSize voor FaultAnalysisService. |
 |PlacementConstraints | tekenreeks, standaardwaarde is ""|Statisch| De PlacementConstraints voor FaultAnalysisService. |
 |QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Statisch|Geef de interval in seconden. De QuorumLossWaitDuration voor FaultAnalysisService. |
@@ -298,7 +304,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|Int, de standaardwaarde is 10|Statisch|Upgrade van het statusbeleid voor de evaluatie van het cluster: maximale percentage van de delta slecht knooppunten is toegestaan voor het cluster worden in orde |
-|MaxPercentUpgradeDomainDeltaUnhealthyNodes|Int, de standaardwaarde is 15|Statisch|Upgrade van het statusbeleid voor de evaluatie van het cluster: maximale percentage van de delta van beschadigde knooppunten in een upgradedomein toegestaan voor het cluster worden in orde |
+|MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, de standaardwaarde is 15|Statisch|Upgrade van het statusbeleid voor de evaluatie van het cluster: maximale percentage van de delta van beschadigde knooppunten in een upgradedomein toegestaan voor het cluster worden in orde |
 
 ## <a name="hosting"></a>Die als host fungeert
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
@@ -379,7 +385,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 |AzureStorageMaxConnections | Int, de standaardwaarde is 5000 |Dynamisch|Het maximum aantal gelijktijdige verbindingen naar azure storage. |
-|AzureStorageMaxWorkerThreads | Int, de standaardwaarde is 25 |Dynamisch|Het maximum aantal werkthreads parallel. |
+|AzureStorageMaxWorkerThreads | int, de standaardwaarde is 25 |Dynamisch|Het maximum aantal werkthreads parallel. |
 |AzureStorageOperationTimeout | Tijd in seconden, de standaardwaarde is 6000 |Dynamisch|Geef de interval in seconden. Time-out voor xstore bewerking is voltooid. |
 |CleanupApplicationPackageOnProvisionSuccess|BOOL, standaard is ONWAAR |Dynamisch|Deze configuratie schakelt of het automatisch opschonen van het toepassingspakket op geslaagde inrichten. |
 |DisableChecksumValidation | BOOL, de standaardwaarde is ONWAAR |Statisch| Deze configuratie kan wij of controlesomvalidatie tijdens het inrichten van de toepassing uit te schakelen. |
@@ -469,9 +475,9 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 |ConstraintFixPartialDelayAfterNodeDown | Tijd in seconden, de standaardwaarde is 120 |Dynamisch| Geef de interval in seconden. Geen herstel FaultDomain en UpgradeDomain schendingen van plaatsingsbeperkingen binnen deze periode na een knooppunt omlaag gebeurtenis doen. |
 |ConstraintViolationHealthReportLimit | Int, de standaardwaarde is 50 |Dynamisch| Definieert het aantal keren beperking schenden replica blijft niet-opgeloste moet voordat diagnostische gegevens worden uitgevoerd en systeemstatusrapporten worden verzonden. |
 |DetailedConstraintViolationHealthReportLimit | Int, de standaardwaarde is 200 |Dynamisch| Definieert het aantal keren beperking schenden replica heeft blijft niet-opgeloste moet voor de diagnostische gegevens worden uitgevoerd en gedetailleerde health rapporten worden verzonden. |
-|DetailedDiagnosticsInfoListLimit | Int, de standaardwaarde is 15 |Dynamisch| Definieert het aantal diagnose-items (met gedetailleerde informatie) per beperking om op te nemen voordat moet worden afgekapt in diagnostische gegevens.|
-|DetailedNodeListLimit | Int, de standaardwaarde is 15 |Dynamisch| Definieert het aantal knooppunten per beperking om op te nemen voordat in de rapporten voor niet-geplaatste Replica moet worden afgekapt. |
-|DetailedPartitionListLimit | Int, de standaardwaarde is 15 |Dynamisch| Definieert het aantal partities per diagnostische vermelding voor een beperking om op te nemen voordat moet worden afgekapt in diagnostische gegevens. |
+|DetailedDiagnosticsInfoListLimit | int, de standaardwaarde is 15 |Dynamisch| Definieert het aantal diagnose-items (met gedetailleerde informatie) per beperking om op te nemen voordat moet worden afgekapt in diagnostische gegevens.|
+|DetailedNodeListLimit | int, de standaardwaarde is 15 |Dynamisch| Definieert het aantal knooppunten per beperking om op te nemen voordat in de rapporten voor niet-geplaatste Replica moet worden afgekapt. |
+|DetailedPartitionListLimit | int, de standaardwaarde is 15 |Dynamisch| Definieert het aantal partities per diagnostische vermelding voor een beperking om op te nemen voordat moet worden afgekapt in diagnostische gegevens. |
 |DetailedVerboseHealthReportLimit | Int, de standaardwaarde is 200 | Dynamisch|Definieert het aantal keren dat een niet-geplaatste replica zijn niet permanent-geplaatste voordat gedetailleerde statusrapporten worden verzonden. |
 |FaultDomainConstraintPriority | Int, de standaardwaarde is 0 |Dynamisch| Bepaalt de prioriteit van fouttolerantie domeinbeperking: 0: vaste; 1: zachte; negatieve: negeren. |
 |GlobalMovementThrottleCountingInterval | Tijd in seconden, de standaardwaarde is 600 |Statisch| Geef de interval in seconden. De lengte van het afgelopen interval waarvoor om bij te houden per domein replica verplaatsingen (gebruikt samen met GlobalMovementThrottleThreshold) geven. Kan voor het negeren van algemene bandbreedtebeperking helemaal niet worden ingesteld op 0. |
@@ -527,10 +533,10 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade**| **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromMilliseconds(15)|Statisch|Geef de interval in seconden. Bepaalt de hoeveelheid tijd dat de replicator moet wachten na de ontvangst van een bewerking voor het verzenden van een bevestiging. Andere bewerkingen zijn ontvangen tijdens deze periode wordt hun bevestigingen terug in een enkel bericht verzonden verminderen netwerkverkeer maar mogelijk verminderen de doorvoer van de replicatie -> hebben.|
-|MaxCopyQueueSize|Uint, standaard is 1024|Statisch|Dit is de maximale waarde definieert de aanvankelijke grootte van de wachtrij die replicatiebewerkingen onderhoudt. Houd er rekening mee dat deze een macht van 2 moet. Als tijdens runtime de wachtrij neemt toe aan de grootte van deze bewerking wordt de snelheid van tussen de primaire en secundaire replicaties.|
+|MaxCopyQueueSize|uint, standaard is 1024|Statisch|Dit is de maximale waarde definieert de aanvankelijke grootte van de wachtrij die replicatiebewerkingen onderhoudt. Houd er rekening mee dat deze een macht van 2 moet. Als tijdens runtime de wachtrij neemt toe aan de grootte van deze bewerking wordt de snelheid van tussen de primaire en secundaire replicaties.|
 |MaxPrimaryReplicationQueueMemorySize|Uint, de standaardwaarde is 0|Statisch|Dit is de maximale waarde van de wachtrij voor de primaire replicatie in bytes.|
-|MaxPrimaryReplicationQueueSize|Uint, standaard is 1024|Statisch|Dit is het maximum aantal bewerkingen die kunnen bestaan in de wachtrij primaire replicatie. Houd er rekening mee dat deze een macht van 2 moet.|
-|MaxReplicationMessageSize|Uint, de standaardwaarde is 52428800|Statisch|Maximale berichtgrootte van replicatiebewerkingen. Standaardwaarde is 50MB.|
+|MaxPrimaryReplicationQueueSize|uint, standaard is 1024|Statisch|Dit is het maximum aantal bewerkingen die kunnen bestaan in de wachtrij primaire replicatie. Houd er rekening mee dat deze een macht van 2 moet.|
+|MaxReplicationMessageSize|uint, standaard is 52428800|Statisch|Maximale berichtgrootte van replicatiebewerkingen. Standaardwaarde is 50MB.|
 |MaxSecondaryReplicationQueueMemorySize|Uint, de standaardwaarde is 0|Statisch|Dit is de maximale waarde van de secundaire replicatiewachtrij in bytes.|
 |MaxSecondaryReplicationQueueSize|uint, standaard is 2048|Statisch|Dit is het maximum aantal bewerkingen die kunnen bestaan in de secundaire replicatiewachtrij. Houd er rekening mee dat deze een macht van 2 moet.|
 |QueueHealthMonitoringInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(30)|Statisch|Geef de interval in seconden. Deze waarde bepaalt de periode die wordt gebruikt door de replicatie voor het bewaken van de waarschuwing/fout health-gebeurtenissen in de bewerking replicatiewachtrijen. De waarde '0' wordt uitgeschakeld statuscontrole |
@@ -765,7 +771,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 |MaxCopyQueueSize |Uint, de standaardwaarde is 16384 | Statisch |Dit is de maximale waarde definieert de aanvankelijke grootte van de wachtrij die replicatiebewerkingen onderhoudt. Houd er rekening mee dat deze een macht van 2 moet. Als tijdens runtime de wachtrij neemt toe aan de grootte van deze bewerking wordt de snelheid van tussen de primaire en secundaire replicaties. |
 |MaxPrimaryReplicationQueueMemorySize |Uint, de standaardwaarde is 0 | Statisch |Dit is de maximale waarde van de wachtrij voor de primaire replicatie in bytes. |
 |MaxPrimaryReplicationQueueSize |Uint, de standaardwaarde is 8192 | Statisch |Dit is het maximum aantal bewerkingen die kunnen bestaan in de wachtrij primaire replicatie. Houd er rekening mee dat deze een macht van 2 moet. |
-|MaxReplicationMessageSize |Uint, de standaardwaarde is 52428800 | Statisch | Maximale berichtgrootte van replicatiebewerkingen. Standaardwaarde is 50MB. |
+|MaxReplicationMessageSize |uint, standaard is 52428800 | Statisch | Maximale berichtgrootte van replicatiebewerkingen. Standaardwaarde is 50MB. |
 |MaxSecondaryReplicationQueueMemorySize |Uint, de standaardwaarde is 0 | Statisch |Dit is de maximale waarde van de secundaire replicatiewachtrij in bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, de standaardwaarde is 16384 | Statisch |Dit is het maximum aantal bewerkingen die kunnen bestaan in de secundaire replicatiewachtrij. Houd er rekening mee dat deze een macht van 2 moet. |
 |ReplicatorAddress |tekenreeks, default is 'localhost:0' | Statisch | Het eindpunt in de vorm van een tekenreeks-'IP: poort' die met de Windows Fabric-replicatie wordt gebruikt voor het tot stand brengen van verbindingen met andere replica's kunnen bewerkingen verzenden/ontvangen. |

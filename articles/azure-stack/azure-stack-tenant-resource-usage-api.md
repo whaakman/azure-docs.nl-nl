@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: bc0b9993119342f07c28ed0384c11ae0f15bc439
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8472d8ce733c07641a7fa6d53aeb6909cd709990
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29873484"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048387"
 ---
 # <a name="tenant-resource-usage-api"></a>Tenant-Resourcegebruik API
 
@@ -34,7 +34,7 @@ De aanvraag opgehaald verbruik details voor de aangevraagde abonnementen en voor
 
 | **Methode** | **Aanvraag-URI** |
 | --- | --- |
-| TOEVOEGEN |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version= 2015-06-01-preview & continuationToken = {token waarde} |
 
 ### <a name="arguments"></a>Argumenten
 | **Argument** | **Beschrijving** |
@@ -48,7 +48,7 @@ De aanvraag opgehaald verbruik details voor de aangevraagde abonnementen en voor
 | *continuationToken* |Token opgehaald uit de laatste aanroep aan de gebruik API-provider. Dit token is vereist wanneer een antwoord groter dan 1000 regels is en het fungeert als een bladwijzer voor voortgang. Als deze niet aanwezig is, de gegevens worden opgehaald van het begin van de dag of uur, op basis van de granulatie doorgegeven. |
 
 ### <a name="response"></a>Antwoord
-GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&api-version=1.0
+/Subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime ophalen = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity dagelijks = & api-versie 1.0 =
 
 ```json
 {
@@ -84,7 +84,7 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 | *usageStartTime* |UTC-begintijd van de informatie over het gebruik bucket waartoe deze aggregatie gebruik behoort |
 | *usageEndTime* |UTC-eindtijd van de informatie over het gebruik bucket waartoe deze aggregatie gebruik behoort |
 | *instanceData* |Sleutel-waardeparen van het exemplaardetails (in een nieuwe indeling):<br>  *resourceUri*: volledig gekwalificeerde resource-ID, met inbegrip van resourcegroepen en exemplaarnaam <br>  *locatie*: regio waarin deze service is uitgevoerd <br>  *labels*: resourcetags waarmee de gebruiker <br>  *aanvullende informatie*: meer details over de resource die is verbruikt, bijvoorbeeld, de versie- of image type besturingssysteem |
-| *hoeveelheid* |Hoeveelheid resourceverbruik dat is opgetreden in deze periode |
+| *Hoeveelheid* |Hoeveelheid resourceverbruik dat is opgetreden in deze periode |
 | *meterId* |Unieke ID voor de resource die is verbruikt (ook wel *ResourceID*) |
 
 

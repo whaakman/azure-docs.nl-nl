@@ -6,18 +6,19 @@ author: Jann-Skotdal
 manager: chriswendt1
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
-ms.date: 10/30/2017
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: f388e9e39809774f307c0d1752e29f34b041ed13
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35350068"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37032450"
 ---
-# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Ondersteunde talen in de API van Microsoft Translator tekst 
-De API van Microsoft Translator tekst ondersteunt de volgende talen voor de vertaling van tekst naar tekst. Neural machinevertaling (NMT) is de nieuwe standaard voor vertalingen van hoge kwaliteit machine AI van stroom voorzien en is beschikbaar als de standaard met V3 van de API van de tekst conversieprogramma wanneer een neural systeem beschikbaar is. Neural machinevertaling is beschikbaar in V2 met behulp van de categorie 'generalnn'. 
+# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Ondersteunde talen in de API van Microsoft Translator tekst
+
+De API van Microsoft Translator tekst ondersteunt de volgende talen voor de vertaling van tekst naar tekst. Neural machinevertaling (NMT) is de nieuwe standaard voor vertalingen van hoge kwaliteit machine AI van stroom voorzien en is beschikbaar als de standaard met V3 van de API van de tekst conversieprogramma wanneer een neural systeem beschikbaar is. Neural machinevertaling is beschikbaar in V2 met behulp van de categorie 'generalnn'.
 
 [Meer informatie over de werking van automatische vertalingen](https://www.microsoft.com/translator/mt.aspx)
 
@@ -25,6 +26,7 @@ De API van Microsoft Translator tekst ondersteunt de volgende talen voor de vert
 |:----------- |:-------:|:-------------:|
 | Afrikaans      | Statistische |`af`          |
 | Arabisch      | Neural | `ar`          |
+| Arabisch, Levantine    | Neural | `apc`
 | Bengalees      | Neural |`bn`          |
 | Bosnisch (Latijns)      | Statistische |`bs`          |
 | Bulgaars     |  Neural |`bg`          |
@@ -116,7 +118,7 @@ De methode Transliterate ondersteunt de volgende talen. In de '/ naar', '<>--' g
 
 ## <a name="dictionary"></a>Woordenlijst
 
-Het woordenboek ondersteunt de volgende talen naar of van Engels met de methoden opzoeken en voorbeelden. 
+Het woordenboek ondersteunt de volgende talen naar of van Engels met de methoden opzoeken en voorbeelden.
 
 | Taal    | Taalcode |
 |:----------- |:-------------:|
@@ -173,12 +175,12 @@ Het woordenboek ondersteunt de volgende talen naar of van Engels met de methoden
 
 ## <a name="languages-detected-by-the-detect-method"></a>Talen die zijn gedetecteerd door de methode detecteren
 
-De volgende talen kunnen worden gedetecteerd door de methode detecteren. Kan detecteren detecteren talen die Microsoft Translator kan niet worden geconverteerd. 
+De volgende talen kunnen worden gedetecteerd door de methode detecteren. Kan detecteren detecteren talen die Microsoft Translator kan niet worden geconverteerd.
 
-| Taal    | 
+| Taal    |
 |:----------- |
 | Afrikaans |
-| Albanees | 
+| Albanees |
 | Arabisch |
 | Baskisch |
 | Belarussisch |
@@ -248,7 +250,7 @@ De volgende talen kunnen worden gedetecteerd door de methode detecteren. Kan det
 
 U kunt toegang tot de lijst met ondersteunde talen programmatisch met behulp van de werking van de talen van de tekst V3.0 API. U kunt de lijst door de functie, taalcode, evenals de naam van de taal weergeven in het Engels of elke ondersteunde taal. Deze lijst wordt automatisch bijgewerkt door de service Microsoft Translator zodra nieuwe talen beschikbaar.
 
-[Bekijk de naslagdocumentatie bewerking talen](/reference/languages.md)
+[Bekijk de naslagdocumentatie bewerking talen](reference/v3-0-languages.md)
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Toegang tot de lijst op de website van Microsoft Translator
 

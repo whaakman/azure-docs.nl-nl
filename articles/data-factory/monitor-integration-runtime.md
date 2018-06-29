@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 956bd89a993a019d7a5a4dd28efec4116b174334
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297254"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045242"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor een runtime integratie in Azure Data Factory  
 **Integratie runtime** is de beheerinfrastructuur gebruikt door Azure Data Factory voor verschillende mogelijkheden voor de integratie van gegevens in verschillende netwerkomgevingen. Er zijn drie soorten integratie runtimes die worden aangeboden door de Data Factory:
@@ -26,9 +26,6 @@ ms.locfileid: "35297254"
 - Azure Integration Runtime
 - Zelf-hostende Integration Runtime
 - Azure-SSIS-integratie-runtime
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md).
 
 Als u de status van een exemplaar van de integratie-runtime (IR), voer de volgende PowerShell-opdracht: 
 
@@ -154,7 +151,7 @@ Azure-SSIS-integratie runtime is een volledig beheerde cluster van Azure virtuel
 
 | De eigenschap/Status | Beschrijving |
 | --------------- | ----------- |
-| createTime | De UTC-tijd waarop de runtime van uw Azure-SSIS-integratie is gemaakt. |
+| CreateTime | De UTC-tijd waarop de runtime van uw Azure-SSIS-integratie is gemaakt. |
 | Knooppunten | De toegewezen/beschikbare knooppunten van de runtime van uw Azure-SSIS-integratie met knooppunt-specifieke statussen (starten/beschikbare/recycling/niet beschikbaar) en fouten actie worden uitgevoerd. |
 | OtherErrors | Het knooppunt specifieke bruikbare fouten op uw Azure-SSIS-integratie-runtime. |
 | LastOperation | Het resultaat van de laatste starten/stoppen-bewerking op de runtime van uw Azure SSIS-integratie met bruikbare fout(en) als is mislukt. |
@@ -200,9 +197,9 @@ Zie de volgende artikelen voor meer informatie over Azure-SSIS-integratie runtim
 
 - [Azure-SSIS-integratie Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat conceptuele informatie over de integratie runtimes in het algemeen met inbegrip van de Azure-SSIS-IR 
 - [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
-- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel wordt op de zelfstudie wordt uitgebreid en bevat instructies over het gebruik van Azure SQL beheerd-exemplaar (Preview) en de IR toevoegen aan een virtueel netwerk. 
+- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (preview) en het toevoegen van de IR aan een virtueel netwerk. 
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Er wordt ook uitgelegd hoe u een Azure-SSIS IR kunt uitschalen door meer knooppunten toe te voegen aan de IR. 
-- [Een Azure-SSIS-IR toevoegen aan een virtueel netwerk](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat conceptuele informatie over het toevoegen van een Azure-SSIS-IR aan een virtuele Azure-netwerk. Het bevat ook stappen voor het gebruik van Azure-portal voor het configureren van het virtuele netwerk, zodat de Azure-SSIS-IR kunt deelnemen aan het virtuele netwerk. 
+- [Een Azure-SSIS-integratieruntime toevoegen aan een virtueel netwerk](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat algemene informatie over het toevoegen van een Azure-SSIS IR aan een virtueel netwerk van Azure. Het bevat ook stappen voor het gebruik van Azure-portal voor het configureren van het virtuele netwerk, zodat de Azure-SSIS-IR kunt deelnemen aan het virtuele netwerk. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor het bewaken van pijplijnen op verschillende manieren: 

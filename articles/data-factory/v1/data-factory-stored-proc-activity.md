@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b10fbd953eb9ca904043973ebc1f7c6adb9f9abc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622496"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047384"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server opgeslagen Procedure-activiteit
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622496"
 > * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [transformatie van gegevens met behulp van de activiteit opgeslagen procedure in Gegevensfactory versie 2](../transform-data-using-stored-procedure.md).
+> In dit artikel is van toepassing op versie 1 van Azure Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [transformatie van gegevens met behulp van de activiteit opgeslagen procedure in Gegevensfactory](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Overzicht
 U activiteiten voor gegevenstransformatie gebruiken in een Data Factory [pijplijn](data-factory-create-pipelines.md) transformeren en verwerken van onbewerkte gegevens in de voorspellingen en inzichten. De activiteit opgeslagen Procedure is een van de activiteiten voor gegevenstransformatie die ondersteuning biedt voor Data Factory. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten in de Data Factory toont.
@@ -153,7 +153,7 @@ U kunt een uitvoergegevensset voor een activiteit opgeslagen procedure moet opge
     ```
 3. Voor het implementeren van de gegevensset, klikt u op **implementeren** op de opdrachtbalk. Controleer of u de gegevensset in de structuurweergave.
 
-    ![Structuurweergave met gekoppelde services](media/data-factory-stored-proc-activity/tree-view-2.png)
+    ![structuurweergave met gekoppelde services](media/data-factory-stored-proc-activity/tree-view-2.png)
 
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>Een pijplijn maken met SqlServerStoredProcedure activiteit
 Nu gaan we een pijplijn maken met een activiteit opgeslagen procedure. 

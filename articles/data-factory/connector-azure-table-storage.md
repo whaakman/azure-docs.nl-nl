@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f6add6691b0e1f43d70399493fa6bf8db8f3833
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 24954cfc128834313bf13a1917e67d5c1812cf66
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617175"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058920"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiëren van gegevens en naar Azure Table storage met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1: algemeen verkrijgbaar](v1/data-factory-azure-table-connector.md)
-> * [Versie 2 - Preview](connector-azure-table-storage.md)
+> * [Versie 1](v1/data-factory-azure-table-connector.md)
+> * [Huidige versie](connector-azure-table-storage.md)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren en naar Azure Table storage. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory, die in het algemeen beschikbaar is, Zie [Table storage-connector in versie 1](v1/data-factory-azure-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -81,11 +78,11 @@ U kunt ook een gekoppelde Storage-service maken met behulp van een shared access
 
 Een shared access signature biedt gedelegeerde toegang tot bronnen in uw opslagaccount. U kunt deze gebruiken dat een client beperkte machtigingen voor objecten in uw storage-account gedurende een opgegeven periode en met een opgegeven set machtigingen verlenen. U hoeft niet te delen van de toegangssleutels van uw account. De shared access signature is een URI die de gegevens die zijn vereist voor geverifieerde toegang tot een opslagresource, in de queryparameters omvat. Voor toegang tot resources met de shared access signature storage, moet de client alleen om door te geven in de handtekening voor gedeelde toegang tot de juiste constructor of methode. Zie voor meer informatie over handtekeningen voor gedeelde toegang [handtekeningen voor gedeelde toegang: inzicht in het shared access signature-model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-> [!IMPORTANT]
-> Data Factory ondersteunt nu alleen handtekeningen voor gedeelde service toegang maar geen account gedeelde handtekeningen voor toegang. Zie voor meer informatie over deze twee typen en het maken van deze [typen handtekeningen voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). De shared access signature-URL is gegenereerd op basis van de Azure portal of Azure Storage Explorer is een shared access signature van account, die wordt niet ondersteund.
+> [!NOTE]
+> Data Factory ondersteunt nu handtekeningen voor gedeelde service toegang en handtekeningen voor gedeelde account toegang. Zie voor meer informatie over deze twee typen en het maken van deze [typen handtekeningen voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
-> U kunt de volgende PowerShell-opdrachten voor het genereren van een service shared access signature voor uw opslagaccount kunt uitvoeren. Vervang de tijdelijke aanduidingen en de benodigde machtiging verlenen.
+> Als een service shared access signature voor uw opslagaccount worden gegenereerd, kunt u de volgende PowerShell-opdrachten uitvoeren. Vervang de tijdelijke aanduidingen en de benodigde machtiging verlenen.
 > `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 

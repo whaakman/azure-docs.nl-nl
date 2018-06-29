@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: de85a555def31d164f2cda5c6c6bc9fae9fb5a7e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
-ms.translationtype: MT
+ms.openlocfilehash: c48a0f078da8e56038ec74ee398bd26fe1dc2718
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309279"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054752"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking: Azure SQL Database en SQL Server 
 
@@ -75,12 +75,12 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [Gebeurtenismeldingen](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Niet - Zie [waarschuwingen](sql-database-insights-alerts-portal.md) | Ja |
 | [Expressies](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja | Ja |
 | [Uitgebreide gebeurtenissen](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Sommige - [uitgebreide gebeurtenissen in SQL-Database](sql-database-xevent-db-diff-from-svr.md) | Ja - Zie [uitgebreide gebeurtenissen verschillen ](sql-database-managed-instance-transact-sql-information.md#extended-events) |
-| [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nee | Nee |
+| [Uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nee | Nee |
 [Bestanden en bestandsgroepen](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Primaire bestandsgroep | Ja |
 | [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nee | Nee |
 | [Zoekopdracht in volledige tekst](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Woordafbreking van derden worden niet ondersteund. |Woordafbreking van derden worden niet ondersteund. |
 | [Functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja - Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [geo-herstel](sql-database-recovery-using-backups.md#geo-restore) | Ja | Nee, kunt u herstellen COPY_ONLY volledige back-ups die u onderneemt periodiek - Zie [back-up verschillen](sql-database-managed-instance-transact-sql-information.md#backup) en [herstellen verschillen](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
+| [Geo-herstel](sql-database-recovery-using-backups.md#geo-restore) | Ja | Nee, kunt u herstellen COPY_ONLY volledige back-ups die u onderneemt periodiek - Zie [back-up verschillen](sql-database-managed-instance-transact-sql-information.md#backup) en [herstellen verschillen](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Geo-replicatie](sql-database-geo-replication-overview.md) | Ja | Nee |
 | [Verwerking van de grafiek](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
 | [Optimalisatie in het geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja - [Premium en kritieke zakelijke-lagen](sql-database-in-memory.md) | Nee |
@@ -121,7 +121,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Niet - Zie [Azure analyseservices](https://azure.microsoft.com/services/analysis-services/) | Niet - Zie [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Controle van SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Niet - Zie [SQL Database auditing](sql-database-auditing.md) | Ja - Zie [controle verschillen](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in de SSISDB gehost door Azure SQL Database en worden uitgevoerd op [Azure SSIS-integratie Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in de SSISDB gehost door beheerde exemplaar en uitgevoerd op [Azure SSIS-integratie Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in SSISDB gehost door Azure SQL Database en worden uitgevoerd op Azure SSIS integratie Runtime (IR), raadpleegt u [Azure SSIS-IR maken in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in SSISDB gehost door beheerde exemplaar en uitgevoerd op Azure SSIS integratie Runtime (IR), raadpleegt u [Azure SSIS-IR maken in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Niet - Zie [uitgebreide gebeurtenissen](sql-database-xevent-db-diff-from-svr.md) | Ja |

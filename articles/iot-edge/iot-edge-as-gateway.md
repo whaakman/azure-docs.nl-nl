@@ -8,14 +8,14 @@ ms.date: 11/27/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff5e50df1f7a9059bf37fe99d89050a48aa6e64e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631595"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028962"
 ---
-# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Hoe een Edge van de IoT-apparaat kan worden gebruikt als een gateway - preview
+# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Hoe een Edge van de IoT-apparaat kan worden gebruikt als een gateway
 
 Het doel van de gateways in IoT-oplossingen is specifiek voor de oplossing en connectiviteit van apparaten combineren met rand analytics. Azure IoT-rand kan worden gebruikt om te voldoen aan alle behoeften voor een IoT-gateway, ongeacht of ze zijn gerelateerd aan connectiviteit-, identiteits- of edge analytics. Gateway-patronen in dit artikel alleen verwijzen naar eigenschappen van connectiviteit downstream apparaten en apparaat-id niet hoe apparaatgegevens wordt verwerkt op de gateway.
 
@@ -54,7 +54,7 @@ Wanneer u een patroon ondoorzichtige gateway (protocolvertaling) gebruikt, delen
 ## <a name="next-steps"></a>Volgende stappen
 Gebruik een IoT-randapparaat als een [transparante gateway][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

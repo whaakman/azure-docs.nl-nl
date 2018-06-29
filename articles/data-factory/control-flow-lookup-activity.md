@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 032b14051c5c2b06fa23ee67858706fada545967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618654"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058956"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>De activiteit opzoeken in Azure Data Factory
 
@@ -26,9 +26,6 @@ Lookup activiteit kan worden gebruikt voor het ophalen van een gegevensset uit e
 - Dynamisch bepalen welke objecten (bestanden, tabellen, enzovoort) om te werken op een volgende activiteit in plaats van hard-coding van de objectnaam
 
 Lookup-activiteit kunt lezen en de inhoud van een configuratiebestand, een configuratietabel of het resultaat van het uitvoeren van een query of een opgeslagen procedure.  De uitvoer van Lookup-activiteit worden gebruikt in een latere kopiëren of transformatieactiviteit als het een waarde singleton of in een ForEach-activiteit gebruikt als het is een matrix van kenmerken.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 

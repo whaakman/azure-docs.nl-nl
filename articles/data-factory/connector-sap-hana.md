@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3afdcbfc2d1d6f40db0f0336be161a06908cb883
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ded69225319e447ad210aed267741b2803889ac
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617994"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048080"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-sap-hana-connector.md)
-> * [Versie 2 - Preview](connector-sap-hana.md)
+> * [Versie 1](v1/data-factory-sap-hana-connector.md)
+> * [Huidige versie](connector-sap-hana.md)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een SAP HANA-database. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [SAP HANA-connector in V1](v1/data-factory-sap-hana-connector.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -172,7 +169,7 @@ Bij het kopiëren van gegevens uit een SAP HANA, worden de volgende toewijzingen
 | BOOLEAANSE WAARDE | Byte |
 | CLOB | Byte[] |
 | DATE | DateTime |
-| DECIMALE | Decimale |
+| DECIMALE | decimale |
 | DOUBLE | Enkelvoudig |
 | INT | Int32 |
 | NVARCHAR | Reeks |

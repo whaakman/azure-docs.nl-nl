@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8507cf99ea22b24aa3026565cb7c4139e4c3742d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268120"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060235"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Een hybride Runbook Worker van Linux implementeren
 
@@ -50,7 +50,7 @@ De minimale vereisten voor een Linux hybride Runbook Worker zijn:
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C-bibliotheek| 2.5-12 |
 |Openssl| OpenSSL-bibliotheken | 0.9.8e of 1.0|
-|CURL | WebClient cURL | 7.15.5|
+|cURL | WebClient cURL | 7.15.5|
 |Python-ctypes | |
 |PAM | Pluggable Authentication Modules|
 | **Optioneel pakket** | **Beschrijving** | **Minimale versie**|
@@ -109,41 +109,9 @@ De volgende runbooktypen werken op een Linux Hybrid Worker niet:
 * Grafische
 * Grafische PowerShell Workflow
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshoot"></a>Problemen oplossen
 
-De Linux hybride Runbook Worker is afhankelijk van de OMS-Agent voor Linux om te communiceren met uw Automation-account voor het registreren van de werknemer, ontvangen van runbooktaken en status rapporteren. Als de registratie van de werknemer is mislukt, volgen hier enkele mogelijke oorzaken voor de fout.
-
-### <a name="the-oms-agent-for-linux-isnt-running"></a>De OMS-Agent voor Linux wordt niet uitgevoerd
-
-Als de OMS-Agent voor Linux wordt uitgevoerd, wordt de Linux hybride Runbook Worker kan niet communiceren met Azure Automation. Controleren of de agent wordt uitgevoerd met de opdracht `ps -ef | grep python`. 
-
-Ziet u uitvoer die vergelijkbaar zijn met de volgende (de Python verwerkt met de **nxautomation** gebruikersaccount). Als de Update Management of Azure Automation-oplossing niet is ingeschakeld, wordt geen van de volgende processen worden uitgevoerd.
-
-```bash
-nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
-nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-```
-
-De volgende processen, worden gestart voor een Linux hybride Runbook Worker. Ze zijn alle zich op de `/var/opt/microsoft/omsagent/state/automationworker/` directory.
-
-* **OMS.conf**: dit is het werkproces manager. Deze rechtstreeks van Desired State Configuration (DSC) gestart.
-
-* **worker.conf**: dit is het automatisch geregistreerd Hybrid Worker-proces. Het wordt gestart door de manager van de werknemer. Dit proces wordt gebruikt door updatebeheer en is transparant voor de gebruiker. Dit proces is alleen aanwezig als de oplossing voor beheer van de Update is ingeschakeld op de machine.
-
-* **diy/worker.conf**: dit is het werkproces ZELFOPLOSSING hybride. Het werkproces ZELFOPLOSSING hybride wordt gebruikt voor het uitvoeren van runbooks van de gebruiker op de hybride Runbook Worker. Deze verschilt van het werkproces automatisch geregistreerd hybride alleen in dat gebruikmaakt van een andere configuratie. Dit proces is aanwezig als de Azure Automation-oplossing is ingeschakeld en de ZELFOPLOSSING Linux hybride Worker is geregistreerd.
-
-Als de OMS-Agent voor Linux wordt niet uitgevoerd, de volgende opdracht uitvoeren om de service te starten: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-
-### <a name="the-specified-class-doesnt-exist"></a>De opgegeven klasse bestaat niet
-
-Als u de fout 'de opgegeven klasse bestaat niet"in `/var/opt/microsoft/omsconfig/omsconfig.log`, de OMS-Agent voor Linux moet worden bijgewerkt. Voer de volgende opdracht om de OMS-Agent opnieuw installeren:
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
-```
-
-Zie voor aanvullende stappen over het oplossen van problemen met updatebeheer [updatebeheer: probleemoplossing](automation-update-management.md#troubleshooting).
+Zie voor meer informatie over het oplossen van uw hybride Runbook Workers, [probleemoplossing Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)
 
 ## <a name="next-steps"></a>Volgende stappen
 

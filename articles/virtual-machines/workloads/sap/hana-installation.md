@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763443"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063862"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Het installeren en configureren van SAP HANA (grote exemplaren) in Azure
 
@@ -44,7 +44,7 @@ Controle op opnieuw, vooral bij het plannen voor het installeren van HANA 2.0, [
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Eerste stappen na de ontvangst van het exemplaar van HANA grote eenheid
 
-**Stap 1** na ontvangst van het grote HANA-exemplaar en hebben toegang tot stand gebracht en connectiviteit met de exemplaren, is het besturingssysteem van het exemplaar te registreren bij uw OS-provider. Deze stap omvat het registreren van uw SUSE Linux-besturingssysteem in een exemplaar van SUSE SMT die u nodig hebt geïmplementeerd in een virtuele machine in Azure. De eenheid HANA grote exemplaar kan verbinding maken met dit exemplaar SMT (Zie verderop in deze documentatie). Of uw besturingssysteem RedHat moet worden geregistreerd met Red Hat abonnement Manager u verbinding moet maken. Zie ook opmerkingen in deze [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Deze stap is ook nodig zijn om te kunnen patch van het besturingssysteem. Een taak die is in de verantwoordelijkheid van de klant. Voor SUSE, documentatie installeren en configureren van SMT vinden [hier](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+**Stap 1** na ontvangst van het grote HANA-exemplaar en hebben toegang tot stand gebracht en connectiviteit met de exemplaren, is het besturingssysteem van het exemplaar te registreren bij uw OS-provider. Deze stap omvat het registreren van uw SUSE Linux-besturingssysteem in een exemplaar van SUSE SMT die u nodig hebt geïmplementeerd in een virtuele machine in Azure. De eenheid HANA grote exemplaar kan verbinding maken met dit exemplaar SMT (Zie verderop in deze documentatie). Of uw Red Hat-besturingssysteem moet worden geregistreerd met Red Hat abonnement Manager u verbinding moet maken. Zie ook opmerkingen in deze [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Deze stap is ook nodig zijn om te kunnen patch van het besturingssysteem. Een taak die is in de verantwoordelijkheid van de klant. Voor SUSE, documentatie installeren en configureren van SMT vinden [hier](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 **Tweede stap** is om te controleren op nieuwe patches en verbeteringen van specifieke release/versie van het besturingssysteem. Controleer of de patch-niveau van het grote HANA-exemplaar op de meest recente toestand. Op basis van de timing van OS patch/releases en wijzigingen in de installatiekopie van het die Microsoft kunt implementeren, kunnen er gevallen waarbij de meest recente patches niet opgenomen worden kunnen. Daarom is een verplichte stap nadat u via een eenheid HANA grote exemplaar om te controleren of patches die relevant zijn voor beveiliging, functionaliteit, beschikbaarheid en prestaties door de leverancier van de bepaalde Linux ondertussen zijn uitgebracht en moeten worden toegepast.
 
@@ -80,18 +80,7 @@ We gaan ervan uit dat u de aanbevelingen bij het ontwerpen van uw Azure VNets en
 
 Er zijn een aantal details waard te vermelden over de netwerken van de afzonderlijke eenheden. Elke eenheid HANA grote exemplaar wordt geleverd met twee of drie IP-adressen die zijn toegewezen aan twee of drie NIC-poorten van de eenheid. Drie IP-adressen worden gebruikt in HANA scale-out configuraties en het scenario HANA System Replication. Een van de IP-adressen toegewezen aan de Netwerkinterfacekaart van de eenheid valt buiten de Server IP-adresgroep die is beschreven in de [SAP HANA (grote exemplaar) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
-De verdeling van eenheden met twee IP-adressen toegewezen moet eruitzien als:
-
-- eth0.xx moet een IP-adres toegewezen valt buiten het bereik van groep met IP-adres dat u naar Microsoft verzonden. Dit IP-adres moet worden gebruikt voor het onderhouden van in/etc/hosts van het besturingssysteem.
-- eth1.xx moet een IP-adres toegewezen dat wordt gebruikt voor communicatie met NFS hebben. Daarom deze adressen komen **niet** moet worden behouden in etc/hosts om verkeer van de exemplaar-exemplaar binnen de tenant.
-
-Een bladeconfiguratie met twee IP-adressen toegewezen is niet geschikt is voor implementatie gevallen van HANA System Replication of HANA scale-out. Als twee IP-adressen toegewezen alleen gelet en implementeren van een dergelijke configuratie, neem contact op met de SAP HANA op Azure Service Management ophalen van een derde IP-adres in een derde willen VLAN toegewezen. Voor grote exemplaar HANA eenheden met drie IP-adressen toegewezen op drie NIC-poorten, gelden de volgende informatie over het gebruiksregels:
-
-- eth0.xx moet een IP-adres toegewezen valt buiten het bereik van groep met IP-adres dat u naar Microsoft verzonden. Dit IP-adres wordt daarom niet worden gebruikt voor het onderhouden van in/etc/hosts van het besturingssysteem.
-- eth1.xx moet een IP-adres toegewezen dat wordt gebruikt voor communicatie met NFS opslag hebben. Dit type adressen moet daarom niet worden beheerd in etc/hosts.
-- eth2.xx mag uitsluitend worden gebruikt in etc/hosts voor de communicatie tussen de verschillende exemplaren worden bijgehouden. Deze adressen is ook de IP-adressen die moeten worden behouden in scale-out HANA configuraties als IP-adressen die HANA wordt gebruikt voor de configuratie tussen knooppunten.
-
-
+Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor meer informatie over Ethernet-details voor uw architectuur.
 
 ## <a name="storage"></a>Storage
 
@@ -111,7 +100,7 @@ Waar SID het exemplaar HANA systeem-ID =
 
 - En tenantverkeer = van een interne opsomming van bewerkingen bij het implementeren van een tenant.
 
-Zoals u ziet, HANA gedeeld en usr/sap delen hetzelfde volume. De naamgeving volgt de namen van de quorumbron: bevat de systeem-ID van de exemplaren HANA, evenals het aantal koppelen. In implementaties van scale-up alleen is één koppelpunt, zoals mnt00001. Terwijl in scale-out-implementatie u zoveel koppelingen als ziet hebben u worker en master knooppunten. Voor scale-out-omgeving, gegevens, logboek, back-logboekvolumes gedeeld en gekoppeld aan elk knooppunt in de configuratie van de scale-out. Voor configuraties met meerdere exemplaren van het SAP, een andere set volumes gemaakt en gekoppeld aan de eenheid HAN grote exemplaar.
+Zoals u ziet, HANA gedeeld en usr/sap delen hetzelfde volume. De naamgeving volgt de namen van de quorumbron: bevat de systeem-ID van de exemplaren HANA, evenals het aantal koppelen. In implementaties van scale-up alleen is één koppelpunt, zoals mnt00001. Terwijl in scale-out-implementatie u zoveel koppelingen als ziet hebben u worker en master knooppunten. Voor scale-out-omgeving, gegevens, logboek, back-logboekvolumes gedeeld en gekoppeld aan elk knooppunt in de configuratie van de scale-out. Voor configuraties met meerdere exemplaren van het SAP, een andere set volumes gemaakt en gekoppeld aan de eenheid HAN grote exemplaar. Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor opslag lay-informatie voor uw scenario.
 
 Als u het artikel lezen en zoeken van een grote exemplaar HANA-eenheid, zult u ontdekken dat de eenheden worden geleverd met in plaats daarvan vriendelijke schijfvolume HANA/gegevens en dat we een volume HANA/log/back-up hebben. De reden waarom we de HANA/gegevens zo groot formaat is dat de opslag-momentopnamen we voor u als klant bieden het dezelfde schijfvolume wordt gebruikt. Dit betekent dat de meer opslagruimte momentopnamen die u uitvoert, des te meer ruimte is verbruikt door momentopnamen in de opslagvolumes toegewezen. Het volume HANA/log/back-up wordt niet beschouwd moet het volume de databaseback-ups in plaatsen. Het wordt aangepast als back-volume voor de HANA transactielogboekback-ups worden gebruikt. In toekomstige snapshot versies van de opslag-self service dat we heeft betrekking op dit specifieke volume om frequentere momentopnamen. En met die frequentere replicaties naar de site van de herstel na noodgevallen als u om een optie in voor de disaster recovery functionaliteit van de infrastructuur HANA grote exemplaar. Zie voor meer informatie [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 
@@ -150,6 +139,7 @@ U kunt ook de parameters na de installatie van de SAP HANA-database configureren
 
 Met SAP HANA 2.0, is het framework hdbparam afgeschaft. De parameters moeten als gevolg hiervan worden ingesteld met behulp van SQL-opdrachten. Zie voor meer informatie [SAP-notitie #2399079: eliminatie van hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
+Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor meer informatie over opslagindeling voor uw architectuur.
 
 ## <a name="operating-system"></a>Besturingssysteem
 
@@ -325,7 +315,7 @@ Aangezien de eenheden HANA grote exemplaar geen directe verbinding met internet 
 
 Als u wilt de installatiepakketten HANA downloaden, moet u een SAP-S-gebruiker of een andere gebruiker, waarmee u toegang tot de SAP-Marketplace. Deze reeks schermen doorlopen na het aanmelden:
 
-Ga naar [SAP Service Marketplace](https://support.sap.com/en/index.html) > Software downloaden klikt u op >-installaties en -Upgrade > alfabetische Index > onder H – SAP HANA Platform editie > SAP HANA Platform Edition 2.0 > installatie > de volgende bestanden downloaden
+Ga naar [SAP Service Marketplace](https://support.sap.com/en/index.html) > Klik op downloaden van Software >-installaties en -Upgrade > door alfabetische > onder H – SAP HANA Platform editie > SAP HANA Platform Edition 2.0 > installatie > downloaden de volgende bestanden
 
 ![HANA installatie downloaden](./media/hana-installation/image16_download_hana.PNG)
 

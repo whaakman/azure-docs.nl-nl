@@ -1,5 +1,5 @@
 ---
-title: Het gebruik van uw Azure gedetailleerde begrijpen
+title: Het gebruik van uw Azure gedetailleerde begrijpen | Microsoft Docs
 description: Informatie over het lezen van en inzicht in de secties van gedetailleerde gebruik van uw CSV voor uw Azure-abonnement
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 0f698bff1506484e1dd4afe22f7c14e0a710937c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 723e42d2bb2af09eb2236c3cbefeee33987ea45b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771135"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060797"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Termen in uw Microsoft Azure gedetailleerde gebruikskosten begrijpen 
 
@@ -59,7 +59,7 @@ Het bovenste gedeelte van het CSV-bestand voor gedetailleerde informatie over he
 |Tarief |De frequentie waarmee die u in rekening per factureerbare eenheid gebracht bent |
 |Waarde |Geeft het resultaat van de kolom overschrijding aantal door de snelheid kolom vermenigvuldigen. Als de hoeveelheid verbruikte niet groter zijn dan de hoeveelheid opgenomen, zijn er geen kosten in deze kolom. |
 
-### <a name="daily-usage"></a>Dagelijkse gebruik
+### <a name="daily-usage"></a>Dagelijks gebruik
 
 De sectie dagelijks gebruik van het CSV-bestand bevat gebruiksdetails die invloed hebben op de facturering tarieven. De volgende tabel bevat de voorwaarden en beschrijvingen in deze sectie wordt weergegeven.
 

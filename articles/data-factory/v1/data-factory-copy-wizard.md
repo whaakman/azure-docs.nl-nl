@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ef94f5cfa91422dddf9c684c2dc1b6eada754f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8b74a431664faa95e8be9c9ff90970fd6e7c0ec7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621289"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048717"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Gegevens eenvoudig met Azure Data Factory-Wizard voor kopiëren kopiëren of verplaatsen
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service gebruikt, welke nog een preview is, raadpleegt u de [zelfstudie kopieeractiviteit in de documentatie voor versie 2](../quickstart-create-data-factory-dot-net.md). 
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [kopie activiteit zelfstudie](../quickstart-create-data-factory-dot-net.md). 
 
 
 De Wizard kopiëren van Azure Data Factory is om te vereenvoudigen het opnemen van gegevens, die meestal een eerste stap in een end-to-end gegevens integratiescenario is. Bij gebruik van de Wizard kopiëren van Azure Data Factory, hoeft u niet elk JSON-definities voor de gekoppelde services, gegevenssets en pijplijnen begrijpen. Echter, nadat u de stappen in de wizard hebt voltooid, maakt de wizard automatisch een pijplijn om gegevens te kopiëren van de geselecteerde gegevensbron naar de geselecteerde bestemming. Daarnaast de Wizard kopiëren helpt u om de gegevens wordt ingenomen op het moment van ontwerpen, waarin wordt opgeslagen veel van de tijd, te valideren met name wanneer u zijn ophalen van gegevens voor de eerste keer uit de gegevensbron. Voor het starten van de Wizard kopiëren, klikt u op de **gegevens kopiëren** tegel op de startpagina van uw gegevensfactory.

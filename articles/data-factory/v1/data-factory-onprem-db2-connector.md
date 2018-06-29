@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622020"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046527"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory-Kopieeractiviteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-onprem-db2-connector.md)
-> * [Versie 2 - Preview](../connector-db2.md)
+> * [Versie 1](data-factory-onprem-db2-connector.md)
+> * [Versie 2 (huidige versie)](../connector-db2.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [DB2-connector in V2](../connector-db2.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [DB2-connector in V2](../connector-db2.md).
 
 
 Dit artikel wordt beschreven hoe u kunt Kopieeractiviteit in Azure Data Factory om gegevens van een lokale DB2-database kopiëren naar een gegevensopslag. U kunt gegevens kopiëren naar een archief dat wordt vermeld als een ondersteunde sink in de [activiteiten voor gegevensverplaatsing Data Factory](data-factory-data-movement-activities.md#supported-data-stores-and-formats) artikel. In dit onderwerp is gebaseerd op het Data Factory-artikel dat geeft een overzicht van de verplaatsing van gegevens met behulp van de Kopieeractiviteit en geeft een lijst van de store-combinaties van ondersteunde gegevens. 
@@ -87,8 +87,8 @@ De volgende tabel bevat de JSON-eigenschappen die specifiek voor een service DB2
 | **database** |De naam van de DB2-database. |Ja |
 | **schema** |De naam van het schema in de DB2-database. Deze eigenschap is hoofdlettergevoelig. |Nee |
 | **authenticationType** |Het type verificatie dat wordt gebruikt voor het verbinding maken met de DB2-database. De mogelijke waarden zijn: anoniem, basis en Windows. |Ja |
-| **Gebruikersnaam** |De naam voor het gebruikersaccount als u basisverificatie of Windows-verificatie gebruikt. |Nee |
-| **Wachtwoord** |Het wachtwoord voor het gebruikersaccount. |Nee |
+| **gebruikersnaam** |De naam voor het gebruikersaccount als u basisverificatie of Windows-verificatie gebruikt. |Nee |
+| **wachtwoord** |Het wachtwoord voor het gebruikersaccount. |Nee |
 | **gatewayName** |De naam van de gateway die voor de Data Factory-service gebruiken moet voor verbinding met de lokale DB2-database. |Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
@@ -98,7 +98,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| **TableName** |De naam van de tabel in de DB2-database-instantie waarnaar de gekoppelde service verwijst. Deze eigenschap is hoofdlettergevoelig. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
+| **tableName** |De naam van de tabel in de DB2-database-instantie waarnaar de gekoppelde service verwijst. Deze eigenschap is hoofdlettergevoelig. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
 Zie voor een lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van de activiteiten kopiëren zijn de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen van de activiteit, zoals kopiëren **naam**, **beschrijving**, **invoer** tabel **levert** tabel en **beleid**, zijn beschikbaar voor alle typen activiteiten. De eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit verschillen voor elk activiteitstype. Voor de Kopieeractiviteit, wordt de eigenschappen variëren afhankelijk van de soorten gegevensbronnen en Put.
@@ -107,7 +107,7 @@ Voor de Kopieeractiviteit, wanneer de bron van het type **RelationalSource** (wa
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| **query** |Gebruik de aangepaste query om de gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from "MySchema"."MyTable""` |Nee (als de **tableName** eigenschap van een dataset is opgegeven) |
+| **Query** |Gebruik de aangepaste query om de gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from "MySchema"."MyTable""` |Nee (als de **tableName** eigenschap van een dataset is opgegeven) |
 
 > [!NOTE]
 > Schema- en tabelnamen zijn hoofdlettergevoelig. In de query-instructie, moet u de namen van eigenschappen met behulp van "" (dubbele aanhalingstekens).
@@ -313,11 +313,11 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Geheel getal |Int32 |
 | BigInt |Int64 |
 | Real |Enkelvoudig |
-| dubbele |dubbele |
-| Float |dubbele |
-| Decimale |Decimale |
-| DecimalFloat |Decimale |
-| Numeriek |Decimale |
+| Double |Double |
+| Float |Double |
+| decimale |decimale |
+| DecimalFloat |decimale |
+| Numeriek |decimale |
 | Date |DateTime |
 | Time |TimeSpan |
 | Timestamp |DateTime |
@@ -339,11 +339,11 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | Geheel getal |Int32 |
 | BigInt |Int64 |
 | Real |Enkelvoudig |
-| dubbele |dubbele |
-| Float |dubbele |
-| Decimale |Decimale |
-| DecimalFloat |Decimale |
-| Numeriek |Decimale |
+| Double |Double |
+| Float |Double |
+| decimale |decimale |
+| DecimalFloat |decimale |
+| Numeriek |decimale |
 | Date |DateTime |
 | Time |TimeSpan |
 | Timestamp |DateTime |

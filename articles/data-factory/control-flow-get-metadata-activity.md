@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 56128a7fe28f1599b74ba9f1475ef636e0e8718c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c07199887faf073d19007f1ef410c193bbdbf3ee
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617977"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049363"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ophalen van metagegevens van activiteit in Azure Data Factory
-GetMetadata activiteit kan worden gebruikt voor het ophalen van **metagegevens** van alle gegevens in Azure Data Factory. Deze activiteit wordt alleen ondersteund voor data Factory van versie 2. Het kan worden gebruikt in de volgende scenario's:
+GetMetadata activiteit kan worden gebruikt voor het ophalen van **metagegevens** van alle gegevens in Azure Data Factory. Deze activiteit kan worden gebruikt in de volgende scenario's:
 
 - De informatie over de metagegevens van alle gegevens valideren
 - Een pijplijn wordt geactiveerd wanneer gegevens gereed / beschikbaar
@@ -31,9 +31,6 @@ De volgende functionaliteit is beschikbaar in de Controlestroom:
 
 - De uitvoer van activiteit GetMetadata kan worden gebruikt in voorwaardelijke expressies validatie uitvoeren.
 - Een pijplijn kan worden geactiveerd als voorwaarde wordt voldaan via komen-totdat herhalen
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Data Factory V1 documentatie](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -46,14 +43,18 @@ De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvo
 
 **Opslag van bestanden:**
 
-| Connector-Metadata | itemName<br>(bestand/map) | itemType<br>(bestand/map) | grootte<br>(bestand) | gemaakt<br>(bestand/map) | LastModified<br>(bestand/map) |childItems<br>(map) |contentMD5<br>(bestand) | structuur<br/>(bestand) | aantal kolommen<br>(bestand) | Er bestaat<br>(bestand/map) |
+| Connector-Metadata | itemName<br>(bestand/map) | itemType<br>(bestand/map) | grootte<br>(bestand) | gemaakt<br>(bestand/map) | lastModified<br>(bestand/map) |childItems<br>(map) |contentMD5<br>(bestand) | structuur<br/>(bestand) | aantal kolommen<br>(bestand) | Er bestaat<br>(bestand/map) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
+| Azure Blob | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Bestandssysteem | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+
+- Voor Amazon S3 de `lastModified` geldt voor de bucket en sleutel maar geen virtuele map; en de `exists` geldt voor de bucket en sleutel, maar geen voorvoegsel of virtuele map.
+- Voor Azure Blob de `lastModified` is van toepassing op de container en blob maar geen virtuele map.
 
 **Relationele database:**
 
@@ -73,7 +74,7 @@ De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met Ge
 | itemType | Type van het bestand of map. Uitvoerwaarde `File` of `Folder`. |
 | grootte | De grootte van het bestand in bytes. Van toepassing op het bestand alleen. |
 | gemaakt | Gemaakte datum/tijd van het bestand of map. |
-| LastModified | Datum/tijd van het bestand of map het laatst is gewijzigd. |
+| lastModified | Datum/tijd van het bestand of map het laatst is gewijzigd. |
 | childItems | Lijst met submappen en bestanden in de opgegeven map. Van toepassing op de map alleen. Uitvoerwaarde is een lijst met de naam en type van elk onderliggend item. |
 | contentMD5 | MD5 van het bestand. Van toepassing op het bestand alleen. |
 | structuur | De structuur van de gegevens in het bestand of de relationele database-tabel. Waarde voor uitvoer is een lijst met de naam van kolom en kolomtype. |

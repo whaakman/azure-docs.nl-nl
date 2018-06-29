@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cf32ea7b77db3fc78a404063b8a4d69ecebf58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195706"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062571"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Actieve runbooks in een hybride Runbook Worker
 
@@ -157,13 +157,9 @@ Sla de *Export RunAsCertificateToHybridWorker* runbook op uw computer met een `.
 
 Taken worden verwerkt op hybride Runbook Workers iets anders dan wanneer ze worden uitgevoerd op Azure sandboxes. Één belangrijk verschil is dat er geen limiet voor de duur van de taak op hybride Runbook Workers. Als u een runbook langlopende hebt die u wilt ervoor te zorgen dat het bestand tegen mogelijk opnieuw wordt opgestart, bijvoorbeeld is als de computer die als host fungeert voor de hybride worker opnieuw is opgestart. Als de Hybrid worker-hostmachine opnieuw is opgestart, vervolgens opnieuw een actief runbooktaak vanaf het begin of vanaf het laatste controlepunt voor PowerShell Workflow-runbooks. Als een runbooktaak is meer dan 3 keer opnieuw wordt opgestart, wordt deze onderbroken.
 
-## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Het oplossen van runbooks op hybride Runbook Worker
+## <a name="troubleshoot"></a>Problemen oplossen
 
-Logboeken worden lokaal opgeslagen op elke worker hybride op C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Hybride werknemers registreren ook fouten en gebeurtenissen in het Windows-gebeurtenislogboek onder **toepassingen en Services Logs\Microsoft-SMA\Operational**. Gebeurtenissen met betrekking tot runbooks die worden uitgevoerd op de worker worden geschreven naar **toepassingen en Services Logs\Microsoft-Automation\Operational**. De **Microsoft SMA** logboek bevat veel meer gebeurtenissen met betrekking tot de runbooktaak die naar de werknemer en de verwerking van het runbook gepusht. Terwijl de **Microsoft Automation** gebeurtenislogboek heeft geen veel gebeurtenissen met details hulp bij het oplossen van problemen met de uitvoering van runbook, deze bevat de resultaten van de runbooktaak.
-
-[Runbook uitvoer en berichten](automation-runbook-output-and-messages.md) worden verzonden naar Azure Automation van hybrid workers net als runbooktaken uitvoeren in de cloud. Ook kunt u de stromen uitgebreid en voortgang van de dezelfde manier als voor andere runbooks.
-
-Als uw runbooks zijn niet voltooid, waardoor de taak overzicht de status van toont **onderbroken**, raadpleegt u het artikel over probleemoplossing [Hybrid Runbook Worker: een runbooktaak wordt beëindigd met de status onderbroken](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).
+Als uw runbooks zijn niet voltooid, waardoor de taak overzicht de status van toont **onderbroken**, Controleer de de gids voor probleemoplossing op [fouten bij de uitvoering van runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Volgende stappen
 

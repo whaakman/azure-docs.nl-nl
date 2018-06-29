@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren van Impala met behulp van Azure Data Factory (Preview) | Microsoft Docs
+title: Gegevens kopiëren van Impala met behulp van Azure Data Factory | Microsoft Docs
 description: Informatie over het kopiëren van gegevens van Impala naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een data factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 49e9c338128cc857347bbf052c19dc34dd08f9c6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 366d0945bfac8546aa757648b6f797c2605a43ea
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337616"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045864"
 ---
-# <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Gegevens kopiëren van Impala met behulp van Azure Data Factory (Preview)
+# <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Gegevens kopiëren van Impala met behulp van Azure Data Factory
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van Impala. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory, die in het algemeen beschikbaar is, Zie [Kopieeractiviteit in versie 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Deze connector is momenteel in preview. U kunt uitproberen en feedback geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.

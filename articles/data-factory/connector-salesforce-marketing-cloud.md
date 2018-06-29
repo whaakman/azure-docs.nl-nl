@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren van Salesforce Marketing Cloud met Azure Data Factory (bèta) | Microsoft Docs
+title: Gegevens kopiëren van Salesforce Marketing Cloud met Azure Data Factory | Microsoft Docs
 description: Ontdek hoe u gegevens kopiëren van Salesforce Marketing Cloud naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 59ad27a8609b4491ba131649b574d2a3bf55309b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a68090ea32c7ba4155aa5474067c5cce6f1ee30b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617926"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058882"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-beta"></a>Gegevens kopiëren van Salesforce Marketing Cloud met Azure Data Factory (bèta)
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Gegevens kopiëren van Salesforce Marketing Cloud met Azure Data Factory
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van Salesforce Marketing Cloud. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> Deze connector is momenteel in de bètaversie. U kunt uit te proberen en ons feedback te geven. Gebruik deze niet in een productieomgeving.
+> Deze connector is momenteel in preview. U kunt uit te proberen en ons feedback te geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 

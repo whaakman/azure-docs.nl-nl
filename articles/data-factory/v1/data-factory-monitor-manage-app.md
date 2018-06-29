@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b71ad5701cfd1f8a274318c69d3464cf4fa34708
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f234e49f1a28fd0881e47ede13ae72483ed31f3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621085"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053113"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de app voor bewaking en beheer
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "34621085"
 >
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [bewaken en beheren van de Data Factory-pijplijnen in versie 2](../monitor-visually.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [bewaken en beheren van de Data Factory-pijplijnen in](../monitor-visually.md).
 
 Dit artikel wordt beschreven hoe u met de app voor bewaking en beheer bewaken, beheren en fouten opsporen in uw Data Factory-pijplijnen. U kunt aan de slag met behulp van de toepassing door de volgende video bekijken:
 
@@ -49,7 +49,7 @@ Hier ziet u de bewaking en beheer-app in een apart venster geopend.
 ![App voor controle en beheer](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> Als u ziet dat de webbrowser is vastgelopen bij 'Autoriseren...', schakelt u de **blokkeren van cookies van derden en sitegegevens** selectievakje-- of houd deze is geselecteerd, maakt u een uitzondering voor **login.microsoftonline.com**, en probeer de app opnieuw te openen.
+> Als u ziet dat de webbrowser is vastgelopen bij 'Autoriseren...', schakelt u de **blokkeren van cookies van derden en sitegegevens** selectievakje-- of houd deze is geselecteerd, maakt u een uitzondering voor **login.microsoftonline.com**, en Probeer de app opnieuw te openen.
 
 
 In de lijst Windows activiteit in het middelste deelvenster ziet u een venster van de activiteit voor elke uitvoering van een activiteit. Als u de activiteit die is gepland hebt voor de per uur vijf uur uitgevoerd, ziet u bijvoorbeeld vijf activiteit windows die zijn gekoppeld aan vijf gegevenssegmenten. Als er geen activiteit windows in de lijst onderaan, het volgende doen:
@@ -246,7 +246,7 @@ U kunt de **Script** tabblad om de JSON-definitie van de geselecteerde entiteit 
 ![Tabblad script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Systeemweergaven gebruiken
-De app voor bewaking en beheer bevat vooraf samengestelde systeemweergaven (**recente activiteit windows**, **activiteitsvensters is mislukt**, **windows activiteit In uitvoering**) waarmee u windows recente/mislukt/in uitvoering activiteit van uw gegevensfactory weergeven.
+De app voor bewaking en beheer bevat vooraf samengestelde systeemweergaven (**recente activiteit windows**, **activiteitsvensters is mislukt**, **windows activiteit In uitvoering**) waarmee u kunt windows recente/mislukt/in uitvoering activiteit van uw gegevensfactory weergeven.
 
 Overschakelen naar de **weergaven** tabblad aan de linkerkant door erop te klikken.
 

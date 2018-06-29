@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: e2ab7efdec326a7f1a2c7f3e7b7d0f379efa8606
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5011dfbe496472e21a85dee9fa4901dad429a984
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025742"
+ms.locfileid: "37031726"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Zelfstudie: Rapportage over automatische gebruikers account inrichten
 
@@ -112,6 +112,9 @@ De meest voorkomende gebruiksvoorbeeld voor de inrichting controlelogboeken is o
 
 7. Klik op afzonderlijke gebeurtenissen om uitgebreide details, met inbegrip van alle eigenschappen van de gebruiker die zijn opgehaald, geëvalueerd of geschreven als onderdeel van de gebeurtenis te bekijken.
 
+Zie de onderstaande video voor een demonstratie over het gebruik van de controlelogboeken. De auditlogboeken worden weergegeven rond de 5:30 markeren:
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>Tips voor het weergeven van de controlelogboeken van de inrichting
 

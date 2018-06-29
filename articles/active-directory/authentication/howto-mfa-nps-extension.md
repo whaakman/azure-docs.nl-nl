@@ -1,6 +1,6 @@
 ---
-title: Bestaande NPS-servers gebruiken om aan te bieden mogelijkheden van Azure MFA | Microsoft Docs
-description: Cloud-gebaseerde in twee stappen vericiation mogelijkheden toevoegen aan uw bestaande infrastructuur voor verificatie
+title: Bestaande NPS-servers gebruiken om aan te bieden mogelijkheden van Azure MFA
+description: In twee stappen cloud-gebaseerde verificatie mogelijkheden toevoegen aan uw bestaande infrastructuur voor verificatie
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 2b08c3adb0c638cdfa0ccd9ae4c5beacac822eb4
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: ac2b0e2ba3eff83462ded91bcd0ac9a7309f73b4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018295"
+ms.locfileid: "37031138"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -58,8 +58,8 @@ Windows Server 2008 R2 SP1 of hoger.
 
 Deze bibliotheken worden automatisch geïnstalleerd met de extensie.
 
--   [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure Active Directory-Module voor Windows PowerShell versie 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Microsoft Azure Active Directory-Module voor Windows PowerShell versie 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 De Microsoft Azure Active Directory-Module voor Windows PowerShell is geïnstalleerd, als deze nog niet aanwezig is, via een configuratiescript die u als onderdeel van het installatieproces uitvoert. Er is niet nodig voor het installeren van deze module tevoren als deze nog niet is geïnstalleerd.
 
@@ -70,6 +70,13 @@ Iedereen met behulp van de NPS-uitbreiding moet worden gesynchroniseerd naar Azu
 Wanneer u de extensie installeert, moet u de directory-ID en de Administrator-referenties voor uw Azure AD-tenant. U vindt de ID van uw directory in de [Azure-portal](https://portal.azure.com). Meld u aan als beheerder, selecteer de **Azure Active Directory** pictogram aan de linkerkant, selecteer vervolgens **eigenschappen**. Kopieer de GUID in de **map-ID** vak en op te slaan. U kunt deze GUID als de tenant-ID gebruiken bij het installeren van de NPS-extensie.
 
 ![De ID van uw Directory onder de eigenschappen van de Azure Active Directory zoeken](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### <a name="network-requirements"></a>Netwerkvereisten
+
+De NPS-server moet communiceren met de volgende URL's poorten 80 en 443.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
 
@@ -115,7 +122,7 @@ U kunt [uitschakelen van niet-ondersteunde verificatiemethoden](howto-mfa-mfaset
 
 ### <a name="register-users-for-mfa"></a>Gebruikers registreren voor MFA
 
-Voordat u implementeert en de NPS-uitbreiding wordt gebruikt, moeten gebruikers die moeten worden verificatie in twee stappen uitvoeren worden geregistreerd voor MFA. Meer onmiddellijk om te testen de extensie als u deze implementeert, moet u minstens één test-account dat volledig is geregistreerd voor multi-factor Authentication.
+Voordat u implementeert en de NPS-uitbreiding wordt gebruikt, moeten gebruikers die nodig zijn voor het uitvoeren van verificatie in twee stappen worden geregistreerd voor MFA. Meer onmiddellijk om te testen de extensie als u deze implementeert, moet u minstens één test-account dat volledig is geregistreerd voor multi-factor Authentication.
 
 Gebruik de volgende stappen uit om een testaccount gestart:
 1. Aanmelden bij [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) met een testaccount. 
@@ -131,19 +138,19 @@ Uw gebruikers moeten ook als volgt te werk om in te schrijven voordat ze kunnen 
 
 ### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Download en installeer de NPS-extensie voor Azure MFA
 
-1.  [Download de NPS-extensie](https://aka.ms/npsmfa) uit het Microsoft Download Center.
-2.  Het binaire bestand kopiëren naar de Network Policy Server die u wilt configureren.
-3.  Voer *setup.exe* en volg de installatie-instructies. Als er fouten optreden, moet u controleren dat de twee bibliotheken van de sectie vereisten zijn geïnstalleerd.
+1. [Download de NPS-extensie](https://aka.ms/npsmfa) uit het Microsoft Download Center.
+2. Het binaire bestand kopiëren naar de Network Policy Server die u wilt configureren.
+3. Voer *setup.exe* en volg de installatie-instructies. Als er fouten optreden, moet u controleren dat de twee bibliotheken van de sectie vereisten zijn geïnstalleerd.
 
 ### <a name="run-the-powershell-script"></a>Het PowerShell-script uitvoeren
 
-Het installatieprogramma maakt een PowerShell-script op deze locatie: `C:\Program Files\Microsoft\AzureMfa\Config` (waarbij C:\ is voor uw installatiestation). Dit PowerShell-script voert de volgende handelingen uit:
+Het installatieprogramma maakt een PowerShell-script op deze locatie: `C:\Program Files\Microsoft\AzureMfa\Config` (waarbij C:\ is voor uw installatiestation). Deze PowerShell-script worden de volgende acties uitgevoerd telkens wanneer die deze wordt uitgevoerd:
 
--   Een zelfondertekend certificaat maken.
--   De openbare sleutel van het certificaat naar de service-principal over Azure AD koppelt.
--   Sla het certificaat in het certificaatarchief van de lokale computer.
--   Toegang verlenen tot de persoonlijke sleutel van het certificaat voor netwerk-gebruiker.
--   Start opnieuw op de NPS.
+- Een zelfondertekend certificaat maken.
+- De openbare sleutel van het certificaat naar de service-principal over Azure AD koppelt.
+- Sla het certificaat in het certificaatarchief van de lokale computer.
+- Toegang verlenen tot de persoonlijke sleutel van het certificaat voor netwerk-gebruiker.
+- Start opnieuw op de NPS.
 
 Tenzij u wilt gebruiken van uw eigen certificaten (in plaats van de zelfondertekende certificaten die het PowerShell-script genereert), voer de PowerShell-Script om de installatie te voltooien. Als u de extensie op meerdere servers installeert, moet elk criterium een eigen certificaat hebben.
 
@@ -162,8 +169,8 @@ Tenzij u wilt gebruiken van uw eigen certificaten (in plaats van de zelfondertek
 
 Herhaal deze stappen uit op eventuele aanvullende NPS-servers die u instellen wilt voor taakverdeling.
 
->[!NOTE]
->Als u uw eigen certificaten gebruiken in plaats van genereren van certificaten met de PowerShell-script, ervoor zorgen dat ze naar de NPS-naamconventie uitgelijnd. De onderwerpnaam moet **CN =\<TenantID\>, OU = Microsoft NPS extensie**. 
+> [!NOTE]
+> Als u uw eigen certificaten gebruiken in plaats van genereren van certificaten met de PowerShell-script, ervoor zorgen dat ze naar de NPS-naamconventie uitgelijnd. De onderwerpnaam moet **CN =\<TenantID\>, OU = Microsoft NPS extensie**. 
 
 ## <a name="configure-your-nps-extension"></a>De NPS-uitbreiding configureren
 
@@ -172,7 +179,7 @@ Deze sectie bevat overwegingen bij het ontwerpen en suggesties voor geslaagde im
 ### <a name="configuration-limitations"></a>Configuratie-beperkingen
 
 - De NPS-extensie voor Azure MFA omvat geen hulpprogramma's voor gebruikers en -instellingen van MFA-Server migreren naar de cloud. Daarom is het raadzaam met de extensie voor nieuwe implementaties in plaats van bestaande implementatie. Als u de uitbreiding van een bestaande implementatie gebruikt, worden uw gebruikers hebben om uit te voeren bewijs-up opnieuw uit om te vullen van de details van MFA in de cloud.  
-- De NPS-extensie gebruikt de UPN van de lokale Active directory voor het identificeren van de gebruiker op de Azure MFA voor het uitvoeren van de secundaire Auth. De extensie kan worden geconfigureerd voor het gebruik van een andere id zoals alternatieve aanmeldings-ID of aangepaste Active Directory-veld dan UPN. Zie [geavanceerde configuratieopties voor de NPS-extensie voor multi-factor Authentication](howto-mfa-nps-extension-advanced.md) voor meer informatie.
+- De NPS-extensie gebruikt de UPN van de lokale Active directory voor het identificeren van de gebruiker op de Azure MFA voor het uitvoeren van de secundaire Auth. De extensie kan worden geconfigureerd voor het gebruik van een andere id zoals alternatieve aanmeldings-ID of aangepaste Active Directory-veld dan UPN. Zie voor meer informatie het artikel [geavanceerde configuratieopties voor de NPS-extensie voor multi-factor Authentication](howto-mfa-nps-extension-advanced.md).
 - Niet alle versleuteling protocollen ondersteunen alle verificatiemethoden voor.
    - **PAP** ondersteunt telefoongesprek, eenzijdige SMS-bericht, mobiele-appmelding en verificatiecode mobiele app
    - **CHAPv2** en **EAP** ondersteuning voor telefoongesprekken en meldingen voor mobiele Apps
@@ -232,12 +239,15 @@ Deze fout kan worden veroorzaakt door een bepaalde reden. Volg deze stappen om o
 
 Controleer of dat AD Connect wordt uitgevoerd en dat de gebruiker aanwezig is in zowel Windows Active Directory en Azure Active Directory.
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Waarom zie ik HTTP-fouten in Logboeken verbinden met alle mijn verificaties mislukt?
 
 Controleer https://adnotifications.windowsazure.com bereikbaar is vanaf de server met de NPS-extensie.
 
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Beheer van de TLS/SSL-protocollen en -coderingssuites
+
+Het wordt aanbevolen dat oudere en zwakkere coderingssuites worden uitgeschakeld of verwijderd tenzij vereist door uw organisatie. Informatie over hoe naar voltooid met deze taak u in het artikel vinden kunt [het beheer van SSL/TLS-protocollen en -coderingssuites voor AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## <a name="next-steps"></a>Volgende stappen
 

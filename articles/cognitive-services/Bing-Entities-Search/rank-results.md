@@ -10,16 +10,16 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ff5b004aaa863dbdfc460a774a5dfd658ce52537
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 53354c0f78419a37e8896bb4d00e0d7aebf32203
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344423"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059988"
 ---
 # <a name="using-ranking-to-display-results"></a>Met behulp van rangschikking om resultaten weer te geven  
 
-Elke entiteit search-antwoord bevat een [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-entities-v7-reference#rankingresponse) beantwoorden, vergelijkbaar met de structuur in een antwoord Bing webpagina's zoeken, die Hiermee geeft u op hoe de zoekresultaten moet worden weergegeven. Het antwoord ranking groepen resultaten in de pool hoofdlijnen, en de inhoud van de zijbalk. Het resultaat van de pool is het resultaat van de belangrijkste of opvallende en eerst moet worden weergegeven. Als de resterende resulteert in een traditionele hoofdlijnen en zijbalk indeling niet wordt weergegeven, moet u de hoofdlijnen inhoud hoger zichtbaarheid dan inhoud voor de zijbalk opgeven. 
+Elke entiteit search-antwoord bevat een [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) beantwoorden, vergelijkbaar met de structuur in een antwoord Bing webpagina's zoeken, die Hiermee geeft u op hoe de zoekresultaten moet worden weergegeven. Het antwoord ranking groepen resultaten in de pool hoofdlijnen, en de inhoud van de zijbalk. Het resultaat van de pool is het resultaat van de belangrijkste of opvallende en eerst moet worden weergegeven. Als de resterende resulteert in een traditionele hoofdlijnen en zijbalk indeling niet wordt weergegeven, moet u de hoofdlijnen inhoud hoger zichtbaarheid dan inhoud voor de zijbalk opgeven. 
   
 In elke groep de [Items](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matrix geeft de volgorde die de inhoud moet worden weergegeven in. Elk item biedt twee methoden voor het identificeren van het resultaat binnen een antwoord.  
   

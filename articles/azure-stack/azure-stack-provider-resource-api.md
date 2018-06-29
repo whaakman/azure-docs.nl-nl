@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 46e46cfea621f99e150446fcc75b71feb468fa49
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29877276"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052695"
 ---
 # <a name="provider-resource-usage-api"></a>Resourcegebruik-API voor providers
 De term *provider* geldt voor de servicebeheerder en voor alle providers gedelegeerd. Azure Stack-operators en gedelegeerd providers kunnen u de provider gebruiks-API gebruiken om het gebruik van hun directe tenants weer te geven. Bijvoorbeeld, zoals in het diagram, P0 de serviceprovider-API voor van gebruiksinformatie over de P1 kunt aanroepen en rechtstreeks gebruik van P2 en P1 kunt bellen voor informatie over het gebruik van P3 en P4.
@@ -34,7 +34,7 @@ Dit gebruik API is een provider API, zodat de aanroeper moet een eigenaar, bijdr
 
 | **Methode** | **Aanvraag-URI** |
 | --- | --- |
-| TOEVOEGEN |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token waarde} |
 
 ### <a name="arguments"></a>Argumenten
 | **Argument** | **Beschrijving** |
@@ -49,7 +49,7 @@ Dit gebruik API is een provider API, zodat de aanroeper moet een eigenaar, bijdr
 | *continuationToken* |Token opgehaald uit de laatste aanroep aan de provider gebruiks-API. Dit token is vereist wanneer een antwoord groter dan 1000 regels is en het fungeert als een bladwijzer voor de voortgang. Als het token niet aanwezig is is, de gegevens worden opgehaald van het begin van de dag of uur, op basis van de granulatie doorgegeven. |
 
 ### <a name="response"></a>Antwoord
-GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
+/Subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime ophalen = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = dagelijks & subscriberId = sub1.1 & api-versie 1.0 =
 
 ```json
 {
@@ -57,11 +57,11 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?r
 {
 
 "id":
-"/subscriptions/sub1.1/providers/Microsoft.Commerce/UsageAggregate/sub1.1-
+"/subscriptions/sub1.1/providers/Microsoft.Commerce.Admin/UsageAggregate/sub1.1-
 
 meterID1",
 "name": "sub1.1-meterID1",
-"type": "Microsoft.Commerce/UsageAggregate",
+"type": "Microsoft.Commerce.Admin/UsageAggregate",
 
 "properties": {
 "subscriptionId":"sub1.1",
@@ -87,7 +87,7 @@ meterID1",
 | *usageStartTime* |UTC begintijd van de informatie over het gebruik bucket waartoe deze aggregatie gebruik behoort.|
 | *usageEndTime* |UTC-eindtijd van de informatie over het gebruik bucket waartoe deze aggregatie gebruik behoort. |
 | *instanceData* |Sleutel-waardeparen van het exemplaardetails (in een nieuwe indeling):<br> *resourceUri*: volledig gekwalificeerde resource-ID, waaronder de resourcegroepen en de exemplaarnaam. <br> *locatie*: regio waarin deze service is uitgevoerd. <br> *labels*: resourcetags die zijn opgegeven door de gebruiker. <br> *aanvullende informatie*: meer informatie over de bron die is verbruikt, bijvoorbeeld, het type besturingssysteem versie of image. |
-| *hoeveelheid* |Hoeveelheid resourceverbruik dat is opgetreden in deze periode. |
+| *Hoeveelheid* |Hoeveelheid resourceverbruik dat is opgetreden in deze periode. |
 | *meterId* |Unieke ID voor de resource die is verbruikt (ook wel *ResourceID*). |
 
 

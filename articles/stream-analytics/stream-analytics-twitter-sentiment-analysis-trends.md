@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 4c77c8a7209825477929ddc0997b75ace5fe04a1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910523"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030611"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Real-time Twitter-gevoel analyse in Azure Stream Analytics
 
@@ -60,7 +60,7 @@ In deze procedure maakt u eerst een event hub-naamruimte maken en vervolgens voe
 
     ![De knop toevoegen Event Hub voor het maken van nieuwe event hub ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
-6. Naam van de nieuwe event hub `socialtwitter-eh`. U kunt een andere naam gebruiken. Als u dit doet, noteer, omdat u de naam van de later nodig. U hoeft niet in te stellen andere opties voor de event hub.
+6. Naam van de nieuwe event hub `socialtwitter-eh`. U kunt ook een andere naam gebruiken. Als u dit doet, noteer, omdat u de naam van de later nodig. U hoeft niet in te stellen andere opties voor de event hub.
 
     ![Blade voor het maken van nieuwe event hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
@@ -69,7 +69,7 @@ In deze procedure maakt u eerst een event hub-naamruimte maken en vervolgens voe
 
 ### <a name="grant-access-to-the-event-hub"></a>Toegang verlenen tot de event hub
 
-Voordat een proces gegevens naar een event hub verzenden kan, moet een beleid waarmee u de juiste toegang hebben in de event hub. Het toegangsbeleid produceert een verbindingsreeks die autorisatie-informatie bevat.
+Voordat een proces gegevens naar een event hub verzenden kan, moet een beleid waarmee u de juiste toegang hebben in de event hub. Het toegangsbeleid genereert een verbindingsreeks die autorisatiegegevens bevat.
 
 1.  Klik op de blade gebeurtenis naamruimte **Event Hubs** en klik vervolgens op de naam van uw nieuwe event hub.
 
@@ -90,7 +90,7 @@ Voordat een proces gegevens naar een event hub verzenden kan, moet een beleid wa
     
     ![Kopiëren van de primaire verbinding string-sleutel van het toegangsbeleid](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-shared-access-policy-copy-connection-string.png)
  
-7.  De verbindingsreeks in een teksteditor plakken. U moet deze verbindingsreeks voor de volgende sectie, nadat u een aantal kleine wijzigingen aangebracht.
+7.  Plak de verbindingsreeks in een teksteditor. U moet deze verbindingsreeks voor de volgende sectie, nadat u een aantal kleine wijzigingen aangebracht.
 
     De verbindingsreeks ziet er als volgt:
 
@@ -251,7 +251,7 @@ Als u wilt vergelijken van het aantal vermeldingen tussen onderwerpen, kunt u ee
 
     Azure 3 minuten aan gegevens uit de invoerstroom voorbeelden en waarschuwt u als de voorbeeldgegevens gereed is. (Dit duurt even.) 
 
-    De voorbeeldgegevens worden tijdelijk opgeslagen en is beschikbaar wanneer u hebt de queryvenster geopend. Als u het query-venster sluit, de voorbeeldgegevens worden genegeerd en u moet een nieuwe set met voorbeeldgegevens. 
+    De voorbeeldgegevens worden tijdelijk opgeslagen en zijn beschikbaar zolang u het queryvenster geopend houdt. Als u het query-venster sluit, de voorbeeldgegevens worden genegeerd en u moet een nieuwe set met voorbeeldgegevens. 
 
 5. De query in de code-editor wijzigen in het volgende:
 
@@ -316,7 +316,7 @@ In deze zelfstudie maakt schrijven u de geaggregeerde tweet gebeurtenissen van d
 5. Sluit de **uitvoer** blade. 
 
 
-## <a name="start-the-job"></a>Start de taak
+## <a name="start-the-job"></a>Taak starten
 
 Een taak invoer-, query- en uitvoer zijn opgegeven. U bent klaar om te beginnen de Stream Analytics-taak.
 
@@ -338,7 +338,7 @@ Een taak invoer-, query- en uitvoer zijn opgegeven. U bent klaar om te beginnen 
 
 Nadat uw taak eenmaal is gestart en de real-time Twitter-stroom wordt verwerkt, kunt u de uitvoer voor analyse gevoel weergeven.
 
-U kunt een hulpprogramma zoals [Azure Opslagverkenner](https://http://storageexplorer.com/) of [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) uw taakuitvoer weergeven in realtime. Hier kunt u [Power BI](https://powerbi.com/) uitbreiden van uw toepassing om op te nemen van een aangepaste dashboard zoals weergegeven in de volgende schermafbeelding:
+U kunt een hulpprogramma zoals [Azure Opslagverkenner](https://storageexplorer.com/) of [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) uw taakuitvoer weergeven in realtime. Hier kunt u [Power BI](https://powerbi.com/) uitbreiden van uw toepassing om op te nemen van een aangepaste dashboard zoals weergegeven in de volgende schermafbeelding:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

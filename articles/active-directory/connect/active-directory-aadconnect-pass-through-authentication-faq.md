@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8363c49c4a52785fb5deacb3ac4998d38aca1430
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee467769b9653a9952b6e41e66a8777a4bac5e56
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593877"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028877"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass-through-verificatie: Veelgestelde vragen
 
@@ -66,7 +66,7 @@ Als u terugschrijven van wachtwoord voor een specifieke gebruiker niet hebt geco
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Hoe biedt Pass through-verificatie u bescherming tegen aanvallen met brute kracht wachtwoord?
 
-Lees [Azure Active Directory Pass-through-verificatie: Smart accountvergrendeling](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) voor meer informatie.
+Lees [Azure Active Directory Pass-through-verificatie: Smart accountvergrendeling](../authentication/howto-password-smart-lockout.md) voor meer informatie.
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Wat Pass through-verificatie Agents communiceren via poorten 80 en 443
 
@@ -133,7 +133,7 @@ Als u een Pass through-verificatie-Agent van een server verwijderen, worden de s
 ## <a name="next-steps"></a>Volgende stappen
 - [Huidige beperkingen](active-directory-aadconnect-pass-through-authentication-current-limitations.md): meer informatie over welke scenario's worden ondersteund en welke worden niet.
 - [Snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md): actief en werkend krijgen voor Azure AD Pass-through-verificatie.
-- [Vergrendelen van smartcard](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): informatie over het configureren van de mogelijkheid slimme vergrendeling op uw tenant gebruikersaccounts te beveiligen.
+- [Vergrendelen van smartcard](../authentication/howto-password-smart-lockout.md): informatie over het configureren van de mogelijkheid slimme vergrendeling op uw tenant gebruikersaccounts te beveiligen.
 - [Technische diepgaand](active-directory-aadconnect-pass-through-authentication-how-it-works.md): inzicht in hoe de functie Pass through-verificatie werkt.
 - [Problemen met](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informatie over het oplossen van veelvoorkomende problemen met de functie Pass through-verificatie.
 - [Beveiliging diepgaand](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): gedetailleerde technische informatie over de functie Pass through-verificatie.

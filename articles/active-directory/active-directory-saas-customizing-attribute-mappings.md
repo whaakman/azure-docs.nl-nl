@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/13/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 565394664ab59ef5186503f708502eacc040321f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7dad9f3e688c43de3eabd430bf5618ad4632ca3d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295622"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035930"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Gebruikers inrichten kenmerktoewijzingen voor SaaS-toepassingen in Azure Active Directory aanpassen
-Microsoft Azure AD biedt ondersteuning voor gebruikersinrichting voor SaaS-toepassingen van derden zoals Salesforce en Google Apps. Als er gebruikers inrichten voor een SaaS-toepassing van derden is ingeschakeld, bepaalt de Azure-portal de kenmerkwaarden weer in de vorm van een configuratie met de naam "kenmerk wordt toegewezen."
+Microsoft Azure AD biedt ondersteuning voor gebruikersinrichting voor SaaS-toepassingen van derden zoals Salesforce en Google Apps. Als u gebruikers inrichten voor een SaaS-toepassing van derden is ingeschakeld hebt, bepaalt de Azure-portal de kenmerkwaarden weer in de vorm van kenmerk toewijzingen.
 
 Er is een vooraf geconfigureerde set kenmerken en kenmerktoewijzingen tussen Azure AD-gebruikersobjecten en gebruikersobjecten van elke SaaS-app. Sommige apps beheren andere typen objecten naast gebruikers, zoals groepen. <br> 
  U kunt de standaard-kenmerktoewijzingen aanpassen volgens uw bedrijfsbehoeften. Dit houdt in dat u kunt wijzigen of verwijderen van bestaande kenmerktoewijzingen, of nieuwe kenmerktoewijzingen maken.
  
-## <a name="editing-user-attribute-mappings"></a>Gebruiker kenmerktoewijzingen bewerken
+## <a name="editing-user-attribute-mappings"></a>Kenmerk Gebruikerstoewijzingen bewerken
 
-In de Azure AD-portal, opent u deze functie door te klikken op een **toewijzingen** configuratie onder **inrichten** in de **beheren** gedeelte van een **bedrijfstoepassing**.
+In de Azure AD-portal, opent u deze functie door te klikken op een **toewijzingen** configuratie onder **inrichten** in de **beheren** gedeelte van een  **Bedrijfstoepassing**.
 
 
 ![SalesForce][5] 
@@ -47,7 +47,7 @@ U kunt bestaande **kenmerktoewijzingen** door te klikken op een toewijzing. Hier
 ![SalesForce][7]  
 
 
-### <a name="understanding-attribute-mapping-types"></a>Kenmerk typen toewijzing
+### <a name="understanding-attribute-mapping-types"></a>Typen van de toewijzing van kenmerken
 Met kenmerktoewijzingen, kunt u bepalen hoe kenmerken worden ingevuld in een SaaS-toepassing van derden. Er zijn vier verschillende toewijzingstypen ondersteund:
 
 * **Directe** : het kenmerk target is gevuld met de waarde van een kenmerk van het gekoppelde object in Azure AD.
@@ -56,12 +56,12 @@ Met kenmerktoewijzingen, kunt u bepalen hoe kenmerken worden ingevuld in een Saa
   Zie voor meer informatie [schrijven expressies voor kenmerktoewijzingen in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Geen** -het kenmerk target blijft ongewijzigd. Echter, als het kenmerk target ooit leeg is, wordt dit ingevuld met de standaardwaarde die u opgeeft.
 
-Naast deze vier eenvoudige kenmerk toewijzingstypen aangepaste kenmerktoewijzingen ondersteuning voor het concept van een optionele **standaard** waarde toewijzing. De toewijzing van de standaard waarde zorgt ervoor dat een target-kenmerk is gevuld met een waarde als er geen waarde in Azure AD en ook op het doelobject. De meest voorkomende configuratie is leeg laten.
+Naast deze vier eenvoudige typen aangepaste kenmerktoewijzingen ondersteuning voor het concept van een optionele **standaard** waarde toewijzing. De toewijzing van de standaard waarde zorgt ervoor dat een target-kenmerk is gevuld met een waarde als er geen waarde in Azure AD en ook op het doelobject. De meest voorkomende configuratie is leeg laten.
 
 
-### <a name="understanding-attribute-mapping-properties"></a>Understanding toewijzing kenmerkeigenschappen
+### <a name="understanding-attribute-mapping-properties"></a>Inzicht in de eigenschappen van de toewijzing van kenmerken
 
-In de vorige sectie hebt u al is kennis met de eigenschap type van kenmerk toewijzing.
+In de vorige sectie hebt u al is geïntroduceerd voor de eigenschap type van de toewijzing van kenmerken.
 Naast deze eigenschap ondersteunen kenmerktoewijzingen ook de volgende kenmerken:
 
 - **Bronkenmerk** -gebruikerskenmerk uit het bronsysteem (voorbeeld: Azure Active Directory).
@@ -79,7 +79,7 @@ Aantal toepassingen, zoals ServiceNow, vak en Google Apps, ondersteunen de mogel
 
 ![ServiceNow][8]  
 
-Inrichting van de groep kan worden eventueel ingeschakeld of uitgeschakeld door het selecteren van de toewijzing van de groep onder **toewijzingen**, en de instelling **ingeschakeld** met de gewenste optie in de **kenmerktoewijzing** scherm.
+Inrichting van de groep kan worden eventueel ingeschakeld of uitgeschakeld door het selecteren van de toewijzing van de groep onder **toewijzingen**, en de instelling **ingeschakeld** met de gewenste optie in de **kenmerk-toewijzing** scherm.
 
 De kenmerken die zijn ingericht als onderdeel van een groepsobjecten kunnen worden aangepast op dezelfde manier als gebruikersobjecten, zoals eerder besproken. 
 
@@ -91,15 +91,14 @@ De kenmerken die zijn ingericht als onderdeel van een groepsobjecten kunnen word
 
 De kenmerken van de gebruiker ondersteund voor een bepaalde toepassing zijn vooraf geconfigureerd. De meeste toepassing Gebruikersbeheer API's bieden geen ondersteuning voor detectie van schema, de Azure AD-service inricht is daarom niet dynamisch genereren van de lijst met ondersteunde kenmerken door het aanroepen van de toepassing. 
 
-Sommige toepassingen ondersteunen echter aangepaste kenmerken. In de volgorde voor de Azure AD-service inricht kunnen lezen en schrijven naar aangepaste kenmerken, de definities moeten worden ingevoerd in de Azure portal met behulp van de **geavanceerde opties weergeven** selectievakje aan de onderkant van de  **Toewijzing van het kenmerk** scherm.
+Sommige toepassingen ondersteunen echter aangepaste kenmerken. In de volgorde voor de Azure AD-service inricht kunnen lezen en schrijven naar aangepaste kenmerken, de definities moeten worden ingevoerd in de Azure portal met behulp van de **geavanceerde opties weergeven** selectievakje aan de onderkant van de  **Toewijzing van kenmerken** scherm.
 
 Toepassingen en systemen die ondersteuning voor aanpassing van de lijst met kenmerken zijn onder andere:
 
 * SalesForce
 * ServiceNow
 * Werkdag
-* Azure Active Directory
-* On-Premises Active Directory (als onderdeel van de inrichting van de connector Workday-gebruiker)
+* Azure Active Directory ([Azure AD Graph API standaardkenmerken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) en aangepaste directory-uitbreidingen worden ondersteund)
 * Apps die ondersteuning bieden voor [SCIM 2.0](https://tools.ietf.org/html/rfc7643), waarbij de kenmerken die zijn gedefinieerd in de [core schema](https://tools.ietf.org/html/rfc7643) moeten worden toegevoegd
 
 >[!NOTE]
@@ -124,7 +123,7 @@ Wanneer u de lijst met ondersteunde kenmerken bewerkt, vindt u de volgende eigen
 * **API-expressie** -niet gebruikt, tenzij om dit te doen door de documentatie voor een specifieke inrichting connector (zoals Workday).
 * **Het kenmerk Object waarnaar wordt verwezen** : als dit een kenmerk van het type verwijzing is, wordt dit menu kunt u de tabel en het kenmerk in de doeltoepassing waarin de waarde die is gekoppeld aan het kenmerk selecteren. Als u een kenmerk genaamd 'Afdeling' waarvan opgeslagen waarde verwijst naar een object in een aparte 'Afdelingen' tabel hebt, selecteert u bijvoorbeeld 'Departments.Name'. Denk eraan dat de verwijzing naar tabellen en de primaire ID velden die worden ondersteund voor een bepaalde toepassing vooraf is geconfigureerd en momenteel kunnen niet worden bewerkt met de Azure portal, maar kunnen worden bewerkt met behulp van de [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Als u wilt een nieuw kenmerk toevoegen, Ga naar het einde van de lijst met ondersteunde kenmerken, vul de velden dan het gebruik van de opgegeven invoer en selecteer **kenmerk toevoegen**. Selecteer **opslaan** wanneer u klaar bent met het toevoegen van kenmerken. Vervolgens moet u opnieuw laden van de **inrichten** tabblad voor de nieuwe kenmerken beschikbaar in de editor voor kolomtoewijzing van kenmerk.
+Als u wilt een nieuw kenmerk toevoegen, Ga naar het einde van de lijst met ondersteunde kenmerken, vul de velden dan het gebruik van de opgegeven invoer en selecteer **kenmerk toevoegen**. Selecteer **opslaan** wanneer u klaar bent met het toevoegen van kenmerken. Vervolgens moet u opnieuw laden van de **inrichten** tabblad voor de nieuwe kenmerken beschikbaar in de editor voor de toewijzing van kenmerken.
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Herstellen van de standaardkenmerken en kenmerktoewijzingen
 
@@ -140,7 +139,7 @@ Deze optie wordt een nieuwe synchronisatie van alle gebruikers effectief geforce
 
 * Microsoft Azure AD biedt een efficiënte implementatie van een synchronisatieproces. In een omgeving met geïnitialiseerde worden alleen objecten die moet worden bijgewerkt verwerkt tijdens een synchronisatiecyclus. 
 
-* Kenmerktoewijzingen bijwerken, heeft een invloed op de prestaties van een synchronisatiecyclus. Een update voor de configuratie van de toewijzing is vereist voor alle beheerde objecten die opnieuw worden geëvalueerd. 
+* Kenmerktoewijzingen bijwerken, heeft een invloed op de prestaties van een synchronisatiecyclus. Een update voor de configuratie van de toewijzing van kenmerken is vereist voor alle beheerde objecten die moeten worden opnieuw worden geëvalueerd. 
 
 * Het is aanbevolen om het aantal opeenvolgende wijzigingen tot uw kenmerktoewijzingen minimaal te beperken.
 
@@ -151,7 +150,7 @@ Deze optie wordt een nieuwe synchronisatie van alle gebruikers effectief geforce
 * [Expressies voor kenmerktoewijzingen schrijven](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Bereikfilters voor gebruikers inrichten](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
-* [Lijst met zelfstudies over het integreren van SaaS-Apps](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps](saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png

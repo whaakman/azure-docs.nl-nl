@@ -1,15 +1,15 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 32fdc23aded78ca491fbde2ef5c76247c56d0c4c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313741"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063694"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-exemplaren
 
-Vooruitbetalen voor virtuele machines en geld besparen met exemplaren van Azure gereserveerde virtuele Machine (VM). Zie voor meer informatie [gereserveerde exemplaren van Azure-aanbieding](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Vooruitbetalen voor virtuele machines en geld besparen met exemplaren van Azure gereserveerde virtuele Machine (VM). Zie voor meer informatie [gereserveerde VM-exemplaren van Azure-aanbieding](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 U kunt Azure gereserveerde exemplaren kopen de [Azure-portal](https://portal.azure.com). Een gereserveerde exemplaar aanschaffen:
 -   U moet zich in een rol van eigenaar voor ten minste één onderneming of abonnement op gebruiksbasis.
@@ -50,12 +50,12 @@ Moet u een van de methoden die hieronder worden beschreven om te identificeren d
 ## <a name="next-steps"></a>Volgende stappen 
 De gereserveerde exemplaar korting wordt automatisch toegepast op het aantal virtuele machines die overeenkomen met het exemplaar van het gereserveerde bereik en kenmerken worden uitgevoerd. U kunt het bereik van de gereserveerde exemplaar via bijwerken [Azure-portal](https://portal.azure.com), PowerShell, CLI of via de API. 
 
-Zie voor meer informatie over het beheren van een gereserveerde exemplaar, [gereserveerde exemplaren Azure beheren](../articles/billing/billing-manage-reserved-vm-instance.md).
+Zie voor meer informatie over het beheren van een gereserveerde exemplaar, [gereserveerde exemplaren in Azure beheren](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Zie voor meer informatie over gereserveerde exemplaren van Azure, de volgende artikelen:
+Zie voor meer informatie over Azure-gereserveerde exemplaren, de volgende artikelen:
 
-- [Geld besparen op virtuele machines met gereserveerde exemplaren](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Azure-gereserveerde exemplaren beheren](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Wat zijn gereserveerd VM-exemplaren van Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Gereserveerde exemplaren in Azure beheren](../articles/billing/billing-manage-reserved-vm-instance.md)
 - [Begrijpen hoe de gereserveerde exemplaar korting wordt toegepast](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](../articles/billing/billing-understand-reserved-instance-usage-ea.md)

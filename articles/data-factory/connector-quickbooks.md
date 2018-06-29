@@ -1,5 +1,5 @@
 ---
-title: Kopiëren van gegevens uit QuickBooks met behulp van Azure Data Factory (Preview) | Microsoft Docs
+title: Kopiëren van gegevens uit QuickBooks met behulp van Azure Data Factory | Microsoft Docs
 description: Ontdek hoe u gegevens uit QuickBooks naar gegevensarchieven ondersteunde sink kopiëren met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: d0c7557c400be36fed59e48fc346afb0fa5b198b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4e73b444335fe0e96ff453570ee0092f38ab9a4d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337938"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053794"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Kopiëren van gegevens uit QuickBooks met behulp van Azure Data Factory (Preview)
+# <a name="copy-data-from-quickbooks-using-azure-data-factory"></a>Gegevens uit QuickBooks met behulp van Azure Data Factory kopiëren
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit QuickBooks. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Deze connector is momenteel in preview. U kunt uit te proberen en ons feedback te geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
@@ -51,7 +48,7 @@ De volgende eigenschappen worden ondersteund voor QuickBooks gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **QuickBooks** | Ja |
-| eindpunt | Het eindpunt van de server QuickBooks. (dat wil zeggen, quickbooks.api.intuit.com)  | Ja |
+| endpoint | Het eindpunt van de server QuickBooks. (dat wil zeggen, quickbooks.api.intuit.com)  | Ja |
 | companyId | De bedrijfs-ID van het bedrijf QuickBooks te autoriseren.  | Ja |
 | consumerKey | De consumentsleutel voor 1.0 OAuth-verificatie. | Ja |
 | consumerSecret | De consumentgeheim voor 1.0 OAuth-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |

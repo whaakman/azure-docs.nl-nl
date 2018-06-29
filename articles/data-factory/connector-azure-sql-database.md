@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 9b2acf622f33f5d1748c503ab4765b72c3d921e2
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 5287a1d1f09a7057590b455c14aa7f70128ad7fa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751575"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053634"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
-> * [Versie 1, GA](v1/data-factory-azure-sql-connector.md)
-> * [Versie 2, Preview](connector-azure-sql-database.md)
+> * [Versie 1](v1/data-factory-azure-sql-connector.md)
+> * [Huidige versie](connector-azure-sql-database.md)
 
 In dit artikel wordt uitgelegd hoe gebruiken Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van of naar Azure SQL Database. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel, hetgeen een algemeen overzicht van de Kopieeractiviteit toont.
-
-> [!NOTE]
-> In dit artikel is van toepassing op versie 2 van de Data Factory momenteel in preview. Als u versie 1 van de Data Factory-service, algemeen beschikbaar (GA), Zie [Azure SQL Database-connector in V1](v1/data-factory-azure-sql-connector.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -579,9 +576,9 @@ Wanneer u gegevens van of naar Azure SQL Database kopiëren, worden de volgende 
 | Binaire |Byte[] |
 | bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| datum |Datum en tijd |
-| Datum en tijd |Datum en tijd |
-| datetime2 |Datum en tijd |
+| datum |DateTime |
+| Datum en tijd |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | decimale |decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
@@ -595,7 +592,7 @@ Wanneer u gegevens van of naar Azure SQL Database kopiëren, worden de volgende 
 | nvarchar |Tekenreeks, Char] |
 | echte |Enkelvoudig |
 | ROWVERSION |Byte[] |
-| smalldatetime |Datum en tijd |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimale |
 | sql_variant |Object * |

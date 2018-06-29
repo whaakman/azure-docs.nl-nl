@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d04500e770bf43278b88c2f980a10693590c7d16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053833"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hoge beschikbaarheid en schaalbaarheid (Preview)
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [zelf gehost integratie runtime in versie 2](../create-self-hosted-integration-runtime.md). 
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [zelf gehost integratie runtime in](../create-self-hosted-integration-runtime.md). 
 
 
 Dit artikel helpt u bij het configureren van oplossing voor hoge beschikbaarheid en schaalbaarheid met Data Management Gateway / integratie.    
@@ -182,7 +183,7 @@ U kunt vrijwel in realtime momentopname van Resourcegebruik (CPU, geheugen, netw
 
 ![Data Management Gateway - bewaking van meerdere knooppunten](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-U kunt inschakelen **geavanceerde instellingen** in de **Gateway** pagina voor geavanceerde metrische gegevens zoals **netwerk**(in/uit), **rol & Status van de referentie**, die u kan helpen bij foutopsporing gateway-problemen en **gelijktijdige taken** (actief / beperken) die kan worden gewijzigd / gewijzigde dienovereenkomstig tijdens prestaties afstemmen. De volgende tabel bevat beschrijvingen van kolommen in de **Gateway-knooppunten** lijst:  
+U kunt inschakelen **geavanceerde instellingen** in de **Gateway** pagina voor geavanceerde metrische gegevens zoals **netwerk**(in/uit), **rol & referentie Status**, die u kan helpen bij foutopsporing gateway-problemen en **gelijktijdige taken** (actief / beperken) die kan worden gewijzigd / gewijzigde dienovereenkomstig tijdens prestaties afstemmen. De volgende tabel bevat beschrijvingen van kolommen in de **Gateway-knooppunten** lijst:  
 
 Bewaking van eigenschap | Beschrijving
 :------------------ | :---------- 

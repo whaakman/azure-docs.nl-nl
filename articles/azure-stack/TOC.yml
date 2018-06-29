@@ -294,15 +294,15 @@
             - name: Een Cluster Kubernetes bieden
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Gebruik en facturering
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: Overzicht
-              href: azure-stack-billing-and-chargeback.md
             - name: Beheren van het gebruik en facturering als een CSP
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: Toevoegen van tenants voor informatie over het gebruik en facturering
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: Registratie van de tenant beheren
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: Toevoegen van tenants voor informatie over het gebruik en facturering
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: Registratie van de tenant beheren
+                  href: azure-stack-csp-ref-operations.md
             - name: Gebruiks- en facturering verwijzing
               items:
                 - name: Rapportage over gebruiksgegevens

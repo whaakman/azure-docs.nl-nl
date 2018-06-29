@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: robb
-ms.openlocfilehash: f0efe96684d77fb83b69a4da12d312872da2f768
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7fd27dc9be161059dc62071fee33374106e18ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262871"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061278"
 ---
 # <a name="service-health"></a>Service Health
-Status van de service biedt u een aangepast dashboard houdt de status van uw Azure-services in de regio's waar u ze gebruiken. In dit dashboard kunt u actieve gebeurtenissen, zoals problemen met de actieve service, toekomstige geplande maintence of relevante health aanbevelingen bijhouden. Wanneer gebeurtenissen inactief, krijgen ze maximaal 90 dagen in de geschiedenis van uw geplaatst. Ten slotte kunt u het Service Health dashboard maken en beheren van waarschuwingen van de health service die u proactief gewaarschuwd wanneer er problemen met de service zijn invloed op u.
+Status van de service biedt u een aangepast dashboard houdt de status van uw Azure-services in de regio's waar u ze gebruiken. In dit dashboard kunt u actieve gebeurtenissen, zoals problemen met de actieve service, toekomstige gepland onderhoud of relevante health aanbevelingen bijhouden. Wanneer gebeurtenissen inactief, krijgen ze maximaal 90 dagen in de geschiedenis van uw geplaatst. Ten slotte kunt u het Service Health dashboard maken en beheren van waarschuwingen van de health service die u proactief gewaarschuwd wanneer er problemen met de service zijn invloed op u.
 
 ## <a name="service-health-events"></a>Gebeurtenissen van de Health service
 De Health-service houdt drie soorten health-gebeurtenissen die mogelijk van invloed op uw resources:

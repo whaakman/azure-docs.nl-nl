@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f4ce76385897c24bd5259d5a39aa1756769fe2aa
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284477"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050862"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory-service-identiteit
 
 In dit artikel helpt u begrijpen wat data factory-service-identiteit is en hoe het werkt.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [documentatie voor Data Factory version1 gedefinieerd](v1/data-factory-introduction.md).
 
 ## <a name="overview"></a>Overzicht
 
@@ -39,7 +36,7 @@ Data factory-service-identiteit voordelen biedt voor de volgende twee functies:
 
 Data factory-service-identiteit gegenereerd als volgt:
 
-- Bij het maken van de gegevensfactory via **Azure-portal of PowerShell**, service-identiteit altijd automatisch worden gemaakt omdat de openbare preview ADF V2.
+- Bij het maken van de gegevensfactory via **Azure-portal of PowerShell**, service-identiteit automatisch gemaakt.
 - Bij het maken van de gegevensfactory via **SDK**, service-identiteit maakt alleen als u ' identiteit nieuwe FactoryIdentity() = ' in het factory-object voor het maken van. Zie het voorbeeld in [.NET Quick Start - gegevensfactory maken](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - Bij het maken van de gegevensfactory via **REST-API**, service-identiteit maakt alleen als u ' identiteitsgedeelte ' in de aanvraagtekst opgeeft. Zie het voorbeeld in [REST-Quick Start - gegevensfactory maken](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 

@@ -1,5 +1,5 @@
 ---
-title: Kopiëren van gegevens uit Xero met behulp van Azure Data Factory (Preview) | Microsoft Docs
+title: Gegevens uit Xero met behulp van Azure Data Factory kopiëren | Microsoft Docs
 description: Informatie over het gegevens uit Xero kopiëren naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 0d2b55384484932cb243ec6b15a6b4944c716471
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 17341e8431ffd5cc41fdda86a7511688dcabaf45
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337651"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045381"
 ---
-# <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Gegevens uit Xero met behulp van Azure Data Factory (Preview) kopiëren
+# <a name="copy-data-from-xero-using-azure-data-factory"></a>Gegevens uit Xero met behulp van Azure Data Factory kopiëren
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit Xero. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Deze connector is momenteel in preview. U kunt uitproberen en feedback geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.

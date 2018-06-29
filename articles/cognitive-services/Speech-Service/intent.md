@@ -8,14 +8,14 @@ manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 47527087dc008c201949524f193820e636a8744f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 38f7f038a803546adb83245519efc5de0c0d1599
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35349984"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045007"
 ---
 # <a name="sample-for-intent-recognition"></a>Voorbeeld voor opzet opname
 
@@ -23,7 +23,7 @@ ms.locfileid: "35349984"
 > Zie voor instructies voor het downloaden van dit voorbeeld en andere [voorbeelden voor spraak-SDK](samples.md).
 
 > [!NOTE]
-> Neem eerst een abonnementssleutel ophalen. In tegenstelling tot andere services wordt ondersteund door de SDK cognitieve spraak, vereist de bedoeling herkenning een specifieke subscribtion-sleutel. [Hier](https://www.luis.ai) vindt u meer informatie over de opzet opname-technologie, evenals informatie over het verkrijgen van een abonnementssleutel. Vervang de abonnementssleutel van uw eigen, de regio van de service, evenals de AppId van uw opzet model in de juiste plaats in de voorbeelden.
+> Neem eerst een abonnementssleutel ophalen. In tegenstelling tot andere services wordt ondersteund door de SDK cognitieve spraak, vereist de bedoeling herkenning een specifiek abonnement-sleutel. [Hier](https://www.luis.ai) vindt u meer informatie over de opzet opname-technologie, evenals informatie over het verkrijgen van een abonnementssleutel. Vervang de abonnementssleutel van uw eigen, de regio van de service en de AppId van uw opzet model in de juiste plaats in de voorbeelden.
 
 > [!NOTE]
 > Voor alle voorbeelden hieronder moeten de volgende op het hoogste niveau declaraties zijn voldaan:
@@ -54,7 +54,7 @@ Het volgende codefragment herkent doel van een audio-bestand in de standaardtaal
 
 [!include[Sample Audio](includes/sample-audio.md)]
 
-[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp?IntentRecognitionWithFile)]
+[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithFile)]
 
 - - -
 
@@ -74,4 +74,4 @@ Zie voor de meest recente set steekproeven van het [cognitieve Services spraak S
 
 - [Spraakherkenning](./speech-to-text-sample.md)
 
-- [De vertaling](./translation.md)
+- [Omzetting](./translation.md)

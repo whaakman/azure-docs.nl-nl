@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 16cc7c5841708b8b27cff4fcc7c93cdbb2fe0fa4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7754fccdfe8a2c4fad24f61fc22c722d2640ffa6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838330"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063886"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Scenario's en plannen identificeren voor geavanceerde analytische gegevensverwerking
 Welke bronnen moet u van plan bent om op te nemen bij het instellen van een omgeving geavanceerde analyses verwerken van een gegevensset doen? Dit artikel bevat een reeks te stellen vragen die helpen identificeren van de taken en bronnen die relevant zijn uw scenario. De volgorde van stappen op hoog niveau voor predictive analytics wordt beschreven in [wat is er Team gegevens wetenschap proces (TDSP)?](overview.md). Elk van deze stappen vereist specifieke resources voor de taken die relevant zijn voor uw specifieke scenario. De belangrijke vragen om te bepalen van uw scenario betrekking hebben op gegevens logistiek, kenmerken, de kwaliteit van de gegevenssets en de hulpprogramma's en talen die u liever de analyse.
@@ -97,9 +97,9 @@ Er zijn veel opties, afhankelijk van welke talen en ontwikkelomgevingen of hulpp
    
    * [Microsoft Azure Powershell](/powershell/azure/overview) -een scripttaal die is gebruikt voor het beheren van uw Azure-resources in een scripttaal.
    * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
-   * [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
+   * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
    * [RStudio](http://www.rstudio.com)
-   * [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
+   * [Python Tools for Visual Studio](http://aka.ms/ptvsdocs)
    * [Anaconda](https://www.continuum.io/why-anaconda)
    * [Jupyter-notebooks](http://jupyter.org/)
    * [Microsoft Power BI](http://powerbi.microsoft.com)

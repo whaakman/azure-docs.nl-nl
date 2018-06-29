@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren van Netezza met behulp van Azure Data Factory (bèta) | Microsoft Docs
+title: Gegevens kopiëren van Netezza met behulp van Azure Data Factory | Microsoft Docs
 description: Informatie over het kopiëren van gegevens van Netezza naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f8c10e2200f830ea6e568e7b3fba1f0a6085cef2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617889"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058958"
 ---
-# <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Gegevens kopiëren van Netezza met behulp van Azure Data Factory (bèta)
+# <a name="copy-data-from-netezza-using-azure-data-factory"></a>Gegevens kopiëren van Netezza met behulp van Azure Data Factory 
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens van Netezza kopiëren. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Deze connector is momenteel in de bètaversie. U kunt uit te proberen en ons feedback te geven. Gebruik deze niet in een productieomgeving.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 

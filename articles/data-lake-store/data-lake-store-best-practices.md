@@ -1,24 +1,26 @@
 ---
-title: Aanbevolen procedures voor het gebruik van Azure Data Lake Store | Microsoft Docs
-description: Meer informatie over de aanbevolen procedures over gegevensopname, datum, beveiliging en prestaties voor het werken met Azure Data Lake Store
+title: Aanbevolen procedures voor het gebruik van Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Meer informatie over de aanbevolen procedures over gegevensopname, datum, beveiliging en prestaties voor het werken met Azure Data Lake Storage Gen1 (voorheen bekend als Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 00eb2b6b60aa6c3224b58556f6dad64d4294c308
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625335"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035911"
 ---
-# <a name="best-practices-for-using-azure-data-lake-store"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 In dit artikel leert u over aanbevolen procedures en overwegingen voor het werken met Azure Data Lake Store. Dit artikel bevat informatie over beveiliging, prestaties, tolerantie en bewaking voor Data Lake Store. Werken met echte big data in services zoals Azure HDInsight is voordat u Data Lake Store complex. Moest u gegevens verdelen over meerdere Blob storage-accounts zodat petabyte opslag en optimale prestaties op deze schaal kunnen worden gerealiseerd. Met Data Lake Store worden de meeste van de vaste limieten voor de grootte en de prestaties verwijderd. Er zijn echter nog steeds bepaalde overwegingen die van dit artikel behandelt zodat u de beste prestaties met Data Lake Store kunt ophalen. 
 
 ## <a name="security-considerations"></a>Beveiligingsoverwegingen
@@ -114,7 +116,7 @@ Kopiëren taken kunnen worden geactiveerd door Apache Oozie werkstromen met behu
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Azure Data Factory gebruiken voor het plannen van taken kopiëren 
 
-Azure Data Factory kan ook worden gebruikt voor het plannen van taken van exemplaar met behulp van een **Kopieeractiviteit**, en kan ook worden ingesteld op een frequentie via de **Wizard kopiëren**. Houd er rekening mee dat Azure Data Factory een limiet van cloud data movement eenheden (DMUs heeft) en uiteindelijk caps de doorvoer/compute voor werkbelastingen van grote hoeveelheden gegevens. Bovendien biedt Azure Data Factory momenteel geen updates van de verschillen tussen Data Lake Store-accounts, dus mappen toe, zoals Hive-tabellen een volledige kopie vereist te repliceren. Raadpleeg de [Kopieeractiviteit afstemmen handleiding](../data-factory/v1/data-factory-copy-activity-performance.md) voor meer informatie over het kopiëren van de Data Factory. 
+Azure Data Factory kan ook worden gebruikt voor het plannen van taken van exemplaar met behulp van een **Kopieeractiviteit**, en kan ook worden ingesteld op een frequentie via de **Wizard kopiëren**. Houd er rekening mee dat Azure Data Factory een limiet van cloud data movement eenheden (DMUs heeft) en uiteindelijk caps de doorvoer/compute voor werkbelastingen van grote hoeveelheden gegevens. Bovendien biedt Azure Data Factory momenteel geen updates van de verschillen tussen Data Lake Store-accounts, dus mappen toe, zoals Hive-tabellen een volledige kopie vereist te repliceren. Raadpleeg de [Kopieeractiviteit afstemmen handleiding](../data-factory/copy-activity-performance.md) voor meer informatie over het kopiëren van de Data Factory. 
 
 ### <a name="adlcopy"></a>AdlCopy
 

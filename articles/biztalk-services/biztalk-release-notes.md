@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26633814"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063539"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Releaseopmerkingen voor Azure BizTalk Services
 
@@ -66,11 +66,11 @@ U Build' ' de oplossing in Visual Studio is. Vervolgens 'Opnieuw samenstellen' o
   Kan bestand niet kopiëren <Path to DLL> naar 'bin\Debug\FileName.dll'. Het proces heeft geen toegang tot het bestand 'bin\Debug\FileName.dll' omdat deze wordt gebruikt door een ander proces.  
 
 #### <a name="workaround"></a>Tijdelijke oplossing
-* Als [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) is geïnstalleerd, hebt u de volgende twee opties:
+* Als [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) is geïnstalleerd, hebt u de volgende twee opties:
   
   * Start Visual Studio opnieuw of
   * Start opnieuw op de oplossing. Voer alleen een Build op de oplossing.  
-* Als [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) is geen Taakbeheer geïnstalleerd, opent, klikt u op de processen tabblad, klik op het proces MSBuild.exe en klik vervolgens op de knop proces beëindigen.  
+* Als [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) is geen Taakbeheer geïnstalleerd, opent, klikt u op de processen tabblad, klik op het proces MSBuild.exe en klik vervolgens op de knop proces beëindigen.  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>Routering naar BasicHttpRelay eindpunten wordt niet ondersteund bij bruggen en BizTalk Services-Portal als niet-afdrukbare tekens worden gepromoveerd tot HTTP-headers
 Als u niet-afdrukbare tekens als onderdeel van de gepromoveerde eigenschappen voor berichten gebruikt, kunnen niet deze berichten worden doorgestuurd naar de relay-doelen die gebruikmaken van de binding BasicHttpRelay. De doorgegeven eigenschappen die zijn ook beschikbaar als onderdeel van het bijhouden van URL-codering voor blobs en niet gecodeerde voor bestemmingen.  
@@ -108,7 +108,7 @@ Houd rekening met een scenario in de volgende volgorde:
 * Sluit het bestand .bcs (op het tabblad in Visual Studio sluiten) zonder de wijzigingen worden opgeslagen.  
 * Het bestand .bcs opnieuw openen vanuit Solution Explorer.  
   U ziet dat terwijl het bijbehorende .bridgeconfig-bestand de nieuwe naam die u hebt opgegeven heeft, de naam van de entiteit op het ontwerpoppervlak nog steeds de oude naam. Als u probeert te openen van de configuratie van de brug door te dubbelklikken op het onderdeel bridge, krijgt u de volgende fout:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`Om te voorkomen die wordt uitgevoerd in dit scenario, moet dat u de wijzigingen opslaan nadat u de naam van de entiteiten in een BizTalk Service-project.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Om te voorkomen die wordt uitgevoerd in dit scenario, moet dat u de wijzigingen opslaan nadat u de naam van de entiteiten in een BizTalk Service-project.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>BizTalk Service-project bouwt is zelfs als een artefact is uitgesloten van een Visual Studio-project
 Houd rekening met een scenario waarin u een artefact (bijvoorbeeld een XSD-bestand) toevoegen aan een BizTalk Service-project, die artefact opnemen in de configuratie van de brug (bijvoorbeeld door te geven deze als een aanvraag berichttype) en vervolgens uitsluiten van de Visual Studio-project. In dat geval moet krijgt het project bouwen niet een fout, zolang het verwijderde artefact beschikbaar op de schijf op dezelfde locatie is vanaf waar het is opgenomen in de Visual Studio-project.

@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e88d8046e31a43f444193dff91895b474be70d91
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 51cacb385f28cf70a65b9c0e1c14d48e22be0a4d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332334"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051107"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Gegevens kopiëren van Google BigQuery met behulp van Azure Data Factory
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens van Google BigQuery kopiëren. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service, die in het algemeen beschikbaar is, Zie [Kopieeractiviteit in versie 1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -93,7 +90,7 @@ Stel de eigenschap 'authenticationType' op **ServiceAuthentication**, en geef de
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| e-mail | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication. Deze kan alleen worden gebruikt voor Self-hosted integratie Runtime.  | Nee |
+| e-mailen | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication. Deze kan alleen worden gebruikt voor Self-hosted integratie Runtime.  | Nee |
 | keyFilePath | Het volledige pad naar het sleutelbestand .p12 die wordt gebruikt voor verificatie van het e-mailadres van de service-account. | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met vertrouwde CA-certificaten gebruikt om te controleren of de server wanneer u verbinding via SSL maakt. Deze eigenschap kan alleen worden ingesteld als u SSL op Self-hosted integratie-Runtime gebruiken. De standaardwaarde is het cacerts.pem-bestand met de integratie-runtime is geïnstalleerd.  | Nee |
 | useSystemTrustStore | Hiermee bepaalt u of een CA-certificaat uit het archief van de vertrouwensrelatie system of vanuit een opgegeven .pem-bestand. De standaardwaarde is **false**.  | Nee |

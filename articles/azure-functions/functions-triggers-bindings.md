@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: c5211b43a85383c7c9f42a1d56271addae6d956e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: MT
+ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725340"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061350"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -46,48 +46,53 @@ Zie voor informatie over welke bindingen zijn Preview-versie of voor gebruik in 
 
 ## <a name="register-binding-extensions"></a>Binding extensies registreren
 
-In versie 2.x van de Azure Functions-runtime, hebt u expliciet de binding-uitbreidingen (bindingstypen) die u in de functie-app gebruikt te registreren. 
+In sommige ontwikkelomgevingen u moet expliciet *registreren* een binding die u wilt gebruiken. Binding uitbreidingen beschikbaar zijn in NuGet-pakketten en voor het registreren van een uitbreiding die u installeert een pakket. De volgende tabel geeft aan wanneer en hoe u binding extensies registreren.
 
-Versie 2.x van de runtime van Functions is momenteel in preview. Voor informatie over het instellen van een functie-app-versie 2.x van de runtime functies Zie [hoe gericht op Azure Functions-runtime-versies](set-runtime-version.md).
+|Ontwikkelomgeving |Registratie<br/> in de functies 1.x  |Registratie<br/> in de functies 2.x  |
+|---------|---------|---------|
+|Azure Portal|Automatisch|[Automatisch met prompt](#azure-portal-development)|
+|Lokale met behulp van Azure Functions Core-hulpprogramma 's|Automatisch|[Core extra CLI-opdrachten gebruiken](#local-development-azure-functions-core-tools)|
+|C# met behulp van Visual Studio 2017 klassenbibliotheek|[Gebruik NuGet-hulpprogramma 's](#c-class-library-with-visual-studio-2017)|[Gebruik NuGet-hulpprogramma 's](#c-class-library-with-visual-studio-2017)|
+|C# met behulp van Visual Studio Code klassenbibliotheek|N/A|[.NET Core CLI gebruiken](#c-class-library-with-visual-studio-code)|
 
-Er is een kernset aan bindingen in versie 2.x die automatisch worden geregistreerd, zodat u niet hoeft te registreert u ze expliciet: HTTP, timer en Azure Storage (blobs, wachtrijen en tabellen). 
+De volgende bindingstypen zijn uitzonderingen waarvoor geen expliciete registratie is vereist omdat ze automatisch worden geregistreerd in alle versies en omgevingen: HTTP, timer en Azure Storage (blobs, wachtrijen en tabellen). 
 
-Uitbreidingen worden geleverd als NuGet-pakketten, waarbij de pakketnaam doorgaans wordt gestart met [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  De manier waarop u binding extensies registreren, is afhankelijk van hoe het ontwikkelen van uw functies: 
+### <a name="azure-portal-development"></a>Ontwikkelen van Azure portal
 
-+ [Lokaal in C# met behulp van Visual Studio of Code van de VS](#local-c-development-using-visual-studio-or-vs-code)
-+ [Lokaal via Azure Functions kernonderdelen](#local-development-azure-functions-core-tools)
-+ [In de Azure portal](#azure-portal-development) 
+Wanneer u een functie maken of een binding toevoegt, wordt u gevraagd wanneer de uitbreiding voor de trigger of binding moet worden geregistreerd. Reageren op de vraag door te klikken op **installeren** registreren van de extensie. Installatie kan 10 minuten duren voordat een plan verbruik.
 
-De pakketversies die wordt weergegeven in deze sectie vindt u alleen als voorbeelden. Controleer de [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) om te bepalen welke versie van een bepaalde extensie is vereist door de andere afhankelijkheden in de functie-app.    
-
-### <a name="local-csharp"></a>Lokale C# ontwikkelen met behulp van Visual Studio of Code van de VS
-
-Wanneer u Visual Studio of Visual Studio Code gebruikt voor het ontwikkelen van lokaal functies in C#, installeer het NuGet-pakket voor de extensie. 
-
-+ **Visual Studio**: de NuGet Package Manager-hulpprogramma's gebruiken. De volgende [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) opdracht wordt de extensie Azure Cosmos DB geïnstalleerd vanuit de Package Manager-Console:
-
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
-    ```
-
-+ **Visual Studio Code**: U kunt pakketten installeren via de opdrachtprompt de [dotnet pakket toevoegen](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) opdracht in de CLI .NET als volgt:
-
-    ```terminal
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
-    ```
+U moet elke uitbreiding slechts één keer voor een bepaalde functie-app installeren. 
 
 ### <a name="local-development-azure-functions-core-tools"></a>Lokale ontwikkeling Core hulpprogramma's van Azure-functies
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
-### <a name="azure-portal-development"></a>Ontwikkelen van Azure portal
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>C# met Visual Studio 2017 klassenbibliotheek
 
-Wanneer u een functie maken of een binding aan een bestaande functie toevoegt, wordt u gevraagd wanneer de uitbreiding voor de trigger of de binding wordt toegevoegd moet worden geregistreerd.   
+In **Visual Studio 2017**, kunt u pakketten installeren vanuit de Package Manager-Console met de [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
-Nadat een waarschuwing wordt weergegeven voor de specifieke extensie wordt geïnstalleerd, klikt u op **installeren** registreren van de extensie. U moet elke uitbreiding slechts één keer voor een bepaalde functie-app installeren. 
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
 
->[!Note] 
->Een plan verbruik kan 10 minuten duren voordat het installatieproces van het in de portal.
+De naam van het pakket moet worden gebruikt voor een bepaalde binding is beschikbaar in het verwijzingsartikel voor binding. Zie voor een voorbeeld de [pakketten sectie van het Service Bus binding verwijzingsartikel](functions-bindings-service-bus.md#packages---functions-1x).
+
+Vervang `<target_version>` in het voorbeeld met een specifieke versie van het pakket, zoals `3.0.0-beta5`. Geldige versies worden vermeld op de afzonderlijke pakket's op de [NuGet.org](https://nuget.org). De primaire versies die met de runtime van Functions overeenkomen 1.x of 2.x zijn opgegeven in het verwijzingsartikel voor de binding.
+
+### <a name="c-class-library-with-visual-studio-code"></a>C# met Visual Studio Code klassenbibliotheek
+
+In **Visual Studio Code**, kunt u pakketten installeren via de opdrachtprompt de [dotnet pakket toevoegen](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) opdracht in de CLI .NET Core, zoals wordt weergegeven in het volgende voorbeeld:
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+De .NET Core CLI kan alleen worden gebruikt voor het ontwikkelen van Azure Functions 2.x.
+
+De naam van het pakket moet worden gebruikt voor een bepaalde binding is beschikbaar in het verwijzingsartikel voor binding. Zie voor een voorbeeld de [pakketten sectie van het Service Bus binding verwijzingsartikel](functions-bindings-service-bus.md#packages---functions-1x).
+
+Vervang `<target_version>` in het voorbeeld met een specifieke versie van het pakket, zoals `3.0.0-beta5`. Geldige versies worden vermeld op de afzonderlijke pakket's op de [NuGet.org](https://nuget.org). De primaire versies die met de runtime van Functions overeenkomen 1.x of 2.x zijn opgegeven in het verwijzingsartikel voor de binding.
 
 ## <a name="example-trigger-and-binding"></a>Voorbeeld van de trigger en binding
 

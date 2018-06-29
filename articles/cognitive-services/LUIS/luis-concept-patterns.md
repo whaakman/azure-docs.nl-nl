@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 58bfae51fda10d14d9b1c4ea34cc10345d9a90ac
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c3c0d12bbbeec85d2cbf0daead49ee16ca7728fb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318055"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046255"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
 Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende utterances vergelijkbaar zijn. Doordat het patroon voor de utterance zijn LUIS een hoge betrouwbaarheid in de voorspelling. 
@@ -42,6 +42,9 @@ Patronen een mengeling van voorspelling technologieën gebruiken. Instellen van 
 
 ## <a name="patterns-do-not-improve-entity-detection"></a>Patronen verbetert niet entiteit detectie
 Terwijl patronen entiteiten vereisen, helpt een patroon niet detecteren van de entiteit. Een patroon is alleen bedoeld om u te helpen de voorspelling met intents en rollen.  
+
+## <a name="patterns-use-entity-roles"></a>Patronen entiteit rollen gebruiken
+Als twee of meer entiteiten in een patroon contextueel zijn gerelateerd, patronen entiteit gebruiken [rollen](luis-concept-roles.md) contextuele informatie over entiteiten ophalen. Dit is gelijk aan het hiërarchische entiteit onderliggende elementen, maar is **alleen** beschikbaar in patronen. 
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Voorspelling scores met en zonder patronen
 Onvoldoende utterances voorbeeld gezien, zou LUIS kunnen meer vertrouwen voorspelling zonder patronen. De score vertrouwen verhogen patronen zonder zoveel utterances bieden.  
@@ -92,7 +95,7 @@ Stel bijvoorbeeld dat u hebt een patroon met beide optionele syntaxis `[]`, en d
 
 Houd rekening met het patroon [zoeken] e over {onderwerp} [from {persoon}]. In de volgende utterances de **onderwerp** en **persoon** entiteit zijn uitgepakt correct en onjuist:
 
-|utterance|Entiteit|Juiste uitpakken|
+|Utterance|Entiteit|Juiste uitpakken|
 |--|--|:--:|
 |e-mail over honden van Chris|onderwerp honden =<br>persoon Chris =|✔|
 |Stuur een e-mail over de man van La-Mancha|onderwerp het man =<br>persoon La Mancha =|X|

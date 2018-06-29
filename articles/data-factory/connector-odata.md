@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: f648bec7530260a6445f74b6d141140f728674ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aaec710dd6c12f96a479a1f41603351512da1df6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617158"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054667"
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Gegevens kopiëren van de OData-bron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-odata-connector.md)
-> * [Versie 2 - Preview](connector-odata.md)
+> * [Versie 1](v1/data-factory-odata-connector.md)
+> * [Huidige versie](connector-odata.md)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van een OData-bron. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [OData-connector in V1](v1/data-factory-odata-connector.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -211,8 +208,8 @@ Bij het kopiëren van gegevens uit OData, worden de volgende toewijzingen van OD
 | Edm.Boolean | BOOL |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | Decimale |
-| Edm.Double | dubbele |
+| Edm.Decimal | decimale |
+| Edm.Double | Double |
 | Edm.Single | Enkelvoudig |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

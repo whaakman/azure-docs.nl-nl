@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: aa51073395a1049cd78f13ba185119707a787b29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: afa00a81738563ec3c5b4b168f533b732c263825
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622292"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045616"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformeer gegevens in Azure Data Factory
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "34622292"
 
 ## <a name="overview"></a>Overzicht
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [activiteiten voor gegevenstransformatie in Gegevensfactory versie 2](../transform-data.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [activiteiten voor gegevenstransformatie in Gegevensfactory](../transform-data.md).
 
 Dit artikel wordt uitgelegd activiteiten voor gegevenstransformatie in Azure Data Factory kunt gebruiken voor het transformeren van uit te voeren en de onbewerkte gegevens worden verwerkt in de voorspellingen en inzichten. Een transformatieactiviteit wordt uitgevoerd in een computeromgeving zoals Azure HDInsight-cluster of een Azure-Batch. Deze koppelingen naar artikelen met gedetailleerde informatie over elke transformatieactiviteit.
 

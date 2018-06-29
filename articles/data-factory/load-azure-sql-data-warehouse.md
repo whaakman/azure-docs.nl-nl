@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b035141c443c3dad18c3e9bfbc53581a7d180e5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b96483232a1da5ae21e6ba8cbe873d876d38ed11
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333824"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050298"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens laden in Azure SQL Data Warehouse met behulp van Azure Data Factory
 
@@ -35,9 +35,6 @@ Dit artikel laat zien hoe u de gegevens kopiëren van Data Factory-hulpprogramma
 
 > [!NOTE]
 > Zie voor meer informatie [kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van Azure Data Factory](connector-azure-sql-data-warehouse.md).
->
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service is algemeen beschikbaar (GA), Zie [Kopieeractiviteit in Azure Data Factory versie 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>Vereisten
 
 * Azure-abonnement: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -57,7 +54,7 @@ Dit artikel laat zien hoe u de gegevens kopiëren van Data Factory-hulpprogramma
     * **Naam**: Voer een globaal unieke naam voor uw Azure data factory. Als u de foutmelding "naam gegevensfactory \"LoadSQLDWDemo\" is niet beschikbaar ' Voer een andere naam voor de data factory. Bijvoorbeeld, u kunt de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de gegevensfactory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement in te maken van de gegevensfactory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst, of Selecteer de **nieuw** optie en typ de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-    * **Versie**: Selecteer **V2 (Preview)**.
+    * **Versie**: Selecteer **V2**.
     * **Locatie**: Selecteer de locatie voor de gegevensfactory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevens worden opgeslagen die worden gebruikt door data factory kunnen zich in andere locaties en regio's. Deze gegevensarchieven bevatten Azure Data Lake Store, Azure Storage en Azure SQL Database.
 
 3. Selecteer **Maken**.
@@ -90,9 +87,9 @@ Dit artikel laat zien hoe u de gegevens kopiëren van Data Factory-hulpprogramma
    
     ![Azure SQL-database configureren](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
-    d. Selecteer de zojuist gemaakte gekoppelde service als bron en klik vervolgens op **volgende**.
+    d. Selecteer de zojuist gemaakte gekoppelde service als bron. Klik vervolgens op **Volgende**.
 
-    ![Bron selecteren gekoppelde service](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
+    ![Aan de bron gekoppelde service selecteren](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
 
 4. In de **Selecteer tabellen waarvan de gegevens kopiëren of gebruik een aangepaste query** pagina **SalesLT** voor het filteren van de tabellen. Kies de **(Selecteer alle)** vak voor het gebruik van alle tabellen voor het exemplaar en selecteer vervolgens **volgende**: 
 

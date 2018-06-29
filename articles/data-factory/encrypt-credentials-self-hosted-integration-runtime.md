@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1cadcdd45e648f315e292bbc806abc9337725670
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b577c276627c3a187215cd0da551428fbb32791f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619215"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050903"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Versleutelen van referenties voor on-premises gegevensopslagexemplaren in Azure Data Factory
 U kunt versleutelen en opslaan van referenties voor uw on-premises gegevensopslagexemplaren (gekoppelde services met gevoelige informatie) op een computer met de host zichzelf integratie runtime. 
 
 U geeft een JSON-definitie-bestand met de referenties voor de <br/>[**Nieuwe AzureRmDataFactoryV2LinkedServiceEncryptedCredential** ](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) cmdlet voor het produceren van een JSON-definitiebestand voor uitvoer met de versleutelde referenties. Vervolgens gebruikt u de bijgewerkte JSON-definitie voor de gekoppelde services maken.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="author-sql-server-linked-service"></a>De auteur van SQL Server gekoppelde service
 Maak een JSON-bestand met de naam **SqlServerLinkedService.json** in een andere map met de volgende inhoud:  

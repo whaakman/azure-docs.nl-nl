@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ccdb1fff5ecdcb61beedf1b12904d3785d4921d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392167"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048497"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning in HDInsight
 
@@ -33,13 +33,13 @@ De Microsoft Machine Learning-bibliotheek voor Apache Spark is [MMLSpark](https:
 
 ## <a name="r"></a>R
 
-[R](https://www.r-project.org/) is momenteel de meest populaire statistische programmeertaal in de hele wereld. Er is een open-source gegevensvisualisatie hulpprogramma met een community van meer dan 2,5 miljoen gebruikers en groeit. Met de snel groeiende gebruikersgroep en meer dan 8000 ingebrachte pakketten is het R waarschijnlijk kiezen voor veel bedrijven die machine learning nodig hebben. U kunt een HDInsight-cluster maken met R Server gereed om te worden gebruikt met grote gegevenssets en -modellen. Deze mogelijkheid biedt gegevenswetenschappers en statistici met een bekend R-interface die kunnen worden geschaald op aanvraag via HDInsight, zonder de overhead van het cluster instellen en beheren.
+[R](https://www.r-project.org/) is momenteel de meest populaire statistische programmeertaal in de hele wereld. Er is een open-source gegevensvisualisatie hulpprogramma met een community van meer dan 2,5 miljoen gebruikers en groeit. Met de snel groeiende gebruikersgroep en meer dan 8000 ingebrachte pakketten is het R waarschijnlijk kiezen voor veel bedrijven die machine learning nodig hebben. U kunt een HDInsight-cluster maken met ML-Services is gereed om te worden gebruikt met grote gegevenssets en -modellen. Deze mogelijkheid biedt gegevenswetenschappers en statistici met een bekend R-interface die kunnen worden geschaald op aanvraag via HDInsight, zonder de overhead van het cluster instellen en beheren.
 
 ![Training voor de prognose met R server](./media/hdinsight-machine-learning-overview/r-training.png)
 
 Het edge-knooppunt van een cluster is een handige locatie verbinding maken met het cluster en voor het uitvoeren van uw R-scripts.  U hebt ook de optie voor het R-scripts uitvoeren op de knooppunten van het cluster met behulp van ScaleR Hadoop kaart verminderen of Spark compute-contexten.
 
-Met op HDInsight met Spark R Server, kunt u training parallelize op de knooppunten van een cluster met behulp van een Spark compute-context. U kunt R scripts uitvoeren rechtstreeks op de edge-knooppunt met alle beschikbare kernen parallel, indien nodig. U kunt ook uw code uitvoeren van het edge-knooppunt moeten starten verwerking die is verdeeld over alle knooppunten in het cluster. R Server op HDInsight met Spark kunnen ook parallelizing functies van open-source R-pakketten, indien gewenst.
+Met ML-Services op HDInsight met Spark, kunt u training parallelize op de knooppunten van een cluster met behulp van een Spark compute-context. U kunt R scripts uitvoeren rechtstreeks op de edge-knooppunt met alle beschikbare kernen parallel, indien nodig. U kunt ook uw code uitvoeren van het edge-knooppunt moeten starten verwerking die is verdeeld over alle knooppunten in het cluster. ML-Services op HDInsight met Spark kunnen ook parallelizing functies van open-source R-pakketten, indien gewenst.
 
 ## <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning en Hive
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 967184d9a7590dc0b8c88a49cf178bbd9eb83267
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595033"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063592"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-verificatie voor Pass Through-beveiliging diepgaand
 
@@ -132,20 +132,21 @@ Pass through-verificatie verwerkt een gebruikersaanvraag aanmelden als volgt:
 1. Een gebruiker probeert te krijgen tot een toepassing bijvoorbeeld [Outlook Web App](https://outlook.office365.com/owa).
 2. Als de gebruiker niet is al aangemeld, wordt de browser in de toepassing omgeleid naar de aanmeldingspagina van Azure AD.
 3. De service Azure AD-STS reageert back maken met de **gebruikersaanmelding** pagina.
-4. De gebruiker invoert hun gebruikersnaam en wachtwoord in de **gebruikersaanmelding** pagina en selecteert de **aanmelden** knop.
-5. De gebruikersnaam en wachtwoord worden verzonden naar Azure AD-STS in een HTTPS-POST-aanvraag.
-6. Azure AD STS opgehaald van openbare sleutels voor alle verificatie-Agents die worden geregistreerd op de tenant van de Azure SQL database en het wachtwoord versleutelt met behulp van deze. 
+4. De gebruiker invoert hun gebruikersnaam in de **gebruikersaanmelding** pagina en selecteert de **volgende** knop.
+5. De gebruiker voert zijn wachtwoord in de **gebruikersaanmelding** pagina en selecteert de **aanmelden** knop.
+6. De gebruikersnaam en wachtwoord worden verzonden naar Azure AD-STS in een HTTPS-POST-aanvraag.
+7. Azure AD STS opgehaald van openbare sleutels voor alle verificatie-Agents die worden geregistreerd op de tenant van de Azure SQL database en het wachtwoord versleutelt met behulp van deze. 
     - De waarden "N" versleuteld wachtwoord produceert voor "N" verificatie-Agents op uw tenant is geregistreerd.
-7. Azure AD STS plaatst de wachtwoord-validatieaanvraag uit de gebruikersnaam en de waarden van het versleutelde wachtwoord, naar de Service Bus-wachtrij die specifiek zijn voor uw tenant bestaat.
-8. Omdat de geïnitialiseerde verificatie Agents permanent met de Service Bus-wachtrij verbonden zijn, een van de beschikbare Agents voor verificatie de wachtwoord-validatieaanvraag opgehaald.
-9. De verificatie-Agent wordt gezocht naar de waarde van het versleutelde wachtwoord die specifiek is voor de openbare sleutel met behulp van een id en ontsleuteld met behulp van de persoonlijke sleutel.
-10. De verificatie-Agent probeert te valideren van de gebruikersnaam en het wachtwoord op basis van de lokale Active Directory met behulp van de [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) met de **dwLogonType** parameter ingesteld op **LOGON32_LOGON_NETWORK**. 
+8. Azure AD STS plaatst de wachtwoord-validatieaanvraag uit de gebruikersnaam en de waarden van het versleutelde wachtwoord, naar de Service Bus-wachtrij die specifiek zijn voor uw tenant bestaat.
+9. Omdat de geïnitialiseerde verificatie Agents permanent met de Service Bus-wachtrij verbonden zijn, een van de beschikbare Agents voor verificatie de wachtwoord-validatieaanvraag opgehaald.
+10. De verificatie-Agent wordt gezocht naar de waarde van het versleutelde wachtwoord die specifiek is voor de openbare sleutel met behulp van een id en ontsleuteld met behulp van de persoonlijke sleutel.
+11. De verificatie-Agent probeert te valideren van de gebruikersnaam en het wachtwoord op basis van de lokale Active Directory met behulp van de [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) met de **dwLogonType** parameter ingesteld op **LOGON32_LOGON_NETWORK**. 
     - Deze API is de dezelfde API die wordt gebruikt door Active Directory Federation Services (AD FS) aan te melden gebruikers in een scenario voor federatieve aanmelding.
     - Deze API is afhankelijk van het proces standaardresolutie in Windows Server om de domeincontroller te zoeken.
-11. De verificatie-Agent ontvangt het resultaat van Active Directory, zoals geslaagd, gebruikersnaam of wachtwoord is onjuist of het wachtwoord verlopen.
-12. De verificatie-Agent verzendt het resultaat terug naar Azure AD-STS via een uitgaande wederzijds verifieerbaar HTTPS-kanaal via poort 443. Het certificaat dat aan de verificatie-Agent tijdens de registratie eerder uitgegeven maakt gebruik van wederzijdse verificatie.
-13. Azure AD STS controleert of dat dit resultaat met de aanvraag voor specifieke aanmelden op uw tenant correleert.
-14. Azure AD STS gaat door met de procedure aanmelden zoals geconfigureerd. Bijvoorbeeld, als de wachtwoordvalidatie van het gelukt is, de gebruiker mogelijk gevraagd om multi-factor Authentication of terug naar de toepassing omgeleid.
+12. De verificatie-Agent ontvangt het resultaat van Active Directory, zoals geslaagd, gebruikersnaam of wachtwoord is onjuist of het wachtwoord verlopen.
+13. De verificatie-Agent verzendt het resultaat terug naar Azure AD-STS via een uitgaande wederzijds verifieerbaar HTTPS-kanaal via poort 443. Het certificaat dat aan de verificatie-Agent tijdens de registratie eerder uitgegeven maakt gebruik van wederzijdse verificatie.
+14. Azure AD STS controleert of dat dit resultaat met de aanvraag voor specifieke aanmelden op uw tenant correleert.
+15. Azure AD STS gaat door met de procedure aanmelden zoals geconfigureerd. Bijvoorbeeld, als de wachtwoordvalidatie van het gelukt is, de gebruiker mogelijk gevraagd om multi-factor Authentication of terug naar de toepassing omgeleid.
 
 ## <a name="operational-security-of-the-authentication-agents"></a>Operationele beveiliging van de verificatie-Agents
 
@@ -208,7 +209,7 @@ Voor automatische updates een verificatie-Agent:
 ## <a name="next-steps"></a>Volgende stappen
 - [Huidige beperkingen](active-directory-aadconnect-pass-through-authentication-current-limitations.md): meer informatie over welke scenario's worden ondersteund en welke worden niet.
 - [Snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md): actief en werkend krijgen voor Azure AD Pass-through-verificatie.
-- [Vergrendelen van smartcard](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): de mogelijkheid slimme accountvergrendeling configureren op uw tenant gebruikersaccounts te beveiligen.
+- [Vergrendelen van smartcard](../authentication/howto-password-smart-lockout.md): de mogelijkheid slimme accountvergrendeling configureren op uw tenant gebruikersaccounts te beveiligen.
 - [Hoe het werkt](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Leer de basisbeginselen van de werking van Azure AD Pass-through-verificatie.
 - [Veelgestelde vragen over](active-directory-aadconnect-pass-through-authentication-faq.md): Hier vindt u antwoorden op veelgestelde vragen.
 - [Problemen met](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informatie over het oplossen van veelvoorkomende problemen met de functie Pass through-verificatie.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 89fcd88643bd793935e7476ef32641ffa5ff4713
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299790"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030946"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Scenario: Een logische app met Azure Functions en Azure Service Bus activeren
 
@@ -39,7 +39,7 @@ In dit voorbeeld hebt u een functie die wordt uitgevoerd voor elke logische app 
 ## <a name="build-the-function"></a>De functie bouwen
 Vervolgens moet u een functie die fungeert als de trigger en luistert naar de wachtrij maken.
 
-1. In de [Azure Functions-portal](https://functions.azure.com/signin), selecteer **nieuwe functie**, en selecteer vervolgens de **ServiceBusQueueTrigger - C#** sjabloon.
+1. In de [Azure Functions-portal](https://functions.azure.com/), selecteer **nieuwe functie**, en selecteer vervolgens de **ServiceBusQueueTrigger - C#** sjabloon.
    
     ![Azure Functions-portal][2]
 2. Configureer de verbinding met de Service Bus-wachtrij die gebruikmaakt van de SDK van Azure Service Bus `OnMessageReceive()` listener.

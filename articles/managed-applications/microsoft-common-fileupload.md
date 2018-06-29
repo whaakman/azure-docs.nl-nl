@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 591fe2222c54aad50acc378be7f3399518a8087e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266915"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059886"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI-element
 Een besturingselement waarmee een gebruiker om op te geven van een of meer bestanden te uploaden.
@@ -50,19 +50,19 @@ Een besturingselement waarmee een gebruiker om op te geven van een of meer besta
 ## <a name="remarks"></a>Opmerkingen
 - `constraints.accept` Hiermee geeft u de typen bestanden die worden weergegeven in het dialoogvenster bestand van de browser. Zie de [HTML5-specificatie](http://www.w3.org/TR/html5/forms.html#attr-input-accept) voor toegestane waarden. De standaardwaarde is **null**.
 - Als `options.multiple` is ingesteld op **true**, de gebruiker kan meer dan één bestand selecteren in het dialoogvenster bestand van de browser. De standaardwaarde is **false**.
-- Dit element ondersteunt bestanden zijn geüpload in twee modi, afhankelijk van de waarde van `options.uploadMode`. Als **bestand** is opgegeven, wordt de uitvoer bevat de inhoud van het bestand als een blob. Als **url** is opgegeven, wordt het bestand is geüpload naar een tijdelijke locatie en de uitvoer de URL van de blob bevat. Tijdelijke blobs wordt opgeschoond na 24 uur. De standaardwaarde is **bestand**.
+- Dit element ondersteunt bestanden zijn geüpload in twee modi, afhankelijk van de waarde van `options.uploadMode`. Als **bestand** is opgegeven, wordt de uitvoer is de inhoud van het bestand als een blob. Als **url** is opgegeven, wordt het bestand is geüpload naar een tijdelijke locatie en de uitvoer de URL van de blob heeft. Tijdelijke blobs wordt opgeschoond na 24 uur. De standaardwaarde is **bestand**.
 - De waarde van `options.openMode` bepaalt hoe het bestand wordt gelezen. Als het bestand wordt verwacht als tekst zonder opmaak, geeft u **tekst**; anders is, geef **binaire**. De standaardwaarde is **tekst**.
 - Als `options.uploadMode` is ingesteld op **bestand** en `options.openMode` is ingesteld op **binaire**, de uitvoer is base64-gecodeerd.
 - `options.encoding` Hiermee geeft u de codering die moet worden gebruikt bij het lezen van het bestand. De standaardwaarde is **UTF-8**, en dient alleen wanneer `options.openMode` is ingesteld op **tekst**.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
-Als options.multiple ingesteld op false is en options.uploadMode bestand is, bevat de uitvoer de inhoud van het bestand als een JSON-tekenreeks:
+Als options.multiple ingesteld op false is en options.uploadMode bestand is, heeft de uitvoer de inhoud van het bestand als een JSON-tekenreeks:
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Als options.multiple ingesteld op true is and'options.uploadMode bestand is, wordt de uitvoer bevat de inhoud van de bestanden als een JSON-matrix:
+Als options.multiple ingesteld op true is and'options.uploadMode bestand is, wordt de uitvoer de inhoud van de bestanden heeft als een JSON-matrix:
 
 ```json
 [
@@ -73,13 +73,13 @@ Als options.multiple ingesteld op true is and'options.uploadMode bestand is, wor
 ]
 ```
 
-Als options.multiple ingesteld op false is en options.uploadMode url, bevat de uitvoer een URL als een JSON-tekenreeks:
+Als options.multiple ingesteld op false is en options.uploadMode url is, heeft de uitvoer een URL als een JSON-tekenreeks:
 
 ```json
 "https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d"
 ```
 
-Als options.multiple ingesteld op true is en options.uploadMode url, bevat de uitvoer een lijst met URL's als een JSON-matrix:
+Als options.multiple ingesteld op true is en options.uploadMode url is, heeft de uitvoer een lijst met URL's als een JSON-matrix:
 ```json
 [
   "https://myaccount.blob.core.windows.net/pictures/profile1.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d",

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 06/27/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 7a67d65621da129640d3bb551cb0976ec1912050
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284801"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063660"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Wat zijn de beschikbaarheid van Zones in Azure?
 Beschikbaarheid van Zones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen van datacenter hoge beschikbaarheid. Beschikbaarheid Zones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters uitgerust met onafhankelijke stroom, koeling en netwerken. Tolerantie, zodat is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding van beschikbaarheid Zones binnen een regio beschermt toepassingen en gegevens tegen storingen datacenter. Zone-redundante services repliceren uw toepassingen en gegevens over beschikbaarheid Zones beschermen tegen één punten van storingen. Met Zones, beschikbaarheid biedt Azure bedrijfstak best 99,99% VM bedrijfstijd SLA. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
@@ -42,7 +42,7 @@ Bouw de toepassingsarchitectuur van uw met behulp van de combinatie van beschikb
 - VS - midden
 - Frankrijk - centraal
 - VS-Oost 2 (Preview)
-- West-Europa (Preview)
+- West-Europa
 - Zuidoost-Azië (Preview)
 
 
@@ -59,6 +59,8 @@ De Azure-services die ondersteuning bieden voor beschikbaarheid Zones zijn:
 - SQL Database
 - Event Hubs
 - Service Bus
+- VPN Gateway
+- ExpressRoute
 
 
 ## <a name="pricing"></a>Prijzen
@@ -73,6 +75,9 @@ Er is geen extra kosten voor virtuele machines die zijn geïmplementeerd in een 
 - [Taakverdeling van virtuele machines in een zone met een standaard Load Balancer met een zonal frontend.](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zone-redundante opslag](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
+- [Event Hubs geo-noodherstel](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+- [Service Bus-geo-noodherstel](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [Maak een zone-redundante virtuele netwerkgateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
 ## <a name="next-steps"></a>Volgende stappen

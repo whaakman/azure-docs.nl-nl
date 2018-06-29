@@ -9,16 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: e33fe5a30d154e8396c17d01487ef4420313527d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345525"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050383"
 ---
 # <a name="supported-language-list-and-status"></a>Lijst met ondersteunde taal en status
 
-Deze talen worden ondersteund door de Bing-API voor het controleren van spellen.
+Deze talen worden ondersteund door de Bing-API voor het controleren van spellen (alleen `spell` modus). 
+
+Houd er rekening mee dat werkt met een andere taal dan `en-US`, wordt de `mkt` moet worden ingesteld en beide `Accept-Language` of `setLang` moet worden ingesteld als deze is beschreven in [spellen controleren API v7-verwijzing](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Taal    | Taalcode |
 |:----------- |:-------------:|
@@ -31,7 +33,7 @@ Deze talen worden ondersteund door de Bing-API voor het controleren van spellen.
 | Nederlands (Nederland)      | `nl-NL`          |
 | Engels (Australië)    | `en-AU`          |
 | Engels (Canada)     | `en-CA`          |
-| Engels (India)    | `en-IN`          |
+| English (India)    | `en-IN`          |
 | Engels (Indonesië)     | `en-ID`          |
 | Engels (Maleisië)     | `en-MY`          |
 | Engels (Nieuw-Zeeland)    | `en-NZ`          |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714932"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030995"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Een app in Azure opschalen
 
@@ -98,7 +98,7 @@ Zie voor een tabel van de Servicelimieten, quota's en -beperkingen en ondersteun
   
     [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
   
-* Zie voor meer informatie over Azure App Service aanbevolen procedures voor het bouwen van een schaalbare en flexibele architectuur, inclusief [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+* Zie voor meer informatie over Azure App Service aanbevolen procedures voor het bouwen van een schaalbare en flexibele architectuur, inclusief [Best Practices: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Zie de volgende bronnen voor video's over het schalen van App Service-apps:
   
   * [Wanneer Azure Websites - met Stefan Schackow schalen](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

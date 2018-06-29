@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 57ae7c3cab6c0084bb43585f65d79ae6cc265356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 11e98117a93f541f6f88b213f59dcf4aba3e7f36
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400449"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045208"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Op basis van Linux-clusters maken in HDInsight met behulp van Azure PowerShell
 
@@ -63,7 +63,7 @@ De waarden die u voor de SSH-gebruiker opgeeft worden gebruikt voor het maken va
 > [!IMPORTANT]
 > Als u meer dan 32 worker-knooppunten (op bij het maken van het cluster of wilt door het schalen van het cluster na aanmaak) gebruiken, moet u ook een hoofdknooppunt grootte opgeven met ten minste 8 kerngeheugens en 14 GB RAM-geheugen.
 >
-> Zie voor meer informatie over knooppuntgrootten en bijbehorende kosten [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
+> Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
 
 Er kunnen maximaal 20 minuten om een cluster te maken.
 
@@ -71,7 +71,7 @@ Er kunnen maximaal 20 minuten om een cluster te maken.
 
 U kunt ook maken voor een HDInsight configuration-object met behulp `New-AzureRmHDInsightClusterConfig` cmdlet. U kunt dit configuratieobject zodat extra configuratieopties voor uw cluster wijzigen. Gebruik tot slot de `-Config` parameter van de `New-AzureRmHDInsightCluster` cmdlet de configuratie te gebruiken.
 
-Het volgende script maakt een configuratieobject voor de configuratie van een R Server op type HDInsight-cluster. De configuratie maakt een edge-knooppunt, RStudio en een extra storage-account.
+Het volgende script maakt een configuratieobject voor de configuratie van een ML-Services op type HDInsight-cluster. De configuratie maakt een edge-knooppunt, RStudio en een extra storage-account.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 

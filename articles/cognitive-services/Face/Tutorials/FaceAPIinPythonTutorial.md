@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 408f9759262d6ae2193df3193ee1c306d384afe6
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 90d74d8df2ed59e6f3313ef7c620284d1022a667
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308785"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049108"
 ---
 # <a name="getting-started-with-face-api-in-python-tutorial"></a>Aan de slag met Face-API in Python-zelfstudie
 
@@ -95,7 +95,7 @@ img.show()
 
 ## <a name='further'></a> Aanvullende informatie
 
-Als u wilt, kunt u verder verkennen de Face-API biedt deze zelfstudie een voorbeeld van een GUI. Uit te voeren, eerst installeren [wxPython](https://wxpython.org/) Voer de onderstaande opdrachten.
+Als u wilt, kunt u verder verkennen de Face-API biedt deze zelfstudie een voorbeeld van een GUI. Uit te voeren, eerst installeren [wxPython](https://wxpython.org/pages/downloads/) Voer de onderstaande opdrachten.
 
 ```bash
 git clone https://github.com/Microsoft/Cognitive-Face-Python.git

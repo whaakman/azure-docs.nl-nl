@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 957183e1aad225af6655d0cb65aa62d356f48567
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6a7f31cf541bc1cccd3a5d565a0d3a223ccd3aee
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620388"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045164"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Laden van 1 TB in Azure SQL Data Warehouse onder 15 minuten met Data Factory
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van de Data Factory versie 2](../connector-azure-sql-data-warehouse.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van de Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is een cloud-gebaseerde, uitbreidbare database geschikt is voor het verwerken van grote hoeveelheden relationele en niet-relationele gegevens.  Gebaseerd op de uitgebreide parallelle verwerkingsarchitectuur (MPP) en is SQL Data Warehouse geoptimaliseerd voor enterprise datawarehouse-werkbelastingen.  Elasticiteit cloud biedt de flexibiliteit om te schalen van opslag en onafhankelijk berekenen.

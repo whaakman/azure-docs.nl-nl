@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: 61d53e0d5f32f40b67f5b2d4ce888b047f8c4cea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 02f84047d0e1d3e73fac991250da814176f3995d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619708"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049921"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Een trigger die op een tumblingvenster wordt uitgevoerd van een pijplijn maken
 Dit artikel bevat stappen voor het maken, het starten en het bewaken van een venster daling trigger. Raadpleeg voor algemene informatie over triggers en de ondersteunde typen [Pipeline-uitvoering en triggers](concepts-pipeline-execution-triggers.md).
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u Azure Data Factory versie 1, die algemeen beschikbaar (GA), Zie [aan de slag met Azure Data Factory versie 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Tumblingvenstertriggers zijn triggers die vanaf een opgegeven begintijd worden geactiveerd met een periodiek tijdsinterval en die hun status behouden. Tumblingvensters bestaan uit een reeks niet-overlappende en aaneengesloten tijdsintervallen van vaste duur. Een venster daling trigger heeft een-op-een relatie met een pipeline en kan alleen verwijzen naar een enkelvoud pijplijn.
 

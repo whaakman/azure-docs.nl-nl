@@ -8,18 +8,18 @@ ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b9e7421bb09e619b4a820910db5faa9edfcc5d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632904"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030560"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Eigenschappen van de rand agent en de rand hub module horende
 
 De Edge-agent en de rand hub zijn twee modules die gezamenlijk de rand van de IoT-runtime. Zie voor meer informatie over welke rechten elke module uitvoert, [begrijpen van de rand van Azure IoT-runtime en de bijbehorende architectuur](iot-edge-runtime.md). 
 
-Dit artikel bevat de gewenste eigenschappen en gerapporteerde eigenschappen van de module runtime horende. Zie [implementatie en controle] [ lnk-deploy] voor meer informatie over het implementeren van modules die zich in IoT Edge-apparaten.
+Dit artikel bevat de gewenste eigenschappen en gerapporteerde eigenschappen van de module runtime horende. Zie voor meer informatie over het implementeren van modules die zich in IoT randapparaten [implementatie en controle][lnk-deploy].
 
 ## <a name="edgeagent-desired-properties"></a>Eigenschappen van de gewenste EdgeAgent
 
@@ -31,22 +31,25 @@ De module-twin voor de agent rand wordt aangeroepen `$edgeAgent` en coördineert
 | runtime.type | Moet 'docker' | Ja |
 | runtime.settings.minDockerVersion | Ingesteld op de minimaal vereiste door deze implementatiemanifest Docker-versie | Ja |
 | runtime.settings.loggingOptions | Een stringified JSON met de opties voor logboekregistratie voor de container van de agent rand. [Docker-opties voor logboekregistratie][lnk-docker-logging-options] | Nee |
+| runtime.settings.registryCredentials<br>. {registryId} .username | De gebruikersnaam van het register van de container. De gebruikersnaam is voor Azure Container register, meestal de registernaam.<br><br> Register-referenties zijn nodig voor alle module installatiekopieën die niet openbaar zijn. | Nee |
+| runtime.settings.registryCredentials<br>. {registryId} .password | Het wachtwoord voor het register van de container. | Nee |
+| runtime.settings.registryCredentials<br>. {registryId} .address | Het adres van het register van de container. Voor Azure Container register, het adres is meestal *{registryname}.azurecr.io*. | Nee |  
 | systemModules.edgeAgent.type | Moet 'docker' | Ja |
 | systemModules.edgeAgent.settings.image | De URI van de installatiekopie van de Edge-agent. Op dit moment wordt kan de Edge-agent niet automatisch te laten bijwerken. | Ja |
-| systemModules.edgeAgent.settings.createOptions | Een stringified JSON met de opties voor het maken van de rand agent-container. [Opties voor docker maken][lnk-docker-create-options] | Nee |
-| systemModules.edgeAgent.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze wordt ingesteld door de IoT Hub wanneer dit manifest wordt toegepast met behulp van een implementatie. Geen deel uit van een manifest voor implementatie. |
+| systemModules.edgeAgent.settings<br>.createOptions | Een stringified JSON met de opties voor het maken van de rand agent-container. [Opties voor docker maken][lnk-docker-create-options] | Nee |
+| systemModules.edgeAgent.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze eigenschap is ingesteld door de IoT Hub wanneer dit manifest wordt toegepast met behulp van een implementatie. Geen deel uit van een manifest voor implementatie. |
 | systemModules.edgeHub.type | Moet 'docker' | Ja |
 | systemModules.edgeHub.status | Heeft ' actief ' | Ja |
 | systemModules.edgeHub.restartPolicy | Moet 'altijd' | Ja |
 | systemModules.edgeHub.settings.image | De URI van de installatiekopie van de Edge-hub. | Ja |
-| systemModules.edgeHub.settings.createOptions | Een stringified JSON met de opties voor het maken van de rand hub-container. [Opties voor docker maken][lnk-docker-create-options] | Nee |
-| systemModules.edgeHub.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze wordt ingesteld door de IoT Hub wanneer dit manifest wordt toegepast met behulp van een implementatie. Geen deel uit van een manifest voor implementatie. |
+| systemModules.edgeHub.settings<br>.createOptions | Een stringified JSON met de opties voor het maken van de rand hub-container. [Opties voor docker maken][lnk-docker-create-options] | Nee |
+| systemModules.edgeHub.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze eigenschap is ingesteld door de IoT Hub wanneer dit manifest wordt toegepast met behulp van een implementatie. Geen deel uit van een manifest voor implementatie. |
 | modules. {moduleId} .version | Een gebruiker gedefinieerde tekenreeks die de versie van deze module vertegenwoordigt. | Ja |
 | modules. {moduleId} .type | Moet 'docker' | Ja |
 | modules. {moduleId} .restartPolicy | {{'nooit' \| 'op-is mislukt' \| 'op-slechte' \| "altijd"} | Ja |
 | modules.{moduleId}.settings.image | De URI op de installatiekopie van de module. | Ja |
 | modules. {moduleId}.settings.createOptions | Een stringified JSON met de opties voor het maken van de module-container. [Opties voor docker maken][lnk-docker-create-options] | Nee |
-| modules. {moduleId}.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze wordt ingesteld door de IoT Hub wanneer dit manifest wordt toegepast met behulp van een implementatie. Geen deel uit van een manifest voor implementatie. |
+| modules. {moduleId}.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze eigenschap is ingesteld door de IoT Hub wanneer dit manifest wordt toegepast met behulp van een implementatie. Geen deel uit van een manifest voor implementatie. |
 
 ## <a name="edgeagent-reported-properties"></a>EdgeAgent gerapporteerd eigenschappen
 
@@ -59,7 +62,7 @@ De agent rand gerapporteerd eigenschappen zijn onder meer de drie belangrijkste 
 Deze laatste stukje informatie is nuttig wanneer de meest recente gewenste eigenschappen niet door de runtime toegepast zijn en het apparaat wordt nog steeds uitgevoerd voor een eerdere versie van het implementatiemanifest.
 
 > [!NOTE]
-> De gerapporteerde eigenschappen van de Edge-agent zijn handig als ze kunnen worden opgevraagd met de [IoT Hub-querytaal] [ lnk-iothub-query] voor het onderzoeken van de status van implementaties op grote schaal. Raadpleeg [implementaties] [ lnk-deploy] voor meer informatie over het gebruik van deze functie.
+> De gerapporteerde eigenschappen van de Edge-agent zijn handig als ze kunnen worden opgevraagd met de [IoT Hub-querytaal] [ lnk-iothub-query] voor het onderzoeken van de status van implementaties op grote schaal. Zie voor meer informatie over het gebruik van de eigenschappen van de Edge-agent voor de status van [begrijpen IoT rand implementaties voor één apparaten of op grote schaal][lnk-deploy].
 
 De volgende tabel bevat niet de informatie die wordt opgehaald uit de gewenste eigenschappen.
 
@@ -68,7 +71,7 @@ De volgende tabel bevat niet de informatie die wordt opgehaald uit de gewenste e
 | lastDesiredVersion | Dit geheel getal verwijst naar de laatste versie van de gewenste eigenschappen verwerkt door de agent van de rand. |
 | lastDesiredStatus.code | Dit zijn de statuscode die verwijst naar de laatste gewenste eigenschappen die zichtbaar zijn voor de agent van de rand. Toegestane waarden: `200` geslaagd, `400` ongeldige configuratie `412` Ongeldige schemaversie `417` de gewenste eigenschappen zijn leeg is, `500` mislukt |
 | lastDesiredStatus.description | Beschrijving van de status |
-| DeviceHealth | `healthy` Als de runtimestatus van de van alle modules `running` of `stopped`, `unhealthy` anders |
+| deviceHealth | `healthy` Als de runtimestatus van de van alle modules `running` of `stopped`, `unhealthy` anders |
 | configurationHealth. .health {deploymentId} | `healthy` Als de runtimestatus van de van alle modules die zijn ingesteld door de implementatie {deploymentId} `running` of `stopped`, `unhealthy` anders |
 | runtime.platform.OS | Melden van het besturingssysteem dat wordt uitgevoerd op het apparaat |
 | runtime.platform.architecture | Rapportage van de architectuur van de CPU-capaciteit op het apparaat |

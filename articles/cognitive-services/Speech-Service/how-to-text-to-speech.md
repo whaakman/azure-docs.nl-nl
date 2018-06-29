@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 1ed2ee73b32f71d2e1ca34c6de9d1cb2649d7f0c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c358b5a40b1d8e91c2e1af5eb493b13604cf82e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345828"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045055"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Gebruik 'Text to Speech' in spraak-service
 
@@ -25,14 +25,7 @@ De hoofdtekst van de POST-aanvragen voor tekst-naar-spraak mogelijk tekst zonder
 
 Hier worden de regionale Text to Speech-eindpunten weergegeven. Gebruik een geschikt is voor uw abonnement.
 
-Gebied| Eindpunt
--|-
-VS - westen| `https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-Azië - oost| `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
-Europa - noord| `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
-
-> [!NOTE]
-> Als u een aangepaste gesproken lettertype hebt gemaakt, gebruikt u het eindpunt dat u hebt gemaakt voor het in plaats van de bovenstaande waarden.
+[!include[](includes/endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Geef een stem
 
@@ -56,7 +49,7 @@ Koptekst|Waarden|Opmerkingen
 -|-|-
 |`Content-Type` | `application/ssml+xml` | De ingevoerde tekst-indeling.
 |`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | De uitvoer audio-indeling.
-|`User-Agent`   |Toepassingsnaam | Naam van de toepassing is vereist en moet minder dan 255 tekens.
+|`User-Agent`   |De naam van de toepassing | Naam van de toepassing is vereist en moet minder dan 255 tekens.
 | `Authorization`   | Verificatietoken is verkregen in de vorm van uw abonnementssleutel voor de service voor beveiligingstokens. Elke token is tien minuten geldig. Zie [REST-API's: verificatie](rest-apis.md#authentication).
 
 > [!NOTE]
@@ -94,7 +87,7 @@ Als een fout optreedt, worden de onderstaande statuscodes gebruikt. De hoofdteks
 |Code|Beschrijving|Probleem|
 |-|-|-|
 400 |Ongeldig verzoek |Er ontbreekt een vereiste parameter ontbreekt, is leeg of null. Of de waarde die is doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die is te lang.
-401|Niet-gemachtigd |De aanvraag is niet gemachtigd. Controleer of de abonnementssleutel van uw of token geldig is.
+401|Niet geautoriseerd |De aanvraag is niet gemachtigd. Controleer of de abonnementssleutel van uw of token geldig is.
 413|De entiteit van de aanvraag is te groot|De SSML-invoer is meer dan 1024 tekens.
 |502|Ongeldige gateway    | Netwerk- of -serverzijde probleem. Kan ook duiden op ongeldige headers.
 

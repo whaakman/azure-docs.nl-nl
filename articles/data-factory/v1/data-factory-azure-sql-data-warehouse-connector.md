@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: df8fe611c762421f3a963340b24df74a80a20160
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 678913796edafe86e19d8907e3a2e29ec15ffa90
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621731"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047074"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-azure-sql-data-warehouse-connector.md)
-> * [Versie 2 - Preview](../connector-azure-sql-data-warehouse.md)
+> * [Versie 1](data-factory-azure-sql-data-warehouse-connector.md)
+> * [Versie 2 (huidige versie)](../connector-azure-sql-data-warehouse.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [Azure SQL Data Warehouse-connector in V2](../connector-azure-sql-data-warehouse.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Azure SQL Data Warehouse-connector in V2](../connector-azure-sql-data-warehouse.md).
 
 Dit artikel wordt uitgelegd hoe u de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van Azure SQL Data Warehouse. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont.  
 
@@ -54,7 +54,7 @@ U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens worden verp
 
 De eenvoudigste manier om een pijplijn waarmee gegevens van Azure SQL Data Warehouse worden gekopieerd maken is met de wizard kopiëren. Zie [zelfstudie: gegevens laden in SQL Data Warehouse met Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) voor een snel overzicht over het maken van een pijplijn met de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren:
 
@@ -229,7 +229,7 @@ Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert de
 Als de brongegevens niet voldoet aan de criteria die zijn geïntroduceerd in de vorige sectie, kunt u kopiëren van gegevens via een tussentijdse staging Azure Blob Storage (kan niet voor Premium-opslag) inschakelen. In dit geval voert Azure Data Factory automatisch transformaties op de gegevens die moeten voldoen aan de vereisten van de indeling van PolyBase gegevens en gebruik vervolgens PolyBase om gegevens te laden in SQL Data Warehouse en op de laatste opschoning uw tijdelijke gegevens van de Blob-opslag. Zie [kopie gefaseerde](data-factory-copy-activity-performance.md#staged-copy) voor meer informatie over de werking kopiëren van gegevens via een gefaseerde installatie Azure-Blob in het algemeen.
 
 > [!NOTE]
-> Wanneer het kopiëren van gegevens uit een on-premises gegevens opslaan in Azure SQL Data Warehouse met PolyBase en fasering, als uw Data Management Gateway-versie lager dan 2.4 is Java Runtime Environment (Java Runtime Environment) is vereist op uw computer met de gateway die wordt gebruikt voor het omzetten van de brongegevens naar de juiste indeling. Stelt dat u een upgrade van uw gateway uit naar de meest recente uitvoeren om te voorkomen dat deze afhankelijkheid.
+> Wanneer kopiëren van gegevens uit een on-premises gegevens opslaan in Azure SQL Data Warehouse met PolyBase en fasering, als uw Data Management Gateway-versie lager dan 2.4 is Java Runtime Environment (Java Runtime Environment) is vereist op uw computer met de gateway die wordt gebruikt voor het transformeren van de brongegevens in de juiste notatie. Stelt dat u een upgrade van uw gateway uit naar de meest recente uitvoeren om te voorkomen dat deze afhankelijkheid.
 >
 
 Deze functie wilt gebruiken, maakt u een [gekoppelde Azure Storage-service](data-factory-azure-blob-connector.md#azure-storage-linked-service) die verwijst naar de Azure Storage-Account met de tussentijdse blobopslag, geeft u de `enableStaging` en `stagingSettings` eigenschappen voor de Kopieeractiviteit, zoals wordt weergegeven in de volgende code:
@@ -297,7 +297,7 @@ All columns of the table must be specified in the INSERT BULK statement.
 NULL-waarde is een speciale vorm van de standaardwaarde. Als de kolom waarvoor null is toegestaan, kan de invoergegevens (in blob) voor de kolom leeg zijn (kan niet worden ontbreekt uit de invoer gegevensset). PolyBase voegt NULL zijn voor deze in de Azure SQL Data Warehouse.  
 
 ## <a name="auto-table-creation"></a>Maken van de tabel automatisch
-Als u Wizard kopiëren gebruikt voor gegevens van SQL Server of Azure SQL Database kopiëren naar Azure SQL Data Warehouse en de tabel die overeenkomt met de brontabel niet in het doelarchief bestaat, maken Data Factory automatisch in de tabel in het datawarehouse met behulp van de bron-tabelschema.
+Als u Wizard kopiëren gebruikt voor gegevens van SQL Server of Azure SQL Database kopiëren naar Azure SQL Data Warehouse en de tabel die overeenkomt met de brontabel niet in het doelarchief bestaat, maken Data Factory automatisch in de tabel in het datawarehouse door u het bron-tabelschema sing.
 
 Data Factory maakt in de tabel in het doelarchief met dezelfde tabelnaam in het gegevensarchief van de bron. De gegevenstypen voor kolommen worden gekozen op basis van de toewijzing van het volgende type zijn. Indien nodig, voert deze typeconversies om op te lossen eventuele incompatibiliteiten tussen bron- en doelserver stores. Round Robin tabeldistributie worden ook gebruikt.
 
@@ -308,8 +308,8 @@ Data Factory maakt in de tabel in het doelarchief met dezelfde tabelnaam in het 
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
 | bits | bits |
-| Decimale | Decimale |
-| Numeriek | Decimale |
+| decimale | decimale |
+| Numeriek | decimale |
 | Float | Float |
 | Money | Money |
 | Real | Real |
@@ -354,21 +354,21 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | Datum en tijd |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| Decimale |Decimale |
+| decimale |decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| Float |dubbele |
-| Afbeelding |Byte[] |
+| Float |Double |
+| installatiekopie |Byte[] |
 | int |Int32 |
-| Money |Decimale |
+| Money |decimale |
 | nchar |Tekenreeks, Char] |
 | ntext |Tekenreeks, Char] |
-| numerieke |Decimale |
+| numerieke |decimale |
 | nvarchar |Tekenreeks, Char] |
 | echte |Enkelvoudig |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimale |
+| smallmoney |decimale |
 | sql_variant |Object * |
 | tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |

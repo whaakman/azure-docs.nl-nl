@@ -1,5 +1,5 @@
 ---
-title: Gegevens kopiëren van Amazon Marketplace-webservice met behulp van Azure Data Factory (Preview) | Microsoft Docs
+title: Gegevens kopiëren van Amazon Marketplace-webservice met behulp van Azure Data Factory | Microsoft Docs
 description: Ontdek hoe u gegevens kopiëren van Amazon Marketplace-webservice naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: add0f9185ac94a8b673e0c05de9de919286ffa3a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c456f87b451c5876653d704ec367629c2856a1f6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337952"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052467"
 ---
-# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Gegevens kopiëren van Amazon Marketplace-webservice met behulp van Azure Data Factory (Preview)
+# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Gegevens kopiëren van Amazon Marketplace-webservice met behulp van Azure Data Factory
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van Amazon Marketplace-webservice. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Deze connector is momenteel in preview. U kunt uit te proberen en ons feedback te geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
@@ -49,7 +46,7 @@ De volgende eigenschappen worden ondersteund voor Amazon Marketplace Web Service
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AmazonMWS** | Ja |
-| eindpunt | Het eindpunt van de Amazon MWS-server (dat wil zeggen, mws.amazonservices.com)  | Ja |
+| endpoint | Het eindpunt van de Amazon MWS-server (dat wil zeggen, mws.amazonservices.com)  | Ja |
 | marketplaceID | De Amazon Marketplace-ID die u gegevens wilt ophalen uit. Voor informatie over het ophalen van gegevens uit meerdere Marketplace-id's scheiden met komma's (`,`). (dat wil zeggen, A2EUQ1WTGCTBG2)  | Ja |
 | sellerID | De Amazon verkoper-ID.  | Ja |
 | mwsAuthToken | Het verificatietoken Amazon MWS. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |

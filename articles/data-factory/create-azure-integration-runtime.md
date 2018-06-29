@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 984971c24f2dfdd5d8eced45341737d1ce975033
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb1a263c0a33a291a44e7c60b3c032d7f9dc16a3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619351"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054072"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Het maken en configureren van Azure integratie Runtime
 De integratie Runtime (IR) is de beheerinfrastructuur gebruikt door Azure Data Factory om te bieden mogelijkheden voor de integratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [integratie runtime](concepts-integration-runtime.md).
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Data Factory V1 documentatie](v1/data-factory-introduction.md).
 
 Azure IR biedt een volledig beheerde compute om uit te voeren systeemeigen verkeer en de verzending gegevens activiteiten voor gegevenstransformatie voor compute services zoals HDInsight. Het wordt gehost in Azure-omgeving en biedt ondersteuning voor verbinding maken met resources in openbare netwerkomgeving met openbare toegankelijk eindpunten.
 

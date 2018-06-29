@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 2bcb0d4e6af00b56d083690439be45379ce4d175
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752806"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062118"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Een trigger die wordt uitgevoerd een pijplijn in reactie op een gebeurtenis maken
 
 In dit artikel beschrijft de triggers op basis van gebeurtenissen die u in uw Data Factory-pijplijnen kunt maken.
 
-Architectuur gebeurtenisafhankelijke (EDA) is een algemene gegevens integratie patroon dat betrekking heeft op productie, detectie, verbruik en de reactie op gebeurtenissen. Gegevens integratiescenario's vereisen vaak Data Factory-klanten voor het activeren van pijplijnen op basis van gebeurtenissen.
+Architectuur gebeurtenisafhankelijke (EDA) is een algemene gegevens integratie patroon dat betrekking heeft op productie, detectie, verbruik en de reactie op gebeurtenissen. Gegevens integratiescenario's vereisen vaak Data Factory-klanten voor het activeren van pijplijnen op basis van gebeurtenissen. Data Factory is nu geïntegreerd met [Azure gebeurtenis raster](https://azure.microsoft.com/services/event-grid/), waarmee u activeren pijplijnen op een gebeurtenis.
 
 ## <a name="data-factory-ui"></a>Gebruikersinterface van Data Factory
 
@@ -64,11 +64,20 @@ De volgende tabel bevat een overzicht van de schema-elementen die betrekking op 
 Deze sectie bevat voorbeelden van de instellingen op basis van gebeurtenissen trigger.
 
 -   **Blobpad begint met**('/ containername /') – ontvangt van gebeurtenissen voor elke blob in de container.
--   **Blobpad begint met**('/ containername/mapnaam') – gebeurtenissen voor alle blobs in de container containername en de mapnaam map ontvangt.
--   **Blobpad begint met**('/ containername/foldername/file.txt') – gebeurtenissen voor een blob met de naam bestand.txt in de mapnaam map onder de container containername ontvangt.
+-   **Blobpad begint met**('/ blobs/containername/mapnaam') – gebeurtenissen voor alle blobs in de container containername en de mapnaam map ontvangt.
+-   **Blobpad begint met**('/ containername/blobs/foldername/file.txt') – gebeurtenissen voor een blob met de naam bestand.txt in de mapnaam map onder de container containername ontvangt.
 -   **Blobpad eindigt met**('bestand.txt') – Receive-opdrachten gebeurtenissen voor een blob met de naam bestand.txt op elk willekeurig pad.
--   **Blobpad eindigt met**('/ containername/file.txt') – gebeurtenissen voor een blob met de naam bestand.txt onder de container containername ontvangt.
+-   **Blobpad eindigt met**('/ containername/blobs/file.txt') – gebeurtenissen voor een blob met de naam bestand.txt onder de container containername ontvangt.
 -   **Blobpad eindigt met**('foldername/file.txt') – Receive-opdrachten gebeurtenissen voor een blob met de naam bestand.txt in de map mapnaam onder elke container.
+
+> [!NOTE]
+> U moet nemen de `/blobs/` segment van het pad wanneer u de container en map, container en bestand of de container, map opgeven en het bestand.
+
+## <a name="using-blob-events-trigger-properties"></a>Met behulp van de Trigger-eigenschappen van Blob-gebeurtenissen
+
+Wanneer een blob gebeurtenissen trigger wordt gestart, maakt twee variabelen die beschikbaar zijn voor uw pijplijn: *folderPath* en *fileName*. Voor toegang tot deze variabelen, gebruikt de `@triggerBody().fileName` of `@triggerBody().folderPath` expressies.
+
+Neem bijvoorbeeld een trigger die is geconfigureerd om te worden gestart wanneer een blob is gemaakt met `.csv` als de waarde van `blobPathEndsWith`. Als een CSV-bestand naar de storage-account wordt neergezet de *folderPath* en *fileName* beschrijven de locatie van het CSV-bestand. Bijvoorbeeld: *folderPath* heeft de waarde `/containername/foldername/nestedfoldername` en *fileName* heeft de waarde `filename.csv`.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor gedetailleerde informatie over triggers [Pipeline-uitvoering en triggers](concepts-pipeline-execution-triggers.md#triggers).
