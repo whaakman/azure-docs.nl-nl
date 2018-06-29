@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 808405de3391912433919d21b59214831b024866
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11647c231db3ff7beb2fed641dc72ff339b2b45a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616393"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046238"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Gegevens kopiëren van DB2 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-onprem-db2-connector.md)
-> * [Versie 2 - Preview](connector-db2.md)
+> * [Versie 1](v1/data-factory-onprem-db2-connector.md)
+> * [Huidige versie](connector-db2.md)
 
 In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een DB2-database. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [DB2-connector in V1](v1/data-factory-onprem-db2-connector.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -185,16 +182,16 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | Date |Datum en tijd |
 | DB2DynArray |Reeks |
 | DbClob |Reeks |
-| Decimale |Decimale |
-| DecimalFloat |Decimale |
-| dubbele |dubbele |
-| Float |dubbele |
+| decimale |decimale |
+| DecimalFloat |decimale |
+| Double |Double |
+| Float |Double |
 | Afbeelding |Reeks |
 | Geheel getal |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |Reeks |
 | LongVarGraphic |Reeks |
-| Numeriek |Decimale |
+| Numeriek |decimale |
 | Real |Enkelvoudig |
 | SmallInt |Int16 |
 | Time |TimeSpan |

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79e77aa067cbb7262a945d94ce8ac1750e80b2d5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656190"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054786"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -288,7 +288,7 @@ ms.locfileid: "34656190"
 [virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
-[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/en-us/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
@@ -554,7 +554,7 @@ U wilt Microsoft of derden opgegeven installatiekopie vanuit Azure Marketplace v
 #### <a name="deploying-a-vm-with-a-customer-specific-generalized-image"></a>Een virtuele machine met een algemene installatiekopie klantspecifieke implementeren
 Als gevolg van het patchbestand vereisten met betrekking tot uw versie van besturingssysteem of DBMS, kunnen de opgegeven afbeeldingen in Azure Marketplace niet aansluiten bij uw behoeften. Daarom moet u mogelijk een virtuele machine maken met uw eigen 'persoonlijke' OS/DBMS VM-installatiekopie, die verschillende keren daarna kan worden geïmplementeerd. Als u een 'persoonlijke' installatiekopie voorbereiden voor het kopiëren, moet het besturingssysteem op de lokale virtuele machine worden gegeneraliseerd. Raadpleeg de [Deployment Guide] [ deployment-guide] voor meer informatie over het generaliseren van een virtuele machine.
 
-Als u al SAP-inhoud in uw lokale virtuele machine (vooral voor laag 2-systemen) hebt geïnstalleerd, kunt u de instellingen van het SAP aanpassen nadat de implementatie van de virtuele Azure-machine via het exemplaar wordt ondersteund door de SAP Software inrichting Manager procedure wijzigen (SAP-notitie [1619720]). Anders kunt u de SAP-software installeren nadat de implementatie van de Azure VM.
+Als u al SAP-inhoud in uw lokale virtuele machine (vooral voor laag 2-systemen) hebt geïnstalleerd, kunt u de instellingen van het SAP aanpassen nadat de implementatie van de virtuele Azure-machine via het exemplaar procedure ondersteund door het SAP Software inrichting Manager (SAP wijzigen Houd er rekening mee [1619720]). Anders kunt u de SAP-software installeren nadat de implementatie van de Azure VM.
 
 Als van de database inhoud door de SAP-toepassing gebruikt, u ofwel de inhoud opnieuw worden door een SAP-installatie genereren kunt of u uw inhoud in Azure importeren kunt met behulp van een VHD met een DBMS databaseback-up of door gebruik te maken van de mogelijkheden van de DBMS rechtstreeks back-up in  Microsoft Azure-opslag. In dit geval kan u ook voorbereiden VHD's met de DBMS gegevens en logboekbestanden bestanden on-premises en die als schijven vervolgens importeren in Azure. Maar de overdracht van gegevens op DBMS, die wordt geladen on-premises naar Azure via de VHD-schijven die moeten worden voorbereid lokale zou werken.
 

@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e80c69657dfb7cbab7d29c94d3dd3c56574de7b7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: MT
+ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321993"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044817"
 ---
 # <a name="speech-service-rest-apis"></a>Spraak service REST-API 's
 
@@ -24,14 +24,7 @@ De REST-API's van de geïntegreerde spraak-service zijn vergelijkbaar met de API
 
 In de spraak tekst API verschillen alleen de eindpunten die gebruikt van de vorige spraak service erkenning Speech-API. De nieuwe eindpunten worden weergegeven in de onderstaande tabel. Gebruik de naam die overeenkomt met de regio van uw abonnement.
 
-Regio| Spraak naar tekst eindpunt
--|-
-VS - west| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-Oost-Azië| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-Noord-Europa| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-
-> [!NOTE]
-> U moet toevoegen aan de gewenste taal in de URI om te voorkomen dat een 401 http-fout. Dus voor en-US moet de juiste URI zou zijn: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+[!include[](includes/endpoints-speech-to-text.md)]
 
 De spraak tekst API anders is vergelijkbaar met de [REST-API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) voor de vorige Speech-API.
 
@@ -62,14 +55,7 @@ nl-NL  | Nederlands | Man   | 'Microsoft Server Speech tekst stem (en-US, Guy24k
 
 Hieronder vindt u de REST-eindpunten voor de geïntegreerde Speech service Text to Speech API. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
 
-Regio| Text to Speech-eindpunt
--|-
-VS - west|    `https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-Oost-Azië|  `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
-Noord-Europa|   `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
-
-> [!NOTE]
-> Als u een aangepaste gesproken-lettertype gemaakt, kunt u uw aangepaste eindpunt gebruiken.
+[!include[](includes/endpoints-text-to-speech.md)]
 
 Houd deze verschillen in rekening wanneer u naar verwijst de [REST API-documentatie](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) voor de vorige Speech-API.
 
@@ -77,11 +63,7 @@ Houd deze verschillen in rekening wanneer u naar verwijst de [REST API-documenta
 
 Verzenden van een aanvraag van de service spraak REST API vereist dat een toegangstoken. U een token verkrijgen door uw abonnementssleutel naar een regionaal spraak service `issueToken` eindpunt, weergegeven in de onderstaande tabel. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
 
-Regio| Token service-eindpunt
--|-
-VS - west|    `https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Oost-Azië|  `https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Noord-Europa|   `https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+[!include[](includes/endpoints-token-service.md)]
 
 Elke toegangstoken is geldig voor 10 minuten. U kunt een nieuw token verkrijgen op elk gewenst moment, inclusief, indien gewenst, net voor elke aanvraag spraak REST-API. Om te beperken netwerkverkeer en de latentie, echter aangeraden hetzelfde token voor negen minuten.
 

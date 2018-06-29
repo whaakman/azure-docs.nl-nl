@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e0d7c2caecba22b30d3e0cf5f80fda5b203e867b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c4ed3a22d3ad4e227178e8ac265cc97050e31ee6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753469"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054306"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Verplaatsen van gegevens uit een on-premises Cassandra-database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-onprem-cassandra-connector.md)
-> * [Versie 2 - Preview](../connector-cassandra.md)
+> * [Versie 1](data-factory-onprem-cassandra-connector.md)
+> * [Versie 2 (huidige versie)](../connector-cassandra.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [Cassandra-connector in V2](../connector-cassandra.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Cassandra-connector in V2](../connector-cassandra.md).
 
 In dit artikel wordt uitgelegd hoe de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een on-premises Cassandra database gebruiken. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont.
 
@@ -273,7 +273,7 @@ Zie [RelationalSource type-eigenschappen](#copy-activity-properties) voor de lij
 | INET |Reeks |
 | INT |Int32 |
 | TEKST |Reeks |
-| TIJDSTEMPEL |Datum en tijd |
+| TIJDSTEMPEL |DateTime |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |Reeks |

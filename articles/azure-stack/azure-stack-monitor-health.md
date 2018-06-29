@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 446df7922422ccfcf3fbb92ecf153c6dec2f6197
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26640375"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047238"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Status en waarschuwingen in de Azure-Stack controleren
 
@@ -32,6 +32,17 @@ Azure Stack bevat mogelijkheden waarmee u om weer te geven van de status en waar
  ## <a name="understand-health-in-azure-stack"></a>Status in Azure-Stack begrijpen
 
  Status en waarschuwingen worden beheerd door de Health-resourceprovider. Azure Stack infrastructuuronderdelen registreren bij de resourceprovider Health tijdens de implementatie van de Azure-Stack en configuratie. Deze registratie kunnen de weergave van de status en waarschuwingen voor elk onderdeel. De status in Azure-Stack is een eenvoudige concept. Als waarschuwingen voor een geregistreerde exemplaar van een component aanwezig is, de status van dit onderdeel wordt doorgevoerd slechtste active ernst van de waarschuwing; waarschuwing of kritiek.
+
+## <a name="alert-severity-definition"></a>De definitie van de ernst van waarschuwing
+
+In Azure-Stack waarschuwingen worden gegenereerd met slechts twee ernst: **waarschuwing** en **kritieke**.
+
+**Waarschuwing**  
+Een operator kunt u de waarschuwing oplossen op een geplande manier. De waarschuwing heeft doorgaans geen gevolgen voor werkbelastingen van de gebruiker.
+
+**Kritieke**  
+Een operator de kritieke waarschuwing dient te houden met urgentie. Dit zijn problemen die momenteel invloed of Azure-Stack-gebruikers snel invloed. 
+
  
  ## <a name="view-and-manage-component-health-state"></a>Weergeven en beheren van de onderdeelstatus
  

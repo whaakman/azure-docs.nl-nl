@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: a5a81279726e5c221d9ae4734466a04ae5912af6
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936799"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050123"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database-beheerd instantie
 
@@ -82,6 +82,8 @@ Beheerde exemplaar ondersteunt de volgende migratie-opties voor database is (dez
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 De [Azure Database migratie Service (DMS)](../dms/dms-overview.md) is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure. Implementatieopties voor op Public Preview zijn Azure SQL Database, exemplaar beheerd en SQL Server in een virtuele Machine van Azure. DMS is de aanbevolen methode van de migratie voor de werkbelasting van uw onderneming. 
+
+Als u SQL Server Integration Services (SSIS) op de SQL Server on-premises, DMS ondersteunt nog geen migreren SSIS catalog (SSISDB) die SSIS-pakketten opslaat, maar u kunt Azure SSIS integratie Runtime (IR) in Azure Data Factory (ADF) inrichten die wordt een nieuwe SSISDB in Azure SQL-Database maken/beheerde exemplaar en u vervolgens kan uw pakketten te implementeren, Zie [Azure SSIS-IR maken in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Zie voor meer informatie over dit scenario en configuratiestappen voor DMS, [migreren uw on-premises database met beheerde-exemplaar met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 

@@ -8,14 +8,14 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 60c2c17d7a5cca66a6323f43e1ab2662afff54ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630833"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029086"
 ---
-# <a name="understand-azure-iot-edge-modules---preview"></a>Azure IoT rand modules begrijpen - voorbeeld
+# <a name="understand-azure-iot-edge-modules"></a>Azure IoT rand modules begrijpen
 
 Azure IoT-rand kunt u implementeren en beheren van bedrijfsregels in te schakelen op de rand in de vorm van *modules*. Azure IoT Edge-modules zijn de kleinste rekeneenheid beheerd door IoT rand en kunnen Azure-services (zoals Azure Stream Analytics) of uw eigen oplossings-specifieke code bevatten. Om te begrijpen hoe modules zijn ontwikkeld, geïmplementeerd en beheerd, is het nuttig om denkt vier conceptuele onderdelen die gezamenlijk een module:
 
@@ -60,6 +60,17 @@ await client.OpenAsync();
 // Get the model twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
+
+## <a name="offline-capabilities"></a>Offline mogelijkheden
+
+Azure IoT-rand ondersteunt offline bewerkingen op de rand van de IoT-apparaten. Deze mogelijkheden zijn beperkt nu en aanvullende scenario's worden ontwikkeld. 
+
+Rand van de IoT-modules zijn offline gedurende langere perioden, zolang de volgende vereisten wordt voldaan: 
+
+* **Bericht time to live (TTL) is niet verlopen**. De standaardwaarde voor bericht TTL is twee uur, maar worden gewijzigde hoger of lager in de Store en doorsturen van de configuratie in de rand van de IoT hub-instellingen. 
+* **Modules hoeft niet te verifiëren bij de rand van de IoT-hub wanneer u offline bent**. Modules kunnen alleen worden geverifieerd met het Edge-hubs die u een actieve verbinding met een IoT-hub hebt. Modules moeten als ze opnieuw worden gestart om een bepaalde reden opnieuw te verifiëren. Modules kunnen nog steeds berichten verzenden naar de hub rand nadat de SAS-token is verlopen. Wanneer verbinding wordt hervat, wordt de Edge-hub aanvragen van een nieuw token van de module en wordt deze gevalideerd met de IoT-hub. Als dit lukt, verzendt de Edge-hub in de module berichten die wordt opgeslagen, zelfs de berichten die zijn verzonden terwijl de module-token is verlopen. 
+* **De module die de berichten verzonden offline functioneert nog steeds als verbinding wordt hervat**. Na het opnieuw verbinding maakt met IoT Hub, moet de Edge-hub valideren van het token van een nieuwe module (als de vorige taak verlopen) voordat de module-berichten kunnen worden doorgestuurd. Als de module niet beschikbaar is voor het bieden van een nieuw token, kan niet de hub Edge op van de module opgeslagen berichten fungeren. 
+* **Schijfruimte voor het opslaan van de berichten van de Edge-hub heeft**. Berichten worden standaard opgeslagen in de rand hub-container bestandssysteem. Er is een configuratieoptie om op te geven van een gekoppeld volume voor het opslaan van de berichten in plaats daarvan. In beide gevallen moet er ruimte beschikbaar is voor het opslaan van de berichten voor uitgestelde bezorging IoT-hub.  
 
 ## <a name="next-steps"></a>Volgende stappen
  - [Inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur][lnk-runtime]

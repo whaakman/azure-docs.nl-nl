@@ -15,11 +15,12 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67603c04cf7b5f45517d16620e5b79241aaae94d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7810027e4ab9df6742b4431d12daf9ba2b678bf6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061806"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>1.2 release-opmerkingen voor uw StorSimple 8000 serie-apparaat bijwerken
 
@@ -53,7 +54,7 @@ Deze functies zijn voor het eerst uitgebracht met Update 1, die beschikbaar zijn
   * **Zakelijke continuïteit**, doordat de migratie van bestaande gegevens op 5000 7000-serie toestellen op 8000 series apparaten.
   * **De offerings functie van de toestellen 8000 series verbeterd**, zoals efficiënt gecentraliseerd beheer van meerdere apparaten via de StorSimple Manager-service voor een betere klasse van hardware en firmware, virtuele apparaten, gegevensmobiliteit bijgewerkt en functies in de toekomst roadmap.
     
-    Raadpleeg de [Migratiehandleiding](http://www.microsoft.com/download/details.aspx?id=47322) voor meer informatie over het migreren van een StorSimple 5000 7000-serie op een apparaat 8000-serie. 
+    Raadpleeg de [Migratiehandleiding](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) voor meer informatie over het migreren van een StorSimple 5000 7000-serie op een apparaat 8000-serie. 
 * **Beschikbaarheid in de Portal voor Azure Government** – StorSimple is nu beschikbaar in de portal voor Azure Government. Zie hoe [implementeren van een StorSimple-apparaat in de Portal voor Azure Government](storsimple-deployment-walkthrough-gov.md).
 * **Ondersteuning voor andere cloudserviceproviders** – andere cloudserviceproviders ondersteund Amazon S3, Amazon S3 met RRS, HP en OpenStack (bèta) zijn.
 * **Update van de meest recente Storage-API's** – met deze versie StorSimple is bijgewerkt naar de nieuwste Azure Storage-service API's. StorSimple 8000 series apparaten die worden uitgevoerd vóór het bijwerken 1 softwareversies (Release 0,1 0,2 en 0,3) met een versie van de Azure Storage-Service API-ouder is dan 17 juli 2009. Zoals vermeld in de bijgewerkte [aankondiging over het verwijderen van opslag-versies](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), door 1 augustus 2016 krijgen deze API wordt afgeschaft. Het is noodzakelijk StorSimple 8000 Series Update 1 vóór 1 augustus 2016 toe te passen. Als u dit niet doet, meer StorSimple-apparaten correct werkt.

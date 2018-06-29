@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 06/27/2018
 ms.author: sashan
-ms.openlocfilehash: fb6e8f4420b739b5ac84f1d5c185fddc740c551a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7b504306e32f97a0392239f9e6adc6c460848580
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018510"
+ms.locfileid: "37060005"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Gebruik alleen-lezen partities laden werklast alleen-lezen-query (preview)
 
@@ -22,7 +22,7 @@ ms.locfileid: "37018510"
 
 ## <a name="overview-of-read-scale-out"></a>Overzicht van uitbreidbare lezen
 
-Elke database in de laag Premium ([aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md)) of in de essentiële zakelijke laag ([vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md)) automatisch wordt geleverd met verschillende Always ON replica's ter ondersteuning van de beschikbaarheids-SLA. Deze replica's zijn voorzien van hetzelfde prestatieniveau als de replica van de lezen-schrijven die worden gebruikt door de normale databaseverbindingen. De **lezen Scale-Out** functie kunt u saldo SQL-Database alleen-lezen werkbelastingen met behulp van de capaciteit van de replica's alleen-lezen in plaats van delen van de replica lezen-schrijven worden geladen. Op deze manier de alleen-lezen werkbelasting geïsoleerd van de belangrijkste lezen-schrijven werkbelasting en niet van invloed op de prestaties. De functie is bedoeld voor de toepassingen die logisch zijn alleen-lezen werkbelastingen, zoals analytics, van elkaar gescheiden en daarom kunnen krijgen tot prestatievoordelen met behulp van deze extra capaciteit zonder extra kosten.
+Elke database in de laag Premium ([aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md)) of in de essentiële zakelijke laag ([vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md)) automatisch wordt geleverd met verschillende AlwaysON replica's ter ondersteuning van de beschikbaarheids-SLA. Deze replica's zijn voorzien van hetzelfde prestatieniveau als de replica van de lezen-schrijven die worden gebruikt door de normale databaseverbindingen. De **lezen Scale-Out** functie kunt u saldo SQL-Database alleen-lezen werkbelastingen met behulp van de capaciteit van een van de replica's alleen-lezen in plaats van delen van de replica lezen-schrijven worden geladen. Op deze manier de alleen-lezen werkbelasting geïsoleerd van de belangrijkste lezen-schrijven werkbelasting en niet van invloed op de prestaties. De functie is bedoeld voor de toepassingen die logisch zijn alleen-lezen werkbelastingen, zoals analytics, van elkaar gescheiden en daarom kunnen krijgen tot prestatievoordelen met behulp van deze extra capaciteit zonder extra kosten.
 
 Als u wilt de lezen Scale-Out-functie met een bepaalde database gebruiken, moet u expliciet deze inschakelen bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door aan te roepen de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [ Nieuwe AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp van de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode. 
 
@@ -61,10 +61,12 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 U kunt controleren of u met de replica van een alleen-lezen verbonden bent door de volgende query uit te voeren. Alleen-lezen wanneer verbonden met een alleen-lezen replica wordt geretourneerd.
 
+
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
-
+> [!NOTE]
+> Op elk moment is slechts één van de AlwaysON-replica's toegankelijk door het kenmerk alleen-lezen-sessies.
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Inschakelen en uitschakelen lezen Scale-Out Azure PowerShell gebruiken
 
@@ -108,9 +110,9 @@ Body:
 
 Zie voor meer informatie [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate).
 
-## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Met behulp van lezen scale-out met geogerepliceerde databases
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Met behulp van lezen Scale-Out met geogerepliceerde databases
 
-Als u gebruik lezen scale-out voor het laden van alleen-lezen workloads verdelen voor een database die is geogerepliceerde (bijvoorbeeld als een lid van een failover-groep), zorg ervoor dat lezen scale-out is ingeschakeld op zowel de primaire als de geo-replicatie secundaire databases. Hierdoor worden hetzelfde effect taakverdeling wanneer uw toepassing verbinding met de nieuwe primaire na een failover maakt. Als u verbinding met de secundaire geo-replicatie-database met lees-schaal ingeschakeld maakt, uw sessies met `ApplicationIntent=ReadOnly` worden doorgestuurd naar een van de replica's dezelfde manier als we routeren verbindingen op de primaire database.  De sessies zonder `ApplicationIntent=ReadOnly` worden doorgestuurd naar de primaire replica van de secundaire geo-replicatie die ook is alleen-lezen. 
+Als u gebruik lezen scale-out voor het laden van alleen-lezen workloads verdelen voor een database die is geogerepliceerde (bijvoorbeeld als een lid van een failover-groep), zorg ervoor dat lezen scale-out is ingeschakeld op zowel de primaire als de geo-replicatie secundaire databases. Hierdoor worden hetzelfde effect taakverdeling wanneer uw toepassing verbinding met de nieuwe primaire na een failover maakt. Als u verbinding met de secundaire geo-replicatie-database met lees-schaal ingeschakeld maakt, uw sessies met `ApplicationIntent=ReadOnly` worden doorgestuurd naar een van de replica's dezelfde manier als we routeren verbindingen op de primaire database.  De sessies zonder `ApplicationIntent=ReadOnly` worden doorgestuurd naar de primaire replica van de secundaire geo-replicatie die ook is alleen-lezen. Omdat geo-replicatie secundaire database een ander eindpunt dan de primaire database heeft, in het verleden voor de secundaire toegang tot deze is niet vereist voor het instellen `ApplicationIntent=ReadOnly`. Om ervoor te zorgen compatibiliteit met eerdere versies `sys.geo_replication_links` DMV toont `secondary_allow_connections=2` (alle clientverbinding is toegestaan).
 
 > [!NOTE]
 > Tijdens de preview, we geen round robin wordt uitgevoerd of een andere met gelijke taakverdeling routering tussen de lokale replica's van de secundaire database. 

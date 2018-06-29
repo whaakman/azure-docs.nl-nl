@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: a856c59191a1e35b78d1ab6c2c88ab5288ea1419
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836480"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058968"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Vehicle telemetrie Analytics-oplossing playbook: Deep Duik in de oplossing
 Dit menu is gekoppeld aan de secties van dit playbook: 
@@ -35,7 +35,7 @@ De oplossing maakt gebruik van twee verschillende gegevensbronnen:
 * Gesimuleerde vehicle signalen en diagnostische gegevens
 * Vehicle catalogus
 
-Een drager telematica simulator is opgenomen als onderdeel van deze oplossing, zoals wordt weergegeven in de volgende schermafbeelding. Deze verzendt diagnostische gegevens en signalen die overeenkomen met de status van de drager en het aangedreven patroon op een bepaald tijdstip. Als u wilt de drager telematica Simulator Visual Studio-oplossing voor aanpassingen op basis van uw vereisten hebt gedownload, gaat u naar de [Vehicle telematica simulator](http://go.microsoft.com/fwlink/?LinkId=717075) webpagina. De catalogus drager bevat een verwijzing van een gegevensset die vehicle-id's (VINs) wordt toegewezen aan modellen.
+Een drager telematica simulator is opgenomen als onderdeel van deze oplossing, zoals wordt weergegeven in de volgende schermafbeelding. Deze verzendt diagnostische gegevens en signalen die overeenkomen met de status van de drager en het aangedreven patroon op een bepaald tijdstip.  De catalogus drager bevat een verwijzing van een gegevensset die vehicle-id's (VINs) wordt toegewezen aan modellen. Opmerking: De gegevensset Vehicle telematica Simulator Visual Studio-oplossing is niet meer beschikbaar. 
 
 ![Vehicle telematica simulator](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
@@ -363,7 +363,7 @@ Er is een toepassing opgenomen als onderdeel van de oplossing voor de machine le
 
 Dit patroon is ook van toepassing op scenario's waarin u wilt integreren van een line-of-business-toepassing met de stroom van realtime-analyses. Deze scenario's omvatten waarschuwingen, meldingen en messaging.
 
-Zie voor het downloaden van de RealtimeDashboardApp Visual Studio-oplossing voor aanpassingen de [RealtimeDashboardApp downloaden](http://go.microsoft.com/fwlink/?LinkId=717078) webpagina. 
+Opmerking: de gegevens voor de RealtimeDashboardApp Visual Studio-oplossing is niet meer beschikbaar.
 
 #### <a name="execute-the-real-time-dashboard-application"></a>**De dashboardtoepassing realtime uitvoeren**
 1. Pak de RealtimeDashboardApp en lokaal opslaat.
@@ -669,10 +669,9 @@ Dit document bevat een gedetailleerde inzoomen van de drager telemetrie Analytic
 
 ### <a name="references"></a>Verwijzingen
 
-* [Vehicle telematica Simulator Visual Studio-oplossing](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [Azure Event Hubs-SDK voor streamopname](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-* [Data movement mogelijkheden van Azure Data Factory](../../data-factory/v1/data-factory-data-movement-activities.md)
-* [Azure Data Factory .NET-activiteit](../../data-factory/v1/data-factory-use-custom-activities.md)
+* [Data movement mogelijkheden van Azure Data Factory](../../data-factory/copy-activity-overview.md)
+* [Azure Data Factory .NET-activiteit](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Azure Data Factory .NET-activiteit gebruikt voor het voorbereiden van de voorbeeldgegevens van Visual Studio-oplossing](http://go.microsoft.com/fwlink/?LinkId=717077) 

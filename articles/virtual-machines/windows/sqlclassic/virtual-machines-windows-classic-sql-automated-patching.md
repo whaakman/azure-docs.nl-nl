@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4bb13ec9d835959273801c2f53c8d736491080a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852707"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061332"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatisch patchen voor SQL Server op Azure Virtual Machines (klassiek)
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Op basis van dit voorbeeld, beschrijft de volgende tabel de praktische gevolgen 
 | --- | --- |
 | **DayOfWeek** |Patches elke donderdag geïnstalleerd. |
 | **MaintenanceWindowStartingHour** |Begin updates om 11:00 uur. |
-| **MaintenanceWindowsDuration** |Patches moeten worden geïnstalleerd binnen 120 minuten. Op basis van de begintijd, moeten ze volledig 13:00 uur. |
+| **MaintenanceWindowDuration** |Patches moeten worden geïnstalleerd binnen 120 minuten. Op basis van de begintijd, moeten ze volledig 13:00 uur. |
 | **PatchCategory** |De instelling alleen mogelijk voor deze parameter is 'Belangrijk'. |
 
 Dit kan enige tijd duren om te installeren en configureren van de SQL Server IaaS-Agent.

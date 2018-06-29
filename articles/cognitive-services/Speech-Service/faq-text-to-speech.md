@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: fa25f16d3ef7ee8c7ec4c0c9ee17ccc89e8c52a2
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: MT
+ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321853"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045840"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Aangepaste spraak Service Veelgestelde vragen
 
@@ -88,7 +88,7 @@ Contact met ons opnemen als u een hogere schaal vereist.
 
 **Vraag**: het gegevensrapport staat er mislukte utterances zijn. Wat is het probleem?
 
-**Antwoord**: mislukt voor het uploaden van 100% van de utterences in een bestand is geen probleem.
+**Antwoord**: mislukt voor het uploaden van 100% van de utterances in een bestand is geen probleem.
 Als de grote meerderheid van de utterances in een gegevens- of taalinstellingen acoustic ingesteld (bijvoorbeeld > 95%) met succes worden geïmporteerd, de gegevensset kan worden gebruikt. Het is raadzaam dat u probeert te begrijpen waarom de utterances is mislukt en los de problemen. Meest voorkomende problemen, zoals opmaakfouten, zijn gemakkelijk op te lossen. 
 
 ## <a name="creating-am"></a>AM maken
@@ -148,7 +148,7 @@ Het model van de basislijn om de aanpassingen waard tegen worden behaald
 **Vraag**: kan ik alleen uploaden een lijst met woorden?
 
 **Antwoord**: het uploaden van een lijst met woorden zal woorden in woordenlijst maar geen informatie over het systeem hoe de woorden in die meestal worden gebruikt.
-Dankzij de volledige of gedeeltelijke utterances (zinnen of zinnen van gebruikers, zullen in te spreken dingen) het taalmodel kan informatie over de nieuwe woorden en hoe ze worden gebruikt. Het taalmodel aangepaste is goed niet alleen voor het ophalen van nieuwe woorden in het systeem, maar ook voor het aanpassen van de kans van bekende woorden voor uw toepassing. Volledige utterances bieden, kunt u het systeem meer ebtter. 
+Dankzij de volledige of gedeeltelijke utterances (zinnen of zinnen van gebruikers, zullen in te spreken dingen) het taalmodel kan informatie over de nieuwe woorden en hoe ze worden gebruikt. Het taalmodel aangepaste is goed niet alleen voor het ophalen van nieuwe woorden in het systeem, maar ook voor het aanpassen van de kans van bekende woorden voor uw toepassing. Volledige utterances bieden, kunt u het systeem beter leren. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

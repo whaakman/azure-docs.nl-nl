@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b6de6331b4d829f183c8b5dc03d6a29095a47479
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619249"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049326"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Prestaties van de activiteit en prestatieafstemming handleiding kopiëren
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-copy-activity-performance.md)
-> * [Versie 2 - Preview](copy-activity-performance.md)
+> * [Versie 1](v1/data-factory-copy-activity-performance.md)
+> * [Huidige versie](copy-activity-performance.md)
 
 
 Azure Data Factory-Kopieeractiviteit biedt een uitstekende gegevens veilig, betrouwbaar en hoge prestaties bij het laden van oplossing. Deze Hiermee kunt u voor het kopiëren van tientallen terabytes aan gegevens elke dag op uitgebreide tal van cloud en het on-premises gegevensopslagexemplaren. Razendsnelle snel gegevens laden van prestaties is sleutel zodat u zich kunt richten op het probleem van core 'big data': bouwen van oplossingen voor geavanceerde analyses om inzichten te verkrijgen grondige van die gegevens.
-
-> [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [prestaties van de activiteit in de Data Factory versie 1 kopiëren](v1/data-factory-copy-activity-performance.md).
 
 Azure biedt een reeks bedrijfsniveau oplossingen voor opslag en data warehouse en Kopieeractiviteit biedt een maximaal geoptimaliseerd gegevens te laden ervaring die eenvoudig te configureren en instellen. Met slechts één exemplaar-activiteit, kunt u bereiken:
 
@@ -40,7 +37,7 @@ Azure biedt een reeks bedrijfsniveau oplossingen voor opslag en data warehouse e
 Dit artikel wordt beschreven:
 
 * [Prestaties nummers](#performance-reference) voor ondersteunde gegevensarchieven bron- en sink voor het plannen van uw project.
-* Functies die de kopie doorvoer in verschillende scenario's, inclusief kunnen stimuleren [cloud Data Movement Units](#cloud-data-movement-units), [kopie parallelle](#parallel-copy), en [kopie gefaseerde](#staged-copy);
+* Functies die de kopie doorvoer in verschillende scenario's, inclusief kunnen stimuleren [gegevens integratie eenheden](#data-integration-units), [kopie parallelle](#parallel-copy), en [kopie gefaseerde](#staged-copy);
 * [Prestaties afstemmen richtlijnen](#performance-tuning-steps) op het afstemmen van de prestaties en de belangrijkste factoren die invloed op prestaties van de kopie hebben kunnen.
 
 > [!NOTE]
@@ -49,12 +46,12 @@ Dit artikel wordt beschreven:
 
 ## <a name="performance-reference"></a>Verwijzing voor prestaties
 
-Als een verwijzing onderstaande tabel ziet u het nummer van de doorvoer kopiëren **in MBps** voor de opgegeven bron- en sink-paren **in een enkel exemplaar activiteit uitgevoerd** op basis van een intern testen. Ter vergelijking: u ziet ook hoe verschillende instellingen van [cloud data movement eenheden](#cloud-data-movement-units) of [Self-hosted integratie Runtime schaalbaarheid](concepts-integration-runtime.md#self-hosted-integration-runtime) (meerdere knooppunten) kunt u op de prestaties van de kopie.
+Als een verwijzing onderstaande tabel ziet u het nummer van de doorvoer kopiëren **in MBps** voor de opgegeven bron- en sink-paren **in een enkel exemplaar activiteit uitgevoerd** op basis van een intern testen. Ter vergelijking: u ziet ook hoe verschillende instellingen van [Data integratie Units](#data-integration-units) of [Self-hosted integratie Runtime schaalbaarheid](concepts-integration-runtime.md#self-hosted-integration-runtime) (meerdere knooppunten) kunt u op de prestaties van de kopie.
 
 ![Matrix van prestaties](./media/copy-activity-performance/CopyPerfRef.png)
 
->[!IMPORTANT]
->In Azure Data Factory versie 2 als de kopieerbewerking wordt uitgevoerd op een Runtime-integratie van Azure de minimale toegestane cloud data movement eenheden is twee. Als niet wordt opgegeven, raadpleegt u data movement standaardeenheden wordt gebruikt in [cloud data movement eenheden](#cloud-data-movement-units).
+> [!IMPORTANT]
+> Wanneer de kopieerbewerking wordt uitgevoerd op een Azure-integratie Runtime, is de minimale toegestane Data integratie Units (voorheen bekend als Data Movement Units) twee. Als niet wordt opgegeven, ziet u gegevens integratie standaardeenheden wordt gebruikt in [Data integratie Units](#data-integration-units).
 
 Verwijst naar Let op:
 
@@ -79,25 +76,25 @@ Verwijst naar Let op:
 
 
 > [!TIP]
-> Met behulp van meer gegevens gegevensverplaatsing eenheden (DMUs) dan de standaardwaarde toegestaan maximum DMUs die 32 voor een exemplaar van cloud-naar-cloud activiteit die wordt uitgevoerd, kunt u hogere doorvoer behalen. Bijvoorbeeld, met 100 DMUs bereikt u kopiëren van gegevens van Azure-Blob in Azure Data Lake Store op **1.0GBps**. Zie de [Cloud data movement eenheden](#cloud-data-movement-units) sectie voor meer informatie over deze functie en de ondersteunde scenario. Neem contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/) meer DMUs aanvragen.
+> Met behulp van meer gegevens integratie eenheden (DIU) dan de standaardwaarde toegestaan maximum DIUs die 32 voor een exemplaar van cloud-naar-cloud activiteit die wordt uitgevoerd, kunt u hogere doorvoer behalen. Bijvoorbeeld, met 100 DIUs bereikt u kopiëren van gegevens van Azure-Blob in Azure Data Lake Store op **1.0GBps**. Zie de [Data integratie Units](#data-integration-units) sectie voor meer informatie over deze functie en de ondersteunde scenario. Neem contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/) meer DIUs aanvragen.
 
-## <a name="cloud-data-movement-units"></a>Cloud data movement-eenheden
+## <a name="data-integration-units"></a>Gegevens integratie-eenheden
 
-Een **cloud gegevensverplaatsing gegevenseenheid (DMU)** is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in de Data Factory. **DMU is alleen van toepassing op [Azure integratie Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, maar niet [Self-hosted integratie Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
+Een **gegevens integratie Unit (DIU)** (voorheen bekend als Cloud Data Movement Unit of DMU) is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in de Data Factory. **DIU is alleen van toepassing op [Azure integratie Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, maar niet [Self-hosted integratie Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**De minimale cloud gegevens gegevensverplaatsing eenheden zorgen Kopieeractiviteit uitvoeren is twee.** Als niet wordt opgegeven, bevat de volgende tabel de standaard DMUs gebruikt in scenario's voor verschillende kopiëren:
+**De minimale gegevens integratie eenheden zorgen Kopieeractiviteit uitvoeren is twee.** Als niet wordt opgegeven, bevat de volgende tabel de standaard DIUs gebruikt in scenario's voor verschillende kopiëren:
 
-| Scenario voor kopiëren | Standaard DMUs bepaald door de service |
+| Scenario voor kopiëren | Standaard DIUs bepaald door de service |
 |:--- |:--- |
 | Gegevens kopiëren tussen winkels op basis van bestanden | Tussen 4 en 32 liggen, afhankelijk van het aantal en de grootte van de bestanden. |
 | Alle andere kopie-scenario 's | 4 |
 
-Om deze standaardinstelling negeren, Geef een waarde op voor de **cloudDataMovementUnits** eigenschap als volgt. De **toegestane waarden** voor de **cloudDataMovementUnits** eigenschap is **maximaal 256**. De **werkelijke aantal cloud DMUs** dat de kopieerbewerking wordt gebruikt tijdens de uitvoering is gelijk aan of kleiner zijn dan de geconfigureerde waarde, afhankelijk van het patroon van uw gegevens. Zie voor informatie over het niveau van prestatieverbetering krijgt u mogelijk wanneer u meer eenheden voor een specifieke kopieerbron en sink configureert, de [prestaties verwijzing](#performance-reference).
+Om deze standaardinstelling negeren, Geef een waarde op voor de **dataIntegrationUnits** eigenschap als volgt. De **toegestane waarden** voor de **dataIntegrationUnits** eigenschap is **maximaal 256**. De **werkelijke aantal DIUs** dat de kopieerbewerking wordt gebruikt tijdens de uitvoering is gelijk aan of kleiner zijn dan de geconfigureerde waarde, afhankelijk van het patroon van uw gegevens. Zie voor informatie over het niveau van prestatieverbetering krijgt u mogelijk wanneer u meer eenheden voor een specifieke kopieerbron en sink configureert, de [prestaties verwijzing](#performance-reference).
 
-Hier ziet u de eenheden daadwerkelijk gebruikte cloud data movement voor elke kopie die wordt uitgevoerd in de kopieerbewerking uitvoer bij de bewaking van een activiteit die wordt uitgevoerd. Meer informatie over de details van [kopiëren activiteitenbewaking](copy-activity-overview.md#monitoring).
+Hier ziet u de eenheden van de werkelijk gebruikte gegevens integratie voor elk exemplaar worden uitgevoerd in de kopieerbewerking uitvoer bij de bewaking van een activiteit die wordt uitgevoerd. Meer informatie over de details van [kopiëren activiteitenbewaking](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Als u meer cloud DMUs voor een hogere doorvoer moet, neem dan contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/). Instellen van 8 en hoger momenteel werkt alleen als u **meerdere bestanden kopiëren van Blob-opslag/Data Lake Store/Amazon S3/cloud FTP-/ cloud SFTP naar een andere cloud gegevensarchieven**.
+> Als u meer DIUs voor een hogere doorvoer moet, neem dan contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/). Instellen van 8 en hoger momenteel werkt alleen als u **meerdere bestanden kopiëren van Blob-opslag/Data Lake Store/Amazon S3/cloud FTP-/ cloud SFTP naar een andere cloud gegevensarchieven**.
 >
 
 **Voorbeeld:**
@@ -116,15 +113,15 @@ Hier ziet u de eenheden daadwerkelijk gebruikte cloud data movement voor elke ko
             "sink": {
                 "type": "AzureDataLakeStoreSink"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
 ```
 
-### <a name="cloud-data-movement-units-billing-impact"></a>Cloud data movement eenheden impact facturering
+### <a name="data-integration-units-billing-impact"></a>Gegevens integratie eenheden facturering impact
 
-Deze heeft **belangrijke** te onthouden dat u in rekening worden gebracht op basis van de totale tijd van de kopieerbewerking. De totale duur die u wordt gefactureerd voor gegevensverplaatsing is de som van de duur voor DMUs. Als een taak kopiëren gebruikt voor één uur duren voordat met twee cloud eenheden en nu het met acht cloud eenheden 15 minuten duurt, blijft de algehele factuur bijna hetzelfde.
+Deze heeft **belangrijke** te onthouden dat u in rekening worden gebracht op basis van de totale tijd van de kopieerbewerking. De totale duur die u wordt gefactureerd voor gegevensverplaatsing is de som van de duur voor DIUs. Als een taak kopiëren gebruikt voor één uur duren voordat met twee cloud eenheden en nu het met acht cloud eenheden 15 minuten duurt, blijft de algehele factuur bijna hetzelfde.
 
 ## <a name="parallel-copy"></a>Parallelle kopie
 
@@ -134,7 +131,7 @@ Data Factory bepaalt voor elke kopie-activiteit is uitgevoerd, het aantal parall
 
 | Scenario voor kopiëren | Standaard parallelle kopie aantal bepaald door de service |
 | --- | --- |
-| Gegevens kopiëren tussen winkels op basis van bestanden |Afhankelijk van de grootte van de bestanden en het aantal cloud data movement eenheden (DMUs) gebruikt om te kopiëren van gegevens tussen twee cloud gegevensarchieven of de fysieke configuratie van de machine Self-hosted integratie Runtime. |
+| Gegevens kopiëren tussen winkels op basis van bestanden |Afhankelijk van de grootte van de bestanden en het aantal eenheden van de integratie van gegevens (DIUs) gebruikt om te kopiëren van gegevens tussen twee cloud gegevensarchieven of de fysieke configuratie van de machine Self-hosted integratie Runtime. |
 | Gegevens kopiëren van een brongegevensarchief naar Azure Table storage |4 |
 | Alle andere kopie-scenario 's |1 |
 
@@ -168,7 +165,7 @@ Verwijst naar Let op:
 * Als u gegevens tussen winkels op basis van bestanden, kopieert de **parallelCopies** bepalen de parallelle uitvoering op bestandsniveau. De verdeling in segmenten binnen één bestand gebeurt onder automatisch en transparant en deze is ontworpen voor het gebruik van de meest geschikte chunkgrootte voor een bepaalde bron-gegevenstype store laden van gegevens in de parallelle en rechthoekige naar parallelCopies. Het werkelijke aantal parallelle kopieën data movement service wordt gebruikt voor de kopieerbewerking tijdens de uitvoering is niet meer dan het aantal bestanden die u hebt. Als u het gedrag van de kopie is **mergeFile**, Kopieeractiviteit kan niet profiteren van bestandsniveau parallelle uitvoering.
 * Wanneer u een waarde opgeven voor de **parallelCopies** eigenschap, moet u overwegen de toename van de belasting op de bron- en sink-gegevensarchieven en voor Self-Hosted integratie Runtime als de kopieeractiviteit bevoegd is door er bijvoorbeeld voor hybride exemplaar. Dit gebeurt met name wanneer er meerdere activiteiten of gelijktijdige wordt uitgevoerd dezelfde activiteiten die hetzelfde gegevensarchief uitgevoerd. Als u merkt dat het gegevensarchief of het Self-hosted integratie Runtime met de belasting wordt overbelast, vermindert u de **parallelCopies** waarde om te helpen de belasting.
 * Als u gegevens van winkels die zich niet op basis van bestanden naar winkels op basis van een bestand kopieert, data movement service negeert de **parallelCopies** eigenschap. Zelfs als parallelle uitvoering is opgegeven, wordt deze niet toegepast in dit geval.
-* **parallelCopies** staat haaks op **cloudDataMovementUnits**. De voormalige wordt over alle cloud data movement eenheden geteld.
+* **parallelCopies** staat haaks op **dataIntegrationUnits**. De voormalige wordt via de eenheden voor de integratie van gegevens geteld.
 
 ## <a name="staged-copy"></a>Gefaseerde kopiëren
 
@@ -246,14 +243,14 @@ We raden aan dat u deze stappen nemen om afstemmen van de prestaties van uw Data
 
    * Prestatiefuncties:
      * [Parallelle kopie](#parallel-copy)
-     * [Cloud data movement-eenheden](#cloud-data-movement-units)
+     * [Gegevens integratie-eenheden](#data-integration-units)
      * [Gefaseerde kopiëren](#staged-copy)
      * [Host zichzelf integratie Runtime-schaalbaarheid](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Host zichzelf integratie Runtime](#considerations-for-self-hosted-integration-runtime)
    * [Bron](#considerations-for-the-source)
    * [Sink](#considerations-for-the-sink)
    * [Serialisatie en deserialisatie](#considerations-for-serialization-and-deserialization)
-   * [Compressie](#considerations-for-compression)
+   * [compressie](#considerations-for-compression)
    * [Kolomtoewijzing](#considerations-for-column-mapping)
    * [Andere overwegingen](#other-considerations)
 

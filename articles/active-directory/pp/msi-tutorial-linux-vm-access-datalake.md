@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a70f02fca5ebf575bc009623c3af648a5a80fd70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 358827722e8d77cd91410fae842ad2ba99967d98
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153741"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028894"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Data Lake Store
 
@@ -190,7 +190,7 @@ Gefeliciteerd!  U hebt geverifieerd voor het Data Lake Store-bestandssysteem met
 - Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](msi-overview.md).
 - Bewerkingen Data Lake Store maakt gebruik van Azure Resource Manager voor beheer.  Lees voor meer informatie over het gebruik van een VM MSI om te verifiëren naar Resource Manager [een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot de Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Meer informatie over [verificatie met Data Lake Store met Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
-- Meer informatie over [Bestandssysteembewerkingen op Azure Data Lake Store met REST-API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) of de [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md).
+- Meer informatie over [Bestandssysteembewerkingen op Azure Data Lake Store met REST-API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) of de [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Meer informatie over [toegangsbeheer in Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).
 
 Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.

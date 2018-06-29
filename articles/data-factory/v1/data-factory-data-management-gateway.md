@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d28d25b74ce46c0323b01670bfdb639c02b92d8a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335802"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048914"
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [zelf gehost integratie runtime in versie 2](../create-self-hosted-integration-runtime.md). 
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [zelf gehost integratie runtime in](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > Data Management Gateway is nu is rebranded als Self-hosted integratie Runtime.  
@@ -249,7 +249,7 @@ Als u een firewall van derden gebruikt, kunt u handmatig de poort 8050 openen. A
 
 Als u niet de poort te openen 8050 op de gatewaycomputer, gebruikgemaakt van mechanismen dan met behulp van de **instelling referenties** toepassing voor het configureren van referenties voor gegevensopslag. U kunt bijvoorbeeld [nieuw AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell-cmdlet. Zie [instelling referenties en beveiliging](#set-credentials-and-securityy) sectie op hoe de referenties voor het opslaan van gegevens kan worden ingesteld.
 
-## <a name="update"></a>Bijwerken
+## <a name="update"></a>Update
 Data management gateway wordt standaard automatisch bijgewerkt wanneer een nieuwere versie van de gateway beschikbaar is. De gateway is niet bijgewerkt tot de geplande taken kunt uitvoeren. Geen verdere taken worden verwerkt door de gateway, totdat de updatebewerking is voltooid. Als de update is mislukt, is gateway teruggedraaid naar de oude versie.
 
 De geplande updatetijd ziet u in de volgende locaties:
@@ -288,12 +288,12 @@ U kunt inschakelen/uitschakelen de functie voor automatisch bijwerken door de vo
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[Voor meerdere knooppunten maximaal beschikbare en schaalbare gateway (preview)](data-factory-data-management-gateway-high-availability-scalability.md)
+[Voor de maximaal beschikbare en schaalbare gateway met meerdere knooppunten](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Start Windows PowerShell op de gateway-apparaat.
 2. Ga naar de map C:\Program Files\Microsoft integratie Runtime\3.0\PowerShellScript\.
 3. Voer de volgende opdracht om de automatische updates inschakelen functie uit te schakelen.   
 
-    Een extra AuthKey param is vereist voor de gateway met hoge beschikbaarheid-functie (preview).
+    Een extra AuthKey param is vereist voor de gateway met hoge beschikbaarheid-functie.
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
@@ -369,7 +369,7 @@ Beschikbaar geheugen | Beschikbaar geheugen op een gateway-knooppunt. Deze waard
 CPU-gebruik | CPU-gebruik van een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 
 Networking (In/Out) | Netwerkgebruik van een gateway-knooppunt. Deze waarde is een momentopname van een bijna realtime. 
 Gelijktijdige taken (actief / beperken) | Het aantal taken of taken die op elk knooppunt worden uitgevoerd. Deze waarde is een momentopname van een bijna realtime. Limiet geeft aan dat het maximum aantal gelijktijdige taken voor elk knooppunt. Deze waarde is gedefinieerd op basis van de grootte van de machine. U kunt de limiet voor gelijktijdige taakuitvoering in geavanceerde scenario's waarbij geheugen-CPU-netwerk onder gebruikt, maar activiteiten zijn time-out opschalen verhogen. Deze mogelijkheid is ook beschikbaar met één knooppunt gateway (zelfs wanneer de functie voor schaalbaarheid en beschikbaarheid is niet ingeschakeld).  
-Functie | Er zijn twee soorten rollen in een gateway met meerdere knooppunten - Dispatcher- en werkrollen. Alle knooppunten zijn werknemers, wat betekent dat ze kunnen alle worden gebruikt om uit te voeren taken. Er is slechts één dispatcher knooppunt, die wordt gebruikt voor het pull-taken/taken van cloudservices en ze verzenden naar andere worker-knooppunten (inclusief zelf).
+Rol | Er zijn twee soorten rollen in een gateway met meerdere knooppunten - Dispatcher- en werkrollen. Alle knooppunten zijn werknemers, wat betekent dat ze kunnen alle worden gebruikt om uit te voeren taken. Er is slechts één dispatcher knooppunt, die wordt gebruikt voor het pull-taken/taken van cloudservices en ze verzenden naar andere worker-knooppunten (inclusief zelf).
 
 In deze pagina ziet u enkele instellingen die duidelijker wanneer er twee of meer knooppunten (scale-out-scenario) in de gateway. Zie [Data Management Gateway - hoge beschikbaarheid en schaalbaarheid](data-factory-data-management-gateway-high-availability-scalability.md) voor meer informatie over het instellen van een gateway met meerdere knooppunten.
 
@@ -380,7 +380,7 @@ Status  | Opmerkingen/scenario 's
 :------- | :------------------
 Online | Knooppunt verbonden met Data Factory-service.
 Offline | Knooppunt is offline.
-Bijwerken | Het knooppunt wordt automatisch bijgewerkt.
+Upgraden | Het knooppunt wordt automatisch bijgewerkt.
 Beperkt | Vanwege een verbindingsprobleem. Kan worden veroorzaakt door HTTP-poort 8050 probleem, service bus-verbindingsprobleem of synchronisatieprobleem in de referentie. 
 Inactief | Er is een knooppunt in een configuratie van de configuratie van andere knooppunten van de meeste andere.<br/><br/> Een knooppunt mag inactief zijn als er geen verbinding met andere knooppunten maken. 
 

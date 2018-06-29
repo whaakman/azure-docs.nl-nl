@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1d566a719abaf09146965a677868d363d33d10e5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 189adf27795172bb08b52af1a9e3428d854a50a0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622761"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046727"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Verplaatsen van gegevens uit een PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-onprem-postgresql-connector.md)
-> * [Versie 2 - Preview](../connector-postgresql.md)
+> * [Versie 1](data-factory-onprem-postgresql-connector.md)
+> * [Versie 2 (huidige versie)](../connector-postgresql.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [PostgreSQL-connector in V2](../connector-postgresql.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [PostgreSQL-connector in V2](../connector-postgresql.md).
 
 
 In dit artikel wordt uitgelegd hoe de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van een on-premises PostgreSQL-database gebruiken. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont.
@@ -308,7 +308,7 @@ Wanneer u gegevens naar PostgreSQL verplaatst, worden de volgende toewijzingen v
 | Type PostgreSQL-Database | PostgresSQL aliassen | .NET framework-type |
 | --- | --- | --- |
 | abstime | |Datum en tijd | &nbsp;
-| bigint |int8 |Int64 |
+| bigint |Int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bits [(n)] | |Byte [], String | &nbsp;
 | bit uiteenlopende [(n)] |varbit |Byte [], String |
@@ -322,7 +322,7 @@ Wanneer u gegevens naar PostgreSQL verplaatst, worden de volgende toewijzingen v
 | cirkel | |Byte [], String |&nbsp;
 | datum | |Datum en tijd |&nbsp;
 | DateRange | |Reeks |&nbsp;
-| dubbele precisie |FLOAT8 |dubbele |
+| dubbele precisie |FLOAT8 |Double |
 | INet | |Byte [], String |&nbsp;
 | intarry | |Reeks |&nbsp;
 | int4range | |Reeks |&nbsp;
@@ -331,16 +331,16 @@ Wanneer u gegevens naar PostgreSQL verplaatst, worden de volgende toewijzingen v
 | interval [velden] [(p)] | |Periode |&nbsp;
 | json | |Reeks |&nbsp;
 | jsonb | |Byte[] |&nbsp;
-| regel | |Byte [], String |&nbsp;
+| Regel | |Byte [], String |&nbsp;
 | lseg | |Byte [], String |&nbsp;
 | macaddr | |Byte [], String |&nbsp;
-| Money | |Decimale |&nbsp;
-| numerieke [(p, s)] |Decimal [(p, s)] |Decimale |
+| Money | |decimale |&nbsp;
+| numerieke [(p, s)] |Decimal [(p, s)] |decimale |
 | numrange | |Reeks |&nbsp;
 | OID | |Int32 |&nbsp;
 | pad | |Byte [], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
-| beheerpunt | |Byte [], String |&nbsp;
+| Beheerpunt | |Byte [], String |&nbsp;
 | veelhoek | |Byte [], String |&nbsp;
 | echte |FLOAT4 |Enkelvoudig |
 | smallint |int2 |Int16 |

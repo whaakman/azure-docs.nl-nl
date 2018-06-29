@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0c115cce7659fe1f10e8d3d9c988748151916ce0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 951756d57441d175ccf8bab44bf00c3cb542f1b9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620738"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050043"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Zelfstudie: Bouw uw eerste pijplijn voor het transformeren van gegevens met Hadoop-cluster
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "34620738"
 
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service gebruikt, welke nog een preview is, raadpleegt u [Snelstartgids: een gegevensfactory maken met Azure Data Factory versie 2](../quickstart-create-data-factory-dot-net.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Snelstartgids: Maak een gegevensfactory met Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 In deze zelfstudie bouwt u uw eerste Azure-gegevensfactory met een pipeline gegevens. De pijplijn transformeert invoergegevens door het Hive-script uitgevoerd op een cluster met Azure HDInsight (Hadoop) voor het produceren van uitvoergegevens.  
 

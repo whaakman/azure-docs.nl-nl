@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400670"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048468"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Diepgaand - geavanceerde analyses
 
@@ -28,7 +28,7 @@ HDInsight biedt de mogelijkheid om op te halen inzicht van grote hoeveelheden ge
 
 ## <a name="advanced-analytics-process"></a>Geavanceerde analyses proces
 
-![Verwerken](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Proces](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 Nadat u het zakelijke probleem hebt geïdentificeerd en hebt gestart met het verzamelen en verwerken van uw gegevens die u wilt maken van een model voor de vraag die u wilt voorspellen. Het model wordt een of meer machine learning-algoritmen gebruiken om het type van de voorspelling die het beste past bij de behoeften van uw bedrijf.  Het merendeel van uw gegevens moet worden gebruikt voor het trainen van het model met de rest gebruikt om te testen of deze evalueren. 
 
@@ -61,7 +61,7 @@ Samen met de best passende verifiëringsalgoritme (s) selecteren, moet u rekenin
 HDInsight heeft meerdere machine learning-opties voor een geavanceerde analyses werkstroom:
 
 * [Machine Learning en Spark](#machine-learning-and-spark)
-* [R en R Server](#r-and-r-server)
+* [R en ML-Services](#r-and-r-server)
 * [Azure Machine Learning en Hive](#azure-machine-learning-and-hive)
 * [Spark en grondige leren](#spark-and-deep-learning)
 
@@ -75,9 +75,9 @@ Er zijn drie schaalbare machine learning-bibliotheken die algoritmische modeller
 * [**SparkML** ](https://spark.apache.org/docs/1.2.2/ml-guide.html) -SparkML is een nieuwere pakket een hoger niveau API gebouwd boven op Spark DataFrames biedt voor het maken van ML pijplijnen.
 * [**MMLSpark** ](https://github.com/Azure/mmlspark) : de Microsoft-Machine Learning-bibliotheek voor Apache Spark (MMLSpark) is ontworpen om gegevenswetenschappers productiever op Spark, verhoogt de snelheid van experimenteren en gebruik van geavanceerde machine learning technieken, waaronder grondige kennis, op zeer grote gegevenssets. De bibliotheek MMLSpark vereenvoudigt algemene modellering taken voor het bouwen van modellen in PySpark. 
 
-### <a name="r-and-r-server"></a>R en R Server
+### <a name="r-and-ml-services"></a>R en ML-Services
 
-Als onderdeel van HDInsight, kunt u een HDInsight-cluster met [R Server](../r-server/r-server-overview.md) gereed om te worden gebruikt met grote gegevenssets en -modellen. Deze nieuwe mogelijkheid biedt gegevenswetenschappers en statistici met een bekend R-interface die kunnen worden geschaald op aanvraag via HDInsight, zonder de overhead van het cluster instellen en beheren.
+Als onderdeel van HDInsight, kunt u een HDInsight-cluster met [ML Services](../r-server/r-server-overview.md) gereed om te worden gebruikt met grote gegevenssets en -modellen. Deze nieuwe mogelijkheid biedt gegevenswetenschappers en statistici met een bekend R-interface die kunnen worden geschaald op aanvraag via HDInsight, zonder de overhead van het cluster instellen en beheren.
 
 ### <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning en Hive
 

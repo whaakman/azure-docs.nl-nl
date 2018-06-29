@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: d12038daf5d74889ca99ed2c7d35009f4cb7add7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622810"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053130"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](data-factory-use-custom-activities.md)
-> * [Versie 2 - Preview](../transform-data-using-dotnet-custom-activity.md)
+> * [Versie 1](data-factory-use-custom-activities.md)
+> * [Versie 2 (huidige versie)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [aangepaste activiteiten in V2](../transform-data-using-dotnet-custom-activity.md).
+> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [aangepaste activiteiten in V2](../transform-data-using-dotnet-custom-activity.md).
 
 Er zijn twee soorten activiteiten die u in een Azure Data Factory-pijplijn gebruiken kunt.
 
@@ -387,7 +387,7 @@ De methode retourneert een woordenlijst die kan worden gebruikt om een keten van
 15. MyDotNetActivity.zip uploaden als een blob naar de customactivitycontainer in een **algemeen** Azure blob-opslag (geen hot/cool Blob-opslag) waarnaar wordt verwezen door AzureStorageLinkedService.  
 
 > [!IMPORTANT]
-> Als u deze activiteit .NET project toevoegen aan een oplossing in Visual Studio met een Data Factory-project en voeg een verwijzing naar .NET activiteit project uit de application Data Factory-project, hoeft u niet de laatste twee stappen handmatig het zip-bestand maken en uploaden naar algemene Azure blob storage uit te voeren. Wanneer u met behulp van Visual Studio Data Factory-entiteiten publiceert, worden deze stappen automatisch uitgevoerd door het publicatieproces. Zie voor meer informatie [Data Factory-project in Visual Studio](#data-factory-project-in-visual-studio) sectie.
+> Als u deze activiteit .NET project toevoegen aan een oplossing in Visual Studio met een Data Factory-project en voeg een verwijzing naar .NET activiteit project uit de application Data Factory-project, hoeft u niet de laatste twee stappen voor het maken van het ZIP-bestand handmatig uitvoeren bestands- en uploaden naar de algemene Azure blob-opslag. Wanneer u met behulp van Visual Studio Data Factory-entiteiten publiceert, worden deze stappen automatisch uitgevoerd door het publicatieproces. Zie voor meer informatie [Data Factory-project in Visual Studio](#data-factory-project-in-visual-studio) sectie.
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Een pijplijn maken met aangepaste activiteit
 U hebt gemaakt van een aangepaste activiteit en het zip-bestand met binaire bestanden geüpload naar een blobcontainer in een **algemeen** Azure Storage-Account. In deze sectie maakt u een Azure data factory met een pipeline die gebruikmaakt van de aangepaste activiteit.
@@ -706,7 +706,7 @@ Het oplossen van problemen bestaat uit een paar eenvoudige technieken:
    Controleer daarnaast **system 0.log** voor elk systeem foutberichten en uitzonderingen.
 4. Bevatten de **PDB** bestand in het zip-bestand, zodat de foutdetails beschikt over informatie zoals **aanroepstack** wanneer er een fout optreedt.
 5. Alle bestanden in het zip-bestand voor de aangepaste activiteit moeten zich op het **hoogste niveau** bevinden, zonder submappen.
-6. Zorg ervoor dat de **assemblyName** (MyDotNetActivity.dll) **entryPoint**(MyDotNetActivityNS.MyDotNetActivity) **packageFile** (customactivitycontainer/MyDotNetActivity.zip) en **packageLinkedService** (moet verwijzen naar de **algemeen**Azure blob-opslag met het zipbestand) zijn ingesteld op de juiste waarden.
+6. Zorg ervoor dat de **assemblyName** (MyDotNetActivity.dll) **entryPoint**(MyDotNetActivityNS.MyDotNetActivity) **packageFile** (customactivitycontainer / MyDotNetActivity.zip) en **packageLinkedService** (moet verwijzen naar de **algemeen**Azure blob-opslag met het zipbestand) zijn ingesteld op de juiste waarden.
 7. Als u een fout hebt hersteld en het segment opnieuw wilt verwerken, klikt u met de rechtermuisknop op het segment op de blade **OutputDataset** en klikt u op **Uitvoeren**.
 8. Als u de volgende fout ziet, gebruikt u de Azure Storage-pakket van versie > 4.3.0. Data Factory-service starten is de versie 4.3 van WindowsAzure.Storage vereist. Zie [Appdomain isolatie](#appdomain-isolation) sectie voor een tijdelijke oplossing als u de nieuwere versie van Azure Storage-assembly moet gebruiken. 
 
@@ -721,9 +721,9 @@ Het oplossen van problemen bestaat uit een paar eenvoudige technieken:
     ```
 
     Maak het project. Assembly van versie > 4.3.0 Azure.Storage uit de map bin\Debug verwijderen. Een zipbestand met de binaire bestanden en de PDB-bestand maken. Vervangen door het oude zip-bestand in de blob-container (customactivitycontainer). Opnieuw uitvoeren van de segmenten die niet zijn geslaagd (met de rechtermuisknop op het segment en klik op uitvoeren).   
-8. De aangepaste activiteit maakt geen gebruik van de **app.config** bestand van het pakket. Dus als uw code wordt een verbindingsreeksen uit het configuratiebestand gelezen, werkt het niet tijdens runtime. Het is het beste wanneer het gebruik van Azure Batch is voor het opslaan van alle geheimen in een **Azure KeyVault**, een certificaat gebaseerde service-principal gebruiken om te beveiligen de **keyvault**, en distribueren van het certificaat naar de Azure Batch-pool. De aangepaste .NET-activiteit heeft dan in runtime toegang tot geheimen in de KeyVault. Deze oplossing is een algemene oplossing en kan worden geschaald met elk type geheim, niet alleen de verbindingsreeks.
+8. De aangepaste activiteit maakt geen gebruik van de **app.config** bestand van het pakket. Dus als uw code wordt een verbindingsreeksen uit het configuratiebestand gelezen, werkt het niet tijdens runtime. Het is het beste wanneer het gebruik van Azure Batch is voor het opslaan van alle geheimen in een **Azure KeyVault**, een certificaat gebaseerde service-principal gebruiken om te beveiligen de **keyvault**, en distribueren van het certificaat naar de Azure Batch groep van toepassingen. De aangepaste .NET-activiteit heeft dan in runtime toegang tot geheimen in de KeyVault. Deze oplossing is een algemene oplossing en kan worden geschaald met elk type geheim, niet alleen de verbindingsreeks.
 
-   Er is een eenvoudiger tijdelijke oplossing (maar niet aanbevolen): kunt u een **Azure SQL gekoppelde service** met verbindingsinstellingen tekenreeks voor een gegevensset die gebruikmaakt van de gekoppelde service maken en koppelen van de gegevensset als een dummy invoergegevensset aan de aangepaste .NET-activiteit. Vervolgens kunt u de verbindingsreeks van de gekoppelde service in de code van de aangepaste activiteit openen.  
+   Er is een eenvoudiger tijdelijke oplossing (maar niet aanbevolen): kunt u een **Azure SQL gekoppelde service** met verbindingstekenreeksinstellingen, een gegevensset die gebruikmaakt van de gekoppelde service maken en koppelen van de gegevensset als een dummy invoergegevensset naar de aangepaste .NET-activiteit. Vervolgens kunt u de verbindingsreeks van de gekoppelde service in de code van de aangepaste activiteit openen.  
 
 ## <a name="update-custom-activity"></a>Aangepaste activiteit bijwerken
 Als u de code voor de aangepaste activiteit bijwerkt, samenstellen en upload het zip-bestand met nieuwe binaire bestanden naar de blob-opslag.

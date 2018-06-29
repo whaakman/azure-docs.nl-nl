@@ -3,18 +3,18 @@ title: Bouw en implementeer een prognosemodel met behulp van Azure Machine Learn
 description: Informatie over het bouwen, trainen, testen en implementeren van een met het Azure Machine Learning-pakket voor prognose prognosemodel.
 services: machine-learning
 ms.service: machine-learning
-ms.component: service
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 0891f49da479b4209c305ebb532b053d85a7b2a6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833526"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036171"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Bouw en implementeer prognoses modellen met Azure Machine Learning
 
@@ -336,7 +336,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 De gegevens bevat ongeveer 250 verschillende combinaties van store en merk in een gegevensframe. Elke combinatie definieert een eigen tijdreeks van verkoop. 
 
-U kunt de [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe) klasse als gemakkelijk model voor meerdere reeksen in een enkele gegevens structuur met de _gebruikerssegmentatie_. Het interval wordt opgegeven door de `store` en `brand` kolommen.
+U kunt de [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klasse als gemakkelijk model voor meerdere reeksen in een enkele gegevens structuur met de _gebruikerssegmentatie_. Het interval wordt opgegeven door de `store` en `brand` kolommen.
 
 Het verschil tussen _gebruikerssegmentatie_ en _groep_ is dat gebruikerssegmentatie altijd fysiek zinvol in de praktijk, terwijl de groep hoeft te zijn. Interne pakket functies groep gebruiken voor het bouwen van een enkelvoudig model uit meerdere tijdreeksen als de gebruiker denkt dat deze groepering model helpt prestaties te verbeteren. Standaard groep is ingesteld op niet gelijk zijn aan gebruikerssegmentatie en één model is gebouwd voor elke gebruikerssegmentatie. 
 
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-De [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframets.timeseriesdataframe#ts-report) functie genereert een uitgebreid rapport van het tijdsbestek van de reeks-gegevens. Het rapport bevat zowel een beschrijving van de algemene gegevens als statistieken die specifiek zijn voor de reeksgegevens. 
+De [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) functie genereert een uitgebreid rapport van het tijdsbestek van de reeks-gegevens. Het rapport bevat zowel een beschrijving van de algemene gegevens als statistieken die specifiek zijn voor de reeksgegevens. 
 
 
 ```python
@@ -887,14 +887,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Gegevens voorverwerken en rekenen ontbrekende waarden
 
-Start de gegevens splitsen in trainingset en een test in te stellen de [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils) hulpprogrammafunctie. De resulterende set testen bevat de laatste 40 opmerkingen van elke tijdreeks. 
+Start de gegevens splitsen in trainingset en een test in te stellen de [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) hulpprogrammafunctie. De resulterende set testen bevat de laatste 40 opmerkingen van elke tijdreeks. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Basic time series modellen vereisen aaneengesloten tijdreeks. Controleer of de reeks reguliere zijn, zodat ze een tijdsindex actieve met regelmatige tussenpozen met behulp van de [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) functie.
+Basic time series modellen vereisen aaneengesloten tijdreeks. Controleer of de reeks reguliere zijn, zodat ze een tijdsindex actieve met regelmatige tussenpozen met behulp van de [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) functie.
 
 
 ```python
@@ -969,7 +969,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-U kunt zien dat de meeste van de reeks (213 van 249) onregelmatige zijn. Een [begrip transformatie](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer) is vereist voor het ontbrekende aantalwaarden. Hoewel er veel begrip opties, de volgende voorbeeldcode maakt gebruik van een lineaire interpolatie.
+U kunt zien dat de meeste van de reeks (213 van 249) onregelmatige zijn. Een [begrip transformatie](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) is vereist voor het ontbrekende aantalwaarden. Hoewel er veel begrip opties, de volgende voorbeeldcode maakt gebruik van een lineaire interpolatie.
 
 
 ```python
@@ -1035,7 +1035,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combineren van meerdere modellen
 
-De [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) estimator kunt u meerdere schatters combineren en past/voorspellen op deze met één regel code.
+De [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator kunt u meerdere schatters combineren en past/voorspellen op deze met één regel code.
 
 
 ```python
@@ -1108,7 +1108,7 @@ univariate_model_errors
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>modelName</th>
+      <th>ModelName</th>
       <th>MAPE</th>
       <th>MedianAPE</th>
     </tr>
@@ -1249,7 +1249,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-De [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster) functie verpakt sklearn regressie schatters zodat ze kunnen worden getraind op TimeSeriesDataFrame. De verpakte forecaster worden ook elke groep in dit geval archief in hetzelfde model. De forecaster leert één model voor een groep van reeksen die vergelijkbaar zijn vastgesteld en kunnen worden samengevoegd. De gegevens van de reeks langer één model voor een groep van reeks vaak gebruikt voor prognoses voor korte reeks verbeteren. U kunt deze modellen voor alle andere modellen in de bibliotheek die ondersteuning bieden voor regressie vervangen. 
+De [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) functie verpakt sklearn regressie schatters zodat ze kunnen worden getraind op TimeSeriesDataFrame. De verpakte forecaster worden ook elke groep in dit geval archief in hetzelfde model. De forecaster leert één model voor een groep van reeksen die vergelijkbaar zijn vastgesteld en kunnen worden samengevoegd. De gegevens van de reeks langer één model voor een groep van reeks vaak gebruikt voor prognoses voor korte reeks verbeteren. U kunt deze modellen voor alle andere modellen in de bibliotheek die ondersteuning bieden voor regressie vervangen. 
 
 
 ```python
@@ -1298,7 +1298,7 @@ all_errors.sort_values('MedianAPE')
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>modelName</th>
+      <th>ModelName</th>
       <th>MAPE</th>
       <th>MedianAPE</th>
     </tr>
