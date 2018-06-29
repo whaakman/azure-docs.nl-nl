@@ -1,21 +1,21 @@
 ---
-title: Token referentie - Azure AD B2C | Microsoft Docs
+title: Token-verwijzing in Azure Active Directory B2C | Microsoft Docs
 description: De typen tokens die zijn uitgegeven in Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 09d776b54941e33979d7969b25c35e67a53cf8f0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e2ca582c9ec767e9b810c574e3efddc6485bb6a0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709305"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token verwijzing
 
@@ -73,7 +73,7 @@ Houd er rekening mee dat de claims in de ID-tokens niet in een bepaalde volgorde
 | Naam | Claim | Voorbeeldwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | Doelgroep |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Een claim doelgroep identificeert de beoogde ontvanger van het token. Voor Azure AD B2C is de doelgroep van uw app-toepassings-ID die is toegewezen aan uw app in de app-portal voor wachtwoordregistratie. Uw app moet deze waarde niet valideren en weigeren van het token als komt niet overeen met. |
-| Verlener |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Deze claim identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token. Ook worden de Azure AD-directory waarin de gebruiker werd geverifieerd. Uw app moet de claim verlener om ervoor te zorgen dat het token afkomstig zijn van het Azure Active Directory v2.0-eindpunt te valideren. |
+| Certificaatverlener |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Deze claim identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token. Ook worden de Azure AD-directory waarin de gebruiker werd geverifieerd. Uw app moet de claim verlener om ervoor te zorgen dat het token afkomstig zijn van het Azure Active Directory v2.0-eindpunt te valideren. |
 | verleend aan |`iat` |`1438535543` |Deze claim is de tijd waarop het token is uitgegeven, epoche tijd. |
 | Vervaltijd |`exp` |`1438539443` |Verlooptijd van de claim is de tijd waarop het token ongeldig is, weergegeven in epoche tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
 | niet voor |`nbf` |`1438535543` |Deze claim is het tijdstip waarop het token geldige, dat wordt vertegenwoordigd in epoche tijd wordt. Dit is meestal hetzelfde zijn als de tijd die het token is uitgegeven. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
@@ -145,12 +145,12 @@ Wanneer uw app of API ontvangt een token ID, moet deze ook verschillende control
 
 Voor een volledige lijst van validaties uw app moet worden uitgevoerd, raadpleegt u de [specificatie van het OpenID Connect](https://openid.net). Details van de verwachte waarden voor deze claims worden opgenomen in de voorgaande [token sectie](#types-of-tokens).  
 
-## <a name="token-lifetimes"></a>Levensduur van token
+## <a name="token-lifetimes"></a>Levensduur van tokens
 De levensduur van de volgende tokens zijn bedoeld om uw kennis meer. Ze kunnen u helpen bij het ontwikkelen en foutopsporing van apps. Houd er rekening mee dat uw apps niet kunt verwachten van een van deze levensduur ongewijzigd moeten worden geschreven. Ze kunnen en wordt gewijzigd. Meer informatie over de [aanpassing van de levensduur van token](active-directory-b2c-token-session-sso.md) in Azure AD B2C.
 
 | Token | Levensduur | Beschrijving |
 | --- | --- | --- |
-| ID-tokens |Een uur |ID-tokens zijn doorgaans geldig voor een uur. Uw web-app kunt deze levensduur gebruiken om de eigen sessies onderhouden met gebruikers (aanbevolen). U kunt ook de levensduur van een andere sessie. Als uw app een nieuwe ID-token ophalen moet, moet deze gewoon een nieuwe aanvraag voor aanmelden bij Azure AD maken. Als een gebruiker een ongeldig browsersessie met Azure AD heeft, wordt die gebruiker mogelijk niet vereist referenties opnieuw invoeren. |
+| ID-tokens |Eén uur |ID-tokens zijn doorgaans geldig voor een uur. Uw web-app kunt deze levensduur gebruiken om de eigen sessies onderhouden met gebruikers (aanbevolen). U kunt ook de levensduur van een andere sessie. Als uw app een nieuwe ID-token ophalen moet, moet deze gewoon een nieuwe aanvraag voor aanmelden bij Azure AD maken. Als een gebruiker een ongeldig browsersessie met Azure AD heeft, wordt die gebruiker mogelijk niet vereist referenties opnieuw invoeren. |
 | Vernieuwen van tokens |14 dagen |Een enkele vernieuwingstoken is geldig voor een maximum van 14 dagen. Echter kan een vernieuwingstoken op elk gewenst moment voor een aantal redenen ongeldig worden. Uw app moet blijven proberen te gebruiken een vernieuwingstoken totdat de aanvraag is mislukt, of uw app vervangen door het vernieuwingstoken een nieuw. Een vernieuwingstoken kan ook ongeldig als 90 dagen zijn verstreken nadat de gebruiker referenties voor het laatst ingevoerd. |
 | Autorisatiecodes |Vijf minuten |Autorisatiecodes zijn opzettelijk tijdelijke. Ze moeten worden ingewisseld onmiddellijk voor toegangstokens, ID-tokens of vernieuwen van tokens wanneer ze worden ontvangen. |
 

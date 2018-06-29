@@ -9,10 +9,11 @@ ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: 490260a1cda8ed467d3fc7ad0c1020e6e459bd13
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "30325409"
 ---
 >[!NOTE]
->De functies die in dit artikel wordt beschreven, zijn alleen beschikbaar in de prijscategorie standard van iothub. Zie voor meer informatie over de lagen van de IoT Hub basis en standaard [het kiezen van de juiste laag van de IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
+>De functies die in dit artikel wordt beschreven, zijn alleen beschikbaar in de prijscategorie standard van iothub. Raadpleeg [How to choose the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md) (De juiste IoT Hub-prijscategorie kiezen) voor meer informatie over de Basic- en Standard-prijscategorieën van IoT Hub.

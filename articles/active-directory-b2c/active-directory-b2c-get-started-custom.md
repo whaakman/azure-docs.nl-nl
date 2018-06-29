@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Aan de slag met aangepast beleid | Microsoft Docs'
-description: Hoe u aan de slag met Azure Active Directory B2C aangepast beleid
+title: Aan de slag met aangepast beleid in Azure Active Directory B2C | Microsoft Docs
+description: Klik hier voor meer informatie over het aan de slag met Azure Active Directory B2C aangepast beleid.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 502f88bd08c05f71988763fedeba4d596aa409b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 8ff69942971950e2d4a274e7d3502379a26326c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709288"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: Aan de slag met aangepast beleid
 
@@ -52,7 +52,7 @@ Voordat u doorgaat, zorg ervoor dat u hebt een Azure AD B2C-tenant een container
  e. Voor **datums**, gebruikt u de standaardinstellingen.<br>
  f. Voor **sleutelgebruik**, gebruik **versleuteling**.<br>
  g. Selecteer **Maken**.<br>
-5. Create B2C_1A_FacebookSecret. <br>
+5. B2C_1A_FacebookSecret maken. <br>
 Als u al een toepassingsgeheim Facebook, als de beleidssleutel van een toevoegen aan uw tenant. Anders moet u de sleutel maken met de aanduidingswaarde van een tijdelijke zodat het beleid gevalideerd.<br>
  a. Selecteer **Toevoegen**.<br>
  b. Voor **opties**, gebruik **handmatige**.<br>
@@ -73,8 +73,8 @@ Azure AD B2C, moet u twee extra toepassingen die worden gebruikt door de engine 
 
 1. In de [Azure-portal](https://portal.azure.com), schakel over naar de [context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md).
 2. Open de **Azure Active Directory** blade (niet de **Azure AD B2C** blade). U wilt selecteren **meer Services** te vinden.
-3. Selecteer **App registraties**.
-4. Selecteer **registratie van de nieuwe toepassing**.
+3. Selecteer **App-registraties**.
+4. Selecteer **Nieuwe toepassing registreren**.
    * Voor **naam**, gebruik `IdentityExperienceFramework`.
    * Voor **toepassingstype**, gebruik **Web-app/API**.
    * Voor **aanmeldings-URL**, gebruik `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, waarbij `yourtenant` is de domeinnaam van uw Azure AD B2C-tenant.
@@ -85,8 +85,8 @@ Azure AD B2C, moet u twee extra toepassingen die worden gebruikt door de engine 
 
 ### <a name="create-the-proxyidentityexperienceframework-application"></a>De toepassing ProxyIdentityExperienceFramework maken
 
-1. Selecteer **App registraties**.
-1. Selecteer **registratie van de nieuwe toepassing**.
+1. Selecteer **App-registraties**.
+1. Selecteer **Nieuwe toepassing registreren**.
    * Voor **naam**, gebruik `ProxyIdentityExperienceFramework`.
    * Voor **toepassingstype**, gebruik **systeemeigen**.
    * Voor **omleidings-URI**, gebruik `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, waarbij `yourtenant` is uw Azure AD B2C-tenant.
@@ -99,7 +99,7 @@ Azure AD B2C, moet u twee extra toepassingen die worden gebruikt door de engine 
 1. Selecteer **selecteert u een API**.
 1. Zoek de naam IdentityExperienceFramework. Selecteer **IdentityExperienceFramework** in de resultaten en klik vervolgens op **Selecteer**.
 1. Schakel het selectievakje in naast **toegang IdentityExperienceFramework**, en klik vervolgens op **Selecteer**.
-1. Selecteer **gedaan**.
+1. Selecteer **Done**.
 1. Selecteer **machtiging verlenen**, en bevestig vervolgens door te selecteren **Ja**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Starter pack downloaden en wijzigen van beleid

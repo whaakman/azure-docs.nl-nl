@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: REST-API claim uitwisselingen in uw Azure AD B2C gebruiker reis integreren als gebruikersinvoer'
+title: REST-API claim uitwisselingen in uw Azure Active Directory B2C gebruiker reis integreren | Microsoft Docs
 description: REST-API claim uitwisselingen in uw Azure AD B2C gebruiker reis als gebruikersinvoer integreren.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.openlocfilehash: c4a530b3d6b4f6d4f5ec6087adcee839422dd01d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e17647016da0e877bd8f21357a4bd38121820f22
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709356"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>REST-API claims kunnen worden uitgewisseld in uw Azure AD B2C gebruiker reis integreren als gebruikersinvoer
 
@@ -82,7 +82,7 @@ De modellen, zijn de claims van de invoer en uitvoer claims gegevens in uw RESTf
 Maak een model met invoerclaims als volgt:
 
 1. Als Solution Explorer nog niet is geopend, selecteert u **weergave** > **Solution Explorer**. 
-2. Klik in Solution Explorer met de rechtermuisknop op de **modellen** map, selecteer **toevoegen**, en selecteer vervolgens **klasse**.
+2. Klik in Solution Explorer met de rechtermuisknop op de map **Modellen** en selecteer achtereenvolgens **Toevoegen** en **Klasse**.
 
     ![Het model toevoegen](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
@@ -136,7 +136,7 @@ Maak een model met invoerclaims als volgt:
 ### <a name="step-22-add-a-controller"></a>Step 2.2: Een controller toevoegen
 In de web-API, een _controller_ is een object dat HTTP-aanvragen worden verwerkt. De controller retourneert uitvoer claims of, als de eerste naam niet geldig is is, genereert een foutbericht Conflict HTTP.
 
-1. Klik in Solution Explorer met de rechtermuisknop op de **domeincontrollers** map, selecteer **toevoegen**, en selecteer vervolgens **Controller**.
+1. Klik in Solution Explorer met de rechtermuisknop op de map **Controllers** en selecteer achtereenvolgens **Toevoegen** en **Controller**.
 
     ![Nieuwe controller toevoegen](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 

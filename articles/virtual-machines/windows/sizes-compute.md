@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 278644fe00b3710fb4959ccdeddc97afd9223601
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 61ce66e4bb7fc13f4e8ce8c49ebf47ab4626e6c2
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34655868"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Grootte van de virtuele machines COMPUTE geoptimaliseerd
 
@@ -34,6 +35,7 @@ ms.lasthandoff: 04/06/2018
 - [Geoptimaliseerde opslag](../virtual-machines-windows-sizes-storage.md)
 - [Geoptimaliseerde GPU](sizes-gpu.md)
 - [Krachtig rekenvermogen](sizes-hpc.md)
+- [Vorige generaties](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over het [Azure compute-eenheden (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.

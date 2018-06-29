@@ -18,10 +18,11 @@ ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 2aca1de567dbd4d37daf7f9dd7c407b669396a47
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "31603705"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Doorsturen van netwerkverkeer met een routetabel met behulp van PowerShell
 
@@ -39,7 +40,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Als u wilt installeren en gebruiken van PowerShell lokaal, in dit artikel is vereist voor de Azure PowerShell moduleversie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor dit artikel versie 5.4.1 of hoger van de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
 
 ## <a name="create-a-route-table"></a>Een routetabel maken
 
