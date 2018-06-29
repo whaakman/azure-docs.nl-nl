@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: 93d5883071a012842106bdd946e4f09a0d7aa751
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bc280e9b4ade8a4fb8107ec2dcc1c33f538472e1
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260451"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081557"
 ---
-# <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions-Tools voor Visual Studio  
+# <a name="develop-azure-functions-using-visual-studio"></a>Azure Functions met Visual Studio ontwikkelen  
 
 Azure Functions-hulpprogramma's voor Visual Studio 2017 is een uitbreiding voor Visual Studio waarmee u ontwikkelen, testen en implementeren van C#-functies in Azure. Als deze ervaring uw eerste met Azure Functions is, kunt u meer informatie op [een inleiding tot Azure Functions](functions-overview.md).
 

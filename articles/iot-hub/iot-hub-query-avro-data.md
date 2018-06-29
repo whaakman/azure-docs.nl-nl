@@ -9,12 +9,12 @@ ms.service: iot-hub
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: Kevin.Saye
-ms.openlocfilehash: 08aed809184cbb65d632e1fb6f4b9bd25747e349
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c56b567498047ee996018675134c252ec1de7e0c
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751071"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081365"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Avro-gegevens opvragen met behulp van Azure Data Lake Analytics
 
@@ -189,6 +189,6 @@ Zie voor meer informatie over het routeren van berichten van IoT-Hub, [berichten
 
 [U-SQL-Avro-voorbeeld]:https://github.com/Azure/usql/tree/master/Examples/AvroExamples
 
-[lnk-iot-sa-land]: ../iot-accelerators/index.md
+[lnk-iot-sa-land]: ../iot-accelerators/index.yml
 [Ontwikkelaarshandleiding voor IoT Hub]: iot-hub-devguide.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

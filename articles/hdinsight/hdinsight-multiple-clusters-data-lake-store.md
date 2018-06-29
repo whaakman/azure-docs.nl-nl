@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d073732b5dd9b9867813d9ffcfad5caa1131d81
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404564"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102179"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Meerdere HDInsight-clusters met een Azure Data Lake Store-account gebruiken
 
 Beginnen met HDInsight versie 3.5, kunt u HDInsight-clusters maken met Azure Data Lake Store-accounts als het bestandssysteem standaard.
-Data Lake Store biedt onbeperkte opslag die het maakt niet alleen voor het hosten van grote hoeveelheden gegevens; ideaal ondersteuning maar ook voor het hosten van meerdere HDInsight-clusters die share één Data Lake Store-Account. Zie voor instructies over het maken van een HDInsight-cluster met Data Lake Store als de opslag [HDInsight-clusters maken met Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store biedt onbeperkte opslag die het maakt niet alleen voor het hosten van grote hoeveelheden gegevens; ideaal ondersteuning maar ook voor het hosten van meerdere HDInsight-clusters die share één Data Lake Store-Account. Zie voor instructies over het maken van een HDInsight-cluster met Data Lake Store als de opslag [Snelstartgids: instellen van clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 Dit artikel bevat aanbevelingen voor de Data Lake opslaan administrator voor het instellen van een enkel en gedeelde Data Lake opslaan-Account waarmee u over meerdere **active** HDInsight-clusters. Deze aanbevelingen gelden voor het hosten van meerdere beveiligde, evenals een niet-beveiligde Hadoop-clusters op een gedeelde Data Lake store-account.
 
@@ -41,9 +41,9 @@ Om deze mapstructuur effectief door HDInsight-clusters worden gebruikt, moet de 
 
 |Map  |Machtigingen  |Gebruiker die eigenaar is  |Groep die eigenaar is  | Benoemde gebruiker | Benoemde gebruikersmachtigingen | Benoemde groep | Benoemde groepsmachtigingen |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |beheerder |beheerder  |Service-principal |--x  |FINGRP   |r-x         |
-|/clusters | rwxr-x--x |beheerder |beheerder |Service-principal |--x  |FINGRP |r-x         |
-|clusters/Financiën | rwxr-x--t |beheerder |FINGRP  |Service-principal |rwx  |-  |-     |
+|/ | rwxr-x--x  |Beheerder |Beheerder  |Service-principal |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x--x |Beheerder |Beheerder |Service-principal |--x  |FINGRP |r-x         |
+|clusters/Financiën | rwxr-x--t |Beheerder |FINGRP  |Service-principal |rwx  |-  |-     |
 
 In de tabel
 
@@ -51,7 +51,7 @@ In de tabel
 - **Service-principal** is de Azure Active Directory (AAD)-service-principal die is gekoppeld aan het account.
 - **FINGRP** is een gebruikersgroep gemaakt in AAD die gebruikers van de organisatie Financiën bevat.
 
-Zie voor instructies over het maken van een AAD-toepassing (die u maakt ook een Service-Principal), [een AAD-toepassing maken](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Zie voor instructies over het maken van een gebruikersgroep in AAD [groepen beheren in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+Zie voor instructies over het maken van een AAD-toepassing (die u maakt ook een Service-Principal), [een AAD-toepassing maken](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Zie voor instructies over het maken van een gebruikersgroep in AAD [groepen beheren in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Belangrijke punten in overweging moet nemen.
 
@@ -97,6 +97,6 @@ Set lees-schrijfrechten hebben voor **anderen** via de hiërarchie, bijvoorbeeld
 
 ## <a name="see-also"></a>Zie ook
 
-* [Een HDInsight-cluster maken met Data Lake Store als opslag](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Snelstartgids: Clusters in HDInsight instellen](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 

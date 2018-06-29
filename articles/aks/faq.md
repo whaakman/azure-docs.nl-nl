@@ -2,18 +2,18 @@
 title: Veelgestelde vragen over Azure Kubernetes Service
 description: Hier vindt u antwoorden op enkele van de veelgestelde vragen over Azure Kubernetes Service.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 6/25/2018
-ms.author: nepeters
-ms.openlocfilehash: 5155d0c85e5b3698b0a13d2d5256a235858f0e82
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: iainfou
+ms.openlocfilehash: ffd81835de82cc5a00b3f6705a7607a51bb3bfa0
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938418"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096448"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
@@ -22,13 +22,13 @@ Dit artikel adressen regelmatige vragen over Azure Kubernetes Service (AKS).
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Welke Azure-regio's bieden vandaag de dag van de Azure Kubernetes Service (AKS)?
 
 - Australië - oost
-- Canada - centraal
+- Canada - midden
 - Canada - oost
-- VS - centraal
+- VS - midden
 - VS - oost
 - Oost-US2
 - Noord-Europa
-- VK - zuid
+- Verenigd Koninkrijk Zuid
 - West-Europa
 - VS - west
 - VS - west 2
@@ -58,7 +58,7 @@ AKS ondersteunt de volgende [toelating domeincontrollers][admission-controllers]
 * ServiceAccount
 * DefaultStorageClass
 * DefaultTolerationSeconds
-* MutatingAdmissionWebhook 
+* MutatingAdmissionWebhook
 * ValidatingAdmissionWebhook
 * ResourceQuota
 * DenyEscalatingExec

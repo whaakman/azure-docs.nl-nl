@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: b809097e50a17178da12fdb424eba08dc8e0c4cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866888"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099606"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Verificatie in twee stappen voor een gebruiker of groep vereisen
 
@@ -71,7 +71,7 @@ Gebruik de volgende stappen om de pagina te openen waar u de status van een gebr
 
 5. Bevestig uw selectie in het pop-upvenster dat wordt geopend. 
 
-Nadat u gebruikers hebt ingeschakeld, kunt u gebruikers informeren via e-mail Laat ze weten dat ze gevraagd worden om zich te registreren de volgende keer dat ze zich aanmelden. Als uw organisatie gebruikmaakt van niet-browser-apps die moderne verificatie niet ondersteunen, moeten zij ook app-wachtwoorden maken. U kunt ook een koppeling naar de [Azure MFA eindgebruiker handleiding](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) meesturen waarmee gebruikers aan de slag kunnen.
+Nadat u gebruikers hebt ingeschakeld, kunt u gebruikers informeren via e-mail Laat ze weten dat ze gevraagd worden om zich te registreren de volgende keer dat ze zich aanmelden. Als uw organisatie gebruikmaakt van niet-browser-apps die moderne verificatie niet ondersteunen, moeten zij ook app-wachtwoorden maken. U kunt ook een koppeling naar de [Azure MFA eindgebruiker handleiding](end-user/current/multi-factor-authentication-end-user.md) meesturen waarmee gebruikers aan de slag kunnen.
 
 ### <a name="use-powershell"></a>PowerShell gebruiken
 Status van de gebruiker te wijzigen met behulp van [Azure AD PowerShell](/powershell/azure/overview), wijzigen `$st.State`. Er zijn drie mogelijke statussen:

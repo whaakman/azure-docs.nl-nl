@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 6e14d91eae367ef62d1ff2e4cb6ddeb47c9fbbea
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 135c789dc6e41e07bb939ece679756c8c42de2d1
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261012"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085280"
 ---
 # <a name="approvals"></a>Approvals
 
@@ -40,7 +41,7 @@ De private preview ondersteunt de volgende scenario's:
 
 **Als een bevoorrechte rol beheerder (PRA) kunt u:**
 
--   [Goedkeuring voor specifieke rollen inschakelen](#enable-approval-for-specific-roles)
+-   [goedkeuring voor specifieke rollen inschakelen](#enable-approval-for-specific-roles)
 
 -   [Geef goedkeurder gebruikers en/of groepen voor het goedkeuren van aanvragen](#specify-approver-users-and/or-groups-to-approve-requests)
 
@@ -48,19 +49,19 @@ De private preview ondersteunt de volgende scenario's:
 
 **Als een specifieke goedkeurder kunt u:**
 
--   [In afwachting van goedkeuring (aanvragen) weergeven](#view-pending-approvals-requests)
+-   [in afwachting van goedkeuring (aanvragen) weergeven](#view-pending-approvals-requests)
 
--   [Goedkeuren of afwijzen aanvragen voor uitbreiding van de rol (één en/of bulk)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
+-   [goedkeuren of afwijzen aanvragen voor uitbreiding van de rol (één en/of bulk)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
 -   [Geef de reden voor Mijn goedkeuring/afwijzing](#provide-justification-for-my-approval/rejection) 
 
 **Als een in aanmerking komende gebruiker voor de rol kunt u:**
 
--   [Activering van de aanvraag van een rol die goedkeuring vereist](#request-activation-of-a-role-that-requires-approval)
+-   [activering van de aanvraag van een rol die goedkeuring vereist](#request-activation-of-a-role-that-requires-approval)
 
--   [De status van uw aanvraag voor het activeren van weergeven](#view-the-status-of-your-request-to-activate)
+-   [de status van uw aanvraag voor het activeren van weergeven](#view-the-status-of-your-request-to-activate)
 
--   [Uw taak te voltooien in Azure AD als activering is goedgekeurd](#complete-your-task-in-azure-ad-if-activation-was-approved)
+-   [uw taak te voltooien in Azure AD als activering is goedgekeurd](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
 ### <a name="navigation"></a>Navigatie
 

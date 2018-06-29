@@ -1,6 +1,6 @@
 ---
-title: Ontwikkelen en lokaal uitvoeren van Azure functions | Microsoft Docs
-description: Ontdek hoe u de code en testen van Azure functions op uw lokale computer voordat u deze op Azure Functions uitvoeren.
+title: Werken met Azure Functions kernonderdelen | Microsoft Docs
+description: Ontdek hoe u de code en testen van Azure functions vanaf de opdrachtprompt of terminal op uw lokale computer voordat u deze op Azure Functions uitvoeren.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -12,30 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/03/2018
+ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5c582b080ec6f2cff801758fc4bff4f7d07fd7df
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294480"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083066"
 ---
-# <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
+# <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions kernonderdelen
 
-Terwijl de [Azure Portal] biedt een volledige set hulpprogramma's voor het ontwikkelen en testen Azure Functions, veel ontwikkelaars de voorkeur aan een lokale ontwikkeling biedt. Azure Functions kunt eenvoudig uw favoriete code-editor en lokale ontwikkelingsprogramma's gebruiken om te ontwikkelen en testen van uw functies op uw lokale computer. Uw functies kunnen activeren van gebeurtenissen in Azure en u kunt fouten opsporen in uw C#- en JavaScript-functies op uw lokale computer. 
+Azure Functions Core-hulpprogramma's kunt u ontwikkelen en testen van uw functies op uw lokale computer vanuit de opdrachtprompt of terminal. Uw lokale functies kunnen verbinding maken met live Azure-services en u kunt fouten opsporen in uw functies op uw lokale computer met behulp van de volledige functies runtime. U kunt ook een functie-app implementeren op uw Azure-abonnement.
 
-Als u een Azure-functies van Visual Studio C# ontwikkelaar, ook bent [kan worden geïntegreerd met Visual Studio 2017](functions-develop-vs.md).
+[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
->[!IMPORTANT]  
-> Niet door elkaar op lokale ontwikkeling met portal-ontwikkeling in dezelfde functie-app. Wanneer u maken en publiceren van de functies van een lokaal project, moet u niet proberen te onderhouden of te wijzigen projectcode in de portal.
+## <a name="core-tools-versions"></a>Core-versies van de hulpprogramma 's
+
+Er zijn twee versies van Azure Functions Core Tools. De versie die u gebruikt, is afhankelijk van uw lokale ontwikkelingsomgeving, de keuze van taal en het niveau van ondersteuning vereist:
+
++ [Versie 1.x](#v1): ondersteunt versie 1.x van de runtime, in het algemeen beschikbaar (GA) is. Deze versie van de hulpprogramma's wordt alleen ondersteund op Windows-computers en wordt geïnstalleerd vanuit een [npm pakket](https://docs.npmjs.com/getting-started/what-is-npm). Met deze versie kunt u functies in experimentele talen die niet officieel ondersteund. Zie voor meer informatie [ondersteunde talen in Azure Functions](supported-languages.md)
+
++ [Versie 2.x](#v2): versie ondersteunt 2.x van de runtime. Deze versie ondersteunt [Windows](#windows-npm), [Mac OS](#brew), en [Linux](#linux). Platform-specifieke pakket managers of npm gebruikt voor de installatie. Als de runtime 2.x is deze versie van de core-hulpprogramma's momenteel preview.
+
+Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 
-[Azure Functions kernonderdelen] is een lokale versie van de Azure Functions-runtime die kunnen worden uitgevoerd op de lokale computer. Het is niet een emulator of simulator. Het is de dezelfde runtime bevoegdheden werkt in Azure. Er zijn twee versies van Azure Functions Core hulpprogramma's:
-
-+ [Versie 1.x](#v1): ondersteunt versie 1.x van de runtime. Deze versie wordt alleen ondersteund op Windows-computers en wordt geïnstalleerd vanuit een [npm pakket](https://docs.npmjs.com/getting-started/what-is-npm).
-+ [Versie 2.x](#v2): versie ondersteunt 2.x van de runtime. Deze versie ondersteunt [Windows](#windows-npm), [Mac OS](#brew), en [Linux](#linux). Platform-specifieke pakket managers of npm gebruikt voor de installatie. 
+[Azure Functions kernonderdelen] bevat een versie van de dezelfde runtime die ook door Azure Functions-runtime die kunnen worden uitgevoerd op de lokale computer. Het biedt ook functies maken en implementeren van de functie projecten verbinding maken met Azure-opdrachten.
 
 ### <a name="v1"></a>Versie 1.x
 
@@ -115,23 +119,11 @@ De volgende stappen uitvoeren om [APT](https://wiki.debian.org/Apt) Core hulppro
     sudo apt-get install azure-functions-core-tools
     ```
 
-## <a name="run-azure-functions-core-tools"></a>Azure Functions Core hulpprogramma's uitvoeren
-
-Azure Functions Core-hulpprogramma's worden de volgende opdracht aliassen toegevoegd:
-
-+ **func**
-+ **azfun**
-+ **azurefunctions**
-
-Elk van deze aliassen kan worden gebruikt waar `func` wordt weergegeven in de voorbeelden.
-
-```bash
-func init MyFunctionProj
-```
-
 ## <a name="create-a-local-functions-project"></a>Een lokale functies-project maken
 
-Wanneer lokaal wordt uitgevoerd, een project functies is een map die de bestanden heeft [host.json](functions-host-json.md) en [local.settings.json](#local-settings-file). Deze map is het equivalent van een functie-app in Azure. Zie voor meer informatie over de structuur van de Azure Functions, de [handleiding voor ontwikkelaars voor Azure Functions voor](functions-reference.md#folder-structure).
+Een projectmap functies bevat de bestanden [host.json](functions-host-json.md) en [local.settings.json](#local-settings-file), langs submappen die de code voor afzonderlijke functies bevatten. Deze map is het equivalent van een functie-app in Azure. Zie voor meer informatie over de structuur van de functies, de [handleiding voor ontwikkelaars voor Azure Functions voor](functions-reference.md#folder-structure).
+
+Versie 2.x, moet u een taal voor uw project selecteren wanneer deze is geïnitialiseerd en alle functies toegevoegd de standaardsjablonen taal gebruiken. In versie 1.x, u de taal opgeven telkens wanneer u een functie.
 
 Voer de volgende opdracht om het project en lokale Git-opslagplaats te maken in het terminalvenster of vanaf een opdrachtprompt:
 
@@ -139,14 +131,23 @@ Voer de volgende opdracht om het project en lokale Git-opslagplaats te maken in 
 func init MyFunctionProj
 ```
 
-De uitvoer lijkt op het volgende voorbeeld:
+In versie 2.x, wanneer u de opdracht uitvoert moet u een runtime die voor uw project. Als u van plan bent voor het ontwikkelen van JavaScript-functies, kiest u **knooppunt**:
 
 ```output
+Select a worker runtime:
+dotnet
+node
+```
+
+Omhoog/omlaag pijltoetsen een taal kiezen, druk op Enter. De uitvoer lijkt op het volgende voorbeeld voor een JavaScript-project:
+
+```output
+Select a worker runtime: node
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
-Created launch.json
-Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
+Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
+Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 Gebruik voor het maken van het project zonder een lokale Git-opslagplaats de `--no-source-control [-n]` optie.
@@ -165,15 +166,15 @@ Het bestand local.settings.json slaat app-instellingen, verbindingsreeksen en in
 
 ```json
 {
-  "IsEncrypted": false,   
+  "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
-    "LocalHttpPort": 7071, 
-    "CORS": "*" 
+    "LocalHttpPort": 7071,
+    "CORS": "*"
   },
   "ConnectionStrings": {
     "SQLConnectionString": "Value"
@@ -183,8 +184,8 @@ Het bestand local.settings.json slaat app-instellingen, verbindingsreeksen en in
 
 | Instelling      | Beschrijving                            |
 | ------------ | -------------------------------------- |
-| **isEncrypted** | Als de waarde **true**, alle waarden zijn versleuteld met een sleutel van de lokale computer. Gebruikt met `func settings` opdrachten. Standaardwaarde is **false**. |
-| **Waarden** | Verzameling instellingen van toepassingen en verbindingsreeksen gebruikt bij lokale uitvoering. Deze komen overeen met app-instellingen in de functie-app in Azure, zoals **AzureWebJobsStorage** en **AzureWebJobsDashboard**. Veel triggers en bindingen hebben een eigenschap die naar een verbinding tekenreeks app-instelling, zoals verwijst **verbinding** voor de [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor dergelijke eigenschappen, moet u een toepassingsinstelling gedefinieerd in de **waarden** matrix. <br/>**AzureWebJobsStorage** is een vereiste app-instelling voor triggers dan HTTP. Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen **AzureWebJobsStorage** naar `UseDevelopmentStorage=true` en kernonderdelen maakt gebruik van de emulator. Dit is nuttig tijdens de ontwikkeling, maar u moet testen met een werkelijke opslagverbinding vóór de implementatie. |
+| **IsEncrypted** | Als de waarde **true**, alle waarden zijn versleuteld met een sleutel van de lokale computer. Gebruikt met `func settings` opdrachten. Standaardwaarde is **false**. |
+| **Waarden** | Verzameling instellingen van toepassingen en verbindingsreeksen gebruikt bij lokale uitvoering. Deze waarden overeenkomen met app-instellingen in de functie-app in Azure, zoals **AzureWebJobsStorage** en **AzureWebJobsDashboard**. Veel triggers en bindingen hebben een eigenschap die naar een verbinding tekenreeks app-instelling, zoals verwijst **verbinding** voor de [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor dergelijke eigenschappen, moet u een toepassingsinstelling gedefinieerd in de **waarden** matrix. <br/>**AzureWebJobsStorage** is een vereiste app-instelling voor triggers dan HTTP. Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen **AzureWebJobsStorage** naar `UseDevelopmentStorage=true` en kernonderdelen maakt gebruik van de emulator. Dit is nuttig tijdens de ontwikkeling, maar u moet testen met een werkelijke opslagverbinding vóór de implementatie. |
 | **Host** | Instellingen in deze sectie aanpassen het hostproces van de functies bij lokale uitvoering. |
 | **LocalHttpPort** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie heeft voorrang op deze waarde. |
 | **CORS** | Definieert de oorsprongen toegestaan voor [cross-origin-resource delen (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
@@ -229,39 +230,65 @@ Zelfs wanneer u de opslagemulator gebruikt voor ontwikkeling, is het raadzaam om
     func azure storage fetch-connection-string <StorageAccountName>
     ```
     
-    Beide opdrachten moeten u de eerste aanmelding bij Azure.
+    Als u niet bent al aangemeld naar Azure, wordt u gevraagd om dit te doen.
 
-<a name="create-func"></a>
-## <a name="create-a-function"></a>Een functie maken
+## <a name="create-func"></a>Een functie maken
 
 Voer de volgende opdracht voor het maken van een functie:
 
 ```bash
 func new
-``` 
-`func new` ondersteunt de volgende optionele argumenten:
-
-| Argument     | Beschrijving                            |
-| ------------ | -------------------------------------- |
-| **`--language -l`** | De sjabloon programmeertaal, zoals C#, F # of JavaScript. |
-| **`--template -t`** | De naam van de sjabloon. |
-| **`--name -n`** | De naam van de functie. |
-
-Bijvoorbeeld: voor het maken van een JavaScript-HTTP-trigger uitvoeren:
-
-```bash
-func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
-Voer voor het maken van een functie wachtrij geactiveerd:
+In versie 2.x tijdens het uitvoeren van `func new` u wordt gevraagd een sjabloon te kiezen in de standaardtaal van uw app functie en u wordt ook gevraagd een naam voor de functie kiezen. In versie 1.x, u wordt ook gevraagd de taal te kiezen.
+
+```output
+Select a language: Select a template:
+Blob trigger
+Cosmos DB trigger
+Event Grid trigger
+HTTP trigger
+Queue trigger
+SendGrid
+Service Bus Queue trigger
+Service Bus Topic trigger
+Timer trigger
+```
+
+De functiecode wordt gegenereerd in een submap met de naam van de opgegeven functie, zoals u in de volgende uitvoer van de wachtrij-trigger ziet:
+
+```output
+Select a language: Select a template: Queue trigger
+Function name: [QueueTriggerJS] MyQueueTrigger
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\index.js
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\readme.md
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\sample.dat
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
+```
+
+U kunt ook deze opties opgeven in de opdracht met de volgende argumenten:
+
+| Argument     | Beschrijving                            |
+| ------------------------------------------ | -------------------------------------- |
+| **`--language -l`**| De sjabloon programmeertaal, zoals C#, F # of JavaScript. Deze optie is vereist in versie 1.x. In versie 2.x geen gebruik deze optie of kies de standaardtaal van uw project. |
+| **`--template -t`** | De sjabloonnaam kan een van de waarden zijn:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--name -n`** | De naam van de functie. |
+
+Bijvoorbeeld: als u wilt een JavaScript-HTTP-trigger maken in één opdracht, uitvoeren:
 
 ```bash
-func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```bash
-<a name="start"></a>
-## Run functions locally
+func new --template "Http Trigger" --name MyHttpTrigger
+```
 
-To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
+Een wachtrij geactiveerd om functie te maken in één opdracht, uitvoeren:
+
+```bash
+func new --template "Queue Trigger" --name QueueTriggerJS
+```
+
+## <a name="start"></a>Functies lokaal uitvoeren
+
+Uit de functies host een project functies uit te voeren. De host wordt ingeschakeld voor alle functies in het project triggers:
 
 ```bash
 func host start
@@ -272,13 +299,13 @@ func host start
 | Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | De lokale poort te luisteren op. Standaardwaarde: 7071. |
-| **`--debug <type>`** | De opties zijn `VSCode` en `VS`. |
+| **`--debug <type>`** | Start de host met de poort voor foutopsporing openen zodat u kunt koppelen aan de **func.exe** verwerken van [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) of [Visual Studio 2017](functions-dotnet-class-library.md). De *\<type\>* opties zijn `VSCode` en `VS`.  |
 | **`--cors`** | Een door komma's gescheiden lijst van CORS-oorsprong, zonder spaties. |
 | **`--nodeDebugPort -n`** | De poort voor het foutopsporingsprogramma knooppunt moet worden gebruikt. Standaard: Een waarde van launch.json of 5858. |
 | **`--debugLevel -d`** | Het traceerniveau van de console (uit verbose,-info, waarschuwing of fout). Standaard: Info.|
 | **`--timeout -t`** | De time-out voor de host functies om te starten, in seconden. Standaardwaarde: 20 seconden.|
-| **`--useHttps`** | Binden aan https://localhost:{port} in plaats van naar http://localhost:{port}. Deze optie maakt standaard een vertrouwd certificaat op uw computer.|
-| **`--pause-on-error`** | Onderbreken om extra gegevens voordat het proces wordt afgesloten. Dit is handig bij het starten van Azure Functions kernonderdelen van een integrated development environment (IDE).|
+| **`--useHttps`** | Binden aan `https://localhost:{port}` in plaats van naar `http://localhost:{port}`. Deze optie maakt standaard een vertrouwd certificaat op uw computer.|
+| **`--pause-on-error`** | Onderbreken om extra gegevens voordat het proces wordt afgesloten. Gebruikt bij het starten van de kernonderdelen van Visual Studio of VS-Code.|
 
 Wanneer de host functies wordt gestart, levert dit de URL van de HTTP-geactiveerde functies:
 
@@ -290,28 +317,9 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="vs-debug"></a>Fouten opsporen in VS-Code of Visual Studio
-
-Als u wilt een foutopsporingsprogramma koppelen, geeft de `--debug` argument. Gebruik voor foutopsporing JavaScript-functies, Visual Studio Code. Voor C#, Visual Studio te gebruiken.
-
-Gebruiken om fouten opsporen in C#-functies, `--debug vs`. U kunt ook [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/). 
-
-Voor het starten van de host en JavaScript foutopsporing ingesteld, worden uitgevoerd:
-
-```bash
-func host start --debug vscode
-```
-
-> [!IMPORTANT]
-> Voor foutopsporing, alleen Node.js 8.x wordt ondersteund. Node.js 9.x wordt niet ondersteund. 
-
-Klik in Visual Studio Code in de **Debug** weergave, selecteer **koppelen aan Azure Functions**. U kunt onderbrekingspunten koppelen, variabelen inspecteren en analyseer code.
-
-![JavaScript foutopsporing met Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
-
 ### <a name="passing-test-data-to-a-function"></a>De testgegevens doorgeven aan een functie
 
-Voor het testen van uw functies lokaal u [starten van de host functies](#start) en roept u eindpunten op de lokale server met behulp van HTTP-aanvragen. Het eindpunt dat u aanroept, is afhankelijk van het type van de functie. 
+Voor het testen van uw functies lokaal u [starten van de host functies](#start) en roept u eindpunten op de lokale server met behulp van HTTP-aanvragen. Het eindpunt dat u aanroept, is afhankelijk van het type van de functie.
 
 >[!NOTE]  
 > De cURL voorbeelden in dit onderwerp gebruiken voor het HTTP-aanvragen verzenden vanuit de terminal of vanaf een opdrachtprompt. HTTP-aanvragen te verzenden naar de lokale server kunt u een hulpprogramma van uw keuze. Het hulpprogramma cURL is standaard beschikbaar in de Linux-gebaseerde systemen. In Windows, moet u eerst downloaden en installeren de [cURL hulpprogramma](https://curl.haxx.se/).
@@ -340,6 +348,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 U kunt aanvragen ophalen vanuit een browser het doorgeven van gegevens in de queryreeks. Voor alle andere HTTP-methoden, moet u cURL, Fiddler, Postman of een vergelijkbaar testen HTTP-hulpprogramma gebruiken.  
 
 #### <a name="non-http-triggered-functions"></a>Niet-HTTP-geactiveerde functies
+
 Voor alle soorten functies dan HTTP-triggers en webhooks, kunt u uw functies testen lokaal door het aanroepen van een beheer-eindpunt. De functie voor het aanroepen van dit eindpunt met een HTTP POST-aanvraag op de lokale server wordt geactiveerd. U kunt eventueel testgegevens doorgeven aan de uitvoering in de hoofdtekst van de POST-aanvraag. Deze functionaliteit is vergelijkbaar met de **Test** tabblad in de Azure-portal.  
 
 U aanroepen het volgende eindpunt van de beheerder om te activeren, niet-HTTP-functies:
@@ -352,8 +361,9 @@ Testgegevens doorgeven aan het eindpunt van de beheerder van een functie, moet u
 {
     "input": "<trigger_input>"
 }
-```` 
-De `<trigger_input>` waarde bevat gegevens in een indeling die werd verwacht door de functie. De volgende cURL-voorbeeld is een POST opgegeven naar een `QueueTriggerJS` functie. In dit geval wordt is de invoer een tekenreeks die gelijk is aan het bericht dat naar verwachting worden gevonden in de wachtrij.      
+````
+
+De `<trigger_input>` waarde bevat gegevens in een indeling die werd verwacht door de functie. De volgende cURL-voorbeeld is een POST opgegeven naar een `QueueTriggerJS` functie. In dit geval wordt is de invoer een tekenreeks die gelijk is aan het bericht dat naar verwachting worden gevonden in de wachtrij.
 
 ```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
@@ -407,7 +417,8 @@ De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als 
 
 >[!IMPORTANT]  
 > Wanneer u een functie-app in Azure maakt, wordt versie 1.x van de functie runtime standaard. Om te maken van de functie app-gebruik versie 2.x van de runtime de toepassingsinstelling toevoegen `FUNCTIONS_EXTENSION_VERSION=beta`.  
-Gebruik de volgende code in de Azure CLI deze instelling toevoegen aan uw app in functie: 
+Gebruik de volgende code in de Azure CLI deze instelling toevoegen aan uw app in functie:
+
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
@@ -417,7 +428,7 @@ az functionapp config appsettings set --name <function_app> \
 ## <a name="next-steps"></a>Volgende stappen
 
 Azure Functions Core Tools [open source en wordt gehost op GitHub](https://github.com/azure/azure-functions-cli).  
-Fout of het onderdeel aanvragen [opent u een probleem met de GitHub](https://github.com/azure/azure-functions-cli/issues). 
+Fout of het onderdeel aanvragen [opent u een probleem met de GitHub](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943209"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098814"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Live streamen met on-premises-coderingsprogramma's die multi-bitrate streams maken
 
@@ -146,7 +146,7 @@ Kanalen bieden een preview-eindpunt (preview URL) die u gebruikt om te bekijken 
 
 Wanneer u het kanaal hebt gemaakt, kunt u de voorbeeld-URL ophalen. Voor u om de URL te krijgen, het kanaal heeft geen zich in de **met** status. Nadat het kanaal wordt gestart ophalen van gegevens, kunt u uw stream bekijken.
 
-Op dit moment de preview-stroom kan worden geleverd alleen in gefragmenteerde MP4 (Smooth Streaming)-indeling, ongeacht het type van de opgegeven invoer. U kunt de [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) player om de smooth stream te testen. Ook kunt u een speler die wordt gehost in Azure portal om uw stream weer te geven.
+Op dit moment de preview-stroom kan worden geleverd alleen in gefragmenteerde MP4 (Smooth Streaming)-indeling, ongeacht het type van de opgegeven invoer. U kunt de [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) player om de smooth stream te testen. Ook kunt u een speler die wordt gehost in Azure portal om uw stream weer te geven.
 
 #### <a name="allowed-ip-addresses"></a>Toegestane IP-adressen
 U kunt de IP-adressen die zijn toegestaan om verbinding met het preview-eindpunt te definiëren. Als geen IP-adressen worden opgegeven, wordt elk IP-adres is toegestaan. Een toegestane IP-adres kan worden opgegeven als een van de volgende:

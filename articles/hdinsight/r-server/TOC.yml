@@ -1,6 +1,6 @@
 - name: Documentatie voor Azure HDInsight
   href: /azure/hdinsight
-- name: R Server op HDInsight
+- name: ML Services in HDInsight
   items:
     - name: Overzicht
       href: r-server-overview.md
@@ -9,7 +9,7 @@
       maintainContext: true
 - name: Aan de slag
   items:
-    - name: Beginnen met R Server
+    - name: Aan de slag met ML Services
       href: r-server-get-started.md
     - name: HDInsight-apps installeren
       href: ../hdinsight-apps-install-applications.md
@@ -19,11 +19,11 @@
       maintainContext: true
 - name: Procedures
   items:
-    - name: R Server gebruiken
+    - name: ML Services gebruiken
       items:
-        - name: R Server-cluster beheren
+        - name: ML Services-cluster beheren
           href: r-server-hdinsight-manage.md
-        - name: R Server-cluster operationeel maken
+        - name: ML Services-cluster operationeel maken
           href: r-server-operationalize.md
         - name: Opslagopties
           href: r-server-storage.md

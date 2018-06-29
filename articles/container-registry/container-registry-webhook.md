@@ -2,18 +2,18 @@
 title: Azure Container register webhooks.
 description: Informatie over het gebruik van webhooks trigger gebeurtenissen wanneer bepaalde acties worden uitgevoerd in de Register-opslagplaatsen.
 services: container-registry
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: nepeters
-ms.openlocfilehash: cf71deda9ec9053a91596c17e18fc797995754e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: iainfou
+ms.openlocfilehash: 538548fa211b2159b190ff1b689033c50ad801fe
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164367"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096305"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Met behulp van Azure Container register webhooks.
 
@@ -55,7 +55,7 @@ Gebruik voor het maken van een webhook met de Azure CLI het [az acr-webhook make
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
 ```
 
-## <a name="test-webhook"></a>Test webhook
+## <a name="test-webhook"></a>Webhook testen
 
 ### <a name="azure-portal"></a>Azure Portal
 

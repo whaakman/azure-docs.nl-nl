@@ -2,19 +2,19 @@
 title: Azure-bestand met AKS gebruiken
 description: Azure-schijven met AKS gebruiken
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 84500791887194884e1ec7d15ddfbc169ba22517
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597498"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098342"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Permanente volumes met Azure-bestanden
 
@@ -24,7 +24,7 @@ Zie voor meer informatie over Kubernetes permanente volumes, waaronder het maken
 
 ## <a name="create-storage-account"></a>Een opslagaccount maken
 
-Wanneer u een Azure-bestandsshare als een volume Kubernetes dynamisch maakt, een opslagaccount kan worden gebruikt als deze zich in de AKS **knooppunt** resourcegroep. Ophalen van de naam van de resourcegroep met de [az resource weergeven] [ az-resource-show] opdracht.
+Wanneer u een Azure-bestandsshare als een volume Kubernetes dynamisch maakt, een opslagaccount kan worden gebruikt als deze zich in de AKS **knooppunt** resourcegroep. Dit is het bestand met de `MC_` voorvoegsel op dat is gemaakt door de inrichting van de resources voor het cluster AKS. Ophalen van de naam van de resourcegroep met de [az resource weergeven] [ az-resource-show] opdracht.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -40,13 +40,15 @@ Update `--resource-group` verzameld met de naam van de resourcegroep in de laats
 az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
+> Azure Files is momenteel alleen werken met standard-opslag. Als u premium-opslag gebruikt, mislukt het volume te richten.
+
 ## <a name="create-storage-class"></a>Opslagklasse maken
 
 Een opslagklasse wordt gebruikt om te definiëren hoe een Azure-bestandsshare wordt gemaakt. Een specifieke storage-account kan worden opgegeven in de klasse. Als u een opslagaccount niet is opgegeven, een `skuName` en `location` moet worden opgegeven, en alle opslagaccounts in de gekoppelde resourcegroep worden geëvalueerd voor een overeenkomst.
 
 Zie voor meer informatie over Kubernetes Opslagklassen voor Azure files [Kubernetes Opslagklassen][kubernetes-storage-classes].
 
-Maak een bestand met de naam `azure-file-sc.yaml` en kopieer het volgende manifest. Update de `storageAccount` met de naam van uw doelopslagaccount.
+Maak een bestand met de naam `azure-file-sc.yaml` en kopieer het volgende manifest. Update de `storageAccount` met de naam van uw doelopslagaccount. Zie de sectie [Mount-opties] voor meer informatie over `mountOptions`.
 
 ```yaml
 kind: StorageClass
@@ -54,8 +56,13 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
 parameters:
-  storageAccount: mystorageaccount
+  skuName: Standard_LRS
 ```
 
 Maken van de opslagklasse met de [kubectl toepassen] [ kubectl-apply] opdracht.
@@ -206,3 +213,4 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure-bestande
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[mount-options]: #mount-options

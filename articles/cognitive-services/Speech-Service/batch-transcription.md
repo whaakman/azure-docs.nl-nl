@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: cf58f676be52aa16ce6de59c3566613c7ee9276d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054820"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084079"
 ---
 # <a name="batch-transcription"></a>Batch schrijffouten
 
@@ -40,7 +40,7 @@ wav |  Stereo  |
 
 Voor de aansluiting audio gegevensstromen splitst Batch schrijffouten het kanaal linker- en tijdens de schrijffouten. De twee JSON-bestanden met het resultaat zijn elk gemaakt op basis van één kanaal. De tijdstempels per utterance inschakelen de ontwikkelaar de tekst van een geordende laatste maken. Het volgende JSON-voorbeeld ziet u de uitvoer van een kanaal.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,7 +53,7 @@ Voor de aansluiting audio gegevensstromen splitst Batch schrijffouten het kanaal
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
 > De Batch-schrijffouten API maakt gebruik van een REST-service voor het aanvragen van transcriptie, hun status en de bijbehorende resultaten. Dit is gebaseerd op .NET en heeft geen externe afhankelijkheden. De volgende sectie wordt beschreven hoe deze wordt gebruikt.
@@ -77,7 +77,24 @@ Als met alle functies van de Service Unified spraak, de gebruiker moet voor het 
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
-Maakt gebruik van de API is redelijk meteen doorsturen. De voorbeeldcode hieronder moet worden aangepast met een abonnementssleutel en een API-sleutel.
+Maakt gebruik van de API is redelijk meteen doorsturen. De voorbeeldcode hieronder moet worden aangepast met een abonnementssleutel en een API-sleutel, wat op zijn beurt kan de ontwikkelaar een bearer-token verkrijgen als de volgende code codefragment bevat:
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+Zodra het token is verkregen moet de ontwikkelaar van de door de SAS-Uri die verwijst naar het audiobestand schrijffouten vereisen. De rest van de code gewoon doorloopt de status en resultaten worden weergegeven.
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ Maakt gebruik van de API is redelijk meteen doorsturen. De voorbeeldcode hierond
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -146,7 +163,7 @@ De huidige voorbeeldcode geeft geen aangepaste modellen. De service gebruikt de 
 Als een niet wil basislijn gebruiken, moet een model-id's voor acoustic- en taalinstellingen modellen doorgeven.
 
 > [!NOTE]
-> Voor de basislijn schrijffouten de gebruiker geen declareren van de eindpunten van de basislijn-modellen. Als de gebruiker wil gebruiken van aangepaste modellen hij zou moeten bieden hun eindpunten-id als de [voorbeeld](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Als de gebruiker wil een akoestisch baseline gebruiken met een model van de taal basislijn zou vervolgens hij alleen moeten declareren van het aangepaste model endpoint-ID. Intern onze systeem nagaan wat het partner-basislijn-model (het akoestisch of taal zijn) en worden gebruikt om de aanvraag schrijffouten fullfill.
+> Voor de basislijn schrijffouten de gebruiker geen declareren van de eindpunten van de basislijn-modellen. Als de gebruiker wil gebruiken van aangepaste modellen hij zou moeten bieden hun eindpunten-id als de [voorbeeld](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Als de gebruiker wil een akoestisch baseline gebruiken met een model van de taal basislijn zou vervolgens hij alleen moeten declareren van het aangepaste model endpoint-ID. Intern ons systeem nagaan wat het partner-basislijn-model (het akoestisch of taal zijn) en gebruiken om te voldoen aan het verzoek schrijffouten.
 
 ### <a name="supported-storage"></a>Ondersteunde opslag
 

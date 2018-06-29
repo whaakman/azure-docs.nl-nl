@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 333ff3ac3de053eae604ffeab600df7d35874f69
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598875"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085229"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Verbinding maken met Azure Databricks van Excel, Python of R
 
@@ -99,6 +99,9 @@ In deze sectie kunt ophalen u gegevens uit Azure Databricks in Microsoft Excel m
 Zodra u de gegevens in uw Excel-werkmap hebt, kunt u analytische bewerkingen op kunt uitvoeren.
 
 ## <a name="connect-from-r"></a>Verbinding maken vanaf R
+
+> [!NOTE]
+> Deze sectie bevat informatie over het integreren van een R-Studio-client uitgevoerd op uw bureaublad met Azure Databricks. Zie voor instructies over het gebruik van R Studio op het cluster Azure Databricks zelf [R Studio op Azure Databricks](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html).
 
 In deze sectie maakt u een taal R IDE verwijzen naar gegevens beschikbaar zijn in Azure Databricks gebruiken. Voordat u begint, moet u het volgende op de computer geïnstalleerd hebben.
 

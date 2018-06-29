@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: b8bbcf81f48e82417a0d51e29f7dd8ce76681fed
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34152220"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37095332"
 ---
 Organisaties hebben grootschalige IT-behoeften. Deze Big Compute-workloads bevatten technische ontwerpen en analyses, berekeningen van financiële risico's, rendering van afbeeldingen, complexe modellering, Monte Carlo-simulaties en meer. 
 
@@ -40,7 +40,7 @@ Gebruik de Azure-cloud rekenintensieve Linux- en Windows workloads efficiënt va
     * Engineering en simulatie Azure-oplossingen uitvoeren vanaf leveranciers zoals [Altair](http://www.altair.com/), [oorspronkelijke](https://www.rescale.com/azure/), en [Cycle Computing](https://cyclecomputing.com/) (nu [samengevoegd met Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
     * Gebruik een [Cray supercomputer](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) als een service die wordt gehost in Azure.
 * **Marketplace-oplossingen**
-    * De schaal van [HPC-toepassingen](#hpc-applications) en [oplossingen](#marketplace-solutions) aangeboden in de [Azure Marketplace](https://azuremarketplace.microsoft.com/). 
+    * De schaal van [HPC-toepassingen](#hpc-applications) en [oplossingen](#marketplace-solutions) aangeboden in de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). 
     
 
 
@@ -64,7 +64,7 @@ Ga naar de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplac
  
 ## <a name="hpc-applications"></a>HPC-toepassingen
 
-Aangepaste of commerciële HPC-toepassingen worden uitgevoerd in Azure. Enkele voorbeelden in deze sectie zijn benchmarked om efficiënt schalen met aanvullende virtuele machines of compute kernen. Ga naar de [Azure Marketplace](https://marketplace.azure.com) voor oplossingen gereed te implementeren.
+Aangepaste of commerciële HPC-toepassingen worden uitgevoerd in Azure. Enkele voorbeelden in deze sectie zijn benchmarked om efficiënt schalen met aanvullende virtuele machines of compute kernen. Ga naar de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) voor oplossingen gereed te implementeren.
 
 > [!NOTE]
 > Neem contact op met de leverancier van een commerciële toepassing voor licentieverlening of andere beperkingen voor het uitvoeren in de cloud. Niet alle leveranciers bieden licenties waarbij u betaalt naar gebruik. U mogelijk nodig hebt voor uw oplossing een licentieserver in de cloud of verbinding maken met een on-premises licentie-server.

@@ -151,6 +151,7 @@
 ### [SSPR aanpassen](authentication/concept-sspr-customization.md)
 ### [Gegevensvereisten voor SSPR](authentication/howto-sspr-authenticationdata.md)
 ### [Rapportage voor SSPR](authentication/howto-sspr-reporting.md)
+### [Slimme vergrendeling](authentication/howto-password-smart-lockout.md)
 ### [Zwakke wachtwoorden elimineren](authentication/concept-password-ban-bad.md)
 ### [De lijst met verboden wachtwoorden configureren](authentication/howto-password-ban-bad.md)
 ### [On-premises integratie](authentication/concept-password-ban-bad-on-premises.md)

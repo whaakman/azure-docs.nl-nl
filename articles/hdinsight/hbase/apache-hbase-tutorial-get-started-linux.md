@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: f85772aa74e876764181330b6d29c4f8d2b48508
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b9298b081baf94350ab19a5d9a8af2705327eed6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102178"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Aan de slag met een voorbeeld van Apache HBase in HDInsight
 
@@ -34,7 +35,7 @@ Voordat u begint met dit HBase-voorbeeld, moet u beschikken over de volgende ite
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>Een HBase-cluster maken
-In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een HBase-cluster en het afhankelijke standaard Azure Storage-opslagaccount te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters.
+In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een HBase-cluster en het afhankelijke standaard Azure Storage-opslagaccount te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters. Zie voor meer informatie over het gebruik van Data Lake Storage Gen2 [Snelstartgids: instellen van clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/).
    
@@ -42,7 +43,7 @@ In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om e
 2. Voer op de blade **Aangepaste implementatie** de volgende waarden in:
    
    * **Abonnement**: selecteer het Azure-abonnement dat wordt gebruikt om het cluster te maken.
-   * **Resourcegroep**: maak een Azure-resourcebeheergroep of gebruik een bestaande.
+   * **Resourcegroep**: een Azure Resource management-groep maken of een bestaande gebruiken.
    * **Locatie**: geef de locatie van de resourcegroep op. 
    * **Clusternaam**: voer een naam in voor het HBase-cluster.
    * **Aanmeldingsgegevens voor het cluster**: de standaardaanmeldingsnaam is **admin**.

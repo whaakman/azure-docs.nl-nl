@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5f6609018f2582ebfc6e2ecbe48bde6a6f2d0f5d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018378"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098257"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Scripts actie te ontwikkelen met HDInsight
 
@@ -284,7 +284,7 @@ Scripts die worden gebruikt voor het aanpassen van een cluster moeten worden opg
 
 * Een __openbaar leesbaar URI__. Bijvoorbeeld, een URL naar gegevens die zijn opgeslagen op OneDrive of Dropbox andere hostingservice bestand.
 
-* Een __Azure Data Lake Store-account__ dat is gekoppeld aan het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Store met HDInsight [een HDInsight-cluster maken met Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Een __Azure Data Lake Store-account__ dat is gekoppeld aan het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Store met HDInsight [Snelstartgids: instellen van clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]
     > De service-principal die hdinsight gebruikt voor toegang tot Data Lake Store moet leestoegang hebben tot het script.

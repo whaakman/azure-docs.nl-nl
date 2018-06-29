@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d382293ce815f24ad635b50c920d7988b664d79c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081164"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Pig gebruiken met Hadoop in HDInsight
 
@@ -54,7 +55,7 @@ De taal Pig Latin kunt u beschrijven de gegevensstroom van onbewerkte invoer, vi
 
 Pig Latin ondersteunt ook gebruiker gedefinieerde functies (UDF), zodat u kunt het aanroepen van externe onderdelen die logica die is moeilijk om Pig Latin-model te implementeren.
 
-Zie voor meer informatie over Pig Latin [Pig Latin verwijzing handmatige 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) en [Pig Latin verwijzing handmatige 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
+Zie voor meer informatie over Pig Latin [Pig Latin verwijzing handmatige 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) en [Pig Latin verwijzing handmatige 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 Zie de volgende documenten voor een voorbeeld van het gebruik van UDF's met Pig:
 
@@ -98,7 +99,7 @@ HDInsight kunt Pig Latin taken uitvoeren met behulp van een aantal methoden. Geb
 | **Gebruik deze** als u wilt dat... | ...an **interactieve** shell | ...**batch** verwerken | ...door dit **cluster-besturingssysteem** | ...from dit **client** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X of Windows |
-| [CURL](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
+| [cURL](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
 | [.NET-SDK voor Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux- of Windows |Windows (voor nu) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux- of Windows |Windows |
 

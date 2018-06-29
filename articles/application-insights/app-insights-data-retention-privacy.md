@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: MT
+ms.openlocfilehash: 95e576eb5ce6834e67d997cde57426fd09db4e6a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294063"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099793"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -128,22 +128,9 @@ Alle gegevens worden versleuteld doorloopt datacenters.
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Worden de gegevens versleuteld tijdens de overdracht van mijn toepassing op servers met Application Insights?
 Ja, we https gebruiken om gegevens te verzenden naar de portal van bijna alle SDK's, inclusief webservers, apparaten en HTTPS-webpagina's. De enige uitzondering hierop zijn gegevens verzonden van gewone HTTP-webpagina's. 
 
-## <a name="personally-identifiable-information"></a>Persoonlijke gegevens
-#### <a name="could-personally-identifiable-information-pii-be-sent-to-application-insights"></a>Kan persoonsgegevens (PII) worden verzonden naar Application Insights?
-Ja, is het mogelijk. 
+## <a name="personal-data-stored-in-application-insights"></a>Persoonlijke gegevens die zijn opgeslagen in de Application Insights
 
-Algemene richtlijnen:
-
-* Meest standaard telemetrie (dat wil zeggen, telemetrie verzonden zonder dat u code schrijven) bevat geen expliciete PII. Echter, het is mogelijk om u te identificeren personen met Deductie uit een verzameling van gebeurtenissen.
-* Uitzondering en tracering berichten kunnen PII bevatten
-* Aangepaste telemetrie - aanroepen zoals TrackEvent die u schrijft in code met behulp van de API- of logboekbestand traceringen - kunt u gegevens bevatten.
-
-De tabel aan het einde van dit document bevat meer gedetailleerde beschrijvingen van de verzamelde gegevens.
-
-#### <a name="am-i-responsible-for-complying-with-laws-and-regulations-in-regard-to-pii"></a>Kan ik verantwoordelijk is voor die voldoet aan de wet- en regelgeving met betrekking tot PII?
-Ja. Het is uw verantwoordelijkheid om ervoor te zorgen dat het verzamelen en gebruiken van de gegevens in overeenstemming met wet- en regelgeving en met de voorwaarden in Microsoft Online Services.
-
-U moet uw klanten op de juiste wijze informeren over de gegevens die uw toepassing worden verzameld en hoe de gegevens worden gebruikt.
+Onze [Application Insights persoonsgegevens artikel](app-insights-customer-data.md) in dit onderwerp gedetailleerd besproken.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kunnen mijn gebruikers uitschakelen Application Insights?
 Niet rechtstreeks. Geen bieden we een netwerkswitch die uw gebruikers werken kunnen Application Insights uitschakelen.
@@ -177,7 +164,7 @@ Voor [SDK's voor andere platforms][platforms], Zie hun documenten.
 | **Eigenschappen** |**Een gegevens - bepaald door uw code** |
 | DeviceContext |ID, IP-, landinstellingen, Apparaatmodel, netwerk, netwerktype, OEM-naam, schermresolutie Rolinstantie, Role-naam, Type apparaat |
 | ClientContext |OS landinstellingen, taal, netwerk, venster resolutie |
-| Sessie |Sessie-id |
+| Sessie |sessie-id |
 | ServerContext |Naam van de computer, landinstellingen, besturingssysteem, apparaat, gebruikerssessie, gebruikerscontext, bewerking |
 | Afgeleid |geografische locatie van IP-adres, timestamp, besturingssysteem, browser |
 | Metrische gegevens |Metrische naam en waarde |
@@ -196,7 +183,7 @@ Voor [SDK's voor andere platforms][platforms], Zie hun documenten.
 
 U kunt [enkele van de gegevens door te bewerken ApplicationInsights.config uitschakelen][config]
 
-## <a name="credits"></a>Tegoed
+## <a name="credits"></a>Credits
 Dit product bevat GeoLite2 gegevens die zijn gemaakt door MaxMind beschikbaar is via [ http://www.maxmind.com ](http://www.maxmind.com).
 
 

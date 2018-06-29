@@ -10,69 +10,69 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f6f9b9c7ae71697efb6d722eff55d9ee3f8746d5
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 073af4a57d55eb8b2f3608482159b57c7b408f3b
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712297"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102362"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-ropc-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom (ROPC) configureren in Azure AD B2C
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom configureren in Azure AD B2C
 
-De resource-eigenaar wachtwoord referenties (ROPC)-stroom is een standaard OAUTH-authenticatiestroom waar de toepassing, ook wel bekend als de relying party, geldige referenties zoals gebruikersnaam en wachtwoord voor een token ID, toegangstoken en een vernieuwingstoken uitgewisseld. 
+De resource-eigenaar wachtwoord referenties (ROPC)-stroom is een standaard OAuth-authenticatiestroom waar de toepassing, ook wel bekend als de relying party, geldige referenties zoals gebruikersnaam en wachtwoord voor een token ID, toegangstoken en een vernieuwingstoken uitgewisseld. 
 
 > [!NOTE]
 > Deze functie is beschikbaar als preview-versie.
 
-In Azure AD B2C, zijn deze opties worden ondersteund:
+In Azure Active Directory (Azure AD) B2C, zijn de volgende opties worden ondersteund:
 
-- **Native Client** – tussenkomst van de gebruiker tijdens de verificatie gebeurt met behulp van de code die wordt uitgevoerd op een apparaat aan de gebruiker, die mogelijk een mobiele toepassing uitvoeren in het eigen besturingssysteem, zoals Android of in de browser, zoals Javascript uitvoeren.
-- **Stroom voor openbare** – alleen gebruikersreferenties die worden verzameld door een toepassing worden verzonden in de API-aanroep. De referenties van de toepassing niet verzonden.
-- **Nieuwe claims toe te voegen** -inhoud van de ID-tokens kunnen worden gewijzigd om nieuwe claims toe te voegen. 
+- **Native Client**: interactie van de gebruiker tijdens de verificatie gebeurt wanneer de code wordt uitgevoerd op een apparaat aan de gebruiker. Het apparaat kan zijn van een mobiele toepassing die wordt uitgevoerd in een eigen besturingssysteem, zoals Android, of in een browser, zoals JavaScript, uitgevoerd.
+- **Stroom voor openbare**: alleen gebruikersreferenties die worden verzameld door een toepassing worden verzonden in de API-aanroep. De referenties van de toepassing niet verzonden.
+- **Nieuwe claims toe te voegen**: inhoud van de ID-tokens kunnen worden gewijzigd om nieuwe claims toe te voegen. 
 
-Deze stromen worden niet ondersteund:
+De volgende stromen worden niet ondersteund:
 
-- **Server-naar-server** beveiliging identiteitsbeheersysteem (IDPS) moet een betrouwbare IP-adres van de aanroeper (native client) verzameld als onderdeel van de interactie.  Alleen IP-adres van de server wordt gebruikt in een aanroep van de API-serverzijde en de IDPS een herhaalde IP-adres als een aanvaller kan identificeren als een dynamische drempelwaarde voor mislukte verificaties is overschreden.
-- **Stroom voor vertrouwelijke** : de client-ID wordt gevalideerd, maar het toepassingsgeheim is niet gevalideerd.
+- **Server-naar-server**: de computer van de beveiliging identiteit moet een betrouwbare IP-adres van de aanroeper (native client) verzameld als onderdeel van de interactie. Een aanroep van de API-serverzijde wordt alleen IP-adres van de server gebruikt. Als een dynamische drempelwaarde voor mislukte verificaties wordt overschreden, kan het identity protection systeem een herhaalde IP-adres als een aanvaller identificeren.
+- **Stroom voor vertrouwelijke**: de client-ID is gevalideerd, maar het toepassingsgeheim is niet gevalideerd.
 
 ##  <a name="create-a-resource-owner-policy"></a>Maak een beleid voor resource-eigenaar
 
-1. Meld u aan bij de Azure-portal als hoofdbeheerder van uw Azure AD B2C-tenant.
-2. Als u wilt overschakelen naar de Azure AD B2C-tenant, selecteert u de B2C-directory in de rechterbovenhoek van de portal.
+1. Meld u aan bij de Azure portal als hoofdbeheerder van uw Azure AD B2C-tenant.
+2. Als u wilt overschakelen naar uw Azure AD B2C-tenant, selecteer de B2C-directory in de rechterbovenhoek van de portal.
 3. Onder **beleid**, selecteer **Resource-eigenaar beleid**.
-4. Geef een naam voor het beleid, zoals *ROPC_Auth*, en klik vervolgens op **toepassingsclaims**.
+4. Geef een naam voor het beleid, zoals *ROPC_Auth*, en selecteer vervolgens **toepassingsclaims**.
 5. Selecteer de toepassingsclaims die u nodig hebt voor uw toepassing, zoals *weergavenaam*, *e-mailadres*, en *identiteitsprovider*.
-6. Klik op **OK**, en klik vervolgens op **maken**.
+6. Selecteer **OK**, en selecteer vervolgens **Maken**.
 
-Vervolgens ziet u een eindpunt zoals in dit voorbeeld:
+   Vervolgens ziet u een eindpunt zoals in dit voorbeeld:
 
-`https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
+   `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>Een toepassing registreren
 
-1. Klik in de B2C-instellingen op **Toepassingen** en klik vervolgens op **+Toevoegen**.
-2. Geef een naam voor de toepassing, zoals *ROPC_Auth_app*.
-3. Klik op **Nee** voor **Web App of Web-API** en klik op **Ja** voor **Native client**.
-4. Laat alle andere waarden zijn en klik op **maken**.
-5. Selecteer de nieuwe toepassing en noteer de aanvraag-ID.
+1. Selecteer in de B2C-instellingen, **toepassingen**, en selecteer vervolgens **toevoegen**.
+2. Voer een naam voor de toepassing zoals *ROPC_Auth_app*.
+3. Selecteer **Nee** voor **Web App of Web-API**, en selecteer vervolgens **Ja** voor **Native client**.
+4. Laat alle andere waarden zijn, en selecteer vervolgens **maken**.
+5. Selecteer de nieuwe toepassing en noteer de toepassings-ID voor later gebruik.
 
 ## <a name="test-the-policy"></a>Het beleid testen
 
 Gebruik uw favoriete toepassing van de API-ontwikkeling voor het genereren van een API-aanroep en bekijk de reactie voor foutopsporing van uw beleid. Bouw een aanroep als volgt met de informatie in de volgende tabel als de hoofdtekst van de POST-aanvraag:
-- Vervang *yourtenant.onmicrosoft.com* met de naam van uw B2C-tenant
-- Vervang *B2C_1A_ROPC_Auth* met de volledige naam van uw beleid ROPC
-- Vervang *bef2222d56-552f-4a5b-b90a-1988a7d634c3* met de toepassings-ID van uw registratie.
+- Vervang  *\<yourtenant.onmicrosoft.com >* met de naam van uw B2C-tenant.
+- Vervang  *\<B2C_1A_ROPC_Auth >* met de volledige naam van uw beleid resource-eigenaar voor referenties.
+- Vervang  *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* met de toepassings-ID van uw registratie.
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Sleutel | Waarde |
 | --- | ----- |
 | gebruikersnaam | leadiocl@outlook.com |
 | wachtwoord | Passxword1 |
 | grant_type | wachtwoord |
-| scope | openid bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
-| client_id | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
+| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | response_type | token id_token |
 
 *Client_id* is de waarde die u eerder hebt genoteerd als de toepassings-ID. *Offline_access* is optioneel als u wilt een vernieuwingstoken dat is ontvangen. 
@@ -81,7 +81,7 @@ De werkelijke POST-aanvraag ziet er als volgt:
 
 ```
 POST /yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
-Host: te.cpim.windows.net
+Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -102,26 +102,25 @@ Een geslaagde reactie met offline toegang lijkt op het volgende voorbeeld:
 
 ## <a name="redeem-a-refresh-token"></a>Een vernieuwingstoken inwisselen
 
-Bouw een POST-aanroep als volgt met de informatie in de volgende tabel als de hoofdtekst van de aanvraag:
+Bouw een POST-aanroep zoals hieronder wordt weergegeven met de informatie in de volgende tabel als de hoofdtekst van de aanvraag:
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Sleutel | Waarde |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
-| client_id | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
-| Bron | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| Bron | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* en *resource* zijn de waarden die u eerder hebt genoteerd als de toepassings-ID. *Refresh_token* is het token dat u in de eerder genoemde authentication-oproep ontvangen.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Met uw voorkeur systeemeigen SDK implementeren of App-verificatie gebruiken
 
+De Azure AD B2C-implementatie voldoet aan de standaarden voor openbare resource eigenaar wachtwoord clientreferenties OAuth 2.0 en moet compatibel zijn met de meeste client-SDK's. We hebben deze stroom uitgebreid, getest in productie met AppAuth voor iOS- en AppAuth voor Android. Zie voor de meest recente informatie [systeemeigen App SDK voor OAuth 2.0 en OpenID Connect implementatie van de moderne best practices](https://appauth.io/).
 
-De Azure AD B2C-implementatie voldoet aan de normen van OAuth 2.0 of openbare client ROPC en moet compatibel zijn met de meeste client-SDK's.  We hebben deze stroom uitgebreid, getest in productie met AppAuth voor iOS- en AppAuth voor Android.  Zie https://appauth.io/ voor de meest recente informatie.
-
-U kunt downloaden werkende voorbeelden die zijn geconfigureerd voor gebruik met Azure AD B2C vanuit github op https://aka.ms/aadb2cappauthropc voor Android en https://aka.ms/aadb2ciosappauthropc.
+Voorbeelden van werken die zijn geconfigureerd voor gebruik met Azure AD B2C vanuit GitHub downloaden [voor Android](https://aka.ms/aadb2cappauthropc) en [voor iOS](https://aka.ms/aadb2ciosappauthropc).
 
 
 

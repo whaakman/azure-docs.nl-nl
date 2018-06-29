@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 6cdcfbf16f77525d6cee2085fdde9fdd630027e3
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018452"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096676"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs SDK voor gebeurtenisafhankelijke achtergrondverwerking
 
@@ -48,6 +48,9 @@ public static void Run(
 
 De instructies hoe een WebJobs SDK versie 2.x-project maken met opmerkingen over wat verschillend voor 3.x (in preview is). De belangrijkste wijziging geïntroduceerd door 3.x is het gebruik van .NET Core in plaats van .NET Framework.
 
+> [!NOTE]
+> 3.x is Preview-versie en nog in ontwikkeling en de 3.x-instructies in dit artikel zijn verouderd. Zie de GitHub-problemen aan de onderkant van de pagina voor de meest recente informatie.
+
 ### <a name="azure-functions"></a>Azure Functions
 
 [Azure Functions](../azure-functions/functions-overview.md) is gebaseerd op de WebJobs SDK en kan worden gebruikt wanneer u niet wilt dat de WebJobs SDK rechtstreeks gebruiken. Azure Functions 1.x gebruikt de WebJobs SDK 2.x. Zie voor meer informatie [vergelijking van Azure Functions met de WebJobs SDK](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
@@ -68,7 +71,7 @@ In dit artikel wordt ervan uitgegaan dat u hebt [een Azure-account](https://azur
    Selecteer voor het maken van een project 3.x **.NET Core > Console-App (.NET Core)**.
    
    > [!NOTE]
-   > 3.x is nog in preview en nog in ontwikkeling. De 3.x-instructies in dit artikel zijn onvolledig. Zie de GitHub-problemen aan de onderkant van de pagina voor de meest recente informatie.
+   > 3.x is Preview-versie en nog in ontwikkeling en de 3.x-instructies in dit artikel zijn verouderd. Zie de GitHub-problemen aan de onderkant van de pagina voor de meest recente informatie.
 
 3. Noem het project *WebJobsSDKSample*, en selecteer vervolgens **OK**.
 

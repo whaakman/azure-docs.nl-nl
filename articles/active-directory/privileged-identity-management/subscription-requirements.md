@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 69a27a2a75eb2a08a93b8b70648733673eac36db
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a83b1b32bc7c1ba8dcfb0e96b11540253903a01f
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260043"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085144"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Vereisten voor Azure Active Directory Privileged Identity Management abonnement
 
@@ -53,7 +54,7 @@ Azure AD Privileged Identity Management wordt niet langer beschikbaar in uw tena
 Wanneer u een Azure AD Premium P2-abonnement of EMS E5-abonnement is verlopen, of een biedt organisatie die werkt met Azure AD Privileged Identity Management in preview Azure AD Premium P2- of EMS E5-abonnement niet ophalen:
 
 - Permanente roltoewijzingen aan Azure AD-rollen niet worden gewijzigd.
-- De extensie Azure AD Privileged Identity Management in de Azure-portal, evenals de Graph API-cmdlets en PowerShell-interfaces van Azure AD Privileged Identity Management wordt niet langer beschikbaar voor gebruikers bevoorrechte rollen activeren, het beheren van bevoorrechte toegang of het uitvoeren van toegang beoordelingen van bevoorrechte rollen.
+- De extensie Azure AD Privileged Identity Management in de Azure-portal, evenals de Graph API-cmdlets en PowerShell-interfaces van Azure AD Privileged Identity Management wordt niet langer beschikbaar voor gebruikers bevoorrechte rollen activeren, de juiste rechten beheren toegang tot of voeren toegang beoordelingen van bevoorrechte rollen.
 - In aanmerking komende roltoewijzingen van Azure AD-rollen worden verwijderd, wanneer gebruikers zich niet langer bevoorrechte rollen activeren.
 - Alle beoordelingen lopende toegang van Azure AD-rollen wordt beëindigd en Azure AD Privileged Identity Management-configuratie-instellingen worden verwijderd.
 - Azure AD Privileged Identity Management wordt niet langer met het verzenden van e-mailberichten op wijzigingen aan toewijzingen van rollen.

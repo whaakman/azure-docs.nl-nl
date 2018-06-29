@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/17/2018
 ms.author: HeidiSteen
-ms.openlocfilehash: ce5771777762414a0229cf83425c2f3601cb979a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 2e000628ebec393147328125a04d5d6f55afd3c6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655234"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100484"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure Search Service REST-api-versie 2017-11-11-Preview
 In dit artikel beschrijft de `api-version=2017-11-11-Preview` versie van Azure Search service REST API, met experimentele functies nog niet over het algemeen beschikbaar.
@@ -27,11 +27,11 @@ In dit artikel beschrijft de `api-version=2017-11-11-Preview` versie van Azure S
 
 ## <a name="new-in-2017-11-11-preview"></a>Nieuw in 2017-11-11-Preview
 
-[Cognitieve zoeken](cognitive-search-concept-intro.md), een nieuwe verrijking mogelijkheid in Azure Search latente informatie in niet-tekstwaarden bronnen en deze omzetten in volledige tekst doorzoekbare inhoud in Azure Search niet gedifferentieerde tekst wordt gevonden.
+[**Automatisch aanvullen** ](search-autocomplete-tutorial.md) lid wordt van de bestaande [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) om toe te voegen aanvullende automatisch aangevulde optreedt voor de zoekbalk. Automatisch aanvullen retourneert kandidaat voor een gebruiker kan kiezen als de query-tekenreeks voor een zoekopdracht in de volgende querytermen. Suggesties werkelijke documenten retourneert in reactie op gedeeltelijke invoer: zoekresultaten zijn direct en dynamisch wijzigen wanneer de invoer van de term zoeken in de lengte en het specifieke karakter groeit.
 
-De volgende reources zijn ingevoerd of gewijzigd in de preview REST-API. Alle andere REST-API's zijn hetzelfde, ongeacht of u algemeen beschikbaar aanroepen of preview-versie.
+[**Cognitieve zoeken**](cognitive-search-concept-intro.md), een nieuwe verrijking mogelijkheid in Azure Search latente informatie in niet-tekstwaarden bronnen en deze omzetten in volledige tekst doorzoekbare inhoud in Azure Search niet gedifferentieerde tekst wordt gevonden. De volgende resources zijn geïntroduceerd of gewijzigd in de preview REST-API. Alle andere REST-API's zijn hetzelfde, ongeacht of u algemeen beschikbaar aanroepen of preview-versie.
 
-+ [Vaardigheden maken (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Vaardigheden operations(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations)
 
 + [Maak indexeerfunctie (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 

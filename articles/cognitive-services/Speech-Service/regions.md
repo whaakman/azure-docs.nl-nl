@@ -7,36 +7,41 @@ manager: wolmfa61
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: a201cc043f673e2285ea48950804d97b96f881ed
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 1eb3768f5a5c5a27a45dde3f62f862f36fa3e8ac
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054977"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098495"
 ---
-# <a name="regions-and-endpoints-of-the-speech-service"></a>Regio's en eindpunten van de service spraak
+# <a name="regions-of-the-speech-service"></a>Gebieden van de service spraak
 
-> [!NOTE]
-> De namen van regio de [spraak SDK](speech-sdk.md) overeen met het eerste deel van het domein van de eindpunten die hieronder.
-> Bijvoorbeeld: `westus` om op te geven de regio VS-West in de SDK spraak.
+De spraak-service is beschikbaar in verschillende regio's.
+Wanneer u een abonnement maakt, kunt u een beschikbare regio kiezen afhankelijk van uw behoeften.
 
-## <a name="speech-to-text"></a>Spraak naar tekst
+Wanneer u uw abonnement hebt u het account voor de regio die u verzameld.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+## <a name="rest-api"></a>REST-API
 
-## <a name="text-to-speech"></a>Tekst naar spraak
+Met de REST API, kies de juiste regiospecifieke-eindpunten.
+Zie [REST-API's](rest-apis.md) voor meer informatie.
 
-[!include[](includes/endpoints-text-to-speech.md)]
 
-## <a name="authentication"></a>Verificatie
 
-[!include[](includes/endpoints-token-service.md)]
+## <a name="speech-sdk"></a>Speech-SDK
 
-Zie [hier](rest-apis.md#authentication) voor meer informatie verkrijgen en vernieuwen van tokens voor autorisatie.
+In de [spraak SDK](speech-sdk.md), regio's zijn opgegeven als een tekenreeks (bijvoorbeeld als een parameter voor [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) in de SDK spraak voor C#).
 
-## <a name="language-understanding-speech-sdk-only"></a>Language understanding (alleen voor spraak-SDK)
+De volgende tabel bevat de beschikbare regio's voor spraakherkenning en vertaling:
 
-Gebieden voor de Language Understanding-service worden vermeld [hier](/azure/cognitive-services/luis/luis-reference-regions).
-Geef in de SDK-spraak, deze regio's door het eerste deel van de domeinnaam van het eindpunt (bijvoorbeeld `westus`).
+Regio| Waarde voor parameter in de SDK spraak regio
+-|-
+VS - west| `westus`
+Oost-Azië| `eastasia`
+Noord-Europa| `northeurope`
+
+Beschikbare regio's voor opzet opname spraak SDK worden vermeld in de [Language Understanding-servicepagina regio](/azure/cognitive-services/luis/luis-reference-regions).
+Voor elke publishing regio die wordt vermeld, wordt de bijbehorende parameter voor spraak-SDK regio als het eerste deel van de domeinnaam van het eindpunt bepaald.
+Bijvoorbeeld: `westus` om op te geven van de publicatie regio VS-West.

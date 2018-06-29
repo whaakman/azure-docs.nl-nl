@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751040"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081452"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 Azure SQL database auditing houdt databasegebeurtenissen en schrijft die deze naar een auditlogboek Meld u bij uw Azure storage-account. Ook controleren:
@@ -62,20 +62,18 @@ Een controlebeleid kan worden gedefinieerd voor een specifieke database of als e
 De volgende sectie beschrijft de configuratie van controlebeleid met de Azure portal.
 
 1. Ga naar de [Azure Portal](https://portal.azure.com).
-2. Ga naar de **instellingen** blade van de SQL database/SQL-server die u wilt controleren. In de **instellingen** blade Selecteer **controle en detectie van bedreigingen**.
+2. Navigeer naar **controle** onder de kop van de beveiliging in het deelvenster SQL database-server.
 
     <a id="auditing-screenshot"></a> ![Navigatiedeelvenster][1]
 3. Als u liever een controlebeleid server instellen, kunt u de **serverinstellingen weergeven** koppeling in de databaseblade voor controle. U kunt vervolgens weergeven of wijzigen van de server controle-instellingen. Controlebeleid van de server van toepassing op alle bestaande en nieuwe databases op deze server.
 
     ![Navigatievenster][2]
-4. Als u liever blob controle inschakelen op het databaseniveau van de voor **controle**, selecteer **ON**, en voor **type controle**, selecteer **Blob**.
+4. Als u liever controle op databaseniveau in te schakelen, schakelt u over **controle** naar **ON**.
 
-    Als server auditingfunctie voor blobs is ingeschakeld, wordt de controle van de database geconfigureerd bestaan naast de blob-controle-server.
+    Als server controle is ingeschakeld, wordt de controle van de database geconfigureerd side-by-side met de server audit bestaan.
 
     ![Navigatievenster][3]
 5. Openen van de **Audit logboeken opslag** blade, selecteer **opslaggroep**. Selecteer de Azure-opslagaccount waarin de logboeken worden opgeslagen en selecteer vervolgens de bewaarperiode. De oude logboeken worden verwijderd. Klik vervolgens op **OK**.
-    >[!TIP]
-    >Als u de meest buiten de controle rapporten sjablonen, gebruikt u hetzelfde opslagaccount voor alle gecontroleerde databases.
 
     <a id="storage-screenshot"></a> ![Navigatiedeelvenster][4]
 6. Als u aanpassen van de gecontroleerde gebeurtenissen wilt, u kunt dit doen via [PowerShell-cmdlets](#subheading-7) of de [REST-API](#subheading-9).
@@ -102,7 +100,8 @@ Er zijn verschillende methoden die u gebruiken kunt om blob controlelogboeken we
     Een **controleren records** blade wordt geopend, waarin u zult kunnen de logboeken weergeven.
 
     - U kunt specifieke datums weergeven door te klikken op **Filter** boven aan de **controleren records** blade.
-    - U kunt schakelen tussen controlerecords die zijn gemaakt met een server beleid of database beleid audit.
+    - U kunt schakelen tussen controlerecords die zijn gemaakt door de *server controlebeleid* en de *controlebeleid database* door met de knop **bron van de Audit**.
+    - U kunt alleen SQL-injectie AuditRecords door te controleren gerelateerde weergeven **tonen alleen controleren records voor de SQL-injectie** selectievakje.
 
        ![Navigatievenster][8]
 
@@ -147,8 +146,8 @@ Met geogerepliceerde databases, wanneer u controle in te schakelen op de primair
 * Niveau van de server (**aanbevolen**): controle op zowel de **primaire server** , evenals de **secundaire server** -de primaire en secundaire databases elk worden gecontroleerd onafhankelijk op basis van hun respectieve serverniveau-beleid.
 
 * Database-niveau: Databaseniveau controle voor secundaire databases kan alleen worden geconfigureerd uit de primaire database controle-instellingen.
-   * Controle van de BLOB moet worden ingeschakeld op de *primaire database zelf*, niet op de server.
-   * Nadat de blob-controle is ingeschakeld op de primaire database, wordt deze ook ingeschakeld op de secundaire database.
+   * Controle moet worden ingeschakeld op de *primaire database zelf*, niet op de server.
+   * Nadat de controle is ingeschakeld op de primaire database, wordt deze ook ingeschakeld op de secundaire database.
 
     >[!IMPORTANT]
     >Als databaseniveau controle, zal de opslaginstellingen voor de secundaire database zijn identiek aan die van de primaire database waardoor cross-regionale verkeer. U wordt aangeraden alleen serverniveau controle in te schakelen en laat de databaseniveau controle uitgeschakeld voor alle databases.
@@ -204,7 +203,6 @@ Zie voor een scriptvoorbeeld van een, [configureren van controle en detectie van
 * [Maken of bijwerken van de Server Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
 * [Database-Blob controlebeleid ophalen](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
 * [Ophalen van Server Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
-* [Ophalen van Server Blob die het resultaat van controle](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 Uitgebreide beleid met waarin component voor het filteren van aanvullende ondersteunen:
 * [Maken of bijwerken van de Database *uitgebreid* Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)

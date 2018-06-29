@@ -1,27 +1,27 @@
 ---
-title: Verificatie in twee stappen oplossen | Microsoft Docs
+title: Problemen met verificatie in twee stappen - Azure AD | Microsoft Docs
 description: Dit document bevatten gebruikers informatie over wat te doen als ze worden uitgevoerd in een probleem met de Azure multi-factor Authentication.
 services: multi-factor-authentication
 keywords: multifactor-verificatie-client, verificatieprobleem, correlatie-ID
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2017
-ms.author: barlan
+ms.author: lizross
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 995430a5c8a388358fcfb7c8c9bac978450df411
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e207a51b06563b38a85df47b0bac75293cccf040
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792256"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102345"
 ---
 # <a name="get-help-with-two-step-verification"></a>Help-informatie weergeven bij verificatie in twee stappen
 Dit artikel worden de meest voorkomende vragen over verificatie in twee stappen.
@@ -46,7 +46,7 @@ Een aantal dagen dat u uw telefoon bij u thuis, maar nog steeds laat moeten zich
 3. Selecteer de verificatieoptie die u wilt gebruiken.
 4. Ga door met verificatie in twee stappen.
 
-Als er geen de **gebruik een andere verificatieoptie** koppelen, en dit betekent u hebt alternatieve methoden ingesteld dat toen u het eerst geregistreerd voor verificatie in twee stappen. Neem contact op met de ondersteuning van uw bedrijf voor hulp bij het aanmelden bij uw account. Nadat u bent aangemeld, zorg ervoor dat u [de instellingen beheren](multi-factor-authentication-end-user-manage-settings.md) extra verificatiemethoden voor de volgende keer toevoegen.
+Als er geen de **gebruik een andere verificatieoptie** koppelen, en dit betekent u hebt alternatieve methoden ingesteld dat toen u het eerst geregistreerd voor verificatie in twee stappen. Neem contact op met de ondersteuning van uw bedrijf voor hulp bij het aanmelden bij uw account. Nadat u bent aangemeld, zorg ervoor dat u [de instellingen beheren](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) extra verificatiemethoden voor de volgende keer toevoegen.
 
 Als u ziet de **gebruik een andere verificatieoptie** koppeling, maar u hebt geen toegang tot uw alternatieve methoden beide, neem contact op met ondersteuning voor hulp bij het aanmelden bij uw account voor uw bedrijf.
 
@@ -66,10 +66,10 @@ Om aan te melden met behulp van de alternatief telefoonnummer, de volgende stapp
    ![Andere verificatie](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 
 3. Selecteer het telefoonnummer of een apparaat dat u toegang tot hebt.
-4. Nadat u zich weer in uw account [de instellingen beheren](multi-factor-authentication-end-user-manage-settings.md) om het telefoonnummer van uw verificatie te wijzigen.
+4. Nadat u zich weer in uw account [de instellingen beheren](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) om het telefoonnummer van uw verificatie te wijzigen.
 
 ### <a name="clear-your-settings"></a>Uw instellingen verwijderen.
-Als u een telefoonnummer van de secundaire verificatie niet hebt geconfigureerd, hebt u contact op met de ondersteuning van uw bedrijf voor hulp. Schakel laten uw instellingen zodat de volgende keer aanmelden, wordt u gevraagd naar [registreren voor verificatie in twee stappen](multi-factor-authentication-end-user-first-time.md) opnieuw.
+Als u een telefoonnummer van de secundaire verificatie niet hebt geconfigureerd, hebt u contact op met de ondersteuning van uw bedrijf voor hulp. Schakel laten uw instellingen zodat de volgende keer aanmelden, wordt u gevraagd naar [registreren voor verificatie in twee stappen](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) opnieuw.
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Ik ben niet ontvangen van een tekst of bel op mijn telefoon
 Er zijn diverse redenen waarom u wilt mogelijk aanmelden, maar niet ontvangen van de tekst of telefoongesprek. Als je hebt ontvangen teksten of telefoontjes naar uw telefoon in het verleden, is dit waarschijnlijk een probleem met de telefoon-provider niet uw account. Zorg ervoor dat u goed cel signaal hebt en als u probeert te ontvangen van een SMS-bericht Zorg ervoor dat u tekstberichten kunnen ontvangen. Vraag een vriend aan te roepen u of de tekst die u als een test.
@@ -83,16 +83,16 @@ Als u enkele minuten een tekstbericht of telefoongesprek hebt gewacht, is de sne
 
     Als u meerdere verificatiecodes ontvangen, gebruikt u de nieuwste.
 
-Als u een andere methode geconfigureerd hebt, contact op met de ondersteuning van uw bedrijf en vraag ze om uw instellingen te wissen. De volgende keer dat u zich aanmeldt, wordt u gevraagd naar [meervoudige verificatie instellen](multi-factor-authentication-end-user-first-time.md) opnieuw.
+Als u een andere methode geconfigureerd hebt, contact op met de ondersteuning van uw bedrijf en vraag ze om uw instellingen te wissen. De volgende keer dat u zich aanmeldt, wordt u gevraagd naar [meervoudige verificatie instellen](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) opnieuw.
 
-Als u vaak vertragingen vanwege ongeldige cel signaal hebt, raden wij aan u de [Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md) op je smartphone. De app kan genereren willekeurige beveiligingscodes die u aan te melden en deze codes geen elke cel signaal of via internet verbinding vereist.
+Als u vaak vertragingen vanwege ongeldige cel signaal hebt, raden wij aan u de [Microsoft Authenticator-app](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to.md) op je smartphone. De app kan genereren willekeurige beveiligingscodes die u aan te melden en deze codes geen elke cel signaal of via internet verbinding vereist.
 
 ## <a name="app-passwords-are-not-working"></a>App-wachtwoorden werken niet
-Controleer eerst of u het app-wachtwoord correct hebt ingevoerd. Het gegenereerde app-wachtwoord wordt vervangen door uw normale wachtwoord, maar alleen voor oudere desktoptoepassingen die verificatie in twee stappen niet ondersteunen. Als deze nog steeds niet werkt, probeer aanmelden en [een nieuw appwachtwoord maken](multi-factor-authentication-end-user-app-passwords.md).  Als deze nog steeds niet werkt, neem contact op met de ondersteuning van uw bedrijf en hebben ze [verwijderen van uw bestaande app-wachtwoorden](../../active-directory/authentication/howto-mfa-userdevicesettings.md) en vervolgens maakt u een nieuwe.
+Controleer eerst of u het app-wachtwoord correct hebt ingevoerd. Het gegenereerde app-wachtwoord wordt vervangen door uw normale wachtwoord, maar alleen voor oudere desktoptoepassingen die verificatie in twee stappen niet ondersteunen. Als deze nog steeds niet werkt, probeer aanmelden en [een nieuw appwachtwoord maken](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords.md).  Als deze nog steeds niet werkt, neem contact op met de ondersteuning van uw bedrijf en hebben ze [verwijderen van uw bestaande app-wachtwoorden](../../active-directory/authentication/howto-mfa-userdevicesettings.md) en vervolgens maakt u een nieuwe.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Ik vinden een antwoord op mijn probleem niet.
 Als u deze stappen hebt geprobeerd, maar wordt nog steeds uitgevoerd op problemen, neem dan contact op met de ondersteuning van uw bedrijf. Ze moeten mogelijk om u te helpen.
 
 ## <a name="related-topics"></a>Verwante onderwerpen
-* [De instellingen voor verificatie in twee stappen beheren](multi-factor-authentication-end-user-manage-settings.md)  
-* [Veelgestelde vragen over Microsoft Authenticator-toepassing](microsoft-authenticator-app-faq.md)
+* [De instellingen voor verificatie in twee stappen beheren](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md)  
+* [Veelgestelde vragen over Microsoft Authenticator-toepassing](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-faq.md)

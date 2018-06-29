@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 826daae9c5d9cf5cd169651ab8603cef938e6482
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 48723a68fcad79ab7c4c670da78c95de3ea5868f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030033"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100535"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure-Stack
 
@@ -204,7 +204,7 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace virtuele machine
 | ![Eenvoudige Machines-Forum](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Eenvoudige Machines-Forum](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Eenvoudige forum software om uw eigen onlinecommunity samen te stellen. | Bitnami |
 | ![Spree](media/azure-stack-marketplace-azure-items/spree.png) | [Spree](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.spree) | Eenvoudig te gebruiken e-commerce platform. | Bitnami |
 | ![Subversion](media/azure-stack-marketplace-azure-items/subversion.png) | [Subversion](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.subversion) | Open source versiebeheersysteem. | Bitnami |
-| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.sugarcrm) | Flexibele oplossing voor het beheer. | Bitnami |
+| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/aad.sugarcrm) | Flexibele oplossing voor het beheer. | Bitnami |
 | ![SuiteCRM](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | Populaire bedrijfsniveau CRM-toepassing. | Bitnami |
 | ![TestLink](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | Test beheersoftware kwaliteit zekerheid te vergemakkelijken. | Bitnami |
 | ![Tiki Wiki CMS Groupware](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Volledig functionele wiki-platform. | Bitnami |
@@ -233,5 +233,5 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace virtuele machine
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall detecteert bekende & onbekende beveiligingsproblemen en worden aanvallen voorkomen op web-apps. <b>Download beide PT Marketplace-items.</b> | Positieve technologieën |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kunt u de hele levenscyclus van uw Azure-Stack-infrastructuur te automatiseren. <b>Download beide Puppet Marketplace-items.</b> | Puppet |
 | ![Aanvraag voor certificaatvernieuwing snel herstel](media/azure-stack-marketplace-azure-items/quest.png) | [Aanvraag voor certificaatvernieuwing snel herstel Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snel herstel geavanceerde gegevensbeveiliging verenigt de back-up, replicatie en herstel in een softwareoplossing van eenvoudig te gebruiken. | Aanvraag voor certificaatvernieuwing Software |
-| ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Beheer van de beste in klasse open source-infrastructuur. | SUSE |
+| ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Beheer van de beste in klasse open source-infrastructuur. | SUSE |
 | ![Hulpprogramma voor ZeroDown Software](media/azure-stack-marketplace-azure-items/zerodown.png) | [Hulpprogramma voor ZeroDown Software ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown Software hulpprogramma v7.1 - migreren + HA. | ZeroDown Software |

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 893888904b6afc583c3c20b94d08eb3255a98cad
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304428"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096172"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure DB Cosmos bulksgewijs executor bibliotheek-overzicht
  
@@ -33,7 +33,7 @@ De bulksgewijs executor bibliotheek kunt u gebruikmaken van deze grote doorvoer 
  
 * Dit vermindert de clientzijde rekenresources die nodig zijn voor de doorvoer die is toegewezen aan een container verzadigen. Een enkele thread-toepassing die u schrijft gegevens met dat de bulk import API realiseert 10 keer groter schrijfbewerkingen in vergelijking tot een toepassing met meerdere threads gegevens parallel schrijft tijdens overbelasting van de client van de machine CPU.  
 
-* Deze isoleert weg de omslachtig taken toepassingslogica moet worden aanvraag beperking, time-outs op aanvragen en andere tijdelijke uitzonderingen verwerkt door het efficiënt hanteren in de tapewisselaar om te schrijven.  
+* Deze isoleert weg de omslachtig taken toepassingslogica voor het afhandelen van snelheidslimieten van aanvraag, aanvraag-outs en andere tijdelijke uitzonderingen efficiënt hanteren in de tapewisselaar om te schrijven.  
 
 * Dit biedt een vereenvoudigde mechanisme voor toepassingen uitvoeren Bulksgewijze bewerkingen uit te schalen. Een enkele bulksgewijs executor-exemplaar dat wordt uitgevoerd op een Azure VM kan verbruiken groter zijn dan 500 kB RU/s en u kunt een hogere doorvoersnelheid bereiken door toe te voegen extra exemplaren op individuele client virtuele machines.  
  
@@ -47,7 +47,7 @@ Wanneer een bulksgewijze bewerking om te importeren of documenten bijwerken met 
 
 ![Bulksgewijs executor-architectuur](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-De bibliotheek bulksgewijs Executor zorgt bewaartemperatuur gebruikmaken van de doorvoer die is toegewezen aan een verzameling. Gebruikt een [AIMD-stijl congestie het mechanisme voor toegangsbeheer](https://tools.ietf.org/html/rfc5681) partitie voor elke Azure DB die Cosmos-sleutel bereik efficiënte afhandeling van bandbreedtebeperking en time-outs. 
+De bibliotheek bulksgewijs Executor zorgt bewaartemperatuur gebruikmaken van de doorvoer die is toegewezen aan een verzameling. Gebruikt een [AIMD-stijl congestie het mechanisme voor toegangsbeheer](https://tools.ietf.org/html/rfc5681) voor elke Cosmos Azure DB partitie sleutel bereik voor het afhandelen van efficiënt snelheidsbeperking en time-outs. 
 
 ## <a name="next-steps"></a>Volgende stappen 
   

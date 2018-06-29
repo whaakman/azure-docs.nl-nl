@@ -2,19 +2,19 @@
 title: Meerdere containergroepen in Azure Containerexemplaren implementeren
 description: Informatie over het implementeren van een containergroep met meerdere containers in Azure Containerexemplaren.
 services: container-instances
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: db3f616d85c21f01c751fd82532289593a6e7e45
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 6d337c9ed23ac9af884f4113b046a8e9756fd441
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850566"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097101"
 ---
 # <a name="deploy-a-container-group"></a>Een containergroep implementeren
 
@@ -28,7 +28,7 @@ Er zijn twee methoden voor het implementeren van meerdere containergroepen met d
 Implementatie met Resource Manager-sjabloon wordt aanbevolen als u nodig hebt voor het implementeren van extra Azure-service-resources (bijvoorbeeld een share Azure-bestanden) op het moment van implementatie van de container-exemplaar. Vanwege de YAML-indeling meer beknopte aard, implementatie met een YAML-bestand wordt aanbevolen wanneer uw implementatie bevat *alleen* containerexemplaren.
 
 > [!NOTE]
-> Meerdere container groepen zijn momenteel beperkt tot Linux containers. Hoewel we ons best doen om alle functies beschikbaar te maken voor Windows-containers, kunnen de [quota en beschikbaarheid in regio´s voor Azure Container Instances](container-instances-quotas.md) variëren op de verschillende platforms.
+> Meerdere container groepen zijn momenteel beperkt tot Linux containers. Terwijl we proberen te zorgen dat alle functies op Windows-containers, vindt u de huidige platform verschillen in [quota en beschikbaarheid in regio's voor exemplaren van Azure-Container](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>De sjabloon configureren
 

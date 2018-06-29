@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9365fd70036c8b489efaea42bda9c670182c496c
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798641"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082271"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Tabel-API van Azure Cosmos DB bewerkingen uitvoeren met Azure PowerShell 
 
@@ -45,7 +45,7 @@ Nadat u Azure PowerShell is geïnstalleerd of bijgewerkt, moet u de module insta
 Install-Module AzureRmStorageTable
 ```
 
-Installeer de Azure DB die Cosmos-assembly's lokaal om deze PowerShell-cmdlets gebruiken. Zie voor instructies over hoe u dat doet, [Azure RM opslag tabellen PowerShell-module voor Cosmos DB tabellen](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+Installeer de Azure DB die Cosmos-assembly's lokaal om deze PowerShell-cmdlets gebruiken. Zie voor instructies over hoe u dat doet, [Azure RM opslag tabellen PowerShell-module voor Cosmos DB tabellen](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/).
 
 Als u wilt de volgende oefeningen uitproberen, moet u een databaseaccount Azure Cosmos DB. Als u nog geen hebt, maak een nieuwe Azure Cosmos DB rekening houden met de [Azure-portal](https://portal.azure.com). Zie voor informatie over het maken van een nieuwe databaseaccount, [Azure Cosmos DB: een databaseaccount maken](create-table-dotnet.md#create-a-database-account).
 
@@ -88,7 +88,7 @@ U kunt de tabellen in de Azure DB die Cosmos-account met behulp van PowerShell k
 
 ## <a name="delete-a-table"></a>Een tabel verwijderen 
 
-Verwijderen van de tabellen uit Azure Cosmos DB biedt geen ondersteuning voor PowerShell. Als u wilt verwijderen van een tabel, gaat u naar de [Azure-portal](https://azure.portal.com), zoek de Azure DB die Cosmos-account dat u gebruikt, vinden en verwijderen van de tabel. 
+Verwijderen van de tabellen uit Azure Cosmos DB biedt geen ondersteuning voor PowerShell. Als u wilt verwijderen van een tabel, gaat u naar de [Azure-portal](https://portal.azure.com), zoek de Azure DB die Cosmos-account dat u gebruikt, vinden en verwijderen van de tabel. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

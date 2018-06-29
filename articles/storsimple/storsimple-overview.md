@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0d6a797e4fe84ce2cb969d001ff96177f6ac641
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23950285"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097043"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serie: een hybride cloud-opslagoplossing
 ## <a name="overview"></a>Overzicht
@@ -56,7 +56,7 @@ De Microsoft Azure StorSimple-oplossing omvat de volgende onderdelen:
 * **Microsoft Azure StorSimple-apparaat** – een lokale hybride-opslagmatrix die SSD en HDD's, samen met automatische failover-mogelijkheden en redundante controllers bevat. De controllers beheren opslag in lagen, het plaatsen van momenteel gebruikte (of hot) gegevens op de lokale opslag (in de apparaat- of on-premises servers) tijdens het verplaatsen van minder vaak gebruikte gegevens naar de cloud.
 * **StorSimple Cloud toestel** – ook wel bekend als het virtuele StorSimple-apparaat, dit is een softwareversie van het StorSimple-apparaat die de architectuur repliceert en de meeste functies van het fysieke hybride opslagapparaat. Het toestel StorSimple-Cloud op één knooppunt in Azure een virtuele machine wordt uitgevoerd. Premium virtuele apparaten die van Azure premium-opslag gebruikmaken, zijn beschikbaar in Update 2 en hoger.
 * **StorSimple-apparaat Manager-service** – een uitbreiding van de Azure portal waarmee u een StorSimple-apparaat of StorSimple Cloud toestel beheren via een enkel webinterface. U kunt de service Manager voor StorSimple-apparaat maken en beheren van services, weergeven en beheren van apparaten, waarschuwingen weergeven, volumes, beheren en weergeven en beheren van back-upbeleid en de back-upcatalogus gebruiken.
-* **Windows PowerShell voor StorSimple** – een opdrachtregelinterface die u gebruiken kunt voor het beheren van het StorSimple-apparaat. Windows PowerShell voor StorSimple bevat functies waarmee u kunnen u uw StorSimple-apparaat registreren, configureren van de netwerkinterface op het apparaat, bepaalde typen updates installeren, het apparaat oplossen door het openen van de ondersteuningssessie en de apparaatstatus te wijzigen. U kunt Windows PowerShell voor StorSimple openen door verbinding te maken met de seriële console of via Windows PowerShell op afstand.
+* **Windows PowerShell voor StorSimple** – een opdrachtregelinterface die u gebruiken kunt voor het beheren van het StorSimple-apparaat. Windows PowerShell voor StorSimple bevat functies die u kunnen u uw StorSimple-apparaat registreren, configureren van de netwerkinterface op het apparaat, bepaalde typen updates installeren, het apparaat oplossen door het openen van de ondersteuningssessie en het apparaat wijzigen status. U kunt Windows PowerShell voor StorSimple openen door verbinding te maken met de seriële console of via Windows PowerShell op afstand.
 * **Azure PowerShell StorSimple-cmdlets** : een verzameling van Windows PowerShell-cmdlets waarmee u kunt het automatiseren van taken van het serviceniveau en migratie vanaf de opdrachtregel. Voor meer informatie over de Azure PowerShell-cmdlets voor StorSimple, gaat u naar de [cmdlet-verwijzing](/powershell/module/azure/?view=azuresmps-3.7.0#azure).
 * **StorSimple Snapshot Manager** – een MMC-module die gebruikmaakt van volume groepen en de Windows Volume Shadow Copy-Service voor het genereren van toepassingsconsistente back-ups. Bovendien kunt u StorSimple Snapshot Manager te maken van back-upschema en klonen of volumes te herstellen.
 * **StorSimple-Adapter voor SharePoint** – een hulpprogramma dat transparant Microsoft Azure StorSimple-opslag en gegevensbescherming naar SharePoint-Server uitbreiden farms tijdens het maken van StorSimple opslag worden bekeken en beheerd vanaf de SharePoint-Centraal Beheerportal.
@@ -214,8 +214,8 @@ Hieronder wordt een samenvatting van de ondersteunde StorSimple werkbelastingen 
 | Virtualisatie |Virtuele machines |Ja* |Alleen ondersteund met lokaal vastgemaakte volumes |Update 2 en hoger |
 | Database |SQL |Ja* |Alleen ondersteund met lokaal vastgemaakte volumes |Update 2 en hoger |
 | Videobewaking |Videobewaking |Ja* |Ondersteund bij het StorSimple-apparaat alleen aan deze werkbelasting is toegewezen |Update 2 en hoger |
-| Back-up maken |Back-up van primaire doel |Ja* |Ondersteund bij het StorSimple-apparaat alleen aan deze werkbelasting is toegewezen |Update 3 en hoger |
-| Back-up maken |Back-up van secundaire doel |Ja* |Ondersteund bij het StorSimple-apparaat alleen aan deze werkbelasting is toegewezen |Update 3 en hoger |
+| Backup |Back-up van primaire doel |Ja* |Ondersteund bij het StorSimple-apparaat alleen aan deze werkbelasting is toegewezen |Update 3 en hoger |
+| Backup |Back-up van secundaire doel |Ja* |Ondersteund bij het StorSimple-apparaat alleen aan deze werkbelasting is toegewezen |Update 3 en hoger |
 
 *Ja&#42; -oplossing richtlijnen en beperkingen worden toegepast.*
 
@@ -238,7 +238,7 @@ Hier volgt een lijst met onderdelen van de infrastructuur StorSimple ondersteund
 | Algemeen |DataCore FC |Ja* |Ondersteund met DataCore SANsymphony |Alle versies |
 | Algemeen |DFSR |Ja* |Alleen ondersteund met lokaal vastgemaakte volumes |Alle versies |
 | Algemeen |Indexeren |Ja* |Voor gelaagde volumes alleen metagegevens indexeren wordt ondersteund (geen gegevens).<br>Voor lokaal vastgemaakte volumes wordt volledige indexering ondersteund. |Alle versies |
-| Algemeen |Anti-virus |Ja* |Voor gelaagde volumes wordt alleen scan Open en close ondersteund.<br> Voor lokaal vastgemaakte volumes, wordt volledige scan ondersteund. |Alle versies |
+| Algemeen |Antivirusprogramma 's |Ja* |Voor gelaagde volumes wordt alleen scan Open en close ondersteund.<br> Voor lokaal vastgemaakte volumes, wordt volledige scan ondersteund. |Alle versies |
 
 *Ja&#42; -oplossing richtlijnen en beperkingen worden toegepast.*
 
@@ -249,7 +249,7 @@ Hier volgt een lijst met andere software die worden gebruikt met StorSimple om o
 | Back-updoel |Veeam |Veeam v 9 en hoger |[StorSimple als een back-updoel met Veaam](storsimple-configure-backup-target-veeam.md)|
 | Back-updoel |Veritas Backup Exec |Back-up uitvoeren / 16 en hoger |[StorSimple als een back-updoel met Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Back-updoel |Veritas NetBackup |NetBackup 7.7.x en hoger  |[StorSimple als een back-updoel met NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Globale bestanden delen <br></br> Samenwerking |Talon  |[StorSimple met Talon](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| Globale bestanden delen <br></br> Samenwerking |Talon  |[StorSimple met Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>StorSimple-terminologie
 Voordat u uw Microsoft Azure StorSimple-oplossing implementeert, wordt u aangeraden de volgende termen en definities te controleren.
@@ -261,12 +261,12 @@ Voordat u uw Microsoft Azure StorSimple-oplossing implementeert, wordt u aangera
 | AES-256 |Een algoritme van de Advanced Encryption Standard (AES) 256-bits voor het versleutelen van gegevens worden verplaatst naar en van de cloud. |
 | grootte van toewijzingseenheid (AUS) |De kleinste hoeveelheid schijfruimte die kan worden toegewezen aan een bestand in uw Windows-bestandssystemen. Als de bestandsgrootte van een niet een veelvoud van de clustergrootte is, extra ruimte moet worden gebruikt voor het opslaan van het bestand (tot het volgende veelvoud van de clustergrootte) waardoor verloren ruimte en fragmentatie van de harde schijf. <br>De aanbevolen AUS voor Azure StorSimple-volumes is 64 KB omdat deze goed samen met de ontdubbelingsalgoritmen die worden werkt. |
 | geautomatiseerde opslaglagen |Automatisch minder actieve gegevens verplaatsen van SSD's naar HDD's en vervolgens naar een laag in de cloud en vervolgens het inschakelen van beheer van alle opslag van een centrale interface. |
-| Back-upcatalogus |Een verzameling van back-ups, meestal gekoppeld door het toepassingstype dat is gebruikt. Deze verzameling wordt weergegeven in de blade back-up-catalogus van de service Manager voor StorSimple-apparaat gebruikersinterface. |
+| back-upcatalogus |Een verzameling van back-ups, meestal gekoppeld door het toepassingstype dat is gebruikt. Deze verzameling wordt weergegeven in de blade back-up-catalogus van de service Manager voor StorSimple-apparaat gebruikersinterface. |
 | back-catalogusbestand |Een bestand met een lijst met beschikbare momentopnamen die momenteel zijn opgeslagen in de back-up van StorSimple Snapshot Manager-database. |
 | back-upbeleid |Een selectie van volumes, type back-up en een tijdschema waarmee u back-ups maken op een vooraf gedefinieerd schema. |
 | binaire grote objecten (BLOB's) |Een verzameling van binaire gegevens die zijn opgeslagen als één entiteit in een databasebeheersysteem. BLOBs zijn meestal afbeeldingen, audio of andere multimedia objecten, hoewel soms binaire uitvoerbare code wordt opgeslagen als een BLOB. |
 | Challenge Handshake Authentication Protocol (CHAP) |Een protocol dat wordt gebruikt voor het verifiëren van de peer van een verbinding, op basis van de peer-delen van een wachtwoord of geheim. CHAP kan eenzijdige of wederzijdse zijn. Met één richting CHAP verifieert het doel een initiator. Wederzijdse CHAP vereist dat het doel de initiator geverifieerd en dat de initiator het doel moeten worden geverifieerd. |
-| kloon |Een kopie van een volume. |
+| Kloon |Een kopie van een volume. |
 | Cloud als een laag (CaaT) |Cloudopslag als een laag binnen de opslagarchitectuur worden geïntegreerd, zodat alle opslag moet deel uitmaken van een onderneming opslagnetwerk weergegeven. |
 | cloud serviceprovider (CSP) |Een provider van services voor cloudcomputing. |
 | cloudmomentopname |Een kopie van de punt in tijd van de volumegegevens die zijn opgeslagen in de cloud. Een cloudmomentopname is gelijk aan een momentopname op een andere, externe opslagsysteem gerepliceerd. Cloudmomentopnamen zijn bijzonder nuttig voor herstel na noodgevallen. |
@@ -290,8 +290,8 @@ Voordat u uw Microsoft Azure StorSimple-oplossing implementeert, wordt u aangera
 | lokale momentopname |Een kopie van de punt in tijd van de volumegegevens die zijn opgeslagen op de Microsoft Azure StorSimple-apparaat. |
 | Microsoft Azure StorSimple |Een krachtige oplossing die bestaan uit een opslagapparaat datacenter- en software waarmee IT-organisaties gebruikmaken van cloud-opslag alsof het datacenter-opslag. StorSimple vereenvoudigt de bescherming van gegevens en het beheer van gegevens tijdens de kosten te verlagen. De oplossing consolideert primaire opslag, archiveren, back-up, en herstel na noodgevallen (DR) via naadloze integratie met de cloud. StorSimple-apparaten inschakelen door een combinatie van SAN-opslag- en cloud gegevensbeheer op een platform bedrijfsniveau snelheid, eenvoud en betrouwbaarheid voor alle opslag-gerelateerde behoeften. |
 | Stroom en koeling van Module (PCM) |Hardware-onderdelen van uw StorSimple-apparaat dat bestaat uit de voedingen en de ventilator, daarom de naam van de stroom en koeling van de module. De primaire behuizing van het apparaat heeft twee 764W PCMs terwijl de behuizing EBOD twee 580 w bij PCMs heeft. |
-| Primaire behuizing |Belangrijkste behuizing van uw StorSimple-apparaat dat de toepassing platform-controllers bevat. |
-| Beoogde hersteltijd (RTO) |De maximale hoeveelheid tijd die voordat een bedrijfsproces of het systeem opgebruikt moet is volledig hersteld na een noodgeval. |
+| primaire behuizing |Belangrijkste behuizing van uw StorSimple-apparaat dat de toepassing platform-controllers bevat. |
+| beoogde hersteltijd (RTO) |De maximale hoeveelheid tijd die voordat een bedrijfsproces of het systeem opgebruikt moet is volledig hersteld na een noodgeval. |
 | seriële gekoppelde SCSI (SAS) |Een type harde schijf (HDD). |
 | gegevensversleutelingssleutel van service |Een sleutel beschikbaar gesteld aan een nieuwe StorSimple-apparaat dat wordt geregistreerd bij de service Manager voor StorSimple-apparaat. De configuratiegegevens overgedragen tussen de service Manager voor StorSimple-apparaat en het apparaat is versleuteld met een openbare sleutel en vervolgens alleen op het apparaat met een persoonlijke sleutel kan worden ontsleuteld. Gegevensversleutelingssleutel van service kan de service voor deze persoonlijke sleutel voor ontsleuteling. |
 | serviceregistratiesleutel |Een sleutel die helpt het StorSimple-apparaat registreren bij de Apparaatbeheer StorSimple-service zodat deze wordt weergegeven in de Azure portal voor verdere acties. |
@@ -302,9 +302,9 @@ Voordat u uw Microsoft Azure StorSimple-oplossing implementeert, wordt u aangera
 | StorSimple-apparaatbeheerservice |Een uitbreiding van de Azure portal die u kunt uw Azure StorSimple on-premises en virtuele apparaten beheren. |
 | StorSimple Snapshot Manager |Een Microsoft Management Console (MMC)-module voor het beheren van back-up en herstellen van bewerkingen in Microsoft Azure StorSimple. |
 | back-up maken |Een functie waarmee de gebruiker een interactieve back-up maken van een volume. Het is een andere manier een handmatige back-up van een volume in plaats van een automatische back-up via een gedefinieerd beleid duurt te nemen. |
-| Thin provisioning |Een methode voor het optimaliseren van de efficiëntie waarmee de beschikbare opslagruimte wordt gebruikt in opslagsystemen. De opslag is in dunne inrichting wordt verdeeld over meerdere gebruikers op basis van de minimaal vereiste door elke gebruiker op elk moment schijfruimte. Zie ook *fat inrichting*. |
+| thin provisioning |Een methode voor het optimaliseren van de efficiëntie waarmee de beschikbare opslagruimte wordt gebruikt in opslagsystemen. De opslag is in dunne inrichting wordt verdeeld over meerdere gebruikers op basis van de minimaal vereiste door elke gebruiker op elk moment schijfruimte. Zie ook *fat inrichting*. |
 | lagen |Gegevens in logische groepen op basis van het huidige gebruik, leeftijd en relatie met andere gegevens rangschikken. StorSimple rangschikt automatisch gegevens in categorieën. |
-| Volume |Logische opslagplaatsen aangeboden in de vorm van stations. StorSimple-volumes overeenkomen met de volumes die zijn gekoppeld met de host, met inbegrip van die door het gebruik van iSCSI- en een StorSimple-apparaat wordt gedetecteerd. |
+| volume |Logische opslagplaatsen aangeboden in de vorm van stations. StorSimple-volumes overeenkomen met de volumes die zijn gekoppeld met de host, met inbegrip van die door het gebruik van iSCSI- en een StorSimple-apparaat wordt gedetecteerd. |
 | volumecontainer |Een groepering van volumes en de instellingen die op hen van toepassing. Alle volumes in uw StorSimple-apparaat zijn gegroepeerd in volumecontainers. Instellingen voor volume-container omvatten storage-accounts, versleutelingsinstellingen voor gegevens die worden verzonden naar de cloud met bijbehorende coderingssleutels en bandbreedte voor bewerkingen met betrekking tot de cloud. |
 | volume-groep |In StorSimple Snapshot Manager een volume-groep is een verzameling van volumes die zijn geconfigureerd voor het faciliteren van een back-up. |
 | Volume Shadow Copy Service (VSS) |Een service van de Windows Server-besturingssysteem die zorgt voor een toepassing consistente door te communiceren met VSS-compatibele toepassingen voor het coördineren van het maken van incrementele momentopnamen. VSS zorgt ervoor dat de toepassingen tijdelijk niet actief zijn wanneer momentopnamen worden gemaakt. |

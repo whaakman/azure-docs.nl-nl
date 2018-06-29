@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628256"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088627"
 ---
 # <a name="create-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat maken
 
@@ -191,15 +191,15 @@ In de zelfstudie werkt u met Visual Studio-oplossing die verbinding met de oplos
 
 Wanneer u de simulatie device service wijzigt, kunt u lokaal te testen van uw wijzigingen kunt uitvoeren. Voordat u de simulatie device service lokaal uitvoeren, moet u het exemplaar dat wordt uitgevoerd in de virtuele machine als volgt stoppen:
 
-1. Vinden de **CONTAINER-ID** van de **apparaat simulatie** service, voer de volgende opdracht in de SSH-sessie die is verbonden met de virtuele machine:
+1. Vinden de **CONTAINER-ID** van de **apparaat-simulatie-dotnet** service, voer de volgende opdracht in de SSH-sessie die is verbonden met de virtuele machine:
 
     ```sh
     docker ps
     ```
 
-    Noteer de container-ID van de **apparaat simulatie** service.
+    Noteer de container-ID van de **apparaat-simulatie-dotnet** service.
 
-1. Om te stoppen de **apparaat simulatie** container, voer de volgende opdracht:
+1. Om te stoppen de **apparaat-simulatie-dotnet** container, voer de volgende opdracht:
 
     ```sh
     docker stop container-id-from-previous-step
@@ -248,12 +248,6 @@ U hebt nu alles in plaats en u bent klaar om te beginnen een nieuw gesimuleerd a
 ## <a name="create-a-simulated-device-type"></a>Een type gesimuleerd apparaat maken
 
 De eenvoudigste manier om een nieuwe apparaattype maken in de simulatie-service van het apparaat is kopiëren en wijzigen van een bestaand type. De volgende stappen ziet u hoe u de ingebouwde kopieert **Koelunit** apparaat Maak een nieuwe **gloeilamp** apparaat:
-
-1. Open in Visual Studio de **apparaat simulation.sln** oplossingsbestand in uw lokale kloon van de **apparaat simulatie** opslagplaats.
-
-1. Klik in Solution Explorer met de rechtermuisknop op de **SimulationAgent** project, kies **eigenschappen**, en kies vervolgens **Debug**.
-
-1. In de **omgevingsvariabelen** sectie, het bewerken van de waarde van de **pc's\_IOTHUB\_CONNSTRING** variabele moet de verbindingsreeks van de IoT-Hub u eerder hebt genoteerd. Sla uw wijzigingen.
 
 1. Klik in Solution Explorer met de rechtermuisknop op de **WebService** project, kies **eigenschappen**, en kies vervolgens **Debug**.
 
@@ -385,18 +379,21 @@ De **scripts/gloeilamp-01-state.js** -bestand definieert het gedrag van de simul
 1. Bewerk de **belangrijkste** functie voor het implementeren van het gedrag, zoals wordt weergegeven in het volgende fragment:
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -545,11 +542,11 @@ De volgende stappen wordt ervan uitgegaan dat u een opslagplaats aangeroepen heb
 
     De scripts die zijn toegevoegd de **testen** label op de installatiekopie.
 
-1. SSH gebruiken voor verbinding met uw oplossing virtuele machine in Azure. Navigeer naar de **App** map en bewerk de **docker compose.yaml** bestand:
+1. SSH gebruiken voor verbinding met uw oplossing virtuele machine in Azure. Navigeer naar de **App** map en bewerk de **docker-compose.yml** bestand:
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Bewerk de vermelding voor de service van de simulatie apparaat de docker-afbeelding te gebruiken:
@@ -605,7 +602,7 @@ Deze sectie beschrijft het wijzigen van een bestaand type gesimuleerd apparaat t
 
 De volgende stappen ziet u hoe u de bestanden die definiëren van de ingebouwde vinden **Koelunit** apparaat:
 
-1. Als u dit nog niet hebt gedaan, gebruik de volgende opdracht voor het klonen van de **apparaat simulatie** GitHub-opslagplaats met uw lokale machine:
+1. Als u dit nog niet hebt gedaan, gebruik de volgende opdracht voor het klonen van de **apparaat-simulatie-dotnet** GitHub-opslagplaats met uw lokale machine:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -673,9 +670,9 @@ De volgende stappen ziet u het toevoegen van een nieuwe **interne temperatuur** 
 
 ### <a name="test-the-chiller-device-type"></a>Het type van het apparaat Koelunit testen
 
-Voor het testen van de bijgewerkte **Koelunit** apparaattype, de eerste uitvoering van een lokale kopie van de **apparaat simulatie** service voor het testen van uw apparaattype naar verwachting werkt. Wanneer u hebt getest en foutopsporing van uw bijgewerkte apparaattype lokaal, kunt u de container opnieuw maken en implementeren het **apparaat simulatie** service naar Azure.
+Voor het testen van de bijgewerkte **Koelunit** apparaattype, de eerste uitvoering van een lokale kopie van de **apparaat-simulatie-dotnet** service voor het testen van uw apparaattype naar verwachting werkt. Wanneer u hebt getest en foutopsporing van uw bijgewerkte apparaattype lokaal, kunt u de container opnieuw maken en implementeren het **apparaat-simulatie-dotnet** service naar Azure.
 
-Bij het uitvoeren van de **apparaat simulatie** service lokaal het telemetrie verzendt naar uw oplossing voor externe controle. Op de **apparaten** pagina kunt u exemplaren van het type van uw bijgewerkte inrichten.
+Bij het uitvoeren van de **apparaat-simulatie-dotnet** service lokaal het telemetrie verzendt naar uw oplossing voor externe controle. Op de **apparaten** pagina kunt u exemplaren van het type van uw bijgewerkte inrichten.
 
 Als u wilt testen en fouten opsporen in uw wijzigingen op een lokaal, Zie de vorige sectie [gloeilamp-apparaattype lokaal testen](#test-the-lightbulb-device-type-locally).
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae8751f429cb4b11199bd8da9d8c2e08c0b98b35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628280"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097077"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integreer SIM-gegevens in de oplossing voor externe controle
 
@@ -33,9 +33,9 @@ In deze zelfstudie leert u het volgende:
 
 Deze extra externe controle-functie is momenteel in preview. Volg deze stappen voor het synchroniseren van uw connectiviteitsgegevens in een oplossing voor externe controle Azure:
 
-1. Vullen van de aanvraag op [Telefónica van site](https://iot.Telefónica.com/contact), selecteert u de optie **Azure externe controle**, met inbegrip van uw contactgegevens.
+1. Vullen van de aanvraag op [Telefónica van site](https://iot.telefonica.com/contact), selecteert u de optie **Azure externe controle**, met inbegrip van uw contactgegevens.
 2. Telefónica wordt geactiveerd voor uw account.
-3. Als u nog niet een client Telefónica en u wilt profiteren van dit of andere IoT connectiviteit Cloud gereed services, gaat u naar [Telefónica van site](https://iot.Telefónica.com/contact) en selecteer de optie **connectiviteit**.
+3. Als u nog niet een client Telefónica en u wilt profiteren van dit of andere IoT connectiviteit Cloud gereed services, gaat u naar [Telefónica van site](https://iot.telefonica.com/) en selecteer de optie **connectiviteit**.
 
 ### <a name="telefnica-sim-setup"></a>Telefónica SIM setup
 Telefónica SIM & Azure Twin ID apparaatkoppeling is gebaseerd op de eigenschap 'alias' Telefónica IoT SIM. 

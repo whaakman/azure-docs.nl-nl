@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentatie voor Azure Data Factory V2 Preview
+title: Documentatie voor Azure Data Factory
 metadata:
   title: Documentatie voor Azure Data Factory - zelfstudies, API-verwijzing | Microsoft Docs
   description: Meer informatie over hoe u Data Factory gebruikt voor het instellen van pijplijnen naar en van on-premises en cloudresources om gegevens voor analyse te verplaatsen en verwerken.
@@ -13,21 +13,21 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/08/2017
   ms.author: douglasl
-  ms.openlocfilehash: e31500a02bc3470e338f727771eebe887dcc493f
-  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+  ms.openlocfilehash: 624b2f0968776115f35698710cdc930a9a824922
+  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 03/23/2018
-  ms.locfileid: "30166739"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37047197"
 abstract:
-  description: Meer informatie over hoe u Data Factory, een integratieservice voor cloudgegevens, gebruikt om de services voor gegevensopslag, -verplaatsing en -verwerking te combineren in geautomatiseerde gegevenspijplijnen. Zelfstudies en andere documentatie laten zien hoe u gegevenspijplijnen instelt en beheert, en gegevens voor analyse verplaatst en transformeert. <p>Momenteel is de V2-versie van Data Factory in de preview-fase. De V1-versie is algemeen beschikbaar. Raadpleeg <a href=/azure/data-factory/v1/data-factory-introduction>Documentatie voor V1</a> als u de V1-versie van de Data Factory-service gebruikt.</p>
+  description: Meer informatie over hoe u Data Factory, een integratieservice voor cloudgegevens, gebruikt om de services voor gegevensopslag, -verplaatsing en -verwerking te combineren in geautomatiseerde gegevenspijplijnen. Zelfstudies en andere documentatie laten zien hoe u gegevenspijplijnen instelt en beheert, en gegevens voor analyse verplaatst en transformeert. <p>Raadpleeg <a href=/azure/data-factory/v1/data-factory-introduction>Documentatie voor V1</a> als u de V1-versie van de Data Factory-service gebruikt.</p>
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: Op visuele wijze pijplijnen bouwen voor Azure Data Factory V2 (19:31)
+    title: Op visuele wijze pijplijnen bouwen voor Azure Data Factory (19:31)
     href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
     width: 250
 sections:

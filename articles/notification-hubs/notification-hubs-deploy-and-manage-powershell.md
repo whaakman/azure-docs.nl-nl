@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d70aff4cc569a194740fdab9373b7e11a1fcb15
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776903"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084345"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Notification Hubs implementeren en beheren met PowerShell
 ## <a name="overview"></a>Overzicht
@@ -34,8 +34,8 @@ Het beheren van meldingen Hubs wordt rechtstreeks door de opgenomen met Azure Po
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-abonnement. Azure is een platform op basis van abonnement. Zie voor meer informatie over het verkrijgen van een abonnement [koopopties], [lid biedt], of [gratis proefversie].
-* Een computer met Azure PowerShell. Zie voor instructies [installeren en configureren van Azure PowerShell].
+* Een Azure-abonnement. Azure is een platform op basis van abonnement. Zie voor meer informatie over het verkrijgen van een abonnement [Opties voor aanschaf], [Lid-aanbiedingen], of [gratis proefversie].
+* Een computer met Azure PowerShell. Zie voor instructies [Azure PowerShell installeren en configureren ].
 * Een algemeen begrip van de PowerShell-scripts, NuGet-pakketten en .NET Framework.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Een verwijzing naar de .NET-assembly voor Service Bus
@@ -85,7 +85,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 
 ## <a name="provisioning-a-new-notification-hub"></a>Inrichting van een nieuwe Notification Hub
-Voor het inrichten van een nieuwe notification hub gebruiken de [.NET API voor Notification Hubs].
+Voor het inrichten van een nieuwe notification hub gebruiken de [.NET-API voor Notification Hubs].
 
 In dit gedeelte van het script, moet u vier lokale variabelen instellen. 
 
@@ -154,11 +154,11 @@ Er zijn ook enkele kant-en-scripts downloaden:
 
 * [Service Bus PowerShell-Scripts](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[koopopties]: http://azure.microsoft.com/pricing/purchase-options/
-[lid biedt]: http://azure.microsoft.com/pricing/member-offers/
-[gratis proefversie]: http://azure.microsoft.com/pricing/free-trial/
-[installeren en configureren van Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[.NET API voor Notification Hubs]: https://msdn.microsoft.com/library/azure/mt414893.aspx
+[Opties voor aanschaf]: http://azure.microsoft.com/pricing/purchase-options/
+[Lid-aanbiedingen]: http://azure.microsoft.com/pricing/member-offers/
+[Gratis proefversie]: http://azure.microsoft.com/pricing/free-trial/
+[Azure PowerShell installeren en configureren ]: /powershell/azureps-cmdlets-docs
+[.NET-API voor Notification Hubs]: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx

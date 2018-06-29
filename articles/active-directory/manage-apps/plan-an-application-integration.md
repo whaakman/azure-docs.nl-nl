@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292834"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088624"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory integreren met toepassingen aan de slag
 ## <a name="overview"></a>Overzicht
@@ -61,8 +61,8 @@ Misschien niet hebt u al deze vragen worden beantwoord vooraf, maar dat is geen 
 * Een Azure-abonnement en een Azure Active Directory-directory.  Als u nog geen Azure-abonnement hebt, kunt u Azure voor 30 dagen gratis uitproberen. [Probeer het nu!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Integratie van toepassingen met Azure AD
-### <a name="finding-unsanctioned-cloud-applications-with-cloud-app-discovery"></a>Zoeken naar niet-toegestane cloud-toepassingen met Cloud App Discovery
-Zoals eerder vermeld, worden toepassingen die nog niet is beheerd door uw organisatie tot op heden.  Als onderdeel van de procedure inventarisatie is het mogelijk om te zoeken naar niet-toegestane cloud-toepassingen. Zie [zoeken naar niet-toegestane cloud-toepassingen met Cloud App Discovery](cloud-app-discovery.md).
+### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>Zoeken naar niet-toegestane cloud-toepassingen met Cloud Discovery
+Zoals eerder vermeld, worden toepassingen die nog niet is beheerd door uw organisatie tot op heden.  Als onderdeel van de procedure inventarisatie is het mogelijk om te zoeken naar niet-toegestane cloud-toepassingen. Zie [Cloud Discovery instellen](/cloud-app-security/set-up-cloud-discovery.md).
 
 ### <a name="authentication-types"></a>Verificatietypen
 Elk van uw toepassingen mogelijk andere verificatievereisten. Met Azure AD kan ondertekenen van certificaten worden gebruikt met toepassingen die gebruikmaken van SAML 2.0, WS-Federation, of OpenID Connect protocollen, evenals wachtwoord eenmalige aanmelding. Zie voor meer informatie over toepassing verificatietypen voor gebruik met Azure AD [certificaten beheren voor federatieve eenmalige aanmelding bij Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) en [eenmalige aanmelding op op basis van wachtwoorden](what-is-single-sign-on.md).
@@ -73,9 +73,9 @@ Met Microsoft Azure AD-toepassingsproxy, kunt u toegang tot toepassingen die zic
 ### <a name="integrating-applications-with-azure-ad"></a>Toepassingen integreren met Azure AD
 De volgende artikelen worden de verschillende manieren toepassingen integreren met Azure AD en sommige advies besproken.
 
-* [Bepalen welke Active Directory gebruiken](../active-directory-administer.md)
+* [Bepalen welke Active Directory gebruiken](../fundamentals/active-directory-administer.md)
 * [Gebruik van toepassingen in de galerie van Azure-toepassing](what-is-single-sign-on.md)
-* [Integratie van zelfstudies lijst met SaaS-toepassingen](../active-directory-saas-tutorial-list.md)
+* [Integratie van zelfstudies lijst met SaaS-toepassingen](../saas-apps/tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>Het beheren van toegang tot toepassingen
 De volgende artikelen beschrijven manieren kunt u toegang tot toepassingen beheren wanneer ze zijn geïntegreerd met Azure AD dat gebruikmaakt van Azure AD-Connectors en Azure AD.

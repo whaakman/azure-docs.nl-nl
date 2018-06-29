@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 0c677b88228097efcaa30399160dfdafa1c01788
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060235"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096339"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Een hybride Runbook Worker van Linux implementeren
 
@@ -49,7 +49,7 @@ De minimale vereisten voor een Linux hybride Runbook Worker zijn:
 | **Vereist pakket** | **Beschrijving** | **Minimale versie**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C-bibliotheek| 2.5-12 |
-|Openssl| OpenSSL-bibliotheken | 0.9.8e of 1.0|
+|Openssl| OpenSSL-bibliotheken | 1.0 (TLS 1.1 en TLS 1.2 worden ondersteund|
 |cURL | WebClient cURL | 7.15.5|
 |Python-ctypes | |
 |PAM | Pluggable Authentication Modules|

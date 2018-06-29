@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 509df5274a5e44342390036511689fa8f8146807
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf25ae5703a632005dd73820fc05347f7b5e16a6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869798"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097492"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -146,7 +146,7 @@ U kunt instellen dat een bepaalde periode om toe te staan verificatiepogingen na
 
 De _goedgekeurde IP-adressen_ functie van Azure multi-factor Authentication wordt gebruikt door beheerders van een beheerd of federatieve-tenant. De functie wordt overgeslagen voor verificatie in twee stappen voor gebruikers die zich via het bedrijfsintranet aanmelden. De functie is beschikbaar bij de volledige versie van Azure multi-factor Authentication en niet de gratis versie voor beheerders. Zie voor meer informatie over het verkrijgen van de volledige versie van Azure multi-factor Authentication [Azure multi-factor Authentication](multi-factor-authentication.md).
 
-Als uw organisatie implementeert de extensie NPS MVR gesloten om aan te bieden voor bedrijfsruimten toepassingen opmerking wordt altijd het bron-IP-adres moet de NPS-server de verificatie probeert via weergegeven.
+Als uw organisatie implementeert de NPS-extensie MFA om aan te bieden lokale toepassingen opmerking wordt altijd het IP-adres van de bronserver naar de NPS-server de verificatie stroomt via probeert worden weergegeven.
 
 | Azure AD-tenant-type | Opties van de functie vertrouwde IP-adressen |
 |:--- |:--- |
@@ -292,7 +292,7 @@ Gebruikers kunnen geen app-wachtwoorden maken standaard. De functie app-wachtwoo
 
 Gebruikers kunnen app-wachtwoorden maken tijdens de initiële inschrijving. De gebruiker heeft de optie voor het maken van app-wachtwoorden aan het einde van het registratieproces.
 
-Gebruikers kunnen ook app-wachtwoorden maken na de registratie. De app-wachtwoorden kunnen worden gewijzigd via de instellingen in de Azure-portal of de Office 365-portal. Zie voor meer informatie en gedetailleerde stappen voor uw gebruikers [wat zijn app-wachtwoorden in Azure multi-factor Authentication?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md)
+Gebruikers kunnen ook app-wachtwoorden maken na de registratie. De app-wachtwoorden kunnen worden gewijzigd via de instellingen in de Azure-portal of de Office 365-portal. Zie voor meer informatie en gedetailleerde stappen voor uw gebruikers [wat zijn app-wachtwoorden in Azure multi-factor Authentication?](end-user/current/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## <a name="remember-multi-factor-authentication-for-trusted-devices"></a>Houd er rekening mee multi-factor Authentication voor vertrouwde apparaten
@@ -301,7 +301,7 @@ De _onthouden multi-Factor Authentication_ onderdeel voor apparaten en browsers 
 >[!IMPORTANT]
 >Als een account of apparaat is geknoeid, kan Onthoud multi-factor Authentication voor vertrouwde apparaten beveiliging beïnvloeden. Als een zakelijke account wordt aangetast of een vertrouwd apparaat is zoekgeraakt of gestolen, moet u [multi-factor Authentication herstellen op alle apparaten](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->De herstelbewerking trekt de vertrouwde status van alle apparaten en de gebruiker is vereist om opnieuw verificatie in twee stappen uitvoeren. U kunt ook instrueert u uw gebruikers multi-factor Authentication herstellen op hun eigen apparaten met de instructies in [beheren van uw instellingen voor verificatie in twee stappen](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+>De herstelbewerking trekt de vertrouwde status van alle apparaten en de gebruiker is vereist om opnieuw verificatie in twee stappen uitvoeren. U kunt ook instrueert u uw gebruikers multi-factor Authentication herstellen op hun eigen apparaten met de instructies in [beheren van uw instellingen voor verificatie in twee stappen](end-user/current/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >
 
 ### <a name="how-the-feature-works"></a>De werking van de functie
@@ -341,7 +341,7 @@ Nadat u de aanmeldingsgegevens onthouden multi-factor Authentication-functie heb
 
 U kunt de verificatiemethoden die beschikbaar voor uw gebruikers met behulp van zijn de _selecteerbare verificatiemethoden_ functie. De volgende tabel geeft een kort overzicht van de methoden.
 
-Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registreren, kies ze hun methode voorkeursoptie voor verificatie van de opties die u hebt ingeschakeld. Richtlijnen voor het registratieproces van de gebruiker is opgegeven [Mijn account voor verificatie in twee stappen instellen](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md).
+Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registreren, kies ze hun methode voorkeursoptie voor verificatie van de opties die u hebt ingeschakeld. Richtlijnen voor het registratieproces van de gebruiker is opgegeven [Mijn account voor verificatie in twee stappen instellen](end-user/current/multi-factor-authentication-end-user-first-time.md).
 
 | Methode | Beschrijving |
 |:--- |:--- |

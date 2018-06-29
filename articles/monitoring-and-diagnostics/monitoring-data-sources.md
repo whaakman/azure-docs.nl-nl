@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 97eca81a8ddc2726bf5de0f4ad7ba0bdf1df1d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 78b3288cf4973efa2684252581000d0e4fc56cae
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220081"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082995"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Bewakingsgegevens van Azure gebruiken
 
@@ -28,7 +28,7 @@ Via de Azure-platform meebrengen we samen bewakingsgegevens op één plaats met 
 | Aangepaste of een toepassing metrische gegevens | Metrische gegevens | Alle toepassingen die zijn uitgerust met Application Insights | <ul><li>**REST-API:** [Application Insights REST-API](https://dev.applicationinsights.io/reference)</li></ul> |
 | Metrische gegevens Storage | Metrische gegevens | Azure Storage | <ul><li>**Table Storage:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Factureringsgegevens | Metrische gegevens | Alle Azure-services | <ul><li>**REST-API:** [Azure brongebruik en RateCard API's](../billing/billing-usage-rate-card-overview.md)</li></ul> |
-| Activiteitenlogboek | Gebeurtenissen | Alle Azure-services | <ul><li>**REST-API:** [gebeurtenissen van Azure controleren API](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**Opslag-blob of event hub:** [logboek profiel](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
+| Activiteitenlogboek | Gebeurtenissen | Alle Azure-services | <ul><li>**REST-API:** [gebeurtenissen van Azure controleren API](https://docs.microsoft.com/en-us/rest/api/monitor/eventcategories)</li><li>**Opslag-blob of event hub:** [logboek profiel](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Diagnostische logboeken van Azure Monitor | Gebeurtenissen | [Overzicht hier](monitoring-diagnostic-logs-schema.md) | <ul><li>**Opslag-blob of event hub:** [diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | COMPUTE Gast OS-Logboeken (bv. IIS, ETW, syslogs) | Gebeurtenissen | [Windows](../virtual-machines-dotnet-diagnostics.md) en virtuele Linux-Machines (v2) [Cloudservices](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Fabric-Service](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Table Storage of blob:** [Windows of Linux Azure diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Event hub:** [Windows Azure diagnostics](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | App Service-Logboeken | Gebeurtenissen | App-services | <ul><li>**Bestand, tabel of blob-opslag:** [Web-app diagnose](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |

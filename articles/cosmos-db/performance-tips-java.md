@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 2c0290ef160283f5aef8b1a4a5f67e69222aec0e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: bf0bd715e47cc7145a76d5f8b5f2589f24b343a8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029353"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100552"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -148,9 +148,9 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     response.getRequestCharge();
     ```             
 
-    De aanvraag kosten geretourneerd in deze header is een fractie van de ingerichte doorvoer. Bijvoorbeeld, als er 2000 RU/s is ingericht en als de voorgaande query 1000 1KB-documenten retourneert, de kosten van de bewerking is 1000. Als zodanig binnen één seconde respecteert de-server slechts twee dergelijke aanvragen voordat de beperking van de volgende aanvragen. Zie voor meer informatie [Aanvraageenheden](request-units.md) en de [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner).
+    De aanvraag kosten geretourneerd in deze header is een fractie van de ingerichte doorvoer. Bijvoorbeeld, als er 2000 RU/s is ingericht en als de voorgaande query 1000 1KB-documenten retourneert, de kosten van de bewerking is 1000. Binnen één seconde als zodanig respecteert de server slechts twee aanvragen voordat snelheidsbeperking volgende aanvragen. Zie voor meer informatie [Aanvraageenheden](request-units.md) en de [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
-2. **Verwerken frequentie beperken/aanvraagsnelheid te groot**
+1. **Verwerken frequentie beperken/aanvraagsnelheid te groot**
 
     Wanneer een client probeert overschrijdt de gereserveerde doorvoer voor een account, is er geen verslechtering van prestaties optreedt op de server en geen gebruik van doorvoercapaciteit afgezien van het niveau van de gereserveerde. De server wordt optie preventief beëindigen van de aanvraag met RequestRateTooLarge (HTTP-statuscode 429) en retourneert de [x-ms-opnieuw-na-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header die aangeeft van de hoeveelheid tijd in milliseconden, dat de gebruiker alvorens nogmaals te proberen wachten moet de aanvraag.
 

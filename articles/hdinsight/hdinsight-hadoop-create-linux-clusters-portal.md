@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 13f746697a7e694da79a6e376b45f95529049a44
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5a6fa3f2bb6ab76bf323fe3ca829797878f5e774
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401958"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100501"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de Azure-portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -74,14 +74,14 @@ De Azure-portal beschrijft de meeste van de eigenschappen van het cluster. Azure
 
     * Klik op **Volgende**.
 
-4. Voor **opslag**, opgeven of u Azure Storage (WASB) of de Data Lake Store als uw standaard-opslag. Bekijk de onderstaande tabel voor meer informatie.
+4. Voor **opslag**, opgeven of u Azure Storage (WASB) of de Data Lake Storage als uw standaard-opslag. Bekijk de onderstaande tabel voor meer informatie.
 
     ![Een nieuw cluster maken in de Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "een nieuw cluster maken in de Azure portal")
 
     | Storage                                      | Beschrijving |
     |----------------------------------------------|-------------|
-    | **Azure Storage-Blobs als standaard opslag**   | <ul><li>Voor **primaire opslagtype**, selecteer **Azure Storage**. Daarna voor **selectiemethode**, kunt u **abonnementen** als u wilt opgeven van een opslagaccount die deel uitmaakt van uw Azure-abonnement en selecteer vervolgens het opslagaccount. Klik anders op **toegangssleutel** en geef de gegevens voor het opslagaccount dat u kiezen wilt uit buiten uw Azure-abonnement.</li><li>Voor **standaardcontainer**, kunt u doorgaan met de standaardnaam van de container voorgesteld door de portal of geef uw eigen.</li><li>Als u WASB als standaard opslag gebruikt, hoeft u (optioneel) op **extra Opslagaccounts** om op te geven van extra opslagaccounts te koppelen aan het cluster. Voor **Azure Opslagsleutels**, klikt u op **opslag van een sleutel**, en u kunt geeft u een opslagaccount van uw Azure-abonnementen of van andere abonnementen (door de toegangssleutel voor opslagaccount).</li><li>Als u WASB als standaard opslag gebruikt, hoeft u (optioneel) op **Data Lake Store toegang** om op te geven van Azure Data Lake Store als extra opslagruimte. Zie voor meer informatie [een HDInsight-cluster maken met Data Lake Store met Azure-portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
-    | **Azure Data Lake Store als standaard opslag** | Voor **primaire opslagtype**, selecteer **Data Lake Store** en Raadpleeg het artikel [een HDInsight-cluster maken met Data Lake Store met Azure-portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) voor instructies. |
+    | **Azure Storage-Blobs als standaard opslag**   | <ul><li>Voor **primaire opslagtype**, selecteer **Azure Storage**. Daarna voor **selectiemethode**, kunt u **abonnementen** als u wilt opgeven van een opslagaccount die deel uitmaakt van uw Azure-abonnement en selecteer vervolgens het opslagaccount. Klik anders op **toegangssleutel** en geef de gegevens voor het opslagaccount dat u kiezen wilt uit buiten uw Azure-abonnement.</li><li>Voor **standaardcontainer**, kunt u doorgaan met de standaardnaam van de container voorgesteld door de portal of geef uw eigen.</li><li>Als u WASB als standaard opslag gebruikt, hoeft u (optioneel) op **extra Opslagaccounts** om op te geven van extra opslagaccounts te koppelen aan het cluster. Voor **Azure Opslagsleutels**, klikt u op **opslag van een sleutel**, en u kunt geeft u een opslagaccount van uw Azure-abonnementen of van andere abonnementen (door de toegangssleutel voor opslagaccount).</li><li>Als u WASB als standaard opslag gebruikt, hoeft u (optioneel) op **Data Lake Store toegang** om op te geven van Azure Data Lake Storage als extra opslagruimte. Zie voor meer informatie [Snelstartgids: instellen van clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+    | **Azure Data Lake Storage als standaard opslag** | Voor **primaire opslagtype**, selecteer **Azure Data Lake Storage Gen1** of **Azure Data Lake Storage Gen2 (Preview)** en Raadpleeg het artikel [Quick Start : Stel clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) voor instructies. |
     | **Met externe metastores**                      | U kunt eventueel een SQL-database voor het opslaan van Hive en Oozie-metagegevens gekoppeld aan het cluster opgeven. Voor **selecteert u een SQL-database voor Hive** selecteert u een SQL-database en geef vervolgens de gebruikersnaam en wachtwoord voor de database. Herhaal deze stappen voor Oozie-metagegevens.<br><br>Enkele overwegingen bij het gebruik van Azure SQL-database voor metastores. <ul><li>De Azure SQL database gebruikt voor de metastore moet connectiviteit met andere Azure-services, waaronder Azure HDInsight toestaan. Klik op de servernaam op het dashboard van de Azure SQL database aan de rechterkant. Dit is de server waarop de SQL database-instantie wordt uitgevoerd. Wanneer u zich op de serverweergave, klikt u op **configureren**, en vervolgens voor **Azure Services**, klikt u op **Ja**, en klik vervolgens op **opslaan**.</li><li>Bij het maken van een metastore gebruik niet de naam van een database met streepjes of afbreekstreepjes, omdat hierdoor het maakproces cluster mislukken.</li></ul> |
 
     Klik op **Volgende**. 
@@ -99,7 +99,7 @@ De Azure-portal beschrijft de meeste van de eigenschappen van het cluster. Azure
    > [!IMPORTANT]
    > Als u van plan bent op meer dan 32 worker-knooppunten op het maken van het cluster of door te schalen van het cluster na het maken, selecteert u een grootte van het hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB RAM-geheugen.
    > 
-   > Zie voor meer informatie over knooppuntgrootten en bijbehorende kosten [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
+   > Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
    > 
    > 
    

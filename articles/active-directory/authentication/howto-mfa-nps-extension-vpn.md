@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: cfdb89ae833dc2450a4670a84af305f1caa10591
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869509"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098869"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -305,7 +305,7 @@ Raadpleeg de gebeurtenislogboeken voor beveiliging op de RADIUS-server is om dez
  
 ## <a name="configure-multi-factor-authentication"></a>Multi-factor Authentication configureren
 
-Zie de artikelen voor informatie over het configureren van gebruikers voor multi-factor Authentication [vereisen verificatie in twee stappen voor een gebruiker of groep](howto-mfa-userstates.md) en [Mijn account voor verificatie in twee stappen instellen](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+Zie de artikelen voor informatie over het configureren van gebruikers voor multi-factor Authentication [vereisen verificatie in twee stappen voor een gebruiker of groep](howto-mfa-userstates.md) en [Mijn account voor verificatie in twee stappen instellen](end-user/current/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installeren en configureren van de NPS-uitbreiding
 

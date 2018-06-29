@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/03/2017
+ms.date: 06/28/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 20914eec070452186295f6d87a85ea0675ebaf4c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060083"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100416"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>ExpressRoute-circuits verplaatsen van het klassieke naar het Resource Manager-implementatiemodel met behulp van PowerShell
 
@@ -97,9 +97,7 @@ Uw circuit te verplaatsen, wijzigen en voer het volgende fragment:
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-> [!NOTE]
-> Een ExpressRoute-circuit heeft in de klassieke modus geen het concept van wordt gekoppeld aan een regio. In Resource Manager (ARM), moet elke resource worden toegewezen aan een Azure-regio. De regio die is opgegeven in de cmdlet Move-AzureRmExpressRouteCircuit kan technisch worden voor elke regio. Voor organisatie-doeleinden is het raadzaam om te kiezen een regio waarin uw locatie wordt aangeduid.
-> 
+Een ExpressRoute-circuit heeft in de klassieke modus geen het concept van wordt gekoppeld aan een regio. Echter, in de Resource-Manager elke resource moet worden toegewezen aan een Azure-regio. De regio die is opgegeven in de cmdlet Move-AzureRmExpressRouteCircuit kan technisch worden voor elke regio. Voor organisatie-doeleinden is het raadzaam om te kiezen een regio waarin uw locatie wordt aangeduid.
 
 > [!NOTE]
 > Nadat de verplaatsing is voltooid, wordt de nieuwe naam die wordt vermeld in de vorige cmdlet gebruikt voor het oplossen van de resource. In wezen het circuit gewijzigd.

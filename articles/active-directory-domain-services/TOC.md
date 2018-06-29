@@ -38,6 +38,7 @@
 #### [Taak 3: Secure LDAP inschakelen voor het beheerde domein met Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
+### [Een beheerd serviceaccount voor groepen maken in een beheerd domein](active-directory-ds-create-gmsa.md)
 ### [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Een virtueel netwerk selecteren](active-directory-ds-networking.md)
 ## Toepassingen implementeren

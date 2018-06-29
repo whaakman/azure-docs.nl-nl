@@ -11,23 +11,35 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 914e354265754a05476e96411d35e6cb04183213
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 183075f7407b0a0ca6ea53871e239ab8c2d89490
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261051"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098617"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI-element
 Een groep besturingselementen met ingebouwde validatie voor wachtwoorden voor Windows en Linux- en openbare SSH-sleutels.
 
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
-![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
+
+Voor Windows-gebruikers te zien:
+
+![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+
+Voor Linux met een wachtwoord dat is geselecteerd, worden gebruikers zien:
+
+![Microsoft.Compute.CredentialsCombo Linux-wachtwoord](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+
+Voor Linux met openbare SSH-sleutel hebt geselecteerd, worden gebruikers zien:
+
+![De sleutel Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Schema
-Als `osPlatform` is **Windows**, wordt het volgende schema gebruikt:
+Voor Windows, gebruikt u het volgende schema:
+
 ```json
 {
   "name": "element1",
@@ -52,7 +64,8 @@ Als `osPlatform` is **Windows**, wordt het volgende schema gebruikt:
 }
 ```
 
-Als `osPlatform` is **Linux**, wordt het volgende schema gebruikt:
+Voor **Linux**, gebruikt u het volgende schema:
+
 ```json
 {
   "name": "element1",
@@ -84,13 +97,13 @@ Als `osPlatform` is **Linux**, wordt het volgende schema gebruikt:
 
 ## <a name="remarks"></a>Opmerkingen
 - `osPlatform` moet worden opgegeven en kan **Windows** of **Linux**.
-- Als `constraints.required` is ingesteld op **true**, en vervolgens het wachtwoord of SSH tekstvakken met openbare sleutels moeten bevatten waarden kan worden gevalideerd. De standaardwaarde is **true**.
+- Als `constraints.required` is ingesteld op **true**, en vervolgens het wachtwoord of SSH openbare sleutel tekstvakken moeten waarden kan worden gevalideerd. De standaardwaarde is **true**.
 - Als `options.hideConfirmation` is ingesteld op **true**, en vervolgens het tweede tekstvak voor het bevestigen van het wachtwoord van de gebruiker wordt verborgen. De standaardwaarde is **false**.
 - Als `options.hidePassword` is ingesteld op **true**, en vervolgens de optie wachtwoordverificatie te gebruiken, wordt verborgen. Het kan worden gebruikt alleen wanneer `osPlatform` is **Linux**. De standaardwaarde is **false**.
 - Aanvullende beperkingen voor de toegestane wachtwoorden kunnen worden geïmplementeerd met behulp van de `customPasswordRegex` eigenschap. De tekenreeks in `customValidationMessage` wordt weergegeven wanneer u een wachtwoord aangepaste validatie is mislukt. De standaardwaarde voor beide eigenschappen is **null**.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
-Als `osPlatform` is **Windows**, of de gebruiker een wachtwoord in plaats van een openbare SSH-sleutel opgegeven, wordt de volgende uitvoer wordt verwacht:
+Als `osPlatform` is **Windows**, of `osPlatform` is **Linux** en de gebruiker een wachtwoord in plaats van een openbare SSH-sleutel opgegeven, wordt het besturingselement wordt de volgende uitvoer:
 
 ```json
 {
@@ -99,7 +112,8 @@ Als `osPlatform` is **Windows**, of de gebruiker een wachtwoord in plaats van ee
 }
 ```
 
-Als de gebruiker een openbare SSH-sleutel hebt opgegeven, wordt de volgende uitvoer verwacht:
+Als `osPlatform` is **Linux** en de gebruiker een openbare SSH-sleutel hebt opgegeven, wordt het besturingselement wordt de volgende uitvoer:
+
 ```json
 {
   "authenticationType": "sshPublicKey",

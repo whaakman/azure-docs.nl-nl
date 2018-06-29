@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: fa6f93231cba46e29206ec312fb82ad120ed45f6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c715ea3a3c4e113ec419919d240716517c28ffb8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517621"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099517"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake Store
 
@@ -28,7 +28,7 @@ In deze zelfstudie maakt u Jupyter-notebook beschikbaar met HDInsight Spark-clus
 
 * Azure Data Lake Store-account. Volg de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark-cluster met Data Lake Store als opslag. Volg de instructies voor [een HDInsight-cluster maken met Data Lake Store met Azure-portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Azure HDInsight Spark-cluster met Data Lake Store als opslag. Volg de instructies voor [Snelstartgids: instellen van clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     
 ## <a name="prepare-the-data"></a>De gegevens voorbereiden

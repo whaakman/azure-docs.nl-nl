@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dda37600dffaf1e8e1c85c9757696f2d8219febb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751667"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083988"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database aanschaffen van modellen en resources 
 
@@ -40,7 +40,7 @@ De volgende tabel en grafiek vergelijken en contrast van deze twee aankopen mode
 
 Een virtuele core vertegenwoordigt de logische CPU aangeboden met de optie te kiezen tussen generaties van hardware. De vCore gebaseerde aankoopmodel (preview) biedt uw flexibiliteit, de controle, de transparantie van afzonderlijke brongebruik en een eenvoudige manier om te vertalen naar on-premises werklastvereisten naar de cloud. Dit model kunt u scale compute, geheugen en opslag op basis van hun werkbelasting behoeften. In de vCore gebaseerde aankoopmodel (preview), klanten kunnen kiezen tussen algemeen en zakelijke kritische Servicelagen (preview) voor zowel [databases eenmalige](sql-database-single-database-scale.md) en [elastische pools](sql-database-elastic-pool.md). 
 
-hij vCore gebaseerde aankoopmodel (preview) kunt u onafhankelijk van elkaar schalen berekenings-en opslagbronnen, overeenkomen met de prestaties van de lokale en prijs optimaliseren. Als de database of de elastische groep meer dan 300 DTU conversie naar vCore verbruikt, kan uw kosten verminderen. U kunt met behulp van uw keuze-API of met behulp van de Azure-portal, zonder uitvaltijd converteren. Conversie is echter niet vereist. Als de aankoopmodel DTU voldoet aan uw prestatie- en bedrijfsvereisten, moet u blijven gebruiken. Als u besluit het DTU-model converteren naar vCore-model, moet u het prestatieniveau met behulp van de volgende vuistregel: elke 100 DTU in Standard-laag moet ten minste 1 vCore in algemeen gebruik laag; elke 125 DTU in Premium-laag moet ten minste 1 vCore in kritieke zakelijke laag.
+De vCore gebaseerde aankoopmodel (preview) kunt u onafhankelijk van elkaar schalen berekenings-en opslagbronnen, overeenkomen met de prestaties van de lokale en prijs optimaliseren. Als de database of de elastische groep meer dan 300 DTU conversie naar vCore verbruikt, kan uw kosten verminderen. U kunt met behulp van uw keuze-API of met behulp van de Azure-portal, zonder uitvaltijd converteren. Conversie is echter niet vereist. Als de aankoopmodel DTU voldoet aan uw prestatie- en bedrijfsvereisten, moet u blijven gebruiken. Als u besluit het DTU-model converteren naar vCore-model, moet u het prestatieniveau met behulp van de volgende vuistregel: elke 100 DTU in Standard-laag moet ten minste 1 vCore in algemeen gebruik laag; elke 125 DTU in Premium-laag moet ten minste 1 vCore in kritieke zakelijke laag.
 
 In de vCore gebaseerde aankoopmodel (preview) betalen klanten voor:
 - Berekenen (servicelaag + aantal vCores + generatie hardware) *

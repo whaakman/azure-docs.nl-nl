@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938394"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099655"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Technische handleiding voor de sjabloon Cortana Intelligence-oplossing voor voorspeld onderhoud in ruimtevaart en andere bedrijven
 
@@ -54,7 +54,7 @@ De volgende secties worden de onderdelen van de oplossing.
 ### <a name="synthetic-data-source"></a>Synthetische gegevensbron
 Voor deze sjabloon wordt de gegevensbron waarmee gegenereerd vanuit een bureaubladtoepassing die u downloaden en lokaal uitvoeren na een geslaagde implementatie.
 
-Selecteer het eerste knooppunt voorspeld onderhoud Gegevensgenerator, in het diagram van de sjabloon oplossing de instructies voor het downloaden en installeren van deze toepassing. De instructies hiervoor vindt u in de balk eigenschappen. Deze toepassing feeds de [Azure Event Hub](#azure-event-hub) service met gegevenspunten of gebeurtenissen, die worden gebruikt in de rest van de stroom van de oplossing. Deze gegevensbron is afgeleid van openbaar beschikbare gegevens uit de [NASA gegevensopslagplaats](https://c3.nasa.gov/dashlink/resources/139/) met behulp van de [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Selecteer het eerste knooppunt voorspeld onderhoud Gegevensgenerator, in het diagram van de sjabloon oplossing de instructies voor het downloaden en installeren van deze toepassing. De instructies hiervoor vindt u in de balk eigenschappen. Deze toepassing feeds de [Azure Event Hub](#azure-event-hub) service met gegevenspunten of gebeurtenissen, die worden gebruikt in de rest van de stroom van de oplossing. Deze gegevensbron is afgeleid van openbaar beschikbare gegevens uit de [NASA gegevensopslagplaats](https://c3.nasa.gov/dashlink/resources/139/) met behulp van de [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 De toepassing voor het genereren van gebeurtenis vult de Azure Event Hub alleen terwijl deze wordt uitgevoerd op uw computer.  
 
@@ -82,7 +82,7 @@ Gebruik [Power BI](https://powerbi.microsoft.com) om weer te geven van een dashb
 ## <a name="how-to-bring-in-your-own-data"></a>Hoe op te zetten in uw eigen gegevens
 Deze sectie wordt beschreven hoe u uw eigen gegevens overbrengen naar Azure en welke gebieden moeten worden gewijzigd voor de gegevens die u in deze architectuur brengt.
 
-Het lijkt onwaarschijnlijk dat uw gegevensset overeenkomt met de gegevensset die wordt gebruikt door de [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) voor deze oplossingssjabloon gebruikt. Inzicht in uw gegevens en de vereisten zijn van cruciaal belang bij hoe het wijzigen van deze sjabloon wilt werken met uw eigen gegevens. 
+Het lijkt onwaarschijnlijk dat uw gegevensset overeenkomt met de gegevensset die wordt gebruikt door de [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) voor deze oplossingssjabloon gebruikt. Inzicht in uw gegevens en de vereisten zijn van cruciaal belang bij hoe het wijzigen van deze sjabloon wilt werken met uw eigen gegevens. 
 
 De volgende secties worden de onderdelen van de sjabloon die moeten worden aangepast wanneer een nieuwe gegevensset wordt geïntroduceerd.
 

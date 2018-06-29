@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054650"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082502"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
@@ -210,7 +210,7 @@ Beheerde exemplaar voordelen van wordt altijd-up-to-date in de cloud, betekent d
 - Beheerde exemplaar kan geen volledige fysieke paden opgeven zodat alle bijbehorende scenario's moeten anders worden ondersteund: RESTORE DB biedt geen ondersteuning voor het verplaatsen met, DB maken mag geen fysieke paden, BULK INSERT werkt met Azure Blobs alleen, enzovoort. 
 - Beheerde exemplaar ondersteunt [Azure AD authentication](sql-database-aad-authentication.md) als cloud alternatief voor het Windows-verificatie. 
 - Beheerde exemplaar beheert automatisch de XTP-bestandsgroep en bestanden voor databases met In-geheugen OLTP-objecten
-- Beheerde exemplaar ondersteunt SQL Server Integration Services (SSIS) en host SSIS-catalogus (SSISDB) die worden opgeslagen SSIS-pakketten kunnen, maar ze worden uitgevoerd op een beheerde Azure-SSIS integratie Runtime (IR) in Azure Data Factory (ADF), Zie [maken Azure-SSIS-IR in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+- Beheerde exemplaar ondersteunt SQL Server Integration Services (SSIS) en host SSIS-catalogus (SSISDB) die worden opgeslagen SSIS-pakketten kunnen, maar ze worden uitgevoerd op een beheerde Azure-SSIS integratie Runtime (IR) in Azure Data Factory (ADF), Zie [maken Azure-SSIS-IR in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Als u wilt vergelijken de SSIS-functies in SQL-Database en beheerd exemplaar, Zie [vergelijken van de SQL-Database en beheerd exemplaar (Preview)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### <a name="managed-instance-administration-features"></a>Beheerde exemplaar-beheerfuncties  
 

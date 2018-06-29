@@ -14,14 +14,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/01/2018
   ms.author: carlrab
-  ms.openlocfilehash: b7888a2bece1a9b601c3629deb1c1dd1fc5cbbe3
-  ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+  ms.openlocfilehash: 64c6bd7ee69f443f819676d1605aa679066e2e84
+  ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 04/06/2018
-  ms.locfileid: "30922379"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37063346"
 abstract:
-  description: Azure SQL Database is een op de Microsoft SQL Server Engine gebaseerde relationele database-als-een-service in de cloud. SQL Database is een krachtige, betrouwbare en veilige database die u kunt gebruiken om gegevensgestuurde toepassingen en websites te bouwen in de programmeertaal van uw keuze, zonder dat u hiervoor infrastructuur hoeft te beheren. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u SQL Database gebruikt.
+  description: Azure SQL Database is een relationele database als een service op basis van de nieuwste stabiele versie van Microsoft SQL Server Database Engine. SQL Database is een krachtige, betrouwbare en veilige database die u kunt gebruiken om gegevensgestuurde toepassingen en websites te bouwen in de programmeertaal van uw keuze, zonder dat u hiervoor infrastructuur hoeft te beheren. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u SQL Database gebruikt.
   aside:
     image:
       alt: 
@@ -35,22 +35,55 @@ sections:
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: 'Meer informatie over hoe u een SQL-database maakt, beheert met SQL Management Studio en gebruikt voor ontwikkeling in C#, Java, Python, Node.js en Ruby:'
-  - type: list
-    style: icon48
-    items:
+    text: 'Met Azure SQL Database kunt u eenvoudig basisbeheertaken uitvoeren met behulp van Azure Portal, Azure CLI en Azure PowerShell. Leer hoe u algemene beheertaken kunt uitvoeren met behulp van de volgende beknopte voorbeelden:'
+  - type: table
+    style: dataMatrix
+    columns:
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal
+        src: media/index/portal.svg
+      title: Azure Portal
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
-      text: Azure-CLI
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-cli
+        src: media/index/cli.svg
+      title: Azure-CLI
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-powershell
+        src: media/index/logo_powershell.svg
+      title: PowerShell
+    rows:
+    - title: Eén SQL-database maken
+      values:
+      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/sql-database-get-started-cli
+      - href: /azure/sql-database/sql-database-get-started-powershell
+    - title: Door SQL beheerd exemplaar maken
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+    - title: Elastische SQL-pool maken
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+    - title: De schaal van één SQL-database aanpassen
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
+    - title: De schaal van een elastische SQL-pool aanpassen
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
+    - title: De schaal van een beheerd exemplaar aanpassen
+      values:
+      - href: 
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+    - title: Azure-netwerk configureren voor beheerd exemplaar
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph

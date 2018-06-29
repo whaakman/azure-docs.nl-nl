@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 867a48674fe2489629a887ff9626d8e10b41e653
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613979"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102279"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -49,7 +49,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
 3. **ConnectionPolicy afstemmen**
 
-    Azure DB van de Cosmos-aanvragen worden gedaan via HTTPS/REST bij gebruik van de asynchrone Java SDK en zijn onderworpen aan de standaard maximale grootte van de beheerverbindingsgroep (1000). Deze waarde moet ideaal voor de meeste gevallen zijn. Als u een zeer grote verzameling met veel partities hebt, kunt u de maximale grootte van de beheerverbindingsgroep instellen op een groter aantal (bijvoorbeeld 1500) met behulp van setMaxPoolSize.
+    Azure DB van de Cosmos-aanvragen worden gedaan via HTTPS/REST bij gebruik van de asynchrone Java SDK en zijn onderworpen aan de standaard maximale grootte van de beheerverbindingsgroep (1000). Deze waarde moet ideaal voor de meeste gevallen zijn. Als u een grote verzameling met veel partities hebt, kunt u de maximale grootte van de beheerverbindingsgroep instellen op een groter aantal (bijvoorbeeld 1500) met behulp van setMaxPoolSize.
 
 4. **Parallelle query's voor gepartitioneerde verzamelingen afstemmen**
 
@@ -83,11 +83,11 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     U kunt ook de paginagrootte via de methode setMaxItemCount instellen.
     
-9. **Juiste Scheduler (Vermijd stelen Eventloop IO Netty threads) gebruiken**
+9. **Juiste Scheduler (Vermijd het stelen van gebeurtenis lus IO Netty threads) gebruiken**
 
-    De asynchrone Java SDK gebruikt [netty](https://netty.io/) voor niet-blokkerende IO. De SDK gebruikt een vast aantal i/o netty eventloop threads (zo veel CPU-kernen op de computer is) voor het uitvoeren van i/o-bewerkingen. De opslagtijd geretourneerd door de API verzendt het resultaat van een van de gedeelde IO eventloop netty threads. Het is daarom belangrijk dat u de gedeelde netty threads van de i/o-eventloop niet blokkeren. CPU-intensieve werk of blokkeren van de bewerking op de i/o eventloop netty thread kan impasse veroorzaken of SDK doorvoer aanzienlijk verminderen.
+    De asynchrone Java SDK gebruikt [netty](https://netty.io/) voor niet-blokkerende IO. De SDK gebruikt een vast aantal i/o netty gebeurtenis lus threads (zo veel CPU-kernen op de computer is) voor het uitvoeren van i/o-bewerkingen. De opslagtijd geretourneerd door de API verzendt het resultaat van een van de gedeelde i/o-gebeurtenis lus netty threads. Het is daarom belangrijk dat u de gedeelde i/o-gebeurtenis lus netty threads niet blokkeren. CPU-intensieve werk of blokkeren van de bewerking op de i/o-gebeurtenis lus netty thread kan impasse veroorzaken of SDK doorvoer aanzienlijk verminderen.
 
-    De volgende code wordt een intensieve cpu-werk bijvoorbeeld uitgevoerd in de netty eventloop i/o-thread:
+    De volgende code wordt bijvoorbeeld een intensieve cpu-werk uitgevoerd op de gebeurtenis lus netty i/o-thread:
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -103,7 +103,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
       });
     ```
 
-    Nadat resultaat is ontvangen als u wilt doen, CPU-intensieve werkt op het resultaat Vermijd netty enzovoort eventloop i/o-thread. U kunt uw eigen Scheduler om uw eigen thread voor het uitvoeren van uw werk in plaats daarvan opgeven.
+    Nadat resultaat is ontvangen als u wilt doen, CPU-intensieve werkt op het resultaat Vermijd enzovoort gebeurtenis lus IO netty thread. U kunt uw eigen Scheduler om uw eigen thread voor het uitvoeren van uw werk in plaats daarvan opgeven.
 
     ```java
     import rx.schedulers;
@@ -126,13 +126,13 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Voor meer informatie, Zie de [Github-pagina](https://github.com/Azure/azure-cosmosdb-java) voor asynchrone Java SDK.
 
-10. **Netty van logboekregistratie uitschakelen** Netty bibliotheek-logboekregistratie is chatty en moet worden uitgeschakeld (het onderdrukken van het logboek in de configuratie mogelijk niet voldoende) om te voorkomen dat extra CPU-kosten. Als u zich niet in de foutopsporingsmodus, logboekfunctie helemaal uitschakelen netty van. Als u log4j gebruikt voor het verwijderen van de aanvullende CPU kosten van ``org.apache.log4j.Category.callAppenders()`` van netty kunt u de volgende regel toevoegen aan uw codebasis:
+10. **Netty van logboekregistratie uitschakelen** Netty bibliotheek-logboekregistratie is chatty en moet worden uitgeschakeld (het onderdrukken van het teken in de configuratie mogelijk niet voldoende) om te voorkomen dat extra CPU-kosten. Als u zich niet in de foutopsporingsmodus, logboekfunctie helemaal uitschakelen netty van. Als u log4j gebruikt voor het verwijderen van de aanvullende CPU kosten van ``org.apache.log4j.Category.callAppenders()`` van netty kunt u de volgende regel toevoegen aan uw codebasis:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **OS geopende bestanden Resource limiet** Some Linux-systemen (zoals Redhat) een bovenlimiet hebben op het aantal geopende bestanden en kan dus het totale aantal verbindingen. Voer het volgende om de huidige limieten weer te geven:
+11. **OS geopende bestanden Resource limiet** Some Linux-systemen (zoals Red Hat) een bovenlimiet hebben op het aantal geopende bestanden en kan dus het totale aantal verbindingen. Voer het volgende om de huidige limieten weer te geven:
 
     ```bash
     ulimit -a
@@ -170,7 +170,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     </dependency>
     ```
 
-Verwijzen naar deze instructies voor andere platforms (Redhat, Windows, Mac, enz.) https://netty.io/wiki/forked-tomcat-native.html
+Voor andere platforms (Red Hat, Windows, Mac, enz.) verwijzen naar deze instructies https://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>Indexeringsbeleid
  
@@ -209,7 +209,7 @@ Verwijzen naar deze instructies voor andere platforms (Redhat, Windows, Mac, enz
     response.getRequestCharge();
     ```             
 
-    De aanvraag kosten geretourneerd in deze header is een fractie van de ingerichte doorvoer. Bijvoorbeeld, als er 2000 RU/s is ingericht en als de voorgaande query 1000 1KB-documenten retourneert, de kosten van de bewerking is 1000. Als zodanig binnen één seconde respecteert de-server slechts twee dergelijke aanvragen voordat de beperking van de volgende aanvragen. Zie voor meer informatie [Aanvraageenheden](request-units.md) en de [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner).
+    De aanvraag kosten geretourneerd in deze header is een fractie van de ingerichte doorvoer. Bijvoorbeeld, als er 2000 RU/s is ingericht en als de voorgaande query 1000 1KB-documenten retourneert, de kosten van de bewerking is 1000. Binnen één seconde als zodanig respecteert de server slechts twee aanvragen voordat snelheidsbeperking volgende aanvragen. Zie voor meer informatie [Aanvraageenheden](request-units.md) en de [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Verwerken frequentie beperken/aanvraagsnelheid te groot**
 

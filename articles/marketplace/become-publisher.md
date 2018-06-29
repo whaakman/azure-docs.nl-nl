@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b3b9228c0733d34ea909a501e8ca6f9e11948381
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825122"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083158"
 ---
 # <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>Een uitgever in de winkelobjecten op marketplace worden  
 De volgende stappen helpen u bij het registreren als een publisher in de winkelobjecten op marketplace. Op basis van uw bestaande engagement met Microsoft en geselecteerd vermeldingstype, zijn sommige van de volgende stappen niet vereist.  
@@ -29,8 +29,7 @@ De volgende stappen helpen u bij het registreren als een publisher in de winkelo
 | 1 | Registreren in het Microsoft Partner Network | 15 minuten | [Registreren in het Microsoft Partner Network](#register-in-microsoft-partner-network) |  
 | 2 | Een Microsoft-ID maken | 15 minuten | [Een Microsoft-ID maken](#create-a-microsoft-id) |  
 | 3 | De benoeming marketplace formulier verzenden | 1-3 dagen | [De benoeming marketplace formulier verzenden](#submit-the-marketplace-nomination-form) |  
-| 4 | Registreren in Microsoft Developer Center (Dev Center) | 5-10 dagen | [Registreren in Developer Center](#register-in-dev-center) |  
-| 5 | Meld u aan bij AppSource | 15 minuten | [Meld u aan bij AppSource](#sign-into-appSource) |  
+| 4 | Registreren in Microsoft Developer Center (Dev Center) | 5-10 dagen | [Registreren in Dev Center](#register-in-dev-center) |  
 | 5 |  Meld u aan bij de Partnerportal Cloud | 15 minuten | [Meld u aan bij de Partnerportal Cloud](#sign-into-cloud-partner-portal) |  
 
 ## <a name="register-in-microsoft-partner-network"></a>Registreren in het Microsoft Partner Network  
@@ -81,18 +80,6 @@ Dev Center-account is vereist voor publishing apps waarvoor Transact vermeldings
 >[!Important]
 >Voordat u probeert te maken van een Dev Center-account, controleren of heeft uw bedrijf al geen Dev Center-account. 
 >*   Voor meer informatie gaat u naar de [registreren in ontwikkelaarscentrum](#how-to-register-in-dev-center) sectie.  
-
----  
-
-## <a name="sign-into-appsource"></a>Meld u aan bij AppSource  
-| 15 minuten |  
-Nadat uw benoeming is goedgekeurd en u hebt geregistreerd in de MPN- en Developer Center, worden uw marketplace-account is gemaakt met toegang tot AppSource. Uw e-mailadres goedkeuring benoeming worden eerst aanmeldingsreferenties verzonden. 
-*   Voor toegang tot de MPN, gaat u naar de pagina van het lidmaatschap van zich bevindt op [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
-*   Voor toegang tot Dev Center, gaat u naar de pagina te op het vinden Windows-ontwikkelaarscentrum [dev.windows.com](https://dev.windows.com).  
-*   Voor toegang tot AppSource, gaat u naar de AppSource pagina zich bevindt op [appsource.microsoft.com](https://appsource.microsoft.com).  
-*   Voor toegang tot de Microsoft Cloud Partner-Portal, gaat u naar de pagina te op het vinden Cloud-Partnerportal [cloudpartner.azure.com](https://cloudpartner.azure.com).  
-*   Voor meer informatie over het gebruik van Cloud Partner-Portal gaat u naar de sectie meer informatie is te vinden op [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   Voor documentatie over Cloud Partner-Portal, gaat u naar de sectie documentatie te vinden op [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
 ---  
 

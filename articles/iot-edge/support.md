@@ -8,12 +8,12 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6bf918428312c511505304bd23b68cd19e46471
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0a5cbabf8080efd1ae25ba151a1be339e8f5cad2
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036190"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081751"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT-Edge-ondersteuning
 Er zijn verschillende manieren te zoeken naar ondersteuning voor het product Azure IoT rand.
@@ -33,8 +33,8 @@ Laag 1-systemen worden beschouwd als officieel ondersteund. Dit betekent dat Mic
 * installatiepakketten biedt voor deze
 
 Algemeen beschikbaar
-* Ubuntu 18.04
-* Ubuntu 16.04
+* Ubuntu Server 18.04
+* Ubuntu Server 16.04
 * Raspbian stretch
 
 Openbare Preview
@@ -47,9 +47,9 @@ Laag 2-systemen worden beschouwd als compatibel met Azure IoT rand en relatief e
 * Microsoft heeft gedaan ad-hoc testen op de platforms of kent van een partner Azure IoT rand correct functioneert op het platform
 * Installatiepakketten voor andere platforms werkt op deze platforms
 
-Ubuntu Server 18.04
+Ubuntu 18.04
 
-Ubuntu Server 16.04
+Ubuntu 16.04
 
 De o 8
 

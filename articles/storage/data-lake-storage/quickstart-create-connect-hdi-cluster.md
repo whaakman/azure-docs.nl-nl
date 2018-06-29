@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 6707610fc3410eab6eb2985c7d8a0ef821354689
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 9e986507269d9d7d8822e6f6088901be7d92edd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062076"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096550"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snelstartgids: Clusters in HDInsight instellen
 
@@ -117,7 +117,7 @@ Hoewel een lokale installatie van Hadoop Hadoop Distributed File System (HDFS) v
 
 Tijdens de configuratie voor het standaardeindpunt opslag u Data Lake Storage. De standaard opslag bevat toepassings- en Logboeken. U kunt desgewenst aanvullende gekoppelde Azure Data Lake Storage-accounts toegang het cluster tot hebben opgeven. Het HDInsight-cluster en de afhankelijke storage-accounts moeten in dezelfde Azure-locatie.
 
-![Instellingen voor de opslag van cluster: HDFS-compatibele eindpunten van opslag](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![Instellingen voor de opslag van cluster: HDFS-compatibele eindpunten van opslag](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Zorg ervoor dat **Data Lake Store toegang uitschakelen**. Deze instellingen verwijst naar de oude *Data Lake Store* functionaliteit en moet worden uitgeschakeld om *Data Lake Storage* functies goed te laten werken.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 93cd4b6c4264c5905746b85f9fa46ce31ebd9e9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937666"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098937"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uitvoeren van een cluster Cassandra op Linux in Azure met behulp van Node.js
 
@@ -61,7 +61,7 @@ Houd er rekening mee dat op het moment van schrijven van dit Azure niet toegesta
 
 **Cluster zaden:** is het belangrijk dat de meeste maximaal beschikbare knooppunten voor zaden selecteren als de nieuwe knooppunten communiceren met de seed-knooppunten om de topologie van het cluster te detecteren. Eén knooppunt uit elke beschikbaarheidsset is aangewezen als seed-knooppunten om te voorkomen dat storingspunt.
 
-**Replicatie Factor en Consistentieniveau:** Cassandra van ingebouwde hoge beschikbaarheid en gegevens duurzaamheid wordt gekenmerkt door de replicatie-Factor (RF - aantal exemplaren van elke rij die is opgeslagen op het cluster) en Consistentieniveau (aantal replica's worden gelezen/geschreven voordat het resultaat wordt teruggezonden naar de aanroeper). Replicatie factor is opgegeven tijdens het maken van KEYSPACE (vergelijkbaar met een relationele database), terwijl het consistentieniveau van de is opgegeven tijdens het uitgeven van de CRUD-query. Zie de documentatie bij Cassandra [configureren voor consistentie](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) voor consistentie details en de formule voor quorum berekeningen.
+**Replicatie Factor en Consistentieniveau:** Cassandra van ingebouwde hoge beschikbaarheid en gegevens duurzaamheid wordt gekenmerkt door de replicatie-Factor (RF - aantal exemplaren van elke rij die is opgeslagen op het cluster) en Consistentieniveau (aantal replica's worden gelezen/geschreven voordat het resultaat wordt teruggezonden naar de aanroeper). Replicatie factor is opgegeven tijdens het maken van KEYSPACE (vergelijkbaar met een relationele database), terwijl het consistentieniveau van de is opgegeven tijdens het uitgeven van de CRUD-query. Zie de documentatie bij Cassandra [configureren voor consistentie](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) voor consistentie details en de formule voor quorum berekeningen.
 
 Cassandra ondersteunt twee soorten integriteit gegevensmodellen – consistentie en uiteindelijke consistentie; de replicatie Factor en Consistentieniveau vaststellen samen of de gegevens consistent zodra een schrijfbewerking voltooid of uiteindelijk consistent is is. Bijvoorbeeld: QUORUM opgeven als het niveau van de consistentie altijd zorgt ervoor gegevens consistentie terwijl u elk consistentieniveau lager dan het aantal replica's worden geschreven dat naar behoefte te bereiken QUORUM (bijvoorbeeld een) resulteert in gegevens wordt uiteindelijk consistent is.
 
@@ -75,8 +75,8 @@ De 8-node cluster hierboven, met een factor van de replicatie van 3 en QUORUM (2
 | Replicatie Factor (RF) |3 |Aantal replica's van een bepaalde rij |
 | Consistentieniveau (schrijven) |QUORUM[(RF/2) +1) = 2] is het resultaat van de formule wordt omlaag afgerond |Maximaal 2 replica's schrijft voordat het antwoord wordt verzonden naar de aanroeper; 3e replica is geschreven in een manier uiteindelijk consistent is. |
 | Consistentieniveau (lezen) |QUORUM [(RF/2) + 1 = 2] het resultaat van de formule wordt omlaag afgerond |Leest 2 replica's moet worden verzonden naar de aanroeper. |
-| Een replicatiestrategie voor |Zie NetworkTopologyStrategy [gegevensreplicatie](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra-documentatie voor meer informatie |De implementatietopologie begrijpt en replica's op knooppunten geplaatst, zodat alle replica's niet op hetzelfde rack eindigen |
-| Snitch |Zie GossipingPropertyFileSnitch [Switches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra-documentatie voor meer informatie |Een concept van snitch NetworkTopologyStrategy gebruikt om te begrijpen van de topologie. GossipingPropertyFileSnitch biedt een betere controle in de toewijzing van elk knooppunt aan het datacenter en rack. Het cluster gebruikt roddels vervolgens naar deze informatie is doorgegeven. Dit is veel eenvoudiger in dynamische IP-instelling ten opzichte van PropertyFileSnitch |
+| Een replicatiestrategie voor |Zie NetworkTopologyStrategy [gegevensreplicatie](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) in Cassandra-documentatie voor meer informatie |De implementatietopologie begrijpt en replica's op knooppunten geplaatst, zodat alle replica's niet op hetzelfde rack eindigen |
+| Snitch |Zie GossipingPropertyFileSnitch [Switches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) in Cassandra-documentatie voor meer informatie |Een concept van snitch NetworkTopologyStrategy gebruikt om te begrijpen van de topologie. GossipingPropertyFileSnitch biedt een betere controle in de toewijzing van elk knooppunt aan het datacenter en rack. Het cluster gebruikt roddels vervolgens naar deze informatie is doorgegeven. Dit is veel eenvoudiger in dynamische IP-instelling ten opzichte van PropertyFileSnitch |
 
 **Azure overwegingen voor het Cluster Cassandra:** Microsoft Azure Virtual Machines mogelijkheid gebruikt Azure Blob-opslag voor persistentie van de schijf; Azure-opslag bespaart drie replica's van elke schijf voor maximale duurzaamheid. Dit betekent dat elke rij gegevens ingevoegd in een tabel Cassandra is al opgeslagen in drie replica's. Dus is gegevensconsistentie al afgehandeld zelfs als de replicatie Factor (RF) 1 is. Het belangrijkste probleem met replicatie Factor 1 is dat de toepassing uitvaltijd optreedt, zelfs als een enkel Cassandra knooppunt mislukt. Als een knooppunt niet actief voor de problemen (bijvoorbeeld hardware, software systeemfouten) dat wordt herkend door de Azure-Infrastructuurcontroller is, levert dit een nieuw knooppunt in plaats daarvan met de dezelfde opslagstations. Een nieuw knooppunt ter vervanging van de oude inrichting kan enkele minuten duren.  Op dezelfde manier Cassandra upgrades voor gepland onderhoudsactiviteiten zoals Gast OS wijzigingen, en wijzigingen in de toepassing Azure-Infrastructuurcontroller voert rolling upgrades van de knooppunten in het cluster.  Rolling upgrades ook kan duren voordat u een paar knooppunten tegelijk, en daarom korte uitvaltijd voor enkele partities kan optreden in het cluster. De gegevens is echter niet verloren gegaan vanwege de ingebouwde redundantie voor Azure Storage.  
 
@@ -110,8 +110,8 @@ Voor een systeem dat hoge consistentie moet ervoor een LOCAL_QUORUM voor consist
 | Replicatie Factor (RF) |3 |Aantal replica's van een bepaalde rij |
 | Consistentieniveau (schrijven) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] het resultaat van de formule wordt omlaag afgerond |2-knooppunten wordt geschreven naar het eerste Datacenter synchroon; de extra 2 knooppunten die nodig zijn voor het quorum is asynchroon geschreven naar het 2e Datacenter. |
 | Consistentieniveau (lezen) |LOCAL_QUORUM ((RF/2) + 1) = 2, het resultaat van de formule wordt omlaag afgerond |Alleen aanvragen wordt van slechts één regio; voldaan 2 knooppunten worden gelezen voordat het antwoord terug naar de client wordt verzonden. |
-| Een replicatiestrategie voor |Zie NetworkTopologyStrategy [gegevensreplicatie](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra-documentatie voor meer informatie |De implementatietopologie begrijpt en replica's op knooppunten geplaatst, zodat alle replica's niet op hetzelfde rack eindigen |
-| Snitch |Zie GossipingPropertyFileSnitch [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra-documentatie voor meer informatie |Een concept van snitch NetworkTopologyStrategy gebruikt om te begrijpen van de topologie. GossipingPropertyFileSnitch biedt een betere controle in de toewijzing van elk knooppunt aan het datacenter en rack. Het cluster gebruikt roddels vervolgens naar deze informatie is doorgegeven. Dit is veel eenvoudiger in dynamische IP-instelling ten opzichte van PropertyFileSnitch |
+| Een replicatiestrategie voor |Zie NetworkTopologyStrategy [gegevensreplicatie](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) in Cassandra-documentatie voor meer informatie |De implementatietopologie begrijpt en replica's op knooppunten geplaatst, zodat alle replica's niet op hetzelfde rack eindigen |
+| Snitch |Zie GossipingPropertyFileSnitch [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) in Cassandra-documentatie voor meer informatie |Een concept van snitch NetworkTopologyStrategy gebruikt om te begrijpen van de topologie. GossipingPropertyFileSnitch biedt een betere controle in de toewijzing van elk knooppunt aan het datacenter en rack. Het cluster gebruikt roddels vervolgens naar deze informatie is doorgegeven. Dit is veel eenvoudiger in dynamische IP-instelling ten opzichte van PropertyFileSnitch |
 
 ## <a name="the-software-configuration"></a>DE SOFTWARECONFIGURATIE
 De volgende softwareversies worden gebruikt tijdens de implementatie:
@@ -143,7 +143,7 @@ Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #1:
 <tr><th>VELDNAAM              </td><td>       WAARDE VAN VELD               </td><td>         OPMERKINGEN                </td><tr>
 <tr><td>RELEASEDATUM VERSIE    </td><td> Selecteer een datum in de vervolgkeuzelijst omlaag</td><td></td><tr>
 <tr><td>NAAM VAN VIRTUELE MACHINE    </td><td> Cass-sjabloon                   </td><td> Dit is de hostnaam van de virtuele machine </td><tr>
-<tr><td>LAAG                     </td><td> STANDAARD                           </td><td> Laat de standaardwaarde              </td><tr>
+<tr><td>LAAG                     </td><td> STANDARD                           </td><td> Laat de standaardwaarde              </td><tr>
 <tr><td>GROOTTE                     </td><td> A1                              </td><td>Selecteer de virtuele machine op basis van de i/o-behoeften; Laat de standaardwaarde voor dit doel. </td><tr>
 <tr><td> NIEUWE GEBRUIKERSNAAM             </td><td> localadmin                       </td><td> 'admin' is een gereserveerde gebruikersnaam in Ubuntu 12. xx en na</td><tr>
 <tr><td> VERIFICATIE         </td><td> Klik op het selectievakje                 </td><td>Controleer of u wilt beveiligen met een SSH-sleutel </td><tr>
@@ -159,9 +159,9 @@ Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #2:
 <tr><td> CLOUDSERVICE    </td><td> Maak een nieuwe cloudservice    </td><td>Cloudservice is een container compute-bronnen zoals virtuele machines</td></tr>
 <tr><td> DNS-NAAM VAN CLOUD-SERVICE    </td><td>ubuntu-template.cloudapp.net    </td><td>Geef de naam van een machine agnostisch load balancer</td></tr>
 <tr><td> REGIO/AFFINITEITSGROEP/VIRTUEEL NETWERK </td><td>    VS - west    </td><td> Selecteer een regio van waaruit de toegang tot het cluster Cassandra van uw webtoepassingen</td></tr>
-<tr><td>OPSLAGACCOUNT </td><td>    Standaardinstelling gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
+<tr><td>OPSLAGACCOUNT </td><td>    Standaardwaarde gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
 <tr><td>BESCHIKBAARHEIDSSET </td><td>    Geen </td><td>    Laat dit veld leeg</td></tr>
-<tr><td>EINDPUNTEN    </td><td>Standaardinstelling gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
+<tr><td>EINDPUNTEN    </td><td>Standaardwaarde gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
 </table>
 
 Klik op de pijl naar rechts, de standaardinstellingen laten staan op het scherm #3. Klik op de knop 'controleren' voor het voltooien van het proces van de VM-inrichting. Na een paar minuten moet de virtuele machine met de naam 'ubuntu-sjabloon' status 'actief'.
@@ -426,7 +426,7 @@ Meld u aan bij een van de knooppunten (bijvoorbeeld hk-c1-west-us) en voer de vo
 Hier ziet u de weergave lijkt op de onderstaande voor een cluster met 8 knooppunten:
 
 <table>
-<tr><th>Status</th><th>Adres    </th><th>Laden    </th><th>Tokens    </th><th>Eigenaar is van </th><th>Host-ID    </th><th>Rek</th></tr>
+<tr><th>Status</th><th>Adres    </th><th>Belasting    </th><th>Tokens    </th><th>Eigenaar is van </th><th>Host-ID    </th><th>Rek</th></tr>
 <tr><th>ONGEDAAN MAKEN    </td><td>10.1.2.4     </td><td>87.81 KB    </td><td>256    </td><td>38.0%    </td><td>GUID (verwijderd)</td><td>rack1</td></tr>
 <tr><th>ONGEDAAN MAKEN    </td><td>10.1.2.5     </td><td>41.08 KB    </td><td>256    </td><td>68.9%    </td><td>GUID (verwijderd)</td><td>rack1</td></tr>
 <tr><th>ONGEDAAN MAKEN    </td><td>10.1.2.6     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (verwijderd)</td><td>rack2</td></tr>
@@ -511,7 +511,7 @@ Klik op GATEWAY maken voor het activeren van de VPN-gateway inrichtingsproces va
 De lokale netwerken ter vervanging van de IP-adres van de tijdelijke aanduiding voor gateway met het echte IP-adres van de zojuist ingerichte gateways bewerken. Gebruik de volgende toewijzing:
 
 <table>
-<tr><th>Lokale netwerk    </th><th>Virtueel-netwerkgateway</th></tr>
+<tr><th>Lokale netwerk    </th><th>Gateway voor een virtueel netwerk</th></tr>
 <tr><td>hk-lnet-map-to-east-us </td><td>De gateway van hk-vnet-west-ons</td></tr>
 <tr><td>hk-lnet-map-to-west-us </td><td>De gateway van hk-vnet-Oost-ons</td></tr>
 </table>
@@ -680,7 +680,7 @@ Met een van de virtuele Linux-machines in de laag 'web' eerder hebt gemaakt, uit
 ## <a name="conclusion"></a>Conclusie
 Microsoft Azure is een flexibel platform waarmee het uitvoeren van zowel Microsoft als open-sourcesoftware zoals blijkt uit deze oefening. Maximaal beschikbare Cassandra clusters kunnen worden geïmplementeerd op een enkele Datacenter via het spreiden van de clusterknooppunten over meerdere domeinen met fouten. Cassandra clusters kunnen ook worden geïmplementeerd in meerdere geografisch verafgelegen Azure-regio's voor noodherstel bewijs systemen. Azure en Cassandra samen kunnen de constructie van zeer schaalbaar, maximaal beschikbare en na noodgevallen herstelbare cloudservices die nodig is door de hedendaagse internet schalen services.  
 
-## <a name="references"></a>Naslaginformatie
+## <a name="references"></a>Verwijzingen
 * [http://cassandra.apache.org](http://cassandra.apache.org)
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)

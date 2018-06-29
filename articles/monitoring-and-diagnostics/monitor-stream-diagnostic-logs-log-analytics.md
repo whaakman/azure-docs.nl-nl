@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 634cecb247686afd8c5c749d6e28b301d7e07c4f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d8966edb6061ed07f5aecb9682fca081ed589040
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263504"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083971"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostische logboeken met Log Analytics
 
@@ -30,7 +30,7 @@ Azure Log Analytics is een flexibele logboek zoeken en analytics hulpprogramma w
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Streaming van diagnostische logboeken met logboekanalyse inschakelen
 
-U kunt inschakelen, streamen van diagnostische logboeken programmatisch via de portal of met behulp van de [Monitor REST-API's van Azure](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). In beide gevallen moet u een diagnostische instelling maken in die u opgeeft een werkruimte voor logboekanalyse en de logboek-categorieën en metrische gegevens die u wilt verzenden naar deze werkruimte. Een diagnose **logboek categorie** is een type-log dat een resource kan bieden.
+U kunt inschakelen, streamen van diagnostische logboeken programmatisch via de portal of met behulp van de [Monitor REST-API's van Azure](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). In beide gevallen moet u een diagnostische instelling maken in die u opgeeft een werkruimte voor logboekanalyse en de logboek-categorieën en metrische gegevens die u wilt verzenden naar deze werkruimte. Een diagnose **logboek categorie** is een type-log dat een resource kan bieden.
 
 De werkruimte voor logboekanalyse heeft geen zich in hetzelfde abonnement als de bron logboeken verzenden zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
 

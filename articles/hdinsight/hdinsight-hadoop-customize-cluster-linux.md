@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: 500b6ef33bb70cd5138067d88303b7db9121e867
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778900"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102365"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Linux gebaseerde HDInsight-clusters met behulp van scriptacties aanpassen
 
@@ -58,7 +58,7 @@ Een scriptactie is Bash-script dat wordt uitgevoerd op de knooppunten in een HDI
 
 * Moet worden opgeslagen op een URI die toegankelijk is vanaf het HDInsight-cluster. Hier volgen de mogelijke opslaglocaties:
 
-    * Een **Azure Data Lake Store** account die toegankelijk is voor het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Store met HDInsight [een HDInsight-cluster maken met Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * Een **Azure Data Lake Store** account die toegankelijk is voor het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Store met HDInsight [Snelstartgids: instellen van clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
         Wanneer u een script dat is opgeslagen in Data Lake Store, de indeling van de URI is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
@@ -173,9 +173,7 @@ Deze sectie vindt u voorbeelden van de verschillende manieren waarop die u scrip
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Gebruik de scriptactie van een tijdens het maken van de Azure-portal
 
-1. Beginnen met het maken van een cluster, zoals beschreven op [maken Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Stoppen wanneer u bereikt de __Cluster samenvatting__ sectie.
-
-2. Van de __Cluster samenvatting__ sectie, selecteer de __bewerken__ koppelen voor __geavanceerde instellingen__.
+1. Beginnen met het maken van een cluster, zoals beschreven op [maken Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Tijdens het maken, u krijgt een __Cluster samenvatting__ pagina. Van de __Cluster samenvatting__ pagina de __bewerken__ koppelen voor __geavanceerde instellingen__.
 
     ![Koppeling van de geavanceerde instellingen](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 

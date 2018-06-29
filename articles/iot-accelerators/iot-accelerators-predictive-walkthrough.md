@@ -1,6 +1,6 @@
 ---
-title: Kennismaken met de oplossingsversneller Voorspeld onderhoud - Azure | Microsoft Docs
-description: Maak kennis met de Azure IoT-oplossingsversneller Voorspeld onderhoud.
+title: Overzicht van de oplossingsversneller Voorspeld onderhoud - Azure | Microsoft Docs
+description: Een overzicht van de oplossingsverbetering Azure IoT voor voorspeld onderhoud.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e29975558801b4ffccd38d4485306d25ecaec0aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6bd61f301fa4468ef1d308d4da275c760ee09dc0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654952"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088623"
 ---
-# <a name="predictive-maintenance-solution-accelerator-walkthrough"></a>Kennismaken met de oplossingsversneller Voorspeld onderhoud
+# <a name="predictive-maintenance-solution-accelerator-overview"></a>Overzicht van de oplossingsversneller Voorspeld onderhoud
 
 De oplossingsversneller Voorspeld onderhoud is een totaaloplossing voor een bedrijfsscenario die het punt voorspelt waarop naar verwachting een fout optreedt. U kunt deze oplossingsversneller proactief gebruiken voor activiteiten zoals het optimaliseren van onderhoud. In de oplossing worden belangrijke oplossingsversnellers van Azure IoT gecombineerd, zoals IoT Hub, Stream Analytics en een [Azure Machine Learning][lnk-machine-learning]-werkruimte. Deze werkruimte bevat een model, gebaseerd op een openbare verzameling voorbeeldgegevens, om de resterende bruikbare levensduur (RUL) van een vliegtuigmotor te voorspellen. De oplossing implementeert het IoT-bedrijfsscenario volledig als een beginpunt zodat u een oplossing kunt plannen en implementeren die voldoet aan uw eigen specifieke zakelijke vereisten.
 
@@ -76,5 +76,5 @@ U kunt ook enkele van de andere functies en mogelijkheden van de IoT-oplossingsv
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
-[lnk-security-groundup]:securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

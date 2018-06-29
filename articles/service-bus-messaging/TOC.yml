@@ -126,6 +126,10 @@
               href: service-bus-amqp-request-response.md
         - name: Geavanceerde functies
           items:
+            - name: Filters voor IP-verbinding
+              href: service-bus-ip-filtering.md
+            - name: Service-eindpunten voor virtueel netwerk
+              href: service-bus-service-endpoints.md
             - name: Wachtrijen voor onbestelbare berichten
               href: service-bus-dead-letter-queues.md
             - name: Berichten vooraf ophalen

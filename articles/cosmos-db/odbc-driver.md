@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725088"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096506"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Verbinding maken met Azure Cosmos DB met BI analytics hulpprogramma van het ODBC-stuurprogramma
 
@@ -63,7 +63,7 @@ Nu kunt aan de slag met het ODBC-stuurprogramma.
 4. Klik op de **Test** knop om te controleren of u kunt verbinding maken met uw Azure DB die Cosmos-account. 
 5. Klik op **geavanceerde opties** en stel de volgende waarden:
     - **Query uitvoeren op consistentie**: Selecteer de [consistentieniveau](consistency-levels.md) voor uw doeleinden. De standaardwaarde is de sessie.
-    - **Aantal nieuwe pogingen**: Voer het aantal keer opnieuw proberen aan een als de eerste aanvraag niet wordt voltooid vanwege een beperking van de service.
+    - **Aantal nieuwe pogingen**: Voer het aantal keer opnieuw proberen aan een als de eerste aanvraag vanwege snelheidsbeperking service niet wordt voltooid.
     - **Schemabestand**: U hebt een aantal opties hier.
         - Het stuurprogramma scant standaard als u deze vermelding (leeg) is de eerste paginagegevens voor alle verzamelingen om te bepalen van het schema van elke verzameling. Dit staat bekend als de toewijzing van de verzameling. Zonder een schemabestand dat is gedefinieerd, wordt het stuurprogramma heeft de scan uitvoeren voor elke sessie stuurprogramma en kan leiden tot een hogere opstarten van een toepassing met behulp van de DSN-naam. Het is raadzaam dat u altijd een schemabestand voor een DSN koppelen.
         - Als u al een schemabestand (mogelijk één die u hebt gemaakt met de [Schema-Editor](#schema-editor)), klikt u op **Bladeren**, gaat u naar het bestand, klik op **opslaan**, en klik vervolgens op **OK**.
@@ -196,4 +196,4 @@ Als u de volgende fout ontvangt, controleert de **Host** en **toegangssleutel** 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure Cosmos DB, [Welkom bij Azure Cosmos DB](introduction.md).
+Zie [Welkom bij Azure Cosmos DB](introduction.md) voor meer informatie over Azure Cosmos DB.

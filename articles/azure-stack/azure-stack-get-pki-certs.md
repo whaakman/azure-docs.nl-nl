@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cfac573bc9f1bdec3fd884f8090e11514f1e93b3
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: b5adc1bb5a5aae96f37cc312588aa71e57d8342e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604706"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083223"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack certificaten ondertekening aanvraag genereren
 
@@ -30,8 +30,6 @@ Het hulpprogramma Azure Stack gereedheid Checker (AzsReadinessChecker) voert de 
 
  - **Standaard-certificaataanvragen**  
     Aanvraag volgens [PKI-certificaten genereren voor implementatie van de Azure-Stack](azure-stack-get-pki-certs.md).
- - **Aanvraagtype**  
-    Geeft aan of de aanvraag voor Certificaatondertekening één aanvraag of meerdere aanvragen.
  - **Platform as a Service**  
     Eventueel aanvragen platform as a service (PaaS) namen voor de certificaten die zijn opgegeven in [certificaatvereisten Azure Stack Public Key Infrastructure - optionele PaaS certificaten](azure-stack-pki-certs.md#optional-paas-certificates).
 
@@ -98,22 +96,22 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure-Stack PKI-cert
     > [!note]  
     > `<regionName>.<externalFQDN>` vormt de basis waarop alle externe DNS-namen in Azure-Stack zijn gemaakt, in dit voorbeeld, kunnen de portal zou `portal.east.azurestack.contoso.com`.  
 
-6. Voor het genereren van een aanvraag wordt één certificaat met meerdere alternatieve onderwerpnamen:
+6. Ondertekening van aanvragen voor elke DNS-naam van het certificaat genereren:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    Als u wilt opnemen opgeven PaaS-Services de switch ```-IncludePaaS```
+
+7. U kunt ook voor omgevingen ontwikkelen en testen. Voor het genereren van een aanvraag wordt één certificaat met meerdere alternatieve onderwerpnamen toevoegen **- RequestType SingleCSR** parameter en de waarde (**niet** aanbevolen voor productieomgevingen):
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
     Als u wilt opnemen opgeven PaaS-Services de switch ```-IncludePaaS```
-
-7. Voor het genereren van afzonderlijke Certificaatondertekening aanvragen voor elke DNS-naam:
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
-
-    Als u wilt opnemen opgeven PaaS-Services de switch ```-IncludePaaS```
-
+    
 8. Controleer de uitvoer:
 
     ````PowerShell  

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5c6d6b9580b123dafb03af2acc885d2416ca2a56
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0a004ee6e5dbdd2ceb8546a4b7ce20b2b551fac9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292538"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084062"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD-toepassingsproxy publiceren
 
@@ -44,6 +44,8 @@ In een implementatie RDS uitvoeren de extern bureaublad-Webrol en de rol extern 
 >Als u RDS voordat u dit nog niet hebt geïmplementeerd, of u meer informatie wilt voordat u begint, informatie over hoe [naadloos implementeren RDS met Azure Resource Manager en Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Vereisten
+
+- Een client dan de webclient extern bureaublad gebruiken omdat de webclient-toepassingsproxy niet ondersteunt.
 
 - Eindpunten van de RD Web- en RD-Gateway moet zich op dezelfde computer en met een algemene basis. RD Web- en RD-Gateway worden gepubliceerd als één toepassing met toepassingsproxy zodat u kunt een eenmalige aanmelding ervaring tussen de twee toepassingen hebben.
 

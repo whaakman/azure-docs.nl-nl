@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 14cb59487788f272533fd7ec7eccf313654bf857
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824928"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082804"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 Dit artikel wordt uitgelegd verschillende berekeningsomgevingen waarmee u kunt gegevens verwerken of transformatie. Het bevat ook informatie over verschillende configuraties (op aanvraag versus bring uw eigen) die door Data Factory worden ondersteund bij het configureren van de gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
@@ -106,7 +106,7 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 | linkedServiceName            | Gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster wordt gemaakt in dezelfde regio bevinden als dit Azure Storage-account. Voor Azure HDInsight geldt een beperking voor het totale aantal kernen dat u kunt gebruiken in elke Azure-regio die wordt ondersteund. Zorg ervoor dat er voldoende quota core in die Azure-regio om te voldoen aan de vereiste de clustergrootte. Raadpleeg voor meer informatie, [clusters in HDInsight met Hadoop, Spark en Kafka instellen](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van een Azure Data Lake Store als de opslag niet. Als u wilt voor het opslaan van de resultaatgegevens van HDInsight worden verwerkt in een Azure Data Lake Store, gebruikt u een Kopieeractiviteit in de gegevens uit de Azure Blob Storage kopiëren naar Azure Data Lake Store. </p> | Ja      |
 | clusterResourceGroup         | Het HDInsight-cluster wordt gemaakt in deze resourcegroep. | Ja      |
 | TimeToLive                   | De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag na voltooiing van een activiteit die wordt uitgevoerd als er geen actieve taken in het cluster actief blijft. De minimaal toegestane waarde is 5 minuten (00: 05:00).<br/><br/>Bijvoorbeeld, als het uitvoeren van een activiteit 6 minuten duurt en timetolive is ingesteld op 5 minuten, blijft het cluster actief gedurende vijf minuten nadat de 6 minuten van de verwerking van de activiteit is uitgevoerd. Als een andere activiteit die wordt uitgevoerd met het venster 6 minuten wordt uitgevoerd, wordt het verwerkt door hetzelfde cluster.<br/><br/>Maken van een HDInsight-cluster op aanvraag is een dure bewerking (kan even duren) in dat geval gebruik deze instelling als die nodig zijn voor de prestaties van een gegevensfactory verbeteren door een HDInsight-cluster op aanvraag opnieuw te gebruiken.<br/><br/>Als u timetolive-waarde op 0 instelt, wordt het cluster wordt verwijderd zodra de uitvoering van de activiteit is voltooid. Dat, als u een hoge waarde instelt, het cluster niet actief is voor u zich aanmelden voor het probleem oplossen kan blijven doel, maar dit kan leiden tot hoge kosten. Het is daarom belangrijk dat u de juiste waarde op basis van uw behoeften.<br/><br/>Als de waarde van de eigenschap timetolive op de juiste wijze is ingesteld, kunnen meerdere pijplijnen het exemplaar van het HDInsight-cluster op aanvraag delen. | Ja      |
-| clusterType                  | Het type van het HDInsight-cluster moet worden gemaakt. Toegestane waarden zijn 'hadoop' en 'spark'. Als niet wordt opgegeven, wordt de standaardwaarde hadoop. | Nee       |
+| clusterType                  | Het type van het HDInsight-cluster moet worden gemaakt. Toegestane waarden zijn 'hadoop' en 'spark'. Als niet wordt opgegeven, wordt de standaardwaarde hadoop. Enterprise-beveiligingspakket ingeschakeld cluster wordt momenteel niet ondersteund | Nee       |
 | versie                      | Versie van het HDInsight-cluster. Als niet wordt opgegeven, wordt deze met behulp van de huidige versie van de HDInsight-gedefinieerde standaard. | Nee       |
 | hostSubscriptionId           | De Azure-abonnement-ID die wordt gebruikt voor het maken van HDInsight-cluster. Als niet wordt opgegeven, wordt de abonnements-ID van de context van uw Azure-aanmelding. | Nee       |
 | clusterNamePrefix           | Het voorvoegsel van de naam in de HDI-cluster, een tijdstempel wordt automatisch toegevoegd aan het einde van de naam van het cluster| Nee       |
@@ -123,6 +123,10 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 
 > [!IMPORTANT]
 > HDInsight ondersteunt meerdere versies van Hadoop-cluster dat kunnen worden geïmplementeerd. Elke versie keuze maakt een specifieke versie van de distributie Hortonworks Data Platform HDP () en een reeks onderdelen die deel uitmaken van dit distributiepunt. De lijst met ondersteunde versies van HDInsight houdt wordt bijgewerkt met de nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen. Zorg ervoor dat u altijd verwijzen naar de meest recente informatie van [ondersteund HDInsight-versie en het Type besturingssysteem](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) om te controleren of u gebruikmaakt van ondersteunde versie van HDInsight. 
+>
+> 
+> [!IMPORTANT]
+> Op dit moment wordt HDInsight HBase, interactieve Query (Hive LLAP), Storm en Enterprise-beveiliging (domein) biedt geen ondersteuning voor gekoppelde services clusters. 
 >
 > 
 
@@ -295,6 +299,10 @@ U kunt een gekoppelde HDInsight-service voor het registreren van uw eigen HDInsi
 > [!IMPORTANT]
 > HDInsight ondersteunt meerdere versies van Hadoop-cluster dat kunnen worden geïmplementeerd. Elke versie keuze maakt een specifieke versie van de distributie Hortonworks Data Platform HDP () en een reeks onderdelen die deel uitmaken van dit distributiepunt. De lijst met ondersteunde versies van HDInsight houdt wordt bijgewerkt met de nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen. Zorg ervoor dat u altijd verwijzen naar de meest recente informatie van [ondersteund HDInsight-versie en het Type besturingssysteem](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) om te controleren of u gebruikmaakt van ondersteunde versie van HDInsight. 
 >
+> [!IMPORTANT]
+> Op dit moment wordt HDInsight HBase, interactieve Query (Hive LLAP), Storm en Enterprise-beveiliging (domein) biedt geen ondersteuning voor gekoppelde services clusters. 
+>
+> 
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch gekoppeld-service
 
@@ -481,7 +489,7 @@ U kunt maken **gekoppelde service van Azure Databricks** Databricks werkruimte d
 | type                 | De eigenschap type moet worden ingesteld op: **AzureDatabricks**. | Ja                                      |
 | domein               | De Azure-regio dienovereenkomstig op basis van de regio van de werkruimte Databricks opgeven. Voorbeeld: https://eastus.azuredatabricks.net | Ja                                 |
 | accessToken          | Toegangstoken is vereist voor de Data Factory om Azure Databricks te verifiëren. Toegangstoken moet worden gegenereerd vanuit de werkruimte databricks. Meer gedetailleerde stappen voor het vinden van het toegangstoken vindt [hier](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Ja                                       |
-| existingClusterId    | ID van een bestaand cluster naar alle taken uitvoeren op dit cluster. Dit moet een gemaakte interactieve-Cluster. Mogelijk moet u handmatig het cluster opnieuw opstarten als deze niet meer reageert. Databricks voorgesteld taken uitgevoerd op nieuwe clusters voor een grotere betrouwbaarheid. U vindt de Cluster-ID van een interactieve Cluster op Databricks werkruimte -> Clusters -> interactieve clusternaam-configuratie >-Tags >. [meer informatie](https://docs.databricks.com/user-guide/clusters/tags.html) | Nee 
+| existingClusterId    | ID van een bestaand cluster naar alle taken uitvoeren op dit cluster. Dit moet een gemaakte interactieve-Cluster. Mogelijk moet u handmatig het cluster opnieuw opstarten als deze niet meer reageert. Databricks voorgesteld taken uitgevoerd op nieuwe clusters voor een grotere betrouwbaarheid. U vindt de Cluster-ID van een interactieve Cluster op Databricks werkruimte -> Clusters -> interactieve clusternaam-configuratie >-Tags >. [Meer informatie](https://docs.databricks.com/user-guide/clusters/tags.html) | Nee 
 | newClusterVersion    | De Spark-versie van het cluster. Wordt er een taak cluster gemaakt in databricks. | Nee  |
 | newClusterNumOfWorker| Het aantal worker-knooppunten dat u dit cluster wilt opnemen. Een cluster heeft een Spark-stuurprogramma en num_workers Executor voor een totaal van num_workers + 1 Spark-knooppunten. Een tekenreeks Int32 geformatteerd, zoals "1" betekent numOfWorker is 1 of "1:10" betekent dat Automatische-schaal van 1 als min en 10 als max.  | Nee                |
 | newClusterNodeType   | Dit veld codeert via een enkele waarde, de beschikbare bronnen voor elk van de Spark-knooppunten in dit cluster. Bijvoorbeeld, de Spark knooppunten kunnen worden ingericht en geoptimaliseerd voor geheugen of compute-intensieve werkbelastingen dit veld is vereist voor het nieuwe cluster                | Nee               |

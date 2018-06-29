@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 49a381efa0603889336f43e409698bbcef44f41f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f6852de2c09e3de9375a2cb5d73f052ac68f039
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615638"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100569"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Bewaking en foutopsporing met metrische gegevens in Azure Cosmos-DB
 
@@ -33,7 +33,7 @@ Dit artikel begeleidt bij algemene gebruiksvoorbeelden en hoe Azure Cosmos DB me
 
 Om te beginnen, Ga naar de [Azure-portal](https://portal.azure.com) en navigeer naar de **metrische gegevens** blade. In de blade ziet u de **aantal aanvragen overschreden capaciteit per 1 minuut** grafiek. Dit diagram toont een minuut door minuut totaal aantal aanvragen dat gesegmenteerd op de statuscode. Zie voor meer informatie over HTTP-statuscodes [HTTP-statuscodes voor Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-De meest voorkomende foutstatuscode is 429 (beperking), wat betekent dat aanvragen bij Azure Cosmos DB de ingerichte doorvoer overschrijdt. De meest voorkomende oplossing voor dit is [de RUs opschalen](./set-throughput.md) voor de opgegeven verzameling.
+De meest voorkomende foutstatuscode is 429 (beoordelen beperken/beperking), wat betekent dat aanvragen bij Azure Cosmos DB de ingerichte doorvoer overschrijdt. De meest voorkomende oplossing voor dit is [de RUs opschalen](./set-throughput.md) voor de opgegeven verzameling.
 
 ![Het aantal aanvragen per minuut](media/use-metrics/metrics-12.png)
 

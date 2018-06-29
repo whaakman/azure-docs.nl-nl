@@ -3,7 +3,7 @@ title: Instructiehandleiding voor Azure IT-operators | Microsoft Docs
 description: Introductiehandleiding voor Azure IT-operators
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361639"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099490"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Inleiding tot cloudcomputing en Microsoft Azure
 
@@ -61,7 +61,7 @@ SaaS is software die centraal wordt gehost en beheerd. Meestal gebaseerd op een 
 
 Microsoft Office 365 is een goed voorbeeld van een SaaS aanbieden. Maandelijkse of jaarlijkse abonnement van abonnees betalen en krijgen ze Microsoft Exchange, Microsoft OneDrive en de rest van de Microsoft Office suite als een service. Abonnees altijd de meest recente versie downloaden en de Exchange-server wordt beheerd voor u. Vergeleken met de installatie en upgrade van Office elk jaar, dit is minder dure en vereist minder moeite.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform als een service 
+#### <a name="paas-platform-as-a-service"></a>PaaS: Platform als een service
 
 Met PaaS, moet u uw toepassing in een omgeving met de leverancier van de cloud implementeert. De leverancier doet al het beheer van infrastructuur zodat u zich op de ontwikkeling van toepassingen richten kunt.
 
@@ -381,11 +381,11 @@ Azure storage-accounts kunnen worden geconfigureerd met verschillende niveaus va
 
 -   **Geografisch redundante opslag met leestoegang** is geografisch redundante opslag plus de mogelijkheid om te lezen van de gegevens in de secundaire regio. Deze mogelijkheid maakt het geschikt is voor gedeeltelijke noodherstel. Als er een probleem met de primaire regio, kunt u uw toepassing alleen-lezen toegang hebben tot de gekoppelde regio.
 
-### <a name="use-cases"></a>Gebruiksvoorbeelden 
+### <a name="use-cases"></a>Gebruiksvoorbeelden
 
 Elk opslagtype heeft een andere gebruiksvoorbeeld.
 
-**Blob Storage** 
+**Blob Storage**
 
 Het woord *blob* is een acroniem voor *BLOB*. BLOBs zijn niet-gestructureerde bestanden zoals die u op uw computer opslaat. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag. Azure Blob storage bevat ook gegevensschijven Azure Virtual Machines.
 
@@ -445,7 +445,7 @@ U kunt ook de Azure CLI gebruiken om een Azure Resource Manager-sjabloon te impl
 
 ### <a name="access-and-security-for-azure-storage"></a>Toegang en beveiliging voor Azure Storage
 
-Azure-opslag wordt op verschillende manieren echter de Azure-portal tijdens het maken van VM's en bewerking en vanaf opslagclientbibliotheken geopend. 
+Azure-opslag wordt op verschillende manieren echter de Azure-portal tijdens het maken van VM's en bewerking en vanaf opslagclientbibliotheken geopend.
 
 **Schijven voor virtuele machine**
 

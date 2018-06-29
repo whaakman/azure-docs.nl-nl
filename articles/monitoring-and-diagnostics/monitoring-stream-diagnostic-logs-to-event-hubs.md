@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 806ebe80ad49f2f908bf46549bb4abc533a6d516
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936697"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085086"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stroom Azure logboeken met diagnostische gegevens naar een event hub
 **[Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde optie voor 'Exporteren naar Event Hubs' in de Portal of doordat de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI 2.0.
@@ -41,7 +41,7 @@ Hier volgen slechts enkele manieren kunt u de mogelijkheid streaming voor logboe
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Streaming van logboeken met diagnostische gegevens inschakelen
 
-U kunt inschakelen, streamen van diagnostische logboeken programmatisch via de portal of met behulp van de [Monitor REST-API's van Azure](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). In beide gevallen moet u een diagnostische instelling maken in die u opgeeft een Event Hubs-naamruimte en de logboek-categorieën en metrische gegevens die u verzenden wilt aan de naamruimte. Een event hub wordt gemaakt in de naamruimte voor elke categorie logboek is ingeschakeld. Een diagnose **logboek categorie** is een type-log dat een resource kan verzamelen.
+U kunt inschakelen, streamen van diagnostische logboeken programmatisch via de portal of met behulp van de [Monitor REST-API's van Azure](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). In beide gevallen moet u een diagnostische instelling maken in die u opgeeft een Event Hubs-naamruimte en de logboek-categorieën en metrische gegevens die u verzenden wilt aan de naamruimte. Een event hub wordt gemaakt in de naamruimte voor elke categorie logboek is ingeschakeld. Een diagnose **logboek categorie** is een type-log dat een resource kan verzamelen.
 
 > [!WARNING]
 > Inschakelen en streaming van diagnostische logboeken van rekenresources (bijvoorbeeld virtuele machines of Service Fabric) [vereist een andere set stappen](../event-hubs/event-hubs-streaming-azure-diags-data.md).

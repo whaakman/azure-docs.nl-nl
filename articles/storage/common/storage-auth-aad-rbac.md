@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660806"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082208"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Rechten voor het Azure Storage-gegevens met RBAC (Preview) beheren
 
@@ -61,7 +61,7 @@ De volgende secties laten zien hoe een rol binnen het bereik van het opslagaccou
 
 Toewijzen van een ingebouwde rol die geen toegang verlenen tot alle containers of wachtrijen in het opslagaccount in de Azure-portal:
 
-1. In de [Azure-portal](https://azure.portal.com/), gaat u naar uw storage-account.
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw storage-account.
 2. Selecteer uw storage-account en vervolgens **Access Control (IAM)** om instellingen voor toegangsbeheer voor het account weer te geven. Klik op de **toevoegen** knop een nieuwe rol toe te voegen.
 
     ![Schermopname van instellingen voor toegangsbeheer opslag](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Toewijzen van een ingebouwde rol die geen toegang verlenen tot alle containers o
 
 De stappen voor het toewijzen van een ingebouwde rol binnen het bereik van een container of een wachtrij zijn identiek. De procedure die hieronder worden weergegeven wijst een rol binnen het bereik van een container, maar u kunt de dezelfde stappen volgen om een rol binnen het bereik van een wachtrij toewijzen: 
 
-1. In de [Azure-portal](https://azure.portal.com/), gaat u naar uw opslagaccount en weergeven van de **overzicht** voor het account.
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw opslagaccount en weergeven van de **overzicht** voor het account.
 2. Selecteer onder de Blob-Service **bladeren Blobs**. 
 3. Zoek naar de container die u wilt een rol toewijzen en de instellingen voor de container weergeven. 
 4. Selecteer **Access Control (IAM)** om instellingen voor toegangsbeheer voor de container weer te geven.

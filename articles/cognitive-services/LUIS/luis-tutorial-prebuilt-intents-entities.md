@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: v-geberr
-ms.openlocfilehash: 20950ced66497fb0dc96365975b37f244f677ce3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: 37d67bef7712012a95543041744706b240b16e2d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266376"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085494"
 ---
-# <a name="use-prebuilt-intents-and-entities-to-handle-common-intents-and-data"></a>Gebruik van vooraf gedefinieerde intents en entiteiten voor de verwerking van algemene intents en gegevens
+# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Zelfstudie: 2. Vooraf gemaakte intenties en entiteiten toevoegen
 Vooraf gedefinieerde intents en entiteiten toevoegen aan de Human Resources Quick Start-app snel krijgen opzet voorspelling en gegevens uitpakken. 
 
 In deze zelfstudie leert u het volgende:
@@ -28,16 +28,16 @@ In deze zelfstudie leert u het volgende:
 * LUIS opvragen en voorspelling reactie ontvangen
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u nog geen Human Resources-app uit de [aangepast domein](luis-quickstart-intents-only.md) Quick Start, [importeren](create-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS] [ LUIS] website , uit de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github-opslagplaats.
+Als u nog geen de [Human Resources](luis-quickstart-intents-only.md) -app uit de vorige zelfstudie [importeren](create-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website van de [LUIS-voorbeelden ](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github-opslagplaats.
 
-Als u behouden de oorspronkelijke Human Resources-app wilt, het klonen van de versie op de [instellingen](luis-how-to-manage-versions.md#clone-a-version) pagina en noem deze `prebuilts`. Het klonen is een uitstekende manier om af te spelen met verschillende LUIS functies zonder dat de oorspronkelijke versie. 
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `prebuilts`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
 ## <a name="add-prebuilt-intents"></a>Vooraf gedefinieerde intents toevoegen
 LUIS biedt verschillende vooraf gedefinieerde intents om te helpen bij algemene bedoelingen van de gebruiker.  
 
-1. Zorg ervoor dat uw app wordt de **bouwen** sectie van LUIS. U kunt wijzigen in deze sectie door te selecteren **bouwen** rechtermuisknop op de bovenste menubalk. 
+1. Zorg ervoor dat uw app wordt de **bouwen** sectie van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
-    [ ![Schermopname van LUIS app met Build hightlighted in de bovenste, rechts navigatiebalk](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
+    [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Selecteer **intentie van de vooraf gedefinieerde domein toevoegen**. 
 
@@ -71,20 +71,20 @@ LUIS biedt verschillende vooraf gedefinieerde entiteiten voor het ophalen van al
     ![Schermopname van nummer is geselecteerd in het dialoogvenster van de vooraf gedefinieerde entiteiten](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>Trainen en publiceer de app
-1. Selecteer in het bovenste aan de rechterkant van de website LUIS, de **Train** knop. 
+1. Selecteer rechtsboven op de website van LUIS de knop **Train**. 
 
     ![Knop Train](./media/luis-quickstart-intents-only/train-button.png)
 
-    Training is voltooid wanneer u de groene statusbalk aan de bovenkant van de website bevestiging ziet.
+    Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
 
     ![Getraind statusbalk](./media/luis-quickstart-intents-only/trained.png)
 
-2. Selecteer in de rechterbovenhoek, rechts van de website LUIS de **publiceren** te openen van de pagina publiceren. De productiesite is standaard geselecteerd. Selecteer de **publiceren** knop door de keuze van de sleuf productie. Het publiceren is voltooid wanneer u de groene statusbalk aan de bovenkant van de website bevestiging ziet.
+2. Selecteer in de rechterbovenhoek, rechts van de website LUIS de **publiceren** te openen van de pagina publiceren. De productiesite is standaard geselecteerd. Selecteer de **publiceren** knop door de keuze van de sleuf productie. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
     U beschikt niet over een sleutel LUIS in de Azure portal maken voordat u publiceren of de eindpunt-URL te testen. Elke app LUIS heeft een gratis starter-sleutel voor het ontwerpen. Dit biedt u onbeperkte ontwerpen en een [enkele eindpunt treffers](luis-boundaries.md#key-limits). 
 
 ## <a name="query-endpoint-with-an-utterance"></a>Query-eindpunt met een utterance
-Op de **publiceren** pagina de **eindpunt** koppeling aan de onderkant van de pagina. Deze actie wordt een ander browservenster geopend met de eindpunt-URL in de adresbalk. Ga naar het einde van de URL in het adres en voer `I want to cancel on March 3`. De laatste parameter van de query-tekenreeks is `q`, de utterance **query**. 
+Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. Ga naar het einde van de URL in het adres en voer `I want to cancel on March 3` in. De laatste parameter van de query-tekenreeks is `q`, de utterance **query**. 
 
 Het resultaat de bedoeling Utilities.Cancel voorspeld en de datum van 3 maart en het getal 3 hebt uitgepakt. 
 
@@ -167,8 +167,6 @@ Door eenvoudig en snel toe te voegen vooraf gedefinieerde intents en entiteiten,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Meer informatie over entiteiten](luis-concept-entity-types.md). 
+> [!div class="nextstepaction"]
+> [Een reguliere expressie entiteit toevoegen aan de app.](luis-quickstart-intents-regex-entity.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

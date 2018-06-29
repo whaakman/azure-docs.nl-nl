@@ -8,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030376"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096963"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur
 
@@ -40,12 +40,12 @@ Zowel de Edge-agent en de Edge-hub zijn modules, net als elke andere module uitg
 De Edge-hub is een van twee modules die gezamenlijk de rand van Azure IoT-runtime. Het fungeert als een lokale proxyserver voor IoT Hub bij het blootstellen van de dezelfde protocoleindpunten als IoT Hub. Deze consistentie betekent dat clients (of apparaten of modules) kunnen verbinding maken met de rand van de IoT-runtime, net als met IoT Hub. 
 
 >[!NOTE]
-> Rand Hub ondersteunt alleen clients die verbinding maken met behulp van protocollen MQTT tijdens de openbare preview.
+>Rand Hub biedt ondersteuning voor clients die verbinding maken met behulp van protocollen MQTT of AMQP zijn. Geen biedt ondersteuning voor clients die gebruikmaken van HTTP. 
 
 De Edge-hub is niet een volledige versie van de IoT-Hub die lokaal wordt uitgevoerd. Er zijn een aantal zaken die de hub rand achtergrond naar IoT Hub delegeert. Rand hub verzendt bijvoorbeeld verificatieaanvragen naar IoT Hub wanneer een apparaat de eerste keer probeert verbinding maken. Nadat de eerste verbinding tot stand is gebracht, informatie over beveiliging in de cache geplaatst lokaal door rand hub. Volgende verbindingen vanaf dat apparaat zijn zonder te verifiëren naar de cloud toegestaan. 
 
 >[!NOTE]
-> Tijdens de openbare preview van worden de runtime verbonden telkens wanneer wordt geprobeerd om een apparaat te verifiëren.
+>De runtime moet zijn verbonden, telkens wanneer wordt geprobeerd om een apparaat te verifiëren.
 
 Als u wilt de bandbreedte beperken de rand van de IoT-oplossing gebruikt, de Edge-hub optimaliseert het aantal werkelijke verbindingen worden aangebracht in de cloud. Rand hub logische verbindingen van clients, zoals modules of leaf-apparaten neemt en worden deze gecombineerd voor één fysieke verbinding met de cloud. De details van dit proces zijn transparant voor de rest van de oplossing. Clients zien dat ze hun eigen verbinding naar de cloud hebben, zelfs als ze al worden verzonden via dezelfde verbinding. 
 

@@ -9,24 +9,22 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5783a7a06d75a409969abad011de3bbd31dec292
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344855"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085756"
 ---
 # <a name="text-moderation"></a>Beheer van tekst
 
-Gebruik van de beheerder van de inhoud tekst machine ondersteunde toezicht en [human in de lus](Review-Tool-User-Guide/human-in-the-loop.md) mogelijkheden voor het gemiddelde tekstinhoud.
+Gebruik van de beheerder van de inhoud tekst machine ondersteunde toezicht en [menselijke revisie](Review-Tool-User-Guide/human-in-the-loop.md) mogelijkheden voor het gemiddelde tekstinhoud.
 
-Bedrijven gebruiken de tekst toezicht service blokkeren, goedkeuren of Controleer de inhoud op basis van hun beleid en de drempelwaarden. De tekst toezicht-service kan worden gebruikt om te vergroten menselijke toezicht van omgevingen waarvoor partners, werknemers en consumenten tekstinhoud genereren. Het gaat hierbij om chatruimten, discussieforums chatbots, e-commerce catalogussen, documenten en meer. 
-
-De API voor taalgebruik de binnenkomende tekst (maximaal 1024 tekens) wordt gescand, classificeert voor mogelijke ongewenste tekst (preview) autocorrects tekst, en detecteert mogelijke persoonsgegevens (PII). Deze overeenkomt met ook op basis van de aangepaste lijsten van termen. De functie AutoCorrectie kunt catch opzettelijk verkeerd gespelde woorden. Nadat de inhoud wordt verwerkt, wordt in de service een gedetailleerde antwoord geretourneerd. U gebruikt het antwoord te maken van een menselijke bekijken in het hulpprogramma voor beoordeling of dit medium meenemen omlaag, enzovoort.
+U blokkeren, goedkeuren of Controleer de inhoud op basis van uw beleid en de drempelwaarden. Gebruik dit voor breiden menselijke toezicht van omgevingen waarin partners, werknemers en consumenten tekstinhoud genereren. Het gaat hierbij om chatruimten, discussieforums chatbots, e-commerce catalogussen en documenten. 
 
 Het service-antwoord bevat de volgende informatie:
 
-- Taalgebruik: op basis van een term die overeenkomt met de lijst met ingebouwde schennende termen in meerdere talen
+- Taalgebruik: op basis van een term die overeenkomt met de ingebouwde lijst met schennende voorwaarden in verschillende talen
 - Classificatie: machine-ondersteunde indeling in drie categorieën
 - Persoonsgegevens (PII)
 - Tekst automatisch opgelost
@@ -52,12 +50,9 @@ Als de API eventuele schennende voorwaarden in een van detecteert de [ondersteun
 
 ## <a name="classification"></a>Classificatie
 
-Inhoud beheerder de machine-ondersteunde **tekst classificatie functie** ondersteunt **alleen Engels**, en het helpt bij het detecteren van mogelijk ongewenste inhoud. De gemarkeerde inhoud kan als ongepast markeren, afhankelijk van de context beschouwd. Naast het overbrengen van de kans op elke categorie, kan deze een menselijke beoordeling van de inhoud aanbevelen. De functie gebruikt een getraind model mogelijk misbruik, negatieve of discriminerende taal vast te stellen. Dit omvat taalgebruik, afgekorte woorden, aanstootgevende en opzettelijk verkeerd gespelde woorden worden beoordeeld. 
+Inhoud beheerder de machine-ondersteunde **tekst classificatie functie** ondersteunt **alleen Engels**, en het helpt bij het detecteren van mogelijk ongewenste inhoud. De gemarkeerde inhoud kan worden beoordeeld als ongepast markeren, afhankelijk van de context. Het wordt de kans op elke categorie en kan een menselijke revisie aanbevelen. De functie gebruikt een getraind model mogelijk misbruik, negatieve of discriminerende taal vast te stellen. Dit omvat taalgebruik, afgekorte woorden, aanstootgevende en opzettelijk verkeerd gespelde woorden worden beoordeeld. 
 
 Het volgende extract in het JSON-extract toont een voorbeeld van uitvoer:
-
-> [!NOTE]
-> De functie 'Classificatie' machine ondersteund is een Preview-versie.
 
     "Classification": {
         "ReviewRecommended": true,
@@ -74,9 +69,9 @@ Het volgende extract in het JSON-extract toont een voorbeeld van uitvoer:
 
 ### <a name="explanation"></a>Uitleg
 
-- `Category1` Hiermee geeft u de mogelijke aanwezigheid van de taal die kan worden beschouwd als seksueel expliciete of volwassenen in bepaalde situaties.
-- `Category2` Hiermee geeft u de mogelijke aanwezigheid van de taal die kan worden beschouwd als seksuele suggestieve of volwassen in bepaalde situaties.
-- `Category3` Hiermee geeft u de mogelijke aanwezigheid van de taal die mogelijk aanstootgevend in bepaalde situaties.
+- `Category1` verwijst naar de mogelijke aanwezigheid van de taal die kan worden beschouwd als seksueel expliciete of volwassenen in bepaalde situaties.
+- `Category2` verwijst naar de mogelijke aanwezigheid van de taal die kan worden beschouwd als seksuele suggestieve of volwassen in bepaalde situaties.
+- `Category3` verwijst naar de mogelijke aanwezigheid van de taal die mogelijk aanstootgevend in bepaalde situaties.
 - `Score` ligt tussen 0 en 1. Hoe hoger de score, hoe groter het model is voorspellen van de categorie mogelijk van toepassing. Dit voorbeeld is afhankelijk van een statistische model in plaats van handmatig gecodeerde resultaten. U wordt aangeraden testen door uw eigen inhoud om te bepalen hoe elke categorie wordt uitgelijnd aan uw vereisten.
 - `ReviewRecommended` waar of ONWAAR afhankelijk van de interne score drempelwaarden is. Klanten dient te beoordelen of wilt gebruiken deze waarde of op aangepaste drempelwaarden op basis van hun inhoud beleidsregels bepalen.
 
@@ -151,7 +146,7 @@ Als u automatische correcties aanvraagt, wordt in het antwoord de gecorrigeerde 
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Maken en beheren van uw aangepaste lijsten met voorwaarden
 
-De standaard globale lijst met termen zeer geschikt voor de meeste gevallen, maar mogelijk wilt scherm met de termen die specifiek voor uw bedrijfsbehoeften zijn. U wilt bijvoorbeeld uitfilteren concurrerende merk namen van berichten door gebruikers. De drempelwaarde van toegestane tekstinhoud afwijken van de lijst met.
+De standaard globale lijst met termen zeer geschikt voor de meeste gevallen, maar mogelijk wilt scherm met de termen die specifiek voor uw bedrijfsbehoeften zijn. U wilt bijvoorbeeld uitfilteren concurrerende merk namen van berichten door gebruikers.
 
 > [!NOTE]
 > Er is een maximumlimiet van **geeft een lijst van 5 term** met elke lijst **niet meer dan 10.000 voorwaarden**.

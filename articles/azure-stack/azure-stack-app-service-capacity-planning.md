@@ -12,20 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 06/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 8926955d5e0260b5971e07b6988bb21df9980847
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f54481fe59df21b500ee860d1e9a202ed32bdd87
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388580"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097145"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Capaciteitsplanning voor Azure App Service-serverfuncties in Azure-Stack
+
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Voor het inrichten van een gereed productie-implementatie van Azure App Service op Azure-Stack, moet u plannen voor de capaciteit die u verwacht dat het systeem om te ondersteunen.  Hier vindt u richtlijnen voor het minimum aantal exemplaren en rekencapaciteit SKU's moet u voor een productie-implementatie.
+Als u een gereed productie-implementatie van Azure App Service op Azure-Stack instelt, moet u plannen voor de capaciteit die u verwacht dat het systeem om te ondersteunen.  
+
+In dit artikel bevat richtlijnen voor het minimum aantal compute-exemplaren en rekencapaciteit SKU's moet u voor een productie-implementatie.
 
 Uw strategie voor App Service-capaciteit met behulp van deze richtlijnen voldoet, kunt u plannen. Toekomstige versies van Azure-Stack biedt opties voor hoge beschikbaarheid voor App Service.
 
@@ -52,23 +55,24 @@ De front-end stuurt aanvragen naar de Web werknemers, afhankelijk van de beschik
 
 ## <a name="management-role"></a>Beheer van rol
 
-**Aanbevolen minimum**: twee exemplaren van A3
+**Aanbevolen minimum**: twee exemplaren van A3 standaard
 
 De functie voor beheer van Azure App Service is verantwoordelijk voor de App Service Azure Resource Manager en API-eindpunten, portal uitbreidingen (admin, tenant, Functions-portal) en de data-service. De Management Server-rol is doorgaans alleen over 4 GB RAM-geheugen in een productieomgeving. Deze merken echter hoog CPU-niveaus wanneer veel beheertaken (zoals het maken van websites) worden uitgevoerd. Er is meer dan één server die aan deze rol toegewezen voor hoge beschikbaarheid, en ten minste twee cores per server.
 
 ## <a name="publisher-role"></a>Uitgeversrol
 
-**Aanbevolen minimum**: twee exemplaren van A1
+**Aanbevolen minimum**: twee exemplaren van A1 standaard
 
 Als veel gebruikers tegelijk publiceert, is de rol Publisher ondervinden intensief CPU-gebruik. Voor hoge beschikbaarheid, meer dan één rol voor Publisher beschikbaar maken.  De uitgever verwerkt alleen de FTP-/ FTPS-verkeer.
 
 ## <a name="web-worker-role"></a>Web-werkrol
 
-**Aanbevolen minimum**: twee exemplaren van A1
+**Aanbevolen minimum**: twee exemplaren van A1 standaard
 
-Voor hoge beschikbaarheid, moet u ten minste vier Web werkrollen hebben, twee voor gedeelde website modus en twee voor elke laag toegewezen werknemer die u wilt aanbieden. De gedeelde en speciale berekenings-modi bieden verschillende niveaus van service aan tenants. U moet mogelijk meer Web werknemers als er veel klanten:
- - speciale berekenings-modus worker lagen (die bronintensieve) gebruiken
- - in gedeelde compute-modus uitgevoerd.
+Voor hoge beschikbaarheid, moet u ten minste vier Web werkrollen hebben, twee voor gedeelde website modus en twee voor elke laag toegewezen werknemer die u wilt aanbieden. De gedeelde en speciale berekenings-modi bieden verschillende niveaus van service aan tenants. U moet mogelijk meer Web werknemers als veel van uw klanten zijn:
+
+- Met behulp van speciale berekenings-modus worker lagen (die resource-intensief zijn).
+- In gedeelde compute-modus uitgevoerd.
 
 Nadat een gebruiker is gemaakt op een App Service-Plan voor een speciale berekenings-modus SKU, het aantal Web werknemer (s) die worden opgegeven in de betreffende App Service-Plan niet langer beschikbaar voor gebruikers.
 
@@ -78,8 +82,8 @@ Bij het kiezen van het aantal gedeelde Web-werkrollen te gebruiken, controleert 
 
 - **Geheugen**: geheugen is de meest kritieke bron voor een Web-werkrol. Er is onvoldoende geheugen invloed website op de prestaties wanneer virtueel geheugen van de schijf wordt gewisseld. Elke server vereist ongeveer 1,2 GB aan RAM-geheugen voor het besturingssysteem. RAM-geheugen boven deze drempelwaarde kan worden gebruikt om uit te voeren van websites.
 - **Percentage van actieve websites**: normaal gesproken ongeveer 5 procent van de toepassingen in een Azure App Service op Azure-Stack implementatie actief zijn. Het percentage van de toepassingen die actief op elk gewenst moment zijn kan echter hoger of lager zijn. Met een actieve toepassingsrol frequentie van 5 procent, het maximum aantal toepassingen in een Azure App Service op de implementatie van de Azure-Stack te plaatsen moet kleiner zijn dan:
-    - 20 keer het aantal actieve websites (5 x 20 = 100).
-- **Gemiddelde geheugengebruik:**: het gemiddelde geheugengebruik voor toepassingen die zijn waargenomen in productieomgevingen is ongeveer 70 MB. Daarom kan het geheugen toegewezen aan alle Web Worker-rol computers of virtuele machines als volgt worden berekend:
+  - 20 keer het aantal actieve websites (5 x 20 = 100).
+- **Gemiddelde geheugengebruik:**: het gemiddelde geheugengebruik voor toepassingen die zijn waargenomen in productieomgevingen is ongeveer 70 MB. Met deze footprint, het geheugen toegewezen aan alle Web Worker-rol computers of virtuele machines kan worden als volgt berekend:
 
     *Aantal toepassingen ingericht * 70 MB * 5% - (nummer van Web-werkrollen * 1044 MB)*
 
@@ -91,14 +95,17 @@ Bij het kiezen van het aantal gedeelde Web-werkrollen te gebruiken, controleert 
 
 ## <a name="file-server-role"></a>Bestandsserverfunctie
 
-Voor de rol bestandsserver, kunt u een zelfstandige bestandsserver voor ontwikkeling en testen, bijvoorbeeld bij het implementeren van Azure App Service op de Azure-Stack Development Kit kunt u deze sjabloon - https://aka.ms/appsvconmasdkfstemplate. Voor productiedoeleinden moet u een vooraf geconfigureerde Windows-bestandsserver of een vooraf geconfigureerde niet-Windows-bestandsserver.
+Voor de rol bestandsserver, kunt u een zelfstandige bestandsserver voor ontwikkeling en testen, bijvoorbeeld bij het implementeren van Azure App Service op de Azure-Stack Development Kit kunt u deze sjabloon - <https://aka.ms/appsvconmasdkfstemplate>. Voor productiedoeleinden moet u een vooraf geconfigureerde Windows-bestandsserver of een vooraf geconfigureerde niet-Windows-bestandsserver.
 
 De functie bestandsserver optreedt in een productieomgeving intensieve schijf-i/o. Omdat ook alle inhoud en toepassing bestanden voor websites van de gebruiker nieuwste, moet u een van de volgende voor deze rol vooraf configureren:
-- a Windows File Server
-- Bestandsservercluster
+
+- een Windows-bestandsserver
+- een Windows-Bestandsservercluster
 - een niet-Windows-bestandsserver
-- bestandsservercluster
-- Apparaat NAS (Network Attached Storage) voor meer informatie Zie [inrichten van een bestandsserver](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+- een niet-Windows-bestandsservercluster
+- een apparaat NAS (Network Attached Storage)
+
+Zie voor meer informatie [inrichten van een bestandsserver](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Volgende stappen
 

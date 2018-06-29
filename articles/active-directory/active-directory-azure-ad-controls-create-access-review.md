@@ -2,9 +2,9 @@
 title: Maken van een access-bekijken voor leden van een groep of gebruikers met toegang tot een toepassing met Azure AD | Microsoft Docs
 description: Informatie over het maken van een access-bekijken voor leden van een groep of gebruikers met toegang tot een toepassing.
 services: active-directory
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,13 @@ ms.topic: article
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.reviewer: mwahl
+ms.openlocfilehash: 20f238a7d8a3882f2a126c900e04ecf7be613be5
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020403"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084974"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Maken van een beoordeling toegang van de leden van beveiligingsgroep of toegang tot toepassingen met Azure AD
 

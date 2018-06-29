@@ -3,7 +3,7 @@ title: Azure Functions testen | Microsoft Docs
 description: Test uw Azure-functies met Postman cURL en Node.js.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: wesmc
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41796a8cdde0756e5157ba276463a56b07679d04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23838952"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083246"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategieën voor het testen van uw code in Azure Functions
 
@@ -37,7 +37,7 @@ In dit onderwerp toont de verschillende manieren voor het testen van functies, i
 Deze test methoden gebruiken een HTTP-trigger-functie die invoer via een queryreeksparameter opgeven of de aanvraagtekst accepteert. U kunt deze functie maakt in de eerste sectie.
 
 ## <a name="create-a-function-for-testing"></a>Maak een functie voor het testen
-Voor de meeste van deze zelfstudie gebruiken we een enigszins gewijzigde versie van de sjabloon van de HttpTrigger JavaScript-functie die beschikbaar is wanneer u een functie. Als u informatie over het maken van een functie nodig, Bekijk dit [zelfstudie](functions-create-first-azure-function.md). Kies de **HttpTrigger - JavaScript** sjabloon bij het maken van de functie test in de [Azure-portal].
+Voor de meeste van deze zelfstudie gebruiken we een enigszins gewijzigde versie van de sjabloon van de HttpTrigger JavaScript-functie die beschikbaar is wanneer u een functie. Als u informatie over het maken van een functie nodig, Bekijk dit [zelfstudie](functions-create-first-azure-function.md). Kies de **HttpTrigger - JavaScript** sjabloon bij het maken van de functie test in de [Azure Portal].
 
 De functie standaardsjabloon is in feite een 'Hallo wereld'-functie die de naam van de aanvraag hoofdtekst of de query tekenreeksparameter, een echo terug `name=<your name>`.  De code ook dat u kunt de naam en een adres opgeven als JSON-inhoud in de aanvraagtekst ontvangt updates. De functie echo vervolgens deze weer aan de client, indien beschikbaar.   
 
@@ -186,10 +186,10 @@ In de portal **logboeken** venster uitvoer lijkt op de volgende wordt vastgelegd
 ### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>Een blob-trigger testen met behulp van Opslagverkenner
 U kunt een blob-activeringsfunctie testen met behulp van [Azure Opslagverkenner](http://storageexplorer.com/).
 
-1. In de [Azure-portal] maken voor uw app functie activeringsfunctie voor C#, F # of JavaScript-blob. Het pad voor het bewaken van de naam van uw blob-container instellen. Bijvoorbeeld:
+1. In de [Azure Portal] maken voor uw app functie activeringsfunctie voor C#, F # of JavaScript-blob. Het pad voor het bewaken van de naam van uw blob-container instellen. Bijvoorbeeld:
 
         files
-2. Klik op de  **+**  knop om te selecteren of maken van het opslagaccount dat u wilt gebruiken. Klik vervolgens op **Maken**.
+2. Klik op de **+** knop om te selecteren of maken van het opslagaccount dat u wilt gebruiken. Klik vervolgens op **Maken**.
 3. Maak een tekstbestand met de volgende tekst en sla het:
 
         A text file for blob trigger function testing.
@@ -244,19 +244,19 @@ Zie voor meer gedetailleerde informatie over het gebruik van bindingen met Azure
 Om te demonstreren deze benadering, maken we eerst een wachtrij-activeringsfunctie die we voor een wachtrij met de naam wilt testen `queue-newusers`. Deze functie verwerkt naam en adres informatie verwijderd in de wachtrij opslag voor een nieuwe gebruiker.
 
 > [!NOTE]
-> Als u de naam van een andere wachtrij gebruikt, zorg ervoor dat de naam die u gebruikt voldoet aan de [naamgeving van wachtrijen en metagegevens](https://msdn.microsoft.com/library/dd179349.aspx) regels. Anders kunt u een foutmelding krijgt.
+> Als u de naam van een andere wachtrij gebruikt, zorg ervoor dat de naam die u gebruikt voldoet aan de [naamgeving van wachtrijen en metagegevens](https://msdn.microsoft.com/library/dd179349.aspx) regels. Anders krijgt u een foutmelding.
 >
 >
 
-1. In de [Azure-portal] voor functie-app klikt u op **nieuwe functie** > **QueueTrigger - C#**.
+1. In de [Azure Portal] voor functie-app klikt u op **nieuwe functie** > **QueueTrigger - C#**.
 2. Voer de naam van de wachtrij moeten worden bewaakt door de functie van de wachtrij:
 
         queue-newusers
-3. Klik op de  **+**  knop om te selecteren of maken van het opslagaccount dat u wilt gebruiken. Klik vervolgens op **Maken**.
+3. Klik op de **+** knop om te selecteren of maken van het opslagaccount dat u wilt gebruiken. Klik vervolgens op **Maken**.
 4. Laat deze portal browservenster geopend, zodat u de logboekvermeldingen voor de standaard wachtrij functiecode sjabloon kunt bewaken.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Een timertrigger voor het verwijderen van een bericht in de wachtrij maken
-1. Open de [Azure-portal] in een nieuw browservenster en navigeer naar de functie-app.
+1. Open de [Azure Portal] in een nieuw browservenster en navigeer naar de functie-app.
 2. Klik op **nieuwe functie** > **TimerTrigger - C#**. Voer een expressie cron om in te stellen hoe vaak de timer-code wordt de functie van uw wachtrij getest. Klik vervolgens op **Maken**. Als u wilt dat de test uitgevoerd elke 30 seconden, kunt u de volgende [CRON expressie](https://wikipedia.org/wiki/Cron#CRON_expression):
 
         */30 * * * * *
@@ -268,7 +268,7 @@ Om te demonstreren deze benadering, maken we eerst een wachtrij-activeringsfunct
 6. Voer de naam van de wachtrij waarin het bericht wordt verzonden:
 
         queue-newusers
-7. Klik op de  **+**  knop om te selecteren van het opslagaccount dat u eerder hebt gebruikt met de wachtrij-trigger. Klik vervolgens op **Opslaan**.
+7. Klik op de **+** knop om te selecteren van het opslagaccount dat u eerder hebt gebruikt met de wachtrij-trigger. Klik vervolgens op **Opslaan**.
 8. Klik op de **ontwikkelen** tabblad voor de timertrigger.
 9. Als u de dezelfde wachtrij bericht objectnaam hierboven hebt gebruikt, kunt u de volgende code voor de functie C#-timer. Klik vervolgens op **Opslaan**.
 
@@ -443,4 +443,4 @@ In het browservenster voor de wachtrij-functie ziet u elk bericht wordt verwerkt
 
 <!-- URLs. -->
 
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 06/27/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: c48a0f078da8e56038ec74ee398bd26fe1dc2718
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 1dea3affa06da47f22a3e7cca6c48e6c7a288b1d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054752"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083359"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking: Azure SQL Database en SQL Server 
 
@@ -121,7 +121,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Niet - Zie [Azure analyseservices](https://azure.microsoft.com/services/analysis-services/) | Niet - Zie [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Controle van SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Niet - Zie [SQL Database auditing](sql-database-auditing.md) | Ja - Zie [controle verschillen](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in SSISDB gehost door Azure SQL Database en worden uitgevoerd op Azure SSIS integratie Runtime (IR), raadpleegt u [Azure SSIS-IR maken in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in SSISDB gehost door beheerde exemplaar en uitgevoerd op Azure SSIS integratie Runtime (IR), raadpleegt u [Azure SSIS-IR maken in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in SSISDB gehost door Azure SQL Database en worden uitgevoerd op Azure SSIS integratie Runtime (IR), raadpleegt u [Azure SSIS-IR maken in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Als u wilt vergelijken de SSIS-functies in SQL-Database en beheerd exemplaar, Zie [vergelijken van de SQL-Database en beheerd exemplaar (Preview)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview). | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in SSISDB gehost door beheerde exemplaar en uitgevoerd op Azure SSIS integratie Runtime (IR), raadpleegt u [Azure SSIS-IR maken in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Als u wilt vergelijken de SSIS-functies in SQL-Database en beheerd exemplaar, Zie [vergelijken van de SQL-Database en beheerd exemplaar (Preview)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Niet - Zie [uitgebreide gebeurtenissen](sql-database-xevent-db-diff-from-svr.md) | Ja |

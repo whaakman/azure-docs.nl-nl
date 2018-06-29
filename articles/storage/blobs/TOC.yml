@@ -190,6 +190,8 @@
           href: storage-https-custom-domain-cdn.md
         - name: Onveranderbare opslagfunctie van Azure Blob Storage (preview)
           href: storage-blob-immutable-storage.md
+        - name: Beveiligde TLS voor Azure Storage-client inschakelen
+          href: ../common/storage-security-tls.md
     - name: Controleren en problemen oplossen
       items:
         - name: Zelfstudie voor problemen oplossen

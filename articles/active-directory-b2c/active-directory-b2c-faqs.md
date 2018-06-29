@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 11335079373b627bab923f63eda148b0a74307ea
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938392"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100518"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -97,9 +97,9 @@ Lees dit artikel over [externe identiteiten](../active-directory/active-director
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Welke rapportage- en controle van functies Azure AD B2C biedt? Zijn ze hetzelfde als in Azure AD Premium?
 Nee, Azure AD B2C ondersteunt geen dezelfde set rapporten als Azure AD Premium. Er zijn echter veel commonalities:
 
-* **Aanmelden rapporten** zijn alleen beschikbaar in de Azure-portal (Azure Active Directory > activiteit > aanmeldingen) en zijn niet beschikbaar is via de Graph API. Ze bieden een record van elke aanmelden met verminderde details.
-* **Rapporten van de audit** zijn alleen beschikbaar in de Azure-portal (Azure Active Directory > activiteit > controlelogboeken) en zijn niet beschikbaar is via de Graph API. Deze omvatten zowel admin-activiteit als activiteit van de toepassing. 
-* **Gebruiksrapporten** zijn alleen beschikbaar via de [gebruik rapportage-API](active-directory-b2c-reference-usage-reporting-api.md) en zijn niet beschikbaar is via de Azure-portal. Ze zijn het aantal gebruikers, aantal aanmeldingen en volume van MFA. 
+* **Aanmelden rapporten** bieden een record van elke aanmelden met verminderde details.
+* **Rapporten van de audit** bevatten zowel admin-activiteit als activiteit van de toepassing. 
+* **Gebruiksrapporten** zijn onder meer het aantal gebruikers, aantal aanmeldingen en volume van MFA. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Kan ik lokalisatie van de gebruikersinterface van pagina's die worden bediend door Azure AD B2C? Welke talen worden ondersteund?
 Ja.  Meer informatie over [taal aanpassing](active-directory-b2c-reference-language-customization.md), deze bevindt zich in de openbare preview.  Wij vertalingen voor 36 talen en u kunt een willekeurige tekenreeks aan uw behoeften te overschrijven.

@@ -2,7 +2,7 @@
 title: 'Beveiligingsproblemen die worden gedetecteerd door Azure Active Directory: Identity Protection | Microsoft Docs'
 description: 'Overzicht van de beveiligingsproblemen die worden gedetecteerd door Azure Active Directory: Identity Protection.'
 services: active-directory
-keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
+keywords: beveiliging in Azure active directory-identiteit, cloud discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9ee926ff7cf44041c1969d541ca225395ba31a2f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 534384f8e8fde17c2330831b346d87c50ea24183
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713691"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084005"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Beveiligingsproblemen die worden gedetecteerd door Azure Active Directory: Identity Protection
 Zwakke plekken zijn zwakke punten in uw omgeving die door een aanvaller kan worden misbruikt. U wordt aangeraden dat u deze beveiligingslekken ter verbetering van de beveiligingsstatus van uw organisatie, en voorkomen dat aanvallers deze nu aanvalt.
@@ -47,9 +47,9 @@ Deze kwetsbaarheid helpt u identificeren onbeheerde cloud-apps in uw organisatie
 
 In moderne ondernemingen zijn IT-afdelingen vaak niet op de hoogte van alle cloud-toepassingen die van gebruikers in hun organisatie gebruikmaken voor hun werk. Het is gemakkelijk om te zien waarom beheerders zou twijfels hebt over niet-geautoriseerde toegang tot zakelijke gegevens, mogelijk gegevenslekken en andere beveiligingsrisico's. 
 
-We raden aan voor het implementeren van Cloud App Discovery voor het detecteren van niet-beheerde cloud-toepassingen en voor het beheren van deze toepassingen met Azure Active Directory.
+We raden aan voor het implementeren van Cloud Discovery voor het detecteren van niet-beheerde cloud-toepassingen en voor het beheren van deze toepassingen met Azure Active Directory.
 
-Zie voor meer informatie [zoeken naar niet-beheerde cloud-toepassingen met Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+Zie voor meer informatie [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Beveiligingswaarschuwingen van Privileged Identity Management
 Deze kwetsbaarheid helpt u bij het opsporen en oplossen van waarschuwingen over bevoegde identiteiten in uw organisatie.  

@@ -2,7 +2,7 @@
 title: 'Azure Active Directory: Identity Protection playbook | Microsoft Docs'
 description: Meer informatie over hoe Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller misbruik maakt van een verdachte identiteit of het apparaat en voor het beveiligen van een identiteit of een apparaat dat eerder is verdacht of bekend is dat inbreuk wordt gepleegd beperken.
 services: active-directory
-keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
+keywords: beveiliging in Azure active directory-identiteit, cloud discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff4a8bfb5a92f0969aef726893bebb6aacd4d942
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 566748d7d7a2ec89c69ab706700583a9db1f5246
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714303"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083954"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Playbook voor Azure Active Directory: Identity Protection
 
@@ -105,7 +105,7 @@ Zwakke plekken zijn zwakke punten in een Azure AD-omgeving die door een kwaadwil
 
 
 * Azure AD [multi-factor Authentication](authentication/multi-factor-authentication.md)
-* Azure AD [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+* Azure AD [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 85450119b9ab25b6f812cbf8c6c64174dd6f322c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 1b9b1fa5b67e37181ff4c76773c6666ccbbcf275
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061723"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082862"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Maken van de runtime Azure SSIS-integratie in Azure Data Factory
 Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SSDT (SQL Server Data Tools) of SSMS (SQL Server Management Studio) gebruiken om SSIS-pakketten (SQL Server Integration Services) te implementeren en uit te voeren in deze runtime van Azure. 
@@ -54,9 +54,9 @@ Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Featu
 - **Azure PowerShell**. Volg de instructies in [installeren en configureren van Azure PowerShell](/powershell/azure/install-azurerm-ps), als u PowerShell gebruiken voor het uitvoeren van een script te richten Azure SSIS-integratie runtime die SSIS-pakketten in de cloud wordt uitgevoerd. 
 
 ### <a name="region-support"></a>Regio-ondersteuning
-U kunt een gegevensfactory maken in de volgende gebieden: VS-Oost, VS-Oost 2, Zuidoost-Azië, en West-Europa. 
+Voor een lijst met Azure-regio's waarin Data Factory momenteel beschikbaar is, selecteert u de regio's die u interesseren op de volgende pagina uit en vouw vervolgens **Analytics** vinden **Data Factory**: [ Producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/global-infrastructure/services/).
 
-U kunt een Azure-SSIS-IR maken in de volgende regio's: VS - oost, VS - oost 2, VS - midden, VS - west 2, Noord-Europa, West-Europa, UK - zuid en Australië - oost. 
+Voor een lijst met Azure-regio's waarin de Azure-SSIS-integratie Runtime momenteel beschikbaar is, selecteert u de regio's die u interesseren op de volgende pagina uit en vouw vervolgens **Analytics** vinden **SSIS-integratie Runtime** : [Producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/global-infrastructure/services/). ### vergelijken van de SQL-Database en beheerd exemplaar (Preview)
 
 ### <a name="compare-sql-database-and-managed-instance-preview"></a>Vergelijk SQL-Database en beheerde exemplaar (Preview)
 
@@ -220,13 +220,11 @@ Definieer variabelen voor gebruik in het script in deze zelfstudie:
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
-# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
 # Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"
@@ -392,13 +390,11 @@ Hier is de volledige-script dat wordt gemaakt van een Azure-SSIS-integratie-runt
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
-# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
 # Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"

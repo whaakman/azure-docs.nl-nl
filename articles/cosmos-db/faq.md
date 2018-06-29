@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 769d530d85199e3f38890589e3719ba35f7cf5d6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261556"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097968"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -70,7 +70,7 @@ Ja, kunt u aanmelden voor een account met beperkte gratis met geen toezegging. A
 
 Als u niet bekend met Azure bent, kunt u zich aanmelden voor een [gratis Azure-account](https://azure.microsoft.com/free/), u hebt dan 30 dagen en en een creditcard om te proberen alle Azure-services. Als u een Visual Studio-abonnement hebt, bent u ook in aanmerking komen voor [gratis Azure-tegoed](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) moet worden gebruikt voor een Azure-service. 
 
-U kunt ook de [Azure Cosmos DB Emulator](local-emulator.md) te ontwikkelen en testen van de toepassing lokaal voor gratis, zonder te maken van een Azure-abonnement. Wanneer u tevreden bent over hoe uw toepassing in de Azure-Emulator Cosmos DB werkt, kunt u overschakelen naar het met een Azure DB die Cosmos-account in de cloud.
+U kunt ook de [Azure Cosmos DB Emulator](local-emulator.md) te ontwikkelen en testen van de toepassing lokaal voor gratis, zonder te maken van een Azure-abonnement. Als u tevreden bent over hoe uw toepassing in de Azure Cosmos DB Emulator werkt, kunt u overstappen naar een Azure Cosmos DB-account in de cloud.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Hoe kan ik aanvullende ondersteuning voor Azure Cosmos DB krijgen?
 
@@ -80,7 +80,7 @@ Als u een technische vraag vragen, kunt u posten naar een van deze twee vraag en
 
 Om aan te vragen van nieuwe functies, kunt u een nieuwe aanvraag maken op [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
-U herstelt een probleem met uw account door het bestand een [ondersteuningsaanvraag](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in de Azure portal.
+Als u een probleem met uw account wilt oplossen, kunt u een [ondersteuningsaanvraag](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) indienen in Azure Portal.
 
 Andere vragen kunnen worden verstuurd naar het team via [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); maar dit niet een alias voor technische ondersteuning is. 
 
@@ -281,9 +281,6 @@ U kunt de [Azure Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tool
 
 Hulpprogramma's voor de flexibiliteit om op te nemen van een verbindingsreeks in de opgegeven indeling biedt eerder ondersteuning voor de nieuwe tabel-API. Een lijst met hulpprogramma's voor tabel vindt u op de [hulpprogramma's voor Azure Storage Client](../storage/common/storage-explorers.md) pagina. 
 
-### <a name="do-powershell-or-azure-cli-work-with-the-table-api"></a>PowerShell of Azure CLI werken met de tabel-API?
-Er is ondersteuning voor [PowerShell](table-powershell.md). Azure CLI-ondersteuning is momenteel niet beschikbaar.
-
 ### <a name="is-the-concurrency-on-operations-controlled"></a>Is de concurrency van bewerkingen die worden beheerd?
 Ja, optimistische gelijktijdigheid van taken wordt opgegeven via het gebruik van het mechanisme voor ETag. 
 
@@ -410,7 +407,7 @@ Geen. Er is geen wijziging in de prijs voor bestaande klanten voor Azure Table-o
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Hoe wordt de prijs berekend voor de tabel-API? 
 De prijs is afhankelijk van de toegewezen TableThroughput. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Hoe u verwerkt beperking op de tabellen in de tabel API aanbieding? 
+### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>Hoe u verwerkt alle snelheidslimieten voor de tabellen in de tabel API aanbieding? 
 Als het percentage aanvragen groter is dan de capaciteit van de ingerichte doorvoer voor de onderliggende container of een set van containers, u krijgt een fout en de SDK de aanroep pogingen door het toepassen van het beleid voor opnieuw proberen.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Waarom moet ik een doorvoer naast PartitionKey en RowKey om te profiteren van de tabel-API-aanbod van Azure DB die Cosmos kiezen?

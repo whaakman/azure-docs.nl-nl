@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 311e58f01fac6d7786992b3c11e4b1b7c02ca838
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304519"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082519"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Leslokaal labs in Azure Lab Services beheren 
 In dit artikel wordt beschreven hoe maken en configureren van een testomgeving leslokaal, alle leslokaal labs weergeven of verwijderen van een testomgeving leslokaal.
@@ -86,8 +86,8 @@ Wanneer u een sjabloon publiceert, maakt Azure Lab Services virtuele machines in
 2. Selecteer nu de **publiceren** knop. Dit proces duurt een bepaalde tijd, afhankelijk van hoeveel virtuele machines worden gemaakt, dit is hetzelfde als het aantal gebruikers dat is toegestaan in de testomgeving.
     
     > [!IMPORTANT]
-    > Wanneer een sjabloon openbaar beschikbaar is, kan de toegang kan niet worden gewijzigd naar privé. 
-4. Overschakelen naar de **virtuele machines** pagina en controleer of u vijf virtuele machines die zich in **niet langer toegewezen** status. Deze virtuele machines worden nog niet toegewezen aan studenten. 
+    > Als een sjabloon is gepubliceerd, kan deze niet-gepubliceerde niet. 
+4. Overschakelen naar de **virtuele machines** pagina en controleer of u virtuele machines die zich in **niet langer toegewezen** status. Deze virtuele machines worden nog niet toegewezen aan studenten. 
 
     ![Virtuele machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Wacht totdat de virtuele machines worden gemaakt. Ze moeten **gestopt** status. U kunt een student VM starten, verbinding maken met de virtuele machine, stop de virtuele machine en verwijderen van de virtuele machine op deze pagina. U kunt ze worden gestart op deze pagina of kunt uw studenten starten van de virtuele machines. 

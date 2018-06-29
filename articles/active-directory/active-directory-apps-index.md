@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ed1179663823bc5a16f3ef348a649731814cdd5a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: d091a56fd5190ea9b40f7933e217eabac87967a5
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293089"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098760"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -54,8 +54,8 @@ Eenmalige aanmelding kunt gebruikers toegang krijgen tot een aantal apps en serv
 | Artikel handleiding |  |
 |:---:| --- |
 | Een inleiding tot federatieve en andere typen van eenmalige aanmelding |[Eenmalige aanmelding met Azure AD](manage-apps/what-is-single-sign-on.md) |
-| SaaS-apps die vooraf geïntegreerd met Azure AD met zijn duizenden vereenvoudigd configuratiestappen voor eenmalige aanmelding |[Aan de slag met Azure AD-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](active-directory-saas-tutorial-list.md)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](active-directory-app-gallery-listing.md) |
-| Meer dan 150 app-zelfstudies over het configureren van eenmalige aanmelding voor apps zoals [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), en nog veel meer |[Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md) |
+| SaaS-apps die vooraf geïntegreerd met Azure AD met zijn duizenden vereenvoudigd configuratiestappen voor eenmalige aanmelding |[Aan de slag met Azure AD-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](saas-apps/tutorial-list.md)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](active-directory-app-gallery-listing.md) |
+| Meer dan 150 app-zelfstudies over het configureren van eenmalige aanmelding voor apps zoals [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), en nog veel meer |[Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](saas-apps/tutorial-list.md) |
 | Het handmatig instellen en aanpassen van uw configuratie voor eenmalige aanmelding |[Hoe om te configureren voor federatieve eenmalige aanmelding voor Apps die niet zijn opgenomen in de Azure Active Directory-Toepassingsgalerie](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Het aanpassen van uitgegeven Claims in het SAML-Token voor vooraf geïntegreerde Apps](active-directory-saml-claims-customization.md) |
 | Gids voor probleemoplossing voor federatieve apps die gebruikmaken van het SAML-protocol |[Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md) |
 | Het configureren van de vervaldatum van het certificaat van uw app en uw certificaten vernieuwen |[Het beheer van certificaten voor federatieve eenmalige aanmelding bij Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
@@ -112,23 +112,18 @@ Als u een eenmalige aanmelding tot uw apps en resources hebt ingesteld, kunt u v
 | Het inschakelen van voorwaardelijke toegang voor de volgende typen resources |[Voorwaardelijke toegang voor SaaS-Apps](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Voorwaardelijke toegang voor Office 365-services](active-directory-conditional-access-device-policies.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen](active-directory-conditional-access-azure-portal.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen die zijn gepubliceerd via toepassingsproxy van Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Apparaten registreren met Azure Active Directory om het beleid voor voorwaardelijke toegang op basis van apparaten inschakelen |[Overzicht van Azure Active Directory-apparaatregistratie](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Automatische apparaatregistratie voor domein inschakelen die lid zijn van de Windows-apparaten](active-directory-conditional-access-automatic-device-registration.md)<br />— [Stappen voor Windows 8.1-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Stappen voor Windows 7-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| Het gebruik van de Microsoft Authenticator-app voor verificatie in twee stappen | [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| Het gebruik van de Microsoft Authenticator-app voor verificatie in twee stappen | [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 Voorwaardelijke toegang is een [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) functie.
 
 ## <a name="apps--azure-ad"></a>Apps en Azure AD
-### <a name="cloud-app-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud App Discovery: Zoeken welke SaaS-apps in uw organisatie worden gebruikt
-Cloud App Discovery helpt IT-afdelingen meer informatie over welke SaaS-apps worden gebruikt in de hele organisatie. Het gebruik van de app kunt meten en populariteit zodat deze welke apps profiteren het meest bepalen kan niet kan worden gebracht onder dat IT controle en waarin wordt geïntegreerd met Azure AD.
+### <a name="cloud-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud Discovery: Zoeken welke SaaS-apps in uw organisatie worden gebruikt
+Cloud Discovery analyseert uw verkeerslogboeken tegen Microsoft Cloud App Security van cloud app-catalogus van meer dan 16.000 cloud-apps die worden beoordeeld en gewaardeerd op basis van meer dan 70 risicofactoren, zodat u voortdurend inzicht in de cloud gebruikt, Shadow IT en het risico Schaduw IT vormt in uw organisatie.
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Een algemeen overzicht van hoe het werkt |[Zoeken naar niet-toegestane cloud-toepassingen met Cloud App Discovery](manage-apps/cloud-app-discovery.md) |
-| Zie voor meer informatie in hoe het werkt, met de antwoorden op vragen over privacy |[Beveiliging en Privacy-overwegingen](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
-| Veelgestelde vragen |[Veelgestelde vragen voor Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
-| Zelfstudies voor het implementeren van Cloud App Discovery |[Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[Implementatiehandleiding van System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Installeren op proxyservers met aangepaste poorten](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
-| Het logboekbestand op updates voor de agent voor Cloud App Discovery |[Wijzigingslogboek](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
+| Een algemeen overzicht van hoe het werkt |[Cloud Discovery instellen](/cloud-app-security/set-up-cloud-discovery) |
 
-Cloud App Discovery is een [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) functie.
 
 ### <a name="automatically-provision-and-deprovision-user-accounts-in-saas-apps"></a>Automatisch in te richten en inrichting ervan ongedaan gebruikersaccounts in de SaaS-apps
 Het maken, het onderhoud en het verwijderen van gebruikers-id's in de SaaS-toepassingen zoals Dropbox, Salesforce en ServiceNow automatiseren. Overeenkomen met en bestaande identiteiten tussen Azure AD synchroniseren en uw SaaS-apps en toegang beheren accounts automatisch uit te schakelen wanneer gebruikers de organisatie heeft verlaten.
@@ -160,9 +155,9 @@ Om te beheren die toegang moeten hebben tot welke bronnen, kunt Azure Active Dir
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Een overzicht van Azure AD access management-functies |[Inleiding tot het beheren van toegang tot Apps](manage-apps/what-is-access-management.md)<br /><br />[De werking van toegangsbeheer in Azure AD](active-directory-manage-groups.md)<br /><br />[Groepen gebruiken voor het beheren van toegang tot SaaS-toepassingen](active-directory-accessmanagement-group-saasapps.md) |
-| Beheer van apps en groepen selfservice inschakelen |[Selfservice Toepassingsbeheer](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
-| Instructies voor het instellen van de groepen in Azure AD |[Het maken van beveiligingsgroepen](active-directory-groups-create-azure-portal.md)<br /><br />[Het opgeven van de eigenaars van een groep](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Het gebruik van de groep 'Alle gebruikers'](active-directory-accessmanagement-dedicated-groups.md) |
+| Een overzicht van Azure AD access management-functies |[Inleiding tot het beheren van toegang tot Apps](manage-apps/what-is-access-management.md)<br /><br />[De werking van toegangsbeheer in Azure AD](fundamentals/active-directory-manage-groups.md)<br /><br />[Groepen gebruiken voor het beheren van toegang tot SaaS-toepassingen](active-directory-accessmanagement-group-saasapps.md) |
+| Beheer van apps en groepen selfservice inschakelen |[Selfservice Toepassingsbeheer](active-directory-self-service-application-access.md)<br /><br />[Self-Service groepsbeheer](active-directory-accessmanagement-self-service-group-management.md) |
+| Instructies voor het instellen van de groepen in Azure AD |[Het maken van beveiligingsgroepen](fundamentals/active-directory-groups-create-azure-portal.md)<br /><br />[Het opgeven van de eigenaars van een groep](fundamentals/active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Het gebruik van de groep 'Alle gebruikers'](active-directory-accessmanagement-dedicated-groups.md) |
 | Dynamische groepen gebruiken voor het automatisch vullen van groepslidmaatschappen met lidmaatschapsregels op basis van kenmerken |[Lidmaatschap van dynamische groep: Geavanceerde regels](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Het lidmaatschap van dynamische groepen oplossen](active-directory-accessmanagement-troubleshooting.md) |
 
 Beheer van toegang van toepassing op basis van een groep is beschikbaar voor [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) en [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self-service groepsbeheer, selfservice Toepassingsbeheer en dynamische groepen zijn [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) functies.
@@ -173,7 +168,7 @@ Als uw bedrijf met andere bedrijven samen werkt, is het waarschijnlijk dat u moe
 | Artikel handleiding |  |
 |:---:| --- |
 | Een overzicht van andere Azure AD functies dat kunt u helpt externe gebruikers zoals partners, klanten, enzovoort. |[Vergelijking van mogelijkheden voor het beheren van externe identiteiten in Azure AD](active-directory-b2b-compare-external-identities.md) |
-| Een inleiding tot B2B-samenwerking en hoe u aan de slag |[Veilige, eenvoudige Cloud Partner-integratie met Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[B2B-samenwerking Azure Active Directory](active-directory-b2b-collaboration-overview.md) |
+| Een inleiding tot B2B-samenwerking en hoe u aan de slag |[Veilige, eenvoudige Cloud Partner-integratie met Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B-samenwerking](active-directory-b2b-collaboration-overview.md) |
 | Zie voor meer informatie naar Azure AD B2B-samenwerking en het gebruik ervan |[B2B-samenwerking: Hoe het werkt](active-directory-b2b-how-it-works.md)<br /><br />[Huidige beperkingen van Azure AD B2B-samenwerking](active-directory-b2b-current-limitations.md)<br /><br />[Gedetailleerd overzicht van het gebruik van Azure AD B2B-samenwerking](active-directory-b2b-detailed-walkthrough.md) |
 | Verwijzing naar artikelen met technische gegevens over de werking van Azure AD B2B-samenwerking |[CSV-indeling voor het toevoegen van gebruikers van partners](active-directory-b2b-references-csv-file-format.md)<br /><br />[De kenmerken van de gebruiker is van invloed op een Azure AD B2B-samenwerking](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[Token indeling van de gebruiker voor de Partner-gebruikers](active-directory-b2b-references-external-user-token-format.md) |
 
@@ -205,7 +200,7 @@ Azure Active Directory biedt diverse rapporten en waarschuwingen om u te helpen 
 Om te zien welke rapporten zijn opgenomen in verschillende versies van Azure Active Directory, [Klik hier](active-directory-view-access-usage-reports.md).
 
 ## <a name="see-also"></a>Zie ook
-[Wat is Azure Active Directory?](active-directory-whatis.md)
+[Wat is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 

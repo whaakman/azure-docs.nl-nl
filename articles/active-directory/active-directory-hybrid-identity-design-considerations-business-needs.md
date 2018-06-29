@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 68a7e71cf374f10b4c5ced3e64da36138b0d2e4d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a641464e04421b90de15cd953bb8a0fbf9b687d3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34800721"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084719"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Identiteitsvereisten bepalen voor uw oplossing voor hybride identiteit
 De eerste stap bij het ontwerpen van een hybride identiteitsoplossing is het vaststellen van de vereisten voor de organisatie van de bedrijven die zal worden gebruik van deze oplossing.  Hybride identiteit wordt gestart als een ondersteunende rol (ondersteund alle cloudoplossingen aan de hand van verificatie) en wordt op om te zorgen dat er nieuwe en interessante mogelijkheden die nieuwe werkbelastingen voor gebruikers ontgrendelen.  Deze werkbelastingen of services die u wilt vaststellen voor uw gebruikers worden de vereisten voor het ontwerp van hybride identiteit bepaald.  Deze werkbelastingen en services moeten gebruikmaken van hybride identiteit zowel on-premises en in de cloud.  
@@ -58,7 +58,7 @@ U moet ook rekening houden met de cloudservices die uw bedrijf kan hebben. Uitvo
 * Deze integratie momenteel is in productie of is het een test?
 
 > [!NOTE]
-> Als u geen een nauwkeurige toewijzing van al uw apps hebben en cloud services, kunt u het hulpprogramma voor Cloud App Discovery. Dit hulpprogramma kunt u uw IT-afdeling met zichtbaarheid van het bedrijf van uw organisatie en consumenten cloud-apps opgeven. Daardoor is het eenvoudiger dan ooit om niet-officiële IT binnen uw organisatie te ontdekken, en gegevens te zien zoals onder andere over gebruikspatronen en over welke gebruikers toegang hebben gehad tot uw cloudtoepassingen. Gestarte Zie ophalen [Cloud app discovery](manage-apps/cloud-app-discovery.md).
+> Cloud Discovery analyseert uw verkeerslogboeken tegen Microsoft Cloud App Security van cloud app-catalogus van meer dan 16.000 cloud-apps die worden beoordeeld en gewaardeerd op basis van meer dan 70 risicofactoren, zodat u voortdurend inzicht in de cloud gebruikt, Shadow IT en het risico Schaduw IT vormt in uw organisatie. Gestarte Zie ophalen [Cloud Discovery instellen](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 

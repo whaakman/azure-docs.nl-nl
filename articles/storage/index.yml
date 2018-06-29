@@ -3,24 +3,24 @@ documentType: LandingData
 title: Documentatie bij Azure Storage
 metadata:
   title: Documentatie voor Azure Storage - zelfstudies, API-verwijzing | Microsoft Docs
-  description: Azure Storage is een door Microsoft beheerde cloudservice waarmee u toegang krijgt tot opslag met een zeer hoge beschikbaarheid, die bovendien veilig, duurzaam, schaalbaar en redundant is. Azure Storage bestaat uit Blob Storage, File Storage en Queue Storage.
+  description: Azure Storage is een door Microsoft beheerde cloudservice waarmee u toegang krijgt tot opslag met een zeer hoge beschikbaarheid, die bovendien veilig, duurzaam, schaalbaar en redundant is. Azure Storage omvat Azure Blobs, Azure Data Lake Storage Gen2, Azure Files, Azure Queues en Azure Tables.
   services: storage
   author: tamram
-  manager: jeconnoc
+  manager: twooley
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/18/2018
+  ms.date: 06/27/2018
   ms.author: tamram
-  ms.openlocfilehash: 0e8c2b7048ff9e59612e13a87506bf1209036ca6
-  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+  ms.openlocfilehash: a2254967a9f7338e29105682ea6d496271bbbe75
+  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36266668"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37030288"
 abstract:
-  description: Microsoft Azure Storage is een door Microsoft beheerde cloudservice waarmee u toegang krijgt tot opslag met een zeer hoge beschikbaarheid die daarnaast veilig, duurzaam, schaalbaar en redundant is. Azure Storage bestaat uit Blob Storage, File Storage en Queue Storage.  Ontdek met onze snelstartgidsen en zelfstudies hoe u Azure-opslag gebruikt in uw toepassingen.
+  description: Azure Storage is een door Microsoft beheerde service waarmee u toegang krijgt tot cloudopslag met een zeer hoge beschikbaarheid, die bovendien veilig, duurzaam, schaalbaar en redundant is. Azure Storage omvat Azure Blobs (objecten), Azure Data Lake Storage Gen2, Azure Files, Azure Queues en Azure Tables. Ontdek met onze snelstartgidsen en zelfstudies hoe u Azure-opslag gebruikt in uw toepassingen.
 sections:
 - title: QuickStarts van vijf minuten
   items:
@@ -65,30 +65,25 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-java
       - href: /azure/storage/blobs/storage-quickstart-blobs-python
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
+    - title: Data Lake Storage Gen2
+      values:
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-azure-cli
+      - href: 
+      - href: 
+      - href: 
+      - href: 
 - title: Stapsgewijze zelfstudies
   items:
-  - type: paragraph
-    text: Meer informatie over het uploaden en verwerken van installatiekopiegegevens in de cloud.
   - type: list
-    style: unordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="/azure/storage/blobs/storage-upload-process-images">Installatiekopiegegevens uploaden en ophalen in de cloud</a>
-    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Azure Functions activeren om blobs te verwerken</a>
-    - html: <a href="/azure/storage/blobs/storage-secure-access-application">Toepassingsgegevens beveiligen</a>
-    - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Opslag controleren en problemen oplossen</a>
-  - type: paragraph
-    text: Leer hoe u een toepassing voor hoge beschikbaarheid ontwerpt in Azure Storage.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Uw toepassingsgegevens maximaal beschikbaar maken</a>
-    - html: <a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Een fout simuleren bij het openen van redundante opslag met leestoegang</a>
-  - type: paragraph
-    text: Leer hoe u niet-gestructureerde gegevens doorzoekt in Azure Storage.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-unstructured-search">Niet-gestructureerde gegevens in cloudopslag doorzoeken</a>
+    - title: Blobs
+      html: <p>Installatiekopiegegevens in de cloud uploaden en verwerken</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Installatiekopiegegevens uploaden en ophalen in de cloud</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Azure Functions activeren om blobs te verwerken</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Toepassingsgegevens beveiligen</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Opslag controleren en problemen oplossen</a></li></ul><p>Een toepassing voor hoge beschikbaarheid ontwerpen</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Uw toepassingsgegevens maximaal beschikbaar maken</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Een fout simuleren bij het openen van redundante opslag met leestoegang</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Niet-gestructureerde gegevens doorzoeken in Azure Storage</a></p>
+    - title: Data Lake Storage Gen2
+      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">Gegevens uitpakken, transformeren en laden met Azure Databricks</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">Toegang tot Azure Data Lake Storage Gen2-gegevens met DataBricks met behulp van Spark</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight</a></p>
 - title: Voorbeelden
   items:
   - type: paragraph

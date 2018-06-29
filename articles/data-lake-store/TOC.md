@@ -1,11 +1,11 @@
-# [Documentatie voor Data Lake Store](index.md)
+# [Documentatie van Data Lake Storage Gen1](index.md)
 
 # Overzicht
-## [Overzicht van Azure Data Lake Store](data-lake-store-overview.md)
-## [Azure Data Lake Store vergelijken met Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Azure Data Lake Store voor de verwerking van big data](data-lake-store-data-scenarios.md)
-## [Open-sourcetoepassingen die met Azure Data Lake Store kunnen samenwerken](data-lake-store-compatible-oss-other-applications.md)
-## [Best practices voor het gebruik van Data Lake Store](data-lake-store-best-practices.md)
+## [Overzicht van Data Lake Storage Gen1](data-lake-store-overview.md)
+## [Data Lake Store Gen1 vergelijken met Azure Storage](data-lake-store-comparison-with-blob-storage.md)
+## [Data Lake Storage Gen1 voor de verwerking van big data](data-lake-store-data-scenarios.md)
+## [Open-sourcetoepassingen die met Data Lake Storage Gen1 kunnen samenwerken](data-lake-store-compatible-oss-other-applications.md)
+## [Best practices voor het gebruik van Data Lake Storage Gen1](data-lake-store-best-practices.md)
 
 # Aan de slag
 ## [Portal gebruiken](data-lake-store-get-started-portal.md)
@@ -21,15 +21,15 @@
 ### [DistCp gebruiken](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop gebruiken](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Gegevens uploaden uit offlinebronnen](data-lake-store-offline-bulk-data-upload.md)
-### [Azure Data Lake Store migreren tussen regio's](data-lake-store-migration-cross-region.md)
+### [Data Lake Store migreren tussen regio's](data-lake-store-migration-cross-region.md)
 
 ## Beveiligde gegevens
 ### [Beveiligingsoverzicht](data-lake-store-security-overview.md)
-### [Toegangsbeheer in Data Lake Store](data-lake-store-access-control.md)
-### [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
+### [Toegangsbeheer in Data Lake Storage Gen1](data-lake-store-access-control.md)
+### [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 ### [Versleuteling](data-lake-store-encryption.md)
 
-## Verifiëren met Data Lake Store
+## Verifiëren met Data Lake Storage Gen1
 ### [Verificatieopties](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [Verificatie van de eindgebruiker](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Java gebruiken](data-lake-store-end-user-authenticate-java-sdk.md)
@@ -42,7 +42,7 @@
 #### [REST-API gebruiken](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Python gebruiken](data-lake-store-service-to-service-authenticate-python.md)
 
-## Met Data Lake Store werken
+## Werken met Data Lake Storage Gen1
 ### Accountbeheerbewerkingen
 #### [.NET-SDK gebruiken](data-lake-store-get-started-net-sdk.md)
 #### [REST-API gebruiken](data-lake-store-get-started-rest-api.md)
@@ -54,12 +54,12 @@
 #### [Python gebruiken](data-lake-store-data-operations-python.md)
 
 ## Prestaties
-### [Richtlijnen voor het afstemmen van de prestaties van Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
-### [Richtlijnen voor het afstemmen van de prestaties voor het gebruik van PowerShell met Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
-### [Richtlijnen voor het afstemmen van de prestaties van Spark in HDInsight en Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
-### [Richtlijnen voor het afstemmen van de prestaties van Hive in HDInsight en Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
-### [Richtlijnen voor het afstemmen van de prestaties van MapReduce in HDInsight en Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
-### [Richtlijnen voor het afstemmen van de prestaties van Storm in HDInsight en Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+### [Richtlijnen voor het afstemmen van de prestaties van Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-guidance.md)
+### [Richtlijnen voor het afstemmen van de prestaties voor het gebruik van PowerShell met Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
+### [Richtlijnen voor het afstemmen van de prestaties van Spark in HDInsight en Data Lake Storage Gen1](data-lake-store-performance-tuning-spark.md)
+### [Richtlijnen voor het afstemmen van de prestaties van Hive in HDInsight en Data Lake Storage Gen1](data-lake-store-performance-tuning-hive.md)
+### [Richtlijnen voor het afstemmen van de prestaties van MapReduce in HDInsight en Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md)
+### [Richtlijnen voor het afstemmen van de prestaties van Storm in HDInsight en Data Lake Storage Gen1](data-lake-store-performance-tuning-storm.md)
 
 ## Integreren met Azure-services
 ### Met HDInsight

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9418525e60f255787f39a42657ee0dbdbd46957d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715017"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096930"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -200,7 +200,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
          }
     ```             
 
-    De aanvraag kosten geretourneerd in deze header is een fractie van de ingerichte doorvoer (dat wil zeggen, 2000 RUs / seconde). Als de voorgaande query 1000 1KB-documenten retourneert, is de kosten van de bewerking 1000. Als zodanig binnen één seconde respecteert de-server slechts twee dergelijke aanvragen voordat de beperking van de volgende aanvragen. Zie voor meer informatie [Aanvraageenheden](request-units.md) en de [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner).
+    De aanvraag kosten geretourneerd in deze header is een fractie van de ingerichte doorvoer (dat wil zeggen, 2000 RUs / seconde). Als de voorgaande query 1000 1KB-documenten retourneert, is de kosten van de bewerking 1000. Binnen één seconde als zodanig respecteert de server slechts twee aanvragen voordat snelheidsbeperking volgende aanvragen. Zie voor meer informatie [Aanvraageenheden](request-units.md) en de [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Verwerken frequentie beperken/aanvraagsnelheid te groot**
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 1a874e31c05d287522810782f743d389c86dbe27
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018535"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098920"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen voor Azure Media Services geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -366,7 +366,7 @@ De volgende correcties zijn aangebracht voor de Azure Media Services Packager en
 
 ## <a id="may_changes_14"></a>Mei 2014-release
 ### <a id="may_14_changes"></a>Algemene Media Services-updates
-U kunt nu [dynamische pakketten] naar een stream HLS versie 3. Stroom HLS versie 3 toevoegen de volgende notatie voor de pad-locator voor de oorsprong: * .ism/manifest(format=m3u8-aapl-v3). Zie voor meer informatie [deze blog](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/).
+U kunt nu [dynamische pakketten] naar een stream HLS versie 3. Stroom HLS versie 3 toevoegen de volgende notatie voor de pad-locator voor de oorsprong: * .ism/manifest(format=m3u8-aapl-v3). Zie voor meer informatie [dit forum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 Dynamische verpakking nu ondersteunt ook HLS (versie 3 en versie 4) versleuteld met PlayReady op basis van Smooth Streaming statisch is versleuteld met PlayReady leveren. Zie voor meer informatie over de voor het versleutelen van Smooth Streaming met PlayReady [Smooth Streaming beveiligd met PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 

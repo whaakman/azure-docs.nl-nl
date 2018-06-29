@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 8dd77dd3431f1be2b8edd8b51929c21b1d5bcd88
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287701"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081347"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine in Azure Stack beschikbaar maken
 
@@ -54,7 +54,7 @@ Installatiekopieën moet kunnen worden verwezen door een blob storage-URI. De in
 
    ![Set blob toegang tot openbare](./media/azure-stack-add-vm-image/image2.png)
 
-2. Aanmelden bij Azure Stack als operator. Selecteer in het menu **meer services** > **Resourceproviders**. Selecteer **Compute** > **VM-installatiekopieën** > **toevoegen**.
+2. Aanmelden bij Azure Stack als operator. Selecteer in het menu **meer services**. Selecteer **Compute** > **VM-installatiekopieën** > **toevoegen**.
 
 3. Onder **een VM-installatiekopie toe te voegen**, voer de uitgever, aanbieding, SKU en versie van de installatiekopie van de virtuele machine. Deze segmenten naam verwijzen naar de VM-installatiekopie in de Resource Manager-sjablonen. Zorg ervoor dat u selecteert de **besturingssysteemtype** correct waarde. Voor **OS schijf Blob-URI**, voer de Blob-URI waar de installatiekopie is geüpload. Selecteer **maken** om te beginnen met het maken van de VM-installatiekopie.
 

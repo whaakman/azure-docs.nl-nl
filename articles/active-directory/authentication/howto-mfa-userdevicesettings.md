@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 8dd30f53dc37734e1c01b3712b5adb7d81a1489b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 363106421e75fa2e1b220d03a7d7cbed25447bcc
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33865898"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098393"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gebruikersinstellingen met Azure multi-factor Authentication in de cloud beheren
 
@@ -75,4 +75,4 @@ De **terugzetten meervoudige verificatie op alle onthouden apparaten** instellin
 
 - Meer informatie over het [instellingen van Azure multi-factor Authentication configureren](howto-mfa-mfasettings.md)
 
-- Als uw gebruikers hulp nodig hebt, wijst u ze naar de [gebruikershandleiding voor de verificatie in twee stappen](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+- Als uw gebruikers hulp nodig hebt, wijst u ze naar de [gebruikershandleiding voor de verificatie in twee stappen](end-user/current/multi-factor-authentication-end-user.md)

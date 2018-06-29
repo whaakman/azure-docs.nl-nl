@@ -20,6 +20,7 @@
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Berichten routeren](tutorial-routing.md)
 ## [Uw apparaten configureren](tutorial-device-twins.md)
+## [Firmware-updates beheren](tutorial-firmware-update.md)
 ## [Connectiviteit van apparaten testen](tutorial-connectivity.md)
 ## Cloud-naar-apparaat-berichten verzenden
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
@@ -111,6 +112,8 @@
 #### [Berichten verzenden naar een MQTT-server met Eclipse Paho-API's](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 #### [De magnetische sensor bewaken en e-mailmeldingen verzenden met Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
+## [Aanbevolen procedures voor apparaatconfiguratie](iot-hub-configuration-best-practices.md)
+
 # Handleidingen
 ## Plannen
 ### [IoT Hub en Event Hubs vergelijken](iot-hub-compare-event-hubs.md)
@@ -169,6 +172,9 @@
 ### Aan de slag met moduledubbels
 #### [Portal](iot-hub-portal-csharp-module-twin-getstarted.md)
 #### [.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+#### [Python](iot-hub-python-python-module-twin-getstarted.md)
+#### [C](iot-hub-c-c-module-twin-getstarted.md)
+#### [Node](iot-hub-node-node-module-twin-getstarted.md)
 ### Directe methoden gebruiken
 #### [Node.js](iot-hub-node-node-direct-methods.md)
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
@@ -221,7 +227,9 @@
 ## [Een IoT-hub upgraden](iot-hub-upgrade.md)
 ## [Metrische gebruiksgegevens](iot-hub-metrics.md)
 ## [IP-filtering configureren](iot-hub-ip-filtering.md)
-## [Apparaten op schaal configureren](iot-hub-auto-device-config.md)
+## Apparaten op schaal configureren
+### [Azure Portal gebruiken](iot-hub-auto-device-config.md)
+### [Azure CLI gebruiken](iot-hub-auto-device-config-cli.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=iot-hub)

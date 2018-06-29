@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 84f8827a58d7f3c5dcc32943d2ba891b02c1e1ab
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062276"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083189"
 ---
-# <a name="description-of-the-different-upgrade-policies"></a>Beschrijving van de verschillende Upgradebeleid
-
-- **Dynamische** – wijzigingen in de configuratie van een dynamische zorgen niet voor elk proces opnieuw opstarten van de Service Fabric-processen of uw service host wordt verwerkt. 
-- **Statische** – wijzigingen in de configuratie van een statische, wordt het Service Fabric-knooppunt opnieuw op te starten om de wijziging in beslag nemen. Services op de knooppunten wordt opnieuw gestart.
-- **NotAllowed** – deze instellingen kunnen niet worden gewijzigd. Het wijzigen van deze instellingen vereist dat het cluster worden vernietigd en een nieuw cluster gemaakt. 
-
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
 Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
 
 > [!NOTE]
 > Niet alle instellingen zijn beschikbaar in de portal. Als een instelling hieronder vermelde niet beschikbaar via de portal aanpassen met behulp van een Azure Resource Manager-sjabloon.
 > 
+
+## <a name="description-of-the-different-upgrade-policies"></a>Beschrijving van de verschillende Upgradebeleid
+
+- **Dynamische** – wijzigingen in de configuratie van een dynamische zorgen niet voor elk proces opnieuw opstarten van de Service Fabric-processen of uw service host wordt verwerkt. 
+- **Statische** – wijzigingen in de configuratie van een statische, wordt het Service Fabric-knooppunt opnieuw op te starten om de wijziging in beslag nemen. Services op de knooppunten wordt opnieuw gestart.
+- **NotAllowed** – deze instellingen kunnen niet worden gewijzigd. Het wijzigen van deze instellingen vereist dat het cluster worden vernietigd en een nieuw cluster gemaakt. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Clusterinstellingen van het met behulp van Resource Manager-sjablonen aanpassen
 De volgende stappen uit te laten zien hoe u een nieuwe instelling toevoegen *MaxDiskQuotaInMB* naar de *Diagnostics* sectie.

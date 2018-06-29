@@ -10,12 +10,12 @@ ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d4e69d33e07f484b4ccc5343786865230368c7ca
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298165"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096373"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Voorwaardelijke instructies waarmee de werkstroomacties in Azure Logic Apps maken
 
@@ -46,36 +46,31 @@ Stel dat u hebt een logische app waarmee te veel e-mails worden verzonden wannee
 
    Als u wilt een voorwaarde toevoegen aan het einde van de werkstroom, aan de onderkant van uw logische app, kiest u **+ een nieuwe stap** > **een voorwaarde toevoegen**.
 
-3. Onder **voorwaarde**, de voorwaarde te maken. 
+3. Onder **voorwaarde**, de voorwaarde te bouwen. 
 
    1. Geef de gegevens of het veld dat u wilt vergelijken in het linkerdeelvenster.
 
-      Van de **dynamische inhoud toevoegen** lijst, kunt u bestaande velden van uw logische app.
+      Wanneer u in het vak links klikt, wordt de lijst met dynamische inhoud weergegeven, zodat u uitvoer uit de vorige stappen in uw logische app selecteren kunt. 
+      Selecteer de samenvatting RSS-feed voor dit voorbeeld.
+
+      ![De voorwaarde bouwen](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
    2. Selecteer de bewerking uit te voeren in de middelste lijst. 
-   3. Geef een waarde of een veld als uw criteria in het vak rechts.
+   Selecteer voor dit voorbeeld '**bevat**'. 
 
-   Bijvoorbeeld:
-
-   ![Voorwaarde in de standaardmodus bewerken](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode.png)
+   3. Geef een waarde of een veld als uw criteria in het vak rechts. 
+   Deze tekenreeks opgeven voor dit voorbeeld: **Microsoft**
 
    Dit is de volledige voorwaarde:
 
-   ![Voltooide voorwaarde](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Voltooide voorwaarde](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
+
+5. Onder **als de waarde true** en **indien false**, voeg de stappen uit te voeren op basis van de vraag of de voorwaarde wordt voldaan. Bijvoorbeeld:
+
+   ![Met de voorwaarde 'als de waarde true' en 'Indien false' paden](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Als u een meer geavanceerde voorwaarde maken of expressies gebruiken, kiest u **bewerken in de geavanceerde modus**. U kunt expressies die zijn gedefinieerd door de [werkstroom Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
-   > 
-   > Bijvoorbeeld:
-   >
-   > ![Voorwaarde in de code bewerken](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
-
-5. Onder **als Ja** en **als Nee**, voeg de stappen uit te voeren op basis van de vraag of de voorwaarde wordt voldaan. Bijvoorbeeld:
-
-   ![Voorwaarde van Ja en er worden geen paden](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
-
-   > [!TIP]
-   > Kunt u bestaande acties in de **als Ja** en **als Nee** paden.
+   > Kunt u bestaande acties in de **als de waarde true** en **indien false** paden.
 
 6. Sla uw logische app op.
 
@@ -87,14 +82,21 @@ Nu dat u een logische app met behulp van een voorwaarde hebt gemaakt, bekijken w
 
 ``` json
 "actions": {
-  "myConditionName": {
+  "Condition": {
     "type": "If",
-    "expression": "@contains(triggerBody()?['summary'], 'Microsoft')",
     "actions": {
       "Send_an_email": {
-        "inputs": { },
+        "inputs": {},
         "runAfter": {}
-      }
+    },
+    "expression": {
+      "and": [ 
+        { 
+          "contains": [ 
+            "@triggerBody()?['summary']", "Microsoft"
+          ]
+        } 
+      ]
     },
     "runAfter": {}
   }

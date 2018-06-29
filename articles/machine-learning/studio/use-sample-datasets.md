@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 5e225a16baef53c12a5d0a719c36a2042d391c7f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 87d0eac427f2d3904278dbe8211a3fae3da891ed
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959099"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085052"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>De voorbeeldgegevenssets in Azure Machine Learning Studio gebruiken
 [top]: #machine-learning-sample-datasets
@@ -403,7 +403,7 @@ Onderwerp-toewijzingen voor nieuwsartikelen in de RCV1 V2 Reuters nieuws gegeven
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Deze gegevens zijn afkomstig van de uitdaging KDD kop 2010 studenten prestaties evaluatie (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">studenten prestatieanalyse</a>). De gegevens die gebruikt is de trainingset Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., drempel, G.J. & Koedinger, K.R. (2010). Wiskundige ik 2008-2009. Uitdaging gegevensset van KDD kop 2010 educatieve Data Mining uitdaging. Zoeken op het <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Deze gegevens zijn afkomstig van de uitdaging KDD kop 2010 studenten prestaties evaluatie (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">studenten prestatieanalyse</a>). De gegevens die gebruikt is de trainingset Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., drempel, G.J. & Koedinger, K.R. (2010). Wiskundige ik 2008-2009. Uitdaging gegevensset van KDD kop 2010 educatieve Data Mining uitdaging. Zoeken op het <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 De gegevensset is gedownload en opgeslagen in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) en logboekbestanden van een student Bijles system bevat. De opgegeven functies behoren probleem-ID en de korte beschrijving, student-ID, tijdstempel en het aantal pogingen de student vóór het oplossen van het probleem op de juiste manier. De oorspronkelijke gegevensset bevat records 8,9 M; Deze gegevensset is gezet dat op de eerste 100K rijen. De gegevensset heeft 23 door tabs gescheiden kolommen van verschillende typen: numerieke categorische, en een tijdstempel.
   </td>

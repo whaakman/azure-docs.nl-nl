@@ -43,6 +43,18 @@
 ### Storage
 #### [Zone-redundante opslag](../storage/common/storage-redundancy-zrs.md)
 
+### Event Hubs
+#### [Geo-noodherstel Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+
+### Service Bus
+#### [Geo-noodherstel Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+
+### VPN Gateway
+#### [Een zone-redundante virtuele netwerkgateway maken](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
+### ExpressRoute
+#### [Een zone-redundante virtuele netwerkgateway maken](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
 # Herstel na noodgevallen
 ## [Azure Site Recovery gebruiken](https://docs.microsoft.com/azure/site-recovery/)
 

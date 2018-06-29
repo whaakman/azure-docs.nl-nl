@@ -1,4 +1,4 @@
-- name: Documentatie over Data Factory V2
+- name: Documentatie over Data Factory
   href: index.yml
 - name: Ga naar documentatie voor versie 1
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
     - name: Inleiding tot Data Factory
       href: introduction.md
-    - name: Versies 1 en 2 vergelijken
+    - name: Huidige versie vergelijken met versie 1
       href: compare-versions.md
 - name: Snelstartgidsen
   expanded: true
@@ -138,6 +138,8 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB
           href: connector-azure-cosmos-db.md
+        - name: Azure Data Lake Storage
+          href: connector-azure-data-lake-storage.md
         - name: Azure Data Lake Store
           href: connector-azure-data-lake-store.md
         - name: Azure Database for MySQL
@@ -275,6 +277,8 @@
         - name: Hulpprogramma voor het kopiëren van gegevens
           href: copy-data-tool.md
           items: null
+        - name: Data Lake Storage laden
+          href: load-azure-data-lake-storage-gen2.md
         - name: Azure SQL Data Warehouse laden
           href: load-azure-sql-data-warehouse.md
         - name: Data Lake Store laden

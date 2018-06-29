@@ -9,12 +9,12 @@ ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 4681098a0e56640e95463272be44f7432be26839
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344494"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084039"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Scheiding van zin en tokeniseren
 
@@ -68,4 +68,4 @@ Ten slotte zijn er meer ongebruikelijke tokens vertegenwoordigt verkorte formule
 ## <a name="specification"></a>Specificatie
 
 Het is belangrijk om consistente beslissingen te nemen over wat bestaat uit een zin en een token.
-We zijn afhankelijk van de specificatie van het [Penn Treebank](https://www.cis.upenn.edu/~treebank/) (enkele extra details hier beschikbaar zijn: [https://www.cis.upenn.edu/~treebank/tokenization.html]).
+We zijn afhankelijk van de specificatie van het [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (een aantal details zijn beschikbaar op ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).

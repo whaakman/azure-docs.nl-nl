@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 76e622f500ee954852d7b42268318d35bb2133a4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1e143c8c17d5cbc3403d90f7a354d5300265d679
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868795"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100382"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Beveiligingsrichtlijnen voor het gebruik van Azure multi-factor Authentication met Azure AD-accounts
 
@@ -106,5 +106,5 @@ Gebruik deze lijst voor aanvullende overwegingen en richtlijnen voor elk onderde
 In dit artikel worden enkele aanbevolen procedures voor Azure MFA gemarkeerd, maar er zijn andere bronnen die u kunt ook tijdens het plannen van uw implementatie MFA gebruiken. De onderstaande lijst bevat enkele belangrijke artikelen die u tijdens dit proces helpen kunnen:
 
 * [Rapporten in Azure multi-factor Authentication](howto-mfa-reporting.md)
-* [De ervaring in twee stappen verificatie registratie](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+* [De ervaring in twee stappen verificatie registratie](end-user/current/multi-factor-authentication-end-user-first-time.md)
 * [Veelgestelde vragen over Azure multi-factor Authentication](multi-factor-authentication-faq.md)

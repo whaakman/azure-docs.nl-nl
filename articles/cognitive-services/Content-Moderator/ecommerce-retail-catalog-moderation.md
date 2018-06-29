@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 5cb93941751c8744a19a5473d13f1e135a589eaa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344532"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095748"
 ---
 # <a name="ecommerce-catalog-moderation-with-machine-learning"></a>e-commerce catalogus toezicht met machine learning
 
@@ -158,7 +158,7 @@ In ons geval definiëren we deze aangepaste labels (**beroemdheden**, **vlag**, 
 
 ## <a name="classify-into-flags-toys-and-pens"></a>Classificeren in vlaggen toys en pennen
 
-1. [Meld u aan](https://www.customvision.ai/account/signin) naar de [Vision-API voor aangepaste preview](https://www.customvision.ai/).
+1. [Meld u aan](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) naar de [Vision-API voor aangepaste preview](https://www.customvision.ai/).
 2. Gebruik de [Quick Start](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) voor het bouwen van uw aangepaste classificatie voor het detecteren van de mogelijke aanwezigheid van vlaggen, toys en pennen.
    ![Aangepaste visie Training installatiekopieën](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Ophalen van de voorspelling eindpunt-URL](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) voor uw aangepaste classificatie.

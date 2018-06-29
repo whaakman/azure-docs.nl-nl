@@ -1,26 +1,28 @@
 ---
-title: Documentatie voor Azure Data Lake Store - zelfstudies, API-verwijzing | Microsoft Docs
+title: Documentatie voor Azure Data Lake Storage Gen1 - zelfstudies, API-verwijzing | Microsoft Docs
 description: Leer hoe u een grootschalige, met Hadoop compatibele Data Lake-opslagplaats kunt instellen, beheren en openen voor analyse van gegevens van elke grootte, soort en opnamesnelheid.
 services: data-lake-store
-author: czeumault
-manager: carolz
+author: twooley
+manager: twooley
 layout: LandingPage
 ms.assetid: ''
 ms.service: data-lake-store
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: d738676a0a9b16c32646734168546992d8595912
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 06/27/2018
+ms.author: twooley
+ms.openlocfilehash: ba17c59169d00a8333bb9eb1c7bb0c1a56aaba83
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033410"
 ---
-# <a name="data-lake-store-documentation"></a>Documentatie voor Data Lake Store
+# <a name="azure-data-lake-storage-gen1-documentation"></a>Documentatie voor Azure Data Lake Storage Gen1
 
-Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compatibele opslagplaats te maken voor analyse van gegevens van elke grootte, soort en opnamesnelheid. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u een Data Lake-opslagplaats kunt instellen, beheren en openen voor operationele en verkennende analyse.
+Leer hoe u Azure Data Lake Storage Gen1 (voorheen bekend als Azure Data Lake Store) kunt gebruiken om een grootschalige, met Hadoop compatibele opslagplaats te maken voor analyse van gegevens van elke grootte, soort en opnamesnelheid. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u een Data Lake-opslagplaats kunt instellen, beheren en openen voor operationele en verkennende analyse.
+
+Zie de [productpagina](https://aka.ms/adlsgen2-product) als u meer wilt weten over de preview van Data Lake Storage Gen2.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -34,7 +36,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Meer informatie over Azure Data Lake Store</h3>
+                        <h3>Informatie over Data Lake Storage Gen1</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +54,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Videobibliotheek voor Azure Data Lake Store</h3>
+                        <h3>Videobibliotheek voor Data Lake Storage Gen1</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +72,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Data Lake Store met Azure Portal</h3>
+                        <h3>Aan de slag met Data Lake Storage Gen1 met behulp van Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +90,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Data Lake Store met PowerShell</h3>
+                        <h3>Aan de slag met Data Lake Storage Gen1 met behulp van PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +108,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Data Lake Store met de Azure CLI</h3>
+                        <h3>Aan de slag met Data Lake Storage Gen1 met behulp van de Azure CLI</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +126,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Data Lake Store met .NET</h3>
+                        <h3>Aan de slag met Data Lake Storage Gen1 met behulp van .NET</h3>
                     </div>
                 </div>
             </div>
@@ -142,7 +144,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Data Lake Store met Java</h3>
+                        <h3>Aan de slag met Data Lake Storage Gen1 met behulp van Java</h3>
                     </div>
                 </div>
             </div>
@@ -160,7 +162,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Data Lake Store met Node.js</h3>
+                        <h3>Aan de slag met Data Lake Storage Gen1 met behulp van Node.js</h3>
                     </div>
                 </div>
             </div>
