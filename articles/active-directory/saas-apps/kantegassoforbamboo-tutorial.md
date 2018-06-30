@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c31d1162c41ddb6d4728f74d91061f38dcfa68d8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 01b07529765a7fe68a30cfae754829fe8dbd6264
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228319"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Zelfstudie: Azure Active Directory-integratie met Kantega SSO voor Bamboe
 
@@ -133,7 +133,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/kantegassoforbamboo-tutorial/tutorial_general_400.png)
     
-7. In een ander browservenster, meld u aan bij uw Bamboe op de lokale server als beheerder.
+7. In een ander browservenster, meld u aan bij uw lokale Bamboe server als beheerder.
 
 8. Beweeg de muisaanwijzer op het tandwiel en klik op de **invoegtoepassingen**.
 
@@ -218,7 +218,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     c. Klik op **Opslaan**.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -257,7 +257,7 @@ Om Azure AD-gebruikers zich aanmelden bij Bamboe, moeten ze worden ingericht in 
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan bij uw Bamboe op de lokale server als beheerder.
+1. Meld u aan bij uw lokale Bamboe server als beheerder.
 
 2. Beweeg de muisaanwijzer op het tandwiel en klik op de **Gebruikersbeheer**.
 

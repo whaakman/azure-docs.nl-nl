@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 656ba21abf06ad0f079e3ce425d3221724d195d4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063626"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113575"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Ondersteunde scenario's voor grote HANA-exemplaren
 Dit document beschrijft de ondersteunde scenario's samen met de details van de architectuur voor de HANA grote exemplaren (HLI).
@@ -81,17 +81,17 @@ Indien nodig, kunt u extra NIC-kaarten op uw eigen definiëren. De configuratie 
 
 De verdeling van eenheden met twee IP-adressen toegewezen moet eruitzien als:
 
-Ethernet "A" moet een IP-adres toegewezen valt buiten het bereik van groep met IP-adres dat u naar Microsoft verzonden. Dit IP-adres moet worden gebruikt voor het onderhouden van in/etc/hosts van het besturingssysteem.
+- Ethernet "A" moet een IP-adres toegewezen valt buiten het bereik van groep met IP-adres dat u naar Microsoft verzonden. Dit IP-adres moet worden gebruikt voor het onderhouden van in/etc/hosts van het besturingssysteem.
 
-Ethernet "B", moet een IP-adres toegewezen dat wordt gebruikt voor communicatie met NFS hebben. Daarom deze adressen komen **niet** moet worden behouden in etc/hosts om verkeer van de exemplaar-exemplaar binnen de tenant.
+- Ethernet 'C' moet een IP-adres toegewezen dat wordt gebruikt voor communicatie met NFS hebben. Daarom deze adressen komen **niet** moet worden behouden in etc/hosts om verkeer van de exemplaar-exemplaar binnen de tenant.
 
 Een bladeconfiguratie met twee IP-adressen toegewezen is niet geschikt is voor implementatie gevallen van HANA System Replication of HANA scale-out. Als twee IP-adressen toegewezen alleen gelet en implementeren van een dergelijke configuratie, neem contact op met de SAP HANA op Azure Service Management ophalen van een derde IP-adres in een derde willen VLAN toegewezen. Voor grote exemplaar HANA eenheden met drie IP-adressen toegewezen op drie NIC-poorten, gelden de volgende informatie over het gebruiksregels:
 
 - Ethernet "A" moet een IP-adres toegewezen valt buiten het bereik van groep met IP-adres dat u naar Microsoft verzonden. Dit IP-adres wordt daarom niet worden gebruikt voor het onderhouden van in/etc/hosts van het besturingssysteem.
 
-- Ethernet "B", moet een IP-adres toegewezen dat wordt gebruikt voor communicatie met NFS opslag hebben. Dit type adressen moet daarom niet worden beheerd in etc/hosts.
+- Ethernet "B" mag uitsluitend worden gebruikt in etc/hosts voor de communicatie tussen de verschillende exemplaren worden bijgehouden. Deze adressen is ook de IP-adressen die moeten worden behouden in scale-out HANA configuraties als IP-adressen die HANA wordt gebruikt voor de configuratie tussen knooppunten.
 
-- Ethernet 'C' mag uitsluitend worden gebruikt in etc/hosts voor de communicatie tussen de verschillende exemplaren worden bijgehouden. Deze adressen is ook de IP-adressen die moeten worden behouden in scale-out HANA configuraties als IP-adressen die HANA wordt gebruikt voor de configuratie tussen knooppunten.
+- Ethernet 'C' moet een IP-adres toegewezen dat wordt gebruikt voor communicatie met NFS opslag hebben. Dit type adressen moet daarom niet worden beheerd in etc/hosts.
 
 - Ethernet "D" mag uitsluitend worden gebruikt voor toegang tot een apparaat STONITH voor pacemaker heeft. Dit is vereist wanneer u HANA System Replication (HSR) configureren en wilt automatische failover op het besturingssysteem met behulp van een apparaat op basis van SBD bereiken.
 

@@ -4,23 +4,23 @@ description: De waarschuwing REST-API van Log Analytics kunt u waarschuwingen in
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6987900ac2ef535fe31d4d1ecadb1a302a9c0be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 9097ca13bf4f65db4b0924044a9c0f075e3703af
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178517"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128891"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van waarschuwingsregels in logboekanalyse met REST-API
 De waarschuwing REST-API van Log Analytics kunt u waarschuwingen in Operations Management Suite (OMS) maken en beheren.  Dit artikel bevat de details van de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
@@ -137,7 +137,7 @@ Een planning hebt slechts één meldingsactie.  Meldingen zijn een of meer van d
 | Sectie | Beschrijving | Gebruik |
 |:--- |:--- |:--- |
 | Drempelwaarde |Criteria voor wanneer de actie wordt uitgevoerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
-| Ernst |Het label dat wordt gebruikt om te classificeren waarschuwing wanneer deze worden geactiveerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
+| Severity |Het label dat wordt gebruikt om te classificeren waarschuwing wanneer deze worden geactiveerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
 | Actiegroepen |Id's van Azure ActionGroup waar acties vereist zijn opgegeven, zoals - e-mailberichten, SMSs, telefoongesprekken, Webhooks, Automation-Runbooks, ITSM Connectors, enzovoort.| Vereist wanneer waarschuwingen worden uitgebreid naar Azure|
 | Acties aanpassen|De standaarduitvoer voor select acties van ActionGroup wijzigen| Optioneel voor elke waarschuwing kan worden gebruikt als waarschuwingen worden uitgebreid naar Azure. |
 | EmailNotification |E-mail verzenden naar meerdere ontvangers. | Niet vereist, als waarschuwingen worden uitgebreid naar Azure|
@@ -182,7 +182,7 @@ Gebruik de Put-methode met een bestaande actie-ID te wijzigen van een drempelwaa
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-#### <a name="severity"></a>Ernst
+#### <a name="severity"></a>Severity
 Log Analytics kunt u uw waarschuwingen classificeren in categorieën zodat u eenvoudiger beheer en selectie. De ernst van de waarschuwing die gedefinieerd is: informatief, waarschuwingen en kritieke. Deze worden toegewezen aan de schaal genormaliseerde ernst van waarschuwingen van Azure als:
 
 |Log Analytics Ernstniveau  |Ernstniveau van waarschuwingen van Azure  |

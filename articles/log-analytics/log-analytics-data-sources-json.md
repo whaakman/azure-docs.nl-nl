@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 800ee1269556e7c2d56fbbf2b497c10509b5c78c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: d3c8807b7624e68ff55557922f97d51e24fc2c19
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855220"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131800"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Verzamelen van aangepaste JSON-gegevensbronnen met de OMS-Agent voor Linux in Log Analytics
 Aangepaste JSON-gegevensbronnen kunnen worden verzameld in de OMS-Agent voor Linux met logboekanalyse.  Deze aangepaste gegevensbronnen kunnen worden eenvoudige scripts JSON zoals retourneren [curl](https://curl.haxx.se/) of een van [FluentD van 300 + plugins](http://www.fluentd.org/plugins/all). In dit artikel beschrijft de vereiste configuratie voor deze gegevensverzameling.
@@ -62,7 +63,7 @@ Het configuratiebestand wordt toegevoegd onder `/etc/opt/microsoft/omsagent/<wor
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
 ### <a name="configure-output-plugin"></a>Output-invoegtoepassing configureren 
-De configuratie van de volgende uitvoer-invoegtoepassing toevoegen aan de configuratie van de belangrijkste in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` of als een afzonderlijk configuratiebestand in geplaatst`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+De configuratie van de volgende uitvoer-invoegtoepassing toevoegen aan de configuratie van de belangrijkste in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` of als een afzonderlijk configuratiebestand in geplaatst `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
 ```
 <match oms.api.**>

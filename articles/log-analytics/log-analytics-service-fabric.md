@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 879c89d21aece120888dded49ca1b2c55677635e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: na
+ms.openlocfilehash: 282b610aeb75010108a63dafe037c09180a247a1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595052"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131681"
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Evalueer Azure Service Fabric-toepassingen en micro-services met PowerShell
 > [!div class="op_single_selector"]
@@ -300,7 +301,7 @@ $storageAccount = Select-StorageAccount
 
 Nadat u de werkruimte voor logboekanalyse voor het lezen van de Azure-tabellen in uw opslagaccount hebt geconfigureerd, moet u zich aanmelden bij de Azure-portal. Selecteer de werkruimte voor logboekanalyse van **alle Resources**. Het aantal storage account Logboeken is verbonden met de werkruimte wordt weergegeven. Selecteer de **Storage account logboeken** tegel. Bekijk de lijst met storage-account Logboeken om te controleren of uw storage-account is verbonden met de juiste werkruimte.
 
-![Storage-account Logboeken](./media/log-analytics-service-fabric/sf1.png)
+![Logboeken voor opslagaccounts](./media/log-analytics-service-fabric/sf1.png)
 
 ## <a name="enable-the-service-fabric-solution"></a>Inschakelen van de Service Fabric-oplossing
 Gebruik het volgende script in de oplossing toevoegen aan uw werkruimte voor logboekanalyse. Voer het script in PowerShell met de Azure-abonnement dat is gekoppeld aan de werkruimte voor logboekanalyse die u wilt inschakelen in de Service Fabric-oplossing.
@@ -375,7 +376,7 @@ Klik op de **Service Fabric** tegel om de Service Fabric-dashboard te openen. He
 
 De volgende tabel bevat de methoden van de collectie en andere informatie over hoe gegevens worden verzameld voor Service Fabric:
 
-| Platform | Directe Agent | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Frequentie van de verzameling |
+| Platform | Agent toewijzen | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Frequentie van de verzameling |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10 minuten |
 

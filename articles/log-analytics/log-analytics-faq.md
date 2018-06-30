@@ -3,7 +3,7 @@ title: Meld u Analytics Veelgestelde vragen | Microsoft Docs
 description: Antwoorden op veelgestelde vragen over de Azure Log Analytics-service.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.component: na
+ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221532"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128527"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over logboekanalyse in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en stel uw vragen. Wanneer een vraag vaak wordt gevraagd, wordt deze toegevoegd aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -79,13 +80,13 @@ A: Gebruik de stappen in [maken van een nieuwe logboek waarschuwing](../monitori
 
 Bij het maken van de waarschuwing voor wanneer het verzamelen van gegevens stopt, stel de:
 
-- **Definieer meldingsvoorwaarde** werkruimte voor logboekanalyse opgeven als het doel van de resource.
-- **Waarschuwing criteria** het volgende opgeven:
+- **Waarschuwingsvoorwaarde definiëren** - geef uw Log Analytics-werkruimte op als het resourcedoel.
+- **Waarschuwingscriteria** - geef het volgende op:
    - **Naam signaal** Selecteer **aangepaste logboek zoekactie**.
    - **Zoekquery** op `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-   - **Waarschuwing logica** is **op basis van** *aantal resultaten* en **voorwaarde** is *groter is dan* een **drempelwaarde**  van *0*
+   - **Waarschuwingslogica** is **Gebaseerd op** het *aantal resultaten*, en **Voorwaarde** is *Groter dan* een **Drempelwaarde** van *0*
    - **Periode** van *30* minuten en **waarschuwing frequentie** voor elke *10* minuten
-- **Definieer de details van waarschuwing** het volgende opgeven:
+- **Waarschuwingsdetails definiëren** - geef het volgende op:
    - **Naam** naar *gegevensverzameling is gestopt*
    - **Ernst** op *Waarschuwing*
 

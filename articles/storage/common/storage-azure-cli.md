@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737365"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131868"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>De Azure CLI 2.0 gebruiken met Azure Storage
 
@@ -198,9 +198,20 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Azure storage-standaardaccount omgevingsvariabelen worden ingesteld
+
 U kunt meerdere opslagaccounts in uw Azure-abonnement hebben. Selecteer een van de twee moet worden gebruikt voor alle daaropvolgende opslag opdrachten, kunt u deze omgevingsvariabelen instellen:
+
+Geef eerst uw opslagaccountsleutels weer met behulp van de opdracht [az storage account keys list](/cli/azure/storage/account/keys#list):
+
+```azurecli-interactive
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+Nu dat u de sleutel hebt, kunt u deze en de accountnaam definiëren als omgevingsvariabelen:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -223,7 +234,6 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 
 > [!NOTE]
 > Alle voorbeelden in de volgende secties van dit artikel wordt ervan uitgegaan dat u hebt ingesteld de `AZURE_STORAGE_ACCOUNT` en `AZURE_STORAGE_ACCESS_KEY` omgevingsvariabelen.
->
 
 ## <a name="create-and-manage-blobs"></a>Maken en blobs beheren
 Azure Blob storage is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens, zoals tekst of binaire gegevens, die toegankelijk zijn vanuit overal ter wereld via HTTP of HTTPS. Deze sectie wordt ervan uitgegaan dat u al bekend met concepten voor Azure Blob-opslag bent. Zie voor gedetailleerde informatie [aan de slag met Azure Blob storage met .NET](../blobs/storage-dotnet-how-to-use-blobs.md) en [concepten van Blob-Service](/rest/api/storageservices/blob-service-concepts).
@@ -241,7 +251,7 @@ U kunt een van drie niveaus van leestoegang voor een nieuwe container instellen 
 * `blob`: Openbare leestoegang voor blobs.
 * `container`: Openbare lees- en toegang tot de volledige container.
 
-Zie voor meer informatie [anonieme leestoegang tot containers en blobs beheren](../blobs/storage-manage-access-to-resources.md).
+Zie [Anonieme leestoegang tot containers en blobs beheren](../blobs/storage-manage-access-to-resources.md) voor meer informatie.
 
 ### <a name="upload-a-blob-to-a-container"></a>Een blob uploaden naar een container
 Azure Blob storage ondersteunt blok, toevoegen en pagina-blobs. BLOB's uploaden naar een container met behulp van de `blob upload` opdracht:

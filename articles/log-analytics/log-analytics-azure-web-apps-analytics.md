@@ -3,7 +3,7 @@ title: Azure Web Apps analytische gegevens bekijken | Microsoft Docs
 description: U kunt de Azure Web Apps Analytics-oplossing gebruiken om inzicht te krijgen over uw Azure-Web-Apps door het verzamelen van verschillende metrische gegevens over alle resources in uw Azure-Web-App.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 5426c9c5727d76d401c00b6e7338688b8f064ad0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: na
+ms.openlocfilehash: 7915a255c24fc33cfa489354b49596ca0feec473
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021234"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128942"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Analytische gegevens weergeven voor de metrische gegevens over alle resources in uw Azure-Web-App
 

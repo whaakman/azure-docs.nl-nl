@@ -88,5 +88,30 @@ De beschikbaarheidsgroep-listener is een IP-adres en het netwerk de naam die de 
 
     b. Stel de clusterparameters door het PowerShell-script wordt uitgevoerd op één van de clusterknooppunten.  
 
+Herhaal de stappen hierboven om de clusterparameters voor het IP-adres van de WSFC-cluster instellen.
+
+1. De naam van de IP-adres van het WSFC-Cluster-IP-adres ophalen. In **Failoverclusterbeheer** onder **Clusterkernresources**, zoek **servernaam**.
+
+1. Met de rechtermuisknop op **IP-adres**, en selecteer **eigenschappen**.
+
+1. Kopieer de **naam** van het IP-adres. Kan `Cluster IP Address`. 
+
+1. <a name="setwsfcparam"></a>Stel de clusterparameters in PowerShell.
+    
+    a. Kopieer de volgende PowerShell-script naar een van uw SQL Server-exemplaren. De variabelen voor uw omgeving bijwerken.     
+    
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+    
+    Import-Module FailoverClusters
+    
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    b. Stel de clusterparameters door het PowerShell-script wordt uitgevoerd op één van de clusterknooppunten.  
+
     > [!NOTE]
     > Als uw SQL Server-exemplaren in verschillende regio's zijn, moet u het PowerShell-script twee keer uitgevoerd. De eerste keer gebruikt de `$ILBIP` en `$ProbePort` van het eerste gebied. De tweede keer gebruikt de `$ILBIP` en `$ProbePort` van de tweede regio. De naam van het cluster-netwerk en de naam van de cluster-IP-resource zijn hetzelfde. 

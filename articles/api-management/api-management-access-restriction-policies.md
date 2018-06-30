@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1b6aea5152e9eb5152b400d74d834e31eb883458
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31515346"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110219"
 ---
 # <a name="api-management-access-restriction-policies"></a>Beperking van API Management toegangsbeleid
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -40,7 +40,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
 ```xml  
-<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">  
+<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="true">  
     <value>Value1</value>  
     <value>Value2</value>  
 </check-header>  
@@ -277,7 +277,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |naam|De naam van de API of de bewerking waarvoor het quotum van toepassing.|Ja|N/A|  
-|Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
+|bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N/A|  
   
@@ -335,7 +335,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
+|bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |tegenpartij sleutel|De sleutel moet worden gebruikt voor het quotumbeleid.|Ja|N/A|  
 |verhoging voorwaarde|De Boole-expressie opgeven als de aanvraag moet worden geteld voor het quotum (`true`)|Nee|N/A|  
@@ -503,12 +503,12 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |kan geen validatie httpcode|HTTP-statuscode te retourneren als de JWT niet gevalideerd worden.|Nee|401|  
 |header-naam|De naam van de HTTP-header van het token.|Ofwel `header-name` of `query-parameter-name` moet worden opgegeven, maar niet beide.|N/A|  
 |id|De `id` -kenmerk uit voor de `key` element kunt u opgeven van de tekenreeks die wordt vergeleken met `kid` claim in het token (indien aanwezig) om erachter te komen met de juiste sleutel moet worden gebruikt voor validatie van handtekening.|Nee|N/A|  
-|Overeenkomst|De `match` -kenmerk uit voor de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet mislukt. Mogelijke waarden zijn:<br /><br /> -                          `all` -de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie mislukt.<br /><br /> -                          `any` -ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie mislukt.|Nee|all|  
+|overeenkomst|De `match` -kenmerk uit voor de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet mislukt. Mogelijke waarden zijn:<br /><br /> -                          `all` -de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie mislukt.<br /><br /> -                          `any` -ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie mislukt.|Nee|all|  
 |query-paremeter-naam|De naam van de de queryparameter van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N/A|  
 |vereisen verlooptijd vallen|Booleaanse waarde. Hiermee geeft u op of een claim vervaldatum in het token is vereist.|Nee|true|
 |vereisen schema|De naam van het token schema, bijvoorbeeld 'Bearer'. Wanneer dit kenmerk is ingesteld, kan het beleid zorgt ervoor dat het opgegeven schema is aanwezig in de waarde van de autorisatie-header.|Nee|N/A|
 |vereisen ondertekend-tokens|Booleaanse waarde. Geeft aan of een token vereist om te worden ondertekend.|Nee|true|  
-|Scheidingsteken|De tekenreeks. Hiermee geeft u een scheidingsteken (bijvoorbeeld ",") moet worden gebruikt voor een set waarden extraheren uit een claim meerdere waarden.|Nee|N/A| 
+|scheidingsteken|tekenreeks. Hiermee geeft u een scheidingsteken (bijvoorbeeld ",") moet worden gebruikt voor een set waarden extraheren uit een claim meerdere waarden.|Nee|N/A| 
 |url|Open ID configuratie eindpunt-URL op waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Het antwoord moet volgens specificaties zoals gedefinieerd in URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Gebruik de volgende URL voor Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` waarbij u de naam van uw directory-tenant, bijvoorbeeld vervangt `contoso.onmicrosoft.com`.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  

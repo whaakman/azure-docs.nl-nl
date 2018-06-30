@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: df7ca91d403374e8d320822f5fa384a866fac0ae
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7cb7ce0ea81cf99c2ee14a6f209864894563d237
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025787"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111776"
 ---
 # <a name="set-up-sql-data-sync"></a>Synchroniseren van de SQL-gegevens instellen
 In deze zelfstudie leert u het instellen van het synchroniseren van Azure SQL-gegevens door te maken van een hybride-groep voor synchronisatie met Azure SQL Database- en SQL Server-exemplaren. De nieuwe groep voor synchronisatie is volledig geconfigureerd en gesynchroniseerd volgens de planning die u instelt.
@@ -274,7 +274,7 @@ Als u de lokale agent uitvoeren vanaf een andere computer wilt dan de momenteel 
 
 3. De nieuwe agent UI gebruikt voor het verzenden van de nieuwe sleutel van de agent.
 
-4. Wacht terwijl de clientagent downloadt de lijst met on-premises databases die eerder zijn geregistreerd.
+4. Wacht terwijl de clientagent downloadt de lijst met on-premises-databases die eerder zijn geregistreerd.
 
 5. Databasereferenties opgeven voor alle databases die worden weergegeven als niet bereikbaar. Deze databases moeten bereikbaar zijn vanaf de nieuwe computer waarop de agent is geïnstalleerd.
 

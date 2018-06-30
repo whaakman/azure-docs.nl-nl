@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0813e0f6b51c747d033ca2c44aed21cf94c32000
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895320"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113024"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Advanced Threat detectie
 ## <a name="introduction"></a>Inleiding
@@ -61,7 +61,7 @@ Identity Protection maakt gebruik van geavanceerde algoritmen voor machine learn
 
 Maar Azure Active Directory: Identity Protection is meer dan een hulpprogramma voor bewaking en rapportage. Op basis van de risico's, berekent Identity Protection het risiconiveau van een gebruiker voor elke gebruiker, zodat u kunt beleid op basis van een risico voor het automatisch beveiligen van de identiteit van uw organisatie configureren.
 
-Deze beleidsregels risico gebaseerde naast andere [voorwaardelijk toegangsbeheer](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) verstrekt door Azure Active Directory en [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), kunnen automatisch blokkeren of bieden adaptieve herstelacties met wachtwoord opnieuw instellen en afdwingen van multi-factor authentication-server.
+Deze beleidsregels risico gebaseerde naast andere [voorwaardelijk toegangsbeheer](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) verstrekt door Azure Active Directory en [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), kunnen automatisch blokkeren of bieden adaptieve herstelacties die bevatten wachtwoord opnieuw instellen en afdwingen van multi-factor authentication-server.
 
 ### <a name="identity-protections-capabilities"></a>De mogelijkheden van Identity Protection
 
@@ -171,7 +171,7 @@ Security Center kunt dus snel de detectiealgoritmen bijwerken als aanvallers rel
 Het detecteren van bedreigingen van Security Center werkt volgens het automatisch verzamelen van beveiligingsgegevens van uw Azure-resources, het netwerk en verbonden partneroplossingen.  Deze informatie kunt correleren van gegevens uit meerdere bronnen, bedreigingen identificeren wordt geanalyseerd.
 Beveiligingswaarschuwingen krijgen in Security Center een prioriteit, evenals aanbevelingen voor het oplossen van de bedreiging.
 
-Security Center maakt gebruik van geavanceerde beveiligingsanalyses die veel verder gaan dan op handtekeningen gebaseerde benaderingen. Doorbraken in big data en [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologieën worden gebruikt voor het evalueren van gebeurtenissen in de volledige in de cloud-infrastructuurresources – bedreigingen die niet mogelijk om u te identificeren met behulp van handmatige benaderingen en het voorspellen van de evolutie van aanvallen te detecteren. Deze beveiligingsanalyse omvat het volgende.
+Security Center maakt gebruik van geavanceerde beveiligingsanalyses die veel verder gaan dan op handtekeningen gebaseerde benaderingen. Doorbraken in big data en [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologieën worden gebruikt om te evalueren de volledige in de cloud-infrastructuurresources – detecteren van bedreigingen die niet mogelijk om u te identificeren met behulp van handmatige benaderingen en het voorspellen van de evolutie van gebeurtenissen aanvallen. Deze beveiligingsanalyse omvat het volgende.
 
 ### <a name="threat-intelligence"></a>Bedreigingsinformatie
 
@@ -206,7 +206,7 @@ Er wordt ook gekeken naar andere signalen om te controleren op ondersteunend bew
 Voorbeelden zijn:
 -   **Uitvoering van verdachte:** aanvallers gebruiken verschillende technieken schadelijke software zonder detectie uitvoeren. Bijvoorbeeld een aanvaller mogelijk geven malware dezelfde naam als legitieme systeembestanden, maar deze bestanden in een andere locatie te plaatsen, gebruik een naam die lijkt erg een onschadelijk bestand of maskeren true bestandsextensie. Security Center maakt gedragsmodellen en controleert de uitvoering van processen om uitschieters als deze te detecteren.
 
--   **Verborgen kwaadaardige software en misbruik pogingen:** geavanceerde malware traditionele antimalwareproducten door nooit schrijven naar schijf of software-onderdelen die zijn opgeslagen op schijf versleutelen kunt omzeilen. Echter kan dergelijke schadelijke software worden gedetecteerd met behulp van de geheugenanalyse, zoals de malware traceringen in het geheugen naar de functie laat moet. Wanneer software vastloopt, bevat een crashdump een gedeelte van het geheugen ten tijde van de crash. Door het geheugen in de crashdump wordt geanalyseerd, kan Azure Security Center technieken die worden gebruikt via beveiligingslekken, toegang krijgen tot vertrouwelijke gegevens en ongemerkt binnen een verdachte computer blijven behouden zonder enige impact op de prestaties van uw computer detecteren.
+-   **Verborgen kwaadaardige software en misbruik pogingen:** geavanceerde malware traditionele antimalwareproducten door nooit schrijven naar schijf of software-onderdelen die zijn opgeslagen op schijf versleutelen kunt omzeilen. Echter kan dergelijke schadelijke software worden gedetecteerd met behulp van de geheugenanalyse, zoals de malware traceringen in het geheugen naar de functie laat moet. Wanneer software vastloopt, bevat een crashdump een gedeelte van het geheugen ten tijde van de crash. Door het analyseren van het geheugen in de crashdump Azure Security Center voor via beveiligingslekken, toegang krijgen tot vertrouwelijke gegevens en ongemerkt binnen een verdachte computer blijven behouden zonder enige impact op de prestaties van technieken kan detecteren uw machine.
 
 -   **Lateral movement en interne reconnaissance:** om te blijven behouden in een waarmee is geknoeid netwerk- en zoeken/oogst waardevolle gegevens, aanvallers proberen vaak verplaatsen lateraal van de computer waarop inbreuk is gepleegd naar anderen binnen hetzelfde netwerk. Security Center bewaakt proces en meld u aan activiteiten voor het detecteren van aanvallen uit te breiden een aanvaller voet achter de deur binnen het netwerk, zoals externe opdrachten uit te voeren, het netwerk scannen en accountinventarisatie.
 
@@ -272,7 +272,7 @@ Deze gecombineerde inspanningen moeten resulteren in nieuwe en verbeterde detect
 
 Op dit moment detecteert Azure SQL Database met detectie van dreigingen mogelijke beveiligingsproblemen en SQL-injectieaanvallen en database afwijkende toegangspatronen.
 
-Bij ontvangst threat detectie e-mailmeldingen, kunnen gebruikers zich om te navigeren en de relevante controlerecords met behulp van de dieptekoppeling naar in het e-mailbericht dat wordt geopend een audit viewer en/of de vooraf geconfigureerde controle Excel sjabloon waarin de relevante controlerecords rond de tijd van de verdachte gebeurtenis volgens het volgende bekijken:
+Bij ontvangst threat detectie e-mailmeldingen, worden gebruikers kunnen navigeren en de relevante controlerecords met behulp van de dieptekoppeling naar in het e-mailbericht dat wordt geopend een audit-viewer bekijken en/of vooraf geconfigureerde Excel-sjabloon waarin de relevante controlerecords rond controle de tijd van de verdachte gebeurtenis volgens het volgende:
 -   Opslag voor de databaseserver met de afwijkende databaseactiviteiten controleren
 
 -   Relevante audit opslag tabel dat op het moment van de gebeurtenis is gebruikt voor het controlelogboek schrijven
@@ -420,7 +420,7 @@ Web Application Firewall inspecteert web binnenkomend verkeer en -blokken SQL-in
 
 Voorbeeld van Web Application firewalls beschikbaar in de Azure-marktplaats volgen:
 
-[Barracuda Web Application Firewall, Brocade virtuele Web Application Firewall (Brocade vWAF), Imperva SecureSphere en de ThreatSTOP IP-Firewall.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+[Barracuda Web Application Firewall, Brocade virtuele Web Application Firewall (Brocade vWAF), Imperva SecureSphere en de ThreatSTOP IP-Firewall.](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)
 
 ## <a name="next-steps"></a>Volgende stappen
 

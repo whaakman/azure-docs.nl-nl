@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316746"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128857"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Gebruik Visual Studio-projectsjablonen Batch-oplossingen snel op
 
@@ -259,7 +259,7 @@ Als de processor van een taak toevoegen aan de oplossing die u eerder hebt gemaa
 1. Open uw bestaande oplossing in Visual Studio.
 2. Klik in Solution Explorer met de rechtermuisknop op de oplossing, klikt u op **toevoegen**, en klik vervolgens op **nieuw Project**.
 3. Onder **Visual C#**, klikt u op **Cloud**, en klik vervolgens op **Azure Batch-taak Processor**.
-4. Typ een naam waarmee u een beschrijving van uw toepassing en geeft aan dit project (bijvoorbeeld als de taak-processor "LitwareTaskProcessor").
+4. Typ een naam waarmee u een beschrijving van uw toepassing en geeft aan dit project (bijvoorbeeld als de taak-processor 'LitwareTaskProcessor').
 5. Klik op om het project **OK**.
 6. Bouw ten slotte het project om af te dwingen van Visual Studio laden alle waarnaar wordt verwezen NuGet-pakketten en om te controleren of het project geldig is voordat u begint met het wijzigen van deze.
 
@@ -439,10 +439,7 @@ parameters.JSON, en, indien deze gevonden geladen als de parameters-woordenlijst
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Behouden van de taak en uitvoer naar Azure Storage
 Een ander handig hulpmiddel in ontwikkeling van de Batch-oplossingen is [Azure Batch-bestand conventies][nuget_package]. Gebruik deze bibliotheek van de .NET-klasse (momenteel in preview) in uw Batch .NET-toepassingen eenvoudig opslaan en ophalen van de taak uitvoer en naar Azure Storage. [Azure Batch-taak en uitvoer behouden](batch-task-output.md) bevat een volledige beschrijving van de tapewisselaar en het gebruik ervan.
 
-### <a name="batch-forum"></a>Batch-Forum
-De [Azure Batch-Forum] [ forum] is een goede plaats om te bespreken Batch en vragen over de service op MSDN. Kop op via voor nuttige 'een tijdelijke' berichten, en stel uw vragen wanneer deze zich voordoen tijdens het bouwen van uw Batch-oplossingen.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files

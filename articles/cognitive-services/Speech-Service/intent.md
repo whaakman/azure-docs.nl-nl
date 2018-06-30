@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 38f7f038a803546adb83245519efc5de0c0d1599
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1c9c1e2d54ccb200ef009be3566f6da9ced01175
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045007"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111164"
 ---
 # <a name="sample-for-intent-recognition"></a>Voorbeeld voor opzet opname
 
@@ -23,7 +23,7 @@ ms.locfileid: "37045007"
 > Zie voor instructies voor het downloaden van dit voorbeeld en andere [voorbeelden voor spraak-SDK](samples.md).
 
 > [!NOTE]
-> Neem eerst een abonnementssleutel ophalen. In tegenstelling tot andere services wordt ondersteund door de SDK cognitieve spraak, vereist de bedoeling herkenning een specifiek abonnement-sleutel. [Hier](https://www.luis.ai) vindt u meer informatie over de opzet opname-technologie, evenals informatie over het verkrijgen van een abonnementssleutel. Vervang de abonnementssleutel van uw eigen, de regio van de service en de AppId van uw opzet model in de juiste plaats in de voorbeelden.
+> Neem eerst een abonnementssleutel ophalen. In tegenstelling tot andere services wordt ondersteund door de SDK cognitieve spraak, vereist de bedoeling herkenning een specifiek abonnement-sleutel. [Hier](https://www.luis.ai) vindt u meer informatie over de opzet opname-technologie, evenals informatie over het verkrijgen van een abonnementssleutel. De abonnementssleutel van uw eigen, vervangen de [regio van uw abonnement](regions.md), en de AppId van uw opzet model op de juiste plaatsen in de voorbeelden.
 
 > [!NOTE]
 > Voor alle voorbeelden hieronder moeten de volgende op het hoogste niveau declaraties zijn voldaan:

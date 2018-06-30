@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 1e7806e802f9b1dda16a9d5d477783663d03d416
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011091"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131783"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-gegevensbronnen in Log Analytics
 Syslog is een gebeurtenis logboekregistratie-protocol die geldt voor Linux.  Toepassingen worden verzonden berichten die kunnen worden opgeslagen op de lokale computer of naar een Syslog-collector geleverd.  Wanneer de OMS-Agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent.  De agent verzendt vervolgens het bericht met logboekanalyse waarop een record in de OMS-opslagplaats is gemaakt.  
@@ -51,7 +52,7 @@ Wanneer de [OMS-agent is geïnstalleerd op een client voor Linux](log-analytics-
 >
 >
 
-#### <a name="rsyslog"></a>Rsyslog
+#### <a name="rsyslog"></a>rsyslog
 Het configuratiebestand voor rsyslog bevindt zich op **/etc/rsyslog.d/95-omsagent.conf**.  De Standaardinhoud worden hieronder weergegeven.  Hiermee verzamelt syslog-berichten is verzonden vanaf de lokale agent voor alle installaties met een niveau van de waarschuwing of hoger.
 
     kern.warning       @127.0.0.1:25224
@@ -192,8 +193,8 @@ Syslog-records hebben een soort **Syslog** en de eigenschappen in de volgende ta
 | Hostnaam |Naam van het systeem het bericht te verzenden. |
 | Foutcode |Ernst van de gebeurtenis. |
 | SyslogMessage |Tekst van het bericht. |
-| Proces-id |ID van het proces dat het bericht wordt gegenereerd. |
-| eventTime |Datum en tijd waarop de gebeurtenis is gegenereerd. |
+| ProcessID |ID van het proces dat het bericht wordt gegenereerd. |
+| EventTime |Datum en tijd waarop de gebeurtenis is gegenereerd. |
 
 ## <a name="log-queries-with-syslog-records"></a>Logboek-query's met Syslog-records
 De volgende tabel bevat voorbeelden van logboek-query's die Syslog-records ophalen.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 946311c42088d3a5840eb35387c8a552d3d5d70f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c1ca8146db8c5d67be53ba4e30d8ab0218aca104
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735641"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128755"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Releaseopmerkingen voor de Azure File Sync-agent (preview)
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -25,7 +25,8 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
 | Mijlpaal | Versienummer agent | Releasedatum | Status |
 |----|----------------------|--------------|------------------|
-| Vernieuwen van 2 | 3.0.12.0 | 22 mei 2018 | Ondersteunde (aanbevolen versie) |
+| Updatepakket juni | 3.0.13.0 | 29 juni 2018 | Ondersteunde (aanbevolen versie) |
+| Vernieuwen van 2 | 3.0.12.0 | 22 mei 2018 | Ondersteund |
 | Updatepakket van april | 2.3.0.0 | 8 mei 2018 | Ondersteund |
 | Updatepakket maart | 2.2.0.0 | 12 maart 2018 | Ondersteund |
 | Updatepakket februari | 2.1.0.0 | 28 februari 2018 | Ondersteund |
@@ -37,6 +38,12 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-30130"></a>Agentversie 3.0.13.0
+De volgende releaseopmerkingen zijn voor versie 3.0.13.0 van de Azure-bestand Sync-agent 29 juni 2018 uitgebracht. Deze opmerkingen worden naast de releaseopmerkingen voor versie 3.0.12.0 vermeld.
+
+Deze versie bevat het volgende probleem:
+- Synchronisatie mislukt als een server is toegevoegd aan een bestaande groep voor synchronisatie als reparse-punten bestaan in de locatie van de server-eindpunt op de server.
 
 ## <a name="agent-version-30120"></a>Agentversie 3.0.12.0
 De volgende releaseopmerkingen zijn voor versie 3.0.12.0 van de Azure-bestand Sync-agent (22 mei 2018 uitgebracht).

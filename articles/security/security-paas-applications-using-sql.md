@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 054a3987cfd67fbd558fe9d4b482aac3d9b467fd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794868"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114674"
 ---
 # <a name="securing-paas-databases-in-azure"></a>PaaS-databases in Azure beveiligen
 
@@ -79,7 +79,7 @@ Zie voor meer informatie over Azure SQL-Firewall en IP-beperkingen:
 ### <a name="encryption-of-data-at-rest"></a>Versleuteling van data-at-rest
 [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049) is standaard ingeschakeld. TDE versleutelt transparant SQL Server, Azure SQL Database en Azure SQL Data Warehouse-gegevens en logboekbestanden bestanden. TDE beschermd tegen inbreuk directe toegang tot de bestanden of hun back-up. Hiermee kunt u gegevens in rust te versleutelen zonder te wijzigen van bestaande toepassingen. TDE moet altijd blijven ingeschakeld; Hierdoor wordt een kwaadwillende persoon via het pad van de normale toegang echter niet gestopt. TDE biedt de mogelijkheid om te voldoen aan veel wettelijke, en tot stand gebracht in verschillende branches richtlijnen.
 
-Azure SQL beheert sleutel toegangsproblemen voor TDE. Zoals met TDE, on-premises speciale moet nauwkeurig worden gegarandeerd kunnen worden hersteld en bij het verplaatsen van databases. In meer geavanceerde scenario's, de sleutels kunnen worden expliciet beheerd in Azure Key Vault via extensible key management (Zie [TDE inschakelen op de SQL Server met behulp van EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). Hierdoor kunnen ook voor Bring Your Own Key (BYOK) via Azure sleutel kluizen BYOK-mogelijkheden.
+Azure SQL beheert sleutel toegangsproblemen voor TDE. Zoals met TDE, lokale extra moet op worden gelet om herstelmogelijkheden te controleren en bij het verplaatsen van databases. In meer geavanceerde scenario's, de sleutels kunnen worden expliciet beheerd in Azure Key Vault via extensible key management (Zie [TDE inschakelen op de SQL Server met behulp van EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). Hierdoor kunnen ook voor Bring Your Own Key (BYOK) via Azure sleutel kluizen BYOK-mogelijkheden.
 
 Azure SQL biedt versleuteling voor de kolommen via [altijd versleuteld](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Hiermee kunt alleen geautoriseerde toepassingen toegang tot gevoelige kolommen. SQL-query's voor versleutelde kolommen op gelijkheid gebaseerde waarden met behulp van deze versleuteling worden beperkt.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d8f3c0e4dec05b2ed968a3493a7cc560231e7331
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b57522933647c9d1d5518740d41b624b199a020e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215688"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met samenloop SAML SSO door Microsoft
 
@@ -43,7 +43,7 @@ Uw Microsoft Azure Active Directory-account gebruiken met Atlassian samenloop se
 Voor het configureren van Azure AD-integratie met samenloop SAML SSO door Microsoft, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Samenloop servertoepassing is geïnstalleerd op een Windows 64-bits-server (on-premises of in de cloud IaaS infrastructuur)
+- Samenloop servertoepassing is geïnstalleerd op een Windows 64-bits-server (lokaal of in de cloud IaaS infrastructuur)
 - Samenloop server is een HTTPS-functionaliteit
 - Houd er rekening mee dat in de ondersteunde versies voor samenloop invoegtoepassing worden vermeld onder sectie.
 - Samenloop server bereikbaar is op internet met name naar Azure AD-aanmeldingspagina voor verificatie en moet de token ontvangen van Azure AD
@@ -167,7 +167,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. In de **metagegevens-URL** textbox plakken **App-Url voor federatieve metagegevens** waarde die u hebt gekopieerd van de Azure-portal en klik op de **oplossen** knop. De URL van de metagegevens IdP worden gelezen en alle informatie in de velden gevuld.
 
-    b. Kopiëren de **id, de antwoord-URL en de URL met eenmalige** waarden en plak ze in **id, de antwoord-URL en de URL met eenmalige** respectievelijk in tekstvakken **samenloop SAML SSO door Microsoft-Domain en URL's** sectie op Azure-portal.
+    b. Kopiëren de **id, de antwoord-URL en de URL met eenmalige** waarden en plak ze in **id, de antwoord-URL en de URL met eenmalige** respectievelijk in tekstvakken **samenloop SAML SSO door Microsoft-Domain en URL's**  sectie op Azure-portal.
 
     c. In **aanmeldingsnaam van de knop** Typ de naam van uw organisatie wil de gebruikers dat te zien op het aanmeldingsscherm knop.
 
@@ -222,11 +222,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
  
 ### <a name="creating-a-confluence-saml-sso-by-microsoft-test-user"></a>Maken van een SSO samenloop SAML door Microsoft testgebruiker
 
-Om Azure AD-gebruikers aan te melden bij samenloop op de lokale server, moeten ze in samenloop SAML SSO worden ingericht met behulp van Microsoft. Voor samenloop SAML SSO door Microsoft is inrichting een handmatige taak.
+Om Azure AD-gebruikers zich aanmelden bij samenloop lokale server, moeten ze in samenloop SAML SSO worden ingericht met behulp van Microsoft. Voor samenloop SAML SSO door Microsoft is inrichting een handmatige taak.
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
-1. Aanmelden bij uw samenloop op de lokale server als beheerder.
+1. Meld u aan bij uw lokale samenloop server als beheerder.
 
 2. Beweeg de muisaanwijzer op het tandwiel en klik op de **Gebruikersbeheer**.
 

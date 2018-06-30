@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 3ac3df7f7861b8a12778190072e5554927706e08
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f79d80a2743fb1a46fd2f17ec3b99d97e3b3d8d8
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061416"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111021"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de onderdelen en versies die beschikbaar met HDInsight?
 
@@ -84,7 +84,6 @@ De volgende tabel geeft de versies van HDInsight die beschikbaar in de Azure Por
 | HDInsight-versie | HDP versie | VM OS | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
-| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Ja |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nee |
 
 > [!NOTE]
@@ -97,6 +96,7 @@ De volgende tabel bevat de versies van HDInsight die zijn **niet** beschikbaar i
 
 | HDInsight-versie | HDP versie | VM OS | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nee |
 | HDInsight 3.4 |2.4 HDP |Ubuntu 14.0.4 TNS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 TNS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nee |
 | 3.2 voor HDInsight |HDP 2.2 |Ubuntu 12.04 TNS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |1 april 2017 |Ja |Nee |

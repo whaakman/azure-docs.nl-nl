@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: bbd5e7d91e982a3dce320ea10a7fe8da435ff212
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 35860838d03d61e1145d35fd2516c1688c3bb64f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293771"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130577"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Bewaken en te verhelpen bandbreedtebeperking om de latentie in Azure Time Series inzichten te verminderen
 Wanneer de hoeveelheid binnenkomende gegevens groter is dan de configuratie van uw omgeving, kunnen wachttijden of beperking in Azure Time Series Insights optreden.
@@ -52,15 +52,15 @@ Daar kunt u waarschuwingen met behulp van de volgende metrische gegevens:
 |**Inkomende berichten ontvangen**   | Aantal berichten lezen uit alle Event Hubs of IoT Hubs bronnen van gebeurtenissen.        |
 |**Inkomend opgeslagen Bytes**     | Totale grootte van gebeurtenissen die zijn opgeslagen en beschikbaar voor query. De grootte wordt berekend alleen op de waarde van eigenschap.        |
 |**Inkomend opgeslagen gebeurtenissen**     |   Het aantal gebeurtenissen dat platte opgeslagen en beschikbaar voor query.      |
-|**Inkomend bericht ontvangen tijdsinterval**    |  Verschil tussen de tijd die het bericht is in de wachtrij in de gebeurtenisbron en de tijd die in inkomend wordt verwerkt.      |
-|**Aantal berichten vertraging van toegangsroutes ontvangen**    |  Verschil tussen het volgnummer van de laatste in de wachtrij bericht gegevensbron in het logboek partitie en volgorde aantal berichten in inkomend wordt verwerkt.      |
+|**Inkomend ontvangen bericht tijdsinterval**    |  Verschil in seconden tussen het moment dat het bericht in de wachtrij in de gebeurtenisstroom is bron- en de tijd die in inkomend wordt verwerkt.      |
+|**Inkomend ontvangen vertraging van het aantal berichten**    |  Verschil tussen het volgnummer van de laatste in de wachtrij bericht gegevensbron in het logboek partitie en volgorde aantal berichten in inkomend wordt verwerkt.      |
 
 
 ![Latentie](media/environment-mitigate-latency/latency.png)
 
-Als u wordt beperkt, ziet u een waarde op voor de *inkomend ontvangen bericht tijdsverschil*, melding van het aantal minuten achter TSI afkomstig van de werkelijke tijd het bericht is treffers in de gegevensbron (met uitzondering van indexering tijd van appx. 30 tot 60 seconden).  *Aantal van toegangsroutes ontvangen berichten Lag* ook een waarde, zodat u kunt bepalen hoeveel berichten achter u moet hebben.  De eenvoudigste manier om u te verleiden tot het is om de capaciteit van uw omgeving aan met een grootte waarmee u kunt het verschil te overwinnen te vergroten.  
+Als u wordt beperkt, ziet u een waarde op voor de *tijdsverschil inkomend ontvangen bericht*, melding van hoeveel seconden achter TSI afkomstig van de werkelijke tijd het bericht is treffers in de gegevensbron (met uitzondering van indexering tijd van appx. 30 tot 60 seconden).  *Inkomend ontvangen aantal berichten Lag* ook een waarde, zodat u kunt bepalen hoeveel berichten achter u moet hebben.  De eenvoudigste manier om u te verleiden tot het is om de capaciteit van uw omgeving aan met een grootte waarmee u kunt het verschil te overwinnen te vergroten.  
 
-Als u een omgeving met één eenheid S1 hebt en u ziet dat er een vertraging van vijf miljoen bericht, kan u bijvoorbeeld de grootte van uw omgeving aan zes eenheden voor rond een dag te verhogen.  Kan verhoogt u zelfs verder catch up sneller.  Dit is een algemene exemplaar bij het inrichten in eerste instantie van een omgeving met name wanneer u een verbinding maken met een gebeurtenisbron die al gebeurtenissen in het of wanneer u het uploaden van veel van historische gegevens bulksgewijs.
+Als u een omgeving met één eenheid S1 hebt en u ziet dat er een vertraging van vijf miljoen bericht, kan u bijvoorbeeld de grootte van uw omgeving aan zes eenheden voor rond een dag te verhogen.  Kan verhoogt u zelfs verder catch up sneller.  De periode bijwerken is vaak het geval bij het inrichten in eerste instantie van een omgeving met name wanneer u een verbinding maken met een gebeurtenisbron die al gebeurtenissen in het of wanneer u het uploaden van veel van historische gegevens bulksgewijs.
 
 Een andere methode is het instellen van een **opgeslagen Ingangsgebeurtenissen** waarschuwing > = een drempelwaarde iets onder de capaciteit van de totale omgeving voor een periode van twee uur.  Deze waarschuwing vindt u informatie over als u zijn voortdurend op maximale capaciteit, waarmee wordt aangegeven van een hoge kans latentie.  
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2c988f8651d0ae9a8662b502ca2ba2dbabb2defe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637732"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115988"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Bouw en implementeer de installatiekopie classificatiemodellen kunnen met Azure Machine Learning
 
@@ -34,7 +34,7 @@ Bij het maken en implementeren van dit model met AMLPCV, gaat u de volgende stap
 7. Implementatie-webservice
 8. Testen van de Load-webservice
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) wordt gebruikt als het framework grondige learning training wordt lokaal uitgevoerd op een machine GPU ingeschakeld, zoals de ([grondige learning gegevens wetenschappelijke VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), en implementatie gebruikmaakt van de Azure ML uitoefening CLI.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) wordt gebruikt als het framework grondige learning training wordt lokaal uitgevoerd op een machine GPU ingeschakeld, zoals de ([grondige learning gegevens wetenschappelijke VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), en implementatie gebruikmaakt van de Azure ML uitoefening CLI.
 
 Raadpleeg de [pakket naslagdocumentatie](https://aka.ms/aml-packages/vision) voor de gedetailleerde naslaginformatie voor elke module en de klasse.
 

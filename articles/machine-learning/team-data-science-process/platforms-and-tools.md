@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3d4d217fba55b8329937575042f0ac909aad09e9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f447378816f137517a3d542a27841d0cab351473
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838473"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112677"
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Platforms en hulpprogramma's voor gegevenswetenschap projecten in een team
 
-Microsoft biedt een volledige scala aan gegevens en analytics-services en bronnen voor cloud- of on-premises platforms. Ze kunnen worden geïmplementeerd om de uitvoering van uw gegevens wetenschappelijke projecten efficiënter en schaalbare. Richtlijnen voor het implementeren van gegevens wetenschappelijke projecten in een herleidbare teams versie beheerd en gezamenlijke manier wordt geleverd door de [Team gegevens wetenschap proces](overview.md) (TDSP).  Zie voor een overzicht van de rollen personeel en de bijbehorende taken die worden verwerkt door een gegevens wetenschappelijke team standaardiseren op dit proces [Team gegevens wetenschap proces rollen en taken](roles-tasks.md).
+Microsoft biedt een volledige scala aan gegevens en analyse services en bronnen voor zowel cloud of on-premises platforms. Ze kunnen worden geïmplementeerd om de uitvoering van uw gegevens wetenschappelijke projecten efficiënter en schaalbare. Richtlijnen voor het implementeren van gegevens wetenschappelijke projecten in een herleidbare teams versie beheerd en gezamenlijke manier wordt geleverd door de [Team gegevens wetenschap proces](overview.md) (TDSP).  Zie voor een overzicht van de rollen personeel en de bijbehorende taken die worden verwerkt door een gegevens wetenschappelijke team standaardiseren op dit proces [Team gegevens wetenschap proces rollen en taken](roles-tasks.md).
 
 De gegevens en analyse services beschikbaar zijn voor gegevens wetenschappelijke teams met behulp van de TDSP zijn onder andere:
 

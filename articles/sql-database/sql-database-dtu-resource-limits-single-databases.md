@@ -2,19 +2,19 @@
 title: Azure SQL Database DTU op basis van een resource beperkt individuele databases | Microsoft Docs
 description: Deze pagina beschrijft enkele algemene resource op basis van het DTU-limieten voor individuele databases in Azure SQL Database.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a7abb7d67de59ea326b5180cf94e3594cd06576
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 2d6660e1064959f2d04424ae1c3e9bc668231c92
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753384"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131318"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limieten voor individuele databases met behulp van het DTU-aankoopmodel 
 
@@ -26,7 +26,7 @@ Zie voor DTU gebaseerde aankopen model limieten voor elastische pools, [resource
 
 De volgende tabellen tonen voor individuele databases, de beschikbare resources voor één database op elke prijscategorie en prestatieniveau serviceniveau. U kunt de servicelaag, het prestatieniveau en de opslagruimte voor het gebruik van een individuele database instellen de [Azure-portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases), wordt de [Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases), of de [REST-API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
-### <a name="basic-service-tier"></a>Basic-serviceniveau
+### <a name="basic-service-tier"></a>Basisservicelaag
 | **Prestatieniveau** | **Basic** |
 | :--- | --: |
 | Maximaal aantal DTU's | 5 |
@@ -37,7 +37,7 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 | Maximaal aantal gelijktijdige sessies | 300 |
 |||
 
-### <a name="standard-service-tier"></a>Standard-serviceniveau
+### <a name="standard-service-tier"></a>Standaardservicelaag
 | **Prestatieniveau** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
 | Maximaal aantal DTU's | 10 | 20 | 50 | 100 |
@@ -56,10 +56,10 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 | Maximum aantal opslagopties (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Maximale OLTP-opslag in het geheugen (GB) | N/A | N/A | N/A | N/A |N/A |
 | Maximum aantal gelijktijdige werknemers (aanvragen)| 400 | 800 | 1600 | 3200 |6000 |
-| Maximaal aantal gelijktijdige sessies |4800 | 9600 | 19200 | 30000 |30000 |
+| Maximaal aantal gelijktijdige sessies |4800 | 9600 | 19200 | 30.000 |30.000 |
 |||||||
 
-### <a name="premium-service-tier"></a>Premium-serviceniveau 
+### <a name="premium-service-tier"></a>Premium servicelaag 
 | **Prestatieniveau** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | :--- |---:|---:|---:|---:|---:|---:|
 | Maximaal aantal DTU's | 125 | 250 | 500 | 1000 | 1750 | 4000 |
@@ -67,12 +67,12 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 | Maximum aantal opslagopties (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
 | Maximale OLTP-opslag in het geheugen (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Maximum aantal gelijktijdige werknemers (aanvragen)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Maximaal aantal gelijktijdige sessies | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Maximaal aantal gelijktijdige sessies | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 |
 |||||||
 
 
 > [!IMPORTANT]
-> Meer dan 1 TB aan opslag in de laag Premium is momenteel beschikbaar in alle regio's, behalve het volgende: VK Noord, West-Centraal VS, UK South2, China Oost, USDoDCentral, Duitsland centraal, USDoDEast, VS Gov linksonder, ons Gov Zuid-centraal, Duitsland noordoosten, China Noord, Gov VS-Oost. In andere regio’s is de maximale opslagruimte in het Premium-niveau beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Meer dan 1 TB aan opslag in de laag Premium is momenteel beschikbaar in alle regio's, behalve het volgende: West-Centraal VS, China Oost, USDoDCentral, Duitsland centraal, USDoDEast, VS Gov linksonder, Duitsland noordoosten, USGovIowa, China Noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Individuele database: opslaggrootte wijzigen
 

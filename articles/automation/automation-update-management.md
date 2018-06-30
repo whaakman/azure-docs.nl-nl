@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3de93c06285f36353d91a66db975c0a579c1379c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e1bcae85c7078d817e30ec578ac12b2be13342c7
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097441"
+ms.locfileid: "37129020"
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -62,7 +62,7 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
-|WindowsServer 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken beoordelingen.         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken beoordelingen.         |
 |Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5 of hoger is vereist. ([.NET Framework downloaden](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 wordt aanbevolen voor een hogere mate van betrouwbaarheid.  ([Downloaden WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates. Op basis van classificatie patchen vereist 'yum' van beveiligingsgegevens die CentOS heeft geen gebruiksklaar te retourneren.         |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
@@ -214,8 +214,8 @@ Voor het maken van een nieuwe update-implementatie selecteert **schema-update-im
 |Besturingssysteem| Selecteer **Linux** of **Windows**.|
 |Machines bijwerken |Selecteer een opgeslagen zoekopdracht of selecteer **Machine** uit de vervolgkeuzelijst en selecteer vervolgens afzonderlijke computers. |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt. CentOS ondersteunt dit niet uit het vak.|
-|Updates om uit te sluiten|Voer de updates om uit te sluiten. Voor Windows, voert u het KB-artikel zonder de **KB** voorvoegsel. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
-|Schema-instellingen|Selecteer de tijd om te starten en selecteer vervolgens **eenmaal** of **terugkerend** voor het terugkeerpatroon.|| Onderhoudsvenster |Aantal minuten instellen voor updates. De waarde mag niet minder dan 30 minuten of langer dan 6 uur. |
+|Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voor Windows, voert u het KB-artikel zonder de **KB** voorvoegsel. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
+|Planningsinstellingen|Selecteer de tijd om te starten en selecteer vervolgens **eenmaal** of **terugkerend** voor het terugkeerpatroon.|| Onderhoudsvenster |Aantal minuten instellen voor updates. De waarde mag niet minder dan 30 minuten of langer dan 6 uur. |
 
 ## <a name="update-classifications"></a>Updateclassificaties
 
@@ -261,6 +261,8 @@ De volgende adressen zijn vereist voor het beheer van updates. -Communicatie met
 
 Zie voor meer informatie over de poorten die vereist dat de hybride Runbook Worker [Hybrid Worker-rol poorten](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
+Het is raadzaam om de adressen die worden vermeld bij het definiëren van uitzonderingen te gebruiken. Voor IP-adressen die u downloaden via kunt de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt en weerspiegelt de huidige geïmplementeerde bereiken en toekomstige wijzigingen in de IP-adresbereiken.
+
 ## <a name="search-logs"></a>Zoeken in Logboeken
 
 Naast de details die beschikbaar zijn in de Azure-portal, kunt u de logboeken zoekacties doen. Selecteer op de oplossing's, **logboekanalyse**. De **logboek zoeken** deelvenster wordt geopend.
@@ -268,7 +270,7 @@ Naast de details die beschikbaar zijn in de Azure-portal, kunt u de logboeken zo
 U kunt ook informatie over het aanpassen van de query of ze gebruiken van andere clients en meer in via: [Zoek API-documentatie voor logboekanalyse](
 https://dev.loganalytics.io/).
 
-### <a name="sample-queries"></a>Voorbeeldquery 's
+### <a name="sample-queries"></a>Voorbeeldquery's
 
 De volgende secties bieden voorbeeldquery logboek's voor bijwerkrecords die door deze oplossing worden verzameld:
 

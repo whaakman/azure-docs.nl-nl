@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 105c10423a9688300ba74874769b162e29572185
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418489"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128602"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Maken van een Apache Storm-topologie in Java
 
@@ -41,7 +41,7 @@ Na het voltooien van de stappen in dit document, kunt u de topologie implementer
 
 ## <a name="configure-environment-variables"></a>Omgevingsvariabelen configureren
 
-De volgende omgevingsvariabelen kunnen worden ingesteld wanneer u Java en de JDK installeert. Echter, moet u controleren of ze bestaan en dat ze de juiste waarden voor uw systeem bevatten.
+De volgende omgevingsvariabelen kunnen worden ingesteld wanneer u Java en de JDK installeert. U moet dan echter wel controleren of ze bestaan en of ze de juiste waarden voor uw systeem bevatten.
 
 * **JAVA_HOME** -moet verwijzen naar de map waar Java runtime environment (JRE) is geïnstalleerd. Bijvoorbeeld in een Unix- of Linux-distributie, heeft een waarde gelijkaardig aan `/usr/lib/jvm/java-8-oracle`. In Windows, zou er een waarde gelijkaardig aan `c:\Program Files (x86)\Java\jre1.8`
 
@@ -600,7 +600,7 @@ Het bestand YAML definieert de onderdelen moet worden gebruikt voor de topologie
 Zie voor meer informatie over lichtstroom [lichtstroom framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> Vanwege een [bug (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) met Storm 1.0.1, moet u mogelijk installeren een [Storm-ontwikkelomgeving](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) lichtstroom topologieën lokaal uitvoeren.
+> Vanwege een [bug (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) met Storm 1.0.1, moet u mogelijk installeren een [Storm-ontwikkelomgeving](http://storm.apache.org/releases/current/Setting-up-development-environment.html) lichtstroom topologieën lokaal uitvoeren.
 
 1. Verplaats de `WordCountTopology.java` bestand buiten het project. Voorheen dit bestand de topologie gedefinieerd, maar met lichtstroom is niet nodig.
 
@@ -719,9 +719,9 @@ Zie voor meer informatie over lichtstroom [lichtstroom framework (https://storm.
     ```
 
     > [!WARNING]
-    > Als uw Storm 1.0.1 bits wordt gebruikt, wordt deze opdracht mislukt. Deze fout wordt veroorzaakt door [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). In plaats daarvan [Storm installeren in uw ontwikkelomgeving](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) en gebruik de volgende stappen:
+    > Als uw Storm 1.0.1 bits wordt gebruikt, wordt deze opdracht mislukt. Deze fout wordt veroorzaakt door [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). In plaats daarvan [Storm installeren in uw ontwikkelomgeving](http://storm.apache.org/releases/current/Setting-up-development-environment.html) en gebruik de volgende stappen:
     >
-    > Als u hebt [Storm geïnstalleerd in uw ontwikkelomgeving](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), kunt u de volgende opdrachten in plaats daarvan:
+    > Als u hebt [Storm geïnstalleerd in uw ontwikkelomgeving](http://storm.apache.org/releases/current/Setting-up-development-environment.html), kunt u de volgende opdrachten in plaats daarvan:
     >
     > ```bash
     > mvn compile package

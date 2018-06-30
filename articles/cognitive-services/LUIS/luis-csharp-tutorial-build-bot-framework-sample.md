@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b3283880ebb116e5397c38d722a0790cff414f38
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263877"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111919"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web-App Bot met behulp van de sjabloon LUIS voor C#
 
@@ -72,7 +72,7 @@ De bot reageert door in te spreken 'u kunt begroeting hebt bereikt. U gezegd: Ha
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>Uw app LUIS verbinden met de bot
 
-Open **toepassingsinstellingen** en bewerkt u de **LuisAppId** veld de toepassings-ID van uw app LUIS bevatten. Als u uw app HomeAutomation LUIS in een andere regio dan VS-West gemaakt, moet u wijzigt de **LuisAPIHostName** ook. De **LuisAPIKey** is momenteel ingesteld op de sleutel van uw ontwerp. U wijzigen dit in de abonnementssleutel van uw wanneer het verkeer het quotum voor gratis laag overschrijdt. 
+Open **toepassingsinstellingen** en bewerkt u de **LuisAppId** veld de toepassings-ID van uw app LUIS bevatten. Als u uw app HomeAutomation LUIS in een andere regio dan VS-West gemaakt, moet u wijzigt de **LuisAPIHostName** ook. De **LuisAPIKey** is momenteel ingesteld op de sleutel van uw ontwerp. U wijzigen dit in de eindpuntsleutel van uw wanneer uw verkeer het quotum voor gratis laag overschrijdt. 
 
   ![Bijwerken van de ID van de app LUIS in Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 

@@ -3,7 +3,7 @@ title: Windows-computers verbinding met Azure Log Analytics | Microsoft Docs
 description: In dit artikel wordt beschreven hoe Windows-computers die worden gehost in andere clouds of on-premises met logboekanalyse met de Microsoft Monitoring Agent (MMA) verbinding.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: df61ef74d95dd9305fa8d97758bf07bcb40d54a6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637409"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131383"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinding met de Log Analytics-service in Azure
 
@@ -32,9 +33,9 @@ De agent kan worden geïnstalleerd met behulp van een van de volgende methoden. 
 * Handmatige installatie. Setup wordt handmatig uitgevoerd op de computer met de wizard setup vanaf de opdrachtregel of geïmplementeerd met behulp van een bestaande software-distributie-hulpprogramma.
 * Azure Automation Desired State Configuration (DSC). Gebruik van DSC in Azure Automation met een script voor Windows-computers die al zijn geïmplementeerd in uw omgeving.  
 * PowerShell-script.
-* Resource Manager-sjabloon voor virtuele machines met Windows on-premises in Azure-Stack.  
+* Resource Manager-sjabloon voor virtuele machines waarop Windows wordt uitgevoerd op lokale in Azure-Stack.  
 
-Raadpleeg voor informatie over de ondersteunde configuratie, [ondersteunde Windows-besturingssystemen](log-analytics-concept-hybrid.md#supported-windows-operating-systems) en [firewall netwerkconfiguratie](log-analytics-concept-hybrid.md#network-firewall-requirements).
+Als u meer wilt weten over de ondersteunde configuratie, kunt u de informatie over [ondersteunde Windows-besturingssystemen](log-analytics-concept-hybrid.md#supported-windows-operating-systems) en de [ netwerkconfiguratie voor de firewall](log-analytics-concept-hybrid.md#network-firewall-requirements) raadplegen.
 
 ## <a name="obtain-workspace-id-and-key"></a>Werkruimte-ID en -sleutel ophalen
 Voordat u de MMA (Microsoft Monitoring Agent) voor Windows installeert, hebt u eerst de werkruimte-id en -sleutel voor uw Log Analytics-werkruimte nodig.  Deze informatie is vereist tijdens de installatie van elke installatiemethode correct configureren van de agent en ervoor zorgen dat deze kan communiceren met logboekanalyse in Azure commerciële en -US Government-cloud.  

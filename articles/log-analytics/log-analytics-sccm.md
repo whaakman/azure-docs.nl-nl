@@ -3,7 +3,7 @@ title: Maak verbinding met Configuration Manager met Log Analytics | Microsoft D
 description: In dit artikel bevat de stappen voor het verbinden van Configuration Manager met logboekanalyse en analyseren van gegevens te starten.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 5ff0687fe99f0853e29e5f0d814a8555c367027c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: 6bb59e4b63933500bc8571dca2422eec6c3456ee
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283993"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129754"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Maak verbinding met Configuration Manager met Log Analytics
 U kunt uw System Center Configuration Manager-omgeving met Azure Log Analytics sync verzameling apparaatgegevens verbinding en verwijzen naar deze verzamelingen in Log Analytics en Azure Automation.  
@@ -48,7 +49,7 @@ In de volgende procedure verleent u aan de *Inzender* rol in de werkruimte voor 
 > U moet machtigingen opgeven in Log Analytics voor Configuration Manager. Anders wordt een foutbericht weergegeven wanneer u de configuratiewizard in Configuration Manager gebruiken.
 >
 
-1. Klik in de Azure-portal op **alle services** gevonden in de linkerbovenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Selecteer in de lijst met Log Analytics-werkruimten, de werkruimte te wijzigen.
 3. Selecteer in het linkerdeelvenster **Access Control (IAM)**.
 4. Klik op de pagina toegangsbeheer **toevoegen** en de **machtigingen toevoegen** deelvenster wordt weergegeven.
@@ -94,7 +95,7 @@ Nadat u hebt een OMS-verbinding naar Configuration Manager toegevoegd en de agen
 
 Nadat u de eerste configuratie voor het importeren van apparaatverzamelingen uit uw hiërarchie hebt voltooid, wordt de lidmaatschapsgegevens van verzameling elke drie uur om het lidmaatschap van de huidige opgehaald. U kunt dit op elk moment uitschakelen.
 
-1. Klik in de Azure-portal op **alle services** gevonden in de linkerbovenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. Selecteer de werkruimte Configuration Manager is geregistreerd bij in uw lijst met Log Analytics-werkruimten.  
 3. Selecteer **Geavanceerde instellingen**.<br><br> ![Geavanceerde instellingen van Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecteer **computergroepen** en selecteer vervolgens **SCCM**.  

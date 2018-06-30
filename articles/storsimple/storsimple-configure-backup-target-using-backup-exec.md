@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1326e4a84938c46a9e7acc10dd8ed94db708f62a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23877221"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113082"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple als een back-updoel met Backup Exec
 
@@ -158,7 +158,7 @@ Implementatie van de oplossing moet drie stappen:
 
 Elke stap wordt uitgebreid beschreven in de volgende secties.
 
-### <a name="set-up-the-network"></a>Instellen van het netwerk
+### <a name="set-up-the-network"></a>Het netwerk instellen
 
 Omdat StorSimple een oplossing die geïntegreerd met de Azure-cloud is, vereist StorSimple een actieve verbinding met de Azure-cloud. Deze verbinding wordt gebruikt voor bewerkingen, zoals cloudmomentopnamen, beheer en overdracht van de metagegevens van en naar de laag die ouder zijn, kleiner gebruikte gegevens naar Azure-cloudopslag.
 
@@ -173,7 +173,7 @@ Zie voor een stapsgewijze implementatiehulp StorSimple [uw on-premises StorSimpl
 
 ### <a name="deploy-backup-exec"></a>Back-up Exec implementeren
 
-Zie voor aanbevolen procedures voor de back-up Exec-installatie, [aanbevolen procedures voor de installatie van de back-up Exec](https://www.veritas.com/support/en_US/article.000068207).
+Zie voor aanbevolen procedures voor de back-up Exec-installatie, [aanbevolen procedures voor de installatie van de back-up Exec](https://www.veritas.com/content/support/en_US/doc/72686287-131623464-0/v70444238-131623464).
 
 ## <a name="set-up-the-solution"></a>Instellen van de oplossing
 
@@ -265,7 +265,7 @@ Op basis van de voorgaande veronderstellingen kunt maken van een 26-TiB StorSimp
 
 ### <a name="to-set-up-backup-exec-storage"></a>Back-up Exec opslag instellen
 
-1.  Selecteer in de beheerconsole voor back-up Exec **opslag** > **opslag configureren** > **schijven gebaseerde opslag** > **volgende**.
+1.  Selecteer in de beheerconsole voor back-up Exec **opslag** > **opslag configureren** > **schijven gebaseerde opslag**  >   **Volgende**.
 
     ![Back-up van de beheerconsole Exec, opslagpagina configureren](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
@@ -310,9 +310,9 @@ Hier volgt een voorbeeld van een algemene rotatieschema vier weken, maandelijkse
 
 | Type frequentie/back-up | Volledig | Incrementele (dagen 1-5)  |   
 |---|---|---|
-| Wekelijks (weken 1-4) | zaterdag | Maandag tot vrijdag |
-| Maandelijks  | zaterdag  |   |
-| Per jaar | zaterdag  |   |   |
+| Wekelijks (weken 1-4) | Zaterdag | Maandag tot vrijdag |
+| Maandelijks  | Zaterdag  |   |
+| Per jaar | Zaterdag  |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>StorSimple-volumes toewijzen aan een back-uptaak Backup Exec

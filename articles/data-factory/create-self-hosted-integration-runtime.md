@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 832e4672a15368768977feedade83707a26b9965
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: be2ac5427516bc29f87052667e4b44be52757f1e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048785"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113150"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Het maken en configureren van Self-hosted integratie Runtime
 De integratie Runtime (IR) is de beheerinfrastructuur gebruikt door Azure Data Factory om te bieden mogelijkheden voor de integratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [integratie Runtime overzicht](concepts-integration-runtime.md).
@@ -101,7 +101,7 @@ Host zichzelf integratie runtime kan worden geïnstalleerd door het downloaden v
 
 
 ## <a name="high-availability-and-scalability"></a>Hoge beschikbaarheid en schaalbaarheid
-Een Self-hosted integratie Runtime kan worden gekoppeld aan meerdere on-premises machines. Deze machines worden knooppunten genoemd. U kunt maximaal vier knooppunten die zijn gekoppeld aan een Self-hosted integratie Runtime hebben. De voordelen van meerdere knooppunten (op lokale computers met de gateway is geïnstalleerd) voor een logische gateway zijn:
+Een Self-hosted integratie Runtime kan worden gekoppeld aan meerdere lokale computers. Deze machines worden knooppunten genoemd. U kunt maximaal vier knooppunten die zijn gekoppeld aan een Self-hosted integratie Runtime hebben. De voordelen van meerdere knooppunten (op lokale computers met de gateway is geïnstalleerd) voor een logische gateway zijn:
 1. Hogere beschikbaarheid van Self-hosted integratie Runtime zodat deze niet langer de storingspunt in uw Big Data oplossing of cloud gegevensintegratie met Azure Data Factory gezorgd continuïteit met maximaal 4 knooppunten.
 2. Verbeterde prestaties en de doorvoer tijdens de verplaatsing van gegevens tussen on-premises en cloud gegevensarchieven. Meer informatie opvragen over [prestaties vergelijkingen](copy-activity-performance.md).
 

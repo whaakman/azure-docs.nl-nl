@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 74a660f7240b9ae6138c402dbbb418bbc665dc3c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5f25213d8d1fbc95aa419c86ca5b780f345952ed
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098699"
+ms.locfileid: "37130196"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen
 
@@ -96,7 +96,7 @@ Als u een van deze fouten optreden, raden we u [contact op met ondersteuning](#c
 
 ### <a name="troubleshoot-user-accounts"></a>Gebruikersaccounts oplossen
 
-Als uw gebruikers zijn [problemen hebt met verificatie in twee stappen](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md), helpen ze problemen diagnosticeren zelf. 
+Als uw gebruikers zijn [problemen hebt met verificatie in twee stappen](end-user/current/multi-factor-authentication-end-user-troubleshoot.md), helpen ze problemen diagnosticeren zelf. 
 
 ### <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft Ondersteuning
 

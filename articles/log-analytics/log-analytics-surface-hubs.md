@@ -3,7 +3,7 @@ title: Bewaken met Surface Hubs met Azure Log Analytics | Microsoft Docs
 description: Gebruik de Surface Hub-oplossing de status van uw Surface Hubs bijhouden en begrijpen hoe deze worden gebruikt.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 525b3ced979834a956f91ef8c6f647b659ca21f1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.component: na
+ms.openlocfilehash: dfbcdce293d6d47267892487d0760410665af94a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29179222"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130767"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface Hubs met logboekanalyse voor het bijhouden van hun status controleren
 
@@ -31,7 +31,7 @@ Dit artikel wordt beschreven hoe u kunt de Surface Hub-oplossing in logboekanaly
 Elke Surface Hub heeft Microsoft Monitoring Agent geïnstalleerd. De via de agent die u gegevens kunt verzenden vanuit uw Surface Hub met logboekanalyse. Logboekbestanden worden gelezen uit uw Surface Hubs en worden vervolgens met logboekanalyse worden verzonden. Problemen, zoals servers offline is, de kalender niet synchroniseert, of als het account zich niet aanmelden bij Skype worden weergegeven in het dashboard Surface Hub in logboekanalyse. Met behulp van de gegevens in het dashboard, kunt u apparaten die niet worden uitgevoerd, of die zijn andere problemen en oplossingen voor de gedetecteerde problemen mogelijk van toepassing te identificeren.
 
 ## <a name="install-and-configure-the-solution"></a>Installeren en configureren van de oplossing
-Gebruik de volgende informatie om te installeren en configureren van de oplossing. Om uw Surface Hubs in logboekanalyse te beheren, hebt u het volgende nodig:
+Gebruik de volgende informatie om de oplossing te installeren en configureren. Om uw Surface Hubs in logboekanalyse te beheren, hebt u het volgende nodig:
 
 * Een [logboekanalyse abonnement](https://azure.microsoft.com/pricing/details/log-analytics/) niveau die ondersteuning bieden voor het aantal apparaten dat u wilt bewaken. Log Analytics prijzen varieert afhankelijk van hoeveel apparaten zijn ingeschreven en hoeveel gegevens deze processen. Moet u dit in aanmerking te nemen bij het plannen van uw implementatie Surface Hub.
 

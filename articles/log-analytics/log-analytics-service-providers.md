@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/22/2016
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: meirm
-ms.openlocfilehash: 97e36c624e865010ada67f5163af6d7f03de079f
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.component: na
+ms.openlocfilehash: 73f199b83fc5fc56259a2fbbc9dce4bbd8b23998
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096567"
+ms.locfileid: "37129726"
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Log Analytics-functies voor serviceproviders
 Log Analytics kunt beheerde serviceproviders (MSPs), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders beheren en bewaken van servers in een van de klant on-premises of cloudinfrastructuur. 

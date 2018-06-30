@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 565ceb179d8cf749842bb58ab25a8b3d946efa12
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dd9218b982860e62e04b46fb5d07e5553407599
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608644"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130849"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI-sjablonen en -bestandsoverdracht gebruiken (preview)
 
@@ -258,7 +258,7 @@ Groep van toepassingen en -taak sjablonen kunnen bestanden die zijn opgeslagen i
 
 Alleen voor de Azure CLI momenteel ondersteuning voor het overbrengen sjabloon en een bestand zijn toegevoegd. Het doel is om uit te breiden de doelgroep die Batch om gebruikers die u hoeft niet gebruiken kunt te ontwikkelen code met de Batch-API's, zoals onderzoekers, IT-gebruikers, enzovoort. Zonder codering, kunnen gebruikers met kennis van Azure Batch en de toepassingen worden uitgevoerd door de Batch sjablonen voor het maken van toepassingen en -taak maken. Gebruikers zonder grondige kennis van de Batch- en de toepassingen kunnen de sjablonen gebruiken met de sjabloonparameters.
 
-Uitproberen van de Batch-extensie voor de Azure CLI en geef ons feedback en suggesties, hetzij in de opmerkingen voor dit artikel of via de [Azure Batch-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
+Uitproberen van de Batch-extensie voor de Azure CLI en geef ons feedback en suggesties, hetzij in de opmerkingen voor dit artikel of via de [Batch Community opslagplaats](https://github.com/Azure/Batch).
 
 ## <a name="next-steps"></a>Volgende stappen
 

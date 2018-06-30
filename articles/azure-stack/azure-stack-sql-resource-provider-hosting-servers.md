@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
-ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 74d888ffe28e5428b47bfc73122518c22d0f0918
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060039"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128704"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers toevoegen voor de SQL-resourceprovider
 
@@ -121,7 +121,8 @@ Configuratie-exemplaren van SQL Always On zijn aanvullende stappen vereist en ve
 > [!NOTE]
 > De resourceprovider voor SQL-adapter _alleen_ ondersteunt SQL 2016 SP1 Enterprise of later instanties voor Always On. De configuratie van deze adapter vereist een nieuwe SQL-functies, zoals automatische seeding.
 
-Bovendien moet u inschakelen [automatische Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) op elke beschikbaarheidsgroep voor elk exemplaar van SQL Server.
+### <a name="automatic-seeding"></a>Automatische seeding
+U moet inschakelen [automatische Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) op elke beschikbaarheidsgroep voor elk exemplaar van SQL Server.
 
 Om automatische seeding op alle instanties, bewerken en voer de volgende SQL-opdracht voor elk exemplaar:
 
@@ -136,6 +137,18 @@ Op de secundaire exemplaren bewerken en voer vervolgens de volgende SQL-opdracht
 
   ```
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
+
+### <a name="configure-contained-database-authentication"></a>Verificatie van de ingesloten database configureren
+Voordat u een ingesloten database toevoegt aan een beschikbaarheidsgroep, zorg ervoor dat de ingesloten database authentication server-optie is ingesteld op 1 op elke server-exemplaar dat als host fungeert voor een beschikbaarheidsreplica voor de beschikbaarheidsgroep. Zie voor meer informatie [databaseverificatie serverconfiguratieoptie opgenomen](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+
+Deze opdrachten gebruiken om in te stellen van de ingesloten database server verificatieoptie voor elk exemplaar:
+
+  ```
+  EXEC sp_configure 'contained database authentication', 1
+  GO
+  RECONFIGURE
   GO
   ```
 

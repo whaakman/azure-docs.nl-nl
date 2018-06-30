@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: 70bca3b181e02f42da50e827154193936544131a
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d22b2ba332996d31b1db4ef4d095f0a4b443ba16
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263815"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109355"
 ---
 # <a name="keys-in-luis"></a>Sleutels in LUIS
 LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpunt](#endpoint-key). De authoring sleutel wordt automatisch voor u gemaakt wanneer u uw account LUIS maakt. Wanneer u klaar bent voor uw app LUIS publiceren, moet u [maakt u de eindpuntsleutel](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [toewijzen](Manage-keys.md#assign-endpoint-key) aan uw app LUIS en [gebruik in combinatie met de query eindpunt](#use-endpoint-key-in-query). 
@@ -22,7 +22,7 @@ LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpun
 |Sleutel|Doel|
 |--|--|
 |[Sleutel ontwerpen](#programmatic-key)|Ontwerpen, publiceren, het beheren van deelnemers, versiebeheer|
-|[Eindpuntsleutel](#endpoint-key)| Uitvoeren van query 's|
+|[eindpuntsleutel](#endpoint-key)| Uitvoeren van query 's|
 
 Het is belangrijk te ontwerpen LUIS apps in [regio's](luis-reference-regions.md#publishing-regions) waar u ook wilt publiceren en query's uitvoeren.
 
@@ -40,7 +40,7 @@ Wanneer u ervoor **productie endpoint-query's**, maakt u een Azure [LUIS abonnem
 > [!CAUTION]
 > Voor het gemak veel van de voorbeelden de ontwerp-toets gebruiken omdat het een paar eindpunt aanroepen in biedt de [quotum](luis-boundaries.md#key-limits).  
 
-## <a name="endpoint-key"></a>Eindpuntsleutel
+## <a name="endpoint-key"></a>eindpuntsleutel
  Wanneer u moet **productie endpoint-query's**, maak een [LUIS sleutel](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in de Azure portal. Vergeet niet de naam die wordt gebruikt om de sleutel te maken, moet u deze wanneer u de sleutel aan de app toevoegen...
 
 Wanneer het abonnement LUIS proces is voltooid, [de sleutel toevoegen](Manage-keys.md#assign-endpoint-key) met de app op de **publiceren** pagina. 
@@ -62,10 +62,10 @@ Het eindpunt LUIS twee stijlen van query accepteert, maken beide gebruik van de 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Gebruik van de API van Ocp-Apim-Subscription-Key
 De LUIS APIs gebruiken de header `Ocp-Apim-Subscription-Key`. Naam van de header wordt niet gewijzigd op basis van welke sleutel en een set API's dat u gebruikt. De header ingesteld op de authoring sleutel voor authoring API's. Als u het eindpunt gebruikt, stelt u de header voor de eindpuntsleutel. 
 
-U kunt de endpoint-sleutel voor het ontwerpen van API's niet doorgeven. Als u dit doet, krijgt u een 401 fout: toegang is geweigerd vanwege ongeldige abonnements-sleutel. 
+U kunt de endpoint-sleutel voor het ontwerpen van API's niet doorgeven. Als u dit doet, krijgt u een 401 fout: toegang is geweigerd vanwege ongeldige eindpuntsleutel. 
 
 ## <a name="key-limits"></a>Limieten
-Zie [sleutel limieten](luis-boundaries.md#key-limits) en [Azure-regio's](luis-reference-regions.md). De authoring sleutel is gratis en die wordt gebruikt voor het ontwerpen. De sleutel van het abonnement LUIS een gratis laag heeft, maar moet worden door u gemaakt en gekoppeld aan uw app LUIS op de **publiceren** pagina. Deze kan niet worden gebruikt voor het ontwerpen, maar alleen eindpunt query's.
+Zie [sleutel limieten](luis-boundaries.md#key-limits) en [Azure-regio's](luis-reference-regions.md). De authoring sleutel is gratis en die wordt gebruikt voor het ontwerpen. De sleutel van de endpoint LUIS een gratis laag heeft, maar moet worden door u gemaakt en gekoppeld aan uw app LUIS op de **publiceren** pagina. Deze kan niet worden gebruikt voor het ontwerpen, maar alleen eindpunt query's.
 
 Publishing regio's zijn anders dan de regio's ontwerpen. Zorg ervoor dat u een app in de ontwerphandleiding regio die overeenkomt met de publicatie regio die u wilt maken.
 

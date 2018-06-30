@@ -1,5 +1,5 @@
 ---
-title: Verzameling Gegevensdetails voor oplossingen in Azure | Microsoft-documenten
+title: Verzameling Gegevensdetails voor oplossingen in Azure | Microsoft Docs
 description: Oplossingen in Azure is een verzameling van logica, visualiseren en gegevens overname regels waarmee de metrische gegevens om een bepaald probleemgebied gedraaid.  Dit artikel bevat een lijst met beschikbare oplossingen voor het beheer van Microsoft en informatie over de bijbehorende methode en de frequentie van verzamelen van gegevens.
 services: log-analytics
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: ab07a11883b3462c4b9d0f9adab6c55e4fe49d78
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 887611f1293e276070df51ac06df51a994161ec1
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010248"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112186"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Verzameling Gegevensdetails voor oplossingen in Azure
 In dit artikel bevat een lijst met [beheeroplossingen](monitoring-solutions.md) van Microsoft beschikbaar met koppelingen naar hun gedetailleerde documentatie.  Het bevat ook informatie van de methode en de frequentie van verzamelen van gegevens in logboekanalyse.  Gebruik de informatie in dit artikel voor het identificeren van de verschillende beschikbare oplossingen en de gegevens stroom en de verbinding met de vereisten voor andere beheeroplossingen te begrijpen. 
@@ -65,9 +65,6 @@ Uitleg van de kolommen zijn als volgt:
 | [Netwerkprestatiemeter](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP-handshakes om de vijf seconden gegevens verzonden om de 3 minuten |
 | [Office 365 Analytics (Preview)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |op de melding |
 | **Oplossing voor het beheer** | **Platform** | **Microsoft monitoring agent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager is vereist?** | **Operations Manager-agent gegevens verzonden via de beheergroep** | **Frequentie van de verzameling** |
-| [Beveiliging en Audit](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | bij ontvangst |
-| [Beveiliging en Audit](../operations-management-suite/oms-security-getting-started.md) (beveiligingslogboek) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | bij ontvangst |
-| [Beveiliging en Audit](../operations-management-suite/oms-security-getting-started.md) (Firewall-logboeken) |Windows |&#8226; |&#8226; |  |  |  |bij ontvangst |
 | [Service Fabric Analytics (Preview)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minuten |
 | [Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md) | Windows en Linux | &#8226; | &#8226; |  |  |  | 15 seconden |
 | [SQL-evaluatie](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagen |

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 06/28/2018
 ms.author: mikejo
-ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2ff2a619dabd7dfabf89361172557efa4884ba12
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30292537"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110484"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Instellen van diagnostische gegevens voor Azure Cloud Services en virtuele machines
 Wanneer u problemen met een Azure-cloudservice of virtuele machine, kunt u Visual Studio kunt gebruiken voor het eenvoudig instellen van Azure Diagnostics. Diagnostische gegevens worden vastgelegd system en logboekregistratie-gegevens op de virtuele machines en de virtuele machine-exemplaren die worden uitgevoerd van de cloudservice. Diagnostische gegevens worden overgedragen naar een opslagaccount die u kiest. Zie voor meer informatie over diagnostische gegevens van logboekregistratie in Azure, [logboekregistratie van diagnostische gegevens van Web-Apps in Azure App Service](app-service/web-sites-enable-diagnostic-log.md).
@@ -87,7 +87,11 @@ U kunt diagnostische gegevens voor rollen die worden uitgevoerd in Azure wanneer
    * Als u selecteert **uw abonnement**, selecteert u de Azure-abonnement dat u wilt gebruiken en voer een accountnaam op. Selecteer voor het beheren van uw Azure-abonnementen **Accounts beheren**.
    * Als u selecteert **referenties handmatig worden ingevoerd**, voer de naam en sleutel van het Azure-account die u wilt gebruiken.
 5. Om weer te geven de **configuratie van diagnostische** dialoogvenster, **configureren**. Met uitzondering van **algemene** en **logboek mappen**, elk tabblad vertegenwoordigt een diagnostische gegevens van een gegevensbron die u kunt verzamelen. De standaardwaarde **algemene** tabblad biedt diagnostische gegevens over de volgende opties voor het verzamelen van gegevens: **alleen fouten**, **alle informatie**, en **aangepaste plan**. De standaardwaarde **alleen fouten** optie maakt gebruik van de minimale hoeveelheid opslag, omdat deze geen waarschuwingen of tracering berichten over te dragen. De **alle informatie** de meeste gegevens worden overgebracht, de meest opslag gebruikt en daarom is de meest dure optie.
-   
+
+   > [!NOTE]
+   > Minimale ondersteunde grootte voor de 'Schijf quotum in MB' is 4GB. Echter, als u geheugendumps verzamelt, verhoogt dit op een hogere waarde zoals 10GB.
+   >
+  
     ![Azure diagnostics- en configuratie inschakelen](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. Selecteer voor dit voorbeeld wordt de **aangepaste plan** optie, zodat u de verzamelde gegevens kunt aanpassen.
 7. In de **schijfquotum in MB** vak kunt u instellen hoeveel ruimte toe te wijzen in uw opslagaccount voor diagnostische gegevens. U kunt wijzigen of accepteer de standaardwaarde.

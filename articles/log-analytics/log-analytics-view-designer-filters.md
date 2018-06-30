@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 21b54f60286e25c410b9d51de8be122c450080d3
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.component: na
+ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752772"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131407"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filters in weergaven Log Analytics
 Een **filter** in een [logboekanalyse weergeven](log-analytics-view-designer.md) kunnen gebruikers de gegevens in de weergave filteren op de waarde van een bepaalde eigenschap zonder dat de weergave zelf worden gewijzigd.  U zou bijvoorbeeld kunnen gebruikers van uw weergave filteren op de weergave voor alleen de gegevens van een bepaalde computer of verzameling computers.  U kunt meerdere filters maken op een enkele weergave zodat gebruikers kunnen filteren op meerdere eigenschappen.  Dit artikel wordt beschreven hoe u een filter en toevoegen aan een aangepaste weergave.
@@ -49,17 +50,17 @@ De volgende tabel beschrijft de instellingen voor een filter.
 |:---|:---|
 | Veldnaam | Naam van het veld dat wordt gebruikt voor het filteren.  Dit moet overeenkomen met het veld samenvatten in **Query voor waarden**. |
 | Query voor waarden | De query uit te voeren om het vullen van de vervolgkeuzelijst met filters voor de gebruiker.  Dit moet een gebruiken [samenvatten](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) of [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) unieke waarden opgeven voor een bepaald veld en moet overeenkomen met de **veldnaam**.  U kunt [sorteren](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) te sorteren van de waarden die worden weergegeven voor de gebruiker. |
-| Tag | Naam voor het veld dat wordt gebruikt in query's ondersteunen het filter en wordt ook weergegeven voor de gebruiker. |
+| Label | Naam voor het veld dat wordt gebruikt in query's ondersteunen het filter en wordt ook weergegeven voor de gebruiker. |
 
 ### <a name="examples"></a>Voorbeelden
 
 De volgende tabel staan enkele voorbeelden van algemene filters.  
 
-| Veldnaam | Query voor waarden | Tag |
+| Veldnaam | Query voor waarden | Label |
 |:--|:--|:--|
 | Computer   | Heartbeat &#124; distinct Computer &#124; sorteren op een Computer asc | Computers |
-| EventLevelName | Gebeurtenis &#124; distinct EventLevelName | Ernst |
-| Foutcode | Syslog &#124; distinct foutcode | Ernst |
+| EventLevelName | Gebeurtenis &#124; distinct EventLevelName | Severity |
+| Foutcode | Syslog &#124; distinct foutcode | Severity |
 | SvcChangeType | Configuratiewijziging &#124; distinct svcChangeType | ChangeType |
 
 

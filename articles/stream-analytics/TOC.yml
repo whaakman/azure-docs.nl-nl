@@ -127,8 +127,6 @@
           href: stream-analytics-job-diagram-with-metrics.md
         - name: Diagnostische logboeken
           href: stream-analytics-job-diagnostic-logs.md
-        - name: Status van resources controleren
-          href: stream-analytics-resource-health.md
         - name: SELECT INTO-instructie
           href: stream-analytics-select-into.md
         - name: Event Hub-ontvangers

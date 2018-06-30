@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 0bcdc3c4357cb8985fad16c607957bffad4a2b8c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4dea1209548fb3bb4f846cdf7eaf82751f938bea
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049227"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108841"
 ---
 # <a name="quickstart-for-c-and-windows"></a>Quick Start voor C++ en Windows
 
@@ -78,8 +78,8 @@ Uw starter standaardcode vervangen door het volgende:
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
 
 > [!IMPORTANT]
-> De abonnementssleutel vervangen door een die u hebt verkregen. <br>
-> De regio vervangen door uw regio in de [REST-API van spraak](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis), bijvoorbeeld vervangen door 'westus'.
+> De abonnementssleutel vervangen door de die u hebt verkregen. <br>
+> Vervang de [regio](regions.md) met een gekoppeld aan het abonnement, bijvoorbeeld vervangen door `westus` voor het gratis proefabonnement.
 
 ![De abonnementssleutel van uw toevoegen](media/sdk/sub-key-recognize-speech-cpp.png)
 

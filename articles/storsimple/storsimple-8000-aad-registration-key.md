@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 37f44538d94ed78509bbcb09e726dc34a9e92e95
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e6e792c31f9856bcaf1d777e534dcac8d8be3dd3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28030945"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113524"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Gebruik de nieuwe verificatie voor uw StorSimple
 
@@ -47,7 +47,7 @@ Als StorSimple 8000-serie, controleert u of de volgende URL is opgenomen in de f
 
 | URL-patroon                         | Cloud | Onderdeel/functionaliteit         |
 |------------------------------------|-------|----------------------------------|
-| `https://login.windows.net`        | Azure Public |AAD authentication-service      |
+| `https://login.windows.net`        | Openbare Azure |AAD authentication-service      |
 | `https://login.microsoftonline.us` | Amerikaanse overheid |AAD authentication-service      |
 
 Voor een volledige lijst met URL voor StorSimple 8000 series apparaten patronen, gaat u naar [URL-patronen voor firewallregels](storsimple-8000-system-requirements.md#url-patterns-for-firewall-rules).
@@ -60,9 +60,9 @@ Als een StorSimple 8000 series apparaat gebruikt, gebruikt u de volgende tabel o
 
 | Als uw apparaat wordt uitgevoerd| De volgende actie ondernemen                                    |
 |--------------------------|------------------------|--------------------|--------------------------------------------------------------|
-| Update 5 of hoger en het apparaat is offline. <br> Er wordt een waarschuwing URL is niet wilt plaatsen.| Wijzig de firewall-regels zodanig dat de URL voor webverificatie.<br> Zie [verificatie URL's](#url-changes-for-aad-authentication). |
+| Update 5 of hoger en het apparaat is offline. <br> Er wordt een waarschuwing URL is niet wilt plaatsen.|1. Wijzig de firewall-regels zodanig dat de URL voor webverificatie. Zie [verificatie URL's](#url-changes-for-aad-authentication).<br>2. [De registratiesleutel AAD ophalen uit de service](#aad-based-registration-keys).<br>3. [Verbinding maken met de Windows PowerShell-interface van het apparaat van de serie StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Gebruik `Redo-DeviceRegistration` Registreer het apparaat via de Windows PowerShell cmdlet. Geef de sleutel die u in de vorige stap hebt verkregen.|
 | Update 5 of hoger en het apparaat online is.| Er is geen actie vereist.                                       |
-| Update 4 of eerder en het apparaat is offline. | Wijzig de firewall-regels zodanig dat de URL voor webverificatie.<br>[Update 5 downloaden via catalogusserver](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[Update 5 toepassen met de hotfix-methode](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [De registratiesleutel AAD ophalen uit de service](#aad-based-registration-keys). <br> [Verbinding maken met de Windows PowerShell-interface van het apparaat van de serie StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>Gebruik `Redo-DeviceRegistration` Registreer het apparaat via de Windows PowerShell cmdlet. Geef de sleutel die u in de vorige stap hebt verkregen.|
+| Update 4 of eerder en het apparaat is offline. |1. Wijzig de firewall-regels zodanig dat de URL voor webverificatie.<br>2. [Update 5 downloaden via catalogusserver](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Update 5 toepassen met de hotfix-methode](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [De registratiesleutel AAD ophalen uit de service](#aad-based-registration-keys).<br>5. [Verbinding maken met de Windows PowerShell-interface van het apparaat van de serie StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Gebruik `Redo-DeviceRegistration` Registreer het apparaat via de Windows PowerShell cmdlet. Geef de sleutel die u in de vorige stap hebt verkregen.|
 | Update 4 of eerder en het apparaat is online. |Wijzig de firewall-regels zodanig dat de URL voor webverificatie.<br> Update 5 te installeren via de Azure portal.              |
 | Fabrieksinstellingen terugzetten naar een versie voordat u Update 5.      |De portal ziet u een AAD gebaseerde registratiesleutel terwijl het apparaat oudere software wordt uitgevoerd. Volg de stappen in het voorgaande scenario voor wanneer het apparaat Update 4 of ouder wordt uitgevoerd.              |
 

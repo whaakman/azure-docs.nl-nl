@@ -1,6 +1,6 @@
 ---
 title: Beheeracties in Azure | Microsoft Docs
-description: Meer informatie over cloud-gebaseerde computers onder meer services als een groot aantal compute-exemplaren en services die kunnen worden geschaald omhoog en omlaag automatisch om te voldoen aan de behoeften van uw toepassing of enterprise.
+description: Meer informatie over computergebruik cloudservices die kunnen worden omhoog en omlaag geschaald om te voldoen aan de behoeften van uw toepassing of enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,230 +14,161 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9c6509f25be7fe520a427e17ca1206e10f296fea
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061493"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110759"
 ---
 # <a name="governance-in-azure"></a>Governance in Azure
 
-We weten dat beveiliging taak in de cloud en hoe belangrijk is dat u tijdig en informatie over Azure-beveiliging vinden. Een van de beste redenen voor het gebruik van Azure voor uw toepassingen en services is om te profiteren van de breed scala aan mogelijkheden en hulpprogramma's voor beveiliging. Deze hulpprogramma's en mogelijkheden te maken het mogelijk om veilige oplossingen maken op de beveiligde Azure-platform.
+Azure biedt u veel beveiligingsopties en de mogelijkheid om ze te beheren zodat u kunt voldoet aan de unieke vereisten van uw organisatie implementaties.
 
-Om beter inzicht in de matrix van toezicht besturingselementen die zijn geïmplementeerd in Microsoft Azure vanuit zowel van de klant en de Microsoft operations perspectieven, in dit artikel 'Governance in Azure', wordt geschreven naar bieden een uitgebreide blik op de Governance functies die beschikbaar zijn met Microsoft Azure.
+Azure-cloud governance verwijst naar de besluitvormingsprocessen automatiseert, criteria en beleidsregels die zijn betrokken bij de planning en architectuur, overname, bewerking, implementatie en beheer van cloudcomputing. Azure-cloud governance biedt een geïntegreerde controle en advies benadering voor het controleren en adviseren organisaties op het gebruik van de Azure-platform. 
 
-## <a name="azure-platform"></a>Azure-platform
+U moet een diepgaande blik op de mensen, processen en technologieën nu duren in plaats voor het maken van een plan voor Azure-cloud toezicht. Vervolgens kunt u frameworks die eenvoudig samenstellen IT ter ondersteuning van consistent bedrijfsbehoeften en tegelijkertijd gebruikers de flexibiliteit om de functies van Azure te gebruiken.
 
-Azure is een openbare cloud service-platform die ondersteuning biedt voor een brede selectie van besturingssystemen, programmeertalen, frameworks, hulpprogramma's, databases en apparaten. Linux-containers kan worden uitgevoerd door de integratie van Dockers; bouwen van apps met JavaScript, Python, .NET, PHP, Java en Node.js; Build back-ends voor iOS, Android en Windows-apparaten. Openbare Azure-cloud-services ondersteunen dezelfde technologieën miljoenen ontwikkelaars en IT-professionals die al zijn afhankelijk van en vertrouwt.
+## <a name="implementation-of-policies-processes-and-standards"></a>Implementatie van beleid, processen en standaarden 
 
-Wanneer u bouwen op of IT-activa te migreren, een openbare cloud-serviceprovider u vertrouwen op de mogelijkheden voor uw toepassingen en gegevens beschermen met de services en de besturingselementen die organisatie ze bieden voor het beheren van de beveiliging van uw cloud-gebaseerde activa.
+Management heeft tot stand gebracht, rollen en verantwoordelijkheden over de implementatie van het beveiligingsbeleid van informatie en operationele continuïteit waakt in Azure. Azure management is verantwoordelijk voor het beheren van beveiliging en procedures voor bedrijfscontinuïteit binnen de respectieve teams (met inbegrip van derden). Daarnaast kunt u voldoen aan het beveiligingsbeleid, processen en standaarden.
 
-Azure infrastructuur van de faciliteit is ontworpen voor het hosten van miljoenen klanten tegelijkertijd van toepassingen en biedt een betrouwbare basis waarop bedrijven kunnen voldoen aan de beveiligingsvereisten. Bovendien biedt Azure veel mogelijkheden voor beveiliging en de mogelijkheid om ze te beheren zodat u kunt de beveiliging om te voldoen aan de unieke vereisten van uw organisatie implementaties aanpassen.
+### <a name="account-provisioning"></a>Account inrichten
 
-Dit document helpt u begrijpen hoe Azure Governance mogelijkheden kunnen u helpen te voldoen aan deze vereisten.
-
-## <a name="abstract"></a>Abstracte
-
-Microsoft Azure cloud governance biedt een geïntegreerde controle en advies benadering voor het controleren en adviseren organisaties op het gebruik van de Azure-platform. Microsoft Azure cloud governance verwijst naar de besluitvormingsprocessen automatiseert, criteria en beleidsregels die zijn betrokken bij de planning, architectuur, overname, implementatie, bewerking en beheer van een Cloud computing.
-
-Om een plan voor Microsoft Azure cloud toezicht maakt, moet u een diepgaande blik op de mensen, processen en technologieën momenteel duren in plaats en vervolgens samen frameworks die eenvoudig IT ter ondersteuning van consistent bedrijfsbehoeften en tegelijkertijd eindgebruikers de flexibiliteit om het gebruik van de andere van krachtige functies van Microsoft Azure.
-
-Dit artikel wordt beschreven hoe u een verhoogd niveau van beheer van uw IT-bronnen in Microsoft Azure kunt bereiken. Dit artikel vindt u informatie over de beveiliging en beheeracties functies die zijn ingebouwd in Microsoft Azure.
-
-Hier volgen de governance problemen in dit artikel beschreven main:
-
-- Implementatie van beleid, processen en procedures conform de instelling voor organisatiedoelstellingen.
-
-- Beveiliging en continue naleving met de standaarden van organisatie
-
-- Bewaking en waarschuwingen
-
-## <a name="implementation-of-policies-processes-and-procedures"></a>Implementatie van beleid, processen en procedures 
-
-Management heeft tot stand gebracht, rollen en verantwoordelijkheden over de uitvoering van het beveiligingsbeleid van informatie en operationele continuïteit waakt in Azure. Beheer van Microsoft Azure is verantwoordelijk voor het beheren van beveiliging en procedures voor bedrijfscontinuïteit binnen hun respectieve teams (inclusief derden) en om naleving van beveiligingsbeleid, processen en standaarden.
-
-Hier volgen de factoren die is ontwikkeld:
-
-- Account inrichten
-
-- Abonnement-besturingselementen
-
-- Rollen gebaseerd toegangsbeheer
-
-- Resourcebeheer
-
-- Bronnen bijhouden
-
-- Kritieke bronnen
-
-- API-toegang tot factureringsgegevens
-
-- Besturingselementen voor netwerken
-
-## <a name="account-provisioning"></a>Account inrichten
-
-Account hiërarchie definiëren, is een belangrijke stap om te gebruiken en de structuur van Azure services binnen een bedrijf en is de bestuursstructuur core. In geval van klanten met de enterprise agreement, kunnen klanten verder onderverdelen in de omgeving aan de afdelingen, accounts en ten slotte abonnementen.
+Account hiërarchie definiëren, is een belangrijke stap om te gebruiken en de structuur van de Azure-services binnen een bedrijf. De bestuursstructuur core is. Klanten met een Enterprise Agreement (EA) kunnen onderverdelen in de omgeving aan de afdelingen, accounts en -abonnementen.
 
 ![Account inrichten](./media/governance-in-azure/security-governance-in-azure-fig1.png)
 
-Als u een enterprise agreement niet hebt, kunt u overwegen [Azure labels](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) op abonnementsniveau hiërarchie definiëren. Een Azure-abonnement is de basiseenheid waarbij alle resources zijn opgenomen. Het definieert ook diverse limieten in Azure, zoals het aantal kernen, bronnen, enzovoort. Abonnementen kunnen bevatten [resourcegroepen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), die bronnen kunnen bevatten. [RBAC](https://docs.microsoft.com/azure/api-management/api-management-role-based-access-control) beginselen van toepassing op deze drie niveaus.
+Als u een Enterprise Agreement hebt, kunt u overwegen [Azure labels](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) op het abonnementsniveau voor het definiëren van de hiërarchie. Een Azure-abonnement is de basiseenheid waarin alle resources. Het definieert ook diverse limieten in Azure, zoals het aantal kernen en resources. Abonnementen kunnen bevatten [resourcegroepen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), die bronnen kunnen bevatten. [Op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) beginselen van toepassing op deze drie niveaus.
 
-Elke enterprise verschilt en de hiërarchie met gebruik van Azure labels in geval van een niet-zakelijke klanten kunt u aanzienlijke flexibiliteit voor hoe Azure is ingedeeld binnen het bedrijf. Voordat u resources in Microsoft Azure implementeert, moet u hiërarchie model en het effect van facturering, toegang tot bedrijfsbronnen en complexiteit.
+Elke enterprise verschilt. Voor bedrijven die buiten de onderneming kunt u de hiërarchie van het gebruik van Azure labels flexibiliteit in de rangschikking van Azure. Voordat u resources in Azure implementeert, moet u een hiërarchie model en wat de gevolgen van facturering, toegang tot bedrijfsbronnen en complexiteit.
 
-## <a name="subscription-controls"></a>Abonnement-besturingselementen
+### <a name="subscription-controls"></a>Abonnement-besturingselementen
 
-Abonnement bepaalt hoe verbruik van resources is gerapporteerd en kosten in rekening gebracht. Abonnementen kunnen worden ingesteld voor afzonderlijke facturering en betaling. We kunnen meerdere abonnementen hebben als genoemde eerdere in een Azure-account. Abonnementen kunnen worden gebruikt om te bepalen van het Azure brongebruik van meerdere afdelingen in een bedrijf.
+Abonnementen bepalen hoe verbruik van resources is gerapporteerd en kosten in rekening gebracht. U kunt abonnementen voor afzonderlijke facturering en betaling instellen. Een Azure-account kan meerdere abonnementen hebt. Abonnementen kunnen worden gebruikt om te bepalen van het Azure brongebruik van meerdere afdelingen in een bedrijf.
 
-Bijvoorbeeld, als een bedrijf heeft IT, HR en Marketing afdelingen en deze afdelingen hebben verschillende projecten uitgevoerd. Op basis van het gebruik van Azure-resources zoals virtuele machines door elke afdeling, kunnen ze worden gefactureerd dienovereenkomstig. Dit kunnen we de financiën van elke afdeling bepalen.
+Bijvoorbeeld, een bedrijf heeft IT, HR, en Marketing afdelingen en deze afdelingen verschillende projecten worden uitgevoerd. Het bedrijf kunt baseren de facturering op elke afdeling informatie over het gebruik van Azure-resources, zoals virtuele machines. Het bedrijf kan vervolgens bepalen voor de financiële gegevens van elke afdeling.
 
 Azure-abonnementen tot stand brengen van de drie parameters:
 
-- een unieke abonnements-ID
+- Unieke abonnements-ID
 
-- een locatie facturering
+- Locatie van de facturering
 
 - Aantal beschikbare resources
 
-Voor een afzonderlijke die geldt voor een Microsoft-account-ID, een creditcardnummer en de volledige suite met Azure-services--Hoewel Microsoft verbruik limieten, afhankelijk van het abonnementstype worden afgedwongen.
+Voor een afzonderlijke bevatten die parameters één Microsoft-account-ID, een creditcardnummer en de volledige suite met Azure-services. Microsoft zorgt er verbruik limieten, afhankelijk van het abonnementstype.
 
-Azure inschrijving hiërarchieën definiëren hoe de structuur van services binnen een Enterprise Agreement. De Enterprise Portal kunnen klanten toegang tot Azure-resources die zijn gekoppeld aan een Enterprise Agreement op basis van flexibele hiërarchieën aanpasbare om unieke behoeften van uw organisatie te verdelen. Het patroon van de hiërarchie moet overeenkomen met het beheer en de geografische structuur van een organisatie, zodat de bijbehorende facturerings- en -toegang nauwkeurig kan worden gehouden voor.
+Azure inschrijving hiërarchieën definiëren hoe de structuur van services binnen een Enterprise Agreement. De Enterprise Agreement portal kan klanten toegang tot Azure-resources die zijn gekoppeld aan een Enterprise Agreement op basis van flexibele hiërarchieën die kunnen aangepast aan de behoeften van een organisatie worden te verdelen. Het patroon van de hiërarchie moet overeenkomen met het beheer en de geografische structuur voor de bijbehorende facturerings- en -toegang van een organisatie.
 
-De drie op hoog niveau zijn functionele, zakelijke eenheid en afdelingen geografische, met als een administratieve constructie voor account groeperingen. Binnen elke afdeling kunnen de accounts worden toegewezen aan abonnementen, die silo voor facturerings- en diverse belangrijke limieten maken in Azure (bijv, aantal virtuele machines, opslagaccounts, enz.).
+De drie op hoog niveau hiërarchie zijn functionele, zakelijke eenheid, en geografische. Afdelingen zijn een administratieve constructie voor account groeperingen. Binnen elke afdeling kunnen de accounts worden toegewezen aan abonnementen, die silo voor facturerings- en diverse belangrijke limieten in Azure (bijvoorbeeld aantal VM's en storage-accounts maken).
 
 ![Abonnement-besturingselementen](./media/governance-in-azure/security-governance-in-azure-fig2.png)
 
 
 Azure-abonnementen voor organisaties met een Enterprise Agreement, Ga als volgt een hiërarchie vier niveaus:
 
-- de beheerder van de Enterprise-inschrijving
+1. de beheerder van de Enterprise-inschrijving
 
-- afdeling beheerder
+2. afdeling beheerder
 
-- de eigenaar van account
+3. de eigenaar van account
 
-- Servicebeheerder
+4. Servicebeheerder
 
 Deze hiërarchie bepaalt het volgende:
 
-- Facturering relatie
+- Relatie van de facturering.
 
-- Beheer
+- Account-beheer.
 
-- Rollen gebaseerd toegangsbeheer (RBAC) tot artefacten
+- Toegang tot bronnen via RBAC.
 
-- Grenzen/limieten
-
-- Grenzen
+- Grenzen:
 
   - Informatie over het gebruik en facturering (tariefkaart op basis van de aanbieding cijfers)
 
   - Limieten
 
-  - Virtual Network
+  - Virtueel netwerk
 
-- Gekoppeld aan 1 AAD (1 AAD worden gekoppeld aan veel abonnementen)
+- Koppelen aan Azure Active Directory (Azure AD). Een Azure AD-exemplaar kan worden gekoppeld aan veel abonnementen.
 
-- Dat is gekoppeld aan een account enterprise-inschrijving
+- De koppeling met een enterprise-inschrijving-account.
 
-## <a name="role-based-access-controls"></a>Toegangsbeheer op basis van rollen
+### <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-Wanneer Azure in eerste instantie is uitgebracht, toegangsbeheer om een abonnement te basic zijn: Administrator of CO-beheerder. Toegang tot een abonnement in het klassieke model geïmpliceerde toegang tot alle bronnen in de portal. Dit gebrek aan nauwkeuriger beheer leidde tot de komst van abonnementen tot een redelijke toegangsbeheer bieden voor een Azure-inschrijving.
+[RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) kan worden beheerd gedetailleerde toegang tot resources in Azure. Met behulp van RBAC kunt u alleen de hoeveelheid toegang verlenen dat gebruikers moeten uitvoeren van hun taken. Bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen tonen een account voor aanvallen. Te weinig machtigingen betekenen dat werknemers hun werk efficiënt kunnen niet ophalen. 
 
-![Toegangsbeheer op basis van rollen](./media/governance-in-azure/security-governance-in-azure-fig3.png)
+In plaats van iedereen geven onbeperkte machtigingen in uw Azure-abonnement of de bronnen, kunt u alleen bepaalde acties. U kunt bijvoorbeeld RBAC te laten een werknemer virtuele machines in een abonnement beheren terwijl een andere werknemer SQL-databases in hetzelfde abonnement beheert.
 
-De verspreiding van abonnementen is niet meer nodig. Met op rollen gebaseerde toegangsbeheer, kunt u gebruikers toewijzen aan standaardrollen (zoals 'Lezer' en 'schrijver' voorkomende rollen). U kunt ook aangepaste rollen definiëren.
+Om toegang te verlenen, kunt u rollen toewijzen aan gebruikers, groepen of toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource. Een rol die is toegewezen aan een bovenliggend bereik verleent toegang ook naar de onderliggende elementen erin opgenomen. Een gebruiker met toegang tot een resourcegroep kan bijvoorbeeld alle resources die deze, zoals websites, virtuele machines en subnetten bevat te beheren. U kunt maximaal 2.000 roltoewijzingen maken binnen elk abonnement.
 
-[Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) kunt Geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u alleen de toegangsrechten aan gebruikers verlenen die ze nodig hebben om hun taken uit te voeren. Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen tonen een account voor aanvallen. Te weinig machtigingen betekenen dat werknemers hun werk efficiënt kunnen niet ophalen. Azure op rollen gebaseerde toegangsbeheer (RBAC) kunt u dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure. RBAC helpt u bij het scheiden van taken binnen uw team en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen in uw Azure-abonnement of de bronnen, kunt u alleen bepaalde acties.
-
-Bijvoorbeeld, gebruikmaken van RBAC te laten een werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
-
-Azure RBAC heeft drie elementaire functies die van toepassing op alle brontypen:
+Een rol is een verzameling machtigingen en RBAC heeft diverse ingebouwde rollen. De volgende ingebouwde rollen toepassen op alle brontypen:
 
 - **Eigenaar** heeft volledige toegang tot alle bronnen, waaronder het recht op toegang aan anderen delegeren.
 
 - **Inzender** kunt maken en beheren van alle soorten Azure-resources, maar kan geen toegang tot de overige verlenen.
 
-- **Lezer** bestaande Azure-resources kunt weergeven.
+- **Lezer** alle Azure-resources kunt weergeven.
 
-De rest van de RBAC-rollen in Azure toestaan van beheer van specifieke Azure-resources. De rol Inzender van de virtuele Machine kan bijvoorbeeld de gebruiker te maken en beheren van virtuele machines. Het biedt ze geen toegang geven tot het virtuele netwerk of het subnet dat de virtuele machine verbinding met maakt.
+De rest van de ingebouwde rollen in Azure toestaan van beheer van specifieke Azure-resources. De rol Inzender van de virtuele Machine kan bijvoorbeeld de gebruiker te maken en beheren van virtuele machines. Zie voor een lijst van de ingebouwde rollen en hun bewerkingen [ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-[Ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) vindt u de rollen die beschikbaar zijn in Azure. De Hiermee geeft u de bewerkingen en het bereik dat elke ingebouwde rol aan gebruikers verleent.
+RBAC ondersteunt beheerbewerkingen van de Azure-resources in de Azure portal en Azure Resource Manager-API's. In de meeste gevallen kan geen RBAC gegevensniveau bewerkingen voor Azure-resources autoriseren. Zie voor meer informatie over hoe RBAC wordt uitgebreid naar gegevensbewerkingen [begrijpen roldefinities](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions).
 
-Toegang verlenen door de juiste RBAC-rol toewijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource. Een rol die is toegewezen aan een bovenliggend bereik verleent toegang ook naar de onderliggende elementen erin opgenomen.
+Als de ingebouwde rollen niet voldoen aan de behoeften van uw specifieke toegang, kunt u [maakt u een aangepaste rol](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Net als de ingebouwde rollen kunnen aangepaste rollen worden toegewezen aan gebruikers, groepen en toepassingen bij het abonnement, resourcegroep en bereik van de resource. U kunt ook aangepaste rollen maken met behulp van [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), en de [REST-API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
-Een gebruiker met toegang tot een resourcegroep kan bijvoorbeeld alle resources, zoals websites, virtuele machines en subnetten bevat te beheren.
+### <a name="resource-management"></a>Resourcebeheer
 
-Azure RBAC ondersteunt alleen beheerbewerkingen van de Azure-resources in de Azure-portal en Azure Resource Manager-API's. Deze kan niet toestaan dat alle gegevens niveau bewerkingen voor Azure-resources. Bijvoorbeeld autoriseren iemand voor het beheren van Accounts voor opslag, maar niet aan de blobs of tabellen binnen een Opslagaccount niet. Op deze manier kan een SQL-database worden beheerd, maar niet de tabellen in het.
+Azure biedt twee implementatiemodellen: [klassieke](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) en Azure Resource Manager.
 
-Zie [Wat is op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/overview) als u meer informatie wilt over het beheren van toegang met RBAC.
+In het klassieke model, wordt elke resource afzonderlijk bestaat. Er is geen manier om groepen verwante resources. U moet handmatig bij te houden welke resources gezamenlijk uw oplossing of de toepassing en vergeet niet om deze te beheren in een gecoördineerde benadering. De basiseenheid voor beheer, is het abonnement. Het is moeilijk om op te splitsen resources binnen een abonnement, wat tot het maken van een groot aantal abonnementen leidt.
 
-U kunt ook [maakt u een aangepaste rol](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) in gebaseerd toegangsbeheer (RBAC) als geen van de ingebouwde rollen aan uw specifieke toegang nodig heeft. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure-opdrachtregelinterface (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), en de [REST-API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Net als de ingebouwde rollen kunnen aangepaste rollen worden toegewezen aan gebruikers, groepen en toepassingen bij het abonnement, resourcegroep en resource bereiken.
+Het implementatiemodel van Resource Manager omvat het concept van een [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Een resourcegroep is een container voor resources die een gemeenschappelijke levenscyclus delen. Alle resources voor de oplossing of alleen de resources die u wilt beheren als een groep kan bevatten. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is.
 
-Binnen elk abonnement geldt een limiet van 2000 roltoewijzingen.
-
-## <a name="resource-management"></a>Resourcebeheer
-
-In Azure was in eerste instantie alleen het klassieke implementatiemodel beschikbaar. In dit model waren alle resources zelfstandig en er was geen enkele manier om gerelateerde resources te groeperen. In plaats daarvan moest u handmatig bijhouden welke resources in uw oplossing of toepassing werden gebruikt en niet vergeten om de resources op een gecoördineerde manier te beheren.
-
-Voor het implementeren van een oplossing, moest u elke resource afzonderlijk via de Azure portal maken of een script maken dat alle bronnen in de juiste volgorde geïmplementeerd. Als u een oplossing wilde verwijderen, moest u elke resource afzonderlijk verwijderen. Het was niet mogelijk om op een eenvoudige manier van beleid voor toegangsbeheer toe te passen en bij te werken voor verwante resources. Het was evenmin mogelijk om tags te koppelen aan resources, om aan de hand van labels de resources makkelijker te bewaken en factureren.
-
-In 2014 werd Azure Resource Manager geïntroduceerd, en daarmee het concept van resourcegroepen. Een resourcegroep is een container voor resources die een gemeenschappelijke levenscyclus delen. Het implementatiemodel van Resource Manager biedt diverse voordelen:
+Het implementatiemodel van Resource Manager biedt diverse voordelen:
 
 - U kunt alle services voor uw oplossing als een groep implementeren, beheren en bewaken, in plaats van deze services afzonderlijk te verwerken.
 
-- U kunt de oplossing herhaaldelijk implementeren gedurende de levenscyclus en erop vertrouwen dat uw resources op een consistente manier worden geïmplementeerd.
+- U kunt herhaaldelijk implementeren van uw oplossing gedurende de levenscyclus en erop vertrouwen dat uw resources worden geïmplementeerd in een consistente status.
 
-- U kunt toegangsbeheer toepassen op alle resources in de resourcegroep. Deze beleidsregels worden automatisch toegepast wanneer nieuwe resources worden toegevoegd aan de resourcegroep.
+- U kunt toegangsbeheer toepassen op alle resources in uw resourcegroep. Deze beleidsregels worden automatisch toegepast wanneer nieuwe resources worden toegevoegd aan de resourcegroep.
 
 - U kunt tags toepassen op de resources om alle resources in uw abonnement op een logische manier te organiseren.
 
 - U kunt JSON (JavaScript Object Notation) gebruiken voor het definiëren van de infrastructuur voor uw oplossing. Het JSON-bestand is in feite de Resource Manager-sjabloon.
 
-- U kunt de afhankelijkheden tussen resources zo definiëren dat deze in de juiste volgorde worden geïmplementeerd.
+- U kunt de afhankelijkheden tussen resources zodat deze zijn geïmplementeerd in de juiste volgorde definiëren.
 
-![Resourcebeheer](./media/governance-in-azure/security-governance-in-azure-fig4.png)
-
-Resource Manager kunt u resources in zinvolle groepen voor beheer, facturerings- of natuurlijke affiniteit plaatsen. Zoals eerder vermeld, wordt Azure heeft twee implementatiemodellen. In de eerdere [model Klassiek](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model), de basiseenheid voor beheer van het abonnement is. Was het moeilijk om op te splitsen resources binnen een abonnement, wat geleid tot het maken van een groot aantal abonnementen heeft. Met het Resource Manager-model hebt gezien de introductie van resourcegroepen.
-
-Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. [De resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kunnen zijn voor alle resources voor de oplossing of alleen de resources die u wilt beheren als groep. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is.
+![Resource Manager](./media/governance-in-azure/security-governance-in-azure-fig4.png)
 
 Ga voor aanbevelingen over sjablonen naar [Aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
-Azure Resource Manager analyseert afhankelijkheden om ervoor te zorgen dat de resources in de juiste volgorde worden gemaakt. Als een resource afhankelijk is van een waarde uit een andere resource (zoals een virtuele machine die een opslagaccount nodig heeft voor schijven), stelt u een afhankelijkheid in.
+Azure Resource Manager analyseert afhankelijkheden om ervoor te zorgen dat de resources in de juiste volgorde worden gemaakt. Als één resource is afhankelijk van een waarde uit een andere bron (zoals een virtuele machine die behoefte hebben aan een opslagaccount voor schijven), u [instellen van een afhankelijkheid](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies) in de sjabloon.
 
->[!Note]
->Zie voor meer informatie [Afhankelijkheden definiëren in Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies).
+U kunt de sjabloon ook gebruiken voor updates aan de infrastructuur. U kunt bijvoorbeeld een resource toevoegen aan uw oplossing en configuratieregels toevoegen voor de resources die al zijn geïmplementeerd. Als de sjabloon is opgegeven voor een resource gemaakt maar betreffende resource al bestaat, wordt in het Resource Manager een update in plaats van een nieuwe asset maken uitvoert. Resource Manager werkt de bestaande asset naar dezelfde toestand als het normaal zou als een nieuwe zijn.
 
-U kunt de sjabloon ook gebruiken voor updates aan de infrastructuur. U kunt bijvoorbeeld een resource toevoegen aan uw oplossing en configuratieregels toevoegen voor de resources die al zijn geïmplementeerd. Als de sjabloon specificeert dat een resource wordt gemaakt maar die resource al bestaat, wordt er geen nieuwe asset gemaakt. In plaats daarvan voert Azure Resource Manager een update uit. Azure Resource Manager werkt de bestaande asset bij naar dezelfde toestand als een nieuwe asset.
+Resource Manager biedt uitbreidingen voor scenario's als u meer bewerkingen, zoals het installeren van software die niet is opgenomen in de installatie nodig.
 
-Resource Manager biedt uitbreidingen voor scenario's als u extra bewerkingen zoals het installeren van software die niet is opgenomen in de installatie nodig.
+### <a name="resource-tracking"></a>Bronnen bijhouden
 
-## <a name="resource-tracking"></a>Bronnen bijhouden
+Als gebruikers in uw organisatie een resource aan het abonnement toevoegt, wordt het belangrijker resources koppelen aan de juiste afdeling, de klant en de omgeving. U kunt metagegevens koppelen aan resources via [labels](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags). U codes gebruiken om informatie over de bron of de eigenaar te geven. Labels kunnen u niet alleen aggregeren en resources op verschillende manieren groeperen, maar ook gebruiken die gegevens voor terugstorting.
 
-Als gebruikers in uw organisatie een resource aan het abonnement toevoegt, wordt het steeds belangrijker om resources koppelen aan de juiste afdeling, de klant en de omgeving. U kunt metagegevens koppelen aan resources via labels. U gebruikt [labels](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) informatie bieden over de bron of de eigenaar. Labels kunnen u niet alleen aggregeren en resources op verschillende manieren groeperen, maar die gegevens gebruiken voor de doeleinden van doorberekening.
+Gebruik tags wanneer u een verzameling complexe resourcegroepen en resources en u hebt moeten deze assets op de manier die het meest zinvol om u te visualiseren. U kunt bijvoorbeeld resources die een vergelijkbare rol vervullen in uw organisatie of die deel uitmaken van dezelfde afdeling labelen.
 
-Gebruik tags wanneer u een verzameling complexe resourcegroepen en resources hebt en u deze assets moet visualiseren op een manier die relevant voor u is. U kunt bijvoorbeeld resources taggen die een vergelijkbare rol hebben in uw organisatie of bij dezelfde afdeling horen.
+Zonder tags kunnen kunnen gebruikers in uw organisatie maken van meerdere resources die mogelijk moeilijk te later identificeren en te beheren. U wilt verwijderen van alle resources voor een project. Als u deze resources zijn niet gemarkeerd voor het project, moet u deze handmatig zoeken. Taggen kan een belangrijke manier zijn om onnodige kosten in uw abonnement te voorkomen.
 
-Zonder tags kunnen gebruikers in uw organisatie meerdere resources maken die later mogelijk moeilijk zijn te identificeren en te beheren. Mogelijk wilt u alle resources voor een project verwijderen. Als u deze resources zijn niet gemarkeerd voor het project, moet u deze handmatig zoeken. Taggen kan een belangrijke manier zijn om onnodige kosten in uw abonnement te voorkomen.
+Resources hoeven zich bevinden in dezelfde resourcegroep voor het delen van een label. U kunt uw eigen tagtaxonomie om ervoor te zorgen dat alle gebruikers in uw organisatie gebruiken veelgebruikte tags in plaats van per ongeluk toepassen afwijkende tags (zoals 'Afd' in plaats van 'afdeling') maken.
 
-Resources hoeven niet tot dezelfde resourcegroep te behoren om een tag te kunnen delen. U kunt uw eigen tagtaxonomie maken om ervoor te zorgen dat alle gebruikers in uw organisatie gebruikmaken van veelgebruikte tags en niet per ongeluk afwijkende tags toepassen (zoals 'afd' in plaats van 'afdeling').
+Bronbeleid kunnen u voor het maken van standaardregels voor uw organisatie. U kunt beleid om ervoor te zorgen dat bronnen worden gelabeld met de juiste waarden maken.
 
-Bronbeleid kunnen u voor het maken van standaardregels voor uw organisatie. U kunt beleidsregels die zorg ervoor dat resources worden gemarkeerd met de juiste waarden maken.
+U kunt ook getagde resources via Azure Portal weergeven. De [gebruiksrapport](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) voor uw abonnement tagnamen en waarden bevat, dus u kunt uitsplitsing kosten door tags.
 
-> [!Note]
-> Zie voor meer informatie [facturering tags beleid initiatief](../azure-policy/scripts/billing-tags-policy-init.md).
-
-U kunt ook getagde resources via Azure Portal weergeven.
-
-Het [gebruiksrapport](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) voor uw abonnement bevat tagnamen en -waarden, zodat u de kosten op basis van tags kunt opdelen.
-
-> [!Note]
-> Zie voor meer informatie over tags [facturering tags beleid initiatief](../azure-policy/scripts/billing-tags-policy-init.md).
+Zie voor meer informatie over tags [facturering tags beleid initiatief](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Voor tags gelden de volgende beperkingen:
 
-- Elke resource of resourcegroep kan maximaal 15 tag sleutel/waarde-paren hebben. Deze beperking geldt alleen voor labels direct worden toegepast op de resourcegroep of resource. Een resourcegroep mag veel bronnen die elk 15 tag sleutel/waarde-paren hebben.
+- Elke resource of resourcegroep kan maximaal 15 tag sleutel/waarde-paren hebben. Deze beperking geldt alleen voor tags die direct worden toegepast op de resourcegroep of resource. Een resourcegroep mag veel bronnen die elk 15 tag sleutel/waarde-paren hebben.
 
 - De tagnaam is beperkt tot 512 tekens.
 
@@ -247,248 +178,227 @@ Voor tags gelden de volgende beperkingen:
 
 Als u meer dan 15 waarden aan een resource moet koppelen, gebruikt u een JSON-tekenreeks voor de tagwaarde. De JSON-tekenreeks kan veel waarden die worden toegepast op een enkel label-sleutel bevatten.
 
-### <a name="tags-and-billing"></a>Labels en facturering
+#### <a name="tags-for-billing"></a>Codes voor facturering
 
-Labels kunnen u uw factureringsgegevens groep. Bijvoorbeeld, als u meerdere virtuele machines voor verschillende organisaties uitvoert, gebruiken de codes voor een groep gebruik door kostenplaats. U kunt ook codes gebruiken om kosten te categoriseren door de runtimeomgeving. zoals het gebruik van facturering voor virtuele machines die worden uitgevoerd in de productieomgeving.
+Labels kunnen u uw factureringsgegevens groep. Bijvoorbeeld, als u meerdere virtuele machines voor verschillende organisaties uitvoert, gebruik labels aan het gebruik van de groep door kostenplaats. U kunt ook tags gebruiken om kosten te categoriseren door de runtimeomgeving, zoals het gebruik van facturering voor VM's worden uitgevoerd in de productieomgeving.
 
-Vindt u informatie over tags via de [Azure brongebruik en RateCard APIs](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview) of het gebruik door komma's gescheiden waarden (CSV)-bestand. Downloaden van het bestand informatie over het gebruik van de [Azure-accounts portal](https://account.windowsazure.com/) of [EA portal](https://ea.azure.com/).
+Vindt u informatie over tags via de [Azure brongebruik en RateCard APIs](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview) of het gebruik door komma's gescheiden waarden (CSV)-bestand. Downloaden van het bestand informatie over het gebruik van de [Azure-accounts portal](https://account.windowsazure.com/) of de [EA portal](https://ea.azure.com/).
 
->[!Note]
-> Zie voor meer informatie over de programmatische toegang tot factureringsgegevens [inzicht in uw Microsoft Azure-brongebruik](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview). Zie voor REST-API-bewerkingen, [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Zie voor meer informatie over de programmatische toegang tot factureringsgegevens [inzicht in uw Microsoft Azure-brongebruik](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview). Zie voor REST-API-bewerkingen, [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 Wanneer u het gebruik van CSV voor services die ondersteuning bieden voor tags met facturering downloadt, wordt de labels worden weergegeven in de kolom labels.
 
-## <a name="critical-resource-controls"></a>Besturingselementen voor kritieke bronnen
+### <a name="critical-resource-controls"></a>Besturingselementen voor kritieke bronnen
 
-Als uw organisatie wordt basisservices toegevoegd aan het abonnement, wordt het steeds belangrijker om ervoor te zorgen dat deze services beschikbaar om te voorkomen dat de zakelijke onderbroken zijn. [Resource vergrendelingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) kunt u beperken van bewerkingen op waardevolle bronnen waar wijzigt of verwijdert deze zou aanzienlijke gevolgen voor uw toepassingen of cloudinfrastructuur hebben. U kunt vergrendelingen toepassen op een abonnement, resourcegroep of resource. U kunt gewoonlijk vergrendelingen toepassen op fundamentele resources, zoals virtuele netwerken, gateways en storage-accounts.
+Als uw organisatie wordt basisservices toegevoegd aan het abonnement, wordt het belangrijker om ervoor te zorgen dat deze services beschikbaar om te voorkomen dat de zakelijke onderbroken zijn. [Resource vergrendelingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) kunt u beperken van bewerkingen op waardevolle bronnen waar wijzigt of verwijdert deze zou aanzienlijke gevolgen voor uw toepassingen of cloudinfrastructuur hebben. U kunt vergrendelingen toepassen op een abonnement, resourcegroep of resource. U kunt gewoonlijk vergrendelingen toepassen op fundamentele resources, zoals virtuele netwerken, gateways en storage-accounts.
 
-Resource vergrendelingen momenteel ondersteuning voor twee waarden: CanNotDelete en alleen-lezen. CanNotDelete betekent dat gebruikers (met de juiste rechten) kunnen wel lezen of wijzigen van een bron, maar kan niet worden verwijderd. Alleen-lezen betekent dat gemachtigde gebruikers niet verwijderen of wijzigen van een resource.
+Resource vergrendelingen momenteel ondersteuning voor twee waarden: **CanNotDelete** en **ReadOnly**. **CanNotDelete** betekent dat gebruikers (met de juiste rechten) kunnen wel lezen of wijzigen van een bron, maar kan niet worden verwijderd. **Alleen-lezen** betekent dat gebruikers gemachtigde niet verwijderen of wijzigen van een resource.
 
-Vergrendelingen van Resource Manager alleen van toepassing op bewerkingen die in de vlak management, die uit de bewerkingen die worden verzonden optreden bestaat naar <https://management.azure.com>. De vergrendelingen beperken niet hoe resources hun eigen functies uitvoeren. Wijzigingen in de resourcedefinitie zijn beperkt, maar de bewerkingen van resources zijn niet beperkt. Bijvoorbeeld, een vergrendeling van het kenmerk alleen-lezen voor een SQL-Database wordt voorkomen dat u de database wijzigen of verwijderen, maar dit voorkomt niet dat u maken, bijwerken of verwijderen van gegevens in de database.
+Resource vergrendelingen gelden alleen voor bewerkingen die in de vlak management, die uit de bewerkingen die worden verzonden optreden bestaat naar <https://management.azure.com>. De vergrendelingen beperken niet hoe resources hun eigen functies uitvoeren. Wijzigingen in de resourcedefinitie zijn beperkt, maar de bewerkingen van resources zijn niet beperkt. Bijvoorbeeld, een **ReadOnly** vergrendeling op een SQL-database wordt voorkomen dat u de database wijzigen of verwijderen, maar voorkomt niet dat u maken, bijwerken of verwijderen van gegevens in de database.
 
-Toepassen van **ReadOnly** kan leiden tot onverwachte resultaten optreden omdat bepaalde bewerkingen die lijkt lezen bewerkingen extra acties vereist. Bijvoorbeeld, als een **ReadOnly** vergrendeling van een opslagaccount wordt voorkomen dat alle gebruikers weergeven van de sleutels. De lijst met sleutels opnieuw wordt verwerkt door een POST-aanvraag omdat de geretourneerde sleutels zijn beschikbaar voor schrijfbewerkingen.
+Toepassen van **ReadOnly** kan leiden tot onverwachte resultaten optreden omdat bepaalde bewerkingen die lijkt lezen bewerkingen extra acties vereist. Bijvoorbeeld, als een **ReadOnly** vergrendeling van een opslagaccount wordt voorkomen dat alle gebruikers weergeven van de sleutels. De bewerking van de aanbieding van sleutels wordt verwerkt door een POST-aanvraag omdat de geretourneerde sleutels beschikbaar voor schrijfbewerkingen zijn.
 
 ![Besturingselementen voor kritieke bronnen](./media/governance-in-azure/security-governance-in-azure-fig5.png)
 
-Voor een ander voorbeeld plaatsen van een vergrendeling van het kenmerk alleen-lezen op een App Service-resource voorkomt u dat Visual Studio Server Explorer-bestanden voor de resource worden weergegeven omdat die interactie voor toegang voor schrijven vereist.
+Voor een ander voorbeeld plaatsen van een **ReadOnly** vergrendelen op een Azure App Service-bron wordt voorkomen dat Visual Studio Server Explorer-bestanden voor de resource worden weergegeven omdat die interactie voor toegang voor schrijven vereist.
 
-In tegenstelling tot rollen gebaseerd toegangsbeheer kunt u management vergrendelingen toepassen van een beperking voor alle gebruikers en rollen. Zie voor meer informatie over het instellen van machtigingen voor gebruikers en rollen [toegangsbeheer op basis van rollen in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+In tegenstelling tot rollen gebaseerd toegangsbeheer kunt u management vergrendelingen toepassen van een beperking voor alle gebruikers en rollen. Zie voor meer informatie over het instellen van machtigingen [beheren van toegang met RBAC en de Azure-portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-Wanneer u een vergrendeling op een bovenliggend bereik toepast, nemen alle resources binnen dat bereik de dezelfde vergrendeling. Zelfs resources die u later toevoegen overnemen de vergrendeling van het bovenliggende item. De meest beperkende vergrendeling in de overname voorrang.
+Wanneer u een vergrendeling op een bovenliggend bereik toepast, nemen alle resources binnen dat bereik de dezelfde vergrendeling. Zelfs bronnen die u later toevoegen overnemen de vergrendeling van het bovenliggende item. De meest beperkende vergrendeling in de overname voorrang.
 
-Als u wilt maken of verwijderen van management vergrendelingen, u moet toegang hebben tot Microsoft.Authorization/ _of Microsoft.Authorization/locks/_ acties. Van de ingebouwde rollen worden deze acties alleen toegekend aan **Eigenaar** en **Administrator voor gebruikerstoegang**.
+Als u wilt maken of verwijderen van management vergrendelingen, moet u toegang hebben tot Microsoft.Authorization/ of Microsoft.Authorization/locks/ acties. Van de ingebouwde rollen worden alleen de eigenaar en de beheerder voor gebruikerstoegang die acties verleend.
 
-## <a name="api-access-to-billing-information"></a>API-toegang tot factureringsgegevens
+### <a name="api-access-to-billing-information"></a>API-toegang tot factureringsgegevens
 
-Azure Billing-API's gebruikt om pull gebruiks- en gegevens bij uw voorkeur hulpprogramma's voor gegevensanalyse. Het gebruik van Azure-bronnen en RateCard APIs kunt u nauwkeurige voorspellen en beheren van uw kosten. De API's worden geïmplementeerd als een Resource Provider en een deel van de reeks API's beschikbaar gesteld door de Azure Resource Manager.
+Azure Billing-API's gebruikt om pull gebruiks- en gegevens bij uw voorkeur hulpprogramma's voor gegevensanalyse. Het gebruik van Azure-bronnen en RateCard APIs kunt u nauwkeurige voorspellen en beheren van uw kosten. De API's worden geïmplementeerd als een resourceprovider en het onderdeel van de API's beschikbaar gesteld door Azure Resource Manager-familie.
 
-### <a name="azure-resource-usage-api-preview"></a>Azure-resource gebruiks-API (Preview)
+#### <a name="resource-usage-api-preview"></a>Resourcegebruik API (Preview)
 
 Gebruik de Azure [Resource gebruik API](https://msdn.microsoft.com/library/azure/mt219003) om uw gegevens geschatte Azure-verbruik. De API bevat:
 
-- **Azure op rollen gebaseerd toegangsbeheer** -configureren toegangsbeleid op de [Azure-portal](https://portal.azure.com/) of via [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview) om op te geven welke gebruikers of toepassingen toegang tot krijgen kunnen de gebruiksgegevens van abonnement. Aanroepfuncties moeten standaard tokens van Azure Active Directory voor verificatie gebruiken. De aanroeper toevoegen aan de lezer facturering, een lezer, een eigenaar of een bijdrager rol voor toegang tot de gebruiksgegevens voor een specifieke Azure-abonnement.
+- **RBAC**: Configureer toegangsbeleid op de [Azure-portal](https://portal.azure.com/) of via [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview) om op te geven welke gebruikers of toepassingen toegang tot gegevens over het gebruik van het abonnement krijgen kunnen. Aanroepfuncties moeten standaard tokens van Azure Active Directory voor verificatie gebruiken. De aanroeper toevoegen aan de lezer facturering, een lezer, een eigenaar of een bijdrager rol voor toegang tot de gebruiksgegevens voor een specifieke Azure-abonnement.
 
-- **Elk uur of dagelijkse samenvoegingen** - aanroepfuncties kunnen opgeven of ze hun Azure gebruiksgegevens wilt elk uur tijdsintervallen of dagelijks tijdsintervallen. De standaardwaarde is dagelijks.
+- **Uurlijkse of dagelijkse aggregatie**: aanroepfuncties kunnen aangeven of ze hun Azure gebruiksgegevens in Uurlijkse of dagelijkse stappen. De standaardwaarde is dagelijks.
 
-- **Metagegevens van het exemplaar (inclusief resourcetags)** – ophalen op exemplaarniveau details, zoals de volledig gekwalificeerde resource-uri (/subscriptions/ {abonnement-id} /..), wordt de informatie over de resource en resourcetags. Deze metagegevens kunt u deterministisch en programmatisch gebruik toewijzen door de labels voor use cases als cross in rekening gebracht.
+- **Metagegevens van het exemplaar (inclusief resourcetags)**: ophalen van instantieniveau details, zoals de volledig gekwalificeerde resource-URI (/subscriptions/ {abonnement-id} /..), groep resourcegegevens en resourcetags. Deze metagegevens kunt u deterministisch en programmatisch gebruik toewijzen door de tags, voor gebruiksvoorbeelden zoals cross in rekening gebracht.
 
-- **Bron-metagegevens** -Resourcedetails zoals de naam van de meter, meter categorie meter subcategorie, eenheid en regio geven de aanroeper een beter inzicht in wat is verbruikt. We ook proberen om te worden uitgelijnd resource metagegevens terminologie via de Azure-portal, Azure gebruik CSV, EA facturering CSV en andere ervaringen openbare waarmee u correleren van gegevens over ervaringen.
+- **Bron-metagegevens**: Resourcedetails zoals de naam van de meter, meter categorie meter subcategorie, eenheid en regio geven de aanroeper een beter inzicht in wat is verbruikt. We ook proberen om te worden uitgelijnd resource metagegevens terminologie via de Azure-portal, Azure gebruik CSV, EA facturering CSV en andere ervaringen openbare voor hulp bij het correleren van gegevens over ervaringen.
 
-- **Gebruik voor alle typen bieden** – gebruiksgegevens beschikbaar is voor alle typen zoals betalen naar gebruik, MSDN, bedrag, financieel tegoed en EA bieden.
+- **Gebruik voor alle typen bieden**: gebruiksgegevens beschikbaar is voor alle typen, inclusief betalen naar gebruik, MSDN, bedrag, financieel tegoed en EA bieden.
 
-**Azure-resource RateCard API (Preview)**
+#### <a name="resource-ratecard-api"></a>Resource RateCard API
 
 De Azure Resource RateCard API gebruiken om de lijst met beschikbare Azure-resources en informatie over de geschatte prijzen voor elk. De API bevat:
 
-- **Azure op rollen gebaseerd toegangsbeheer** : uw beleidsregels configureren op de Azure-portal of via Azure PowerShell-cmdlets om op te geven welke gebruikers of toepassingen toegang kunnen krijgen tot de gegevens RateCard. Aanroepfuncties moeten standaard tokens van Azure Active Directory voor verificatie gebruiken. De aanroeper toevoegen aan de lezer, de eigenaar of bijdrager rol voor toegang tot de gebruiksgegevens voor een bepaald Azure-abonnement.
+- **RBAC**: uw beleidsregels configureren op de Azure-portal of via Azure PowerShell-cmdlets om op te geven welke gebruikers of toepassingen toegang tot de gegevens RateCard krijgen kunnen. Aanroepfuncties moeten standaard tokens van Azure Active Directory voor verificatie gebruiken. De aanroeper toevoegen aan de rol Lezer, de eigenaar of bijdrager ze toegang krijgen tot de gebruiksgegevens voor een bepaald Azure-abonnement.
 
-- **Ondersteuning voor betalen per gebruik, MSDN, bedrag en financieel tegoed (EA niet ondersteund) biedt** -voor deze API biedt Azure-aanbieding niveau snelheid informatie. De aanroeper van deze API moet in de aanbieding informatie ophalen van de resourcedetails van de en tarieven doorgeven. We zijn momenteel niet mogelijk om de EA omdat EA aanbiedingen tarieven per inschrijving hebt aangepast. Hier volgen enkele van de scenario's die zijn aangebracht met de combinatie van het gebruik en de APIs RateCard mogelijk:
+- **Ondersteuning voor betalen per gebruik, MSDN, bedrag en financieel tegoed aanbiedingen (maar niet EA)**: voor deze API biedt Azure-aanbieding niveau snelheid informatie. De aanroeper van deze API moet in de aanbieding informatie ophalen van de resourcedetails van de en tarieven doorgeven. EA is momenteel niet ondersteund omdat EA aanbiedingen tarieven per inschrijving hebt aangepast. 
 
-- **Azure besteden tijdens de maand** - gebruiken om de combinatie van het gebruik en RateCard APIs ophalen beter inzicht in uw cloud-uitgaven in de maand. U kunt de uur- en buckets van gebruiks- en kosten maakt een schatting analyseren.
+#### <a name="scenarios"></a>Scenario's
 
-- **Stel waarschuwingen** – het gebruik en de APIs RateCard gebruiken voor het ophalen van de geschatte cloud verbruik en de kosten en resource of monetaire gebaseerde waarschuwingen instellen.
+De combinatie van de informatie over het gebruik en RateCard APIs maakt deze scenario's mogelijk:
 
-- **Factuur voorspellen** – Get uw geschatte gebruiks- en cloud besteden en machine learning-algoritmen om te voorspellen wat de factuur aan het einde van de factureringscyclus zou zijn van toepassing.
+- **Inzicht in Azure tijdens de maand te besteden aan**: gebruiken om de combinatie van het gebruik en RateCard APIs ophalen beter inzicht in uw cloud-uitgaven in de maand. U kunt elk uur en dagelijks gebruik en de kosten maakt een schatting analyseren.
 
-- **Vooraf verbruik kosten analysis-** – de RateCard-API gebruiken om te voorspellen hoeveel uw factuur voor niet het verwachte gebruik wanneer u uw workloads naar Azure verplaatst. Als u bestaande workloads in andere clouds of privéclouds hebt, kunt u ook uw gebruik met de Azure toewijzen te besteden aan de tarieven voor een betere schatting van Azure ophalen. Deze schatting biedt u de mogelijkheid om te draaien op aanbieding en tussen de verschillende aanbiedingstypen dan betalen naar gebruik, zoals bedrag en financieel tegoed vergelijken. De API biedt u de mogelijkheid om te zien kostenverschillen per regio ook en kunt u een wat-als-kostenanalyse waarmee u beslissingen voor de implementatie uitvoeren.
+- **Stel waarschuwingen**: Gebruik de informatie over het gebruik en RateCard APIs geschatte cloud verbruik en de kosten en resource of monetaire gebaseerde waarschuwingen instellen.
 
-- **Wat-als-analyse** -u kunt bepalen of het meest efficiënt werkbelastingen worden uitgevoerd in een andere regio of op een andere configuratie van de Azure-resource. Azure-resourcekosten kunnen verschillen op basis van de Azure-regio u.
+- **Factuur voorspellen**: Get uw geschatte gebruiks- en cloud besteden en machine learning-algoritmen om te voorspellen wat de factuur aan het einde van de factureringscyclus zou zijn van toepassing.
 
-- U kunt ook bepalen als een ander Azure-aanbiedingtype resulteert in een betere rentabiliteit op een Azure-resource.
+- **Uitvoeren van een vooraf verbruik kosten analysis-**: de RateCard-API gebruiken om te voorspellen hoeveel uw factuur voor niet het verwachte gebruik wanneer u uw workloads naar Azure verplaatst. Als u bestaande workloads in andere clouds of privéclouds hebt, kunt u ook uw gebruik met de Azure toewijzen te besteden aan de tarieven voor een betere schatting van Azure ophalen. Deze schatting biedt u de mogelijkheid om te draaien op aanbieding en tussen de verschillende aanbiedingstypen dan betalen naar gebruik, zoals bedrag en financieel tegoed vergelijken.
 
-## <a name="networking-controls"></a>Besturingselementen voor netwerken
+- **Een wat-als-analyse uitvoeren**: U kunt bepalen of het meest efficiënt werkbelastingen worden uitgevoerd in een andere regio of op een andere configuratie van de Azure-resource. Azure-resourcekosten mogelijk verschillen op basis van de Azure-regio u. U kunt ook bepalen als een ander Azure-aanbiedingtype resulteert in een betere rentabiliteit op een Azure-resource.
 
-Toegang tot bronnen kan worden (binnen het bedrijfsnetwerk) interne of externe (via het internet). Het is gemakkelijk voor gebruikers in uw organisatie per ongeluk resources in de verkeerde positie plaatsen en blootstellen aan schadelijke toegang. Als met on-premises / apparaten, ondernemingen moeten juiste besturingselementen toevoegen om ervoor te zorgen dat het Azure-gebruikers de juiste keuzes aanbrengen.
+### <a name="networking-controls"></a>Besturingselementen voor netwerken
+
+Toegang tot bronnen kan worden (binnen het bedrijfsnetwerk) interne of externe (via het internet). Het is gemakkelijk voor gebruikers in uw organisatie per ongeluk resources in de verkeerde positie plaatsen en blootstellen aan schadelijke toegang. Net als bij de on-premises apparaten, moeten de ondernemingen juiste besturingselementen voor het Azure-gebruikers moet ervoor zorgen dat de juiste keuzes toevoegen.
 
 ![Besturingselementen voor netwerken](./media/governance-in-azure/security-governance-in-azure-fig6.png)
 
-We identificeren belangrijkste resources die elementaire controle van toegang bieden voor abonnement-toezicht. De belangrijkste resources bestaan uit:
+Voor abonnement toezicht bieden de volgende bronnen voor core basisbesturingselement van toegang.
 
-### <a name="network-connectivity"></a>Netwerkverbinding
+#### <a name="network-connectivity"></a>Netwerkverbinding
 
-[Virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) containerobjecten voor subnetten zijn. Hoewel niet strikt noodzakelijk is het vaak gebruikt bij het verbinden van toepassingen tot interne bedrijfsbronnen. De service Azure Virtual Network kunt u veilig Azure-resources met elkaar te verbinden met virtuele netwerken (vnet's).
+[Virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) containerobjecten voor subnetten zijn. Hoewel niet strikt noodzakelijk is, wordt een virtueel netwerk wordt vaak gebruikt voor het verbinden van toepassingen tot interne bedrijfsbronnen. De service Azure Virtual Network kunt u veilig Azure-resources met elkaar te verbinden met virtuele netwerken.
 
-Een VNet is een weergave van uw eigen netwerk in de cloud. Een VNet is een logische isolatie van de Azure-cloud toegewezen aan uw abonnement. U kunt de VNets ook verbinding maken met uw on-premises netwerk.
+Een virtueel netwerk is een weergave van uw eigen netwerk in de cloud. Een virtueel netwerk is een logische isolatie van de Azure-cloud toegewezen aan uw abonnement. Ook kunt u virtuele netwerken koppelen aan uw on-premises netwerk.
 
 Hieronder vindt u mogelijkheden voor virtuele netwerken van Azure:
 
-- **Isolatie**: VNets die zijn geïsoleerd van elkaar. U kunt afzonderlijke VNets voor ontwikkeling, testen en productie die gebruikmaken van dezelfde CIDR-adresblokken maken. Als u daarentegen, kunt u meerdere VNets die gebruikmaken van verschillende CIDR-adresblokken en netwerken met elkaar verbinden. U kunt een VNet segmenteren in meerdere subnetten. Azure biedt interne naamomzetting voor VM's en Cloudservices rolinstanties zijn verbonden met een VNet. U kunt desgewenst een VNet voor het gebruik van uw eigen DNS-servers, in plaats van Azure interne naamomzetting configureren.
+- **Isolatie**: virtuele netwerken zijn geïsoleerd van elkaar. U kunt afzonderlijke virtuele netwerken voor ontwikkeling, testen en productie die gebruikmaken van dezelfde CIDR-adresblokken maken. Als u daarentegen, kunt u meerdere virtuele netwerken die gebruikmaken van verschillende CIDR-adresblokken en netwerken met elkaar verbinden. U kunt een virtueel netwerk segmenteren in meerdere subnetten. Azure biedt interne naamomzetting voor VM's en Azure Cloud Services-rolexemplaren die zijn verbonden met een virtueel netwerk. U kunt desgewenst een virtueel netwerk voor het gebruik van uw eigen DNS-servers, in plaats van Azure interne naamomzetting configureren.
 
-- **Verbinding met Internet**: alle Azure virtuele Machines (VM) en Cloud Services-rolexemplaren verbonden met een VNet hebben toegang tot het Internet standaard. U kunt binnenkomende toegang tot specifieke bronnen, indien nodig.
+- **Verbinding met Internet**: alle Azure virtuele machines en Cloud Services-rolexemplaren die zijn verbonden met een virtueel netwerk hebben toegang tot het internet standaard. U kunt binnenkomende toegang tot specifieke bronnen, indien nodig.
 
-- **Azure-resource connectiviteit**: Azure-resources zoals Cloudservices en virtuele machines kunnen worden verbonden met hetzelfde VNet. De resources kunnen verbinden met elkaar met behulp van privé IP-adressen, zelfs als ze zich in verschillende subnetten. Azure biedt standaardroutering tussen subnetten, VNets en on-premises netwerken, zodat u niet hoeft te configureren en beheren van routes.
+- **Azure-resource connectiviteit**: U kunt Azure-resources zoals Cloudservices en virtuele machines, verbinding maken met hetzelfde virtuele netwerk. De resources kunnen met elkaar verbinden via privé IP-adressen, zelfs als ze zich in verschillende subnetten. Azure biedt standaardroutering tussen subnetten, virtuele netwerken en on-premises netwerken, zodat u niet hoeft te configureren en beheren van routes.
 
-- **VNet-connectiviteit**: vnet's kunnen worden verbonden met elkaar, het inschakelen van de resources die zijn verbonden met een VNet om te communiceren met alle bronnen op eventuele andere VNet.
+- **Verbinding met het virtuele netwerk**: U kunt virtuele netwerken met elkaar verbinden. Resources die zijn verbonden met een virtueel netwerk kunnen vervolgens communiceren met een resource in een ander virtueel netwerk.
 
-- **Lokale connectiviteit**: vnet's kunnen worden verbonden met on-premises netwerken via persoonlijke netwerkverbindingen tussen uw netwerk en Azure of een site-naar-site VPN-verbinding via Internet.
+- **Lokale connectiviteit**: U kunt virtuele netwerken kunt verbinden met on-premises netwerken via persoonlijke netwerkverbindingen tussen uw netwerk en Azure of een site-naar-site virtueel particulier netwerk (VPN)-verbinding via internet.
 
-- **Filteren van verkeer**: virtuele machine en Cloud Services-rol exemplaren netwerkverkeer kan worden gefilterd binnenkomend en uitgaand op bron-IP-adres en poort, doel-IP-adres en poort en protocol.
+- **Filteren van verkeer**: U kunt netwerkverkeer (binnenkomend en uitgaand) voor virtuele machines en Cloud-Services door de bron-IP-adres en poort, doel-IP-adres en poort en protocol filteren.
 
-- **Routering**: U kunt eventueel Azure standaard routering met BGP-routes via een netwerkgateway of configureren van uw eigen routes overschrijven.
+- **Routering**: U kunt eventueel standaard Azure routering door uw eigen routes te configureren of met behulp van BGP-routes via een netwerkgateway overschrijven.
 
-## <a name="network-access-controls"></a>Netwerk-toegangsbeheer
+#### <a name="network-access-controls"></a>Netwerk-toegangsbeheer
 
-[Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) zijn vergelijkbaar met een firewall en regels voor hoe een resource "praten kan" opgeeft via het netwerk. Ze bieden gedetailleerde controle over hoe / als een subnet (of de virtuele machine) verbinding met Internet of andere subnetten in hetzelfde virtuele netwerk maken kunt.
+[Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (nsg's) zijn, zoals een firewall en regels voor hoe een resource "" via het netwerk praten kan opgeeft. Deze bieden controle over hoe een subnet (of de virtuele machine) verbinding met internet of andere subnetten in hetzelfde virtuele netwerk maken kan.
 
-Een netwerkbeveiligingsgroep (Network Security Group, NSG) bevat een lijst met beveiligingsregels waarmee netwerkverkeer naar resources die zijn verbonden met virtuele Azure-netwerken (VNet) wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager).
+Een netwerkbeveiligingsgroep bevat een lijst met regels voor toestaan of weigeren van netwerkverkeer naar bronnen die zijn verbonden met virtuele netwerken in Azure. Nsg's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC's) gekoppeld aan virtuele machines (Resource Manager).
 
-Wanneer een NSG is gekoppeld aan een subnet, zijn de regels van toepassing op alle resources die zijn verbonden met het subnet. Verkeer kan verder worden beperkt door ook een NSG te koppelen aan een VM of NIC.
+Wanneer een NSG gekoppeld aan een subnet is, zijn de regels van toepassing op alle resources die zijn verbonden met het subnet. U kunt verkeer verder beperken door een NSG koppelen aan een VM of NIC wordt gebruikt.
 
-## <a name="security-and-continuous-compliance-with-organizational-standards"></a>Beveiliging en continue naleving met organisatie-standaarden
+## <a name="security-and-compliance-with-organizational-standards"></a>Beveiliging en organisatie-normen
 
-Elk bedrijf heeft verschillende behoeften en elk bedrijf wordt benutten van verschillende voordelen van cloudoplossingen. Toch klanten van alle soorten het dezelfde basis twijfels hebt over de verplaatsing naar de cloud. Ze willen dat de gegevens beveiligd en privé, alle behoud transparantie en naleving worden gehouden en ze willen beheer van de bijbehorende gegevens behouden.
+Elk bedrijf heeft verschillende behoeften en verschillende voordelen van cloudoplossingen wordt benutten. Toch klanten van alle soorten het dezelfde basis twijfels hebt over de verplaatsing naar de cloud. Klanten willen van cloudproviders is:
 
-Klanten willen van cloudproviders is:
+- **Beveiligen van onze gegevens**: IT-managers bevestigen of de cloud verbeterde beveiliging en beheer bieden kan. Maar ze zijn nog steeds betrokken dat migreren naar de cloud ze gevoeliger voor hackers dan hun huidige interne oplossingen laat.
 
-- **Beveiligen van onze gegevens** terwijl zijn bevestigd of de cloud kan bieden betere beveiliging van gegevens en beheer, IT-managers nog steeds betreft dat migreren naar de cloud ze gevoeliger voor hackers dan de huidige intern laat oplossingen.
+- **Onze gegevens privé houden**: cloudservices unieke privacy uitdagingen verhogen. Bedrijven zoeken naar de cloud op te slaan op de kosten van infrastructuur hun flexibiliteit verbeteren, bang ze ook te verliezen van de controle van waar hun gegevens worden opgeslagen, wie het en hoe deze wordt gebruikt.
 
-- **Onze gegevens behouden** persoonlijke Cloud-services verhogen unieke privacy uitdagingen voor bedrijven. Bedrijven zoeken naar de cloud op te slaan op de kosten van infrastructuur hun flexibiliteit verbeteren, bang ze ook te verliezen van de controle van waar hun gegevens worden opgeslagen, wie het en hoe deze wordt gebruikt.
+- **Geef ons besturingselement**: zelfs als bedrijven van de cloud meer innovatieve oplossingen te implementeren profiteren, zij zich zorgen maakt over controle over hun gegevens verliezen. De recente vermeldingen van overheidsinstanties toegang tot gegevens van de klant, juridische en buitengerechtelijke wijze, zorg sommige CIO hoede hun gegevens opslaan in de cloud.
 
-- **Geef ons besturingselement** zelfs als ze van de cloud meer innovatieve oplossingen te implementeren profiteren, bedrijven zijn zeer betrokken zijn bij de controle over hun gegevens verliezen. De recente vermeldingen van overheidsinstanties toegang tot gegevens van de klant, juridische en extra juridische wijze, zorg sommige CIO hoede hun gegevens opslaan in de cloud.
+- **Bevorderen de transparantie**: zakelijke besluitvormers begrijpen het belang van beveiliging, privacy en controle. Maar ze ook de mogelijkheid wilt onafhankelijk controleren hoe de gegevens worden opgeslagen, geopend en beveiligd.
 
-- **Bevorderen de transparantie** terwijl de beveiliging, privacy en besturingselement belangrijk voor zakelijke besluitvormers zijn, ze ook de mogelijkheid onafhankelijk controleren hoe de gegevens worden opgeslagen, geopend en beveiligde wilt.
+- **Behouden van compatibiliteit**: bij bedrijven uitbreiden voor het gebruik van cloudtechnologieën, de complexiteit en het bereik van standaarden en -voorschriften gaan ontwikkelen. Bedrijven moeten weten dat hun compatibiliteit normen wordt voldaan.
 
-- **Behouden van compatibiliteit** bij bedrijven uitbreiden voor het gebruik van cloudtechnologieën, de complexiteit en het bereik van standaarden en -voorschriften gaan ontwikkelen. Bedrijven moeten weten dat hun compatibiliteit normen wordt voldaan en dat naleving wordt aangepast als de wijziging van de voorschriften gedurende een bepaalde periode.
+## <a name="security-configuration-for-monitoring-logging-and-auditing"></a>Beveiligingsconfiguratie voor bewaking, logboekregistratie en controle
 
-## <a name="security-configuration-monitoring-and-alerting"></a>Configuratie van beveiliging, controle en waarschuwingen
+Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten. Deze apparaten mogelijk omvatten beheerwerkstations, developer-pc's en apparaten van zelfs bevoegde eindgebruikers met taakspecifieke rechten. 
 
-Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten, waaronder beheerwerkstations, de pc's van ontwikkelaars en zelfs apparaten van bevoegde eindgebruikers met taakspecifieke rechten. In sommige gevallen worden beheerfuncties uitgevoerd via het web gebaseerde consoles, zoals de Azure-portal. In andere gevallen zijn er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via virtuele particuliere netwerken (VPN), Terminal Services, protocollen van clienttoepassingen of de Azure Service Management API (SMAPI) (via een programma). Clienteindpunten kunnen bovendien zowel in een domein zijn samengevoegd als op zichzelf staand en niet-beheerd zijn, zoals tablets en smartphones.
+In sommige gevallen worden beheerfuncties uitgevoerd via het web gebaseerde consoles, zoals de Azure-portal. In andere gevallen is er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via VPN-verbindingen, Terminal Services, protocollen van clienttoepassingen of (programmatisch) Azure Service Management API (SMAPI). Clienteindpunten kunnen bovendien zowel in een domein die lid zijn van zichzelf staand en niet-beheerd, zoals tablets of smartphones zijn.
 
-Hoewel meerdere mogelijkheden voor toegang en beheer uitgebreide opties bieden, kan deze verscheidenheid voor een cloudimplementatie aanzienlijke risico's met zich meebrengen. Het beheren, volgen en controleren van beheeracties kan hierdoor worden bemoeilijkt. Deze verscheidenheid kan ook leiden tot beveiligingsrisico's, omdat er ongereglementeerde toegang plaatsvindt tot clienteindpunten die worden gebruikt voor het beheer van cloudservices. Het gebruik van algemene of persoonlijke werkstations voor het ontwikkelen en beheren van infrastructuur brengt onvoorspelbare bedreigingen met zich mee voor bijvoorbeeld surfen op internet (denk aan waterhole-aanvallen) of e-mail (zoals social engineering en phishing).
+Deze verscheidenheid kan aanzienlijke risico's toevoegen aan een cloudimplementatie. Het kan zijn moeilijk te beheren, volgen en te controleren. Deze verscheidenheid kan ook leiden tot beveiligingsrisico's via ongereglementeerde toegang plaatsvindt tot clienteindpunten die worden gebruikt voor het beheer van cloudservices. Het gebruik van algemene of persoonlijke werkstations voor het ontwikkelen en beheren van infrastructuur brengt onvoorspelbare bedreigingen met zich mee voor bijvoorbeeld surfen op internet (denk aan waterhole-aanvallen) of e-mail (zoals social engineering en phishing).
 
-Bewaking, logboekregistratie en controle bieden een basis voor het bijhouden en het begrijpen van beheeractiviteiten, maar vanwege de grote hoeveelheid gegevens die wordt gegenereerd, is het niet altijd haalbaar om alle acties nauwgezet te controleren. Het controleren van de effectiviteit van de beleidsregels voor beheer is echter een aanbevolen procedure.
+Bewaking, logboekregistratie en controle bieden een basis voor het bijhouden en begrijpen van beheeractiviteiten. Controle van alle acties nauwgezet altijd mogelijk niet mogelijk vanwege de hoeveelheid gegevens die zijn gegenereerd. Maar controle van de effectiviteit van de management-beleidsregels wordt aanbevolen.
 
-Azure-beveiliging Governance van AD DS-groepsbeleidsobjecten waarmee alle de beheerders Windows-interfaces, zoals het delen van bestanden. Voer voor beheerwerkstations controle-, bewakings- en logboekregistratieprocessen uit. Houd toegang en gebruik van alle beheerders en ontwikkelaars bij.
+Azure-beveiliging governance van groepsbeleidsobjecten met Azure Active Directory Domain Services (AD DS) kunt u alle de beheerders Windows-interfaces, zoals het delen van bestanden bepalen. Neem beheerwerkstations in bewaking, logboekregistratie en controle van processen. Houd toegang en gebruik van alle beheerders en ontwikkelaars bij.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-De [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) biedt een centrale weergave van de beveiligingsstatus van resources in de abonnementen en aanbevelingen die helpen te voorkomen dat resources waarmee is geknoeid. Ze kan meer gedetailleerd beleid (bijvoorbeeld toepassen beleid aan specifieke resourcegroepen waarmee bedrijven hun houding het risico dat ze adresseert aanpassen) inschakelen.
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) biedt een centrale weergave van de beveiligingsstatus van resources in abonnementen. Deze aanbevelingen die helpen te voorkomen dat resources waarmee is geknoeid. Het kunt meer gedetailleerde beleidsregels--bijvoorbeeld beleidsregels toepassen op specifieke resourcegroepen waarmee bedrijven hun houding het risico dat ze je adressering aanpassen inschakelen.
 
 ![Azure Security Center](./media/governance-in-azure/security-governance-in-azure-fig7.png)
 
 Security Center biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen die anders onopgemerkt, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen te detecteren. Nadat u hebt ingeschakeld [beveiligingsbeleid](https://docs.microsoft.com/azure/security-center/security-center-policies) voor resources van een abonnement, analyseert Security Center de beveiliging van uw resources voor het identificeren van mogelijke beveiligingsproblemen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar.
 
-Azure Security Center vertegenwoordigt een combinatie van best practice analyse- en beleidsbeheer voor alle resources binnen een Azure-abonnement. Met dit hulpprogramma krachtige en eenvoudig te gebruiken kunt beveiliging teams en risico managers te detecteren, voorkomen van en reageren op bedreigingen, zoals deze worden automatisch verzameld en beveiligingsgegevens van uw Azure-resources, het netwerk en partneroplossingen zoals antimalwareprogramma analyseert programma's en firewalls.
+Azure Security Center vertegenwoordigt een combinatie van best practice analyse- en beleidsbeheer voor alle resources binnen een Azure-abonnement. Hiermee kunt beveiliging teams en risico managers te detecteren, voorkomen van en reageren op bedreigingen, zoals deze worden automatisch verzameld en beveiligingsgegevens van uw Azure-resources, het netwerk en partneroplossingen zoals antimalwareprogramma's en firewalls analyseert.
 
-Bovendien Azure Security Center geavanceerde analyses toegepast, met inbegrip van machine learning en gedragsanalyse tijdens het gebruik van Microsoft-producten en services, de Microsoft Digital Crimes Unit (DCU), Microsoft over wereldwijde dreigingen Security Response Center (MSRC) en externe feeds. [Beveiliging governance](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) kan worden grote schaal wordt toegepast op het abonnementsniveau of domeinpartitie aan specifieke, gedetailleerde vereisten die worden toegepast op afzonderlijke resources via beleidsdefinitie.
+Bovendien Azure Security Center geavanceerde analyses toegepast, met inbegrip van machine learning en gedragsanalyse. Het wereldwijde dreigingen van Microsoft-producten en services, de Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) gebruikt en externe feeds. U kunt toepassen [beveiliging governance](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) grotendeels op het abonnementsniveau. Of u kunt deze beperken tot specifieke vereisten en toegepast op afzonderlijke resources via beleidsdefinitie.
 
-Ten slotte Azure Security Center analyseert de beveiligingsstatus van de resource op basis van deze beleidsregels en gebruikt dit om dashboards begrijpelijke manier mee en waarschuwingen voor gebeurtenissen zoals detectie van malware of schadelijke IP-verbinding probeert te bieden.
-
->[!Note]
-> Zie [Beveiligingsaanbevelingen implementeren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) voor meer informatie over het toepassen van aanbevelingen.
-
-Security Center verzamelt gegevens van uw virtuele machines naar hun beveiligingsstatus beoordelen, aanbevelingen voor beveiliging bieden en een melding op bedreigingen. Wanneer u Security Center voor het eerst opent, worden gegevensverzameling is ingeschakeld op alle virtuele machines in uw abonnement. Verzamelen van gegevens wordt aanbevolen, maar u kunt opt-out door [uitschakelen van gegevensverzameling](https://docs.microsoft.com/azure/security-center/security-center-faq) in het beleid Security Center.
-
-Ten slotte is Azure Security Center een open platform waarmee Microsoft-partners en onafhankelijke softwareleveranciers te maken van de software die in Azure Security Center voor het verbeteren van de mogelijkheden ervan wordt geplaatst.
+Ten slotte Azure Security Center analyseert de beveiligingsstatus van de resource op basis van deze beleidsregels en gebruikt deze informatie om begrijpelijke manier mee dashboards en waarschuwingen voor gebeurtenissen zoals detectie van malware of schadelijke IP-verbinding probeert te bieden. Zie voor meer informatie over het toepassen van aanbevelingen [beveiligingsaanbevelingen implementeren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 Azure Security Center bewaakt de volgende Azure-resources:
 
-- Virtuele machines (VM's) (inclusief Cloudservices)
+- Virtuele machines (VM's) (inclusief cloudservices)
 
-- Virtuele netwerken van Azure
+- Virtuele netwerken
 
-- Azure SQL-service
+- SQL-databases
 
-- Partneroplossingen die zijn geïntegreerd met uw Azure-abonnement zoals web application firewall op virtuele machines en klik op [App Service-omgeving](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
+- Partneroplossingen die zijn geïntegreerd met uw Azure-abonnement, zoals web application firewall op virtuele machines en klik op de [App Service-omgeving](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme)
+
+Wanneer u Security Center voor het eerst opent, worden gegevensverzameling is ingeschakeld op alle virtuele machines in uw abonnement. Het is raadzaam dat u gegevensverzameling is ingeschakeld, maar u kunt [uitschakelen](https://docs.microsoft.com/azure/security-center/security-center-faq) in het beleid Security Center.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Log Analytics software ontwikkelings- en service van het team informatiebeveiliging en [governance programma](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) ondersteunt de zakelijke vereisten en voldoet aan regelgeving zoals beschreven op [Microsoft Azure vertrouwen Center](https://azure.microsoft.com/support/trust-center/) en [Microsoft Trust Center naleving](https://microsoft.com/en-us/trustcenter/compliance). Hoe logboekanalyse tot stand brengen beveiligingsvereisten, identificeert beveiligingsmechanismen beheert en bewaakt de risico's worden er ook beschreven. Jaarlijks, wij controleren beleidsregels, standaarden, procedures en richtlijnen.
+Azure-logboekanalyse software ontwikkelings- en service van het team informatiebeveiliging en [governance programma](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) ondersteunt de zakelijke vereisten. Het document voldoet aan regelgeving zoals beschreven op [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) en [Microsoft Trust Center naleving](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Hoe logboekanalyse beveiligingsvereisten, identificeert beveiligingsmechanismen en beheert en monitors risico's wordt er ook beschreven. Het team beoordeelt jaarlijks, beleidsregels, standaarden, procedures en richtlijnen.
 
-Elk teamlid Log Analytics-ontwikkeling ontvangt beveiligingstraining formele toepassing. We gebruiken een versiebeheersysteem intern voor softwareontwikkeling. Elk software-project wordt beveiligd door het versiebeheersysteem.
+Elk teamlid Log Analytics-ontwikkeling ontvangt beveiligingstraining formele toepassing. Een versiebeheersysteem beschermt u elk software-project in ontwikkeling.
 
-Microsoft heeft een beveiliging en naleving team dat verantwoordelijk en alle services in Microsoft evalueert. De vaststelling van informatie van het team maken en ze niet zijn gekoppeld aan de technische afdelingen die Log Analytics te ontwikkelen. De beveiliging verantwoordelijken hebben hun eigen Managementketen en uitvoering van een onafhankelijke beoordelingen van producten en services om te controleren of de beveiliging en naleving.
-
-Azure biedt een verzameling van management-services die zijn ontworpen in de cloud vanaf het begin. In plaats van te implementeren en beheren van lokale bronnen, worden deze onderdelen volledig gehost in Azure. De benodigde configuratie is minimaal en u kunt alles letterlijk binnen een paar minuten in werking zetten.
-
-![Operations Manager-Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
-
-Omdat Log Analytics-services worden uitgevoerd in de cloud betekent niet dat ze niet effectief kunnen beheren van uw on-premises omgeving.
-
-Het plaatsen van een agent op elke Windows of Linux-computer in uw datacenter, en worden gegevens verzonden met logboekanalyse waar deze samen met alle andere gegevens verzameld uit de cloud of op de lokale services kan worden geanalyseerd. Azure Backup en Azure Site Recovery gebruikmaken van de cloud voor back-up en hoge beschikbaarheid voor op de lokale bronnen gebruiken.
-
-Runbooks in de cloud hebben doorgaans geen toegang tot uw on-premises resources, maar u kunt ook een agent installeren op een of meer computers die vervolgens runbooks hosten in uw datacenter. Wanneer u een runbook start, kunt u eenvoudig aangeven of u het wilt uitvoeren in de cloud of op een lokale werkrol.
+Microsoft heeft een beveiliging en naleving team dat verantwoordelijk en alle services in Microsoft evalueert. De vaststelling van informatie van het team maken en ze zijn niet gekoppeld aan de technische afdelingen die Log Analytics te ontwikkelen. De beveiliging verantwoordelijken hebben hun eigen Managementketen. Het uitvoeren van onafhankelijke beoordelingen van producten en services om te zorgen voor beveiliging en naleving.
 
 De kernfunctionaliteit van logboekanalyse wordt verstrekt door een set services die worden uitgevoerd in Azure. Elke service biedt een specifieke beheerfunctie. U kunt services combineren om verschillende beheerscenario's te bewerkstelligen.
 
-![Operations Manager-Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Azure-services voor beheer](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure-bewerking manager biedt de functionaliteiten door oplossingen voor het beheer. [Oplossingen voor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) voorverpakte sets van logica die een beheerscenario gebruik te maken van een of meer management-services te implementeren.
+Deze management-services zijn ontworpen in de cloud. Ze zijn volledig gehost in Azure, zodat ze niet implementeren en beheren van lokale bronnen veroorzaken. Configuratie is minimaal en u kunt actief en werkend zijn binnen een paar minuten.
 
-![Azure-bewerking beheren](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+Een agent op een Windows- of Linux-computer in uw datacenter geplaatst en gegevens met logboekanalyse wordt verzonden. Deze kan er, samen met alle andere gegevens verzameld van de cloud of on-premises services worden geanalyseerd. Azure Backup en Azure Site Recovery gebruiken om te profiteren van de cloud voor back-up en hoge beschikbaarheid voor lokale bronnen.
 
-Er zijn verschillende oplossingen beschikbaar van Microsoft en partners dat u eenvoudig aan uw Azure-abonnement toevoegen kunt te verhogen van de waarde van uw investering in logboekanalyse.
+![Management-services op de Azure-dashboard](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Als partner kunt u uw eigen oplossingen voor de ondersteuning van uw toepassingen en services en ze te bieden aan gebruikers via de snel starten-sjablonen of Azure Marketplace.
+Runbooks in de cloud heeft geen gewoonlijk toegang tot uw lokale bronnen, maar u kunt een agent installeren op een of meer computers die als host voor runbooks in uw datacenter fungeert. Wanneer u een runbook start, kunt u opgeven of u wilt uitvoeren in de cloud of op een lokale worker.
+
+Er zijn verschillende oplossingen beschikbaar van Microsoft en partners die u aan uw Azure-abonnement toevoegen kunt te verhogen van de waarde van uw investering in logboekanalyse. Bijvoorbeeld: Azure biedt [beheeroplossingen](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)--voorverpakt sets van logica die een beheerscenario implementeren met behulp van een of meer management-services.
+
+![Galerie van oplossingen in Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+
+Als partner kunt u uw eigen oplossingen voor de ondersteuning van uw toepassingen en services en ze te bieden aan gebruikers via de Azure Marketplace of Quick Start-sjablonen maken.
 
 ## <a name="performance-alerting-and-monitoring"></a>Prestatiewaarschuwingen en controle
 
 ### <a name="alerting"></a>Waarschuwingen
 
-Waarschuwingen zijn een methode voor het bewaken van metrische gegevens voor Azure-resources, gebeurtenissen of Logboeken en wordt gewaarschuwd wanneer een voorwaarde die u opgeeft wordt voldaan.
+Waarschuwingen zijn een methode voor bewaking metrische gegevens voor Azure-resource, gebeurtenissen of Logboeken. Ze een melding zodra wordt voldaan aan een voorwaarde die u hebt opgegeven.
 
-**Waarschuwingen in verschillende Azure-services**
+Waarschuwingen zijn beschikbaar via de services, waaronder:
 
-Waarschuwingen zijn beschikbaar via andere services, waaronder:
+- **Azure Application Insights**: kan web-test en meetwaarde op waarschuwingen. Zie voor meer informatie [meldingen instellen in Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) en [beschikbaarheid en reactiesnelheid van een website bewaken](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Application Insights: Kunt WebTest en metrische waarschuwingen.
+- **Meld u Analytics**: de routering van de activiteit en de logboeken met diagnostische gegevens met logboekanalyse is ingeschakeld. Kunt u metrische gegevens, het logboek en overige Waarschuwingstypen. Zie voor meer informatie [waarschuwingen in logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
 
->[!Note]
-> Zie [meldingen instellen in Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) en [beschikbaarheid en reactiesnelheid van een website bewaken](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
-
-- Log Analytics: De routering van de activiteit en de logboeken met diagnostische gegevens met logboekanalyse en metrische gegevens, het logboek en overige Waarschuwingstypen staat.
-
->[!Note]
-> Zie voor meer informatie, waarschuwingen in [logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
-
-- Azure bewaken: Hiermee schakelt u waarschuwingen op basis van zowel de metrische waarden als de activiteit logboekgebeurtenissen. U kunt de [REST-API van Azure-Monitor](https://msdn.microsoft.com/library/dn931943.aspx) om waarschuwingen te beheren.
-
->[!Note]
-> Zie voor meer informatie [met behulp van de Azure-portal, PowerShell of de opdrachtregelinterface voor het maken van waarschuwingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
+- **Monitor voor Azure**: Hiermee kunt u waarschuwingen op basis van zowel de metrische waarden als de activiteit logboekgebeurtenissen. U kunt de [REST-API van Azure-Monitor](https://msdn.microsoft.com/library/dn931943.aspx) om waarschuwingen te beheren. Zie voor meer informatie [met behulp van de Azure-portal, PowerShell of de opdrachtregelinterface voor het maken van waarschuwingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
 
 ### <a name="monitoring"></a>Bewaking
 
-Prestatieproblemen in uw cloud-app kunnen invloed hebben op uw bedrijf. Degradations kan met meerdere onderdelen onderling verbonden en releases vaak gebeuren op elk gewenst moment. En als u een app ontwikkelt, uw gebruikers problemen die u hebt niet vinden in het testen van meestal te detecteren. U moet weten over deze problemen direct en hulpprogramma's voor het opsporen en oplossen van de problemen hebben. Microsoft Azure is een reeks hulpmiddelen om deze problemen te identificeren.
+Prestatieproblemen in uw cloud-app kunnen invloed hebben op uw bedrijf. Degradations kan met meerdere onderdelen onderling verbonden en releases vaak gebeuren op elk gewenst moment. En als u een app ontwikkelt, uw gebruikers problemen die u hebt niet vinden in het testen van meestal te detecteren. U moet weten over deze problemen direct en hulpprogramma's voor het opsporen en corrigeren hebben.
 
-**Hoe bewaak ik mijn Azure-cloud-apps?**
-
-Er is een reeks hulpmiddelen voor het bewaken van Azure-toepassingen en services. Enkele van hun functies overlappen. Dit is gedeeltelijk omwille van de historische en deels vervaging tussen ontwikkeling en de werking van een toepassing.
+Er is een reeks hulpmiddelen voor het bewaken van Azure-toepassingen en services. Enkele van hun functies overlappen. Dit is gedeeltelijk vanwege de vervaging tussen ontwikkeling en de werking van een toepassing.
 
 Hier volgen de principal-hulpprogramma's:
 
-- **Monitor voor Azure** is basic hulpprogramma voor het bewaken van services die worden uitgevoerd op Azure. Dit biedt u niveau van de infrastructuur gegevens over de doorvoer van een service en de omgeving. Als u uw apps in Azure beheert, krijgt bepalen of schaal omhoog of omlaag resources, Azure Monitor u dan gebruik om te starten.
+- **Monitor voor Azure** is een eenvoudige hulpprogramma voor het bewaken van services die worden uitgevoerd op Azure. Dit biedt u niveau van de infrastructuur gegevens over de doorvoer van een service en de omgeving. Als u uw apps in Azure en bepalen of schaal omhoog of omlaag resources beheert, kunt Azure Monitor u beginnen.
 
-- **Application Insights** kunnen worden gebruikt voor ontwikkeling en als een productie-bewakingsoplossing. Deze werkt met een pakket in uw app installeert en biedt dus een meer interne weergave van wat er gebeurt. De gegevens omvatten reactietijden van afhankelijkheden, uitzondering traceringen, foutopsporing van momentopnamen, profielen kan worden uitgevoerd. Het biedt krachtige smart tools voor het analyseren van alle deze telemetrie kunt u fouten opsporen in een app, en ook om te begrijpen wat gebruikers doen met het. U kunt zien of een piek in de reactietijden veroorzaakt door iets in een app, of een bepaalde externe resourcing probleem wordt. Als u Visual Studio gebruiken en de app beschadigd is, kunt u geleid rechts op de regel (s) probleem van code zodat u deze kunt oplossen.
+- **Application Insights** kunnen worden gebruikt voor ontwikkeling en als een productie-bewakingsoplossing. Dit proces werkt door het installeren van een pakket in uw app zodat dit u een meer interne weergave biedt van wat er gebeurt. De gegevens omvatten reactietijden van afhankelijkheden, uitzondering traceringen, momentopnamen en uitvoering profielen foutopsporing. Het biedt hulpprogramma's voor het analyseren van alle deze telemetrie kunt u fouten opsporen in een app, en ook om te begrijpen wat gebruikers doen met het. U kunt zien of een piek in de reactietijden veroorzaakt door iets in een app of een externe resourcing probleem wordt. Als u Visual Studio en de app is beschadigd, u direct naar de coderegel probleem gaan zodat u deze kunt oplossen.
 
-- **Meld u Analytics** is voor gebruikers die moeten afstemmen van de prestaties en onderhoud plannen van toepassingen die worden uitgevoerd in de productieomgeving. In Azure is gebaseerd. Deze verzamelt en gegevens uit diverse bronnen, maar met een vertraging van 10 tot 15 minuten worden verzameld. Dit biedt een holistische oplossing voor IT-beheer voor Azure, on-premises en cloud-gebaseerde infrastructuur hebben van derden (zoals Amazon Web Services). Het biedt uitgebreidere hulpprogramma's om gegevens te analyseren in meer bronnen, kunt u complexe query's via alle logboeken en proactief waarschuwt van de opgegeven voorwaarden. U kunt ook aangepaste gegevens verzamelen in de centrale opslagplaats zodat kunnen opvragen en visualiseren van deze.
+- **Meld u Analytics** is voor gebruikers die moeten afstemmen van de prestaties en onderhoud plannen van toepassingen die worden uitgevoerd in de productieomgeving. Deze verzamelt en gegevens uit diverse bronnen, met een vertraging van 10 tot 15 minuten worden verzameld. Dit biedt een holistische oplossing voor IT-beheer voor Azure, on-premises en cloud-gebaseerde infrastructuur hebben van derden (zoals Amazon Web Services). Het biedt hulpprogramma's om gegevens te analyseren alle bronnen, kunt u complexe query's via alle logboeken en proactief kan waarschuwing bij de opgegeven voorwaarden. U kunt zelfs aangepaste gegevens verzamelen in de centrale opslagplaats, en vervolgens een query en die gegevens te visualiseren.
 
-- **System Center Operations Manager (SCOM)** is voor het beheren en controleren van grote cloud-installaties. U mogelijk al bekend bent met het beheerprogramma voor on-premises Windows Server en op basis van Hyper-V-clouds, maar het kan ook integreren met en beheren van apps van Azure. Onder andere kan Application Insights worden geïnstalleerd op bestaande live apps. Als een app uitgeschakeld wordt, krijgt u in seconden.
+- **System Center Operations Manager** is voor het beheren en controleren van grote cloud-installaties. Bent u mogelijk al bekend bent met het als beheerprogramma voor lokale Windows Server en Hyper-V op basis van clouds, maar het kan ook integreren met en beheren van apps van Azure. Onder andere kan Application Insights worden geïnstalleerd op bestaande live apps. Als een app uitvalt, Operations Manager aangegeven (in seconden).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
+- [Best practices voor het maken van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)
 
-- [Voorbeelden van de implementatie van Azure-abonnement governance](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples).
+- [Voorbeelden van de implementatie van Azure-abonnement governance](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples)
 
-- [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/).
+- [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/)

@@ -1,9 +1,9 @@
 ---
 title: Azure SQL Analytics-oplossing in Log Analytics | Microsoft Docs
-description: De Azure SQL Analytics-oplossing kunt u uw Azure SQL-databases beheren.
+description: Azure SQL Analytics-oplossing kunt u uw Azure SQL-databases beheren
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -11,24 +11,26 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: f57a47677f752a644975a25fa746d78bced5d766
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37132932"
 ---
-# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Database met behulp van Azure SQL Analytics (Preview) in logboekanalyse bewaken
+# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Azure SQL Databases bewaken via Azure SQL Analytics (Preview)
 
 ![Azure SQL Analytics symbool](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-De Azure SQL Analytics-oplossing in Azure-logboekanalyse verzamelt en visualiseren van belangrijke maatstaven voor prestaties van SQL Azure. Met behulp van de metrische gegevens die u verzamelt van de oplossing, kunt u aangepaste regels voor bewaking en waarschuwingen. U kunt Azure SQL Database bewaken en elastische pool metrische gegevens op meerdere Azure-abonnementen en elastische pools en ze visualiseren. De oplossing helpt u problemen bij elke laag van uw toepassing stack kunt identificeren.  Hierbij [diagnostische Azure metrische gegevens](log-analytics-azure-storage.md) samen met logboekanalyse weergaven om gegevens over uw Azure SQL-databases en elastische pools in een enkel Log Analytics-werkruimte te presenteren.
+Azure SQL-Analytics is een oplossing voor het bewaken van de prestaties van Azure SQL-Databases op grote schaal op meerdere elastische pools en abonnementen bewaking cloud. Deze verzamelt en visualiseren van belangrijke maatstaven voor prestaties van Azure SQL Database met ingebouwde intelligentie voor het oplossen van problemen op de voorgrond prestaties. 
+
+Metrische gegevens die u hebt verzameld met de oplossing gebruikt, kunt u aangepaste regels voor bewaking en waarschuwingen. De oplossing helpt u bij het identificeren van problemen bij elke laag van de stack van uw toepassing. Diagnostische Azure metrische gegevens samen met logboekanalyse weergaven wordt gebruikt om gegevens over uw Azure SQL-databases en elastische pools in een enkel Log Analytics-werkruimte te presenteren. Log Analytics, helpt u bij het verzamelen, correleren en gestructureerde en ongestructureerde gegevens visualiseren.
 
 Deze preview-oplossing ondersteunt momenteel maximaal 150.000 Azure SQL-Databases en 5000 SQL elastische Pools per werkruimte.
-
-De Azure SQL Analytics-oplossing, net zoals andere beschikbaar voor logboekanalyse, kunt u controleren en meldingen ontvangen over de status van uw Azure-resources: in dit geval, Azure SQL Database. Microsoft Azure SQL Database is een schaalbare relationele database-service die bekende SQL-Server-achtige mogelijkheden voor toepassingen die worden uitgevoerd in de Azure-cloud biedt. Log Analytics, helpt u bij het verzamelen, correleren en gestructureerde en ongestructureerde gegevens visualiseren.
 
 Zie voor een praktische overzicht over het gebruik van Azure SQL Analytics-oplossing en typische gebruiksscenario's de ingesloten video:
 
@@ -37,39 +39,34 @@ Zie voor een praktische overzicht over het gebruik van Azure SQL Analytics-oplos
 
 ## <a name="connected-sources"></a>Verbonden bronnen
 
-De Azure SQL Analytics-oplossing gebruikt niet agents verbinding maken met de Log Analytics-service.
-
-De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing.
+Azure SQL-Analytics is een cloud bewaking oplossing ondersteunende streaming van diagnostische gegevens telemetrie voor Azure SQL-Databases en elastische pools. Als u agents verbinding maken met de Log Analytics-service, de oplossing biedt geen ondersteuning voor connectiviteit met Windows, Linux of SCOM-resources, Zie de onderstaande tabel voor compatibiliteit.
 
 | Verbonden bron | Ondersteuning | Beschrijving |
 | --- | --- | --- |
+| **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Ja** | Azure metrische gegevens en logboekbestanden gegevens worden verzonden met logboekanalyse rechtstreeks door Azure. |
+| [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Log Analytics biedt de gegevens niet lezen uit een opslagaccount. |
 | [Windows-agents](log-analytics-windows-agent.md) | Nee | Directe Windows-agents worden niet gebruikt door de oplossing. |
 | [Linux-agents](log-analytics-linux-agents.md) | Nee | Directe Linux-agents worden niet gebruikt door de oplossing. |
 | [SCOM-beheergroep](log-analytics-om-agents.md) | Nee | Een rechtstreekse verbinding tussen de SCOM-agents met logboekanalyse wordt niet gebruikt door de oplossing. |
-| [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Log Analytics biedt de gegevens niet lezen uit een opslagaccount. |
-| [Azure Diagnostics](log-analytics-azure-storage.md) | Ja | Azure metrische gegevens en logboekbestanden gegevens worden verzonden met logboekanalyse rechtstreeks door Azure. |
-
-## <a name="prerequisites"></a>Vereisten
-
-- Een Azure-abonnement. Als u niet hebt, kunt u één voor [gratis](https://azure.microsoft.com/free/).
-- Een werkruimte voor logboekanalyse. U kunt een bestaande of kunt u [Maak een nieuwe](log-analytics-quick-create-workspace.md) voordat u begint met behulp van deze oplossing.
-- Azure Diagnostics inschakelen voor uw Azure SQL-databases en elastische pools en [configureren zodat ze hun gegevens verzenden naar logboekanalyse](../sql-database/sql-database-metrics-diag-logging.md).
 
 ## <a name="configuration"></a>Configuratie
 
 Voer de volgende stappen uit om toe te voegen van de Azure SQL Analytics-oplossing naar de werkruimte.
 
-1. De Azure SQL Analytics-oplossing toevoegen aan uw werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
-2. Klik in de Azure-portal op **maken van een resource** > **bewaking + Management**.  
+1. De Azure SQL Analytics-oplossing toevoegen aan uw werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
+2. Klik in de Azure-portal op **+ maken van een resource**, zoekt u naar **Azure SQL Analytics**.  
     ![Controle en beheer](./media/log-analytics-azure-sql/monitoring-management.png)
-3. In de **bewaking + Management** Klik **alle**.
-4. In de **aanbevolen** lijst, klikt u op **meer**, en klik vervolgens in de nieuwe lijst vinden **Azure SQL Analytics (Preview)** en selecteert u vervolgens.  
-    ![Azure SQL Analytics-oplossing](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. In de **Azure SQL Analytics (Preview)** gebied, klikt u op **maken**.  
+3. Selecteer **Azure SQL Analytics (Preview)** uit de lijst
+4. In de **Azure SQL Analytics (Preview)** gebied, klikt u op **maken**.  
     ![Maken](./media/log-analytics-azure-sql/portal-create.png)
-6. In de **nieuwe oplossing maken** gebied, selecteer de werkruimte die u wilt toevoegen, de oplossing en klik vervolgens op **maken**.  
+5. In de **nieuwe oplossing maken** gebied maken van nieuwe of Selecteer een bestaande werkruimte die u wilt toevoegen, de oplossing en klik vervolgens op **maken**.  
     ![toevoegen aan werkruimte](./media/log-analytics-azure-sql/add-to-workspace.png)
 
+### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>Azure SQL-Databases en elastische Pools configureren om diagnostische telemetrie van stroom
+
+Als u Azure SQL Analytics-oplossing hebt gemaakt in uw werkruimte, om de prestaties van Azure SQL-Databases en/of elastische Pools controleren moet u **Configureer elke** van Azure SQL Database en de elastische groep resource die u wilt Als u de diagnostische gegevens telemetrie naar de oplossing stroomsgewijs wilt bewaken.
+
+- Azure Diagnostics inschakelen voor uw Azure SQL-databases en elastische pools en [configureren zodat ze hun gegevens verzenden naar logboekanalyse](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### <a name="to-configure-multiple-azure-subscriptions"></a>Voor het configureren van meerdere Azure-abonnementen
 
@@ -109,10 +106,10 @@ Elk perspectief biedt samenvattingen op abonnement, server elastische pool en da
 | Inzichten | Biedt hiërarchische inzoomen in Intelligent inzichten. Meer informatie over intelligent insights. |
 | Fouten | Biedt hiërarchische inzoomen in SQL-fouten die zich op de databases voorgedaan. |
 | Time-outs | Biedt hiërarchische inzoomen in SQL-outs die hebben plaatsgevonden van de databases. |
-| Blockings | Biedt hiërarchische inzoomen in SQL-blockings die hebben plaatsgevonden van de databases. |
+| Blokkeringen | Biedt hiërarchische inzoomen in SQL-blockings die hebben plaatsgevonden van de databases. |
 | Wachten op database | Biedt hiërarchische inzoomen in SQL wacht statistieken op databaseniveau. Bevat overzichten van de totale wachttijd en de wachttijd per type wacht. |
-| duur van de query | Biedt hiërarchische inzoomen in de statistieken van de query kan worden uitgevoerd zoals duur van de query, CPU-gebruik, gegevens-IO-gebruik, logboek-i/o-gebruik. |
-| Query moet wachten | Biedt hiërarchische inzoomen in de query wacht statistieken per categorie wacht. |
+| Duur van de query | Biedt hiërarchische inzoomen in de statistieken van de query kan worden uitgevoerd zoals duur van de query, CPU-gebruik, gegevens-IO-gebruik, logboek-i/o-gebruik. |
+| Wachten op query | Biedt hiërarchische inzoomen in de query wacht statistieken per categorie wacht. |
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights-rapport
 

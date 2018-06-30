@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 12a63e65a739be08d436f8f1b53df566255b1fb1
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: ad5ef58536bb6cc7f2c754f2e5c4487a3ffe96f2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322056"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112823"
 ---
 # <a name="publish-your-trained-app"></a>Uw getraind app publiceren
 Wanneer u klaar bent met het maken en testen van uw app LUIS publiceren. Nadat de app is gepubliceerd, ziet u de pagina publiceren alle bijbehorende HTTP [eindpunten](luis-glossary.md#endpoint). Deze eindpunten per [regio](luis-reference-regions.md) en per [sleutel](Manage-Keys.md), vervolgens zijn geïntegreerd in elke client, chatbot of back-end-toepassing. 
@@ -48,7 +48,7 @@ In de **instellingen voor externe services**, wordt de **inschakelen spraak Prim
 Zodra deze functie is ingeschakeld, moet u uw app publiceren. Wanneer u uw app LUIS publiceert, wordt het model van uw app naar uw eigen spraak-service verzonden naar de service spraak bewerken. De gegevens van uw model **niet** buiten uw eigen service gebruikt. 
 
 Als u wilt het gebruik van spraak voorbereiden voltooien, moet u de volgende informatie om te gebruiken de [spraak SDK](../speech-service/speech-sdk-reference.md):
-* Een sleutel van het abonnement LUIS.
+* Een sleutel van het eindpunt LUIS.
 * De LUIS app-ID.
 * Een domein eindpunt aangeduid als 'Hostnaam' in de SDK-spraak, zoals 'westus.api.cognitive.microsoft.com', waarbij het eerste subdomein is voor de regio waar de app is gepubliceerd.
 
@@ -129,7 +129,7 @@ Deze tabel weerspiegelt gemakkelijk uw publishing configuratie in het URL-eindpu
 
 De URL-route is opgesteld met de regio en de app-ID. Als u in andere regio's of met andere apps publiceren wilt, kan de eindpunt-URL worden samengesteld door de regio en app-ID-waarden te wijzigen. 
 
-* Selecteer de productiesite en de **publiceren** knop. Als het publiceren is geslaagd, moet u de weergegeven eindpunt-URL gebruiken voor toegang tot uw app LUIS. 
+* Selecteer de slot Production en vervolgens de knop **Publish**. Als het publiceren is geslaagd, moet u de weergegeven eindpunt-URL gebruiken voor toegang tot uw app LUIS. 
 
 ### <a name="optional-query-string-parameters"></a>Optionele van queryreeksparameters
 De volgende parameters voor query-tekenreeks kunnen worden gebruikt met de eindpunt-URL:

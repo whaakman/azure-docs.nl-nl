@@ -4,8 +4,8 @@ description: Het instellen van continue implementatie van een register Docker-co
 keywords: Azure app service, linux, docker, acr, oss
 services: app-service
 documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: aelnably;msangapu
-ms.openlocfilehash: ac35dbd041de50ab8aae1a0fb4c00fe3917a7297
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/29/2018
+ms.author: msangapu
+ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30168323"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130958"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Continue implementatie met Web-App voor Containers
 
@@ -54,7 +54,8 @@ De webhook-URL verkrijgen via [Azure CLI](https://docs.microsoft.com/cli/azure/i
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
-De webhook-URL, moet u het volgende eindpunt: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+Noteer de webhook-URL. U moet deze in de volgende sectie.
+`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
 Kunt u uw `publishingusername` en `publishingpwd` downloaden van de web-app publiceren profiel met behulp van de Azure-portal.
 
@@ -62,34 +63,15 @@ Kunt u uw `publishingusername` en `publishingpwd` downloaden van de web-app publ
 
 ## <a name="add-a-webhook"></a>Toevoegen van een webhook
 
-### <a name="azure-container-registry"></a>Azure Container Registry
+Als u wilt toevoegen van een webhook, volg de stappen in deze richtlijnen:
 
-1. Selecteer op de portal pagina register **Webhooks**.
-2. Selecteer voor het maken van een nieuwe webhook **toevoegen**. 
-3. In de **webhook maken** deelvenster uw webhook een naam geven. Geef de URL die is verkregen in de voorgaande sectie voor de webhook-URI.
-
-Zorg ervoor dat u het bereik definiëren als de opslagplaats met de installatiekopie van de container.
-
-![Schermafbeelding van de webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
-
-Wanneer u de installatiekopie bijwerkt, wordt de web-app automatisch bijgewerkt met de nieuwe installatiekopie.
-
-### <a name="docker-hub"></a>Docker Hub
-
-Selecteer op de pagina Docker Hub **Webhooks**, en vervolgens **maken van een WEBHOOK**.
-
-![Schermopname van het toevoegen van de webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
-
-Geef voor de webhook-URL de URL die u eerder hebt verkregen.
-
-![Schermopname van het toevoegen van de webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-Wanneer u de installatiekopie bijwerkt, wordt de web-app automatisch bijgewerkt met de nieuwe installatiekopie.
+- [Azure Container register](../../container-registry/container-registry-webhook.md) met behulp van de webhook-URL
+- [Webhooks voor Docker-Hub](https://docs.docker.com/docker-hub/webhooks/)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Inleiding tot op Linux-Azure App Service](./app-service-linux-intro.md)
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [Azure-Container register](https://azure.microsoft.com/services/container-registry/)
 * [Een .NET Core-web-app maken in App Service in Linux](quickstart-dotnetcore.md)
 * [Een Ruby web-app maken in App-Service op Linux](quickstart-ruby.md)
 * [Een Docker/Ga web-app in Web-App voor Containers implementeren](quickstart-docker-go.md)

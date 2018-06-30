@@ -4,22 +4,23 @@ description: Computergroepen in Log Analytics kunnen u bereik logboek zoekopdrac
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: c4a1edc8e4ff129a8b073f008e1d20bb20941ae1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: 23ac75b4afb07c3f8d5f0d90755a5cf2087087e1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775261"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130672"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Meld u zoekopdrachten computergroepen in Log Analytics
 
@@ -69,7 +70,7 @@ Configureren van logboekanalyse voor het importeren van Active Directory-beveili
 
 Wanneer u groepen zijn geïmporteerd, worden in het menu het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd worden.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
 
-### <a name="windows-server-update-service"></a>Windows Server updateservice
+### <a name="windows-server-update-service"></a>Windows Server Update Service
 Wanneer u Log Analytics WSUS-groepslidmaatschappen importeren configureert, wordt het lidmaatschap van de toewijzing van alle computers met de OMS-agent geanalyseerd.  Als u aan de clientzijde heeft ontwikkelt, elke computer die is verbonden met logboekanalyse en maakt deel uit van een WSUS het groepslidmaatschap geïmporteerd met logboekanalyse groepen als doel. Als u van server side gebruikmaakt moet ontwikkelt, de OMS agent worden geïnstalleerd op de WSUS-server om de gegevens moeten worden geïmporteerd met logboekanalyse.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur. 
 
 Configureren van logboekanalyse voor het importeren van de WSUS-groepen van logboekanalyse **geavanceerde instellingen** in de Azure portal.  Selecteer **computergroepen**, **WSUS**, en vervolgens **importeren WSUS-groepslidmaatschappen**.  Er is geen verdere configuratie nodig.

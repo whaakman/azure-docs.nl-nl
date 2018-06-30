@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802262"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109516"
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 
-Dit artikel worden enkele veelgestelde vragen over Microsoft Azure Service Bus. U kunt ook de [Azure ondersteunen Veelgestelde vragen over](http://go.microsoft.com/fwlink/?LinkID=185083) voor algemene Azure-prijzen en -ondersteuning voor informatie.
+Dit artikel worden enkele veelgestelde vragen over Microsoft Azure Service Bus. U kunt ook de [Azure ondersteunen Veelgestelde vragen over](https://azure.microsoft.com/en-us/support/faq/) voor algemene Azure-prijzen en -ondersteuning voor informatie.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Algemene vragen over Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Wat is Azure Service Bus?
@@ -56,7 +56,7 @@ Deze sectie worden enkele veelgestelde vragen over de Service Bus structuur prij
 
 De [Service Bus-prijzen en facturering](service-bus-pricing-billing.md) artikel wordt uitgelegd dat de facturering meters in Service Bus. Zie voor meer informatie over Service Bus prijzen opties [Service Bus prijsinformatie](https://azure.microsoft.com/pricing/details/service-bus/).
 
-U kunt ook de [Veelgestelde vragen over Azure-ondersteuning](http://go.microsoft.com/fwlink/?LinkID=185083) voor algemene Azure prijsinformatie. 
+U kunt ook de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/en-us/support/faq/) voor algemene Azure prijsinformatie. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Hoe u kosten in rekening gebracht voor Service Bus?
 Zie voor meer informatie over prijzen voor Service Bus [Service Bus prijsinformatie][Pricing overview]. Naast de prijzen genoteerd, u in rekening worden gebracht voor de bijbehorende gegevensoverdracht voor uitgaande buiten het datacenter waarin de toepassing is ingericht.

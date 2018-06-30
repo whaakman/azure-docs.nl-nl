@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/07/2017
+ms.date: 06/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95e576eb5ce6834e67d997cde57426fd09db4e6a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: HT
+ms.openlocfilehash: 897671ef592ac691402a4e452f7a0baa04aa228a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099793"
+ms.locfileid: "37129054"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -126,19 +126,57 @@ Niet binnen de servers op dit moment.
 Alle gegevens worden versleuteld doorloopt datacenters.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Worden de gegevens versleuteld tijdens de overdracht van mijn toepassing op servers met Application Insights?
-Ja, we https gebruiken om gegevens te verzenden naar de portal van bijna alle SDK's, inclusief webservers, apparaten en HTTPS-webpagina's. De enige uitzondering hierop zijn gegevens verzonden van gewone HTTP-webpagina's. 
+Ja, we https gebruiken om gegevens te verzenden naar de portal van bijna alle SDK's, inclusief webservers, apparaten en HTTPS-webpagina's. De enige uitzondering hierop zijn gegevens verzonden van gewone HTTP-webpagina's.
+
+## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Hoe kan ik verzenden gegevens naar Application Insights met TLS 1.2?
+
+Als u wilt zorgen dat de beveiliging van gegevens tijdens verzending naar de Application Insights-eindpunten, we raden klanten hun toepassing configureren voor gebruik ten minste Transport Layer Security (TLS) 1.2. Oudere versies van TLS/Secure Sockets Layer (SSL) kwetsbaar zijn gevonden en ze werken op dit moment nog steeds zodat achterwaartse compatibiliteit, zijn ze **niet aanbevolen**, en de branche snel is verplaatst naar het afbreken van ondersteuning voor deze oudere protocollen. 
+
+De [PCI Security Standards Council](https://www.pcisecuritystandards.org/) heeft een [deadline van 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) oudere versies van TLS/SSL en upgrade op meer veilige protocollen uitschakelen. Wanneer Azure ondersteuning voor oudere, zakt als uw toepassing/clients via ten minste communiceren kunnen TLS 1.2 is het zou niet mogelijk om gegevens te verzenden naar Application Insights. De aanpak die u ondernemen om te testen en valideren van uw toepassing TLS-ondersteuning is afhankelijk van het besturingssysteem/platform, evenals het taalframework/maakt gebruik van uw toepassing.
+
+We raden niet expliciet instellen van uw toepassing alleen gebruik van TLS 1.2 tenzij dit echt nodig omdat dit platform beveiliging op rijniveau functies waarmee u automatisch detecteren en te profiteren van de nieuwere veiliger protocollen zodra deze kunt verbreken beschikbaar zoals TLS 1.3. Het is raadzaam om het uitvoeren van een uitgebreide controle van uw toepassingscode om te controleren op hardcoderen van specifieke versies van TLS/SSL.
+
+### <a name="platformlanguage-specific-guidance"></a>Specifieke hulp platform/taal
+
+|Platform/taal | Ondersteuning | Meer informatie |
+| --- | --- | --- |
+| Azure App Services  | Ondersteund, zijn configuratie vereist. | Ondersteuning is in April 2018 aangekondigd. Lezen van de aankondiging voor [configuratiedetails](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
+| Azure-functie Apps | Ondersteund, zijn configuratie vereist. | Ondersteuning is in April 2018 aangekondigd. Lezen van de aankondiging voor [configuratiedetails](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+|.NET | Ondersteund, varieert configuratie per versie. | Raadpleeg voor gedetailleerde configuratie-informatie voor .NET 4.7 en eerdere versies [deze instructies](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Statuscontrole | Ondersteunde, vereiste configuratie | Statusmonitor is afhankelijk van [configuratie van het besturingssysteem](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) + [configuratie .NET](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12) voor ondersteuning van TLS 1.2.
+|Node.js |  Ondersteund in v10.5.0, zijn configuratie vereist. | Gebruik de [officiële Node.js TLS/SSL-documentatie](https://nodejs.org/api/tls.html) voor elke specifieke configuratie van de toepassing. |
+|Java | Ondersteund, JDK-ondersteuning voor TLS 1.2 is toegevoegd in [JDK 6 update 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) en [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | Maakt gebruik van 8 JDK [TLS 1.2 standaard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Linux | Linux-distributies meestal afhankelijk zijn van [OpenSSL](https://www.openssl.org) voor ondersteuning van TLS 1.2.  | Controleer de [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) om te bevestigen dat de versie van OpenSSL wordt ondersteund.|
+| Windows 8.0 10 | Ondersteunde en standaard ingeschakeld. | Om te bevestigen dat u nog steeds de [standaardinstellingen](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
+| WindowsServer 2012-2016 | Ondersteunde en standaard ingeschakeld. | Om te bevestigen dat u nog steeds de [standaardinstellingen](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 en Windows Server 2008 R2 SP1 | Ondersteund, maar niet standaard ingeschakeld. | Zie de [Transport Layer Security (TLS) registerinstellingen](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) pagina voor meer informatie over het inschakelen.  |
+| Windows Server 2008 SP2 | Ondersteuning voor TLS 1.2 moet worden bijgewerkt. | Zie [Update voor het toevoegen van ondersteuning voor TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
+|Windows Vista | Niet ondersteund. | N/A
+
+### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Controleer welke versie van OpenSSL uw Linux-distributie wordt uitgevoerd.
+
+Als u wilt controleren welke versie van OpenSSL die u hebt geïnstalleerd, open de terminal en voer:
+
+```terminal
+openssl version -a
+```
+
+### <a name="run-a-test-tls-12-transaction-on-linux"></a>Een test met TLS 1.2 transactie uitvoert op Linux
+
+Uitvoeren van een voorlopige basistest om te zien als uw Linux-systeem via TLS 1.2 communiceren kan. Open de terminal en voer:
+
+```terminal
+openssl s_client -connect bing.com:443 -tls1_2
+```
 
 ## <a name="personal-data-stored-in-application-insights"></a>Persoonlijke gegevens die zijn opgeslagen in de Application Insights
 
-Onze [Application Insights persoonsgegevens artikel](app-insights-customer-data.md) in dit onderwerp gedetailleerd besproken.
+Onze [Application Insights persoonsgegevens artikel](app-insights-customer-data.md) wordt dit probleem gedetailleerd beschreven.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kunnen mijn gebruikers uitschakelen Application Insights?
 Niet rechtstreeks. Geen bieden we een netwerkswitch die uw gebruikers werken kunnen Application Insights uitschakelen.
 
 U kunt deze functie echter implementeren in uw toepassing. De SDK's bevatten een API-instelling uitgeschakeld telemetrie-verzameling wordt. 
-
-#### <a name="my-application-is-unintentionally-collecting-sensitive-information-can-application-insights-scrub-this-data-so-it-isnt-retained"></a>Mijn toepassing verzamelen per ongeluk gevoelige informatie. Kan Application Insights deze gegevens wissen zodat deze wordt niet behouden
-Application Insights niet filteren of verwijderen van uw gegevens. U moet de gegevens op de juiste wijze te beheren en te voorkomen dat dergelijke gegevens te verzenden naar Application Insights.
 
 ## <a name="data-sent-by-application-insights"></a>Gegevens die worden verzonden door de Application Insights
 De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u kunt installeren. (Raadpleeg [Application Insights - overzicht][start].) Elk onderdeel verzendt verschillende gegevens.

@@ -3,7 +3,7 @@ title: Een aangepaste dashboard maken in Azure Log Analytics | Microsoft Docs
 description: Deze handleiding helpt u begrijpen hoe logboekanalyse dashboards Visualiseer al uw zoekopdrachten opgeslagen logboek zodat u een identiteitsonderdelen om weer te geven van uw omgeving.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eaa74655b009e3154e2cc4f09d5599040ec4589
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010768"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129309"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Maken van een aangepast dashboard voor gebruik in Log Analytics
 
@@ -68,11 +68,11 @@ Klik in de weergave Mijn Dashboard **aanpassen** invoeren modus aanpassen. Klik 
 ### <a name="tile-visualizations"></a>Tegel visualisaties
 Er zijn drie soorten tegel visualisaties kunt kiezen uit:
 
-| grafiektype | wat het programma doet |
+| grafiektype | Wat het programma doet |
 | --- | --- |
 | ![Staafdiagram](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Geeft een tijdlijn met uw opgeslagen logboek zoekresultaten weer als een staafdiagram of een lijst met resultaten in een veld afhankelijk van als uw zoekopdracht logboek resultaten door een veld of niet aggregeert. |
 | ![metrische waarde](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Worden uw totale logboek zoeken resultaat treffers weergegeven als een getal in een tegel. Metrische tegels kunnen u een drempelwaarde die de tegel wordt gemarkeerd als de drempelwaarde is bereikt. |
-| ![regel](./media/log-analytics-dashboards/oms-dashboards-line.png) |Hiermee geeft u een tijdlijn van uw opgeslagen logboek resultaat gevonden in de zoekopdracht met waarden weer als een lijndiagram. |
+| ![Regel](./media/log-analytics-dashboards/oms-dashboards-line.png) |Hiermee geeft u een tijdlijn van uw opgeslagen logboek resultaat gevonden in de zoekopdracht met waarden weer als een lijndiagram. |
 
 ### <a name="threshold"></a>Drempelwaarde
 U kunt een drempelwaarde maken op een tegel met behulp van de metrische visualisatie. Selecteer op het maken van een drempelwaarde in op de tegel. Kies of u de tegel markeren als de waarde boven of onder de gekozen drempelwaarde, wordt de onderstaande drempelwaarde ingesteld.

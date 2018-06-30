@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 2062ba20b09e8e42fd094fbff628f5e76b5ea00f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225786"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Zelfstudie: Azure Active Directory-integratie met Riskware
 
@@ -67,7 +67,7 @@ Voor het configureren van de integratie van Riskware in Azure AD, moet u Riskwar
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
-    
+
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop Nieuw toepassing][3]
@@ -101,7 +101,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Dialoogvenster voor eenmalige aanmelding](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
 3. Op de **Riskware domein en de URL's** sectie, voert u de volgende stappen uit:
@@ -113,7 +113,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
     | DE PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. In de **id (entiteit-ID)** textbox, typ een URL:
@@ -121,10 +121,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
     | DE PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` | 
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
-    > [!NOTE] 
+    > [!NOTE]
     > De aanmelding URL-waarde is geen echte. Werk de waarde met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Riskware Client ondersteuningsteam](mailto:support@pansoftware.com.au) de waarde op te halen.
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
@@ -137,11 +137,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. Op de **Riskware configuratie** sectie, klikt u op **configureren Riskware** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out URL's en SAML Single Sign-On Service** van de **Naslaggids punt.**
 
-    ![Riskware configuratie](./media/riskware-tutorial/tutorial_riskware_configure.png) 
+    ![Riskware configuratie](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
-7. In een ander browservenster, meld u aan bij uw bedrijf Riskware site als beheerder.
+7. In een ander browservenster aanmelden bij uw bedrijf Riskware site als beheerder.
 
-8. Klik op de rechterbovenhoek, **onderhoud** om de onderhoudspagina te openen. 
+8. Klik op de rechterbovenhoek, **onderhoud** om de onderhoudspagina te openen.
 
     ![Riskware configuraties onderhouden](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -159,16 +159,16 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     c. In de **beschrijving** textbox, typ uw beschrijving zoals AZURE-configuratie voor eenmalige aanmelding.
 
-    d. In **eenmalige aanmelding op de pagina** textbox, plak de waarde van **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
+    d. In **eenmalige aanmelding op de pagina** textbox, plak de **SAML Single Sign-On Service-URL** waarde, die u hebt gekopieerd vanuit Azure-portal.
 
-    e. In **pagina Afmelden** textbox, plak de waarde van **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal.
+    e. In **pagina Afmelden** textbox, plak de **Sign-Out URL** waarde, die u hebt gekopieerd vanuit Azure-portal.
 
-    f. In de **Post formulierveld** textbox aanwezig is in de Post-antwoord voor het SAML zoals SamlResponse met de naam van het veld type
+    f. In de **Post formulierveld** textbox aanwezig is in de Post-antwoord voor het SAML zoals SAMLResponse met de naam van het veld type
 
     g. In de **XML-tagnaam identiteit** textbox typekenmerk die de unieke id in de SAML-reactie zoals NameID bevat.
 
     h. Open de gedownloade **Metadata Xml** kopieert het certificaat uit het metagegevensbestand vanuit Azure-portal in Kladblok en plak deze in de **certificaat** tekstvak
-    
+
     i. In **Consumer URL** textbox, plak de waarde van **antwoord-URL**, waarmee u krijgen via het ondersteuningsteam.
 
     j. In **verlener** textbox, plak de waarde van **id**, waarmee u krijgen via het ondersteuningsteam.
@@ -176,9 +176,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     > [!Note]
     > Neem contact op met [Riskware Client ondersteuningsteam](mailto:support@pansoftware.com.au) deze waarden ophalen
 
-    k. Selecteer **gebruik boeken** SAML-aanvraag doorgeven als een post-parameter.
+    k. Selecteer **gebruik POST** selectievakje.
 
-    l. Selecteer **gebruik SAML-aanvragen** doorgeven SSO toestaan SAML-aanvragen voor SP gestart.
+    l. Selecteer **gebruik SAML-aanvragen** selectievakje.
 
     m. Klik op **Opslaan**.
 
@@ -213,14 +213,14 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
- 
+
 ### <a name="create-a-riskware-test-user"></a>Een testgebruiker Riskware maken
 
-Om Azure AD-gebruikers zich aanmelden bij Riskware, moeten ze worden ingericht in Riskware. In Riskware is inrichting een handmatige taak.
+Om Azure AD-gebruikers aan te melden bij Riskware, moeten ze worden ingericht in Riskware. In Riskware is inrichting een handmatige taak.
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan als een beveiligingsbeheerder Riskware bij.
+1. Aanmelden bij Riskware als een beveiligingsbeheerder.
 
 2. Klik op de rechterbovenhoek, **onderhoud** om de onderhoudspagina te openen. 
 
@@ -230,8 +230,8 @@ Om Azure AD-gebruikers zich aanmelden bij Riskware, moeten ze worden ingericht i
 
     ![Mensen Riskware configuratie](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. Op de **Details** tabblad, voert u de volgende stappen uit:
-    
+4. Selecteer **Details** tabblad en voer de volgende stappen uit:
+
     ![Configuratiedetails Riskware](./media/riskware-tutorial/tutorial_riskware_details.png)
 
     a. Selecteer **Type persoon** zoals werknemer.
@@ -240,7 +240,7 @@ Om Azure AD-gebruikers zich aanmelden bij Riskware, moeten ze worden ingericht i
 
     c. In **achternaam** textbox, geef de achternaam van de gebruiker zoals **Simon**.
 
-5. Op de **beveiliging** tabblad, voert u de volgende stappen uit:    
+5. Op de **beveiliging** tabblad, voert u de volgende stappen uit:
 
     ![Beveiliging Riskware configuratie](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -254,8 +254,8 @@ Om Azure AD-gebruikers zich aanmelden bij Riskware, moeten ze worden ingericht i
 
     ![Riskware configuratie org](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. Onder **organisatie** sectie, selecteert u de organisatie als **Level1** organisatie.
-    
+    a. Selecteer de optie als **Level1** organisatie.
+
     b. Onder **van persoon primaire werkplek** sectie in het **locatie** textbox, typ uw locatie.
 
     c. Onder **werknemer** sectie **Werknemerstatus** zoals vrije tijd.
@@ -266,7 +266,7 @@ Om Azure AD-gebruikers zich aanmelden bij Riskware, moeten ze worden ingericht i
 
 In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Riskware.
 
-![Toewijzen van de gebruikersrol][200] 
+![Toewijzen van de gebruikersrol][200]
 
 **Britta Simon om aan te wijzen Riskware, moet u de volgende stappen uitvoeren:**
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d1b83432e925e4f6fd439ac78acfde56ad31ba52
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265384"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128386"
 ---
 # <a name="glossary"></a>Woordenlijst
 
@@ -82,11 +82,11 @@ Een voorbeeld-eindpunt ziet eruit als:
 |--|--|
 |regio| [gepubliceerde regio](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS app-ID |
-|Abonnements-id | Abonnementssleutel LUIS gemaakt in Azure-portal |
-|Q | Utterance |
+|abonnements-id | LUIS (abonnement) eindpuntsleutel gemaakt in Azure-portal |
+|q | utterance |
 |van timezoneoffset is| minutes|
 
-## <a name="entity"></a>Entiteit
+## <a name="entity"></a>entiteit
 
 [Entiteiten](luis-concept-entity-types.md) zijn belangrijk woorden in [utterances](luis-concept-utterance.md) beschrijvende informatie die relevant zijn voor de [bedoeling](luis-concept-intent.md), en soms ze zijn essentieel voor het. Een entiteit is in wezen een gegevenstype in LUIS. 
 
@@ -110,7 +110,7 @@ In machine learning, een [functie](luis-concept-feature.md) is een onderscheiden
 
 Een [bedoeling](luis-concept-intent.md) vertegenwoordigt een taak of actie die de gebruiker wil uitvoeren. Het is een doel of het doel uitgedrukt in de invoer van een gebruiker, zoals een vlucht reservering, betaalt een factuur of een nieuwsbericht zoeken. In LUIS, is de opzet voorspelling gebaseerd op de hele utterance. Entiteiten, zijn vergelijking: een utterance stukken.
 
-## <a name="labeling"></a>labels
+## <a name="labeling"></a>Labels
 
 Labels is het proces van het koppelen van een woord of zinsdeel in de opzet [utterance](#utterance) met een [entiteit](#entity) (gegevenstype). 
 
@@ -137,7 +137,7 @@ Een [vooraf gemaakte domein](luis-how-to-use-prebuilt-domains.md) LUIS-App is ge
 
 Een [vooraf gedefinieerde entiteit](pre-builtentities.md) is een entiteit LUIS voor algemene typen gegevens zoals, de URL en de e-mailbericht biedt. U een vooraf gedefinieerde entiteit toevoegen aan uw toepassing. 
 
-## <a name="precision"></a>precisie
+## <a name="precision"></a>Precisie
 In [tests in batch][batch-testing], precisie (ook wel voorspellende positief) is het gedeelte van de relevante utterances tussen de opgehaalde utterances.
 
 ## <a name="programmatic-key"></a>Programmatische sleutel
@@ -173,9 +173,9 @@ Schakel op de pagina publiceren [spellingcontrole van Bing](publishapp.md#enable
 
 Hetzelfde als [programmatische sleutel](#programmatic-key), nieuwe naam voor de sleutel ontwerpen.
 
-## <a name="subscription-key"></a>Abonnementssleutel
+## <a name="subscription-key"></a>abonnementssleutel
 
-De abonnementssleutel is de sleutel gekoppeld aan de service LUIS [u hebt gemaakt in Azure](luis-how-to-azure-subscription.md). Deze sleutel is niet de [authoring sleutel](#programmatic-key). Als u de abonnementssleutel van een hebt, moet het worden gebruikt voor elk eindpunt aanvragen in plaats van de sleutel ontwerpen. U kunt zien dat de abonnementssleutel van uw huidige binnen de eindpunt-URL aan de onderkant van [ **App publiceren** pagina](publishapp.md) in [LUIS](luis-reference-regions.md) website. Dit is de waarde van **abonnementssleutel** naam/waarde-paar. 
+De abonnementssleutel is de **eindpunt** sleutel gekoppeld aan de service LUIS [u hebt gemaakt in Azure](luis-how-to-azure-subscription.md). Deze sleutel is niet de [authoring sleutel](#programmatic-key). Als u een eindpuntsleutel hebt, moet het worden gebruikt voor elk eindpunt aanvragen in plaats van de sleutel ontwerpen. U kunt zien dat uw huidige endpoint-sleutel in de eindpunt-URL aan de onderkant van [ **App publiceren** pagina](publishapp.md) in [LUIS](luis-reference-regions.md) website. Dit is de waarde van **abonnementssleutel** naam/waarde-paar. 
 
 ## <a name="test"></a>Test
 
@@ -202,7 +202,7 @@ In [tests in batch][batch-testing], de gegevenspunten vertegenwoordigen utteranc
 
 In [tests in batch][batch-testing], de gegevenspunten vertegenwoordigen utterances waarin uw app correct het bestaan van de bedoeling/doelentiteit voorspeld.
 
-## <a name="utterance"></a>Utterance
+## <a name="utterance"></a>utterance
 
 Een utterance is een wachtwoordzin van natuurlijke taal zoals 'adresboek 2 tickets voor Seattle volgende dinsdag'. Voorbeeld utterances worden toegevoegd aan het doel. 
 

@@ -1,6 +1,6 @@
 ---
 title: LUIS gebied met behulp van Node.js zoeken binnen de grenzen van de taal Understanding (LUIS) | Microsoft Docs
-description: Programmatisch zoeken regio met abonnementssleutel en toepassing publiceren-ID voor LUIS.
+description: Programmatisch zoeken gebied met een eindpuntsleutel en de toepassing publiceren-ID voor LUIS.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 18ee324c10f074601c0c04573ca1a5266481f21c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6d85e6007b3e85a1b55997541e721ad57c22dddf
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/02/2018
-ms.locfileid: "35345937"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111742"
 ---
 # <a name="region-can-be-determined-from-api-call"></a>Regio kan worden bepaald van de API-aanroep 
 Als u de LUIS app-ID en de LUIS abonnements-ID hebt, kunt u welke regio moet worden gebruikt voor het eindpunt query's kunt vinden.
@@ -25,19 +25,19 @@ Als u de LUIS app-ID en de LUIS abonnements-ID hebt, kunt u welke regio moet wor
 ## <a name="luis-endpoint-query-strategy"></a>LUIS eindpunt querystrategie
 Elke LUIS endpoint-query is vereist:
 
-* Een abonnementssleutel
+* Een eindpuntsleutel
 * Een app-ID
 * Een regio
 
-Als de LUIS eindpunt query de juiste abonnement sleutel en app-ID maar de verkeerde regio gebruikt, is de antwoordcode 401. De aanvraag 401 is telt niet mee voor het quotum voor het abonnement. Deze aanvraag omzetten in een strategie voor het pollen van alle regio's om te zoeken naar de juiste regio. De juiste regio is de enige aanvraag waarmee 2xx statuscode geretourneerd. 
+Als de LUIS eindpunt query de juiste eindpunt sleutel en app-ID maar de verkeerde regio gebruikt, is de antwoordcode 401. De aanvraag 401 is telt niet mee voor het quotum voor het abonnement. Deze aanvraag omzetten in een strategie voor het pollen van alle regio's om te zoeken naar de juiste regio. De juiste regio is de enige aanvraag waarmee 2xx statuscode geretourneerd. 
 
 |responscode|Parameters|
 |--|--|
-|2xx|juiste abonnementssleutel<br>app-ID corrigeren<br>juiste hostregio|
-|401|juiste abonnementssleutel<br>app-ID corrigeren<br>_onjuiste_ hostregio|
+|2xx|juiste eindpuntsleutel<br>app-ID corrigeren<br>juiste hostregio|
+|401|juiste eindpuntsleutel<br>app-ID corrigeren<br>_onjuiste_ hostregio|
 
 ## <a name="nodejs-code-to-find-region"></a>Node.js-code gebied vinden
-De consoletoepassing duurt de LUIS app-ID en de abonnementssleutel en retourneert alle regio's die zijn gekoppeld. Op dit moment een abonnementssleutel wordt gemaakt door regio zodat slechts één regio moet retourneren.
+De consoletoepassing duurt de LUIS app-ID en de endpoint-sleutel en retourneert alle regio's die zijn gekoppeld. Op dit moment een eindpuntsleutel is gemaakt door regio zodat slechts één regio moet retourneren.
 
 De NPM-afhankelijkheden zijn:
 
@@ -55,7 +55,7 @@ Roep de `searchRegions` functioneren en retourneert één regio:
 
 [!code-javascript[Call the function](~/samples-luis/documentation-samples/find-region/nodejs/index.js?range=39-43 "Call the function")]
 
-Wanneer de toepassing wordt uitgevoerd, ziet u de terminal de regio voor de app-ID en -abonnement sleutel.
+Wanneer de toepassing wordt uitgevoerd, ziet de terminal u de regio voor de app-ID.
 
 ![Schermafbeelding van de console-app met LUIS regio](./media/find-region-nodejs/console.png)
 

@@ -16,15 +16,15 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.custom: end-user
-ms.openlocfilehash: 25a51cf534afaabd6fd540d70152659fc2478e11
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 81c2323dd65ee18d42a231306840eeb65bd09313
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102363"
+ms.locfileid: "37127455"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>De instellingen voor verificatie in twee stappen beheren
-In dit artikel antwoorden op vragen over het bijwerken van de instellingen voor de verificatie of meervoudige verificatie in twee stappen. Als u problemen die zijn aangemeld bij uw account hebt, raadpleegt u [problemen hebt met verificatie in twee stappen](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) voor hulp bij probleemoplossing.
+In dit artikel antwoorden op vragen over het bijwerken van de instellingen voor de verificatie of meervoudige verificatie in twee stappen. Als u problemen die zijn aangemeld bij uw account hebt, raadpleegt u [problemen hebt met verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md) voor hulp bij probleemoplossing.
 
 ## <a name="where-to-find-the-settings-page"></a>Waar vind ik de instellingenpagina
 Afhankelijk van hoe uw bedrijf van Azure multi-factor Authentication instellen, zijn er enkele locaties waar u uw instellingen zoals uw telefoonnummer wijzigen kunt.
@@ -55,7 +55,7 @@ Als u deze koppeling te klikken op niet werkt, u ook toegang krijgen tot de **aa
 Het is belangrijk voor het configureren van een telefoonnummer van de secundaire verificatie.  Omdat je primaire telefoonnummer en uw mobiele app waarschijnlijk op de dezelfde telefoon zijn, is de tweede telefoonnummer de enige manier waarop u zich weer toegang te krijgen tot je account als uw telefoon is kwijtgeraakt of gestolen.
 
 > [!NOTE]
-> Als u geen toegang tot uw primaire telefoonnummer hebben en hulp bij het ophalen van bij uw account, Zie de [problemen hebt met verificatie in twee stappen](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) artikel voor meer informatie.  
+> Als u geen toegang tot uw primaire telefoonnummer hebben en hulp bij het ophalen van bij uw account, Zie de [problemen hebt met verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md) artikel voor meer informatie.  
 
 **Het primaire telefoonnummer wijzigen:**  
 
@@ -80,5 +80,5 @@ Afhankelijk van de instellingen van uw organisatie, moet u wellicht een selectie
 Wanneer u de app van uw apparaat verwijderen of het apparaat opnieuw instelt, wordt de activering op de back-end niet verwijderd. Zie voor meer informatie [Microsoft Authenticator](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Problemen oplossen met tips en help op [problemen hebt met verificatie in twee stappen](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md)
+* Problemen oplossen met tips en help op [problemen hebt met verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md)
 * Instellen van [app-wachtwoorden](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md) voor alle apps die verificatie in twee stappen niet ondersteunen.

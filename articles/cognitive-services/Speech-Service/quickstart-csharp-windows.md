@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: f0a2ec617c71f9e86610017d3b6fa961bbd14322
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-ms.translationtype: HT
+ms.openlocfilehash: 14e5110385667d0f2135251eef53ff20ada08444
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083083"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111249"
 ---
 # <a name="quickstart-recognize-speech-using-the-cognitive-services-speech-c-sdk"></a>Snelstartgids: Herkennen spraak met behulp van de cognitieve Services spraak C# SDK
 
@@ -63,7 +63,7 @@ In deze sectie kunt u een nieuw platform toevoegen aan de configuratie die overe
 
 ## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
 
-1. In de `Program.cs` voor Visual Studio-project, vervangt u de hoofdtekst van de `Program` klasse met de volgende. Zorg ervoor dat u de abonnementssleutel en de regio vervangen met een versie die u voor de service verkregen.
+1. In de `Program.cs` bestand in Visual Studio-project, vervangen door de hoofdtekst van de `Program` klasse met de volgende. Zorg ervoor dat u de abonnementssleutel vervangen door uw eigen en wijzigt u de [regio](regions.md) met de fout die aan het abonnement is gekoppeld (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#code)]
 

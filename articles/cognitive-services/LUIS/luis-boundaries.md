@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7f46e55e11c4eb68b515a743b0f51392ffc1269e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 52bda6a13422ce8f759c40bd454a6b15e92d7a5d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266801"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110293"
 ---
 # <a name="luis-boundaries"></a>LUIS grenzen
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents entiteiten en functies in LUIS. Het tweede gebied is [quotalimieten](#key-limits) op basis van het type sleutel. Een derde gebied van grenzen is de [combinatie toetsenbord](#keyboard-controls) voor het beheren van de website LUIS. Een vierde gebied is de [toewijzing van world regio](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
@@ -35,11 +35,11 @@ LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#m
 | [Patronen](luis-concept-patterns.md)|500 patronen per toepassing.<br>Maximale lengte van het patroon is 400 tekens.<br>3 Pattern.any entiteiten per patroon<br>Maximaal 2 geneste optionele teksten in patroon|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per toepassing, 3 pattern.any entiteiten per patroon |
 | [Lijst van de wachtwoordzin op te geven][phrase-list]|10 woordgroep lijsten, 5.000 items per lijst|
-| [Vooraf gedefinieerde entiteiten](./Pre-builtEntities.md) | Geen limiet|
+| [Vooraf gedefinieerde entiteiten](./Pre-builtEntities.md) | geen limiet|
 | [Reguliere expressie entiteiten](./luis-concept-entity-types.md)|20 entiteiten<br>maximaal 500 tekens. per reguliere expressie entiteit patroon|
 | [Rollen](luis-concept-roles.md)|300 rollen per toepassing. 10 rollen per entiteit|
 | **[Eenvoudige](./luis-concept-entity-types.md)| 100 entiteiten|
-| [Utterance][utterances] | 500 tekens bevatten|
+| [utterance][utterances] | 500 tekens bevatten|
 | [Utterances][utterances] | 15.000 per toepassing|
 | [De versienaam van de][luis-how-to-manage-versions] | beperkt tot alfanumerieke en periode 10 tekens (.) |
 
@@ -56,17 +56,17 @@ De volgende tekens niet gebruiken in doel en de entiteit:
 |`}`|Accolade rechts|
 |`[`|Haakje openen|
 |`]`|Haakje sluiten|
-|`\`|backslash|
+|`\`|Backslash|
 
 ## <a name="key-limits"></a>Limieten
-De authoring sleutel heeft verschillende beperkingen voor ontwerp- en eindpunt. De sleutel LUIS service-abonnement is alleen geldig voor het eindpunt query's.
+De authoring sleutel heeft verschillende beperkingen voor ontwerp- en eindpunt. De sleutel LUIS service-eindpunt is alleen geldig voor het eindpunt query's.
 
 |Sleutel|Ontwerpen|Eindpunt|Doel|
 |--|--|--|--|
 |Ontwerpen/Starter|1 miljoen/maand, 5/seconde|1-1000/maand, 5/seconde|Uw app LUIS ontwerpen|
 |[Abonnement] [ pricing] - F0 - gratis laag |ongeldig|10 duizend/maand, 5/seconde|Uw eindpunt LUIS opvragen|
 |[Abonnement] [ pricing] - S0 - basisstaffel|ongeldig|50/seconde|Uw eindpunt LUIS opvragen|
-|[Gevoel Gegevensanalyse-integratie](publishapp.md#enable-sentiment-analysis)|ongeldig|Gratis|Gevoel informatie inclusief uitpakken van sleutel woordgroep gegevens toe te voegen |
+|[Gevoel Gegevensanalyse-integratie](publishapp.md#enable-sentiment-analysis)|ongeldig|gratis|Gevoel informatie inclusief uitpakken van sleutel woordgroep gegevens toe te voegen |
 |Spraak-integratie|ongeldig|$5,50 USD/1 duizend eindpunt aanvragen|Gesproken utterance converteren naar tekst utterance en het resultaat van de LUIS|
 
 ## <a name="keyboard-controls"></a>Toetsenbord

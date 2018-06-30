@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: ab6a66821905901515258842176ce24e485a54e3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061641"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110609"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud: uw database in Azure SQL Database beheren
 
@@ -254,7 +254,7 @@ SQL-Database maakt gebruik van sommige smart technieken die toe te staan om bepa
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Hoe ik gegevens tussen de SQL-Database en SQL Server synchroniseren?
 Er zijn verschillende manieren om dit te bereiken: 
 - **[Synchroniseren van gegevens](sql-database-sync-data.md)**  – met deze functie kunt u gegevens in twee richtingen tussen meerdere lokale SQL Server-databases en SQL-Database te synchroniseren. Als u wilt synchroniseren met on-premises SQL Server-databases, die u wilt installeren en sync-agent configureren op een lokale computer en de uitgaande TCP-poort 1433 openen.
-- **[Transactiereplicatie](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – met transactiereplicatie kunt u uw gegevens van on-premises naar Azure SQL DB synchroniseren met de on-premises wordt van de uitgever en de Azure SQL DB, wordt de abonnee. Alleen voor deze installatie wordt nu ondersteund. Zie voor meer informatie over het migreren van uw gegevens van on-premises naar Azure SQL met minimale downtime: [transactiereplicatie gebruik](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transactiereplicatie](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – met transactiereplicatie kunt u de gegevens van on-premises bij Azure SQL DB synchroniseert met de on-premises wordt van de uitgever en de Azure SQL DB, wordt de abonnee. Alleen voor deze installatie wordt nu ondersteund. Zie voor meer informatie over het migreren van uw gegevens van on-premises naar Azure SQL met minimale downtime: [transactiereplicatie gebruik](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [SQL-Database](sql-database-technical-overview.md).

@@ -14,13 +14,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: b67814bc2dd622758ade1fc76f1fade99f718bd6
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: 081e54a6ed04fa74f96b327b2c9e9e63c9fc01cb
+  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37132529"
 abstract:
-  description: Azure Kubernetes Service (AKS) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig zijn en geen kennis over het beheer van containers vereisen. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.<div class="IMPORTANT alert"><p>Belangrijk</p><p>AKS (Azure Kubernetes Service) is momenteel in de <strong>preview-fase</strong>. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de <a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">aanvullende gebruiksvoorwaarden</a>. Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.</p></div>
+  description: Azure Kubernetes Service (AKS) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig zijn en geen kennis over het beheer van containers vereisen. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.
 sections:
 - title: QuickStarts van vijf minuten
   items:
@@ -30,9 +31,13 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/media/index/ContainerService.svg
-      text: Een AKS-cluster maken
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure-CLI
       href: /azure/aks/kubernetes-walkthrough
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure-portal
+      href: /azure/aks/kubernetes-walkthrough-portal
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
@@ -46,7 +51,6 @@ sections:
     - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Containerinstallatiekopieën uitvoeren in Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-scale">Een toepassing en Kubernetes-infrastructuur schalen</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Een toepassing die wordt uitgevoerd in Kubernetes bijwerken</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Kubernetes bewaken met Log Analystics</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Een AKS-cluster upgraden</a>
 - title: Naslaginformatie
   items:
@@ -56,5 +60,7 @@ sections:
     items:
     - title: Opdrachtregel
       html: <p><a href="/cli/azure/aks">Azure-CLI</a></p>
+    - title: Talen
+      html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/aks">REST API</a></p>

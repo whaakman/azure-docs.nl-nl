@@ -1,11 +1,11 @@
 ---
 title: Op Linux FAQ-Azure App Service | Microsoft Docs
 description: Azure App Service op Linux Veelgestelde vragen over.
-keywords: Azure app service, web-app, veelgestelde vragen over, linux, oss
+keywords: Azure app service, web-app, veelgestelde vragen over, linux, besturingssystemen, web-app voor containers, meerdere container, multicontainer
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
-ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 06/26/2018
+ms.author: yili
+ms.openlocfilehash: a35f3d428674c3398497cd43465e0bd501f5c3fc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222974"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131489"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Op Linux FAQ-Azure App Service
 
@@ -144,6 +144,35 @@ We hebben poort automatisch detecteren. U kunt ook een app instelling opgeven *W
 **Heb ik nodig voor het implementeren van HTTPS in Mijn aangepaste container?**
 
 Nee, zorgt het platform voor HTTPS-beëindiging aan de gedeelde-front-ends.
+
+## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Meerdere container met Docker Compose en Kubernetes
+
+**Hoe kan ik Azure Container register (ACR) te gebruiken met meerdere container configureren?**
+
+Als u wilt gebruiken ACR met meerdere container **alle installatiekopieën van de container** moeten worden gehost op dezelfde ACR Registerserver. Wanneer ze zich op dezelfde Registerserver, moet u toepassingsinstellingen maken en werk vervolgens de Docker Compose of Kubernetes-configuratiebestand om de naam van de ACR-installatiekopie opnemen.
+
+Maak de volgende instellingen:
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL (volledige URL, bijvoorbeeld: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD (beheerderstoegang in ACR-instellingen inschakelen)
+
+In het configuratiebestand verwijzen naar de installatiekopie van uw ACR op het volgende voorbeeld:
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**Hoe weet ik welke container internet toegankelijk is?**
+
+- Slechts één container kan worden geopend voor toegang
+- Alleen poort 80 en 8080 is toegankelijk (blootgestelde poorten)
+
+Hier volgen de regels voor het bepalen van welke container is toegankelijk - in volgorde van prioriteit:
+
+- Toepassingsinstelling `WEBSITES_WEB_CONTAINER_NAME` ingesteld op de containernaam van de
+- De eerste container voor het definiëren van poort 80 of 8080
+- Als geen van beide true is, de eerste container gedefinieerd in het bestand toegankelijk zijn (beschikbaar)
 
 ## <a name="pricing-and-sla"></a>Prijzen en SLA
 

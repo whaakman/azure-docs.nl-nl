@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 06/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d033cc09de8e115324067d7bbdf052751730d63
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e33a3f843017ec24f3a79701fac9a62e15b4f9ba
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28030952"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109185"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Gebruik de nieuwe verificatie voor uw StorSimple
 
@@ -46,7 +46,7 @@ Als virtuele StorSimple-matrix, controleert u of de volgende URL is opgenomen in
 
 | URL-patroon                         | Cloud | Onderdeel/functionaliteit         |
 |------------------------------------|-------|---------------------------------|
-| `https://login.windows.net`        | Azure Public |AAD authentication-service      |
+| `https://login.windows.net`        | Openbare Azure |AAD authentication-service      |
 | `https://login.microsoftonline.us` | Amerikaanse overheid |AAD authentication-service      |
 
 Voor een volledige lijst met URL voor virtuele StorSimple-matrices patronen, gaat u naar [URL-patronen voor firewallregels](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
@@ -59,9 +59,9 @@ Als u een virtueel StorSimple-matrix, gebruik de volgende tabel om te bepalen we
 
 | Als uw apparaat wordt uitgevoerd  | De volgende actie ondernemen                                    |
 |----------------------------|--------------------------------------------------------------|
-| Update 1.0 of hoger en offline is. <br> Er wordt een waarschuwing dat de URL is niet wilt plaatsen.| Wijzig de firewall-regels zodanig dat de URL voor webverificatie. Zie [verificatie URL's](#url-changes-for-aad-authentication). |
+| Update 1.0 of hoger en offline is. <br> Er wordt een waarschuwing dat de URL is niet wilt plaatsen.| 1. Wijzig de firewall-regels zodanig dat de URL voor webverificatie. Zie [verificatie URL's](#url-changes-for-aad-authentication). <br> 2. [De registratiesleutel AAD ophalen uit de service](#aad-based-registration-keys). <br> 3. Voer stappen 1-5 voor [verbinding maken met de Windows PowerShell-interface van de virtuele matrix](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Gebruik `Invoke-HcsReRegister` Registreer het apparaat via de Windows PowerShell cmdlet. Geef de sleutel die u in de vorige stap hebt verkregen.|
 | Update 1.0 of hoger en het apparaat is online.| Er is geen actie vereist.                                       |
-| Update 0,6 of een oudere versie en het apparaat is offline. | [Download de Update 1.0 via catalogusserver](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>[Update 1.0 toepassen via de lokale webgebruikersinterface](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix). <br> [De registratiesleutel AAD ophalen uit de service](#aad-based-registration-keys). <br> Voer stappen 1-5 voor [verbinding maken met de Windows PowerShell-interface van de virtuele matrix](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> Gebruik `Invoke-HcsReRegister` Registreer het apparaat via de Windows PowerShell cmdlet. Geef de sleutel die u in de vorige stap hebt verkregen.|
+| Update 0,6 of een oudere versie en het apparaat is offline. | 1. [Download de Update 1.0 via catalogusserver](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Update 1.0 toepassen via de lokale webgebruikersinterface](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [De registratiesleutel AAD ophalen uit de service](#aad-based-registration-keys). <br>4. Voer stappen 1-5 voor [verbinding maken met de Windows PowerShell-interface van de virtuele matrix](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Gebruik `Invoke-HcsReRegister` Registreer het apparaat via de Windows PowerShell cmdlet. Geef de sleutel die u in de vorige stap hebt verkregen.|
 | Update 0,6 of een oudere versie en het apparaat is online | Wijzig de firewall-regels zodanig dat de URL voor webverificatie.<br> Update 1.0 installeren via de Azure portal. |
 
 ## <a name="aad-based-registration-keys"></a>Op basis van AAD registratiesleutels

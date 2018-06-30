@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061740"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112317"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Bladeren en storage-resources beheren met behulp van de Server Explorer
 
@@ -219,7 +219,7 @@ De reeks entiteiten die worden weergegeven in een tabel als u de opbouwfunctie v
 1. Wanneer u klaar bent voor het bouwen van de query en sluit het dialoogvenster. De resulterende tekst van de query in een tekstvak wordt weergegeven als een filter WCF Data Services.
 1. De query wilt uitvoeren, selecteer het pictogram groene driehoek.
 
-U kunt ook filteren entiteitsgegevens die wordt weergegeven in de ontwerpfunctie als u een filtertekenreeks in WCF Data Services rechtstreeks in het filtertekstvak. Dit soort tekenreeks is vergelijkbaar met een SQL WHERE-component maar naar de server als een HTTP-aanvraag is verzonden. Zie voor meer informatie over het maken van filtertekenreeksen [construeren van tekenreeksen voor de ontwerpfunctie voor tabellen](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+U kunt ook filteren entiteitsgegevens die wordt weergegeven in de ontwerpfunctie als u een filtertekenreeks in WCF Data Services rechtstreeks in het filtertekstvak. Dit soort tekenreeks is vergelijkbaar met een SQL WHERE-component maar naar de server als een HTTP-aanvraag is verzonden. Zie voor meer informatie over het maken van filtertekenreeksen [Constructing tekenreeksen voor de ontwerpfunctie voor tabellen](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 De volgende afbeelding toont een voorbeeld van een geldig filter-tekenreeks:
 

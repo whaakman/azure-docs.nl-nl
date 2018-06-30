@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: c3f4a64c9e11d17899987bbe818506f61c415e3f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757056"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114020"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostische logboekregistratie voor een netwerkbeveiligingsgroep
 
@@ -35,7 +35,7 @@ Diagnostische logboekregistratie afzonderlijk is ingeschakeld voor *elke* NSG di
 
 ## <a name="enable-logging"></a>Logboekregistratie inschakelen
 
-U kunt de [Azure Portal](#azure-portal), of [PowerShell](#powershell), Diagnostische logboekregistratie in te schakelen.
+U kunt de [Azure Portal](#azure-portal), [PowerShell](#powershell), of de [Azure CLI](#azure-cli) Diagnostische logboekregistratie in te schakelen.
 
 ### <a name="azure-portal"></a>Azure-portal
 
@@ -69,12 +69,12 @@ $Nsg=Get-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-U kunt de logboeken met diagnostische gegevens schrijven naar drie typen van de bestemming. Zie voor meer informatie [Meld bestemmingen](#log-destinations). In dit artikel logboeken worden verzonden naar de *logboekanalyse* bestemming als voorbeeld. Ophalen van een bestaande werkruimte voor logboekanalyse met [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Bijvoorbeeld, een bestaande werkruimte ophalen met de naam *myLaWorkspace* in een resourcegroep met de naam *LaWorkspaces*, voer de volgende opdracht:
+U kunt de logboeken met diagnostische gegevens schrijven naar drie typen van de bestemming. Zie voor meer informatie [Meld bestemmingen](#log-destinations). In dit artikel logboeken worden verzonden naar de *logboekanalyse* bestemming als voorbeeld. Ophalen van een bestaande werkruimte voor logboekanalyse met [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Bijvoorbeeld, een bestaande werkruimte ophalen met de naam *myWorkspace* in een resourcegroep met de naam *myWorkspaces*, voer de volgende opdracht:
 
 ```azurepowershell-interactive
 $Oms=Get-AzureRmOperationalInsightsWorkspace `
-  -ResourceGroupName LaWorkspaces `
-  -Name myLaWorkspace
+  -ResourceGroupName myWorkspaces `
+  -Name myWorkspace
 ```
 
 Als u een bestaande werkruimte geen hebt, kunt u een met [nieuw AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
@@ -89,6 +89,41 @@ Set-AzureRmDiagnosticSetting `
 ```
 
 Als u alleen wilt om gegevens in één categorie of de andere, in plaats van beide te registreren, voegt de `-Categories` optie naar de vorige opdracht, gevolgd door *NetworkSecurityGroupEvent* of *NetworkSecurityGroupRuleCounter*. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een werkruimte voor logboekanalyse, gebruikt u de juiste parameters voor een Azure [opslagaccount](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Weergeven en analyseren van Logboeken. Zie voor meer informatie [weergeven en analyseren van logboeken](#view-and-analyze-logs).
+
+### <a name="azure-cli"></a>Azure-CLI
+
+U kunt de volgende opdrachten in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de Azure CLI vanaf uw computer. De Azure-Cloud-Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u de CLI vanaf uw computer uitvoert, moet u versie 2.0.38 of hoger. Voer `az --version` op uw computer, de geïnstalleerde versie vinden. Als u upgraden wilt, Zie [Azure CLI installeren](/cli/azure/install-azure-cli?view=azure-cli-latest). Als u de CLI lokaal uitvoert, moet u ook uitvoeren `az login` aan te melden bij Azure met een account met de [noodzakelijke machtigingen](virtual-network-network-interface.md#permissions).
+
+Als u wilt vastleggen van diagnostische gegevens inschakelen, moet u de Id van een bestaande NSG. Als u een bestaande NSG hebt, kunt u een met [az netwerk nsg maken](/cli/azure/network/nsg#az-network-nsg-create).
+
+Ophalen van de netwerkbeveiligingsgroep die u in staat stellen Diagnostische logboekregistratie wilt voor met [az netwerk nsg weergeven](/cli/azure/network/nsg#az-network-nsg-show). Bijvoorbeeld, een NSG ophalen met de naam *myNsg* die zich in een resourcegroep met de naam *myResourceGroup*, voer de volgende opdracht:
+
+```azurecli-interactive
+nsgId=$(az network nsg show \
+  --name myNsg \
+  --resource-group myResourceGroup \
+  --query id \
+  --output tsv)
+```
+
+U kunt de logboeken met diagnostische gegevens schrijven naar drie typen van de bestemming. Zie voor meer informatie [Meld bestemmingen](#log-destinations). In dit artikel logboeken worden verzonden naar de *logboekanalyse* bestemming als voorbeeld. Zie voor meer informatie [Meld categorieën](#log-categories). 
+
+Diagnostische logboekregistratie inschakelen voor de NSG met [az monitor diagnose-instellingen maken](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). Het volgende voorbeeld zowel gebeurtenissen en prestatiemeteritems categoriegegevens geregistreerd met een bestaande werkruimte met de naam *myWorkspace*, die in een resourcegroep met de naam bestaat *myWorkspaces*, en de ID van de NSG die u hebt opgehaald eerder:
+
+```azurecli-interactive
+az monitor diagnostic-settings create \
+  --name myNsgDiagnostics \
+  --resource $nsgId \
+  --logs '[ { "category": "NetworkSecurityGroupEvent", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "NetworkSecurityGroupRuleCounter", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --workspace myWorkspace \
+  --resource-group myWorkspaces
+```
+
+Als u een bestaande werkruimte geen hebt, kunt u één die gebruikmaakt van de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Er zijn twee categorieën van logboekregistratie die kunt u Logboeken voor inschakelen. 
+
+Als u alleen wilt om gegevens in één categorie of de andere te registreren, moet u de categorie die u niet wilt vastleggen van gegevens voor in de voorgaande opdracht verwijderen. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een werkruimte voor logboekanalyse, gebruikt u de juiste parameters voor een Azure [opslagaccount](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Weergeven en analyseren van Logboeken. Zie voor meer informatie [weergeven en analyseren van logboeken](#view-and-analyze-logs).
 

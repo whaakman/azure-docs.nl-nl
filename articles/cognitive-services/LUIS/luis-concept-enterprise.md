@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: f5d1cf61ca7b8d8eeaed52fc3f45f8d4847ddda9
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263750"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108685"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>De strategie van de onderneming voor een app LUIS
 Bekijk deze ontwerpstrategieën voor uw app enterprise.
@@ -32,7 +32,7 @@ Een enkele app aanwijzen als het model. Eventuele utterances die worden voorgest
 Plan een periodieke [beoordeling van de endpoint-utterances](label-suggested-utterances.md) voor actieve learning, zoals elke twee weken vervolgens opnieuw trainen en opnieuw publiceren. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Meerdere LUIS sleutels aan dezelfde app toewijzen
-Als uw app LUIS meer eindpunt treffers dan uw één sleutel quota worden toegestaan bij het maken en toewijzen van meer sleutels naar de app LUIS ontvangt. Maken van een traffic manager of load balancer voor het beheren van de endpoint-query's via de abonnement-sleutels. 
+Als uw app LUIS meer eindpunt treffers dan uw één sleutel quota worden toegestaan bij het maken en toewijzen van meer sleutels naar de app LUIS ontvangt. Maken van een traffic manager of load balancer voor het beheren van de endpoint-query's via de eindpunt-sleutels. 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Wanneer uw app monolithische verkeerde bedoelingen retourneert
 Als uw app bestemd is voor het voorspellen van een groot aantal gebruiker utterances, Overweeg de implementatie van de [dispatch model](#dispatch-tool-and-model). Focus detectie tussen intents is in plaats van het ophalen van verward tussen intents via de app bovenliggende en onderliggende apps kunt op te splitsen van een app monolithische LUIS. 

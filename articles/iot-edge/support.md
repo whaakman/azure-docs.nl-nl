@@ -8,17 +8,17 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0a5cbabf8080efd1ae25ba151a1be339e8f5cad2
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-ms.translationtype: HT
+ms.openlocfilehash: 05a571c4491122ec5c7c35f6bccc4b8c332a4be2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081751"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130706"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT-Edge-ondersteuning
 Er zijn verschillende manieren te zoeken naar ondersteuning voor het product Azure IoT rand.
 
-**Rapportage van fouten** – het merendeel van de ontwikkeling die u in het product Azure IoT rand gebeurt er in het IoT rand open source-project. Fouten worden gerapporteerd in de [pagina kwesties](https://github.com/azure/iot-edge/issues) van het project. Oplossingen maken snel hun manier van het project in op productupdates.
+**Rapportage van fouten** – het merendeel van de ontwikkeling die u in het product Azure IoT rand gebeurt er in het IoT rand open source-project. Fouten worden gerapporteerd in de [pagina kwesties](https://github.com/azure/iotedge/issues) van het project. Oplossingen maken snel hun manier van het project in op productupdates.
 
 **Microsoft Customer Support team** – gebruikers die beschikken over een [ondersteuningsplan](https://azure.microsoft.com/support/plans/) de klantondersteuning van Microsoft-team kan benaderen door het maken van een ondersteuningsticket rechtstreeks vanuit de [Azure-portal]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

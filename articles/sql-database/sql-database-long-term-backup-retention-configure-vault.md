@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9f2fd54a1ce3cf8900b04545a258a32f9aa3e31a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: feefe68fbe6681ee4b450503606ac8c4f25d5a39
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647184"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130257"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configureren en herstel van back-up langdurig bewaren van Azure SQL Database worden met behulp van de Azure Recovery Services-kluis
 
@@ -67,7 +67,7 @@ Configureren van een Azure Recovery Services-kluis [automatische back-ups behoud
 
 9. Selecteer uw abonnement en resourcegroep. Selecteer vervolgens de locatie voor de kluis. Klik op **Maken** als u klaar bent.
 
-   ![Kluis maken](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
+   ![kluis maken](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
    > De kluis moet zich bevinden in dezelfde regio als de logische Azure SQL-server en moet dezelfde resourcegroep gebruiken als de logische server.
@@ -102,7 +102,7 @@ Configureren van een Azure Recovery Services-kluis [automatische back-ups behoud
 
 Informatie weergeven over uw databaseback-ups in [lange bewaartermijn van de back-](sql-database-long-term-retention.md). 
 
-1. Open uw Azure Recovery Services-kluis voor back-ups van uw database in de Azure-portal (Ga naar **alle resources** en selecteert u deze in de lijst met resources voor uw abonnement) om de hoeveelheid opslagruimte die wordt gebruikt door uw back-ups in de kluis weer te geven.
+1. Open uw Azure Recovery Services-kluis voor back-ups van uw database in de Azure-portal (Ga naar **alle resources** en selecteert u deze in de lijst met resources voor uw abonnement) om weer te geven van de hoeveelheid opslagruimte die wordt gebruikt door uw back-ups in de kluis.
 
    ![recovery services-kluis weergeven met back-ups](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault-with-data.png)
 
@@ -264,7 +264,56 @@ $restoredDb
 
 
 > [!NOTE]
-> Hier kunt u verbinding kunt maken met de herstelde database met SQL Server Management Studio benodigde taken uit te voeren, zoals het ophalen van een bits van gegevens uit de herstelde database kopiëren naar de bestaande database of verwijder de bestaande database en de naam van de herstelde database op de naam van de bestaande database. Zie [punt in tijd terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore).
+> Hier kunt u verbinding kunt maken met de herstelde database met SQL Server Management Studio benodigde taken uit te voeren, zoals het ophalen van een bits van gegevens uit de herstelde database kopiëren naar de bestaande database of verwijder de bestaande database en de naam van de herstelde de database is de naam van de bestaande database. Zie [punt in tijd terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore).
+
+## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Het opruimen van back-ups in Recovery Services-kluis
+
+Vanaf 1 juli 2018 de LTR V1 API is afgeschaft en alle bestaande-ups in Recovery Services-kluizen zijn gemigreerd naar de LTR storage-containers die worden beheerd door de SQL-Database. Om ervoor te zorgen dat u niet meer in rekening voor de oorspronkelijke back-ups gebracht bent, zijn ze verwijderd uit de kluizen na de migratie. Wanneer u een vergrendeling op uw kluis geplaatst blijven de back-ups echter er. Om te voorkomen de onnodige kosten, kunt u de oude back-ups handmatig verwijderen uit de Recovery Services-kluis met het volgende script. 
+
+```PowerShell
+<#
+.EXAMPLE
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+#>
+[CmdletBinding()]
+Param (
+    [Parameter(Mandatory = $true, HelpMessage="The vault subscription ID")]
+    $SubscriptionId,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault resource group name")]
+    $ResourceGroup,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault name")]
+    $VaultName
+)
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+$vaults = Get-AzureRmRecoveryServicesVault
+$vault = $vaults | where { $_.Name -eq $VaultName }
+
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
+
+$containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
+
+ForEach ($container in $containers)
+{
+   $canDeleteContainer = $true  
+   $ItemCount = 0
+   Write-Host "Working on container" $container.Name
+   $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
+   ForEach ($item in $items)
+   {
+          write-host "Deleting item" $item.name
+          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+   }
+
+   Write-Host "Deleting container" $container.Name
+   Unregister-AzureRmRecoveryServicesBackupContainer -Container $container
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

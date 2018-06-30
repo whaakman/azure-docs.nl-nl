@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 0765e2b36f9d32c43e9f0042d2be0fab53e07b04
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603010"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116024"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure Queue storage bewerkingen uitvoeren met Azure PowerShell
 
-Azure Queue Storage is een service voor de opslag van grote aantallen berichten die via HTTP of HTTPS overal vandaan kunnen worden opgevraagd met geverifieerde aanroepen. Zie voor gedetailleerde informatie [Inleiding tot Azure wachtrijen](storage-queues-introduction.md). Dit artikel bevat informatie over algemene wachtrij-opslagbewerkingen. In deze zelfstudie leert u procedures om het volgende te doen:
+Azure Queue storage is een service voor het opslaan van grote aantallen berichten die toegankelijk zijn vanuit overal ter wereld via HTTP of HTTPS. Zie voor gedetailleerde informatie [Inleiding tot Azure wachtrijen](storage-queues-introduction.md). Dit artikel bevat informatie over algemene wachtrij-opslagbewerkingen. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een wachtrij maken
@@ -67,7 +67,7 @@ New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## <a name="create-storage-account"></a>Een opslagaccount maken
 
-Maken van een standaard algemeen opslagaccount met lokaal redundante opslag (LRS) met behulp van [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Haal de context van het opslagaccount waarin de storage-account moet worden gebruikt. Wanneer optreedt op een storage-account, maar u verwijzen naar de context in plaats van herhaaldelijk geven de referenties.
+Maken van een standaard algemeen opslagaccount met lokaal redundante opslag (LRS) met behulp van [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Haal de context van het opslagaccount waarin de storage-account moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
@@ -144,22 +144,22 @@ In het volgende voorbeeld wordt u via de drie Wachtrijberichten lezen en vervolg
 $invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
 
 # Read the message from the queue, then show the contents of the message. Read the other two messages, too.
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
 
 # After 10 seconds, these messages reappear on the queue. 
 # Read them again, but delete each one after reading it.
 # Delete the message.
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Een wachtrij verwijderen

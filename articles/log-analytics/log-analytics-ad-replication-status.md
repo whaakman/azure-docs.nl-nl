@@ -2,10 +2,10 @@
 title: Replicatiestatus van Active Directory met Azure Log Analytics | Microsoft Docs
 description: De replicatiestatus van Active Directory-oplossingspakket controleert regelmatig uw Active Directory-omgeving voor eventuele storingen.
 services: log-analytics
-documentationcenter: 
-author: MGoedtel
+documentationcenter: ''
+author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7707c4a1afdc42ef44a7b6f761ceb03b7e7da2f0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.component: na
+ms.openlocfilehash: 0ccd457295584f871088bc20864ef103648f1654
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128721"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Replicatiestatus van Active Directory met Log Analytics
 
@@ -30,7 +31,7 @@ Active Directory is een belangrijk onderdeel van een onderneming IT-omgeving. Ho
 De replicatiestatus van de AD-oplossingspakket controleert regelmatig uw Active Directory-omgeving voor eventuele storingen.
 
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
-Gebruik de volgende informatie om te installeren en configureren van de oplossing.
+Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
 * U moet de agents installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of moet u agents installeren op servers die lid zijn en de agents voor het verzenden van gegevens van de AD-replicatie met logboekanalyse configureren. Zie voor informatie over Windows-computers te verbinden met Log Analytics, [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agent.md). Als uw domeincontroller al deel uit van een bestaande System Center Operations Manager-omgeving die u wilt verbinden met Log Analytics maakt, Zie [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
 * De replicatiestatus van Active Directory-oplossing toevoegen aan uw werkruimte voor logboekanalyse met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).  Er is geen verdere configuratie nodig.
@@ -38,7 +39,7 @@ Gebruik de volgende informatie om te installeren en configureren van de oplossin
 ## <a name="ad-replication-status-data-collection-details"></a>AD replicatiestatus Gegevensdetails verzameling
 De volgende tabel bevat de methoden van de collectie en andere informatie over hoe gegevens worden verzameld voor de Status van de AD-replicatie.
 
-| platform | Directe Agent | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens die worden verzonden via de beheergroep | Frequentie van de verzameling |
+| Platform | Agent toewijzen | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens die worden verzonden via de beheergroep | Frequentie van de verzameling |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |elke vijf dagen |
 
@@ -82,7 +83,7 @@ De ring boven krijgt u een idee van welke fouten meer voorkomen en minder vaak i
 
 Hier ziet u wanneer meerdere domeincontrollers dezelfde Replicatiefout optreden. In dit geval wordt u mogelijk kan detecteren of een oplossing op een domeincontroller te identificeren en herhaal vervolgens deze op andere domeincontrollers die zijn getroffen door dezelfde fout.
 
-### <a name="tombstone-lifetime"></a>Tombstone Lifetime
+### <a name="tombstone-lifetime"></a>Tombstone-levensduur
 De tombstone-levensduur bepaalt hoe lang een verwijderd object, aangeduid als een tombstone, wordt bewaard in de Active Directory-database. Wanneer een verwijderd object de tombstone-levensduur verstrijkt, een proces van de verzameling afval deze automatisch verwijderd uit de Active Directory-database.
 
 De standaard tombstone-levensduur is 180 dagen voor de meest recente versies van Windows, maar was 60 dagen op oudere versies, en deze expliciet kan worden gewijzigd door een Active Directory-beheerder.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: 7021a0499547818d702d14aecb9d8e451a820181
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025736"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131606"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Statische website die als host fungeert in Azure Storage (Preview)
 Azure Storage biedt nu een statische website die als host fungeert voor (Preview), waarmee u rendabele en schaalbare moderne webtoepassingen in Azure te implementeren. Op een statische website bevatten webpagina's statische inhoud en JavaScript of andere code aan de clientzijde. Daarentegen dynamische websites afhankelijk zijn van servercode en kan worden gehost met [Azure Web Apps](/app-service/app-service-web-overview.md).
@@ -43,6 +43,9 @@ Als u wilt starten die als host fungeert voor uw webtoepassing op Azure Storage,
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
 Uw web-assets uploaden naar de container '$web' die is gemaakt als onderdeel van een statische website inschakelen. U kunt dit doen rechtstreeks in Azure Portal of u kunt profiteren van [Azure Opslagverkenner](https://azure.microsoft.com/features/storage-explorer/) gehele Active directory-structuren te uploaden. Zorg ervoor dat een Indexdocument met de naam die u hebt geconfigureerd. In dit voorbeeld is de naam van het document 'index.html'.
+
+> [!NOTE]
+> Naam van het document is hoofdlettergevoelig en moet daarom de naam van het bestand in de opslag exact overeenkomen.
 
 Ten slotte gaat u naar uw webeindpunt voor het testen van uw website.
 

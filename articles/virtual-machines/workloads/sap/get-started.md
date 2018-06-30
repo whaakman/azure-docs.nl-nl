@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f0705f2fb14bc44a7738f38bc3ef53a6359dfb4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b3024b451ddf08b6b7ab171238ae45edbafc58a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657768"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110959"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Met behulp van Azure voor het hosten en uitvoeren van SAP werkbelasting scenario 's
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -444,7 +444,7 @@ Bijgewerkte: Juni 2017
 ### <a name="high-availability-configurations-of-sap-netweaver-in-azure-vms"></a>Configuraties voor hoge beschikbaarheid van SAP NetWeaver in Azure VM 's
 Titel: Azure virtuele Machines voor hoge beschikbaarheid voor SAP NetWeaver
 
-Overzicht: In dit document, we hebben betrekking op de stappen die u ondernemen kunt om hoge beschikbaarheid SAP-systemen in Azure implementeren met behulp van het Azure Resource Manager-implementatiemodel. We doorlopen deze belangrijke taken. In het document wordt beschreven hoe één punt-van-fouten onderdelen, zoals geavanceerde Business Application Programming (ABAP) SAP centrale Services (ASC's) / SAP centrale Services (SCS) en databasebeheersystemen (DBMS) en redundante onderdelen, zoals SAP-toepassingsserver wilt bij uitvoering in Azure VM's worden beveiligd. Een voorbeeld van een stapsgewijze van een installatie en configuratie van een SAP-systeem voor hoge beschikbaarheid in een cluster met Windows Server Failover Clustering en SUSE Linux Enterprise Server Cluster Framework in Azure is aangetoond en weergegeven in dit document.
+Overzicht: In dit document, we hebben betrekking op de stappen die u ondernemen kunt om hoge beschikbaarheid SAP-systemen in Azure implementeren met behulp van het Azure Resource Manager-implementatiemodel. We doorlopen deze belangrijke taken. In het document wordt beschreven hoe één punt-van-fouten onderdelen, zoals geavanceerde Business Application Programming (ABAP) SAP centrale Services (ASC's) / SAP centrale Services (SCS) en databasebeheersystemen (DBMS) en redundante componenten zoals SAP Toepassingsserver gaan bij uitvoering in Azure VM's worden beveiligd. Een voorbeeld van een stapsgewijze van een installatie en configuratie van een SAP-systeem voor hoge beschikbaarheid in een cluster met Windows Server Failover Clustering en SUSE Linux Enterprise Server Cluster Framework in Azure is aangetoond en weergegeven in dit document.
 
 Bijgewerkte: Oktober 2017
 
@@ -480,7 +480,7 @@ Bijgewerkte: Juni 2017
 ### <a name="using-azure-site-recovery-for-sap-workload"></a>Met behulp van Azure Site Recovery voor SAP werkbelasting
 Titel: SAP NetWeaver: bouwen van een noodherstel met Azure Site Recovery
 
-Overzicht: Dit document beschrijft de manier waarop Azure Site Recovery services kunnen worden gebruikt voor de verwerking van herstel na noodgevallen. Gevallen waarbij Azure wordt gebruikt als locatie voor herstel na noodgevallen voor een on-premises SAP Liggend met Azure Site Recovery Services. Een ander scenario wordt beschreven in het document is het geval is herstel na noodgevallen Azure Azure (A2A) en hoe deze wordt beheerd met Azure Site Recovery.  
+Overzicht: Dit document beschrijft de manier waarop Azure Site Recovery services kunnen worden gebruikt voor de verwerking van herstel na noodgevallen. Gevallen waarbij Azure wordt gebruikt als locatie voor herstel na noodgevallen voor een lokale SAP Liggend met Azure Site Recovery Services. Een ander scenario wordt beschreven in het document is het geval is herstel na noodgevallen Azure Azure (A2A) en hoe deze wordt beheerd met Azure Site Recovery.  
 
 Bijgewerkte: Augustus 2017
 

@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2018
+ms.date: 6/29/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 89a1df607c220e5dc12bc6263955d6e445e529bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235410"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116025"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Back-up van SQL Server-database in Azure
 
@@ -251,7 +251,7 @@ Wanneer u gebruikt de **detecteren databases** hulpprogramma voor Azure Backup w
 
 - installeert de **AzureBackupWindowsWorkload** uitbreiding op de virtuele machine. Back-ups van een SQL-database is een oplossing voor zonder agent, dat wil zeggen, geen agent met de extensie is geïnstalleerd op de virtuele machine, is geïnstalleerd op de SQL-database.
 
-- het serviceaccount maakt **NT Service\AzureWLBackupPluginSvc**, op de virtuele machine. Alle bewerkingen voor back-up en herstel de serviceaccount gebruiken. **NT Server\AzureWLBackupPluginSvc** SQL sysadmin-machtigingen nodig. Alle SQL Marketplace virtuele machines worden geleverd met de SqlIaaSExtension geïnstalleerd en AzureBackupWindowsWorkload SQLIaaSExtension gebruikt automatisch de vereiste machtigingen ophalen. Als uw virtuele machine heeft geen SqlIaaSExtension geïnstalleerd, de bewerking DB detecteren mislukt en ophalen van het foutbericht **UserErrorSQLNoSysAdminMembership**. Als u wilt toevoegen de sysadmin-machtigingen voor back-up, volg de instructies in [instellen van Azure Backup-machtigingen voor niet-marketplace SQL VMs](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
+- het serviceaccount maakt **NT Service\AzureWLBackupPluginSvc**, op de virtuele machine. Alle bewerkingen voor back-up en herstel de serviceaccount gebruiken. **NT Service\AzureWLBackupPluginSvc** SQL sysadmin-machtigingen nodig. Alle SQL Marketplace virtuele machines worden geleverd met de SqlIaaSExtension geïnstalleerd en AzureBackupWindowsWorkload SQLIaaSExtension gebruikt automatisch de vereiste machtigingen ophalen. Als uw virtuele machine heeft geen SqlIaaSExtension geïnstalleerd, de bewerking DB detecteren mislukt en ophalen van het foutbericht **UserErrorSQLNoSysAdminMembership**. Als u wilt toevoegen de sysadmin-machtigingen voor back-up, volg de instructies in [instellen van Azure Backup-machtigingen voor niet-marketplace SQL VMs](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
 
     ![Selecteer de virtuele machine en de database](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -443,6 +443,10 @@ Een database te herstellen
 
 Deze procedure helpt bij het herstellen van gegevens naar een alternatieve locatie. Als u wilt dat de database te overschrijven bij het herstellen, Ga naar de sectie [terugzetten en de database overschrijven](backup-azure-sql-database.md#restore-and-overwrite-the-database). Deze procedure wordt ervan uitgegaan dat u hebt uw Recovery Services-kluis is geopend, en op het menu herstellen configuratie. Als u niet, begint u met de sectie [een SQL-database herstellen](backup-azure-sql-database.md#restore-a-sql-database).
 
+> [!NOTE]
+> U kunt de database herstellen naar een SQL-Server in dezelfde Azure-regio en de doelserver moet worden geregistreerd in de Recovery Services-kluis. 
+>
+
 De **Server** vervolgkeuzelijst bevat alleen de SQL-servers geregistreerd bij de Recovery Services-kluis. Als de server die u wilt dat zich niet in de **Server** lijst, Zie de sectie [detecteren SQL server-databases](backup-azure-sql-database.md#discover-sql-server-databases) de server te vinden. Tijdens het detectieproces voor database zijn nieuwe servers geregistreerd bij de Recovery Services-kluis.
 
 1. In de **Restore Configuration** menu:
@@ -607,10 +611,40 @@ Deze sectie bevat informatie over de verschillende Azure Backup beheerbewerkinge
 * Hef de registratie van een SQL-server
 
 ### <a name="monitor-jobs"></a>Taken controleren
+Azure Backup wordt een bedrijfsoplossing klasse biedt geavanceerde back-up van waarschuwingen en meldingen fouten (Zie onderstaande sectie voor waarschuwingen voor back-up). Als u nog steeds wilt bewaken van specifieke taken kunt u een van de volgende opties op basis van uw behoeften:
 
-Azure Backup gebruikt systeemeigen SQL-API's voor alle back-upbewerkingen. Met de systeemeigen API's, kunt u alle informatie over de taak uit ophalen de [SQL-back-upset tabel](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in de msdb-database. Bovendien ziet u alle handmatig triggered Azure Backup of ad-hoc, taken in de portal Backup-taken. De taken die beschikbaar zijn in de portal opnemen: alle back-upbewerkingen, terugzetbewerkingen, registratie configureren en databasebewerkingen detecteren en back-upbewerkingen stoppen. Alle geplande taken kunnen ook worden gecontroleerd met OMS-logboekanalyse. Met behulp van logboekanalyse taken overzichtelijker verwijdert, en biedt gedetailleerde flexibiliteit voor bewaking of filteren van specifieke taken.
-
+#### <a name="using-azure-portal---recovery-services-vault-for-all-ad-hoc-operations"></a>Met Azure portal -> Recovery Services-kluis voor alle ad-hoc-bewerkingen
+Azure back-up bevat alle handmatig geactiveerd of ad-hoc, taken in de portal Backup-taken. De taken die beschikbaar zijn in de portal opnemen: alle back-upbewerkingen configureren, handmatig geactiveerd back-upbewerkingen, terugzetbewerkingen, registratie en databasebewerkingen detecteren en back-upbewerkingen stoppen. 
 ![Geavanceerde configuratie menu](./media/backup-azure-sql-database/jobs-list.png)
+
+> [!NOTE]
+> Alle geplande back-uptaken inclusief volledige, differentiële en logboek back-up wordt niet weergegeven in de portal en kan worden gecontroleerd met behulp van SQL Server Management Studio, zoals hieronder wordt beschreven.
+>
+
+#### <a name="using-sql-server-management-studio-ssms-for-backup-jobs"></a>Met behulp van SQL Server Management Studio (SSMS) voor back-uptaken
+Azure Backup gebruikt systeemeigen SQL-API's voor alle back-upbewerkingen. Met de systeemeigen API's, kunt u alle informatie over de taak uit ophalen de [SQL-back-upset tabel](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in de msdb-database. 
+
+U kunt de onderstaande query als voorbeeld voor het ophalen van alle back-uptaken voor een specifieke database met naam 'DB1'. U kunt de onderstaande query voor meer geavanceerde bewaking.
+```
+select CAST (
+Case type
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
+server_name,
+machine_name,
+backup_start_date,
+backup_finish_date,
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+ 
+```
 
 ### <a name="backup-alerts"></a>Back-waarschuwingen
 

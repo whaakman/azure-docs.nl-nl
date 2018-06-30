@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 2f34233a68bec506d9f69426d779aee8e493d759
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9314b8ae8dceb29a9aee63ba3093ab191d4fdef3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402060"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116027"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Uitpakken, transformeren en laden (ETL) op grote schaal
 
@@ -85,7 +85,7 @@ Voor het uploaden van gegevenssets binnen het bereik terabyte kan netwerklatenti
 
 * Azure ExpressRoute: Azure ExpressRoute kunt u particuliere verbindingen maken tussen Azure-datacenters en uw on-premises infrastructuur. Deze verbindingen bieden een betrouwbare optie voor het overbrengen van grote hoeveelheden gegevens. Zie voor meer informatie [Azure ExpressRoute documentatie](../../expressroute/expressroute-introduction.md).
 
-* 'Offline' uploaden van gegevens. U kunt [Azure Import/Export-service](../../storage/common/storage-import-export-service.md) voor het verzenden van harde schijven met uw gegevens naar een Azure-Datacenter. Uw gegevens is eerst naar Azure Storage-Blobs geüpload. Vervolgens kunt u [Azure Data Factory](../../data-factory/v1/data-factory-azure-datalake-connector.md) of de [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) hulpprogramma om gegevens te kopiëren van Azure Storage-blobs naar Data Lake Store.
+* 'Offline' uploaden van gegevens. U kunt [Azure Import/Export-service](../../storage/common/storage-import-export-service.md) voor het verzenden van harde schijven met uw gegevens naar een Azure-Datacenter. Uw gegevens is eerst naar Azure Storage-Blobs geüpload. Vervolgens kunt u [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) of de [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) hulpprogramma om gegevens te kopiëren van Azure Storage-blobs naar Data Lake Store.
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
@@ -133,9 +133,9 @@ MapReduce Sqoop gebruikt voor het importeren en exporteren van de gegevens, zoda
 
 Apache Flume is een service voor gedistribueerde, betrouwbare en beschikbaar voor het efficiënt verzamelen, aggregeren en verplaatsen van grote hoeveelheden gegevens aan het logboek. Flume heeft een eenvoudige en flexibele architectuur op basis van het streaming-gegevensstromen. Flume is robuust en fouttolerante met instelbare betrouwbaarheid mechanismen en veel mechanismen voor failover en herstel. Flume maakt gebruik van een eenvoudige extensible gegevensmodel waarmee voor online analytische toepassing.
 
-Apache Flume kan niet worden gebruikt met Azure HDInsight.  De installatie van een on-premises Hadoop kunt Flume gebruiken om gegevens te verzenden naar Azure Storage-Blobs of Azure Data Lake Store.  Zie voor meer informatie [Apache Flume gebruiken met HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume kan niet worden gebruikt met Azure HDInsight.  De installatie van een lokale Hadoop kunt Flume gebruiken om gegevens te verzenden naar Azure Storage-Blobs of Azure Data Lake Store.  Zie voor meer informatie [Apache Flume gebruiken met HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
-## <a name="transform"></a>Transformatie
+## <a name="transform"></a>Transformeren
 
 Wanneer u gegevens bestaat in de gekozen locatie, moet u deze op te schonen, combineren of voorbereiden voor een specifieke gebruikspatroon.  Hive, Pig en Spark SQL zijn alle geschikt voor dit soort werk.  Ze worden ondersteund op HDInsight. 
 

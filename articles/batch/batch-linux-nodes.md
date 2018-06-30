@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abb822483253fc5fce0e76afc2628806fe4485d8
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: f3faa9e811216cc930354b76903519a66f3d3587
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801759"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128808"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Linux-rekenknooppunten in de Batch-pools inrichten
 
-U kunt Azure Batch uitvoeren van parallelle compute-workloads op Linux- en Windows virtuele machines. Dit artikel wordt uitgelegd pools van Linux-rekenknooppunten in de Batch-service maken met behulp van zowel de [Batch Python] [ py_batch_package] en [Batch .NET] [ api_net] clientbibliotheken.
+U kunt Azure Batch uitvoeren van parallelle compute-workloads op Linux- en Windows virtuele machines. Dit artikel wordt uitgelegd pools van Linux-rekenknooppunten in de Batch-service maken met behulp van zowel de [Batch Python] [ py_batch_package] en [Batch .NET] [ api_net]clientbibliotheken.
 
 > [!NOTE]
 > Toepassingspakketten worden ondersteund in alle Batch-pools die na 5 juli 2017 zijn gemaakt. De pakketten worden ondersteund in Batch-pools die zijn gemaakt tussen 10 maart 2016 en 5 juli 2017, maar alleen als de pool is gemaakt met behulp van een cloudservice-configuratie. Batch-pools die zijn gemaakt vóór 10 maart 2016 bieden geen ondersteuning voor toepassingspakketten. Zie [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Toepassingen implementeren naar rekenknooppunten met Batch-toepassingspakketten) voor meer informatie over het gebruiken van toepassingspakketten om toepassingen te implementeren naar Batch-knooppunten.
@@ -216,12 +216,12 @@ De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machine
 
 | **Publisher** | **Aanbieding** | **Afbeelding SKU** | **Versie** | **Knooppunt agent SKU-ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| batch | rendering centos73 | Rendering | meest recente | batch.node.centos 7 |
-| batch | rendering windows2016 | Rendering | meest recente | batch.node.Windows amd64 |
+| batch | rendering centos73 | rendering | meest recente | batch.node.centos 7 |
+| batch | rendering windows2016 | rendering | meest recente | batch.node.Windows amd64 |
 | Canonical | UbuntuServer | 16.04-LTS | meest recente | batch.node.ubuntu 16.04 |
 | Canonical | UbuntuServer | 14.04.5-LTS | meest recente | batch.node.Ubuntu 14.04 |
-| Credativ | Debian | 9 | meest recente | batch.node.debian 9 |
-| Credativ | Debian | 8 | meest recente | batch.node.debian 8 |
+| credativ | Debian | 9 | meest recente | batch.node.debian 9 |
+| credativ | Debian | 8 | meest recente | batch.node.debian 8 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | meest recente | batch.node.centos 7 |
 | microsoft-ads | Standard-gegevens-wetenschappelijke-vm | Standard-gegevens-wetenschappelijke-vm | meest recente | batch.node.Windows amd64 |
 | Microsoft azure batch | centos-container | 7 4 | meest recente | batch.node.centos 7 |
@@ -328,16 +328,12 @@ Als u toepassingen implementeert voor uw Batch-knooppunten met behulp van [toepa
 Bekijk voor een uitgebreidere zelfstudie over het werken met Batch met behulp van Python [aan de slag met de Azure Batch Python-client](batch-python-tutorial.md). De aanvullende [codevoorbeeld] [ github_samples_pyclient] bevat een helperfunctie `get_vm_config_for_distro`, die een andere methode om op te halen van de configuratie van een virtuele machine weergeeft.
 
 ### <a name="batch-python-code-samples"></a>Batch Python-codevoorbeelden
-De [Python-codevoorbeelden] [ github_samples_py] in de [azure-batch-samples] [ github_samples] opslagplaats op GitHub scripts bevatten die ziet u hoe algemene Batch-bewerkingen, zoals toepassingen, taak en het maken van de taak uitvoeren. De [Leesmij] [ github_py_readme] die wordt meegestuurd met de Python voorbeelden bevat informatie over het installeren van de vereiste pakketten.
-
-### <a name="batch-forum"></a>Batch-forum
-De [Azure Batch-Forum] [ forum] is een goede plaats om te bespreken Batch en vragen over de service op MSDN. Lees handig 'vastgemaakt' geboekt en stel uw vragen wanneer deze zich voordoen tijdens het bouwen van uw Batch-oplossingen.
+De [Python-codevoorbeelden] [ github_samples_py] in de [azure-batch-samples] [ github_samples] opslagplaats op GitHub scripts bevatten die laten zien hoe u algemene batchbewerkingen, zoals toepassingen, taak en taak maken. De [Leesmij] [ github_py_readme] die wordt meegestuurd met de Python voorbeelden bevat informatie over het installeren van de vereiste pakketten.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://azure.microsoft.com/pricing/details/cloud-services/
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
@@ -349,14 +345,14 @@ De [Azure Batch-Forum] [ forum] is een goede plaats om te bespreken Batch en vra
 [net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
 [net_pool_ops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.aspx
 [net_ssh_key]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.sshpublickey.aspx
-[nuget_batch_net]: https://www.nuget.org/packages/Azure.Batch/
+[nuget_batch_net]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
-[py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.html
+[py_batch_docs]: https://azure-sdk-for-python.readthedocs.io/batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
-[py_computenodeuser]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ComputeNodeUser
-[py_imagereference]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ImageReference
+[py_computenodeuser]: https://docs.microsoft.com/python/api/azure.batch.models.computenodeuser
+[py_imagereference]: https://docs.microsoft.com/python/api/azure.mgmt.batch.models.imagereference
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2797c9f18364a2321bea885592690793271d8b8e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d5b67d971c2261084857d6b512c8d011173884af
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062186"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113252"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Gen2 Preview van Azure Data Lake Storage gebruiken met Azure HDInsight-clusters
 
@@ -49,7 +49,7 @@ HDInsight biedt toegang tot het Distributed File System dat lokaal wordt gekoppe
 
 Bovendien kunt HDInsight u toegang tot gegevens die zijn opgeslagen in Azure Data Lake Storage. De syntaxis is:
 
-    abfs[s]://<file_system>@<accountname>.dfs.core.widows.net/<path>
+    abfs[s]://<file_system>@<accountname>.dfs.core.windows.net/<path>
 
 Hier volgen enkele overwegingen bij het gebruik van een Azure Storage-account met HDInsight-clusters.
 
@@ -62,7 +62,7 @@ Hier volgen enkele overwegingen bij het gebruik van een Azure Storage-account me
  
 * **Persoonlijke bestandssystemen in opslagaccounts die niet zijn verbonden met een cluster** niet toestaan dat toegang tot bestanden in het bestandssysteem tenzij u het opslagaccount definieert wanneer u de WebHCat-taken verzendt. Redenen voor deze beperking worden verderop in dit artikel beschreven.
 
-De opslagaccounts die worden gedefinieerd tijdens het creatieproces en de bijbehorende sleutels worden opgeslagen in %HADOOP_HOME%/conf/core-site.xml op de clusterknooppunten. HDInsight gebruikt standaard de opslagaccounts die zijn gedefinieerd in het bestand core-site.xml. U kunt deze instelling wijzigen instellen met [Ambari](/hdinsight/hdinsight-hadoop-manage-ambari.md)
+De opslagaccounts die zijn gedefinieerd in het proces voor het maken en de sleutels worden opgeslagen in *%HADOOP_HOME%/conf/core-site.xml* op de clusterknooppunten. Het standaardgedrag van HDInsight is met de opslagaccounts die zijn gedefinieerd in de *core site.xml* bestand. U kunt deze instelling wijzigen instellen met [Ambari](/hdinsight/hdinsight-hadoop-manage-ambari.md)
 
 Meerdere WebHCat-taken, waaronder Hive, MapReduce, Hadoop-streaming en Pig, kunnen een beschrijving van opslagaccounts en metagegevens bevatten. (Deze benadering momenteel werkt voor Pig met opslagaccounts, maar niet voor metagegevens.) Zie [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Een HDInsight-cluster gebruiken met alternatieve opslagaccounts en metastores) voor meer informatie.
 
@@ -73,16 +73,21 @@ De kosten als gevolg van de verschillende locaties voor de rekenclusters en opsl
 Het opslaan van gegevens in Azure Storage in plaats van HDFS heeft enkele voordelen:
 
 * **Hergebruik en delen van gegevens:** de gegevens in HDFS bevinden zich in het rekencluster. Alleen de toepassingen die toegang tot het rekencluster hebben, kunnen de gegevens met HDFS API's gebruiken. De gegevens in Azure Storage zijn toegankelijk via de HDFS API's of via de [Blob Storage REST API's][blob-storage-restAPI]. Zo kan een grotere set toepassingen (inclusief andere HDInsight-clusters) en hulpprogramma's worden gebruikt om de gegevens te produceren en te gebruiken.
-* **Gegevensarchivering:** door gegevens op te slaan in Azure Storage, kunnen de HDInsight-clusters die worden gebruikt voor berekeningen, veilig worden verwijderd zonder dat er gegevens verloren gaan.
-* **Kosten voor gegevensopslag:** het langdurig opslaan van gegevens in DFS is duurder dan wanneer de gegevens worden opgeslagen in Azure Storage, omdat de kosten van een rekencluster hoger zijn dan de kosten van Azure Storage. Daarnaast bespaart u op de kosten voor het laden van gegevens omdat de gegevens niet opnieuw hoeven te worden geladen voor elk rekencluster dat wordt gegenereerd.
-* **Elastisch uitbreiden:** hoewel HDFS u een uitgebreid bestandssysteem biedt, wordt de schaal bepaald door het aantal knooppunten dat u voor het cluster maakt. Het wijzigen van de schaal is mogelijk een complexer proces dan. Vertrouw hiervoor niet zonder meer op de elastische schalingsmogelijkheden waarover u automatisch beschikt in Azure Storage.
-* **Geo-replicatie:** uw Azure-opslag kan geografisch worden gerepliceerd. Hoewel u dit de mogelijkheid van geografisch herstel en gegevensredundantie biedt, zal een failover naar de geografisch gerepliceerde locatie van grote invloed zijn op uw prestaties en kan dit tot extra kosten leiden. Daarom de aanbeveling is het verstandig de geo-replicatie kiezen en alleen als de waarde van de gegevens de extra kosten waard.
-* **Beheer van levenscyclus:** alle gegevens in een ander bestandssysteem doorloopt de eigen levenscyclus van wordt zeer waardevolle en veelgebruikte via minder waarde minder toegankelijk via te archiveren of verwijderen. Azure Storage biedt gegevens in lagen en lifecycle management-beleidsregels die gegevens op de juiste wijze laag voor de fase in de levenscyclus.
 
-Bepaalde MapReduce-taken en -pakketten kunnen tussenliggende resultaten genereren die u niet wilt opslaan in Azure Storage. In dat geval kunt u ervoor kiezen de gegevens op te slaan in de lokale HDFS. HDInsight gebruikt DFS voor verschillende tussenliggende resultaten in Hive-taken en andere processen.
+* **Gegevensarchivering:** door gegevens op te slaan in Azure Storage, kunnen de HDInsight-clusters die worden gebruikt voor berekeningen, veilig worden verwijderd zonder dat er gegevens verloren gaan.
+
+* **Opslagkosten voor gegevens:** opslaan van gegevens in de systeemeigen HDFS voor de lange termijn duurder is dan het opslaan van gegevens in Azure storage, omdat de kosten van een rekencluster hoger dan de kosten van Azure-opslag is. Daarnaast bespaart u op de kosten voor het laden van gegevens omdat de gegevens niet opnieuw hoeven te worden geladen voor elk rekencluster dat wordt gegenereerd.
+
+* **Elastisch uitbreiden:** hoewel HDFS u een uitgebreid bestandssysteem biedt, wordt de schaal bepaald door het aantal knooppunten dat u voor het cluster maakt. Het wijzigen van de schaal is mogelijk een complexer proces dan. Vertrouw hiervoor niet zonder meer op de elastische schalingsmogelijkheden waarover u automatisch beschikt in Azure Storage.
+
+* **Geo-replicatie:** uw Azure storage-gegevens kunnen geografisch worden gerepliceerd. Hoewel deze mogelijkheid u geografisch herstel en gegevensredundantie biedt, ondersteuning van een failover naar de geografisch gerepliceerde locatie ernstige problemen heeft impact op de prestaties van uw en kan leiden tot extra kosten. Geo-replicatie daarom kiest zorgvuldig en alleen als de waarde van de gegevens de extra kosten waard.
+
+* **Beheer van levenscyclus:** alle gegevens in een ander bestandssysteem doorloopt de eigen levenscyclus. Gegevens vaak uit wordt zeer waardevolle en veelgebruikte wordt gestart, overgezet naar dat deze minder waardevolle en vereisen minder toegang en uiteindelijk vereist archiveren of verwijderen. Azure Storage biedt gegevens in lagen en lifecycle management-beleidsregels die gegevens op de juiste wijze laag voor de fase in de levenscyclus.
+
+Bepaalde MapReduce-taken en -pakketten kunnen tussenliggende resultaten genereren die u niet wilt opslaan in Azure Storage. In dat geval kunt u ervoor kiezen de gegevens op te slaan in de lokale HDFS. HDInsight gebruikt in feite de systeemeigen HDFS-implementatie (dit wordt wel DFS genoemd) voor verschillende tussenliggende resultaten in Hive-taken en andere processen.
 
 > [!NOTE]
-> De meeste HDFS-opdrachten (bijvoorbeeld `ls`, `copyFromLocal` en `mkdir`) nog steeds werken zoals verwacht. Alleen de opdrachten die specifiek voor de systeemeigen HDFS-implementatie zijn (dit wordt wel DFS genoemd), zoals `fschk` en `dfsadmin`, vertonen afwijkend gedrag in Azure storage.
+> De meeste HDFS-opdrachten (bijvoorbeeld `ls`, `copyFromLocal` en `mkdir`) nog steeds werken zoals verwacht. Alleen de opdrachten die specifiek voor de AD FS, zoals zijn `fschk` en `dfsadmin`, vertonen afwijkend gedrag in Azure storage.
 
 ## <a name="create-an-data-lake-storage-file-system"></a>Maken van een Data Lake Storage-bestandssysteem
 
@@ -90,7 +95,7 @@ Voor het gebruik van het bestandssysteem, maakt u eerst een [Azure Storage-accou
 
 Ongeacht de locatie, wordt elke blob die u maakt behoort tot een bestandssysteem in uw Azure Data Lake Storage-account. 
 
-Het standaardbestandssysteem voor Data Lake Storage slaat clusterspecifieke informatie zoals de taakgeschiedenis en logboekbestanden. Geen Data Lake Storage-bestand standaardbesturingssysteem niet delen met meerdere HDInsight-clusters. Hierdoor kan de taakgeschiedenis beschadigd raken. Het verdient aanbeveling gebruik van een ander bestandssysteem voor elk cluster en de gedeelde gegevens op een gekoppelde storage-account opgegeven in de implementatie van alle relevante cluster in plaats van het standaardopslagaccount plaatsen. Zie [HDInsight-clusters maken][hdinsight-creation] voor meer informatie over het configureren van gekoppelde opslagaccounts. U kunt echter een standaardbestandssysteem voor opslag hergebruiken nadat het oorspronkelijke HDInsight-cluster is verwijderd. Voor HBase-clusters kunt u het HBase-tabelschema en de bijbehorende gegevens behouden door een nieuw HBase-cluster te maken met de standaard-blobcontainer die wordt gebruikt door een verwijderd HBase-cluster.
+Het standaardbestandssysteem voor Data Lake Storage slaat clusterspecifieke informatie zoals de taakgeschiedenis en logboekbestanden. Geen Data Lake Storage-bestand standaardbesturingssysteem niet delen met meerdere HDInsight-clusters. Hierdoor kan de taakgeschiedenis beschadigd raken. Het verdient aanbeveling gebruik van een ander bestandssysteem voor elk cluster en de gedeelde gegevens op een gekoppelde storage-account opgegeven in de implementatie van alle relevante cluster in plaats van het standaardopslagaccount plaatsen. Zie [HDInsight-clusters maken][hdinsight-creation] voor meer informatie over het configureren van gekoppelde opslagaccounts. U kunt echter een standaardbestandssysteem voor opslag hergebruiken nadat het oorspronkelijke HDInsight-cluster is verwijderd. Voor HBase-clusters, kunt u de HBase-tabelschema en de gegevens behouden door het maken van een nieuw HBase-cluster met de standaard blob-container die wordt gebruikt door een verwijderd HBase-cluster dat is verwijderd.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -144,20 +149,28 @@ Als u [geïnstalleerd en geconfigureerd Azure PowerShell][powershell-install], k
 
 Als u [de Azure CLI hebt geïnstalleerd en geconfigureerd](../../cli-install-nodejs.md), kan de volgende opdracht worden gebruikt om een opslagaccount en container te maken.
 
-    azure storage account create <storageaccountname> --type LRS --is-hns-enabled true
+```bash
+az storage account create \
+    --name <STORAGE_ACCOUNT_NAME> \
+    --resource-group <RESOURCE_GROUP_NAME> \
+    --location westus2 \
+    --sku Standard_LRS \
+    --kind StorageV2 \
+    --Enable-hierarchical-namespace true
+```
 
 > [!NOTE]
-> Tijdens de openbare preview van Data Lake Storage Gen2 alleen `--type LRS` wordt ondersteund. Aanvullende redundantieopties weer beschikbaar is in de preview-programma.
+> Tijdens de openbare preview van Data Lake Storage Gen2 alleen `--sku Standard_LRS` wordt ondersteund.
 
 U wordt gevraagd de geografische regio op te geven waar het opslagaccount is gemaakt. Het opslagaccount in dezelfde regio die u van plan bent over het maken van uw HDInsight-cluster maken.
 
 Zodra het opslagaccount is gemaakt, gebruikt u de volgende opdracht om de sleutels voor de opslagaccount op te halen:
 
-    azure storage account keys list <storageaccountname>
+    azure storage account keys list <STORAGE_ACCOUNT_NAME>
 
 Gebruik de volgende opdracht om een container te maken:
 
-    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+    azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
 > Maken van een container is synoniem met het maken van een bestand in Azure Data Lake Storage.
@@ -166,28 +179,27 @@ Gebruik de volgende opdracht om een container te maken:
 
 Het URI-schema om bestanden in Azure Storage vanuit HDInsight te openen:
 
-    abfs[s]://<FileSystem>@<AccountName>.dfs.core.widows.net/<path>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>
 
 Het URI-schema biedt niet-versleutelde toegang (met de *abfs:* voorvoegsel) en SSL-versleutelde toegang (met *abfss*). Wordt u aangeraden *abfss* waar mogelijk, zelfs wanneer toegang tot gegevens die zich in dezelfde regio in Azure.
 
-De &lt;bestandssysteem&gt; identificeert het pad van het Azure Data Lake Storage-bestandssysteem.
-De &lt;AccountName&gt; geeft de naam van Azure Storage-account. Een FQDN (Fully Qualified Domain Name) is vereist.
+* &lt;FILE_SYSTEM_NAME&gt; identificeert het pad van het Azure Data Lake Storage-bestandssysteem.
+* &lt;ACCOUNT_NAME&gt; geeft de naam van Azure Storage-account. Een FQDN (Fully Qualified Domain Name) is vereist.
 
-Als waarden voor &lt;bestandssysteem&gt; noch &lt;AccountName&gt; is opgegeven, wordt het standaardbestandssysteem gebruikt. Voor de bestand op het standaardbestandssysteem kunt u een relatief of een absoluut pad gebruiken. Bijvoorbeeld, de *hadoop-mapreduce-examples.jar* -bestand dat wordt geleverd met HDInsight-clusters kan naar worden verwezen door een van de volgende paden:
-
-    abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
-    abfs:///example/jars/hadoop-mapreduce-examples.jar
-    /example/jars/hadoop-mapreduce-examples.jar
+    Als waarden voor &lt;FILE_SYSTEM_NAME&gt; noch &lt;ACCOUNT_NAME&gt; is opgegeven, wordt het standaardbestandssysteem gebruikt. Voor de bestand op het standaardbestandssysteem kunt u een relatief of een absoluut pad gebruiken. Bijvoorbeeld, de *hadoop-mapreduce-examples.jar* -bestand dat wordt geleverd met HDInsight-clusters kan naar worden verwezen door een van de volgende paden:
+    
+        abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
+        abfs:///example/jars/hadoop-mapreduce-examples.jar
+        /example/jars/hadoop-mapreduce-examples.jar
 
 > [!NOTE]
 > De bestandsnaam is *hadoop examples.jar* in HDInsight versie 2.1- en 1.6-clusters.
 
-Het &lt;pad&gt; is de HDFS-padnaam van het bestand of de map.
+* De &lt;pad&gt; is het bestand of map HDFS-padnaam.
 
 > [!NOTE]
 > Als u werkt met bestanden buiten HDInsight, hulpprogramma's voor de meeste niet herkend door de ABFS formatteren en in plaats daarvan een standaardpadindeling zoals verwacht `example/jars/hadoop-mapreduce-examples.jar`.
-> 
-
+ 
 ## <a name="use-additional-storage-accounts"></a>Extra opslagaccounts gebruiken
 
 Tijdens het maken van een HDInsight-cluster geeft u het Azure Storage-account op dat u ermee wilt koppelen. Naast dit opslagaccount kunt u tijdens het maakproces of nadat een cluster is gemaakt extra opslagaccounts toevoegen uit hetzelfde Azure-abonnement of uit andere Azure-abonnementen. Zie [HDInsight-clusters maken](/hdinsight/hdinsight-hadoop-provision-linux-clusters.md) voor instructies over het toevoegen van extra opslagaccounts.

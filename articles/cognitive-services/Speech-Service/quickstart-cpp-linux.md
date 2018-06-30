@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: cee70ba585f93dda3249fc5b39f25fb613b57a45
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e5ea74f92eb91ff89f013a4ee9ef7cbe0f001db0
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753654"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111147"
 ---
 # <a name="quickstart-for-c-and-linux"></a>Quick Start voor C++- en Linux
 
@@ -78,7 +78,9 @@ Plaats deze in een bestand met de naam `quickstart-linux.cpp`:
 
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Linux/quickstart-linux/quickstart-linux.cpp#code)]
 
-Vervang de abonnementssleutel in de code door degene die u hebt verkregen.
+> [!IMPORTANT]
+> De abonnementssleutel vervangen door de die u hebt verkregen. <br>
+> Vervang de [regio](regions.md) met een gekoppeld aan het abonnement, bijvoorbeeld vervangen door `westus` voor het gratis proefabonnement.
 
 ## <a name="building"></a>Bouwen
 
@@ -97,7 +99,7 @@ Vervang de abonnementssleutel in de code door degene die u hebt verkregen.
   g++ quickstart-linux.cpp -o quickstart-linux -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-## <a name="running"></a>Actief
+## <a name="running"></a>In uitvoering
 
 Om de toepassing uitvoert, moet u de lader bibliotheekpad om te verwijzen naar de spraak SDK-bibliotheek configureren.
 

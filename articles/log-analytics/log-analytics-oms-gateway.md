@@ -3,7 +3,7 @@ title: Verbinding maken met computers met behulp van de OMS-Gateway | Microsoft 
 description: Verbinding maken met uw apparaten en computers Operations Manager bewaakt met de OMS-Gateway om gegevens te verzenden naar de Azure Automation en Log Analytics-service wanneer ze geen toegang tot Internet hebben.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.component: na
+ms.openlocfilehash: ecbc88ebaaa93215f85b57becc8a643dc3e168a0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271646"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129037"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Verbinding maken met computers zonder toegang tot het Internet met behulp van de OMS-Gateway
 Dit document beschrijft hoe u communicatie met Azure Automation configureert en verbonden met de OMS-Gateway als directe logboekanalyse of Operations Manager bewaakt computers hebben geen toegang tot Internet.  De OMS-Gateway een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding is, kunnen gegevens verzamelen en naar Azure Automation en Log Analytics namens hen verzonden.  
@@ -33,7 +34,7 @@ De OMS-Gateway ondersteunt:
 
 Als de beleidsregels van uw IT-beveiliging niet toestaan dat computers in uw netwerk verbinding maken met Internet, zoals de punt van apparaten verkooppunten (POS) of de servers die ondersteuning bieden IT-services, maar u deze verbinding te maken met Azure Automation of Log Analytics moet kunt beheren en controleren ze , ze kunnen worden geconfigureerd voor directe communicatie met de OMS-Gateway voor het ontvangen van configuratie en het doorsturen van gegevens in hun naam.  Als deze computers zijn geconfigureerd met de OMS-agent rechtstreeks verbinding maken met een werkruimte voor logboekanalyse, communiceert alle computers in plaats daarvan met de OMS-Gateway.  De gateway worden de gegevens van de agents naar de service rechtstreeks, analyseert de gegevens onderweg niet.
 
-Wanneer een beheergroep van Operations Manager is geïntegreerd met Log Analytics, kunnen de beheerservers worden geconfigureerd voor verbinding met de OMS-Gateway voor configuratie-informatie te ontvangen en verzenden van verzamelde gegevens afhankelijk van de oplossing die u hebt ingeschakeld.  Sommige gegevens, zoals Operations Manager waarschuwingen, beoordeling van de configuratie, exemplaarruimte en capaciteit verzenden Operations Manager-agents naar de beheerserver. Andere grote hoeveelheden gegevens, zoals IIS-logboeken, prestaties en beveiligingsgebeurtenissen zijn rechtstreeks naar de OMS-Gateway verzonden.  Als u een of meer Operations Manager-Gateway-servers geïmplementeerd in een Perimeternetwerk of andere geïsoleerd netwerk hebt voor het bewaken van niet-vertrouwde systemen, communiceren niet het met een OMS-Gateway.  Operations Manager-gatewayservers kunnen alleen aan een beheerserver rapporteren.  Wanneer een beheergroep van Operations Manager is geconfigureerd om te communiceren met de OMS-Gateway, wordt de proxy-configuratie-informatie wordt automatisch gedistribueerd naar elke agent beheerde computer die is geconfigureerd voor het verzamelen van gegevens voor logboekanalyse, zelfs als de instelling leeg is.    
+Wanneer een beheergroep van Operations Manager is geïntegreerd met Log Analytics, kunnen de beheerservers worden geconfigureerd voor verbinding met de OMS-Gateway voor configuratie-informatie te ontvangen en verzenden van verzamelde gegevens afhankelijk van de oplossing die u hebt ingeschakeld.  Sommige gegevens, zoals Operations Manager waarschuwingen, beoordeling van de configuratie, exemplaarruimte en capaciteit verzenden Operations Manager-agents naar de beheerserver. Andere grote hoeveelheden gegevens, zoals IIS-logboeken, prestaties en beveiligingsgebeurtenissen zijn rechtstreeks naar de OMS-Gateway verzonden.  Als u een of meer Operations Manager-Gateway-servers geïmplementeerd in een Perimeternetwerk of andere geïsoleerd netwerk hebt voor het bewaken van niet-vertrouwde systemen, communiceren niet het met een OMS-Gateway.  Operations Manager-gatewayservers kunnen alleen aan een beheerserver rapporteren.  Wanneer een beheergroep van Operations Manager is geconfigureerd om te communiceren met de OMS-Gateway, de proxy-configuratie-informatie automatisch wordt gedistribueerd naar elke agent beheerde computer die is geconfigureerd voor het verzamelen van gegevens voor logboekanalyse, zelfs als de instelling is leeg.    
 
 Hoge beschikbaarheid bieden voor direct verbonden of Operations beheergroepen die met logboekanalyse via de gateway communiceren, kunt u Netwerktaakverdeling omgeleid en distributie van het verkeer over meerdere gatewayservers.  Als een gatewayserver uitvalt, wordt het verkeer wordt omgeleid naar een ander beschikbaar knooppunt.  
 
@@ -157,12 +158,12 @@ Voor het gebruik van de Gateway voor de ondersteuning van Operations Manager, mo
 > Als u een waarde op voor de gateway niet opgeeft, worden de lege waarden geduwd naar alle agents.
 > 
 
-Als dit de eerste keer dat de Operations Manager-beheergroep met een werkruimte voor logboekanalyse registreert, is de mogelijkheid te geven van de configuratie van de proxy voor de beheergroep niet beschikbaar in de Operations-console.  De beheergroep heeft met succes worden geregistreerd met de service voordat u deze optie is beschikbaar.  U moet de systeem-proxyconfiguratie met behulp van Netsh op het systeem uw uitgevoerd vanuit de Operations-console voor het configureren van integratie en alle beheerservers in de beheergroep bijwerken.  
+Als dit de eerste keer dat de Operations Manager-beheergroep met een werkruimte voor logboekanalyse registreert, is de mogelijkheid te geven van de configuratie van de proxy voor de beheergroep niet beschikbaar in de Operations-console.  Deze optie is pas beschikbaar als de beheergroep bij de service is geregistreerd.  U moet de systeemproxyconfiguratie bijwerken met behulp van Netsh vanaf het systeem waarop de Operations-console wordt uitgevoerd om de integratie en alle beheerservers in de beheergroep te configureren.  
 
-1. Open een opdrachtprompt.
+1. Open een opdrachtprompt met verhoogde bevoegdheid.
    a. Ga naar **Start** en het type **cmd**.
    b. Met de rechtermuisknop op **opdrachtprompt** en uitvoeren als beheerder ** selecteren.
-2. Voer de volgende opdracht en druk op **Enter**:
+2. Voer de volgende opdracht in en druk op **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -182,7 +183,7 @@ Voor grote of complexe omgevingen, alleen kunt u specifieke servers (of groepen)
 1. Open de Operations Manager-console en selecteer de **ontwerpen** werkruimte.  
 2. Selecteer in de werkruimte ontwerpen **regels** en klik op de **bereik** op de werkbalk Operations Manager. Als deze knop niet beschikbaar is, controleert u om ervoor te zorgen dat u een object, geen map, dat is geselecteerd in het deelvenster bewaking hebt. De **bereik Management Pack-objecten** in het dialoogvenster geeft een lijst met algemene bepaalde klassen, groepen of objecten. 
 3. Type **Health-Service** in de **zoekt** veld en selecteert u deze in de lijst.  Klik op **OK**.  
-4. Zoeken naar de regel **Advisor Proxy-instelling regel** en klik op de werkbalk Operations-console op **overschrijft** en wijs vervolgens **overschrijven de Rule\For een specifiek object van klasse: Health-Service** en selecteert u een specifiek object in de lijst.  Desgewenst kunt u een aangepaste groep met het object health-service van de servers die u wilt toepassen met deze overschrijving aan en vervolgens de onderdrukking toepassen op die groep.
+4. Zoeken naar de regel **Advisor Proxy-instelling regel** en klik op de werkbalk Operations-console op **overschrijft** en wijs vervolgens **overschrijven de Rule\For een specifiek object van klasse: Health-Service**  en selecteert u een specifiek object in de lijst.  Desgewenst kunt u een aangepaste groep met het object health-service van de servers die u wilt toepassen met deze overschrijving aan en vervolgens de onderdrukking toepassen op die groep.
 5. In de **Onderdrukkingseigenschappen** in het dialoogvenster, klikt u op om een vinkje in de **overschrijven** kolom naast de **WebProxyAddress** parameter.  In de **Onderdrukkingswaarde** en voer de URL van de OMS-Gateway server ervoor te zorgen dat u met begint de `http://` voorvoegsel.  
 
     >[!NOTE]
@@ -252,7 +253,7 @@ Cmdlets kunt u taken uitvoeren die nodig zijn om bij te werken van configuratie-
 1. Installeer de OMS-Gateway (MSI).
 2. Open een PowerShell-consolevenster.
 3. U kunt de module importeren door deze opdracht te typen: `Import-Module OMSGateway`
-4. Als er is geen fout in de vorige stap opgetreden, de module is geïmporteerd en de cmdlets kunnen worden gebruikt. type `Get-Module OMSGateway`
+4. Als er is geen fout in de vorige stap opgetreden, de module is geïmporteerd en de cmdlets kunnen worden gebruikt. Type `Get-Module OMSGateway`
 5. Nadat u wijzigingen aanbrengt met behulp van de cmdlets, zorg ervoor dat u de Gateway-service opnieuw opstarten.
 
 Als u een fout in stap 3 krijgt, wordt de module is niet geïmporteerd. De fout kan optreden wanneer PowerShell is niet gevonden van de module. U kunt deze vinden in de Gateway-installatiepad: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
@@ -285,7 +286,7 @@ De volgende tabel ziet u de gebeurtenis-id's en beschrijvingen voor logboekgebeu
 | 403 |Fout bij het netwerk. Bijvoorbeeld: kan geen verbinding met de doelserver |
 | 100 |Algemene informatie |
 | 101 |Service is gestart |
-| 102 |Service is gestopt |
+| 102 |De service is gestopt |
 | 103 |Een opdracht HTTP-verbinding ontvangen van client |
 | 104 |Niet een opdracht HTTP-verbinding |
 | 105 |Doelserver zich niet in de lijst met toegestane of de doelpoort is geen beveiligde poort (443) <br> <br> Zorg ervoor dat de MMA-agent op de gatewayserver en de agents die communiceren met de Gateway zijn verbonden met de dezelfde werkruimte voor logboekanalyse. |

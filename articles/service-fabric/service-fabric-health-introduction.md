@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207295"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114313"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Inleiding tot de statuscontrole Service Fabric
 Azure Service Fabric introduceert een statusmodel waarmee de uitgebreide, flexibele en uitbreidbare statusevaluatie en rapportage. Het model kunt near-realtime bewaking van de status van het cluster en de services die erin worden uitgevoerd. Kunt u eenvoudig verkrijgen van informatie en corrigeer eventuele problemen voordat ze trapsgewijs en grote storingen veroorzaken. In het typische model services verzenden rapporten op basis van hun lokale weergaven en dat er gegevens worden samengevoegd om op te geven van een algemene-clusterniveau weergeven.
@@ -117,7 +117,7 @@ Het volgende voorbeeld is een fragment uit een clustermanifest van de. Als u wil
 De [statusbeleid voor de toepassing](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) wordt beschreven hoe de evaluatie van gebeurtenissen en onderliggende statussen aggregatie wordt uitgevoerd voor toepassingen en onderliggende items. Het kan worden gedefinieerd in het toepassingsmanifest **ApplicationManifest.xml**, in het toepassingspakket. Als er geen beleidsregels zijn opgegeven, Service Fabric wordt ervan uitgegaan dat de entiteit slecht is wanneer er een statusrapport of een onderliggend element op de status waarschuwing of fout.
 De configureerbare beleidsregels zijn:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Hiermee geeft u op of op dezelfde manier behandelen waarschuwing health als fouten tijdens de statusevaluatie. Standaard: false.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Hiermee geeft u op of op dezelfde manier behandelen waarschuwing health als fouten tijdens de statusevaluatie. Standaard: false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Hiermee geeft u het maximale percentage verdragen geïmplementeerde toepassingen die beschadigd worden kunnen voordat de toepassing wordt beschouwd als fout. Dit percentage wordt berekend door het aantal beschadigde geïmplementeerde toepassingen delen via het aantal knooppunten dat de toepassingen die momenteel zijn geïmplementeerd op in het cluster. De berekening rondt af naar boven op een storing op een klein aantal knooppunten tolereren. Percentage standaard: nul.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Hiermee geeft u het standaard service type statusbeleid, die het statusbeleid standaard voor alle servicetypen in de toepassing vervangt.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Geeft een overzicht van service statusbeleid per servicetype. Deze beleidsregels vervangen door de service type health standaardbeleidsregels voor elk type opgegeven service. Bijvoorbeeld, als een toepassing een servicetype staatloze gateway en een servicetype stateful-engine heeft, kunt u het statusbeleid voor de evaluatie anders. Wanneer u beleid per servicetype opgeeft, krijgt u gedetailleerde controle over de status van de service.
@@ -202,7 +202,7 @@ De [statusrapporten](https://docs.microsoft.com/dotnet/api/system.fabric.health.
   
   * Het cluster. Geen.
   * Knooppunt. Naam van knooppunt (tekenreeks).
-  * de toepassing. Toepassingsnaam (URI). Vertegenwoordigt de naam van het toepassingsexemplaar geïmplementeerd in het cluster.
+  * De toepassing. Toepassingsnaam (URI). Vertegenwoordigt de naam van het toepassingsexemplaar geïmplementeerd in het cluster.
   * De service. Service-naam (URI). Vertegenwoordigt de naam van het service-exemplaar dat is geïmplementeerd in het cluster.
   * Partitie. Partitie-ID (GUID). Hiermee geeft u de unieke id van partitie.
   * De replica. De stateful-replica-ID of de staatloze service-exemplaar-ID (INT64).

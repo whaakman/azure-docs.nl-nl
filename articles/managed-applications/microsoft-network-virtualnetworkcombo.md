@@ -11,23 +11,26 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d806afbfd74d68d139f494c7a5a6e871a7dae36
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2c2553d9ffb1dfbe032385fb77e234a8b96cb239
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260591"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110062"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI-element
 Een groep besturingselementen voor het selecteren van een nieuw of bestaand virtueel netwerk.
 
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
-![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
+Wanneer de gebruiker kiest een nieuw virtueel netwerk, kan de gebruiker de naam van elk subnet en adresvoorvoegsel aanpassen. Subnetten configureren is optioneel.
 
-- In de bovenste draadmodel heeft de gebruiker een nieuw virtueel netwerk verzameld, zodat de gebruiker de naam en adres voorvoegsel elk subnet kan aanpassen. Subnetten configureren is in dit geval optioneel.
-- In de draadmodel onder een bestaand virtueel netwerk op de gebruiker heeft gekozen zodat de gebruiker elk subnet dat is vereist voor de implementatiesjabloon moet worden toegewezen aan een bestaand subnet. Subnetten configureren is in dit geval vereist.
+![Nieuwe Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+
+Wanneer de gebruiker kiest een bestaand virtueel netwerk, moet de gebruiker elk subnet dat is vereist voor de implementatiesjabloon toewijzen aan een bestaand subnet. Subnetten configureren is in dit geval vereist.
+
+![Bestaande Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Schema
 ```json
@@ -88,12 +91,12 @@ Een groep besturingselementen voor het selecteren van een nieuw of bestaand virt
 - `constraints.minAddressPrefixSize` moet worden opgegeven. Een bestaande virtuele netwerken met een adresruimte die kleiner is dan de opgegeven waarde zijn niet beschikbaar voor selectie.
 - `subnets` Er moet worden opgegeven en `constraints.minAddressPrefixSize` voor elk subnet moet worden opgegeven.
 - Wanneer u een nieuw virtueel netwerk maakt, adresvoorvoegsel voor elk subnet wordt automatisch berekend op het virtuele netwerk adresvoorvoegsel en de respectieve `addressPrefixSize`.
-- Wanneer u een bestaande virtuele netwerk, kleiner is dan de respectieve subnetten `constraints.minAddressPrefixSize` zijn niet beschikbaar voor selectie. Bovendien, indien opgegeven, subnetten die bevatten geen ten minste `minAddressCount` beschikbare adressen zijn niet beschikbaar voor selectie.
-De standaardwaarde is **0**. Om ervoor te zorgen dat de beschikbare adressen aaneengesloten zijn, geef **true** voor `requireContiguousAddresses`. De standaardwaarde is **true**.
+- Wanneer u een bestaande virtuele netwerk, kleiner is dan de respectieve subnetten `constraints.minAddressPrefixSize` zijn niet beschikbaar voor selectie. Bovendien, indien opgegeven, subnetten waarvoor geen ten minste `minAddressCount` beschikbare adressen zijn niet beschikbaar voor selectie. De standaardwaarde is **0**. Om ervoor te zorgen dat de beschikbare adressen aaneengesloten zijn, geef **true** voor `requireContiguousAddresses`. De standaardwaarde is **true**.
 - Maken van subnetten in een bestaand virtueel netwerk wordt niet ondersteund.
 - Als `options.hideExisting` is **true**, de gebruiker een bestaand virtueel netwerk niet kiezen. De standaardwaarde is **false**.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
+
 ```json
 {
   "name": "vnet01",

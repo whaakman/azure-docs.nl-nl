@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f7c3820624a4ef27e2ece4d902f2c033b6a6f48f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061217"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114364"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 Preview hiërarchische naamruimte
 
-Een mechanisme waarmee Azure Data Lake Storage Gen2 Preview om de prestaties van het bestandssysteem op schaal van object-opslag en prijzen, is de toevoeging van een **hiërarchische naamruimte**. Hierdoor kan de verzameling van objecten/bestanden binnen een account in een hiërarchie van mappen en geneste submappen worden georganiseerd op dezelfde manier waarop het bestandssysteem op uw computer zijn geordend. Met de hiërarchische naamruimte die is ingeschakeld, biedt Data Lake Storage Gen2 de schaalbaarheid en het rendement van opslag van objecten met file system-semantiek waarmee analytics motoren en frameworks bekend zijn.
+Een mechanisme waarmee Azure Data Lake Storage Gen2 Preview om de prestaties van het bestandssysteem op schaal van object-opslag en prijzen is de toevoeging van een **hiërarchische naamruimte**. Hierdoor kan de verzameling van objecten/bestanden binnen een account in een hiërarchie van mappen en geneste submappen worden georganiseerd op dezelfde manier waarop het bestandssysteem op uw computer zijn geordend. Met de hiërarchische naamruimte die is ingeschakeld, biedt Data Lake Storage Gen2 de schaalbaarheid en het rendement van opslag van objecten met file system-semantiek waarmee analytics motoren en frameworks bekend zijn.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>De voordelen van de hiërarchische naamruimte
 
@@ -27,7 +27,7 @@ Een mechanisme waarmee Azure Data Lake Storage Gen2 Preview om de prestaties van
 
 De volgende voordelen zijn gekoppeld aan bestandssystemen die een hiërarchische naamruimte via blob-gegevens implementeren:
 
-- **Atomic Directory manipulatie:** Object winkels geschatte een directory-hiërarchie door een conventie voor het insluiten van slashes (/) in de naam van het object om padsegmenten aan te geven. Deze overeenkomst werkt goed voor het ordenen van objecten, biedt de overeenkomst geen ondersteuning voor bewerkingen zoals het verplaatsen, hernoemen of verwijderen van mappen. Zonder echte mappen moeten toepassingen verwerken mogelijk miljoenen afzonderlijke blobs als u de taken op het niveau van de directory. De hiërarchische naamruimte wordt daarentegen deze taken verwerkt door het bijwerken van een afzonderlijke vermelding (de bovenliggende map). 
+- **Atomic Directory manipulatie:** Object winkels geschatte een directory-hiërarchie door een conventie voor het insluiten van slashes (/) in de naam van het object om padsegmenten aan te geven. Deze overeenkomst werkt voor het ordenen van objecten, biedt de overeenkomst geen ondersteuning voor bewerkingen zoals het verplaatsen, hernoemen of verwijderen van mappen. Zonder echte mappen moeten toepassingen verwerken mogelijk miljoenen afzonderlijke blobs als u de taken op het niveau van de directory. De hiërarchische naamruimte wordt daarentegen deze taken verwerkt door het bijwerken van een afzonderlijke vermelding (de bovenliggende map). 
 
     Deze optimalisatie indrukwekkende is vooral belangrijk voor veel frameworks voor big data-analyses. Hulpprogramma's zoals Hive, Spark, enzovoort vaak uitvoer schrijven naar tijdelijke locatie en wijzig de naam van de locatie aan het einde van de taak. Zonder de hiërarchische naamruimte kan deze Wijzig de naam vaak langer duren dan het analytics-proces zelf. Lagere latentie van de taak is gelijk aan lagere totale eigendomskosten (TCO) voor analytics werkbelastingen.
 

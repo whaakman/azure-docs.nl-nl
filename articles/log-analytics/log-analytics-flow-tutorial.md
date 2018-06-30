@@ -3,21 +3,22 @@ title: Azure-logboekanalyse processen met Microsoft-Flow automatiseren
 description: Meer informatie over hoe u Microsoft Flow snel herhaalbare processen automatiseren met behulp van de Azure-logboekanalyse-connector kunt gebruiken.
 services: log-analytics
 documentationcenter: ''
-author: CFreemanwa
+author: mgoedtel
 manager: carmonm
 ms.service: log-analytics
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 9884b97aad8f022e6bc20b2a630ccdd07ebc64db
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.component: na
+ms.openlocfilehash: 21cf7cf3d12902b02fcbf650a1623e78004d28b4
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
-ms.locfileid: "23889506"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131697"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Log Analytics-processen met de connector voor Microsoft-Flow automatiseren
 [Microsoft-Flow](https://ms.flow.microsoft.com) kunt u geautomatiseerde werkstromen met honderden acties voor diverse services maken. De uitvoer van een actie kan worden gebruikt als invoer voor andere zodat u integratie tussen verschillende services maken.  De Azure-logboekanalyse-connector voor Microsoft-Flow kunt u voor het bouwen van werkstromen die door het logboek van zoekopdrachten in logboekanalyse opgehaalde gegevens bevatten.

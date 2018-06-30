@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: e0366e6a2403f7cea83efde35c7b3b42565a1cf2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.component: na
+ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062776"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130081"
 ---
 # <a name="data-sources-in-log-analytics"></a>Gegevensbronnen in Log Analytics
 Log Analytics verzamelt gegevens van uw verbonden bronnen en slaat ze op in de werkruimte voor logboekanalyse.  De gegevens die worden verzameld van elk wordt gedefinieerd door de gegevensbronnen die u configureert.  Gegevens in Log Analytics wordt opgeslagen als een reeks records.  Records van een bepaald type elke gegevensbron gemaakt met elk type met een eigen set eigenschappen.

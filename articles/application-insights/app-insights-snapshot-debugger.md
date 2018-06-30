@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: mbullwin; pharring
-ms.openlocfilehash: 66339e5f5d2cc7447df0f8faf70d2d9fd45db738
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: pharring
+ms.author: mbullwin
+ms.openlocfilehash: b180c7e8d26acc86aa1d1982ace92efafa85f9ef
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115995"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-toepassingen
 
@@ -33,7 +35,7 @@ De volgende omgevingen worden ondersteund:
 * Azure Cloud Service OS-familie met 4 of hoger.
 * Azure Service Fabric-services met Windows Server 2012 R2 of hoger.
 * Virtuele Machines in Azure waarop Windows Server 2012 R2 of hoger.
-* On-premises virtuele of fysieke machines met Windows Server 2012 R2 of hoger.
+* Lokale virtuele of fysieke machines met Windows Server 2012 R2 of hoger.
 
 > [!NOTE]
 > Client-toepassingen (bijvoorbeeld WPF, Windows Forms of UWP) worden niet ondersteund.

@@ -3,7 +3,7 @@ title: Container bewaking oplossing in Azure Log Analytics | Microsoft Docs
 description: De oplossing Container bewaking in Log Analytics kunt u weergeven en beheren van uw Docker- en Windows container hosts op één locatie.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 584e7a211cde83d7785c7fa0962c004af2b76968
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638344"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128908"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container bewaking oplossing in Log Analytics
 
@@ -314,7 +315,7 @@ U kunt omsagent DaemonSets maken met of zonder geheimen.
 
 1. Voor het gebruik van OMS-Agent DaemonSet met behulp van de geheime gegevens van de geheimen eerst te maken.
     1. Kopieer het script en de geheime sjabloonbestand en controleer of dat ze zich op dezelfde map.
-        - geheim script - geheim gen.sh genereren
+        - Geheim script - geheim gen.sh genereren
         - geheime sjabloon - geheim template.yaml
     2. Voer het script, zoals in het volgende voorbeeld. Het script vraagt om de Log Analytics-werkruimte-ID en de primaire sleutel en nadat u deze invoert, maakt het script een geheime yaml-bestand zodat u deze kunt uitvoeren.   
 
@@ -397,7 +398,7 @@ Voor Windows Kubernetes gebruikt u een script om de geheimen yaml-bestand voor u
 
 1. Gebruik van OMS-Agent DaemonSet met geheime informatie op de Master-knooppunt, aanmelden en maakt u eerst de geheimen.
     1. Kopieer het script en de geheime sjabloonbestand en controleer of dat ze zich op dezelfde map.
-        - geheim script - geheim gen.sh genereren
+        - Geheim script - geheim gen.sh genereren
         - geheime sjabloon - geheim template.yaml
 
     2. Voer het script, zoals in het volgende voorbeeld. Het script vraagt om de OMS-werkruimte-ID en de primaire sleutel en nadat u deze invoert, maakt het script een geheime yaml-bestand zodat u deze kunt uitvoeren.   
@@ -608,7 +609,7 @@ Log Analytics markeert een container als **mislukt** als is afgesloten met een a
 
 ### <a name="to-find-failed-containers"></a>Mislukte containers vinden
 1. Klik op de **Container Status** gebied.  
-   ![Status van de containers](./media/log-analytics-containers/containers-status.png)
+   ![status van de containers](./media/log-analytics-containers/containers-status.png)
 2. Logboek zoekopdracht wordt geopend en wordt de status van uw containers, de volgende strekking weergegeven.  
    ![status van de containers](./media/log-analytics-containers/containers-log-search.png)
 3. Klik vervolgens op de toegevoegde waarde van mislukte containers naar aanvullende informatie weergeven. Vouw **meer** om weer te geven van de installatiekopie-ID.  

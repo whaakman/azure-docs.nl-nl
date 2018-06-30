@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c7ef38e2f2edaf795d3d76706afd4aa09b3b6959
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345873"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110045"
 ---
 # <a name="application-dashboard"></a>Toepassingendashboard
 Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard** wordt weergegeven wanneer u een app openen door te klikken op de naam van de toepassing in **mijn Apps** pagina selecteert **Dashboard** van bovenpaneel. 
@@ -69,7 +69,7 @@ Selecteer een periode op de grafiek weergeven:
 2. Selecteer een periode in de lijst en klik vervolgens op de pijl naar links ![Pijl naar links](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) de grafiek weergeven.
 
 ### <a name="key-usage"></a>Sleutelgebruik
-Het aantal treffers uit de sleutel voor het abonnement van de toepassing verbruikt. Zie voor meer informatie over abonnement sleutels [sleutels in LUIS](luis-concept-keys.md). 
+Het aantal treffers uit de sleutel voor het eindpunt van de toepassing verbruikt. Zie voor meer informatie over endpoint sleutels [sleutels in LUIS](luis-concept-keys.md). 
   
 ## <a name="intent-breakdown"></a>Opzet uitsplitsing
 De **bedoeling uitsplitsing** een uitsplitsing van intents op basis van gelabelde utterances of eindpunt treffers worden weergegeven. Deze overzichtsgrafiek toont het relatieve belang van elk doel in de app. Als u de muisaanwijzer boven een segment, ziet u de naam van de opzet en het percentage dat deze vertegenwoordigt het totaal aantal treffers in gelabelde utterances/het eindpunt. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: fe55c84964d10be971c0f1d64d2c70313098a4ee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf262a42751e02c939696e4c8554fc19f5a4f4bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215706"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Zelfstudie: Azure Active Directory-integratie met Kantega SSO voor FishEye/filterkroes
 
@@ -133,7 +133,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/kantegassoforfisheyecrucible-tutorial/tutorial_general_400.png)
     
-7. In een ander browservenster, meld u aan bij uw FishEye/filterkroes op de lokale server als beheerder.
+7. In een ander browservenster, meld u aan bij uw lokale FishEye/filterkroes server als beheerder.
 
 8. Beweeg de muisaanwijzer op het tandwiel en klik op de **invoegtoepassingen**.
 
@@ -222,7 +222,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     c. Klik op **Opslaan**.  
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -261,7 +261,7 @@ Om Azure AD-gebruikers zich aanmelden bij FishEye/filterkroes, moeten ze worden 
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan bij uw filterkroes op de lokale server als beheerder.
+1. Meld u aan bij uw lokale filterkroes server als beheerder.
 
 2. Beweeg de muisaanwijzer op het tandwiel en klik op de **gebruikers**.
 

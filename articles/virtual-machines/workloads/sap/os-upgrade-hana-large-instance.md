@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2018
+ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6af1a6612360c2433c05a7add79d2e7b3b9d754
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658257"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114589"
 ---
 # <a name="operating-system-upgrade"></a>Upgrade van besturingssysteem
 Dit document beschrijft de details op het besturingssysteem is bijgewerkt op de grote HANA-exemplaren.
@@ -29,33 +29,10 @@ Dit document beschrijft de details op het besturingssysteem is bijgewerkt op de 
 
 Het operationele team van Microsoft installeren op het moment van de inrichting HLI-eenheid, het besturingssysteem. Via de tijd, moet u het besturingssysteem behouden (voorbeeld: patchen, afstemmen, upgraden enz.) op de eenheid HLI.
 
-Voordat u wijzigingen in het besturingssysteem (bijvoorbeeld een OS Upgrade), primaire u **moet** Houd rekening met de volgende compatibiliteit matrix. U **moet** ook contact opnemen met Microsoft Operations team door het openen van een ondersteuningsticket te raadplegen voordat u begint met de grote besturingssysteem activiteiten zoals de upgrade.
+Voordat u belangrijke wijzigingen in het besturingssysteem (bijvoorbeeld upgraden SP1 naar SP2), moet u contact op met Microsoft Operations team door het openen van een ondersteuningsticket te raadplegen.
+
 
 Zie voor de ondersteuningsmatrix van de verschillende SAP HANA-versies met de verschillende versies van Linux [SAP-notitie #2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
-De volgende compatibiliteit is voor de HLIs getest. Als uw server HLI buiten de compatibiliteit matrix, moet u contact op met de ondersteuning van de Microsoft-bewerking.
-
-## <a name="for-type-i-class-sku-category"></a>Voor het Type klasse ik SKU-categorie
-
-| Configuratie | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| Server-Firmware | 3.1(2b) | 3.1(2b) | 3.1(2b) | 3.1(2b) |
-| ENIC versie | 2.3.0.44 | 2.3.0.44 | 2.3.0.30 | 2.3.0.44 |
-| FNIC versie | 1.6.0.34 | 1.6.0.34 | 1.6.0.27 | 1.6.0.36 |
-| EDAC | Uitgeschakeld | Uitgeschakeld | Uitgeschakeld | Uitgeschakeld |
-| Kernelversie | 4.4.21-69-default | 3.12.49-11-default | 3.10.0-327.el7.x86_64 | 3.10.0-693.17.1 |
-
-
-## <a name="for-type-ii-class-sku-category"></a>Voor Type II klasse SKU categorie
-
-| Configuratie | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| De firmwareversie RMC | 1.1.121  | 1.1.121  | 1.1.121  | 1.1.121 |
-| De firmwareversie BMC | 1.0.43   | 1.0.43   | 1.0.43   | 1.0.43  |
-| Softwareversie Foundation Server (SFS) | 2,16    | 2,16    | 2.14/2.16   | 2,16   |
-| BIOS | 5.2.6    | 5.2.6    | 5.2.6    | 5.2.6   |
-| i40e versie    | 2.0.19     | 2.0.19     | 1.5.10-k    | 1.5.10-k   |
-| Kernelversie    | 3.12.49-11.1     | 4.4.21-69.1     | 3.10.0-327    | 3.10.0-693.17.1   |
 
 
 ## <a name="known-issues"></a>Bekende problemen

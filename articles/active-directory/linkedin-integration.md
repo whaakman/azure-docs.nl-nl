@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b3ff0b2481b42f516d28ac17f2616685730b7d5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762367"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109583"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>LinkedIn account verbindingen voor Microsoft-apps en services
 In dit artikel kunt u informatie over het beheren van LinkedIn account verbindingen voor uw tenant in de Azure Active Directory (Azure AD)-beheercentrum. 
@@ -53,7 +53,7 @@ LinkedIn account verbindingen functionaliteit is standaard ingeschakeld voor uw 
 4. Onder **LinkedIn account verbindingen**:
   * Selecteer **Ja** LinkedIn account verbindingen voor alle gebruikers in uw tenant inschakelen
   * Selecteer **geselecteerde** om in te schakelen LinkedIn accountgebruikers verbindingen voor alleen geselecteerde tenant
-  * Selecteer **Nee** LinkedIn account verbindingen voor alle gebruikers uitschakelen ![LinkedIn inschakelen van account-verbindingen](./media/linkedin-integration/LinkedIn-integration.png)
+  * Selecteer **Nee** LinkedIn account verbindingen voor alle gebruikers uitschakelen ![LinkedIn inschakelen van account-verbindingen](./media/linkedin-integration/linkedin-integration.png)
 5. Uw instellingen opslaan als u bent met het selecteren van klaar **opslaan**.
 
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>In- of uitschakelen LinkedIn account verbindingen voor uw organisatie Office 2016 apps met behulp van Groepsbeleid
@@ -64,7 +64,7 @@ LinkedIn account verbindingen functionaliteit is standaard ingeschakeld voor uw 
 4. Een groepsbeleidsobject maken met de volgende instellingen: **Gebruikersconfiguratie** > **Beheersjablonen** > **Microsoft Office 2016**  >  **Overige** > **LinkedIn weergeven functies in Office-toepassingen**.
 5. Selecteer **ingeschakeld** of **uitgeschakelde**.
   * Wanneer het beleid is **ingeschakeld**, wordt de **LinkedIn weergeven functies in Office-toepassingen** gevonden in het dialoogvenster Opties voor Office 2016 instelling is ingeschakeld. Dit betekent ook dat gebruikers in uw organisatie LinkedIn-functies in hun Office-toepassingen gebruiken kunnen.
-  * Wanneer het beleid is **uitgeschakeld**, wordt de **LinkedIn weergeven functies in Office-toepassingen** instellingen gevonden in de opties voor Office 2016 dialoogvenster is ingesteld op de status uitgeschakeld en eindgebruikers deze instelling niet wijzigen. Gebruikers in uw organisatie kunnen LinkedIn-functies gebruiken in hun toepassingen Office 2016. 
+  * Wanneer het beleid is **uitgeschakeld**, wordt de **LinkedIn weergeven functies in Office-toepassingen** instellingen gevonden in de opties voor Office 2016 dialoogvenster is ingesteld op de status uitgeschakeld en eindgebruikers deze instelling niet wijzigen. Gebruikers in uw organisatie kunnen LinkedIn-functies gebruiken in hun toepassingen Office 2016.
 
 Dit groepsbeleid beïnvloedt alleen Office 2016 apps voor een lokale computer. Gebruikers kunnen LinkedIn-functies in de profiel-kaarten in Office 365 zien, zelfs als ze LinkedIn in hun Office 2016-apps uitschakelen. 
 

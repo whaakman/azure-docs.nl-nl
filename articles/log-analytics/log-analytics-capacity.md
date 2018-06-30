@@ -3,7 +3,7 @@ title: Oplossing voor capaciteit en prestaties in Azure Log Analytics | Microsof
 description: De oplossing capaciteit en prestaties in Log Analytics gebruiken om te begrijpen van de capaciteit van de Hyper-V-servers.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: db38678a05afbc764dec20f2a475e00856a1aeee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: e9163b3c29fd304c80eff46426a30c4fa0ce3b15
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130340"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Plannen van capaciteit voor Hyper-V-virtuele machine met de capaciteit en prestaties-oplossing (Preview)
 
@@ -92,7 +94,7 @@ Wanneer u de oplossing capaciteit en prestaties toevoegen aan uw werkruimte, wor
 
 Klik op de capaciteit en prestaties tegel om de capaciteit en prestaties dashboard te openen. Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat maximaal tien items die overeenkomen de criteria voor het opgegeven bereik en het tijdsbereik van die kolom. U kunt een zoekactie die alle records retourneert, uitvoeren op het logboek door onderaan in de kolom te klikken op **Alles bekijken** of door te klikken op de kolomkoptekst.
 
-- **hosts**
+- **Hosts**
     - **Host-CPU-gebruik** ziet u een grafische trend weergegeven van de CPU-gebruik van de host-computers en een lijst met hosts, op basis van de geselecteerde tijdsperiode. Beweeg de muisaanwijzer over het lijndiagram om details te bekijken voor een bepaald punt in tijd. Klik in de grafiek om meer details weergeven in het logboek zoeken. Klik op de hostnaam van elke logboek zoeken openen en weergeven van CPU-details voor prestatiemeteritems voor gehoste virtuele machines.
     - **Geheugengebruik host** ziet u een grafische trend weergegeven van het geheugengebruik van hostcomputers en een lijst met hosts, op basis van de geselecteerde tijdsperiode. Beweeg de muisaanwijzer over het lijndiagram om details te bekijken voor een bepaald punt in tijd. Klik in de grafiek om meer details weergeven in het logboek zoeken. Klik op de hostnaam van elke logboek zoeken openen en weergeven van geheugen-details voor prestatiemeteritems voor gehoste virtuele machines.
 - **Virtuele machines**

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd1bb6117c0360e67783434c980c56b5f6ae7f9f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636603"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110218"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 Azure Sleutelkluis kunnen gebruikers kunt opslaan en gebruiken van de cryptografische sleutels die binnen de Microsoft Azure-omgeving. Sleutelkluis ondersteunt meerdere sleuteltypen en de algoritmen en maakt het gebruik van Hardware Security Modules (HSM) voor waardevolle sleutels. Bovendien kunnen Sleutelkluis gebruikers veilig opslaan geheimen. Geheimen zijn beperkt grootte octet objecten met geen specifieke semantiek. Sleutelkluis ondersteunt ook de certificaten die zijn ingebouwd in sleutels en geheimen en het toevoegen van een functie voor automatische verlenging.
@@ -172,7 +172,7 @@ Azure Sleutelkluis ondersteunt de volgende bewerkingen voor sleutels objecten:
 -   **Back-up**: exporteert een sleutel in een beveiligde vorm.  
 -   **Herstellen**: een back-up sleutel geïmporteerd.  
 
-Zie voor meer informatie [operations sleutel](/rest/api/keyvault/key-operations.md)  
+Zie voor meer informatie [operations sleutel](/rest/api/keyvault/key-operations).  
 
 Wanneer een sleutel is gemaakt in Azure Sleutelkluis, kunnen de volgende cryptografische bewerkingen worden uitgevoerd met behulp van de sleutel:  
 
@@ -281,7 +281,7 @@ De volgende machtigingen kunnen worden gebruikt, op basis van per principal, in 
 -   *verwijderen*: het geheim verwijderen  
 -   *alle*: alle machtigingen  
 
-Zie voor meer informatie over het werken met geheimen [geheime bewerkingen](/rest/api/keyvault/secret-operations.md).  
+Zie voor meer informatie over het werken met geheimen [geheime bewerkingen](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Geheime codes  
 U kunt aanvullende toepassingsspecifieke metagegevens opgeven in de vorm van labels. Azure Sleutelkluis ondersteunt maximaal 15 tags, die elk een naam van 256 tekens en een waarde van 256 tekens zijn.  
@@ -376,7 +376,7 @@ De volgende tabel geeft de toewijzing van x509 sleutelgebruik beleid effectieve 
 |**X509 sleutelgebruik vlaggen**|**Sleutelkluis sleutels ops**|**Standaardgedrag**|
 |----------|--------|--------|
 |DataEncipherment|versleutelen, ontsleutelen| N/A |
-|DecipherOnly|Ontsleutelen| N/A  |
+|DecipherOnly|ontsleutelen| N/A  |
 |DigitalSignature|Meld u aan, controleert u of| Sleutelkluis standaard zonder een specificatie voor gebruik tijdens de aanmaak van certificaat | 
 |EncipherOnly|encrypt| N/A |
 |KeyCertSign|Meld u aan, controleert u of|N/A|
@@ -443,9 +443,9 @@ Als een certificaat beleid is ingesteld op automatisch verlengen, wordt op de vo
 
 ## <a name="additional-information-for-certificates"></a>Aanvullende informatie voor certificaten
 
-- [Certificaten en het beleid](/rest/api/keyvault/certificates-and-policies.md)
-- [Uitgevers van certificaten](/rest/api/keyvault/certificate-issuers.md)
-- [Certificaat contactpersonen](/rest/api/keyvault/certificate-contacts.md)
+- [Certificaten en het beleid](/rest/api/keyvault/certificates-and-policies)
+- [Uitgevers van certificaten](/rest/api/keyvault/certificate-issuers)
+- [Certificaat contactpersonen](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>Zie ook
 

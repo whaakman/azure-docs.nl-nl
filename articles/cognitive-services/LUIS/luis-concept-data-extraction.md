@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8d8620a1c53037be6f1a33083f41964655a04921
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265249"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112113"
 ---
 # <a name="data-extraction"></a>Ophalen van gegevens
 LUIS biedt u de mogelijkheid informatie ophalen van een gebruiker natuurlijke taal utterances. De informatie wordt geëxtraheerd zodanig dat deze kan worden gebruikt door een programma, toepassing of chatbot actie te ondernemen.
@@ -26,7 +26,7 @@ LUIS biedt de gegevens van de gepubliceerde [eindpunt](luis-glossary.md#endpoint
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-De `appID` beschikbaar is op de **instellingen** pagina van uw app LUIS, evenals een deel van de URL (nadat `/apps/`) wanneer u die app LUIS bewerkt. De `subscription-key` is de endpoint-sleutel gebruikt voor query's in uw app. U kunt uw gratis authoring/starter sleutel gebruiken terwijl u LUIS leert, is het belangrijk dat de abonnementssleutel wijzigen in een sleutel die ondersteuning biedt voor uw [verwacht LUIS gebruik](luis-boundaries.md#key-limits). De `timezoneOffset` eenheid minuten is.
+De `appID` beschikbaar is op de **instellingen** pagina van uw app LUIS, evenals een deel van de URL (nadat `/apps/`) wanneer u die app LUIS bewerkt. De `subscription-key` is de endpoint-sleutel gebruikt voor query's in uw app. U kunt uw gratis authoring/starter sleutel gebruiken terwijl u LUIS leert, is het belangrijk te wijzigen van de eindpuntsleutel in een sleutel die ondersteuning biedt voor uw [verwacht LUIS gebruik](luis-boundaries.md#key-limits). De `timezoneOffset` eenheid minuten is.
 
 De **HTTPS antwoord** bevat alle de bedoeling en entiteit informatie LUIS kunt bepalen op basis van het huidige, gepubliceerde model uit het eindpunt van de test- of productieomgeving. Het eindpunt URL is gevonden op de [LUIS] [ LUIS] website **publiceren** pagina. 
 

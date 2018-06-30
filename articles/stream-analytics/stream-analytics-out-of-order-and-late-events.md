@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0ee486d9ff4c05269da23866edad281aa627889
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912012"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113891"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics gebeurtenis volgorde overwegingen
 
@@ -22,7 +22,7 @@ ms.locfileid: "30912012"
 
 In een tijdelijke gegevensstroom van gebeurtenissen krijgt elke gebeurtenis een tijdstempel. Azure Stream Analytics wijst een tijdstempel toe aan elke gebeurtenis met aankomst tijd of tijd van de toepassing. De **System.Timestamp** kolom heeft de tijdstempel die is toegewezen aan de gebeurtenis. 
 
-Aankomsttijd is toegewezen aan de invoerbron wanneer de gebeurtenis de bron bereikt. Aankomsttijd is toegankelijk via de **EventEnqueuedTime** eigenschap voor event hub invoer- en met behulp van de [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) eigenschap voor blob-invoer. 
+Aankomsttijd is toegewezen aan de invoerbron wanneer de gebeurtenis de bron bereikt. Aankomsttijd is toegankelijk via de **EventEnqueuedUtcTime** eigenschap voor Event Hubs-invoer **IoTHub.EnqueuedTime** eigenschap voor IoT Hub en het gebruik van de [BlobProperties.LastModified ](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) eigenschap voor blob-invoer. 
 
 Tijd van de toepassing wordt toegewezen wanneer de gebeurtenis wordt gegenereerd en het deel van de nettolading uitmaakt. U kunt gebeurtenissen verwerken door toepassing tijd de **tijdstempel door** -component in de query select. Als de **tijdstempel door** component is afwezig, gebeurtenissen worden verwerkt door aankomsttijd. 
 
@@ -111,7 +111,7 @@ De query heeft geen een **partitie door PartitionId** component, en er zijn ten 
 
 Configuratie is hetzelfde als voorbeeld 2. Gebrek aan gegevens in een van de partities kan echter de uitvoer door een extra tolerantieperiode voor late uitstellen.
 
-## <a name="handling-event-producers-with-differing-timelines"></a>Afhandeling van gebeurtenis producenten met verschillende tijdlijnen
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>Afhandeling van gebeurtenis producenten met verschillende tijdlijnen met 'substreams'
 Een stream met één invoer gebeurtenis bevat vaak gebeurtenissen die afkomstig van meerdere producenten gebeurtenis, zoals afzonderlijke apparaten zijn. Deze gebeurtenissen mogelijk een verkeerde volgorde de eerder besproken oorzaken binnenkomen. In deze scenario's, hoewel de verslechterde tussen producenten gebeurtenis mogelijk groot is, is de verslechterde binnen de gebeurtenissen van een enkele producent klein (of zelfs niet-bestaande).
 
 Azure Stream Analytics biedt algemene mechanismen voor het omgaan met out volgorde gebeurtenissen. Deze mechanismen leiden tot een verwerkingsvertragingen (tijdens het wachten op voor de straggling gebeurtenissen te bereiken van het systeem), verwijderd of aangepast gebeurtenissen of beide.

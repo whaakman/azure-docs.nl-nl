@@ -2,22 +2,24 @@
 title: Portals voor het maken en bewerken van logboek-query's in Azure Log Analytics | Microsoft Docs
 description: In dit artikel beschrijft de portals die u kunt gebruiken in Azure-logboekanalyse maken en bewerken Meld zoekopdrachten.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 06/11/2018
 ms.author: magoedte; bwren
-ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37132929"
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portals voor het maken en bewerken van logboek-query's in Azure Log Analytics
 
@@ -32,14 +34,21 @@ Logboek Search biedt meerdere functies voor het bewerken van de query zonder een
 ![Meld u zoekpagina](media/log-analytics-log-search-portals/log-search-portal.png)
 
 ## <a name="advanced-analytics-portal"></a>Geavanceerde Analytics-portal
-De geavanceerde analyses portal is een speciale portal geavanceerde functionaliteit niet beschikbaar in het logboek zoeken vanuit de Azure-portal.  Het onderdeel biedt de mogelijkheid om te bewerken van een query op meerdere regels, voert u selectief code, afhankelijk van de context Intellisense en slimme Analytics.  De portal Advanced Analytics is het meest geschikt is voor het ontwerpen van complexe query's die zijn ofwel opgeslagen als een zoekopdracht logboek of gekopieerd en geplakt in andere Log Analytics-elementen.  U start de Advanced Analytics-portal met een koppeling op de pagina logboek zoeken.
+De geavanceerde analyses portal is een speciale portal geavanceerde functionaliteit niet beschikbaar in het logboek zoeken vanuit de Azure-portal.  Voorbeelden van functies zijn de mogelijkheid om een query van meerdere regels te bewerken, code selectief uit te voeren, contextafhankelijke Intellisense en slimme analyse.  De portal Advanced Analytics is het meest geschikt is voor het ontwerpen van complexe query's die zijn ofwel opgeslagen als een zoekopdracht logboek of gekopieerd en geplakt in andere Log Analytics-elementen.  U start de Advanced Analytics-portal met een koppeling op de pagina logboek zoeken.
 
 ![Geavanceerde Analytics-portal](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-Vanwege de geavanceerde functies, meestal gebruikt u de portal geavanceerde analyses als uw primaire hulpprogramma voor het maken en bewerken van query's.  Eenmaal hebt u vastgesteld dat de query werkt zoals verwacht en u zult Kopieer en plak deze ergens anders zoals logboek zoekpagina of Designer bekijken.  Omdat de portal Advanced Analytics echter query's met meerdere regels ondersteunt, moet u het volgende in aanmerking nemen bij het kopiëren van een query in deze portal.
+Vanwege de geavanceerde functies, meestal gebruikt u de portal geavanceerde analyses als uw primaire hulpprogramma voor het maken en bewerken van query's.  Eenmaal hebt u vastgesteld dat de query werkt zoals verwacht en u zult Kopieer en plak deze ergens anders zoals logboek zoekpagina of Designer bekijken.  
 
-- Opmerkingen moeten worden verwijderd uit de query voordat deze is gekopieerd en geplakt in een andere locatie.  U kunt een reactie op een regel door het twee slashes (/ /).  Wanneer u een query met meerdere regel in een enkele regel plakt, worden regeleinden verwijderd.  Als u opmerkingen zijn opgenomen, hebben alle tekens na de eerste opmerking worden beschouwd als onderdeel van de opmerking.
+### <a name="firewall-requirements"></a>Firewallvereisten
+Uw browser vereist toegang tot de volgende adressen toegang tot de Advanced Analytics-portal.  Als uw browser de Azure-portal via een firewall benaderen is, moet u toegang tot deze adressen inschakelen.
+
+| URI | IP | Poorten |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamisch | 80,443 |
+| api.loganalytics.io    | Dynamisch | 80,443 |
+| docs.loganalytics.io   | Dynamisch | 80,443 |
 
 
 ## <a name="next-steps"></a>Volgende stappen

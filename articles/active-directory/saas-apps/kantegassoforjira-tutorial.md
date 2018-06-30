@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ebbb61b8612418fbec37769ee56907ff99d5214a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9355af15ed8156fee5f4b3584aa3342ea40c0628
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228761"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Zelfstudie: Azure Active Directory-integratie met Kantega SSO voor JIRA
 
@@ -133,7 +133,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/kantegassoforjira-tutorial/tutorial_general_400.png)
     
-7. In een ander browservenster, meld u aan bij uw JIRA op de lokale server als beheerder.
+7. In een ander browservenster, meld u aan bij uw lokale JIRA server als beheerder.
 
 8. Beweeg de muisaanwijzer op het tandwiel en klik op de **invoegtoepassingen**.
 
@@ -218,7 +218,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     c. Klik op **Opslaan**. 
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
@@ -258,7 +258,7 @@ Om Azure AD-gebruikers zich aanmelden bij JIRA, moeten ze worden ingericht in JI
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan bij uw JIRA op de lokale server als beheerder.
+1. Meld u aan bij uw lokale JIRA server als beheerder.
 
 2. Beweeg de muisaanwijzer op het tandwiel en klik op de **Gebruikersbeheer**.
 

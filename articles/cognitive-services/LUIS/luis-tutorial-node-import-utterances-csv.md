@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 09c9d4da835b7b30fd132770f9d13b33fa80a3f5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e97dc184266bc9518ee5f909891bd97f7c71804b
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268328"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113049"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Een LUIS App programmatisch met behulp van Node.js
 
@@ -111,7 +111,7 @@ De Node.js-afhankelijkheden van NPM in de terminal/opdrachtregel installeren.
 ````
 
 ### <a name="change-configuration-settings"></a>Configuratie-instellingen wijzigen
-Om deze toepassing gebruiken, moet u de waarden in het bestand index.js wijzigen voor de abonnementssleutel van uw eigen en geef de naam die u wilt dat de app te hebben. U kunt ook de cultuur van de app instellen of wijzigen van het versienummer.
+Om deze toepassing gebruiken, moet u de waarden in het bestand index.js wijzigen voor de eindpuntsleutel van uw eigen en geef de naam die u wilt dat de app te hebben. U kunt ook de cultuur van de app instellen of wijzigen van het versienummer.
 
 Open het bestand index.js en deze waarden boven aan het bestand te wijzigen.
 
@@ -176,10 +176,10 @@ Nadat het script is voltooid, kunt u zich aanmelden bij [LUIS] [ LUIS] en de LUI
 ## <a name="additional-resources"></a>Aanvullende resources
 
 Deze voorbeeldtoepassing gebruikt de volgende LUIS APIs:
-- [App maken](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
-- [Intents toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
-- [Entiteiten toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [Utterances toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
+- [app maken](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
+- [intents toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
+- [entiteiten toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
+- [utterances toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

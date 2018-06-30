@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 51307e1bdb31d902636787790d1c4f1248f3886b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bfb6515ba9b7f36e90783444fc474dc575b32f37
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361917"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113619"
 ---
-# <a name="connect-hdinsight-to-your-on-premise-network"></a>HDInsight verbinden met uw on-premises-netwerk
+# <a name="connect-hdinsight-to-your-on-premises-network"></a>HDInsight verbinden met uw on-premises netwerk
 
 Informatie over het HDInsight verbinding met uw on-premises netwerk met behulp van Azure Virtual Networks en een VPN-gateway. Dit document bevat de planningsinformatie over:
 
@@ -122,7 +122,7 @@ Maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/down
     > [!NOTE]
     > Er zijn tal van manieren verkrijgen van de `ssh` hulpprogramma. Op Linux, Unix- en Mac OS, wordt dit geleverd als onderdeel van het besturingssysteem. Als u van Windows gebruikmaakt, overweeg een van de volgende opties:
     >
-    > * [Azure-Cloud-Shell](../cloud-shell/quickstart.md)
+    > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
     > * [Bash op Ubuntu op Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
     > * [GIT (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH)https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)

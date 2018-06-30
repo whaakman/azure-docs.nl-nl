@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0ce22cae50e70ca7232e025d4009b23d62f6a198
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649224"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128510"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Back-up op lange termijn bewaren van Azure SQL Database beheren
 
@@ -38,7 +38,7 @@ U kunt SQL Database configureren [automatische back-ups behouden](sql-database-l
 
 2. Op de **-beleid configureren** tabblad, selecteert u de database die u wilt instellen of wijzigen op lange termijn bewaarbeleid voor back-up.
 
-   ![Database selecteren](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
+   ![database selecteren](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
 
 3. In de **-beleid configureren** deelvenster, selecteer deze optie indien wilt behouden wekelijkse, maandelijkse of jaarlijkse back-ups en de bewaarperiode voor elke opgeven. 
 
@@ -56,7 +56,7 @@ De back-ups die worden bewaard voor een specifieke database met een beleid van l
 
 2. Op de **beschikbare back-ups** tabblad, selecteert u de database waarvan u wilt zien van de beschikbare back-ups.
 
-   ![Database selecteren](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
+   ![database selecteren](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 
 3. In de **beschikbare back-ups** deelvenster Bekijk de beschikbare back-ups. 
 
@@ -83,8 +83,10 @@ De back-ups die worden bewaard voor een specifieke database met een beleid van l
 De volgende secties laten zien hoe PowerShell gebruiken voor het configureren van de lange bewaartermijn voor de back-up, back-ups weergeven in Azure SQL-opslag- en herstel van een back-up in Azure SQL-opslag.
 
 > [!IMPORTANT]
-> U moet de meest recente AzureRM powershell gebruiken voor het instellen van links naar rechts V2-beleid. De huidige versie is [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), dit is een preview-versie, dus gebruik deze opdracht om deze te installeren: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
-> Zie voor instructies over het installeren van de voorlopige versie [PowerShellGet ophalen module](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). De AzureRM powershell release in mei 2018 afkomstig is in een paar dagen (naar verwachting 18/5/2018), kunt u de schakeloptie - AllowPrelease negeren als u de releaseversie installeren zodra deze beschikbaar en de volgende opdracht gebruiken " `Install-Module -Name AzureRM.Sql -Force`.
+> LTR V2 API wordt ondersteund in de volgende PowerShell-versies:
+- [AzureRM.Sql 4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) of hoger
+- [AzureRM 6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) of hoger
+> 
 
 ### <a name="create-an-ltr-policy"></a>Een beleid LTR maken
 
@@ -169,7 +171,7 @@ Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.R
 ```
 
 > [!NOTE]
-> Hier kunt u verbinding kunt maken met de herstelde database met SQL Server Management Studio benodigde taken uit te voeren, zoals het ophalen van een bits van gegevens uit de herstelde database kopiëren naar de bestaande database of verwijder de bestaande database en de naam van de herstelde database op de naam van de bestaande database. Zie [punt in tijd terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore).
+> Hier kunt u verbinding kunt maken met de herstelde database met SQL Server Management Studio benodigde taken uit te voeren, zoals het ophalen van een bits van gegevens uit de herstelde database kopiëren naar de bestaande database of verwijder de bestaande database en de naam van de herstelde de database is de naam van de bestaande database. Zie [punt in tijd terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -3,23 +3,24 @@ title: Problemen met Azure Log Analytics VM-extensie | Microsoft Docs
 description: Beschrijf de symptomen, de oorzaken en de oplossing voor de meest voorkomende problemen met de Log Analytics VM-extensie voor Windows en Linux Azure Virtual machines.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e70d8f9fb929e3877c88fd4c1169a0c76ac2a6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 700d6b2c3bcd39aed38bf75556bcdcb59d1ab78b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29394983"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128823"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Het oplossen van de Log Analytics VM-extensie
 Dit artikel bevat help het oplossen van problemen die u mogelijk ondervindt met de Log Analytics VM-extensie voor Windows en Linux virtuele machines die worden uitgevoerd op Microsoft Azure en mogelijke oplossingen om op te lossen ze voorgesteld.
@@ -27,7 +28,7 @@ Dit artikel bevat help het oplossen van problemen die u mogelijk ondervindt met 
 Om te controleren of de status van de extensie, moet u de volgende stappen uitvoeren vanuit de Azure-portal.
 
 1. Meld u aan bij de [Azure Portal](http://portal.azure.com).
-2. Klik in de Azure-portal op **alle services**. Typ in de lijst met resources **virtuele machines**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **virtuele machines**.
+2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **virtuele machines**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **virtuele machines**.
 3. Zoek en selecteer deze in de lijst met virtuele machines.
 3. Klik op de virtuele machine, **extensies**.
 4. Controleer in de lijst als de Log Analytics-extensie is ingeschakeld.  Voor Linux, de agent wordt vermeld als **OMSAgentforLinux** en voor Windows, de agent wordt vermeld als **MicrosoftMonitoringAgent**.

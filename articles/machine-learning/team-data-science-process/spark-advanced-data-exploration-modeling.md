@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 3058678032989d71886311073513a23ac19d18f8
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a81c23d6acb79e42157ac7d804dac259723b3b0e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34838857"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114347"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Met Spark verkennen en modelleren van geavanceerde gegevens
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -45,7 +45,7 @@ De modellen we gebruiken omvatten logistic en lineaire regressie, willekeurige f
 * [Willekeurige forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) ensembles van beslissingsstructuren zijn.  Ze combineren veel beslissingsstructuren om het risico te beperken. Willekeurige forests worden gebruikt voor regressie en classificatie en categorische functies kunnen verwerken en kunnen worden uitgebreid naar de instelling multiklassen classificatie. Ze hoeven niet functie schalen en kunnen niet met mogelijkheid tot vastleggen en interacties functie zijn. Willekeurige forests zijn een van de meest succesvolle machine learning-modellen voor de indeling en regressie.
 * [Verloop boosted structuren](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) ensembles van beslissingsstructuren zijn. GBTs training beslissingsstructuren iteratief aan een functie gegevensverlies te minimaliseren. GBTs worden gebruikt voor regressie en classificatie en categorische functies kan verwerken, hoeven niet functie schalen en kunnen niet met mogelijkheid tot vastleggen en interacties functie. Ze kunnen ook worden gebruikt in een setting multiklasse classificatie.
 
-Voorbeelden met k/l en Hyperparameter modelleren vegen worden weergegeven voor het probleem binaire classificatie. Eenvoudiger voorbeelden worden (zonder de parameter duplicaten) weergegeven in het onderwerp voor regressie taken. Maar in de bijlage validatie met elastische net voor lineaire regressie en k/l met het gebruik van parameter vegen voor willekeurige forest regressie ook worden weergegeven. De **elastische net** is een regressiemethode overgegaan voor de metrische gegevens L1 en L2 als sancties van lineaire regressie modellen die lineair aanpassen combineert de [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) en [gleuf](https://en.wikipedia.org/wiki/Tikhonov_regularization) methoden.   
+Voorbeelden met k/l en Hyperparameter modelleren vegen worden weergegeven voor het probleem binaire classificatie. Eenvoudiger voorbeelden worden (zonder de parameter duplicaten) weergegeven in het onderwerp voor regressie taken. Maar in de bijlage validatie met elastische net voor lineaire regressie en k/l met het gebruik van parameter vegen voor willekeurige forest regressie ook worden weergegeven. De **elastische net** is een regressiemethode overgegaan voor de metrische gegevens L1 en L2 als sancties van lineaire regressie modellen die lineair aanpassen combineert de [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) en [gleuf](https://en.wikipedia.org/wiki/Tikhonov_regularization)methoden.   
 
 > [!NOTE]
 > Hoewel de toolkit Spark MLlib is ontworpen om te werken op grote gegevenssets, wordt hier een voorbeeld van een relatief klein (ongeveer 30 Mb met behulp van 170K rijen, ongeveer 0,1% van de oorspronkelijke gegevensset van de NYC) gebruikt voor het gemak. De hier opgegeven oefening efficiënt (in ongeveer 10 minuten) op een HDInsight-cluster met 2 worker-knooppunten wordt uitgevoerd. De dezelfde code, met kleine wijzigingen kan worden gebruikt voor het verwerken van grotere gegevenssets-wordt met de juiste wijzigingen voor het cachen van gegevens in het geheugen en het wijzigen van de clustergrootte.
@@ -1126,7 +1126,7 @@ Tijd uitvoering boven cel: 25.98 seconden
 ### <a name="gradient-boosting-trees-regression"></a>Kleurovergang prestatieverbetering structuren regressie
 De code in deze sectie wordt beschreven hoe trainen, evalueren en een kleurovergang prestatieverbetering structuren model die tip bedrag van de NYC taxi reis gegevens voorspelt opslaat.
 
-** Trainen en evalueren **
+**Trainen en evalueren**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

@@ -15,16 +15,16 @@ ms.workload: big-compute
 ms.date: 08/02/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 330350d6ac6838ea5b09763fe1f73fab1934710c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 950e422b3076e5abd5db6dd0ac452fa1c2d500d0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315045"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129265"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Query's op de lijst met Batch-resources efficiënt maken
 
-Hier leert u hoe u de prestaties van uw Azure Batch-toepassingen door te verminderen de hoeveelheid gegevens die door de service worden geretourneerd wanneer u query jobs, taken en met rekenknooppunten verhoogt de [Batch .NET] [ api_net] bibliotheek.
+Hier leert u hoe u de prestaties van uw Azure Batch-toepassingen door te verminderen de hoeveelheid gegevens die door de service worden geretourneerd wanneer u query jobs, taken en met rekenknooppunten verhoogt de [Batch .NET] [ api_net]bibliotheek.
 
 Bijna alle Batch-toepassingen hoeft uit te voeren van een type controle of een andere bewerking vaak query van de Batch-service met regelmatige tussenpozen. Om te bepalen of er in een taak resterende taken in de wachtrij zijn, kunt u gegevens moet ophalen voor elke taak in de taak. Om te bepalen van de status van knooppunten in uw pool, moet u gegevens ophalen op elk knooppunt in de groep. In dit artikel wordt uitgelegd hoe u dergelijke query's uitvoeren in de meest efficiënte manier.
 
@@ -68,7 +68,7 @@ In dit voorbeeldscenario als er duizenden taken in de taak, de resultaten van de
 > 
 
 ## <a name="filter-select-and-expand"></a>Filteren, selecteert en vouw
-De [Batch .NET] [ api_net] en [Batch REST] [ api_rest] API's bieden de mogelijkheid om te beperken van zowel het aantal items dat wordt geretourneerd in een lijst, evenals de hoeveelheid gegevens die voor elke wordt geretourneerd. U dit doen door op te geven **filter**, **Selecteer**, en **Vouw tekenreeksen** bij het uitvoeren van de lijst met query's.
+De [Batch .NET] [ api_net] en [Batch REST] [ api_rest] API's bieden de mogelijkheid om te beperken van zowel het aantal items dat wordt geretourneerd in een lijst, evenals de hoeveelheid gegevens die wordt geretourneerd voor elke. U dit doen door op te geven **filter**, **Selecteer**, en **Vouw tekenreeksen** bij het uitvoeren van de lijst met query's.
 
 ### <a name="filter"></a>Filteren
 De filtertekenreeks is een expressie die vermindert het aantal items dat wordt geretourneerd. Bijvoorbeeld, lijst met actieve taken voor een taak of lijst alleen rekenknooppunten die gereed zijn om de taken uitvoeren.
@@ -92,12 +92,12 @@ De tekenreeks uit te breiden vermindert het aantal API-aanroepen die nodig zijn 
 * In dit voorbeeld Vouw tekenreeks geeft aan dat statistische gegevens voor elk item in de lijst moet worden geretourneerd: `stats`.
 
 > [!NOTE]
-> Bij het maken van een van de drie querytypen tekenreeks (filteren, selecteert en vouw), moet u ervoor zorgen dat de namen van eigenschappen en de aanvraag overeenkomen met die van hun collega's REST-API-element. Bijvoorbeeld, als u werkt met de .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) klasse, moet u **status** in plaats van **status**, zelfs als de eigenschap .NET [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Zie de tabellen hieronder voor de eigenschaptoewijzingen tussen .NET en REST-API's.
+> Bij het maken van een van de drie querytypen tekenreeks (filteren, selecteert en vouw), moet u ervoor zorgen dat de namen van eigenschappen en de aanvraag overeenkomen met die van hun collega's REST-API-element. Bijvoorbeeld, als u werkt met de .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) klasse, moet u **status** in plaats van **status**, zelfs als de eigenschap .NET [ CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Zie de tabellen hieronder voor de eigenschaptoewijzingen tussen .NET en REST-API's.
 > 
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Regels voor filteren, selecteert en breidt tekenreeksen
-* Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen moeten worden weergegeven als in de [Batch REST] [ api_rest] API--zelfs wanneer u [Batch .NET] [ api_net] of een van de andere Batch-SDK's.
+* Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen moeten worden weergegeven als in de [Batch REST] [ api_rest] API--zelfs wanneer u [Batch .NET] [ api_net]of een van de andere Batch-SDK's.
 * Alle namen van eigenschappen zijn hoofdlettergevoelig, maar eigenschapswaarden zijn niet hoofdlettergevoelig.
 * Datum/tijd tekenreeksen kunnen twee verschillende indelingen, en moet worden voorafgegaan door `DateTime`.
   
@@ -107,7 +107,7 @@ De tekenreeks uit te breiden vermindert het aantal API-aanroepen die nodig zijn 
 * Als een eigenschap is ongeldig of de operator is opgegeven, een `400 (Bad Request)` fout resulteert.
 
 ## <a name="efficient-querying-in-batch-net"></a>Efficiënter uitvoeren van query's in Batch .NET
-Binnen de [Batch .NET] [ api_net] API, de [ODATADetailLevel] [ odata] klasse wordt gebruikt voor het verstrekken van filter, en selecteer tekenreeksen worden uitgebreid tot bewerkingen na opvragen. De klasse ODataDetailLevel heeft drie openbare eigenschappen die kunnen worden opgegeven in de constructor of rechtstreeks op het object is ingesteld. U geeft het ODataDetailLevel-object als parameter voor de verschillende bewerkingen na opvragen, zoals [ListPools][net_list_pools], [ListJobs][net_list_jobs], en [ListTasks][net_list_tasks].
+Binnen de [Batch .NET] [ api_net] API, de [ODATADetailLevel] [ odata] klasse wordt gebruikt voor het verstrekken van filter, selecteren en uitvouwen tekenreeksen om weer te geven bewerkingen. De klasse ODataDetailLevel heeft drie openbare eigenschappen die kunnen worden opgegeven in de constructor of rechtstreeks op het object is ingesteld. U geeft het ODataDetailLevel-object als parameter voor de verschillende bewerkingen na opvragen, zoals [ListPools][net_list_pools], [ListJobs][net_list_jobs], en [ListTasks][net_list_tasks].
 
 * [ODATADetailLevel][odata].[ FilterClause][odata_filter]: Beperk het aantal items dat wordt geretourneerd.
 * [ODATADetailLevel][odata].[ SelectClause][odata_select]: Geef op welke eigenschapswaarden worden geretourneerd bij elk item.
@@ -142,7 +142,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Een exemplaar van [ODATADetailLevel] [ odata] die is geconfigureerd met selecteren en uitvouwen componenten kunnen ook worden doorgegeven aan de juiste Get-methoden, zoals [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), te beperken van de hoeveelheid gegevens die wordt geretourneerd.
+> Een exemplaar van [ODATADetailLevel] [ odata] die is geconfigureerd met selecteren en uitvouwen componenten kunnen ook worden doorgegeven aan de juiste Get-methoden, zoals [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), beperken van de hoeveelheid gegevens die wordt geretourneerd.
 > 
 > 
 
@@ -172,7 +172,7 @@ Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen *moet* 
 
 | Batch .NET-typen | REST-API-entiteiten |
 | --- | --- |
-| [Certificate][net_cert] |[Informatie ophalen over een certificaat][rest_get_cert] |
+| [Certificaat][net_cert] |[Informatie ophalen over een certificaat][rest_get_cert] |
 | [CloudJob][net_job] |[Informatie over een taak ophalen][rest_get_job] |
 | [CloudJobSchedule][net_schedule] |[Informatie over het schema van een taak ophalen][rest_get_schedule] |
 | [ComputeNode][net_node] |[Informatie ophalen over een knooppunt][rest_get_node] |
@@ -180,7 +180,7 @@ Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen *moet* 
 | [CloudTask][net_task] |[Informatie over een taak ophalen][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>Voorbeeld: een filtertekenreeks maken
-Wanneer u een filtertekenreeks voor samenstellen [ODATADetailLevel.FilterClause][odata_filter], raadpleegt u de bovenstaande tabel onder '-toewijzingen voor filtertekenreeksen' om te zoeken naar de REST-API-documentatiepagina die overeenkomt met de lijstbewerking die u wilt uitvoeren. U vindt de Filterbaar eigenschappen en hun ondersteunde operators in de eerste multirow tabel op die pagina. Als u wilt ophalen van alle taken waarvan afsluitcode niet nul was, bijvoorbeeld dit rij op [lijst van de taken die zijn gekoppeld aan een taak] [ rest_list_tasks] stelt de toepasselijke eigenschap tekenreeks en de toegestane operators:
+Wanneer u een filtertekenreeks voor samenstellen [ODATADetailLevel.FilterClause][odata_filter], raadpleegt u de bovenstaande tabel onder '-toewijzingen voor filtertekenreeksen' om te zoeken naar de REST-API-documentatiepagina die overeenkomt met de lijst met bewerking die u wilt uitvoeren. U vindt de Filterbaar eigenschappen en hun ondersteunde operators in de eerste multirow tabel op die pagina. Als u wilt ophalen van alle taken waarvan afsluitcode niet nul was, bijvoorbeeld dit rij op [lijst van de taken die zijn gekoppeld aan een taak] [ rest_list_tasks] stelt de toepasselijke eigenschap tekenreeks en de toegestane operators:
 
 | Eigenschap | Bewerkingen die zijn toegestaan | Type |
 |:--- |:--- |:--- |
@@ -204,7 +204,7 @@ Selecteer de string voor het opnemen van alleen de ID en de opdrachtregel voor e
 
 ## <a name="code-samples"></a>Codevoorbeelden
 ### <a name="efficient-list-queries-code-sample"></a>Voorbeeld van code voor efficiënte lijst met query 's
-Bekijk de [EfficientListQueries] [ efficient_query_sample] voorbeeldproject op GitHub om te zien hoe efficiënt lijst uitvoeren van query's kan invloed hebben op prestaties in een toepassing. Deze C#-consoletoepassing maakt en voegt u een groot aantal taken toe aan een job. Klik op deze manier meerdere aanroepen naar de [JobOperations.ListTasks] [ net_list_tasks] methode en geeft [ODATADetailLevel] [ odata] objecten die zijn geconfigureerd met verschillende eigenschapwaarden variëren van de hoeveelheid gegevens moeten worden geretourneerd. Het wordt ongeveer de volgende uitvoer gegenereerd:
+Bekijk de [EfficientListQueries] [ efficient_query_sample] voorbeeldproject op GitHub om te zien hoe efficiënt lijst uitvoeren van query's kan invloed hebben op prestaties in een toepassing. Deze C#-consoletoepassing maakt en voegt u een groot aantal taken toe aan een job. Klik op deze manier meerdere aanroepen naar de [JobOperations.ListTasks] [ net_list_tasks] methode en geeft [ODATADetailLevel] [ odata] objecten die zijn geconfigureerd met verschillende eigenschapswaarden variëren van de hoeveelheid gegevens moeten worden geretourneerd. Het wordt ongeveer de volgende uitvoer gegenereerd:
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -223,7 +223,7 @@ Sample complete, hit ENTER to continue...
 Zoals u in de verstreken tijd, kunt u de reactietijden van de query aanzienlijk verlagen door het beperken van de eigenschappen en het aantal items dat wordt geretourneerd. U vindt deze en andere voorbeeldprojecten in de [azure-batch-samples] [ github_samples] opslagplaats op GitHub.
 
 ### <a name="batchmetrics-library-and-code-sample"></a>BatchMetrics-bibliotheek en code-voorbeeld
-Naast het codevoorbeeld EfficientListQueries bovenstaande vindt u de [BatchMetrics] [ batch_metrics] project in de [azure-batch-samples] [ github_samples] GitHub-opslagplaats. Het voorbeeldproject BatchMetrics laat zien hoe efficiënt voortgang Azure Batch-taak met de Batch-API.
+Naast het codevoorbeeld EfficientListQueries bovenstaande vindt u de [BatchMetrics] [ batch_metrics] project in de [azure-batch-samples] [ github_samples]GitHub-opslagplaats. Het voorbeeldproject BatchMetrics laat zien hoe efficiënt voortgang Azure Batch-taak met de Batch-API.
 
 De [BatchMetrics] [ batch_metrics] voorbeeld bevat een bibliotheekproject voor .NET-klasse die u kunt opnemen in uw eigen projecten en een eenvoudig opdrachtregelprogramma uitoefenen en demonstreren van het gebruik van de bibliotheek.
 
@@ -248,15 +248,12 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ### <a name="parallel-node-tasks"></a>Knooppunt parallelle taken
 [Azure Batch compute Resourcegebruik met gelijktijdige knooppunt taken maximaliseren](batch-parallel-node-tasks.md) een ander artikel betrekking heeft op de prestaties van de Batch-toepassingen. Bepaalde typen werkbelastingen kunnen profiteren van parallelle taken worden uitgevoerd op grotere-- maar minder--rekenknooppunten. Bekijk de [voorbeeldscenario](batch-parallel-node-tasks.md#example-scenario) in het artikel voor meer informatie over dit scenario.
 
-### <a name="batch-forum"></a>Batch-Forum
-De [Azure Batch-Forum] [ forum] is een goede plaats om te bespreken Batch en vragen over de service op MSDN. Kop op via voor nuttige 'een tijdelijke' berichten, en stel uw vragen wanneer deze zich voordoen tijdens het bouwen van uw Batch-oplossingen.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx

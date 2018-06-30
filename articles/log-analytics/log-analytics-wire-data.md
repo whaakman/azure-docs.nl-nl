@@ -3,7 +3,7 @@ title: Wire Data in Log Analytics | Microsoft Docs
 description: Wire data, of draadgegevens, zijn gecombineerde netwerk- en prestatiegegevens afkomstig van computers met OMS-agents, met inbegrip van Operations Manager en aan Windows gekoppelde agents. Netwerkgegevens worden gecombineerd met uw logboekgegevens om te helpen bij het correleren van gegevens.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: f44f47129a1d989422d25b7f0c5c55c1d229c07e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011438"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129003"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0 (preview) in Log Analytics
 
@@ -216,7 +217,7 @@ Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkhe
 
 #### <a name="windows-command-line"></a>Windows-opdrachtregel
 
-Gebruik opties uit de volgende tabel om de agent te installeren vanaf een opdrachtregel. Als u een overzicht van de installatievlaggen wilt zien, voert u als volgt het installatieprogramma uit met behulp van de /? -vlag.
+Gebruik opties uit de volgende tabel om de agent te installeren vanaf een opdrachtregel. Een overzicht van de vlaggen voor de installatie kunt u het installatieprogramma uitvoeren met behulp van de /? markering als volgt.
 
 InstallDependencyAgent-Windows.exe /?
 

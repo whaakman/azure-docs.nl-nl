@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.component: na
+ms.openlocfilehash: 8183258ddde335b09293c72368ad3bf58a69334a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782027"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129350"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Gegevensbronnen van de Windows-gebeurtenislogboek in Log Analytics
 Windows-gebeurtenislogboeken zijn een van de meest voorkomende [gegevensbronnen](log-analytics-data-sources.md) voor het verzamelen van gegevens met behulp van Windows-agents omdat veel toepassingen naar het Windows-gebeurtenislogboek schrijven.  U kunt gebeurtenissen verzamelen uit standaard logboeken zoals systeem en toepassing naast het opgeven van een aangepaste logboeken gemaakt door toepassingen die u wilt bewaken.
@@ -29,7 +30,7 @@ Windows-gebeurtenislogboeken zijn een van de meest voorkomende [gegevensbronnen]
 ## <a name="configuring-windows-event-logs"></a>Configureren Windows gebeurtenislogboeken
 Configureren van Windows-gebeurtenislogboeken vanuit de [menu Data in logboekanalyse-instellingen](log-analytics-data-sources.md#configuring-data-sources).
 
-Log Analytics verzamelt alleen gebeurtenissen uit de Windows-gebeurtenislogboeken die zijn opgegeven in de instellingen.  U kunt een gebeurtenislogboek toevoegen door te typen in de naam van het logboek en te klikken op  **+** .  Voor elk logboek worden alleen de gebeurtenissen met de geselecteerde ernst verzameld.  Controleer de ernst voor de specifieke logboek die u wilt verzamelen.  U kunt aanvullende criteria gebeurtenissen filteren kan niet opgeven.
+Log Analytics verzamelt alleen gebeurtenissen uit de Windows-gebeurtenislogboeken die zijn opgegeven in de instellingen.  U kunt een gebeurtenislogboek toevoegen door te typen in de naam van het logboek en te klikken op **+**.  Voor elk logboek worden alleen de gebeurtenissen met de geselecteerde ernst verzameld.  Controleer de ernst voor de specifieke logboek die u wilt verzamelen.  U kunt aanvullende criteria gebeurtenissen filteren kan niet opgeven.
 
 Terwijl u de naam van een gebeurtenislogboek typt, bevat logboekanalyse suggesties van algemene namen van gebeurtenislogboeken. Als het logboek dat u wilt toevoegen in de lijst niet wordt weergegeven, kunt u dit nog steeds toevoegen door in de volledige naam van het logboek te typen. U vindt de volledige naam van het logboek in Logboeken. Open in Logboeken, het *eigenschappen* pagina voor het logboek en kopieer de tekenreeks van de *volledige naam* veld.
 
@@ -39,7 +40,7 @@ Terwijl u de naam van een gebeurtenislogboek typt, bevat logboekanalyse suggesti
 Log Analytics verzamelt elke gebeurtenis die overeenkomt met een geselecteerde ernst van een bewaakte gebeurtenislogboek als de gebeurtenis wordt gemaakt.  De agent registreert plaats daarvan in elk logboek die worden verzameld uit.  Als de agent voor een bepaalde periode offline gaat, klikt u vervolgens verzamelt Log Analytics gebeurtenissen van waar het laatst werd afgebroken, zelfs als de gebeurtenissen die zijn gemaakt terwijl de agent offline was.  Er is het mogelijk om deze gebeurtenissen niet worden verzameld als het gebeurtenislogboek met niet-geïnde gebeurtenissen wordt overschreven doorloopt als de agent offline is.
 
 >[!NOTE]
->Log Analytics verzamelt geen controlegebeurtenissen die zijn gemaakt door SQL Server van bron *MSSQLSERVER* met gebeurtenis-ID 18453 met trefwoorden - *klassieke* of *Audit geslaagd* en trefwoord *0xa0000000000000*.
+>Log Analytics verzamelt geen controlegebeurtenissen die zijn gemaakt door SQL Server van bron *MSSQLSERVER* met gebeurtenis-ID 18453 met trefwoorden - *klassieke* of *Audit geslaagd* en sleutelwoord *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Windows-gebeurtenis registreert eigenschappen
@@ -51,7 +52,7 @@ Gebeurtenisrecords Windows hebben een soort **gebeurtenis** en hebben de eigensc
 | Culture |De categorie van de gebeurtenis. |
 | EventData |Alle gebeurtenisgegevens in een onbewerkte indeling. |
 | Gebeurtenis-id |Nummer van de gebeurtenis. |
-| eventLevel |Ernst van de gebeurtenis in de numerieke vorm. |
+| EventLevel |Ernst van de gebeurtenis in de numerieke vorm. |
 | EventLevelName |Ernst van de gebeurtenis in de tekstvorm. |
 | Gebeurtenislogboek |Naam van het gebeurtenislogboek dat de gebeurtenis is verzameld. |
 | ParameterXml |Gebeurtenis parameterwaarden in XML-indeling. |

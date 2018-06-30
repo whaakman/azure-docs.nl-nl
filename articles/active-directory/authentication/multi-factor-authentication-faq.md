@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 2b006976aef59c55ccb51362e05ceb4275602fd1
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096489"
+ms.locfileid: "37128687"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 
@@ -118,7 +118,7 @@ Azure Active Directory is vereist voor het licentiemodel licenties zijn toegevoe
 
 Alle gebruikers geconfigureerd ideale geval meer dan één verificatiemethode. Vraag hen om te proberen zich opnieuw aan te melden, maar een andere verificatiemethode op de aanmeldpagina te selecteren.
 
-U kunt uw gebruikers om te verwijzen de [eindgebruiker probleemoplossingsgids](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+U kunt uw gebruikers om te verwijzen de [eindgebruiker probleemoplossingsgids](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **V: wat moet ik doen als een van mijn gebruikers geen toegang hebben tot hun account?**

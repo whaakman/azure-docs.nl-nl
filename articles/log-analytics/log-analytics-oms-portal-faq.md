@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.component: na
+ms.openlocfilehash: 6479db44681071932ff92ee17ea0aec6518dc74e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333629"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128636"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor de overgang van OMS-portal naar Azure-portal voor gebruikers Log Analytics
 Een eigen portal aangeroepen OMS-portal logboekanalyse in eerste instantie gebruikt voor het beheren van de configuratie en verzamelde gegevens te analyseren.  Alle functionaliteit van deze portal is verplaatst naar de Azure portal waarin wordt voortgezet worden ontwikkeld.
@@ -114,7 +115,7 @@ Regels voor waarschuwingen op basis van logboekanalyse query's worden nu beheerd
 ## <a name="how-do-i-check-my-usage"></a>Hoe kan ik mijn gebruik controleren?
 U kunt nu eenvoudig bekijken en beheren van uw gebruik en de kosten van logboekanalyse door te selecteren **gebruik en de geschatte kosten** in uw werkruimte.
 
-![Gebruik en geschatte kosten](media/log-analytics-new-portal/usage.png)
+![Gebruik en geraamde kosten](media/log-analytics-new-portal/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>Kan ik de klassieke portal toch gebruiken?

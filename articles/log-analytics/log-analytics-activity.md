@@ -3,7 +3,7 @@ title: Verzamelen en analyseren van Azure activiteitenlogboeken in Log Analytics
 description: Om te analyseren en het activiteitenlogboek Azure zoeken in alle Azure-abonnement kunt u de Azure-activiteitenlogboeken-oplossing.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: 0b05dc17fc7ba567bf633c25a080fbf56903935c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283381"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130323"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure activiteitenlogboeken in Log Analytics
 
@@ -66,11 +67,11 @@ In tegenstelling tot de meeste andere Log Analytics-oplossingen, is niet gegeven
 
 Voer de volgende stappen uit voor het configureren van de activiteit Log Analytics-oplossing voor uw werkruimten.
 
-1. Inschakelen van de activiteit Log Analytics-oplossing van de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
+1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](log-analytics-add-solutions.md).
 2. Configureer activiteitenlogboeken naar uw werkruimte voor logboekanalyse.
     1. Selecteer uw werkruimte in de Azure portal en klik vervolgens op **Azure Activity log**.
     2. Klik op de naam van het abonnement voor elk abonnement.  
-        ![Abonnement toevoegen](./media/log-analytics-activity/add-subscription.png)
+        ![abonnement toevoegen](./media/log-analytics-activity/add-subscription.png)
     3. In de *SubscriptionName* blade, klikt u op **Connect**.  
         ![Verbinding maken met abonnement](./media/log-analytics-activity/subscription-connect.png)
 
@@ -85,7 +86,7 @@ Wanneer u de activiteit Log Analytics-oplossing aan uw werkruimte toevoegt de **
 
 ### <a name="view-azure-activity-logs"></a>Registreert de activiteit Azure weergeven
 
-Klik op de **Azure activiteitenlogboeken** tegel openen de **Azure activiteitenlogboeken** dashboard. Het dashboard bevat de blades in de volgende tabel. Elke blade bevat maximaal 10 items die overeenkomen met de criteria die blade voor het opgegeven bereik en tijdsbereik. U kunt een logboek-zoekquery waarmee alle records door te klikken op uitvoeren **alle** aan de onderkant van de blade of door te klikken op de blade-header.
+Klik op de **Azure activiteitenlogboeken** tegel openen de **Azure activiteitenlogboeken** dashboard. Het dashboard bevat de blades in de volgende tabel. Elke blade bevat maximaal tien items die overeenkomen met de criteria voor het opgegeven bereik en de duur van die blade. U kunt zoeken in logboeken waarmee alle records worden geretourneerd door onderaan in de blade te klikken op **Alles bekijken** of door te klikken op de koptekst van de blade.
 
 Logboekgegevens van de activiteit wordt alleen weergegeven *nadat* u uw activiteitenlogboeken te gaan met de oplossing zodat u gegevens niet voor die tijd weergeven hebt geconfigureerd.
 

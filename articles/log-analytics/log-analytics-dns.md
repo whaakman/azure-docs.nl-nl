@@ -3,7 +3,7 @@ title: DNS-Analytics-oplossing in Azure Log Analytics | Microsoft Docs
 description: Instellen en gebruiken van de DNS-Analytics-oplossing in logboekanalyse voor het verzamelen van inzicht in de DNS-infrastructuur op beveiliging, prestaties en bewerkingen.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30241942"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127588"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Inzicht in uw DNS-infrastructuur met de DNS-Analytics Preview oplossing verzamelen
 
@@ -147,7 +148,7 @@ De informatie helpt u bij het identificeren van de:
 **Steekproef DDI analysequery's**. Bevat een lijst van de meest algemene zoekquery's die rechtstreeks onbewerkte analytische gegevens ophalen.
 
 
-![Voorbeeldquery 's](./media/log-analytics-dns/queries.png)
+![Voorbeeldquery's](./media/log-analytics-dns/queries.png)
 
 U kunt deze query's als uitgangspunt gebruiken voor het maken van uw eigen query's voor aangepaste rapportage. De query's koppelen aan de DNS-Analytics logboek zoekpagina waar de resultaten worden weergegeven:
 

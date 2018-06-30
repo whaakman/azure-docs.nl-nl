@@ -14,62 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 37d6ee2f047768f08ea7a113b7d97911d58a46e2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796730"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110572"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-> [!IMPORTANT]
-> De update 1804 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service 1.2 implementeert.
->
->
+Voordat u Azure App Service op de Stack Azure implementeert, moet u de vereiste stappen in dit artikel.
 
-Voordat u Azure App Service op de Stack Azure implementeert, moet u voldoen aan de vereisten in dit artikel.
+> [!IMPORTANT]
+> De update 1804 toepassen op uw systeem Azure Stack geïntegreerd of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.2 implementeren.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Het installatieprogramma en helper-scripts downloaden
 
 1. Download de [App-Service op Azure-Stack helper implementatiescripts](https://aka.ms/appsvconmashelpers).
 2. Download de [App-Service op Azure-Stack-installatieprogramma](https://aka.ms/appsvconmasinstaller).
-3. Pak de bestanden van het ZIP-bestand van de helper-scripts. De volgende bestanden en de mapstructuur worden weergegeven:
+3. Pak de bestanden van het ZIP-bestand van de helper-scripts. De volgende bestanden en mappen zijn uitgepakt:
+
    - Common.ps1
    - Create-AADIdentityApp.ps1
    - Create-ADFSIdentityApp.ps1
    - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
    - Remove-AppService.ps1
-   - Modules
+   - Map modules
      - GraphAPI.psm1
 
 ## <a name="high-availability"></a>Hoge beschikbaarheid
 
-Vanwege de 1802 release van Azure-Stack toegevoegd ondersteuning voor domeinen met fouten en nieuwe implementaties van Azure App Service op Azure-Stack worden verdeeld over de domeinen met fouten en fouttolerantie.  Zie voor bestaande implementaties van Azure App Service op Azure-Stack die vóór de release van de update 1802 zijn geïmplementeerd, de [documentatie](azure-stack-app-service-fault-domain-update.md) voor de manier waarop de implementatie opnieuw verdelen.
+De update Azure Stack 1802 is ondersteuning toegevoegd voor domeinen met fouten. Nieuwe implementaties van Azure App Service op Azure-Stack worden verdeeld over de domeinen met fouten en fouttolerantie.
 
-Bovendien implementeren Azure App Service op Azure-Stack voor hoge beschikbaarheid, de vereiste bestandsserver en de SQL Server-exemplaar in een maximaal beschikbare configuratie.
+Zie voor bestaande implementaties van Azure App Service op Azure-Stack die zijn geïmplementeerd voor de update 1802, de [opnieuw verdelen van een App Service-resourceprovider tussen domeinen met fouten](azure-stack-app-service-fault-domain-update.md) artikel.
+
+Bovendien implementeren de vereiste bestandsserver en de SQL Server-exemplaren in een maximaal beschikbare configuratie.
 
 ## <a name="get-certificates"></a>Certificaten ophalen
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Resource Manager-basiscertificaat voor Azure-Stack
 
-In een PowerShell-sessie als azurestack\CloudAdmin uitgevoerd op een machine, die de beschermde eindpunt op de Azure-Stack geïntegreerd systeem of Azure Stack Development Kit Host kan worden bereikt, kunt u de Get-AzureStackRootCert.ps1-script uitvoeren vanuit de map waar u uitgepakt de helper-scripts. Het script maakt een basiscertificaat in dezelfde map als het script dat een App Service nodig heeft voor het maken van certificaten.
+Open een PowerShell-sessie met verhoogde bevoegdheden op een computer die toegang heeft tot de bevoegde eindpunt op de Azure-Stack geïntegreerd systeem of Azure Stack Development Kit Host.
+
+Voer de *Get-AzureStackRootCert.ps1* script uit de map waar u de scripts helper hebt uitgepakt. Het script maakt een basiscertificaat in dezelfde map als het script dat een App Service nodig heeft voor het maken van certificaten.
+
+Wanneer u de volgende PowerShell-opdracht uitvoert hebt u het bevoegde eindpunt en de referenties voor de AzureStack\CloudAdmin opgeven.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
 ```
+
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 scriptparameters
 
 | Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Vereist | AzS-ERCS01 | Bevoorrechte eindpunt |
 | CloudAdminCredential | Vereist | AzureStack\CloudAdmin | Account domeinreferentie voor beheerders voor Azure-Stack-cloud |
 
-### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Vereiste certificaten voor de Azure-Stack Development Kit
+### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Certificaten zijn vereist voor de implementatie van ASDK van Azure App Service
 
-Het eerste script werkt met de Azure-Stack-certificeringsinstantie vier certificaten App Service moet maken:
+De *maken AppServiceCerts.ps1* script werkt met de Azure-Stack certificeringsinstantie voor het maken van de vier certificaten die door App Service nodig heeft.
 
 | Bestandsnaam | Gebruiken |
 | --- | --- |
@@ -78,29 +85,32 @@ Het eerste script werkt met de Azure-Stack-certificeringsinstantie vier certific
 | ftp.appservice.local.azurestack.external.pfx | App Service publisher SSL-certificaat |
 | sso.appservice.local.azurestack.external.pfx | App Service-identiteitscertificaat toepassing |
 
-Het script uitvoert op de host Azure Stack Development Kit en zorg ervoor dat u PowerShell als azurestack\CloudAdmin uitvoert:
+Volg deze stappen voor het maken van de certificaten:
 
-1. Voer het script maken AppServiceCerts.ps1 vanuit de map waar u de scripts helper hebt uitgepakt in een PowerShell-sessie wordt uitgevoerd als azurestack\AzureStackAdmin. Het script maakt vier certificaten in dezelfde map als het script dat een App Service nodig heeft voor het maken van certificaten.
-2. Een wachtwoord invoeren voor het pfx-bestanden beveiligen en noteer deze. U moet deze invoeren in de App-Service op Azure-Stack-installatieprogramma.
+1. Aanmelden bij de Azure-Stack Development Kit host met de AzureStack\AzureStackAdmin-account.
+2. Open een PowerShell-sessie met verhoogde bevoegdheden.
+3. Voer de *maken AppServiceCerts.ps1* script uit de map waar u de scripts helper hebt uitgepakt. Dit script maakt vier certificaten in dezelfde map als het script dat een App Service nodig heeft voor het maken van certificaten.
+4. Een wachtwoord invoeren voor het pfx-bestanden beveiligen en noteer deze. U hebt deze invoeren in de App-Service op Azure-Stack-installatieprogramma.
 
-#### <a name="create-appservicecertsps1-parameters"></a>Maak AppServiceCerts.ps1 parameters
-
-```PowerShell
-    Create-AppServiceCerts.ps1
-```
+#### <a name="create-appservicecertsps1-script-parameters"></a>Maak AppServiceCerts.ps1 scriptparameters
 
 | Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
-| PfxPassword | Vereist | Null | Wachtwoord beschermt de privésleutel voor certificaten |
+| pfxPassword | Vereist | Null | Wachtwoord beschermt de privésleutel voor certificaten |
 | Domeinnaam | Vereist | Local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
 
-### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Vereiste certificaten voor een productie-implementatie van Azure App Service op Azure-Stack
+### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Vereiste certificaten voor Azure-Stack productie-implementatie van Azure App Service
 
-Als u wilt werken de resourceprovider in productie, moet u de volgende vier certificaten opgeven:
+Als u wilt uitvoeren van de resourceprovider in productie, moet u de volgende certificaten opgeven:
+
+- Certificaat van het standaarddomein
+- API-certificaat
+- Publicatiecertificaat
+- Identiteitscertificaat
 
 #### <a name="default-domain-certificate"></a>Certificaat van het standaarddomein
 
-Het certificaat van het standaarddomein wordt geplaatst op de Front-End-rol. Gebruikerstoepassingen voor jokerteken of standaard domein aanvragen in Azure App Service gebruikmaken van dit certificaat. Het certificaat wordt ook gebruikt voor beheerbewerkingen bron (Kudu).
+Het certificaat van het standaarddomein wordt geplaatst op de Front-End-rol. Gebruikerstoepassingen voor jokerteken of standaard domein-aanvraag in Azure App Service gebruikmaken van dit certificaat. Het certificaat wordt ook gebruikt voor beheerbewerkingen bron (Kudu).
 
 Het certificaat in PFX-indeling moet zijn en moet een jokertekencertificaat met drie-onderwerp. Deze vereiste kan een certificaat hebben betrekking op het standaarddomein en het SCM-eindpunt voor de bron-en beheerbewerkingen.
 
@@ -133,15 +143,15 @@ Maakt gebruik van het certificaat voor de identiteit van toepassing:
 - Integratie tussen de Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) directory, Azure-Stack en App Service voor de integratie met de compute-resourceprovider.
 - Eenmalige aanmelding scenario's voor geavanceerde ontwikkelhulpprogramma's in Azure App Service op Azure-Stack.
 
-Het certificaat voor identiteit moet een onderwerpnaam die overeenkomt met de volgende indeling bevatten:
+Het certificaat voor identiteit moet een onderwerpnaam die overeenkomt met de volgende indeling bevatten.
 
 | Indeling | Voorbeeld |
 | --- | --- |
 | SSO.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | sso.appservice.redmond.azurestack.external |
 
-## <a name="virtual-network"></a>Virtual Network
+## <a name="virtual-network"></a>Virtueel netwerk
 
-Op Azure-Stack-Azure App Service kunt u de resourceprovider implementeren in een op een bestaand virtueel netwerk of App Service wordt gemaakt als onderdeel van de implementatie.  Met behulp van een bestaand virtueel netwerk maakt het gebruik van interne IP-adressen verbinding maken met de bestandsserver en de SQL server in Azure App Service op Azure-Stack is vereist.  Het virtuele netwerk moet worden geconfigureerd met de volgende adresbereik en subnetten voor de installatie van Azure App Service op Azure-Stack:
+Op Azure-Stack-Azure App Service kunt u de resourceprovider implementeren op een bestaand virtueel netwerk of kunt u een virtueel netwerk maken als onderdeel van de implementatie. Met behulp van een bestaand virtueel netwerk maakt het gebruik van interne IP-adressen verbinding maken met de bestandsserver en de SQL server in Azure App Service op Azure-Stack is vereist. Het virtuele netwerk moet worden geconfigureerd met de volgende adresbereik en subnetten voor de installatie van Azure App Service op Azure-Stack:
 
 Virtueel netwerk - /16
 
@@ -161,43 +171,51 @@ Voor Azure Stack Development Kit implementaties, kunt u de [voorbeeld Azure Reso
 
 >[!IMPORTANT]
 > Als u implementeren in een bestaand virtueel netwerk dat de bestandsserver moeten worden geïmplementeerd in een apart Subnet van App Service-App Service wilt.
->
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Inrichten van groepen en accounts in Active Directory
 
 1. Maak de volgende globale beveiligingsgroepen van Active Directory:
+
    - FileShareOwners
    - FileShareUsers
+
 2. De volgende Active Directory-accounts als serviceaccounts maken:
+
    - FileShareOwner
    - FileShareUser
 
-   Beveiliging moet aanbevolen procedure is om de gebruikers voor deze accounts (en voor alle webrollen) worden van elkaar verschillen en sterke gebruikersnamen en wachtwoorden hebben. Stel de wachtwoorden met de volgende voorwaarden:
+   Beveiliging moet aanbevolen procedure is om de gebruikers voor deze accounts (en voor alle webrollen) uniek en sterke gebruikersnamen en wachtwoorden hebben. Stel de wachtwoorden met de volgende voorwaarden:
+
    - Schakel **wachtwoord verloopt nooit**.
    - Schakel **gebruiker kan wachtwoord niet wijzigen**.
    - Schakel **gebruiker moet wachtwoord bij volgende aanmelding wijzigen**.
+
 3. De accounts aan de groepslidmaatschappen als volgt toevoegen:
+
    - Voeg **FileShareOwner** naar de **FileShareOwners** groep.
    - Voeg **FileShareUser** naar de **FileShareUsers** groep.
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Inrichten van groepen en accounts in een werkgroep
 
 >[!NOTE]
-> Bij het configureren van een bestandsserver, moet u de volgende opdrachten uitvoeren in een administratieve opdrachtprompt-venster. *Gebruik geen PowerShell.*
+> Wanneer u een bestandsserver, voer de volgende opdrachten uit configureert een **Beheerdersopdrachtprompt**. <br>***Gebruik geen PowerShell.***
 
 Wanneer u de Azure Resource Manager-sjabloon gebruikt, worden de gebruikers zijn al gemaakt.
 
 1. Voer de volgende opdrachten voor het maken van de accounts FileShareOwner en FileShareUser. Vervang `<password>` met uw eigen waarden.
+
     ``` DOS
     net user FileShareOwner <password> /add /expires:never /passwordchg:no
     net user FileShareUser <password> /add /expires:never /passwordchg:no
     ```
 2. Stel de wachtwoorden voor de accounts nooit verloopt met de volgende WMIC-opdrachten:
+
     ``` DOS
     WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
     WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
     ```
 3. Maken van de lokale groepen FileShareUsers en FileShareOwners en aan de accounts in de eerste stap toevoegen:
+
     ``` DOS
     net localgroup FileShareUsers /add
     net localgroup FileShareUsers FileShareUser /add
@@ -318,7 +336,7 @@ Volg deze stappen:
 10. Selecteer **App registraties**.
 11. Zoek de toepassings-ID geretourneerd als onderdeel van stap 7. Een App Service-toepassing wordt vermeld.
 12. Selecteer **toepassing** in de lijst.
-13. Klik op **instellingen**.
+13. Selecteer **instellingen**.
 14. Selecteer **vereist machtigingen** > **machtigingen verlenen** > **Ja**.
 
 ```PowerShell

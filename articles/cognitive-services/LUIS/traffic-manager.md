@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 513d4395b1d3e631855c2f6e132d54331b3ddf8d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8c8228b13c972c65596f0389e2fdfde585f8a742
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266342"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110310"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager gebruiken voor het beheren van endpoint-quotum via sleutels
 Language Understanding (LUIS) biedt de mogelijkheid het quotum van de aanvraag eindpunt boven een enkele sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en ze toe te voegen aan de toepassing LUIS op de **publiceren** pagina in de **Resources en sleutels** sectie. 
@@ -48,13 +48,13 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Schermopname van LUIS portal met twee LUIS sleutels op pagina publiceren](./media/traffic-manager/luis-keys-in-luis.png)
 
-    De voorbeeld-URL in de **eindpunt** kolom wordt een aanvraag voor ophalen met de abonnementssleutel gebruikt als een queryparameter. Kopieer de twee nieuwe sleutels eindpunt-URL's. Ze worden gebruikt als onderdeel van het Traffic Manager-configuratie verderop in dit artikel.
+    De voorbeeld-URL in de **eindpunt** kolom wordt een aanvraag voor ophalen met de eindpuntsleutel gebruikt als een queryparameter. Kopieer de twee nieuwe sleutels eindpunt-URL's. Ze worden gebruikt als onderdeel van het Traffic Manager-configuratie verderop in dit artikel.
 
 ## <a name="manage-luis-endpoint-requests-across-keys-with-traffic-manager"></a>LUIS endpoint-aanvragen via sleutels met Traffic Manager beheren
 Traffic Manager maakt een nieuwe DNS-toegangspunt voor uw eindpunten. Deze komt niet fungeren als gateway of proxy, maar alleen op het niveau van DNS. In dit voorbeeld is de DNS-records niet gewijzigd. Dit maakt gebruik van een DNS-bibliotheek om te communiceren met Traffic Manager ophalen van het juiste eindpunt voor die specifieke aanvraag. _Elke_ aanvraag die bestemd zijn voor LUIS, moet u eerst een Traffic Manager-verzoek om te bepalen welk LUIS-eindpunt te gebruiken. 
 
 ### <a name="polling-uses-luis-endpoint"></a>LUIS eindpunt maakt gebruik van polling
-Traffic Manager controleert of de eindpunten regelmatig te controleren of dat het eindpunt is nog steeds beschikbaar. Het Traffic Manager-URL moet toegankelijk zijn met een GET-aanvraag en retourneren een 200 gepeild. De eindpunt-URL op de **publiceren** pagina dit wordt uitgevoerd. Aangezien elke abonnementssleutel een andere route en querytekenreeksparameters heeft, moet elke abonnementssleutel een andere polling-pad. Elke keer dat het Traffic Manager worden opgevraagd, een quotumaanvraag kosten. De querytekenreeksparameter **q** van de LUIS-eindpunt is de utterance naar LUIS verzonden. Een utterance verzenden in plaats van deze parameter wordt gebruikt voor het Traffic Manager polling naar het logboek van LUIS eindpunt toevoegen als een techniek voor foutopsporing tijdens het ophalen van Traffic Manager is geconfigureerd.
+Traffic Manager controleert of de eindpunten regelmatig te controleren of dat het eindpunt is nog steeds beschikbaar. Het Traffic Manager-URL moet toegankelijk zijn met een GET-aanvraag en retourneren een 200 gepeild. De eindpunt-URL op de **publiceren** pagina dit wordt uitgevoerd. Aangezien elke eindpuntsleutel een andere route en querytekenreeksparameters heeft, moet elke eindpuntsleutel een andere polling-pad. Elke keer dat het Traffic Manager worden opgevraagd, een quotumaanvraag kosten. De querytekenreeksparameter **q** van de LUIS-eindpunt is de utterance naar LUIS verzonden. Een utterance verzenden in plaats van deze parameter wordt gebruikt voor het Traffic Manager polling naar het logboek van LUIS eindpunt toevoegen als een techniek voor foutopsporing tijdens het ophalen van Traffic Manager is geconfigureerd.
 
 Omdat elk eindpunt LUIS een eigen pad moet, moet een eigen Traffic Manager-profiel. Als u wilt beheren via profielen, maken een [ _geneste_ Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles) architectuur. Een profiel van de bovenliggende verwijst naar de onderliggende elementen profielen en beheren van verkeer ertussen.
 
@@ -64,11 +64,11 @@ Zodra de Traffic Manager is geconfigureerd, moet u het pad voor het gebruik van 
 De volgende secties maken twee onderliggende profielen, één voor de sleutel Oost LUIS en één voor de sleutel West LUIS. Vervolgens een bovenliggende-profiel is gemaakt en de twee onderliggende profielen worden toegevoegd aan het profiel van de bovenliggende. 
 
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>VS-Oost Traffic Manager-profiel maken met PowerShell
-Als u wilt het VS-Oost Traffic Manager-profiel maakt, zijn verschillende stappen: profiel maken, het eindpunt toevoegen en het eindpunt instellen. Een Traffic Manager-profiel kunt hebben veel eindpunten, maar elk eindpunt heeft hetzelfde validatiepad. Omdat de LUIS eindpunt-URL's voor de abonnementen Oost- en andere vanwege regio en abonnement sleutel, heeft elk eindpunt LUIS moet één eindpunt in het profiel. 
+Als u wilt het VS-Oost Traffic Manager-profiel maakt, zijn verschillende stappen: profiel maken, het eindpunt toevoegen en het eindpunt instellen. Een Traffic Manager-profiel kunt hebben veel eindpunten, maar elk eindpunt heeft hetzelfde validatiepad. Omdat de LUIS eindpunt-URL's voor de abonnementen Oost- en andere vanwege regio- en eindpunt sleutel, heeft elk eindpunt LUIS moet één eindpunt in het profiel. 
 
 1. Maken van het profiel waarop **[nieuw AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet
 
-    Gebruik de volgende cmdlet om het profiel te maken. Zorg ervoor dat u wijzigt de `appIdLuis` en `subscriptionKeyLuis`. De subscriptionKey is voor de sleutel Oost ons LUIS. Als het pad niet correct is is, met inbegrip van de LUIS app-ID en -abonnement sleutel, de polling Traffic Manager is een status van `degraded` omdat het eindpunt LUIS kan niet met succes verkeer beheren aanvragen. Zorg ervoor dat de waarde van `q` is `traffic-manager-east` zodat u deze waarde in de logboeken van de endpoint LUIS kunt zien.
+    Gebruik de volgende cmdlet om het profiel te maken. Zorg ervoor dat u wijzigt de `appIdLuis` en `subscriptionKeyLuis`. De subscriptionKey is voor de sleutel Oost ons LUIS. Als het pad niet correct is is, met inbegrip van de LUIS app-ID en de endpoint-sleutel, de polling Traffic Manager is een status van `degraded` omdat het eindpunt LUIS kan niet met succes verkeer beheren aanvragen. Zorg ervoor dat de waarde van `q` is `traffic-manager-east` zodat u deze waarde in de logboeken van de endpoint LUIS kunt zien.
 
     ```PowerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
@@ -136,7 +136,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
 
 1. Maken van het profiel waarop **[nieuw AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
-    Gebruik de volgende cmdlet om het profiel te maken. Zorg ervoor dat u wijzigt de `appIdLuis` en `subscriptionKeyLuis`. De subscriptionKey is voor de sleutel Oost ons LUIS. Als het pad niet correct met inbegrip van de sleutel LUIS app-ID en -abonnement is, de polling Traffic Manager is een status van `degraded` omdat het eindpunt LUIS kan niet met succes verkeer beheren aanvragen. Zorg ervoor dat de waarde van `q` is `traffic-manager-west` zodat u deze waarde in de logboeken van de endpoint LUIS kunt zien.
+    Gebruik de volgende cmdlet om het profiel te maken. Zorg ervoor dat u wijzigt de `appIdLuis` en `subscriptionKeyLuis`. De subscriptionKey is voor de sleutel Oost ons LUIS. Als het pad niet correct met inbegrip van de sleutel LUIS app-ID en -eindpunt is, is de Traffic Manager-polling een status van `degraded` omdat het eindpunt LUIS kan niet met succes verkeer beheren aanvragen. Zorg ervoor dat de waarde van `q` is `traffic-manager-west` zodat u deze waarde in de logboeken van de endpoint LUIS kunt zien.
 
     ```PowerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
@@ -152,7 +152,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
     |-RelativeDnsName|Luis-dns-westus|Dit is het subdomein voor de service: luis-dns-westus.trafficmanager.net|
     |-Ttl|30|Polling-interval is 30 seconden|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Poort en het protocol voor LUIS is HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Vervang <appId> en <subscriptionKey> met uw eigen waarden. Vergeet niet dat de abonnementssleutel voor dit is anders dan de sleutel van het abonnement Oost|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Vervang <appId> en <subscriptionKey> met uw eigen waarden. Houd er rekening mee dat deze eindpuntsleutel is anders dan de Oost-eindpuntsleutel|
     
     De aanvraag is gelukt, heeft geen reactie.
 
@@ -364,7 +364,7 @@ Om verkeer tussen de eindpunten te beheren, moet u een aanroep naar de DNS Traff
 
 
 ## <a name="clean-up"></a>Opruimen
-De twee LUIS abonnement sleutels, de drie Traffic Manager-profielen en de resourcegroep die deel uitmaakt van deze vijf resources verwijderen. Dit wordt gedaan via de Azure-portal. U kunt de vijf resources verwijderen uit de lijst met resources. Verwijder de resourcegroep. 
+De twee LUIS endpoint-sleutels, de drie Traffic Manager-profielen en de resourcegroep die deel uitmaakt van deze vijf resources verwijderen. Dit wordt gedaan via de Azure-portal. U kunt de vijf resources verwijderen uit de lijst met resources. Verwijder de resourcegroep. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

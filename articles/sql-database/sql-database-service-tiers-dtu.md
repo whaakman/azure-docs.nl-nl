@@ -2,19 +2,19 @@
 title: Azure SQL Database Servicelagen - DTU | Microsoft Docs
 description: Meer informatie over Servicelagen voor één en groep databases prestatieniveaus en opslaggrootte opgeven.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/28/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d6dc641123e2bf840940f6246245a89fdd792db5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750421"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131834"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Een servicelaag met DTU prestatieniveau en opslagbronnen kiezen 
 
@@ -30,7 +30,7 @@ Het kiezen van een servicelaag is vooral afhankelijk van zakelijke continuïteit
 | :-- | --: |--:| --:| --:| 
 |Doel werkbelasting|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie||
 |SLA voor actieve tijdsduur|99,99%|99,99%|99,99%|N.V.T. in preview|
-|Back-upretentie|7 dagen|35 dagen|35 dagen|
+|Retentie van back-ups|7 dagen|35 dagen|35 dagen|
 |CPU|Laag|Laag, Gemiddeld, hoog|Gemiddeld, hoog|
 |I/o-doorvoer (bij benadering) |2.5 IOP's per DTU| 2.5 IOP's per DTU | 48 IOP's per DTU|
 |I/o-latentie (bij benadering)|5 ms (lezen), 10 ms (schrijven)|5 ms (lezen), 10 ms (schrijven)|2 ms (lezen/schrijven)|
@@ -60,7 +60,7 @@ Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Tran
 ||||||
 
 > [!IMPORTANT]
-> Meer dan 1 TB aan opslag in de laag Premium is momenteel beschikbaar in alle regio's, behalve het volgende: VK Noord, West-Centraal VS, UK South2, China Oost, USDoDCentral, Duitsland centraal, USDoDEast, VS Gov linksonder, ons Gov Zuid-centraal, Duitsland noordoosten, China Noord, Gov VS-Oost. In andere regio’s is de maximale opslagruimte in het Premium-niveau beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Meer dan 1 TB aan opslag in de laag Premium is momenteel beschikbaar in alle regio's, behalve het volgende: West-Centraal VS, China Oost, USDoDCentral, Duitsland centraal, USDoDEast, VS Gov linksonder, Amerikaanse overheid-Iowa, noordoosten Duitsland, China Noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="next-steps"></a>Volgende stappen
 

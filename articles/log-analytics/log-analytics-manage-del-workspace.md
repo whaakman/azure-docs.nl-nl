@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 084b8fa0addbe2ddeee699b58c9b0de1a6f27d99
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: na
+ms.openlocfilehash: 54f2af60751ed0d9c64e71efad6fa9aa3ef06589
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33938689"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129112"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Verwijderen van een Azure-logboekanalyse-werkruimte met de Azure-portal
 In dit artikel laat zien hoe de Azure portal gebruiken om te verwijderen van een werkruimte voor logboekanalyse die u mogelijk niet meer nodig hebt. 
@@ -38,7 +38,7 @@ Wanneer u een werkruimte voor logboekanalyse verwijdert, wordt alle gegevens met
 
 De agents en System Center Operations Manager-beheergroepen zijn geconfigureerd voor het rapport naar de werkruimte blijven zwevende status.  Welke agents, oplossingen, inventariseren en andere Azure-services zijn geïntegreerd met de werkruimte voordat u doorgaat.   
  
-Als u een beheerder bent en er aan de werkruimte meerdere gebruikers zijn gekoppeld, wordt de koppeling tussen gebruikers en de werkruimte verbroken. Als de gebruikers gekoppeld aan andere werkruimtes zijn, kunnen ze vervolgens blijven Log Analytics gebruiken met die andere werkruimtes. Als ze niet gekoppeld aan andere werkruimtes zijn vervolgens moeten zij om een werkruimte voor logboekanalyse gebruik te maken. 
+Als u een beheerder bent en er aan de werkruimte meerdere gebruikers zijn gekoppeld, wordt de koppeling tussen gebruikers en de werkruimte verbroken. Als de gebruikers zijn gekoppeld aan andere werkruimten, kunnen ze Log Analytics blijven gebruiken met die andere werkruimten. Als ze niet gekoppeld aan andere werkruimtes zijn vervolgens moeten zij om een werkruimte voor logboekanalyse gebruik te maken. 
 
 1. Meld u aan bij de [Azure Portal](http://portal.azure.com). 
 2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.

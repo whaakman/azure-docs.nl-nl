@@ -4,22 +4,23 @@ description: De waarschuwing beheeroplossing in Log Analytics kunt u het analyse
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181194"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131044"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwing beheeroplossing in Azure Log Analytics
 
@@ -69,7 +70,7 @@ Klik op de **waarschuwingenbeheer** tegel openen de **waarschuwingenbeheer** das
 | Kolom | Beschrijving |
 |:--- |:--- |
 | Kritieke waarschuwingen |Alle waarschuwingen weergegeven met een ernst kritiek gegroepeerd op de naam van waarschuwing.  Klik op de naam van een waarschuwing te retourneren van alle records voor deze waarschuwing logboek zoekopdracht uitvoert. |
-| Waarschuwingen |Alle waarschuwingen weergegeven met een ernst van waarschuwing gegroepeerd op de naam van waarschuwing.  Klik op de naam van een waarschuwing te retourneren van alle records voor deze waarschuwing logboek zoekopdracht uitvoert. |
+| Waarschuwingsmeldingen |Alle waarschuwingen weergegeven met een ernst van waarschuwing gegroepeerd op de naam van waarschuwing.  Klik op de naam van een waarschuwing te retourneren van alle records voor deze waarschuwing logboek zoekopdracht uitvoert. |
 | Actieve SCOM-waarschuwingen |Alle waarschuwingen die zijn verzameld uit Operations Manager met elke status anders dan *gesloten* gegroepeerd op de bron die de waarschuwing heeft gegenereerd. |
 | Alle actieve waarschuwingen |Alle waarschuwingen weergegeven met alle ernst gegroepeerd op de naam van waarschuwing. Alleen dan bevat Operations Manager-waarschuwingen met elke status *gesloten*. |
 
@@ -112,12 +113,12 @@ De volgende tabel bevat een voorbeeld-logboek zoekt waarschuwing records die doo
 | Query’s uitvoeren | Beschrijving |
 |:---|:---|
 | Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertSeverity == "error" en TimeRaised > ago(24h) |Kritieke waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
-| Waarschuwing &#124; waar AlertSeverity == 'waarschuwing' en TimeRaised > ago(24h) |Waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertState! = 'Gesloten' en TimeRaised > ago(24h) &#124; samenvatten Count = count() door SourceDisplayName |Bronnen met actieve waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur |
+| Waarschuwing &#124; waar AlertSeverity == 'waarschuwing' en TimeRaised > ago(24h) |Waarschuwingsmeldingen die in de afgelopen 24 uur zijn geactiveerd |
+| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertState! = 'Gesloten' en TimeRaised > ago(24h) &#124; samenvatten Count = count() door SourceDisplayName |Bronnen met actieve waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
 | Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertSeverity == "error" en TimeRaised > ago(24h) en AlertState! = 'Gesloten' |Kritieke waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur die nog steeds actief zijn |
 | Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(24h) en AlertState == 'Gesloten' |Deze gebeurtenis treedt op tijdens de afgelopen 24 uur die nu zijn gesloten waarschuwingen |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(1d) &#124; samenvatten Count = count() door AlertSeverity |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gegroepeerd op hun ernst |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(1d) &#124; sorteren op RepeatCount desc |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gesorteerd op basis van hun waarde aantal herhalingen |
+| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(1d) &#124; samenvatten Count = count() door AlertSeverity |Waarschuwingen die in de afgelopen dag zijn geactiveerd, gegroepeerd op de ernst van de waarschuwing |
+| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(1d) &#124; sorteren op RepeatCount desc |Waarschuwingen die in de afgelopen dag zijn geactiveerd, gegroepeerd op de waarde voor het aantal herhalingen van de waarschuwing |
 
 
 

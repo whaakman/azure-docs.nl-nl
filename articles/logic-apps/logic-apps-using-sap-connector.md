@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: a9346092e0a24709a9888937effdf802bf1b09fb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3837896911b92361e0a6d0a7166a1b17651d6fe3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300212"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112857"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Verbinding maken met de SAP-systemen vanaf Azure Logic Apps
 
@@ -97,7 +97,7 @@ In Azure Logic Apps een [actie](../logic-apps/logic-apps-overview.md#logic-app-c
 
    **Lokale SAP verbinding maken**
 
-   1. Voor **Gateways**, selecteer **verbinden via on-premises gegevensgateway** zodat de verbindingseigenschappen van de lokale worden weergegeven.
+   1. Voor **Gateways**, selecteer **verbinden via lokale gegevensgateway** zodat de verbindingseigenschappen van de lokale worden weergegeven.
 
    2. Geef de verbindingsgegevens voor uw SAP-server. 
    Voor de **gateway** eigenschap, selecteert u de data gateway die u hebt gemaakt in de Azure portal voor uw gateway-installatie bijvoorbeeld:

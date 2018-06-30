@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4c0f5d0c5ed3814495a68d7fd49d41cec521bbd7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763762"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114555"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructuur voor SAP HANA (grote exemplaren) en de verbindingen van Azure 
 
@@ -243,7 +243,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID
 ```
 
-Als u verbinding maken met de gateway voor meerdere ExpressRoute-circuits die gekoppeld aan uw abonnement wilt zijn, moet u mogelijk meer dan één keer uitvoeren van deze stap. Bijvoorbeeld, gaat u waarschijnlijk verbinding maken met het hetzelfde VNet-Gateway aan de ExpressRoute-circuit dat het VNet naar uw on-premises netwerk verbindt.
+Als u verbinding maken met de gateway voor meerdere ExpressRoute-circuits die gekoppeld aan uw abonnement wilt zijn, moet u mogelijk meer dan één keer uitvoeren van deze stap. Bijvoorbeeld, gaat u waarschijnlijk verbinding maken met het hetzelfde VNet-Gateway aan de ExpressRoute-circuit die het VNet met uw on-premises netwerk verbindt.
 
 ## <a name="adding-more-ip-addresses-or-subnets"></a>Meer IP-adressen of subnetten toe te voegen
 

@@ -3,7 +3,7 @@ title: Verzamel gegevens van uw omgeving met Azure Log Analytics | Microsoft Doc
 description: Dit onderwerp helpt u begrijpen hoe u gegevens verzamelen en controleren van computers die worden gehost in uw on-premises of andere cloudomgeving met logboekanalyse.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: na
+ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235937"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37132944"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Verzamel gegevens van computers in uw omgeving met Log Analytics
 
@@ -96,7 +97,7 @@ Voor de Linux-agent de proxyserver is opgegeven tijdens de installatie of [na de
 Bijvoorbeeld: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Als u speciale tekens bevatten zoals ' @ ' in uw wachtwoord, wordt een verbindingsfout proxy omdat de waarde is niet correct geparseerd.  U kunt dit probleem omzeilen, coderen het wachtwoord in de URL met een hulpprogramma zoals [URLDecode](https://www.urldecoder.org/).  
+> Als u speciale tekens bevatten zoals '\@' in uw wachtwoord, wordt een verbindingsfout proxy omdat de waarde is niet correct geparseerd.  U kunt dit probleem omzeilen, coderen het wachtwoord in de URL met een hulpprogramma zoals [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Installeren en configureren van agent 
 Verbinding maken met uw lokale computers rechtstreeks met Log Analytics kunt u doen met verschillende methoden, afhankelijk van uw vereisten. De volgende tabel licht elke methode om te bepalen die het beste werkt in uw organisatie.

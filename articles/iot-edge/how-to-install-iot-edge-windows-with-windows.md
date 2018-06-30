@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 0ab70de83c36ec3048d9bbf74e5a315026f02b85
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 1ae51d948fdaa5654c59549d384b784f0e87dcc3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036235"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112616"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Azure IoT rand runtime installeren op Windows gebruiken met Windows-containers
 
@@ -89,15 +89,37 @@ Windows Registry Editor Version 5.00
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>De Daemon van Azure IoT-rand beveiliging configureren
 
-De daemon kan worden geconfigureerd met behulp van het configuratiebestand op `C:\ProgramData\iotedge\config.yaml` apparaat aan de rand kan worden geconfigureerd <!--[automatically via Device Provisioning Service][lnk-dps] or--> handmatig met een [apparaat verbindingsreeks][lnk-dcs].
+De daemon kan worden geconfigureerd met behulp van het configuratiebestand op `C:\ProgramData\iotedge\config.yaml`.
 
-Voer de apparaat-verbindingsreeks in voor de handmatige configuratie **inrichten:** sectie van **config.yaml**
+Het apparaat aan de rand kan worden geconfigureerd handmatig met behulp van een [apparaat verbindingsreeks] [ lnk-dcs] of [automatisch via apparaat inrichtingsservice] [ lnk-dps].
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-```
+* Handmatige configuratie opmerkingen bij de **handmatige** Inrichtingsmethode. Werk de waarde van **device_connection_string** met de verbindingsreeks van uw IoT-Edge-apparaat.
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* Voor de automatische configuratie opmerkingen bij de **DP's** Inrichtingsmethode. Werk de waarden van **scope_id** en **registration_id** door de waarden van het exemplaar van uw IoT Hub DP's en uw IoT-randapparaat met TPM. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 De naam van het edge-apparaten met `hostname` opdracht in PowerShell en stel dit in als de waarde voor **hostnaam:** in de configuratie yaml. Bijvoorbeeld:
 
@@ -158,6 +180,8 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 
+Als u gebruikt de **handmatige configuratie** stappen in de vorige sectie is ingericht en wordt uitgevoerd op uw apparaat, moet de rand van de IoT-runtime zijn. Als u gebruikt de **automatische configuratie** stappen, moet u een aantal extra stappen uitvoeren, zodat de runtime het apparaat met uw IoT-hub namens jou registreren kunt. Zie voor de volgende stappen [maken en inrichten van een gesimuleerd apparaat van de rand van de TPM in Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+
 U kunt de status van de rand van de IoT-service controleren: 
 
 ```powershell
@@ -193,8 +217,8 @@ Als u problemen ondervindt met de installatie naar behoren afhandeling Edge-runt
 
 <!-- Links -->
 [lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

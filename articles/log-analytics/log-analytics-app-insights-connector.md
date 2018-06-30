@@ -3,7 +3,7 @@ title: Azure Application Insights-app-gegevens weergeven | Microsoft Docs
 description: De oplossing Application Insights-Connector kunt u vaststellen van prestatieproblemen en u begrijpt wat gebruikers doen met uw app wanneer bewaakt met Application Insights.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,19 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186230"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131623"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
 ![Application Insights symbool](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> Met de ondersteuning van [cross-resource query's](log-analytics-cross-workspace-search.md), het beheersysteem voor Application Insights-connector is niet langer vereist en wordt afgeschaft. Vanaf juli kunt pas u weer nieuwe Application Insights-resources koppelen aan Log Analytics-werkruimten. Bestaande koppelingen en dashboards blijven functioneren tot November 2018. Zie voor meer informatie [OMS-portal verplaatsen naar Azure](log-analytics-oms-portal-transition.md).
 
 De toepassingen Insights-Connector-oplossing helpt u bij het vaststellen van prestatieproblemen en inzicht in wat gebruikers doen met uw app wanneer deze wordt bewaakt met [Application Insights](../application-insights/app-insights-overview.md). Weergaven van dezelfde toepassingstelemetrie die ontwikkelaars in Application Insights weergegeven zijn beschikbaar in logboekanalyse. Wanneer u uw Application Insights-apps met Log Analytics integreert, wordt echter zichtbaarheid van uw toepassingen verhoogd met als bewerking en toepassingsgegevens op één plek. Met de dezelfde weergaven, kunt u samenwerken met uw app-ontwikkelaars. De algemene weergaven kunt minder tijd om te detecteren en oplossen van zowel de toepassing en de problemen met het platform.
 
@@ -83,7 +87,7 @@ Klik op de **Application Insights** tegel openen de **Application Insights** das
 
 ![Application Insights dashboard](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
-Het dashboard bevat de blades weergegeven in de tabel. Elke blade bevat maximaal 10 items die overeenkomen met de criteria die blade voor het opgegeven bereik en tijdsbereik. U kunt een zoekopdracht logboek waarmee alle records geretourneerd wanneer u klikt op uitvoeren **alle** aan de onderkant van de blade of wanneer u klikt op de blade-header.
+Het dashboard bevat de blades weergegeven in de tabel. Elke blade bevat maximaal tien items die overeenkomen met de criteria voor het opgegeven bereik en de duur van die blade. U kunt een zoekopdracht logboek waarmee alle records geretourneerd wanneer u klikt op uitvoeren **alle** aan de onderkant van de blade of wanneer u klikt op de blade-header.
 
 [!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -137,7 +141,7 @@ Als u wilt draaien, klikt u op de weglatingstekens (**...** ) die wordt weergege
 >[!NOTE]
 >**Open in Application Insights** is niet beschikbaar in de Azure-portal.
 
-![Open in Application Insights](./media/log-analytics-app-insights-connector/open-in-app-insights.png)
+![Openen in Application Insights](./media/log-analytics-app-insights-connector/open-in-app-insights.png)
 
 ### <a name="sample-corrected-data"></a>Voorbeeld gecorrigeerd gegevens
 
@@ -191,7 +195,7 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 | IsAuthenticated | Waar of onwaar |
 | OperationID | Items die dezelfde bewerking-ID in de portal weergegeven als betrokken Items hebben. Meestal de aanvraag-ID |
 | ParentOperationID | ID van de bovenliggende bewerking |
-| OperationName |   |
+| operationName |   |
 | sessie-id | GUID voor het aanduiden van de sessie waarin de aanvraag is gemaakt |
 | SourceSystem | ApplicationInsights |
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be79f0111cb569509cb05b24c99f86d4ca9534b0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 54b2cab2ad6b1a22d35fcf0755f257063573e58b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063858"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128619"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Het automatiseren van bronnen in uw datacenter of de cloud met behulp van de Hybrid Runbook Worker
 
@@ -95,7 +95,7 @@ Als u wilt een groep verwijdert, moet u eerst de hybride Runbook Worker verwijde
 
 ### <a name="hybrid-worker-role"></a>Hybride-werkrol
 
-Voor de hybride Runbook Worker verbinding maken met en registreren met logboekanalyse moet hebben toegang tot het poortnummer en de URL's die in deze sectie worden beschreven. Deze toegang is in aanvulling op de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) verbinding maken met logboekanalyse.
+Voor de hybride Runbook Worker verbinding maken met en registreren met logboekanalyse moet hebben toegang tot het poortnummer en de URL's die in deze sectie worden beschreven. Deze toegang is in aanvulling op de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) verbinding maken met logboekanalyse. 
 
 Als u een proxyserver voor de communicatie tussen de agent en de Log Analytics-service gebruikt, moet u ervoor dat de juiste resources toegankelijk zijn. Als u een firewall gebruikt toegang tot het internet te beperken, moet u uw firewall om toegang te verlenen.
 
@@ -105,6 +105,8 @@ De volgende URL's en -poort zijn vereist voor de Hybrid Runbook Worker-rol om te
 * Globale URL: *.azure-automation.net
 * Globale URL van de VS Gov Virginia: *.azure automation.us
 * Agent-service: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+Het is raadzaam om de adressen die worden vermeld bij het definiëren van uitzonderingen te gebruiken. Voor IP-adressen die u downloaden via kunt de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt en weerspiegelt de huidige geïmplementeerde bereiken en toekomstige wijzigingen in de IP-adresbereiken.
 
 Als u een Automation-account dat gedefinieerd voor een bepaald gebied hebt, kunt u de communicatie met dat regionale datacenter kunt beperken. De volgende tabel bevat de DNS-record voor elke regio:
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 94d96af8db651a848ac092d1f8b85da4909427b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709961"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110112"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Gedrag van de gebruiker in Azure AD B2C trajecten bijhouden met Application Insights
 
@@ -111,7 +111,7 @@ Technische profielen kunnen worden beschouwd als functies in de identiteit ervar
 | JourneyContextForInsights | Hiermee opent u de sessie in Application Insights en verzendt een correlatie-ID |
 | AzureInsights SignInRequest | Maakt een `SignIn` gebeurtenis met een set claims wanneer een aanvraag voor aanmelden is ontvangen | 
 | AzureInsights-UserSignup | Maakt een gebeurtenis UserSignup wanneer de gebruiker de optie voor aanmelding in een reis sign-up-to-date/aanmelden | 
-| AzureInsights SignInComplete | registreert de voltooiing van een authenticatie wanneer een token is verzonden naar de relying party-toepassing | 
+| AzureInsights SignInComplete | Registreert de voltooiing van een authenticatie wanneer een token is verzonden naar de relying party-toepassing | 
 
 De profielen naar het extensiebestand van het starter pack toevoegen door het toevoegen van deze elementen te de `<ClaimsProviders>` knooppunt.  De bestandsnaam is doorgaans `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
@@ -280,13 +280,12 @@ Referenced using {OIDC:One of the property names below}
 
 | Claim | De parameter OpenIdConnect | Voorbeeld |
 | ----- | ----------------------- | --------|
-| prompt | prompt | N/A |
+| Vragen | prompt | N/A |
 | LoginHint |  login_hint | N/A |
 | DomainHint | domain_hint | N/A |
 |  MaxAge | max_age | N/A |
 | clientId | client_id | N/A |
 | Gebruikersnaam | login_hint | N/A |
-| Wachtwoord | domain_hint | N/A |
 |  Resource | Bron| N/A |
 | AuthenticationContextReferences | acr_values | N/A |
 
@@ -304,11 +303,11 @@ Hier volgt een voorbeeld van een aanvraag van de toepassing:
 https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
-Vervolgens kunt u de claims toevoegen door toe te voegen een `Input Claim` element op de Application Insights-gebeurtenis:
+Vervolgens kunt u de claims toevoegen door toe te voegen een `Input Claim` element op de Application Insights-gebeurtenis. Eigenschappen van een gebeurtenis worden toegevoegd via de syntaxis {eigenschap: NAME}, waarbij naam eigenschap wordt toegevoegd aan de gebeurtenis. Bijvoorbeeld:
 
 ```
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="app_session" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="loyalty_number" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
+<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 ```
 
 ### <a name="other-system-claims"></a>Andere claims systeem

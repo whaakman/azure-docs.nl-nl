@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 060baa6578f8a31234a1a667e2d591b92c39a06f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 45b6c2eda77668616a7e49ecd5ea2715af3cd3ce
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264281"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111583"
 ---
 # <a name="api-v2-migration-guide"></a>API v2-Migratiehandleiding
 De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's wordt afgeschaft. Deze handleiding gebruiken om te begrijpen hoe migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
@@ -104,14 +104,14 @@ v2-eindpunt geslaagd antwoord:
 ```
 
 ## <a name="key-management-no-longer-in-api"></a>Sleutelbeheer niet langer in de API
-De abonnementssleutel API's zijn afgeschaft 410 GONE retourneren.
+Het eindpunt abonnementssleutel API's zijn afgeschaft 410 GONE retourneren.
 
 | versie | route |
 |--|--|
 |1|/Luis/V1.0/Prog/Subscriptions|
 |1|/ luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [abonnement sleutels](luis-how-to-azure-subscription.md) worden gegenereerd in de Azure portal. Toewijzen van de sleutel aan een app LUIS op de **[publiceren](manage-keys.md)** pagina. U hoeft niet te weten de werkelijke waarde van de sleutel. LUIS wordt de naam van het abonnement te maken van de toewijzing. 
+Azure [eindpunt sleutels](luis-how-to-azure-subscription.md) worden gegenereerd in de Azure portal. Toewijzen van de sleutel aan een app LUIS op de **[publiceren](manage-keys.md)** pagina. U hoeft niet te weten de werkelijke waarde van de sleutel. LUIS wordt de naam van het abonnement te maken van de toewijzing. 
 
 ## <a name="new-versioning-route"></a>Nieuwe versioning route
 Het model v2 is nu opgenomen in een [versie](luis-how-to-manage-versions.md). Een versienaam is 10 tekens in de route. De standaardversie is '0,1'.

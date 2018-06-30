@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
+ms.date: 6/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 268ec61515f438fb7f98b6cef7a8ec60ba22e23f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212633"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110869"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnosefunctionaliteit voor Stateful Reliable Services
 De klasse Azure Service Fabric Stateful betrouwbare Services StatefulServiceBase verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen die kunnen worden gebruikt voor fouten opsporen in de service biedt mogelijk inzicht in hoe de runtime is functioneren en oplossen van problemen met.
@@ -53,13 +53,16 @@ De runtime Reliable Services definieert de volgende categorieën voor prestatiem
 | Category | Beschrijving |
 | --- | --- |
 | Transactionele replicator voor Service Fabric |Items die specifiek bij de Azure Service Fabric Transactional Replicator |
+| Service Fabric TStore |Items die specifiek bij de Azure Service Fabric-TStore |
 
-Service Fabric Transactional Replicator wordt gebruikt door de [betrouwbare statusbeheer](service-fabric-reliable-services-reliable-collections-internals.md) voor replicatie van transacties binnen een bepaalde set [replica's](service-fabric-concepts-replica-lifecycle.md). 
+Service Fabric Transactional Replicator wordt gebruikt door de [betrouwbare statusbeheer](service-fabric-reliable-services-reliable-collections-internals.md) voor replicatie van transacties binnen een bepaalde set [replica's](service-fabric-concepts-replica-lifecycle.md).
+
+De Service Fabric-TStore is een onderdeel dat wordt gebruikt [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections-internals.md) voor het opslaan en ophalen van sleutel-waardeparen.
 
 De [Windows Prestatiemeter](https://technet.microsoft.com/library/cc749249.aspx) toepassing die standaard beschikbaar in de Windows-besturingssysteem kan worden gebruikt voor het verzamelen en weergeven van gegevens van prestatiemeteritems. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is een andere optie voor het verzamelen van gegevens van prestatiemeteritems en uploaden naar Azure-tabellen.
 
 ### <a name="performance-counter-instance-names"></a>Namen van prestatiemeteritems exemplaar
-Een cluster met een groot aantal betrouwbare services of servicepartities betrouwbare heeft een groot aantal exemplaren van transactional replicator prestaties teller. De namen van prestatiemeteritems exemplaar kunnen helpen bij het identificeren van de specifieke [partitie](service-fabric-concepts-partitioning.md) en service-replica die het exemplaar van prestatiemeteritem is gekoppeld.
+Een cluster met een groot aantal betrouwbare services of servicepartities betrouwbare heeft een groot aantal exemplaren van transactional replicator prestaties teller. Dit geldt ook voor TStore prestatiemeteritems, maar ook wordt vermenigvuldigd met het aantal betrouwbare woordenlijsten en betrouwbare wachtrijen gebruikt. De namen van prestatiemeteritems exemplaar kunnen helpen bij het identificeren van de specifieke [partitie](service-fabric-concepts-partitioning.md), service-replica's en state-provider in het geval van TStore waaraan het exemplaar van prestatiemeteritem is gekoppeld.
 
 #### <a name="service-fabric-transactional-replicator-category"></a>Service Fabric Transactional Replicator categorie
 Voor de categorie `Service Fabric Transactional Replicator`, de teller exemplaarnamen worden in de volgende indeling:
@@ -76,6 +79,25 @@ De volgende naam van het exemplaar is Typerend voor een item onder de `Service F
 
 In het voorgaande voorbeeld `00d0126d-3e36-4d68-98da-cc4f7195d85e` de tekenreeksweergave van de Service Fabric partitie-ID en `131652217797162571` is van de replica-ID.
 
+#### <a name="service-fabric-tstore-category"></a>Service Fabric TStore categorie
+Voor de categorie `Service Fabric TStore`, de teller exemplaarnamen worden in de volgende indeling:
+
+`ServiceFabricPartitionId:ServiceFabricReplicaId:ServiceFabricStateProviderId_PerformanceCounterInstanceDifferentiator`
+
+*ServiceFabricPartitionId* de tekenreeksweergave van de Service Fabric-partitie-ID die het exemplaar van prestatiemeteritem is gekoppeld. De partitie-ID is een GUID en de tekenreeksvoorstelling wordt gegenereerd via [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) met indelingsopgave "D".
+
+*ServiceFabricReplicaId* is de ID die is gekoppeld aan een bepaalde replica van een betrouwbare service. Replica-ID is opgenomen in de naam van het exemplaar om te controleren van de uniekheid en het voorkomen van conflicten met andere prestaties teller-exemplaren die worden gegenereerd door dezelfde partitie. Meer informatie over de replica's en hun rol binnen betrouwbare services vindt [hier](service-fabric-concepts-replica-lifecycle.md).
+
+*ServiceFabricStateProviderId* is de ID die is gekoppeld aan een state-provider in een betrouwbare service. Status-ID van Provider is opgenomen in de naam van het exemplaar naar een TStore onderscheiden van andere.
+
+*PerformanceCounterInstanceDifferentiator* een verschillende-id die is gekoppeld aan een exemplaar van prestatiemeteritem binnen een state-provider. Dit kenmerk is opgenomen in de naam van het exemplaar om te controleren van de uniekheid en het voorkomen van conflicten met andere prestaties teller-exemplaren die worden gegenereerd door de dezelfde state-provider.
+
+De volgende naam van het exemplaar is Typerend voor een item onder de `Service Fabric TStore` categorie:
+
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337`
+
+In het voorgaande voorbeeld `00d0126d-3e36-4d68-98da-cc4f7195d85e` de tekenreeksweergave van de Service Fabric-partitie-ID, `131652217797162571` de replica-id `142652217797162571` is de ID-provider, en `1337` het onderscheid prestaties teller exemplaar is.
+
 ### <a name="transactional-replicator-performance-counters"></a>Prestatiemeteritems voor transactionele replicatie
 
 De runtime Reliable Services verzendt de volgende gebeurtenissen onder de `Service Fabric Transactional Replicator` categorie
@@ -88,6 +110,14 @@ De runtime Reliable Services verzendt de volgende gebeurtenissen onder de `Servi
 | Beperkte bewerkingen/sec | Het aantal bewerkingen per seconde met de transactionele replicatie vanwege een beperking geweigerd. |
 | Gem. Transactie-ms/Commit | Gemiddelde doorvoervertraging per transactie in milliseconden |
 | Gem. Leegmaken latentie (ms) | Gemiddelde duur van het leegmaken schijfbewerkingen geïnitieerd door de transactionele replicatie in milliseconden |
+
+### <a name="tstore-performance-counters"></a>TStore-prestatiemeteritems
+
+De runtime Reliable Services verzendt de volgende gebeurtenissen onder de `Service Fabric TStore` categorie
+
+ Naam van het meteritem | Beschrijving |
+| --- | --- |
+| Aantal items | Het aantal sleutels in het archief.|
 
 ## <a name="next-steps"></a>Volgende stappen
 [EventSource providers op PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

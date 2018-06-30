@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 6/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 272d98613e13c1bb76c75befd6bd5e0115c32610
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: HT
+ms.openlocfilehash: ff9f107b8cd10cdab71ba13a1925403d2d144984
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097237"
+ms.locfileid: "37128493"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Azure Active Directory integreren met AKS - Preview
 
@@ -59,19 +59,21 @@ De eerste Azure AD-toepassing wordt gebruikt voor het ophalen van een Azure AD h
 
 4. Ga terug naar de Azure AD-toepassing, selecteer **instellingen** > **vereist machtigingen** > **toevoegen**  >   **Selecteer een API** > **Microsoft Graph** > **Selecteer**.
 
-  Onder **TOEPASSINGSMACHTIGINGEN** zet een vinkje naast **mapgegevens lezen**.
+  ![Selecteer graph-API](media/aad-integration/graph-api.png)
+
+5. Onder **TOEPASSINGSMACHTIGINGEN** zet een vinkje naast **mapgegevens lezen**.
 
   ![Grafiek-toepassing worden machtigingen ingesteld](media/aad-integration/read-directory.png)
 
-5. Onder **GEDELEGEERDE MACHTIGINGEN**, zet een vinkje naast **aanmelden en gebruikersprofiel lezen** en **mapgegevens lezen**. Sla de updates die zijn gedaan.
+6. Onder **GEDELEGEERDE MACHTIGINGEN**, zet een vinkje naast **aanmelden en gebruikersprofiel lezen** en **mapgegevens lezen**. Sla de updates die zijn gedaan.
 
   ![Grafiek-toepassing worden machtigingen ingesteld](media/aad-integration/delegated-permissions.png)
 
-6. Selecteer **gedaan** en **machtiging verlenen** om deze stap te voltooien. Deze stap mislukt als de huidige account niet een tenantbeheerder is.
+7. Selecteer **gedaan**, kies *Microsoft Graph* uit de lijst met API's, selecteer **machtiging verlenen**. Deze stap mislukt als de huidige account niet een tenantbeheerder is.
 
   ![Grafiek-toepassing worden machtigingen ingesteld](media/aad-integration/grant-permissions.png)
 
-7. Ga terug naar de toepassing en noteer de **toepassings-ID**. Bij het implementeren van een cluster met Azure AD-functionaliteit AKS deze waarde wordt aangeduid als de `Server application ID`.
+8. Ga terug naar de toepassing en noteer de **toepassings-ID**. Bij het implementeren van een cluster met Azure AD-functionaliteit AKS deze waarde wordt aangeduid als de `Server application ID`.
 
   ![Toepassings-ID ophalen](media/aad-integration/application-id.png)
 
@@ -195,6 +197,12 @@ aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 ```
 
 Als u klaar is, wordt het verificatietoken in cache opgeslagen. U bent alleen reprompted aan te melden wanneer het token is verlopen of het configuratiebestand Kubernetes is opnieuw gemaakt.
+
+Als u een autorisatiefoutbericht ziet nadat de aanmelding is, controleert u of de gebruiker u aanmeldt zich omdat niet op een gast in de Azure AD (dit is vaak het geval als u een federatieve aanmelding vanuit een andere map).
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

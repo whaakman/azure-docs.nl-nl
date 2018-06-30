@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: b560022f1f727949021a599e1ab342551f64c084
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949528"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129129"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Naslaggids voor de ontwerper visualisatie delen in Log Analytics
 Ontwerp weergeven in Azure Log Analytics gebruikt, kunt u aangepaste weergaven maken in de Azure portal die een aantal gegevensvisualisaties van uw werkruimte voor logboekanalyse. Dit artikel is een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
@@ -56,8 +57,8 @@ De lijst met query's onderdeel geeft een lijst van logboek zoekquery's. U kunt e
 | **Algemeen** | |
 | Titel |De tekst die wordt weergegeven boven aan de weergave. |
 | Nieuwe groep |Selecteer deze koppeling naar een nieuwe groep maken in de weergave begint bij de huidige weergave. |
-| Vooraf geselecteerd filters |Een door komma's gescheiden lijst met eigenschappen die u wilt opnemen in het linkerdeelvenster filterdeelvenster wanneer u een query selecteren. |
-| Modus weergeven |De eerste weergave die wordt weergegeven wanneer de query is geselecteerd. Nadat de query wordt geopend, kunt u alle beschikbare weergaven selecteren. |
+| Vooraf geselecteerde filters |Een door komma's gescheiden lijst met eigenschappen die u wilt opnemen in het linkerdeelvenster filterdeelvenster wanneer u een query selecteren. |
+| Weergavemodus |De eerste weergave die wordt weergegeven wanneer de query is geselecteerd. Nadat de query wordt geopend, kunt u alle beschikbare weergaven selecteren. |
 | **Query's** | |
 | Zoekquery |De query wilt uitvoeren. |
 | Beschrijvende naam | De beschrijvende naam die wordt weergegeven. |
@@ -143,7 +144,7 @@ De header één getal overzicht van de kolom van een waarde in een logboek-query
 | **Ring** |**> Center** |
 | Tekst |De tekst die wordt weergegeven onder de waarde binnen de ring. |
 | Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde.<ul><li>Som: Voegt de waarden van alle records.</li><li>Percentage: De verhouding van de records geretourneerd door de waarden in **leiden waarden die worden gebruikt in de bewerking center** aan het totaal aantal records in de query.</li></ul> |
-| Resultaatwaarden die worden gebruikt in de bewerking center |Selecteer desgewenst het plusteken (+) toevoegen van een of meer waarden. De resultaten van de query zijn beperkt tot records met de waarden van de eigenschappen die u opgeeft. Als er geen waarden worden toegevoegd, worden alle records opgenomen in de query. |
+| Resultaatwaarden gebruikt in middenbewerking |Selecteer desgewenst het plusteken (+) toevoegen van een of meer waarden. De resultaten van de query zijn beperkt tot records met de waarden van de eigenschappen die u opgeeft. Als er geen waarden worden toegevoegd, worden alle records opgenomen in de query. |
 | **Extra opties** |**> Kleuren** |
 | Kleur 1<br>Kleur 2<br>Kleur 3 |Selecteer de kleur voor elk van de waarden die worden weergegeven in de ring. |
 | **Extra opties** |**> Geavanceerde kleur toewijzen** |
@@ -236,7 +237,7 @@ De header bevat een lijndiagram met meerdere reeksen door een query logboek gedu
 | Doorklikken navigatie | De actie die wordt uitgevoerd wanneer u klikt u op de koptekst.  Zie voor meer informatie [algemene instellingen](#click-through-navigation). |
 | **Lijndiagram** |**> Toelichting** |
 | Titel van de toelichting |De tekst die wordt weergegeven boven de waarde van de toelichting. |
-| Naam van de gegevensreeks |De waarde van de eigenschap voor de reeks moet worden gebruikt voor de waarde van de toelichting. Als geen reeksen is opgegeven, worden alle records in de query gebruikt. |
+| Reeksnaam |De waarde van de eigenschap voor de reeks moet worden gebruikt voor de waarde van de toelichting. Als geen reeksen is opgegeven, worden alle records in de query gebruikt. |
 | Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als een enkelvoudige waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die zijn geretourneerd door de query.</li><li>Laatste steekproef: de waarde van het laatste interval dat opgenomen in de grafiek.</li><li>Max: De maximale waarde uit de intervallen die zijn opgenomen in de grafiek.</li><li>Min: De minimale waarde uit de intervallen die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
 | **Lijndiagram** |**> Y-as** |
 | Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
@@ -295,7 +296,7 @@ De koptekst wordt een lijndiagram met meerdere reeksen door een query logboek we
 ## <a name="stack-of-line-charts-part"></a>Stack van regel grafieken onderdeel
 De stack van lijndiagram worden drie afzonderlijke lijndiagrammen met meerdere reeksen door een query logboek na verloop van tijd weergegeven, zoals hier wordt weergegeven:
 
-![-Stack van lijndiagrammen](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Stapel lijndiagrammen](media/log-analytics-view-designer/view-stack-line-charts.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -329,7 +330,7 @@ De volgende tabel beschrijft de instellingen voor doorklikken navigatie.
 
 | Instelling           | Beschrijving |
 |:--|:--|
-| Logboek zoeken (automatisch) | Logboek zoeken worden uitgevoerd wanneer u een header-item selecteren.  Dit is dezelfde logboek zoekopdracht die het item is gebaseerd op.
+| Zoeken in logboeken (automatisch) | Logboek zoeken worden uitgevoerd wanneer u een header-item selecteren.  Dit is dezelfde logboek zoekopdracht die het item is gebaseerd op.
 | Zoeken in logboeken        | Logboek zoeken worden uitgevoerd wanneer u een item in een lijst selecteert.  Typ de query in de **navigatie query** vak.   Gebruik *{geselecteerde item}* ook de syntaxis voor het item dat de gebruiker geselecteerd.  Bijvoorbeeld, als de query bevat een kolom met de naam *Computer* en de navigatie-query is *{geselecteerde item}*, een query zoals *Computer = 'Computer'* wordt uitgevoerd wanneer u selecteert een computer. Als de navigatie-query is *Type gebeurtenis {geselecteerde item} =*, de query *Type = gebeurtenis Computer = 'Computer'* wordt uitgevoerd. |
 | Weergave              | De weergave te openen wanneer u een header-item of een item in een lijst selecteert.  Selecteer de naam van een weergave in de werkruimte in de **weergavenaam** vak. |
 

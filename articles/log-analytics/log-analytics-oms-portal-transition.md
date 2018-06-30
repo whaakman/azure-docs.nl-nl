@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: bwren
-ms.openlocfilehash: 5719dc3719739fb561626e307ee295729752c1fa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.component: na
+ms.openlocfilehash: e47e8cbd209ea34317ca9b176a2c4b0fef10a2b2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297750"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37132969"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portal verplaatsen naar Azure
 Bedankt dat u de OMS-portal. We uw ondersteuning aan te bevelen en doorgaan met intensief investeren in onze services voor bewaking en beheer. Een stukje feedback herhaaldelijk gehoord dat klanten is de noodzaak van een enkele gebruikerservaring bewaken en beheren van zowel on-premises en Azure werkbelastingen. U weet waarschijnlijk de Azure portal is de hub voor alle Azure-services en biedt een uitgebreide management ervaring met mogelijkheden, zoals dashboards voor resources, intelligent zoeken naar resources zoeken en labels voor resourcebeheer vastmaken. Om te consolideren en de bewaking en beheer werkstroom te stroomlijnen, begonnen we met de OMS-portal-mogelijkheden in de Azure-portal toevoegen. We zijn trots de meeste van de functies van de OMS-portal zijn nu deel uit van de Azure-portal. Enkele van de nieuwe functies zoals Traffic Manager zijn in feite is alleen beschikbaar in de Azure portal. Er zijn slechts enkele hiaten resterende, de meest impactful wordt vijf oplossingen die nog in het proces worden verplaatst naar de Azure-portal. Als u deze functies niet gebruikt, zich u voor het uitvoeren van alles wat die u deed in de OMS-portal met de Azure-portal en meer. We raden dat u aan de slag met Azure portal vandaag als u dit nog niet hebt gedaan. 
@@ -72,7 +73,7 @@ Tijdens de conversie wordt het systeem elke gebruiker of beveiligingsgroep die g
 
 | OMS-portal machtiging | Azure-functie |
 |:---|:---|
-| ReadOnly | Lezer van Log Analytics |
+| Alleen-lezen | Lezer van Log Analytics |
 | Inzender | Inzender van Log Analytics |
 | Beheerder | Eigenaar |
 
@@ -94,7 +95,7 @@ Met de ondersteuning van [cross-resource query's](log-analytics-cross-workspace-
 
 
 ## <a name="azure-network-security-group-analytics"></a>Analyse van Azure-netwerkbeveiligingsgroep
-De [Azure Network Security groep Analytics-oplossing](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) wordt vervangen met onlangs geopende [Traffic Analytics](../network-watcher/traffic-analytics.md) waarmee u inzicht krijgen in gebruikers- en activiteit van het cloud-netwerken. Verkeer Analytics kunt u controle-activiteit op het netwerk, beveiligde toepassingen en gegevens van uw organisatie, optimaliseren van de werkbelasting en blijven voldoen aan het beleid. 
+De [Azure Network Security groep Analytics-oplossing](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) wordt vervangen met onlangs geopende [Traffic Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) waarmee u inzicht krijgen in gebruikers- en activiteit van het cloud-netwerken. Verkeer Analytics kunt u controle-activiteit op het netwerk, beveiligde toepassingen en gegevens van uw organisatie, optimaliseren van de werkbelasting en blijven voldoen aan het beleid. 
 
 Deze oplossing analyseert NSG stromen logboeken en biedt inzicht in de volgende.
 
@@ -105,7 +106,7 @@ Deze oplossing analyseert NSG stromen logboeken en biedt inzicht in de volgende.
 - Beveiliging met inbegrip van schadelijk verkeer, poorten openen met het Internet, toepassingen of virtuele machines die toegang probeert te krijgen met Internet.
 - Capaciteitsverbruik, waardoor u elimineren problemen van via het inrichten of ondermaats gebruik.
 
-U kunt blijven zijn afhankelijk van de diagnostische instellingen voor het verzenden van de NSG-logboeken met logboekanalyse zodat uw bestaande zoekopdrachten, waarschuwingen, dashboards opgeslagen blijven werken. Klanten die de oplossing al hebt geïnstalleerd kunnen blijven gebruiken totdat de aankondiging. Vanaf juni 20 het NSG-oplossing wordt verwijderd uit de marketplace en beschikbaar gesteld via de community als een [Snelstartsjabloon met de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
+U kunt blijven zijn afhankelijk van de diagnostische instellingen voor het verzenden van de NSG-logboeken met logboekanalyse zodat uw bestaande zoekopdrachten, waarschuwingen, dashboards opgeslagen blijven werken. Klanten die de oplossing al hebt geïnstalleerd kunnen blijven gebruiken totdat de aankondiging. Vanaf juni 20 de netwerk-beveiligingsanalyse groep oplossing wordt verwijderd uit de marketplace en beschikbaar gesteld via de community als een [Snelstartsjabloon met de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie [Veelgestelde vragen voor de overgang van OMS-portal naar Azure-portal voor gebruikers van logboekanalyse](log-analytics-oms-portal-faq.md) voor hulp bij het verplaatsen van de OMS-portal naar de Azure-portal.

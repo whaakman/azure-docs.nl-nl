@@ -10,17 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 1e7e43dc2e7ed386f8f77fd1ab186d2ff34af405
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 96eb26d6a4faf8c6907d23ebf21f2446722c913b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176996"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127090"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Prijzen van wijzigingen voor de Prestatiemeter voor Azure-netwerk
 
@@ -67,7 +68,7 @@ Zie voor de kosten van de bewaking van een koppeling met één subnet voor de he
 De kosten voor opname (gegevens uploaden met Log Analytics, verwerken en indexeren) beschikbaar is op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor logboekanalyse in de sectie gegevensopname. De kosten voor het bewaren van gegevens (dat wil zeggen, gegevens bewaard op de optie van de klant, na de eerste maand) is ook beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/), in de sectie bewaren van gegevens.
 
 
-## <a name="expressroute-monitor"></a>ExpressRoute-Monitor
+## <a name="expressroute-monitor"></a>ExpressRoute-bewaking
 
 **Wat zijn de kosten voor informatie over het gebruik van ExpressRoute-Monitor?**
 
@@ -107,8 +108,8 @@ Klanten op de hogere percentielen (in de voorgaande tabel) meestal hun circuits 
 **Wat zijn de kosten voor het gebruik van de Monitor voor Service-eindpunt?**
 
 Kosten voor het gebruik van de Monitor voor Service-eindpunt worden berekend op basis van:
-* aantal verbindingen
-* volume van gegevens
+* Aantal verbindingen
+* Volume van gegevens
 
 **Wat is er een verbinding?**
 

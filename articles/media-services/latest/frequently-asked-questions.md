@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: juliako
-ms.openlocfilehash: 7fe59763162ca53ea0256d5902aeece90525f214
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 098a34aba8e5ce23f64d4bb07e3b9622aa2adb8e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655198"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110412"
 ---
 # <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Azure Media Services v3 Veelgestelde vragen (preview)
 
@@ -30,7 +30,7 @@ Nog niet. U kunt een van de ondersteunde SDK's gebruiken. Zie zelfstudies en voo
 
 Het Media Services-team is RUs in v3 verwijderen. Werk van de service nodig is echter niet voltooid. Tot klanten hebben met de Azure portal of AMS v2 API's RUs ingesteld (zoals beschreven in [media verwerking schalen](../previous/media-services-scale-media-processing-overview.md). 
 
-S3 RUs nodig zijn voor de **VideoAnalyzerPreset** en **AudioAnalyzerPreset** V3 standaardinstellingen.
+Wanneer u **VideoAnalyzerPreset** en/of **AudioAnalyzerPreset**, uw Media Services-account ingesteld op 10 S3 Media gereserveerde eenheden.
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>Beschikt over V3 Asset geen concept AssetFile?
 
@@ -56,7 +56,7 @@ Zie voor meer informatie [Filtering, rangschikken, paging](assets-concept.md#fil
 
 ## <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Het ophalen van een entiteit in Media Services v3?
 
-V3 is gebaseerd op een geïntegreerde API-gebied, die zowel beheer van en bewerkingen functionaliteit die zijn gebouwd op **Azure Resource Manager**. In overeenstemming met **Azure Resource Manager**, de resourcenamen altijd uniek zijn. Zo kunt u de unieke id-tekenreeksen (bijvoorbeeld GUID's) voor uw resourcenamen. 
+V3 is gebaseerd op een geïntegreerde API-gebied, die zowel beheer van en bewerkingen functionaliteit die zijn gebouwd op **Azure Resource Manager**. In overeenstemming met **Azure Resource Manager**, de resourcenamen altijd uniek zijn. U kunt dus alle unieke id-strings (bijvoorbeeld GUID's) gebruiken voor uw resourcenamen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

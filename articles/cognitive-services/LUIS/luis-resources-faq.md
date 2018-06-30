@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f192c2f71208f3caf8a01a18a7023763f8de63c3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333612"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113133"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding-Veelgestelde vragen
 
@@ -65,9 +65,9 @@ LUIS [basis van woordgrenzen](luis-glossary.md#token) de utterance op basis van 
 Uw systeem, moet de hoogste scoreprofiel bedoeling ongeacht de waarde ervan gebruiken. Bijvoorbeeld, betekent een score hieronder 0,5 (minder dan 50%) niet noodzakelijkerwijs dat LUIS lage vertrouwen heeft. Biedt meer trainingsgegevens kan u helpen de score van de meest waarschijnlijke bedoeling verhogen.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Waarom zie mijn eindpunt treffers in mijn app Dashboard niet?
-De totale eindpunt treffers in uw app-Dashboard worden regelmatig bijgewerkt, maar de metrische gegevens die zijn gekoppeld aan uw abonnement LUIS sleutel in de Azure portal vaker worden bijgewerkt. 
+De totale eindpunt treffers in uw app-Dashboard worden regelmatig bijgewerkt, maar de metrische gegevens die zijn gekoppeld aan uw sleutel LUIS eindpunt in de Azure portal vaker worden bijgewerkt. 
 
-Als er geen bijgewerkte eindpunt treffers in het Dashboard, aanmelden bij de Azure-portal en de bron die is gekoppeld aan uw abonnement LUIS sleutel vinden en openen **metrische gegevens** selecteren de **totaal aantal aanroepen** metriek. Als de abonnementssleutel wordt gebruikt voor meer dan één LUIS app, toont de metrische gegevens in de Azure portal het cumulatieve aantal aanroepen vanuit alle LUIS apps die worden gebruikt.
+Als er geen bijgewerkte eindpunt treffers in het Dashboard, aanmelden bij de Azure-portal en de bron die is gekoppeld aan uw eindpunt LUIS sleutel vinden en openen **metrische gegevens** selecteren de **totaal aantal aanroepen** metriek. Als de endpoint-sleutel wordt gebruikt voor meer dan één LUIS app, toont de metrische gegevens in de Azure portal het cumulatieve aantal aanroepen vanuit alle LUIS apps die worden gebruikt.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Mijn app LUIS werkte gisteren maar tegenwoordig ik krijg 403 fouten. Ik de app is niet gewijzigd. Hoe kan ik oplossen? 
 Na de [instructies](#how-do-i-create-and-assign-a-luis-endpoint-key) in de volgende veelgestelde vragen over het maken van een eindpunt LUIS sleutel en deze toewijzen aan de app. Vervolgens moet u de HTTP-aanvraag op het eindpunt naar [gebruik van de nieuwe eindpuntsleutel](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -115,8 +115,9 @@ In Azure vertegenwoordigt een tenant de client of organisatie die is gekoppeld a
 
 ![Tenant-ID in de Azure-portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Waarom zijn er meer abonnement sleutels op mijn app publiceren pagina dan ik toegewezen aan de app? 
-Elke app LUIS heeft authoring/starter sleutel. LUIS abonnement sleutels gemaakt tijdens de tijdsperiode GA zijn zichtbaar op de pagina publiceren ongeacht als u deze hebt toegevoegd aan de app. Dit is gedaan om de migratie GA eenvoudiger. Nieuwe LUIS abonnement sleutels worden niet weergegeven op de pagina publiceren. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Waarom zijn er meer eindpunt sleutels op mijn app publiceren pagina dan ik toegewezen aan de app? 
+Elke app LUIS heeft authoring/starter sleutel. LUIS eindpunt sleutels gemaakt tijdens de tijdsperiode GA zijn zichtbaar op uw pagina publiceren ongeacht als u deze hebt toegevoegd aan de app. Dit is gedaan om de migratie GA eenvoudiger. Nieuwe LUIS eindpunt sleutels worden niet weergegeven op de pagina publiceren. 
 
 ## <a name="app-management"></a>Appbeheer
 
@@ -153,7 +154,7 @@ Als u het logboek voor analyse van de voorspelling gebruikt, worden niet test ut
 ## <a name="app-notification"></a>App-melding
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Waarom krijg ik een e-mailbericht dat ik ben bijna buiten quotum
-Uw ontwerp/starter-sleutel is alleen toegestaan voor 1000 eindpunt vraagt een maand. Een abonnementssleutel LUIS (gratis of betaalde) maken en gebruiken van deze sleutel bij het doorvoeren van endpoint-query's. Als u eindpunt query's vanuit een bot of een andere clienttoepassing doorvoert, moet u de er LUIS endpoint-sleutel wijzigen. 
+Uw ontwerp/starter-sleutel is alleen toegestaan voor 1000 eindpunt vraagt een maand. Een LUIS endpoint-sleutel (gratis of betaalde) maken en deze sleutel gebruiken bij het doorvoeren van endpoint-query's. Als u eindpunt query's vanuit een bot of een andere clienttoepassing doorvoert, moet u de er LUIS endpoint-sleutel wijzigen. 
 
 ## <a name="integrating-luis"></a>Integratie van LUIS
 
@@ -167,7 +168,7 @@ Als u een sjabloon LUIS selecteren en selecteer de **Selecteer** knop in het dee
 
 ## <a name="luis-service"></a>LUIS service 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>LUIS beschikbare on-premises is of in een privécloud?
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS is beschikbaar lokaal of in een privécloud?
 Nee. 
 
 ## <a name="changes-to-the-docs"></a>Wijzigingen in de documenten
@@ -201,7 +202,7 @@ Aanvullende authoring [API routes](https://github.com/Microsoft/LUIS-Samples/blo
 Videos: 
 * [Azure vrijdag om Build 2018: Cognitieve Services - taal (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Build 2018 AI Show - wat is er nieuw met Language Understanding-Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [2018 sessie build - Bot intelligence spraakmogelijkheden en NLU aanbevolen procedures](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018-sessie - Bot-intelligentie, spraakmogelijkheden en aanbevolen NLU-procedures](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [2018 build - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projecten: 

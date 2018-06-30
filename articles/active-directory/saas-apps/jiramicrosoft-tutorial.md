@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 9c43e887d66b1a0bec096810bcd899d907499c78
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fc3867ca79eb5f142f1d1caaa5569d93e7ea001e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230332"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met JIRA SAML SSO door Microsoft
 
@@ -221,11 +221,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 ### <a name="create-a-jira-saml-sso-by-microsoft-test-user"></a>Een JIRA SAML SSO door Microsoft testgebruiker maken
 
-Om Azure AD-gebruikers zich aanmelden bij JIRA on-premises server, moeten ze in JIRA SAML SSO worden ingericht met behulp van Microsoft. Voor JIRA SAML SSO door Microsoft is inrichting een handmatige taak.
+Om Azure AD-gebruikers zich aanmelden bij JIRA lokale server, moeten ze in JIRA SAML SSO worden ingericht met behulp van Microsoft. Voor JIRA SAML SSO door Microsoft is inrichting een handmatige taak.
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan bij uw JIRA on-premises server als beheerder.
+1. Meld u aan bij uw lokale JIRA server als beheerder.
 
 2. Beweeg de muisaanwijzer op het tandwiel en klik op de **Gebruikersbeheer**.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c41c02acaeffa170d55f3c59f34a4b1ecae1c523
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c4b3122984cdcb324f7b86e44a62e111d6ca0a29
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712450"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131589"
 ---
 # <a name="using-b2clogincom"></a>Met b2clogin.com
 
@@ -24,8 +24,8 @@ ms.locfileid: "34712450"
 >
 
 U hebt nu de optie voor het gebruik van de service Azure AD B2C met `<YourTenantName>.b2clogin.com` in plaats van `login.microsoftonline.com`.  Dit biedt veel voordelen:
-* De maximale grootte van dezelfde cookie-header wordt niet langer worden gedeeld met andere Microsoft-producten
-* U kunt alle verwijzingen naar Microsoft in de URL verwijderen (u kunt vervangen `<YourTenantName>.onmicrosoft.com` met uw tenant-ID)
+* U de maximale grootte van dezelfde cookie-header niet langer worden gedeeld met andere Microsoft-producten.
+* U kunt alle verwijzingen naar Microsoft in de URL verwijderen (u kunt vervangen `<YourTenantName>.onmicrosoft.com` met uw tenant-ID). Bijvoorbeeld: `https://<tenantname>.b2clogin.com/tfp/<tenantname>/<policyname>/v2.0/.well-known/openid-configuration`.
 
  Om te profiteren van b2clogin.com, moet u het volgende instellen:
 

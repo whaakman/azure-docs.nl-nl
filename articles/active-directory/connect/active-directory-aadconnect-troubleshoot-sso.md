@@ -2,25 +2,22 @@
 title: 'Azure Active Directory Connect: Naadloze eenmalige aanmelding oplossen | Microsoft Docs'
 description: Dit onderwerp wordt beschreven hoe u problemen met Azure Active Directory naadloze eenmalige aanmelding
 services: active-directory
-keywords: Wat is Azure AD Connect, installeer Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
-documentationcenter: ''
-author: swkrish
+author: billmath
+ms.reviewer: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 205df47c36cb1d6925e232f06c0f1355c40ae973
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592225"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110886"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Problemen met Azure Active Directory naadloze eenmalige aanmelding
 
@@ -61,7 +58,7 @@ Blader naar **Azure Active Directory** > **aanmeldingen** in de [Azure Active Di
 
 |Foutcode voor aanmelding|Aanmelding mislukt reden|Oplossing
 | --- | --- | ---
-| 81001 | Kerberos-ticket van de gebruiker is te groot. | Reduceer groepslidmaatschappen van de gebruiker en probeer het opnieuw.
+| 81001 | Kerberos-ticket van de gebruiker is te groot. | Reduceer het aantal groepslidmaatschappen van de gebruiker en probeer het opnieuw.
 | 81002 | Kan geen Kerberos-ticket van de gebruiker te valideren. | Zie de [controlelijst voor probleemoplossing](#troubleshooting-checklist).
 | 81003 | Kan geen Kerberos-ticket van de gebruiker te valideren. | Zie de [controlelijst voor probleemoplossing](#troubleshooting-checklist).
 | 81004 | Poging tot Kerberos-verificatie is mislukt. | Zie de [controlelijst voor probleemoplossing](#troubleshooting-checklist).
@@ -84,6 +81,7 @@ Gebruik de volgende controlelijst naadloze eenmalige aanmelding problemen oploss
 - Zorg ervoor dat het gebruikersaccount is van een Active Directory-forest waarbij naadloze eenmalige aanmelding is ingesteld.
 - Zorg ervoor dat het apparaat is verbonden met het bedrijfsnetwerk.
 - Zorg ervoor dat de tijd van het apparaat is gesynchroniseerd met de tijd in Active Directory en de domeincontrollers en dat ze zijn binnen vijf minuten van elkaar.
+- Zorg ervoor dat de `AZUREADSSOACCT` computeraccount aanwezig en ingeschakeld is in elk AD-forest die u wilt dat naadloze eenmalige aanmelding ingeschakeld. 
 - Lijst van de bestaande Kerberos-tickets op het apparaat met behulp van de `klist` opdracht vanaf een opdrachtprompt. Zorg ervoor dat de tickets uitgegeven voor de `AZUREADSSOACCT` computeraccount aanwezig zijn. Gebruikers Kerberos-tickets zijn doorgaans geldig voor 10 uur. Mogelijk hebt u verschillende instellingen in Active Directory.
 - Als u uitgeschakeld en opnieuw ingeschakeld naadloze eenmalige aanmelding op uw tenant, krijgen gebruikers niet de ervaring voor eenmalige aanmelding tot hun in de cache Kerberos-ticket is verlopen.
 - Bestaande Kerberos-tickets opschonen van het apparaat met behulp van de `klist purge` opdracht en probeer het opnieuw.

@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 528274844908f9a1b2a604de42d8e84f4dc7d6f2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168279"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127348"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
 Dit artikel bevat informatie voor het configureren van de [OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen.  De toepassingen die zijn opgenomen in dit artikel zijn:  
@@ -82,7 +83,7 @@ De volgende tabel biedt details over de syntaxis voor het gebruik van mycimprova
 | AutoUpdate *false of true* | mycimprovauth autoupdate false | Stelt de verificatiebestand al dan niet automatisch bijgewerkt op opnieuw opstarten of bijwerken. |
 | standaard *gebruikersnaamwachtwoord bind-adres* | mycimprovauth standaard 127.0.0.1 hoofdmap pwd | Hiermee stelt u het standaardexemplaar in de MySQL OMI verificatiebestand.<br>Het wachtwoordveld moet worden ingevoerd als tekst zonder opmaak: het wachtwoord in het bestand MySQL OMI-verificatie wordt Base 64 gecodeerde. |
 | Verwijder *standaard of port_num* | mycimprovauth 3308 | Verwijdert het opgegeven exemplaar van een standaard of door poortnummer. |
-| help | mycimprov help | Afdrukken een lijst met opdrachten te gebruiken. |
+| Help | mycimprov help | Afdrukken een lijst met opdrachten te gebruiken. |
 | afdrukken | mycimprov afdrukken | Afdrukken een gemakkelijk te lezen MySQL OMI verificatiebestand. |
 | bijwerken van port_num *gebruikersnaamwachtwoord bind-adres* | mycimprov update 3307 127.0.0.1 hoofdmap pwd | Het opgegeven exemplaar van updates of het exemplaar wordt toegevoegd als deze niet bestaat. |
 
@@ -116,7 +117,7 @@ Deze rechten kunnen worden verleend met de volgende grant-opdrachten.
 
 Zodra u de OMS-Agent voor Linux gegevens verzenden naar logboekanalyse configureert, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux prestaties gegevensbronnen in logboekanalyse](log-analytics-data-sources-windows-events.md) met de items in de volgende tabel.
 
-| Objectnaam | Naam van het meteritem |
+| Objectnaam | Naam van teller |
 |:--|:--|
 | MySQL-database | Schijfruimte in Bytes |
 | MySQL-database | Tabellen |
@@ -152,7 +153,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Zodra u de OMS-Agent voor Linux gegevens verzenden naar logboekanalyse configureert, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux prestaties gegevensbronnen in logboekanalyse](log-analytics-data-sources-windows-events.md) met de items in de volgende tabel.
 
-| Objectnaam | Naam van het meteritem |
+| Objectnaam | Naam van teller |
 |:--|:--|
 | Apache HTTP-Server | Bezet werknemers |
 | Apache HTTP-Server | Niet-actieve werknemers |

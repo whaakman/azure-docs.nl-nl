@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 147b0b9b4a3fe789544457d17fed3d29badbe12c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29937305"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113949"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Handleiding voor het maken van een oplossingssjabloon voor Azure Marketplace
 Na het voltooien van stap 1, [accountaanmaking en registratie][link-acct-creation], wij u op het maken van een Azure-compatibele oplossingssjabloon op begeleide [technische vereisten voor het maken van een oplossingssjabloon](marketplace-publishing-solution-template-creation-prerequisites.md). Nu we u stapsgewijs door de stappen begeleidt voor het maken van een oplossingssjabloon voor meerdere virtuele machines op de [Publishing Portal] [ link-pubportal] voor Azure Marketplace.
@@ -60,7 +60,7 @@ Nu u uw oplossingssjabloon gemaakt en dat het zip-bestand wordt geüpload, volg 
 U is mogelijk ook geïnteresseerd in deze verwante artikelen:
 
 * VM-installatiekopieën: [over installatiekopieën van virtuele machines in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM-extensies: [VM-Agent en een overzicht van de VM-extensies](https://msdn.microsoft.com/library/azure/dn832621.aspx) en [Azure VM-extensies en functies](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* VM-extensies: [VM-Agent en een overzicht van de VM-extensies](https://msdn.microsoft.com/library/azure/dn832621.aspx) en [Azure VM-extensies en functies](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows)
 * Azure Resource Manager: [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md) en [eenvoudige sjabloon voorbeelden](https://github.com/rjmax/ArmExamples)
 * Storage-account beperkt: [bewaken voor beperking van de Storage-Account](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) en [Premium-opslag](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

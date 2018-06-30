@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: bf0ef5be609fba14ab12e1e6f9f97bc63f032aae
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d06a450595a53fdc65fba74791345abe3a1b3db4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260557"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109566"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI-element
 Een groep besturingselementen voor het selecteren van een nieuw of bestaand openbaar IP-adres.
@@ -66,18 +66,20 @@ Een groep besturingselementen voor het selecteren van een nieuw of bestaand open
 - Als `constraints.required.domainNameLabel` is ingesteld op **true**, de gebruiker moet een domeinnaamlabel opgeven bij het maken van een nieuw openbaar IP-adres. Bestaande openbare IP-adressen zonder een label zijn niet beschikbaar voor selectie.
 - Als `options.hideNone` is ingesteld op **true**, klikt u vervolgens de optie te selecteren **geen** voor het openbare IP-adres wordt verborgen. De standaardwaarde is **false**.
 - Als `options.hideDomainNameLabel` is ingesteld op **true**, en vervolgens in het tekstvak voor domeinnaamlabel wordt verborgen. De standaardwaarde is **false**.
-- Als `options.hideExisting` is ingesteld op true, wordt de gebruiker is geen kunnen kiezen een bestaand openbaar IP-adres. De standaardwaarde is **false**.
+- Als `options.hideExisting` is ingesteld op true, wordt de gebruiker is niet kunnen kiezen een bestaand openbaar IP-adres. De standaardwaarde is **false**.
 - Voor `zone`, alleen openbare IP-adressen voor de opgegeven zone of zone robuuste openbare IP-adressen beschikbaar zijn.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
-Als de gebruiker heeft geen openbare IP-adres geselecteerd, worden de volgende uitvoer wordt verwacht.
+Als de gebruiker heeft geen openbare IP-adres geselecteerd, wordt het besturingselement de volgende uitvoer:
+
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-Als de gebruiker een nieuwe of bestaande IP-adres selecteert, wordt de volgende uitvoer verwacht:
+Als de gebruiker een nieuwe of bestaande IP-adres selecteert, wordt het besturingselement de volgende uitvoer:
+
 ```json
 {
   "name": "ip01",
@@ -87,6 +89,7 @@ Als de gebruiker een nieuwe of bestaande IP-adres selecteert, wordt de volgende 
   "newOrExistingOrNone": "new"
 }
 ```
+
 - Wanneer `options.hideNone` is opgegeven als **true**, `newOrExistingOrNone` heeft alleen een waarde van **nieuwe** of **bestaande**.
 - Wanneer `options.hideDomainNameLabel` is opgegeven als **true**, `domainNameLabel` is niet gedeclareerd.
 

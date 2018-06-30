@@ -10,12 +10,12 @@ manager: jahogg
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 75edf6dc7382a8a2ece7c25edd09aeacfe1c5189
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a6130d8440b16e5a72c939fc07f6bf32c0946418
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060056"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114289"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Gebruik de Azure Data Lake Storage Gen2 URI
 
@@ -25,15 +25,7 @@ De [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) stuurprogramma dat 
 
 De URI-syntaxis voor het Data Lake Storage Gen2 is afhankelijk van of uw storage-account is ingesteld om Data Lake Storage Gen2 als het standaardbestandssysteem.
 
-Als het Data Lake Storage Gen2 geschikt account dat u adres wilt is ingesteld als het standaardbestandssysteem tijdens het maken van de account, is het steno URI-syntaxis:
-
-<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
-
-1. **Pad**: een slash gescheiden (`/`) weergave van de mapstructuur.
-
-2. **Bestandsnaam**: de naam van de afzonderlijke bestand.
-
-Als het Data Lake Storage Gen2 geschikt account u adres wilt *niet* het standaardbestandssysteem de URI-syntaxis is:
+Als het Data Lake Storage Gen2 geschikt account u adres wilt **is geen** ingesteld als het standaardbestandssysteem tijdens het maken van de account, wordt het steno URI-syntaxis is:
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
@@ -46,6 +38,15 @@ Als het Data Lake Storage Gen2 geschikt account u adres wilt *niet* het standaar
 4. **Paden**: een slash gescheiden (`/`) weergave van de mapstructuur.
 
 5. **Bestandsnaam**: de naam van de afzonderlijke bestand. Deze parameter is optioneel als u een map adresseert.
+
+Echter, als het account dat u adres wilt is ingesteld als het standaardbestandssysteem tijdens het maken van de account, het steno URI-syntaxis is:
+
+<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
+
+1. **Pad**: een slash gescheiden (`/`) weergave van de mapstructuur.
+
+2. **Bestandsnaam**: de naam van de afzonderlijke bestand.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -4,22 +4,23 @@ description: Ontwerp weergeven in Log Analytics gebruikt, kunt u aangepaste weer
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: fc5dc00a05486c1f781016df63877f40d21b0205
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29947313"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131267"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor de ontwerper tegels in Log Analytics
 Ontwerp weergeven in Azure Log Analytics gebruikt, kunt u aangepaste weergaven maken in de Azure portal die tal van gegevensvisualisaties in uw werkruimte voor logboekanalyse. Dit artikel is een handleiding met de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
@@ -52,7 +53,7 @@ De **getal** tegel worden weergegeven voor zowel het aantal records uit een quer
 |:--- |:--- |
 | Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
 | Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
-| **Tile** | |
+| **tegel** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
 | Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal records dat wordt geretourneerd door de query wordt weergegeven. |
 | **Geavanceerde** |**> Gegevensstroom verificatie** |
@@ -96,10 +97,10 @@ De **ring** tegel één getal overzicht van de kolom van een waarde in een logbo
 | **Ring** |**> Center** |
 | Tekst |De tekst die wordt weergegeven onder de waarde binnen de ring. |
 | Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde.<ul><li>Som: De waarden van alle records met de waarde van eigenschap toevoegen.</li><li>Percentage: Percentage van de opgetelde waarden van records met de waarde van de eigenschap vergeleken met de opgetelde waarden van alle records.</li></ul> |
-| Resultaatwaarden die worden gebruikt in de bewerking center |Selecteer desgewenst het plusteken (+) toevoegen van een of meer waarden. De resultaten van de query zijn beperkt tot records met de waarden van de eigenschappen die u opgeeft. Als er geen waarden worden toegevoegd, worden alle records opgenomen in de query. |
+| Resultaatwaarden gebruikt in middenbewerking |Selecteer desgewenst het plusteken (+) toevoegen van een of meer waarden. De resultaten van de query zijn beperkt tot records met de waarden van de eigenschappen die u opgeeft. Als er geen waarden worden toegevoegd, worden alle records opgenomen in de query. |
 | **Ring** |**> Aanvullende opties** |
 | Kleuren |De kleur die wordt weergegeven voor elk van de drie belangrijkste eigenschappen. Gebruik opgeven van alternatieve kleuren voor specifieke eigenschapswaarden *geavanceerde kleur toewijzing*. |
-| Geavanceerde kleur toewijzen |Geeft een kleur die specifieke eigenschapswaarden vertegenwoordigt. Als de waarde die u opgeeft in de belangrijkste drie is, wordt de kleur van de alternatieve in plaats van de standaard kleur weergegeven. Als de eigenschap niet in de belangrijkste drie is, wordt de kleur niet weergegeven. |
+| Geavanceerde kleurtoewijzing |Geeft een kleur die specifieke eigenschapswaarden vertegenwoordigt. Als de waarde die u opgeeft in de belangrijkste drie is, wordt de kleur van de alternatieve in plaats van de standaard kleur weergegeven. Als de eigenschap niet in de belangrijkste drie is, wordt de kleur niet weergegeven. |
 | **Geavanceerde** |**> Gegevensstroom verificatie** |
 | Ingeschakeld |Selecteer deze koppeling als gegevensstroom verificatie moet zijn ingeschakeld voor de tegel. Deze aanpak biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken de benadering gebruiken om een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de belangrijkste query. |
@@ -169,7 +170,7 @@ De **twee tijdlijnen** tegel geeft de resultaten van twee logboek-query's na ver
 | **Tweede grafiek** | |
 | Legenda |De tekst die wordt weergegeven onder het bijschrift voor de tweede reeks. |
 | Kleur |De kleur die wordt gebruikt voor de kolommen in de tweede reeks. |
-| Grafiek-Query |De query die wordt uitgevoerd voor de tweede reeks. Het aantal records over elk tijdsinterval wordt vertegenwoordigd door de kolommen van de grafiek. |
+| Grafiekquery |De query die wordt uitgevoerd voor de tweede reeks. Het aantal records over elk tijdsinterval wordt vertegenwoordigd door de kolommen van de grafiek. |
 | Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als een enkelvoudige waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die zijn geretourneerd door de query.</li><li>Laatste steekproef: de waarde van het laatste interval dat opgenomen in de grafiek.</li><li>Max: De maximale waarde van de intervallen die zijn opgenomen in de grafiek. |
 | **Geavanceerde** |**> Gegevensstroom verificatie** |
 | Ingeschakeld |Selecteer deze koppeling als gegevensstroom verificatie moet zijn ingeschakeld voor de tegel. Deze aanpak biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken de benadering gebruiken om een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |

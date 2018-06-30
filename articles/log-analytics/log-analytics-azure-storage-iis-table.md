@@ -2,24 +2,25 @@
 title: Blob storage gebruiken voor de opslag van IIS en tabel gebeurtenissen in de Azure Log Analytics | Microsoft Docs
 description: Log Analytics kunt u de logboeken voor Azure-services die diagnostische gegevens naar table storage schrijven of IIS-logboeken geschreven naar de blob storage lezen.
 services: log-analytics
-documentationcenter: 
-author: MGoedtel
+documentationcenter: ''
+author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459ef90ca1d76bada6565bfefd7b4bd1086197d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 8f923cc081ea652c8e32d4109225044c70c8767d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128738"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Azure blob storage gebruiken voor IIS en Azure-tabelopslag voor gebeurtenissen met Log Analytics
 
@@ -60,12 +61,12 @@ Gebruik de volgende procedure om in te schakelen van Azure diagnostics in een vi
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Inschakelen van Azure diagnostics in een virtuele machine met de Azure-portal
 1. Installeer de VM-Agent bij het maken van een virtuele machine. Als de virtuele machine al bestaat, controleert u of de VM-Agent is al geïnstalleerd.
 
-   * Navigeer in de Azure-portal naar de virtuele machine en selecteer **optionele configuratie**, vervolgens **Diagnostics** en stel **Status** naar **op**.
+   * Navigeer in de Azure-portal naar de virtuele machine en selecteer **optionele configuratie**, vervolgens **Diagnostics** en stel **Status** naar **op** .
 
      De virtuele machine heeft na voltooiing, de extensie Azure Diagnostics geïnstalleerd en uitgevoerd. Deze uitbreiding is verantwoordelijk voor het verzamelen van diagnostische gegevens.
 2. Controle inschakelen en configureren van logboekregistratie in een bestaande virtuele machine. U kunt diagnostische gegevens op het niveau van de VM inschakelen. Diagnostische gegevens inschakelen en vervolgens logboekregistratie configureren, moet u de volgende stappen uitvoeren:
 
-   1. Selecteer de virtuele machine.
+   1. Selecteer de VM.
    2. Klik op **bewaking**.
    3. Klik op **Diagnostics**.
    4. Stel de **Status** naar **ON**.

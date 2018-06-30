@@ -16,16 +16,16 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 5df4af49a6c0251161d619c358ae68eaad3c3660
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2cb29d61de43bcd2fc6f9bfb3a94af309b1c3f55
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102206"
+ms.locfileid: "37128476"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>De ervaring aanmelden met Azure multi-factor Authentication
 > [!NOTE]
-> Het doel van dit artikel is een typische aanmeldingservaring doorlopen. Zie voor meer informatie met het aanmelden of problemen [problemen hebt met Azure multi-factor Authentication](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+> Het doel van dit artikel is een typische aanmeldingservaring doorlopen. Zie voor meer informatie met het aanmelden of problemen [problemen hebt met Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Wat is uw ervaring aanmelden?
 Uw aanmeldingservaring is afhankelijk van wat u wilt gebruiken als uw tweede factor: een telefonische oproep of een app authentication teksten. Kies de optie die het beste beschrijft wat u doet:
@@ -86,7 +86,7 @@ Soms hebt u niet de telefoon of het apparaat die u hebt ingesteld als uw contact
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u problemen met aanmelden met verificatie in twee stappen hebt, informatie op te krijgen [problemen hebt met Azure multi-factor Authentication](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+Als u problemen met aanmelden met verificatie in twee stappen hebt, informatie op te krijgen [problemen hebt met Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 Meer informatie over hoe [de instellingen van de verificatie in twee stappen beheren](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md).
 

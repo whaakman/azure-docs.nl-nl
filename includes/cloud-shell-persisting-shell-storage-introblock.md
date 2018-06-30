@@ -19,7 +19,7 @@ Wanneer u basisinstellingen en alleen een abonnement selecteren, maakt Cloud She
 De bestandsshare koppelt als `clouddrive` in uw `$Home` directory. Dit is een eenmalige bewerking en de bestandsshare koppelt automatisch in de volgende sessies. 
 
 > [!NOTE]
-> Voor beveiliging, moet elke gebruiker hun eigen opslagruimte inrichten.  Voor op rollen gebaseerde toegangsbeheer (RBAC), moeten gebruikers Inzender toegang hebben of hoger.
+> Voor beveiliging, moet elke gebruiker voorzien in hun eigen opslagaccount.  Voor op rollen gebaseerde toegangsbeheer (RBAC), moeten gebruikers Inzender toegang hebben of boven aan de opslag account niveau.
 
 In Bash, bevat de bestandsshare ook een afbeelding 5 GB automatisch voor u die gemaakt wordt zich blijft voordoen gegevens in uw `$Home` directory. 
 

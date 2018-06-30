@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6c46ada7fc95d5789512f8f7c7842852e6a86b69
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249290"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112983"
 ---
-# <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Herstel na noodgevallen met Azure DNS- en Traffic Manager
+# <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Herstel na noodgevallen met Azure DNS en Traffic Manager
 
 Herstel na noodgevallen artikel gaat over het herstellen van een ernstige verlies aan functionaliteit van de toepassing. Als u wilt ervoor kiest een noodherstel, eigenaren van zakelijke en technologische moeten eerst bepalen het niveau van functionaliteit die nodig is tijdens een ramp, zoals - niet beschikbaar of gedeeltelijk beschikbaar via gereduceerde of later beschikbaar of volledig beschikbaar.
 De meeste zakelijke klanten kiest een architectuur met meerdere regio voor tolerantie tegen een toepassing of het niveau failover-infrastructuur. Klanten kunnen verschillende manieren in de aanvraag voor certificaatvernieuwing voor failover en hoge beschikbaarheid via redundante architectuur kiezen. Hier volgen enkele van de populaire methoden:
@@ -59,7 +59,7 @@ DNS is een van de meest efficiënte mechanismen voor het netwerkverkeer omleiden
 
 Het is belangrijk te weten van enkele concepten in DNS die grote schaal wordt gebruikt voor het bespreken van de oplossingen die zijn opgegeven in dit artikel:
 - **DNS A-Record** – A-Records zijn verwijzingen die een domein naar een IPv4-adres verwijzen. 
-- **De naam van CNAME- of Canonical** -dit recordtype wordt gebruikt om te verwijzen naar een andere DNS-record. CNAME reageert niet met een IP-antwoord maar in plaats daarvan de pointer naar de record met het IP-adres. 
+- **De naam van CNAME- of Canonical** -dit recordtype wordt gebruikt om te verwijzen naar een andere DNS-record. CNAME reageert niet met een IP-adres, maar in plaats daarvan de pointer naar de record met het IP-adres. 
 - **Routering gewogen** – een kunt kiezen om te koppelen van een gewicht voor service-eindpunten en distribueert u vervolgens het verkeer op basis van de gewichten toegewezen. Deze methode voor het doorsturen is een van de vier traffic routing mechanismen beschikbaar binnen het Traffic Manager. Zie voor meer informatie [routeringsmethode gewogen](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Prioriteit routering** – prioriteit routering is gebaseerd op statuscontroles van eindpunten. Standaard Azure Traffic manager verzendt alle verkeer van het eindpunt van de hoogste prioriteit en bij een fout of noodgeval Traffic Manager het verkeer gerouteerd naar de secundaire eindpunt. Zie voor meer informatie [routeringsmethode voor prioriteit](../traffic-manager/traffic-manager-routing-methods.md#priority).
 

@@ -2,18 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines
-author: rogara
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: d05d6d4a8bfc4450de4881e704b0e9f7b7b4716d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414566"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138140"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -102,7 +102,7 @@ Klanten kunnen een momentopname van het bijbehorende beheerde schijven en gebrui
 Ja, zowel beheerde als onbeheerde schijven worden ondersteund. U wordt aangeraden dat u beheerde schijven voor nieuwe workloads en migreren van uw huidige werkbelastingen naar beheerde schijven.
 
 
-**Als ik een schijf van 128 GB maken en vervolgens de grootte tot 130 GB te verhogen, ik gefactureerd voor de volgende schijfgrootte (512 GB)?**
+**Als ik een schijf van 128 GB maken en vervolgens de grootte tot 130 GB te verhogen, ik gefactureerd voor de volgende schijfgrootte (256 GB)?**
 
 Ja.
 
@@ -209,11 +209,11 @@ Nee.
 
 **Is versleuteling van opslag Service alleen beschikbaar in specifieke gebieden?**
 
-Nee. Het is beschikbaar in alle regio's waar beheerd schijven beschikbaar zijn. Beheerde schijven is beschikbaar in alle openbare regio's en Duitsland.
+Nee. Het is beschikbaar in alle regio's waar beheerd schijven beschikbaar zijn. Beheerde schijven is beschikbaar in alle openbare regio's en Duitsland. Het is ook beschikbaar in China, maar alleen voor Microsoft sleutels, niet beheerde de klant beheerde sleutels.
 
 **Hoe vind ik als mijn beheerde schijf worden versleuteld?**
 
-U vindt hier de tijd waarop een beheerde schijf is gemaakt in de Azure-portal, Azure CLI en PowerShell. De schijf wordt versleuteld als de tijd na 9 juni 2017. 
+U vindt hier de tijd waarop een beheerde schijf is gemaakt in de Azure-portal, Azure CLI en PowerShell. De schijf wordt versleuteld als de tijd na 9 juni 2017.
 
 **Hoe kan ik mijn bestaande schijven die zijn gemaakt vóór 10 juni 2017 coderen?**
 

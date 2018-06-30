@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 7ea727d5fb004ca224407a8b1c93a6f11448b5e7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5df8b3d91f52e4809ef43e3e376004e4274b4400
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231352"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Zelfstudie: Azure Active Directory-integratie met JIRA SAML SSO door Microsoft (V5.2)
 
@@ -166,7 +166,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     > [!TIP]
     > Zorg ervoor dat er slechts één certificaat toegewezen aan de app, zodat er geen fout is bij het oplossen van de metagegevens. Als er meerdere certificaten, bij het omzetten van de metagegevens, haalt de beheerder een fout opgetreden.
 
-    a. In **URL metagegevens** textbox plakken **Url voor federatieve metagegevens App** de waarde die u hebt gekopieerd van de Azure portal en klik op de **oplossen** knop. De URL van de metagegevens IdP worden gelezen en alle informatie in de velden gevuld.
+    a. In **metagegevens-URL** textbox plakken **App-Url voor federatieve metagegevens** waarde die u hebt gekopieerd van de Azure-portal en klik op de **oplossen** knop. De URL van de metagegevens IdP worden gelezen en alle informatie in de velden gevuld.
 
     b. Kopiëren de **id, de antwoord-URL en de URL met eenmalige** waarden en plak ze in **id, de antwoord-URL en de URL met eenmalige** respectievelijk in tekstvakken **JIRA SAML SSO door Microsoft (V5.2)-domein en URL's**  sectie op Azure-portal.
 
@@ -224,11 +224,11 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 ### <a name="create-a-jira-saml-sso-by-microsoft-v52-test-user"></a>Een JIRA SAML SSO door Microsoft (V5.2) testgebruiker maken
 
-Om Azure AD-gebruikers zich aanmelden bij JIRA on-premises server, moeten ze worden ingericht in JIRA lokale server.
+Om Azure AD-gebruikers zich aanmelden bij JIRA lokale server, moeten ze worden ingericht in JIRA lokale server.
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan bij uw JIRA on-premises server als beheerder.
+1. Meld u aan bij uw lokale JIRA server als beheerder.
 
 2. Beweeg de muisaanwijzer op het tandwiel en klik op de **Gebruikersbeheer**.
 

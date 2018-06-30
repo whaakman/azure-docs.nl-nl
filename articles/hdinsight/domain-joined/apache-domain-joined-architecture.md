@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: f4380f5d6ec379d5807f697294623a672bd270ae
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8503534031dc5774e64c58edd3e158162a5a6aee
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715238"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110451"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Azure Hadoop-clusters in aan domein gekoppelde HDInsight plannen
 
@@ -50,7 +50,7 @@ De volgende schermafbeelding ziet een organisatie-eenheid gemaakt in contoso.com
 HDInsight ondersteunt momenteel alleen AAD-DS als de primaire domeincontroller het cluster zullen communiceren met Kerberise het cluster. Andere complexe AD-instellingen zijn echter ook mogelijk, zolang deze leidt tot het AAD-DS inschakelen voor HDI-toegang.
 
 - **[Azure Active Directory Domain Services (AAD-DS)](../../active-directory-domain-services/active-directory-ds-overview.md)**: deze service biedt een beheerd domein, volledig compatibel met Windows Server Active Directory is. Microsoft zorgt voor beheer, patchen en de bewaking van het domein in de instellingen voor een maximaal Available(HA). U kunt uw cluster implementeren zonder dat u over het beheren van domeincontrollers. Gebruikers, groepen en wachtwoorden worden gesynchroniseerd vanuit uw Azure Active Directory(AAD) [synchronisatie in één richting van AAD naar AAD DS], waardoor gebruikers aan te melden bij het cluster met dezelfde zakelijke referenties. Zie voor meer informatie [hoe configureren domein HDInsight-clusters met AAD DS](./apache-domain-joined-configure-using-azure-adds.md).
-- **On-premises AD of AD op IaaS VM's**: als u een on-premises AD of andere complexe AD hebt instellingen voor uw domein, kunt u deze identiteiten met AAD met AD Connect vervolgens inschakelen tenant van AAD-DS op dat AD synchroniseren. Omdat Kerberos op wachtwoord-hashes vertrouwt, moet u [wachtwoordhashsynchronisatie op AAD-DS inschakelen](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Als u gebruikmaakt van Federatie met AD-federation Services (ADFS), kunt u eventueel wachtwoordhashsynchronisatie als een back-up instellen als uw AD FS-infrastructuur is mislukt. Zie voor meer informatie [wachtwoordhashsynchronisatie met AAD Connect-synchronisatie inschakelen](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). On-premises AD of AD met op IaaS VM's alleen, is zonder AAD en AAD-DS niet een ondersteunde configuratie voor het lidmaatschap van domein van HDI cluster.
+- **Lokale AD of AD op IaaS VM's**: als u een on-premises hebt AD of andere complexe AD instellingen voor uw domein, kunt u deze identiteiten met AAD met AD Connect vervolgens inschakelen tenant van AAD-DS op dat AD synchroniseren. Omdat Kerberos op wachtwoord-hashes vertrouwt, moet u [wachtwoordhashsynchronisatie op AAD-DS inschakelen](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Als u gebruikmaakt van Federatie met AD-federation Services (ADFS), kunt u eventueel wachtwoordhashsynchronisatie als een back-up instellen als uw AD FS-infrastructuur is mislukt. Zie voor meer informatie [wachtwoordhashsynchronisatie met AAD Connect-synchronisatie inschakelen](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). Met on-premises AD of AD op IaaS VM's alleen zonder AAD en AAD-DS is niet een ondersteunde configuratie voor het lidmaatschap van domein van HDI cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [HDInsight-clusters domein configureren](apache-domain-joined-configure-using-azure-adds.md).

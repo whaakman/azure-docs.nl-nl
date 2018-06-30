@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637766"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131548"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Waarschuwingen verzamelen van Nagios en Zabbix in logboekanalyse van OMS-Agent voor Linux 
 [Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) open-source hulpprogramma's voor controle zijn. U kunt waarschuwingen van deze hulpprogramma's in logboekanalyse verzamelen om te kunnen analyseren ze samen met [waarschuwingen uit andere bronnen](log-analytics-alerts.md).  Dit artikel wordt beschreven hoe u configureert de OMS-Agent voor Linux voor het verzamelen van waarschuwingen van deze systemen.
@@ -105,7 +106,7 @@ Waarschuwing die is verzameld door Zabbix-records hebben een **Type** van **waar
 | Type |*Een waarschuwing* |
 | SourceSystem |*Zabbix* |
 | AlertName | De naam van de waarschuwing. |
-| AlertPriority | Ernst van de waarschuwing.<br><br>niet geclassificeerd<br>informatie<br>Waarschuwing<br>gemiddeld<br>Hoog<br>noodherstel  |
+| AlertPriority | Ernst van de waarschuwing.<br><br>niet geclassificeerd<br>informatie<br>Waarschuwing<br>gemiddeld<br>hoog<br>noodherstel  |
 | AlertState | Status van de waarschuwing.<br><br>0 - status is bijgewerkt.<br>1 - status is onbekend.  |
 | AlertTypeNumber | Hiermee geeft u op of in een waarschuwing meerdere gebeurtenissen van het probleem kan worden gegenereerd.<br><br>0 - status is bijgewerkt.<br>1 - status is onbekend.    |
 | Opmerkingen | Aanvullende opmerkingen voor waarschuwing. |

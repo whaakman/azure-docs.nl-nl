@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: bwren
-ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 1125cdb5b1cc6829345c71537582816d020edc53
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636729"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37132928"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (openbare preview)
 In dit artikel laat zien hoe de HTTP-gegevens Collector API gebruiken om gegevens te verzenden met logboekanalyse van een REST-API-client.  Dit wordt beschreven hoe gegevens die door het script of een toepassing verzameld opmaken, opnemen in een aanvraag en die aanvraag geautoriseerd door logboekanalyse hebben.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -60,7 +61,7 @@ Voor het gebruik van de API van HTTP-Data Collector, moet u een POST-aanvraag me
 | Autorisatie |De autorisatie-handtekening. U kunt later in dit artikel lezen over het maken van een HMAC SHA256-header. |
 | Log-Type |Geef het recordtype van de gegevens die wordt verzonden. Het logboektype ondersteunt momenteel alleen alfanumerieke tekens. Het ondersteunt geen numerieke waarden of speciale tekens. De maximale grootte voor deze parameter is 100 tekens. |
 | x-ms-date |De datum waarop de aanvraag is verwerkt in RFC 1123-indeling. |
-| Time-gegenereerd-veld |De naam van een veld in de gegevens die de tijdstempel van het gegevensitem bevat. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Mag niet null zijn en deze moet een geldige datum-tijd bevatten. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt ingenomen. De inhoud van het berichtenveld moeten volgen de ISO 8601-notatie jjjj-MM-ssZ. |
+| Time-gegenereerd-veld |De naam van een veld in de gegevens die de tijdstempel van het gegevensitem bevat. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt ingenomen. De inhoud van het berichtenveld moeten volgen de ISO 8601-notatie jjjj-MM-ssZ. |
 
 ## <a name="authorization"></a>Autorisatie
 Elk verzoek aan de API van Log Analytics HTTP Data Collector moet een autorisatie-header bevatten. Voor een aanvraag voor verificatie, moet u de aanvraag met de primaire of de secundaire sleutel voor de werkruimte die de aanvraag wordt ingediend ondertekenen. Vervolgens moet die handtekening doorgegeven als onderdeel van de aanvraag.   
@@ -101,29 +102,33 @@ De voorbeelden in de volgende secties hebben voorbeeldcode voor hulp bij het mak
 De hoofdtekst van het bericht moet zich in JSON. Er moet een of meer records met de eigenschap naam / waarde-paren opnemen in deze indeling:
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 U kunt meerdere records samen in één aanvraag batch met behulp van de volgende indeling. Alle records moet hetzelfde type zijn.
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-},
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    },
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 ## <a name="record-type-and-properties"></a>Recordtype en de eigenschappen
@@ -137,7 +142,7 @@ Voor het gegevenstype van de eigenschap voegt Log Analytics het achtervoegsel vo
 |:--- |:--- |
 | Reeks |_K |
 | Boole-waarde |_b |
-| dubbele |_d |
+| Double |_d |
 | Datum/tijd |_t |
 | GUID |_g |
 
@@ -382,7 +387,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-sample"></a>Python-voorbeeld
+### <a name="python-2-sample"></a>Voorbeeld 2 Python
 ```
 import json
 import requests

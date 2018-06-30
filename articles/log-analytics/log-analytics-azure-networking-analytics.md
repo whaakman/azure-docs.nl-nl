@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: na
+ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263527"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127889"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure netwerken bewakingsoplossingen in Log Analytics
 
@@ -31,7 +32,7 @@ Log Analytics biedt de volgende oplossingen voor het bewaken van uw netwerken:
  * Azure Application Gateway metrische gegevens
 * Oplossingen voor het bewaken en controleren netwerkactiviteit in uw netwerk cloud
 * [Verkeer Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Netwerkbeveiligingsgroep Azure Analytics
+* Analyse van Azure-netwerkbeveiligingsgroep
 
 ## <a name="network-performance-monitor-npm"></a>Netwerk-Prestatiemeter (NPM)
 
@@ -77,7 +78,8 @@ De volgende logboeken worden ondersteund voor Toepassingsgateways:
 * ApplicationGatewayPerformanceLog
 * ApplicationGatewayFirewallLog
 
-De volgende metrische gegevens worden voor Toepassingsgateways ondersteund:
+De volgende metrische gegevens worden ondersteund voor Toepassingsgateways: opnieuw
+
 
 * doorvoer van 5 minuten
 
@@ -140,6 +142,12 @@ U kunt op elk van de zoekpagina logboek kunt resultaten weergeven door de tijd, 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Netwerkbeveiligingsgroep Azure analytics-oplossing in Log Analytics
 
 ![Netwerkbeveiligingsgroep Azure Analytics symbool](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> De Netwerkbeveiligingsgroep analytics-oplossing wordt naar communityondersteuning verplaatst, omdat de functionaliteit is vervangen door [Traffic Analytics](../network-watcher/traffic-analytics.md).
+> - De oplossing is nu beschikbaar in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) en zal spoedig niet langer beschikbaar in Azure Marketplace.
+> - Voor bestaande klanten die de oplossing al is toegevoegd aan hun werkplek, wordt voortgezet zonder wijzigingen werken.
+> - Microsoft blijft voor de ondersteuning van de verzendende NSG diagnostische logboeken naar de werkruimte op basis van de diagnostische instellingen.
 
 De volgende logboeken worden ondersteund voor netwerkbeveiligingsgroepen:
 
@@ -213,7 +221,7 @@ De bijgewerkte oplossingen gebruiken:
 
     | In plaats van: | Gebruik: |
     | --- | --- |
-    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; waar OperationName == "ApplicationGatewayAccess" | AzureDiagnostics &#124; waar ResourceType = 'APPLICATIONGATEWAYS' en OperationName == "ApplicationGatewayAccess" |
     | NetworkApplicationgateways &#124; waar OperationName == "ApplicationGatewayPerformance" | AzureDiagnostics &#124; waar ResourceType == 'APPLICATIONGATEWAYS' en OperationName = ApplicationGatewayPerformance |
     | NetworkSecuritygroups | AzureDiagnostics &#124; waar ResourceType == "NETWORKSECURITYGROUPS" |
 

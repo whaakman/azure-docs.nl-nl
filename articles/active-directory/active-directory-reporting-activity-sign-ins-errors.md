@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cc5b4955d6bd239f99a9be0ab158ac8003f67ddf
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232356"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110518"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -104,7 +104,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |50120|Probleem met de JWT-header. Neem contact op met de beheerder van de tenant.|
 |50124|Claimtransformatie bevat een ongeldige invoerparameter. Neem contact op met de tenantbeheerder om het beleid bij te werken.|
 |50125|Het aanmelden is onderbroken vanwege het opnieuw instellen van een wachtwoord of een nieuwe wachtwoordregistratie-invoer|
-|50126|Gebruikersnaam of wachtwoord is ongeldig of on-premises gebruikersnaam of wachtwoord is ongeldig.|
+|50126|Ongeldige gebruikersnaam of wachtwoord of ongeldige lokale gebruikersnaam of wachtwoord.|
 |50127|De gebruiker moet een broker-app installeren om toegang te krijgen tot zijn inhoud.|
 |50128|De domeinnaam is ongeldig: geen tenant-identificatiegegevens gevonden in de aanvraag of impliciet door opgegeven referenties|
 |50129|Het apparaat is niet toegevoegd aan de werkplek: aan werkplek toevoegen is vereist om het apparaat te registreren.|

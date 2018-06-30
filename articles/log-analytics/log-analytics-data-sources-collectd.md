@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 59b6f8b82d0f714d4526147b42f68e14bf0aa2bd
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855206"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127693"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Gegevens verzamelen van CollectD op Linux-agents in Log Analytics
 [CollectD](https://collectd.org/) is een open-source Linux-daemonwijzigingen die regelmatig maatstaven voor prestaties van toepassingen en het niveau van systeemgegevens verzamelt. Voorbeeldtoepassingen bevatten de Java Virtual Machine (JVM), MySQL-Server en Nginx. In dit artikel bevat informatie over het verzamelen van prestatiegegevens van CollectD in logboekanalyse.
@@ -112,8 +113,8 @@ Voor het onderhouden van een vertrouwde model tussen infrastructuur metrische ge
 | CollectD metriek veld | Log Analytics-veld |
 |:--|:--|
 | host | Computer |
-| Invoegtoepassing | Geen |
-| plugin_instance | Exemplaarnaam<br>Als **plugin_instance** is *null* vervolgens InstanceName = "*_Totaal*' |
+| invoegtoepassing | Geen |
+| plugin_instance | Instantienaam<br>Als **plugin_instance** is *null* vervolgens InstanceName = "*_Totaal*' |
 | type | Objectnaam |
 | type_instance | CounterName<br>Als **type_instance** is *null* vervolgens CounterName =**leeg** |
 | dsnames] | CounterName |

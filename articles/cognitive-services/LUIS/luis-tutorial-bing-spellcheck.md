@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 340fb34c234a12f93fcfc3182ac3fd44fce324fe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 96b23146e726b7fee86b7e449c81d7efc0073e8d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35345971"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127666"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Verkeerd gespelde woorden met spellingcontrole van Bing corrigeren
 
@@ -26,8 +26,9 @@ Uw [eerste Bing spellen controleren API v7 sleutel](https://azure.microsoft.com/
 
 ![Gratis sleutel maken](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-## <a name="create-subscription-key"></a>Abonnement-sleutel maken
-Als uw gratis sleutel is verlopen, moet u de abonnementssleutel van een maken.
+< een naam 'maken-subscription-key"></a>
+## <a name="create-endpoint-key"></a>Sleutel voor eindpunt maken
+Als uw gratis sleutel is verlopen, moet u een eindpuntsleutel maken.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 
@@ -56,7 +57,7 @@ Als uw gratis sleutel is verlopen, moet u de abonnementssleutel van een maken.
 10. Kopieer de eerste sleutel. U hoeft alleen een van de twee sleutels. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>Met behulp van de sleutel in LUIS test Configuratiescherm
-Er zijn twee plaatsen in LUIS de sleutel te gebruiken. De eerste is in de [test Configuratiescherm](train-test.md#view-bing-spell-check-corrections-in-test-panel). De sleutel wordt niet opgeslagen in LUIS, maar in plaats daarvan wordt een sessievariabele. U moet de sleutel instellen elke keer dat u wilt dat het paneel test de Bing spellen controleren API v7-service op de utterance toepassen. Zie [instructies](train-test.md#view-bing-spell-check-corrections-in-test-panel) in het deelvenster test voor het instellen van de sleutel.
+Er zijn twee plaatsen in LUIS de sleutel te gebruiken. De eerste is in de [test Configuratiescherm](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). De sleutel wordt niet opgeslagen in LUIS, maar in plaats daarvan wordt een sessievariabele. U moet de sleutel instellen elke keer dat u wilt dat het paneel test de Bing spellen controleren API v7-service op de utterance toepassen. Zie [instructies](interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in het deelvenster test voor het instellen van de sleutel.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>De sleutel toe te voegen aan de eindpunt-URL
 De eindpunt-query moet de sleutel doorgegeven in de queryreeksparameters voor elke query die u wilt toepassen correctie. U hebt mogelijk een chatbot die LUIS aanroept of kunt u rechtstreeks het eindpunt LUIS API aanroepen. Ongeacht hoe het eindpunt wordt aangeroepen, moet elke aanroep bevatten de vereiste informatie voor correcties goed te laten werken.

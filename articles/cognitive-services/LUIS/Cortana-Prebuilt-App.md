@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: v-geberr
-ms.openlocfilehash: b792d090d037ef180258a1634d4bd063c0a71b9a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c7249cb8d8cff29f419412025c69e3b2b76b49d1
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345053"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110654"
 ---
 # <a name="cortana-prebuilt-app"></a>Vooraf gedefinieerde Cortana-App
 
@@ -46,7 +46,7 @@ U kunt de vooraf gedefinieerde Cortana-app met behulp van de volgende eindpunten
 > Het eindpunt URL's zijn ook toegankelijk in de [apps - persoonlijke assistent toepassingen ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c32) API.
 
 ## <a name="try-out-the-personal-assistant-app"></a>De app persoonlijke assistent uitproberen
-U kunt uw abonnement sleutel argument en query-tekenreeks voor het aanroepen van het eindpunt toevoegen aan het eindpunt. 
+U kunt uw eindpunt sleutel argument en query-tekenreeks voor het aanroepen van het eindpunt toevoegen aan het eindpunt. 
 
 Bijvoorbeeld, als de utterance die u wilt interpreteren is 'maken een afspraak voor teamvergadering', en vervolgens u die utterance aan de eindpunt-URL toevoegen kunt. 
 
@@ -54,7 +54,7 @@ Bijvoorbeeld, als de utterance die u wilt interpreteren is 'maken een afspraak v
 https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key={YOUR-SUBSCRIPTION-KEY}&q=create an appointment for team meeting
 ```
 
-Plak de URL in een webbrowser en vervang de abonnementssleutel van uw voor de `{YOUR-SUBSCRIPTION-KEY}` veld.
+Plak de URL in een webbrowser en vervang de eindpunt-toegangssleutel voor de `{YOUR-SUBSCRIPTION-KEY}` veld.
 
 In de browser kunt u zien dat de vooraf gedefinieerde app Cortana identificeert `builtin.intent.calendar.create_calendar_entry` als het doel en `builtin.calendar.title` als het entiteitstype, en voor de utterance `create an appointment for team meeting`.
 

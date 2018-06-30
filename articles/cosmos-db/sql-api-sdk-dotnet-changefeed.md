@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937414"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113714"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET wijziging Feed Processor SDK: Downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -41,39 +41,10 @@ ms.locfileid: "36937414"
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
-### <a name="stable-builds"></a>Stabiele builds
+### <a name="v2-builds"></a>v2-builds
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* Meer logboekregistratie toegevoegd.
-* Een geheugenlek DocumentClient vast bij het aanroepen van de schatting van de werkitems in de wachtrij meerdere keren.
-
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* Verbeteringen in de schatting van de werkitems in de wachtrij.
-
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* Verbeteringen in stabiliteit.
-  * Oplossing voor het verwerken van de geannuleerde taken probleem dat tot leiden kan observers is gestopt op een aantal partities.
-* Ondersteuning voor handmatige plaatsen van controlepunten.
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 versies en hoger.
-
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Voegt ondersteuning toe voor .NET Standard 2.0. Het pakket biedt nu ondersteuning voor `netstandard2.0` en `net451` framework monikers.
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 versies en hoger.
-* Compatibel met [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 versies en hoger.
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Corrigeert een probleem met de berekening van de schatting van de resterende hoeveelheid werk wanneer de wijziging Feed leeg is of geen werk in behandeling was.
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 versies en hoger.
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Een methode voor het verkrijgen van een schatting van de resterende hoeveelheid werk moeten worden verwerkt in de wijziging Feed toegevoegd.
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 versies en hoger.
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * GA SDK
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versies 1.14.1 en lager.
-
-### <a name="pre-release-builds"></a>Voorlopige versie builds
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * De volgende problemen zijn verholpen:
@@ -108,6 +79,39 @@ ms.locfileid: "36937414"
 * 100% compatibel met v1 API.
 * Nieuwe codebasis.
 * Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 versies en hoger.
+
+### <a name="v1-builds"></a>V1-builds
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Meer logboekregistratie toegevoegd.
+* Een geheugenlek DocumentClient vast bij het aanroepen van de schatting van de werkitems in de wachtrij meerdere keren.
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Verbeteringen in de schatting van de werkitems in de wachtrij.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+* Verbeteringen in stabiliteit.
+  * Oplossing voor het verwerken van de geannuleerde taken probleem dat tot leiden kan observers is gestopt op een aantal partities.
+* Ondersteuning voor handmatige plaatsen van controlepunten.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 versies en hoger.
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* Voegt ondersteuning toe voor .NET Standard 2.0. Het pakket biedt nu ondersteuning voor `netstandard2.0` en `net451` framework monikers.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 versies en hoger.
+* Compatibel met [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 versies en hoger.
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Corrigeert een probleem met de berekening van de schatting van de resterende hoeveelheid werk wanneer de wijziging Feed leeg is of geen werk in behandeling was.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 versies en hoger.
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Een methode voor het verkrijgen van een schatting van de resterende hoeveelheid werk moeten worden verwerkt in de wijziging Feed toegevoegd.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 versies en hoger.
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* GA SDK
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versies 1.14.1 en lager.
+
 
 ## <a name="release--retirement-dates"></a>Release & buiten gebruik stellen datums
 Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK om de overgang naar een nieuwere/ondersteunde versie vloeiend.

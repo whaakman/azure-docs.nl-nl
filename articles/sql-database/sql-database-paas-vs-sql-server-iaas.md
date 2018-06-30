@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: a212a595c02a048721f1a8753b437f74f2fc4973
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308951"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114398"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Kies een SQL Server-cloudoptie: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)
 
@@ -124,7 +124,7 @@ Voor **SQL Server die wordt uitgevoerd op Azure Virtual Machines**, biedt Micros
 
 **Beheerde exemplaar van SQL Database** vereenvoudigt de migratie van bestaande toepassingen met Azure SQL Database, zodat u kunt een gemigreerde database toepassingen op de markt in Azure snel te brengen.
 
-**SQL Server wordt uitgevoerd op Azure Virtual machines** is ideaal als uw bestaande of nieuwe toepassingen vereisen grote databases of toegang tot alle functies in SQL Server of Windows of Linux, en u voorkomen dat aan de tijd en kosten wilt van het ophalen van nieuwe hardware van de on-premises. Het is ook geschikt wanneer u wilt dat voor het migreren van bestaande on-premises toepassingen en databases naar Azure-is - in gevallen waarin Azure SQL Database-beheerd instantie niet geschikt is. Omdat u de presentatie-, toepassings- en gegevenslagen niet hoeft te wijzigen, bespaart u tijd en geld op het opnieuw vormgeven van uw architectuur. In plaats daarvan kunt u zich richten op het migreren van uw oplossingen naar Azure en het uitvoeren van prestatieoptimalisatie die mogelijk wordt vereist door het Azure-platform. Zie voor meer informatie [Best practices prestaties for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
+**SQL Server wordt uitgevoerd op Azure Virtual machines** is ideaal als uw bestaande of nieuwe toepassingen vereisen grote databases of toegang tot alle functies in SQL Server of Windows of Linux, en u wilt voorkomen dat op de tijd en kosten van het ophalen van een nieuwe on-premises hardware. Het is ook geschikt wanneer u wilt dat voor het migreren van bestaande on-premises toepassingen en databases naar Azure-is - in gevallen waarin Azure SQL Database-beheerd instantie niet geschikt is. Omdat u de presentatie-, toepassings- en gegevenslagen niet hoeft te wijzigen, bespaart u tijd en geld op het opnieuw vormgeven van uw architectuur. In plaats daarvan kunt u zich richten op het migreren van uw oplossingen naar Azure en het uitvoeren van prestatieoptimalisatie die mogelijk wordt vereist door het Azure-platform. Zie voor meer informatie [Best practices prestaties for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
 
 ## <a name="summary"></a>Samenvatting
 In dit artikel werden SQL Database en SQL Server op Azure Virtual Machines (VM's) verkend en algemene zakelijke motivators besproken die invloed kunnen hebben op uw beslissing. Hier volgt een samenvatting met enkele suggesties:

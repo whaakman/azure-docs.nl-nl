@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b31e5cc3f99bdbb45aae6f9d71efdabdcc60f9c8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34677356"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138174"
 ---
 **Laatste document update**: 21 mei 2018 3:00 PM PST.
 
@@ -28,7 +28,7 @@ Heeft een nieuwe subklasse van speculatieve side-kanaal beveiligingslek bekend a
 >
 > In latere februari 2018, Intel Corporation gepubliceerd bijgewerkte [Microcode revisie richtlijnen](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) op de status van hun microcode-versies die de stabiliteit te verbeteren en beperken dat recente beveiligingsproblemen vermeld door [Google Project nul](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). De oplossingen die door Azure op [3 januari 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) worden niet beïnvloed door van Intel microcode update. Microsoft al ingevoerd sterk oplossingen Azure om klanten te beschermen van andere virtuele machines in Azure.  
 >
-> Van Intel microcode adressen variant 2 Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) of vertakking doel injectie) te beschermen tegen aanvallen die alleen zijn van toepassing waarin u gedeelde of niet-vertrouwde werkbelasting uitvoeren binnen uw virtuele machines in Azure. Onze technici test de stabiliteit om te beperken van invloed op de prestaties van de microcode, voordat het beschikbaar maken op Azure-klanten.  Als klanten heel weinig niet-vertrouwde werkbelastingen binnen hun virtuele machines worden uitgevoerd, moet de meeste klanten niet inschakelen van deze mogelijkheid eenmaal uitgebracht. 
+> Van Intel microcode adressen variant 2 Spectre - [CVE-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715) of vertakking doel injectie - bescherming tegen aanvallen die alleen zijn van toepassing waarin u gedeelde of niet-vertrouwde werkbelasting uitvoeren binnen uw virtuele machines in Azure. Onze technici test de stabiliteit om te beperken van invloed op de prestaties van de microcode, voordat het beschikbaar maken op Azure-klanten.  Als klanten heel weinig niet-vertrouwde werkbelastingen binnen hun virtuele machines worden uitgevoerd, moet de meeste klanten niet inschakelen van deze mogelijkheid eenmaal uitgebracht. 
 >
 > Deze pagina wordt bijgewerkt als u meer informatie beschikbaar is.  
 

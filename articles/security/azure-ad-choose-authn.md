@@ -1,5 +1,5 @@
 ---
-title: Kies de juiste verificatiemethode voor uw Azure AD-oplossing voor hybride identiteit | Microsoft-documenten
+title: Kies de juiste verificatiemethode voor uw Azure AD-oplossing voor hybride identiteit | Microsoft Docs
 description: Deze handleiding helpt CEO, CIO's CISOs, Chief identiteit architecten, Enterprise-architecten en beveiliging en besluitvormers IT verantwoordelijk voor het kiezen van een verificatiemethode voor hun Azure AD-oplossing voor hybride identiteit in middelgrote tot grote organisaties.
 services: active-directory
 keywords: ''
@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 7e2eb9bad8c95e61d5b750cacd0724fc2536f2c5
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 01b76ea902ec92f8ab32bc00cff27b1b890ce9ff
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294104"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113099"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Kies de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
@@ -159,7 +159,7 @@ De architectuur op hoog niveau onderdelen vereist voor elke verificatiemethode d
 |Overweging|Synchronisatie van wachtwoordhash + naadloze eenmalige aanmelding|Pass through-verificatie + naadloze eenmalige aanmelding|Federatie met AD FS|
 |:-----|:-----|:-----|:-----|
 |Waar treedt verificatie?|In de cloud|In de cloud na de uitwisseling van een beveiligd wachtwoord verificatie met de lokale verificatie-agent|On-premises|
-|Wat zijn de vereisten voor on-premises server buiten het provisioning-systeem: Azure AD Connect?|Geen|Een server voor elke aanvullende verificatie-agent|Twee of meer AD FS-servers<br><br>Twee of meer WAP-servers in het perimeternetwerk/DMZ-netwerk|
+|Wat zijn de vereisten van de lokale server buiten het provisioning-systeem: Azure AD Connect?|Geen|Een server voor elke aanvullende verificatie-agent|Twee of meer AD FS-servers<br><br>Twee of meer WAP-servers in het perimeternetwerk/DMZ-netwerk|
 |Wat zijn de vereisten voor lokale Internet en netwerken buiten het inrichtingsproces systeem?|Geen|[Uitgaande toegang tot Internet](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) vanaf de servers met verificatie agents|[Toegang tot Internet voor binnenkomende](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-requirements) naar WAP-servers in het perimeternetwerk<br><br>Inkomende netwerktoegang tot AD FS-servers vanaf WAP-servers in het perimeternetwerk<br><br>Netwerktaakverdeling|
 |Is er een SSL-certificaat is vereist?|Nee|Nee|Ja|
 |Is er een health monitoring oplossing?|Niet vereist|Agent-status geleverd door [Azure Active Directory-beheercentrum](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)|[Azure AD Connect Health (Engelstalig)](https://docs.microsoft.com/en-us/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|

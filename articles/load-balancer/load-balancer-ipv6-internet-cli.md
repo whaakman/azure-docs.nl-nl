@@ -1,10 +1,10 @@
 ---
 title: Maken van een openbare load balancer met IPv6 - Azure CLI | Microsoft Docs
-description: Informatie over het maken van een openbare load balancer met IPv6 in Azure Resource Manager met behulp van Azure CLI.
+description: Informatie over het maken van een openbare load balancer met IPv6 met Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 keywords: IPv6-, azure load balancer, dual-stack, openbare IP-adres, systeemeigen ipv6, mobiele, iot
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
@@ -13,21 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 10698c79b11a47a465604f90bf63e180615a5ed7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264027"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112731"
 ---
-# <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Maken van een openbare load balancer met IPv6 in Azure Resource Manager met behulp van Azure CLI
-
-> [!div class="op_single_selector"]
-> * [PowerShell](load-balancer-ipv6-internet-ps.md)
-> * [Azure-CLI](load-balancer-ipv6-internet-cli.md)
-> * [Sjabloon](load-balancer-ipv6-internet-template.md)
+# <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Maken van een openbare load balancer met IPv6 met Azure CLI
 
 
 Azure Load Balancer is een Layer-4 (TCP, UDP) load balancer. Netwerktaakverdelers bieden hoge beschikbaarheid door het distribueren van inkomend verkeer tussen orde service-exemplaren in cloudservices of virtuele machines in een load balancer-set. Load balancers kunnen ook opleveren voor deze services op meerdere poorten of meerdere IP-adressen of beide.
@@ -40,15 +35,15 @@ Het volgende diagram illustreert de oplossing die wordt geïmplementeerd met beh
 
 In dit scenario moet u de volgende Azure-resources maken:
 
-* twee virtuele machines (VM's)
-* de virtuele netwerkinterface voor elke virtuele machine met zowel IPv4 als IPv6-adressen die zijn toegewezen
+* Twee virtuele machines (VM's)
+* De virtuele netwerkinterface voor elke virtuele machine met zowel IPv4 als IPv6-adressen die zijn toegewezen
 * Een openbare load balancer met een IPv4- en een IPv6-openbare IP-adres
 * Een beschikbaarheidsset met de twee virtuele machines
-* twee taakverdelingsregels het openbare VIP's worden toegewezen aan de persoonlijke eindpunten
+* Twee taakverdelingsregels het openbare VIP's worden toegewezen aan de persoonlijke eindpunten
 
 ## <a name="deploy-the-solution-by-using-azure-cli"></a>De oplossing implementeren met behulp van Azure CLI
 
-De volgende stappen laten zien hoe een openbare load balancer maken met behulp van Azure Resource Manager met Azure CLI. Met Azure Resource Manager gemaakt en geconfigureerd elk object afzonderlijk, en deze vervolgens samen om te maken van een resource.
+De volgende stappen laten zien hoe een openbare load balancer maken met behulp van Azure CLI. Met behulp van de CLI u maken en configureren van elk object afzonderlijk, en deze vervolgens samen om te maken van een resource.
 
 Voor het implementeren van een load balancer maken en configureren van de volgende objecten:
 
@@ -58,39 +53,13 @@ Voor het implementeren van een load balancer maken en configureren van de volgen
 * **NAT-regels voor binnenkomende verbindingen**: bevat network address translation (NAT) regels dat een openbare poort op de load balancer worden toegewezen aan een poort voor een specifieke virtuele machine in de back-end-adresgroep.
 * **Tests**: statuscontroles die worden gebruikt voor het controleren van de beschikbaarheid van virtuele machine-exemplaren in de back-end-adresgroep bevat.
 
-Zie [Azure Resource Manager-ondersteuning voor load balancer](load-balancer-arm.md) voor meer informatie.
-
-## <a name="set-up-your-azure-cli-environment-to-use-azure-resource-manager"></a>Instellen van uw Azure CLI-omgeving op Azure Resource Manager gebruiken
+## <a name="set-up-azure-cli"></a>Azure CLI instellen
 
 In dit voorbeeld kunt u de Azure CLI-hulpprogramma's uitvoeren in een PowerShell-opdrachtvenster. Ter verbetering van de leesbaarheid en opnieuw kunnen worden gebruikt, moet u scriptmogelijkheden van PowerShell, niet de Azure PowerShell-cmdlets gebruiken.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [installeren en configureren van Azure CLI](../cli-install-nodejs.md) en volg de instructies tot het punt waar u uw Azure-account en abonnement selecteren.
+1. [Installeren en configureren van de Azure CLI]((https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)) volgens de stappen in de gekoppelde artikel en meld u aan bij uw Azure-account.
 
-2. Uitvoeren als u wilt overschakelen naar de modus Resource Manager, de **azure config mode** opdracht:
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-    Verwachte uitvoer:
-
-        info:    New mode is arm
-
-3. Aanmelden bij Azure en een lijst met abonnementen:
-
-    ```azurecli
-    azure login
-    ```
-
-4. Voer uw Azure-referenties bij de opdrachtprompt:
-
-    ```azurecli
-    azure account list
-    ```
-
-5. Selecteer het abonnement dat u wilt gebruiken, en noteer de abonnements-ID moet worden gebruikt in de volgende stap.
-
-6. Stel PowerShell variabelen voor gebruik met de Azure CLI-opdrachten:
+2. Stel PowerShell variabelen voor gebruik met de Azure CLI-opdrachten:
 
     ```powershell
     $subscriptionid = "########-####-####-####-############"  # enter subscription id
@@ -111,26 +80,26 @@ In dit voorbeeld kunt u de Azure CLI-hulpprogramma's uitvoeren in een PowerShell
 1. Een resourcegroep maken:
 
     ```azurecli
-    azure group create $rgName $location
+    az group create $rgName $location
     ```
 
 2. Maak een load balancer:
 
     ```azurecli
-    $lb = azure network lb create --resource-group $rgname --location $location --name $lbName
+    $lb = az network lb create --resource-group $rgname --location $location --name $lbName
     ```
 
 3. Een virtueel netwerk maken:
 
     ```azurecli
-    $vnet = azure network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
+    $vnet = az network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
     ```
 
 4. Maak twee subnetten in dit virtuele netwerk:
 
     ```azurecli
-    $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
-    $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
+    $subnet1 = az network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
+    $subnet2 = az network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
     ```
 
 ## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Openbare IP-adressen voor de front-pool maken
@@ -145,8 +114,8 @@ In dit voorbeeld kunt u de Azure CLI-hulpprogramma's uitvoeren in een PowerShell
 2. Een openbaar IP-adres voor de front-end-IP-adresgroep maken:
 
     ```azurecli
-    $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
-    $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
+    $publicipV4 = az network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
+    $publicipV6 = az network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
     ```
 
     > [!IMPORTANT]
@@ -172,10 +141,10 @@ In deze sectie kunt u de volgende IP-adresgroepen maken:
 2. Een front-end-IP-adresgroep maken en deze koppelen aan het openbare IP-adres dat u hebt gemaakt in de vorige stap en de load balancer.
 
     ```azurecli
-    $frontendV4 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
-    $frontendV6 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV6Name --public-ip-name $publicIpv6Name --lb-name $lbName
-    $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
-    $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
+    $frontendV4 = az network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
+    $frontendV6 = az network lb frontend-ip create --resource-group $rgname --name $frontendV6Name --public-ip-name $publicIpv6Name --lb-name $lbName
+    $backendAddressPoolV4 = az network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
+    $backendAddressPoolV6 = az network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
     ```
 
 ## <a name="create-the-probe-nat-rules-and-load-balancer-rules"></a>De test, NAT-regels maken en load-balancerregels
@@ -185,7 +154,7 @@ In dit voorbeeld worden de volgende items gemaakt:
 * Een test-regel om te controleren op connectiviteit met TCP-poort 80.
 * Een NAT-regel voor alle binnenkomend verkeer op poort 3389 voor poort 3389 voor RDP vertalen.\*
 * Een NAT-regel om te vertalen alle binnenkomend verkeer op poort 3391 tot poort 3389 voor remote desktop protocol (RDP).\*
-* een load balancer-regel voor een evenwicht tussen alle binnenkomend verkeer op poort 80 op poort 80 van de adressen in de back-end-pool.
+* Een load balancer-regel voor een evenwicht tussen alle binnenkomend verkeer op poort 80 op poort 80 van de adressen in de back-end-pool.
 
 \* NAT-regels zijn gekoppeld aan een specifiek exemplaar van de virtuele machine achter de load balancer. Het netwerkverkeer dat op poort 3389 binnenkomt is verzonden naar de specifieke virtuele machine en de poort die is gekoppeld aan de NAT-regel. U moet een protocol (UDP of TCP) voor een NAT-regel opgeven. U kunt beide protocollen toewijzen aan dezelfde poort.
 
@@ -204,27 +173,27 @@ In dit voorbeeld worden de volgende items gemaakt:
     Het volgende voorbeeld wordt elke 15 seconden gemaakt TCP voor een test waarmee wordt gecontroleerd of de verbinding met de back-end-TCP-poort 80. Na twee achtereenvolgende mislukte pogingen, worden de back-end-bron niet beschikbaar is gemarkeerd.
 
     ```azurecli
-    $probeV4V6 = azure network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
+    $probeV4V6 = az network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
     ```
 
 3. Binnenkomende NAT-regels waarmee de RDP-verbindingen met de back-end-bronnen maken:
 
     ```azurecli
-    $inboundNatRuleRdp1 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
-    $inboundNatRuleRdp2 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
+    $inboundNatRuleRdp1 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
+    $inboundNatRuleRdp2 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
 4. Load balancerregels maken waarmee verkeer naar de andere back-end-poorten, afhankelijk van de front-endserver die de aanvraag verzenden.
 
     ```azurecli
-    $lbruleIPv4 = azure network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
-    $lbruleIPv6 = azure network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-address-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
+    $lbruleIPv4 = az network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
+    $lbruleIPv6 = az network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-address-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
     ```
 
 5. Controleer uw instellingen:
 
     ```azurecli
-    azure network lb show --resource-group $rgName --name $lbName
+    az network lb show --resource-group $rgName --name $lbName
     ```
 
     Verwachte uitvoer:
@@ -287,10 +256,10 @@ NIC's maken en koppelen aan de NAT-regels, load balancer-regels en -tests.
 2. Maken van een NIC voor elke back-end en toevoegen van een IPv6-configuratie:
 
     ```azurecli
-    $nic1 = azure network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-version "IPv4" --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
-    $nic1IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic1Name
+    $nic1 = az network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-version "IPv4" --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
+    $nic1IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic1Name
 
-    $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule2V4Id
+    $nic2 = az network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule2V4Id
     $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
@@ -324,21 +293,21 @@ Voor het maken van virtuele machines, moet u een opslagaccount hebben. De virtue
     U kunt een bestaand opslagaccount gebruiken bij het maken van de virtuele machines. U kunt een nieuw opslagaccount maken met behulp van de volgende opdracht:
 
     ```azurecli
-    $storageAcc = azure storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
+    $storageAcc = az storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
     ```
 
 3. De beschikbaarheidsset maken:
 
     ```azurecli
-    $availabilitySet = azure availset create --name $availabilitySetName --resource-group $rgName --location $location
+    $availabilitySet = az vm availability-set create --name $availabilitySetName --resource-group $rgName --location $location
     ```
 
 4. Maak de virtuele machines met de gekoppelde NIC's:
 
     ```azurecli
-    $vm1 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
+    $vm1 = az vm create --resource-group $rgname --location $location --availability-set $availabilitySet --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
 
-    $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
+    $vm2 = azure vm create --resource-group $rgname --location $location --availability-set $availabilitySet --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
     ```
 
 ## <a name="next-steps"></a>Volgende stappen

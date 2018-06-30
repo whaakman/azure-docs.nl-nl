@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 8e6e363649a0bdab5525de7b8e7abe9a53d14573
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 1fdf0f21697e48fd5cb9eca4212596059a9519cb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266019"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127114"
 ---
 # <a name="manage-your-luis-keys"></a>Uw LUIS sleutels beheren
 Een sleutel kunt u ontwerpen en publiceren van uw app LUIS of uw eindpunt opvragen. 
@@ -34,7 +34,7 @@ Zie [sleutels in LUIS](luis-concept-keys.md) LUIS ontwerp- en eindpunt belangrij
 ## <a name="assign-endpoint-key"></a>Eindpuntsleutel toewijzen
 Op de **publiceren app** pagina, er is al een sleutel in de **Resources en sleutels** tabel. Dit is de authoring (starter)-sleutel. 
 
-1. Maak een LUIS-sleutel op de [Azure-portal](https://portal.azure.com). Zie voor verdere instructies [maken van de abonnementssleutel van een met Azure](luis-how-to-azure-subscription.md).
+1. Maak een LUIS-sleutel op de [Azure-portal](https://portal.azure.com). Zie voor verdere instructies [maken van de eindpuntsleutel van een met behulp van Azure](luis-how-to-azure-subscription.md).
  
 2. Om te kunnen toevoegen de LUIS-sleutel in de vorige stap hebt gemaakt, klikt u op de **sleutel toevoegen** te openen de **een toewijzen aan uw app** dialoogvenster. 
 

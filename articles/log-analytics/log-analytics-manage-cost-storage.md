@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 43f7f1160fa36745bcfd697d91d1b46615b99edc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 1d797df3f03e9b92569d37495310a5c162f5f981
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637511"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130925"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren via Besturingsmechanismen gegevensvolume en te bewaren in Log Analytics
 Log Analytics is ontworpen om scale en ondersteuning voor het verzamelen, te indexeren en opslaan van grote hoeveelheden gegevens per dag van elke bron in uw onderneming of geïmplementeerd in Azure.  Hoewel dit kan een primaire stuurprogramma voor uw organisatie, is kostenefficiëntie uiteindelijk het onderliggende stuurprogramma. Het is ook afhankelijk van het plan geselecteerd hiertoe het is belangrijk om te begrijpen dat de kosten van een werkruimte logboek Analytisc NET is niet gebaseerd op het volume van de gegevens die zijn verzameld, en hoe lang u hebt gekozen voor het opslaan van gegevens die zijn gegenereerd op basis van uw verbonden bronnen.  

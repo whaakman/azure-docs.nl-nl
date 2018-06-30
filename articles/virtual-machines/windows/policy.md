@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: fc95b57c244e855f6788b7f21fc9abc0eba3d44d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b6a42e1a0b0256a6b19220958f98940764273a2d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654705"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114381"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Beleid toepassen op Windows-VM's met Azure Resource Manager
 Een organisatie kan met behulp van beleid afdwingen verschillende conventies en regels in de hele onderneming. Afdwinging van het gewenste gedrag kunt risico's te beperken tijdens bijdragen aan het succes van de organisatie. In dit artikel wordt beschreven hoe u Azure Resource Manager-beleid kunt gebruiken voor het definiëren van het gewenste gedrag voor virtuele Machines die uw organisatie.
@@ -228,7 +228,7 @@ U kunt informatie over het gebruik van bepaalde soorten extensies verbieden. Bij
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
-Wanneer u een on-premises-licentie hebt, kunt u de licentiekosten op uw virtuele machines kunt opslaan. Wanneer u de licentie niet hebt, moet u de optie verbieden. Het volgende beleid verbiedt informatie over het gebruik van Azure hybride gebruik voordeel (AHUB):
+Wanneer u een lokale-licentie hebt, kunt u de licentiekosten op uw virtuele machines kunt opslaan. Wanneer u de licentie niet hebt, moet u de optie verbieden. Het volgende beleid verbiedt informatie over het gebruik van Azure hybride gebruik voordeel (AHUB):
 
 ```json
 {

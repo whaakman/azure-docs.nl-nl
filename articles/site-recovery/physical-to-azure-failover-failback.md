@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2610a331ef8ef17b319da99eb89288b59532be9f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876005"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111495"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover en mislukken back fysieke servers die zijn gerepliceerd naar Azure
 
@@ -114,7 +114,7 @@ Voer de failover als volgt uit:
 
 ## <a name="reprotect-on-premises-machines-to-azure"></a>On-premises computers opnieuw beveiligen naar Azure
 
-De gegevens moeten nu weer terug zijn op uw on-premises site, maar ze worden niet gerepliceerd naar Azure. U kunt als volgt weer beginnen met repliceren naar Azure:
+Gegevens worden nu terug op uw on-premises site, maar deze wordt niet gerepliceerd naar Azure. U kunt als volgt weer beginnen met repliceren naar Azure:
 
 1. Selecteer in de kluis > **Instellingen** >**Gerepliceerde items** de failback-VM's waarvoor een failback is uitgevoerd en klik op **Opnieuw beveiligen**.
 2. Selecteer de processerver die wordt gebruikt om de gerepliceerde gegevens naar Azure te verzenden en klik op **OK**.
