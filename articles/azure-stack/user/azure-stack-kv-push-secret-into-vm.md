@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069030"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108753"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Een virtuele machine maken en een certificaat dat is opgehaald uit een Azure-Stack-sleutelkluis installeren
 
@@ -43,8 +43,8 @@ De volgende stappen beschrijven het proces dat is vereist voor de push-een certi
 2. Het bestand azuredeploy.parameters.json bijwerken.
 3. De sjabloon implementeren
 
->[!NOTE]
->U kunt deze stappen van de Azure-Stack Development Kit of van een externe client gebruiken als u via VPN-verbinding verbonden bent.
+> [!NOTE]
+> U kunt deze stappen van de Azure-Stack Development Kit of van een externe client gebruiken als u via VPN-verbinding verbonden bent.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -56,8 +56,8 @@ De volgende stappen beschrijven het proces dat is vereist voor de push-een certi
 
 Het volgende script maakt een certificaat in PFX-indeling, maakt u een sleutelkluis en het certificaat wordt opgeslagen in de sleutelkluis als een geheim.
 
->[!IMPORTANT]
->Moet u de `-EnabledForDeployment` parameter bij het maken van de belangrijkste fout. Deze parameter zorgt ervoor dat de sleutelkluis kan worden verwezen vanuit de Azure Resource Manager-sjablonen.
+> [!IMPORTANT]
+> Moet u de `-EnabledForDeployment` parameter bij het maken van de sleutelkluis. Deze parameter zorgt ervoor dat de sleutelkluis kan worden verwezen vanuit de Azure Resource Manager-sjablonen.
 
 ```powershell
 
