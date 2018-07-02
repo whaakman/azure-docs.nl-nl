@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 02c3a3d996fa253cf56e551a37e098639bf73533
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: ab5d6c531b08a13d465811d68a07e07e9fb0167c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32151940"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109457"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Het overdragen van de gebruiker de registratie- en productinformatie abonnement
 Overdracht kunt u uw bestaande website te gebruiken voor het verwerken van ontwikkelaars sign-in/sign-up-to-date en abonnement op producten in plaats van met behulp van de ingebouwde functie in de portal voor ontwikkelaars. Hierdoor kan uw website aan de eigenaar van de gebruikersgegevens en de validatie van de volgende stappen uitvoeren in een aangepaste manier.
@@ -65,7 +65,7 @@ Nu moet u maken de **delegering eindpunt**. Er is een aantal acties uitvoeren:
    * Vergelijk de bovenstaande berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders dat de aanvraag wordt geweigerd.
 3. Controleer of u een aanvraag voor sign-in/aanmelding-up worden ontvangen: de **bewerking** queryparameter wordt ingesteld op '**SignIn**'.
 4. Presenteren aan de gebruiker om te ondertekenen in of aanmelding met de gebruikersinterface
-5. Als de gebruiker de aanmelding is die u moet een bijbehorende account voor hen maken in API Management. [Een gebruiker maken] met de REST-API van API Management. Wanneer doet, zorg ervoor dat u de gebruikers-ID ingesteld op hetzelfde is in uw archief van de gebruiker of een id die u kunt van bijhouden.
+5. Als de gebruiker de aanmelding is die u moet een bijbehorende account voor hen maken in API Management. [Maken van een gebruiker] met de REST-API van API Management. Wanneer doet, zorg ervoor dat u de gebruikers-ID ingesteld op hetzelfde is in uw archief van de gebruiker of een id die u kunt van bijhouden.
 6. Wanneer de gebruiker is geverifieerd:
    
    * [eenmalige aanmelding (SSO)-token van een aanvraag] via de API Management REST API
@@ -174,8 +174,8 @@ Zie voor meer informatie over delegering, de volgende video:
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [eenmalige aanmelding (SSO)-token van een aanvraag]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[Een gebruiker maken]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[de REST-API aanroepen voor het product abonnement]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[Maken van een gebruiker]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
+[de REST-API aanroepen voor het product abonnement]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [voorbeeldcode hieronder]: #delegate-example-code
 

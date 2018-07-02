@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23874029"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Het gebruik van de SendGrid-e-mailservice met PHP
@@ -35,7 +35,7 @@ SendGrid is een [cloud-gebaseerde e-mailservice] die biedt betrouwbare [levering
 * Doorsturen van vragen van klanten
 * E-mailmeldingen van uw toepassing
 
-Zie voor meer informatie [https://sendgrid.com][https://sendgrid.com].
+Zie voor meer informatie [ https://sendgrid.com ] [ https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Een SendGrid-Account maken
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -47,7 +47,7 @@ SendGrid gebruiken in een Azure PHP-toepassing vereist geen speciale configurati
 U kunt e-mails via SMTP- of de Web-API die is geleverd door SendGrid verzenden.
 
 ### <a name="smtp-api"></a>SMTP-API
-Voor het verzenden van e-mailbericht met de SendGrid-SMTP-API, gebruik *Swift e-mailprogramma*, een bibliotheek op basis van onderdelen voor het verzenden van e-mailberichten van PHP-toepassingen. U kunt downloaden de *Swift e-mailprogramma* bibliotheek van [http://swiftmailer.org/download] [ http://swiftmailer.org/download] v5.3.0 (Gebruik [Composer] Swift e-mailprogramma installeren). Verzenden van e-mailbericht met de bibliotheek omvat het maken van exemplaren van de <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_e-mailprogramma</span>, en <span class="auto-style2">Swift\_bericht</span> klassen, de juiste instellingen en het aanroepen van de <span class="auto-style2">Swift\_Mailer::send</span> methode.
+Voor het verzenden van e-mailbericht met de SendGrid-SMTP-API, gebruik *Swift e-mailprogramma*, een bibliotheek op basis van onderdelen voor het verzenden van e-mailberichten van PHP-toepassingen. U kunt downloaden de *Swift e-mailprogramma* bibliotheek van [ http://swiftmailer.org/download ] [ http://swiftmailer.org/download] v5.3.0 (Gebruik [Composer] Swift e-mailprogramma installeren). Verzenden van e-mailbericht met de bibliotheek omvat het maken van exemplaren van de <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_e-mailprogramma</span>, en <span class="auto-style2">Swift\_bericht </span> klassen, de juiste instellingen en het aanroepen van de <span class="auto-style2">Swift\_Mailer::send</span> methode.
 
     <?php
      include_once "vendor/autoload.php";
@@ -223,7 +223,7 @@ De aanvullende coderegel is als volgt:
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-Deze regel code roept de methode koppelen op de <span class="auto-style2">Swift\_bericht</span> object en maakt gebruik van statische methode <span class="auto-style2">fromPath</span> op de <span class="auto-style2">Swift\_bijlage</span> klasse om te halen en een bestand toevoegen aan een bericht.
+Deze regel code roept de methode koppelen op de <span class="auto-style2">Swift\_bericht</span> object en maakt gebruik van statische methode <span class="auto-style2">fromPath</span> op de <span class="auto-style2">Swift\_bijlage</span> klasse voor het ophalen en een bestand toevoegen aan een bericht.
 
 ### <a name="web-api"></a>Web-API
 Het verzenden van een bijlage die met behulp van de Web-API is vergelijkbaar met het verzenden van een e-mailbericht met de Web-API. Houd er echter rekening mee dat in het volgende voorbeeld de parametermatrix dit element bevatten moet:
