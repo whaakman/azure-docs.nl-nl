@@ -17,18 +17,6 @@
       href: quickstart-cpp-linux.md
     - name: Aan de slag met Speech Devices SDK
       href: speech-devices-sdk-qsg.md
-- name: Aanpassing
-  items:
-    - name: Aangepaste spraakmodellen
-      href: how-to-customize-speech-models.md
-    - name: Spraakstijlen aanpassen
-      href: how-to-customize-voice-font.md
-    - name: Transcripties voorbereiden
-      href: prepare-transcription.md
-    - name: Aangepaste audiostromen gebruiken
-      href: how-to-use-audio-input-streams.md
-    - name: Ontwaakwoord van apparaat aanpassen (Devices SDK)
-      href: speech-devices-sdk-create-kws.md
 - name: Handleidingen
   items:
     - name: Spraak herkennen
@@ -39,8 +27,22 @@
       href: how-to-translate-speech.md
     - name: De Speech Devices SDK ophalen
       href: get-speech-devices-sdk.md
-    - name: Batchtranscriptie (callcenters)
+    - name: Batchtranscriptie
       href: batch-transcription.md
+- name: Aanpassing
+  items:
+    - name: Akoestische modellen aanpassen
+      href: how-to-customize-acoustic-models.md
+    - name: Taalmodellen aanpassen
+      href: how-to-customize-language-model.md
+    - name: Spraakstijlen aanpassen (Bot Brand Voice)
+      href: how-to-customize-voice-font.md
+    - name: Transcripties voorbereiden
+      href: prepare-transcription.md
+    - name: Aangepaste audiostromen gebruiken
+      href: how-to-use-audio-input-streams.md
+    - name: Ontwaakwoord van apparaat aanpassen (Devices SDK)
+      href: speech-devices-sdk-create-kws.md
 - name: Voorbeelden
   items:
     - name: Voorbeelden downloaden

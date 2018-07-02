@@ -9,36 +9,8 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: App-model bouwen
-      items:
-        - name: Vooraf gemaakt domein gebruiken
-          href: luis-get-started-create-app.md
-        - name: Aangepast domein gebruiken
-          href: luis-quickstart-intents-only.md
-- name: Zelfstudies
-  items:
-    - name: Vooraf gemaakte intenties en entiteiten toevoegen
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: Gegevens ophalen uit entiteit
-      items:
-        - name: Eenvoudige entiteit
-          href: luis-quickstart-primary-and-secondary-data.md
-        - name: Hiërarchische entiteit
-          href: luis-quickstart-intent-and-hier-entity.md
-        - name: Reguliere-expressie-entiteit
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Lijstentiteit
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: KeyPhrase-entiteit
-          href: luis-quickstart-intent-and-key-phrase.md
-        - name: Sentimentanalyse
-          href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Voorspelling verbeteren
-      items:
-        - name: Met patronen
-          href: luis-tutorial-pattern.md
-        - name: Met een frasenlijst
-          href: luis-tutorial-interchangeable-phrase-list.md
+    - name: Een vooraf gedefinieerde domein-app maken
+      href: luis-get-started-create-app.md
     - name: API's gebruiken
       items:
         - name: Uitingsvoorspelling verkrijgen met eindpuntquery
@@ -73,6 +45,32 @@
               href: luis-get-started-php-add-utterance.md
             - name: Ruby
               href: luis-get-started-ruby-add-utterance.md
+- name: Zelfstudies
+  items:
+    - name: App maken
+      items:
+        - name: 1. Met aangepast domein
+          href: luis-quickstart-intents-only.md
+        - name: 2. Vooraf gemaakte intenties en entiteiten toevoegen
+          href: luis-tutorial-prebuilt-intents-entities.md
+        - name: 3. Een entiteit in de vorm van een reguliere expressie toevoegen
+          href: luis-quickstart-intents-regex-entity.md
+        - name: 4. Een lijstentiteit toevoegen
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: 5. Een hiërarchische entiteit toevoegen
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: 6. Een eenvoudige entiteit en woordgroepenlijst toevoegen
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: 7. KeyPhrase-entiteit toevoegen
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: 8. Sentimentanalyse toevoegen
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Voorspelling verbeteren
+      items:
+        - name: Met patronen
+          href: luis-tutorial-pattern.md
+        - name: Met een frasenlijst
+          href: luis-tutorial-interchangeable-phrase-list.md
 - name: Voorbeelden
   items:
     - name: Codevoorbeelden

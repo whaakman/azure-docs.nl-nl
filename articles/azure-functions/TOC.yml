@@ -138,9 +138,11 @@
         - name: Functies testen
           href: functions-test-a-function.md
         - name: Lokaal ontwikkelen en fouten opsporen
-          href: functions-run-local.md
+          href: functions-develop-local.md
         - name: Ontwikkelen in Visual Studio
           href: functions-develop-vs.md
+        - name: Ontwikkeling in Core Tools
+          href: functions-run-local.md
         - name: Verbindingen beheren
           href: manage-connections.md
         - name: Foutafhandeling

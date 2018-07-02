@@ -23,7 +23,7 @@
       href: quickstart-ruby.md
     - name: Een Docker-/Go-app maken
       href: quickstart-docker-go.md
-    - name: Een multicontainer-app maken
+    - name: Een app met meerdere containers maken
       href: quickstart-multi-container.md
 - name: Zelfstudies
   items:

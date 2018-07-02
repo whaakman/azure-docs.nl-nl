@@ -186,12 +186,6 @@
 ### [Aan de slag](manage-apps/plan-an-application-integration.md)
 ### [Zelfstudies voor SaaS-app-integratie](saas-apps/tutorial-list.md)
 
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [Momentopnamerapporten maken](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [Continue rapportage configureren](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Een aangepaste logboekparser gebruiken](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-
 ### [Gebruikers voor SaaS-apps inrichten en de inrichting ongedaan maken](active-directory-saas-app-provisioning.md) 
 #### [Zelfstudies voor app-integratie](saas-apps/tutorial-list.md) 
 #### [Inrichting automatiseren voor apps die SCIM ondersteunen](manage-apps/use-scim-to-provision-users-and-groups.md) 

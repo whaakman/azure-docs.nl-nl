@@ -35,6 +35,10 @@
   items:
     - name: Assets
       href: assets-concept.md
+    - name: Inhoudsbeveiliging
+      items:
+        - name: Overzicht
+          href: content-protection-overview.md
     - name: Encoding
       items:
         - name: Overzicht
@@ -69,6 +73,10 @@
           href: job-input-from-http-how-to.md
         - name: Uit een lokaal bestand - .NET
           href: job-input-from-local-file-how-to.md
+    - name: Inhoud beveiligen
+      items:
+        - name: Met AES-128 - .NET
+          href: protect-with-aes128.md
 - name: Naslaginformatie
   items:
     - name: OpenAPI-specificatie (Swagger)
@@ -87,6 +95,12 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Gebeurtenisschema's
       href: media-services-event-schemas.md
+    - name: DRM-licentieschema’s
+      items:
+        - name: PlayReady-licentiesjabloon
+          href: playready-license-template-overview.md
+        - name: Widevine-licentiesjabloon
+          href: widevine-license-template-overview.md
 - name: Resources
   items:
     - name: Azure-roadmap

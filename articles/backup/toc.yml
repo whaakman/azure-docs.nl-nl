@@ -61,13 +61,13 @@
           href: backup-mabs-protection-matrix.md
         - name: Installeren of upgraden
           items:
-            - name: Azure Backup Server-workloads voorbereiden in Azure Portal
+            - name: Azure Backup Server installeren
               href: backup-azure-microsoft-azure-backup.md
-            - name: Opslag toevoegen aan Azure Backup Server
+            - name: Opslag toevoegen
               href: backup-mabs-add-storage.md
-            - name: Azure Backup Server upgraden naar v.2
+            - name: Upgraden naar v.2
               href: backup-mabs-upgrade-to-v2.md
-            - name: Installatie zonder toezicht van Azure Backup Server
+            - name: Installatie zonder toezicht
               href: backup-mabs-unattended-install.md
         - name: Workloads beveiligen
           items:

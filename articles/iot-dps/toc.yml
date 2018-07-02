@@ -113,6 +113,9 @@
           href: how-to-manage-dps-with-cli.md
         - name: Toegang tot de inrichtingsservice-API's beheren
           href: how-to-control-access.md
+    - name: Een IoT Edge-apparaat inrichten
+      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+      maintainContext: true
     - name: Attestation-mechanismen gebruiken met de SDK
       href: use-hsm-with-sdk.md
     - name: SDK-hulpprogramma's gebruiken voor ontwikkeling

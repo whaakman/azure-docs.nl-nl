@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 86e018a3f8eedecbb60614b0f1226b088ebb18fc
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0f22f22d40410b258b3945d9e78938384ce64767
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837929"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128390"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Een Azure Machine Learning-webservice implementeren
 Azure Machine Learning kunt u bouwen, testen en implementeren van voorspellende analytische oplossingen.
@@ -48,7 +48,7 @@ Zodra u uw model te trainen hebt, kunt u uw trainingsexperiment converteren naar
 
 Door te converteren naar een Voorspellend experiment, krijgt u het getrainde model gereed om te worden geïmplementeerd als een score-webservice. Gebruikers van de webservice kunnen invoergegevens verzenden naar uw model en het model wordt teruggestuurd de resultaten van de voorspelling. Als u een Voorspellend experiment omzetten, houd er rekening mee hoe u het model moet worden gebruikt door anderen verwacht.
 
-Als u wilt uw trainingsexperiment omzetten in een Voorspellend experiment, klikt u op **uitvoeren** aan de onderkant van het experimentcanvas, klikt u op **webservice ingesteld**, selecteert u vervolgens **voorspellende webservice**.
+Als u wilt uw trainingsexperiment omzetten in een Voorspellend experiment, klikt u op **uitvoeren** aan de onderkant van het experimentcanvas, klikt u op **webservice ingesteld**, selecteer daarna **voorspellende webservice**.
 
 ![Converteren naar het experiment score berekenen](./media/publish-a-machine-learning-web-service/figure-1.png)
 
@@ -145,7 +145,7 @@ Als u wilt testen van de Batch-Service kan worden uitgevoerd, klikt u op **teste
 
 Op de **configuratie** pagina kunt u de weergavenaam van de service wijzigen en een omschrijving. De naam en beschrijving wordt weergegeven in de [Azure-portal](https://portal.azure.com/) waar u uw webservices beheren.
 
-U kunt een beschrijving opgeven voor uw invoergegevens, uitvoergegevens en web parameters van de service door een tekenreeks opgeven voor elke kolom onder **INVOERSCHEMA**, **UITVOERSCHEMA**, en **Web SERVICE PARAMETER**. Deze beschrijvingen worden gebruikt in de steekproef code-documentatie voor de webservice.
+U kunt een beschrijving opgeven voor uw invoergegevens, uitvoergegevens en web parameters van de service door een tekenreeks opgeven voor elke kolom onder **INVOERSCHEMA**, **UITVOERSCHEMA**, en **-WEBSERVICE PARAMETER**. Deze beschrijvingen worden gebruikt in de steekproef code-documentatie voor de webservice.
 
 Logboekregistratie voor het vaststellen van fouten die u ziet, wanneer uw webservice wordt geopend, kunt u inschakelen. Zie voor meer informatie [logboekregistratie inschakelen voor Machine Learning-webservices](web-services-logging.md).
 
@@ -187,8 +187,8 @@ Een optie voor het bijwerken van uw web-service is voor het model programmatisch
 [Een trainingsexperiment maken]: #create-a-training-experiment
 [Converteren naar een Voorspellend experiment]: #convert-the-training-experiment-to-a-predictive-experiment
 [Als een webservice implementeren]: #deploy-it-as-a-web-service
-[Nieuw]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[Klassieke]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[Nieuw]: #deploy-the-predictive-experiment-as-a-new-web-service
+[Klassieke]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

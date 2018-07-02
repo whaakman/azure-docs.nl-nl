@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
 ms.author: carolz
-ms.openlocfilehash: 4122afcc730c9c8b312373b77eaf4fd004b2248b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ceabc623963acd469a2e4694cb412828dc511100
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641149"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113789"
 ---
 # <a name="azure-security-documentation"></a>Documentatie over beveiliging in Azure
 
@@ -70,12 +70,12 @@ Beveiliging is geïntegreerd in elk aspect van Azure. Azure biedt u unieke bevei
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-isolation">
+        <a href="/azure/security/azure-security-infrastructure">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Hoe scheidt Azure mijn resources van die van andere Azure-klanten?</p>
+                            <p style="font-size: 1.12rem;">Hoe beveiligt Microsoft de Azure-infrastructuur?</p>
                         </div>
                     </div>
                 </div>

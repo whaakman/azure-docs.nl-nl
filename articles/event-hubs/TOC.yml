@@ -1,0 +1,151 @@
+- name: Documentatie over Event Hubs
+  href: ./index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Event Hubs?
+      href: event-hubs-about.md
+    - name: Berichtenservices vergelijken
+      href: ../event-grid/compare-messaging-services.md
+      maintainContext: true
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Gebeurtenisstromen verwerken - Portal
+      href: event-hubs-quickstart-portal.md
+    - name: Gebeurtenisstromen verwerken - Azure CLI
+      href: event-hubs-quickstart-cli.md
+    - name: Gebeurtenisstromen verwerken - Azure PowerShell
+      href: event-hubs-quickstart-powershell.md
+- name: Zelfstudies
+  items:
+    - name: Gegevensafwijkingen visualiseren in Event Hubs-gegevensstromen
+      href: event-hubs-tutorial-visualize-anomalies.md
+- name: Voorbeelden
+  href: event-hubs-samples.md
+- name: Concepten
+  items:
+    - name: Overzicht van de gebeurtenisprocessorhost
+      href: event-hubs-event-processor-host.md
+    - name: Programmeergids
+      href: event-hubs-programming-guide.md
+    - name: Integreren met Event Grid
+      href: ../event-grid/event-grid-event-hubs-integration.md
+      maintainContext: true
+    - name: Functies van Event Hubs
+      href: event-hubs-features.md
+    - name: Beheerde service-identiteit (preview)
+      href: event-hubs-managed-service-identity.md
+    - name: Op rollen gebaseerd toegangsbeheer (preview)
+      href: event-hubs-role-based-access-control.md
+    - name: Geo-herstel na noodgeval en geo-replicatie
+      href: event-hubs-geo-dr.md
+    - name: Event Hubs Dedicated
+      href: event-hubs-dedicated-overview.md
+    - name: Overzicht van authenticatie- en beveiligingsmodellen
+      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Beschikbaarheid en consistentie
+      href: event-hubs-availability-and-consistency.md
+    - name: Doorvoereenheden automatisch schalen
+      href: event-hubs-auto-inflate.md
+    - name: Diagnostische logboeken
+      href: event-hubs-diagnostic-logs.md
+    - name: AMQP 1.0-protocolhandleiding
+      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+      maintainContext: true
+- name: Handleidingen
+  items:
+    - name: Een Event Hub maken
+      href: event-hubs-create.md
+    - name: Gebeurtenissen verzenden met behulp van .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
+    - name: Gebeurtenissen ontvangen met behulp van .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: Beschikbare API's
+      href: event-hubs-api-overview.md
+      items:
+        - name: .NET Standard
+          href: event-hubs-dotnet-standard-api-overview.md
+        - name: .NET Framework
+          href: event-hubs-dotnet-framework-api-overview.md
+    - name: Gebeurtenissen verzenden
+      items:
+        - name: .NET Standard
+          href: event-hubs-dotnet-standard-getstarted-send.md
+        - name: Java
+          href: event-hubs-java-get-started-send.md
+        - name: C
+          href: event-hubs-c-getstarted-send.md
+    - name: Gebeurtenissen ontvangen
+      items:
+        - name: .NET Standard
+          href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+        - name: Java
+          href: event-hubs-java-get-started-receive-eph.md
+        - name: Apache Storm
+          href: event-hubs-storm-getstarted-receive.md
+    - name: Gebeurtenissen vastleggen
+      items:
+        - name: Azure Portal gebruiken om Event Hubs Capture in te schakelen
+          href: event-hubs-capture-enable-through-portal.md
+        - name: Resource Manager-sjabloon gebruiken om Event Hubs Capture in te schakelen
+          href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+    - name: Beheren
+      items:
+        - name: Event Hubs bewaken met Azure Monitor
+          href: event-hubs-metrics-azure-monitor.md
+        - name: Event Hubs-beheerbibliotheken
+          href: event-hubs-management-libraries.md
+        - name: Capture
+          items:
+            - name: Event Hubs Capture
+              href: event-hubs-capture-overview.md
+            - name: Gegevens van Event Hubs vastleggen met behulp van Python
+              href: event-hubs-capture-python.md
+        - name: Gegevens van Azure Diagnostics streamen met behulp van Event Hubs
+          href: event-hubs-streaming-azure-diags-data.md
+        - name: Event Hub maken en implementeren met een Resource Manager-sjabloon
+          href: event-hubs-resource-manager-namespace-event-hub.md
+- name: Naslaginformatie
+  items:
+    - name: Java
+      items:
+        - name: com.microsoft.azure.eventhubs
+          href: /java/api/com.microsoft.azure.eventhubs
+        - name: com.microsoft.azure.eventprocessorhost
+          href: /java/api/com.microsoft.azure.eventprocessorhost
+    - name: .NET
+      items:
+        - name: Microsoft.Azure.EventHubs
+          href: /dotnet/api/microsoft.azure.eventhubs
+        - name: Microsoft.Azure.EventHubs.Processor
+          href: /dotnet/api/microsoft.azure.eventhubs.processor
+        - name: Microsoft.ServiceBus.Messaging
+          href: /dotnet/api/microsoft.servicebus.messaging
+        - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
+          href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+        - name: Microsoft.Azure.Management.EventHub
+          href: /dotnet/api/microsoft.azure.management.eventhub
+    - name: REST
+      href: /rest/api/eventhub
+    - name: Uitzonderingen
+      href: event-hubs-messaging-exceptions.md
+    - name: Quota
+      href: event-hubs-quotas.md
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: event-hubs-faq.md
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Leertraject
+      href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/event-hubs/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=event-hubs'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-eventhub'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=event-hubs'
