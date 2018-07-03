@@ -192,11 +192,11 @@
         - name: Nauwkeurigheid verbeteren met batchgewijs testen
           href: luis-tutorial-batch-testing.md
     - name: Uw app publiceren
-      href: PublishApp.md
+      href: luis-how-to-publish-app.md
     - name: Vooraf gemaakte modellen gebruiken
       items:
         - name: Vooraf gemaakte entiteiten gebruiken
-          href: Pre-builtEntities.md
+          href: luis-prebuilt-entities.md
         - name: Vooraf gemaakte domeinen gebruiken
           href: luis-how-to-use-prebuilt-domains.md
         - name: De vooraf gemaakte Cortana-app gebruiken
@@ -208,7 +208,7 @@
         - name: Sleutels maken
           href: luis-how-to-azure-subscription.md
         - name: Sleutels toevoegen in LUIS
-          href: Manage-Keys.md
+          href: luis-how-to-manage-keys.md
         - name: Eindpuntgebruik weergeven met PowerShell
           href: luis-how-to-manage-from-cloud-shell.md
         - name: Versies beheren
@@ -283,6 +283,10 @@
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Android'
         - name: Node.js
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Node.js'
+        - name: Aan de slag
+          href: 'https://aka.ms/luis-sdk-go'
+        - name: Java
+          href: 'https://aka.ms/luis-java-sdk'
         - name: Python
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Python'
         - name: .NET Endpoint SDK

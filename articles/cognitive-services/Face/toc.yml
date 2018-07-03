@@ -1,11 +1,11 @@
 - name: Documentatie voor Face-API
   href: index.yml
 - name: Overzicht
+  expanded: true
   items:
     - name: Wat is Face-API?
       href: Overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
     - name: 'C#'
       href: QuickStarts/CSharp.md
@@ -53,16 +53,18 @@
   items:
     - name: Face-API
       href: APIReference.md
+    - name: Woordenlijst
+      href: Glossary.md
     - name: SDK's
       items:
-        - name: Aan de slag
-          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face'
+        - name: Windows
+          href: 'https://github.com/Microsoft/Cognitive-Face-Windows'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules'
         - name: Python
           href: 'https://github.com/Microsoft/Cognitive-Face-Python'
-        - name: Windows
-          href: 'https://github.com/Microsoft/Cognitive-Face-Windows'
+        - name: Aan de slag
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face'
         - name: Android
           href: 'https://github.com/Microsoft/Cognitive-Face-Android'
         - name: iOS
@@ -81,7 +83,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Woordenlijst
-      href: Glossary.md
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Releaseopmerkingen
       href: ReleaseNotes.md

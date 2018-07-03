@@ -4,10 +4,10 @@
 ### Overzicht en voordelen  
 ### Webwinkels  
 #### [AppSource en Azure Marketplace vergelijken](./comparing-appsource-azure-marketplace.md)  
-#### [Breid uw bedrijf uit met Appsource](./grow-your-business-with-appsource.md)  
+#### [Breid uw bedrijf uit met Appsource](./grow-your-business-with-appsource.md) 
+#### [Voorkeursoplossingen](./preferred-solutions.md)
 ##### [Startpagina maken](./build-your-landing-page.md)  
 ##### [Delen van leads inschakelen](./enable-lead-sharing.md)  
-##### [Voorkeursoplossingen](./preferred-solutions.md)
 ##### [GTM-voordelen op Marketplace](./gtm-benefits.md)  
 ##### [Uw bedrijf promoten met Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Laat uw bedrijf groeien met Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  

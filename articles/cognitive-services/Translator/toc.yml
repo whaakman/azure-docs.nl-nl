@@ -21,6 +21,20 @@
           href: quickstart-csharp-languages.md
         - name: Lengte van zinnen in tekst bepalen
           href: quickstart-csharp-sentences.md
+    - name: Aan de slag
+      items:
+        - name: Tekst vertalen
+          href: quickstart-go-translate.md
+        - name: Tekstscript converteren
+          href: quickstart-go-transliterate.md
+        - name: Taal bepalen op basis van tekst
+          href: quickstart-go-detect.md
+        - name: Alternatieve vertalingen verkrijgen
+          href: quickstart-go-dictionary.md
+        - name: Ondersteunde talen ophalen
+          href: quickstart-go-languages.md
+        - name: Lengte van zinnen in tekst bepalen
+          href: quickstart-go-sentences.md
     - name: Java
       items:
         - name: Tekst vertalen
