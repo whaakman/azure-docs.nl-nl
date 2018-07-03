@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2018
-ms.author: pareshmu
-ms.openlocfilehash: f45aa884f05cc638002067a502b472731e3393e7
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.date: 06/22/2018
+ms.author: jaredro
+ms.openlocfilehash: eef664877fab68fc78e9bb5717d92594900d0f5f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763558"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751108"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -72,12 +72,12 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **Serviceprovider** | **Microsoft Azure** | **Voor Office 365 en Dynamics 365** | **Locaties** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Ondersteund |Ondersteund |Melbourne, Sydney |
-| **[Airtel](http://www.airtel.in/business/connexion)** | Ondersteund | Ondersteund | Chennai, Mumbai |
+| **[Airtel](http://www.airtel.in/creatingsmiles/)** | Ondersteund | Ondersteund | Chennai, Mumbai |
 | **[Aryaka Networks](http://www.aryaka.com/)** |Ondersteund |Ondersteund |Amsterdam, Dallas, Hongkong, Silicon Valley, Singapore, Tokio, Washington DC |
-| **[Ascenty Data Centers](https://ascenty.com/solucoes/conectividade-e-interconexoes/Microsoft-express-route/)** |Binnenkort beschikbaar |Binnenkort beschikbaar |Sao Paulo |
+| **[Ascenty Data Centers](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |Ondersteund |Ondersteund |Sao Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Londen, Silicon Valley, Singapore, Sydney, Tokio, Toronto, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Ondersteund |Ondersteund |Montreal, Toronto, Quebec |
-| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Ondersteund |Ondersteund |Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Tokio, Washington DC |
+| **[British Telecom](https://globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Ondersteund |Ondersteund |Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Tokio, Washington DC |
 | **[C3ntro](https://c3ntro.com/)** |Binnenkort beschikbaar |Binnenkort beschikbaar |Miami |
 | **CDC** | Ondersteund | Ondersteund | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Ondersteund |Ondersteund |Las Vegas, New York, San Antonio, Silicon Valley, Tokio, Toronto |
@@ -103,6 +103,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[KPN](http://www.kpn.com/cloudconnect)** | Ondersteund | Ondersteund | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Londen, Newport, Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Ondersteund |Ondersteund |Busan, Seoul |
+| **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Ondersteund |Ondersteund |Kaapstad, Johannesburg |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Denver, Dublin, Hongkong, Las Vegas, Londen, Los Angeles, Melbourne, Miami, New York, Quebec (stad), San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Sydney, Toronto, Washington DC |
 | **MTN** |Ondersteund |Ondersteund |Londen |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Ondersteund |Ondersteund |Miami, Sao Paulo |
@@ -119,15 +120,16 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Ondersteund |Ondersteund |Chennai, Mumbai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Ondersteund |Ondersteund |Singapore, Singapore2 |
 | **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Ondersteund |Ondersteund |Osaka, Tokio |
-| **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Ondersteund |Ondersteund |Washington DC |
+| **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Ondersteund |Ondersteund |Chicago, Silicon Valley, Washington DC |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Ondersteund |Ondersteund |Amsterdam, Chennai, Hongkong, Londen, Mumbai, Silicon Valley, Singapore, Washington DC |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Ondersteund |Ondersteund |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Ondersteund |Ondersteund |Londen |
 | **Telenor** |Ondersteund |Ondersteund |Amsterdam, Londen |
-| **[Telia Carrier](https://www.teliacarrier.com/our-services/Connectivity/Cloud-Connect.html?title=Cloud%20Connect)** | Ondersteund | Ondersteund |Londen, Washington DC |
+| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Ondersteund | Ondersteund |Londen, Washington DC |
 | **Telmex Uninet**| Binnenkort beschikbaar | Binnenkort beschikbaar | Dallas+ |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Ondersteund |Ondersteund |Melbourne, Sydney |
 | **[Telus](http://www.telus.com)** |Ondersteund |Ondersteund |Montreal, Toronto |
+| **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Ondersteund |Ondersteund |Kaapstad, Johannesburg |
 | **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Ondersteund |Ondersteund |Sao Paulo |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Tokio, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Ondersteund |Niet ondersteund |Londen |
@@ -190,7 +192,7 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 | **[Airgate Technologies, Inc.](http://airgate.ca/cloud-express/)** | Equinix, Cologix | Toronto, Montreal |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
-| **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokio |
+| **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokio |
 | **[Axtel](http://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | Londen |
 | **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | Amsterdam, Frankfurt, Londen, Singapore, Washington DC |
@@ -261,7 +263,7 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 | **System integrator** | **Continent** |
 | --- | --- |
-| **[Altogee](http://www.altogee.be/expressroute)** | Europa |
+| **[Altogee](https://altogee.be/diensten/express-route/)** | Europa |
 | **[Avanade Inc.](http://www.avanade.com/)** | Azië, Europa, Noord-Amerika, Zuid-Amerika |
 | **[Bright Skies GmbH](http://bskies.io/expressroute)** | Europa
 | **[Ensyst](http://www.ensyst.com.au)** | Azië
@@ -272,13 +274,13 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 | **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Australië |
 | **[MOQdigital](http://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Australië |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europa (Duitsland) |
-| **[Nelite](http://nelite.com/)** | Europa |
-| **[Nieuwe handtekening](https://www.newsignature.co.uk/)** | Europa |
-| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Azië |
+| **[Nelite](https://www.nelite.com/offres-services/)** | Europa |
+| **[Nieuwe handtekening](https://newsignature.com/technologies/express-route/)** | Europa |
+| **[OneAs1a](http://www.oneas1a.com/connectivity.html)** | Azië |
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europa |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | Noord-Amerika |
 | **[Presidio](http://info.presidio.com/microsoft-azure-expressroute)** | Noord-Amerika |
-| **[sol-tec](http://www.sol-tec.com/Technologies)** | Europa |
+| **[sol-tec](https://www.sol-tec.com/services)** | Europa |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australië |
 
 

@@ -9,11 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752330"
 ---
 # <a name="create-a-storage-account"></a>Create a storage account
 
@@ -164,7 +165,7 @@ Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, 
 1. Vouw in Azure Portal het menu links open om het menu met services te openen en kies **Alle services**. Schuif vervolgens omlaag naar **Opslag** en kies **Opslagaccounts**. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
 2. Voer een naam in voor het opslagaccount.
 3. Stel het veld **Soort account** in op **StorageV2 (algemeen gebruik v2)**.
-4. Laat het veld **Replicatie** ingesteld op **Lokaal redundante opslag (LRS)**. Ook kunt u kiezen voor **Zone-redundante opslag (ZRS Preview)**, **Geografisch redundante opslag (GRS)** of **Geografisch redundante opslag met leestoegang (RA-GRS)**.
+4. Laat het veld **Replicatie** ingesteld op **Lokaal redundante opslag (LRS)**. Ook kunt u kiezen voor **Zone-redundante opslag (ZRS) (preview)**, **Geografisch redundante opslag (GRS)** of **Geografisch redundante opslag met leestoegang (RA-GRS)**.
 5. Laat deze velden ingesteld op hun standaardwaarden: **Implementatiemodel**, **Prestaties**, **Veilige overdracht vereist**.
 6. Kies het abonnement waarin u het opslagaccount wilt maken.
 7. Selecteer in de sectie **Resourcegroep** de optie **Bestaande gebruiken**. Kies vervolgens de resourcegroep die u in de vorige sectie hebt gemaakt.
@@ -185,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Om een v2-opslagaccount voor algemeen gebruik te maken met zone-redundante opslag (ZRS Preview), geografisch redundante opslag (GRS) of geografisch redundante opslag met leestoegang (RA-GRS), vervangt u de **SkuName**-parameter in de onderstaande tabel met de gewenste waarde. 
+Om een v2-opslagaccount voor algemeen gebruik te maken met zone-redundante opslag (ZRS) (preview), geografisch redundante opslag (GRS) of geografisch redundante opslag met leestoegang (RA-GRS), vervangt u de **SkuName**-parameter in de onderstaande tabel met de gewenste waarde. 
 
 |Replicatie-optie  |De parameter SkuName  |
 |---------|---------|
@@ -218,13 +219,7 @@ Om een v2-opslagaccount voor algemeen gebruik te maken met zone-redundante opsla
 
 ---
 
-> [!NOTE]
-> [Zone-redundante opslag](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) is momenteel in preview en is alleen beschikbaar in de volgende locaties:
->    - VS Oost 2
->    - VS Centraal
->    - Frankrijk - centraal (deze regio is momenteel in preview. Zie [Preview van Microsoft Azure met beschikbaarheidszones voor Azure die nu in Frankrijk open zijn](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) om toegang te vragen.)
-    
-Zie [Storage-replicatieopties](storage-redundancy.md) voor meer informatie over de verschillende beschikbare soorten replicatie.
+Zie [Storage-replicatieopties](storage-redundancy.md) voor meer informatie over beschikbare replicatieopties.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

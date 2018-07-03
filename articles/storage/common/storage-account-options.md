@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 06/22/2018
 ms.author: hux
-ms.openlocfilehash: d6279a308bc4539184cca37c1343afe8725eca7f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248296"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335768"
 ---
 # <a name="azure-storage-account-options"></a>Opties voor Azure Storage-account
 
@@ -76,32 +76,27 @@ Blob Storage-accounts ondersteunen dezelfde blok-blob-functies als GPv2, maar zi
 
 > [!NOTE]
 > Blob Storage-accounts ondersteunen alleen blok-blobs en toevoeg-blobs. Pagina-blobs worden niet ondersteund.
+>
+> U wordt voor de meeste scenario’s aangeraden gebruik te maken van opslagaccounts voor algemeen gebruik v2 in plaats van Blob Storage-accounts.
 
 ## <a name="recommendations"></a>Aanbevelingen
 
 Zie [Over Azure Storage-accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie over opslagaccounts.
 
-Voor toepassingen waarvoor alleen de opslag van blok- of toevoeg-blobs is vereist, wordt aangeraden gebruik te maken van GPv2-opslagaccounts. Zo profiteert u maximaal van het gedifferentieerde prijsmodel voor gelaagde opslag. In bepaalde scenario’s kunt u echter het gebruik van GPv1 overwegen, bijvoorbeeld:
+Voor toepassingen die de nieuwste functies voor blokken of toevoeg-blobs vereisen, wordt aangeraden gebruik te maken van GPv2-opslagaccounts. Zo profiteert u maximaal van het gedifferentieerde prijsmodel voor gelaagde opslag. In bepaalde scenario’s kunt u echter het gebruik van GPv1 overwegen, bijvoorbeeld:
 
 * U moet nog steeds gebruikmaken van het klassieke implementatiemodel. GPv2- en Blob Storage-accounts zijn alleen beschikbaar via het Azure Resource Manager-implementatiemodel.
-
 * U gebruikt omvangrijke transacties of geo-replicatie bandbreedte, die beiden meer kosten in GPv2-opslagaccounts en Blob Storage-accounts dan in GPv1, en u hebt niet genoeg opslagruimte om te kunnen profiteren van de lagere kosten van GB-opslag.
-
 * U gebruikt een versie van de [REST API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) die ouder is dan 2014-02-14 of een clientbibliotheek met een lagere versie dan 4.x en u uw toepassing niet kunt upgraden.
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 Alle opslagaccounts maken gebruik van een prijsmodel voor het opslaan van blobs op basis van laag van elke blob. Als u een opslagaccount gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
 
 * **Opslagkosten**: de kosten voor het opslaan van gegevens hangen niet alleen af van de hoeveelheid opgeslagen gegevens, maar ook van de gebruikte opslaglaag. De kosten per GB nemen af als de laag minder dynamisch ('cooler') wordt.
-
 * **Kosten van gegevenstoegang**: de kosten voor gegevenstoegang nemen toe als de laag minder dynamisch ('cooler') wordt. Voor gegevens in de lagen Cool Storage en Archive Storage worden kosten per GB in rekening gebracht aan gegevenstoegang voor leesbewerkingen.
-
 * **Transactiekosten**: er gelden kosten per transactie voor alle lagen. Deze kosten nemen toe als de laag minder dynamisch wordt.
-
 * **Kosten voor gegevensoverdracht met geo-replicatie**: deze kosten zijn alleen van toepassing op accounts waarvoor geo-replicatie is geconfigureerd, inclusief GRS en RA-GRS. Kosten voor gegevensoverdracht met geo-replicatie worden in rekening gebracht per GB.
-
 * **Kosten voor uitgaande gegevensoverdracht**: uitgaande gegevensoverdracht (gegevens die buiten een Azure-regio worden overgedragen) worden gefactureerd voor bandbreedtegebruik per GB, net zoals bij opslagaccounts voor algemeen gebruik.
-
 * **De opslaglaag wijzigen**: als u de accountopslaglaag wijzigt van 'cool' naar 'hot', worden kosten in rekening gebracht die overeenkomen met de kosten voor het lezen van alle bestaande gegevens in het opslagaccount. Bij een wijziging van de accountopslaglaag van dynamisch naar statisch, worden echter kosten in rekening gebracht die gelijk zijn aan die voor het schrijven van alle gegevens in de statische laag (alleen GPv2-accounts).
 
 > [!NOTE]
@@ -205,7 +200,6 @@ In beide gevallen moeten eerst de kosten worden geschat van het opslaan en opene
 Voor het maken van een schatting van de kosten voor het opslaan en openen van gegevens die zijn opgeslagen in een GPv2-opslagaccount, moet u uw bestaande gebruikspatroon evalueren of een schatting maken van het verwachte gebruikspatroon. Doorgaans zijn de volgende gegevens hiervoor van belang:
 
 * Wat is het gebruik van de opslag? Hoeveel gegevens worden er opgeslagen en hoe wijzigt dit maandelijks?
-
 * Wat is het toegangspatroon voor de opslag? Op hoeveel gegevens in het account worden er lees- en/of schrijfbewerkingen uitgevoerd (inclusief nieuwe gegevens)? Hoeveel transacties worden gebruikt voor toegang tot gegevens? En wat voor soort transacties zijn dit?
 
 ## <a name="monitoring-existing-storage-accounts"></a>Bewaking van bestaande opslagaccounts
@@ -223,7 +217,7 @@ Als dit is ingeschakeld, worden de capaciteitsgegevens van een Blob Storage-serv
 Voor het controleren van gegevenstoegangspatronen voor Blob Storage, moet u de metrische gegevens die per uur worden verzameld voor de transactie inschakelen vanaf de API. Als deze methode is ingeschakeld, worden er elk uur per-API-transacties verzameld en geregistreerd als een tabelvermelding die is naar de *$MetricsHourPrimaryTransactionsBlob*-tabel binnen hetzelfde opslagaccount wordt geschreven. De *$MetricsHourSecondaryTransactionsBlob*-tabel registreert de transacties naar het secundaire eindpunt bij gebruik van RA-GRS-opslagaccounts.
 
 > [!NOTE]
-> Als u een algemeen opslagaccount hebt waarin u pagina-blobs en virtuele-machineschijven of wachtrijen, bestanden of tabellen, hebt opgeslagen naast blok- en toevoegblobgegevens, is dit schattingsproces niet van toepassing. De capaciteitsgegevens maken geen onderscheid tussen blok-blobs en andere typen en geven geen capaciteitsgegevens voor andere gegevenstypen. Als u deze typen gebruikt, is een alternatieve methode om te kijken naar de hoeveelheden op uw meest recente factuur.
+> Als u een algemeen opslagaccount hebt met opgeslagen pagina-blobs en virtuele-machineschijven, of wachtrijen, bestanden of tabellen, naast blok- en toevoeg-blobgegevens, is dit schattingsproces niet van toepassing. De capaciteitsgegevens maken geen onderscheid tussen blok-blobs en andere typen en geven geen capaciteitsgegevens voor andere gegevenstypen. Als u deze typen gebruikt, is een alternatieve methode om te kijken naar de hoeveelheden op uw meest recente factuur.
 
 Als u een goede schatting wilt maken van uw gegevensverbruik en toegangspatroon, raden we u aan voor de metrische gegevens een retentieperiode te kiezen die een goede afspiegeling is van uw normale gebruik en dat als uitgangspunt te nemen. Een optie is de metrische gegevens zeven dagen te bewaren en de gegevens elke week te verzamelen en aan het einde van de maand te analyseren. Een andere optie is de metrische gegevens van de afgelopen 30 dagen te bewaren en deze gegevens aan het einde van deze periode van 30 dagen te verzamelen en te analyseren.
 
@@ -259,7 +253,6 @@ Opslaganalyse biedt geen informatie over de hoeveelheid gegevens die zijn geleze
 Voor het schatten van de kosten voor het openen van gegevens in Blob Storage-accounts moet u de transacties in twee groepen opdelen.
 
 * De hoeveelheid gegevens die is opgehaald van het opslagaccount, kan worden geschat door te kijken naar het totaal van *'TotalEgress'* voor met name de *'GetBlob'*- en *'CopyBlob'*-bewerkingen.
-
 * De hoeveelheid gegevens die wordt geschreven naar het opslagaccount kan worden geschat door te kijken naar het totaal van *'TotalIngress'* voor met name de *'PutBlob'*-, *'PutBlock'*-, *'CopyBlob'*- en *'AppendBlock'*-bewerkingen.
 
 De overdrachtskosten van geo-replicatiegegevens voor Blob Storage-accounts kan ook worden berekend met behulp van de schatting voor de hoeveelheid gegevens die wordt geschreven bij gebruik van een GRS- of RA-GRS-opslagaccount.

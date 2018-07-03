@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 05/22/2018
+ms.date: 6/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 90e351992e08459040012a4d53f7e793ea35a8b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645154"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311028"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Zelfstudie: Uw eerste Azure SQL-database ontwerpen met SSMS
 
@@ -86,9 +86,7 @@ Volg deze stappen om een lege SQL-database te maken.
 8. Accepteer de gebruiksvoorwaarden voor de preview om de optie **Extra opslag** te gebruiken. 
 
    > [!IMPORTANT]
-   > - Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
-   > - In de Premium-laag is meer dan 1 TB aan opslag beschikbaar in alle regio's met uitzondering van UK - noord, US - west-centraal, VS - zuid2, China - oost, US DoD - centraal, Duitsland - centraal, US DoD - oost, VS Gov - zuid-centraal, US Gov zuid-centraal, Duitsland - noordoost, China - noord, US Gov - oost. Het ligt in de bedoeling de optie in meer regio's beschikbaar te maken. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   >
+   > In de Premium-laag is momenteel meer dan 1 TB aan opslag beschikbaar in alle regio's met uitzondering van UK - noord, US - west-centraal, UK - zuid2, China - oost, US DoD - centraal, Duitsland - centraal, US DoD - oost, US Gov - zuid-centraal, US Gov zuid-centraal, Duitsland - noordoost, China - noord, US Gov - oost. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
 9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  
 
@@ -179,7 +177,7 @@ Maak met [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 Het volgende diagram laat zien hoe deze tabellen aan elkaar zijn gerelateerd. Sommige van deze tabellen verwijzen naar kolommen in andere tabellen. Zo verwijst de tabel Student naar de kolom **PersonId** van de tabel **Person**. Bekijk het diagram goed om te begrijpen hoe de tabellen in deze zelfstudie aan elkaar zijn gerelateerd. Zie dit Engelstalige artikel over het [maken van effectieve databasetabellen](https://msdn.microsoft.com/library/cc505842.aspx) voor uitgebreide informatie over het maken van effectieve databasetabellen. Zie [Gegevenstypen](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) voor informatie over het kiezen van gegevenstypen.
 
 > [!NOTE]
-> U kunt ook de functie voor het [ontwerpen van tabellen in SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) gebruiken om tabellen te maken en ontwerpen. 
+> U kunt ook de functie voor het [ontwerpen van tabellen in SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) gebruiken om tabellen te maken en ontwerpen. 
 
 ![Relaties tussen tabellen](./media/sql-database-design-first-database/tutorial-database-tables.png)
 

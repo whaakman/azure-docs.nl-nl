@@ -1,6 +1,6 @@
 ---
-title: Machtigingen in Azure AD | Microsoft Docs
-description: Kom meer te weten over scopes en machtigingen in Azure Active Directory en hoe u deze kunt gebruiken
+title: Machtigingen in Azure Active Directory | Microsoft Docs
+description: Leer alles over machtigingen in Azure Active Directory en hoe u deze gebruikt.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,24 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/20/2017
+ms.date: 06/25/2018
 ms.author: celested
-ms.reviewer: justhu
+ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 749253d6a082bcdc2b80c5984f20c4b8c4039ad0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 786757293e2ad2c47f80745f6bdd9bb5a65add80
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156888"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936952"
 ---
-# <a name="permissions-in-azure-ad"></a>Machtigingen in Azure AD
-Azure Active Directory (Azure AD) maakt uitgebreid gebruik van machtigingen voor zowel OAuth- als OpenID Connect (OIDC)-stromen. Als uw app een toegangstoken van Azure AD ontvangt, zal deze claims bevatten die de machtigingen (ook wel scopes genoemd) beschrijven die uw app heeft met betrekking tot een specifieke resource. Dit vergemakkelijkt autorisatie voor de resource omdat deze alleen moet controleren of uw token de benodigde machtiging bevat voor de API die u aanroept. 
+# <a name="permissions-in-azure-active-directory"></a>Machtigingen in Azure Active Directory
+
+Azure Active Directory (Azure AD) maakt uitgebreid gebruik van machtigingen voor zowel OAuth- als OpenID Connect (OIDC)-stromen. Als uw app een toegangstoken van Azure AD ontvangt, zal het token claims bevatten die de machtigingen beschrijven die uw app heeft voor een specifieke resource. Machtigingen, ook wel scopes genoemd, vereenvoudigen autorisatie voor de resource omdat deze alleen moet controleren of het token de benodigde machtiging bevat voor de API die de app aanroept. 
 
 ## <a name="types-of-permissions"></a>Typen machtigingen
+
 Azure AD definieert twee soorten machtigingen: 
 * **Gedelegeerde machtigingen** - Deze worden gebruikt door apps met een aangemelde gebruiker. Voor deze apps geeft de gebruiker of een beheerder toestemming voor de machtigingen die de app aanvraagt. De app krijgt vervolgens machtigingen om als de aangemelde gebruiker te handelen wanneer een API wordt aangeroepen. De gebruiker kan, afhankelijk van de API, mogelijk niet rechtstreeks toestemming aan de API geven. In plaats daarvan [moet een beheerder ‘beheerderstoestemming’ geven](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
-* **Toepassingsmachtigingen** - Deze worden gebruikt door apps die worden uitgevoerd zonder aangemelde gebruiker, zoals apps die als achtergrondservices of daemons worden uitgevoerd. Toepassingsmachtigingen kunnen alleen worden [verleend door een beheerder](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) omdat ze meestal erg krachtig zijn en toegang geven tot gegevens die buiten de grenzen van de gebruiker gaan of tot gegevens die anders door beheerders zouden worden beperkt. 
+* **Toepassingsmachtigingen** - Deze worden gebruikt door apps die worden uitgevoerd zonder aangemelde gebruiker, zoals apps die als achtergrondservices of daemons worden uitgevoerd. Toepassingsmachtigingen kunnen alleen worden [verleend door een beheerder](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) omdat ze meestal krachtig zijn en toegang geven tot gegevens die buiten de grenzen van de gebruiker gaan of tot gegevens die anders door beheerders zouden worden beperkt. 
 
 Effectieve machtigingen zijn de machtigingen die uw app zal hebben wanneer deze aanvragen bij een API indient. 
 
@@ -55,14 +57,14 @@ Machtigingen in Azure AD hebben een aantal eigenschappen die gebruikers, beheerd
 
 | Naam van eigenschap | Beschrijving | Voorbeeld | 
 | --- | --- | --- |
-| Id | Dit is een GUID-waarde met een unieke identificatie voor deze machtiging. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
-| IsEnabled | Geeft aan of deze scope beschikbaar is voor gebruik. | true | 
-| Type | Geeft aan of deze machtiging toestemming van een gebruiker of beheerder vereist. | Gebruiker | 
-| AdminConsentDescription | Dit is een beschrijving die aan beheerders wordt weergegeven wanneer toestemming van de beheerder nodig is | Hiermee kan e-mail in de postvakken van gebruikers worden gelezen met de app. | 
-| AdminConsentDisplayName | Dit is de beschrijvende naam die aan beheerders wordt weergegeven wanneer toestemming van de beheerder nodig is. | E-mail van de gebruiker lezen | 
-| UserConsentDescription | Dit is een beschrijving die aan gebruikers wordt weergegeven wanneer toestemming van een gebruiker nodig is. |  Hiermee kan e-mail in uw postvak worden gelezen met de app. | 
-| UserConsentDisplayName | Dit is de beschrijvende naam die aan gebruikers wordt weergegeven wanneer toestemming van een gebruiker nodig is. | Uw e-mail lezen | 
-| Waarde | Dit is de tekenreeks die wordt gebruikt om de machtiging te identificeren tijdens OAuth 2.0-autorisatiestromen. Deze kan ook worden gecombineerd met de URI-tekenreeks met de app-ID om een volledig gekwalificeerde machtigingsnaam te vormen. | `Mail.Read` | 
+| `ID` | Een GUID-waarde met een unieke identificatie voor deze machtiging. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
+| `IsEnabled` | Geeft aan of deze machtiging beschikbaar is voor gebruik. | true | 
+| `Type` | Geeft aan of deze machtiging toestemming van een gebruiker of beheerder vereist. | Gebruiker | 
+| `AdminConsentDescription` | Een beschrijving die aan beheerders wordt weergegeven wanneer toestemming van de beheerder nodig is | Hiermee kan e-mail in de postvakken van gebruikers worden gelezen met de app. | 
+| `AdminConsentDisplayName` | De beschrijvende naam die aan beheerders wordt weergegeven wanneer toestemming van de beheerder nodig is. | E-mail van de gebruiker lezen | 
+| `UserConsentDescription` | Een beschrijving die aan gebruikers wordt weergegeven wanneer toestemming van een gebruiker nodig is. |  Hiermee kan e-mail in uw postvak worden gelezen met de app. | 
+| `UserConsentDisplayName` | De beschrijvende naam die aan gebruikers wordt weergegeven wanneer toestemming van een gebruiker nodig is. | Uw e-mail lezen | 
+| `Value` | De tekenreeks die wordt gebruikt om de machtiging te identificeren tijdens OAuth 2.0-autorisatiestromen. `Value` kan ook worden gecombineerd met de URI-tekenreeks met de app-ID om een volledig gekwalificeerde machtigingsnaam te vormen. | `Mail.Read` | 
 
 ## <a name="types-of-consent"></a>Soorten toestemming
 Toepassingen in Azure AD zijn afhankelijk van toestemming om toegang te krijgen tot benodigde resources of API’s. Er zijn een aantal soorten toestemming die uw app mogelijk nodig heeft om succesvol te kunnen worden uitgevoerd. Als u machtigingen definieert, moet u ook begrijpen hoe uw gebruikers toegang tot uw app of API zullen krijgen.
@@ -70,31 +72,38 @@ Toepassingen in Azure AD zijn afhankelijk van toestemming om toegang te krijgen 
 * **Statische toestemming van gebruikers** - Vindt automatisch plaats via de [OAuth 2.0-autorisatiestroom](/azure/active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) als u de resource opgeeft waarmee uw app wil communiceren. In het scenario met statische toestemming van de gebruiker moet uw app al de benodigde machtigingen hebben opgegeven in de configuratie van de app in de Azure Portal. Als de gebruiker (of eventueel de beheerder) geen toestemming voor deze app heeft gegeven, zal Azure AD de gebruiker op dit moment vragen om toestemming te geven. 
 
     Kom meer te weten over het registreren van een Azure AD-app die toegang tot een statische set API’s vraagt.
-* **Dynamische toestemming van de gebruiker** - Is een functie in v2 van het Azure ADD-appmodel. In dit scenario vraagt uw app een reeks scopes aan die nodig zijn in de [OAuth 2.0-autorisatiestroom voor v2-apps](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Als de gebruiker nog geen toestemming heeft gegeven, krijgt hij op dit moment een melding om toestemming te geven. [Meer informatie over dynamische toestemming](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **Dynamische toestemming van de gebruiker** - Is een functie in v2 van het Azure ADD-appmodel. In dit scenario vraagt uw app een reeks machtigingen aan die nodig zijn in de [OAuth 2.0-autorisatiestroom voor v2-apps](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Als de gebruiker nog geen toestemming heeft gegeven, krijgt hij op dit moment een melding om toestemming te geven. [Meer informatie over dynamische toestemming](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
     > [!NOTE]
-    > Dynamische toestemming kan handig zijn, maar brengt een grote uitdaging met zich mee voor machtigingen die toestemming van een beheerder vereisen omdat de toestemmingservaring van de beheerder op het moment van toestemming niets weet over deze machtigingen. Als u scopes met beheerdersmachtigingen nodig hebt, moet uw app deze registreren in de Azure Portal.
+    > Dynamische toestemming kan handig zijn, maar brengt een grote uitdaging met zich mee voor machtigingen die toestemming van een beheerder vereisen omdat de toestemmingservaring van de beheerder op het moment van toestemming niets weet over deze machtigingen. Als u machtigingen met beheerdersbevoegdheden nodig hebt, moet uw app deze registreren in de Azure Portal.
   
-* **Toestemming van de beheerder** - Is vereist als uw app toegang nodig heeft tot bepaalde machtigingen met hoge privileges. Dit waarborgt dat beheerders een aantal extra controles hebben voordat ze apps of gebruikers autoriseren om toegang te krijgen tot uiterst geprivilegieerde gegevens van de organisatie. [Meer informatie over het verlenen van toestemming van de beheerder](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+* **Toestemming van de beheerder** - Is vereist als uw app toegang nodig heeft tot bepaalde machtigingen met hoge privileges. Deze toestemming waarborgt dat beheerders een aantal extra controles hebben voordat ze apps of gebruikers autoriseren om toegang te krijgen tot uiterst geprivilegieerde gegevens van de organisatie. [Meer informatie over het verlenen van toestemming van de beheerder](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-### <a name="resource-best-practices"></a>Aanbevolen procedures voor resources
-Resources die API’s beschikbaar maken, moeten machtigingen definiëren die zeer specifiek zijn voor de gegevens of acties die ze beschermen. Dit helpt om te garanderen dat clients niet eindigen met machtigingen om toegang te krijgen tot gegevens die ze niet nodig hebben en dat gebruikers goed op de hoogte zijn van de gegevens waar ze toestemming voor geven.
-
-Resources moeten `Read`- en `ReadWrite`-machtigingen expliciet en afzonderlijk definiëren. 
-
-Resources moeten alle machtigingen die toegang tot gegevens buiten de grenzen van gebruikers toestaan markeren als `Admin`-machtigingen. 
-
-Resources moeten het volgende naamgevingspatroon volgen: `Subject.Permission[.Modifier]`, waarbij `Subject` overeenkomt met de soort gegevens die beschikbaar is, `Permission` overeenkomt met actie die een gebruiker voor gegevens kan ondernemen en `Modifier` optioneel wordt gebruikt om specialisaties van een andere machtiging te beschrijven. Bijvoorbeeld: 
-* Mail.Read - Staat gebruikers toe om e-mail te lezen. 
-* Mail.ReadWrite - Staat gebruikers toe om e-mail te lezen of te schrijven.
-* Mail.ReadWrite.All - Staat een beheerder of gebruiker toe om toegang te krijgen tot alle e-mail in de organisatie.
-
 ### <a name="client-best-practices"></a>Aanbevolen procedures voor clients
-Vraag alleen machtigingen aan voor de scopes die uw app nodig heeft. Apps met te veel machtigingen lopen het gevaar om gegevens van gebruikers bloot te leggen als ze worden aangetast.
 
-Clients moeten geen toepassingsmachtigingen en gedelegeerde machtigingen aanvragen bij dezelfde app. Dit kan tot hogere machtigingen leiden, waardoor een gebruiker toegang krijgt tot gegevens die niet toegankelijk zijn op basis van zijn eigen machtigingen. 
+- Vraag alleen machtigingen aan die uw app echt nodig heeft. Apps met te veel machtigingen lopen het gevaar om gegevens van gebruikers bloot te leggen als ze worden aangetast.
+- Maak een keuze tussen gedelegeerde machtigingen en toepassingsmachtigingen op basis van het scenario dat uw app ondersteunt. 
+    - Gebruik altijd gedelegeerde machtigingen als de aanroep wordt uitgevoerd namens een gebruiker.
+    - Gebruik alleen toepassingsmachtigingen als de app niet-interactief is en geen aanroepen uitvoert namens een specifieke gebruiker. Toepassingsmachtigingen hebben hoge bevoegdheden en mogen alleen worden gebruikt als dit absoluut noodzakelijk is.
+- Wanneer u een app gebruikt die is gebaseerd op versie 2.0 van het eindpunt, moet u de statische machtigingen (de machtigingen opgegeven in de registratie van de toepassing) altijd instellen als de superset van de dynamische machtigingen die u aanvraagt op het moment van runtime (de machtigingen opgegeven in code en verzonden als queryparameters in uw autorisatieaanvraag), zodat scenario's zoals toestemming van de beheerder op de juiste manier werken.
+
+### <a name="resourceapi-best-practices"></a>Aanbevolen procedures voor resources/API
+
+- Resources die API’s beschikbaar maken, moeten machtigingen definiëren die specifiek zijn voor de gegevens of acties die ze beschermen. Het volgen van deze aanbevolen procedure helpt om te garanderen dat clients niet eindigen met machtigingen om toegang te krijgen tot gegevens die ze niet nodig hebben en dat gebruikers goed op de hoogte zijn van de gegevens waar ze toestemming voor geven.
+- Resources moeten `Read`- en `ReadWrite`-machtigingen expliciet en afzonderlijk definiëren.
+- Resources moeten alle machtigingen die toegang tot gegevens buiten de grenzen van gebruikers toestaan markeren als `Admin`-machtigingen.
+- Resources moeten het naamgevingspatroon `Subject.Permission[.Modifier]` volgen, waarbij:
+    - `Subject` overeenkomt met het type gegevens dat beschikbaar is
+    - `Permission` overeenkomt met de actie die een gebruiker kan uitvoeren op die gegevens en 
+    - `Modifier` optioneel wordt gebruikt om specialisaties van een andere machtiging te beschrijven. 
+    
+    Bijvoorbeeld: 
+    * Mail.Read - Staat gebruikers toe om e-mail te lezen.
+    * Mail.ReadWrite - Staat gebruikers toe om e-mail te lezen of te schrijven.
+    * Mail.ReadWrite.All - Staat een beheerder of gebruiker toe om toegang te krijgen tot alle e-mail in de organisatie.
+
 
 
 

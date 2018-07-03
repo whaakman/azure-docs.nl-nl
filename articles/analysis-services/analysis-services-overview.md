@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234553"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937934"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
@@ -31,7 +31,7 @@ In Azure Portal kunt u binnen enkele minuten [een server maken](analysis-service
 
 **Video:** Bekijk [Implementatie automatiseren](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) voor meer informatie over hoe u Azure Automation kunt gebruiken om het maken van servers te versnellen.
 
-Azure Analysis Services kan worden geïntegreerd met veel Azure-services, zodat u geavanceerde analyseoplossingen kunt creëren. Integratie met [Azure Active Directory](../active-directory/active-directory-whatis.md) biedt beveiligde, op rollen gebaseerde toegang tot kritieke gegevens. Integreer met [Azure Data Factory](../data-factory/introduction.md)-pijplijnen door een activiteit toe te voegen die gegevens in het model laadt. [Azure Automation](../automation/automation-intro.md) en [Azure Functions](../azure-functions/functions-overview.md) kunnen worden gebruikt voor de eenvoudige indeling van modellen met behulp van aangepaste code. 
+Azure Analysis Services kan worden geïntegreerd met veel Azure-services, zodat u geavanceerde analyseoplossingen kunt creëren. Integratie met [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) biedt beveiligde, op rollen gebaseerde toegang tot kritieke gegevens. Integreer met [Azure Data Factory](../data-factory/introduction.md)-pijplijnen door een activiteit toe te voegen die gegevens in het model laadt. [Azure Automation](../automation/automation-intro.md) en [Azure Functions](../azure-functions/functions-overview.md) kunnen worden gebruikt voor de eenvoudige indeling van modellen met behulp van aangepaste code. 
 
 ## <a name="the-right-tier-when-you-need-it"></a>Altijd de juiste laag
 
@@ -46,7 +46,7 @@ Deze laag wordt aanbevolen voor evaluatie-, ontwikkelings- en testscenario's. E�
 |D1    |    20     |    3     |
 
 
-### <a name="basic-tier"></a>Basic-laag
+### <a name="basic-tier"></a>Basislaag
 
 Deze-laag wordt aanbevolen voor productieoplossingen met kleinere tabellarische modellen, een beperkt aantal gelijktijdige gebruikers en eenvoudige vereisten voor gegevensvernieuwing. Uitschalen van queryreplica’s *is niet beschikbaar* voor deze laag. Perspectieven, meerdere partities en functies van het tabellarische DirectQuery-model *worden niet ondersteund* in deze laag.  
 
@@ -55,7 +55,7 @@ Deze-laag wordt aanbevolen voor productieoplossingen met kleinere tabellarische 
 |B1    |    40     |    10     |
 |B2    |    80     |    20     |
 
-### <a name="standard-tier"></a>Standard-laag
+### <a name="standard-tier"></a>Standaardlaag
 
 Deze laag is de meest geschikte voor essentiële productietoepassingen waarvoor elastische gebruikersgelijktijdigheid is vereist en waarvan de gegevensmodellen snel groter worden. Deze laag ondersteunt geavanceerde gegevensvernieuwing voor bijna real-time gegevensmodelupdates en ondersteunt alle tabellarische modelleringsfuncties.
 
@@ -72,39 +72,41 @@ Deze laag is de meest geschikte voor essentiële productietoepassingen waarvoor 
 
 ## <a name="availability-by-region"></a>Beschikbaarheid per regio
 
-Azure Analysis Services wordt ondersteund in regio's in de hele wereld. Zorg voor [hoge beschikbaarheid](analysis-services-bcdr.md) door uw modellen op redundante servers in meerdere regio's te implementeren. Ondersteunde lagen en querreplica's zijn afhankelijk van de regio die u kiest. 
+Azure Analysis Services wordt ondersteund in regio's in de hele wereld. Ondersteunde abonnementen en beschikbaarheid van querreplica's is afhankelijk van de regio die u kiest. De beschikbaarheid van abonnementen en queryreplica's kan veranderen, afhankelijk van de behoefte aan en de beschikbare resources voor elke regio. 
 
 ### <a name="americas"></a>Noord- en Zuid-Amerika
 
-|Regio  | Ondersteunde lagen | Queryreplica's |
+|Regio  | Ondersteunde abonnementen | Queryreplica's (alleen Standard-abonnementen) |
 |---------|---------|:---------:|
 |Brazilië - zuid     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada - midden    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |VS - oost     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|VS - oost 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|VS - oost 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |Noord-centraal VS     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|VS - midden     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|VS - midden     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Zuid-centraal VS     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|West-centraal VS   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|VS - west     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|VS - west 2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|West-centraal VS   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|VS - west     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|VS - west 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### <a name="europe"></a>Europa
 
-|Regio  | Ondersteunde lagen | Queryreplica's |
+|Regio  | Ondersteunde abonnementen | Queryreplica's (alleen Standard-abonnementen) |
 |---------|---------|:---------:|
-|Noord-Europa     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|Noord-Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Verenigd Koninkrijk Zuid   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|West-Europa     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|West-Europa     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### <a name="asia-pacific"></a>Azië en Stille Oceaan 
 
-|Regio  | Ondersteunde lagen | Queryreplica's |
+|Regio  | Ondersteunde abonnementen | Queryreplica's (alleen Standard-abonnementen) |
 |---------|---------|:---------:|
 |Australië - zuidoost     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan - oost  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Zuidoost-Azië     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Zuidoost-Azië     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |West-India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+\* S8, S9-abonnementen in de Standard-laag voor ondersteuning van één queryreplica.
 
 ## <a name="scale-to-your-needs"></a>Schalen naar uw behoeften
 
@@ -116,7 +118,7 @@ U kunt uw server omhoog of omlaag schalen en zelfs onderbreken. Dit doet u via A
 
 Door uit te schalen worden clientquery's verdeeld over meerdere *queryreplica's* in een querypool. Queryreplica's bevatten gesynchroniseerde kopieën van uw modellen in tabelvorm. Door de werkbelasting van query's te spreiden, kunnen responstijden tijdens hoge querywerkbelastingen worden verlaagd. Taken voor modelverwerking kunnen worden gescheiden van de querypool, zodat de prestaties van clientquery's niet nadelig worden beïnvloed door verwerkingstaken. 
 
-U kunt een querypool maken met maximaal zeven extra queryreplica's (acht in totaal, met inbegrip van uw server). Het aantal queryreplica's dat u in uw pool kunt hebben, is afhankelijk van de door u gekozen regio. Queryreplica's kunnen niet buiten de regio van uw server worden verspreid. Queryreplica's worden gefactureerd tegen hetzelfde tarief als uw server.
+U kunt een querypool maken met maximaal zeven extra queryreplica's (acht in totaal, met inbegrip van uw server). Het aantal queryreplica's dat u in uw pool kunt hebben, is afhankelijk van het abonnement en de regio die u hebt gekozen. Queryreplica's kunnen niet buiten de regio van uw server worden verspreid. Queryreplica's worden gefactureerd tegen hetzelfde tarief als uw server.
 
 Net zoals bij het wijzigen van lagen, kunt u queryreplica's uitschalen als dat nodig is. Dit kan in de portal of met behulp van REST-API's. Zie [Azure Analysis Services uitschalen](analysis-services-scale-out.md) voor meer informatie.
 
@@ -148,11 +150,11 @@ De firewall van Azure Analysis Services blokkeert alle clientverbindingen behalv
 
 ### <a name="authentication"></a>Verificatie
 
-Gebruikersverificatie wordt afgehandeld door [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Bij het inloggen gebruiken gebruikers de identiteit van een organisatie-account met op rollen gebaseerde toegang tot de database. Gebruikers-id's moeten lid zijn van de standaard Azure Active Directory voor het abonnement waarin de server is ondergebracht. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
+Gebruikersverificatie wordt afgehandeld door [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Bij het inloggen gebruiken gebruikers de identiteit van een organisatie-account met op rollen gebaseerde toegang tot de database. Gebruikers-id's moeten lid zijn van de standaard Azure Active Directory voor het abonnement waarin de server is ondergebracht. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
 
 ### <a name="data-security"></a>Gegevensbeveiliging
 
-Azure Analysis Services maakt gebruik van Azure Blob-opslag om opslag en metagegevens voor Analysis Services-databases persistent te maken. Gegevensbestanden in Blob worden versleuteld met behulp van [Azure Blob Server Side Encryption (SSE)](../storage/common/storage-service-encryption.md). Wanneer de DirectQuery-modus wordt gebruikt, worden alleen metagegevens opgeslagen. De werkelijke gegevens worden op het moment van uitvoering van de query via een versleuteld protocol opgehaald uit de gegevensbron.
+Azure Analysis Services maakt gebruik van Azure Blob-opslag om opslag en metagegevens voor Analysis Services-databases persistent te maken. Gegevensbestanden in Blob worden versleuteld met behulp van [Azure Blob Server Side Encryption (SSE)](../storage/common/storage-service-encryption.md). Wanneer de Direct Query-modus wordt gebruikt, worden alleen metagegevens opgeslagen. De werkelijke gegevens worden op het moment van uitvoering van de query via een versleuteld protocol opgehaald uit de gegevensbron.
 
 Beveiligde toegang tot on-premises gegevens binnen uw organisatie wordt gerealiseerd door een [on-premises gegevensgateway](analysis-services-gateway.md) te installeren en te configureren. Gateways bieden toegang tot gegevens voor zowel de DirectQuery-modus als de in-memory-modus.
 
@@ -185,7 +187,7 @@ Ga naar het [Microsoft Vertrouwenscentrum](https://www.microsoft.com/trustcenter
 
 ### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>SQL Server Data Tools (SSDT) voor Visual Studio
 
-Ontwikkel en implementeer modellen met de gratis [SQL Server Data Tools (SSDT) voor Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT bevat Analysis Services-projectsjablonen waarmee u snel aan de slag kunt gaan. Bovendien biedt SSDT voor tabellarische modellen met compatibiliteitsniveau 1400 nu ook de innovatieve queryfunctie Get Data en mashup-functionaliteit. Als u al bekend bent met Get Data in Power BI Desktop en Excel 2016, weet u hoe eenvoudig het is om voor gegevensbronnen query's te maken die naadloos aansluiten bij uw behoeften. Microsoft Analysis Services-projecten zijn ook beschikbaar voor Visual Studio als een installeerbaar VSIX-pakket. [Downloaden van Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Ontwikkel en implementeer modellen met de gratis [SQL Server Data Tools (SSDT) voor Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT bevat Analysis Services-projectsjablonen waarmee u snel aan de slag kunt gaan. Bovendien biedt SSDT voor tabellaire modellen met compatibiliteitsniveau 1400 nu ook de innovatieve queryfunctie Get Data en mashup-functionaliteit. Als u al bekend bent met Get Data in Power BI Desktop en Excel 2016, weet u hoe eenvoudig het is om voor gegevensbronnen query's te maken die naadloos aansluiten bij uw behoeften. Microsoft Analysis Services-projecten zijn ook beschikbaar voor Visual Studio als een installeerbaar VSIX-pakket. [Downloaden van Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
@@ -197,7 +199,7 @@ Gebruik AzureRM-cmdlets (Azure Resource Manager) om beheertaken voor serverresou
 
 ### <a name="object-model-and-scripting"></a>Objectmodel en scripts
 
-De tabellarische modellen kunnen snel worden ontwikkeld en zijn in hoge mate aanpasbaar. Tabellarische modellen bevatten ook het [Tabular Object Model](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) om modelobjecten te beschrijven. TOM wordt in JSON weergegeven via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) en in de AMO Data Definition Language met behulp van de naamruimte [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx). 
+De tabellaire modellen kunnen snel worden ontwikkeld en zijn in hoge mate aanpasbaar. Tabellarische modellen bevatten ook het [Tabular Object Model](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) om modelobjecten te beschrijven. TOM wordt in JSON weergegeven via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) en in de AMO Data Definition Language met behulp van de naamruimte [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx). 
 
 ## <a name="supports-the-latest-client-tools"></a>Ondersteuning voor de nieuwste clienthulpprogramma's
 
@@ -231,7 +233,7 @@ In de documentatie van Azure Analysis Services wordt ook gebruikgemaakt van [Git
 
 ## <a name="blogs"></a>Blogs
 
-De dingen veranderen snel. Krijg de meest recente informatie in het [blog van het Analysis Services-team](https://blogs.msdn.microsoft.com/analysisservices/) en in het [Azure-blog](https://azure.microsoft.com/blog/).
+Er veranderen nog veel dingen. Krijg de meest recente informatie in het [blog van het Analysis Services-team](https://blogs.msdn.microsoft.com/analysisservices/) en in het [Azure-blog](https://azure.microsoft.com/blog/).
 
 ## <a name="community"></a>Community
 

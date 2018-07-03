@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: e1a216a8bf524d22af815d077b16ab29c817e9e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e3e0855d2ac54643a6dc6128eea974d952bb56d5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866230"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335625"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>De PhoneFactor-agent upgraden naar Azure Multi-Factor Authentication-server
 
@@ -66,11 +66,8 @@ Het installatiepad wordt opgehaald uit het register van de vorige installatie va
 
   3. Ga naar de installatielocatie van de gebruikersportal (bijvoorbeeld C:\inetpub\wwwroot\MultiFactorAuth) en bewerk het bestand web.config. Kopieer de waarden in de secties appSettings en applicationSettings van het oorspronkelijke bestand web.config, waarvan u vóór de upgrade een back-up hebt gemaakt, naar het nieuwe bestand web.config. Als tijdens de installatie van de webservice-SDK de nieuwe standaardnaam van de virtuele map is aangehouden, wijzigt u de URL in de sectie applicationSettings om naar de juiste locatie te verwijzen. Als in het vorige bestand web.config nog andere standaardinstellingen zijn gewijzigd, past u dezelfde wijzigingen ook toe op het nieuwe bestand web.config.
 
-  4. Als u de webservices voor mobiele apps op de webserver wilt installeren, opent u een opdrachtprompt als beheerder en voert u MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi uit.
-
-    De standaardnaam van de virtuele map is nu **MultiFactorAuthMobileAppWebService** in plaats van **PhoneFactorPhoneAppWebService**. Als u de oude naam wilt gebruiken, moet u de naam van de virtuele map tijdens de installatie wijzigen. U kunt een kortere naam kiezen die eindgebruikers gemakkelijker kunnen invoeren op hun mobiele apparaten. Als u de nieuwe standaardnaam wilt gebruiken, klikt u op het pictogram Mobiele app op de Multi-Factor Authentication-server en werkt u de URL van de webservice voor mobiele apps bij.
-
-  5. Ga naar de installatielocatie van de webservice voor mobiele apps (bijvoorbeeld C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) en bewerk het bestand web.config. Kopieer de waarden in de secties appSettings en applicationSettings van het oorspronkelijke bestand web.config, waarvan u vóór de upgrade een back-up hebt gemaakt, naar het nieuwe bestand web.config. Als tijdens de installatie van de webservice-SDK de nieuwe standaardnaam van de virtuele map is aangehouden, wijzigt u de URL in de sectie applicationSettings om naar de juiste locatie te verwijzen. Als in het vorige bestand web.config nog andere standaardinstellingen zijn gewijzigd, past u dezelfde wijzigingen ook toe op het nieuwe bestand web.config.
+> [!NOTE]
+> Bij een upgrade van een versie van Azure MFA Server die ouder is dan 8.0 naar 8.0 +, kan de webservice voor mobiele apps worden verwijderd na de upgrade
 
 ## <a name="next-steps"></a>Volgende stappen
 

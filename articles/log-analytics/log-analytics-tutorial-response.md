@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 70698dc233dac60a2fa2d1444930d21d3fba8773
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6fa090a5277b1feb3e1b6ea0114ce90035197076
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637120"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753265"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Reageren op gebeurtenissen met Azure Monitor-waarschuwingen
 Waarschuwingen in Azure Monitor kunnen belangrijke informatie in uw Log Analytics-opslagplaats aangeven. Ze worden gemaakt door waarschuwingsregels die automatisch met regelmatige tussenpozen zoekopdrachten in logboeken uitvoeren. Als de resultaten van de logboekzoekactie aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt en kan deze worden geconfigureerd voor het uitvoeren van een automatische reactie.  Deze zelfstudie is een vervolg van de zelfstudie [Dashboards van Log Analytics-gegevens maken en delen](log-analytics-tutorial-dashboards.md).   
@@ -41,7 +41,7 @@ Waarschuwingen worden gemaakt door regels voor waarschuwingen in Azure Monitor e
 
 In het volgende voorbeeld maakt u een waarschuwingsregel voor een metrische meting die is gebaseerd op de query *Azure VMs - Processor Utilization* die u hebt opgeslagen in de [zelfstudie Gegevens visualiseren](log-analytics-tutorial-dashboards.md).  Er wordt een waarschuwing gemaakt voor elke virtuele machine die een drempel van 90% overschrijdt.  
 
-1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+1. Klik in Azure Portal op **Alle services**. Typ **Monitor** in de lijst met resources. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Monitor**.
 2. Selecteer in het linkerdeelvenster **Waarschuwingen** en klik vervolgens bovenaan de pagina op **Nieuwe waarschuwingsregel** om een nieuwe waarschuwing te maken.<br><br> ![Nieuwe waarschuwingsregel maken](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
 3. Ga naar de sectie **Waarschuwing maken** en selecteer uw werkruimte van Log Analytics als de bron, aangezien dit een waarschuwingssignaal op basis van een logboek is.  Filter de resultaten door in de vervolgkeuzelijst **Abonnement** het abonnement te selecteren met de VM en de eerder gemaakte Log Analytics-werkruimte (als u meer dan één abonnement hebt).  Filter op **resourcetype** door **Log Analytics** te selecteren in de vervolgkeuzelijst.  Selecteer als laatste **DefaultLAWorkspace** in de lijst **Resource** en klik vervolgens op **Gereed**.<br><br> ![Waarschuwing maken - stap 1](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
 4. Klik in de sectie **Waarschuwingscriteria** op **Criteria toevoegen** om onze opgeslagen query te selecteren en geef vervolgens logica op die de waarschuwingsregel volgt.  Selecteer in het deelvenster **Signaallogica configureren** de optie *Azure VMs - Processor Utilization* in de lijst.  Het deelvenster wordt bijgewerkt met de configuratie-instellingen voor de waarschuwing.  Bovenaan ziet u de resultaten voor de afgelopen 30 minuten van het geselecteerde signaal en de zoekquery zelf.  
