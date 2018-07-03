@@ -1,6 +1,6 @@
 ---
 title: Windows Azure VM-grootten - geheugen | Microsoft Docs
-description: Hier worden de verschillende geoptimaliseerd voor geheugen grootten beschikbaar voor Windows virtuele machines in Azure. Bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor de grootte van deze reeks.
+description: Geeft een lijst van de verschillende geoptimaliseerd voor geheugen-grootten beschikbaar voor Windows virtuele machines in Azure. Bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslag en doorvoer netwerkbandbreedte voor grootten die in deze reeks.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -16,13 +16,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 69b8811e42c602591889fbb1dfa79992971b21c4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3b77284ea3fea5ea38df2c0b6cb75edb9363bb1f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34658329"
 ---
-# <a name="memory-optimized-virtual-machine-sizes"></a>Grootte van virtuele machines geoptimaliseerd voor geheugen
+# <a name="memory-optimized-virtual-machine-sizes"></a>Grootten van virtuele machines geoptimaliseerd voor geheugen
 
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]
@@ -35,6 +36,7 @@ ms.lasthandoff: 05/10/2018
 - [Geoptimaliseerde opslag](sizes-storage.md)
 - [Geoptimaliseerde GPU](sizes-gpu.md)
 - [Krachtig rekenvermogen](sizes-hpc.md)
+- [Vorige generaties](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het [Azure compute-eenheden (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
+Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.

@@ -1,45 +1,41 @@
 ---
-title: Uploaden van bestanden van apparaten naar Azure IoT Hub met behulp van Python | Microsoft Docs
-description: Het uploaden van bestanden van een apparaat naar de cloud met Azure IoT-device SDK voor Python. Geüploade bestanden worden opgeslagen in een Azure storage-blob-container.
-services: iot-hub
-documentationcenter: python
+title: Uploaden van bestanden vanaf apparaten met Azure IoT Hub met Python | Microsoft Docs
+description: Klik hier voor meer informatie over het uploaden van bestanden vanaf een apparaat naar de cloud met behulp van Azure IoT device-SDK voor Python. Geüploade bestanden worden opgeslagen in een Azure storage blob-container.
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 7f64783f5e1c79436b671ef98f30f5e3594b94e6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 532ae26dfd7add5c5ecc61db259903239e449f40
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34635012"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden op uw apparaat naar de cloud met IoT Hub
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden van uw apparaat naar de cloud met IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Deze zelfstudie volgt het gebruik van de [bestand uploaden mogelijkheden van IoT Hub](iot-hub-devguide-file-upload.md) voor het uploaden van een bestand naar [Azure blob-opslag](../storage/index.yml). De zelfstudie leert u hoe aan:
+In deze zelfstudie volgt het gebruik van de [bestand uploaden mogelijkheden van IoT-Hub](iot-hub-devguide-file-upload.md) naar een bestand uploadt naar [Azure blob-opslag](../storage/index.yml). In deze zelfstudie leert u het volgende:
 
 - Geef een opslagcontainer veilig voor het uploaden van een bestand.
-- De client voor Python gebruiken voor het uploaden van een bestand via uw IoT-hub.
+- De Python-client gebruiken voor het uploaden van een bestand via uw IoT-hub.
 
-De [aan de slag met IoT Hub](iot-hub-node-node-getstarted.md) zelfstudie laat zien dat de basisfunctionaliteit apparaat-naar-cloud messaging zijn van IoT-Hub. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens verzenden van uw apparaten in de relatief klein apparaat-naar-cloud-berichten die IoT Hub accepteert. Wanneer u upland bestanden van een apparaat moet, kunt u de beveiliging en betrouwbaarheid van IoT Hub.
-
-> [!NOTE]
-> IoT Hub Python SDK ondersteunt momenteel alleen zoals uploaden van bestanden op basis van het teken **.txt** bestanden.
-
-Aan het einde van deze zelfstudie kunt u de Python-console-app uitvoeren:
-
-* **FileUpload.py**, die een bestand geüpload naar de opslag met de apparaat-SDK voor Python.
+De [aan de slag met IoT Hub](iot-hub-node-node-getstarted.md) de basisfunctionaliteit apparaat-naar-cloud berichten zijn van IoT Hub wordt gedemonstreerd. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Wanneer u upland bestanden vanaf een apparaat wilt, kunt u de beveiliging en betrouwbaarheid van IoT Hub nog steeds gebruiken.
 
 > [!NOTE]
-> IoT Hub biedt ondersteuning voor veel apparaatplatforms en talen (inclusief C, .NET, Python, Javascript en Java) via Azure IoT-apparaat-SDK's. Raadpleeg de [Azure IoT Developer Center] voor stapsgewijze instructies voor het koppelen van uw apparaat met Azure IoT Hub.
+> Python-SDK voor IoT-Hub ondersteunt momenteel alleen tekens gebaseerde bestanden zoals uploadt **.txt** bestanden.
+
+Aan het einde van deze zelfstudie moet u de Python-console-app uitvoeren:
+
+* **FileUpload.py**, die een bestand wordt geüpload naar storage met behulp van de apparaat-SDK voor Python.
+
+> [!NOTE]
+> IoT Hub biedt ondersteuning voor vele platformen voor apparaten en talen (waaronder C, .NET, Javascript, Python en Java) via Azure IoT device-SDK's. Raadpleeg de [Azure IoT-ontwikkelaarscentrum] voor stapsgewijze instructies over hoe u uw apparaat aansluiten op Azure IoT Hub.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -55,19 +51,19 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 
-## <a name="upload-a-file-from-a-device-app"></a>Een bestand vanaf een apparaat-app uploaden
+## <a name="upload-a-file-from-a-device-app"></a>Upload een bestand van een apparaat-app
 
-In deze sectie maakt u de apparaat-app voor het uploaden van een bestand met iothub.
+In deze sectie maakt u de apparaat-app voor een bestand uploaden naar IoT hub.
 
-1. Voer bij de opdrachtprompt de volgende opdracht voor het installeren van de **azure-iothub-apparaat-client** pakket:
+1. Bij de opdrachtprompt, voer de volgende opdracht voor het installeren van de **azure-iothub-apparaat-client** pakket:
 
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-1. Maak met een teksteditor, een **FileUpload.py** bestand in uw werkmap.
+1. Maak met een teksteditor een **FileUpload.py** bestand in de werkmap.
 
-1. Voeg de volgende `import` -instructies en variabelen aan het begin van de **FileUpload.py** bestand. Vervang `deviceConnectionString` met de verbindingsreeks van uw IoT hub-apparaat:
+1. Voeg de volgende `import` instructies en -variabelen aan het begin van de **FileUpload.py** bestand. Vervang `deviceConnectionString` door de verbindingsreeks van uw IoT hub-apparaat:
 
     ```python
     import time
@@ -93,7 +89,7 @@ In deze sectie maakt u de apparaat-app voor het uploaden van een bestand met iot
             print ( "...file upload callback returned: " + str(result) )
     ```
 
-1. Voeg de volgende code om de client verbinden en upload het bestand. Ook de `main` routine:
+1. Voeg de volgende code voor de verbinding van de client en upload het bestand. Ook de `main` routine:
 
     ```python
     def iothub_file_upload_sample_run():
@@ -129,19 +125,19 @@ In deze sectie maakt u de apparaat-app voor het uploaden van een bestand met iot
         iothub_file_upload_sample_run()
     ```
 
-1. Sla op en sluit de **UploadFile.py** bestand.
+1. Opslaan en sluiten de **UploadFile.py** bestand.
 
-1. Een voorbeeldtekstbestand kopiëren naar de map en wijzig deze `sample.txt`.
+1. Een voorbeeldtekstbestand kopiëren naar de werkmap en wijzig de naam `sample.txt`.
 
     > [!NOTE]
-    > IoT Hub Python SDK ondersteunt momenteel alleen zoals uploaden van bestanden op basis van het teken **.txt** bestanden.
+    > Python-SDK voor IoT-Hub ondersteunt momenteel alleen tekens gebaseerde bestanden zoals uploadt **.txt** bestanden.
 
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
 U bent nu klaar om uit te voeren van de toepassing.
 
-1. Bij een opdrachtprompt in uw werkmap, voer de volgende opdracht:
+1. Bij een opdrachtprompt in de werkmap, voer de volgende opdracht uit:
 
     ```cmd/sh
     python FileUpload.py
@@ -149,23 +145,23 @@ U bent nu klaar om uit te voeren van de toepassing.
 
 1. De volgende schermafbeelding ziet u de uitvoer van de **FileUpload** app:
 
-    ![De uitvoer van de gesimuleerde apparaattoepassing](./media/iot-hub-python-python-file-upload/1.png)
+    ![Uitvoer van het gesimuleerde apparaat-app](./media/iot-hub-python-python-file-upload/1.png)
 
 1. U kunt de portal gebruiken om het geüploade bestand in de storage-container die u hebt geconfigureerd:
 
-    ![Geüploade bestand](./media/iot-hub-python-python-file-upload/2.png)
+    ![Het geüploade bestand](./media/iot-hub-python-python-file-upload/2.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe de mogelijkheden voor het uploaden van bestand van IoT Hub gebruiken voor het vereenvoudigen van bestandsuploads van apparaten. U kunt doorgaan met het verkennen van IoT hub functies en scenario's met de volgende artikelen:
+In deze zelfstudie hebt u geleerd hoe u de mogelijkheden voor het uploaden van bestand van IoT Hub gebruikt voor het vereenvoudigen van het uploaden van bestanden vanaf apparaten. U kunt doorgaan met het verkennen van IoT hub-functies en scenario's met de volgende artikelen:
 
-* [Een iothub via een programma maken][lnk-create-hub]
-* [Inleiding tot C-SDK][lnk-c-sdk]
-* [Azure IoT SDKs][lnk-sdks]
+* [Een IoT hub via een programma maken][lnk-create-hub]
+* [Inleiding tot C SDK][lnk-c-sdk]
+* [Azure IoT SDK 's][lnk-sdks]
 
 <!-- Links -->
-[Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
+[Azure IoT-ontwikkelaarscentrum]: http://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

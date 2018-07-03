@@ -9,31 +9,31 @@ ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 1df3e188b71b8fa2d5223bad8bc5914513e26286
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
+ms.lasthandoff: 07/02/2018
 ms.locfileid: "34371198"
 ---
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
 
-In deze sectie gebruikt u de [Azure-portal] [ lnk-azure-portal] maken van een apparaat-id in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie de sectie Id-register in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Gebruik de **IoT-apparaten** deelvenster in de portal voor het genereren van een unieke apparaat-ID en sleutel voor het apparaat moet worden gebruikt om zichzelf te identificeren met IoT Hub. Apparaat-id's zijn hoofdlettergevoelig.
+In deze sectie maakt u de [Azure-portal] [ lnk-azure-portal] te maken van een apparaat-id in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie de sectie Id-register in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Gebruik de **IoT-apparaten** deelvenster in de portal voor het genereren van een unieke apparaat-ID en de sleutel voor uw apparaat te gebruiken om zichzelf te identificeren bij IoT Hub. Apparaat-id's zijn hoofdlettergevoelig.
 
 1. Meld u aan bij [Azure Portal][lnk-azure-portal].
 
-1. Selecteer **alle resources** en uw IoT hub bron vinden.
+1. Selecteer **alle resources** en zoek de resource van uw IoT hub.
 
-1. Wanneer uw IoT hub resource wordt geopend, klikt u op de **IoT-apparaten** hulpprogramma en klik vervolgens op **toevoegen** aan de bovenkant. 
+1. Wanneer uw IoT hub-resource wordt geopend, klikt u op de **IoT-apparaten** hulpprogramma, en klik vervolgens op **toevoegen** aan de bovenkant. 
 
     ![Apparaat-id in de portal maken][img-add-device]
 
-1. Geef een naam voor het nieuwe apparaat, zoals **myDeviceId**, en klik op **opslaan**. Deze actie wordt een nieuw apparaat-id voor uw IoT-hub gemaakt.
+1. Geef een naam voor het nieuwe apparaat, zoals **myDeviceId**, en klikt u op **opslaan**. Deze actie wordt een nieuwe apparaat-id voor uw IoT-hub gemaakt.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
    ![Een nieuw apparaat toevoegen][img-create-device]
 
-1. Klik in de lijst met apparaten op het nieuwe apparaat en kopieer de **verbindingsreeks---primaire sleutel** voor later gebruik.
+1. In de lijst, klikt u op het zojuist gemaakte apparaat en kopieer de **Connection string---primaire sleutel** voor later gebruik.
 
     ![Apparaat-verbindingsreeks][img-connection-string]
 
